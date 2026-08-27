@@ -114,6 +114,122 @@ function normalizeIsbn(
 }
 
 
+function decodeXmlEntities(
+  value
+) {
+  return String(
+    value || ""
+  )
+    .replace(
+      /&#x([0-9a-f]+);/gi,
+      (_, hex) => {
+        try {
+          return String.fromCodePoint(
+            parseInt(
+              hex,
+              16
+            )
+          );
+        } catch {
+          return "";
+        }
+      }
+    )
+    .replace(
+      /&#([0-9]+);/g,
+      (_, decimal) => {
+        try {
+          return String.fromCodePoint(
+            parseInt(
+              decimal,
+              10
+            )
+          );
+        } catch {
+          return "";
+        }
+      }
+    )
+    .replace(
+      /&nbsp;/gi,
+      " "
+    )
+    .replace(
+      /&quot;/gi,
+      '"'
+    )
+    .replace(
+      /&apos;/gi,
+      "'"
+    )
+    .replace(
+      /&lt;/gi,
+      "<"
+    )
+    .replace(
+      /&gt;/gi,
+      ">"
+    )
+    .replace(
+      /&amp;/gi,
+      "&"
+    );
+}
+
+
+function cleanCrossrefAbstract(
+  value
+) {
+  if (!value) {
+    return null;
+  }
+
+
+  let text =
+    String(value)
+      .replace(
+        /<!\[CDATA\[([\s\S]*?)\]\]>/gi,
+        "$1"
+      );
+
+
+  /*
+   * Algunos registros devuelven el
+   * markup XML codificado como entidades.
+   */
+  text =
+    decodeXmlEntities(
+      text
+    );
+
+
+  /*
+   * Crossref puede entregar abstracts
+   * JATS como:
+   *
+   * <jats:p>Texto...</jats:p>
+   * <jats:italic>...</jats:italic>
+   *
+   * Conservamos el contenido y quitamos
+   * únicamente el markup.
+   */
+  text =
+    text
+      .replace(
+        /<[^>]*>/g,
+        " "
+      )
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+
+  return text || null;
+}
+
+
 export function normalizeCrossrefWork(
   item,
   context = {}
@@ -185,8 +301,9 @@ export function normalizeCrossrefWork(
       null,
 
     abstract:
-      item.abstract ||
-      null,
+      cleanCrossrefAbstract(
+        item.abstract
+      ),
 
     /*
      * Crossref no ofrece un equivalente
