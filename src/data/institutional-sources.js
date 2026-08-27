@@ -36,8 +36,10 @@ export const institutionalSources = [
     id: "ebook-central",
     name: "Ebook Central",
     mode: "institutional",
-    enabled: false,
-    searchUrl: null
+    enabled: true,
+    searchUrl:
+      "https://ebookcentral-proquest-com.wdg.biblio.udg.mx:8443/ebc/lib/wdgbiblio/#/search?query={query}",
+    queryMode: "title-author"
   },
 
   {

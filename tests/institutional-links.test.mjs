@@ -7,66 +7,86 @@ import {
 
 
 test(
-  "genera búsqueda institucional UdeG",
+  "genera búsquedas institucionales UdeG",
   () => {
+    const item = {
+      title:
+        "Critique of Pure Reason",
+
+      authors: [
+        {
+          name:
+            "Immanuel Kant"
+        }
+      ]
+    };
+
+
     const links =
-      buildInstitutionalLinks({
-        title:
-          "Critique of Pure Reason",
-
-        authors: [
-          {
-            name:
-              "Immanuel Kant"
-          }
-        ],
-
-        doi:
-          null
-      });
+      buildInstitutionalLinks(
+        item
+      );
 
 
     assert.equal(
       links.length,
-      1
+      2
     );
 
 
-    assert.equal(
-      links[0].id,
-      "udeg-summon"
-    );
+    const summon =
+      links.find(
+        item =>
+          item.id ===
+          "udeg-summon"
+      );
+
+
+    const ebook =
+      links.find(
+        item =>
+          item.id ===
+          "ebook-central"
+      );
+
+
+    assert.ok(summon);
+    assert.ok(ebook);
 
 
     assert.equal(
-      links[0].query,
+      summon.query,
       "Critique of Pure Reason Immanuel Kant"
     );
 
 
-    assert.ok(
-      links[0].url.includes(
-        "bibliotecaudg-summon-serialssolutions-com.wdg.biblio.udg.mx"
-      )
-    );
-
-
-    assert.ok(
-      links[0].url.includes(
-        "Critique%20of%20Pure%20Reason%20Immanuel%20Kant"
-      )
-    );
-
-
-    /*
-     * No debemos conservar parámetros
-     * de estado observados en una sesión.
-     */
     assert.equal(
-      links[0].url.includes(
-        "SummGdw232714"
-      ),
-      false
+      ebook.query,
+      "Critique of Pure Reason Immanuel Kant"
+    );
+
+
+    assert.match(
+      ebook.url,
+      /ebookcentral-proquest-com\.wdg\.biblio\.udg\.mx/
+    );
+
+
+    assert.match(
+      ebook.url,
+      /query=Critique%20of%20Pure%20Reason%20Immanuel%20Kant/
+    );
+
+
+    assert.doesNotMatch(
+      ebook.url,
+      /pageNo=/
+    );
+
+
+    assert.doesNotMatch(
+      ebook.url,
+      /pageSize=/
     );
   }
 );
