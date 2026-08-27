@@ -81,3 +81,13 @@ jobs:
       - name: Discover Philosophy taxonomy
         run: |
           python scripts/openalex/discover_philosophy_taxonomy.py
+
+      - name: Build Philosophy topic candidates
+        run: |
+          python scripts/openalex/build_philosophy_topic_candidates.py
+
+      - name: Upload Philosophy topic candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: openalex-philosophy-topic-candidates
+          path: artifacts/openalex/
