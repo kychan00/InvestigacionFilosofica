@@ -91,3 +91,17 @@ jobs:
         with:
           name: openalex-philosophy-topic-candidates
           path: artifacts/openalex/
+
+      - name: Curate Philosophy topic tiers
+        run: |
+          python scripts/openalex/curate_philosophy_topics.py
+
+      - name: Upload curated Philosophy topics
+        uses: actions/upload-artifact@v4
+        with:
+          name: openalex-philosophy-topics-curated
+          path: |
+            artifacts/openalex/philosophy-topics-curated.json
+            artifacts/openalex/philosophy-topic-ids-main.txt
+            artifacts/openalex/philosophy-topic-ids-adjacent.txt
+            artifacts/openalex/philosophy-topic-ids-excluded.txt
