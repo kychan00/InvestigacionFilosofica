@@ -166,6 +166,84 @@ def normalize(value):
     return value.strip()
 
 
+def has_phrase(
+    text,
+    phrase
+):
+    """
+    Coincidencia por palabras completas.
+
+    Evita falsos positivos como:
+      ontology  -> paleontology
+      logic     -> geologic
+    """
+
+    phrase = normalize(
+        phrase
+    )
+
+    tokens = re.findall(
+        r"[a-z0-9]+",
+        phrase
+    )
+
+    if not tokens:
+        return False
+
+    pattern = (
+        r"(?<![a-z0-9])"
+        +
+        r"[\s\-/]+".join(
+            re.escape(token)
+            for token in tokens
+        )
+        +
+        r"(?![a-z0-9])"
+    )
+
+    return bool(
+        re.search(
+            pattern,
+            text
+        )
+    )
+
+
+def has_stem(
+    text,
+    stem
+):
+    """
+    Stem sólo al principio de una palabra.
+
+    phenomenolog ->
+      phenomenology
+      phenomenological
+
+    pero:
+
+    ontolog NO coincide dentro
+    de paleontology.
+    """
+
+    pattern = (
+        r"(?<![a-z0-9])"
+        +
+        re.escape(stem)
+        +
+        r"[a-z0-9]*"
+        +
+        r"(?![a-z0-9])"
+    )
+
+    return bool(
+        re.search(
+            pattern,
+            text
+        )
+    )
+
+
 def urls_for(path):
 
     entries = api.list_repo_tree(
@@ -405,11 +483,15 @@ for row in rows:
 
 
     matched = []
+    description_matched = []
 
 
     for signal in signals:
 
-        if signal in name_norm:
+        if has_phrase(
+            name_norm,
+            signal
+        ):
 
             score += 8
 
@@ -417,14 +499,38 @@ for row in rows:
                 signal
             )
 
-        elif signal in description_norm:
+        elif has_phrase(
+            description_norm,
+            signal
+        ):
 
-            score += 1
+            description_matched.append(
+                signal
+            )
+
+
+    #
+    # La descripción sólo aporta
+    # evidencia secundaria.
+    #
+    # Evitamos que una descripción
+    # extensa convierta por sí sola
+    # un topic en filosófico.
+    #/
+    score += min(
+        len(
+            description_matched
+        ),
+        2
+    )
 
 
     # "philosoph" en el nombre es una
     # señal particularmente fuerte.
-    if "philosoph" in name_norm:
+    if has_stem(
+        name_norm,
+        "philosoph"
+    ):
 
         score += 12
 
@@ -434,23 +540,43 @@ for row in rows:
 
 
     # Temas filosóficos muy distintivos.
-    distinctive = {
+    distinctive_stems = {
         "hermeneut",
         "epistemolog",
         "metaphys",
-        "ontolog",
         "phenomenolog",
         "existential",
         "aesthetic",
         "pragmat",
+    }
+
+
+    for term in distinctive_stems:
+
+        if has_stem(
+            name_norm,
+            term
+        ):
+
+            score += 10
+
+            reasons.append(
+                f"name:{term}"
+            )
+
+
+    distinctive_phrases = {
         "critical theory",
         "free will",
     }
 
 
-    for term in distinctive:
+    for term in distinctive_phrases:
 
-        if term in name_norm:
+        if has_phrase(
+            name_norm,
+            term
+        ):
 
             score += 10
 
