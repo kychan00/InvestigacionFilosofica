@@ -117,29 +117,76 @@ if not files:
     )
 
 
+files = sorted(
+    files,
+    key=lambda entry:
+        entry.path
+)
+
+
 if MAX_SHARDS > 0:
 
-    # Para la prueba elegimos los shards
-    # más grandes: es una prueba más exigente
-    # y más representativa que tomar los primeros.
-    files = sorted(
-        files,
-        key=lambda entry:
-            int(
-                entry.size or 0
-            ),
-        reverse=True,
-    )[:MAX_SHARDS]
+    # Los shards están particionados por
+    # updated_date, así que NO tomamos
+    # simplemente los más grandes.
+    #
+    # Elegimos posiciones uniformemente
+    # distribuidas por todo el snapshot.
+    if MAX_SHARDS >= len(files):
 
-    mode = "sample"
+        selected = files
+
+    elif MAX_SHARDS == 1:
+
+        selected = [
+            files[
+                len(files) // 2
+            ]
+        ]
+
+    else:
+
+        last_index = (
+            len(files) - 1
+        )
+
+        indices = []
+
+        for i in range(
+            MAX_SHARDS
+        ):
+
+            index = round(
+                i
+                *
+                last_index
+                /
+                (
+                    MAX_SHARDS - 1
+                )
+            )
+
+            if (
+                index
+                not in indices
+            ):
+                indices.append(
+                    index
+                )
+
+
+        selected = [
+            files[index]
+            for index
+            in indices
+        ]
+
+
+    files = selected
+
+    mode = "sample-spread"
 
 else:
-
-    files = sorted(
-        files,
-        key=lambda entry:
-            entry.path
-    )
 
     mode = "full"
 
@@ -170,6 +217,21 @@ print(
     f"Datos físicos seleccionados: "
     f"{selected_bytes / 1024**3:.2f} GiB"
 )
+
+
+print()
+print("RANGO DE SHARDS")
+print("-" * 78)
+
+for entry in (
+    files[:3]
+    +
+    files[-3:]
+):
+
+    print(
+        entry.path
+    )
 
 
 database_path = (
@@ -307,6 +369,144 @@ def insert_entries(entries):
         )
 
         raise
+
+
+print()
+print("=" * 78)
+print("DIAGNÓSTICO DE TOPIC_ID")
+print("=" * 78)
+
+
+probe_count = min(
+    10,
+    len(files)
+)
+
+
+if probe_count > 0:
+
+    if probe_count == 1:
+        probe_files = [
+            files[0]
+        ]
+
+    else:
+
+        probe_files = [
+            files[
+                round(
+                    i
+                    *
+                    (
+                        len(files) - 1
+                    )
+                    /
+                    (
+                        probe_count - 1
+                    )
+                )
+            ]
+            for i in range(
+                probe_count
+            )
+        ]
+
+
+    probe_relation = (
+        relation_for(
+            probe_files
+        )
+    )
+
+
+    stats = con.execute(
+        f"""
+        SELECT
+            count(*)
+                AS rows,
+
+            count(
+                DISTINCT topic_id
+            )
+                AS distinct_topics,
+
+            min(topic_id)
+                AS min_topic,
+
+            max(topic_id)
+                AS max_topic,
+
+            count(*)
+                FILTER (
+                    WHERE topic_id IN (
+                        {topic_sql}
+                    )
+                )
+                AS philosophy_matches
+
+        FROM {probe_relation}
+        """
+    ).fetchone()
+
+
+    print(
+        "Shards diagnóstico:",
+        probe_count
+    )
+
+    print(
+        "Filas:",
+        f"{stats[0]:,}"
+    )
+
+    print(
+        "Topics distintos:",
+        f"{stats[1]:,}"
+    )
+
+    print(
+        "topic_id mínimo:",
+        stats[2]
+    )
+
+    print(
+        "topic_id máximo:",
+        stats[3]
+    )
+
+    print(
+        "Matches con nuestros 75:",
+        f"{stats[4]:,}"
+    )
+
+
+    print()
+    print(
+        "20 topic_id más frecuentes:"
+    )
+
+
+    common = con.execute(
+        f"""
+        SELECT
+            topic_id,
+            count(*) AS n
+        FROM {probe_relation}
+        GROUP BY
+            topic_id
+        ORDER BY
+            n DESC
+        LIMIT 20
+        """
+    ).fetchall()
+
+
+    for topic_id, count in common:
+
+        print(
+            f"{topic_id:6}  "
+            f"{count:10,}"
+        )
 
 
 start_time = time.time()
