@@ -31,8 +31,11 @@ export const institutionalSources = [
     id: "aula",
     name: "Aula",
     mode: "institutional",
-    enabled: false,
-    searchUrl: null
+    enabled: true,
+    searchUrl:
+      "https://aula-enciclo-es.wdg.biblio.udg.mx:8443/buscar?term={query}",
+    queryMode: "title",
+    languages: ["es"]
   },
 
   {

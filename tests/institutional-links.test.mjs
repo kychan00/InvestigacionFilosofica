@@ -170,3 +170,60 @@ test(
     );
   }
 );
+
+
+test(
+  "Aula sólo se ofrece para registros en español",
+  () => {
+    const spanishLinks =
+      buildInstitutionalLinks({
+        title:
+          "La ética de la liberación",
+
+        language:
+          "es",
+
+        authors: [
+          {
+            name:
+              "Enrique Dussel"
+          }
+        ]
+      });
+
+
+    assert.equal(
+      spanishLinks.some(
+        link =>
+          link.id === "aula"
+      ),
+      true
+    );
+
+
+    const englishLinks =
+      buildInstitutionalLinks({
+        title:
+          "The Ethics of Liberation",
+
+        language:
+          "en",
+
+        authors: [
+          {
+            name:
+              "Enrique Dussel"
+          }
+        ]
+      });
+
+
+    assert.equal(
+      englishLinks.some(
+        link =>
+          link.id === "aula"
+      ),
+      false
+    );
+  }
+);
