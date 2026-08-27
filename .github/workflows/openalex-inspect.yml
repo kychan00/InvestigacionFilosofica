@@ -73,3 +73,7 @@ jobs:
       - name: Inspect one remote shard
         run: |
           python scripts/openalex/inspect_remote.py
+
+      - name: Inspect related OpenAlex tables
+        run: |
+          python scripts/openalex/inspect_related_tables.py
