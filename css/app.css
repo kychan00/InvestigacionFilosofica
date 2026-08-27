@@ -1495,3 +1495,223 @@ h1 {
   background:
     #eeeeF1;
 }
+
+.institutional-access {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  margin:
+    16px 0 26px;
+
+  padding:
+    14px 16px;
+
+  border:
+    1px solid #ddddE2;
+
+  border-radius:
+    14px;
+
+  background:
+    #ffffff;
+}
+
+
+.institutional-access div {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    3px;
+}
+
+
+.institutional-access span {
+  color:
+    #666;
+
+  font-size:
+    0.84rem;
+}
+
+
+.institutional-access a {
+  flex:
+    0 0 auto;
+
+  padding:
+    9px 13px;
+
+  border-radius:
+    9px;
+
+  background:
+    #1d1d1f;
+
+  color:
+    white;
+
+  font-size:
+    0.82rem;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+}
+
+
+@media (
+  max-width: 700px
+) {
+  .institutional-access {
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+  }
+
+  .institutional-access a {
+    text-align:
+      center;
+  }
+}
+
+.institutional-note {
+  margin:
+    -3px 0 12px;
+
+  color:
+    #666;
+
+  font-size:
+    0.84rem;
+
+  line-height:
+    1.45;
+}
+
+
+.institutional-links a {
+  background:
+    #303034;
+}
+
+.institutional-card-link {
+  padding:
+    5px 8px;
+
+  border-radius:
+    7px;
+
+  background:
+    #f0f0f3;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none !important;
+}
+
+
+.institutional-card-link:hover {
+  background:
+    #e4e4e8;
+}
+
+.result-links {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+}
+
+
+.institutional-card-link {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  min-height:
+    34px;
+}
+
+.result-links a:not(.institutional-card-link),
+.result-links button {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  min-height:
+    34px;
+}
+
+.result-links a:not(.institutional-card-link) {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-height:
+    34px;
+
+  padding:
+    5px 10px;
+
+  border:
+    1px solid #d4d4d8;
+
+  border-radius:
+    7px;
+
+  background:
+    #ffffff;
+
+  color:
+    #1d1d1f;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+}
+
+
+.result-links a:not(.institutional-card-link):hover {
+  background:
+    #f4f4f6;
+
+  border-color:
+    #bdbdc3;
+}
