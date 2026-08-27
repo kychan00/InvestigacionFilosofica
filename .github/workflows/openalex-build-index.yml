@@ -1,0 +1,68 @@
+name: Build OpenAlex philosophy index
+
+on:
+  workflow_dispatch:
+    inputs:
+      scan:
+        description: "Tamaño del escaneo"
+        required: true
+        default: "sample"
+        type: choice
+        options:
+          - sample
+          - full
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install duckdb huggingface_hub
+
+      - name: Build Philosophy topic candidates
+        run: |
+          python scripts/openalex/build_philosophy_topic_candidates.py
+
+      - name: Curate Philosophy topic tiers
+        run: |
+          python scripts/openalex/curate_philosophy_topics.py
+
+      - name: Extract work IDs — sample
+        if: ${{ inputs.scan == 'sample' }}
+        env:
+          OPENALEX_MAX_SHARDS: "50"
+          OPENALEX_BATCH_SIZE: "10"
+        run: |
+          python scripts/openalex/extract_philosophy_work_ids.py
+
+      - name: Extract work IDs — full
+        if: ${{ inputs.scan == 'full' }}
+        env:
+          OPENALEX_MAX_SHARDS: "0"
+          OPENALEX_BATCH_SIZE: "25"
+        run: |
+          python scripts/openalex/extract_philosophy_work_ids.py
+
+      - name: Upload Philosophy work IDs
+        uses: actions/upload-artifact@v4
+        with:
+          name: openalex-philosophy-work-ids-${{ inputs.scan }}
+          compression-level: 0
+          retention-days: 30
+          path: |
+            artifacts/openalex/philosophy-work-ids.parquet
+            artifacts/openalex/philosophy-work-ids-summary.json
+            artifacts/openalex/philosophy-topics-curated.json
+            artifacts/openalex/philosophy-topic-ids-main.txt
