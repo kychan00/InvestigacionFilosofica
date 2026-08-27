@@ -1,5 +1,10 @@
 const OPENALEX_BASE = "https://api.openalex.org/works";
 
+let openAlexCooldownUntil = 0;
+
+const OPENALEX_COOLDOWN_MS =
+  60_000;
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -211,57 +216,170 @@ function normalizeOpenAlexWork(work, context = {}) {
   };
 }
 
+function openAlexRateLimitError() {
+  const error =
+    new Error(
+      "OpenAlex temporalmente limitado (HTTP 429). " +
+      "La búsqueda continuará con las demás fuentes."
+    );
+
+  error.code =
+    "OPENALEX_RATE_LIMITED";
+
+  error.status =
+    429;
+
+  return error;
+}
+
+
 async function fetchWithRetry(
   url,
   options = {}
 ) {
   const {
-    retries = 3
+    retries = 1,
+    signal
   } = options;
+
+
+  /*
+   * Circuit breaker:
+   * después de un 429 evitamos golpear
+   * repetidamente OpenAlex durante
+   * la misma sesión.
+   */
+  if (
+    Date.now() <
+    openAlexCooldownUntil
+  ) {
+    throw openAlexRateLimitError();
+  }
+
 
   for (
     let attempt = 0;
     attempt <= retries;
     attempt++
   ) {
-    const response =
-      await fetch(url, {
-        headers: {
-          Accept:
-            "application/json"
-        }
-      });
+    if (
+      signal?.aborted
+    ) {
+      throw new DOMException(
+        "Search aborted",
+        "AbortError"
+      );
+    }
 
-    if (response.ok) {
+
+    const response =
+      await fetch(
+        url,
+        {
+          signal,
+
+          headers: {
+            Accept:
+              "application/json"
+          }
+        }
+      );
+
+
+    if (
+      response.ok
+    ) {
       return response;
     }
 
+
+    /*
+     * Un 429 probablemente no se arregla
+     * golpeando inmediatamente la API
+     * cinco veces más.
+     */
     if (
-      response.status !== 429 ||
-      attempt === retries
+      response.status === 429
     ) {
-      throw new Error(
-        `OpenAlex HTTP ${response.status}`
-      );
+      const retryAfter =
+        Number(
+          response.headers.get(
+            "retry-after"
+          )
+        );
+
+
+      const waitMs =
+        Number.isFinite(
+          retryAfter
+        ) &&
+        retryAfter > 0
+          ? retryAfter * 1000
+          : 1500;
+
+
+      /*
+       * Ponemos un cooldown mínimo de
+       * 60 segundos.
+       */
+      openAlexCooldownUntil =
+        Date.now() +
+        Math.max(
+          OPENALEX_COOLDOWN_MS,
+          waitMs
+        );
+
+
+      /*
+       * Sólo hacemos un reintento si
+       * OpenAlex pide una espera corta.
+       */
+      if (
+        attempt < retries &&
+        waitMs <= 2500
+      ) {
+        await sleep(
+          waitMs
+        );
+
+        continue;
+      }
+
+
+      throw openAlexRateLimitError();
     }
 
-    const retryAfter =
-      response.headers.get(
-        "retry-after"
+
+    /*
+     * Errores temporales del servidor:
+     * un reintento corto.
+     */
+    if (
+      response.status >= 500 &&
+      attempt < retries
+    ) {
+      await sleep(
+        800 *
+        (
+          attempt + 1
+        )
       );
 
-    const waitMs =
-      retryAfter
-        ? Number(retryAfter) * 1000
-        : 1000 * (attempt + 1);
+      continue;
+    }
 
-    await sleep(waitMs);
+
+    throw new Error(
+      `OpenAlex HTTP ${response.status}`
+    );
   }
+
 
   throw new Error(
     "OpenAlex request failed"
   );
 }
+
 
 export async function searchOpenAlex(
   expansion,
