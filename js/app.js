@@ -1,4 +1,16 @@
 import {
+  UDEG_LOGIN_URL
+} from "../src/data/institutional-sources.js";
+
+import {
+  buildInstitutionalLinks
+} from "../src/core/institutional-links.js";
+
+import {
+  effectiveLanguage
+} from "../src/core/language.js";
+
+import {
   searchPhilosophy,
   searchMorePhilosophy
 } from "../src/core/search-engine.js";
@@ -467,6 +479,11 @@ function recordId(item) {
 function renderRecordDetails(
   item
 ) {
+  const institutionalLinks =
+    buildInstitutionalLinks(
+      item
+    );
+
   const authors =
     (item.authors || [])
       .map(
@@ -718,6 +735,45 @@ function renderRecordDetails(
 
 
       ${
+        institutionalLinks.length
+          ? `
+            <section class="record-section">
+
+              <h3>
+                Buscar en Biblioteca UdeG
+              </h3>
+
+              <p class="institutional-note">
+                Abre la búsqueda institucional en otra pestaña.
+                Si tu sesión UdeG está activa, el navegador
+                reutilizará el acceso.
+              </p>
+
+              <div class="record-links institutional-links">
+
+                ${institutionalLinks
+                  .map(
+                    link => `
+                      <a
+                        href="${escapeHtml(link.url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        ${escapeHtml(link.name)} ↗
+                      </a>
+                    `
+                  )
+                  .join("")}
+
+              </div>
+
+            </section>
+          `
+          : ""
+      }
+
+
+      ${
         sourceRecords
           ? `
             <section class="record-section">
@@ -776,6 +832,14 @@ function renderResult(
   item,
   index
 ) {
+  const institutionalLinks =
+    buildInstitutionalLinks(
+      item
+    );
+
+  const primaryInstitutionalLink =
+    institutionalLinks[0] ||
+    null;
   const authors =
     (item.authors || [])
       .map(
@@ -876,6 +940,21 @@ function renderResult(
         >
           Ver ficha
         </button>
+
+        ${
+          primaryInstitutionalLink
+            ? `
+              <a
+                class="institutional-card-link"
+                href="${escapeHtml(primaryInstitutionalLink.url)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buscar en UdeG ↗
+              </a>
+            `
+            : ""
+        }
 
         ${
           url
@@ -1359,16 +1438,52 @@ function exportResults(
   }
 }
 
+function languageLabel(
+  code
+) {
+  const labels = {
+    es: "Español",
+    en: "English",
+    it: "Italiano",
+    nl: "Nederlands",
+    fr: "Français",
+    de: "Deutsch",
+    pt: "Português",
+    ca: "Català",
+    la: "Latín"
+  };
+
+  return labels[code] ||
+    String(code).toUpperCase();
+}
+
+
 function renderFilters(
   results
 ) {
-  const languages =
+  const detectedLanguages =
+
     uniqueSorted(
       results.map(
         item =>
-          item.language
+          effectiveLanguage(
+            item
+          )
       )
     );
+
+
+  const languages =
+
+    uniqueSorted([
+
+      "es",
+
+      "en",
+
+      ...detectedLanguages
+
+    ])
 
   const providers =
     uniqueSorted(
@@ -1453,7 +1568,9 @@ function renderFilters(
             .map(
               value => `
                 <option value="${escapeHtml(value)}">
-                  ${escapeHtml(value)}
+                  ${escapeHtml(
+                    languageLabel(value)
+                  )}
                 </option>
               `
             )
@@ -1712,7 +1829,9 @@ function applyFilters() {
 
         if (
           language &&
-          item.language !== language
+          effectiveLanguage(
+            item
+          ) !== language
         ) {
           return false;
         }
