@@ -16,111 +16,177 @@
     rel="stylesheet"
     href="./css/app.css"
   >
+
+  <link
+    rel="stylesheet"
+    href="./css/redesign.css"
+  >
 </head>
 
 <body>
 
   <main class="app">
 
-    <header class="hero">
+    <section class="hero-shell">
 
-      <div class="eyebrow">
-        Motor federado de investigación
-      </div>
+      <nav class="philo-nav">
 
-      <h1>
-        Investigación Filosófica
-      </h1>
-
-      <p class="lead">
-        Busca literatura filosófica en múltiples
-        fuentes académicas y ordénala por relevancia.
-      </p>
-
-    </header>
-
-
-    <section class="search-panel">
-
-      <form
-        id="search-form"
-        class="search-form"
-      >
-
-        <label
-          for="search-input"
-          class="sr-only"
+        <a
+          class="philo-brand"
+          href="./"
         >
-          Consulta filosófica
-        </label>
+          <span class="philo-mark">
+            Φ
+          </span>
 
-        <input
-          id="search-input"
-          name="q"
-          type="search"
-          autocomplete="off"
-          placeholder="Ej. libertad en Kant"
-          required
+          <span>
+            Investigación Filosófica
+          </span>
+        </a>
+
+        <div class="philo-nav-links">
+          <a href="#results">
+            Resultados
+          </a>
+
+          <a href="#filters">
+            Filtros
+          </a>
+
+          <a href="#fuentes">
+            Fuentes
+          </a>
+        </div>
+
+      </nav>
+
+
+      <header class="hero">
+
+        <div class="eyebrow">
+          Motor federado de investigación
+        </div>
+
+        <h1>
+          Investigación Filosófica
+        </h1>
+
+        <p class="lead">
+          Explora ideas, autores y obras a través
+          de fuentes académicas internacionales.
+        </p>
+
+      </header>
+
+
+      <section class="search-panel">
+
+        <form
+          id="search-form"
+          class="search-form"
         >
 
-        <select
-          id="search-depth"
-          aria-label="Profundidad de búsqueda"
-        >
-          <option value="6">
-            Rápida
-          </option>
-
-          <option
-            value="12"
-            selected
+          <label
+            for="search-input"
+            class="sr-only"
           >
-            Amplia
-          </option>
+            Consulta filosófica
+          </label>
 
-          <option value="20">
-            Profunda
-          </option>
-        </select>
+          <input
+            id="search-input"
+            name="q"
+            type="search"
+            autocomplete="off"
+            placeholder="Ej. libertad en Kant"
+            required
+          >
 
-        <button type="submit">
-          Buscar
-        </button>
+          <select
+            id="search-depth"
+            aria-label="Profundidad de búsqueda"
+          >
+            <option value="6">
+              Rápida
+            </option>
 
-      </form>
+            <option
+              value="12"
+              selected
+            >
+              Amplia
+            </option>
+
+            <option value="20">
+              Profunda
+            </option>
+          </select>
+
+          <button type="submit">
+            Buscar
+          </button>
+
+        </form>
+
+
+        <div
+          id="status"
+          class="status"
+          aria-live="polite"
+        ></div>
+
+      </section>
 
 
       <div
-        id="status"
-        class="status"
-        aria-live="polite"
-      ></div>
+        class="hero-sources"
+        id="fuentes"
+      >
+        <span>OpenAlex</span>
+        <span>·</span>
+        <span>Crossref</span>
+        <span>·</span>
+        <span>Biblioteca UdeG</span>
+      </div>
 
     </section>
 
 
     <section
-      id="interpretation"
-      class="interpretation hidden"
-    ></section>
+      id="research-workspace"
+      class="research-workspace"
+    >
+
+      <aside class="workspace-sidebar">
+
+        <section
+          id="filters"
+          class="filters hidden"
+        ></section>
+
+      </aside>
 
 
-    <section
-      id="stats"
-      class="stats hidden"
-    ></section>
+      <div class="workspace-main">
 
+        <section
+          id="stats"
+          class="stats hidden"
+        ></section>
 
-    <section
-      id="filters"
-      class="filters hidden"
-    ></section>
+        <section
+          id="interpretation"
+          class="interpretation hidden"
+        ></section>
 
+        <section
+          id="results"
+          class="results"
+        ></section>
 
-    <section
-      id="results"
-      class="results"
-    ></section>
+      </div>
+
+    </section>
 
   </main>
 

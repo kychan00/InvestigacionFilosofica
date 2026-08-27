@@ -484,21 +484,85 @@ function renderRecordDetails(
       item
     );
 
+
   const authors =
     (item.authors || [])
       .map(
         author =>
           author.name
       )
+      .filter(Boolean)
       .join(", ");
+
+
+  const firstAuthor =
+    item.authors?.[0]?.name ||
+    "Filosofía";
+
+
+  const authorInitial =
+    firstAuthor
+      .trim()
+      .charAt(0)
+      .toUpperCase() ||
+    "Φ";
+
+
+  const language =
+    effectiveLanguage(
+      item
+    ) ||
+    item.language ||
+    null;
+
+
+  const providers =
+    (item.providers || [])
+      .join(" · ");
+
+
+  const score =
+    Math.max(
+      0,
+      Math.min(
+        100,
+        Number(
+          item.relevanceScore
+        ) || 0
+      )
+    );
+
+
+  const level =
+    item.relevanceLevel ||
+    "—";
+
+
+  const levelClass =
+    String(level)
+      .toLowerCase()
+      .replace(
+        /[^a-z0-9]+/g,
+        "-"
+      );
+
+
+  const isbn =
+    item.isbn?.length
+      ? item.isbn.join(", ")
+      : "—";
 
 
   const topics =
     (item.topics || [])
       .map(
         topic => `
-          <span class="record-topic">
-            ${escapeHtml(topic.name)}
+          <span class="cinematic-topic">
+            ${escapeHtml(
+              topic.name ||
+              topic.display_name ||
+              String(topic)
+            )}
           </span>
         `
       )
@@ -510,19 +574,32 @@ function renderRecordDetails(
       .map(
         source => `
           <li>
-            <strong>
-              ${escapeHtml(source.provider)}
-            </strong>
+            <span class="provenance-source">
+              ${escapeHtml(
+                source.provider ||
+                "Fuente"
+              )}
+            </span>
 
             ${
               source.query
-                ? ` · ${escapeHtml(source.query)}`
+                ? `
+                  <span>
+                    ${escapeHtml(
+                      source.query
+                    )}
+                  </span>
+                `
                 : ""
             }
 
             ${
               source.rank
-                ? ` · posición ${source.rank}`
+                ? `
+                  <span class="provenance-rank">
+                    posición ${source.rank}
+                  </span>
+                `
                 : ""
             }
           </li>
@@ -531,24 +608,40 @@ function renderRecordDetails(
       .join("");
 
 
-  const links = [];
+  const accessLinks = [];
 
-  if (item.urls?.openAccess) {
-    links.push(`
+
+  if (
+    item.urls?.openAccess
+  ) {
+    accessLinks.push(`
       <a
-        href="${escapeHtml(item.urls.openAccess)}"
+        class="cinematic-action primary"
+        href="${escapeHtml(
+          item.urls.openAccess
+        )}"
         target="_blank"
         rel="noopener noreferrer"
       >
+        <span class="action-icon">
+          ↗
+        </span>
+
         Acceso abierto
       </a>
     `);
   }
 
-  if (item.doi) {
-    links.push(`
+
+  if (
+    item.doi
+  ) {
+    accessLinks.push(`
       <a
-        href="https://doi.org/${escapeHtml(item.doi)}"
+        class="cinematic-action"
+        href="https://doi.org/${escapeHtml(
+          item.doi
+        )}"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -557,15 +650,19 @@ function renderRecordDetails(
     `);
   }
 
+
   if (
     item.urls?.canonical &&
-    !item.urls?.canonical?.includes(
+    !item.urls.canonical.includes(
       "doi.org"
     )
   ) {
-    links.push(`
+    accessLinks.push(`
       <a
-        href="${escapeHtml(item.urls.canonical)}"
+        class="cinematic-action"
+        href="${escapeHtml(
+          item.urls.canonical
+        )}"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -575,224 +672,565 @@ function renderRecordDetails(
   }
 
 
+  const institutionalButtons =
+    institutionalLinks
+      .map(
+        link => `
+          <a
+            class="cinematic-institution-link"
+            href="${escapeHtml(
+              link.url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="institution-icon">
+              ${
+                link.id === "ebook-central"
+                  ? "▤"
+                  : link.id === "britannica-udeg"
+                    ? "B"
+                    : link.id === "aula"
+                      ? "A"
+                      : "⌂"
+              }
+            </span>
+
+            <span>
+              ${escapeHtml(
+                link.name
+              )}
+            </span>
+
+            <span class="institution-arrow">
+              ↗
+            </span>
+          </a>
+        `
+      )
+      .join("");
+
+
   return `
-    <article class="record-detail">
+    <article class="record-cinematic">
 
-      <div class="record-detail-head">
+      <header class="record-cinematic-hero">
 
-        <div>
-          <div class="record-detail-score">
-            ${item.relevanceScore}/100
-            · ${escapeHtml(item.relevanceLevel)}
+        <div
+          class="record-hero-symbol"
+          aria-hidden="true"
+        >
+          Φ
+        </div>
+
+
+        <div class="record-hero-content">
+
+          <div class="record-hero-kicker">
+
+            <span
+              class="record-level-pill level-${escapeHtml(
+                levelClass
+              )}"
+            >
+              ${escapeHtml(level)}
+            </span>
+
+            <span class="record-score-pill">
+              ${score}/100
+            </span>
+
+            ${
+              providers
+                ? `
+                  <span class="record-provider-pill">
+                    ${escapeHtml(
+                      providers
+                    )}
+                  </span>
+                `
+                : ""
+            }
+
           </div>
 
-          <h2 id="record-modal-title">
-            ${escapeHtml(item.title)}
+
+          <h2
+            id="record-modal-title"
+            class="record-cinematic-title"
+          >
+            ${escapeHtml(
+              item.title ||
+              "Sin título"
+            )}
           </h2>
+
+
+          <p class="record-cinematic-byline">
+            ${
+              authors
+                ? escapeHtml(
+                    authors
+                  )
+                : "Autor no disponible"
+            }
+
+            ${
+              item.year
+                ? ` · ${item.year}`
+                : ""
+            }
+
+            ${
+              item.journal
+                ? ` · ${escapeHtml(
+                    item.journal
+                  )}`
+                : ""
+            }
+          </p>
+
         </div>
+
+      </header>
+
+
+      <div class="record-cinematic-layout">
+
+        <aside class="record-cinematic-sidebar">
+
+          <section class="cinematic-score-card">
+
+            <span class="score-eyebrow">
+              Relevancia
+            </span>
+
+            <div class="cinematic-score-number">
+              ${score}
+            </div>
+
+            <div class="cinematic-score-track">
+              <span
+                style="width:${score}%"
+              ></span>
+            </div>
+
+            <div class="score-level">
+              ${escapeHtml(level)}
+            </div>
+
+          </section>
+
+
+          <section class="cinematic-author-card">
+
+            <div class="author-orbit">
+
+              <span class="author-initial">
+                ${escapeHtml(
+                  authorInitial
+                )}
+              </span>
+
+            </div>
+
+            <span class="author-card-caption">
+              Archivo filosófico
+            </span>
+
+            <strong>
+              ${escapeHtml(
+                firstAuthor
+              )}
+            </strong>
+
+          </section>
+
+
+          <section class="cinematic-quick-grid">
+
+            <div>
+              <span>
+                Año
+              </span>
+
+              <strong>
+                ${item.year ?? "—"}
+              </strong>
+            </div>
+
+
+            <div>
+              <span>
+                Idioma
+              </span>
+
+              <strong>
+                ${
+                  language
+                    ? escapeHtml(
+                        languageLabel(
+                          language
+                        )
+                      )
+                    : "—"
+                }
+              </strong>
+            </div>
+
+
+            <div>
+              <span>
+                Tipo
+              </span>
+
+              <strong>
+                ${escapeHtml(
+                  item.type ||
+                  "—"
+                )}
+              </strong>
+            </div>
+
+
+            <div>
+              <span>
+                Citas
+              </span>
+
+              <strong>
+                ${item.citedBy ?? "—"}
+              </strong>
+            </div>
+
+          </section>
+
+        </aside>
+
+
+        <main class="record-cinematic-main">
+
+          <section class="cinematic-section">
+
+            <div class="cinematic-section-heading">
+
+              <span class="section-number">
+                01
+              </span>
+
+              <div>
+                <span class="section-eyebrow">
+                  Registro
+                </span>
+
+                <h3>
+                  Ficha bibliográfica
+                </h3>
+              </div>
+
+            </div>
+
+
+            <div class="cinematic-metadata-grid">
+
+              <div class="cinematic-meta-card">
+                <span>
+                  Autores
+                </span>
+
+                <strong>
+                  ${
+                    authors
+                      ? escapeHtml(
+                          authors
+                        )
+                      : "—"
+                  }
+                </strong>
+              </div>
+
+
+              <div class="cinematic-meta-card">
+                <span>
+                  Revista / fuente
+                </span>
+
+                <strong>
+                  ${escapeHtml(
+                    item.journal ||
+                    "—"
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="cinematic-meta-card">
+                <span>
+                  Editorial
+                </span>
+
+                <strong>
+                  ${escapeHtml(
+                    item.publisher ||
+                    "—"
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="cinematic-meta-card">
+                <span>
+                  DOI
+                </span>
+
+                <strong>
+                  ${escapeHtml(
+                    item.doi ||
+                    "—"
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="cinematic-meta-card">
+                <span>
+                  ISBN
+                </span>
+
+                <strong>
+                  ${escapeHtml(
+                    isbn
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="cinematic-meta-card">
+                <span>
+                  Proveedores
+                </span>
+
+                <strong>
+                  ${
+                    providers
+                      ? escapeHtml(
+                          providers
+                        )
+                      : "—"
+                  }
+                </strong>
+              </div>
+
+            </div>
+
+          </section>
+
+
+          ${
+            item.abstract
+              ? `
+                <section class="cinematic-section">
+
+                  <div class="cinematic-section-heading">
+
+                    <span class="section-number">
+                      02
+                    </span>
+
+                    <div>
+                      <span class="section-eyebrow">
+                        Lectura
+                      </span>
+
+                      <h3>
+                        Resumen
+                      </h3>
+                    </div>
+
+                  </div>
+
+                  <div class="cinematic-abstract">
+                    ${escapeHtml(
+                      item.abstract
+                    )}
+                  </div>
+
+                </section>
+              `
+              : ""
+          }
+
+
+          ${
+            topics
+              ? `
+                <section class="cinematic-section">
+
+                  <div class="cinematic-section-heading">
+
+                    <span class="section-number">
+                      03
+                    </span>
+
+                    <div>
+                      <span class="section-eyebrow">
+                        Clasificación
+                      </span>
+
+                      <h3>
+                        Temas
+                      </h3>
+                    </div>
+
+                  </div>
+
+
+                  <div class="cinematic-topics">
+                    ${topics}
+                  </div>
+
+                </section>
+              `
+              : ""
+          }
+
+
+          ${
+            accessLinks.length
+              ? `
+                <section class="cinematic-section">
+
+                  <div class="cinematic-section-heading">
+
+                    <span class="section-number">
+                      04
+                    </span>
+
+                    <div>
+                      <span class="section-eyebrow">
+                        Documento
+                      </span>
+
+                      <h3>
+                        Acceso
+                      </h3>
+                    </div>
+
+                  </div>
+
+
+                  <div class="cinematic-actions">
+                    ${accessLinks.join("")}
+                  </div>
+
+                </section>
+              `
+              : ""
+          }
+
+
+          ${
+            institutionalButtons
+              ? `
+                <section class="cinematic-section institutional-cinematic">
+
+                  <div class="cinematic-section-heading">
+
+                    <span class="section-number">
+                      05
+                    </span>
+
+                    <div>
+                      <span class="section-eyebrow">
+                        Colecciones licenciadas
+                      </span>
+
+                      <h3>
+                        Biblioteca UdeG
+                      </h3>
+                    </div>
+
+                  </div>
+
+
+                  <p class="cinematic-note">
+                    La búsqueda se abre en otra pestaña.
+                    Si tu sesión institucional está activa,
+                    el navegador reutilizará el acceso.
+                  </p>
+
+
+                  <div class="cinematic-institution-grid">
+                    ${institutionalButtons}
+                  </div>
+
+                </section>
+              `
+              : ""
+          }
+
+
+          ${
+            sourceRecords
+              ? `
+                <section class="cinematic-section">
+
+                  <div class="cinematic-section-heading">
+
+                    <span class="section-number">
+                      06
+                    </span>
+
+                    <div>
+                      <span class="section-eyebrow">
+                        Trazabilidad
+                      </span>
+
+                      <h3>
+                        Procedencia bibliográfica
+                      </h3>
+                    </div>
+
+                  </div>
+
+
+                  <ul class="cinematic-provenance">
+                    ${sourceRecords}
+                  </ul>
+
+                </section>
+              `
+              : ""
+          }
+
+
+          <section class="cinematic-section explanation-cinematic">
+
+            <div class="cinematic-section-heading">
+
+              <span class="section-number">
+                07
+              </span>
+
+              <div>
+                <span class="section-eyebrow">
+                  Motor de relevancia
+                </span>
+
+                <h3>
+                  Por qué aparece
+                </h3>
+              </div>
+
+            </div>
+
+            ${renderExplanation(item)}
+
+          </section>
+
+        </main>
 
       </div>
-
-
-      <dl class="record-metadata">
-
-        <div>
-          <dt>Autores</dt>
-          <dd>
-            ${authors
-              ? escapeHtml(authors)
-              : "—"}
-          </dd>
-        </div>
-
-        <div>
-          <dt>Año</dt>
-          <dd>
-            ${item.year ?? "—"}
-          </dd>
-        </div>
-
-        <div>
-          <dt>Tipo</dt>
-          <dd>
-            ${escapeHtml(item.type || "—")}
-          </dd>
-        </div>
-
-        <div>
-          <dt>Idioma</dt>
-          <dd>
-            ${escapeHtml(item.language || "—")}
-          </dd>
-        </div>
-
-        <div>
-          <dt>Revista / fuente</dt>
-          <dd>
-            ${escapeHtml(item.journal || "—")}
-          </dd>
-        </div>
-
-        <div>
-          <dt>Editorial</dt>
-          <dd>
-            ${escapeHtml(item.publisher || "—")}
-          </dd>
-        </div>
-
-        <div>
-          <dt>DOI</dt>
-          <dd>
-            ${escapeHtml(item.doi || "—")}
-          </dd>
-        </div>
-
-        <div>
-          <dt>ISBN</dt>
-          <dd>
-            ${
-              item.isbn?.length
-                ? escapeHtml(item.isbn.join(", "))
-                : "—"
-            }
-          </dd>
-        </div>
-
-        <div>
-          <dt>Citas</dt>
-          <dd>
-            ${item.citedBy ?? "—"}
-          </dd>
-        </div>
-
-        <div>
-          <dt>Proveedores</dt>
-          <dd>
-            ${escapeHtml(
-              (item.providers || []).join(", ") || "—"
-            )}
-          </dd>
-        </div>
-
-      </dl>
-
-
-      ${
-        item.abstract
-          ? `
-            <section class="record-section">
-
-              <h3>
-                Resumen / abstract
-              </h3>
-
-              <div class="record-abstract">
-                ${item.abstract}
-              </div>
-
-            </section>
-          `
-          : ""
-      }
-
-
-      ${
-        topics
-          ? `
-            <section class="record-section">
-
-              <h3>
-                Temas
-              </h3>
-
-              <div class="record-topics">
-                ${topics}
-              </div>
-
-            </section>
-          `
-          : ""
-      }
-
-
-      ${
-        links.length
-          ? `
-            <section class="record-section">
-
-              <h3>
-                Acceso
-              </h3>
-
-              <div class="record-links">
-                ${links.join("")}
-              </div>
-
-            </section>
-          `
-          : ""
-      }
-
-
-      ${
-        institutionalLinks.length
-          ? `
-            <section class="record-section">
-
-              <h3>
-                Buscar en Biblioteca UdeG
-              </h3>
-
-              <p class="institutional-note">
-                Abre la búsqueda institucional en otra pestaña.
-                Si tu sesión UdeG está activa, el navegador
-                reutilizará el acceso.
-              </p>
-
-              <div class="record-links institutional-links">
-
-                ${institutionalLinks
-                  .map(
-                    link => `
-                      <a
-                        href="${escapeHtml(link.url)}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        ${escapeHtml(link.name)} ↗
-                      </a>
-                    `
-                  )
-                  .join("")}
-
-              </div>
-
-            </section>
-          `
-          : ""
-      }
-
-
-      ${
-        sourceRecords
-          ? `
-            <section class="record-section">
-
-              <h3>
-                Procedencia bibliográfica
-              </h3>
-
-              <ul class="record-source-list">
-                ${sourceRecords}
-              </ul>
-
-            </section>
-          `
-          : ""
-      }
-
-
-      ${renderExplanation(item)}
 
     </article>
   `;
@@ -837,9 +1275,7 @@ function renderResult(
       item
     );
 
-  const primaryInstitutionalLink =
-    institutionalLinks[0] ||
-    null;
+
   const authors =
     (item.authors || [])
       .map(
@@ -847,6 +1283,19 @@ function renderResult(
           author.name
       )
       .join(", ");
+
+
+  const firstAuthor =
+    item.authors?.[0]?.name ||
+    "";
+
+
+  const authorInitial =
+    firstAuthor
+      .trim()
+      .charAt(0)
+      .toUpperCase() ||
+    "Φ";
 
 
   const url =
@@ -859,149 +1308,280 @@ function renderResult(
       : null;
 
 
+  const language =
+    effectiveLanguage(
+      item
+    );
+
+
+  const abstract =
+    String(
+      item.abstract || ""
+    )
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+
+  const abstractPreview =
+    abstract.length > 230
+      ? `${abstract.slice(
+          0,
+          227
+        )}…`
+      : abstract;
+
+
+  const score =
+    Math.max(
+      0,
+      Math.min(
+        100,
+        Number(
+          item.relevanceScore
+        ) || 0
+      )
+    );
+
+
   return `
-    <article class="result-card">
+    <article
+      class="result-card"
+      data-rank="${index + 1}"
+    >
 
-      <div class="result-head">
-
-        <h2>
-          ${index + 1}.
-          ${escapeHtml(item.title)}
-        </h2>
-
-        <div class="score">
-          ${item.relevanceScore}
-        </div>
-
-      </div>
-
-
-      <p class="meta">
-        ${
-          authors
-            ? escapeHtml(authors)
-            : "Autor no disponible"
-        }
-
-        ${
-          item.year
-            ? ` · ${item.year}`
-            : ""
-        }
-
-        ${
-          item.journal
-            ? ` · ${
-                escapeHtml(
-                  item.journal
-                )
-              }`
-            : ""
-        }
-      </p>
-
-
-      <div class="provider-row">
-
-        ${
-          item.providers
-            .map(
-              provider =>
-                `<span class="provider">${
-                  escapeHtml(provider)
-                }</span>`
-            )
-            .join("")
-        }
-
-        <span class="provider">
-          ${item.relevanceLevel}
+      <div
+        class="result-visual"
+        aria-hidden="true"
+      >
+        <span class="result-rank">
+          ${index + 1}
         </span>
 
+        <span class="result-initial">
+          ${escapeHtml(
+            authorInitial
+          )}
+        </span>
+
+        <span class="result-visual-caption">
+          Archivo filosófico
+        </span>
+      </div>
+
+
+      <div class="result-content">
+
+        <div class="result-title-row">
+
+          <span class="relevance-pill">
+            ${escapeHtml(
+              item.relevanceLevel
+            )}
+          </span>
+
+          <h2>
+            ${escapeHtml(
+              item.title
+            )}
+          </h2>
+
+        </div>
+
+
+        <p class="meta">
+          ${
+            authors
+              ? escapeHtml(
+                  authors
+                )
+              : "Autor no disponible"
+          }
+
+          ${
+            item.year
+              ? ` · ${item.year}`
+              : ""
+          }
+
+          ${
+            item.journal
+              ? ` · ${escapeHtml(
+                  item.journal
+                )}`
+              : ""
+          }
+        </p>
+
+
         ${
-          item.openAccess?.isOpen
+          abstractPreview
             ? `
-              <span class="provider">
-                Acceso abierto
-              </span>
+              <p class="result-abstract">
+                ${escapeHtml(
+                  abstractPreview
+                )}
+              </p>
             `
             : ""
         }
+
+
+        <div class="provider-row">
+
+          ${
+            (item.providers || [])
+              .map(
+                provider => `
+                  <span class="provider">
+                    ${escapeHtml(
+                      provider
+                    )}
+                  </span>
+                `
+              )
+              .join("")
+          }
+
+          ${
+            language
+              ? `
+                <span class="provider">
+                  ${escapeHtml(
+                    languageLabel(
+                      language
+                    )
+                  )}
+                </span>
+              `
+              : ""
+          }
+
+          ${
+            item.openAccess?.isOpen
+              ? `
+                <span class="provider">
+                  Acceso abierto
+                </span>
+              `
+              : ""
+          }
+
+        </div>
+
+
+        <div class="result-links">
+
+          <button
+            type="button"
+            class="record-open"
+            data-record-id="${escapeHtml(
+              recordId(item)
+            )}"
+          >
+            Ver ficha
+          </button>
+
+
+          ${
+            institutionalLinks
+              .map(
+                link => `
+                  <a
+                    class="institutional-card-link"
+                    href="${escapeHtml(
+                      link.url
+                    )}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    ${escapeHtml(
+                      link.name
+                    )} ↗
+                  </a>
+                `
+              )
+              .join("")
+          }
+
+
+          ${
+            url
+              ? `
+                <a
+                  class="result-secondary-link"
+                  href="${escapeHtml(
+                    url
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Abrir
+                </a>
+              `
+              : ""
+          }
+
+
+          ${
+            doi
+              ? `
+                <a
+                  class="result-secondary-link"
+                  href="${escapeHtml(
+                    doi
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  DOI
+                </a>
+              `
+              : ""
+          }
+
+        </div>
+
+
+        <div class="explain">
+          Q ${item.ranking.query}
+          ·
+          P ${item.ranking.philosophy}
+          ·
+          D ${item.ranking.discipline}
+          ·
+          S ${item.ranking.consensus}
+          ·
+          B ${item.ranking.bibliography}
+          ·
+          I ${item.ranking.impact}
+        </div>
+
+
+        ${renderExplanation(item)}
 
       </div>
 
 
-      <div class="result-links">
+      <aside class="score-panel">
 
-        <button
-          type="button"
-          class="record-open"
-          data-record-id="${escapeHtml(recordId(item))}"
-        >
-          Ver ficha
-        </button>
+        <div class="score">
+          ${score}
+        </div>
 
-        ${
-          primaryInstitutionalLink
-            ? `
-              <a
-                class="institutional-card-link"
-                href="${escapeHtml(primaryInstitutionalLink.url)}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Buscar en UdeG ↗
-              </a>
-            `
-            : ""
-        }
+        <span>
+          Relevancia
+        </span>
 
-        ${
-          url
-            ? `
-              <a
-                href="${escapeHtml(url)}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Abrir
-              </a>
-            `
-            : ""
-        }
+        <div class="score-meter">
+          <i
+            style="width:${score}%"
+          ></i>
+        </div>
 
-        ${
-          doi
-            ? `
-              <a
-                href="${escapeHtml(doi)}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                DOI
-              </a>
-            `
-            : ""
-        }
-
-      </div>
-
-
-      <div class="explain">
-        Q ${item.ranking.query}
-        ·
-        P ${item.ranking.philosophy}
-        ·
-        D ${item.ranking.discipline}
-        ·
-        S ${item.ranking.consensus}
-        ·
-        B ${item.ranking.bibliography}
-        ·
-        I ${item.ranking.impact}
-      </div>
-
-      ${renderExplanation(item)}
+      </aside>
 
     </article>
   `;
@@ -2191,43 +2771,140 @@ function renderErrors(
     return "";
   }
 
-  const items =
-    errors
-      .map(error => `
-        <li>
-          <strong>
-            ${escapeHtml(error.provider)}
-          </strong>
 
-          <span>
-            · ${escapeHtml(error.query)}
-          </span>
+  const openAlexLimited =
+    errors.filter(
+      error =>
+        error.provider ===
+          "OpenAlex" &&
+        /429|temporalmente limitado/i
+          .test(
+            error.message ||
+            ""
+          )
+    );
 
-          <br>
 
-          <code>
-            ${escapeHtml(error.message)}
-          </code>
-        </li>
-      `)
-      .join("");
+  const otherErrors =
+    errors.filter(
+      error =>
+        !openAlexLimited.includes(
+          error
+        )
+    );
+
+
+  const notices = [];
+
+
+  if (
+    openAlexLimited.length
+  ) {
+    notices.push(`
+      <div
+        class="source-notice source-notice-openalex"
+        role="status"
+      >
+
+        <div class="source-notice-icon">
+          OA
+        </div>
+
+
+        <div class="source-notice-copy">
+
+          <div class="source-notice-heading">
+
+            <strong>
+              OpenAlex está temporalmente en pausa
+            </strong>
+
+            <span class="source-status-pill">
+              Límite gratuito temporal
+            </span>
+
+          </div>
+
+
+          <p>
+            La búsqueda continúa con Crossref.
+            Los accesos institucionales siguen
+            disponibles en las fichas.
+          </p>
+
+        </div>
+
+      </div>
+    `);
+  }
+
+
+  if (
+    otherErrors.length
+  ) {
+    const items =
+      otherErrors
+        .map(
+          error => `
+            <li>
+              <strong>
+                ${escapeHtml(
+                  error.provider
+                )}
+              </strong>
+
+              ${
+                error.query
+                  ? `
+                    <span>
+                      · ${escapeHtml(
+                        error.query
+                      )}
+                    </span>
+                  `
+                  : ""
+              }
+
+              <code>
+                ${escapeHtml(
+                  error.message
+                )}
+              </code>
+            </li>
+          `
+        )
+        .join("");
+
+
+    notices.push(`
+      <details class="source-error-details">
+
+        <summary>
+          ${
+            otherErrors.length === 1
+              ? "Una fuente no respondió"
+              : `${otherErrors.length} fuentes no respondieron`
+          }
+        </summary>
+
+        <p>
+          Los resultados disponibles se
+          muestran normalmente.
+        </p>
+
+        <ul>
+          ${items}
+        </ul>
+
+      </details>
+    `);
+  }
+
 
   return `
-    <details class="error" open>
-      <summary>
-        ${errors.length === 1
-          ? "1 petición falló"
-          : `${errors.length} peticiones fallaron`}
-      </summary>
-
-      <p>
-        Los demás resultados se muestran normalmente.
-      </p>
-
-      <ul class="error-list">
-        ${items}
-      </ul>
-    </details>
+    <div class="source-notices">
+      ${notices.join("")}
+    </div>
   `;
 }
 
@@ -2518,7 +3195,7 @@ try {
     await loadMap();
 
   status.textContent =
-    "Motor preparado.";
+    "";
 } catch (error) {
   console.error(error);
 

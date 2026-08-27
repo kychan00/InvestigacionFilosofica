@@ -297,6 +297,34 @@ export async function searchPhilosophy(
     );
 
 
+    /*
+     * Si OpenAlex ha limitado esta búsqueda,
+     * continuamos las siguientes expansiones
+     * únicamente con las demás fuentes.
+     *
+     * Esto evita que un 429 bloquee toda
+     * la experiencia durante varios segundos.
+     */
+    const openAlexRateLimited =
+      batch.errors.some(
+        error =>
+          error.provider ===
+            "OpenAlex" &&
+          /429|temporalmente limitado/i
+            .test(
+              error.message || ""
+            )
+      );
+
+
+    if (
+      openAlexRateLimited
+    ) {
+      settings.openAlex.enabled =
+        false;
+    }
+
+
     if (
       typeof settings.onProgress ===
       "function"
