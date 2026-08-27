@@ -1,0 +1,37 @@
+name: Sample OpenAlex philosophy concepts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install duckdb huggingface_hub
+
+      - name: Sample philosophy concepts
+        run: |
+          python scripts/openalex/sample_philosophy_concept_records.py
+
+      - name: Upload sample
+        uses: actions/upload-artifact@v4
+        with:
+          name: openalex-philosophy-concept-sample
+          retention-days: 30
+          compression-level: 0
+          path: |
+            artifacts/openalex/philosophy-concept-record-sample.parquet
+            artifacts/openalex/philosophy-concept-record-sample-summary.json
