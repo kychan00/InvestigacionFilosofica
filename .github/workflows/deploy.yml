@@ -17,7 +17,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Run tests
+        run: npm test
+
+
   deploy:
+    needs:
+      - test
+
     runs-on: ubuntu-latest
 
     environment:
