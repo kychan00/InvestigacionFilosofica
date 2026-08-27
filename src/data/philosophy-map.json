@@ -1,0 +1,642 @@
+{
+  "areas": [
+    {
+      "id": "MET",
+      "name_es": "Metafísica",
+      "name_en": "Metaphysics",
+      "aliases_es": [
+        "ontología",
+        "filosofía del ser"
+      ],
+      "aliases_en": [
+        "ontology",
+        "philosophy of being"
+      ]
+    },
+    {
+      "id": "EPI",
+      "name_es": "Epistemología",
+      "name_en": "Epistemology",
+      "aliases_es": [
+        "teoría del conocimiento",
+        "gnoseología"
+      ],
+      "aliases_en": [
+        "theory of knowledge"
+      ]
+    },
+    {
+      "id": "ETH",
+      "name_es": "Ética",
+      "name_en": "Ethics",
+      "aliases_es": [
+        "filosofía moral",
+        "moral"
+      ],
+      "aliases_en": [
+        "moral philosophy"
+      ]
+    },
+    {
+      "id": "POL",
+      "name_es": "Filosofía política",
+      "name_en": "Political philosophy",
+      "aliases_es": [
+        "filosofía de la política"
+      ],
+      "aliases_en": [
+        "political theory"
+      ]
+    },
+    {
+      "id": "MIND",
+      "name_es": "Filosofía de la mente",
+      "name_en": "Philosophy of mind",
+      "aliases_es": [],
+      "aliases_en": []
+    },
+    {
+      "id": "SCI",
+      "name_es": "Filosofía de la ciencia",
+      "name_en": "Philosophy of science",
+      "aliases_es": [
+        "epistemología de la ciencia"
+      ],
+      "aliases_en": [
+        "scientific epistemology"
+      ]
+    },
+    {
+      "id": "LANG",
+      "name_es": "Filosofía del lenguaje",
+      "name_en": "Philosophy of language",
+      "aliases_es": [],
+      "aliases_en": []
+    },
+    {
+      "id": "LOG",
+      "name_es": "Lógica",
+      "name_en": "Logic",
+      "aliases_es": [
+        "lógica filosófica"
+      ],
+      "aliases_en": [
+        "philosophical logic"
+      ]
+    },
+    {
+      "id": "AES",
+      "name_es": "Estética",
+      "name_en": "Aesthetics",
+      "aliases_es": [
+        "filosofía del arte"
+      ],
+      "aliases_en": [
+        "philosophy of art"
+      ]
+    },
+    {
+      "id": "PHEN",
+      "name_es": "Fenomenología",
+      "name_en": "Phenomenology",
+      "aliases_es": [],
+      "aliases_en": []
+    },
+    {
+      "id": "EXI",
+      "name_es": "Existencialismo",
+      "name_en": "Existentialism",
+      "aliases_es": [],
+      "aliases_en": []
+    },
+    {
+      "id": "LAW",
+      "name_es": "Filosofía del derecho",
+      "name_en": "Philosophy of law",
+      "aliases_es": [],
+      "aliases_en": [
+        "jurisprudence"
+      ]
+    },
+    {
+      "id": "REL",
+      "name_es": "Filosofía de la religión",
+      "name_en": "Philosophy of religion",
+      "aliases_es": [],
+      "aliases_en": []
+    },
+    {
+      "id": "TECH",
+      "name_es": "Filosofía de la tecnología",
+      "name_en": "Philosophy of technology",
+      "aliases_es": [
+        "filosofía de la técnica"
+      ],
+      "aliases_en": [
+        "philosophy of technique"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "freedom",
+      "name_es": "Libertad",
+      "name_en": "Freedom",
+      "aliases_es": [
+        "autonomía"
+      ],
+      "aliases_en": [
+        "liberty",
+        "autonomy"
+      ],
+      "areas": [
+        "ETH",
+        "POL",
+        "MET"
+      ]
+    },
+    {
+      "id": "free_will",
+      "name_es": "Libre albedrío",
+      "name_en": "Free will",
+      "aliases_es": [
+        "libertad de la voluntad"
+      ],
+      "aliases_en": [
+        "freedom of the will"
+      ],
+      "areas": [
+        "ETH",
+        "MET",
+        "MIND"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "name_es": "Conocimiento",
+      "name_en": "Knowledge",
+      "aliases_es": [
+        "saber"
+      ],
+      "aliases_en": [],
+      "areas": [
+        "EPI"
+      ]
+    },
+    {
+      "id": "truth",
+      "name_es": "Verdad",
+      "name_en": "Truth",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "EPI",
+        "LANG"
+      ]
+    },
+    {
+      "id": "justice",
+      "name_es": "Justicia",
+      "name_en": "Justice",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "POL",
+        "ETH",
+        "LAW"
+      ]
+    },
+    {
+      "id": "mind_body",
+      "name_es": "Problema mente-cuerpo",
+      "name_en": "Mind-body problem",
+      "aliases_es": [
+        "alma cuerpo",
+        "alma y cuerpo",
+        "cuerpo mente",
+        "dualismo mente cuerpo",
+        "mente cuerpo"
+      ],
+      "aliases_en": [
+        "body mind problem",
+        "cartesian dualism",
+        "mind and body",
+        "mind body dualism",
+        "mind body problem"
+      ],
+      "areas": [
+        "MIND",
+        "MET"
+      ]
+    },
+    {
+      "id": "causality",
+      "name_es": "Causalidad",
+      "name_en": "Causality",
+      "aliases_es": [
+        "causa"
+      ],
+      "aliases_en": [
+        "causation"
+      ],
+      "areas": [
+        "MET",
+        "EPI",
+        "SCI"
+      ]
+    },
+    {
+      "id": "being",
+      "name_es": "Ser",
+      "name_en": "Being",
+      "aliases_es": [
+        "existencia"
+      ],
+      "aliases_en": [
+        "existence"
+      ],
+      "areas": [
+        "MET",
+        "EXI"
+      ]
+    },
+    {
+      "id": "language",
+      "name_es": "Lenguaje",
+      "name_en": "Language",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "LANG"
+      ]
+    },
+    {
+      "id": "virtue",
+      "name_es": "Virtud",
+      "name_en": "Virtue",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "ETH"
+      ]
+    },
+    {
+      "id": "determinism",
+      "name_es": "Determinismo",
+      "name_en": "Determinism",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "MET",
+        "ETH",
+        "MIND"
+      ]
+    },
+    {
+      "id": "autonomy",
+      "name_es": "Autonomía",
+      "name_en": "Autonomy",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "ETH",
+        "POL"
+      ]
+    },
+    {
+      "id": "categorical_imperative",
+      "name_es": "Imperativo categórico",
+      "name_en": "Categorical imperative",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "ETH"
+      ]
+    },
+    {
+      "id": "duty",
+      "name_es": "Deber",
+      "name_en": "Duty",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "ETH"
+      ]
+    },
+    {
+      "id": "moral_law",
+      "name_es": "Ley moral",
+      "name_en": "Moral law",
+      "aliases_es": [],
+      "aliases_en": [],
+      "areas": [
+        "ETH"
+      ]
+    }
+  ],
+  "philosophers": [
+    {
+      "id": "plato",
+      "name": "Plato",
+      "aliases": [
+        "Platón"
+      ],
+      "areas": [
+        "MET",
+        "EPI",
+        "ETH",
+        "POL"
+      ]
+    },
+    {
+      "id": "aristotle",
+      "name": "Aristotle",
+      "aliases": [
+        "Aristóteles"
+      ],
+      "areas": [
+        "MET",
+        "ETH",
+        "LOG",
+        "POL"
+      ]
+    },
+    {
+      "id": "descartes",
+      "name": "René Descartes",
+      "aliases": [
+        "Descartes"
+      ],
+      "areas": [
+        "MET",
+        "EPI",
+        "MIND"
+      ]
+    },
+    {
+      "id": "hume",
+      "name": "David Hume",
+      "aliases": [
+        "Hume"
+      ],
+      "areas": [
+        "EPI",
+        "ETH",
+        "MET"
+      ]
+    },
+    {
+      "id": "kant",
+      "name": "Immanuel Kant",
+      "aliases": [
+        "Kant"
+      ],
+      "areas": [
+        "EPI",
+        "MET",
+        "ETH",
+        "AES",
+        "POL"
+      ],
+      "concepts": [
+        "freedom",
+        "autonomy",
+        "categorical_imperative",
+        "duty",
+        "moral_law"
+      ],
+      "works": [
+        "kant_cpr",
+        "kant_cpractical",
+        "kant_groundwork"
+      ]
+    },
+    {
+      "id": "hegel",
+      "name": "Georg Wilhelm Friedrich Hegel",
+      "aliases": [
+        "Hegel"
+      ],
+      "areas": [
+        "MET",
+        "POL",
+        "AES"
+      ]
+    },
+    {
+      "id": "nietzsche",
+      "name": "Friedrich Nietzsche",
+      "aliases": [
+        "Nietzsche"
+      ],
+      "areas": [
+        "ETH",
+        "AES",
+        "EXI"
+      ]
+    },
+    {
+      "id": "husserl",
+      "name": "Edmund Husserl",
+      "aliases": [
+        "Husserl"
+      ],
+      "areas": [
+        "PHEN",
+        "EPI",
+        "MIND"
+      ]
+    },
+    {
+      "id": "heidegger",
+      "name": "Martin Heidegger",
+      "aliases": [
+        "Heidegger"
+      ],
+      "areas": [
+        "MET",
+        "PHEN",
+        "EXI",
+        "TECH"
+      ]
+    },
+    {
+      "id": "wittgenstein",
+      "name": "Ludwig Wittgenstein",
+      "aliases": [
+        "Wittgenstein"
+      ],
+      "areas": [
+        "LANG",
+        "LOG",
+        "EPI"
+      ]
+    },
+    {
+      "id": "rawls",
+      "name": "John Rawls",
+      "aliases": [
+        "Rawls"
+      ],
+      "areas": [
+        "POL",
+        "ETH",
+        "LAW"
+      ]
+    },
+    {
+      "id": "popper",
+      "name": "Karl Popper",
+      "aliases": [
+        "Popper"
+      ],
+      "areas": [
+        "SCI",
+        "EPI",
+        "POL"
+      ]
+    }
+  ],
+  "traditions": [
+    {
+      "id": "rationalism",
+      "name_es": "Racionalismo",
+      "name_en": "Rationalism"
+    },
+    {
+      "id": "empiricism",
+      "name_es": "Empirismo",
+      "name_en": "Empiricism"
+    },
+    {
+      "id": "phenomenology",
+      "name_es": "Fenomenología",
+      "name_en": "Phenomenology"
+    },
+    {
+      "id": "existentialism",
+      "name_es": "Existencialismo",
+      "name_en": "Existentialism"
+    },
+    {
+      "id": "analytic",
+      "name_es": "Filosofía analítica",
+      "name_en": "Analytic philosophy"
+    },
+    {
+      "id": "continental",
+      "name_es": "Filosofía continental",
+      "name_en": "Continental philosophy"
+    }
+  ],
+  "works": [
+    {
+      "id": "kant_cpr",
+      "author": "kant",
+      "canonical_title": "Critique of Pure Reason",
+      "titles": {
+        "en": [
+          "Critique of Pure Reason"
+        ],
+        "es": [
+          "Crítica de la razón pura"
+        ],
+        "de": [
+          "Kritik der reinen Vernunft"
+        ]
+      },
+      "areas": [
+        "EPI",
+        "MET"
+      ]
+    },
+    {
+      "id": "heidegger_bt",
+      "author": "heidegger",
+      "canonical_title": "Being and Time",
+      "titles": {
+        "en": [
+          "Being and Time"
+        ],
+        "es": [
+          "Ser y tiempo"
+        ],
+        "de": [
+          "Sein und Zeit"
+        ]
+      },
+      "areas": [
+        "MET",
+        "PHEN",
+        "EXI"
+      ]
+    },
+    {
+      "id": "rawls_toj",
+      "author": "rawls",
+      "canonical_title": "A Theory of Justice",
+      "titles": {
+        "en": [
+          "A Theory of Justice"
+        ],
+        "es": [
+          "Teoría de la justicia"
+        ]
+      },
+      "areas": [
+        "POL",
+        "ETH"
+      ]
+    },
+    {
+      "id": "kant_cpractical",
+      "author": "kant",
+      "canonical_title": "Critique of Practical Reason",
+      "titles": {
+        "en": [
+          "Critique of Practical Reason"
+        ],
+        "es": [
+          "Crítica de la razón práctica"
+        ],
+        "de": [
+          "Kritik der praktischen Vernunft"
+        ]
+      },
+      "areas": [
+        "ETH"
+      ],
+      "concepts": [
+        "freedom",
+        "autonomy",
+        "duty",
+        "moral_law"
+      ]
+    },
+    {
+      "id": "kant_groundwork",
+      "author": "kant",
+      "canonical_title": "Groundwork of the Metaphysics of Morals",
+      "titles": {
+        "en": [
+          "Groundwork of the Metaphysics of Morals"
+        ],
+        "es": [
+          "Fundamentación de la metafísica de las costumbres"
+        ],
+        "de": [
+          "Grundlegung zur Metaphysik der Sitten"
+        ]
+      },
+      "areas": [
+        "ETH"
+      ],
+      "concepts": [
+        "freedom",
+        "autonomy",
+        "categorical_imperative",
+        "duty"
+      ]
+    }
+  ]
+}
