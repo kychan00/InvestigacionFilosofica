@@ -733,6 +733,7 @@ export function buildInternetArchiveSearchUrl(
     "description",
     "publisher",
     "isbn",
+    "collection",
     "downloads",
     "mediatype"
   ];
@@ -916,7 +917,15 @@ export function normalizeInternetArchiveItem(
             downloads
           )
             ? downloads
-            : null
+            : null,
+
+        collections:
+          valuesOf(
+            item.collection
+          )
+            .map(cleanText)
+            .filter(Boolean)
+            .slice(0, 8)
       }
     ],
 

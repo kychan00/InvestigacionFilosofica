@@ -22,6 +22,10 @@ import {
   searchCrossref
 } from "../sources/crossref.js";
 
+import {
+  searchInternetArchive
+} from "../sources/internet-archive.js";
+
 
 function sleep(ms) {
   return new Promise(
@@ -40,6 +44,11 @@ const DEFAULT_OPTIONS = {
   },
 
   crossref: {
+    enabled: true,
+    rows: 6
+  },
+
+  internetArchive: {
     enabled: true,
     rows: 6
   },
@@ -63,6 +72,11 @@ function mergeOptions(
     crossref: {
       ...DEFAULT_OPTIONS.crossref,
       ...(options.crossref || {})
+    },
+
+    internetArchive: {
+      ...DEFAULT_OPTIONS.internetArchive,
+      ...(options.internetArchive || {})
     }
   };
 }
@@ -115,6 +129,31 @@ async function searchExpansion(
             mailto:
               options.crossref.mailto ||
               null
+          }
+        )
+    });
+  }
+
+
+  if (
+    options.internetArchive.enabled
+  ) {
+    jobs.push({
+      provider:
+        "Internet Archive",
+
+      promise:
+        searchInternetArchive(
+          expansion,
+          {
+            rows:
+              options.internetArchive.rows,
+
+            page:
+              1,
+
+            signal:
+              options.signal
           }
         )
     });
@@ -539,6 +578,31 @@ export async function searchMorePhilosophy(
               mailto:
                 settings.crossref.mailto ||
                 null
+            }
+          )
+      });
+    }
+
+
+    if (
+      settings.internetArchive.enabled
+    ) {
+      jobs.push({
+        provider:
+          "Internet Archive",
+
+        promise:
+          searchInternetArchive(
+            expansion,
+            {
+              rows:
+                settings.internetArchive.rows,
+
+              page:
+                nextBatch,
+
+              signal:
+                settings.signal
             }
           )
       });

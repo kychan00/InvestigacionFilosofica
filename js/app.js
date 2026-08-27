@@ -476,6 +476,199 @@ function recordId(item) {
 }
 
 
+function recordTypeLabel(
+  item
+) {
+  const type =
+    String(
+      item.type || ""
+    )
+      .toLowerCase();
+
+
+  const labels = {
+    "archive-text":
+      "Libro / texto digitalizado",
+
+    "journal-article":
+      "Artículo académico",
+
+    "article":
+      "Artículo académico",
+
+    "book":
+      "Libro",
+
+    "book-chapter":
+      "Capítulo de libro",
+
+    "proceedings-article":
+      "Ponencia / actas",
+
+    "dissertation":
+      "Tesis",
+
+    "posted-content":
+      "Documento académico"
+  };
+
+
+  return (
+    labels[type] ||
+    item.type ||
+    "Documento"
+  );
+}
+
+
+function recordMetadataCards(
+  item
+) {
+  const cards = [];
+
+
+  const add = (
+    label,
+    value
+  ) => {
+    if (
+      value === null ||
+      value === undefined ||
+      value === "" ||
+      value === "—"
+    ) {
+      return;
+    }
+
+
+    cards.push(`
+      <div class="cinematic-meta-card">
+        <span>
+          ${escapeHtml(label)}
+        </span>
+
+        <strong>
+          ${escapeHtml(
+            String(value)
+          )}
+        </strong>
+      </div>
+    `);
+  };
+
+
+  const authors =
+    (item.authors || [])
+      .map(
+        author =>
+          author.name
+      )
+      .filter(Boolean)
+      .join(", ");
+
+
+  add(
+    "Autores",
+    authors
+  );
+
+
+  if (item.journal) {
+    add(
+      "Revista / fuente",
+      item.journal
+    );
+  }
+
+
+  if (item.publisher) {
+    add(
+      "Editorial",
+      item.publisher
+    );
+  }
+
+
+  if (item.doi) {
+    add(
+      "DOI",
+      item.doi
+    );
+  }
+
+
+  if (
+    item.isbn?.length
+  ) {
+    add(
+      "ISBN",
+      item.isbn.join(", ")
+    );
+  }
+
+
+  /*
+   * Metadatos específicos de
+   * Internet Archive.
+   */
+  const archiveSource =
+    (item.sourceRecords || [])
+      .find(
+        source =>
+          source.provider ===
+          "Internet Archive"
+      );
+
+
+  if (archiveSource) {
+    add(
+      "Identificador IA",
+      archiveSource.sourceId
+    );
+
+
+    if (
+      archiveSource.downloads !==
+      null &&
+      archiveSource.downloads !==
+      undefined
+    ) {
+      add(
+        "Descargas",
+        Number(
+          archiveSource.downloads
+        ).toLocaleString("es-MX")
+      );
+    }
+
+
+    if (
+      archiveSource.collections?.length
+    ) {
+      add(
+        "Colección",
+        archiveSource.collections
+          .slice(0, 3)
+          .join(" · ")
+      );
+    }
+  }
+
+
+  if (
+    item.providers?.length
+  ) {
+    add(
+      "Proveedores",
+      item.providers.join(" · ")
+    );
+  }
+
+
+  return cards.join("");
+}
+
+
 function renderRecordDetails(
   item
 ) {
@@ -886,8 +1079,9 @@ function renderRecordDetails(
 
               <strong>
                 ${escapeHtml(
-                  item.type ||
-                  "—"
+                  recordTypeLabel(
+                    item
+                  )
                 )}
               </strong>
             </div>
@@ -932,95 +1126,7 @@ function renderRecordDetails(
 
 
             <div class="cinematic-metadata-grid">
-
-              <div class="cinematic-meta-card">
-                <span>
-                  Autores
-                </span>
-
-                <strong>
-                  ${
-                    authors
-                      ? escapeHtml(
-                          authors
-                        )
-                      : "—"
-                  }
-                </strong>
-              </div>
-
-
-              <div class="cinematic-meta-card">
-                <span>
-                  Revista / fuente
-                </span>
-
-                <strong>
-                  ${escapeHtml(
-                    item.journal ||
-                    "—"
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="cinematic-meta-card">
-                <span>
-                  Editorial
-                </span>
-
-                <strong>
-                  ${escapeHtml(
-                    item.publisher ||
-                    "—"
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="cinematic-meta-card">
-                <span>
-                  DOI
-                </span>
-
-                <strong>
-                  ${escapeHtml(
-                    item.doi ||
-                    "—"
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="cinematic-meta-card">
-                <span>
-                  ISBN
-                </span>
-
-                <strong>
-                  ${escapeHtml(
-                    isbn
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="cinematic-meta-card">
-                <span>
-                  Proveedores
-                </span>
-
-                <strong>
-                  ${
-                    providers
-                      ? escapeHtml(
-                          providers
-                        )
-                      : "—"
-                  }
-                </strong>
-              </div>
-
+              ${recordMetadataCards(item)}
             </div>
 
           </section>
