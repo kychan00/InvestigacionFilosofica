@@ -1,0 +1,75 @@
+name: Inspect OpenAlex snapshot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install duckdb huggingface_hub
+
+      - name: Build remote manifest
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from huggingface_hub import HfApi
+          from huggingface_hub.hf_api import RepoFile
+
+          api = HfApi()
+
+          entries = api.list_repo_tree(
+              repo_id="Mearman/OpenAlex",
+              repo_type="dataset",
+              path_in_repo="data/works/main",
+              recursive=True,
+              expand=False,
+              revision="main",
+              token=False,
+          )
+
+          files = []
+
+          for entry in entries:
+              if (
+                  isinstance(entry, RepoFile)
+                  and
+                  entry.path.endswith(".parquet")
+              ):
+                  files.append({
+                      "path": entry.path,
+                      "size": int(
+                          entry.size or 0
+                      ),
+                  })
+
+          Path(
+              "/tmp/openalex-work-main-files.json"
+          ).write_text(
+              json.dumps(
+                  files,
+                  indent=2
+              )
+          )
+
+          print(
+              f"Manifest: {len(files)} shards"
+          )
+          PY
+
+      - name: Inspect one remote shard
+        run: |
+          python scripts/openalex/inspect_remote.py
