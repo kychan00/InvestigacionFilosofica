@@ -13,6 +13,9 @@ test(
       title:
         "Critique of Pure Reason",
 
+      language:
+        "en",
+
       authors: [
         {
           name:
@@ -30,7 +33,7 @@ test(
 
     assert.equal(
       links.length,
-      2
+      3
     );
 
 
@@ -41,7 +44,6 @@ test(
           "udeg-summon"
       );
 
-
     const ebook =
       links.find(
         item =>
@@ -49,9 +51,17 @@ test(
           "ebook-central"
       );
 
+    const britannica =
+      links.find(
+        item =>
+          item.id ===
+          "britannica-udeg"
+      );
+
 
     assert.ok(summon);
     assert.ok(ebook);
+    assert.ok(britannica);
 
 
     assert.equal(
@@ -66,6 +76,12 @@ test(
     );
 
 
+    assert.equal(
+      britannica.query,
+      "Critique of Pure Reason"
+    );
+
+
     assert.match(
       ebook.url,
       /ebookcentral-proquest-com\.wdg\.biblio\.udg\.mx/
@@ -73,8 +89,20 @@ test(
 
 
     assert.match(
-      ebook.url,
-      /query=Critique%20of%20Pure%20Reason%20Immanuel%20Kant/
+      britannica.url,
+      /academic-eb-com\.wdg\.biblio\.udg\.mx/
+    );
+
+
+    assert.match(
+      britannica.url,
+      /query=Critique%20of%20Pure%20Reason/
+    );
+
+
+    assert.doesNotMatch(
+      britannica.url,
+      /Immanuel%20Kant/
     );
 
 
@@ -87,6 +115,58 @@ test(
     assert.doesNotMatch(
       ebook.url,
       /pageSize=/
+    );
+  }
+);
+
+
+test(
+  "Britannica se oculta para registros en español",
+  () => {
+    const links =
+      buildInstitutionalLinks({
+        title:
+          "La crítica de la razón pura y la filosofía trascendental",
+
+        language:
+          "es",
+
+        authors: [
+          {
+            name:
+              "Immanuel Kant"
+          }
+        ]
+      });
+
+
+    assert.equal(
+      links.some(
+        link =>
+          link.id ===
+          "britannica-udeg"
+      ),
+      false
+    );
+
+
+    assert.equal(
+      links.some(
+        link =>
+          link.id ===
+          "udeg-summon"
+      ),
+      true
+    );
+
+
+    assert.equal(
+      links.some(
+        link =>
+          link.id ===
+          "ebook-central"
+      ),
+      true
     );
   }
 );

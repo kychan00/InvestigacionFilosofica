@@ -1,4 +1,8 @@
 import {
+  effectiveLanguage
+} from "./language.js";
+
+import {
   institutionalSources
 } from "../data/institutional-sources.js";
 
@@ -64,9 +68,35 @@ export function buildInstitutionalLinks(
 ) {
   return institutionalSources
     .filter(
-      source =>
-        source.enabled &&
-        source.searchUrl
+      source => {
+        if (
+          !source.enabled ||
+          !source.searchUrl
+        ) {
+          return false;
+        }
+
+
+        if (
+          source.languages?.length
+        ) {
+          const language =
+            effectiveLanguage(
+              item
+            );
+
+
+          return (
+            language &&
+            source.languages.includes(
+              language
+            )
+          );
+        }
+
+
+        return true;
+      }
     )
     .map(
       source => {

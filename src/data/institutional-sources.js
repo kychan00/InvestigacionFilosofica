@@ -20,8 +20,11 @@ export const institutionalSources = [
     id: "britannica-udeg",
     name: "Britannica UdeG",
     mode: "institutional",
-    enabled: false,
-    searchUrl: null
+    enabled: true,
+    searchUrl:
+      "https://academic-eb-com.wdg.biblio.udg.mx:8443/levels/collegiate/search/articles?query={query}",
+    queryMode: "title",
+    languages: ["en"]
   },
 
   {
