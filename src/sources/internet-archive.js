@@ -313,6 +313,385 @@ function safeSearchQuery(
 }
 
 
+const ARCHIVE_STOPWORDS =
+  new Set([
+    "a",
+    "an",
+    "and",
+    "the",
+    "of",
+    "in",
+    "on",
+    "for",
+    "to",
+    "with",
+
+    "de",
+    "del",
+    "la",
+    "las",
+    "el",
+    "los",
+    "en",
+    "y",
+    "por",
+    "para",
+    "un",
+    "una",
+    "sobre"
+  ]);
+
+
+function normalizeSearchText(
+  value
+) {
+  return String(
+    value || ""
+  )
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .toLowerCase()
+    .replace(
+      /[^a-z0-9]+/g,
+      " "
+    )
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .trim();
+}
+
+
+function archiveQueryTokens(
+  query
+) {
+  return [
+    ...new Set(
+      normalizeSearchText(
+        query
+      )
+        .split(" ")
+        .filter(
+          token =>
+            token.length > 1 &&
+            !ARCHIVE_STOPWORDS.has(
+              token
+            )
+        )
+    )
+  ].slice(
+    0,
+    12
+  );
+}
+
+
+function archiveRetrievalScore(
+  item,
+  query
+) {
+  const tokens =
+    archiveQueryTokens(
+      query
+    );
+
+
+  if (!tokens.length) {
+    return 0;
+  }
+
+
+  const title =
+    normalizeSearchText(
+      item.title
+    );
+
+
+  const authors =
+    normalizeSearchText(
+      (item.authors || [])
+        .map(
+          author =>
+            author.name
+        )
+        .join(" ")
+    );
+
+
+  const subjects =
+    normalizeSearchText(
+      (item.topics || [])
+        .map(
+          topic =>
+            topic.name
+        )
+        .join(" ")
+    );
+
+
+  const description =
+    normalizeSearchText(
+      item.abstract
+    );
+
+
+  let score = 0;
+  let matched = 0;
+
+
+  for (
+    const token of tokens
+  ) {
+    let tokenMatched =
+      false;
+
+
+    if (
+      title.includes(
+        token
+      )
+    ) {
+      score += 6;
+      tokenMatched = true;
+    }
+
+
+    if (
+      authors.includes(
+        token
+      )
+    ) {
+      score += 5;
+      tokenMatched = true;
+    }
+
+
+    if (
+      subjects.includes(
+        token
+      )
+    ) {
+      score += 3;
+      tokenMatched = true;
+    }
+
+
+    if (
+      description.includes(
+        token
+      )
+    ) {
+      score += 1;
+      tokenMatched = true;
+    }
+
+
+    if (
+      tokenMatched
+    ) {
+      matched += 1;
+    }
+  }
+
+
+  const coverage =
+    matched /
+    tokens.length;
+
+
+  score +=
+    coverage *
+    12;
+
+
+  const bibliographicText =
+    [
+      title,
+      authors,
+      subjects
+    ].join(" ");
+
+
+  if (
+    tokens.every(
+      token =>
+        bibliographicText.includes(
+          token
+        )
+    )
+  ) {
+    score += 15;
+  }
+
+
+  const titleMatches =
+    tokens.filter(
+      token =>
+        title.includes(
+          token
+        )
+    ).length;
+
+
+  if (
+    titleMatches >= 2
+  ) {
+    score +=
+      titleMatches * 3;
+  }
+
+
+  /*
+   * 1. Alineación con autor.
+   *
+   * Si uno de los términos de la consulta
+   * aparece realmente en el campo creator,
+   * damos un premio fuerte.
+   *
+   * Esto ayuda a:
+   *   Kant -> Immanuel Kant
+   *   Heidegger -> Martin Heidegger
+   *   Plato -> Plato
+   *
+   * y evita que un comentario SOBRE Kant
+   * supere tan fácilmente a una obra DE Kant.
+   */
+  const authorMatches =
+    tokens.filter(
+      token =>
+        authors.includes(
+          token
+        )
+    ).length;
+
+
+  if (
+    authorMatches > 0
+  ) {
+    score +=
+      16 +
+      (
+        authorMatches *
+        3
+      );
+  }
+
+
+  /*
+   * 2. Pureza / concentración del título.
+   *
+   * "Critique of Pure Reason"
+   * debe recibir más que:
+   *
+   * "An Introduction and Interpretation
+   *  of Kant's Critique of Pure Reason"
+   *
+   * aunque ambos contengan los términos.
+   */
+  const titleTokens =
+    normalizeSearchText(
+      item.title
+    )
+      .split(" ")
+      .filter(Boolean);
+
+
+  if (
+    titleTokens.length &&
+    titleMatches
+  ) {
+    const concentration =
+      titleMatches /
+      titleTokens.length;
+
+
+    score +=
+      concentration *
+      20;
+  }
+
+
+  /*
+   * 3. Indicadores de literatura secundaria.
+   *
+   * No son malos resultados: simplemente
+   * deben quedar después de la obra primaria
+   * cuando el usuario no pidió explícitamente
+   * "commentary", "introduction", etc.
+   */
+  const secondaryMarkers = [
+    "introduction",
+    "interpretation",
+    "commentary",
+    "companion",
+    "essays",
+    "reflections",
+    "guide",
+    "note",
+    "notes",
+    "study",
+    "studies",
+
+    "introduccion",
+    "interpretacion",
+    "comentario",
+    "comentarios",
+    "ensayos",
+    "reflexiones",
+    "guia",
+    "estudio",
+    "estudios"
+  ];
+
+
+  const queryText =
+    normalizeSearchText(
+      query
+    );
+
+
+  let secondaryPenalty =
+    0;
+
+
+  for (
+    const marker of secondaryMarkers
+  ) {
+    if (
+      title.includes(
+        marker
+      ) &&
+      !queryText.includes(
+        marker
+      )
+    ) {
+      secondaryPenalty +=
+        12;
+    }
+  }
+
+
+  score -=
+    Math.min(
+      secondaryPenalty,
+      24
+    );
+
+
+  return Number(
+    Math.max(
+      0,
+      score
+    ).toFixed(3)
+  );
+}
+
+
+
 export function buildInternetArchiveSearchUrl(
   query,
   options = {}
@@ -740,10 +1119,44 @@ export async function searchInternetArchive(
       : expansion.type;
 
 
+  /*
+   * Internet Archive contiene muchísimo
+   * material y el orden remoto no siempre
+   * es bibliográficamente óptimo.
+   *
+   * Recuperamos varios candidatos en UNA
+   * sola petición y los reordenamos
+   * localmente.
+   */
+  const requestedRows =
+    Math.max(
+      1,
+      Number(
+        options.rows ||
+        10
+      )
+    );
+
+
+  const candidateRows =
+    Math.min(
+      50,
+      Math.max(
+        requestedRows,
+        requestedRows * 4
+      )
+    );
+
+
   const url =
     buildInternetArchiveSearchUrl(
       query,
-      options
+      {
+        ...options,
+
+        rows:
+          candidateRows
+      }
     );
 
 
@@ -763,18 +1176,81 @@ export async function searchInternetArchive(
     [];
 
 
-  return docs.map(
-    (item, index) =>
-      normalizeInternetArchiveItem(
-        item,
-        {
-          query,
-          queryWeight,
-          queryType,
+  const normalized =
+    docs.map(
+      (item, index) =>
+        normalizeInternetArchiveItem(
+          item,
+          {
+            query,
+            queryWeight,
+            queryType,
 
-          rank:
-            index + 1
+            rank:
+              index + 1
+          }
+        )
+    );
+
+
+  const ranked =
+    normalized
+      .map(
+        item => {
+          const score =
+            archiveRetrievalScore(
+              item,
+              query
+            );
+
+
+          if (
+            item.sourceRecords?.[0]
+          ) {
+            item.sourceRecords[0]
+              .retrievalScore =
+              score;
+          }
+
+
+          return {
+            item,
+            score
+          };
         }
       )
+      .sort(
+        (a, b) =>
+          b.score -
+          a.score
+      )
+      .slice(
+        0,
+        requestedRows
+      )
+      .map(
+        entry =>
+          entry.item
+      );
+
+
+  /*
+   * Reescribimos rank para que refleje
+   * la posición después del preranking.
+   */
+  ranked.forEach(
+    (item, index) => {
+      if (
+        item.sourceRecords?.[0]
+      ) {
+        item.sourceRecords[0]
+          .rank =
+          index + 1;
+      }
+    }
   );
+
+
+  return ranked;
 }
+

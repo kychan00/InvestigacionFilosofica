@@ -324,3 +324,256 @@ test(
     }
   }
 );
+
+
+test(
+  "preranking de Archive prioriza coincidencia bibliográfica",
+  async () => {
+    const originalFetch =
+      globalThis.fetch;
+
+    globalThis.fetch =
+      async () => ({
+        ok: true,
+        status: 200,
+
+        headers: {
+          get() {
+            return null;
+          }
+        },
+
+        async json() {
+          return {
+            response: {
+              docs: [
+                {
+                  identifier:
+                    "generic-literature",
+
+                  title:
+                    "World's Great Classics",
+
+                  creator:
+                    "Various",
+
+                  description:
+                    "A collection including Kant and many writers.",
+
+                  subject:
+                    "Literature"
+                },
+
+                {
+                  identifier:
+                    "kant-pure-reason",
+
+                  title:
+                    "Critique of Pure Reason",
+
+                  creator:
+                    "Immanuel Kant",
+
+                  subject:
+                    "Philosophy"
+                }
+              ]
+            }
+          };
+        }
+      });
+
+    try {
+      const results =
+        await searchInternetArchive(
+          "Critique of Pure Reason Kant",
+          {
+            rows: 1,
+            retries: 0
+          }
+        );
+
+      assert.equal(
+        results.length,
+        1
+      );
+
+      assert.equal(
+        results[0].id,
+        "internetarchive:kant-pure-reason"
+      );
+
+      assert.equal(
+        results[0]
+          .sourceRecords[0]
+          .rank,
+        1
+      );
+
+      assert.ok(
+        results[0]
+          .sourceRecords[0]
+          .retrievalScore >
+        0
+      );
+
+    } finally {
+      globalThis.fetch =
+        originalFetch;
+    }
+  }
+);
+
+
+test(
+  "obra primaria de Kant supera comentario",
+  async () => {
+    const originalFetch =
+      globalThis.fetch;
+
+
+    globalThis.fetch =
+      async () => ({
+        ok: true,
+        status: 200,
+
+        headers: {
+          get() {
+            return null;
+          }
+        },
+
+        async json() {
+          return {
+            response: {
+              docs: [
+                {
+                  identifier:
+                    "kant-commentary",
+
+                  title:
+                    "A Commentary to Kant's Critique of Pure Reason",
+
+                  creator:
+                    "Norman Kemp Smith",
+
+                  subject:
+                    "Kant, Immanuel"
+                },
+
+                {
+                  identifier:
+                    "kant-primary",
+
+                  title:
+                    "Critique of Pure Reason",
+
+                  creator:
+                    "Immanuel Kant",
+
+                  subject:
+                    "Philosophy"
+                }
+              ]
+            }
+          };
+        }
+      });
+
+
+    try {
+      const results =
+        await searchInternetArchive(
+          "Critique of Pure Reason Kant",
+          {
+            rows: 2,
+            retries: 0
+          }
+        );
+
+
+      assert.equal(
+        results[0].id,
+        "internetarchive:kant-primary"
+      );
+
+    } finally {
+      globalThis.fetch =
+        originalFetch;
+    }
+  }
+);
+
+
+test(
+  "obra primaria supera introducción cuando no fue solicitada",
+  async () => {
+    const originalFetch =
+      globalThis.fetch;
+
+
+    globalThis.fetch =
+      async () => ({
+        ok: true,
+        status: 200,
+
+        headers: {
+          get() {
+            return null;
+          }
+        },
+
+        async json() {
+          return {
+            response: {
+              docs: [
+                {
+                  identifier:
+                    "plato-introduction",
+
+                  title:
+                    "Plato's Republic: An Introduction",
+
+                  creator:
+                    "Another Author"
+                },
+
+                {
+                  identifier:
+                    "plato-republic",
+
+                  title:
+                    "The Republic of Plato",
+
+                  creator:
+                    "Plato"
+                }
+              ]
+            }
+          };
+        }
+      });
+
+
+    try {
+      const results =
+        await searchInternetArchive(
+          "Republic Plato",
+          {
+            rows: 2,
+            retries: 0
+          }
+        );
+
+
+      assert.equal(
+        results[0].id,
+        "internetarchive:plato-republic"
+      );
+
+    } finally {
+      globalThis.fetch =
+        originalFetch;
+    }
+  }
+);
