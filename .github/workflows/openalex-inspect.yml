@@ -77,3 +77,7 @@ jobs:
       - name: Inspect related OpenAlex tables
         run: |
           python scripts/openalex/inspect_related_tables.py
+
+      - name: Discover Philosophy taxonomy
+        run: |
+          python scripts/openalex/discover_philosophy_taxonomy.py
