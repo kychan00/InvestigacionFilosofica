@@ -110,9 +110,87 @@ BROAD_NAMES = {
     "epistemology",
     "aesthetics",
     "ontology",
+    "contemporary philosophy",
 }
 
 STRONG_NAMES -= BROAD_NAMES
+
+
+# ------------------------------------------------------------
+# Evidencia textual filosófica.
+#
+# Se usa para recuperar trabajos con concept_score moderado
+# cuando el propio título ofrece corroboración independiente.
+# ------------------------------------------------------------
+
+PHILOSOPHY_TITLE_TERMS = {
+    "philosoph",
+    "metaphys",
+    "epistem",
+    "ontolog",
+    "phenomenolog",
+    "existential",
+    "hermeneut",
+    "dialectic",
+    "aesthetic",
+    "ethic",
+    "morality",
+    "moral",
+    "free will",
+    "intentionality",
+    "consciousness",
+    "being",
+    "knowledge",
+    "truth",
+    "virtue",
+    "justice",
+    "rationality",
+    "subjectivity",
+    "objectivity",
+    "normativity",
+    "pragmatism",
+    "utilitarian",
+    "deontolog",
+    "kant",
+    "hegel",
+    "heidegger",
+    "husserl",
+    "nietzsche",
+    "wittgenstein",
+    "aristotle",
+    "plato",
+    "socrates",
+    "descartes",
+    "hume",
+    "spinoza",
+    "leibniz",
+    "locke",
+    "rousseau",
+    "kierkegaard",
+    "sartre",
+    "beauvoir",
+    "foucault",
+    "derrida",
+    "deleuze",
+    "rawls",
+    "habermas",
+    "marx",
+    "whitehead",
+}
+
+
+AMBIGUOUS_CONCEPT_NAMES = {
+    "phenomenology (philosophy)",
+    "existentialism",
+    "philosophy of medicine",
+    "philosophy of biology",
+    "philosophy of computer science",
+    "philosophy of technology",
+    "environmental philosophy",
+    "applied philosophy",
+    "social philosophy",
+}
+
 
 
 api = HfApi()
@@ -774,7 +852,274 @@ examples(
 
 
 # ------------------------------------------------------------
-# 6. Guardar
+# 6. Puerta de calidad
+# ------------------------------------------------------------
+
+print()
+print("=" * 78)
+print("PUERTA DE CALIDAD")
+print("=" * 78)
+
+
+title_terms_sql = ", ".join(
+    "'%"
+    +
+    term.replace(
+        "'",
+        "''"
+    )
+    +
+    "%'"
+    for term in sorted(
+        PHILOSOPHY_TITLE_TERMS
+    )
+)
+
+
+ambiguous_ids = sorted(
+    concept_id
+    for concept_id, name
+    in concept_names.items()
+    if name.lower()
+    in AMBIGUOUS_CONCEPT_NAMES
+)
+
+
+ambiguous_sql = ", ".join(
+    str(value)
+    for value in ambiguous_ids
+)
+
+
+if not ambiguous_sql:
+    ambiguous_sql = "-1"
+
+
+title_signal = " OR ".join(
+    "lower(coalesce(title, '')) LIKE "
+    +
+    "'%"
+    +
+    term.replace(
+        "'",
+        "''"
+    )
+    +
+    "%'"
+    for term in sorted(
+        PHILOSOPHY_TITLE_TERMS
+    )
+)
+
+
+con.execute(
+    f"""
+    CREATE TABLE evaluated AS
+
+    SELECT
+        *,
+
+        CASE
+
+            -- Conceptos ambiguos necesitan una segunda señal.
+            WHEN primary_concept_id IN (
+                {ambiguous_sql}
+            )
+            THEN (
+                (
+                    concept_score >= 0.50
+                    AND philosophy_concept_count >= 2
+                )
+                OR
+                (
+                    concept_score >= 0.15
+                    AND (
+                        {title_signal}
+                    )
+                )
+            )
+
+            -- Conceptos filosóficos específicos:
+            -- score alto basta.
+            WHEN concept_score >= 0.50
+            THEN true
+
+            -- Dos o más señales conceptuales independientes.
+            WHEN
+                concept_score >= 0.30
+                AND philosophy_concept_count >= 2
+            THEN true
+
+            -- Score moderado + corroboración textual.
+            WHEN
+                concept_score >= 0.15
+                AND (
+                    {title_signal}
+                )
+            THEN true
+
+            ELSE false
+        END
+            AS accepted
+
+    FROM records
+    """
+)
+
+
+accepted = con.execute(
+    """
+    SELECT count(*)
+    FROM evaluated
+    WHERE accepted
+    """
+).fetchone()[0]
+
+
+rejected = con.execute(
+    """
+    SELECT count(*)
+    FROM evaluated
+    WHERE NOT accepted
+    """
+).fetchone()[0]
+
+
+print(
+    "Aceptados:",
+    f"{accepted:,}"
+)
+
+print(
+    "Rechazados:",
+    f"{rejected:,}"
+)
+
+print(
+    "Retención:",
+    f"{accepted / max(total, 1) * 100:.1f}%"
+)
+
+
+print()
+print("ACEPTADOS POR REGLA")
+print("-" * 78)
+
+
+rules = con.execute(
+    f"""
+    SELECT
+        CASE
+            WHEN concept_score >= 0.50
+                THEN 'score>=0.50'
+
+            WHEN
+                concept_score >= 0.30
+                AND philosophy_concept_count >= 2
+                THEN 'multi-concept'
+
+            WHEN (
+                {title_signal}
+            )
+                THEN 'title-evidence'
+
+            ELSE 'other'
+        END AS reason,
+
+        count(*) AS n
+
+    FROM evaluated
+
+    WHERE accepted
+
+    GROUP BY reason
+
+    ORDER BY n DESC
+    """
+).fetchall()
+
+
+for reason, count in rules:
+
+    print(
+        f"{reason:20} "
+        f"{count:9,}"
+    )
+
+
+def show_quality_examples(
+    accepted_value,
+    label,
+    limit=25,
+):
+
+    print()
+    print("=" * 78)
+    print(label)
+    print("=" * 78)
+
+    rows = con.execute(
+        """
+        SELECT
+            concept_score,
+            philosophy_concept_count,
+            primary_concept_id,
+            publication_year,
+            language,
+            title
+
+        FROM evaluated
+
+        WHERE accepted = ?
+
+        ORDER BY
+            hash(work_id)
+
+        LIMIT ?
+        """,
+        [
+            accepted_value,
+            limit,
+        ]
+    ).fetchall()
+
+
+    for row in rows:
+
+        title = " ".join(
+            str(
+                row[5]
+                or "(sin título)"
+            ).split()
+        )
+
+        concept = concept_names.get(
+            int(row[2]),
+            "?"
+        )
+
+        print(
+            f"{row[0]:.3f}  "
+            f"n={row[1]}  "
+            f"{str(row[3] or '----'):4}  "
+            f"{concept[:30]:30}  "
+            f"{title[:115]}"
+        )
+
+
+show_quality_examples(
+    True,
+    "MUESTRA ACEPTADA"
+)
+
+show_quality_examples(
+    False,
+    "MUESTRA RECHAZADA"
+)
+
+
+# ------------------------------------------------------------
+# 7. Guardar
 # ------------------------------------------------------------
 
 parquet_path = (
@@ -800,7 +1145,9 @@ con.execute(
     f"""
     COPY (
         SELECT *
-        FROM records
+        EXCLUDE (accepted)
+        FROM evaluated
+        WHERE accepted
 
         ORDER BY
             concept_score DESC,
