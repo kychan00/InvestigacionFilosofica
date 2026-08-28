@@ -96,6 +96,25 @@ STRONG_NAMES = {
 }
 
 
+# ------------------------------------------------------------
+# Conceptos demasiado amplios para actuar como ancla.
+#
+# Siguen siendo filosóficamente importantes, pero OpenAlex
+# los aplica de manera masiva fuera de filosofía.
+#
+# Los recuperaremos después sólo cuando exista evidencia
+# adicional en título, resumen u otros conceptos.
+# ------------------------------------------------------------
+
+BROAD_NAMES = {
+    "epistemology",
+    "aesthetics",
+    "ontology",
+}
+
+STRONG_NAMES -= BROAD_NAMES
+
+
 api = HfApi()
 
 con = duckdb.connect(
