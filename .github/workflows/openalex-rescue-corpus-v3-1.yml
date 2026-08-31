@@ -1,28 +1,27 @@
-name: Build OpenAlex philosophy corpus v3.1
+name: Rescue OpenAlex philosophy corpus v3.1
 
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
-  partition:
-    name: Partition ${{ matrix.part }}/5
+  rescue_partition:
+    name: Rescue partition ${{ matrix.part }}/5
 
     runs-on: ubuntu-latest
-
     timeout-minutes: 240
 
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 2
 
       matrix:
         part:
           - 0
-          - 1
-          - 2
           - 3
-          - 4
-          - 5
 
     env:
       OPENALEX_SHARD_PART: ${{ matrix.part }}
@@ -42,20 +41,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install duckdb huggingface_hub
 
-      - name: Build V3.1 partition
+      - name: Build rescued V3.1 partition
         run: |
           python \
             scripts/openalex/build_philosophy_classifier_v3_1_partition.py
 
-      - name: Verify partition
+      - name: Verify rescued partition
         run: |
           ls -lh \
             artifacts/openalex/full-v3-1/part-*.parquet
 
-      - name: Upload partition
+      - name: Upload rescued partition
         uses: actions/upload-artifact@v4
         with:
-          name: openalex-philosophy-v3-1-part-${{ matrix.part }}
+          name: openalex-philosophy-v3-1-rescue-part-${{ matrix.part }}
           retention-days: 30
           compression-level: 0
           path: |
@@ -63,13 +62,12 @@ jobs:
 
 
   merge:
-    name: Merge corpus
+    name: Merge rescued corpus
 
     needs:
-      - partition
+      - rescue_partition
 
     runs-on: ubuntu-latest
-
     timeout-minutes: 30
 
     steps:
@@ -86,22 +84,51 @@ jobs:
           python -m pip install --upgrade pip
           pip install duckdb
 
-      - name: Download partitions
+      - name: Download four successful partitions from original run
         uses: actions/download-artifact@v4
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 33422356579
           pattern: openalex-philosophy-v3-1-part-*
           path: artifacts/openalex/full-v3-1/parts
           merge-multiple: true
 
-      - name: Show partitions
+      - name: Download rescued partitions
+        uses: actions/download-artifact@v4
+        with:
+          pattern: openalex-philosophy-v3-1-rescue-part-*
+          path: artifacts/openalex/full-v3-1/parts
+          merge-multiple: true
+
+      - name: Verify all six partitions
         run: |
+          echo "===== PARTITIONS ====="
+
           find \
             artifacts/openalex/full-v3-1/parts \
             -maxdepth 1 \
             -type f \
-            -name '*.parquet' \
+            -name 'part-*.parquet' \
             -print \
-            -exec ls -lh {} \;
+            | sort
+
+          echo
+          echo "===== COUNT ====="
+
+          COUNT=$(
+            find \
+              artifacts/openalex/full-v3-1/parts \
+              -maxdepth 1 \
+              -type f \
+              -name 'part-*.parquet' \
+              | wc -l \
+              | tr -d ' '
+          )
+
+          echo "Found: $COUNT"
+
+          test "$COUNT" = "6"
 
       - name: Merge corpus
         run: |
