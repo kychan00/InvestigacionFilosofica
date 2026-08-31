@@ -1,0 +1,121 @@
+name: Build OpenAlex philosophy corpus v3.1
+
+on:
+  workflow_dispatch:
+
+jobs:
+  partition:
+    name: Partition ${{ matrix.part }}/5
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 120
+
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+
+      matrix:
+        part:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+
+    env:
+      OPENALEX_SHARD_PART: ${{ matrix.part }}
+      OPENALEX_SHARD_PARTS: "6"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install duckdb huggingface_hub
+
+      - name: Build V3.1 partition
+        run: |
+          python \
+            scripts/openalex/build_philosophy_classifier_v3_1_partition.py
+
+      - name: Verify partition
+        run: |
+          ls -lh \
+            artifacts/openalex/full-v3-1/part-*.parquet
+
+      - name: Upload partition
+        uses: actions/upload-artifact@v4
+        with:
+          name: openalex-philosophy-v3-1-part-${{ matrix.part }}
+          retention-days: 30
+          compression-level: 0
+          path: |
+            artifacts/openalex/full-v3-1/part-*.parquet
+
+
+  merge:
+    name: Merge corpus
+
+    needs:
+      - partition
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install DuckDB
+        run: |
+          python -m pip install --upgrade pip
+          pip install duckdb
+
+      - name: Download partitions
+        uses: actions/download-artifact@v4
+        with:
+          pattern: openalex-philosophy-v3-1-part-*
+          path: artifacts/openalex/full-v3-1/parts
+          merge-multiple: true
+
+      - name: Show partitions
+        run: |
+          find \
+            artifacts/openalex/full-v3-1/parts \
+            -maxdepth 1 \
+            -type f \
+            -name '*.parquet' \
+            -print \
+            -exec ls -lh {} \;
+
+      - name: Merge corpus
+        run: |
+          python \
+            scripts/openalex/merge_philosophy_corpus_v3_1.py
+
+      - name: Upload complete corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: openalex-philosophy-corpus-v3-1
+          retention-days: 30
+          compression-level: 0
+          path: |
+            artifacts/openalex/full-v3-1/philosophy-corpus-v3-1-full.parquet
+            artifacts/openalex/full-v3-1/philosophy-corpus-v3-1-compact.parquet
+            artifacts/openalex/full-v3-1/philosophy-corpus-v3-1-search.parquet
+            artifacts/openalex/full-v3-1/philosophy-corpus-v3-1-summary.json
