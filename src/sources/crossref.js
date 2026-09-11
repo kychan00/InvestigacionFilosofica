@@ -177,7 +177,7 @@ function decodeXmlEntities(
 }
 
 
-function cleanCrossrefAbstract(
+function cleanCrossrefText(
   value
 ) {
   if (!value) {
@@ -223,6 +223,10 @@ function cleanCrossrefAbstract(
         /\s+/g,
         " "
       )
+      .replace(
+        /\s+([,.;:!?])/g,
+        "$1"
+      )
       .trim();
 
 
@@ -266,8 +270,10 @@ export function normalizeCrossrefWork(
           ),
 
     title:
-      firstString(
-        item.title
+      cleanCrossrefText(
+        firstString(
+          item.title
+        )
       ) || "",
 
     authors:
@@ -301,7 +307,7 @@ export function normalizeCrossrefWork(
       null,
 
     abstract:
-      cleanCrossrefAbstract(
+      cleanCrossrefText(
         item.abstract
       ),
 
