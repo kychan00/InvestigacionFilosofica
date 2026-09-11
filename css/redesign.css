@@ -3884,3 +3884,289 @@ summary {
 
 
 /* SOURCE STATUS NOTICE END */
+
+
+/* RESULT ACTION BUTTON POLISH */
+
+.result-links
+.institutional-card-link {
+  display:
+    none !important;
+}
+
+
+.result-links
+.record-open,
+.result-links
+.result-secondary-link {
+  min-height:
+    42px;
+
+  padding:
+    0 17px;
+
+  border-radius:
+    10px;
+
+  font-size:
+    12px;
+
+  font-weight:
+    750;
+
+  letter-spacing:
+    .01em;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    background-color .16s ease,
+    border-color .16s ease,
+    color .16s ease;
+}
+
+
+/* Ver ficha */
+
+.result-links
+.record-open {
+  border:
+    1px solid #344d69;
+
+  background:
+    #344d69;
+
+  color:
+    #fff;
+
+  box-shadow:
+    0 5px 14px
+    rgba(52, 77, 105, .18);
+}
+
+
+.result-links
+.record-open:hover {
+  background:
+    #2b4058;
+
+  border-color:
+    #2b4058;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 7px 18px
+    rgba(52, 77, 105, .24);
+}
+
+
+/* Abrir documento */
+
+.result-links
+.result-open-link {
+  border:
+    1px solid #2f6b4f;
+
+  background:
+    #2f6b4f;
+
+  color:
+    #fff;
+
+  box-shadow:
+    0 5px 14px
+    rgba(47, 107, 79, .18);
+}
+
+
+.result-links
+.result-open-link:hover {
+  border-color:
+    #285c44;
+
+  background:
+    #285c44;
+
+  color:
+    #fff;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 7px 18px
+    rgba(47, 107, 79, .24);
+}
+
+
+/* DOI */
+
+.result-links
+.result-doi-link {
+  border:
+    1px solid #d8cbb8;
+
+  background:
+    #f3ede3;
+
+  color:
+    #5d4d3d;
+
+  box-shadow:
+    none;
+}
+
+
+.result-links
+.result-doi-link:hover {
+  border-color:
+    #c9b89f;
+
+  background:
+    #e9dfd0;
+
+  color:
+    #493c30;
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* Accesibilidad */
+
+.result-links
+.record-open:focus-visible,
+.result-links
+.result-secondary-link:focus-visible {
+  outline:
+    3px solid
+    rgba(52, 77, 105, .22);
+
+  outline-offset:
+    3px;
+}
+
+
+/* GREEN DOCUMENT ACTIONS */
+
+/*
+ * Acciones directas del resultado:
+ * Abrir + DOI
+ */
+.result-links
+.result-secondary-link,
+.result-links
+.result-open-link,
+.result-links
+.result-doi-link {
+  border:
+    1px solid #2f6b4f !important;
+
+  background:
+    #2f6b4f !important;
+
+  color:
+    #ffffff !important;
+
+  box-shadow:
+    0 5px 14px
+    rgba(47, 107, 79, .18) !important;
+}
+
+
+.result-links
+.result-secondary-link:hover,
+.result-links
+.result-open-link:hover,
+.result-links
+.result-doi-link:hover {
+  border-color:
+    #25583f !important;
+
+  background:
+    #25583f !important;
+
+  color:
+    #ffffff !important;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 7px 18px
+    rgba(47, 107, 79, .25) !important;
+}
+
+
+/*
+ * Acciones de acceso dentro de Ver ficha.
+ * DOI, acceso abierto y registro original.
+ */
+.cinematic-actions
+.cinematic-action {
+  border:
+    1px solid #2f6b4f !important;
+
+  background:
+    #2f6b4f !important;
+
+  color:
+    #ffffff !important;
+
+  box-shadow:
+    0 5px 14px
+    rgba(47, 107, 79, .18) !important;
+}
+
+
+.cinematic-actions
+.cinematic-action:hover {
+  border-color:
+    #25583f !important;
+
+  background:
+    #25583f !important;
+
+  color:
+    #ffffff !important;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 7px 18px
+    rgba(47, 107, 79, .25) !important;
+}
+
+
+/*
+ * El botón Ver ficha conserva
+ * su identidad azul editorial.
+ */
+.result-links
+.record-open {
+  border-color:
+    #344d69 !important;
+
+  background:
+    #344d69 !important;
+
+  color:
+    #ffffff !important;
+}
+
+
+.result-links
+.record-open:hover {
+  border-color:
+    #293e55 !important;
+
+  background:
+    #293e55 !important;
+}

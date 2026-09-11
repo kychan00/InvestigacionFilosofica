@@ -117,63 +117,171 @@ function normalizeIsbn(
 function decodeXmlEntities(
   value
 ) {
-  return String(
-    value || ""
-  )
-    .replace(
-      /&#x([0-9a-f]+);/gi,
-      (_, hex) => {
-        try {
-          return String.fromCodePoint(
-            parseInt(
-              hex,
-              16
-            )
-          );
-        } catch {
-          return "";
-        }
-      }
-    )
-    .replace(
-      /&#([0-9]+);/g,
-      (_, decimal) => {
-        try {
-          return String.fromCodePoint(
-            parseInt(
-              decimal,
-              10
-            )
-          );
-        } catch {
-          return "";
-        }
-      }
-    )
-    .replace(
-      /&nbsp;/gi,
-      " "
-    )
-    .replace(
-      /&quot;/gi,
-      '"'
-    )
-    .replace(
-      /&apos;/gi,
-      "'"
-    )
-    .replace(
-      /&lt;/gi,
-      "<"
-    )
-    .replace(
-      /&gt;/gi,
-      ">"
-    )
-    .replace(
-      /&amp;/gi,
-      "&"
+  const named = {
+    nbsp: " ",
+    quot: "\"",
+    apos: "'",
+    lt: "<",
+    gt: ">",
+    amp: "&",
+
+    aacute: "á",
+    eacute: "é",
+    iacute: "í",
+    oacute: "ó",
+    uacute: "ú",
+
+    Aacute: "Á",
+    Eacute: "É",
+    Iacute: "Í",
+    Oacute: "Ó",
+    Uacute: "Ú",
+
+    agrave: "à",
+    egrave: "è",
+    igrave: "ì",
+    ograve: "ò",
+    ugrave: "ù",
+
+    Agrave: "À",
+    Egrave: "È",
+    Igrave: "Ì",
+    Ograve: "Ò",
+    Ugrave: "Ù",
+
+    acirc: "â",
+    ecirc: "ê",
+    icirc: "î",
+    ocirc: "ô",
+    ucirc: "û",
+
+    Acirc: "Â",
+    Ecirc: "Ê",
+    Icirc: "Î",
+    Ocirc: "Ô",
+    Ucirc: "Û",
+
+    auml: "ä",
+    euml: "ë",
+    iuml: "ï",
+    ouml: "ö",
+    uuml: "ü",
+
+    Auml: "Ä",
+    Euml: "Ë",
+    Iuml: "Ï",
+    Ouml: "Ö",
+    Uuml: "Ü",
+
+    ntilde: "ñ",
+    Ntilde: "Ñ",
+
+    ccedil: "ç",
+    Ccedil: "Ç",
+
+    iexcl: "¡",
+    iquest: "¿",
+
+    laquo: "«",
+    raquo: "»",
+
+    lsquo: "‘",
+    rsquo: "’",
+    ldquo: "“",
+    rdquo: "”",
+
+    ndash: "–",
+    mdash: "—",
+    hellip: "…",
+    middot: "·"
+  };
+
+
+  let text =
+    String(
+      value || ""
     );
+
+
+  /*
+   * Algunas respuestas de Crossref
+   * contienen entidades doblemente
+   * codificadas:
+   *
+   * &amp;oacute;
+   *
+   * Hacemos un máximo de tres pasadas
+   * hasta que el texto deje de cambiar.
+   */
+  for (
+    let pass = 0;
+    pass < 3;
+    pass++
+  ) {
+    const decoded =
+      text.replace(
+        /&(#x[0-9a-f]+|#[0-9]+|[a-z][a-z0-9]+);/gi,
+        (
+          entity,
+          code
+        ) => {
+          try {
+            if (
+              /^#x/i.test(code)
+            ) {
+              return String.fromCodePoint(
+                parseInt(
+                  code.slice(2),
+                  16
+                )
+              );
+            }
+
+
+            if (
+              code.startsWith("#")
+            ) {
+              return String.fromCodePoint(
+                parseInt(
+                  code.slice(1),
+                  10
+                )
+              );
+            }
+
+
+            if (
+              Object.prototype
+                .hasOwnProperty
+                .call(
+                  named,
+                  code
+                )
+            ) {
+              return named[code];
+            }
+          } catch {
+            return "";
+          }
+
+
+          return entity;
+        }
+      );
+
+
+    if (
+      decoded === text
+    ) {
+      break;
+    }
+
+
+    text = decoded;
+  }
+
+
+  return text;
 }
 
 

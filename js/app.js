@@ -1617,7 +1617,7 @@ function renderResult(
             url
               ? `
                 <a
-                  class="result-secondary-link"
+                  class="result-secondary-link result-open-link"
                   href="${escapeHtml(
                     url
                   )}"
@@ -1635,7 +1635,7 @@ function renderResult(
             doi
               ? `
                 <a
-                  class="result-secondary-link"
+                  class="result-secondary-link result-doi-link"
                   href="${escapeHtml(
                     doi
                   )}"

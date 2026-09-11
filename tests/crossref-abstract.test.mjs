@@ -115,3 +115,70 @@ test(
     );
   }
 );
+
+
+test(
+  "decodifica entidades HTML nombradas en abstract de Crossref",
+  () => {
+    const work =
+      normalizeCrossrefWork({
+        DOI:
+          "10.1234/entidades-espanol",
+
+        title: [
+          "Excluidos de la felicidad"
+        ],
+
+        abstract:
+          "<jats:p>" +
+          "La sociedad moderna comenz&oacute; " +
+          "su andadura con la promesa de alcanzar " +
+          "la mayor felicidad para el mayor " +
+          "n&uacute;mero. Arist&oacute;teles " +
+          "consider&oacute; la felicidad un bien." +
+          "</jats:p>"
+      });
+
+
+    assert.equal(
+      work.abstract,
+      "La sociedad moderna comenzó " +
+      "su andadura con la promesa de alcanzar " +
+      "la mayor felicidad para el mayor " +
+      "número. Aristóteles " +
+      "consideró la felicidad un bien."
+    );
+
+
+    assert.doesNotMatch(
+      work.abstract,
+      /&[a-z0-9#]+;/i
+    );
+  }
+);
+
+
+test(
+  "decodifica entidades HTML doblemente codificadas",
+  () => {
+    const work =
+      normalizeCrossrefWork({
+        DOI:
+          "10.1234/entidades-dobles",
+
+        title: [
+          "Ética"
+        ],
+
+        abstract:
+          "La posici&amp;oacute;n " +
+          "tambi&amp;eacute;n es filos&amp;oacute;fica."
+      });
+
+
+    assert.equal(
+      work.abstract,
+      "La posición también es filosófica."
+    );
+  }
+);
