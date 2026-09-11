@@ -30,6 +30,10 @@ import {
   searchOpenAlexPhilosophy
 } from "../sources/openalex-philosophy.js";
 
+import {
+  searchCucshFilosofia
+} from "../sources/cucsh-filosofia.js";
+
 
 function sleep(ms) {
   return new Promise(
@@ -45,6 +49,11 @@ const DEFAULT_OPTIONS = {
   openAlexPhilosophy: {
     enabled: true,
     rows: 12
+  },
+
+  cucshFilosofia: {
+    enabled: true,
+    rows: 8
   },
 
   openAlex: {
@@ -76,6 +85,11 @@ function mergeOptions(
     openAlexPhilosophy: {
       ...DEFAULT_OPTIONS.openAlexPhilosophy,
       ...(options.openAlexPhilosophy || {})
+    },
+
+    cucshFilosofia: {
+      ...DEFAULT_OPTIONS.cucshFilosofia,
+      ...(options.cucshFilosofia || {})
     },
 
     openAlex: {
@@ -118,6 +132,31 @@ async function searchExpansion(
               options.openAlexPhilosophy.rows,
 
             page: 1,
+
+            signal:
+              options.signal
+          }
+        )
+    });
+  }
+
+
+  if (
+    options.cucshFilosofia.enabled
+  ) {
+    jobs.push({
+      provider:
+        "CUCSH Filosofía",
+
+      promise:
+        searchCucshFilosofia(
+          expansion,
+          {
+            rows:
+              options.cucshFilosofia.rows,
+
+            page:
+              1,
 
             signal:
               options.signal
@@ -590,6 +629,31 @@ export async function searchMorePhilosophy(
 
 
     if (
+      settings.cucshFilosofia.enabled
+    ) {
+      jobs.push({
+        provider:
+          "CUCSH Filosofía",
+
+        promise:
+          searchCucshFilosofia(
+            expansion,
+            {
+              rows:
+                settings.cucshFilosofia.rows,
+
+              page:
+                nextBatch,
+
+              signal:
+                settings.signal
+            }
+          )
+      });
+    }
+
+
+    if (
       settings.openAlex.enabled
     ) {
       jobs.push({
@@ -787,6 +851,29 @@ export async function searchMorePhilosophy(
     );
 
 
+  const providerCounts = {
+    ...(
+      previousResponse.stats
+        ?.providers ||
+      {}
+    )
+  };
+
+
+  for (const item of newRaw) {
+    for (
+      const provider of
+      item.providers || []
+    ) {
+      providerCounts[provider] =
+        (
+          providerCounts[provider] ||
+          0
+        ) + 1;
+    }
+  }
+
+
   const multiProvider =
     ranked.filter(
       item =>
@@ -826,7 +913,10 @@ export async function searchMorePhilosophy(
         newRaw.length -
         ranked.length,
 
-      multiProvider
+      multiProvider,
+
+      providers:
+        providerCounts
     },
 
     pagination: {
