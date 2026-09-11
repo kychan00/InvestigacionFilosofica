@@ -26,6 +26,10 @@ import {
   searchInternetArchive
 } from "../sources/internet-archive.js";
 
+import {
+  searchOpenAlexPhilosophy
+} from "../sources/openalex-philosophy.js";
+
 
 function sleep(ms) {
   return new Promise(
@@ -38,8 +42,13 @@ function sleep(ms) {
 const DEFAULT_OPTIONS = {
   maxQueries: 5,
 
-  openAlex: {
+  openAlexPhilosophy: {
     enabled: true,
+    rows: 12
+  },
+
+  openAlex: {
+    enabled: false,
     perPage: 6
   },
 
@@ -64,6 +73,11 @@ function mergeOptions(
     ...DEFAULT_OPTIONS,
     ...options,
 
+    openAlexPhilosophy: {
+      ...DEFAULT_OPTIONS.openAlexPhilosophy,
+      ...(options.openAlexPhilosophy || {})
+    },
+
     openAlex: {
       ...DEFAULT_OPTIONS.openAlex,
       ...(options.openAlex || {})
@@ -87,6 +101,30 @@ async function searchExpansion(
   options
 ) {
   const jobs = [];
+
+
+  if (
+    options.openAlexPhilosophy.enabled
+  ) {
+    jobs.push({
+      provider:
+        "OpenAlex Philosophy",
+
+      promise:
+        searchOpenAlexPhilosophy(
+          expansion,
+          {
+            rows:
+              options.openAlexPhilosophy.rows,
+
+            page: 1,
+
+            signal:
+              options.signal
+          }
+        )
+    });
+  }
 
 
   if (
@@ -524,6 +562,31 @@ export async function searchMorePhilosophy(
 
 
     const jobs = [];
+
+
+    if (
+      settings.openAlexPhilosophy.enabled
+    ) {
+      jobs.push({
+        provider:
+          "OpenAlex Philosophy",
+
+        promise:
+          searchOpenAlexPhilosophy(
+            expansion,
+            {
+              rows:
+                settings.openAlexPhilosophy.rows,
+
+              page:
+                nextBatch,
+
+              signal:
+                settings.signal
+            }
+          )
+      });
+    }
 
 
     if (

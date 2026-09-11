@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OpenAlex Philosophy Browser Test</title>
+
+  <style>
+    body {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: system-ui, sans-serif;
+    }
+
+    input {
+      width: 70%;
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 18px;
+      font-size: 16px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      min-height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>OpenAlex Philosophy — Browser Test</h1>
+
+<p>
+  Hugging Face → Parquet remoto → DuckDB-Wasm MVP → navegador
+</p>
+
+<input id="query" value="Kant">
+<button id="search" disabled>Buscar</button>
+
+<pre id="output"></pre>
+
+<script type="module">
+
+const output =
+  document.querySelector("#output");
+
+const input =
+  document.querySelector("#query");
+
+const button =
+  document.querySelector("#search");
+
+let trace = [];
+
+
+function log(message) {
+
+  trace.push(
+    String(message)
+  );
+
+  output.textContent =
+    trace.join("\n");
+
+  console.log(message);
+}
+
+
+function showError(
+  label,
+  error
+) {
+
+  console.error(
+    label,
+    error
+  );
+
+  log("");
+  log("========================================");
+  log(label);
+  log("========================================");
+
+  log(
+    "typeof: " +
+    typeof error
+  );
+
+  log(
+    "name: " +
+    (
+      error?.name ??
+      "(sin name)"
+    )
+  );
+
+  log(
+    "message: " +
+    (
+      error?.message ??
+      "(sin message)"
+    )
+  );
+
+  log(
+    "stack:"
+  );
+
+  log(
+    error?.stack ??
+    "(sin stack)"
+  );
+
+  log(
+    "string:"
+  );
+
+  log(
+    String(error)
+  );
+}
+
+
+function sqlString(value) {
+
+  return String(
+    value || ""
+  ).replaceAll(
+    "'",
+    "''"
+  );
+}
+
+
+async function timeout(
+  promise,
+  milliseconds,
+  label
+) {
+
+  let timer;
+
+  const watchdog =
+    new Promise(
+      (_, reject) => {
+
+        timer =
+          setTimeout(
+            () => {
+              reject(
+                new Error(
+                  `${label}: timeout de ` +
+                  `${milliseconds / 1000}s`
+                )
+              );
+            },
+            milliseconds
+          );
+      }
+    );
+
+  try {
+
+    return await Promise.race([
+      promise,
+      watchdog
+    ]);
+
+  } finally {
+
+    clearTimeout(
+      timer
+    );
+  }
+}
+
+
+async function start() {
+
+  log(
+    "1/8 Importando DuckDB-Wasm bundle..."
+  );
+
+
+  const duckdb =
+    await timeout(
+      import(
+        "/tests/manual/vendor/duckdb-browser.bundle.mjs"
+      ),
+      30_000,
+      "import"
+    );
+
+
+  log(
+    "✓ JavaScript importado"
+  );
+
+
+  /*
+   * Forzamos MVP.
+   *
+   * Evitamos selectBundle/EH para eliminar
+   * diferencias de compatibilidad de Safari.
+   */
+
+  const WASM =
+    "/node_modules/@duckdb/duckdb-wasm/dist/" +
+    "duckdb-mvp.wasm";
+
+  const WORKER =
+    "/node_modules/@duckdb/duckdb-wasm/dist/" +
+    "duckdb-browser-mvp.worker.js";
+
+
+  log(
+    "2/8 Creando Worker MVP..."
+  );
+
+
+  const worker =
+    new Worker(
+      WORKER
+    );
+
+
+  log(
+    "✓ Worker creado"
+  );
+
+
+  const logger =
+    new duckdb.ConsoleLogger(
+      duckdb.LogLevel.WARNING
+    );
+
+
+  const db =
+    new duckdb.AsyncDuckDB(
+      logger,
+      worker
+    );
+
+
+  log(
+    "3/8 Instanciando WASM MVP..."
+  );
+
+
+  await timeout(
+    db.instantiate(
+      WASM
+    ),
+    90_000,
+    "instantiate"
+  );
+
+
+  log(
+    "✓ Motor WASM instanciado"
+  );
+
+
+  log(
+    "4/8 Abriendo base en memoria..."
+  );
+
+
+  await timeout(
+    db.open({
+      path: ":memory:",
+      query: {
+        castBigIntToDouble:
+          true
+      }
+    }),
+    30_000,
+    "db.open"
+  );
+
+
+  log(
+    "✓ DuckDB abierto"
+  );
+
+
+  log(
+    "5/8 Creando conexión..."
+  );
+
+
+  const conn =
+    await timeout(
+      db.connect(),
+      30_000,
+      "db.connect"
+    );
+
+
+  log(
+    "✓ Conexión creada"
+  );
+
+
+  const PARQUET_URL =
+    "https://huggingface.co/datasets/" +
+    "CristianPelayo/openalex-philosophy/" +
+    "resolve/main/v3.1/" +
+    "philosophy-corpus-v3-1-search.parquet";
+
+
+  log(
+    "6/8 Registrando Parquet remoto..."
+  );
+
+
+  await timeout(
+    db.registerFileURL(
+      "openalex-philosophy.parquet",
+      PARQUET_URL,
+      duckdb.DuckDBDataProtocol.HTTP,
+      false
+    ),
+    30_000,
+    "registerFileURL"
+  );
+
+
+  log(
+    "✓ Parquet registrado"
+  );
+
+
+  log(
+    "7/8 Ejecutando COUNT(*) remoto..."
+  );
+
+
+  const countResult =
+    await timeout(
+      conn.query(`
+        SELECT
+          count(*) AS n
+
+        FROM
+          'openalex-philosophy.parquet'
+      `),
+      90_000,
+      "COUNT remoto"
+    );
+
+
+  const countRow =
+    countResult
+      .toArray()[0];
+
+
+  log(
+    "✓ COUNT terminado"
+  );
+
+
+  log("");
+  log(
+    "8/8 LISTO"
+  );
+  log("");
+  log(
+    "✓ DuckDB-Wasm MVP"
+  );
+  log(
+    "✓ Hugging Face accesible"
+  );
+  log(
+    "✓ Parquet remoto consultado"
+  );
+  log(
+    "✓ Trabajos: " +
+    Number(
+      countRow.n
+    ).toLocaleString()
+  );
+
+
+  button.disabled =
+    false;
+
+
+  async function search() {
+
+    const query =
+      input.value.trim();
+
+    if (!query) {
+      return;
+    }
+
+
+    button.disabled =
+      true;
+
+
+    trace = [];
+
+    log(
+      `Buscando "${query}"...`
+    );
+
+
+    try {
+
+      const safe =
+        sqlString(
+          query
+        );
+
+
+      const result =
+        await timeout(
+          conn.query(`
+            SELECT
+              work_id,
+              tier,
+              evidence_score,
+              publication_year,
+              language,
+              type,
+              title
+
+            FROM
+              'openalex-philosophy.parquet'
+
+            WHERE
+              title ILIKE '%${safe}%'
+
+            ORDER BY
+              evidence_score DESC,
+              publication_year DESC
+                NULLS LAST
+
+            LIMIT 25
+          `),
+          90_000,
+          "search"
+        );
+
+
+      const rows =
+        result.toArray();
+
+
+      trace = [];
+
+      log(
+        `Resultados: ${rows.length}`
+      );
+
+      log("");
+
+
+      rows.forEach(
+        (row, index) => {
+
+          log(
+            `${index + 1}. ` +
+            `[${row.tier}] ` +
+            `score=${row.evidence_score} ` +
+            `year=${
+              row.publication_year ??
+              "?"
+            }`
+          );
+
+          log(
+            row.title
+          );
+
+          log(
+            `work_id=${row.work_id}`
+          );
+
+          log("");
+        }
+      );
+
+
+    } catch (error) {
+
+      showError(
+        "ERROR DE BÚSQUEDA",
+        error
+      );
+
+    } finally {
+
+      button.disabled =
+        false;
+    }
+  }
+
+
+  button.addEventListener(
+    "click",
+    search
+  );
+
+
+  input.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key ===
+        "Enter"
+      ) {
+
+        search();
+      }
+    }
+  );
+}
+
+
+start().catch(
+  error => {
+
+    showError(
+      "ERROR DE INICIALIZACIÓN",
+      error
+    );
+  }
+);
+
+</script>
+
+</body>
+</html>

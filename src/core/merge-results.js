@@ -25,6 +25,25 @@ function resultKey(result) {
   }
 
   /*
+   * OpenAlex Philosophy y la API oficial
+   * representan el mismo namespace OpenAlex.
+   */
+  if (
+    result.id &&
+    /^https:\/\/openalex\.org\/W\d+/i
+      .test(
+        String(result.id)
+      )
+  ) {
+    return (
+      "openalex:" +
+      String(result.id)
+        .toLowerCase()
+    );
+  }
+
+
+  /*
    * Los IDs propios de cada proveedor NO deben
    * mezclarse entre proveedores.
    */

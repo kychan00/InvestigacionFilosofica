@@ -4,3 +4,6 @@ node_modules/
 .env
 .env.*
 .venv-hf/
+artifacts/
+vendor/duckdb/
+tests/manual/vendor/
