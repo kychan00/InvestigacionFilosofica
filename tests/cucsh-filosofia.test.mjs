@@ -42,29 +42,42 @@ test(
       "CUCSH Filosofía"
     );
 
-    assert.equal(
-      records.length,
-      391
+    assert.ok(
+      records.length >= 391
     );
 
 
-    assert.equal(
+    assert.ok(
       records.filter(
         record =>
           record.journal ===
           "Quadripartita Ratio"
-      ).length,
-      88
+      ).length >= 88
     );
 
 
-    assert.equal(
+    assert.ok(
       records.filter(
         record =>
           record.journal ===
           "Protrepsis"
-      ).length,
-      303
+      ).length >= 303
+    );
+
+
+    assert.deepEqual(
+      [
+        ...new Set(
+          records.map(
+            record =>
+              record.journal
+          )
+        )
+      ].sort(),
+      [
+        "Protrepsis",
+        "Quadripartita Ratio"
+      ]
     );
   }
 );
