@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "name": "Investigación Filosófica",
+    "repository": "kychan00/InvestigacionFilosofica",
+    "deployment": "GitHub Pages"
+  },
+  "release": {
+    "runtimeCommit": "1064fdb762194016e48201cbaa1b2cc0f3b209f8",
+    "runtimeCommitShort": "1064fdb",
+    "documentedFromBranch": "docs/architecture-release-manifest",
+    "generatedAt": "2026-09-14T21:53:14.451959+00:00",
+    "testSuite": {
+      "command": "npm test",
+      "tests": 43,
+      "expectedFailures": 0
+    }
+  },
+  "corpora": {
+    "openAlexPhilosophy": {
+      "version": "3.2",
+      "provider": "Hugging Face",
+      "dataset": "CristianPelayo/openalex-philosophy",
+      "revision": "09c329326ed24ccf986c4b4c47c9794f055516dc",
+      "artifact": "v3.2/philosophy-corpus-v3-2-search.parquet",
+      "artifactSha256": "1552c2e7b3fe26d8b2672108e8bc9c410dbe78b81ab2ab36dea865ee0c9fa8c0",
+      "searchRecords": 451823,
+      "fullRecords": 822445
+    },
+    "cucshFilosofia": {
+      "artifact": "src/data/cucsh-filosofia.json",
+      "artifactSha256": "05ee0e8311cd3fe1b98bf10a9cdc7be7e5e6444b71dc0b19abfc54f1b73055a3",
+      "records": 391,
+      "recordsWithDoi": 390,
+      "journals": {
+        "Protrepsis": 303,
+        "Quadripartita Ratio": 88
+      },
+      "updateWorkflow": ".github/workflows/cucsh-harvest.yml",
+      "schedule": {
+        "cron": "17 12 3 * *",
+        "description": "monthly, day 3 at 12:17 UTC"
+      }
+    }
+  },
+  "providers": {
+    "live": [
+      "OpenAlex",
+      "Crossref",
+      "Internet Archive"
+    ],
+    "localOrPinned": [
+      "OpenAlex Philosophy V3.2",
+      "CUCSH Filosofía"
+    ],
+    "institutionalLaunchers": [
+      "wdg.búsqueda · UdeG",
+      "Ebook Central",
+      "Britannica UdeG",
+      "Aula"
+    ]
+  },
+  "privacy": {
+    "storesSearchHistory": false,
+    "storesInstitutionalCredentials": false,
+    "storesInstitutionalCookies": false,
+    "persistentUserDatabase": false
+  }
+}
