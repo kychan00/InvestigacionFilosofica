@@ -71,6 +71,17 @@ const recordModalContent =
   );
 
 
+const udegModal =
+  document.querySelector(
+    "#udeg-modal"
+  );
+
+const udegModalContent =
+  document.querySelector(
+    "#udeg-modal-content"
+  );
+
+
 let philosophyMap = null;
 let currentController = null;
 let currentParsed = null;
@@ -866,42 +877,29 @@ function renderRecordDetails(
 
 
   const institutionalButtons =
-    institutionalLinks
-      .map(
-        link => `
-          <a
-            class="cinematic-institution-link"
-            href="${escapeHtml(
-              link.url
+    institutionalLinks.length
+      ? `
+          <button
+            type="button"
+            class="cinematic-institution-link udeg-open-detail"
+            data-record-id="${escapeHtml(
+              recordId(item)
             )}"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <span class="institution-icon">
-              ${
-                link.id === "ebook-central"
-                  ? "▤"
-                  : link.id === "britannica-udeg"
-                    ? "B"
-                    : link.id === "aula"
-                      ? "A"
-                      : "⌂"
-              }
+              ⌂
             </span>
 
             <span>
-              ${escapeHtml(
-                link.name
-              )}
+              Abrir Biblioteca Virtual UdeG
             </span>
 
             <span class="institution-arrow">
               ↗
             </span>
-          </a>
+          </button>
         `
-      )
-      .join("");
+      : "";
 
 
   return `
@@ -1356,6 +1354,22 @@ function openRecord(
   document.body
     .classList
     .add("modal-open");
+
+
+  recordModalContent
+    .querySelector(
+      ".udeg-open-detail"
+    )
+    ?.addEventListener(
+      "click",
+      () => {
+        closeRecord();
+
+        openUdegPopup(
+          item
+        );
+      }
+    );
 }
 
 
@@ -1371,6 +1385,315 @@ function closeRecord() {
     .classList
     .remove("modal-open");
 }
+
+function institutionalSourceIcon(
+  id
+) {
+  if (
+    id === "ebook-central"
+  ) {
+    return "▤";
+  }
+
+  if (
+    id === "britannica-udeg"
+  ) {
+    return "B";
+  }
+
+  if (
+    id === "aula"
+  ) {
+    return "A";
+  }
+
+  return "⌂";
+}
+
+
+function institutionalSourceDescription(
+  id
+) {
+  const descriptions = {
+    "udeg-summon":
+      "Buscador general de la Biblioteca Virtual UdeG.",
+
+    "ebook-central":
+      "Libros electrónicos académicos disponibles mediante ProQuest.",
+
+    "britannica-udeg":
+      "Enciclopedia académica y artículos de referencia en inglés.",
+
+    "aula":
+      "Obras de consulta y contenidos de referencia en español."
+  };
+
+
+  return (
+    descriptions[id] ||
+    "Recurso disponible mediante la Biblioteca Virtual UdeG."
+  );
+}
+
+
+function renderUdegPopup(
+  item
+) {
+  const links =
+    buildInstitutionalLinks(
+      item
+    );
+
+
+  const authors =
+    (item.authors || [])
+      .map(
+        author =>
+          author.name
+      )
+      .filter(Boolean)
+      .join(", ");
+
+
+  const resources =
+    links
+      .map(
+        link => `
+          <a
+            class="udeg-resource-card"
+            href="${escapeHtml(
+              link.url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span
+              class="udeg-resource-icon"
+              aria-hidden="true"
+            >
+              ${escapeHtml(
+                institutionalSourceIcon(
+                  link.id
+                )
+              )}
+            </span>
+
+            <span class="udeg-resource-copy">
+              <strong>
+                ${escapeHtml(
+                  link.name
+                )}
+              </strong>
+
+              <span>
+                ${escapeHtml(
+                  institutionalSourceDescription(
+                    link.id
+                  )
+                )}
+              </span>
+            </span>
+
+            <span
+              class="udeg-resource-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+        `
+      )
+      .join("");
+
+
+  return `
+    <article class="udeg-library">
+
+      <header class="udeg-library-header">
+
+        <div
+          class="udeg-library-mark"
+          aria-hidden="true"
+        >
+          U
+        </div>
+
+        <div>
+          <span class="udeg-library-eyebrow">
+            Universidad de Guadalajara
+          </span>
+
+          <h2 id="udeg-modal-title">
+            Biblioteca Virtual UdeG
+          </h2>
+
+          <p>
+            Buscar este documento en las
+            colecciones y recursos licenciados
+            de la Universidad de Guadalajara.
+          </p>
+        </div>
+
+      </header>
+
+
+      <section class="udeg-record-preview">
+
+        <span>
+          Documento seleccionado
+        </span>
+
+        <strong>
+          ${escapeHtml(
+            item.title ||
+            "Sin título"
+          )}
+        </strong>
+
+        ${
+          authors ||
+          item.year
+            ? `
+              <p>
+                ${
+                  authors
+                    ? escapeHtml(
+                        authors
+                      )
+                    : ""
+                }
+
+                ${
+                  item.year
+                    ? `${
+                        authors
+                          ? " · "
+                          : ""
+                      }${item.year}`
+                    : ""
+                }
+              </p>
+            `
+            : ""
+        }
+
+      </section>
+
+
+      <section class="udeg-resource-section">
+
+        <div class="udeg-resource-heading">
+          <span>
+            Recursos disponibles
+          </span>
+
+          <strong>
+            ${links.length}
+          </strong>
+        </div>
+
+        <div class="udeg-resource-grid">
+          ${resources}
+        </div>
+
+      </section>
+
+
+      <footer class="udeg-library-footer">
+
+        <div>
+          <strong>
+            ¿No ha iniciado sesión?
+          </strong>
+
+          <span>
+            El acceso institucional se gestiona
+            directamente en Biblioteca Virtual.
+            Investigación Filosófica no recibe
+            ni almacena sus credenciales.
+          </span>
+        </div>
+
+        <a
+          class="udeg-login-link"
+          href="${escapeHtml(
+            UDEG_LOGIN_URL
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ingresar a Biblioteca Virtual UdeG
+          <span aria-hidden="true">
+            ↗
+          </span>
+        </a>
+
+      </footer>
+
+    </article>
+  `;
+}
+
+
+function openUdegPopup(
+  item
+) {
+  if (
+    !udegModal ||
+    !udegModalContent
+  ) {
+    return;
+  }
+
+
+  udegModalContent.innerHTML =
+    renderUdegPopup(
+      item
+    );
+
+
+  udegModal
+    .classList
+    .remove(
+      "hidden"
+    );
+
+
+  document.body
+    .classList
+    .add(
+      "modal-open"
+    );
+}
+
+
+function closeUdegPopup() {
+  if (
+    !udegModal ||
+    !udegModalContent
+  ) {
+    return;
+  }
+
+
+  udegModal
+    .classList
+    .add(
+      "hidden"
+    );
+
+
+  udegModalContent.innerHTML =
+    "";
+
+
+  document.body
+    .classList
+    .remove(
+      "modal-open"
+    );
+}
+
 
 function renderResult(
   item,
@@ -1592,24 +1915,22 @@ function renderResult(
 
 
           ${
-            institutionalLinks
-              .map(
-                link => `
-                  <a
-                    class="institutional-card-link"
-                    href="${escapeHtml(
-                      link.url
-                    )}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    ${escapeHtml(
-                      link.name
-                    )} ↗
-                  </a>
-                `
-              )
-              .join("")
+            institutionalLinks.length
+              ? `
+                <button
+                  type="button"
+                  class="institutional-card-link udeg-open"
+                  data-record-id="${escapeHtml(
+                    recordId(item)
+                  )}"
+                >
+                  Biblioteca Virtual UdeG
+                  <span aria-hidden="true">
+                    ↗
+                  </span>
+                </button>
+              `
+              : ""
           }
 
 
@@ -2697,6 +3018,38 @@ function bindResultActions() {
         );
       }
     );
+
+
+  document
+    .querySelectorAll(
+      ".udeg-open"
+    )
+    .forEach(
+      button => {
+        button.addEventListener(
+          "click",
+          () => {
+            const id =
+              button.dataset.recordId;
+
+            const item =
+              currentFilteredResults
+                .find(
+                  result =>
+                    String(
+                      recordId(result)
+                    ) === id
+                );
+
+            if (item) {
+              openUdegPopup(
+                item
+              );
+            }
+          }
+        );
+      }
+    );
 }
 
 function renderFilteredResults() {
@@ -3326,15 +3679,53 @@ recordModal
   );
 
 
+udegModal
+  ?.addEventListener(
+    "click",
+    event => {
+      if (
+        event.target
+          .closest(
+            "[data-close-udeg]"
+          )
+      ) {
+        closeUdegPopup();
+      }
+    }
+  );
+
+
 document.addEventListener(
   "keydown",
   event => {
     if (
-      event.key ===
-      "Escape" &&
+      event.key !==
+      "Escape"
+    ) {
+      return;
+    }
+
+
+    if (
+      udegModal &&
+      !udegModal
+        .classList
+        .contains(
+          "hidden"
+        )
+    ) {
+      closeUdegPopup();
+      return;
+    }
+
+
+    if (
+      recordModal &&
       !recordModal
         .classList
-        .contains("hidden")
+        .contains(
+          "hidden"
+        )
     ) {
       closeRecord();
     }
