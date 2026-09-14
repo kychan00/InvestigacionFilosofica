@@ -1,0 +1,375 @@
+{
+  "version": "1.0",
+  "name": "Investigación Filosófica Human Benchmark",
+  "description": "Conjunto multilingüe para evaluación humana de recuperación filosófica.",
+  "languages": [
+    "es",
+    "en",
+    "de",
+    "fr",
+    "pt"
+  ],
+  "relevanceScale": {
+    "0": "Irrelevante o ruido.",
+    "1": "Relacionado de forma tangencial o interdisciplinaria.",
+    "2": "Relevante para la consulta.",
+    "3": "Altamente relevante o central para la consulta."
+  },
+  "disciplineScale": {
+    "0": "No filosófico.",
+    "1": "Interdisciplinario o ambiguo.",
+    "2": "Filosófico."
+  },
+  "queries": [
+    {
+      "id": "es-01",
+      "language": "es",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "libertad en Kant"
+    },
+    {
+      "id": "en-01",
+      "language": "en",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "freedom in Kant"
+    },
+    {
+      "id": "de-01",
+      "language": "de",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "Freiheit bei Kant"
+    },
+    {
+      "id": "fr-01",
+      "language": "fr",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "liberté chez Kant"
+    },
+    {
+      "id": "pt-01",
+      "language": "pt",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "liberdade em Kant"
+    },
+    {
+      "id": "es-02",
+      "language": "es",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Ser y tiempo Heidegger"
+    },
+    {
+      "id": "en-02",
+      "language": "en",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Being and Time Heidegger"
+    },
+    {
+      "id": "de-02",
+      "language": "de",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Sein und Zeit Heidegger"
+    },
+    {
+      "id": "fr-02",
+      "language": "fr",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Être et Temps Heidegger"
+    },
+    {
+      "id": "pt-02",
+      "language": "pt",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Ser e Tempo Heidegger"
+    },
+    {
+      "id": "es-03",
+      "language": "es",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "ética de la virtud en Aristóteles"
+    },
+    {
+      "id": "en-03",
+      "language": "en",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "virtue ethics Aristotle"
+    },
+    {
+      "id": "de-03",
+      "language": "de",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "Tugendethik bei Aristoteles"
+    },
+    {
+      "id": "fr-03",
+      "language": "fr",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "éthique de la vertu Aristote"
+    },
+    {
+      "id": "pt-03",
+      "language": "pt",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "ética da virtude em Aristóteles"
+    },
+    {
+      "id": "es-04",
+      "language": "es",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intencionalidad en Husserl"
+    },
+    {
+      "id": "en-04",
+      "language": "en",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intentionality in Husserl"
+    },
+    {
+      "id": "de-04",
+      "language": "de",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "Intentionalität bei Husserl"
+    },
+    {
+      "id": "fr-04",
+      "language": "fr",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intentionnalité chez Husserl"
+    },
+    {
+      "id": "pt-04",
+      "language": "pt",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intencionalidade em Husserl"
+    },
+    {
+      "id": "es-05",
+      "language": "es",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "alteridad en Levinas"
+    },
+    {
+      "id": "en-05",
+      "language": "en",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "alterity in Levinas"
+    },
+    {
+      "id": "de-05",
+      "language": "de",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "Alterität bei Levinas"
+    },
+    {
+      "id": "fr-05",
+      "language": "fr",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "altérité chez Levinas"
+    },
+    {
+      "id": "pt-05",
+      "language": "pt",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "alteridade em Levinas"
+    },
+    {
+      "id": "es-06",
+      "language": "es",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "sustancia en Spinoza"
+    },
+    {
+      "id": "en-06",
+      "language": "en",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "substance in Spinoza"
+    },
+    {
+      "id": "de-06",
+      "language": "de",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "Substanz bei Spinoza"
+    },
+    {
+      "id": "fr-06",
+      "language": "fr",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "substance chez Spinoza"
+    },
+    {
+      "id": "pt-06",
+      "language": "pt",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "substância em Spinoza"
+    },
+    {
+      "id": "es-07",
+      "language": "es",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "filosofía de la liberación Dussel"
+    },
+    {
+      "id": "en-07",
+      "language": "en",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "philosophy of liberation Dussel"
+    },
+    {
+      "id": "de-07",
+      "language": "de",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "Philosophie der Befreiung Dussel"
+    },
+    {
+      "id": "fr-07",
+      "language": "fr",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "philosophie de la libération Dussel"
+    },
+    {
+      "id": "pt-07",
+      "language": "pt",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "filosofia da libertação Dussel"
+    },
+    {
+      "id": "es-08",
+      "language": "es",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Fenomenología del espíritu Hegel"
+    },
+    {
+      "id": "en-08",
+      "language": "en",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Phenomenology of Spirit Hegel"
+    },
+    {
+      "id": "de-08",
+      "language": "de",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Phänomenologie des Geistes Hegel"
+    },
+    {
+      "id": "fr-08",
+      "language": "fr",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Phénoménologie de l'esprit Hegel"
+    },
+    {
+      "id": "pt-08",
+      "language": "pt",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Fenomenologia do Espírito Hegel"
+    },
+    {
+      "id": "es-09",
+      "language": "es",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "fenomenología en enfermería"
+    },
+    {
+      "id": "en-09",
+      "language": "en",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "phenomenology in nursing"
+    },
+    {
+      "id": "de-09",
+      "language": "de",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "Phänomenologie in der Pflege"
+    },
+    {
+      "id": "fr-09",
+      "language": "fr",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "phénoménologie en soins infirmiers"
+    },
+    {
+      "id": "pt-09",
+      "language": "pt",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "fenomenologia na enfermagem"
+    },
+    {
+      "id": "es-10",
+      "language": "es",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontología en informática"
+    },
+    {
+      "id": "en-10",
+      "language": "en",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontology in computer science"
+    },
+    {
+      "id": "de-10",
+      "language": "de",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "Ontologie in der Informatik"
+    },
+    {
+      "id": "fr-10",
+      "language": "fr",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontologie en informatique"
+    },
+    {
+      "id": "pt-10",
+      "language": "pt",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontologia em ciência da computação"
+    }
+  ]
+}
