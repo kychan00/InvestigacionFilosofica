@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "17 12 * * 1"
+    - cron: "17 12 3 * *"
 
 
 permissions:
@@ -182,7 +182,7 @@ jobs:
             echo "## CUCSH Filosofía"
             echo
             echo "- Snapshot changed: ${{ steps.snapshot.outputs.changed || 'unknown' }}"
-            echo "- Schedule: Mondays 12:17 UTC"
+            echo "- Schedule: monthly, day 3 at 12:17 UTC"
             echo
             echo '```text'
 
