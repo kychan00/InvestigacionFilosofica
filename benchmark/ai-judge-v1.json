@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "name": "Investigación Filosófica AI-assisted silver judge v1",
+  "baselineRun": "benchmark/runs/human-v1.0-1064fdb.jsonl",
+  "outputs": {
+    "judgments": "benchmark/ai-judgments-v1.jsonl",
+    "metadata": "benchmark/ai-judgments-v1.meta.json"
+  },
+  "models": {
+    "nli": "MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli",
+    "reranker": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
+  },
+  "inference": {
+    "maxLength": 512,
+    "nliBatchSize": 32,
+    "rerankerBatchSize": 32,
+    "maxAbstractChars": 5000
+  },
+  "thresholds": {
+    "relevanceLowConfidence": 0.55,
+    "disciplineLowConfidence": 0.55,
+    "roleLowConfidence": 0.4,
+    "rerankerDisagreementDistance": 2
+  },
+  "policy": {
+    "relevance": "The NLI label is the silver relevance judgment. The reranker is an independent retrieval signal used for disagreement detection, not a forced relevance label.",
+    "discipline": "NLI zero-shot classification into non-philosophical, interdisciplinary, or philosophical.",
+    "role": "NLI zero-shot classification into documentary roles; low-confidence role predictions are converted to UNSURE.",
+    "humanReview": "Flag low-confidence cases, missing abstracts, role uncertainty, or strong disagreement between NLI relevance and within-query reranker percentile bucket."
+  }
+}
