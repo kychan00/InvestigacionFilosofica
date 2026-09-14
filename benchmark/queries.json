@@ -371,5 +371,10 @@
       "intent": "interdisciplinary-challenge",
       "query": "ontologia em ciência da computação"
     }
-  ]
+  ],
+  "evaluation": {
+    "rankingDepth": 10,
+    "poolDepth": 20,
+    "relevantThreshold": 2
+  }
 }

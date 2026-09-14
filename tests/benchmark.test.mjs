@@ -71,3 +71,17 @@ test(
     }
   }
 );
+
+test(
+  "benchmark separa profundidad de ranking y pool humano",
+  () => {
+    assert.deepEqual(
+      benchmark.evaluation,
+      {
+        rankingDepth: 10,
+        poolDepth: 20,
+        relevantThreshold: 2
+      }
+    );
+  }
+);

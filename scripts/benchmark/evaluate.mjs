@@ -12,7 +12,12 @@ function readJsonl(path) {
   }
 
   const text =
-    fs.readFileSync(path, "utf8").trim();
+    fs
+      .readFileSync(
+        path,
+        "utf8"
+      )
+      .trim();
 
   if (!text) {
     return [];
@@ -24,7 +29,9 @@ function readJsonl(path) {
     .map(
       (line, index) => {
         try {
-          return JSON.parse(line);
+          return JSON.parse(
+            line
+          );
         } catch (error) {
           throw new Error(
             `${path}:${index + 1}: ${error.message}`
@@ -36,7 +43,9 @@ function readJsonl(path) {
 
 function mean(values) {
   const usable =
-    values.filter(Number.isFinite);
+    values.filter(
+      Number.isFinite
+    );
 
   if (!usable.length) {
     return null;
@@ -44,9 +53,11 @@ function mean(values) {
 
   return (
     usable.reduce(
-      (sum, value) => sum + value,
+      (sum, value) =>
+        sum + value,
       0
-    ) / usable.length
+    ) /
+    usable.length
   );
 }
 
@@ -67,9 +78,14 @@ function dcg(grades) {
         (2 ** grade) - 1;
 
       const discount =
-        Math.log2(index + 2);
+        Math.log2(
+          index + 2
+        );
 
-      return total + gain / discount;
+      return (
+        total +
+        gain / discount
+      );
     },
     0
   );
@@ -83,8 +99,22 @@ const benchmark =
     )
   );
 
+const rankingDepth =
+  benchmark.evaluation
+    ?.rankingDepth || 10;
+
+const poolDepth =
+  benchmark.evaluation
+    ?.poolDepth || 20;
+
+const relevantThreshold =
+  benchmark.evaluation
+    ?.relevantThreshold || 2;
+
 const run =
-  readJsonl(runPath);
+  readJsonl(
+    runPath
+  );
 
 const judgments =
   readJsonl(
@@ -112,7 +142,11 @@ for (const judgment of judgments) {
     judgment
   );
 
-  if (!judgmentsByQuery.has(judgment.query_id)) {
+  if (
+    !judgmentsByQuery.has(
+      judgment.query_id
+    )
+  ) {
     judgmentsByQuery.set(
       judgment.query_id,
       []
@@ -120,15 +154,23 @@ for (const judgment of judgments) {
   }
 
   judgmentsByQuery
-    .get(judgment.query_id)
-    .push(judgment);
+    .get(
+      judgment.query_id
+    )
+    .push(
+      judgment
+    );
 }
 
 const runByQuery =
   new Map();
 
 for (const row of run) {
-  if (!runByQuery.has(row.query_id)) {
+  if (
+    !runByQuery.has(
+      row.query_id
+    )
+  ) {
     runByQuery.set(
       row.query_id,
       []
@@ -136,11 +178,18 @@ for (const row of run) {
   }
 
   runByQuery
-    .get(row.query_id)
-    .push(row);
+    .get(
+      row.query_id
+    )
+    .push(
+      row
+    );
 }
 
-for (const rows of runByQuery.values()) {
+for (
+  const rows of
+  runByQuery.values()
+) {
   rows.sort(
     (a, b) =>
       Number(a.rank) -
@@ -151,89 +200,211 @@ for (const rows of runByQuery.values()) {
 const perQuery =
   [];
 
-for (const query of benchmark.queries) {
-  const rows =
-    (runByQuery.get(query.id) || [])
-      .slice(0, 10);
+for (
+  const query of
+  benchmark.queries
+) {
+  const poolRows =
+    (
+      runByQuery.get(
+        query.id
+      ) || []
+    )
+      .slice(
+        0,
+        poolDepth
+      );
 
-  const evaluated =
-    rows.map(
-      row => {
-        const key =
-          `${query.id}\u0000${row.record_id}`;
-
-        return {
-          row,
-          judgment:
-            judgmentMap.get(key) || null
-        };
-      }
+  const rankedRows =
+    poolRows.slice(
+      0,
+      rankingDepth
     );
 
-  const unjudged =
-    evaluated.filter(
+  const evaluateRows =
+    rows =>
+      rows.map(
+        row => {
+          const key =
+            `${query.id}\u0000${row.record_id}`;
+
+          return {
+            row,
+            judgment:
+              judgmentMap.get(
+                key
+              ) || null
+          };
+        }
+      );
+
+  const ranked =
+    evaluateRows(
+      rankedRows
+    );
+
+  const pool =
+    evaluateRows(
+      poolRows
+    );
+
+  const top10Unjudged =
+    ranked.filter(
       item =>
         !item.judgment
     ).length;
 
-  const coverage =
-    rows.length
-      ? (rows.length - unjudged) / rows.length
+  const poolUnjudged =
+    pool.filter(
+      item =>
+        !item.judgment
+    ).length;
+
+  const top10Coverage =
+    ranked.length
+      ? (
+          ranked.length -
+          top10Unjudged
+        ) /
+        ranked.length
       : 0;
 
-  const complete =
-    rows.length > 0 &&
-    unjudged === 0;
+  const poolCoverage =
+    pool.length
+      ? (
+          pool.length -
+          poolUnjudged
+        ) /
+        pool.length
+      : 0;
 
-  let p5 = null;
-  let p10 = null;
+  const top10Complete =
+    ranked.length > 0 &&
+    top10Unjudged === 0;
+
+  const poolComplete =
+    pool.length > 0 &&
+    poolUnjudged === 0;
+
+  let precision5 = null;
+  let precision10 = null;
   let recall10 = null;
   let ndcg10 = null;
   let mrr10 = null;
-  let philosophyPrecision10 = null;
+  let philosophyPrecision10 =
+    null;
 
-  if (complete) {
+  if (top10Complete) {
     const top5 =
-      evaluated.slice(0, 5);
+      ranked.slice(
+        0,
+        5
+      );
 
-    p5 =
-      top5.filter(
-        item =>
-          item.judgment.relevance >= 2
-      ).length /
-      top5.length;
+    precision5 =
+      top5.length
+        ? (
+            top5.filter(
+              item =>
+                item.judgment
+                  .relevance >=
+                relevantThreshold
+            ).length /
+            top5.length
+          )
+        : null;
 
     const relevant10 =
-      evaluated.filter(
+      ranked.filter(
         item =>
-          item.judgment.relevance >= 2
+          item.judgment
+            .relevance >=
+          relevantThreshold
       ).length;
 
-    p10 =
-      relevant10 /
-      evaluated.length;
+    precision10 =
+      ranked.length
+        ? (
+            relevant10 /
+            ranked.length
+          )
+        : null;
 
-    const judgedRelevant =
-      (judgmentsByQuery.get(query.id) || [])
+    const firstRelevant =
+      ranked.findIndex(
+        item =>
+          item.judgment
+            .relevance >=
+          relevantThreshold
+      );
+
+    mrr10 =
+      firstRelevant >= 0
+        ? (
+            1 /
+            (
+              firstRelevant +
+              1
+            )
+          )
+        : 0;
+
+    philosophyPrecision10 =
+      ranked.length
+        ? (
+            ranked.filter(
+              item =>
+                item.judgment
+                  .discipline === 2
+            ).length /
+            ranked.length
+          )
+        : null;
+  }
+
+  if (poolComplete) {
+    const relevant10 =
+      ranked.filter(
+        item =>
+          item.judgment
+            .relevance >=
+          relevantThreshold
+      ).length;
+
+    const allRelevantJudged =
+      (
+        judgmentsByQuery.get(
+          query.id
+        ) || []
+      )
         .filter(
           judgment =>
-            judgment.relevance >= 2
+            judgment.relevance >=
+            relevantThreshold
         )
         .length;
 
     recall10 =
-      judgedRelevant
-        ? relevant10 / judgedRelevant
+      allRelevantJudged
+        ? (
+            relevant10 /
+            allRelevantJudged
+          )
         : null;
 
-    const grades =
-      evaluated.map(
+    const actualGrades =
+      ranked.map(
         item =>
-          item.judgment.relevance
+          item.judgment
+            .relevance
       );
 
-    const ideal =
-      (judgmentsByQuery.get(query.id) || [])
+    const idealGrades =
+      (
+        judgmentsByQuery.get(
+          query.id
+        ) || []
+      )
         .map(
           judgment =>
             judgment.relevance
@@ -242,61 +413,105 @@ for (const query of benchmark.queries) {
           (a, b) =>
             b - a
         )
-        .slice(0, 10);
+        .slice(
+          0,
+          rankingDepth
+        );
 
     const idealDcg =
-      dcg(ideal);
+      dcg(
+        idealGrades
+      );
 
     ndcg10 =
       idealDcg > 0
-        ? dcg(grades) / idealDcg
+        ? (
+            dcg(
+              actualGrades
+            ) /
+            idealDcg
+          )
         : null;
-
-    const firstRelevant =
-      evaluated.findIndex(
-        item =>
-          item.judgment.relevance >= 2
-      );
-
-    mrr10 =
-      firstRelevant >= 0
-        ? 1 / (firstRelevant + 1)
-        : 0;
-
-    philosophyPrecision10 =
-      evaluated.filter(
-        item =>
-          item.judgment.discipline === 2
-      ).length /
-      evaluated.length;
   }
 
   perQuery.push({
-    id: query.id,
-    language: query.language,
-    family: query.family,
-    intent: query.intent,
-    returned: rows.length,
-    unjudged,
-    coverage: round(coverage),
-    precision5: round(p5),
-    precision10: round(p10),
-    recall10: round(recall10),
-    ndcg10: round(ndcg10),
-    mrr10: round(mrr10),
+    id:
+      query.id,
+
+    language:
+      query.language,
+
+    family:
+      query.family,
+
+    intent:
+      query.intent,
+
+    returned:
+      poolRows.length,
+
+    top10Unjudged,
+    poolUnjudged,
+
+    top10Coverage:
+      round(
+        top10Coverage
+      ),
+
+    poolCoverage:
+      round(
+        poolCoverage
+      ),
+
+    precision5:
+      round(
+        precision5
+      ),
+
+    precision10:
+      round(
+        precision10
+      ),
+
+    recall10:
+      round(
+        recall10
+      ),
+
+    ndcg10:
+      round(
+        ndcg10
+      ),
+
+    mrr10:
+      round(
+        mrr10
+      ),
+
     philosophyPrecision10:
-      round(philosophyPrecision10)
+      round(
+        philosophyPrecision10
+      )
   });
 }
 
 function summarize(rows) {
   return {
-    queries: rows.length,
-    complete:
+    queries:
+      rows.length,
+
+    top10Complete:
       rows.filter(
         row =>
-          row.coverage === 1
+          row.top10Coverage === 1
       ).length,
+
+    poolComplete:
+      rows.filter(
+        row =>
+          row.poolCoverage === 1
+      ).length,
+
     precision5:
       round(
         mean(
@@ -306,6 +521,7 @@ function summarize(rows) {
           )
         )
       ),
+
     precision10:
       round(
         mean(
@@ -315,6 +531,7 @@ function summarize(rows) {
           )
         )
       ),
+
     recall10:
       round(
         mean(
@@ -324,6 +541,7 @@ function summarize(rows) {
           )
         )
       ),
+
     ndcg10:
       round(
         mean(
@@ -333,6 +551,7 @@ function summarize(rows) {
           )
         )
       ),
+
     mrr10:
       round(
         mean(
@@ -342,6 +561,7 @@ function summarize(rows) {
           )
         )
       ),
+
     philosophyPrecision10:
       round(
         mean(
@@ -357,12 +577,16 @@ function summarize(rows) {
 const byLanguage =
   {};
 
-for (const language of benchmark.languages) {
+for (
+  const language of
+  benchmark.languages
+) {
   byLanguage[language] =
     summarize(
       perQuery.filter(
         row =>
-          row.language === language
+          row.language ===
+          language
       )
     );
 }
@@ -370,13 +594,26 @@ for (const language of benchmark.languages) {
 const report = {
   benchmarkVersion:
     benchmark.version,
+
+  evaluation: {
+    rankingDepth,
+    poolDepth,
+    relevantThreshold
+  },
+
   run:
     runPath,
+
   judgments:
     judgments.length,
+
   overall:
-    summarize(perQuery),
+    summarize(
+      perQuery
+    ),
+
   byLanguage,
+
   perQuery
 };
 

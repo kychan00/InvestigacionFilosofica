@@ -1,0 +1,230 @@
+<!doctype html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>
+    Benchmark humano · Investigación Filosófica
+  </title>
+
+  <style>
+    :root {
+      font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+      background:
+        #f3f1ed;
+
+      color:
+        #272522;
+    }
+
+    body {
+      margin:
+        0;
+    }
+
+    main {
+      width:
+        min(
+          900px,
+          calc(100% - 48px)
+        );
+
+      margin:
+        56px auto;
+
+      padding:
+        32px;
+
+      border-radius:
+        24px;
+
+      background:
+        #ffffff;
+
+      box-shadow:
+        0 20px 60px
+        rgba(
+          0,
+          0,
+          0,
+          0.08
+        );
+    }
+
+    h1 {
+      margin-top:
+        0;
+
+      font-family:
+        Georgia,
+        serif;
+    }
+
+    button {
+      padding:
+        12px 18px;
+
+      border:
+        0;
+
+      border-radius:
+        10px;
+
+      background:
+        #242424;
+
+      color:
+        white;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+    }
+
+    button:disabled {
+      opacity:
+        0.5;
+
+      cursor:
+        wait;
+    }
+
+    progress {
+      width:
+        100%;
+
+      height:
+        20px;
+
+      margin:
+        24px 0 10px;
+    }
+
+    #status {
+      min-height:
+        52px;
+
+      padding:
+        14px;
+
+      margin-top:
+        16px;
+
+      border-radius:
+        12px;
+
+      background:
+        #f6f4f0;
+
+      white-space:
+        pre-wrap;
+    }
+
+    #log {
+      max-height:
+        420px;
+
+      overflow:
+        auto;
+
+      margin-top:
+        18px;
+
+      padding:
+        16px;
+
+      border-radius:
+        12px;
+
+      background:
+        #1f2022;
+
+      color:
+        #e9e9ea;
+
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        monospace;
+
+      font-size:
+        0.78rem;
+
+      white-space:
+        pre-wrap;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <h1>
+      Benchmark humano v1
+    </h1>
+
+    <p>
+      Ejecuta las 50 consultas contra el motor real
+      y congela hasta 20 resultados por consulta.
+    </p>
+
+    <p>
+      El proceso es reanudable. Si se interrumpe,
+      vuelva a iniciar el servidor y pulse el botón
+      otra vez.
+    </p>
+
+    <button
+      id="start"
+      type="button"
+    >
+      Ejecutar benchmark
+    </button>
+
+    <progress
+      id="progress"
+      value="0"
+      max="50"
+    ></progress>
+
+    <div id="status">
+      Listo.
+    </div>
+
+    <div id="log"></div>
+
+  </main>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "franc-min": "https://esm.sh/franc-min@6.2.0?bundle"
+    }
+  }
+  </script>
+
+  <script
+    type="module"
+    src="../scripts/benchmark/runner-browser.js"
+  ></script>
+
+</body>
+
+</html>
