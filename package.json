@@ -14,7 +14,8 @@
     "benchmark:evaluate:ai": "node scripts/benchmark/evaluate.mjs benchmark/runs/human-v1.0-1064fdb.jsonl benchmark/ai-silver-v1.jsonl",
     "benchmark:evaluate:ai:report": "node scripts/benchmark/evaluate.mjs benchmark/runs/human-v1.0-1064fdb.jsonl benchmark/ai-silver-v1.jsonl > benchmark/ai-silver-v1.report.json",
     "benchmark:analyze-errors": "node scripts/benchmark/analyze_errors.mjs",
-    "benchmark:simulate-ranking": "node scripts/benchmark/simulate_ranking.mjs"
+    "benchmark:simulate-ranking": "node scripts/benchmark/simulate_ranking.mjs",
+    "benchmark:inspect-ranking-changes": "node scripts/benchmark/inspect_ranking_changes.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
