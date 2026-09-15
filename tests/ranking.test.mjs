@@ -7,6 +7,7 @@ import {
 } from "../src/core/parser.js";
 
 import {
+  rankResult,
   rankResults
 } from "../src/core/rank.js";
 
@@ -139,6 +140,98 @@ test(
     assert.equal(
       ranked[0].doi,
       "10.1234/kant"
+    );
+  }
+);
+
+
+test(
+  "Crossref sólo recibe penalización con baja cobertura del título",
+  () => {
+    const strong =
+      rankResult(
+        baseResult({
+          title:
+            "Libertad en Kant",
+          providers: [
+            "Crossref"
+          ]
+        }),
+        parsed,
+        philosophyMap
+      );
+
+    const weak =
+      rankResult(
+        baseResult({
+          title:
+            "Kant y la estética",
+          providers: [
+            "Crossref"
+          ]
+        }),
+        parsed,
+        philosophyMap
+      );
+
+    assert.equal(
+      strong.ranking.sourcePrior,
+      0
+    );
+
+    assert.equal(
+      weak.ranking.sourcePrior,
+      -2
+    );
+
+    assert.ok(
+      strong.ranking.titleCoverage >= 50
+    );
+
+    assert.ok(
+      weak.ranking.titleCoverage < 50
+    );
+  }
+);
+
+
+test(
+  "Ranking v2 aplica priors pequeños a CUCSH e Internet Archive",
+  () => {
+    const cucsh =
+      rankResult(
+        baseResult({
+          title:
+            "Libertad en Kant",
+          providers: [
+            "CUCSH Filosofía"
+          ]
+        }),
+        parsed,
+        philosophyMap
+      );
+
+    const archive =
+      rankResult(
+        baseResult({
+          title:
+            "Libertad en Kant",
+          providers: [
+            "Internet Archive"
+          ]
+        }),
+        parsed,
+        philosophyMap
+      );
+
+    assert.equal(
+      cucsh.ranking.sourcePrior,
+      5
+    );
+
+    assert.equal(
+      archive.ranking.sourcePrior,
+      3
     );
   }
 );
