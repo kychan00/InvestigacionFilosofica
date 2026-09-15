@@ -17,11 +17,18 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def read_jsonl(path: Path):
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    return [
+        json.loads(line)
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
 
 
 def write_jsonl(path: Path, rows):
-    path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in rows) + "\n", encoding="utf-8")
+    path.write_text(
+        "\n".join(json.dumps(row, ensure_ascii=False) for row in rows) + "\n",
+        encoding="utf-8",
+    )
 
 
 def choose_device() -> str:
@@ -42,7 +49,7 @@ def document_text(row: dict, max_abstract_chars: int) -> str:
     if row.get("type"):
         parts.append(f"Document type: {row['type']}")
     abstract = (row.get("abstract") or "").strip()
-    if abstract:
+    if abstract and abstract != "-":
         parts.append("Abstract: " + abstract[:max_abstract_chars])
     else:
         parts.append("Abstract: unavailable")
@@ -73,7 +80,10 @@ class LocalModels:
         print(f"NLI: {nli_repo}@{self.nli_revision}")
         print(f"Reranker: {reranker_repo}@{self.reranker_revision}")
 
-        self.nli_tokenizer = AutoTokenizer.from_pretrained(nli_repo, revision=self.nli_revision)
+        self.nli_tokenizer = AutoTokenizer.from_pretrained(
+            nli_repo,
+            revision=self.nli_revision,
+        )
         self.nli_model = AutoModelForSequenceClassification.from_pretrained(
             nli_repo,
             revision=self.nli_revision,
@@ -108,7 +118,7 @@ class LocalModels:
     def rerank(self, pairs):
         scores = []
         for start in range(0, len(pairs), self.reranker_batch_size):
-            batch = pairs[start:start + self.reranker_batch_size]
+            batch = pairs[start : start + self.reranker_batch_size]
             queries = [query for query, _ in batch]
             documents = [document for _, document in batch]
             encoded = self.reranker_tokenizer(
@@ -130,15 +140,7 @@ class LocalModels:
 
     @torch.inference_mode()
     def zero_shot(self, sequences, candidates, hypothesis_template):
-        """
-        Single-label zero-shot classification.
-
-        For each sequence, score every candidate with the NLI entailment logit,
-        then apply softmax across candidate entailment logits. This mirrors the
-        usual single-label zero-shot policy and avoids applying a second softmax
-        to already-normalized entailment probabilities.
-        """
-        output = []
+        """Single-label zero-shot classification using entailment logits."""
         expanded = []
         owner = []
 
@@ -149,7 +151,7 @@ class LocalModels:
 
         entailment_logits = []
         for start in range(0, len(expanded), self.nli_batch_size):
-            batch = expanded[start:start + self.nli_batch_size]
+            batch = expanded[start : start + self.nli_batch_size]
             premise = [item[0] for item in batch]
             hypothesis = [item[1] for item in batch]
             encoded = self.nli_tokenizer(
@@ -164,18 +166,26 @@ class LocalModels:
             logits = self.nli_model(**encoded).logits
             entailment_logits.extend(
                 float(value)
-                for value in logits[:, self.entailment_index].detach().float().cpu().tolist()
+                for value in logits[:, self.entailment_index]
+                .detach()
+                .float()
+                .cpu()
+                .tolist()
             )
 
         grouped = defaultdict(list)
         for (sequence_index, candidate_id), score in zip(owner, entailment_logits):
             grouped[sequence_index].append((candidate_id, score))
 
+        output = []
         for sequence_index in range(len(sequences)):
             labels = grouped[sequence_index]
             normalized = softmax([score for _, score in labels])
             ranked = sorted(
-                ((candidate_id, float(prob)) for (candidate_id, _), prob in zip(labels, normalized)),
+                (
+                    (candidate_id, float(prob))
+                    for (candidate_id, _), prob in zip(labels, normalized)
+                ),
                 key=lambda item: item[1],
                 reverse=True,
             )
@@ -194,7 +204,9 @@ def percentile_buckets(rows, scores):
     for values in by_query.values():
         ordered_scores = [score for _, score in values]
         for index, score in values:
-            percentile = sum(candidate <= score for candidate in ordered_scores) / len(ordered_scores)
+            percentile = sum(candidate <= score for candidate in ordered_scores) / len(
+                ordered_scores
+            )
             percentiles[index] = percentile
             if percentile >= 0.80:
                 bucket = 3
@@ -208,15 +220,37 @@ def percentile_buckets(rows, scores):
     return percentiles, buckets
 
 
+def one_per_query(rows):
+    selected = []
+    seen = set()
+    for row in rows:
+        query_id = row["query_id"]
+        if query_id in seen:
+            continue
+        selected.append(row)
+        seen.add(query_id)
+    return selected
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Generate AI-assisted silver judgments locally.")
+    parser = argparse.ArgumentParser(
+        description="Generate AI-assisted silver judgments locally."
+    )
     parser.add_argument(
         "--config",
         default="benchmark/ai-judge-v1.json",
         help="Judge configuration JSON relative to repository root.",
     )
-    parser.add_argument("--limit", type=int, default=None, help="Optional smoke-test row limit.")
+    parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument(
+        "--one-per-query",
+        action="store_true",
+        help="Smoke test using the first frozen result from each benchmark query.",
+    )
     args = parser.parse_args()
+
+    if args.limit and args.one_per_query:
+        raise SystemExit("Use either --limit or --one-per-query, not both.")
 
     config_path = ROOT / args.config
     config = json.loads(config_path.read_text(encoding="utf-8"))
@@ -226,8 +260,13 @@ def main():
     baseline_counts = Counter(row["query_id"] for row in all_rows)
 
     rows = all_rows
+    smoke_label = None
     if args.limit:
-        rows = rows[:args.limit]
+        rows = rows[: args.limit]
+        smoke_label = f"smoke-{args.limit}"
+    elif args.one_per_query:
+        rows = one_per_query(rows)
+        smoke_label = "smoke-one-per-query"
 
     selected_counts = Counter(row["query_id"] for row in rows)
     complete_query_pool = {
@@ -245,47 +284,49 @@ def main():
     models = LocalModels(config)
 
     print(f"Scoring reranker for {len(rows)} rows...")
-    reranker_scores = models.rerank([(row["query"], document) for row, document in zip(rows, documents)])
+    reranker_scores = models.rerank(
+        [(row["query"], document) for row, document in zip(rows, documents)]
+    )
     reranker_percentiles, reranker_buckets = percentile_buckets(rows, reranker_scores)
 
     print("Classifying relevance...")
     relevance_candidates = [
-        (0, "irrelevant or unrelated"),
-        (1, "only tangentially or indirectly related"),
-        (2, "substantively relevant"),
-        (3, "highly relevant and directly focused on the query"),
+        (0, "does not substantively address the research query"),
+        (1, "has a related topic, but the queried philosopher, work, concept, or problem is peripheral"),
+        (2, "substantively addresses the queried philosopher, work, concept, or problem as an important part of the document"),
+        (3, "is specifically centered on and directly about the queried philosopher, work, concept, or problem"),
     ]
     relevance_predictions = models.zero_shot(
         sequences,
         relevance_candidates,
-        "The document is {}.",
+        "In relation to the research query, the document {}.",
     )
 
     print("Classifying discipline...")
     discipline_candidates = [
-        (0, "not a philosophical work"),
-        (1, "interdisciplinary or philosophically adjacent"),
-        (2, "a philosophical work or work of philosophy scholarship"),
+        (0, "primarily belongs to a non-philosophy discipline and does not substantially analyze philosophical arguments, concepts, works, or philosophers"),
+        (1, "is primarily interdisciplinary or from another field but substantially uses, applies, or discusses philosophical ideas"),
+        (2, "is primarily philosophy scholarship, including analysis of philosophical arguments, concepts, philosophers, philosophical works, or history of philosophy"),
     ]
     discipline_predictions = models.zero_shot(
         sequences,
         discipline_candidates,
-        "The document is {}.",
+        "Regarding academic discipline, the document {}.",
     )
 
     print("Classifying documentary role...")
     role_candidates = [
-        ("PRIMARY", "a primary philosophical source by the original philosopher or author"),
-        ("SCHOLARLY", "secondary scholarly research or philosophical scholarship"),
-        ("REVIEW", "a book review or scholarly review"),
-        ("EMPIRICAL_ADJACENT", "an empirical or interdisciplinary application adjacent to philosophy"),
-        ("PARATEXT", "paratext such as an editorial, index, table of contents, front matter, or cover"),
-        ("NOISE", "noise or a false positive unrelated to the research task"),
+        ("PRIMARY", "is a primary text authored by the philosopher or thinker who is the object of the research query, rather than a later study about that thinker"),
+        ("SCHOLARLY", "is a secondary academic study about a philosopher, philosophical work, concept, argument, or problem"),
+        ("REVIEW", "is explicitly a review of a book or scholarly publication"),
+        ("EMPIRICAL_ADJACENT", "is primarily an empirical or applied study in another field that uses philosophical ideas"),
+        ("PARATEXT", "is paratext such as an editorial, index, table of contents, front matter, or cover"),
+        ("NOISE", "does not substantively address the research task and is a false positive"),
     ]
     role_predictions = models.zero_shot(
         sequences,
         role_candidates,
-        "The document is {}.",
+        "Regarding documentary role, the document {}.",
     )
 
     thresholds = config["thresholds"]
@@ -300,15 +341,28 @@ def main():
         if role_confidence < float(thresholds["roleLowConfidence"]):
             role = "UNSURE"
 
-        reasons = []
+        audit_reasons = []
+        critical_reasons = []
+
         if relevance_confidence < float(thresholds["relevanceLowConfidence"]):
-            reasons.append("low_relevance_confidence")
+            audit_reasons.append("low_relevance_confidence")
         if discipline_confidence < float(thresholds["disciplineLowConfidence"]):
-            reasons.append("low_discipline_confidence")
+            audit_reasons.append("low_discipline_confidence")
         if role_confidence < float(thresholds["roleLowConfidence"]):
-            reasons.append("low_role_confidence")
-        if not (row.get("abstract") or "").strip():
-            reasons.append("missing_abstract")
+            audit_reasons.append("low_role_confidence")
+        if not (row.get("abstract") or "").strip() or row.get("abstract") == "-":
+            audit_reasons.append("missing_abstract")
+        if role == "UNSURE":
+            audit_reasons.append("role_unsure")
+
+        if relevance_confidence < float(
+            thresholds["criticalRelevanceLowConfidence"]
+        ):
+            critical_reasons.append("critical_relevance_uncertainty")
+        if discipline_confidence < float(
+            thresholds["criticalDisciplineLowConfidence"]
+        ):
+            critical_reasons.append("critical_discipline_uncertainty")
 
         disagreement = abs(int(relevance) - int(reranker_buckets[index]))
         disagreement_applicable = bool(complete_query_pool.get(row["query_id"]))
@@ -316,51 +370,69 @@ def main():
             disagreement_applicable
             and disagreement >= int(thresholds["rerankerDisagreementDistance"])
         ):
-            reasons.append("nli_reranker_disagreement")
-        if role == "UNSURE":
-            reasons.append("role_unsure")
+            audit_reasons.append("nli_reranker_disagreement")
+            critical_reasons.append("nli_reranker_disagreement")
 
-        needs_review = bool(reasons)
+        needs_review = bool(critical_reasons)
         review_count += int(needs_review)
 
-        judgments.append({
-            "query_id": row["query_id"],
-            "record_id": row["record_id"],
-            "relevance": int(relevance),
-            "discipline": int(discipline),
-            "role": role,
-            "judge_type": "ai_silver_v1",
-            "confidence": {
-                "relevance_nli": round(float(relevance_confidence), 6),
-                "discipline_nli": round(float(discipline_confidence), 6),
-                "role_nli": round(float(role_confidence), 6),
-            },
-            "reranker": {
-                "raw_score": round(float(reranker_scores[index]), 6),
-                "within_query_percentile": round(float(reranker_percentiles[index]), 6),
-                "percentile_bucket_0_3": int(reranker_buckets[index]),
-                "distance_from_nli_label": int(disagreement),
-                "disagreement_applicable": disagreement_applicable,
-            },
-            "needs_human_review": needs_review,
-            "review_reasons": sorted(set(reasons)),
-        })
+        audit_priority = (
+            (1.0 - float(relevance_confidence))
+            + 0.75 * (1.0 - float(discipline_confidence))
+            + 0.20 * (1.0 - float(role_confidence))
+            + (0.20 if "missing_abstract" in audit_reasons else 0.0)
+            + (0.75 if "nli_reranker_disagreement" in audit_reasons else 0.0)
+        )
+
+        judgments.append(
+            {
+                "query_id": row["query_id"],
+                "record_id": row["record_id"],
+                "relevance": int(relevance),
+                "discipline": int(discipline),
+                "role": role,
+                "judge_type": "ai_silver_v1",
+                "confidence": {
+                    "relevance_nli": round(float(relevance_confidence), 6),
+                    "discipline_nli": round(float(discipline_confidence), 6),
+                    "role_nli": round(float(role_confidence), 6),
+                },
+                "reranker": {
+                    "raw_score": round(float(reranker_scores[index]), 6),
+                    "within_query_percentile": round(
+                        float(reranker_percentiles[index]), 6
+                    ),
+                    "percentile_bucket_0_3": int(reranker_buckets[index]),
+                    "distance_from_nli_label": int(disagreement),
+                    "disagreement_applicable": disagreement_applicable,
+                },
+                "needs_human_review": needs_review,
+                "review_reasons": sorted(set(critical_reasons)),
+                "audit_reasons": sorted(set(audit_reasons)),
+                "audit_priority": round(float(audit_priority), 6),
+            }
+        )
 
     output_path = ROOT / config["outputs"]["judgments"]
     metadata_path = ROOT / config["outputs"]["metadata"]
-    if args.limit:
-        output_path = output_path.with_name(output_path.stem + f"-smoke-{args.limit}" + output_path.suffix)
-        metadata_path = metadata_path.with_name(metadata_path.stem + f"-smoke-{args.limit}" + metadata_path.suffix)
+    if smoke_label:
+        output_path = output_path.with_name(
+            output_path.stem + f"-{smoke_label}" + output_path.suffix
+        )
+        metadata_path = metadata_path.with_name(
+            metadata_path.stem + f"-{smoke_label}" + metadata_path.suffix
+        )
 
     write_jsonl(output_path, judgments)
 
     metadata = {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "judge": config["name"],
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "baselineRun": config["baselineRun"],
         "rows": len(judgments),
-        "smokeTest": bool(args.limit),
+        "smokeTest": bool(smoke_label),
+        "smokeLabel": smoke_label,
         "needsHumanReview": review_count,
         "device": models.device,
         "models": {
@@ -377,13 +449,18 @@ def main():
         "policy": config["policy"],
         "notes": [
             "NLI confidence is softmax over candidate entailment logits.",
-            "Reranker disagreement is only used when the selected rows contain the complete 20-document pool for that query.",
+            "Role uncertainty is auxiliary and does not by itself force human review.",
+            "Missing abstracts increase audit priority but do not by themselves force human review.",
+            "Reranker disagreement is only actionable when the selected rows contain the complete 20-document pool for that query.",
         ],
         "outputs": {
             "judgments": str(output_path.relative_to(ROOT)),
         },
     }
-    metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    metadata_path.write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     print()
     print("AI SILVER JUDGMENTS: PASS")
