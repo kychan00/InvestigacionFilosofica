@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-15T01:07:57.732868+00:00",
+  "source": "benchmark/ai-judgments-v1.jsonl",
+  "output": "benchmark/ai-silver-v1.jsonl",
+  "rows": 1000,
+  "queries": 50,
+  "rowsPerQuery": [
+    20
+  ],
+  "policy": {
+    "0": "NLI irrelevant remains 0 regardless of reranker position.",
+    "1": "NLI adjacent remains 1 regardless of reranker position.",
+    "2": "NLI relevant remains 2 unless it is in the top 20% of the frozen per-query reranker distribution, in which case it becomes 3.",
+    "3": "NLI central remains 3.",
+    "binaryRelevantThreshold": 2,
+    "rationale": "The reranker refines centrality but cannot promote an absolutely irrelevant or merely adjacent item into the relevant set."
+  },
+  "baseNliDistribution": {
+    "0": 556,
+    "1": 46,
+    "2": 388,
+    "3": 10
+  },
+  "finalSilverDistribution": {
+    "0": 556,
+    "1": 46,
+    "2": 281,
+    "3": 117
+  },
+  "calibration": {
+    "nli_central": 10,
+    "nli_grade_preserved": 883,
+    "nli_relevant_plus_top20pct_reranker": 107
+  },
+  "needsHumanReview": 172,
+  "disciplinePolicy": "Discipline labels are retained as experimental diagnostic metadata and should not be treated as human gold labels.",
+  "rolePolicy": "Documentary-role labels are retained as diagnostic metadata only because the NLI role classifier showed poor separation in the smoke/full runs."
+}
