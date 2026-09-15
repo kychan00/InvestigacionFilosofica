@@ -12,7 +12,8 @@
     "benchmark:ai": "python3 scripts/benchmark/ai_judge.py",
     "benchmark:ai:calibrate": "python3 scripts/benchmark/calibrate_ai_judgments.py",
     "benchmark:evaluate:ai": "node scripts/benchmark/evaluate.mjs benchmark/runs/human-v1.0-1064fdb.jsonl benchmark/ai-silver-v1.jsonl",
-    "benchmark:evaluate:ai:report": "node scripts/benchmark/evaluate.mjs benchmark/runs/human-v1.0-1064fdb.jsonl benchmark/ai-silver-v1.jsonl > benchmark/ai-silver-v1.report.json"
+    "benchmark:evaluate:ai:report": "node scripts/benchmark/evaluate.mjs benchmark/runs/human-v1.0-1064fdb.jsonl benchmark/ai-silver-v1.jsonl > benchmark/ai-silver-v1.report.json",
+    "benchmark:analyze-errors": "node scripts/benchmark/analyze_errors.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
