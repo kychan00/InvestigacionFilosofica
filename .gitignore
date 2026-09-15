@@ -8,3 +8,5 @@ node_modules/
 artifacts/
 vendor/duckdb/
 tests/manual/vendor/
+benchmark/ai-judgments-v1-smoke-*.jsonl
+benchmark/ai-judgments-v1.meta-smoke-*.json
