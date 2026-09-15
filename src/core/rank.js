@@ -693,6 +693,68 @@ function impactScore(result) {
 }
 
 
+function rankingV2Adjustment(
+  result,
+  parsed
+) {
+  const coverage =
+    tokenOverlap(
+      parsed.original || "",
+      result.title || ""
+    );
+
+  const providers =
+    new Set(
+      result.providers || []
+    );
+
+  const titleBoost =
+    coverage * 4;
+
+  let sourcePrior = 0;
+
+  if (
+    providers.has(
+      "CUCSH Filosofía"
+    )
+  ) {
+    sourcePrior += 5;
+  }
+
+  if (
+    providers.has(
+      "Internet Archive"
+    )
+  ) {
+    sourcePrior += 3;
+  }
+
+  /*
+   * El benchmark mostró que una penalización
+   * global a Crossref expulsa artículos buenos.
+   * Sólo se aplica cuando el título cubre menos
+   * de la mitad de la consulta original.
+   */
+  if (
+    providers.has(
+      "Crossref"
+    ) &&
+    coverage < 0.50
+  ) {
+    sourcePrior -= 2;
+  }
+
+  return {
+    coverage,
+    titleBoost,
+    sourcePrior,
+    total:
+      titleBoost +
+      sourcePrior
+  };
+}
+
+
 function levelFromScore(score) {
   if (score >= 85) {
     return "P1";
@@ -765,9 +827,28 @@ export function rankResult(
     I * 0.04 -
     penalty;
 
-  const score =
+  const baseScore =
     Math.round(
       clamp(total) * 100
+    );
+
+  const v2 =
+    rankingV2Adjustment(
+      result,
+      parsed
+    );
+
+  const rankingSortScore =
+    clamp(
+      baseScore +
+      v2.total,
+      0,
+      100
+    );
+
+  const score =
+    Math.round(
+      rankingSortScore
     );
 
   return {
@@ -775,6 +856,8 @@ export function rankResult(
 
     relevanceScore:
       score,
+
+    rankingSortScore,
 
     relevanceLevel:
       levelFromScore(score),
@@ -807,7 +890,22 @@ export function rankResult(
       penalty:
         Math.round(
           penalty * 100
-        )
+        ),
+
+      baseScore,
+
+      titleCoverage:
+        Math.round(
+          v2.coverage * 100
+        ),
+
+      sourcePrior:
+        v2.sourcePrior,
+
+      v2Adjustment:
+        Math.round(
+          v2.total * 100
+        ) / 100
     }
   };
 }
@@ -829,7 +927,7 @@ export function rankResults(
     )
     .sort(
       (a, b) =>
-        b.relevanceScore -
-        a.relevanceScore
+        b.rankingSortScore -
+        a.rankingSortScore
     );
 }
