@@ -34,12 +34,19 @@ function hasProvider(row, name) {
   return (row.providers || []).includes(name);
 }
 
-function providerBonus(row, profile) {
+function providerBonus(row, profile, coverage) {
   let bonus = 0;
   if (hasProvider(row, "CUCSH Filosofía")) bonus += profile.cucsh || 0;
   if (hasProvider(row, "Internet Archive")) bonus += profile.ia || 0;
-  if (hasProvider(row, "Crossref")) bonus += profile.crossref || 0;
   if (hasProvider(row, "OpenAlex Philosophy")) bonus += profile.openalex || 0;
+
+  if (hasProvider(row, "Crossref")) {
+    const penalty = profile.crossref || 0;
+    const threshold = profile.crossrefPenaltyBelow;
+    const apply = threshold == null || coverage < threshold;
+    if (apply) bonus += penalty;
+  }
+
   return bonus;
 }
 
@@ -82,11 +89,31 @@ const profiles = [
   },
   {
     id: "cautious_crossref",
-    description: "Title+curated profile and a very small Crossref penalty.",
+    description: "Title+curated profile and a very small unconditional Crossref penalty.",
     coverage: 4,
     cucsh: 5,
     ia: 3,
     crossref: -2,
+    openalex: 0,
+  },
+  {
+    id: "crossref_lowcov_075",
+    description: "Title+curated profile; penalize Crossref only when original-query title coverage is below 0.75.",
+    coverage: 4,
+    cucsh: 5,
+    ia: 3,
+    crossref: -2,
+    crossrefPenaltyBelow: 0.75,
+    openalex: 0,
+  },
+  {
+    id: "crossref_lowcov_050",
+    description: "Title+curated profile; penalize Crossref only when original-query title coverage is below 0.50.",
+    coverage: 4,
+    cucsh: 5,
+    ia: 3,
+    crossref: -2,
+    crossrefPenaltyBelow: 0.50,
     openalex: 0,
   },
 ];
@@ -134,7 +161,7 @@ function scoreRow(row, query, profile) {
   if (profile.id === "baseline") return -Number(row.rank);
   const base = Number(row.score || 0);
   const coverage = titleCoverage(query.query, row.title || "");
-  const adjustment = coverage * profile.coverage + providerBonus(row, profile);
+  const adjustment = coverage * profile.coverage + providerBonus(row, profile, coverage);
   return base + adjustment - Number(row.rank) * 1e-6;
 }
 
@@ -205,7 +232,7 @@ for (const result of results) {
 }
 
 const report = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   note: "Development-only simulation over the frozen silver benchmark. It is not an independent test and must not be presented as one.",
   importantCaveat: "No profile uses abstract presence because the AI silver judge itself consumed abstracts; boosting abstract availability here would risk optimizing to judge availability rather than true relevance.",
   run: RUN,
