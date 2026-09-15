@@ -4,8 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -101,7 +100,6 @@ class LocalModels:
         for index, label in labels.items():
             if "entail" in label:
                 return index
-        # Common MNLI order: contradiction, neutral, entailment.
         if self.nli_model.config.num_labels == 3:
             return 2
         raise RuntimeError(f"Could not infer entailment label from {labels}")
@@ -132,15 +130,24 @@ class LocalModels:
 
     @torch.inference_mode()
     def zero_shot(self, sequences, candidates, hypothesis_template):
+        """
+        Single-label zero-shot classification.
+
+        For each sequence, score every candidate with the NLI entailment logit,
+        then apply softmax across candidate entailment logits. This mirrors the
+        usual single-label zero-shot policy and avoids applying a second softmax
+        to already-normalized entailment probabilities.
+        """
         output = []
         expanded = []
         owner = []
+
         for sequence_index, sequence in enumerate(sequences):
             for candidate_id, phrase in candidates:
                 expanded.append((sequence, hypothesis_template.format(phrase)))
                 owner.append((sequence_index, candidate_id))
 
-        entailment_scores = []
+        entailment_logits = []
         for start in range(0, len(expanded), self.nli_batch_size):
             batch = expanded[start:start + self.nli_batch_size]
             premise = [item[0] for item in batch]
@@ -155,14 +162,13 @@ class LocalModels:
             )
             encoded = {key: value.to(self.device) for key, value in encoded.items()}
             logits = self.nli_model(**encoded).logits
-            probabilities = torch.softmax(logits, dim=-1)
-            entailment_scores.extend(
+            entailment_logits.extend(
                 float(value)
-                for value in probabilities[:, self.entailment_index].detach().cpu().tolist()
+                for value in logits[:, self.entailment_index].detach().float().cpu().tolist()
             )
 
         grouped = defaultdict(list)
-        for (sequence_index, candidate_id), score in zip(owner, entailment_scores):
+        for (sequence_index, candidate_id), score in zip(owner, entailment_logits):
             grouped[sequence_index].append((candidate_id, score))
 
         for sequence_index in range(len(sequences)):
@@ -215,9 +221,19 @@ def main():
     config_path = ROOT / args.config
     config = json.loads(config_path.read_text(encoding="utf-8"))
     run_path = ROOT / config["baselineRun"]
-    rows = read_jsonl(run_path)
+
+    all_rows = read_jsonl(run_path)
+    baseline_counts = Counter(row["query_id"] for row in all_rows)
+
+    rows = all_rows
     if args.limit:
         rows = rows[:args.limit]
+
+    selected_counts = Counter(row["query_id"] for row in rows)
+    complete_query_pool = {
+        query_id: selected_counts[query_id] == baseline_counts[query_id]
+        for query_id in selected_counts
+    }
 
     max_abstract_chars = int(config["inference"]["maxAbstractChars"])
     documents = [document_text(row, max_abstract_chars) for row in rows]
@@ -293,8 +309,13 @@ def main():
             reasons.append("low_role_confidence")
         if not (row.get("abstract") or "").strip():
             reasons.append("missing_abstract")
+
         disagreement = abs(int(relevance) - int(reranker_buckets[index]))
-        if disagreement >= int(thresholds["rerankerDisagreementDistance"]):
+        disagreement_applicable = bool(complete_query_pool.get(row["query_id"]))
+        if (
+            disagreement_applicable
+            and disagreement >= int(thresholds["rerankerDisagreementDistance"])
+        ):
             reasons.append("nli_reranker_disagreement")
         if role == "UNSURE":
             reasons.append("role_unsure")
@@ -319,6 +340,7 @@ def main():
                 "within_query_percentile": round(float(reranker_percentiles[index]), 6),
                 "percentile_bucket_0_3": int(reranker_buckets[index]),
                 "distance_from_nli_label": int(disagreement),
+                "disagreement_applicable": disagreement_applicable,
             },
             "needs_human_review": needs_review,
             "review_reasons": sorted(set(reasons)),
@@ -338,6 +360,7 @@ def main():
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "baselineRun": config["baselineRun"],
         "rows": len(judgments),
+        "smokeTest": bool(args.limit),
         "needsHumanReview": review_count,
         "device": models.device,
         "models": {
@@ -352,6 +375,10 @@ def main():
         },
         "thresholds": thresholds,
         "policy": config["policy"],
+        "notes": [
+            "NLI confidence is softmax over candidate entailment logits.",
+            "Reranker disagreement is only used when the selected rows contain the complete 20-document pool for that query.",
+        ],
         "outputs": {
             "judgments": str(output_path.relative_to(ROOT)),
         },
