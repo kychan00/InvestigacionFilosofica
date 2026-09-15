@@ -4,6 +4,10 @@ const runPath =
   process.argv[2] ||
   "benchmark/runs/current.jsonl";
 
+const judgmentsPath =
+  process.argv[3] ||
+  "benchmark/judgments.jsonl";
+
 function readJsonl(path) {
   if (!fs.existsSync(path)) {
     throw new Error(
@@ -118,12 +122,12 @@ const run =
 
 const judgments =
   readJsonl(
-    "benchmark/judgments.jsonl"
+    judgmentsPath
   );
 
 if (!judgments.length) {
   throw new Error(
-    "No human judgments available yet."
+    `No judgments available in ${judgmentsPath}.`
   );
 }
 
@@ -591,6 +595,28 @@ for (
     );
 }
 
+const byIntent =
+  {};
+
+for (
+  const intent of
+  [...new Set(
+    benchmark.queries.map(
+      query =>
+        query.intent
+    )
+  )]
+) {
+  byIntent[intent] =
+    summarize(
+      perQuery.filter(
+        row =>
+          row.intent ===
+          intent
+      )
+    );
+}
+
 const report = {
   benchmarkVersion:
     benchmark.version,
@@ -604,6 +630,9 @@ const report = {
   run:
     runPath,
 
+  judgmentsSource:
+    judgmentsPath,
+
   judgments:
     judgments.length,
 
@@ -613,7 +642,7 @@ const report = {
     ),
 
   byLanguage,
-
+  byIntent,
   perQuery
 };
 
