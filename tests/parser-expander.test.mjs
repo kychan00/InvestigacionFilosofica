@@ -132,3 +132,69 @@ test(
     );
   }
 );
+
+
+test(
+  "no elimina la restricción informática al expandir ontología",
+  () => {
+    const parsed =
+      parseQuery(
+        "ontología en informática",
+        philosophyMap
+      );
+
+    const expansions =
+      expandQuery(
+        parsed,
+        philosophyMap,
+        {
+          maxQueries: 6
+        }
+      );
+
+    assert.deepEqual(
+      expansions.map(item => item.query),
+      ["ontología en informática"]
+    );
+
+    assert.equal(
+      expansions.some(
+        item => item.query === "Metaphysics"
+      ),
+      false
+    );
+  }
+);
+
+
+test(
+  "no elimina la restricción enfermería al expandir fenomenología",
+  () => {
+    const parsed =
+      parseQuery(
+        "fenomenología en enfermería",
+        philosophyMap
+      );
+
+    const expansions =
+      expandQuery(
+        parsed,
+        philosophyMap,
+        {
+          maxQueries: 6
+        }
+      );
+
+    assert.deepEqual(
+      expansions.map(item => item.query),
+      ["fenomenología en enfermería"]
+    );
+
+    assert.equal(
+      expansions.some(
+        item => item.query === "Phenomenology"
+      ),
+      false
+    );
+  }
+);
