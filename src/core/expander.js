@@ -1,11 +1,87 @@
 import { normalizeText } from "./parser.js";
 
 
+const EXPANSION_STOPWORDS = new Set([
+  // Spanish
+  "a", "al", "de", "del", "el", "la", "las", "los", "en", "y", "o", "por", "para", "con", "sobre",
+
+  // English
+  "a", "an", "and", "of", "the", "in", "on", "for", "to", "with", "about",
+
+  // German
+  "am", "an", "auf", "bei", "das", "dem", "den", "der", "des", "die", "ein", "eine", "einer", "im", "in", "mit", "und", "von", "zu", "zur", "zum",
+
+  // French
+  "a", "au", "aux", "dans", "de", "des", "du", "en", "et", "la", "le", "les", "sur", "avec", "pour",
+
+  // Portuguese
+  "a", "as", "com", "da", "das", "de", "do", "dos", "e", "em", "na", "nas", "no", "nos", "o", "os", "para", "por", "sobre"
+]);
+
+
 function queryKey(text) {
   return normalizeText(text)
     .replace(/-/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+
+function semanticTokens(text = "") {
+  return queryKey(text)
+    .split(" ")
+    .filter(Boolean)
+    .filter(token =>
+      !EXPANSION_STOPWORDS.has(token)
+    );
+}
+
+
+function residualConstraintTokens(parsed) {
+  const original = new Set(
+    semanticTokens(parsed.original)
+  );
+
+  const recognized = new Set();
+
+  const groups = [
+    parsed.philosophers || [],
+    parsed.concepts || [],
+    parsed.works || [],
+    parsed.explicitAreas || []
+  ];
+
+  for (const group of groups) {
+    for (const item of group) {
+      for (const token of
+        semanticTokens(item.matched || "")) {
+        recognized.add(token);
+      }
+    }
+  }
+
+  return [...original]
+    .filter(token =>
+      !recognized.has(token)
+    );
+}
+
+
+function preservesResidualConstraints(
+  query,
+  residualTokens
+) {
+  if (!residualTokens.length) {
+    return true;
+  }
+
+  const candidate = new Set(
+    semanticTokens(query)
+  );
+
+  return residualTokens.every(token =>
+    candidate.has(token)
+  );
 }
 
 
@@ -349,6 +425,9 @@ export function expandQuery(
   const maxQueries =
     options.maxQueries ?? 6;
 
+  const residualTokens =
+    residualConstraintTokens(parsed);
+
   const expansions = [
     {
       query: parsed.original,
@@ -369,7 +448,30 @@ export function expandQuery(
     ...buildConceptualVariants(parsed)
   ];
 
+  /*
+   * Una expansión puede reformular o traducir
+   * la parte filosófica de la consulta, pero no
+   * puede eliminar restricciones sustantivas que
+   * el parser todavía no reconoce.
+   *
+   * Ejemplos:
+   *
+   *   ontología en informática
+   *   fenomenología en enfermería
+   *
+   * no deben convertirse en:
+   *
+   *   Metaphysics
+   *   Phenomenology
+   */
   return uniqueQueries(expansions)
+    .filter(item =>
+      item.type === "original" ||
+      preservesResidualConstraints(
+        item.query,
+        residualTokens
+      )
+    )
     .sort((a, b) => b.weight - a.weight)
     .slice(0, maxQueries);
 }
