@@ -289,4 +289,3 @@ Top-20 overlap: **9/20** · union=31
 ## Audit requirement
 
 For absolute old/new human P@10, **111** union pairs remain unresolved. For the exact paired human **ΔP@10**, only **58** changed pairs remain unresolved because shared Top-10 rows cancel.
-

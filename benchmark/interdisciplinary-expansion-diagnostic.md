@@ -213,4 +213,3 @@ Diagnostic only. Generated expansions are recomputed from the current code. Froz
 ### Ranking v2 retrieval contribution
 
 - unavailable: this frozen run did not serialize `matchedQueries`.
-

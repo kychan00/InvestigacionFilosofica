@@ -134,4 +134,3 @@ Side is revealed here only after the blind audit was finalized.
 ## Interpretation boundary
 
 The paired ΔP@10 is exact for the old-vs-new Top-10 difference because shared rows cancel. Absolute human P@10 for either full Top 10 is still unavailable unless every shared row is also human-judged.
-
