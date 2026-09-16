@@ -61,9 +61,12 @@ const perQuery = [];
 let top10SharedPairs = 0;
 let top10UnionPairs = 0;
 let top10HumanJudgedPairs = 0;
+let top10ChangedPairs = 0;
+let top10ChangedHumanJudgedPairs = 0;
 let top20SharedPairs = 0;
 let top20UnionPairs = 0;
 const unresolvedUnionPairs = [];
+const unresolvedChangedPairs = [];
 
 for (const queryId of queryIds) {
   const query = queryMeta.get(queryId);
@@ -88,22 +91,44 @@ for (const queryId of queryIds) {
   top20UnionPairs += union20Ids.length;
 
   let humanJudged = 0;
+  let changedPairs = 0;
+  let changedHumanJudged = 0;
+  let changedUnresolved = 0;
+
   for (const recordId of union10Ids) {
+    const oldRow = old10Map.get(recordId) || null;
+    const newRow = new10Map.get(recordId) || null;
+    const changed = !(oldRow && newRow);
     const label = humanLabel(humanMap, queryId, recordId);
+    const row = newRow || oldRow;
+
+    if (changed) {
+      changedPairs++;
+      top10ChangedPairs++;
+    }
+
     if (label == null) {
-      const row = new10Map.get(recordId) || old10Map.get(recordId);
-      unresolvedUnionPairs.push({
+      const unresolved = {
         query_id: queryId,
         query: query.query,
         record_id: recordId,
         title: row?.title || "",
         providers: row?.providers || [],
-        old_rank: old10Map.get(recordId)?.rank ?? null,
-        new_rank: new10Map.get(recordId)?.rank ?? null,
-      });
+        old_rank: oldRow?.rank ?? null,
+        new_rank: newRow?.rank ?? null,
+      };
+      unresolvedUnionPairs.push(unresolved);
+      if (changed) {
+        unresolvedChangedPairs.push(unresolved);
+        changedUnresolved++;
+      }
     } else {
       humanJudged++;
       top10HumanJudgedPairs++;
+      if (changed) {
+        changedHumanJudged++;
+        top10ChangedHumanJudgedPairs++;
+      }
     }
   }
 
@@ -135,6 +160,9 @@ for (const queryId of queryIds) {
     family: query.family,
     overlapTop10: shared10Ids.length,
     unionTop10: union10Ids.length,
+    changedTop10Pairs: changedPairs,
+    changedTop10PairsAlreadyHuman: changedHumanJudged,
+    changedTop10PairsUnresolved: changedUnresolved,
     overlapTop20: shared20Ids.length,
     unionTop20: union20Ids.length,
     alreadyHumanJudgedTop10Union: humanJudged,
@@ -156,9 +184,9 @@ for (const queryId of queryIds) {
 }
 
 const report = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   note: "Structural comparison of the frozen Ranking v2 interdisciplinary Top-10/Top-20 against the real expansion-fix run. It does not infer relevance for unseen documents.",
-  importantCaveat: "A new human judgment is required for any union Top-10 query-document pair not already covered by human-audit-v1 before reporting a human P@10 comparison.",
+  importantCaveat: "Absolute human P@10 for both systems requires labels for every old/new Top-10 union pair. Exact paired ΔP@10 requires labels only for old-only/new-only pairs because shared Top-10 rows contribute equally and cancel in the difference.",
   sources: {
     oldRun: OLD_RUN,
     newRun: NEW_RUN,
@@ -171,11 +199,15 @@ const report = {
     meanTop10Overlap: Number((top10SharedPairs / queryIds.length).toFixed(2)),
     top10HumanJudgedPairs,
     top10UnresolvedPairs: unresolvedUnionPairs.length,
+    top10ChangedPairs,
+    top10ChangedHumanJudgedPairs,
+    top10ChangedUnresolvedPairs: unresolvedChangedPairs.length,
     top20SharedPairs,
     top20UnionPairs,
     meanTop20Overlap: Number((top20SharedPairs / queryIds.length).toFixed(2)),
   },
   unresolvedUnionPairs,
+  unresolvedChangedPairs,
   perQuery,
 };
 
@@ -191,14 +223,17 @@ md.push(`- Top-10 shared query-document pairs: ${report.summary.top10SharedPairs
 md.push(`- Top-10 union query-document pairs: ${report.summary.top10UnionPairs}`);
 md.push(`- mean Top-10 overlap per query: ${report.summary.meanTop10Overlap}/10`);
 md.push(`- Top-10 union pairs already judged by human-audit-v1: ${report.summary.top10HumanJudgedPairs}`);
-md.push(`- Top-10 union pairs still needing human judgment: ${report.summary.top10UnresolvedPairs}`);
+md.push(`- Top-10 union pairs still needing human judgment for absolute old/new P@10: ${report.summary.top10UnresolvedPairs}`);
+md.push(`- Top-10 changed pairs (old-only + new-only): ${report.summary.top10ChangedPairs}`);
+md.push(`- changed pairs already judged by human-audit-v1: ${report.summary.top10ChangedHumanJudgedPairs}`);
+md.push(`- changed pairs still needing human judgment for exact paired ΔP@10: ${report.summary.top10ChangedUnresolvedPairs}`);
 md.push(`- Top-20 shared query-document pairs: ${report.summary.top20SharedPairs}`);
 md.push(`- Top-20 union query-document pairs: ${report.summary.top20UnionPairs}`);
 md.push(`- mean Top-20 overlap per query: ${report.summary.meanTop20Overlap}/20`, "");
 
 for (const item of perQuery) {
   md.push(`## ${item.id} — ${item.query}`, "");
-  md.push(`Top-10 overlap: **${item.overlapTop10}/10** · union=${item.unionTop10} · already-human=${item.alreadyHumanJudgedTop10Union} · unresolved=${item.unresolvedTop10Union}`);
+  md.push(`Top-10 overlap: **${item.overlapTop10}/10** · union=${item.unionTop10} · changed=${item.changedTop10Pairs} · changed-human=${item.changedTop10PairsAlreadyHuman} · changed-unresolved=${item.changedTop10PairsUnresolved}`);
   md.push(`Top-20 overlap: **${item.overlapTop20}/20** · union=${item.unionTop20}`, "");
   md.push("### New run Top 10", "");
   md.push("| new | old | status | human | providers | matchedQueries | title |");
@@ -222,7 +257,7 @@ for (const item of perQuery) {
 }
 
 md.push("## Audit requirement", "");
-md.push(`There are **${unresolvedUnionPairs.length}** unresolved query-document pairs in the union of old/new Top 10. A blind audit of those pairs, reusing the existing human labels for the remainder, is sufficient to compute a direct human P@10 comparison for all 10 queries.`, "");
+md.push(`For absolute old/new human P@10, **${unresolvedUnionPairs.length}** union pairs remain unresolved. For the exact paired human **ΔP@10**, only **${unresolvedChangedPairs.length}** changed pairs remain unresolved because shared Top-10 rows cancel.`, "");
 
 fs.writeFileSync(OUT_MD, md.join("\n") + "\n", "utf8");
 
@@ -230,10 +265,13 @@ console.log("INTERDISCIPLINARY EXPANSION-FIX ANALYSIS: PASS");
 console.log(`queries=${report.summary.queries}`);
 console.log(`top10_overlap_mean=${report.summary.meanTop10Overlap}/10`);
 console.log(`top10_union_pairs=${report.summary.top10UnionPairs}`);
-console.log(`already_human=${report.summary.top10HumanJudgedPairs}`);
-console.log(`needs_human=${report.summary.top10UnresolvedPairs}`);
+console.log(`union_already_human=${report.summary.top10HumanJudgedPairs}`);
+console.log(`union_needs_human_for_absolute_p10=${report.summary.top10UnresolvedPairs}`);
+console.log(`changed_top10_pairs=${report.summary.top10ChangedPairs}`);
+console.log(`changed_already_human=${report.summary.top10ChangedHumanJudgedPairs}`);
+console.log(`changed_needs_human_for_delta=${report.summary.top10ChangedUnresolvedPairs}`);
 for (const item of perQuery) {
-  console.log(`${item.id}: overlap10=${item.overlapTop10}/10 unresolved=${item.unresolvedTop10Union}`);
+  console.log(`${item.id}: overlap10=${item.overlapTop10}/10 changed_unresolved=${item.changedTop10PairsUnresolved}`);
 }
 console.log(`json=${OUT_JSON}`);
 console.log(`markdown=${OUT_MD}`);
