@@ -48,7 +48,8 @@ function residualConstraintTokens(parsed) {
     parsed.philosophers || [],
     parsed.concepts || [],
     parsed.works || [],
-    parsed.explicitAreas || []
+    parsed.explicitAreas || [],
+    parsed.domains || []
   ];
 
   for (const group of groups) {
@@ -82,6 +83,55 @@ function preservesResidualConstraints(
   return residualTokens.every(token =>
     candidate.has(token)
   );
+}
+
+
+function containsPhrase(query, phrase) {
+  if (!phrase) return false;
+
+  const haystack = ` ${queryKey(query)} `;
+  const needle = ` ${queryKey(phrase)} `;
+  return haystack.includes(needle);
+}
+
+
+function preservesRecognizedConstraints(
+  query,
+  parsed
+) {
+  for (const area of parsed.explicitAreas || []) {
+    const acceptable = [
+      area.matched,
+      area.matchedEnglish || area.name_en
+    ].filter(Boolean);
+
+    if (
+      acceptable.length &&
+      !acceptable.some(term =>
+        containsPhrase(query, term)
+      )
+    ) {
+      return false;
+    }
+  }
+
+  for (const domain of parsed.domains || []) {
+    const acceptable = [
+      domain.matched,
+      domain.matchedEnglish || domain.name_en
+    ].filter(Boolean);
+
+    if (
+      acceptable.length &&
+      !acceptable.some(term =>
+        containsPhrase(query, term)
+      )
+    ) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 
@@ -125,9 +175,22 @@ function getConceptTerms(parsed) {
 function getAreaTerms(parsed) {
   return (parsed.explicitAreas || []).map(area => ({
     id: area.id,
-    es: area.name_es,
-    en: area.name_en || area.name_es
+    source: area.matched || area.name_es,
+    en:
+      area.matchedEnglish ||
+      area.name_en ||
+      area.name_es
   }));
+}
+
+
+function getDomainTerms(parsed) {
+  return (parsed.domains || [])
+    .map(domain =>
+      domain.matchedEnglish ||
+      domain.name_en
+    )
+    .filter(Boolean);
 }
 
 
@@ -142,8 +205,29 @@ function getPrimaryTerms(parsed) {
 }
 
 
+function withEnglishDomains(query, parsed) {
+  const domains = getDomainTerms(parsed);
+
+  if (!domains.length) {
+    return query;
+  }
+
+  return `${query} in ${domains.join(" ")}`;
+}
+
+
 function buildLiteralVariants(parsed) {
   const results = [];
+
+  /*
+   * Literal philosopher-first rewrites are intentionally disabled when
+   * external academic-domain constraints are present. Mixing a canonical
+   * philosopher name with an untranslated domain would be less predictable
+   * than either the original query or the complete English translation.
+   */
+  if (parsed.domains?.length) {
+    return results;
+  }
 
   const philosopher = getPhilosopherName(parsed);
   const terms = getPrimaryTerms(parsed);
@@ -152,14 +236,14 @@ function buildLiteralVariants(parsed) {
     return results;
   }
 
-  const spanish = terms
-    .map(term => term.es)
+  const sourceTerms = terms
+    .map(term => term.es || term.source)
     .filter(Boolean)
     .join(" ");
 
-  if (spanish) {
+  if (sourceTerms) {
     results.push({
-      query: `${philosopher} ${spanish}`,
+      query: `${philosopher} ${sourceTerms}`,
       type: "literal",
       weight: 0.98,
       reason: "philosopher-first"
@@ -189,14 +273,17 @@ function buildTranslations(parsed) {
     return results;
   }
 
-  results.push({
-    query: philosopher
-      ? `${philosopher} ${english}`
-      : english,
+  const core = philosopher
+    ? `${philosopher} ${english}`
+    : english;
 
+  results.push({
+    query: withEnglishDomains(core, parsed),
     type: "translation",
     weight: 0.90,
-    reason: "english-translation"
+    reason: parsed.domains?.length
+      ? "english-translation-complete"
+      : "english-translation"
   });
 
   return results;
@@ -299,23 +386,6 @@ function buildConceptualVariants(parsed) {
     return results;
   }
 
-  /*
-   * La clave:
-   *
-   * al expandir un concepto conservamos
-   * todos los demás conceptos de la consulta.
-   *
-   * Ejemplo:
-   *
-   * free will + determinism
-   *
-   * =>
-   * freedom + determinism
-   *
-   * no simplemente:
-   * freedom
-   */
-
   for (let i = 0; i < concepts.length; i++) {
     const concept = concepts[i];
 
@@ -351,12 +421,12 @@ function buildConceptualVariants(parsed) {
 
       const body = cleanedTerms.join(" ");
 
-      const query = philosopher
+      const core = philosopher
         ? `${philosopher} ${body}`
         : body;
 
       results.push({
-        query,
+        query: withEnglishDomains(core, parsed),
         type: "conceptual",
         weight: expansion.weight,
         reason: `concept:${concept.id}`
@@ -395,7 +465,10 @@ function buildWorkVariants(
     );
 
     results.push({
-      query: work.canonicalTitle,
+      query: withEnglishDomains(
+        work.canonicalTitle,
+        parsed
+      ),
       type: "work",
       weight: 0.95,
       reason: `work:${work.id}`
@@ -403,9 +476,10 @@ function buildWorkVariants(
 
     if (author) {
       results.push({
-        query:
+        query: withEnglishDomains(
           `${author} ${work.canonicalTitle}`,
-
+          parsed
+        ),
         type: "work-author",
         weight: 0.93,
         reason: `work-author:${work.id}`
@@ -449,27 +523,34 @@ export function expandQuery(
   ];
 
   /*
-   * Una expansión puede reformular o traducir
-   * la parte filosófica de la consulta, pero no
-   * puede eliminar restricciones sustantivas que
-   * el parser todavía no reconoce.
+   * Two safety invariants now apply:
    *
-   * Ejemplos:
+   * 1. unknown substantive tokens must survive verbatim;
+   * 2. recognized philosophical-area and academic-domain constraints must
+   *    survive either in their original wording or in their exact English
+   *    equivalent.
    *
-   *   ontología en informática
-   *   fenomenología en enfermería
+   * This permits:
+   *   ontología en informática -> ontology in computer science
    *
-   * no deben convertirse en:
+   * while still rejecting:
+   *   ontología en informática -> Metaphysics
    *
-   *   Metaphysics
-   *   Phenomenology
+   * and also rejects incomplete translation when an unknown qualifier is
+   * present, e.g. "ontología en informática pediátrica".
    */
   return uniqueQueries(expansions)
     .filter(item =>
       item.type === "original" ||
-      preservesResidualConstraints(
-        item.query,
-        residualTokens
+      (
+        preservesResidualConstraints(
+          item.query,
+          residualTokens
+        ) &&
+        preservesRecognizedConstraints(
+          item.query,
+          parsed
+        )
       )
     )
     .sort((a, b) => b.weight - a.weight)
