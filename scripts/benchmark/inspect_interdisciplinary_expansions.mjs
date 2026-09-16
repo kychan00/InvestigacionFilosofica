@@ -34,6 +34,24 @@ function matchedQueryTexts(row) {
 
 function summarizeRun(run, query, expansions) {
   const rows = rowsFor(run, query.id);
+  const provenanceAvailable = rows.some(row =>
+    Object.prototype.hasOwnProperty.call(row, "matchedQueries")
+  );
+
+  if (!provenanceAvailable) {
+    return {
+      provenanceAvailable: false,
+      counts: expansions.map(expansion => ({
+        query: expansion.query,
+        type: expansion.type,
+        weight: expansion.weight,
+        rows: null,
+        top10: null,
+      })),
+      expansionOnlyTop: null,
+    };
+  }
+
   const originalKey = key(query.query);
   const expansionKeys = new Map(expansions.map(item => [key(item.query), item]));
 
@@ -59,6 +77,7 @@ function summarizeRun(run, query, expansions) {
   });
 
   return {
+    provenanceAvailable: true,
     counts,
     expansionOnlyTop: expansionOnly.slice(0, 8).map(row => ({
       rank: row.rank,
@@ -98,8 +117,9 @@ const items = targetQueries.map(query => {
 });
 
 const report = {
-  schemaVersion: 1,
-  note: "Diagnostic only. Shows how interdisciplinary benchmark queries are parsed and expanded, and which frozen-pool rows were retrieved only through non-original expansions.",
+  schemaVersion: 2,
+  note: "Diagnostic only. Generated expansions are recomputed from the current code. Frozen-run retrieval provenance is reported only when the run serialized matchedQueries.",
+  provenanceCaveat: "The frozen baseline and Ranking v2 runs predate matchedQueries serialization, so per-expansion contribution cannot be reconstructed from those artifacts and must not be interpreted as zero.",
   items,
 };
 
@@ -107,6 +127,7 @@ fs.writeFileSync(OUT_JSON, JSON.stringify(report, null, 2) + "\n", "utf8");
 
 const md = [];
 md.push("# Interdisciplinary expansion diagnostic", "", report.note, "");
+md.push(`> ${report.provenanceCaveat}`, "");
 
 for (const item of items) {
   md.push(`## ${item.id} — ${item.query}`, "");
@@ -124,6 +145,12 @@ for (const item of items) {
 
   for (const [label, data] of [["Baseline", item.baseline], ["Ranking v2", item.rankingV2]]) {
     md.push("", `### ${label} retrieval contribution`, "");
+
+    if (!data.provenanceAvailable) {
+      md.push("- unavailable: this frozen run did not serialize `matchedQueries`.");
+      continue;
+    }
+
     md.push("| Expansion | Type | Rows in Top20 | Rows in Top10 |");
     md.push("|---|---|---:|---:|");
     for (const count of data.counts) {
