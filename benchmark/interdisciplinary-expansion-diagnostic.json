@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 2,
+  "note": "Diagnostic only. Generated expansions are recomputed from the current code. Frozen-run retrieval provenance is reported only when the run serialized matchedQueries.",
+  "provenanceCaveat": "The frozen baseline and Ranking v2 runs predate matchedQueries serialization, so per-expansion contribution cannot be reconstructed from those artifacts and must not be interpreted as zero.",
+  "items": [
+    {
+      "id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "family": "challenge-phenomenology-nursing",
+      "parsed": {
+        "explicitAreas": [
+          "PHEN"
+        ],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "fenomenología en enfermería",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "fenomenología en enfermería",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "fenomenología en enfermería",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "family": "challenge-phenomenology-nursing",
+      "parsed": {
+        "explicitAreas": [
+          "PHEN"
+        ],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "phenomenology in nursing",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "phenomenology in nursing",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "family": "challenge-phenomenology-nursing",
+      "parsed": {
+        "explicitAreas": [],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "Phänomenologie in der Pflege",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "Phänomenologie in der Pflege",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "Phänomenologie in der Pflege",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "family": "challenge-phenomenology-nursing",
+      "parsed": {
+        "explicitAreas": [],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "phénoménologie en soins infirmiers",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "phénoménologie en soins infirmiers",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "phénoménologie en soins infirmiers",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "family": "challenge-phenomenology-nursing",
+      "parsed": {
+        "explicitAreas": [
+          "PHEN"
+        ],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "fenomenologia na enfermagem",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "fenomenologia na enfermagem",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "fenomenologia na enfermagem",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "es-10",
+      "query": "ontología en informática",
+      "language": "es",
+      "family": "challenge-ontology-compsci",
+      "parsed": {
+        "explicitAreas": [
+          "MET"
+        ],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "ontología en informática",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontología en informática",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontología en informática",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "family": "challenge-ontology-compsci",
+      "parsed": {
+        "explicitAreas": [
+          "MET"
+        ],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "ontology in computer science",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontology in computer science",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontology in computer science",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "family": "challenge-ontology-compsci",
+      "parsed": {
+        "explicitAreas": [],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "Ontologie in der Informatik",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "Ontologie in der Informatik",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "Ontologie in der Informatik",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "family": "challenge-ontology-compsci",
+      "parsed": {
+        "explicitAreas": [],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "ontologie en informatique",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontologie en informatique",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontologie en informatique",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    },
+    {
+      "id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "family": "challenge-ontology-compsci",
+      "parsed": {
+        "explicitAreas": [
+          "MET"
+        ],
+        "concepts": [],
+        "philosophers": [],
+        "works": []
+      },
+      "expansions": [
+        {
+          "query": "ontologia em ciência da computação",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "baseline": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontologia em ciência da computação",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      },
+      "rankingV2": {
+        "provenanceAvailable": false,
+        "counts": [
+          {
+            "query": "ontologia em ciência da computação",
+            "type": "original",
+            "weight": 1,
+            "rows": null,
+            "top10": null
+          }
+        ],
+        "expansionOnlyTop": null
+      }
+    }
+  ]
+}

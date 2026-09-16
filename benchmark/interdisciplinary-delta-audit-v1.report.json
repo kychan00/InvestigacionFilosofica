@@ -1,0 +1,1164 @@
+{
+  "schemaVersion": 1,
+  "name": "Interdisciplinary expansion-fix paired human delta report",
+  "relevantThreshold": 2,
+  "methodology": "Exact paired change in human P@10. Shared Top-10 rows cancel; only the symmetric difference is judged. This report does not claim absolute human P@10 because not every shared Top-10 row has a human label.",
+  "sources": {
+    "oldRun": "benchmark/runs/human-v1.0-ranking-v2-e6ad110.jsonl",
+    "newRun": "benchmark/runs/human-v1.0-interdisciplinary-expansionfix-cfb853a.jsonl",
+    "priorHuman": "benchmark/human-audit-v1.judgments.jsonl",
+    "deltaManifest": "benchmark/interdisciplinary-delta-audit-v1.manifest.json",
+    "deltaJudgments": "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+  },
+  "summary": {
+    "queries": 10,
+    "changedTop10Pairs": 66,
+    "newlyJudgedDeltaPairs": 58,
+    "priorHumanReused": 8,
+    "commentsOnNewDeltaJudgments": 58,
+    "oldOnlyRelevant": 0,
+    "newOnlyRelevant": 12,
+    "netRelevantTop10Positions": 12,
+    "pairedDeltaP10": 0.12,
+    "oldOnlyOrdinalSum": 0,
+    "newOnlyOrdinalSum": 37,
+    "deltaOrdinalSum": 37,
+    "improvedQueries": 4,
+    "worsenedQueries": 0,
+    "tiedQueries": 6
+  },
+  "perQuery": [
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "family": "challenge-phenomenology-nursing",
+      "changed_per_side": 4,
+      "old_only_relevant": 0,
+      "new_only_relevant": 3,
+      "delta_relevant": 3,
+      "paired_delta_p10": 0.3,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 9,
+      "delta_ordinal_sum": 9
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "family": "challenge-phenomenology-nursing",
+      "changed_per_side": 2,
+      "old_only_relevant": 0,
+      "new_only_relevant": 2,
+      "delta_relevant": 2,
+      "paired_delta_p10": 0.2,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 6,
+      "delta_ordinal_sum": 6
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "family": "challenge-phenomenology-nursing",
+      "changed_per_side": 0,
+      "old_only_relevant": 0,
+      "new_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "family": "challenge-phenomenology-nursing",
+      "changed_per_side": 0,
+      "old_only_relevant": 0,
+      "new_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "family": "challenge-phenomenology-nursing",
+      "changed_per_side": 4,
+      "old_only_relevant": 0,
+      "new_only_relevant": 3,
+      "delta_relevant": 3,
+      "paired_delta_p10": 0.3,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 9,
+      "delta_ordinal_sum": 9
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "language": "es",
+      "family": "challenge-ontology-compsci",
+      "changed_per_side": 8,
+      "old_only_relevant": 0,
+      "new_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "family": "challenge-ontology-compsci",
+      "changed_per_side": 9,
+      "old_only_relevant": 0,
+      "new_only_relevant": 4,
+      "delta_relevant": 4,
+      "paired_delta_p10": 0.4,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 12,
+      "delta_ordinal_sum": 12
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "family": "challenge-ontology-compsci",
+      "changed_per_side": 0,
+      "old_only_relevant": 0,
+      "new_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "family": "challenge-ontology-compsci",
+      "changed_per_side": 0,
+      "old_only_relevant": 0,
+      "new_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "family": "challenge-ontology-compsci",
+      "changed_per_side": 6,
+      "old_only_relevant": 0,
+      "new_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 1,
+      "delta_ordinal_sum": 1
+    }
+  ],
+  "changedRows": [
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "old-only",
+      "rank": 7,
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Compara fenomenología y conexionismo en ciencia cognitiva; no aborda enfermería ni investigación en nursing.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D037"
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "title": "Phenomenology and Cognitive Science",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Examina la relación entre fenomenología y ciencia cognitiva, no su aplicación a la enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D033"
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "title": "Feminist Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata fenomenología feminista y teoría feminista, pero no fenomenología aplicada a la enfermería ni al cuidado clínico.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D002"
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.4324/9781003191483-9",
+      "title": "Critical Phenomenology and Micro-Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda fenomenología crítica y microfenomenología en sentido filosófico/metodológico, pero no su aplicación a la enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D040"
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "doi:10.23913/ride.v10i20.594",
+      "title": "Aplicaciones de dispositivos móviles como estrategia de aprendizaje en estudiantes universitarios de enfermería. Una mirada desde la fenomenología crítica",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 2,
+      "human_note": "Utiliza sustantivamente el método fenomenológico en una investigación con estudiantes de enfermería, pero el objeto principal es el aprendizaje mediante aplicaciones móviles.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D026"
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "doi:10.4321/s1132-12962007000300012",
+      "title": "La interface entre la fenomenología y el cuidado de enfermería",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 3,
+      "human_note": "El artículo está dedicado explícitamente a fundamentar y analizar el cuidado de enfermería desde una perspectiva fenomenológica.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D001"
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "doi:10.70069/rve.2026.13.1.0010",
+      "title": "Hacia un nuevo horizonte en ciencias de la educación: educación continua interdisciplinaria y sostenible en salud desde la fenomenología social",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 1,
+      "human_note": "Utiliza sustantivamente la fenomenología social en un estudio sobre educación continua en salud, pero no se centra específicamente en enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D053"
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "doi:10.37976/enfermeria.v11i2.138",
+      "title": "Fenomenología como método de investigación: Una opción para el profesional de enfermería",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 3,
+      "human_note": "Desarrolla explícitamente la fenomenología como método de investigación aplicable por profesionales de enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D017"
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Compara fenomenología y conexionismo en ciencia cognitiva; no aborda enfermería ni investigación en nursing.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D036"
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "title": "Phenomenology and Cognitive Science",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "side": "new-only",
+      "rank": 2,
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "title": "Revisioning phenomenology : nursing and health science research",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 3,
+      "human_note": "Obra metodológica dedicada explícitamente al uso de la fenomenología en investigación de enfermería y ciencias de la salud.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D049"
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "openalex:W2974941930",
+      "title": "Phenomenology in nursing research: reflection based on Heidegger’s hermeneutics",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "human_relevance": 3,
+      "human_note": "Reflexiona directamente sobre el uso de la fenomenología hermenéutica de Heidegger como marco de análisis en investigación de enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D035"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "old-only",
+      "rank": 7,
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Compara fenomenología y conexionismo en ciencia cognitiva; no aborda enfermería ni investigación en nursing.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D016"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "title": "Phenomenology and Cognitive Science",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Examina la relación entre fenomenología y ciencia cognitiva, no su aplicación a la enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D046"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "title": "Feminist Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata fenomenología feminista y teoría feminista, pero no fenomenología aplicada a la enfermería ni al cuidado clínico.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D007"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.4324/9781003191483-9",
+      "title": "Critical Phenomenology and Micro-Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda fenomenología crítica y microfenomenología en sentido filosófico/metodológico, pero no su aplicación a la enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D008"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "new-only",
+      "rank": 7,
+      "record_id": "doi:10.29393/ce5-2sfmb10002",
+      "title": "SOBRE FENOMENOLOGIA, FENOMENOLOGIA EXISTENCIAL E ENFERMAGEM PSIQUIATRICA",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 3,
+      "human_note": "Examina directamente las aportaciones de la fenomenología y la fenomenología existencial a la enfermería, especialmente a la enfermería psiquiátrica.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D021"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "doi:10.1590/s0104-11691997000100010",
+      "title": "Fenomenologia: uma alternativa para pesquisa em enfermagem",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 3,
+      "human_note": "Presenta explícitamente la fenomenología como alternativa metodológica para la investigación en enfermería y examina su uso por profesionales de enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D010"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+      "title": "Figuras do direito na Fenomenologia do Espírito: a fenomenologia como doutrina do espírito objetivo?",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Analiza la Fenomenología del espíritu de Hegel y su relación con el derecho y el espíritu objetivo; no aborda fenomenología aplicada a la enfermería.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D041"
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "doi:10.1590/s0034-71671994000100010",
+      "title": "Enfermagem psiquiátrica e fenomenologia: algumas considerações",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 3,
+      "human_note": "Reflexiona directamente sobre la aplicación de la fenomenología a la atención y comprensión del paciente en enfermería psiquiátrica.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D039"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "title": "The metaphysics of Sir William Hamilton",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata metafísica filosófica de William Hamilton, no ontologías en informática.",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 3,
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata ontología/metafísica aristotélica en sentido filosófico clásico, no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D043"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 4,
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata metafísica aristotélica y filosofía primera, no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D012"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 5,
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "title": "Postmodal Metaphysics and Structuralism",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 6,
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "title": "Metaphysics of Science as Naturalized Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en filosofía de la física, especialmente la ontología de la teoría cuántica; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D028"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 7,
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "no relevante",
+      "judgment_source": "delta-audit",
+      "audit_id": "D019"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.22363/2224-7580-2021-3-92-117",
+      "title": "METAPHYSICS AND INTERDISCIPLINARY MODELS",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata metafísica y modelos de sistemas naturales; no ontologías en el sentido de informática",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.3726/978-3-653-06622-7/9",
+      "title": "7. Criticism of Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Capítulo de metafísica filosófica dedicado a la crítica de la metafísica; no aborda ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D045"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "doi:10.36576/summa.14367",
+      "title": "Lógica y ontología en Aristóteles /",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Estudia lógica y ontología aristotélicas en sentido filosófico, especialmente la relación entre sustancia primera y segunda; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D014"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 4,
+      "record_id": "doi:10.15332/dt.inv.2020.01501",
+      "title": "Ontología en América Latina. Fase 1: Ontología Existencial",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Proyecto de ontología existencial y filosofía latinoamericana, centrado en el problema del ser, Heidegger y Kusch; no trata ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D042"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 5,
+      "record_id": "doi:10.15332/tg.mae.2018.00307",
+      "title": "Ontología de la finitud en Ernildo Stein",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Estudia ontología de la finitud en sentido filosófico-hermenéutico, vinculada a Ernildo Stein y Heidegger; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D029"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 6,
+      "record_id": "doi:10.15332/tg.mae.2016.00323",
+      "title": "Ontología política de la voluntad en Enrique Dussel",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología política en el pensamiento de Enrique Dussel; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D020"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 7,
+      "record_id": "doi:10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología orientada a objetos en sentido filosófico, especialmente realismo, fenómeno/noúmeno y estética; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D003"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "human_relevance": 0,
+      "human_note": "“Ontología” se usa en sentido epistemológico y metafísico, aplicada a Kant y la relatividad general; no trata ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D052"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "doi:10.32870/prot.i28.487",
+      "title": "Abismando formaciones discursivas, entrecruces del ser maya ch´ol versus ser alguien en la vida",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico y político, vinculada a subjetividad e identidad; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D024"
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "doi:10.32870/prot.i27.460",
+      "title": "Museología y trascendencia en el hiperrealismo de William Fisk",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico-estético, aplicada al museo, el hiperrealismo y la subjetividad; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D057"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "title": "The metaphysics of Sir William Hamilton",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata ontología/metafísica en sentido filosófico, no ontologías computacionales ni ciencias de la computación.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D047"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 2,
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "title": "Metaphysics of Science as Naturalized Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en filosofía de la física, especialmente ontología de la teoría cuántica; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D056"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 4,
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Corresponde a la Metafísica de Aristóteles y trata ontología en sentido filosófico clásico, no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D015"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 5,
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata metafísica aristotélica y filosofía primera; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D058"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 6,
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "title": "Postmodal Metaphysics and Structuralism",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata ontología/metafísica en sentido filosófico, especialmente grounding, esencia y estructuralismo; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D006"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 7,
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Corresponde a la Metafísica de Aristóteles; trata ontología en sentido filosófico clásico, no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D023"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.3726/978-3-653-06622-7/9",
+      "title": "7. Criticism of Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "source:internet-archive:dimensional-lattice",
+      "title": "The Dimensional Lattice: A Mathematical Framework for Consciousness Emergence and Coherence Dynamics",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 0,
+      "human_note": "",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:india.history.resource.18005",
+      "title": "Harmonies of Nature, in Three Volumes, Vol. I",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 0,
+      "human_note": "",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 2,
+      "record_id": "openalex:W604892179",
+      "title": "von Leibniz'Metaphysik (2001), Leibniz: Metaphilosophy and Metaphysics, 1666–1686 (2005), and Biomedical Ontology and the Metaphysics of Composite Substances, 1540–1670 (2010). Martin Campbell-Kelly is emeritus professor in the Department of Com-puter Science at the University of Warwick, where he specializes in the",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "human_relevance": 0,
+      "human_note": "Registro aparentemente generado a partir de “Notes on Contributors”: combina una obra de metafísica denominada “Biomedical Ontology” con la afiliación en Computer Science de otro autor; no trata ontologías computacionales.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D013"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "openalex:W7108452404",
+      "title": "A Consciousness-First Ontology in the Long Arc of Science and Mysticism: The Unified Play of Consciousness (UPC) in Historical and Scientific",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "human_relevance": 0,
+      "human_note": "“Ontology” se usa en sentido metafísico para una teoría de la conciencia como fundamento de la realidad; no trata ontologías computacionales ni representación del conocimiento.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D018"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 4,
+      "record_id": "openalex:W4402430982",
+      "title": "Th eology as the science of existence and philosophy as the science of being in the fundamental ontology of M. Heidegger",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda la ontología fundamental de Heidegger y su relación con la teología; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D025"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 5,
+      "record_id": "doi:10.1016/j.scico.2014.02.022",
+      "title": "Using a trope-based foundational ontology for bridging different areas of concern in ontology-driven conceptual modeling",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 3,
+      "human_note": "Desarrolla y formaliza una ontología fundacional para modelado conceptual computacional, con implementación en OntoUML y mapeo a OWL.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D005"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 6,
+      "record_id": "source:internet-archive:DTIC_ADA534412",
+      "title": "DTIC ADA534412: Linking Semantic and Knowledge Representations in a Multi-Domain Dialogue System",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 3,
+      "human_note": "Desarrolla directamente mapeo entre ontologías semánticas y ontologías de conocimiento de dominio para razonamiento computacional en sistemas de diálogo.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D050"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 7,
+      "record_id": "doi:10.1109/ubmk.2017.8093469",
+      "title": "Ontology segmentation in ontology matching",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 3,
+      "human_note": "Estudia directamente segmentación y emparejamiento de ontologías computacionales mediante técnicas basadas en grafos.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D044"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+      "title": "Video Representation and Semantic Information Extraction using Ontology based Approaches",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 3,
+      "human_note": "Emplea directamente ingeniería de ontologías, representación semántica y razonamiento computacional para modelar y extraer información de video.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D004"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "openalex:W763069345",
+      "title": "Levinas, Meaning, and Philosophy of Social Science: From Ethical Metaphysics to Ontology and Epistemology",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico dentro de una discusión sobre Levinas y filosofía de las ciencias sociales; no trata ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D055"
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "openalex:W7136197983",
+      "title": "Myth of Metaphysical Neutrality: How Denying Ontology Distorts Science, AI, and Understanding Itself",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "human_relevance": 0,
+      "human_note": "Discute compromisos ontológicos en sentido metafísico y sus implicaciones para ciencia e IA, pero no ontologías computacionales ni representación formal del conocimiento.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D031"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "old-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "title": "The metaphysics of Sir William Hamilton",
+      "providers": [
+        "Internet Archive"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata ontología/metafísica en sentido filosófico, vinculada al ser, la mente, Dios y el alma; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D032"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "old-only",
+      "rank": 6,
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata ontología/metafísica aristotélica en sentido filosófico clásico, no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D048"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "old-only",
+      "rank": 7,
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "title": "Postmodal Metaphysics and Structuralism",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Trata ontología/metafísica en sentido filosófico, especialmente grounding, esencia y estructuralismo; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D038"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "no relacion ",
+      "judgment_source": "delta-audit",
+      "audit_id": "D022"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "title": "Metaphysics of Science as Naturalized Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "",
+      "judgment_source": "human-audit-v1",
+      "audit_id": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "no habla de computacion",
+      "judgment_source": "delta-audit",
+      "audit_id": "D027"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "new-only",
+      "rank": 5,
+      "record_id": "doi:10.37885/978-65-87196-55-8",
+      "title": "Ciência da Computação: Tecnologias Emergentes em Computação",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 1,
+      "human_note": "El volumen es general de ciencias de la computación y contiene al menos un capítulo que aborda directamente ontologías computacionales, RDF/OWL y Web Semántica, pero las ontologías no constituyen el foco principal de la obra.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D054"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "new-only",
+      "rank": 6,
+      "record_id": "doi:10.56238/edimpacto2024.007",
+      "title": "Fundamentos e Avanços em Ciência da Computação",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Obra general de ciencia de la computación, pero no se identifican contenidos dedicados a ontologías computacionales o ingeniería ontológica.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D034"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "new-only",
+      "rank": 7,
+      "record_id": "doi:10.17771/pucrio.dimcc.32894",
+      "title": "MONOGRAFIAS EM CIÊNCIA DA COMPUTAÇÃO",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "El registro corresponde a una serie de reportes de Ciencia de la Computación, no a un documento específico sobre ontologías; aunque la serie contiene trabajos de ontología computacional.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D030"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "doi:10.37885/978-65-89826-02-6",
+      "title": "Ciência da Computação: tecnologias emergentes em computação - Volume 2",
+      "providers": [
+        "Crossref"
+      ],
+      "human_relevance": 0,
+      "human_note": "Es una obra general de ciencia de la computación, pero sus 21 capítulos no abordan ontologías computacionales ni ingeniería ontológica.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D011"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "human_relevance": 0,
+      "human_note": "“Ontología” se usa en sentido epistemológico y metafísico, aplicada a Kant y la relatividad general; no trata ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D051"
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "doi:10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "human_relevance": 0,
+      "human_note": "Aborda ontología orientada a objetos en sentido filosófico, especialmente realismo, fenómeno/noúmeno y estética; no ontologías computacionales ni informática.",
+      "judgment_source": "delta-audit",
+      "audit_id": "D009"
+    }
+  ]
+}

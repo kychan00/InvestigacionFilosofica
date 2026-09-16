@@ -1,0 +1,4949 @@
+{
+  "schemaVersion": 2,
+  "note": "Structural comparison of the frozen Ranking v2 interdisciplinary Top-10/Top-20 against the real expansion-fix run. It does not infer relevance for unseen documents.",
+  "importantCaveat": "Absolute human P@10 for both systems requires labels for every old/new Top-10 union pair. Exact paired ΔP@10 requires labels only for old-only/new-only pairs because shared Top-10 rows contribute equally and cancel in the difference.",
+  "sources": {
+    "oldRun": "benchmark/runs/human-v1.0-ranking-v2-e6ad110.jsonl",
+    "newRun": "benchmark/runs/human-v1.0-interdisciplinary-expansionfix-cfb853a.jsonl",
+    "humanAudit": "benchmark/human-audit-v1.judgments.jsonl"
+  },
+  "summary": {
+    "queries": 10,
+    "top10SharedPairs": 67,
+    "top10UnionPairs": 133,
+    "meanTop10Overlap": 6.7,
+    "top10HumanJudgedPairs": 22,
+    "top10UnresolvedPairs": 111,
+    "top10ChangedPairs": 66,
+    "top10ChangedHumanJudgedPairs": 8,
+    "top10ChangedUnresolvedPairs": 58,
+    "top20SharedPairs": 128,
+    "top20UnionPairs": 272,
+    "meanTop20Overlap": 12.8
+  },
+  "unresolvedUnionPairs": [
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.35197/rx.11.02.2015.12.rg",
+      "title": "La fenomenología, y su uso en la producción científica de enfermería: estudio bibliométrico 2010-2014",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 1,
+      "new_rank": 1
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.35383/cietna.v8i2.686",
+      "title": "Contribuciones significativas de la fenomenología de Edmund Husserl, Martin Heidegger y Hans-Georg Gadamer a la investigación en enfermería",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 2
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.32870/prot.i13.148",
+      "title": "Algunas reflexiones sobre las herramientas técnicas de mediación en el proceso educativo musical y sus posibilidades de análisis a través de la fenomenología de Alfred Schütz",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": 3,
+      "new_rank": 4
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.32870/prot.i11-12.139",
+      "title": "Sobre la posibilidad de una “hermenéutica encarnada”. Institución, pasividad, prejuicio y tradición en la fenomenología tardía de Merleau-Ponty y la hermenéutica filosófica de Gadamer",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": 4,
+      "new_rank": 5
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "openalex:W7019105238",
+      "title": "Fenomenología y hermenéutica un gran atractivo de investigación en Enfermería",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 5,
+      "new_rank": 6
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "openalex:W3189156133",
+      "title": "El cuidar en Enfermería desde la Fenomenología Hermenéutica",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 6,
+      "new_rank": 7
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "title": "Phenomenology and Cognitive Science",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "title": "Feminist Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.4324/9781003191483-9",
+      "title": "Critical Phenomenology and Micro-Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.23913/ride.v10i20.594",
+      "title": "Aplicaciones de dispositivos móviles como estrategia de aprendizaje en estudiantes universitarios de enfermería. Una mirada desde la fenomenología crítica",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.4321/s1132-12962007000300012",
+      "title": "La interface entre la fenomenología y el cuidado de enfermería",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.70069/rve.2026.13.1.0010",
+      "title": "Hacia un nuevo horizonte en ciencias de la educación: educación continua interdisciplinaria y sostenible en salud desde la fenomenología social",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.37976/enfermeria.v11i2.138",
+      "title": "Fenomenología como método de investigación: Una opción para el profesional de enfermería",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "title": "Phenomenology as research method or substantive metaphysics? An overview of phenomenology's uses in nursing",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 3
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "title": "Interpretive phenomenology in health care research",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": 3,
+      "new_rank": 4
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "doi:10.1007/978-3-030-47253-5_374-1",
+      "title": "Nursing and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": 5
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "doi:10.1891/9780826126870.0007",
+      "title": "Using Phenomenology as a Research Method in Community-Based Research",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 5,
+      "new_rank": 6
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "doi:10.4324/9781003427407-48",
+      "title": "Phenomenology and nursing",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": 8
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "doi:10.4324/9781003427407-47",
+      "title": "Phenomenology and nursing",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": 7
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "title": "Revisioning phenomenology : nursing and health science research",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": null,
+      "new_rank": 2
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "openalex:W2974941930",
+      "title": "Phenomenology in nursing research: reflection based on Heidegger’s hermeneutics",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "doi:10.1055/a-0806-1514",
+      "title": "Intuition und Wahrnehmung als Grundlage in der palliativen Pflege – das Konzept der leiblichen Phänomenologie in Praxis und Bildung",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 1,
+      "new_rank": 1
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "doi:10.5771/9783495997758-221",
+      "title": "Auf die Situation kommt es an – Beziehung und Berührung in der Pflege",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 2
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "openalex:W2078645737",
+      "title": "Heidegger's Appropriation of the Concept of Intentionality in Die Grundprobleme der Phanomenologie",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 3,
+      "new_rank": 3
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "openalex:W4229717448",
+      "title": "Gabriel Cercel: Martin HEIDEGGER, Reden und andere Zeugnisse eines Lebensweges; Attila Szigeti: Emmanuel LEVINAS, Positivité et transcendance. Suivi de Lévinas et la phenomenology; Cristian Ciocan: Jean-Luc MARION, Crucea vizibilului; Gabriel Cercel: Mądąlina DIACONU, Blickumkehr. Mit Martin Heidegger zu einer relationalen ästhetik; Cristina Ionescu: Mark WRATHALL, Jeff MALPAS (eds.), Essays in Honour of Hubert L. Dreyfus; Cristian Ciocan: Ion COPOERU, Aparenţą şi sens. Repere ale fenomenologiei constitutive; Cristian Ciocan: Michael INWOOD, A Heidegger Dictionary; Cristian Ciocan: Linda FISCHER, Lester EMBREE (eds.), Feminist Phenomenology; Mądąlina Diaconu: Renato CRISTIN, Fenomeno storia. Fenomenologia e storicità in Husserl e Dilthey; Cristian Ciocan: Michel HAAR, La philosophie française entre phénoménologie et métaphysique; Gabriel Cercel: Otto PöGGELER, Heidegger in seiner Zeit; Roxana Albu: James RISSER (ed.), Heidegger toward the Turn, Essays on the work of the 1930s; Cristian Ciocan: Virgil Ciomoş, Timp şi Eternitate. Aristotel, Fizica IV 10-14, Interpretare fenomenologicą; Cristina Ionescu: William D. BLATTNER, Heidegger's Temporal Idealism; Bogdan Mincą: Gino ZACCARIA, L'inizio greco del pensiero. Heidegger e l'essenza futura della filosofia; Mądąlina Diaconu: Ute GUZZONI, Wohnen und Wandern; Bogdan Tątaru-Cazaban: Emmanuel LéVINAS, Totalitate şi infinit; Mihail Neamţu: Jean-Luc MARION, étant donné. Essai d'une phénoménologie de la donation; Gabriel Cercel: Robert PETKOVŠEK, Heidegger-Index (1919-1927); Cristian Ciocan: Einar ØVERENGET, Seeing The Self. Heidegger on Subjectivity Mihail Neamţu: Rolf KüHN, Husserls Begriff der Passivität. Zur Kritik der passiven Synthesis in der genetischen Phänomenologie.",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 4,
+      "new_rank": 4
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "openalex:W2593647896",
+      "title": "Das Selbst und die Gegenwart der Verantwortung. Über das Verantwortungskonzept in der hermeneutischen Phänomenologie von Paul Ricœur",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 5,
+      "new_rank": 5
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "openalex:W4297862612",
+      "title": "Das Experiment bei Husserl. Zum Verhältnis von Empirie und Eidetik in der Phänomenologie",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 6,
+      "new_rank": 6
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "doi:10.1024/1012-5302.22.3.217",
+      "title": "Dialogische Phänomenologie im Rahmen der Pflegewissenschaft – Eine kritische Auseinandersetzung mit einer wenig bekannten Forschungsmethode",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": 7
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "doi:10.1007/1-4020-4731-2_7",
+      "title": "Idee einer Phänomenologie der Hoffnung",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": 9
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "record_id": "doi:10.30965/9783846751985_007",
+      "title": "Der Sinn der Phänomenologie: Eine methodologische Reflexion",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": 10
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/rsi.069.0088",
+      "title": "De l’intérêt de la phénoménologie pour la mise en évidence de l’expertise infirmière et le développement de connaissances en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 1,
+      "new_rank": 1
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0341",
+      "title": "Hypnose en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 3
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0345",
+      "title": "Hypnose en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": 4
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0339",
+      "title": "Hypnose en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": 5
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0337",
+      "title": "Hypnose en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": 8
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0353",
+      "title": "Hypnose en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": 7
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0351",
+      "title": "Hypnose en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": 10
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "record_id": "doi:10.3917/dunod.barbi.2020.01.0355",
+      "title": "Hypnose en soins infirmiers",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": 9
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.47820/recima21.v2i6.468",
+      "title": "CONTRIBUIÇÕES DA FENOMENOLOGIA PARA A PRÁTICA DA ENFERMAGEM NA SAÚDE DA MULHER",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 2
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.12707/riv19038",
+      "title": "A presença da fenomenologia na investigação em enfermagem: mapeamento das teses de doutoramento em Portugal",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 3,
+      "new_rank": 3
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.5902/2236583435112",
+      "title": "Brinquedo terapêutico: percepção da equipe de enfermagem na perspectiva da fenomenologia social",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": 4
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1590/s0104-07072006000400016",
+      "title": "Na trilha da fenomenologia: um caminho para a pesquisa em enfermagem",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 5,
+      "new_rank": 5
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "openalex:W7120651308",
+      "title": "Cuidado de enfermagem em terapia intensiva cardiológica: hermenêutica do conceito fundamentada na fenomenologia heideggeriana",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 6,
+      "new_rank": 6
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "title": "Phenomenology and Cognitive Science",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "title": "Feminist Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.4324/9781003191483-9",
+      "title": "Critical Phenomenology and Micro-Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.29393/ce5-2sfmb10002",
+      "title": "SOBRE FENOMENOLOGIA, FENOMENOLOGIA EXISTENCIAL E ENFERMAGEM PSIQUIATRICA",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1590/s0104-11691997000100010",
+      "title": "Fenomenologia: uma alternativa para pesquisa em enfermagem",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+      "title": "Figuras do direito na Fenomenologia do Espírito: a fenomenologia como doutrina do espírito objetivo?",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1590/s0034-71671994000100010",
+      "title": "Enfermagem psiquiátrica e fenomenologia: algumas considerações",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.57027/eikasia.30.1839",
+      "title": "Autoconstitución y libertad Ontología y política en Espinosa III",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 1
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 3,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "title": "Metaphysics of Science as Naturalized Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.3726/978-3-653-06622-7/9",
+      "title": "7. Criticism of Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.36576/summa.14367",
+      "title": "Lógica y ontología en Aristóteles /",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.15332/dt.inv.2020.01501",
+      "title": "Ontología en América Latina. Fase 1: Ontología Existencial",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 4
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.15332/tg.mae.2018.00307",
+      "title": "Ontología de la finitud en Ernildo Stein",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.15332/tg.mae.2016.00323",
+      "title": "Ontología política de la voluntad en Enrique Dussel",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i28.487",
+      "title": "Abismando formaciones discursivas, entrecruces del ser maya ch´ol versus ser alguien en la vida",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i27.460",
+      "title": "Museología y trascendencia en el hiperrealismo de William Fisk",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "title": "The metaphysics of Sir William Hamilton",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": 1,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "title": "Metaphysics of Science as Naturalized Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W4240899380",
+      "title": "Ontology in Computer Science",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 3,
+      "new_rank": 1
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 5,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "title": "Postmodal Metaphysics and Structuralism",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W604892179",
+      "title": "von Leibniz'Metaphysik (2001), Leibniz: Metaphilosophy and Metaphysics, 1666–1686 (2005), and Biomedical Ontology and the Metaphysics of Composite Substances, 1540–1670 (2010). Martin Campbell-Kelly is emeritus professor in the Department of Com-puter Science at the University of Warwick, where he specializes in the",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 2
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W7108452404",
+      "title": "A Consciousness-First Ontology in the Long Arc of Science and Mysticism: The Unified Play of Consciousness (UPC) in Historical and Scientific",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W4402430982",
+      "title": "Th eology as the science of existence and philosophy as the science of being in the fundamental ontology of M. Heidegger",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 4
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1016/j.scico.2014.02.022",
+      "title": "Using a trope-based foundational ontology for bridging different areas of concern in ontology-driven conceptual modeling",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "source:internet-archive:DTIC_ADA534412",
+      "title": "DTIC ADA534412: Linking Semantic and Knowledge Representations in a Multi-Domain Dialogue System",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1109/ubmk.2017.8093469",
+      "title": "Ontology segmentation in ontology matching",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+      "title": "Video Representation and Semantic Information Extraction using Ontology based Approaches",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W763069345",
+      "title": "Levinas, Meaning, and Philosophy of Social Science: From Ethical Metaphysics to Ontology and Epistemology",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W7136197983",
+      "title": "Myth of Metaphysical Neutrality: How Denying Ontology Distorts Science, AI, and Understanding Itself",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "record_id": "doi:10.1007/s00287-014-0795-3",
+      "title": "Ontologie und Weltbezug – vom philosophischen Weltverständnis zum Konstrukt der Informatik",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 1,
+      "new_rank": 1
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "record_id": "doi:10.1007/s00287-012-0642-3",
+      "title": "Eine kurze Geschichte der Ontologie",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 2
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "record_id": "doi:10.1007/978-3-642-77387-7_17",
+      "title": "Praxisgerechte Verwaltung der Ontologie",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 3,
+      "new_rank": 3
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "record_id": "doi:10.1007/978-3-642-77387-7_18",
+      "title": "Kommentar zu P. Gerstl: Praxisgerechte Verwaltung der Ontologie",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": 4
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "record_id": "openalex:W6947466892",
+      "title": "Von der Epistemologie zur Ontologie Martin Heideggers Hermeneutik der Freiheit im Diskurs mit Immanuel Kant",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 6,
+      "new_rank": 6
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "record_id": "openalex:W2899757804",
+      "title": "Nicolai Hartmanns Kritische Ontologie („wie sie als Grundlage der Gnoseologie anzustreben ist“) und der Kritische Realismus der Gestaltpsychologie („Berliner Schule“/Gestalttheorie)",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": 8,
+      "new_rank": 8
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.1016/j.reval.2025.104357",
+      "title": "Conception et mise en œuvre d’une ontologie informatique en allergologie",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 1,
+      "new_rank": 1
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.51257/a-v1-h4650",
+      "title": "Contrats en informatique",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 2
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.51257/a-v1-h470",
+      "title": "Recherche en informatique",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 3,
+      "new_rank": 3
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.1007/978-2-8178-0285-5_11",
+      "title": "Vers la définition automatique des éléments de données des fiches RCP en cancérologie à partir d’une ontologie",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": 4
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.56698/rfim.841",
+      "title": "La texture en informatique musicale symbolique",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 5,
+      "new_rank": 5
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.58837/chula.the.2002.1881",
+      "title": "Les emprunts a l'Anglais en Francais informatique",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": 6
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.70675/89a8f366z3267z45cfz876fz8c7d7d2e076c",
+      "title": "Ecriture de contrats intelligents: essai de méthodologie en droit et en informatique",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": 7
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.70675/b49b49dczaf97z49d6za376z591d84c712ac",
+      "title": "Modèlisation et détection de la persévérance en milieu scolaire en contexte informatique",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": 8
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "record_id": "doi:10.1051/ita/197610r100391",
+      "title": "Valeurs propres et vecteurs propres en classification hiérarchique",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": 9
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "title": "The metaphysics of Sir William Hamilton",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": 1,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.22533/at.ed.57219070312",
+      "title": "UMA ABORDAGEM PARA ORQUESTRAÇÃO DO CONHECIMENTO COMO SUPORTE AO PLANEJAMENTO CURRICULAR EM CIÊNCIA DA COMPUTAÇÃO",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": 1
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.24824/978652511477.4",
+      "title": "ONTOLOGIA EM CIÊNCIA DA INFORMAÇÃO: Tecnologia e Aplicações Coleção Representação do conhecimento em Ciência da Informação Volume 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 3,
+      "new_rank": 2
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "title": "Postmodal Metaphysics and Structuralism",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.37885/978-65-87196-55-8",
+      "title": "Ciência da Computação: Tecnologias Emergentes em Computação",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.56238/edimpacto2024.007",
+      "title": "Fundamentos e Avanços em Ciência da Computação",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.17771/pucrio.dimcc.32894",
+      "title": "MONOGRAFIAS EM CIÊNCIA DA COMPUTAÇÃO",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.37885/978-65-89826-02-6",
+      "title": "Ciência da Computação: tecnologias emergentes em computação - Volume 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    }
+  ],
+  "unresolvedChangedPairs": [
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "title": "Phenomenology and Cognitive Science",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "title": "Feminist Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.4324/9781003191483-9",
+      "title": "Critical Phenomenology and Micro-Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.23913/ride.v10i20.594",
+      "title": "Aplicaciones de dispositivos móviles como estrategia de aprendizaje en estudiantes universitarios de enfermería. Una mirada desde la fenomenología crítica",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.4321/s1132-12962007000300012",
+      "title": "La interface entre la fenomenología y el cuidado de enfermería",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.70069/rve.2026.13.1.0010",
+      "title": "Hacia un nuevo horizonte en ciencias de la educación: educación continua interdisciplinaria y sostenible en salud desde la fenomenología social",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "record_id": "doi:10.37976/enfermeria.v11i2.138",
+      "title": "Fenomenología como método de investigación: Una opción para el profesional de enfermería",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "title": "Revisioning phenomenology : nursing and health science research",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": null,
+      "new_rank": 2
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "record_id": "openalex:W2974941930",
+      "title": "Phenomenology in nursing research: reflection based on Heidegger’s hermeneutics",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "title": "Connectionism and Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "title": "Phenomenology and Cognitive Science",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "title": "Feminist Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.4324/9781003191483-9",
+      "title": "Critical Phenomenology and Micro-Phenomenology",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.29393/ce5-2sfmb10002",
+      "title": "SOBRE FENOMENOLOGIA, FENOMENOLOGIA EXISTENCIAL E ENFERMAGEM PSIQUIATRICA",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1590/s0104-11691997000100010",
+      "title": "Fenomenologia: uma alternativa para pesquisa em enfermagem",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+      "title": "Figuras do direito na Fenomenologia do Espírito: a fenomenologia como doutrina do espírito objetivo?",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "record_id": "doi:10.1590/s0034-71671994000100010",
+      "title": "Enfermagem psiquiátrica e fenomenologia: algumas considerações",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 3,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "title": "Metaphysics of Science as Naturalized Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.3726/978-3-653-06622-7/9",
+      "title": "7. Criticism of Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.36576/summa.14367",
+      "title": "Lógica y ontología en Aristóteles /",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.15332/dt.inv.2020.01501",
+      "title": "Ontología en América Latina. Fase 1: Ontología Existencial",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 4
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.15332/tg.mae.2018.00307",
+      "title": "Ontología de la finitud en Ernildo Stein",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.15332/tg.mae.2016.00323",
+      "title": "Ontología política de la voluntad en Enrique Dussel",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i28.487",
+      "title": "Abismando formaciones discursivas, entrecruces del ser maya ch´ol versus ser alguien en la vida",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "record_id": "doi:10.32870/prot.i27.460",
+      "title": "Museología y trascendencia en el hiperrealismo de William Fisk",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "title": "The metaphysics of Sir William Hamilton",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": 1,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "title": "Metaphysics of Science as Naturalized Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 2,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 4,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 5,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "title": "Postmodal Metaphysics and Structuralism",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W604892179",
+      "title": "von Leibniz'Metaphysik (2001), Leibniz: Metaphilosophy and Metaphysics, 1666–1686 (2005), and Biomedical Ontology and the Metaphysics of Composite Substances, 1540–1670 (2010). Martin Campbell-Kelly is emeritus professor in the Department of Com-puter Science at the University of Warwick, where he specializes in the",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 2
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W7108452404",
+      "title": "A Consciousness-First Ontology in the Long Arc of Science and Mysticism: The Unified Play of Consciousness (UPC) in Historical and Scientific",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W4402430982",
+      "title": "Th eology as the science of existence and philosophy as the science of being in the fundamental ontology of M. Heidegger",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 4
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1016/j.scico.2014.02.022",
+      "title": "Using a trope-based foundational ontology for bridging different areas of concern in ontology-driven conceptual modeling",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "source:internet-archive:DTIC_ADA534412",
+      "title": "DTIC ADA534412: Linking Semantic and Knowledge Representations in a Multi-Domain Dialogue System",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "doi:10.1109/ubmk.2017.8093469",
+      "title": "Ontology segmentation in ontology matching",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+      "title": "Video Representation and Semantic Information Extraction using Ontology based Approaches",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W763069345",
+      "title": "Levinas, Meaning, and Philosophy of Social Science: From Ethical Metaphysics to Ontology and Epistemology",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "record_id": "openalex:W7136197983",
+      "title": "Myth of Metaphysical Neutrality: How Denying Ontology Distorts Science, AI, and Understanding Itself",
+      "providers": [
+        "OpenAlex Philosophy"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "title": "The metaphysics of Sir William Hamilton",
+      "providers": [
+        "Internet Archive"
+      ],
+      "old_rank": 1,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "title": "Postmodal Metaphysics and Structuralism",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "title": "Metaphysics",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "title": "Aristotle's Metaphysics, Vol. 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.37885/978-65-87196-55-8",
+      "title": "Ciência da Computação: Tecnologias Emergentes em Computação",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.56238/edimpacto2024.007",
+      "title": "Fundamentos e Avanços em Ciência da Computação",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.17771/pucrio.dimcc.32894",
+      "title": "MONOGRAFIAS EM CIÊNCIA DA COMPUTAÇÃO",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.37885/978-65-89826-02-6",
+      "title": "Ciência da Computação: tecnologias emergentes em computação - Volume 2",
+      "providers": [
+        "Crossref"
+      ],
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "providers": [
+        "CUCSH Filosofía"
+      ],
+      "old_rank": null,
+      "new_rank": 10
+    }
+  ],
+  "perQuery": [
+    {
+      "id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "family": "challenge-phenomenology-nursing",
+      "overlapTop10": 6,
+      "unionTop10": 14,
+      "changedTop10Pairs": 8,
+      "changedTop10PairsAlreadyHuman": 0,
+      "changedTop10PairsUnresolved": 8,
+      "overlapTop20": 7,
+      "unionTop20": 33,
+      "alreadyHumanJudgedTop10Union": 0,
+      "unresolvedTop10Union": 14,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.35197/rx.11.02.2015.12.rg",
+          "title": "La fenomenología, y su uso en la producción científica de enfermería: estudio bibliométrico 2010-2014",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 37,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 1
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.35383/cietna.v8i2.686",
+          "title": "Contribuciones significativas de la fenomenología de Edmund Husserl, Martin Heidegger y Hans-Georg Gadamer a la investigación en enfermería",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.23913/ride.v10i20.594",
+          "title": "Aplicaciones de dispositivos móviles como estrategia de aprendizaje en estudiantes universitarios de enfermería. Una mirada desde la fenomenología crítica",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.32870/prot.i13.148",
+          "title": "Algunas reflexiones sobre las herramientas técnicas de mediación en el proceso educativo musical y sus posibilidades de análisis a través de la fenomenología de Alfred Schütz",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 35,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.32870/prot.i11-12.139",
+          "title": "Sobre la posibilidad de una “hermenéutica encarnada”. Institución, pasividad, prejuicio y tradición en la fenomenología tardía de Merleau-Ponty y la hermenéutica filosófica de Gadamer",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 35,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 6,
+          "record_id": "openalex:W7019105238",
+          "title": "Fenomenología y hermenéutica un gran atractivo de investigación en Enfermería",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 7,
+          "record_id": "openalex:W3189156133",
+          "title": "El cuidar en Enfermería desde la Fenomenología Hermenéutica",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 6
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.4321/s1132-12962007000300012",
+          "title": "La interface entre la fenomenología y el cuidado de enfermería",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 30,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.70069/rve.2026.13.1.0010",
+          "title": "Hacia un nuevo horizonte en ciencias de la educación: educación continua interdisciplinaria y sostenible en salud desde la fenomenología social",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.37976/enfermeria.v11i2.138",
+          "title": "Fenomenología como método de investigación: Una opción para el profesional de enfermería",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        }
+      ],
+      "newOnly": [
+        {
+          "rank": 3,
+          "record_id": "doi:10.23913/ride.v10i20.594",
+          "title": "Aplicaciones de dispositivos móviles como estrategia de aprendizaje en estudiantes universitarios de enfermería. Una mirada desde la fenomenología crítica",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.4321/s1132-12962007000300012",
+          "title": "La interface entre la fenomenología y el cuidado de enfermería",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.70069/rve.2026.13.1.0010",
+          "title": "Hacia un nuevo horizonte en ciencias de la educación: educación continua interdisciplinaria y sostenible en salud desde la fenomenología social",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.37976/enfermeria.v11i2.138",
+          "title": "Fenomenología como método de investigación: Una opción para el profesional de enfermería",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenología en enfermería",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        }
+      ],
+      "oldOnly": [
+        {
+          "rank": 7,
+          "record_id": "doi:10.1007/978-0-585-28556-6_5",
+          "title": "Connectionism and Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1007/978-0-585-28556-6_3",
+          "title": "Phenomenology and Cognitive Science",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.1007/978-94-015-9488-2_1",
+          "title": "Feminist Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.4324/9781003191483-9",
+          "title": "Critical Phenomenology and Micro-Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        }
+      ]
+    },
+    {
+      "id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "family": "challenge-phenomenology-nursing",
+      "overlapTop10": 8,
+      "unionTop10": 12,
+      "changedTop10Pairs": 4,
+      "changedTop10PairsAlreadyHuman": 1,
+      "changedTop10PairsUnresolved": 3,
+      "overlapTop20": 8,
+      "unionTop20": 32,
+      "alreadyHumanJudgedTop10Union": 3,
+      "unresolvedTop10Union": 9,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "source:internet-archive:nursingexperienc0000unse",
+          "title": "Nursing and the experience of illness : phenomenology in practice",
+          "providers": [
+            "Internet Archive"
+          ],
+          "score": 52,
+          "human_relevance": 3,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 1
+        },
+        {
+          "rank": 2,
+          "record_id": "source:internet-archive:revisioningpheno0000munh",
+          "title": "Revisioning phenomenology : nursing and health science research",
+          "providers": [
+            "Internet Archive"
+          ],
+          "score": 46,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+          "title": "Phenomenology as research method or substantive metaphysics? An overview of phenomenology's uses in nursing",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 44,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 4,
+          "record_id": "source:internet-archive:isbn_9781930538887",
+          "title": "Interpretive phenomenology in health care research",
+          "providers": [
+            "Internet Archive"
+          ],
+          "score": 44,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1007/978-3-030-47253-5_374-1",
+          "title": "Nursing and Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 37,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.1891/9780826126870.0007",
+          "title": "Using Phenomenology as a Research Method in Community-Based Research",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 37,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.4324/9781003427407-47",
+          "title": "Phenomenology and nursing",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 37,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 7
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.4324/9781003427407-48",
+          "title": "Phenomenology and nursing",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 37,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 6
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.7761/9789731997766.8",
+          "title": "Walt Whitman, Nursing, and Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": 3,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 8
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W2974941930",
+          "title": "Phenomenology in nursing research: reflection based on Heidegger’s hermeneutics",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        }
+      ],
+      "newOnly": [
+        {
+          "rank": 2,
+          "record_id": "source:internet-archive:revisioningpheno0000munh",
+          "title": "Revisioning phenomenology : nursing and health science research",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W2974941930",
+          "title": "Phenomenology in nursing research: reflection based on Heidegger’s hermeneutics",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phenomenology in nursing",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        }
+      ],
+      "oldOnly": [
+        {
+          "rank": 9,
+          "record_id": "doi:10.1007/978-0-585-28556-6_5",
+          "title": "Connectionism and Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.1007/978-0-585-28556-6_3",
+          "title": "Phenomenology and Cognitive Science",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": 0
+        }
+      ]
+    },
+    {
+      "id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "family": "challenge-phenomenology-nursing",
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedTop10PairsAlreadyHuman": 0,
+      "changedTop10PairsUnresolved": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "alreadyHumanJudgedTop10Union": 1,
+      "unresolvedTop10Union": 9,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.1055/a-0806-1514",
+          "title": "Intuition und Wahrnehmung als Grundlage in der palliativen Pflege – das Konzept der leiblichen Phänomenologie in Praxis und Bildung",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 37,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 1
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.5771/9783495997758-221",
+          "title": "Auf die Situation kommt es an – Beziehung und Berührung in der Pflege",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 3,
+          "record_id": "openalex:W2078645737",
+          "title": "Heidegger's Appropriation of the Concept of Intentionality in Die Grundprobleme der Phanomenologie",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 4,
+          "record_id": "openalex:W4229717448",
+          "title": "Gabriel Cercel: Martin HEIDEGGER, Reden und andere Zeugnisse eines Lebensweges; Attila Szigeti: Emmanuel LEVINAS, Positivité et transcendance. Suivi de Lévinas et la phenomenology; Cristian Ciocan: Jean-Luc MARION, Crucea vizibilului; Gabriel Cercel: Mądąlina DIACONU, Blickumkehr. Mit Martin Heidegger zu einer relationalen ästhetik; Cristina Ionescu: Mark WRATHALL, Jeff MALPAS (eds.), Essays in Honour of Hubert L. Dreyfus; Cristian Ciocan: Ion COPOERU, Aparenţą şi sens. Repere ale fenomenologiei constitutive; Cristian Ciocan: Michael INWOOD, A Heidegger Dictionary; Cristian Ciocan: Linda FISCHER, Lester EMBREE (eds.), Feminist Phenomenology; Mądąlina Diaconu: Renato CRISTIN, Fenomeno storia. Fenomenologia e storicità in Husserl e Dilthey; Cristian Ciocan: Michel HAAR, La philosophie française entre phénoménologie et métaphysique; Gabriel Cercel: Otto PöGGELER, Heidegger in seiner Zeit; Roxana Albu: James RISSER (ed.), Heidegger toward the Turn, Essays on the work of the 1930s; Cristian Ciocan: Virgil Ciomoş, Timp şi Eternitate. Aristotel, Fizica IV 10-14, Interpretare fenomenologicą; Cristina Ionescu: William D. BLATTNER, Heidegger's Temporal Idealism; Bogdan Mincą: Gino ZACCARIA, L'inizio greco del pensiero. Heidegger e l'essenza futura della filosofia; Mądąlina Diaconu: Ute GUZZONI, Wohnen und Wandern; Bogdan Tątaru-Cazaban: Emmanuel LéVINAS, Totalitate şi infinit; Mihail Neamţu: Jean-Luc MARION, étant donné. Essai d'une phénoménologie de la donation; Gabriel Cercel: Robert PETKOVŠEK, Heidegger-Index (1919-1927); Cristian Ciocan: Einar ØVERENGET, Seeing The Self. Heidegger on Subjectivity Mihail Neamţu: Rolf KüHN, Husserls Begriff der Passivität. Zur Kritik der passiven Synthesis in der genetischen Phänomenologie.",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 5,
+          "record_id": "openalex:W2593647896",
+          "title": "Das Selbst und die Gegenwart der Verantwortung. Über das Verantwortungskonzept in der hermeneutischen Phänomenologie von Paul Ricœur",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 6,
+          "record_id": "openalex:W4297862612",
+          "title": "Das Experiment bei Husserl. Zum Verhältnis von Empirie und Eidetik in der Phänomenologie",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 6
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1024/1012-5302.22.3.217",
+          "title": "Dialogische Phänomenologie im Rahmen der Pflegewissenschaft – Eine kritische Auseinandersetzung mit einer wenig bekannten Forschungsmethode",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 7
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1007/978-3-662-68848-9_16-1",
+          "title": "Qualitative Gesundheitsforschung aus Sicht der Neuen Phänomenologie",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 26,
+          "human_relevance": 2,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 8
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.1007/1-4020-4731-2_7",
+          "title": "Idee einer Phänomenologie der Hoffnung",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 9
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.30965/9783846751985_007",
+          "title": "Der Sinn der Phänomenologie: Eine methodologische Reflexion",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 25,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Phänomenologie in der Pflege",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 10
+        }
+      ],
+      "newOnly": [],
+      "oldOnly": []
+    },
+    {
+      "id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "family": "challenge-phenomenology-nursing",
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedTop10PairsAlreadyHuman": 0,
+      "changedTop10PairsUnresolved": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "alreadyHumanJudgedTop10Union": 2,
+      "unresolvedTop10Union": 8,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.3917/rsi.069.0088",
+          "title": "De l’intérêt de la phénoménologie pour la mise en évidence de l’expertise infirmière et le développement de connaissances en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 1
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.3917/dunod.barbi.2025.01.0007",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": 0,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.3917/dunod.barbi.2025.01.0341",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.3917/dunod.barbi.2016.01.0345",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.3917/dunod.barbi.2025.01.0339",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 6
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.3917/dunod.barbi.2016.01.0347",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": 0,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.3917/dunod.barbi.2016.01.0353",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 8
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.3917/dunod.barbi.2025.01.0337",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 7
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.3917/dunod.barbi.2020.01.0355",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 10
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.3917/dunod.barbi.2016.01.0351",
+          "title": "Hypnose en soins infirmiers",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "phénoménologie en soins infirmiers",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 9
+        }
+      ],
+      "newOnly": [],
+      "oldOnly": []
+    },
+    {
+      "id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "family": "challenge-phenomenology-nursing",
+      "overlapTop10": 6,
+      "unionTop10": 14,
+      "changedTop10Pairs": 8,
+      "changedTop10PairsAlreadyHuman": 0,
+      "changedTop10PairsUnresolved": 8,
+      "overlapTop20": 7,
+      "unionTop20": 33,
+      "alreadyHumanJudgedTop10Union": 1,
+      "unresolvedTop10Union": 13,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.1590/s0104-11692005000200006",
+          "title": "O ensino de enfermagem em saúde mental e psiquiátrica: visão do professor e do aluno na perspectiva da fenomenologia social",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": 3,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 1
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.47820/recima21.v2i6.468",
+          "title": "CONTRIBUIÇÕES DA FENOMENOLOGIA PARA A PRÁTICA DA ENFERMAGEM NA SAÚDE DA MULHER",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.12707/riv19038",
+          "title": "A presença da fenomenologia na investigação em enfermagem: mapeamento das teses de doutoramento em Portugal",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.5902/2236583435112",
+          "title": "Brinquedo terapêutico: percepção da equipe de enfermagem na perspectiva da fenomenologia social",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1590/s0104-07072006000400016",
+          "title": "Na trilha da fenomenologia: um caminho para a pesquisa em enfermagem",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 6,
+          "record_id": "openalex:W7120651308",
+          "title": "Cuidado de enfermagem em terapia intensiva cardiológica: hermenêutica do conceito fundamentada na fenomenologia heideggeriana",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 6
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.29393/ce5-2sfmb10002",
+          "title": "SOBRE FENOMENOLOGIA, FENOMENOLOGIA EXISTENCIAL E ENFERMAGEM PSIQUIATRICA",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 30,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1590/s0104-11691997000100010",
+          "title": "Fenomenologia: uma alternativa para pesquisa em enfermagem",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+          "title": "Figuras do direito na Fenomenologia do Espírito: a fenomenologia como doutrina do espírito objetivo?",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.1590/s0034-71671994000100010",
+          "title": "Enfermagem psiquiátrica e fenomenologia: algumas considerações",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        }
+      ],
+      "newOnly": [
+        {
+          "rank": 7,
+          "record_id": "doi:10.29393/ce5-2sfmb10002",
+          "title": "SOBRE FENOMENOLOGIA, FENOMENOLOGIA EXISTENCIAL E ENFERMAGEM PSIQUIATRICA",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1590/s0104-11691997000100010",
+          "title": "Fenomenologia: uma alternativa para pesquisa em enfermagem",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+          "title": "Figuras do direito na Fenomenologia do Espírito: a fenomenologia como doutrina do espírito objetivo?",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.1590/s0034-71671994000100010",
+          "title": "Enfermagem psiquiátrica e fenomenologia: algumas considerações",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "fenomenologia na enfermagem",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        }
+      ],
+      "oldOnly": [
+        {
+          "rank": 7,
+          "record_id": "doi:10.1007/978-0-585-28556-6_5",
+          "title": "Connectionism and Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1007/978-0-585-28556-6_3",
+          "title": "Phenomenology and Cognitive Science",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.1007/978-94-015-9488-2_1",
+          "title": "Feminist Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.4324/9781003191483-9",
+          "title": "Critical Phenomenology and Micro-Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        }
+      ]
+    },
+    {
+      "id": "es-10",
+      "query": "ontología en informática",
+      "language": "es",
+      "family": "challenge-ontology-compsci",
+      "overlapTop10": 2,
+      "unionTop10": 18,
+      "changedTop10Pairs": 16,
+      "changedTop10PairsAlreadyHuman": 3,
+      "changedTop10PairsUnresolved": 13,
+      "overlapTop20": 9,
+      "unionTop20": 31,
+      "alreadyHumanJudgedTop10Union": 4,
+      "unresolvedTop10Union": 14,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.57027/eikasia.30.1839",
+          "title": "Autoconstitución y libertad Ontología y política en Espinosa III",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 36,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.5771/9789563926552-1",
+          "title": "Origen de la ontología jurídica en el pensamiento griego",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": 0,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 10
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.36576/summa.14367",
+          "title": "Lógica y ontología en Aristóteles /",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 28,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.15332/dt.inv.2020.01501",
+          "title": "Ontología en América Latina. Fase 1: Ontología Existencial",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 28,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.15332/tg.mae.2018.00307",
+          "title": "Ontología de la finitud en Ernildo Stein",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 28,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.15332/tg.mae.2016.00323",
+          "title": "Ontología política de la voluntad en Enrique Dussel",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 28,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.32870/prot.i17.234",
+          "title": "Una ontología propiamente dicha",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 27,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.32870/prot.i9-10.132",
+          "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 27,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.32870/prot.i28.487",
+          "title": "Abismando formaciones discursivas, entrecruces del ser maya ch´ol versus ser alguien en la vida",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 27,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.32870/prot.i27.460",
+          "title": "Museología y trascendencia en el hiperrealismo de William Fisk",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 27,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        }
+      ],
+      "newOnly": [
+        {
+          "rank": 3,
+          "record_id": "doi:10.36576/summa.14367",
+          "title": "Lógica y ontología en Aristóteles /",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.15332/dt.inv.2020.01501",
+          "title": "Ontología en América Latina. Fase 1: Ontología Existencial",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.15332/tg.mae.2018.00307",
+          "title": "Ontología de la finitud en Ernildo Stein",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.15332/tg.mae.2016.00323",
+          "title": "Ontología política de la voluntad en Enrique Dussel",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.32870/prot.i17.234",
+          "title": "Una ontología propiamente dicha",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.32870/prot.i9-10.132",
+          "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.32870/prot.i28.487",
+          "title": "Abismando formaciones discursivas, entrecruces del ser maya ch´ol versus ser alguien en la vida",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.32870/prot.i27.460",
+          "title": "Museología y trascendencia en el hiperrealismo de William Fisk",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontología en informática",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        }
+      ],
+      "oldOnly": [
+        {
+          "rank": 1,
+          "record_id": "source:internet-archive:soundex1900mo264",
+          "title": "The metaphysics of Sir William Hamilton",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": 0
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.1093/oseo/instance.00263632",
+          "title": "Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.1093/oseo/instance.00265863",
+          "title": "Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+          "title": "Postmodal Metaphysics and Structuralism",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": 0
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+          "title": "Metaphysics of Science as Naturalized Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+          "title": "Aristotle's Metaphysics, Vol. 2",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.22363/2224-7580-2021-3-92-117",
+          "title": "METAPHYSICS AND INTERDISCIPLINARY MODELS",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": 0
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.3726/978-3-653-06622-7/9",
+          "title": "7. Criticism of Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        }
+      ]
+    },
+    {
+      "id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "family": "challenge-ontology-compsci",
+      "overlapTop10": 1,
+      "unionTop10": 19,
+      "changedTop10Pairs": 18,
+      "changedTop10PairsAlreadyHuman": 3,
+      "changedTop10PairsUnresolved": 15,
+      "overlapTop20": 8,
+      "unionTop20": 32,
+      "alreadyHumanJudgedTop10Union": 3,
+      "unresolvedTop10Union": 16,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "openalex:W4240899380",
+          "title": "Ontology in Computer Science",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 2,
+          "record_id": "openalex:W604892179",
+          "title": "von Leibniz'Metaphysik (2001), Leibniz: Metaphilosophy and Metaphysics, 1666–1686 (2005), and Biomedical Ontology and the Metaphysics of Composite Substances, 1540–1670 (2010). Martin Campbell-Kelly is emeritus professor in the Department of Com-puter Science at the University of Warwick, where he specializes in the",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 3,
+          "record_id": "openalex:W7108452404",
+          "title": "A Consciousness-First Ontology in the Long Arc of Science and Mysticism: The Unified Play of Consciousness (UPC) in Historical and Scientific",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 4,
+          "record_id": "openalex:W4402430982",
+          "title": "Th eology as the science of existence and philosophy as the science of being in the fundamental ontology of M. Heidegger",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1016/j.scico.2014.02.022",
+          "title": "Using a trope-based foundational ontology for bridging different areas of concern in ontology-driven conceptual modeling",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 6,
+          "record_id": "source:internet-archive:DTIC_ADA534412",
+          "title": "DTIC ADA534412: Linking Semantic and Knowledge Representations in a Multi-Domain Dialogue System",
+          "providers": [
+            "Internet Archive"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1109/ubmk.2017.8093469",
+          "title": "Ontology segmentation in ontology matching",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 25,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 8,
+          "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+          "title": "Video Representation and Semantic Information Extraction using Ontology based Approaches",
+          "providers": [
+            "Internet Archive"
+          ],
+          "score": 23,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 9,
+          "record_id": "openalex:W763069345",
+          "title": "Levinas, Meaning, and Philosophy of Social Science: From Ethical Metaphysics to Ontology and Epistemology",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 20,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W7136197983",
+          "title": "Myth of Metaphysical Neutrality: How Denying Ontology Distorts Science, AI, and Understanding Itself",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 20,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        }
+      ],
+      "newOnly": [
+        {
+          "rank": 2,
+          "record_id": "openalex:W604892179",
+          "title": "von Leibniz'Metaphysik (2001), Leibniz: Metaphilosophy and Metaphysics, 1666–1686 (2005), and Biomedical Ontology and the Metaphysics of Composite Substances, 1540–1670 (2010). Martin Campbell-Kelly is emeritus professor in the Department of Com-puter Science at the University of Warwick, where he specializes in the",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "record_id": "openalex:W7108452404",
+          "title": "A Consciousness-First Ontology in the Long Arc of Science and Mysticism: The Unified Play of Consciousness (UPC) in Historical and Scientific",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "record_id": "openalex:W4402430982",
+          "title": "Th eology as the science of existence and philosophy as the science of being in the fundamental ontology of M. Heidegger",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1016/j.scico.2014.02.022",
+          "title": "Using a trope-based foundational ontology for bridging different areas of concern in ontology-driven conceptual modeling",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "record_id": "source:internet-archive:DTIC_ADA534412",
+          "title": "DTIC ADA534412: Linking Semantic and Knowledge Representations in a Multi-Domain Dialogue System",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1109/ubmk.2017.8093469",
+          "title": "Ontology segmentation in ontology matching",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+          "title": "Video Representation and Semantic Information Extraction using Ontology based Approaches",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "openalex:W763069345",
+          "title": "Levinas, Meaning, and Philosophy of Social Science: From Ethical Metaphysics to Ontology and Epistemology",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W7136197983",
+          "title": "Myth of Metaphysical Neutrality: How Denying Ontology Distorts Science, AI, and Understanding Itself",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontology in computer science",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        }
+      ],
+      "oldOnly": [
+        {
+          "rank": 1,
+          "record_id": "source:internet-archive:soundex1900mo264",
+          "title": "The metaphysics of Sir William Hamilton",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+          "title": "Metaphysics of Science as Naturalized Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.1093/oseo/instance.00263632",
+          "title": "Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1093/oseo/instance.00265863",
+          "title": "Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+          "title": "Postmodal Metaphysics and Structuralism",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+          "title": "Aristotle's Metaphysics, Vol. 2",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.3726/978-3-653-06622-7/9",
+          "title": "7. Criticism of Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": 0
+        },
+        {
+          "rank": 9,
+          "record_id": "source:internet-archive:dimensional-lattice",
+          "title": "The Dimensional Lattice: A Mathematical Framework for Consciousness Emergence and Coherence Dynamics",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": 0
+        },
+        {
+          "rank": 10,
+          "record_id": "source:internet-archive:india.history.resource.18005",
+          "title": "Harmonies of Nature, in Three Volumes, Vol. I",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": 0
+        }
+      ]
+    },
+    {
+      "id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "family": "challenge-ontology-compsci",
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedTop10PairsAlreadyHuman": 0,
+      "changedTop10PairsUnresolved": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "alreadyHumanJudgedTop10Union": 4,
+      "unresolvedTop10Union": 6,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.1007/s00287-014-0795-3",
+          "title": "Ontologie und Weltbezug – vom philosophischen Weltverständnis zum Konstrukt der Informatik",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 1
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.1007/s00287-012-0642-3",
+          "title": "Eine kurze Geschichte der Ontologie",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 26,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.1007/978-3-642-77387-7_17",
+          "title": "Praxisgerechte Verwaltung der Ontologie",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 25,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.1007/978-3-642-77387-7_18",
+          "title": "Kommentar zu P. Gerstl: Praxisgerechte Verwaltung der Ontologie",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 25,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1007/978-3-642-77387-7",
+          "title": "Ontologie und Axiomatik der Wissensbasis von LILOG",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 24,
+          "human_relevance": 3,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 6,
+          "record_id": "openalex:W6947466892",
+          "title": "Von der Epistemologie zur Ontologie Martin Heideggers Hermeneutik der Freiheit im Diskurs mit Immanuel Kant",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 20,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 6
+        },
+        {
+          "rank": 7,
+          "record_id": "openalex:W7114683522",
+          "title": "Die Ontologie Mullā Ṣadrās und der Vorwurf der Ontotheologie Versuch einer Interpretation der Philosophie Mullā Ṣadrās im Lichte der Metaphysikkritik Heideggers",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 20,
+          "human_relevance": 0,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 7
+        },
+        {
+          "rank": 8,
+          "record_id": "openalex:W2899757804",
+          "title": "Nicolai Hartmanns Kritische Ontologie („wie sie als Grundlage der Gnoseologie anzustreben ist“) und der Kritische Realismus der Gestaltpsychologie („Berliner Schule“/Gestalttheorie)",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 20,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 8
+        },
+        {
+          "rank": 9,
+          "record_id": "openalex:W2614963464",
+          "title": "Ontologie der Innerlichkeit. Reditio Completa und Processio Interior bei Thomas von Aquinas by Reto L. Fetz",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 20,
+          "human_relevance": 0,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 9
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W7070541658",
+          "title": "Physik und Ontologie – oder Die 'Ontologiebeladenheit' der Epistemologie und die 'Realismusdebatte'",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "score": 19,
+          "human_relevance": 0,
+          "matchedQueries": [
+            {
+              "query": "Ontologie in der Informatik",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 10
+        }
+      ],
+      "newOnly": [],
+      "oldOnly": []
+    },
+    {
+      "id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "family": "challenge-ontology-compsci",
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedTop10PairsAlreadyHuman": 0,
+      "changedTop10PairsUnresolved": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "alreadyHumanJudgedTop10Union": 1,
+      "unresolvedTop10Union": 9,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.1016/j.reval.2025.104357",
+          "title": "Conception et mise en œuvre d’une ontologie informatique en allergologie",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 37,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 1
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.51257/a-v1-h4650",
+          "title": "Contrats en informatique",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 30,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.51257/a-v1-h470",
+          "title": "Recherche en informatique",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 30,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.1007/978-2-8178-0285-5_11",
+          "title": "Vers la définition automatique des éléments de données des fiches RCP en cancérologie à partir d’une ontologie",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.56698/rfim.841",
+          "title": "La texture en informatique musicale symbolique",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.58837/chula.the.2002.1881",
+          "title": "Les emprunts a l'Anglais en Francais informatique",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 28,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 6
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.70675/89a8f366z3267z45cfz876fz8c7d7d2e076c",
+          "title": "Ecriture de contrats intelligents: essai de méthodologie en droit et en informatique",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 28,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 7
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.70675/b49b49dczaf97z49d6za376z591d84c712ac",
+          "title": "Modèlisation et détection de la persévérance en milieu scolaire en contexte informatique",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 28,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 8
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.1051/ita/197610r100391",
+          "title": "Valeurs propres et vecteurs propres en classification hiérarchique",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 19,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 9
+        },
+        {
+          "rank": 10,
+          "record_id": "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+          "title": "Epistemology and Ontology of AI — From Lagrange and Hamilton Genre-Shift to Agentic AI Cognitive Safety: Open-Source Framework, LNN, HNN, PINN and SciML within the Dorian Codex H_SAFE by Stefano Dorian Franco — Independent Research Modules Programme",
+          "providers": [
+            "Internet Archive"
+          ],
+          "score": 18,
+          "human_relevance": 1,
+          "matchedQueries": [
+            {
+              "query": "ontologie en informatique",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 10
+        }
+      ],
+      "newOnly": [],
+      "oldOnly": []
+    },
+    {
+      "id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "family": "challenge-ontology-compsci",
+      "overlapTop10": 4,
+      "unionTop10": 16,
+      "changedTop10Pairs": 12,
+      "changedTop10PairsAlreadyHuman": 1,
+      "changedTop10PairsUnresolved": 11,
+      "overlapTop20": 9,
+      "unionTop20": 31,
+      "alreadyHumanJudgedTop10Union": 3,
+      "unresolvedTop10Union": 13,
+      "newTop10": [
+        {
+          "rank": 1,
+          "record_id": "doi:10.22533/at.ed.57219070312",
+          "title": "UMA ABORDAGEM PARA ORQUESTRAÇÃO DO CONHECIMENTO COMO SUPORTE AO PLANEJAMENTO CURRICULAR EM CIÊNCIA DA COMPUTAÇÃO",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 32,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 2
+        },
+        {
+          "rank": 2,
+          "record_id": "doi:10.24824/978652511477.4",
+          "title": "ONTOLOGIA EM CIÊNCIA DA INFORMAÇÃO: Tecnologia e Aplicações Coleção Representação do conhecimento em Ciência da Informação Volume 2",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 31,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 3
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.24824/978655578679.8",
+          "title": "ONTOLOGIA EM CIÊNCIA DA INFORMAÇÃO: Teoria e Método Coleção Representação do Conhecimento em Ciência da Informação Volume 01",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 31,
+          "human_relevance": 2,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 4
+        },
+        {
+          "rank": 4,
+          "record_id": "doi:10.24824/978652514344.6",
+          "title": "ONTOLOGIA EM CIÊNCIA DA INFORMAÇÃO: ESTUDOS AVANÇADOS - VL 3",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 31,
+          "human_relevance": 2,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "shared",
+          "old_rank": 5
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.37885/978-65-87196-55-8",
+          "title": "Ciência da Computação: Tecnologias Emergentes em Computação",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.56238/edimpacto2024.007",
+          "title": "Fundamentos e Avanços em Ciência da Computação",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.17771/pucrio.dimcc.32894",
+          "title": "MONOGRAFIAS EM CIÊNCIA DA COMPUTAÇÃO",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.37885/978-65-89826-02-6",
+          "title": "Ciência da Computação: tecnologias emergentes em computação - Volume 2",
+          "providers": [
+            "Crossref"
+          ],
+          "score": 29,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.32870/prot.i9-10.132",
+          "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 24,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.32870/prot.i17.234",
+          "title": "Una ontología propiamente dicha",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "score": 24,
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ],
+          "status": "new-only",
+          "old_rank": null
+        }
+      ],
+      "newOnly": [
+        {
+          "rank": 5,
+          "record_id": "doi:10.37885/978-65-87196-55-8",
+          "title": "Ciência da Computação: Tecnologias Emergentes em Computação",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.56238/edimpacto2024.007",
+          "title": "Fundamentos e Avanços em Ciência da Computação",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.17771/pucrio.dimcc.32894",
+          "title": "MONOGRAFIAS EM CIÊNCIA DA COMPUTAÇÃO",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.37885/978-65-89826-02-6",
+          "title": "Ciência da Computação: tecnologias emergentes em computação - Volume 2",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.32870/prot.i9-10.132",
+          "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.32870/prot.i17.234",
+          "title": "Una ontología propiamente dicha",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "human_relevance": null,
+          "matchedQueries": [
+            {
+              "query": "ontologia em ciência da computação",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            }
+          ]
+        }
+      ],
+      "oldOnly": [
+        {
+          "rank": 1,
+          "record_id": "source:internet-archive:soundex1900mo264",
+          "title": "The metaphysics of Sir William Hamilton",
+          "providers": [
+            "Internet Archive"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.1093/oseo/instance.00263632",
+          "title": "Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+          "title": "Postmodal Metaphysics and Structuralism",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1093/oseo/instance.00265863",
+          "title": "Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+          "title": "Metaphysics of Science as Naturalized Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": 0
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+          "title": "Aristotle's Metaphysics, Vol. 2",
+          "providers": [
+            "Crossref"
+          ],
+          "human_relevance": null
+        }
+      ]
+    }
+  ]
+}

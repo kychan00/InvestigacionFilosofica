@@ -1,0 +1,548 @@
+{
+  "schemaVersion": 1,
+  "name": "Interdisciplinary expansion-fix paired delta audit v1",
+  "generatedAt": "2026-09-16T20:30:17.791Z",
+  "seed": 20260916,
+  "methodology": "Blind only the unresolved symmetric difference of old/new Top-10 sets. Shared Top-10 rows cancel in paired P@10 delta and are not re-judged.",
+  "sources": {
+    "oldRun": "benchmark/runs/human-v1.0-ranking-v2-e6ad110.jsonl",
+    "newRun": "benchmark/runs/human-v1.0-interdisciplinary-expansionfix-cfb853a.jsonl",
+    "priorHumanAudit": "benchmark/human-audit-v1.judgments.jsonl"
+  },
+  "queryCount": 10,
+  "changedTop10Pairs": 66,
+  "changedPairsAlreadyHuman": 8,
+  "auditRows": 58,
+  "alreadyHuman": [
+    {
+      "query_id": "en-09",
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "human_relevance": 0
+    },
+    {
+      "query_id": "es-10",
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "side": "old-only",
+      "old_rank": 1,
+      "new_rank": null,
+      "human_relevance": 0
+    },
+    {
+      "query_id": "es-10",
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "side": "old-only",
+      "old_rank": 5,
+      "new_rank": null,
+      "human_relevance": 0
+    },
+    {
+      "query_id": "es-10",
+      "record_id": "doi:10.22363/2224-7580-2021-3-92-117",
+      "side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "human_relevance": 0
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "doi:10.3726/978-3-653-06622-7/9",
+      "side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "human_relevance": 0
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:dimensional-lattice",
+      "side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "human_relevance": 0
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:india.history.resource.18005",
+      "side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "human_relevance": 0
+    },
+    {
+      "query_id": "pt-10",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "human_relevance": 0
+    }
+  ],
+  "items": [
+    {
+      "audit_id": "D037",
+      "query_id": "es-09",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "selection_side": "old-only",
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D033",
+      "query_id": "es-09",
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D002",
+      "query_id": "es-09",
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D040",
+      "query_id": "es-09",
+      "record_id": "doi:10.4324/9781003191483-9",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D026",
+      "query_id": "es-09",
+      "record_id": "doi:10.23913/ride.v10i20.594",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "audit_id": "D001",
+      "query_id": "es-09",
+      "record_id": "doi:10.4321/s1132-12962007000300012",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "audit_id": "D053",
+      "query_id": "es-09",
+      "record_id": "doi:10.70069/rve.2026.13.1.0010",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "audit_id": "D017",
+      "query_id": "es-09",
+      "record_id": "doi:10.37976/enfermeria.v11i2.138",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "audit_id": "D036",
+      "query_id": "en-09",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D049",
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 2
+    },
+    {
+      "audit_id": "D035",
+      "query_id": "en-09",
+      "record_id": "openalex:W2974941930",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "audit_id": "D016",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1007/978-0-585-28556-6_5",
+      "selection_side": "old-only",
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D046",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1007/978-0-585-28556-6_3",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D007",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1007/978-94-015-9488-2_1",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D008",
+      "query_id": "pt-09",
+      "record_id": "doi:10.4324/9781003191483-9",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D021",
+      "query_id": "pt-09",
+      "record_id": "doi:10.29393/ce5-2sfmb10002",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "audit_id": "D010",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1590/s0104-11691997000100010",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "audit_id": "D041",
+      "query_id": "pt-09",
+      "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "audit_id": "D039",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1590/s0034-71671994000100010",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "audit_id": "D043",
+      "query_id": "es-10",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "selection_side": "old-only",
+      "old_rank": 3,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D012",
+      "query_id": "es-10",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "selection_side": "old-only",
+      "old_rank": 4,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D028",
+      "query_id": "es-10",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "selection_side": "old-only",
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D019",
+      "query_id": "es-10",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "selection_side": "old-only",
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D045",
+      "query_id": "es-10",
+      "record_id": "doi:10.3726/978-3-653-06622-7/9",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D014",
+      "query_id": "es-10",
+      "record_id": "doi:10.36576/summa.14367",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "audit_id": "D042",
+      "query_id": "es-10",
+      "record_id": "doi:10.15332/dt.inv.2020.01501",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 4
+    },
+    {
+      "audit_id": "D029",
+      "query_id": "es-10",
+      "record_id": "doi:10.15332/tg.mae.2018.00307",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "audit_id": "D020",
+      "query_id": "es-10",
+      "record_id": "doi:10.15332/tg.mae.2016.00323",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "audit_id": "D003",
+      "query_id": "es-10",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "audit_id": "D052",
+      "query_id": "es-10",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "audit_id": "D024",
+      "query_id": "es-10",
+      "record_id": "doi:10.32870/prot.i28.487",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "audit_id": "D057",
+      "query_id": "es-10",
+      "record_id": "doi:10.32870/prot.i27.460",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "audit_id": "D047",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "selection_side": "old-only",
+      "old_rank": 1,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D056",
+      "query_id": "en-10",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0004",
+      "selection_side": "old-only",
+      "old_rank": 2,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D015",
+      "query_id": "en-10",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "selection_side": "old-only",
+      "old_rank": 4,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D058",
+      "query_id": "en-10",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "selection_side": "old-only",
+      "old_rank": 5,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D006",
+      "query_id": "en-10",
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "selection_side": "old-only",
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D023",
+      "query_id": "en-10",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "selection_side": "old-only",
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D013",
+      "query_id": "en-10",
+      "record_id": "openalex:W604892179",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 2
+    },
+    {
+      "audit_id": "D018",
+      "query_id": "en-10",
+      "record_id": "openalex:W7108452404",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3
+    },
+    {
+      "audit_id": "D025",
+      "query_id": "en-10",
+      "record_id": "openalex:W4402430982",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 4
+    },
+    {
+      "audit_id": "D005",
+      "query_id": "en-10",
+      "record_id": "doi:10.1016/j.scico.2014.02.022",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "audit_id": "D050",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:DTIC_ADA534412",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "audit_id": "D044",
+      "query_id": "en-10",
+      "record_id": "doi:10.1109/ubmk.2017.8093469",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "audit_id": "D004",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "audit_id": "D055",
+      "query_id": "en-10",
+      "record_id": "openalex:W763069345",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "audit_id": "D031",
+      "query_id": "en-10",
+      "record_id": "openalex:W7136197983",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10
+    },
+    {
+      "audit_id": "D032",
+      "query_id": "pt-10",
+      "record_id": "source:internet-archive:soundex1900mo264",
+      "selection_side": "old-only",
+      "old_rank": 1,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D048",
+      "query_id": "pt-10",
+      "record_id": "doi:10.1093/oseo/instance.00263632",
+      "selection_side": "old-only",
+      "old_rank": 6,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D038",
+      "query_id": "pt-10",
+      "record_id": "doi:10.1093/oso/9780198811565.003.0001",
+      "selection_side": "old-only",
+      "old_rank": 7,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D022",
+      "query_id": "pt-10",
+      "record_id": "doi:10.1093/oseo/instance.00265863",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D027",
+      "query_id": "pt-10",
+      "record_id": "doi:10.1093/actrade/9780198847779.book.1",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null
+    },
+    {
+      "audit_id": "D054",
+      "query_id": "pt-10",
+      "record_id": "doi:10.37885/978-65-87196-55-8",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 5
+    },
+    {
+      "audit_id": "D034",
+      "query_id": "pt-10",
+      "record_id": "doi:10.56238/edimpacto2024.007",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 6
+    },
+    {
+      "audit_id": "D030",
+      "query_id": "pt-10",
+      "record_id": "doi:10.17771/pucrio.dimcc.32894",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 7
+    },
+    {
+      "audit_id": "D011",
+      "query_id": "pt-10",
+      "record_id": "doi:10.37885/978-65-89826-02-6",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8
+    },
+    {
+      "audit_id": "D051",
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9
+    },
+    {
+      "audit_id": "D009",
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10
+    }
+  ]
+}

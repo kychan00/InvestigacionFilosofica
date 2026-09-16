@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "benchmarkVersion": "1.0",
+  "runName": "human-v1.0-interdisciplinary-expansionfix-cfb853a",
+  "runtimeCommit": "cfb853a6399da049dbe3a96ab79d2260cd8518d3",
+  "harnessCommit": "cfb853a6399da049dbe3a96ab79d2260cd8518d3",
+  "generatedAt": "2026-09-16T20:21:20.434Z",
+  "queryCount": 10,
+  "queryFilter": {
+    "intent": "interdisciplinary-challenge"
+  },
+  "rankingDepth": 10,
+  "poolDepth": 20,
+  "rows": 200,
+  "perQuery": {
+    "es-09": 20,
+    "en-09": 20,
+    "de-09": 20,
+    "fr-09": 20,
+    "pt-09": 20,
+    "es-10": 20,
+    "en-10": 20,
+    "de-10": 20,
+    "fr-10": 20,
+    "pt-10": 20
+  },
+  "matchedQueriesSerialized": true,
+  "profile": {
+    "name": "experimental-interdisciplinary-expansion-fix",
+    "baseProductionRuntime": "1064fdb762194016e48201cbaa1b2cc0f3b209f8",
+    "rankingPolicy": "ranking-v2-current",
+    "retrievalChange": "semantic expansion safety: do not drop substantive residual query constraints",
+    "maxQueries": 5,
+    "openAlexPhilosophy": {
+      "enabled": true,
+      "rows": 12
+    },
+    "cucshFilosofia": {
+      "enabled": true,
+      "rows": 8
+    },
+    "openAlex": {
+      "enabled": false,
+      "perPage": 12
+    },
+    "crossref": {
+      "enabled": true,
+      "rows": 12
+    },
+    "internetArchive": {
+      "enabled": true,
+      "rows": 6
+    },
+    "delayBetweenExpansions": 600
+  }
+}
