@@ -19,6 +19,7 @@
     "benchmark:evaluate:v2:report": "node scripts/benchmark/evaluate.mjs benchmark/runs/human-v1.0-ranking-v2-e6ad110.jsonl benchmark/ai-silver-ranking-v2.jsonl > benchmark/ai-silver-ranking-v2.report.json",
     "benchmark:compare:v2": "node scripts/benchmark/compare_ranking_versions.mjs",
     "benchmark:inspect:v2-regressions": "node scripts/benchmark/inspect_v2_regressions.mjs",
+    "benchmark:human-audit:sample": "node scripts/benchmark/build_human_audit.mjs",
     "benchmark:analyze-errors": "node scripts/benchmark/analyze_errors.mjs",
     "benchmark:simulate-ranking": "node scripts/benchmark/simulate_ranking.mjs",
     "benchmark:inspect-ranking-changes": "node scripts/benchmark/inspect_ranking_changes.mjs"
