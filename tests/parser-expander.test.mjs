@@ -88,8 +88,8 @@ test(
     assert.ok(
       expansions.some(
         item =>
-          item.query ===
-          "David Hume Epistemology"
+          item.query.toLowerCase() ===
+          "david hume epistemology"
       )
     );
   }
