@@ -23,6 +23,8 @@
     "benchmark:human-audit:sample": "node scripts/benchmark/build_human_audit.mjs",
     "benchmark:human-audit": "node scripts/benchmark/human_audit_server.mjs",
     "benchmark:human-audit:analyze": "node scripts/benchmark/analyze_human_audit.mjs",
+    "benchmark:interdisciplinary-delta-audit:sample": "node scripts/benchmark/build_interdisciplinary_delta_audit.mjs",
+    "benchmark:interdisciplinary-delta-audit": "node scripts/benchmark/interdisciplinary_delta_audit_server.mjs",
     "benchmark:simulate-ranking:v21": "node scripts/benchmark/simulate_ranking_v21.mjs",
     "benchmark:inspect-ranking:v21": "node scripts/benchmark/inspect_v21_changes.mjs",
     "benchmark:simulate-ranking:v22": "node scripts/benchmark/simulate_ranking_v22.mjs",
