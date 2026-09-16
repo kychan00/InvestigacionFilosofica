@@ -41,7 +41,8 @@ function matchedSemanticTokens(parsed) {
     parsed.philosophers || [],
     parsed.concepts || [],
     parsed.works || [],
-    parsed.explicitAreas || []
+    parsed.explicitAreas || [],
+    parsed.domains || []
   ];
 
   for (const group of groups) {
@@ -90,12 +91,14 @@ const rows = benchmark.queries.map(query => {
     concepts: ids(parsed.concepts),
     works: ids(parsed.works),
     explicit_areas: ids(parsed.explicitAreas),
+    domains: ids(parsed.domains),
     inferred_areas: ids(parsed.areas),
     residual_tokens: residualTokens(parsed),
     expansions: expansions.map(item => ({
       type: item.type,
       weight: item.weight,
-      query: item.query
+      query: item.query,
+      reason: item.reason
     }))
   };
 });
@@ -115,19 +118,39 @@ const interdisciplinary = rows.filter(
   row => row.intent === "interdisciplinary-challenge"
 );
 
-const interdisciplinaryAreaCoverage = {};
+const interdisciplinaryCoverage = {};
 for (const language of benchmark.languages) {
   const langRows = interdisciplinary.filter(
     row => row.expected_language === language
   );
-  const recognized = langRows.filter(
+
+  const areas = langRows.filter(
     row => row.explicit_areas.length > 0
   ).length;
 
-  interdisciplinaryAreaCoverage[language] = {
+  const domains = langRows.filter(
+    row => row.domains.length > 0
+  ).length;
+
+  const translated = langRows.filter(
+    row => row.expansions.some(
+      item =>
+        item.type === "translation" &&
+        item.reason === "english-translation-complete"
+    ) || (
+      row.expected_language === "en" &&
+      row.expansions.some(item => item.type === "original")
+    )
+  ).length;
+
+  interdisciplinaryCoverage[language] = {
     queries: langRows.length,
-    explicit_area_recognized: recognized,
-    rate: langRows.length ? recognized / langRows.length : 0
+    explicit_area_recognized: areas,
+    domain_recognized: domains,
+    complete_english_path: translated,
+    area_rate: langRows.length ? areas / langRows.length : 0,
+    domain_rate: langRows.length ? domains / langRows.length : 0,
+    translation_rate: langRows.length ? translated / langRows.length : 0
   };
 }
 
@@ -141,18 +164,29 @@ const summary = {
   interdisciplinary_explicit_area_recognized: interdisciplinary.filter(
     row => row.explicit_areas.length > 0
   ).length,
-  interdisciplinary_with_only_original_expansion: interdisciplinary.filter(
+  interdisciplinary_domain_recognized: interdisciplinary.filter(
+    row => row.domains.length > 0
+  ).length,
+  interdisciplinary_with_safe_english_path: interdisciplinary.filter(
+    row =>
+      row.expansions.some(
+        item =>
+          item.type === "translation" &&
+          item.reason === "english-translation-complete"
+      ) || row.expected_language === "en"
+  ).length,
+  interdisciplinary_original_only: interdisciplinary.filter(
     row => row.expansions.length === 1 && row.expansions[0]?.type === "original"
   ).length
 };
 
 const output = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   generatedAt: new Date().toISOString(),
-  purpose: "Diagnostic only: quantify current multilingual parser and expansion coverage before changing retrieval behavior.",
+  purpose: "Diagnostic: measure multilingual parser coverage and safe complete-constraint English expansion behavior.",
   summary,
   byLanguage,
-  interdisciplinaryAreaCoverage,
+  interdisciplinaryCoverage,
   rows
 };
 
@@ -161,7 +195,7 @@ fs.writeFileSync(OUT_JSON, JSON.stringify(output, null, 2) + "\n", "utf8");
 const md = [];
 md.push("# Multilingual parser diagnostic");
 md.push("");
-md.push("Diagnostic only. This report measures the current parser/expander behavior; it does not introduce new translations or retrieval rules.");
+md.push("Measures parser coverage plus safe complete-constraint English expansion. It is not a ranking-quality evaluation.");
 md.push("");
 md.push("## Summary");
 md.push("");
@@ -169,7 +203,9 @@ md.push(`- benchmark queries: ${summary.benchmark_queries}`);
 md.push(`- language detected correctly: ${summary.language_detection_correct}/${summary.benchmark_queries} (${(summary.language_detection_rate * 100).toFixed(1)}%)`);
 md.push(`- interdisciplinary queries: ${summary.interdisciplinary_queries}`);
 md.push(`- interdisciplinary explicit philosophical area recognized: ${summary.interdisciplinary_explicit_area_recognized}/${summary.interdisciplinary_queries}`);
-md.push(`- interdisciplinary queries with only the original expansion: ${summary.interdisciplinary_with_only_original_expansion}/${summary.interdisciplinary_queries}`);
+md.push(`- interdisciplinary academic domain recognized: ${summary.interdisciplinary_domain_recognized}/${summary.interdisciplinary_queries}`);
+md.push(`- interdisciplinary queries with a safe complete-English retrieval path: ${summary.interdisciplinary_with_safe_english_path}/${summary.interdisciplinary_queries}`);
+md.push(`- interdisciplinary queries with only the original expansion: ${summary.interdisciplinary_original_only}/${summary.interdisciplinary_queries}`);
 md.push("");
 md.push("## Language detection");
 md.push("");
@@ -180,41 +216,41 @@ for (const language of benchmark.languages) {
   md.push(`| ${language} | ${item.language_detected_correctly} | ${item.queries} | ${(item.language_detection_rate * 100).toFixed(1)}% |`);
 }
 md.push("");
-md.push("## Interdisciplinary explicit-area coverage");
+md.push("## Interdisciplinary multilingual coverage");
 md.push("");
-md.push("| language | recognized | total | rate |");
-md.push("|---|---:|---:|---:|");
+md.push("| language | area | domain | safe English path | total |");
+md.push("|---|---:|---:|---:|---:|");
 for (const language of benchmark.languages) {
-  const item = interdisciplinaryAreaCoverage[language];
-  md.push(`| ${language} | ${item.explicit_area_recognized} | ${item.queries} | ${(item.rate * 100).toFixed(1)}% |`);
+  const item = interdisciplinaryCoverage[language];
+  md.push(`| ${language} | ${item.explicit_area_recognized} | ${item.domain_recognized} | ${item.complete_english_path} | ${item.queries} |`);
 }
 md.push("");
 md.push("## Interdisciplinary queries");
 md.push("");
-md.push("| id | query | detected lang | explicit areas | residual semantic tokens | expansions |");
-md.push("|---|---|---|---|---|---|");
+md.push("| id | query | detected lang | explicit areas | domains | residual semantic tokens | expansions |");
+md.push("|---|---|---|---|---|---|---|");
 for (const row of interdisciplinary) {
   const expansionText = row.expansions
     .map(item => `${item.type}:${item.query}`)
     .join(" · ");
   md.push(
-    `| ${mdCell(row.query_id)} | ${mdCell(row.query)} | ${mdCell(row.detected_language)} | ${mdCell(row.explicit_areas.join(", ") || "—")} | ${mdCell(row.residual_tokens.join(", ") || "—")} | ${mdCell(expansionText)} |`
+    `| ${mdCell(row.query_id)} | ${mdCell(row.query)} | ${mdCell(row.detected_language)} | ${mdCell(row.explicit_areas.join(", ") || "—")} | ${mdCell(row.domains.join(", ") || "—")} | ${mdCell(row.residual_tokens.join(", ") || "—")} | ${mdCell(expansionText)} |`
   );
 }
 md.push("");
 md.push("## All benchmark queries");
 md.push("");
-md.push("| id | expected | detected | philosophers | concepts | works | explicit areas | residual tokens |");
-md.push("|---|---|---|---|---|---|---|---|");
+md.push("| id | expected | detected | philosophers | concepts | works | explicit areas | domains | residual tokens |");
+md.push("|---|---|---|---|---|---|---|---|---|");
 for (const row of rows) {
   md.push(
-    `| ${mdCell(row.query_id)} | ${mdCell(row.expected_language)} | ${mdCell(row.detected_language)} | ${mdCell(row.philosophers.join(", ") || "—")} | ${mdCell(row.concepts.join(", ") || "—")} | ${mdCell(row.works.join(", ") || "—")} | ${mdCell(row.explicit_areas.join(", ") || "—")} | ${mdCell(row.residual_tokens.join(", ") || "—")} |`
+    `| ${mdCell(row.query_id)} | ${mdCell(row.expected_language)} | ${mdCell(row.detected_language)} | ${mdCell(row.philosophers.join(", ") || "—")} | ${mdCell(row.concepts.join(", ") || "—")} | ${mdCell(row.works.join(", ") || "—")} | ${mdCell(row.explicit_areas.join(", ") || "—")} | ${mdCell(row.domains.join(", ") || "—")} | ${mdCell(row.residual_tokens.join(", ") || "—")} |`
   );
 }
 md.push("");
 md.push("## Interpretation boundary");
 md.push("");
-md.push("This diagnostic describes parser coverage only. It does not estimate ranking quality and must not be read as an evaluation of retrieval relevance.");
+md.push("This diagnostic measures parser and expansion coverage only. Retrieval relevance still requires a real provider run and a fresh human evaluation.");
 
 fs.writeFileSync(OUT_MD, md.join("\n") + "\n", "utf8");
 
@@ -222,6 +258,8 @@ console.log("MULTILINGUAL PARSER DIAGNOSTIC: PASS");
 console.log(`queries=${summary.benchmark_queries}`);
 console.log(`language_detection=${summary.language_detection_correct}/${summary.benchmark_queries}`);
 console.log(`interdisciplinary_area_recognition=${summary.interdisciplinary_explicit_area_recognized}/${summary.interdisciplinary_queries}`);
-console.log(`interdisciplinary_original_only=${summary.interdisciplinary_with_only_original_expansion}/${summary.interdisciplinary_queries}`);
+console.log(`interdisciplinary_domain_recognition=${summary.interdisciplinary_domain_recognized}/${summary.interdisciplinary_queries}`);
+console.log(`interdisciplinary_safe_english_path=${summary.interdisciplinary_with_safe_english_path}/${summary.interdisciplinary_queries}`);
+console.log(`interdisciplinary_original_only=${summary.interdisciplinary_original_only}/${summary.interdisciplinary_queries}`);
 console.log(`json=${OUT_JSON}`);
 console.log(`markdown=${OUT_MD}`);
