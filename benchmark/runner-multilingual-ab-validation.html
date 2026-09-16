@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Validación A/B multilingüe · Investigación Filosófica</title>
+  <style>
+    :root { font-family: Inter, system-ui, sans-serif; background:#f3f1ed; color:#272522; }
+    body { margin:0; }
+    main { width:min(900px,calc(100% - 48px)); margin:56px auto; padding:32px; border-radius:24px; background:#fff; box-shadow:0 20px 60px rgba(0,0,0,.08); }
+    h1 { margin-top:0; font-family:Georgia,serif; }
+    button { padding:12px 18px; border:0; border-radius:10px; background:#242424; color:#fff; font-weight:700; cursor:pointer; }
+    button:disabled { opacity:.5; cursor:wait; }
+    progress { width:100%; height:20px; margin:24px 0 10px; }
+    #status { min-height:70px; padding:14px; margin-top:16px; border-radius:12px; background:#f6f4f0; white-space:pre-wrap; }
+    #log { max-height:420px; overflow:auto; margin-top:18px; padding:16px; border-radius:12px; background:#1f2022; color:#e9e9ea; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.78rem; white-space:pre-wrap; }
+    code { background:#f1efeb; padding:2px 5px; border-radius:5px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Validación nueva · A/B multilingüe pareada</h1>
+    <p>Ejecuta 20 consultas nuevas (4 familias × 5 idiomas) que no se usaron para diseñar la mejora multilingüe.</p>
+    <p><strong>A</strong> usa sólo la consulta original (<code>maxQueries=1</code>). <strong>B</strong> usa la consulta original más la expansión inglesa segura (<code>maxQueries=5</code>). Cada par se ejecuta de forma consecutiva y el orden alterna A→B / B→A para reducir deriva temporal de proveedores.</p>
+    <p>Las cuatro consultas inglesas funcionan como controles: A y B tienen la misma consulta lógica, de modo que cualquier diferencia observada allí refleja principalmente variación entre ejecuciones/proveedores.</p>
+    <button id="start" type="button">Ejecutar 20 pares A/B</button>
+    <progress id="progress" value="0" max="40"></progress>
+    <div id="status">Listo.</div>
+    <div id="log"></div>
+  </main>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "franc-min": "https://esm.sh/franc-min@6.2.0?bundle"
+    }
+  }
+  </script>
+  <script type="module" src="../scripts/benchmark/runner-browser-multilingual-ab-validation.js"></script>
+</body>
+</html>
