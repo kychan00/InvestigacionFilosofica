@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "note": "AI-silver comparison. Both pools are judged with the same AI policy/models, but this is not human-gold validation.",
+  "baseline": "benchmark/ai-silver-v1.report.json",
+  "v2": "benchmark/ai-silver-ranking-v2.report.json",
+  "overall": {
+    "precision5": {
+      "baseline": 0.444,
+      "v2": 0.5,
+      "delta": 0.056
+    },
+    "precision10": {
+      "baseline": 0.434,
+      "v2": 0.468,
+      "delta": 0.034
+    },
+    "recall10": {
+      "baseline": 0.5642,
+      "v2": 0.6055,
+      "delta": 0.0413
+    },
+    "ndcg10": {
+      "baseline": 0.5466,
+      "v2": 0.5692,
+      "delta": 0.0226
+    },
+    "mrr10": {
+      "baseline": 0.7064,
+      "v2": 0.7539,
+      "delta": 0.0475
+    },
+    "philosophyPrecision10": {
+      "baseline": 0.392,
+      "v2": 0.412,
+      "delta": 0.02
+    }
+  },
+  "byLanguage": {
+    "es": {
+      "baseline": 0.6,
+      "v2": 0.63,
+      "delta": 0.03
+    },
+    "en": {
+      "baseline": 0.23,
+      "v2": 0.26,
+      "delta": 0.03
+    },
+    "de": {
+      "baseline": 0.29,
+      "v2": 0.32,
+      "delta": 0.03
+    },
+    "fr": {
+      "baseline": 0.39,
+      "v2": 0.43,
+      "delta": 0.04
+    },
+    "pt": {
+      "baseline": 0.66,
+      "v2": 0.7,
+      "delta": 0.04
+    }
+  },
+  "byIntent": {
+    "philosopher-concept": {
+      "baseline": 0.49,
+      "v2": 0.5033,
+      "delta": 0.0133
+    },
+    "work": {
+      "baseline": 0.44,
+      "v2": 0.52,
+      "delta": 0.08
+    },
+    "interdisciplinary-challenge": {
+      "baseline": 0.26,
+      "v2": 0.31,
+      "delta": 0.05
+    }
+  },
+  "perQueryPrecision10": {
+    "improved": 16,
+    "worsened": 5,
+    "tied": 29,
+    "changed": [
+      {
+        "id": "de-02",
+        "language": "de",
+        "intent": "work",
+        "family": "heidegger-being-time",
+        "baselinePrecision10": 0.4,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": -0.1
+      },
+      {
+        "id": "en-03",
+        "language": "en",
+        "intent": "philosopher-concept",
+        "family": "aristotle-virtue",
+        "baselinePrecision10": 0.4,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": -0.1
+      },
+      {
+        "id": "en-04",
+        "language": "en",
+        "intent": "philosopher-concept",
+        "family": "husserl-intentionality",
+        "baselinePrecision10": 0.4,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": -0.1
+      },
+      {
+        "id": "de-07",
+        "language": "de",
+        "intent": "philosopher-concept",
+        "family": "dussel-liberation",
+        "baselinePrecision10": 0.3,
+        "v2Precision10": 0.2,
+        "deltaPrecision10": -0.1
+      },
+      {
+        "id": "es-10",
+        "language": "es",
+        "intent": "interdisciplinary-challenge",
+        "family": "challenge-ontology-compsci",
+        "baselinePrecision10": 0.4,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": -0.1
+      },
+      {
+        "id": "en-01",
+        "language": "en",
+        "intent": "philosopher-concept",
+        "family": "kant-freedom",
+        "baselinePrecision10": 0.2,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "fr-01",
+        "language": "fr",
+        "intent": "philosopher-concept",
+        "family": "kant-freedom",
+        "baselinePrecision10": 0.4,
+        "v2Precision10": 0.5,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "fr-02",
+        "language": "fr",
+        "intent": "work",
+        "family": "heidegger-being-time",
+        "baselinePrecision10": 0.8,
+        "v2Precision10": 0.9,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "pt-03",
+        "language": "pt",
+        "intent": "philosopher-concept",
+        "family": "aristotle-virtue",
+        "baselinePrecision10": 0.7,
+        "v2Precision10": 0.8,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "en-05",
+        "language": "en",
+        "intent": "philosopher-concept",
+        "family": "levinas-alterity",
+        "baselinePrecision10": 0,
+        "v2Precision10": 0.1,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "de-08",
+        "language": "de",
+        "intent": "work",
+        "family": "hegel-phenomenology-spirit",
+        "baselinePrecision10": 0.2,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "fr-08",
+        "language": "fr",
+        "intent": "work",
+        "family": "hegel-phenomenology-spirit",
+        "baselinePrecision10": 0.2,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "en-09",
+        "language": "en",
+        "intent": "interdisciplinary-challenge",
+        "family": "challenge-phenomenology-nursing",
+        "baselinePrecision10": 0.1,
+        "v2Precision10": 0.2,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "pt-09",
+        "language": "pt",
+        "intent": "interdisciplinary-challenge",
+        "family": "challenge-phenomenology-nursing",
+        "baselinePrecision10": 0.5,
+        "v2Precision10": 0.6,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "de-10",
+        "language": "de",
+        "intent": "interdisciplinary-challenge",
+        "family": "challenge-ontology-compsci",
+        "baselinePrecision10": 0,
+        "v2Precision10": 0.1,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "fr-10",
+        "language": "fr",
+        "intent": "interdisciplinary-challenge",
+        "family": "challenge-ontology-compsci",
+        "baselinePrecision10": 0.2,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": 0.1
+      },
+      {
+        "id": "es-02",
+        "language": "es",
+        "intent": "work",
+        "family": "heidegger-being-time",
+        "baselinePrecision10": 0.4,
+        "v2Precision10": 0.6,
+        "deltaPrecision10": 0.2
+      },
+      {
+        "id": "pt-02",
+        "language": "pt",
+        "intent": "work",
+        "family": "heidegger-being-time",
+        "baselinePrecision10": 0.5,
+        "v2Precision10": 0.7,
+        "deltaPrecision10": 0.2
+      },
+      {
+        "id": "en-08",
+        "language": "en",
+        "intent": "work",
+        "family": "hegel-phenomenology-spirit",
+        "baselinePrecision10": 0.1,
+        "v2Precision10": 0.3,
+        "deltaPrecision10": 0.2
+      },
+      {
+        "id": "es-09",
+        "language": "es",
+        "intent": "interdisciplinary-challenge",
+        "family": "challenge-phenomenology-nursing",
+        "baselinePrecision10": 0.3,
+        "v2Precision10": 0.5,
+        "deltaPrecision10": 0.2
+      },
+      {
+        "id": "de-03",
+        "language": "de",
+        "intent": "philosopher-concept",
+        "family": "aristotle-virtue",
+        "baselinePrecision10": 0.2,
+        "v2Precision10": 0.5,
+        "deltaPrecision10": 0.3
+      }
+    ]
+  }
+}

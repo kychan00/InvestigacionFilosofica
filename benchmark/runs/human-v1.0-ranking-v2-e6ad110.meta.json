@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "benchmarkVersion": "1.0",
+  "runName": "human-v1.0-ranking-v2-e6ad110",
+  "runtimeCommit": "e6ad110abe0a32ca0c77cf6c28c8d0eccd6dcb11",
+  "harnessCommit": "e6ad110abe0a32ca0c77cf6c28c8d0eccd6dcb11",
+  "generatedAt": "2026-09-15T01:41:40.829Z",
+  "queryCount": 50,
+  "rankingDepth": 10,
+  "poolDepth": 20,
+  "rows": 1000,
+  "perQuery": {
+    "es-01": 20,
+    "en-01": 20,
+    "de-01": 20,
+    "fr-01": 20,
+    "pt-01": 20,
+    "es-02": 20,
+    "en-02": 20,
+    "de-02": 20,
+    "fr-02": 20,
+    "pt-02": 20,
+    "es-03": 20,
+    "en-03": 20,
+    "de-03": 20,
+    "fr-03": 20,
+    "pt-03": 20,
+    "es-04": 20,
+    "en-04": 20,
+    "de-04": 20,
+    "fr-04": 20,
+    "pt-04": 20,
+    "es-05": 20,
+    "en-05": 20,
+    "de-05": 20,
+    "fr-05": 20,
+    "pt-05": 20,
+    "es-06": 20,
+    "en-06": 20,
+    "de-06": 20,
+    "fr-06": 20,
+    "pt-06": 20,
+    "es-07": 20,
+    "en-07": 20,
+    "de-07": 20,
+    "fr-07": 20,
+    "pt-07": 20,
+    "es-08": 20,
+    "en-08": 20,
+    "de-08": 20,
+    "fr-08": 20,
+    "pt-08": 20,
+    "es-09": 20,
+    "en-09": 20,
+    "de-09": 20,
+    "fr-09": 20,
+    "pt-09": 20,
+    "es-10": 20,
+    "en-10": 20,
+    "de-10": 20,
+    "fr-10": 20,
+    "pt-10": 20
+  },
+  "profile": {
+    "name": "experimental-ranking-v2",
+    "baseProductionRuntime": "1064fdb762194016e48201cbaa1b2cc0f3b209f8",
+    "rankingPolicy": "crossref_lowcov_050",
+    "maxQueries": 5,
+    "openAlexPhilosophy": {
+      "enabled": true,
+      "rows": 12
+    },
+    "cucshFilosofia": {
+      "enabled": true,
+      "rows": 8
+    },
+    "openAlex": {
+      "enabled": false,
+      "perPage": 12
+    },
+    "crossref": {
+      "enabled": true,
+      "rows": 12
+    },
+    "internetArchive": {
+      "enabled": true,
+      "rows": 6
+    },
+    "delayBetweenExpansions": 600
+  }
+}

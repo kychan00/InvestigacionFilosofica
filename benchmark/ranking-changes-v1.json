@@ -1,0 +1,1474 @@
+{
+  "schemaVersion": 1,
+  "profile": "cautious_crossref",
+  "policy": {
+    "titleCoverageWeight": 4,
+    "providerAdjustments": {
+      "CUCSH Filosofía": 5,
+      "Internet Archive": 3,
+      "Crossref": -2,
+      "OpenAlex Philosophy": 0
+    }
+  },
+  "changedQueries": 20,
+  "regressions": 3,
+  "improvements": 17,
+  "changes": [
+    {
+      "id": "es-05",
+      "query": "alteridad en Levinas",
+      "language": "es",
+      "intent": "philosopher-concept",
+      "family": "levinas-alterity",
+      "baseline_p10": 0.7,
+      "cautious_p10": 0.6,
+      "delta": -0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.5840/icp152006216",
+          "title": "Alteridad e intersubjetividad: Levinas y la posibilidad de una ética fenomenológica",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 3,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 13,
+          "base_score": 26,
+          "title_coverage": 0.6667,
+          "cautious_score": 26.6667
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.32870/prot.i17.233",
+          "title": "Muerte y alteridad (recensión)",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 0,
+          "discipline": 2,
+          "baseline_rank": 12,
+          "adjusted_rank": 10,
+          "base_score": 21,
+          "title_coverage": 0.3333,
+          "cautious_score": 27.3333
+        }
+      ]
+    },
+    {
+      "id": "es-07",
+      "query": "filosofía de la liberación Dussel",
+      "language": "es",
+      "intent": "philosopher-concept",
+      "family": "dussel-liberation",
+      "baseline_p10": 0.8,
+      "cautious_p10": 0.7,
+      "delta": -0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.51378/realidad.vi168.12436",
+          "title": "Enrique Dussel. Retratos de una filosofía de la liberación, de Jorge Zúñiga M.",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 11,
+          "base_score": 32,
+          "title_coverage": 1,
+          "cautious_score": 34
+        },
+        {
+          "record_id": "doi:10.54103/2035-7680/17906",
+          "title": "Enrique Dussel, Siete ensayos de filosofía de la liberación",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 3,
+          "discipline": 1,
+          "baseline_rank": 9,
+          "adjusted_rank": 12,
+          "base_score": 32,
+          "title_coverage": 1,
+          "cautious_score": 34
+        },
+        {
+          "record_id": "doi:10.31391/dabax454",
+          "title": "La filosofía latinoamericana como filosofía de la liberación. Diálogo con Enrique Dussel",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 13,
+          "base_score": 32,
+          "title_coverage": 1,
+          "cautious_score": 34
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:enrique-dussel-filosofia-de-la-liberacion",
+          "title": "Enrique Dussel, Filosofía De La Liberación",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 1,
+          "discipline": 1,
+          "baseline_rank": 13,
+          "adjusted_rank": 5,
+          "base_score": 29,
+          "title_coverage": 1,
+          "cautious_score": 36
+        },
+        {
+          "record_id": "source:internet-archive:enrique-dussel-historia-de-filosofia-y-filosofia-de-la-liberacion.",
+          "title": "Enrique Dussel Historia De Filosofía Y Filosofía De La Liberación.",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 14,
+          "adjusted_rank": 6,
+          "base_score": 29,
+          "title_coverage": 1,
+          "cautious_score": 36
+        },
+        {
+          "record_id": "source:internet-archive:dussel-enrique-introduccion-a-la-filosofia-de-la-liberacion-2a-ed",
+          "title": "Dussel, Enrique Introducción A La Filosofía De La Liberación ( 2a Ed.)",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 15,
+          "adjusted_rank": 9,
+          "base_score": 28,
+          "title_coverage": 1,
+          "cautious_score": 35
+        }
+      ]
+    },
+    {
+      "id": "pt-08",
+      "query": "Fenomenologia do Espírito Hegel",
+      "language": "pt",
+      "intent": "work",
+      "family": "hegel-phenomenology-spirit",
+      "baseline_p10": 0.8,
+      "cautious_p10": 0.7,
+      "delta": -0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.17771/pucrio.acad.7798",
+          "title": "A SUBJETIVIDADE E SUAS RELAÇÕES COM O ABSOLUTO NO CONTEXTO DA FENOMENOLOGIA DO ESPÍRITO DE HEGEL",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 11,
+          "base_score": 48,
+          "title_coverage": 1,
+          "cautious_score": 50
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:fenomenologia-del-espiritu-georg-wilhelm-friedrich-hegel",
+          "title": "Fenomenologia Del Espiritu Georg Wilhelm Friedrich Hegel",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 0,
+          "discipline": 2,
+          "baseline_rank": 14,
+          "adjusted_rank": 8,
+          "base_score": 46,
+          "title_coverage": 0.5,
+          "cautious_score": 51
+        }
+      ]
+    },
+    {
+      "id": "de-03",
+      "query": "Tugendethik bei Aristoteles",
+      "language": "de",
+      "intent": "philosopher-concept",
+      "family": "aristotle-virtue",
+      "baseline_p10": 0.2,
+      "cautious_p10": 0.3,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "openalex:W4386119219",
+          "title": "›Nus‹ bei Aristoteles und bei Hegel",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 11,
+          "base_score": 38,
+          "title_coverage": 0.6667,
+          "cautious_score": 40.6667
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.32870/prot.i29.499",
+          "title": "Sobre el concepto de tiempo en Aristóteles (Física IV, 10-14)",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 20,
+          "adjusted_rank": 6,
+          "base_score": 37,
+          "title_coverage": 0.3333,
+          "cautious_score": 43.3333
+        }
+      ]
+    },
+    {
+      "id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "intent": "interdisciplinary-challenge",
+      "family": "challenge-ontology-compsci",
+      "baseline_p10": 0,
+      "cautious_p10": 0.1,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.1007/978-3-642-77387-7_2",
+          "title": "Linguistische vs. konzeptuelle Aspekte der LILOG-Ontologie",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 6,
+          "adjusted_rank": 11,
+          "base_score": 19,
+          "title_coverage": 0.25,
+          "cautious_score": 18
+        },
+        {
+          "record_id": "doi:10.1007/978-3-642-77387-7_3",
+          "title": "Kommentar zu Ewald Lang: Linguistische vs. konzeptuelle Aspekte der LILOG-Ontologie",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 7,
+          "adjusted_rank": 12,
+          "base_score": 19,
+          "title_coverage": 0.25,
+          "cautious_score": 18
+        },
+        {
+          "record_id": "doi:10.1007/978-3-642-77387-7_7",
+          "title": "Kommentar zu C. Maienborn: Motivation einer Ontologie aus linguistischer Perspektive",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 2,
+          "baseline_rank": 8,
+          "adjusted_rank": 13,
+          "base_score": 19,
+          "title_coverage": 0.25,
+          "cautious_score": 18
+        },
+        {
+          "record_id": "doi:10.1007/978-3-642-77387-7_5",
+          "title": "Motivation einer Ontologie aus linguistischer Perspektive — 3 Fallstudien aus LEU/2",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 2,
+          "baseline_rank": 9,
+          "adjusted_rank": 14,
+          "base_score": 19,
+          "title_coverage": 0.25,
+          "cautious_score": 18
+        },
+        {
+          "record_id": "doi:10.1007/978-3-642-77387-7_14",
+          "title": "Erfahrungen mit der Zeitontologie und -axiomatik",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 15,
+          "base_score": 19,
+          "title_coverage": 0.25,
+          "cautious_score": 18
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "openalex:W6947466892",
+          "title": "Von der Epistemologie zur Ontologie Martin Heideggers Hermeneutik der Freiheit im Diskurs mit Immanuel Kant",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 12,
+          "adjusted_rank": 6,
+          "base_score": 18,
+          "title_coverage": 0.5,
+          "cautious_score": 20
+        },
+        {
+          "record_id": "openalex:W7114683522",
+          "title": "Die Ontologie Mullā Ṣadrās und der Vorwurf der Ontotheologie Versuch einer Interpretation der Philosophie Mullā Ṣadrās im Lichte der Metaphysikkritik Heideggers",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 13,
+          "adjusted_rank": 7,
+          "base_score": 18,
+          "title_coverage": 0.5,
+          "cautious_score": 20
+        },
+        {
+          "record_id": "openalex:W2899757804",
+          "title": "Nicolai Hartmanns Kritische Ontologie („wie sie als Grundlage der Gnoseologie anzustreben ist“) und der Kritische Realismus der Gestaltpsychologie („Berliner Schule“/Gestalttheorie)",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 14,
+          "adjusted_rank": 8,
+          "base_score": 18,
+          "title_coverage": 0.5,
+          "cautious_score": 20
+        },
+        {
+          "record_id": "openalex:W2614963464",
+          "title": "Ontologie der Innerlichkeit. Reditio Completa und Processio Interior bei Thomas von Aquinas by Reto L. Fetz",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 15,
+          "adjusted_rank": 9,
+          "base_score": 18,
+          "title_coverage": 0.5,
+          "cautious_score": 20
+        },
+        {
+          "record_id": "openalex:W7070541658",
+          "title": "Physik und Ontologie – oder Die 'Ontologiebeladenheit' der Epistemologie und die 'Realismusdebatte'",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 16,
+          "adjusted_rank": 10,
+          "base_score": 17,
+          "title_coverage": 0.5,
+          "cautious_score": 19
+        }
+      ]
+    },
+    {
+      "id": "en-01",
+      "query": "freedom in Kant",
+      "language": "en",
+      "intent": "philosopher-concept",
+      "family": "kant-freedom",
+      "baseline_p10": 0.2,
+      "cautious_p10": 0.3,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.4324/9781315663968-27",
+          "title": "17 Immanuel Kant—Freedom and Enlightenment",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 5,
+          "adjusted_rank": 16,
+          "base_score": 55,
+          "title_coverage": 0.6667,
+          "cautious_score": 55.6667
+        },
+        {
+          "record_id": "doi:10.4324/9781315625546-27",
+          "title": "17 Immanuel Kant—Freedom and Enlightenment",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 6,
+          "adjusted_rank": 17,
+          "base_score": 55,
+          "title_coverage": 0.6667,
+          "cautious_score": 55.6667
+        },
+        {
+          "record_id": "doi:10.1017/cbo9781844654765.007",
+          "title": "Immanuel Kant: cognition, freedom and teleology",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 18,
+          "base_score": 54,
+          "title_coverage": 0.6667,
+          "cautious_score": 54.6667
+        },
+        {
+          "record_id": "doi:10.1515/9780773594753-009",
+          "title": "Immanuel Kant: Cognition, Freedom and Teleology",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 9,
+          "adjusted_rank": 19,
+          "base_score": 54,
+          "title_coverage": 0.6667,
+          "cautious_score": 54.6667
+        },
+        {
+          "record_id": "doi:10.4324/9781315252629-8",
+          "title": "Freedom and Constraint in Kant’s Metaphysical Elements of Justice",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 15,
+          "base_score": 54,
+          "title_coverage": 1,
+          "cautious_score": 56
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:kantlimitsofauto0000shel",
+          "title": "Kant and the limits of autonomy",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 12,
+          "adjusted_rank": 6,
+          "base_score": 54,
+          "title_coverage": 0.3333,
+          "cautious_score": 58.3333
+        },
+        {
+          "record_id": "openalex:W2531092149",
+          "title": "The continuity of the role of freedom in Kant's ethics",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 2,
+          "baseline_rank": 13,
+          "adjusted_rank": 7,
+          "base_score": 53,
+          "title_coverage": 1,
+          "cautious_score": 57
+        },
+        {
+          "record_id": "openalex:W7120810872",
+          "title": "Transcendental idealism and the genesis of the idea of freedom in Kant s Critique of Pure Reason",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 14,
+          "adjusted_rank": 8,
+          "base_score": 53,
+          "title_coverage": 1,
+          "cautious_score": 57
+        },
+        {
+          "record_id": "openalex:W7135448750",
+          "title": "The abyss of the imagination: reason, limit and freedom in Kant's and Schelling's aesthetics",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 15,
+          "adjusted_rank": 9,
+          "base_score": 53,
+          "title_coverage": 1,
+          "cautious_score": 57
+        },
+        {
+          "record_id": "openalex:W4319064526",
+          "title": "The Role of Freedom in Kant's Philosophy of Ethics",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 16,
+          "adjusted_rank": 10,
+          "base_score": 53,
+          "title_coverage": 1,
+          "cautious_score": 57
+        }
+      ]
+    },
+    {
+      "id": "en-03",
+      "query": "virtue ethics Aristotle",
+      "language": "en",
+      "intent": "philosopher-concept",
+      "family": "aristotle-virtue",
+      "baseline_p10": 0.4,
+      "cautious_p10": 0.5,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.5040/9798881832018.ch-010",
+          "title": "Aristotle and Virtue Ethics",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 11,
+          "base_score": 58,
+          "title_coverage": 1,
+          "cautious_score": 60
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:aristotelianism01grungoog",
+          "title": "Aristotelianism: The Ethics of Aristotle",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 17,
+          "adjusted_rank": 9,
+          "base_score": 56,
+          "title_coverage": 0.6667,
+          "cautious_score": 61.6666
+        }
+      ]
+    },
+    {
+      "id": "en-05",
+      "query": "alterity in Levinas",
+      "language": "en",
+      "intent": "philosopher-concept",
+      "family": "levinas-alterity",
+      "baseline_p10": 0,
+      "cautious_p10": 0.1,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.5422/fordham/9780823233731.003.0008",
+          "title": "Conscience: The Most Intimate Alterity",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 1,
+          "discipline": 1,
+          "baseline_rank": 2,
+          "adjusted_rank": 11,
+          "base_score": 28,
+          "title_coverage": 0.3333,
+          "cautious_score": 27.3333
+        },
+        {
+          "record_id": "doi:10.3138/9781442673915-010",
+          "title": "Levinas and Alterity Politics",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 12,
+          "base_score": 26,
+          "title_coverage": 0.6667,
+          "cautious_score": 26.6667
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:quanta-alterity-and-love",
+          "title": "Quanta, Alterity, And Love",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 15,
+          "adjusted_rank": 9,
+          "base_score": 24,
+          "title_coverage": 0.3333,
+          "cautious_score": 28.3333
+        },
+        {
+          "record_id": "source:internet-archive:ethicsofemmanuel0000perp",
+          "title": "The ethics of Emmanuel Levinas",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 1,
+          "discipline": 1,
+          "baseline_rank": 16,
+          "adjusted_rank": 10,
+          "base_score": 24,
+          "title_coverage": 0.3333,
+          "cautious_score": 28.3333
+        }
+      ]
+    },
+    {
+      "id": "es-06",
+      "query": "sustancia en Spinoza",
+      "language": "es",
+      "intent": "philosopher-concept",
+      "family": "spinoza-substance",
+      "baseline_p10": 0.4,
+      "cautious_p10": 0.5,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.1163/9789004621992_002",
+          "title": "Spinoza en Grotius",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 11,
+          "base_score": 26,
+          "title_coverage": 0.6667,
+          "cautious_score": 26.6667
+        },
+        {
+          "record_id": "doi:10.1163/9789004622005_002",
+          "title": "Spinoza en de Stoa",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 9,
+          "adjusted_rank": 12,
+          "base_score": 26,
+          "title_coverage": 0.6667,
+          "cautious_score": 26.6667
+        },
+        {
+          "record_id": "doi:10.15581/009.53.39751",
+          "title": "BENÍTEZ GROBET, LAURA; RAMOS-ALARCÓN MARCÍN, LUIS (COORDINADORES), El concepto de sustancia de Ficino a Descartes, Universidad Nacional Autónoma de México, Ciudad de México, 2018, 327 pp. / El concepto de sustancia de Spinoza a Hegel, Universidad Nacional Autónoma de México, Ciudad de México, 2018, 477 pp.",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 13,
+          "base_score": 26,
+          "title_coverage": 0.6667,
+          "cautious_score": 26.6667
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:14.-el-concepto-de-sustancia-de-spinoza-a-hegel",
+          "title": "El Concepto De Sustancia De Spinoza A Hegel",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 14,
+          "adjusted_rank": 5,
+          "base_score": 23,
+          "title_coverage": 0.6667,
+          "cautious_score": 28.6667
+        },
+        {
+          "record_id": "source:internet-archive:el-concepto-de-sustancia-de-spinoza-a-hegel",
+          "title": "El Concepto De Sustancia De Spinoza A Hegel",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 15,
+          "adjusted_rank": 6,
+          "base_score": 23,
+          "title_coverage": 0.6667,
+          "cautious_score": 28.6667
+        },
+        {
+          "record_id": "doi:10.32870/prot.i19.305",
+          "title": "El uso de intuiciones como evidencia en la filosofía analítica (ensayo)",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 1,
+          "discipline": 2,
+          "baseline_rank": 16,
+          "adjusted_rank": 7,
+          "base_score": 21,
+          "title_coverage": 0.3333,
+          "cautious_score": 27.3333
+        }
+      ]
+    },
+    {
+      "id": "es-08",
+      "query": "Fenomenología del espíritu Hegel",
+      "language": "es",
+      "intent": "work",
+      "family": "hegel-phenomenology-spirit",
+      "baseline_p10": 0.7,
+      "cautious_p10": 0.8,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.1007/978-3-030-47253-5_410-1",
+          "title": "Hegel, Georg Wilhelm Friedrich (1770–1831)",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 20,
+          "base_score": 48,
+          "title_coverage": 0.25,
+          "cautious_score": 47
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:hegel-prologo-de-la-fenomenologia-del-espiritu-aleman-espanol",
+          "title": "Hegel, Prólogo De La Fenomenología Del Espíritu, Aleman Español",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 11,
+          "adjusted_rank": 6,
+          "base_score": 45,
+          "title_coverage": 1,
+          "cautious_score": 52
+        }
+      ]
+    },
+    {
+      "id": "fr-01",
+      "query": "liberté chez Kant",
+      "language": "fr",
+      "intent": "philosopher-concept",
+      "family": "kant-freedom",
+      "baseline_p10": 0.4,
+      "cautious_p10": 0.5,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.70675/df9a1395zd657z4f5dzb0cezdc5a4a342d76",
+          "title": "Liberté et universalité dans la philosophie de Kant",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 3,
+          "discipline": 1,
+          "baseline_rank": 7,
+          "adjusted_rank": 12,
+          "base_score": 42,
+          "title_coverage": 0.6667,
+          "cautious_score": 42.6667
+        },
+        {
+          "record_id": "openalex:W7066910937",
+          "title": "La Question de l’Histoire. Nature, Liberté, Esprit : les paradigmes métaphysiques de l’Histoire universelle chez Kant, Fichte, Hegel, entre 1784 et 1806",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 11,
+          "base_score": 39,
+          "title_coverage": 1,
+          "cautious_score": 43
+        },
+        {
+          "record_id": "openalex:W3107185438",
+          "title": "Circularité et fondation transcendantale chez le jeune Richir. Richir avec Fichte, Kant et Husserl (Esquisse)",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 9,
+          "adjusted_rank": 13,
+          "base_score": 38,
+          "title_coverage": 0.6667,
+          "cautious_score": 40.6667
+        },
+        {
+          "record_id": "openalex:W749026881",
+          "title": "Progrès et finalité chez Kant : la philosophie kantienne, réponse à la question : qu'est-ce que l'homme ?",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 14,
+          "base_score": 38,
+          "title_coverage": 0.6667,
+          "cautious_score": 40.6667
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.32870/prot.i26.431",
+          "title": "Kant en el pensamiento de Bergson",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 13,
+          "adjusted_rank": 7,
+          "base_score": 37,
+          "title_coverage": 0.3333,
+          "cautious_score": 43.3333
+        },
+        {
+          "record_id": "doi:10.32870/prot.i27.463",
+          "title": "Kant y la clausura determinista",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 14,
+          "adjusted_rank": 8,
+          "base_score": 37,
+          "title_coverage": 0.3333,
+          "cautious_score": 43.3333
+        },
+        {
+          "record_id": "doi:10.32870/prot.i27.468",
+          "title": "Kant y la construcción del significado",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 15,
+          "adjusted_rank": 9,
+          "base_score": 37,
+          "title_coverage": 0.3333,
+          "cautious_score": 43.3333
+        },
+        {
+          "record_id": "doi:10.32870/prot.i27.474",
+          "title": "Kant: sobre necesidad de la matemática",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 16,
+          "adjusted_rank": 10,
+          "base_score": 37,
+          "title_coverage": 0.3333,
+          "cautious_score": 43.3333
+        }
+      ]
+    },
+    {
+      "id": "fr-02",
+      "query": "Être et Temps Heidegger",
+      "language": "fr",
+      "intent": "work",
+      "family": "heidegger-being-time",
+      "baseline_p10": 0.8,
+      "cautious_p10": 0.9,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.3917/herm.ville.2014.01",
+          "title": "Heidegger et l'indétermination d' Être et Temps",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 11,
+          "base_score": 47,
+          "title_coverage": 1,
+          "cautious_score": 49
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:heidegger-martin-etre-et-temps",
+          "title": "Heidegger Martin Etre Et Temps",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 11,
+          "adjusted_rank": 4,
+          "base_score": 45,
+          "title_coverage": 1,
+          "cautious_score": 52
+        }
+      ]
+    },
+    {
+      "id": "fr-03",
+      "query": "éthique de la vertu Aristote",
+      "language": "fr",
+      "intent": "philosopher-concept",
+      "family": "aristotle-virtue",
+      "baseline_p10": 0.3,
+      "cautious_p10": 0.4,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.64628/aak.vqafsehvq",
+          "title": "L’honneur et la vertu chez Aristote et les samouraïs",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 7,
+          "adjusted_rank": 11,
+          "base_score": 24,
+          "title_coverage": 0.6,
+          "cautious_score": 24.4
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.32870/prot.i29.509",
+          "title": "La división disciplinar del tiempo en el joven Heidegger. Las influencias de su concepción de los tiempos de la ciencia y la historia",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 11,
+          "adjusted_rank": 6,
+          "base_score": 22,
+          "title_coverage": 0.4,
+          "cautious_score": 28.6
+        }
+      ]
+    },
+    {
+      "id": "fr-07",
+      "query": "philosophie de la libération Dussel",
+      "language": "fr",
+      "intent": "philosopher-concept",
+      "family": "dussel-liberation",
+      "baseline_p10": 0.8,
+      "cautious_p10": 0.9,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.3917/phimag.174.0036",
+          "title": "Philosophie de la libération",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 9,
+          "adjusted_rank": 11,
+          "base_score": 27,
+          "title_coverage": 0.8,
+          "cautious_score": 28.2
+        },
+        {
+          "record_id": "doi:10.22458/re.v24i49.5907",
+          "title": "Ética de la liberación: Reflexiones desde Enrique Dussel",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 10,
+          "adjusted_rank": 12,
+          "base_score": 25,
+          "title_coverage": 0.6,
+          "cautious_score": 25.4
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.32870/prot.i29.501",
+          "title": "La crítica bergsoniana del tiempo espacializado a través de la semiótica plotiniana",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 12,
+          "adjusted_rank": 9,
+          "base_score": 22,
+          "title_coverage": 0.4,
+          "cautious_score": 28.6
+        },
+        {
+          "record_id": "doi:10.32870/prot.i26.447",
+          "title": "Influencia de la filosofía del romanticismo en el arte contemporáneo",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 13,
+          "adjusted_rank": 10,
+          "base_score": 22,
+          "title_coverage": 0.4,
+          "cautious_score": 28.6
+        }
+      ]
+    },
+    {
+      "id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "intent": "interdisciplinary-challenge",
+      "family": "challenge-ontology-compsci",
+      "baseline_p10": 0.2,
+      "cautious_p10": 0.3,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "openalex:W6995530802",
+          "title": "Ouvertures retrouvées le jeu et l'ontologie de l'art dans l'herméneutique de H.-G. Gadamer",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 11,
+          "base_score": 15,
+          "title_coverage": 0.3333,
+          "cautious_score": 16.3333
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+          "title": "Epistemology and Ontology of AI — From Lagrange and Hamilton Genre-Shift to Agentic AI Cognitive Safety: Open-Source Framework, LNN, HNN, PINN and SciML within the Dorian Codex H_SAFE by Stefano Dorian Franco — Independent Research Modules Programme",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 16,
+          "adjusted_rank": 10,
+          "base_score": 15,
+          "title_coverage": 0,
+          "cautious_score": 18
+        }
+      ]
+    },
+    {
+      "id": "pt-03",
+      "query": "ética da virtude em Aristóteles",
+      "language": "pt",
+      "intent": "philosopher-concept",
+      "family": "aristotle-virtue",
+      "baseline_p10": 0.7,
+      "cautious_p10": 0.8,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.1093/actrade/9780198752714.book.1",
+          "title": "Aristotle: Nicomachean Ethics",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 14,
+          "base_score": 43,
+          "title_coverage": 0,
+          "cautious_score": 41
+        },
+        {
+          "record_id": "doi:10.61378/enun.v7i2.167",
+          "title": "Kalón, virtude e eudaimonía em Aristóteles",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 10,
+          "adjusted_rank": 11,
+          "base_score": 42,
+          "title_coverage": 0.6,
+          "cautious_score": 42.4
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.32870/qr.v1i1.63",
+          "title": "Emotividad en Aristóteles. Un cariz protréptico en su argumentación filosófica.",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 14,
+          "adjusted_rank": 8,
+          "base_score": 38,
+          "title_coverage": 0.2,
+          "cautious_score": 43.8
+        },
+        {
+          "record_id": "doi:10.32870/prot.i29.499",
+          "title": "Sobre el concepto de tiempo en Aristóteles (Física IV, 10-14)",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 15,
+          "adjusted_rank": 9,
+          "base_score": 38,
+          "title_coverage": 0.2,
+          "cautious_score": 43.8
+        }
+      ]
+    },
+    {
+      "id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "intent": "interdisciplinary-challenge",
+      "family": "challenge-phenomenology-nursing",
+      "baseline_p10": 0.5,
+      "cautious_p10": 0.6,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.1007/978-94-017-5344-9_69",
+          "title": "Hermeneutical Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 10,
+          "adjusted_rank": 11,
+          "base_score": 32,
+          "title_coverage": 0,
+          "cautious_score": 30
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "openalex:W7120651308",
+          "title": "Cuidado de enfermagem em terapia intensiva cardiológica: hermenêutica do conceito fundamentada na fenomenologia heideggeriana",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 18,
+          "adjusted_rank": 10,
+          "base_score": 27,
+          "title_coverage": 1,
+          "cautious_score": 31
+        }
+      ]
+    },
+    {
+      "id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "intent": "interdisciplinary-challenge",
+      "family": "challenge-ontology-compsci",
+      "baseline_p10": 0.5,
+      "cautious_p10": 0.6,
+      "delta": 0.1,
+      "outgoing": [
+        {
+          "record_id": "doi:10.3726/978-3-653-06622-7/9",
+          "title": "7. Criticism of Metaphysics",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 12,
+          "base_score": 31,
+          "title_coverage": 0,
+          "cautious_score": 29
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.24824/978655578679.8",
+          "title": "ONTOLOGIA EM CIÊNCIA DA INFORMAÇÃO: Teoria e Método Coleção Representação do Conhecimento em Ciência da Informação Volume 01",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 11,
+          "adjusted_rank": 10,
+          "base_score": 28,
+          "title_coverage": 0.8,
+          "cautious_score": 29.2
+        }
+      ]
+    },
+    {
+      "id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "intent": "interdisciplinary-challenge",
+      "family": "challenge-phenomenology-nursing",
+      "baseline_p10": 0.3,
+      "cautious_p10": 0.5,
+      "delta": 0.2,
+      "outgoing": [
+        {
+          "record_id": "doi:10.1007/978-94-017-5344-9_69",
+          "title": "Hermeneutical Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 7,
+          "adjusted_rank": 11,
+          "base_score": 32,
+          "title_coverage": 0,
+          "cautious_score": 30
+        },
+        {
+          "record_id": "doi:10.1007/978-94-017-5344-9_24",
+          "title": "Constitutive Phenomenology",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 8,
+          "adjusted_rank": 12,
+          "base_score": 32,
+          "title_coverage": 0,
+          "cautious_score": 30
+        },
+        {
+          "record_id": "doi:10.1007/978-90-481-9286-1_14",
+          "title": "Phenomenology of Surprise",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 9,
+          "adjusted_rank": 13,
+          "base_score": 32,
+          "title_coverage": 0,
+          "cautious_score": 30
+        },
+        {
+          "record_id": "doi:10.29173/pandp15081",
+          "title": "Reflections on Phenomenology, Pedagogy, and Phenomenology + Pedagogy",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 10,
+          "adjusted_rank": 14,
+          "base_score": 32,
+          "title_coverage": 0,
+          "cautious_score": 30
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "doi:10.32870/prot.i13.148",
+          "title": "Algunas reflexiones sobre las herramientas técnicas de mediación en el proceso educativo musical y sus posibilidades de análisis a través de la fenomenología de Alfred Schütz",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 17,
+          "adjusted_rank": 2,
+          "base_score": 27,
+          "title_coverage": 0.6667,
+          "cautious_score": 34.6666
+        },
+        {
+          "record_id": "doi:10.32870/prot.i11-12.139",
+          "title": "Sobre la posibilidad de una “hermenéutica encarnada”. Institución, pasividad, prejuicio y tradición en la fenomenología tardía de Merleau-Ponty y la hermenéutica filosófica de Gadamer",
+          "providers": [
+            "CUCSH Filosofía"
+          ],
+          "relevance": 2,
+          "discipline": 2,
+          "baseline_rank": 18,
+          "adjusted_rank": 3,
+          "base_score": 27,
+          "title_coverage": 0.6667,
+          "cautious_score": 34.6666
+        },
+        {
+          "record_id": "openalex:W7019105238",
+          "title": "Fenomenología y hermenéutica un gran atractivo de investigación en Enfermería",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 15,
+          "adjusted_rank": 9,
+          "base_score": 27,
+          "title_coverage": 1,
+          "cautious_score": 31
+        },
+        {
+          "record_id": "openalex:W3189156133",
+          "title": "El cuidar en Enfermería desde la Fenomenología Hermenéutica",
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "relevance": 0,
+          "discipline": 2,
+          "baseline_rank": 16,
+          "adjusted_rank": 10,
+          "base_score": 27,
+          "title_coverage": 1,
+          "cautious_score": 31
+        }
+      ]
+    },
+    {
+      "id": "pt-02",
+      "query": "Ser e Tempo Heidegger",
+      "language": "pt",
+      "intent": "work",
+      "family": "heidegger-being-time",
+      "baseline_p10": 0.5,
+      "cautious_p10": 0.7,
+      "delta": 0.2,
+      "outgoing": [
+        {
+          "record_id": "doi:10.3726/978-3-653-06622-7/19",
+          "title": "11. Metaphysics and Problem of Being. Martin Heidegger",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 3,
+          "adjusted_rank": 13,
+          "base_score": 59,
+          "title_coverage": 0.25,
+          "cautious_score": 58
+        },
+        {
+          "record_id": "doi:10.3726/978-3-653-06622-7/13",
+          "title": "11. Metaphysics and Problem of Being. Martin Heidegger",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 0,
+          "discipline": 1,
+          "baseline_rank": 4,
+          "adjusted_rank": 14,
+          "base_score": 59,
+          "title_coverage": 0.25,
+          "cautious_score": 58
+        }
+      ],
+      "incoming": [
+        {
+          "record_id": "source:internet-archive:heidegger-ser-e-tempo-trad.-marcia-sa-cavalcante-schuback-parte-i",
+          "title": "HEIDEGGER, Ser E Tempo, Trad. Marcia Sá Cavalcante Schuback, Parte I",
+          "providers": [
+            "Internet Archive"
+          ],
+          "relevance": 3,
+          "discipline": 2,
+          "baseline_rank": 18,
+          "adjusted_rank": 6,
+          "base_score": 53,
+          "title_coverage": 1,
+          "cautious_score": 60
+        },
+        {
+          "record_id": "doi:10.11606/t.8.2008.tde-25112009-084807",
+          "title": "O ser da Política e a política do ser: o confronto entre Hannah Arendt e Martin Heidegger em Ser e Tempo",
+          "providers": [
+            "Crossref"
+          ],
+          "relevance": 2,
+          "discipline": 1,
+          "baseline_rank": 11,
+          "adjusted_rank": 10,
+          "base_score": 57,
+          "title_coverage": 1,
+          "cautious_score": 59
+        }
+      ]
+    }
+  ]
+}

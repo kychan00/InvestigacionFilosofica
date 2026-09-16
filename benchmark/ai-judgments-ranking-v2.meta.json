@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 2,
+  "judge": "Investigación Filosófica AI-assisted silver judge — Ranking v2",
+  "generatedAt": "2026-09-15T01:57:15.089320+00:00",
+  "baselineRun": "benchmark/runs/human-v1.0-ranking-v2-e6ad110.jsonl",
+  "rows": 1000,
+  "smokeTest": false,
+  "smokeLabel": null,
+  "needsHumanReview": 496,
+  "device": "mps",
+  "models": {
+    "nli": {
+      "repository": "MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli",
+      "resolvedRevision": "0a71e92a985b6e1ad1828cf67ce9c459639c1dca"
+    },
+    "reranker": {
+      "repository": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "resolvedRevision": "1427fd652930e4ba29e8149678df786c240d8825"
+    }
+  },
+  "thresholds": {
+    "relevanceLowConfidence": 0.55,
+    "disciplineLowConfidence": 0.55,
+    "roleLowConfidence": 0.4,
+    "criticalRelevanceLowConfidence": 0.35,
+    "criticalDisciplineLowConfidence": 0.35,
+    "rerankerDisagreementDistance": 2
+  },
+  "policy": {
+    "relevance": "NLI supplies the graded 0-3 silver relevance label. The reranker remains an independent retrieval signal used only for disagreement auditing.",
+    "discipline": "NLI classifies whether the document is primarily non-philosophical, interdisciplinary, or philosophy scholarship.",
+    "role": "Documentary role is auxiliary metadata. Low-confidence role predictions become UNSURE but do not by themselves force human review.",
+    "humanReview": "needs_human_review is reserved for critical uncertainty in benchmark-driving relevance/discipline labels or strong NLI-reranker disagreement. Missing abstracts and role uncertainty remain audit reasons but are not sufficient on their own."
+  },
+  "notes": [
+    "NLI confidence is softmax over candidate entailment logits.",
+    "Role uncertainty is auxiliary and does not by itself force human review.",
+    "Missing abstracts increase audit priority but do not by themselves force human review.",
+    "Reranker disagreement is only actionable when the selected rows contain the complete 20-document pool for that query."
+  ],
+  "outputs": {
+    "judgments": "benchmark/ai-judgments-ranking-v2.jsonl"
+  }
+}

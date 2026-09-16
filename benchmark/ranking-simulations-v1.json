@@ -1,0 +1,4547 @@
+{
+  "schemaVersion": 2,
+  "note": "Development-only simulation over the frozen silver benchmark. It is not an independent test and must not be presented as one.",
+  "importantCaveat": "No profile uses abstract presence because the AI silver judge itself consumed abstracts; boosting abstract availability here would risk optimizing to judge availability rather than true relevance.",
+  "run": "benchmark/runs/human-v1.0-1064fdb.jsonl",
+  "judgments": "benchmark/ai-silver-v1.jsonl",
+  "profiles": [
+    {
+      "profile": {
+        "id": "baseline",
+        "description": "Frozen production order; no adjustment.",
+        "coverage": 0,
+        "cucsh": 0,
+        "ia": 0,
+        "crossref": 0,
+        "openalex": 0
+      },
+      "overall": {
+        "queries": 50,
+        "precision5": 0.444,
+        "precision10": 0.434,
+        "recall10": 0.5642,
+        "ndcg10": 0.5466,
+        "mrr10": 0.7064
+      },
+      "byLanguage": {
+        "es": {
+          "queries": 10,
+          "precision5": 0.64,
+          "precision10": 0.6,
+          "recall10": 0.5172,
+          "ndcg10": 0.5874,
+          "mrr10": 0.95
+        },
+        "en": {
+          "queries": 10,
+          "precision5": 0.26,
+          "precision10": 0.23,
+          "recall10": 0.549,
+          "ndcg10": 0.5374,
+          "mrr10": 0.6625
+        },
+        "de": {
+          "queries": 10,
+          "precision5": 0.28,
+          "precision10": 0.29,
+          "recall10": 0.624,
+          "ndcg10": 0.4656,
+          "mrr10": 0.4676
+        },
+        "fr": {
+          "queries": 10,
+          "precision5": 0.4,
+          "precision10": 0.39,
+          "recall10": 0.5565,
+          "ndcg10": 0.4909,
+          "mrr10": 0.6317
+        },
+        "pt": {
+          "queries": 10,
+          "precision5": 0.64,
+          "precision10": 0.66,
+          "recall10": 0.5742,
+          "ndcg10": 0.6519,
+          "mrr10": 0.82
+        }
+      },
+      "byIntent": {
+        "philosopher-concept": {
+          "queries": 30,
+          "precision5": 0.5067,
+          "precision10": 0.49,
+          "recall10": 0.5989,
+          "ndcg10": 0.5886,
+          "mrr10": 0.732
+        },
+        "work": {
+          "queries": 10,
+          "precision5": 0.46,
+          "precision10": 0.44,
+          "recall10": 0.5607,
+          "ndcg10": 0.5535,
+          "mrr10": 0.6625
+        },
+        "interdisciplinary-challenge": {
+          "queries": 10,
+          "precision5": 0.24,
+          "precision10": 0.26,
+          "recall10": 0.4634,
+          "ndcg10": 0.4138,
+          "mrr10": 0.6733
+        }
+      },
+      "improvedQueriesP10": 0,
+      "worsenedQueriesP10": 0,
+      "perQuery": [
+        {
+          "id": "es-01",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.523638745764231,
+          "mrr10": 1
+        },
+        {
+          "id": "en-01",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.5,
+          "ndcg10": 0.2982542196018181,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-01",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.4607187484153483,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-01",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.36747704190175257,
+          "mrr10": 0.25
+        },
+        {
+          "id": "pt-01",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8575167815999367,
+          "mrr10": 1
+        },
+        {
+          "id": "es-02",
+          "language": "es",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.5286742333127792,
+          "mrr10": 1
+        },
+        {
+          "id": "en-02",
+          "language": "en",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.3199678246882746,
+          "mrr10": 0.125
+        },
+        {
+          "id": "de-02",
+          "language": "de",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.49691996427130325,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-02",
+          "language": "fr",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.6622050512475977,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-02",
+          "language": "pt",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.35714285714285715,
+          "ndcg10": 0.3264956098291629,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-03",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6428571428571429,
+          "ndcg10": 0.7061334850497037,
+          "mrr10": 1
+        },
+        {
+          "id": "en-03",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7753385352678802,
+          "mrr10": 1
+        },
+        {
+          "id": "de-03",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.3567829153101595,
+          "mrr10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.3464178635895557,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-03",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.7479903881887029,
+          "mrr10": 1
+        },
+        {
+          "id": "es-04",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6,
+          "ndcg10": 0.7237209379194682,
+          "mrr10": 1
+        },
+        {
+          "id": "en-04",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 1,
+          "ndcg10": 0.9603865159663826,
+          "mrr10": 1
+        },
+        {
+          "id": "de-04",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.34623909607517644,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-04",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7586145219783134,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-04",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.7777777777777778,
+          "ndcg10": 0.6716325062058389,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-05",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.47923413652236646,
+          "mrr10": 0.5
+        },
+        {
+          "id": "en-05",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0,
+          "precision10": 0,
+          "recall10": 0,
+          "ndcg10": 0.15273311123869335,
+          "mrr10": 0
+        },
+        {
+          "id": "de-05",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.8175295903539446,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-05",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3264163597437204,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-05",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.6053187852424178,
+          "mrr10": 1
+        },
+        {
+          "id": "es-06",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6201606379514658,
+          "mrr10": 1
+        },
+        {
+          "id": "en-06",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.25,
+          "ndcg10": 0.4034194334779024,
+          "mrr10": 1
+        },
+        {
+          "id": "de-06",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.9065577106769458,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-06",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.8333333333333334,
+          "ndcg10": 0.5284410847846448,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-06",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.8,
+          "precision10": 0.6,
+          "recall10": 0.6,
+          "ndcg10": 0.8291809288664702,
+          "mrr10": 1
+        },
+        {
+          "id": "es-07",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.6,
+          "precision10": 0.8,
+          "recall10": 0.47058823529411764,
+          "ndcg10": 0.5718737481540285,
+          "mrr10": 1
+        },
+        {
+          "id": "en-07",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.4123337172456219,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-07",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.44382218298401205,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-07",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.6153846153846154,
+          "ndcg10": 0.8393058909377374,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-07",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.5625,
+          "ndcg10": 0.821729890001833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-08",
+          "language": "es",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.5833333333333334,
+          "ndcg10": 0.7609441498730001,
+          "mrr10": 1
+        },
+        {
+          "id": "en-08",
+          "language": "en",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.6589333500376675,
+          "mrr10": 1
+        },
+        {
+          "id": "de-08",
+          "language": "de",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.49114929316229744,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-08",
+          "language": "fr",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.41317595998584933,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-08",
+          "language": "pt",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.8762198472760406,
+          "mrr10": 1
+        },
+        {
+          "id": "es-09",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.375,
+          "ndcg10": 0.4686628539742927,
+          "mrr10": 1
+        },
+        {
+          "id": "en-09",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 1,
+          "mrr10": 1
+        },
+        {
+          "id": "de-09",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.335845527525449,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-09",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.25,
+          "ndcg10": 0.47960346638230267,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-09",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.5,
+          "recall10": 0.5555555555555556,
+          "ndcg10": 0.3681568941892445,
+          "mrr10": 0.2
+        },
+        {
+          "id": "es-10",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.4906583059480302,
+          "mrr10": 1
+        },
+        {
+          "id": "en-10",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.39243251270564966,
+          "mrr10": 1
+        },
+        {
+          "id": "de-10",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0,
+          "precision10": 0,
+          "recall10": 0,
+          "ndcg10": 0,
+          "mrr10": 0
+        },
+        {
+          "id": "fr-10",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.5,
+          "ndcg10": 0.1870364347047019,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-10",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.41513381736341687,
+          "mrr10": 1
+        }
+      ],
+      "delta": {
+        "precision5": 0,
+        "precision10": 0,
+        "recall10": 0,
+        "ndcg10": 0,
+        "mrr10": 0
+      }
+    },
+    {
+      "profile": {
+        "id": "title_light",
+        "description": "Small title-query coverage boost only.",
+        "coverage": 4,
+        "cucsh": 0,
+        "ia": 0,
+        "crossref": 0,
+        "openalex": 0
+      },
+      "overall": {
+        "queries": 50,
+        "precision5": 0.46,
+        "precision10": 0.434,
+        "recall10": 0.5581,
+        "ndcg10": 0.5571,
+        "mrr10": 0.7224
+      },
+      "byLanguage": {
+        "es": {
+          "queries": 10,
+          "precision5": 0.64,
+          "precision10": 0.6,
+          "recall10": 0.5172,
+          "ndcg10": 0.6118,
+          "mrr10": 0.95
+        },
+        "en": {
+          "queries": 10,
+          "precision5": 0.24,
+          "precision10": 0.21,
+          "recall10": 0.499,
+          "ndcg10": 0.5128,
+          "mrr10": 0.6625
+        },
+        "de": {
+          "queries": 10,
+          "precision5": 0.28,
+          "precision10": 0.29,
+          "recall10": 0.624,
+          "ndcg10": 0.4656,
+          "mrr10": 0.4676
+        },
+        "fr": {
+          "queries": 10,
+          "precision5": 0.4,
+          "precision10": 0.39,
+          "recall10": 0.5565,
+          "ndcg10": 0.4956,
+          "mrr10": 0.6317
+        },
+        "pt": {
+          "queries": 10,
+          "precision5": 0.74,
+          "precision10": 0.68,
+          "recall10": 0.5938,
+          "ndcg10": 0.6995,
+          "mrr10": 0.9
+        }
+      },
+      "byIntent": {
+        "philosopher-concept": {
+          "queries": 30,
+          "precision5": 0.4933,
+          "precision10": 0.4833,
+          "recall10": 0.5823,
+          "ndcg10": 0.5831,
+          "mrr10": 0.732
+        },
+        "work": {
+          "queries": 10,
+          "precision5": 0.48,
+          "precision10": 0.45,
+          "recall10": 0.5679,
+          "ndcg10": 0.5704,
+          "mrr10": 0.6625
+        },
+        "interdisciplinary-challenge": {
+          "queries": 10,
+          "precision5": 0.34,
+          "precision10": 0.27,
+          "recall10": 0.4759,
+          "ndcg10": 0.4656,
+          "mrr10": 0.7533
+        }
+      },
+      "improvedQueriesP10": 2,
+      "worsenedQueriesP10": 1,
+      "perQuery": [
+        {
+          "id": "es-01",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.523638745764231,
+          "mrr10": 1
+        },
+        {
+          "id": "en-01",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.5,
+          "ndcg10": 0.29127873064148246,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-01",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.4607187484153483,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-01",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.36747704190175257,
+          "mrr10": 0.25
+        },
+        {
+          "id": "pt-01",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8575167815999367,
+          "mrr10": 1
+        },
+        {
+          "id": "es-02",
+          "language": "es",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.5699628525923491,
+          "mrr10": 1
+        },
+        {
+          "id": "en-02",
+          "language": "en",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.3199678246882746,
+          "mrr10": 0.125
+        },
+        {
+          "id": "de-02",
+          "language": "de",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.49691996427130325,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-02",
+          "language": "fr",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.7095656403019069,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-02",
+          "language": "pt",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.6,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.40709142651937436,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-03",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6428571428571429,
+          "ndcg10": 0.712171355274261,
+          "mrr10": 1
+        },
+        {
+          "id": "en-03",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7697165288349068,
+          "mrr10": 1
+        },
+        {
+          "id": "de-03",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.3567829153101595,
+          "mrr10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.3464178635895557,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-03",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.7996205992458897,
+          "mrr10": 1
+        },
+        {
+          "id": "es-04",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6,
+          "ndcg10": 0.7441497841877088,
+          "mrr10": 1
+        },
+        {
+          "id": "en-04",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.5,
+          "ndcg10": 0.8034963425372434,
+          "mrr10": 1
+        },
+        {
+          "id": "de-04",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.34623909607517644,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-04",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7586145219783134,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-04",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.7777777777777778,
+          "ndcg10": 0.6716325062058389,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-05",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.4,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.48070029983151563,
+          "mrr10": 0.5
+        },
+        {
+          "id": "en-05",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0,
+          "precision10": 0,
+          "recall10": 0,
+          "ndcg10": 0.07287221367144313,
+          "mrr10": 0
+        },
+        {
+          "id": "de-05",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.8175295903539446,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-05",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3264163597437204,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-05",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.6053187852424178,
+          "mrr10": 1
+        },
+        {
+          "id": "es-06",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6201606379514658,
+          "mrr10": 1
+        },
+        {
+          "id": "en-06",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.25,
+          "ndcg10": 0.4034194334779024,
+          "mrr10": 1
+        },
+        {
+          "id": "de-06",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.9065577106769458,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-06",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.8333333333333334,
+          "ndcg10": 0.5284410847846448,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-06",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.8,
+          "precision10": 0.6,
+          "recall10": 0.6,
+          "ndcg10": 0.8291809288664702,
+          "mrr10": 1
+        },
+        {
+          "id": "es-07",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.6,
+          "precision10": 0.8,
+          "recall10": 0.47058823529411764,
+          "ndcg10": 0.5718737481540285,
+          "mrr10": 1
+        },
+        {
+          "id": "en-07",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.4160966256072466,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-07",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.44382218298401205,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-07",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.6153846153846154,
+          "ndcg10": 0.8393058909377374,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-07",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.5625,
+          "ndcg10": 0.821729890001833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-08",
+          "language": "es",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.5833333333333334,
+          "ndcg10": 0.7609441498730001,
+          "mrr10": 1
+        },
+        {
+          "id": "en-08",
+          "language": "en",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.6589333500376675,
+          "mrr10": 1
+        },
+        {
+          "id": "de-08",
+          "language": "de",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.49114929316229744,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-08",
+          "language": "fr",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.41317595998584933,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-08",
+          "language": "pt",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.8762198472760406,
+          "mrr10": 1
+        },
+        {
+          "id": "es-09",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.375,
+          "ndcg10": 0.5556522115605499,
+          "mrr10": 1
+        },
+        {
+          "id": "en-09",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 1,
+          "mrr10": 1
+        },
+        {
+          "id": "de-09",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.335845527525449,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-09",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.25,
+          "ndcg10": 0.47960346638230267,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-09",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 1,
+          "precision10": 0.5,
+          "recall10": 0.5555555555555556,
+          "ndcg10": 0.6074159392508833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-10",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.5787760136575274,
+          "mrr10": 1
+        },
+        {
+          "id": "en-10",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.39243251270564966,
+          "mrr10": 1
+        },
+        {
+          "id": "de-10",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0,
+          "precision10": 0,
+          "recall10": 0,
+          "ndcg10": 0,
+          "mrr10": 0
+        },
+        {
+          "id": "fr-10",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.5,
+          "ndcg10": 0.1870364347047019,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-10",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.6,
+          "recall10": 0.75,
+          "ndcg10": 0.5190980325944793,
+          "mrr10": 1
+        }
+      ],
+      "delta": {
+        "precision5": 0.016,
+        "precision10": 0,
+        "recall10": -0.0061,
+        "ndcg10": 0.0105,
+        "mrr10": 0.016
+      }
+    },
+    {
+      "profile": {
+        "id": "curated_light",
+        "description": "Small source prior for CUCSH and Internet Archive.",
+        "coverage": 0,
+        "cucsh": 5,
+        "ia": 3,
+        "crossref": 0,
+        "openalex": 0
+      },
+      "overall": {
+        "queries": 50,
+        "precision5": 0.472,
+        "precision10": 0.452,
+        "recall10": 0.6146,
+        "ndcg10": 0.5631,
+        "mrr10": 0.7049
+      },
+      "byLanguage": {
+        "es": {
+          "queries": 10,
+          "precision5": 0.66,
+          "precision10": 0.61,
+          "recall10": 0.5255,
+          "ndcg10": 0.601,
+          "mrr10": 0.95
+        },
+        "en": {
+          "queries": 10,
+          "precision5": 0.34,
+          "precision10": 0.28,
+          "recall10": 0.7208,
+          "ndcg10": 0.5821,
+          "mrr10": 0.6383
+        },
+        "de": {
+          "queries": 10,
+          "precision5": 0.28,
+          "precision10": 0.3,
+          "recall10": 0.6573,
+          "ndcg10": 0.4846,
+          "mrr10": 0.4843
+        },
+        "fr": {
+          "queries": 10,
+          "precision5": 0.42,
+          "precision10": 0.42,
+          "recall10": 0.6024,
+          "ndcg10": 0.5085,
+          "mrr10": 0.6317
+        },
+        "pt": {
+          "queries": 10,
+          "precision5": 0.66,
+          "precision10": 0.65,
+          "recall10": 0.567,
+          "ndcg10": 0.6396,
+          "mrr10": 0.82
+        }
+      },
+      "byIntent": {
+        "philosopher-concept": {
+          "queries": 30,
+          "precision5": 0.5467,
+          "precision10": 0.51,
+          "recall10": 0.6667,
+          "ndcg10": 0.6107,
+          "mrr10": 0.7381
+        },
+        "work": {
+          "queries": 10,
+          "precision5": 0.48,
+          "precision10": 0.45,
+          "recall10": 0.5702,
+          "ndcg10": 0.5797,
+          "mrr10": 0.6867
+        },
+        "interdisciplinary-challenge": {
+          "queries": 10,
+          "precision5": 0.24,
+          "precision10": 0.28,
+          "recall10": 0.5027,
+          "ndcg10": 0.4039,
+          "mrr10": 0.6233
+        }
+      },
+      "improvedQueriesP10": 10,
+      "worsenedQueriesP10": 1,
+      "perQuery": [
+        {
+          "id": "es-01",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.523638745764231,
+          "mrr10": 1
+        },
+        {
+          "id": "en-01",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.45820333400969837,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-01",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.46826309766391094,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-01",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.4233564008291502,
+          "mrr10": 0.25
+        },
+        {
+          "id": "pt-01",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8575167815999367,
+          "mrr10": 1
+        },
+        {
+          "id": "es-02",
+          "language": "es",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.5726647810251273,
+          "mrr10": 1
+        },
+        {
+          "id": "en-02",
+          "language": "en",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.33717292608003696,
+          "mrr10": 0.2
+        },
+        {
+          "id": "de-02",
+          "language": "de",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.502106438642898,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-02",
+          "language": "fr",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.75,
+          "ndcg10": 0.7268265123525807,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-02",
+          "language": "pt",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.35714285714285715,
+          "ndcg10": 0.3418172445303434,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-03",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6428571428571429,
+          "ndcg10": 0.7148310909918255,
+          "mrr10": 1
+        },
+        {
+          "id": "en-03",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 1,
+          "ndcg10": 0.8700525116895158,
+          "mrr10": 1
+        },
+        {
+          "id": "de-03",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 1,
+          "ndcg10": 0.4544483414261398,
+          "mrr10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.31187878170898387,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-03",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.6646971872558914,
+          "mrr10": 1
+        },
+        {
+          "id": "es-04",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6,
+          "ndcg10": 0.7237209379194682,
+          "mrr10": 1
+        },
+        {
+          "id": "en-04",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.4,
+          "recall10": 1,
+          "ndcg10": 0.9761100276812787,
+          "mrr10": 1
+        },
+        {
+          "id": "de-04",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.34623909607517644,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-04",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7586145219783134,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-04",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.7777777777777778,
+          "ndcg10": 0.6716325062058389,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-05",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.47923413652236646,
+          "mrr10": 0.5
+        },
+        {
+          "id": "en-05",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 0.362660302134137,
+          "mrr10": 0.1
+        },
+        {
+          "id": "de-05",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.8175295903539446,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-05",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3264163597437204,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-05",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.6053187852424178,
+          "mrr10": 1
+        },
+        {
+          "id": "es-06",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6201606379514658,
+          "mrr10": 1
+        },
+        {
+          "id": "en-06",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.6,
+          "precision10": 0.3,
+          "recall10": 0.375,
+          "ndcg10": 0.48501162319562197,
+          "mrr10": 1
+        },
+        {
+          "id": "de-06",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.9065577106769458,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-06",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.8333333333333334,
+          "ndcg10": 0.5284410847846448,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-06",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.6,
+          "recall10": 0.6,
+          "ndcg10": 0.8392222881757598,
+          "mrr10": 1
+        },
+        {
+          "id": "es-07",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.6,
+          "precision10": 0.8,
+          "recall10": 0.47058823529411764,
+          "ndcg10": 0.5718737481540285,
+          "mrr10": 1
+        },
+        {
+          "id": "en-07",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.49624058611461264,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "de-07",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.44382218298401205,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-07",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.6153846153846154,
+          "ndcg10": 0.7938277636863315,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-07",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.5625,
+          "ndcg10": 0.821729890001833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-08",
+          "language": "es",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.8404864470737904,
+          "mrr10": 1
+        },
+        {
+          "id": "en-08",
+          "language": "en",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.680705875376095,
+          "mrr10": 1
+        },
+        {
+          "id": "de-08",
+          "language": "de",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.5714285040141098,
+          "mrr10": 0.5
+        },
+        {
+          "id": "fr-08",
+          "language": "fr",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.41317595998584933,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-08",
+          "language": "pt",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.8107271749859103,
+          "mrr10": 1
+        },
+        {
+          "id": "es-09",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.375,
+          "ndcg10": 0.4686628539742927,
+          "mrr10": 1
+        },
+        {
+          "id": "en-09",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 0.7098097413968655,
+          "mrr10": 0.5
+        },
+        {
+          "id": "de-09",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.335845527525449,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-09",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.25,
+          "ndcg10": 0.47960346638230267,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-09",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.5,
+          "recall10": 0.5555555555555556,
+          "ndcg10": 0.3681568941892445,
+          "mrr10": 0.2
+        },
+        {
+          "id": "es-10",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.4943485074809982,
+          "mrr10": 1
+        },
+        {
+          "id": "en-10",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.4451044665960389,
+          "mrr10": 1
+        },
+        {
+          "id": "de-10",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0,
+          "precision10": 0,
+          "recall10": 0,
+          "ndcg10": 0,
+          "mrr10": 0
+        },
+        {
+          "id": "fr-10",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.3223700486677743,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-10",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.41513381736341687,
+          "mrr10": 1
+        }
+      ],
+      "delta": {
+        "precision5": 0.028,
+        "precision10": 0.018,
+        "recall10": 0.0504,
+        "ndcg10": 0.0165,
+        "mrr10": -0.0015
+      }
+    },
+    {
+      "profile": {
+        "id": "title_curated",
+        "description": "Title coverage plus small CUCSH/Internet Archive source prior.",
+        "coverage": 4,
+        "cucsh": 5,
+        "ia": 3,
+        "crossref": 0,
+        "openalex": 0
+      },
+      "overall": {
+        "queries": 50,
+        "precision5": 0.488,
+        "precision10": 0.456,
+        "recall10": 0.596,
+        "ndcg10": 0.579,
+        "mrr10": 0.7405
+      },
+      "byLanguage": {
+        "es": {
+          "queries": 10,
+          "precision5": 0.7,
+          "precision10": 0.62,
+          "recall10": 0.538,
+          "ndcg10": 0.6256,
+          "mrr10": 0.95
+        },
+        "en": {
+          "queries": 10,
+          "precision5": 0.3,
+          "precision10": 0.24,
+          "recall10": 0.574,
+          "ndcg10": 0.5524,
+          "mrr10": 0.67
+        },
+        "de": {
+          "queries": 10,
+          "precision5": 0.28,
+          "precision10": 0.3,
+          "recall10": 0.6573,
+          "ndcg10": 0.5007,
+          "mrr10": 0.551
+        },
+        "fr": {
+          "queries": 10,
+          "precision5": 0.42,
+          "precision10": 0.42,
+          "recall10": 0.6024,
+          "ndcg10": 0.5104,
+          "mrr10": 0.6317
+        },
+        "pt": {
+          "queries": 10,
+          "precision5": 0.74,
+          "precision10": 0.7,
+          "recall10": 0.6081,
+          "ndcg10": 0.7057,
+          "mrr10": 0.9
+        }
+      },
+      "byIntent": {
+        "philosopher-concept": {
+          "queries": 30,
+          "precision5": 0.52,
+          "precision10": 0.5033,
+          "recall10": 0.6249,
+          "ndcg10": 0.5991,
+          "mrr10": 0.732
+        },
+        "work": {
+          "queries": 10,
+          "precision5": 0.5,
+          "precision10": 0.48,
+          "recall10": 0.5917,
+          "ndcg10": 0.6171,
+          "mrr10": 0.7533
+        },
+        "interdisciplinary-challenge": {
+          "queries": 10,
+          "precision5": 0.38,
+          "precision10": 0.29,
+          "recall10": 0.5134,
+          "ndcg10": 0.4804,
+          "mrr10": 0.7533
+        }
+      },
+      "improvedQueriesP10": 10,
+      "worsenedQueriesP10": 0,
+      "perQuery": [
+        {
+          "id": "es-01",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.523638745764231,
+          "mrr10": 1
+        },
+        {
+          "id": "en-01",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.45820333400969837,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-01",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.46826309766391094,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-01",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.4233564008291502,
+          "mrr10": 0.25
+        },
+        {
+          "id": "pt-01",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8575167815999367,
+          "mrr10": 1
+        },
+        {
+          "id": "es-02",
+          "language": "es",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6012628110727575,
+          "mrr10": 1
+        },
+        {
+          "id": "en-02",
+          "language": "en",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.33717292608003696,
+          "mrr10": 0.2
+        },
+        {
+          "id": "de-02",
+          "language": "de",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6696689682734702,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-02",
+          "language": "fr",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.75,
+          "ndcg10": 0.7467893454286072,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-02",
+          "language": "pt",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.4490554943930721,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-03",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6428571428571429,
+          "ndcg10": 0.7285895659942586,
+          "mrr10": 1
+        },
+        {
+          "id": "en-03",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7697165288349068,
+          "mrr10": 1
+        },
+        {
+          "id": "de-03",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 1,
+          "ndcg10": 0.44784553638481545,
+          "mrr10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.31187878170898387,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-03",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.8426640492586339,
+          "mrr10": 1
+        },
+        {
+          "id": "es-04",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6,
+          "ndcg10": 0.7441497841877088,
+          "mrr10": 1
+        },
+        {
+          "id": "en-04",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 1,
+          "ndcg10": 0.9603865159663826,
+          "mrr10": 1
+        },
+        {
+          "id": "de-04",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.34623909607517644,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-04",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7586145219783134,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-04",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.7777777777777778,
+          "ndcg10": 0.6716325062058389,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-05",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.4,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.48070029983151563,
+          "mrr10": 0.5
+        },
+        {
+          "id": "en-05",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0,
+          "precision10": 0,
+          "recall10": 0,
+          "ndcg10": 0.07287221367144313,
+          "mrr10": 0
+        },
+        {
+          "id": "de-05",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.8175295903539446,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-05",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3264163597437204,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-05",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.6053187852424178,
+          "mrr10": 1
+        },
+        {
+          "id": "es-06",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6201606379514658,
+          "mrr10": 1
+        },
+        {
+          "id": "en-06",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.25,
+          "ndcg10": 0.4034194334779024,
+          "mrr10": 1
+        },
+        {
+          "id": "de-06",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.9065577106769458,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-06",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.8333333333333334,
+          "ndcg10": 0.5284410847846448,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-06",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.8,
+          "precision10": 0.6,
+          "recall10": 0.6,
+          "ndcg10": 0.8291809288664702,
+          "mrr10": 1
+        },
+        {
+          "id": "es-07",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.6,
+          "precision10": 0.8,
+          "recall10": 0.47058823529411764,
+          "ndcg10": 0.5718737481540285,
+          "mrr10": 1
+        },
+        {
+          "id": "en-07",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.438735038924764,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-07",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.44382218298401205,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-07",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.6153846153846154,
+          "ndcg10": 0.7938277636863315,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-07",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.5625,
+          "ndcg10": 0.821729890001833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-08",
+          "language": "es",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.8482260941849179,
+          "mrr10": 1
+        },
+        {
+          "id": "en-08",
+          "language": "en",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.680705875376095,
+          "mrr10": 1
+        },
+        {
+          "id": "de-08",
+          "language": "de",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.5714285040141098,
+          "mrr10": 0.5
+        },
+        {
+          "id": "fr-08",
+          "language": "fr",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.41317595998584933,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-08",
+          "language": "pt",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.8536509640265602,
+          "mrr10": 1
+        },
+        {
+          "id": "es-09",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.8,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6427219619902532,
+          "mrr10": 1
+        },
+        {
+          "id": "en-09",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 1,
+          "mrr10": 1
+        },
+        {
+          "id": "de-09",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.335845527525449,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-09",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.25,
+          "ndcg10": 0.47960346638230267,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-09",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 1,
+          "precision10": 0.5,
+          "recall10": 0.5555555555555556,
+          "ndcg10": 0.6074159392508833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-10",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.4943485074809982,
+          "mrr10": 1
+        },
+        {
+          "id": "en-10",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.402668370412323,
+          "mrr10": 1
+        },
+        {
+          "id": "de-10",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0,
+          "precision10": 0,
+          "recall10": 0,
+          "ndcg10": 0,
+          "mrr10": 0
+        },
+        {
+          "id": "fr-10",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.3223700486677743,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-10",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.6,
+          "recall10": 0.75,
+          "ndcg10": 0.5190980325944793,
+          "mrr10": 1
+        }
+      ],
+      "delta": {
+        "precision5": 0.044,
+        "precision10": 0.022,
+        "recall10": 0.0318,
+        "ndcg10": 0.0324,
+        "mrr10": 0.0341
+      }
+    },
+    {
+      "profile": {
+        "id": "cautious_crossref",
+        "description": "Title+curated profile and a very small unconditional Crossref penalty.",
+        "coverage": 4,
+        "cucsh": 5,
+        "ia": 3,
+        "crossref": -2,
+        "openalex": 0
+      },
+      "overall": {
+        "queries": 50,
+        "precision5": 0.528,
+        "precision10": 0.466,
+        "recall10": 0.6369,
+        "ndcg10": 0.6038,
+        "mrr10": 0.7499
+      },
+      "byLanguage": {
+        "es": {
+          "queries": 10,
+          "precision5": 0.76,
+          "precision10": 0.62,
+          "recall10": 0.55,
+          "ndcg10": 0.658,
+          "mrr10": 0.95
+        },
+        "en": {
+          "queries": 10,
+          "precision5": 0.34,
+          "precision10": 0.26,
+          "recall10": 0.694,
+          "ndcg10": 0.5751,
+          "mrr10": 0.6611
+        },
+        "de": {
+          "queries": 10,
+          "precision5": 0.34,
+          "precision10": 0.31,
+          "recall10": 0.7073,
+          "ndcg10": 0.5675,
+          "mrr10": 0.6069
+        },
+        "fr": {
+          "queries": 10,
+          "precision5": 0.44,
+          "precision10": 0.44,
+          "recall10": 0.6212,
+          "ndcg10": 0.5176,
+          "mrr10": 0.6317
+        },
+        "pt": {
+          "queries": 10,
+          "precision5": 0.76,
+          "precision10": 0.7,
+          "recall10": 0.6121,
+          "ndcg10": 0.7007,
+          "mrr10": 0.9
+        }
+      },
+      "byIntent": {
+        "philosopher-concept": {
+          "queries": 30,
+          "precision5": 0.5533,
+          "precision10": 0.5133,
+          "recall10": 0.671,
+          "ndcg10": 0.6251,
+          "mrr10": 0.744
+        },
+        "work": {
+          "queries": 10,
+          "precision5": 0.56,
+          "precision10": 0.47,
+          "recall10": 0.5845,
+          "ndcg10": 0.6547,
+          "mrr10": 0.8083
+        },
+        "interdisciplinary-challenge": {
+          "queries": 10,
+          "precision5": 0.42,
+          "precision10": 0.32,
+          "recall10": 0.587,
+          "ndcg10": 0.4886,
+          "mrr10": 0.7093
+        }
+      },
+      "improvedQueriesP10": 17,
+      "worsenedQueriesP10": 3,
+      "perQuery": [
+        {
+          "id": "es-01",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.523638745764231,
+          "mrr10": 1
+        },
+        {
+          "id": "en-01",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.5363781864793108,
+          "mrr10": 0.5
+        },
+        {
+          "id": "de-01",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.6917850152435059,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-01",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.3408554175646093,
+          "mrr10": 0.25
+        },
+        {
+          "id": "pt-01",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8575167815999367,
+          "mrr10": 1
+        },
+        {
+          "id": "es-02",
+          "language": "es",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.8,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6368547259115425,
+          "mrr10": 1
+        },
+        {
+          "id": "en-02",
+          "language": "en",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.360653372996713,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-02",
+          "language": "de",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.7042323928326294,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-02",
+          "language": "fr",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.75,
+          "ndcg10": 0.7626650303152932,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-02",
+          "language": "pt",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.5111938579388943,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-03",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6428571428571429,
+          "ndcg10": 0.7545749136850838,
+          "mrr10": 1
+        },
+        {
+          "id": "en-03",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 1,
+          "ndcg10": 0.8561241776694002,
+          "mrr10": 1
+        },
+        {
+          "id": "de-03",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 1,
+          "ndcg10": 0.4544483414261398,
+          "mrr10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.4142252209251157,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-03",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.7684803692337678,
+          "mrr10": 1
+        },
+        {
+          "id": "es-04",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6,
+          "ndcg10": 0.7441497841877088,
+          "mrr10": 1
+        },
+        {
+          "id": "en-04",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.4,
+          "recall10": 1,
+          "ndcg10": 0.9761100276812787,
+          "mrr10": 1
+        },
+        {
+          "id": "de-04",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.34623909607517644,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-04",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7586145219783134,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-04",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.7777777777777778,
+          "ndcg10": 0.6716325062058389,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-05",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.4,
+          "precision10": 0.6,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.401113577141555,
+          "mrr10": 0.5
+        },
+        {
+          "id": "en-05",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 0.2885923713128106,
+          "mrr10": 0.1111111111111111
+        },
+        {
+          "id": "de-05",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.8175295903539446,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-05",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3264163597437204,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-05",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.6053187852424178,
+          "mrr10": 1
+        },
+        {
+          "id": "es-06",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.8,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.8258079296301962,
+          "mrr10": 1
+        },
+        {
+          "id": "en-06",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.25,
+          "ndcg10": 0.4034194334779024,
+          "mrr10": 1
+        },
+        {
+          "id": "de-06",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.9065577106769458,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-06",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.8333333333333334,
+          "ndcg10": 0.5284410847846448,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-06",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.6,
+          "recall10": 0.6,
+          "ndcg10": 0.7983334175836269,
+          "mrr10": 1
+        },
+        {
+          "id": "es-07",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.4117647058823529,
+          "ndcg10": 0.5904242808104225,
+          "mrr10": 1
+        },
+        {
+          "id": "en-07",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.47240441350610907,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-07",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.44382218298401205,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-07",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8293482054770633,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-07",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.5625,
+          "ndcg10": 0.821729890001833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-08",
+          "language": "es",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.8694288540859323,
+          "mrr10": 1
+        },
+        {
+          "id": "en-08",
+          "language": "en",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.680705875376095,
+          "mrr10": 1
+        },
+        {
+          "id": "de-08",
+          "language": "de",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.7977228895450267,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-08",
+          "language": "fr",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.41317595998584933,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-08",
+          "language": "pt",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.8107271749859103,
+          "mrr10": 1
+        },
+        {
+          "id": "es-09",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.8,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.7018076766638188,
+          "mrr10": 1
+        },
+        {
+          "id": "en-09",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 0.7098097413968655,
+          "mrr10": 0.5
+        },
+        {
+          "id": "de-09",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3079071660169836,
+          "mrr10": 0.25
+        },
+        {
+          "id": "fr-09",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.25,
+          "ndcg10": 0.47960346638230267,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-09",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 1,
+          "precision10": 0.6,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.64272901407221,
+          "mrr10": 1
+        },
+        {
+          "id": "es-10",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.8,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.5321955854886826,
+          "mrr10": 1
+        },
+        {
+          "id": "en-10",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.46642147397347594,
+          "mrr10": 1
+        },
+        {
+          "id": "de-10",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0,
+          "precision10": 0.1,
+          "recall10": 0.5,
+          "ndcg10": 0.20438239758848614,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-10",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.3223700486677743,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-10",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.6,
+          "recall10": 0.75,
+          "ndcg10": 0.5190980325944793,
+          "mrr10": 1
+        }
+      ],
+      "delta": {
+        "precision5": 0.084,
+        "precision10": 0.032,
+        "recall10": 0.0727,
+        "ndcg10": 0.0572,
+        "mrr10": 0.0435
+      }
+    },
+    {
+      "profile": {
+        "id": "crossref_lowcov_075",
+        "description": "Title+curated profile; penalize Crossref only when original-query title coverage is below 0.75.",
+        "coverage": 4,
+        "cucsh": 5,
+        "ia": 3,
+        "crossref": -2,
+        "crossrefPenaltyBelow": 0.75,
+        "openalex": 0
+      },
+      "overall": {
+        "queries": 50,
+        "precision5": 0.516,
+        "precision10": 0.464,
+        "recall10": 0.6315,
+        "ndcg10": 0.5958,
+        "mrr10": 0.7439
+      },
+      "byLanguage": {
+        "es": {
+          "queries": 10,
+          "precision5": 0.74,
+          "precision10": 0.63,
+          "recall10": 0.5559,
+          "ndcg10": 0.6549,
+          "mrr10": 0.95
+        },
+        "en": {
+          "queries": 10,
+          "precision5": 0.32,
+          "precision10": 0.25,
+          "recall10": 0.674,
+          "ndcg10": 0.5795,
+          "mrr10": 0.6811
+        },
+        "de": {
+          "queries": 10,
+          "precision5": 0.3,
+          "precision10": 0.31,
+          "recall10": 0.7073,
+          "ndcg10": 0.5225,
+          "mrr10": 0.5569
+        },
+        "fr": {
+          "queries": 10,
+          "precision5": 0.42,
+          "precision10": 0.43,
+          "recall10": 0.6135,
+          "ndcg10": 0.5124,
+          "mrr10": 0.6317
+        },
+        "pt": {
+          "queries": 10,
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.6067,
+          "ndcg10": 0.7099,
+          "mrr10": 0.9
+        }
+      },
+      "byIntent": {
+        "philosopher-concept": {
+          "queries": 30,
+          "precision5": 0.5333,
+          "precision10": 0.51,
+          "recall10": 0.6637,
+          "ndcg10": 0.6085,
+          "mrr10": 0.7357
+        },
+        "work": {
+          "queries": 10,
+          "precision5": 0.52,
+          "precision10": 0.48,
+          "recall10": 0.5917,
+          "ndcg10": 0.6234,
+          "mrr10": 0.7533
+        },
+        "interdisciplinary-challenge": {
+          "queries": 10,
+          "precision5": 0.46,
+          "precision10": 0.31,
+          "recall10": 0.5745,
+          "ndcg10": 0.5305,
+          "mrr10": 0.7593
+        }
+      },
+      "improvedQueriesP10": 14,
+      "worsenedQueriesP10": 1,
+      "perQuery": [
+        {
+          "id": "es-01",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.532807978314979,
+          "mrr10": 1
+        },
+        {
+          "id": "en-01",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.45820333400969837,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-01",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.46826309766391094,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-01",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.3408554175646093,
+          "mrr10": 0.25
+        },
+        {
+          "id": "pt-01",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8575167815999367,
+          "mrr10": 1
+        },
+        {
+          "id": "es-02",
+          "language": "es",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6291031399287497,
+          "mrr10": 1
+        },
+        {
+          "id": "en-02",
+          "language": "en",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.33717292608003696,
+          "mrr10": 0.2
+        },
+        {
+          "id": "de-02",
+          "language": "de",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.7042323928326294,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-02",
+          "language": "fr",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.75,
+          "ndcg10": 0.7467893454286072,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-02",
+          "language": "pt",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.4490554943930721,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-03",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6428571428571429,
+          "ndcg10": 0.7259298302766941,
+          "mrr10": 1
+        },
+        {
+          "id": "en-03",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7614102012477646,
+          "mrr10": 1
+        },
+        {
+          "id": "de-03",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 1,
+          "ndcg10": 0.4544483414261398,
+          "mrr10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.4142252209251157,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-03",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.7878114915501336,
+          "mrr10": 1
+        },
+        {
+          "id": "es-04",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6,
+          "ndcg10": 0.7441497841877088,
+          "mrr10": 1
+        },
+        {
+          "id": "en-04",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 1,
+          "ndcg10": 0.9603865159663826,
+          "mrr10": 1
+        },
+        {
+          "id": "de-04",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.34623909607517644,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-04",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7586145219783134,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-04",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.7777777777777778,
+          "ndcg10": 0.6716325062058389,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-05",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.4,
+          "precision10": 0.6,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.401113577141555,
+          "mrr10": 0.5
+        },
+        {
+          "id": "en-05",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 0.2885923713128106,
+          "mrr10": 0.1111111111111111
+        },
+        {
+          "id": "de-05",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.8175295903539446,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-05",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3264163597437204,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-05",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.6053187852424178,
+          "mrr10": 1
+        },
+        {
+          "id": "es-06",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.8,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.8258079296301962,
+          "mrr10": 1
+        },
+        {
+          "id": "en-06",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.25,
+          "ndcg10": 0.4034194334779024,
+          "mrr10": 1
+        },
+        {
+          "id": "de-06",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.9065577106769458,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-06",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.8333333333333334,
+          "ndcg10": 0.5284410847846448,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-06",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.6,
+          "recall10": 0.6,
+          "ndcg10": 0.7983334175836269,
+          "mrr10": 1
+        },
+        {
+          "id": "es-07",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.6,
+          "precision10": 0.8,
+          "recall10": 0.47058823529411764,
+          "ndcg10": 0.5718737481540285,
+          "mrr10": 1
+        },
+        {
+          "id": "en-07",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.438735038924764,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-07",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.44382218298401205,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-07",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.6153846153846154,
+          "ndcg10": 0.7938277636863315,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-07",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.5625,
+          "ndcg10": 0.821729890001833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-08",
+          "language": "es",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.8482260941849179,
+          "mrr10": 1
+        },
+        {
+          "id": "en-08",
+          "language": "en",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.680705875376095,
+          "mrr10": 1
+        },
+        {
+          "id": "de-08",
+          "language": "de",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.5714285040141098,
+          "mrr10": 0.5
+        },
+        {
+          "id": "fr-08",
+          "language": "fr",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.41317595998584933,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-08",
+          "language": "pt",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.8536509640265602,
+          "mrr10": 1
+        },
+        {
+          "id": "es-09",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.8,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.7380414192671233,
+          "mrr10": 1
+        },
+        {
+          "id": "en-09",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 1,
+          "mrr10": 1
+        },
+        {
+          "id": "de-09",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3079071660169836,
+          "mrr10": 0.25
+        },
+        {
+          "id": "fr-09",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.25,
+          "ndcg10": 0.47960346638230267,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-09",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 1,
+          "precision10": 0.6,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.64272901407221,
+          "mrr10": 1
+        },
+        {
+          "id": "es-10",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.8,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.5321955854886826,
+          "mrr10": 1
+        },
+        {
+          "id": "en-10",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.46642147397347594,
+          "mrr10": 1
+        },
+        {
+          "id": "de-10",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0,
+          "precision10": 0.1,
+          "recall10": 0.5,
+          "ndcg10": 0.20438239758848614,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-10",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.3223700486677743,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-10",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.8,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.611257498077951,
+          "mrr10": 1
+        }
+      ],
+      "delta": {
+        "precision5": 0.072,
+        "precision10": 0.03,
+        "recall10": 0.0673,
+        "ndcg10": 0.0492,
+        "mrr10": 0.0375
+      }
+    },
+    {
+      "profile": {
+        "id": "crossref_lowcov_050",
+        "description": "Title+curated profile; penalize Crossref only when original-query title coverage is below 0.50.",
+        "coverage": 4,
+        "cucsh": 5,
+        "ia": 3,
+        "crossref": -2,
+        "crossrefPenaltyBelow": 0.5,
+        "openalex": 0
+      },
+      "overall": {
+        "queries": 50,
+        "precision5": 0.508,
+        "precision10": 0.462,
+        "recall10": 0.6282,
+        "ndcg10": 0.5937,
+        "mrr10": 0.7454
+      },
+      "byLanguage": {
+        "es": {
+          "queries": 10,
+          "precision5": 0.72,
+          "precision10": 0.63,
+          "recall10": 0.5505,
+          "ndcg10": 0.6426,
+          "mrr10": 0.95
+        },
+        "en": {
+          "queries": 10,
+          "precision5": 0.32,
+          "precision10": 0.25,
+          "recall10": 0.674,
+          "ndcg10": 0.5725,
+          "mrr10": 0.68
+        },
+        "de": {
+          "queries": 10,
+          "precision5": 0.3,
+          "precision10": 0.31,
+          "recall10": 0.7073,
+          "ndcg10": 0.5246,
+          "mrr10": 0.5652
+        },
+        "fr": {
+          "queries": 10,
+          "precision5": 0.42,
+          "precision10": 0.42,
+          "recall10": 0.6024,
+          "ndcg10": 0.5104,
+          "mrr10": 0.6317
+        },
+        "pt": {
+          "queries": 10,
+          "precision5": 0.78,
+          "precision10": 0.7,
+          "recall10": 0.6067,
+          "ndcg10": 0.7185,
+          "mrr10": 0.9
+        }
+      },
+      "byIntent": {
+        "philosopher-concept": {
+          "queries": 30,
+          "precision5": 0.52,
+          "precision10": 0.5067,
+          "recall10": 0.6583,
+          "ndcg10": 0.604,
+          "mrr10": 0.7353
+        },
+        "work": {
+          "queries": 10,
+          "precision5": 0.52,
+          "precision10": 0.48,
+          "recall10": 0.5917,
+          "ndcg10": 0.6234,
+          "mrr10": 0.7533
+        },
+        "interdisciplinary-challenge": {
+          "queries": 10,
+          "precision5": 0.46,
+          "precision10": 0.31,
+          "recall10": 0.5745,
+          "ndcg10": 0.5333,
+          "mrr10": 0.7676
+        }
+      },
+      "improvedQueriesP10": 12,
+      "worsenedQueriesP10": 0,
+      "perQuery": [
+        {
+          "id": "es-01",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.532807978314979,
+          "mrr10": 1
+        },
+        {
+          "id": "en-01",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.45820333400969837,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-01",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.46826309766391094,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-01",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.2,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.4233564008291502,
+          "mrr10": 0.25
+        },
+        {
+          "id": "pt-01",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "kant-freedom",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.6923076923076923,
+          "ndcg10": 0.8575167815999367,
+          "mrr10": 1
+        },
+        {
+          "id": "es-02",
+          "language": "es",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6291031399287497,
+          "mrr10": 1
+        },
+        {
+          "id": "en-02",
+          "language": "en",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.33717292608003696,
+          "mrr10": 0.2
+        },
+        {
+          "id": "de-02",
+          "language": "de",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.7042323928326294,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-02",
+          "language": "fr",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.75,
+          "ndcg10": 0.7467893454286072,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-02",
+          "language": "pt",
+          "intent": "work",
+          "family": "heidegger-being-time",
+          "precision5": 0.6,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.4490554943930721,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-03",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6428571428571429,
+          "ndcg10": 0.7285895659942586,
+          "mrr10": 1
+        },
+        {
+          "id": "en-03",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7697165288349068,
+          "mrr10": 1
+        },
+        {
+          "id": "de-03",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 1,
+          "ndcg10": 0.44784553638481545,
+          "mrr10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.31187878170898387,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-03",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "aristotle-virtue",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.8426640492586339,
+          "mrr10": 1
+        },
+        {
+          "id": "es-04",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 1,
+          "precision10": 0.9,
+          "recall10": 0.6,
+          "ndcg10": 0.7441497841877088,
+          "mrr10": 1
+        },
+        {
+          "id": "en-04",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 1,
+          "ndcg10": 0.9603865159663826,
+          "mrr10": 1
+        },
+        {
+          "id": "de-04",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.34623909607517644,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-04",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.4,
+          "precision10": 0.4,
+          "recall10": 0.8,
+          "ndcg10": 0.7586145219783134,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-04",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "husserl-intentionality",
+          "precision5": 0.8,
+          "precision10": 0.7,
+          "recall10": 0.7777777777777778,
+          "ndcg10": 0.6716325062058389,
+          "mrr10": 0.5
+        },
+        {
+          "id": "es-05",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.4,
+          "precision10": 0.7,
+          "recall10": 0.5,
+          "ndcg10": 0.48070029983151563,
+          "mrr10": 0.5
+        },
+        {
+          "id": "en-05",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 0.20992719089544368,
+          "mrr10": 0.1
+        },
+        {
+          "id": "de-05",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.8175295903539446,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-05",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.3264163597437204,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-05",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "levinas-alterity",
+          "precision5": 0.6,
+          "precision10": 0.5,
+          "recall10": 0.5,
+          "ndcg10": 0.6053187852424178,
+          "mrr10": 1
+        },
+        {
+          "id": "es-06",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.6,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.6201606379514658,
+          "mrr10": 1
+        },
+        {
+          "id": "en-06",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.25,
+          "ndcg10": 0.4034194334779024,
+          "mrr10": 1
+        },
+        {
+          "id": "de-06",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.4444444444444444,
+          "ndcg10": 0.9065577106769458,
+          "mrr10": 1
+        },
+        {
+          "id": "fr-06",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.4,
+          "precision10": 0.5,
+          "recall10": 0.8333333333333334,
+          "ndcg10": 0.5284410847846448,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-06",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "spinoza-substance",
+          "precision5": 0.8,
+          "precision10": 0.6,
+          "recall10": 0.6,
+          "ndcg10": 0.8291809288664702,
+          "mrr10": 1
+        },
+        {
+          "id": "es-07",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.6,
+          "precision10": 0.8,
+          "recall10": 0.47058823529411764,
+          "ndcg10": 0.5718737481540285,
+          "mrr10": 1
+        },
+        {
+          "id": "en-07",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.438735038924764,
+          "mrr10": 0.25
+        },
+        {
+          "id": "de-07",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.44382218298401205,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-07",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 1,
+          "precision10": 0.8,
+          "recall10": 0.6153846153846154,
+          "ndcg10": 0.7938277636863315,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-07",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "family": "dussel-liberation",
+          "precision5": 0.8,
+          "precision10": 0.9,
+          "recall10": 0.5625,
+          "ndcg10": 0.821729890001833,
+          "mrr10": 1
+        },
+        {
+          "id": "es-08",
+          "language": "es",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.8482260941849179,
+          "mrr10": 1
+        },
+        {
+          "id": "en-08",
+          "language": "en",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.3333333333333333,
+          "ndcg10": 0.680705875376095,
+          "mrr10": 1
+        },
+        {
+          "id": "de-08",
+          "language": "de",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 1,
+          "ndcg10": 0.5714285040141098,
+          "mrr10": 0.5
+        },
+        {
+          "id": "fr-08",
+          "language": "fr",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.4,
+          "precision10": 0.2,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.41317595998584933,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "pt-08",
+          "language": "pt",
+          "intent": "work",
+          "family": "hegel-phenomenology-spirit",
+          "precision5": 0.8,
+          "precision10": 0.8,
+          "recall10": 0.5714285714285714,
+          "ndcg10": 0.8536509640265602,
+          "mrr10": 1
+        },
+        {
+          "id": "es-09",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.8,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.7380414192671233,
+          "mrr10": 1
+        },
+        {
+          "id": "en-09",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 1,
+          "ndcg10": 1,
+          "mrr10": 1
+        },
+        {
+          "id": "de-09",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.2,
+          "recall10": 0.4,
+          "ndcg10": 0.335845527525449,
+          "mrr10": 0.3333333333333333
+        },
+        {
+          "id": "fr-09",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 0.2,
+          "precision10": 0.1,
+          "recall10": 0.25,
+          "ndcg10": 0.47960346638230267,
+          "mrr10": 1
+        },
+        {
+          "id": "pt-09",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-phenomenology-nursing",
+          "precision5": 1,
+          "precision10": 0.6,
+          "recall10": 0.6666666666666666,
+          "ndcg10": 0.64272901407221,
+          "mrr10": 1
+        },
+        {
+          "id": "es-10",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.8,
+          "precision10": 0.4,
+          "recall10": 0.5,
+          "ndcg10": 0.5321955854886826,
+          "mrr10": 1
+        },
+        {
+          "id": "en-10",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.4,
+          "precision10": 0.3,
+          "recall10": 0.42857142857142855,
+          "ndcg10": 0.46642147397347594,
+          "mrr10": 1
+        },
+        {
+          "id": "de-10",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0,
+          "precision10": 0.1,
+          "recall10": 0.5,
+          "ndcg10": 0.20438239758848614,
+          "mrr10": 0.14285714285714285
+        },
+        {
+          "id": "fr-10",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.2,
+          "precision10": 0.3,
+          "recall10": 0.75,
+          "ndcg10": 0.3223700486677743,
+          "mrr10": 0.2
+        },
+        {
+          "id": "pt-10",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "family": "challenge-ontology-compsci",
+          "precision5": 0.8,
+          "precision10": 0.5,
+          "recall10": 0.625,
+          "ndcg10": 0.611257498077951,
+          "mrr10": 1
+        }
+      ],
+      "delta": {
+        "precision5": 0.064,
+        "precision10": 0.028,
+        "recall10": 0.064,
+        "ndcg10": 0.0471,
+        "mrr10": 0.039
+      }
+    }
+  ]
+}
