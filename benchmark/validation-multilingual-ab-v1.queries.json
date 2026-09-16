@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "name": "Multilingual constraints held-out A/B validation v1",
+  "frozenFromCommit": "15d3564",
+  "purpose": "Held-out development validation of safe complete-English expansion using new interdisciplinary families not used to design the multilingual constraint change.",
+  "languages": ["es", "en", "de", "fr", "pt"],
+  "families": [
+    "ethics-artificial-intelligence",
+    "epistemology-psychology",
+    "philosophy-science-physics",
+    "logic-linguistics"
+  ],
+  "conditions": {
+    "A": "original-only retrieval (maxQueries=1)",
+    "B": "original plus safe multilingual expansion (maxQueries=5)"
+  },
+  "queries": [
+    {"id":"val-es-01","language":"es","family":"ethics-artificial-intelligence","query":"ética en inteligencia artificial","expectedArea":"ETH","expectedDomain":"artificial_intelligence","expectedEnglish":"ethics in artificial intelligence"},
+    {"id":"val-en-01","language":"en","family":"ethics-artificial-intelligence","query":"ethics in artificial intelligence","expectedArea":"ETH","expectedDomain":"artificial_intelligence","expectedEnglish":"ethics in artificial intelligence"},
+    {"id":"val-de-01","language":"de","family":"ethics-artificial-intelligence","query":"Ethik in der künstlichen Intelligenz","expectedArea":"ETH","expectedDomain":"artificial_intelligence","expectedEnglish":"ethics in artificial intelligence"},
+    {"id":"val-fr-01","language":"fr","family":"ethics-artificial-intelligence","query":"éthique en intelligence artificielle","expectedArea":"ETH","expectedDomain":"artificial_intelligence","expectedEnglish":"ethics in artificial intelligence"},
+    {"id":"val-pt-01","language":"pt","family":"ethics-artificial-intelligence","query":"ética em inteligência artificial","expectedArea":"ETH","expectedDomain":"artificial_intelligence","expectedEnglish":"ethics in artificial intelligence"},
+
+    {"id":"val-es-02","language":"es","family":"epistemology-psychology","query":"epistemología en psicología","expectedArea":"EPI","expectedDomain":"psychology","expectedEnglish":"epistemology in psychology"},
+    {"id":"val-en-02","language":"en","family":"epistemology-psychology","query":"epistemology in psychology","expectedArea":"EPI","expectedDomain":"psychology","expectedEnglish":"epistemology in psychology"},
+    {"id":"val-de-02","language":"de","family":"epistemology-psychology","query":"Epistemologie in der Psychologie","expectedArea":"EPI","expectedDomain":"psychology","expectedEnglish":"epistemology in psychology"},
+    {"id":"val-fr-02","language":"fr","family":"epistemology-psychology","query":"épistémologie en psychologie","expectedArea":"EPI","expectedDomain":"psychology","expectedEnglish":"epistemology in psychology"},
+    {"id":"val-pt-02","language":"pt","family":"epistemology-psychology","query":"epistemologia em psicologia","expectedArea":"EPI","expectedDomain":"psychology","expectedEnglish":"epistemology in psychology"},
+
+    {"id":"val-es-03","language":"es","family":"philosophy-science-physics","query":"filosofía de la ciencia en física","expectedArea":"SCI","expectedDomain":"physics","expectedEnglish":"philosophy of science in physics"},
+    {"id":"val-en-03","language":"en","family":"philosophy-science-physics","query":"philosophy of science in physics","expectedArea":"SCI","expectedDomain":"physics","expectedEnglish":"philosophy of science in physics"},
+    {"id":"val-de-03","language":"de","family":"philosophy-science-physics","query":"Wissenschaftstheorie in der Physik","expectedArea":"SCI","expectedDomain":"physics","expectedEnglish":"philosophy of science in physics"},
+    {"id":"val-fr-03","language":"fr","family":"philosophy-science-physics","query":"philosophie des sciences en physique","expectedArea":"SCI","expectedDomain":"physics","expectedEnglish":"philosophy of science in physics"},
+    {"id":"val-pt-03","language":"pt","family":"philosophy-science-physics","query":"filosofia da ciência em física","expectedArea":"SCI","expectedDomain":"physics","expectedEnglish":"philosophy of science in physics"},
+
+    {"id":"val-es-04","language":"es","family":"logic-linguistics","query":"lógica en lingüística","expectedArea":"LOG","expectedDomain":"linguistics","expectedEnglish":"logic in linguistics"},
+    {"id":"val-en-04","language":"en","family":"logic-linguistics","query":"logic in linguistics","expectedArea":"LOG","expectedDomain":"linguistics","expectedEnglish":"logic in linguistics"},
+    {"id":"val-de-04","language":"de","family":"logic-linguistics","query":"Logik in der Linguistik","expectedArea":"LOG","expectedDomain":"linguistics","expectedEnglish":"logic in linguistics"},
+    {"id":"val-fr-04","language":"fr","family":"logic-linguistics","query":"logique en linguistique","expectedArea":"LOG","expectedDomain":"linguistics","expectedEnglish":"logic in linguistics"},
+    {"id":"val-pt-04","language":"pt","family":"logic-linguistics","query":"lógica em linguística","expectedArea":"LOG","expectedDomain":"linguistics","expectedEnglish":"logic in linguistics"}
+  ],
+  "evaluation": {
+    "rankingDepth": 10,
+    "poolDepth": 20,
+    "relevantThreshold": 2
+  }
+}
