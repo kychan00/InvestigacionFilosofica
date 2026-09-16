@@ -22,6 +22,7 @@
     "benchmark:human-audit:sample": "node scripts/benchmark/build_human_audit.mjs",
     "benchmark:human-audit": "node scripts/benchmark/human_audit_server.mjs",
     "benchmark:human-audit:analyze": "node scripts/benchmark/analyze_human_audit.mjs",
+    "benchmark:simulate-ranking:v21": "node scripts/benchmark/simulate_ranking_v21.mjs",
     "benchmark:analyze-errors": "node scripts/benchmark/analyze_errors.mjs",
     "benchmark:simulate-ranking": "node scripts/benchmark/simulate_ranking.mjs",
     "benchmark:inspect-ranking-changes": "node scripts/benchmark/inspect_ranking_changes.mjs"
