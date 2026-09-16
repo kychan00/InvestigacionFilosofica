@@ -307,4 +307,3 @@ known changed labels: old relevant=0/2 · new relevant=0/0 · net=0
 ## Next audit requirement
 
 For the exact paired human ΔP@10 between the expansion-fix run and multilingual-constraints-v1, **45** changed query-document pairs remain unlabeled. This is a development comparison because these query families informed the new multilingual design.
-

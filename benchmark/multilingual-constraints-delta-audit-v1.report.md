@@ -160,4 +160,3 @@ Old/new side and translation provenance are revealed only after the blind audit 
 | new-only | 10 | 0 | original+translation | El proyecto de una ciencia del origen en el joven Benjamin | Aborda ontología en sentido filosófico-estético dentro del pensamiento de Walter Benjamin; no trata ontologías computacionales ni ciencia de la computación. |
 | old-only | 9 | 0 | — | Kant y la relatividad. Sobre la idea de una “ontología de la experiencia” | “Ontología” se usa en sentido epistemológico y metafísico, aplicada a Kant y la relatividad general; no trata ontologías computacionales ni informática. |
 | old-only | 10 | 0 | — | Una ontología propiamente dicha | Aborda ontología orientada a objetos en sentido filosófico, especialmente realismo, fenómeno/noúmeno y estética; no ontologías computacionales ni informática. |
-
