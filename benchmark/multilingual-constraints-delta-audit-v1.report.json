@@ -1,0 +1,1511 @@
+{
+  "schemaVersion": 1,
+  "name": "Multilingual constraints v1 paired human delta",
+  "methodology": "Observed paired human Top-10 delta between the expansion-fix run and multilingual-constraints-v1. Shared rows cancel; all changed rows are human judged or reused from prior human audits.",
+  "interpretationBoundary": "This is development evidence, not independent validation. Provider drift is visible in English queries where the expansion set is unchanged; therefore the observed run-to-run delta must not be interpreted as a pure causal effect of multilingual translation.",
+  "relevantThreshold": 2,
+  "sources": {
+    "oldRun": "benchmark/runs/human-v1.0-interdisciplinary-expansionfix-cfb853a.jsonl",
+    "newRun": "benchmark/runs/human-v1.0-interdisciplinary-multilingual-f02f02f.jsonl",
+    "priorHuman": [
+      "benchmark/human-audit-v1.judgments.jsonl",
+      "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+    ],
+    "auditManifest": "benchmark/multilingual-constraints-delta-audit-v1.manifest.json",
+    "auditJudgments": "benchmark/multilingual-constraints-delta-audit-v1.judgments.jsonl"
+  },
+  "summary": {
+    "queries": 10,
+    "changedTop10Pairs": 66,
+    "newlyJudgedPairs": 45,
+    "priorHumanReused": 21,
+    "commentsOnNewJudgments": 45,
+    "oldOnlyRelevant": 10,
+    "newOnlyRelevant": 26,
+    "netRelevant": 16,
+    "observedPairedDeltaP10": 0.16,
+    "oldOnlyOrdinalSum": 31,
+    "newOnlyOrdinalSum": 76,
+    "deltaOrdinalSum": 45,
+    "improvedQueries": 6,
+    "worsenedQueries": 1,
+    "tiedQueries": 3,
+    "translationNewOnly": 26,
+    "translationNewOnlyRelevant": 21,
+    "translationNewOnlyRelevantRate": 0.8077,
+    "translationOnlyNewOnly": 25,
+    "translationOnlyNewOnlyRelevant": 21,
+    "translationOnlyNewOnlyRelevantRate": 0.84,
+    "englishControl": {
+      "queries": 2,
+      "oldOnlyRelevant": 4,
+      "newOnlyRelevant": 5,
+      "netRelevant": 1,
+      "pairedDeltaP10": 0.05
+    },
+    "translationTargetLanguages": {
+      "queries": 8,
+      "oldOnlyRelevant": 6,
+      "newOnlyRelevant": 21,
+      "netRelevant": 15,
+      "pairedDeltaP10": 0.1875
+    }
+  },
+  "perQuery": [
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "control_no_new_translation": false,
+      "changed_per_side": 3,
+      "old_only_relevant": 2,
+      "new_only_relevant": 2,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 7,
+      "new_only_ordinal_sum": 6,
+      "delta_ordinal_sum": -1,
+      "new_only_translation_any": 3,
+      "new_only_translation_relevant": 2
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "control_no_new_translation": true,
+      "changed_per_side": 2,
+      "old_only_relevant": 2,
+      "new_only_relevant": 1,
+      "delta_relevant": -1,
+      "paired_delta_p10": -0.1,
+      "old_only_ordinal_sum": 6,
+      "new_only_ordinal_sum": 2,
+      "delta_ordinal_sum": -4,
+      "new_only_translation_any": 0,
+      "new_only_translation_relevant": 0
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "control_no_new_translation": false,
+      "changed_per_side": 8,
+      "old_only_relevant": 2,
+      "new_only_relevant": 7,
+      "delta_relevant": 5,
+      "paired_delta_p10": 0.5,
+      "old_only_ordinal_sum": 5,
+      "new_only_ordinal_sum": 20,
+      "delta_ordinal_sum": 15,
+      "new_only_translation_any": 8,
+      "new_only_translation_relevant": 7
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "control_no_new_translation": false,
+      "changed_per_side": 3,
+      "old_only_relevant": 0,
+      "new_only_relevant": 2,
+      "delta_relevant": 2,
+      "paired_delta_p10": 0.2,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 6,
+      "delta_ordinal_sum": 6,
+      "new_only_translation_any": 3,
+      "new_only_translation_relevant": 2
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "control_no_new_translation": false,
+      "changed_per_side": 3,
+      "old_only_relevant": 2,
+      "new_only_relevant": 2,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 6,
+      "new_only_ordinal_sum": 6,
+      "delta_ordinal_sum": 0,
+      "new_only_translation_any": 3,
+      "new_only_translation_relevant": 2
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "language": "es",
+      "control_no_new_translation": false,
+      "changed_per_side": 1,
+      "old_only_relevant": 0,
+      "new_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "new_only_translation_any": 0,
+      "new_only_translation_relevant": 0
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "control_no_new_translation": true,
+      "changed_per_side": 4,
+      "old_only_relevant": 2,
+      "new_only_relevant": 4,
+      "delta_relevant": 2,
+      "paired_delta_p10": 0.2,
+      "old_only_ordinal_sum": 6,
+      "new_only_ordinal_sum": 12,
+      "delta_ordinal_sum": 6,
+      "new_only_translation_any": 0,
+      "new_only_translation_relevant": 0
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "control_no_new_translation": false,
+      "changed_per_side": 5,
+      "old_only_relevant": 0,
+      "new_only_relevant": 5,
+      "delta_relevant": 5,
+      "paired_delta_p10": 0.5,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 15,
+      "delta_ordinal_sum": 15,
+      "new_only_translation_any": 5,
+      "new_only_translation_relevant": 5
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "control_no_new_translation": false,
+      "changed_per_side": 2,
+      "old_only_relevant": 0,
+      "new_only_relevant": 2,
+      "delta_relevant": 2,
+      "paired_delta_p10": 0.2,
+      "old_only_ordinal_sum": 1,
+      "new_only_ordinal_sum": 6,
+      "delta_ordinal_sum": 5,
+      "new_only_translation_any": 2,
+      "new_only_translation_relevant": 2
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "control_no_new_translation": false,
+      "changed_per_side": 2,
+      "old_only_relevant": 0,
+      "new_only_relevant": 1,
+      "delta_relevant": 1,
+      "paired_delta_p10": 0.1,
+      "old_only_ordinal_sum": 0,
+      "new_only_ordinal_sum": 3,
+      "delta_ordinal_sum": 3,
+      "new_only_translation_any": 2,
+      "new_only_translation_relevant": 1
+    }
+  ],
+  "changedRows": [
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.4321/s1132-12962007000300012",
+      "title": "La interface entre la fenomenología y el cuidado de enfermería",
+      "human_relevance": 3,
+      "human_note": "El artículo está dedicado explícitamente a fundamentar y analizar el cuidado de enfermería desde una perspectiva fenomenológica.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.70069/rve.2026.13.1.0010",
+      "title": "Hacia un nuevo horizonte en ciencias de la educación: educación continua interdisciplinaria y sostenible en salud desde la fenomenología social",
+      "human_relevance": 1,
+      "human_note": "Utiliza sustantivamente la fenomenología social en un estudio sobre educación continua en salud, pero no se centra específicamente en enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.37976/enfermeria.v11i2.138",
+      "title": "Fenomenología como método de investigación: Una opción para el profesional de enfermería",
+      "human_relevance": 3,
+      "human_note": "Desarrolla explícitamente la fenomenología como método de investigación aplicable por profesionales de enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "side": "new-only",
+      "rank": 4,
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "title": "Interpretive phenomenology in health care research",
+      "human_relevance": 3,
+      "human_note": "Obra dedicada a la fenomenología interpretativa como marco para investigación y práctica de enfermería y salud.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "side": "new-only",
+      "rank": 7,
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "title": "ERIC EJ1073197: Hiding in Plain Sight: Building Community Social Capital in Distance Education Graduate Programs",
+      "human_relevance": 0,
+      "human_note": "Estudia educación a distancia y capital social en estudiantes de enfermería, pero no aborda la fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "es-09",
+      "query": "fenomenología en enfermería",
+      "language": "es",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "title": "Phenomenology as research method or substantive metaphysics? An overview of phenomenology's uses in nursing",
+      "human_relevance": 3,
+      "human_note": "Analiza directamente los usos de la fenomenología como filosofía y método de investigación en enfermería.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "side": "old-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:nursingexperienc0000unse",
+      "title": "Nursing and the experience of illness : phenomenology in practice",
+      "human_relevance": 3,
+      "human_note": "Obra dedicada explícitamente a la aplicación de la fenomenología en la investigación y práctica de enfermería.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "side": "old-only",
+      "rank": 2,
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "title": "Revisioning phenomenology : nursing and health science research",
+      "human_relevance": 3,
+      "human_note": "Obra metodológica dedicada explícitamente al uso de la fenomenología en investigación de enfermería y ciencias de la salud.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "title": "ERIC EJ1073197: Hiding in Plain Sight: Building Community Social Capital in Distance Education Graduate Programs",
+      "human_relevance": 0,
+      "human_note": "Mismo documento que M012/M014/M028/M037.\nEstudia capital social en estudiantes de enfermería a distancia, pero no aborda fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "original-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "en-09",
+      "query": "phenomenology in nursing",
+      "language": "en",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "source:internet-archive:httpsdiscoveryjournals.orgmedicalsciencecurrent_issuev27n135e227ms2996.pdf_202409",
+      "title": "Lived experiences of management intern nursing students in the clinical settings of the quality of educational services using the SERVQUAL model: A descriptive phenomenology study",
+      "human_relevance": 2,
+      "human_note": "Utiliza de forma sustantiva fenomenología descriptiva para estudiar experiencias de estudiantes de enfermería, pero el foco principal es la calidad de los servicios educativos mediante SERVQUAL.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "original-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 3,
+      "record_id": "openalex:W2078645737",
+      "title": "Heidegger's Appropriation of the Concept of Intentionality in Die Grundprobleme der Phanomenologie",
+      "human_relevance": 0,
+      "human_note": "Analiza la apropiación heideggeriana de la intencionalidad en fenomenología filosófica; no aborda enfermería ni investigación en nursing.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 4,
+      "record_id": "openalex:W4229717448",
+      "title": "Gabriel Cercel: Martin HEIDEGGER, Reden und andere Zeugnisse eines Lebensweges; Attila Szigeti: Emmanuel LEVINAS, Positivité et transcendance. Suivi de Lévinas et la phenomenology; Cristian Ciocan: Jean-Luc MARION, Crucea vizibilului; Gabriel Cercel: Mądąlina DIACONU, Blickumkehr. Mit Martin Heidegger zu einer relationalen ästhetik; Cristina Ionescu: Mark WRATHALL, Jeff MALPAS (eds.), Essays in Honour of Hubert L. Dreyfus; Cristian Ciocan: Ion COPOERU, Aparenţą şi sens. Repere ale fenomenologiei constitutive; Cristian Ciocan: Michael INWOOD, A Heidegger Dictionary; Cristian Ciocan: Linda FISCHER, Lester EMBREE (eds.), Feminist Phenomenology; Mądąlina Diaconu: Renato CRISTIN, Fenomeno storia. Fenomenologia e storicità in Husserl e Dilthey; Cristian Ciocan: Michel HAAR, La philosophie française entre phénoménologie et métaphysique; Gabriel Cercel: Otto PöGGELER, Heidegger in seiner Zeit; Roxana Albu: James RISSER (ed.), Heidegger toward the Turn, Essays on the work of the 1930s; Cristian Ciocan: Virgil Ciomoş, Timp şi Eternitate. Aristotel, Fizica IV 10-14, Interpretare fenomenologicą; Cristina Ionescu: William D. BLATTNER, Heidegger's Temporal Idealism; Bogdan Mincą: Gino ZACCARIA, L'inizio greco del pensiero. Heidegger e l'essenza futura della filosofia; Mądąlina Diaconu: Ute GUZZONI, Wohnen und Wandern; Bogdan Tątaru-Cazaban: Emmanuel LéVINAS, Totalitate şi infinit; Mihail Neamţu: Jean-Luc MARION, étant donné. Essai d'une phénoménologie de la donation; Gabriel Cercel: Robert PETKOVŠEK, Heidegger-Index (1919-1927); Cristian Ciocan: Einar ØVERENGET, Seeing The Self. Heidegger on Subjectivity Mihail Neamţu: Rolf KüHN, Husserls Begriff der Passivität. Zur Kritik der passiven Synthesis in der genetischen Phänomenologie.",
+      "human_relevance": 0,
+      "human_note": "Conjunto de reseñas sobre obras de fenomenología filosófica; no trata enfermería ni aplicación fenomenológica a los cuidados.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 5,
+      "record_id": "openalex:W2593647896",
+      "title": "Das Selbst und die Gegenwart der Verantwortung. Über das Verantwortungskonzept in der hermeneutischen Phänomenologie von Paul Ricœur",
+      "human_relevance": 0,
+      "human_note": "Analiza la responsabilidad en la fenomenología hermenéutica de Ricœur, pero no tiene relación sustantiva con enfermería o cuidados.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 6,
+      "record_id": "openalex:W4297862612",
+      "title": "Das Experiment bei Husserl. Zum Verhältnis von Empirie und Eidetik in der Phänomenologie",
+      "human_relevance": 0,
+      "human_note": "Estudia metodológicamente el papel del experimento en la fenomenología husserliana, pero no aborda enfermería ni cuidados.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 7,
+      "record_id": "doi:10.1024/1012-5302.22.3.217",
+      "title": "Dialogische Phänomenologie im Rahmen der Pflegewissenschaft – Eine kritische Auseinandersetzung mit einer wenig bekannten Forschungsmethode",
+      "human_relevance": 3,
+      "human_note": "Presenta y evalúa directamente la fenomenología dialógica como método de investigación en ciencias de la enfermería y su utilidad para la práctica reflexiva.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.1007/978-3-662-68848-9_16-1",
+      "title": "Qualitative Gesundheitsforschung aus Sicht der Neuen Phänomenologie",
+      "human_relevance": 2,
+      "human_note": "Aplica la Nueva Fenomenología a la investigación cualitativa en salud, pero no parece centrarse específicamente en enfermería.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.1007/1-4020-4731-2_7",
+      "title": "Idee einer Phänomenologie der Hoffnung",
+      "human_relevance": 0,
+      "human_note": "Desarrolla una fenomenología filosófica de la esperanza, pero no aborda enfermería ni investigación fenomenológica en nursing.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.30965/9783846751985_007",
+      "title": "Der Sinn der Phänomenologie: Eine methodologische Reflexion",
+      "human_relevance": 0,
+      "human_note": "Reflexiona sobre el sentido y método de la fenomenología en el plano filosófico; no aborda enfermería ni su aplicación en investigación o cuidados.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "title": "Interpretive phenomenology in health care research",
+      "human_relevance": 3,
+      "human_note": "Obra dedicada a la fenomenología interpretativa como marco filosófico y metodológico para investigación y práctica de enfermería y salud.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "title": "ERIC EJ1073197: Hiding in Plain Sight: Building Community Social Capital in Distance Education Graduate Programs",
+      "human_relevance": 0,
+      "human_note": "Estudia capital social y educación a distancia en estudiantes de enfermería, pero no aborda la fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 4,
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "title": "Phenomenology as research method or substantive metaphysics? An overview of phenomenology's uses in nursing",
+      "human_relevance": 3,
+      "human_note": "Analiza directamente los usos de la fenomenología como filosofía y método de investigación en enfermería, y su impacto en el conocimiento disciplinar.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 6,
+      "record_id": "doi:10.1891/9780826126870.0007",
+      "title": "Using Phenomenology as a Research Method in Community-Based Research",
+      "human_relevance": 3,
+      "human_note": "Capítulo metodológico dedicado al uso de la fenomenología en investigación comunitaria dentro del contexto de la investigación en enfermería.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 7,
+      "record_id": "doi:10.1007/978-3-030-47253-5_374-1",
+      "title": "Nursing and Phenomenology",
+      "human_relevance": 3,
+      "human_note": "Entrada dedicada explícitamente a la influencia y uso de la fenomenología en investigación, práctica y cuidado de enfermería.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "doi:10.4324/9781003427407-47",
+      "title": "Phenomenology and nursing",
+      "human_relevance": 3,
+      "human_note": "Capítulo dedicado explícitamente a la relación entre fenomenología y enfermería dentro de un manual de filosofía y nursing.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "doi:10.4324/9781003427407-48",
+      "title": "Phenomenology and nursing",
+      "human_relevance": 3,
+      "human_note": "Capítulo dedicado explícitamente a la relación entre fenomenología y enfermería y a su relevancia filosófica para el campo.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "query": "Phänomenologie in der Pflege",
+      "language": "de",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:ERIC_EJ956977",
+      "title": "ERIC EJ956977: The Experience of Witnessing Patients' Trauma and Suffering among Acute Care Nurses",
+      "human_relevance": 2,
+      "human_note": "Utiliza de forma sustantiva un método fenomenológico para estudiar la experiencia vivida de enfermeras de cuidados agudos, pero el foco principal es el trauma y sufrimiento presenciado en la práctica clínica.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0337",
+      "title": "Hypnose en soins infirmiers",
+      "human_relevance": 0,
+      "human_note": "Trata específicamente de hipnosis e hipnoterapia en cuidados de enfermería, no de fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.3917/dunod.barbi.2020.01.0355",
+      "title": "Hypnose en soins infirmiers",
+      "human_relevance": 0,
+      "human_note": "Trata específicamente de hipnosis en cuidados de enfermería, pero no aborda fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0351",
+      "title": "Hypnose en soins infirmiers",
+      "human_relevance": 0,
+      "human_note": "Aborda la hipnosis en cuidados de enfermería, pero no la fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "side": "new-only",
+      "rank": 2,
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "title": "Interpretive phenomenology in health care research",
+      "human_relevance": 3,
+      "human_note": "Obra metodológica dedicada a la fenomenología interpretativa en investigación sanitaria, con numerosos capítulos centrados explícitamente en enfermería y prácticas de cuidado.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "title": "ERIC EJ1073197: Hiding in Plain Sight: Building Community Social Capital in Distance Education Graduate Programs",
+      "human_relevance": 0,
+      "human_note": "Estudia capital social y educación a distancia en estudiantes de enfermería, pero no aborda la fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "fr-09",
+      "query": "phénoménologie en soins infirmiers",
+      "language": "fr",
+      "side": "new-only",
+      "rank": 4,
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "title": "Phenomenology as research method or substantive metaphysics? An overview of phenomenology's uses in nursing",
+      "human_relevance": 3,
+      "human_note": "Analiza directamente los usos de la fenomenología como filosofía y método de investigación en enfermería.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "doi:10.1590/s0104-11691997000100010",
+      "title": "Fenomenologia: uma alternativa para pesquisa em enfermagem",
+      "human_relevance": 3,
+      "human_note": "Presenta explícitamente la fenomenología como alternativa metodológica para la investigación en enfermería y examina su uso por profesionales de enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+      "title": "Figuras do direito na Fenomenologia do Espírito: a fenomenologia como doutrina do espírito objetivo?",
+      "human_relevance": 0,
+      "human_note": "Analiza la Fenomenología del espíritu de Hegel y su relación con el derecho y el espíritu objetivo; no aborda fenomenología aplicada a la enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.1590/s0034-71671994000100010",
+      "title": "Enfermagem psiquiátrica e fenomenologia: algumas considerações",
+      "human_relevance": 3,
+      "human_note": "Reflexiona directamente sobre la aplicación de la fenomenología a la atención y comprensión del paciente en enfermería psiquiátrica.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "side": "new-only",
+      "rank": 6,
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "title": "Interpretive phenomenology in health care research",
+      "human_relevance": 3,
+      "human_note": "Mismo documento que M006/M011/M036.\nObra metodológica dedicada a la fenomenología interpretativa en investigación sanitaria, con fuerte énfasis en enfermería y prácticas de cuidado.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "side": "new-only",
+      "rank": 7,
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "title": "ERIC EJ1073197: Hiding in Plain Sight: Building Community Social Capital in Distance Education Graduate Programs",
+      "human_relevance": 0,
+      "human_note": "Estudia educación a distancia y capital social en estudiantes de enfermería, pero no utiliza ni aborda la fenomenología.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "pt-09",
+      "query": "fenomenologia na enfermagem",
+      "language": "pt",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "title": "Phenomenology as research method or substantive metaphysics? An overview of phenomenology's uses in nursing",
+      "human_relevance": 3,
+      "human_note": "Analiza directamente los usos de la fenomenología como filosofía y método de investigación en enfermería.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "phenomenology in nursing",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "language": "es",
+      "side": "old-only",
+      "rank": 6,
+      "record_id": "doi:10.15332/tg.mae.2016.00323",
+      "title": "Ontología política de la voluntad en Enrique Dussel",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología política en el pensamiento de Enrique Dussel; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "es-10",
+      "query": "ontología en informática",
+      "language": "es",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "doi:10.14482/eidos.27.8119",
+      "title": "La ontología negativa en las filosofías socráticas y sus proyecciones interepocales",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico, específicamente en las corrientes socráticas y su proyección hacia Heidegger; no trata ontologías computacionales ni informática.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "original-only",
+      "matchedQueries": [
+        {
+          "query": "ontología en informática",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "old-only",
+      "rank": 6,
+      "record_id": "source:internet-archive:DTIC_ADA534412",
+      "title": "DTIC ADA534412: Linking Semantic and Knowledge Representations in a Multi-Domain Dialogue System",
+      "human_relevance": 3,
+      "human_note": "Desarrolla directamente mapeo entre ontologías semánticas y ontologías de conocimiento de dominio para razonamiento computacional en sistemas de diálogo.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+      "title": "Video Representation and Semantic Information Extraction using Ontology based Approaches",
+      "human_relevance": 3,
+      "human_note": "Emplea directamente ingeniería de ontologías, representación semántica y razonamiento computacional para modelar y extraer información de video.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "openalex:W763069345",
+      "title": "Levinas, Meaning, and Philosophy of Social Science: From Ethical Metaphysics to Ontology and Epistemology",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico dentro de una discusión sobre Levinas y filosofía de las ciencias sociales; no trata ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "openalex:W7136197983",
+      "title": "Myth of Metaphysical Neutrality: How Denying Ontology Distorts Science, AI, and Understanding Itself",
+      "human_relevance": 0,
+      "human_note": "Discute compromisos ontológicos en sentido metafísico y sus implicaciones para ciencia e IA, pero no ontologías computacionales ni representación formal del conocimiento.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "new-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "title": "Using Apache Jena Fuseki Server for Execution of SPARQL Queries in Job Search Ontology Using Semantic Technology",
+      "human_relevance": 3,
+      "human_note": "",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": "original-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "new-only",
+      "rank": 3,
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "title": "DTIC ADA515719: Uncertainty in Ontology Mapping: A Bayesian Perspective",
+      "human_relevance": 3,
+      "human_note": "Aborda directamente el mapeo de ontologías OWL mediante un enfoque bayesiano para representación y razonamiento bajo incertidumbre.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "original-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "source:internet-archive:DTIC_ADA624287",
+      "title": "DTIC ADA624287: Dataset Curation through Renders and Ontology Matching",
+      "human_relevance": 3,
+      "human_note": "Utiliza directamente ontology matching y ontologías de entidades para automatizar el etiquetado y la construcción de datasets en visión por computadora.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "original-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "query": "ontology in computer science",
+      "language": "en",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+      "title": "A Conceptual Model for Ontology Based Learning",
+      "human_relevance": 3,
+      "human_note": "Desarrolla una ontología del aprendizaje y un modelo conceptual basado en ella dentro de contextos de IA y sistemas multiagente.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "original-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "old-only",
+      "rank": 6,
+      "record_id": "openalex:W6947466892",
+      "title": "Von der Epistemologie zur Ontologie Martin Heideggers Hermeneutik der Freiheit im Diskurs mit Immanuel Kant",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología filosófica en Heidegger, en diálogo con Kant y el problema de la libertad; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "old-only",
+      "rank": 7,
+      "record_id": "openalex:W7114683522",
+      "title": "Die Ontologie Mullā Ṣadrās und der Vorwurf der Ontotheologie Versuch einer Interpretation der Philosophie Mullā Ṣadrās im Lichte der Metaphysikkritik Heideggers",
+      "human_relevance": 0,
+      "human_note": "Trata ontología filosófica y ontoteología en Mullā Ṣadrā y Heidegger, no ontologías en informática.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "old-only",
+      "rank": 8,
+      "record_id": "openalex:W2899757804",
+      "title": "Nicolai Hartmanns Kritische Ontologie („wie sie als Grundlage der Gnoseologie anzustreben ist“) und der Kritische Realismus der Gestaltpsychologie („Berliner Schule“/Gestalttheorie)",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología crítica en sentido filosófico y su relación con la psicología de la Gestalt; no trata ontologías computacionales ni informática.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "openalex:W2614963464",
+      "title": "Ontologie der Innerlichkeit. Reditio Completa und Processio Interior bei Thomas von Aquinas by Reto L. Fetz",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico-tomista, particularmente la interioridad y el alma en Tomás de Aquino; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "openalex:W7070541658",
+      "title": "Physik und Ontologie – oder Die 'Ontologiebeladenheit' der Epistemologie und die 'Realismusdebatte'",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en filosofía de la física y epistemología, especialmente realismo científico y realismo estructural óntico; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "new-only",
+      "rank": 2,
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "title": "Using Apache Jena Fuseki Server for Execution of SPARQL Queries in Job Search Ontology Using Semantic Technology",
+      "human_relevance": 3,
+      "human_note": "Construye y consulta una ontología computacional de búsqueda de empleo mediante Protégé, RDF, SPARQL y Apache Jena Fuseki.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "new-only",
+      "rank": 4,
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "title": "DTIC ADA515719: Uncertainty in Ontology Mapping: A Bayesian Perspective",
+      "human_relevance": 3,
+      "human_note": "Aborda directamente el mapeo de ontologías OWL mediante un enfoque bayesiano para representación y razonamiento bajo incertidumbre.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "new-only",
+      "rank": 8,
+      "record_id": "source:internet-archive:DTIC_ADA624287",
+      "title": "DTIC ADA624287: Dataset Curation through Renders and Ontology Matching",
+      "human_relevance": 3,
+      "human_note": "Utiliza directamente ontology matching y mapeo de imágenes a ontologías de entidades para automatizar la construcción y etiquetado de datasets en visión por computadora.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "openalex:W4240899380",
+      "title": "Ontology in Computer Science",
+      "human_relevance": 3,
+      "human_note": "Capítulo dedicado explícitamente al concepto y uso de ontologías en ciencias de la computación y Web Semántica.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "query": "Ontologie in der Informatik",
+      "language": "de",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+      "title": "A Conceptual Model for Ontology Based Learning",
+      "human_relevance": 3,
+      "human_note": "Construye una ontología formal del aprendizaje y la utiliza como base para un modelo conceptual aplicable a IA y sistemas multiagente.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.1051/ita/197610r100391",
+      "title": "Valeurs propres et vecteurs propres en classification hiérarchique",
+      "human_relevance": 0,
+      "human_note": "Trata métodos algebraicos para clasificación jerárquica y análisis de datos; no aborda ontologías computacionales.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+      "title": "Epistemology and Ontology of AI — From Lagrange and Hamilton Genre-Shift to Agentic AI Cognitive Safety: Open-Source Framework, LNN, HNN, PINN and SciML within the Dorian Codex H_SAFE by Stefano Dorian Franco — Independent Research Modules Programme",
+      "human_relevance": 1,
+      "human_note": "",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "title": "Using Apache Jena Fuseki Server for Execution of SPARQL Queries in Job Search Ontology Using Semantic Technology",
+      "human_relevance": 3,
+      "human_note": "Construye y consulta una ontología computacional de búsqueda de empleo mediante Protégé, RDF, SPARQL y Apache Jena Fuseki.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "fr-10",
+      "query": "ontologie en informatique",
+      "language": "fr",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "title": "DTIC ADA515719: Uncertainty in Ontology Mapping: A Bayesian Perspective",
+      "human_relevance": 3,
+      "human_note": "Aborda directamente ingeniería y mapeo de ontologías OWL mediante redes bayesianas para representación y razonamiento bajo incertidumbre.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "side": "old-only",
+      "rank": 9,
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "title": "Kant y la relatividad. Sobre la idea de una “ontología de la experiencia”",
+      "human_relevance": 0,
+      "human_note": "“Ontología” se usa en sentido epistemológico y metafísico, aplicada a Kant y la relatividad general; no trata ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "side": "old-only",
+      "rank": 10,
+      "record_id": "doi:10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología orientada a objetos en sentido filosófico, especialmente realismo, fenómeno/noúmeno y estética; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ],
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "side": "new-only",
+      "rank": 9,
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "title": "Using Apache Jena Fuseki Server for Execution of SPARQL Queries in Job Search Ontology Using Semantic Technology",
+      "human_relevance": 3,
+      "human_note": "Construye y consulta una ontología computacional de búsqueda de empleo mediante Protégé, RDF, SPARQL y Apache Jena Fuseki.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "pt-10",
+      "query": "ontologia em ciência da computação",
+      "language": "pt",
+      "side": "new-only",
+      "rank": 10,
+      "record_id": "doi:10.32870/prot.i26.446",
+      "title": "El proyecto de una ciencia del origen en el joven Benjamin",
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico-estético dentro del pensamiento de Walter Benjamin; no trata ontologías computacionales ni ciencia de la computación.",
+      "human_sources": [
+        "multilingual-constraints-delta-audit-v1"
+      ],
+      "translation_mode": "original+translation",
+      "matchedQueries": [
+        {
+          "query": "ontologia em ciência da computação",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "ontology in computer science",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

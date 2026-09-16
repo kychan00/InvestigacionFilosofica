@@ -1,0 +1,1832 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-16T21:53:53.193Z",
+  "purpose": "Diagnostic: measure multilingual parser coverage and safe complete-constraint English expansion behavior.",
+  "summary": {
+    "benchmark_queries": 50,
+    "language_detection_correct": 41,
+    "language_detection_rate": 0.82,
+    "interdisciplinary_queries": 10,
+    "interdisciplinary_explicit_area_recognized": 10,
+    "interdisciplinary_domain_recognized": 10,
+    "interdisciplinary_with_safe_english_path": 10,
+    "interdisciplinary_original_only": 2
+  },
+  "byLanguage": {
+    "es": {
+      "queries": 10,
+      "language_detected_correctly": 6,
+      "language_detection_rate": 0.6
+    },
+    "en": {
+      "queries": 10,
+      "language_detected_correctly": 7,
+      "language_detection_rate": 0.7
+    },
+    "de": {
+      "queries": 10,
+      "language_detected_correctly": 10,
+      "language_detection_rate": 1
+    },
+    "fr": {
+      "queries": 10,
+      "language_detected_correctly": 9,
+      "language_detection_rate": 0.9
+    },
+    "pt": {
+      "queries": 10,
+      "language_detected_correctly": 9,
+      "language_detection_rate": 0.9
+    }
+  },
+  "interdisciplinaryCoverage": {
+    "es": {
+      "queries": 2,
+      "explicit_area_recognized": 2,
+      "domain_recognized": 2,
+      "complete_english_path": 2,
+      "area_rate": 1,
+      "domain_rate": 1,
+      "translation_rate": 1
+    },
+    "en": {
+      "queries": 2,
+      "explicit_area_recognized": 2,
+      "domain_recognized": 2,
+      "complete_english_path": 2,
+      "area_rate": 1,
+      "domain_rate": 1,
+      "translation_rate": 1
+    },
+    "de": {
+      "queries": 2,
+      "explicit_area_recognized": 2,
+      "domain_recognized": 2,
+      "complete_english_path": 2,
+      "area_rate": 1,
+      "domain_rate": 1,
+      "translation_rate": 1
+    },
+    "fr": {
+      "queries": 2,
+      "explicit_area_recognized": 2,
+      "domain_recognized": 2,
+      "complete_english_path": 2,
+      "area_rate": 1,
+      "domain_rate": 1,
+      "translation_rate": 1
+    },
+    "pt": {
+      "queries": 2,
+      "explicit_area_recognized": 2,
+      "domain_recognized": 2,
+      "complete_english_path": 2,
+      "area_rate": 1,
+      "domain_rate": 1,
+      "translation_rate": 1
+    }
+  },
+  "rows": [
+    {
+      "query_id": "es-01",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "libertad en Kant",
+      "expected_language": "es",
+      "detected_language": "es",
+      "language_match": true,
+      "philosophers": [
+        "kant"
+      ],
+      "concepts": [
+        "freedom"
+      ],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "ETH",
+        "POL",
+        "MET",
+        "EPI",
+        "AES"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "libertad en Kant",
+          "reason": "user-query"
+        },
+        {
+          "type": "literal",
+          "weight": 0.98,
+          "query": "Immanuel Kant Libertad",
+          "reason": "philosopher-first"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "Immanuel Kant Freedom",
+          "reason": "english-translation"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.78,
+          "query": "Immanuel Kant autonomy",
+          "reason": "concept:freedom"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.74,
+          "query": "Immanuel Kant free will",
+          "reason": "concept:freedom"
+        }
+      ]
+    },
+    {
+      "query_id": "en-01",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "freedom in Kant",
+      "expected_language": "en",
+      "detected_language": "en",
+      "language_match": true,
+      "philosophers": [
+        "kant"
+      ],
+      "concepts": [
+        "freedom"
+      ],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "ETH",
+        "POL",
+        "MET",
+        "EPI",
+        "AES"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "freedom in Kant",
+          "reason": "user-query"
+        },
+        {
+          "type": "literal",
+          "weight": 0.98,
+          "query": "Immanuel Kant Libertad",
+          "reason": "philosopher-first"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "Immanuel Kant Freedom",
+          "reason": "english-translation"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.78,
+          "query": "Immanuel Kant autonomy",
+          "reason": "concept:freedom"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.74,
+          "query": "Immanuel Kant free will",
+          "reason": "concept:freedom"
+        }
+      ]
+    },
+    {
+      "query_id": "de-01",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "Freiheit bei Kant",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [
+        "kant"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "EPI",
+        "MET",
+        "ETH",
+        "AES",
+        "POL"
+      ],
+      "residual_tokens": [
+        "freiheit"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Freiheit bei Kant",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-01",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "liberté chez Kant",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [
+        "kant"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "EPI",
+        "MET",
+        "ETH",
+        "AES",
+        "POL"
+      ],
+      "residual_tokens": [
+        "liberte",
+        "chez"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "liberté chez Kant",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-01",
+      "family": "kant-freedom",
+      "intent": "philosopher-concept",
+      "query": "liberdade em Kant",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [
+        "kant"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "EPI",
+        "MET",
+        "ETH",
+        "AES",
+        "POL"
+      ],
+      "residual_tokens": [
+        "liberdade"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "liberdade em Kant",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-02",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Ser y tiempo Heidegger",
+      "expected_language": "es",
+      "detected_language": "es",
+      "language_match": true,
+      "philosophers": [
+        "heidegger"
+      ],
+      "concepts": [
+        "being"
+      ],
+      "works": [
+        "heidegger_bt"
+      ],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "MET",
+        "EXI",
+        "PHEN",
+        "TECH"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Ser y tiempo Heidegger",
+          "reason": "user-query"
+        },
+        {
+          "type": "literal",
+          "weight": 0.98,
+          "query": "Martin Heidegger Ser",
+          "reason": "philosopher-first"
+        },
+        {
+          "type": "work",
+          "weight": 0.95,
+          "query": "Being and Time",
+          "reason": "work:heidegger_bt"
+        },
+        {
+          "type": "work-author",
+          "weight": 0.93,
+          "query": "Martin Heidegger Being and Time",
+          "reason": "work-author:heidegger_bt"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "Martin Heidegger Being",
+          "reason": "english-translation"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.76,
+          "query": "Martin Heidegger ontology",
+          "reason": "concept:being"
+        }
+      ]
+    },
+    {
+      "query_id": "en-02",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Being and Time Heidegger",
+      "expected_language": "en",
+      "detected_language": "en",
+      "language_match": true,
+      "philosophers": [
+        "heidegger"
+      ],
+      "concepts": [
+        "being"
+      ],
+      "works": [
+        "heidegger_bt"
+      ],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "MET",
+        "EXI",
+        "PHEN",
+        "TECH"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Being and Time Heidegger",
+          "reason": "user-query"
+        },
+        {
+          "type": "literal",
+          "weight": 0.98,
+          "query": "Martin Heidegger Ser",
+          "reason": "philosopher-first"
+        },
+        {
+          "type": "work",
+          "weight": 0.95,
+          "query": "Being and Time",
+          "reason": "work:heidegger_bt"
+        },
+        {
+          "type": "work-author",
+          "weight": 0.93,
+          "query": "Martin Heidegger Being and Time",
+          "reason": "work-author:heidegger_bt"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "Martin Heidegger Being",
+          "reason": "english-translation"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.76,
+          "query": "Martin Heidegger ontology",
+          "reason": "concept:being"
+        }
+      ]
+    },
+    {
+      "query_id": "de-02",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Sein und Zeit Heidegger",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [
+        "heidegger"
+      ],
+      "concepts": [],
+      "works": [
+        "heidegger_bt"
+      ],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "MET",
+        "PHEN",
+        "EXI",
+        "TECH"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Sein und Zeit Heidegger",
+          "reason": "user-query"
+        },
+        {
+          "type": "work",
+          "weight": 0.95,
+          "query": "Being and Time",
+          "reason": "work:heidegger_bt"
+        },
+        {
+          "type": "work-author",
+          "weight": 0.93,
+          "query": "Martin Heidegger Being and Time",
+          "reason": "work-author:heidegger_bt"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-02",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Être et Temps Heidegger",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [
+        "heidegger"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "MET",
+        "PHEN",
+        "EXI",
+        "TECH"
+      ],
+      "residual_tokens": [
+        "etre",
+        "temps"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Être et Temps Heidegger",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-02",
+      "family": "heidegger-being-time",
+      "intent": "work",
+      "query": "Ser e Tempo Heidegger",
+      "expected_language": "pt",
+      "detected_language": "es",
+      "language_match": false,
+      "philosophers": [
+        "heidegger"
+      ],
+      "concepts": [
+        "being"
+      ],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "MET",
+        "EXI",
+        "PHEN",
+        "TECH"
+      ],
+      "residual_tokens": [
+        "tempo"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Ser e Tempo Heidegger",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-03",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "ética de la virtud en Aristóteles",
+      "expected_language": "es",
+      "detected_language": "es",
+      "language_match": true,
+      "philosophers": [
+        "aristotle"
+      ],
+      "concepts": [
+        "virtue"
+      ],
+      "works": [],
+      "explicit_areas": [
+        "ETH"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "ETH",
+        "MET",
+        "LOG",
+        "POL"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "ética de la virtud en Aristóteles",
+          "reason": "user-query"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.8,
+          "query": "Aristotle virtue ethics",
+          "reason": "concept:virtue"
+        }
+      ]
+    },
+    {
+      "query_id": "en-03",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "virtue ethics Aristotle",
+      "expected_language": "en",
+      "detected_language": "en",
+      "language_match": true,
+      "philosophers": [
+        "aristotle"
+      ],
+      "concepts": [
+        "virtue"
+      ],
+      "works": [],
+      "explicit_areas": [
+        "ETH"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "ETH",
+        "MET",
+        "LOG",
+        "POL"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "virtue ethics Aristotle",
+          "reason": "user-query"
+        },
+        {
+          "type": "conceptual",
+          "weight": 0.8,
+          "query": "Aristotle virtue ethics",
+          "reason": "concept:virtue"
+        }
+      ]
+    },
+    {
+      "query_id": "de-03",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "Tugendethik bei Aristoteles",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [
+        "aristotle"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "MET",
+        "ETH",
+        "LOG",
+        "POL"
+      ],
+      "residual_tokens": [
+        "tugendethik"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Tugendethik bei Aristoteles",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-03",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "éthique de la vertu Aristote",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "ETH"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "ETH"
+      ],
+      "residual_tokens": [
+        "vertu",
+        "aristote"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "éthique de la vertu Aristote",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-03",
+      "family": "aristotle-virtue",
+      "intent": "philosopher-concept",
+      "query": "ética da virtude em Aristóteles",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [
+        "aristotle"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "ETH"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "ETH",
+        "MET",
+        "LOG",
+        "POL"
+      ],
+      "residual_tokens": [
+        "virtude"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "ética da virtude em Aristóteles",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-04",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intencionalidad en Husserl",
+      "expected_language": "es",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [
+        "husserl"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "EPI",
+        "MIND"
+      ],
+      "residual_tokens": [
+        "intencionalidad"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "intencionalidad en Husserl",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "en-04",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intentionality in Husserl",
+      "expected_language": "en",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [
+        "husserl"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "EPI",
+        "MIND"
+      ],
+      "residual_tokens": [
+        "intentionality"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "intentionality in Husserl",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "de-04",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "Intentionalität bei Husserl",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [
+        "husserl"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "EPI",
+        "MIND"
+      ],
+      "residual_tokens": [
+        "intentionalitat"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Intentionalität bei Husserl",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-04",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intentionnalité chez Husserl",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [
+        "husserl"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "EPI",
+        "MIND"
+      ],
+      "residual_tokens": [
+        "intentionnalite",
+        "chez"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "intentionnalité chez Husserl",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-04",
+      "family": "husserl-intentionality",
+      "intent": "philosopher-concept",
+      "query": "intencionalidade em Husserl",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [
+        "husserl"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "EPI",
+        "MIND"
+      ],
+      "residual_tokens": [
+        "intencionalidade"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "intencionalidade em Husserl",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-05",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "alteridad en Levinas",
+      "expected_language": "es",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "alteridad",
+        "levinas"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "alteridad en Levinas",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "en-05",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "alterity in Levinas",
+      "expected_language": "en",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "alterity",
+        "levinas"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "alterity in Levinas",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "de-05",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "Alterität bei Levinas",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "alteritat",
+        "levinas"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Alterität bei Levinas",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-05",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "altérité chez Levinas",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "alterite",
+        "chez",
+        "levinas"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "altérité chez Levinas",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-05",
+      "family": "levinas-alterity",
+      "intent": "philosopher-concept",
+      "query": "alteridade em Levinas",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "alteridade",
+        "levinas"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "alteridade em Levinas",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-06",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "sustancia en Spinoza",
+      "expected_language": "es",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "sustancia",
+        "spinoza"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "sustancia en Spinoza",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "en-06",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "substance in Spinoza",
+      "expected_language": "en",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "substance",
+        "spinoza"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "substance in Spinoza",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "de-06",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "Substanz bei Spinoza",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "substanz",
+        "spinoza"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Substanz bei Spinoza",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-06",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "substance chez Spinoza",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "substance",
+        "chez",
+        "spinoza"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "substance chez Spinoza",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-06",
+      "family": "spinoza-substance",
+      "intent": "philosopher-concept",
+      "query": "substância em Spinoza",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "substancia",
+        "spinoza"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "substância em Spinoza",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-07",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "filosofía de la liberación Dussel",
+      "expected_language": "es",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "filosofia",
+        "liberacion",
+        "dussel"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "filosofía de la liberación Dussel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "en-07",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "philosophy of liberation Dussel",
+      "expected_language": "en",
+      "detected_language": "en",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "philosophy",
+        "liberation",
+        "dussel"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "philosophy of liberation Dussel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "de-07",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "Philosophie der Befreiung Dussel",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "philosophie",
+        "befreiung",
+        "dussel"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Philosophie der Befreiung Dussel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-07",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "philosophie de la libération Dussel",
+      "expected_language": "fr",
+      "detected_language": "unknown",
+      "language_match": false,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "philosophie",
+        "liberation",
+        "dussel"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "philosophie de la libération Dussel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-07",
+      "family": "dussel-liberation",
+      "intent": "philosopher-concept",
+      "query": "filosofia da libertação Dussel",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [],
+      "domains": [],
+      "inferred_areas": [],
+      "residual_tokens": [
+        "filosofia",
+        "libertacao",
+        "dussel"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "filosofia da libertação Dussel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-08",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Fenomenología del espíritu Hegel",
+      "expected_language": "es",
+      "detected_language": "es",
+      "language_match": true,
+      "philosophers": [
+        "hegel"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "MET",
+        "POL",
+        "AES"
+      ],
+      "residual_tokens": [
+        "espiritu"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Fenomenología del espíritu Hegel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "en-08",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Phenomenology of Spirit Hegel",
+      "expected_language": "en",
+      "detected_language": "en",
+      "language_match": true,
+      "philosophers": [
+        "hegel"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "MET",
+        "POL",
+        "AES"
+      ],
+      "residual_tokens": [
+        "spirit"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Phenomenology of Spirit Hegel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "de-08",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Phänomenologie des Geistes Hegel",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [
+        "hegel"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "MET",
+        "POL",
+        "AES"
+      ],
+      "residual_tokens": [
+        "geistes"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Phänomenologie des Geistes Hegel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-08",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Phénoménologie de l'esprit Hegel",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [
+        "hegel"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "MET",
+        "POL",
+        "AES"
+      ],
+      "residual_tokens": [
+        "l",
+        "esprit"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Phénoménologie de l'esprit Hegel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-08",
+      "family": "hegel-phenomenology-spirit",
+      "intent": "work",
+      "query": "Fenomenologia do Espírito Hegel",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [
+        "hegel"
+      ],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [],
+      "inferred_areas": [
+        "PHEN",
+        "MET",
+        "POL",
+        "AES"
+      ],
+      "residual_tokens": [
+        "espirito"
+      ],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Fenomenologia do Espírito Hegel",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "es-09",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "fenomenología en enfermería",
+      "expected_language": "es",
+      "detected_language": "es",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [
+        "nursing"
+      ],
+      "inferred_areas": [
+        "PHEN"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "fenomenología en enfermería",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "phenomenology in nursing",
+          "reason": "english-translation-complete"
+        }
+      ]
+    },
+    {
+      "query_id": "en-09",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "phenomenology in nursing",
+      "expected_language": "en",
+      "detected_language": "en",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [
+        "nursing"
+      ],
+      "inferred_areas": [
+        "PHEN"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "phenomenology in nursing",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "Phänomenologie in der Pflege",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [
+        "nursing"
+      ],
+      "inferred_areas": [
+        "PHEN"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Phänomenologie in der Pflege",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "phenomenology in nursing",
+          "reason": "english-translation-complete"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-09",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "phénoménologie en soins infirmiers",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [
+        "nursing"
+      ],
+      "inferred_areas": [
+        "PHEN"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "phénoménologie en soins infirmiers",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "phenomenology in nursing",
+          "reason": "english-translation-complete"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-09",
+      "family": "challenge-phenomenology-nursing",
+      "intent": "interdisciplinary-challenge",
+      "query": "fenomenologia na enfermagem",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "PHEN"
+      ],
+      "domains": [
+        "nursing"
+      ],
+      "inferred_areas": [
+        "PHEN"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "fenomenologia na enfermagem",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "phenomenology in nursing",
+          "reason": "english-translation-complete"
+        }
+      ]
+    },
+    {
+      "query_id": "es-10",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontología en informática",
+      "expected_language": "es",
+      "detected_language": "es",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "MET"
+      ],
+      "domains": [
+        "computer_science"
+      ],
+      "inferred_areas": [
+        "MET"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "ontología en informática",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "ontology in computer science",
+          "reason": "english-translation-complete"
+        }
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontology in computer science",
+      "expected_language": "en",
+      "detected_language": "en",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "MET"
+      ],
+      "domains": [
+        "computer_science"
+      ],
+      "inferred_areas": [
+        "MET"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "ontology in computer science",
+          "reason": "user-query"
+        }
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "Ontologie in der Informatik",
+      "expected_language": "de",
+      "detected_language": "de",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "MET"
+      ],
+      "domains": [
+        "computer_science"
+      ],
+      "inferred_areas": [
+        "MET"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "Ontologie in der Informatik",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "ontology in computer science",
+          "reason": "english-translation-complete"
+        }
+      ]
+    },
+    {
+      "query_id": "fr-10",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontologie en informatique",
+      "expected_language": "fr",
+      "detected_language": "fr",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "MET"
+      ],
+      "domains": [
+        "computer_science"
+      ],
+      "inferred_areas": [
+        "MET"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "ontologie en informatique",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "ontology in computer science",
+          "reason": "english-translation-complete"
+        }
+      ]
+    },
+    {
+      "query_id": "pt-10",
+      "family": "challenge-ontology-compsci",
+      "intent": "interdisciplinary-challenge",
+      "query": "ontologia em ciência da computação",
+      "expected_language": "pt",
+      "detected_language": "pt",
+      "language_match": true,
+      "philosophers": [],
+      "concepts": [],
+      "works": [],
+      "explicit_areas": [
+        "MET"
+      ],
+      "domains": [
+        "computer_science"
+      ],
+      "inferred_areas": [
+        "MET"
+      ],
+      "residual_tokens": [],
+      "expansions": [
+        {
+          "type": "original",
+          "weight": 1,
+          "query": "ontologia em ciência da computação",
+          "reason": "user-query"
+        },
+        {
+          "type": "translation",
+          "weight": 0.9,
+          "query": "ontology in computer science",
+          "reason": "english-translation-complete"
+        }
+      ]
+    }
+  ]
+}

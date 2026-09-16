@@ -1,0 +1,702 @@
+{
+  "schemaVersion": 1,
+  "name": "Multilingual constraints paired delta audit v1",
+  "generatedAt": "2026-09-16T22:15:42.976Z",
+  "seed": 2026091601,
+  "methodology": "Blind unresolved symmetric difference of expansion-fix vs multilingual-constraints Top-10 sets. Old/new side, ranks, provider provenance, and translation provenance are hidden from the judge.",
+  "interpretationBoundary": "This is a development comparison. Provider drift is observable even in English control queries, so the final old-vs-new delta is an observed run delta rather than a pure causal estimate of translation expansion.",
+  "sources": {
+    "oldRun": "benchmark/runs/human-v1.0-interdisciplinary-expansionfix-cfb853a.jsonl",
+    "newRun": "benchmark/runs/human-v1.0-interdisciplinary-multilingual-f02f02f.jsonl",
+    "priorHuman": [
+      "benchmark/human-audit-v1.judgments.jsonl",
+      "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+    ]
+  },
+  "queryCount": 10,
+  "changedTop10Pairs": 66,
+  "changedPairsAlreadyHuman": 21,
+  "auditRows": 45,
+  "alreadyHuman": [
+    {
+      "query_id": "es-09",
+      "record_id": "doi:10.4321/s1132-12962007000300012",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "El artículo está dedicado explícitamente a fundamentar y analizar el cuidado de enfermería desde una perspectiva fenomenológica.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "es-09",
+      "record_id": "doi:10.70069/rve.2026.13.1.0010",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 1,
+      "human_note": "Utiliza sustantivamente la fenomenología social en un estudio sobre educación continua en salud, pero no se centra específicamente en enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "es-09",
+      "record_id": "doi:10.37976/enfermeria.v11i2.138",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "Desarrolla explícitamente la fenomenología como método de investigación aplicable por profesionales de enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:nursingexperienc0000unse",
+      "selection_side": "old-only",
+      "old_rank": 1,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "Obra dedicada explícitamente a la aplicación de la fenomenología en la investigación y práctica de enfermería.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "selection_side": "old-only",
+      "old_rank": 2,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "Obra metodológica dedicada explícitamente al uso de la fenomenología en investigación de enfermería y ciencias de la salud.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "de-09",
+      "record_id": "doi:10.1007/978-3-662-68848-9_16-1",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 2,
+      "human_note": "Aplica la Nueva Fenomenología a la investigación cualitativa en salud, pero no parece centrarse específicamente en enfermería.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "pt-09",
+      "record_id": "doi:10.1590/s0104-11691997000100010",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "Presenta explícitamente la fenomenología como alternativa metodológica para la investigación en enfermería y examina su uso por profesionales de enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "pt-09",
+      "record_id": "doi:10.20399/p1982-999x.2016v1n1pp70-91",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Analiza la Fenomenología del espíritu de Hegel y su relación con el derecho y el espíritu objetivo; no aborda fenomenología aplicada a la enfermería.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "pt-09",
+      "record_id": "doi:10.1590/s0034-71671994000100010",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "Reflexiona directamente sobre la aplicación de la fenomenología a la atención y comprensión del paciente en enfermería psiquiátrica.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "es-10",
+      "record_id": "doi:10.15332/tg.mae.2016.00323",
+      "selection_side": "old-only",
+      "old_rank": 6,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Aborda ontología política en el pensamiento de Enrique Dussel; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:DTIC_ADA534412",
+      "selection_side": "old-only",
+      "old_rank": 6,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "Desarrolla directamente mapeo entre ontologías semánticas y ontologías de conocimiento de dominio para razonamiento computacional en sistemas de diálogo.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:sgng.14503-video-representation-and-semantic-information-extraction-using-on",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 3,
+      "human_note": "Emplea directamente ingeniería de ontologías, representación semántica y razonamiento computacional para modelar y extraer información de video.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "openalex:W763069345",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico dentro de una discusión sobre Levinas y filosofía de las ciencias sociales; no trata ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "openalex:W7136197983",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Discute compromisos ontológicos en sentido metafísico y sus implicaciones para ciencia e IA, pero no ontologías computacionales ni representación formal del conocimiento.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 1,
+      "new_translation_mode": "original-only",
+      "human_relevance": 3,
+      "human_note": "",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "record_id": "openalex:W7114683522",
+      "selection_side": "old-only",
+      "old_rank": 7,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Trata ontología filosófica y ontoteología en Mullā Ṣadrā y Heidegger, no ontologías en informática.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "record_id": "openalex:W2614963464",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en sentido filosófico-tomista, particularmente la interioridad y el alma en Tomás de Aquino; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "de-10",
+      "record_id": "openalex:W7070541658",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Aborda ontología en filosofía de la física y epistemología, especialmente realismo científico y realismo estructural óntico; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "fr-10",
+      "record_id": "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 1,
+      "human_note": "",
+      "human_sources": [
+        "benchmark/human-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "“Ontología” se usa en sentido epistemológico y metafísico, aplicada a Kant y la relatividad general; no trata ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    },
+    {
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null,
+      "human_relevance": 0,
+      "human_note": "Aborda ontología orientada a objetos en sentido filosófico, especialmente realismo, fenómeno/noúmeno y estética; no ontologías computacionales ni informática.",
+      "human_sources": [
+        "benchmark/interdisciplinary-delta-audit-v1.judgments.jsonl"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "audit_id": "M011",
+      "query_id": "es-09",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 4,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M014",
+      "query_id": "es-09",
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 7,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M021",
+      "query_id": "es-09",
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M045",
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3,
+      "new_translation_mode": "original-only"
+    },
+    {
+      "audit_id": "M022",
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:httpsdiscoveryjournals.orgmedicalsciencecurrent_issuev27n135e227ms2996.pdf_202409",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9,
+      "new_translation_mode": "original-only"
+    },
+    {
+      "audit_id": "M010",
+      "query_id": "de-09",
+      "record_id": "openalex:W2078645737",
+      "selection_side": "old-only",
+      "old_rank": 3,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M042",
+      "query_id": "de-09",
+      "record_id": "openalex:W4229717448",
+      "selection_side": "old-only",
+      "old_rank": 4,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M034",
+      "query_id": "de-09",
+      "record_id": "openalex:W2593647896",
+      "selection_side": "old-only",
+      "old_rank": 5,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M043",
+      "query_id": "de-09",
+      "record_id": "openalex:W4297862612",
+      "selection_side": "old-only",
+      "old_rank": 6,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M025",
+      "query_id": "de-09",
+      "record_id": "doi:10.1024/1012-5302.22.3.217",
+      "selection_side": "old-only",
+      "old_rank": 7,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M023",
+      "query_id": "de-09",
+      "record_id": "doi:10.1007/1-4020-4731-2_7",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M035",
+      "query_id": "de-09",
+      "record_id": "doi:10.30965/9783846751985_007",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M006",
+      "query_id": "de-09",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 1,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M028",
+      "query_id": "de-09",
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M003",
+      "query_id": "de-09",
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 4,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M017",
+      "query_id": "de-09",
+      "record_id": "doi:10.1891/9780826126870.0007",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 6,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M020",
+      "query_id": "de-09",
+      "record_id": "doi:10.1007/978-3-030-47253-5_374-1",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 7,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M004",
+      "query_id": "de-09",
+      "record_id": "doi:10.4324/9781003427407-47",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M033",
+      "query_id": "de-09",
+      "record_id": "doi:10.4324/9781003427407-48",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M008",
+      "query_id": "de-09",
+      "record_id": "source:internet-archive:ERIC_EJ956977",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M040",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0337",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M031",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2020.01.0355",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M015",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0351",
+      "selection_side": "old-only",
+      "old_rank": 10,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M036",
+      "query_id": "fr-09",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 2,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M037",
+      "query_id": "fr-09",
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M009",
+      "query_id": "fr-09",
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 4,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M044",
+      "query_id": "pt-09",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 6,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M012",
+      "query_id": "pt-09",
+      "record_id": "source:internet-archive:ERIC_EJ1073197",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 7,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M041",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1111/j.1466-769x.2010.00458.x",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M030",
+      "query_id": "es-10",
+      "record_id": "doi:10.14482/eidos.27.8119",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3,
+      "new_translation_mode": "original-only"
+    },
+    {
+      "audit_id": "M016",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 3,
+      "new_translation_mode": "original-only"
+    },
+    {
+      "audit_id": "M018",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:DTIC_ADA624287",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8,
+      "new_translation_mode": "original-only"
+    },
+    {
+      "audit_id": "M032",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10,
+      "new_translation_mode": "original-only"
+    },
+    {
+      "audit_id": "M024",
+      "query_id": "de-10",
+      "record_id": "openalex:W6947466892",
+      "selection_side": "old-only",
+      "old_rank": 6,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M026",
+      "query_id": "de-10",
+      "record_id": "openalex:W2899757804",
+      "selection_side": "old-only",
+      "old_rank": 8,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M019",
+      "query_id": "de-10",
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 2,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M039",
+      "query_id": "de-10",
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 4,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M013",
+      "query_id": "de-10",
+      "record_id": "source:internet-archive:DTIC_ADA624287",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 8,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M005",
+      "query_id": "de-10",
+      "record_id": "openalex:W4240899380",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M007",
+      "query_id": "de-10",
+      "record_id": "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M002",
+      "query_id": "fr-10",
+      "record_id": "doi:10.1051/ita/197610r100391",
+      "selection_side": "old-only",
+      "old_rank": 9,
+      "new_rank": null,
+      "new_translation_mode": null
+    },
+    {
+      "audit_id": "M029",
+      "query_id": "fr-10",
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M001",
+      "query_id": "fr-10",
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M038",
+      "query_id": "pt-10",
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 9,
+      "new_translation_mode": "translation-only"
+    },
+    {
+      "audit_id": "M027",
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i26.446",
+      "selection_side": "new-only",
+      "old_rank": null,
+      "new_rank": 10,
+      "new_translation_mode": "original+translation"
+    }
+  ]
+}
