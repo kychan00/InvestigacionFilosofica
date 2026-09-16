@@ -1,0 +1,4012 @@
+{
+  "schemaVersion": 1,
+  "humanJudgments": "benchmark/human-audit-v1.judgments.jsonl",
+  "sample": "benchmark/human-audit-v1.sample.jsonl",
+  "manifest": "benchmark/human-audit-v1.manifest.json",
+  "sampleDesign": {
+    "randomStratified": 50,
+    "targeted": 50,
+    "randomStrata": "Per language: 6 philosopher-concept, 2 work, 2 interdisciplinary-challenge from the union of baseline/v2 Top 10.",
+    "targetedPolicy": "Prioritize the five regressed queries, Top-10 boundary changes, AI review flags, pool-exclusive documents, ranks 9-12, and interdisciplinary challenges.",
+    "blinding": "The sample file omits AI labels, ranks, providers, and selection group to reduce anchoring. Those fields remain only in this manifest."
+  },
+  "sampleCounts": {
+    "languages": {
+      "es": 24,
+      "en": 23,
+      "de": 21,
+      "fr": 17,
+      "pt": 15
+    },
+    "intents": {
+      "philosopher-concept": 44,
+      "work": 17,
+      "interdisciplinary-challenge": 39
+    }
+  },
+  "relevantThreshold": 2,
+  "agreement": {
+    "baselineSilver": {
+      "all": {
+        "n": 82,
+        "exactAgreement": 0.2561,
+        "withinOneAgreement": 0.5732,
+        "binaryAgreement": 0.4878,
+        "binaryKappa": -0.0274,
+        "meanAbsoluteGradeError": 1.3902,
+        "silverFalsePositives": 19,
+        "silverFalseNegatives": 23,
+        "confusionHumanRowsSilverColumns": [
+          [
+            12,
+            1,
+            12,
+            2
+          ],
+          [
+            4,
+            0,
+            4,
+            1
+          ],
+          [
+            3,
+            3,
+            3,
+            2
+          ],
+          [
+            16,
+            1,
+            12,
+            6
+          ]
+        ]
+      },
+      "random_stratified": {
+        "n": 46,
+        "exactAgreement": 0.2391,
+        "withinOneAgreement": 0.6522,
+        "binaryAgreement": 0.587,
+        "binaryKappa": 0.1892,
+        "meanAbsoluteGradeError": 1.3478,
+        "silverFalsePositives": 4,
+        "silverFalseNegatives": 15,
+        "confusionHumanRowsSilverColumns": [
+          [
+            5,
+            1,
+            2,
+            1
+          ],
+          [
+            3,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            2,
+            1,
+            1
+          ],
+          [
+            10,
+            1,
+            11,
+            5
+          ]
+        ]
+      },
+      "targeted": {
+        "n": 36,
+        "exactAgreement": 0.2778,
+        "withinOneAgreement": 0.4722,
+        "binaryAgreement": 0.3611,
+        "binaryKappa": -0.2395,
+        "meanAbsoluteGradeError": 1.4444,
+        "silverFalsePositives": 15,
+        "silverFalseNegatives": 8,
+        "confusionHumanRowsSilverColumns": [
+          [
+            7,
+            0,
+            10,
+            1
+          ],
+          [
+            1,
+            0,
+            3,
+            1
+          ],
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            6,
+            0,
+            1,
+            1
+          ]
+        ]
+      }
+    },
+    "rankingV2Silver": {
+      "all": {
+        "n": 91,
+        "exactAgreement": 0.2967,
+        "withinOneAgreement": 0.5824,
+        "binaryAgreement": 0.5165,
+        "binaryKappa": 0.0205,
+        "meanAbsoluteGradeError": 1.3077,
+        "silverFalsePositives": 18,
+        "silverFalseNegatives": 26,
+        "confusionHumanRowsSilverColumns": [
+          [
+            12,
+            1,
+            12,
+            2
+          ],
+          [
+            4,
+            0,
+            3,
+            1
+          ],
+          [
+            3,
+            3,
+            5,
+            3
+          ],
+          [
+            15,
+            5,
+            12,
+            10
+          ]
+        ]
+      },
+      "random_stratified": {
+        "n": 48,
+        "exactAgreement": 0.2917,
+        "withinOneAgreement": 0.6458,
+        "binaryAgreement": 0.5833,
+        "binaryKappa": 0.1823,
+        "meanAbsoluteGradeError": 1.2708,
+        "silverFalsePositives": 4,
+        "silverFalseNegatives": 16,
+        "confusionHumanRowsSilverColumns": [
+          [
+            5,
+            1,
+            3,
+            0
+          ],
+          [
+            3,
+            0,
+            1,
+            0
+          ],
+          [
+            2,
+            2,
+            1,
+            1
+          ],
+          [
+            10,
+            2,
+            9,
+            8
+          ]
+        ]
+      },
+      "targeted": {
+        "n": 43,
+        "exactAgreement": 0.3023,
+        "withinOneAgreement": 0.5116,
+        "binaryAgreement": 0.4419,
+        "binaryKappa": -0.1121,
+        "meanAbsoluteGradeError": 1.3488,
+        "silverFalsePositives": 14,
+        "silverFalseNegatives": 10,
+        "confusionHumanRowsSilverColumns": [
+          [
+            7,
+            0,
+            9,
+            2
+          ],
+          [
+            1,
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            4,
+            2
+          ],
+          [
+            5,
+            3,
+            3,
+            2
+          ]
+        ]
+      }
+    }
+  },
+  "corrections": {
+    "baseline": {
+      "auditedInPool": 82,
+      "gradeChanged": 61,
+      "binaryChanged": 42,
+      "top10Audited": 67,
+      "top10GradeChanged": 50,
+      "top10BinaryChanged": 33
+    },
+    "rankingV2": {
+      "auditedInPool": 91,
+      "gradeChanged": 64,
+      "binaryChanged": 44,
+      "top10Audited": 74,
+      "top10GradeChanged": 52,
+      "top10BinaryChanged": 34
+    }
+  },
+  "sensitivity": {
+    "description": "Hybrid sensitivity analysis: the 100 audited document labels replace AI-silver relevance where available; all unaudited documents retain their original AI-silver labels. This is not a fully human-judged benchmark.",
+    "silverOnly": {
+      "baseline": {
+        "overall": {
+          "queries": 50,
+          "precision5": 0.444,
+          "precision10": 0.434,
+          "recall10": 0.5642,
+          "ndcg10": 0.5466,
+          "mrr10": 0.7064
+        },
+        "byLanguage": {
+          "es": {
+            "queries": 10,
+            "precision5": 0.64,
+            "precision10": 0.6,
+            "recall10": 0.5172,
+            "ndcg10": 0.5874,
+            "mrr10": 0.95
+          },
+          "en": {
+            "queries": 10,
+            "precision5": 0.26,
+            "precision10": 0.23,
+            "recall10": 0.549,
+            "ndcg10": 0.5374,
+            "mrr10": 0.6625
+          },
+          "de": {
+            "queries": 10,
+            "precision5": 0.28,
+            "precision10": 0.29,
+            "recall10": 0.624,
+            "ndcg10": 0.4656,
+            "mrr10": 0.4676
+          },
+          "fr": {
+            "queries": 10,
+            "precision5": 0.4,
+            "precision10": 0.39,
+            "recall10": 0.5565,
+            "ndcg10": 0.4909,
+            "mrr10": 0.6317
+          },
+          "pt": {
+            "queries": 10,
+            "precision5": 0.64,
+            "precision10": 0.66,
+            "recall10": 0.5742,
+            "ndcg10": 0.6519,
+            "mrr10": 0.82
+          }
+        },
+        "byIntent": {
+          "philosopher-concept": {
+            "queries": 30,
+            "precision5": 0.5067,
+            "precision10": 0.49,
+            "recall10": 0.5989,
+            "ndcg10": 0.5886,
+            "mrr10": 0.732
+          },
+          "work": {
+            "queries": 10,
+            "precision5": 0.46,
+            "precision10": 0.44,
+            "recall10": 0.5607,
+            "ndcg10": 0.5535,
+            "mrr10": 0.6625
+          },
+          "interdisciplinary-challenge": {
+            "queries": 10,
+            "precision5": 0.24,
+            "precision10": 0.26,
+            "recall10": 0.4634,
+            "ndcg10": 0.4138,
+            "mrr10": 0.6733
+          }
+        },
+        "perQuery": [
+          {
+            "id": "es-01",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.5,
+            "ndcg10": 0.5236,
+            "mrr10": 1
+          },
+          {
+            "id": "en-01",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.5,
+            "ndcg10": 0.2983,
+            "mrr10": 0.25
+          },
+          {
+            "id": "de-01",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.4,
+            "recall10": 0.8,
+            "ndcg10": 0.4607,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-01",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.3675,
+            "mrr10": 0.25
+          },
+          {
+            "id": "pt-01",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.6923,
+            "ndcg10": 0.8575,
+            "mrr10": 1
+          },
+          {
+            "id": "es-02",
+            "language": "es",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.5287,
+            "mrr10": 1
+          },
+          {
+            "id": "en-02",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.32,
+            "mrr10": 0.125
+          },
+          {
+            "id": "de-02",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.4969,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "fr-02",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.8,
+            "recall10": 0.6667,
+            "ndcg10": 0.6622,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-02",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.3571,
+            "ndcg10": 0.3265,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-03",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.9,
+            "recall10": 0.6429,
+            "ndcg10": 0.7061,
+            "mrr10": 1
+          },
+          {
+            "id": "en-03",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 0.8,
+            "ndcg10": 0.7753,
+            "mrr10": 1
+          },
+          {
+            "id": "de-03",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.6667,
+            "ndcg10": 0.3568,
+            "mrr10": 0.2
+          },
+          {
+            "id": "fr-03",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.3333,
+            "ndcg10": 0.3464,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "pt-03",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.7,
+            "recall10": 0.5,
+            "ndcg10": 0.748,
+            "mrr10": 1
+          },
+          {
+            "id": "es-04",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.9,
+            "recall10": 0.6,
+            "ndcg10": 0.7237,
+            "mrr10": 1
+          },
+          {
+            "id": "en-04",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 1,
+            "ndcg10": 0.9604,
+            "mrr10": 1
+          },
+          {
+            "id": "de-04",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.3462,
+            "mrr10": 0.1429
+          },
+          {
+            "id": "fr-04",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.8,
+            "ndcg10": 0.7586,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-04",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.7778,
+            "ndcg10": 0.6716,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-05",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.7,
+            "recall10": 0.5,
+            "ndcg10": 0.4792,
+            "mrr10": 0.5
+          },
+          {
+            "id": "en-05",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0,
+            "precision10": 0,
+            "recall10": 0,
+            "ndcg10": 0.1527,
+            "mrr10": 0
+          },
+          {
+            "id": "de-05",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.8175,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-05",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.4,
+            "ndcg10": 0.3264,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-05",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.5,
+            "ndcg10": 0.6053,
+            "mrr10": 1
+          },
+          {
+            "id": "es-06",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.6202,
+            "mrr10": 1
+          },
+          {
+            "id": "en-06",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.2,
+            "recall10": 0.25,
+            "ndcg10": 0.4034,
+            "mrr10": 1
+          },
+          {
+            "id": "de-06",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.4444,
+            "ndcg10": 0.9066,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-06",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.8333,
+            "ndcg10": 0.5284,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-06",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.6,
+            "recall10": 0.6,
+            "ndcg10": 0.8292,
+            "mrr10": 1
+          },
+          {
+            "id": "es-07",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.8,
+            "recall10": 0.4706,
+            "ndcg10": 0.5719,
+            "mrr10": 1
+          },
+          {
+            "id": "en-07",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.75,
+            "ndcg10": 0.4123,
+            "mrr10": 0.25
+          },
+          {
+            "id": "de-07",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.4438,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "fr-07",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.6154,
+            "ndcg10": 0.8393,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-07",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.5625,
+            "ndcg10": 0.8217,
+            "mrr10": 1
+          },
+          {
+            "id": "es-08",
+            "language": "es",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.5833,
+            "ndcg10": 0.7609,
+            "mrr10": 1
+          },
+          {
+            "id": "en-08",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.3333,
+            "ndcg10": 0.6589,
+            "mrr10": 1
+          },
+          {
+            "id": "de-08",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.4911,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "fr-08",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.2,
+            "recall10": 0.6667,
+            "ndcg10": 0.4132,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "pt-08",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.5714,
+            "ndcg10": 0.8762,
+            "mrr10": 1
+          },
+          {
+            "id": "es-09",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.375,
+            "ndcg10": 0.4687,
+            "mrr10": 1
+          },
+          {
+            "id": "en-09",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 1,
+            "ndcg10": 1,
+            "mrr10": 1
+          },
+          {
+            "id": "de-09",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.4,
+            "ndcg10": 0.3358,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "fr-09",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.25,
+            "ndcg10": 0.4796,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-09",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.5,
+            "recall10": 0.5556,
+            "ndcg10": 0.3682,
+            "mrr10": 0.2
+          },
+          {
+            "id": "es-10",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.4907,
+            "mrr10": 1
+          },
+          {
+            "id": "en-10",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.3924,
+            "mrr10": 1
+          },
+          {
+            "id": "de-10",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0,
+            "precision10": 0,
+            "recall10": 0,
+            "ndcg10": 0,
+            "mrr10": 0
+          },
+          {
+            "id": "fr-10",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.5,
+            "ndcg10": 0.187,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-10",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.625,
+            "ndcg10": 0.4151,
+            "mrr10": 1
+          }
+        ]
+      },
+      "rankingV2": {
+        "overall": {
+          "queries": 50,
+          "precision5": 0.5,
+          "precision10": 0.468,
+          "recall10": 0.6055,
+          "ndcg10": 0.5692,
+          "mrr10": 0.7539
+        },
+        "byLanguage": {
+          "es": {
+            "queries": 10,
+            "precision5": 0.7,
+            "precision10": 0.63,
+            "recall10": 0.5408,
+            "ndcg10": 0.6119,
+            "mrr10": 0.95
+          },
+          "en": {
+            "queries": 10,
+            "precision5": 0.26,
+            "precision10": 0.26,
+            "recall10": 0.7279,
+            "ndcg10": 0.5318,
+            "mrr10": 0.6725
+          },
+          "de": {
+            "queries": 10,
+            "precision5": 0.3,
+            "precision10": 0.32,
+            "recall10": 0.6023,
+            "ndcg10": 0.4694,
+            "mrr10": 0.5486
+          },
+          "fr": {
+            "queries": 10,
+            "precision5": 0.44,
+            "precision10": 0.43,
+            "recall10": 0.5702,
+            "ndcg10": 0.5268,
+            "mrr10": 0.6983
+          },
+          "pt": {
+            "queries": 10,
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.5864,
+            "ndcg10": 0.7059,
+            "mrr10": 0.9
+          }
+        },
+        "byIntent": {
+          "philosopher-concept": {
+            "queries": 30,
+            "precision5": 0.4933,
+            "precision10": 0.5033,
+            "recall10": 0.6181,
+            "ndcg10": 0.5755,
+            "mrr10": 0.7325
+          },
+          "work": {
+            "queries": 10,
+            "precision5": 0.58,
+            "precision10": 0.52,
+            "recall10": 0.6082,
+            "ndcg10": 0.5979,
+            "mrr10": 0.8125
+          },
+          "interdisciplinary-challenge": {
+            "queries": 10,
+            "precision5": 0.44,
+            "precision10": 0.31,
+            "recall10": 0.565,
+            "ndcg10": 0.5216,
+            "mrr10": 0.7593
+          }
+        },
+        "perQuery": [
+          {
+            "id": "es-01",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.5,
+            "ndcg10": 0.5328,
+            "mrr10": 1
+          },
+          {
+            "id": "en-01",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 1,
+            "ndcg10": 0.5584,
+            "mrr10": 0.25
+          },
+          {
+            "id": "de-01",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.4,
+            "recall10": 0.6667,
+            "ndcg10": 0.3659,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-01",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.5,
+            "recall10": 0.5556,
+            "ndcg10": 0.4012,
+            "mrr10": 0.25
+          },
+          {
+            "id": "pt-01",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.6923,
+            "ndcg10": 0.8575,
+            "mrr10": 1
+          },
+          {
+            "id": "es-02",
+            "language": "es",
+            "intent": "work",
+            "precision5": 0.6,
+            "precision10": 0.6,
+            "recall10": 0.6,
+            "ndcg10": 0.6092,
+            "mrr10": 1
+          },
+          {
+            "id": "en-02",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.3269,
+            "mrr10": 0.125
+          },
+          {
+            "id": "de-02",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.635,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-02",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.75,
+            "ndcg10": 0.7468,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-02",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.5385,
+            "ndcg10": 0.4185,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-03",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.6429,
+            "ndcg10": 0.7601,
+            "mrr10": 1
+          },
+          {
+            "id": "en-03",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.75,
+            "ndcg10": 0.606,
+            "mrr10": 1
+          },
+          {
+            "id": "de-03",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.5,
+            "recall10": 1,
+            "ndcg10": 0.4821,
+            "mrr10": 0.2
+          },
+          {
+            "id": "fr-03",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.3333,
+            "ndcg10": 0.3119,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "pt-03",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.8,
+            "recall10": 0.5714,
+            "ndcg10": 0.7893,
+            "mrr10": 1
+          },
+          {
+            "id": "es-04",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.9,
+            "recall10": 0.6,
+            "ndcg10": 0.7441,
+            "mrr10": 1
+          },
+          {
+            "id": "en-04",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 1,
+            "ndcg10": 0.9666,
+            "mrr10": 1
+          },
+          {
+            "id": "de-04",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.3462,
+            "mrr10": 0.1429
+          },
+          {
+            "id": "fr-04",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.8,
+            "ndcg10": 0.7586,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-04",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.7778,
+            "ndcg10": 0.6716,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-05",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.7,
+            "recall10": 0.5,
+            "ndcg10": 0.4807,
+            "mrr10": 0.5
+          },
+          {
+            "id": "en-05",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0,
+            "precision10": 0.1,
+            "recall10": 1,
+            "ndcg10": 0.2099,
+            "mrr10": 0.1
+          },
+          {
+            "id": "de-05",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.3333,
+            "ndcg10": 0.5678,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-05",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.3333,
+            "ndcg10": 0.3034,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-05",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.3846,
+            "ndcg10": 0.5759,
+            "mrr10": 1
+          },
+          {
+            "id": "es-06",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.6202,
+            "mrr10": 1
+          },
+          {
+            "id": "en-06",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.25,
+            "ndcg10": 0.2732,
+            "mrr10": 1
+          },
+          {
+            "id": "de-06",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.4444,
+            "ndcg10": 0.9066,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-06",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.7143,
+            "ndcg10": 0.4944,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-06",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.6,
+            "recall10": 0.5455,
+            "ndcg10": 0.8292,
+            "mrr10": 1
+          },
+          {
+            "id": "es-07",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.8,
+            "recall10": 0.4706,
+            "ndcg10": 0.5719,
+            "mrr10": 1
+          },
+          {
+            "id": "en-07",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.75,
+            "ndcg10": 0.4188,
+            "mrr10": 0.25
+          },
+          {
+            "id": "de-07",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.2,
+            "recall10": 0.25,
+            "ndcg10": 0.2441,
+            "mrr10": 0.25
+          },
+          {
+            "id": "fr-07",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.6154,
+            "ndcg10": 0.7938,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-07",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.5625,
+            "ndcg10": 0.8217,
+            "mrr10": 1
+          },
+          {
+            "id": "es-08",
+            "language": "es",
+            "intent": "work",
+            "precision5": 1,
+            "precision10": 0.7,
+            "recall10": 0.6364,
+            "ndcg10": 0.7195,
+            "mrr10": 1
+          },
+          {
+            "id": "en-08",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.6,
+            "ndcg10": 0.5625,
+            "mrr10": 1
+          },
+          {
+            "id": "de-08",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 1,
+            "ndcg10": 0.6338,
+            "mrr10": 0.5
+          },
+          {
+            "id": "fr-08",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.6,
+            "precision10": 0.3,
+            "recall10": 0.6,
+            "ndcg10": 0.6562,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-08",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.8,
+            "recall10": 0.5,
+            "ndcg10": 0.6701,
+            "mrr10": 1
+          },
+          {
+            "id": "es-09",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 1,
+            "precision10": 0.5,
+            "recall10": 0.625,
+            "ndcg10": 0.7652,
+            "mrr10": 1
+          },
+          {
+            "id": "en-09",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.4,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 1,
+            "mrr10": 1
+          },
+          {
+            "id": "de-09",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.4,
+            "ndcg10": 0.3079,
+            "mrr10": 0.25
+          },
+          {
+            "id": "fr-09",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.25,
+            "ndcg10": 0.4796,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-09",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 1,
+            "precision10": 0.6,
+            "recall10": 0.6667,
+            "ndcg10": 0.8138,
+            "mrr10": 1
+          },
+          {
+            "id": "es-10",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.3333,
+            "ndcg10": 0.3157,
+            "mrr10": 1
+          },
+          {
+            "id": "en-10",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.5,
+            "ndcg10": 0.3954,
+            "mrr10": 1
+          },
+          {
+            "id": "de-10",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0,
+            "precision10": 0.1,
+            "recall10": 0.5,
+            "ndcg10": 0.2044,
+            "mrr10": 0.1429
+          },
+          {
+            "id": "fr-10",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.75,
+            "ndcg10": 0.3224,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-10",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.8,
+            "precision10": 0.5,
+            "recall10": 0.625,
+            "ndcg10": 0.6113,
+            "mrr10": 1
+          }
+        ]
+      },
+      "deltaP10": 0.034
+    },
+    "humanCorrectedHybrid": {
+      "baseline": {
+        "overall": {
+          "queries": 50,
+          "precision5": 0.46,
+          "precision10": 0.452,
+          "recall10": 0.5981,
+          "ndcg10": 0.5744,
+          "mrr10": 0.713
+        },
+        "byLanguage": {
+          "es": {
+            "queries": 10,
+            "precision5": 0.6,
+            "precision10": 0.59,
+            "recall10": 0.4961,
+            "ndcg10": 0.5692,
+            "mrr10": 0.8833
+          },
+          "en": {
+            "queries": 10,
+            "precision5": 0.28,
+            "precision10": 0.26,
+            "recall10": 0.6245,
+            "ndcg10": 0.5509,
+            "mrr10": 0.6625
+          },
+          "de": {
+            "queries": 10,
+            "precision5": 0.34,
+            "precision10": 0.35,
+            "recall10": 0.7061,
+            "ndcg10": 0.5234,
+            "mrr10": 0.4843
+          },
+          "fr": {
+            "queries": 10,
+            "precision5": 0.42,
+            "precision10": 0.41,
+            "recall10": 0.6066,
+            "ndcg10": 0.5571,
+            "mrr10": 0.715
+          },
+          "pt": {
+            "queries": 10,
+            "precision5": 0.66,
+            "precision10": 0.65,
+            "recall10": 0.5571,
+            "ndcg10": 0.6716,
+            "mrr10": 0.82
+          }
+        },
+        "byIntent": {
+          "philosopher-concept": {
+            "queries": 30,
+            "precision5": 0.5333,
+            "precision10": 0.5133,
+            "recall10": 0.645,
+            "ndcg10": 0.6237,
+            "mrr10": 0.7531
+          },
+          "work": {
+            "queries": 10,
+            "precision5": 0.48,
+            "precision10": 0.46,
+            "recall10": 0.5746,
+            "ndcg10": 0.5833,
+            "mrr10": 0.6792
+          },
+          "interdisciplinary-challenge": {
+            "queries": 10,
+            "precision5": 0.22,
+            "precision10": 0.26,
+            "recall10": 0.4809,
+            "ndcg10": 0.4178,
+            "mrr10": 0.6267
+          }
+        },
+        "perQuery": [
+          {
+            "id": "es-01",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.5,
+            "ndcg10": 0.5236,
+            "mrr10": 1
+          },
+          {
+            "id": "en-01",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.6,
+            "ndcg10": 0.3983,
+            "mrr10": 0.25
+          },
+          {
+            "id": "de-01",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.8333,
+            "ndcg10": 0.5248,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-01",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.4,
+            "recall10": 0.5714,
+            "ndcg10": 0.3944,
+            "mrr10": 0.25
+          },
+          {
+            "id": "pt-01",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.6923,
+            "ndcg10": 0.8605,
+            "mrr10": 1
+          },
+          {
+            "id": "es-02",
+            "language": "es",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.5556,
+            "ndcg10": 0.5132,
+            "mrr10": 1
+          },
+          {
+            "id": "en-02",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.32,
+            "mrr10": 0.125
+          },
+          {
+            "id": "de-02",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.4969,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "fr-02",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.8,
+            "recall10": 0.6667,
+            "ndcg10": 0.6622,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-02",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.3571,
+            "ndcg10": 0.4446,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-03",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.9,
+            "recall10": 0.6429,
+            "ndcg10": 0.6519,
+            "mrr10": 1
+          },
+          {
+            "id": "en-03",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 0.8,
+            "ndcg10": 0.7327,
+            "mrr10": 1
+          },
+          {
+            "id": "de-03",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.75,
+            "ndcg10": 0.4437,
+            "mrr10": 0.25
+          },
+          {
+            "id": "fr-03",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.4444,
+            "ndcg10": 0.5783,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-03",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.7,
+            "recall10": 0.5,
+            "ndcg10": 0.748,
+            "mrr10": 1
+          },
+          {
+            "id": "es-04",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.9,
+            "recall10": 0.6,
+            "ndcg10": 0.7237,
+            "mrr10": 1
+          },
+          {
+            "id": "en-04",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 1,
+            "ndcg10": 0.9604,
+            "mrr10": 1
+          },
+          {
+            "id": "de-04",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.3462,
+            "mrr10": 0.1429
+          },
+          {
+            "id": "fr-04",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.8,
+            "ndcg10": 0.7628,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-04",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.7778,
+            "ndcg10": 0.6761,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-05",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.8,
+            "recall10": 0.5333,
+            "ndcg10": 0.6104,
+            "mrr10": 0.5
+          },
+          {
+            "id": "en-05",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 1,
+            "ndcg10": 0.4582,
+            "mrr10": 0.5
+          },
+          {
+            "id": "de-05",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.8175,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-05",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.5,
+            "ndcg10": 0.3569,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-05",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.5,
+            "ndcg10": 0.6053,
+            "mrr10": 1
+          },
+          {
+            "id": "es-06",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.6202,
+            "mrr10": 1
+          },
+          {
+            "id": "en-06",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.2,
+            "recall10": 0.25,
+            "ndcg10": 0.3928,
+            "mrr10": 0.5
+          },
+          {
+            "id": "de-06",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.4444,
+            "ndcg10": 0.9201,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-06",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.8333,
+            "ndcg10": 0.6874,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-06",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.6,
+            "recall10": 0.6,
+            "ndcg10": 0.8459,
+            "mrr10": 1
+          },
+          {
+            "id": "es-07",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.8,
+            "recall10": 0.4706,
+            "ndcg10": 0.5719,
+            "mrr10": 1
+          },
+          {
+            "id": "en-07",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.5,
+            "recall10": 0.8333,
+            "ndcg10": 0.5296,
+            "mrr10": 0.25
+          },
+          {
+            "id": "de-07",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.2,
+            "ndcg10": 0.2694,
+            "mrr10": 0.25
+          },
+          {
+            "id": "fr-07",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.5833,
+            "ndcg10": 0.8089,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-07",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 1,
+            "recall10": 0.5882,
+            "ndcg10": 0.8903,
+            "mrr10": 1
+          },
+          {
+            "id": "es-08",
+            "language": "es",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.5833,
+            "ndcg10": 0.7609,
+            "mrr10": 1
+          },
+          {
+            "id": "en-08",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.3333,
+            "ndcg10": 0.6694,
+            "mrr10": 1
+          },
+          {
+            "id": "de-08",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.4911,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "fr-08",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.6,
+            "precision10": 0.3,
+            "recall10": 0.75,
+            "ndcg10": 0.5984,
+            "mrr10": 0.5
+          },
+          {
+            "id": "pt-08",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.5714,
+            "ndcg10": 0.8762,
+            "mrr10": 1
+          },
+          {
+            "id": "es-09",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.375,
+            "ndcg10": 0.5,
+            "mrr10": 1
+          },
+          {
+            "id": "en-09",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.5,
+            "ndcg10": 0.6404,
+            "mrr10": 1
+          },
+          {
+            "id": "de-09",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.5,
+            "ndcg10": 0.3865,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "fr-09",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.25,
+            "ndcg10": 0.4796,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-09",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.5,
+            "recall10": 0.5556,
+            "ndcg10": 0.4075,
+            "mrr10": 0.2
+          },
+          {
+            "id": "es-10",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.2,
+            "ndcg10": 0.2163,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "en-10",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.5,
+            "ndcg10": 0.407,
+            "mrr10": 1
+          },
+          {
+            "id": "de-10",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.5,
+            "recall10": 0.8333,
+            "ndcg10": 0.5374,
+            "mrr10": 0.2
+          },
+          {
+            "id": "fr-10",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.6667,
+            "ndcg10": 0.2418,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-10",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.362,
+            "mrr10": 1
+          }
+        ]
+      },
+      "rankingV2": {
+        "overall": {
+          "queries": 50,
+          "precision5": 0.532,
+          "precision10": 0.48,
+          "recall10": 0.5812,
+          "ndcg10": 0.5804,
+          "mrr10": 0.758
+        },
+        "byLanguage": {
+          "es": {
+            "queries": 10,
+            "precision5": 0.7,
+            "precision10": 0.65,
+            "recall10": 0.5367,
+            "ndcg10": 0.6115,
+            "mrr10": 0.9
+          },
+          "en": {
+            "queries": 10,
+            "precision5": 0.3,
+            "precision10": 0.28,
+            "recall10": 0.6195,
+            "ndcg10": 0.5341,
+            "mrr10": 0.6708
+          },
+          "de": {
+            "queries": 10,
+            "precision5": 0.34,
+            "precision10": 0.34,
+            "recall10": 0.5825,
+            "ndcg10": 0.4681,
+            "mrr10": 0.5543
+          },
+          "fr": {
+            "queries": 10,
+            "precision5": 0.46,
+            "precision10": 0.42,
+            "recall10": 0.5693,
+            "ndcg10": 0.5622,
+            "mrr10": 0.765
+          },
+          "pt": {
+            "queries": 10,
+            "precision5": 0.86,
+            "precision10": 0.71,
+            "recall10": 0.5979,
+            "ndcg10": 0.7262,
+            "mrr10": 0.9
+          }
+        },
+        "byIntent": {
+          "philosopher-concept": {
+            "queries": 30,
+            "precision5": 0.5333,
+            "precision10": 0.5167,
+            "recall10": 0.5914,
+            "ndcg10": 0.5984,
+            "mrr10": 0.7542
+          },
+          "work": {
+            "queries": 10,
+            "precision5": 0.6,
+            "precision10": 0.57,
+            "recall10": 0.6312,
+            "ndcg10": 0.6338,
+            "mrr10": 0.8125
+          },
+          "interdisciplinary-challenge": {
+            "queries": 10,
+            "precision5": 0.46,
+            "precision10": 0.28,
+            "recall10": 0.5006,
+            "ndcg10": 0.4732,
+            "mrr10": 0.715
+          }
+        },
+        "perQuery": [
+          {
+            "id": "es-01",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.5,
+            "ndcg10": 0.5328,
+            "mrr10": 1
+          },
+          {
+            "id": "en-01",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 1,
+            "ndcg10": 0.5115,
+            "mrr10": 0.25
+          },
+          {
+            "id": "de-01",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.7143,
+            "ndcg10": 0.4488,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-01",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.3808,
+            "mrr10": 0.25
+          },
+          {
+            "id": "pt-01",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.6923,
+            "ndcg10": 0.8605,
+            "mrr10": 1
+          },
+          {
+            "id": "es-02",
+            "language": "es",
+            "intent": "work",
+            "precision5": 0.6,
+            "precision10": 0.7,
+            "recall10": 0.6364,
+            "ndcg10": 0.6333,
+            "mrr10": 1
+          },
+          {
+            "id": "en-02",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.3269,
+            "mrr10": 0.125
+          },
+          {
+            "id": "de-02",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.6509,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-02",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.75,
+            "ndcg10": 0.7468,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-02",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.5385,
+            "ndcg10": 0.5108,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-03",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.9,
+            "recall10": 0.6429,
+            "ndcg10": 0.7663,
+            "mrr10": 1
+          },
+          {
+            "id": "en-03",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.75,
+            "ndcg10": 0.606,
+            "mrr10": 1
+          },
+          {
+            "id": "de-03",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 1,
+            "ndcg10": 0.5297,
+            "mrr10": 0.25
+          },
+          {
+            "id": "fr-03",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.3,
+            "recall10": 0.3333,
+            "ndcg10": 0.5005,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-03",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.8,
+            "recall10": 0.5714,
+            "ndcg10": 0.7893,
+            "mrr10": 1
+          },
+          {
+            "id": "es-04",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.9,
+            "recall10": 0.6,
+            "ndcg10": 0.7441,
+            "mrr10": 1
+          },
+          {
+            "id": "en-04",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 1,
+            "ndcg10": 0.9666,
+            "mrr10": 1
+          },
+          {
+            "id": "de-04",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0,
+            "precision10": 0.2,
+            "recall10": 1,
+            "ndcg10": 0.3462,
+            "mrr10": 0.1429
+          },
+          {
+            "id": "fr-04",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.4,
+            "recall10": 0.8,
+            "ndcg10": 0.7628,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-04",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.7778,
+            "ndcg10": 0.6761,
+            "mrr10": 0.5
+          },
+          {
+            "id": "es-05",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.8,
+            "recall10": 0.5333,
+            "ndcg10": 0.6193,
+            "mrr10": 0.5
+          },
+          {
+            "id": "en-05",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0,
+            "precision10": 0,
+            "recall10": 0,
+            "ndcg10": 0.07,
+            "mrr10": 0
+          },
+          {
+            "id": "de-05",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.3333,
+            "ndcg10": 0.5678,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-05",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.4286,
+            "ndcg10": 0.3339,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-05",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.5,
+            "recall10": 0.3846,
+            "ndcg10": 0.5759,
+            "mrr10": 1
+          },
+          {
+            "id": "es-06",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.4,
+            "recall10": 0.5,
+            "ndcg10": 0.6202,
+            "mrr10": 1
+          },
+          {
+            "id": "en-06",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.3333,
+            "ndcg10": 0.3776,
+            "mrr10": 1
+          },
+          {
+            "id": "de-06",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.8,
+            "recall10": 0.4444,
+            "ndcg10": 0.9201,
+            "mrr10": 1
+          },
+          {
+            "id": "fr-06",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.7143,
+            "ndcg10": 0.6494,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-06",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 0.6,
+            "recall10": 0.5455,
+            "ndcg10": 0.8459,
+            "mrr10": 1
+          },
+          {
+            "id": "es-07",
+            "language": "es",
+            "intent": "philosopher-concept",
+            "precision5": 0.6,
+            "precision10": 0.8,
+            "recall10": 0.4706,
+            "ndcg10": 0.5719,
+            "mrr10": 1
+          },
+          {
+            "id": "en-07",
+            "language": "en",
+            "intent": "philosopher-concept",
+            "precision5": 0.4,
+            "precision10": 0.5,
+            "recall10": 0.8333,
+            "ndcg10": 0.5278,
+            "mrr10": 0.3333
+          },
+          {
+            "id": "de-07",
+            "language": "de",
+            "intent": "philosopher-concept",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.1667,
+            "ndcg10": 0.1954,
+            "mrr10": 0.2
+          },
+          {
+            "id": "fr-07",
+            "language": "fr",
+            "intent": "philosopher-concept",
+            "precision5": 0.8,
+            "precision10": 0.7,
+            "recall10": 0.5833,
+            "ndcg10": 0.7634,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-07",
+            "language": "pt",
+            "intent": "philosopher-concept",
+            "precision5": 1,
+            "precision10": 1,
+            "recall10": 0.5882,
+            "ndcg10": 0.8903,
+            "mrr10": 1
+          },
+          {
+            "id": "es-08",
+            "language": "es",
+            "intent": "work",
+            "precision5": 1,
+            "precision10": 0.9,
+            "recall10": 0.6923,
+            "ndcg10": 0.7917,
+            "mrr10": 1
+          },
+          {
+            "id": "en-08",
+            "language": "en",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 0.6,
+            "ndcg10": 0.7139,
+            "mrr10": 1
+          },
+          {
+            "id": "de-08",
+            "language": "de",
+            "intent": "work",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 1,
+            "ndcg10": 0.5556,
+            "mrr10": 0.5
+          },
+          {
+            "id": "fr-08",
+            "language": "fr",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.4,
+            "recall10": 0.6667,
+            "ndcg10": 0.7383,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-08",
+            "language": "pt",
+            "intent": "work",
+            "precision5": 0.8,
+            "precision10": 0.8,
+            "recall10": 0.5,
+            "ndcg10": 0.6701,
+            "mrr10": 1
+          },
+          {
+            "id": "es-09",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 1,
+            "precision10": 0.5,
+            "recall10": 0.625,
+            "ndcg10": 0.7152,
+            "mrr10": 1
+          },
+          {
+            "id": "en-09",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.4,
+            "precision10": 0.3,
+            "recall10": 1,
+            "ndcg10": 0.9203,
+            "mrr10": 1
+          },
+          {
+            "id": "de-09",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.3,
+            "recall10": 0.5,
+            "ndcg10": 0.3414,
+            "mrr10": 0.25
+          },
+          {
+            "id": "fr-09",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.25,
+            "ndcg10": 0.4796,
+            "mrr10": 1
+          },
+          {
+            "id": "pt-09",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 1,
+            "precision10": 0.6,
+            "recall10": 0.6667,
+            "ndcg10": 0.8138,
+            "mrr10": 1
+          },
+          {
+            "id": "es-10",
+            "language": "es",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.1667,
+            "ndcg10": 0.1198,
+            "mrr10": 0.5
+          },
+          {
+            "id": "en-10",
+            "language": "en",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.25,
+            "ndcg10": 0.3208,
+            "mrr10": 1
+          },
+          {
+            "id": "de-10",
+            "language": "de",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.1,
+            "recall10": 0.1667,
+            "ndcg10": 0.1247,
+            "mrr10": 0.2
+          },
+          {
+            "id": "fr-10",
+            "language": "fr",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 0.2,
+            "precision10": 0.2,
+            "recall10": 0.6667,
+            "ndcg10": 0.2668,
+            "mrr10": 0.2
+          },
+          {
+            "id": "pt-10",
+            "language": "pt",
+            "intent": "interdisciplinary-challenge",
+            "precision5": 1,
+            "precision10": 0.5,
+            "recall10": 0.7143,
+            "ndcg10": 0.6297,
+            "mrr10": 1
+          }
+        ]
+      },
+      "deltaP10": 0.028,
+      "queryDirection": {
+        "improved": 15,
+        "worsened": 6,
+        "tied": 29
+      },
+      "perQuery": [
+        {
+          "id": "es-01",
+          "query": "libertad en Kant",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0
+        },
+        {
+          "id": "en-01",
+          "query": "freedom in Kant",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.4,
+          "deltaP10": 0.1
+        },
+        {
+          "id": "de-01",
+          "query": "Freiheit bei Kant",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0
+        },
+        {
+          "id": "fr-01",
+          "query": "liberté chez Kant",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.4,
+          "rankingV2P10": 0.4,
+          "deltaP10": 0
+        },
+        {
+          "id": "pt-01",
+          "query": "liberdade em Kant",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.9,
+          "rankingV2P10": 0.9,
+          "deltaP10": 0
+        },
+        {
+          "id": "es-02",
+          "query": "Ser y tiempo Heidegger",
+          "language": "es",
+          "intent": "work",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.7,
+          "deltaP10": 0.2
+        },
+        {
+          "id": "en-02",
+          "query": "Being and Time Heidegger",
+          "language": "en",
+          "intent": "work",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.3,
+          "deltaP10": 0
+        },
+        {
+          "id": "de-02",
+          "query": "Sein und Zeit Heidegger",
+          "language": "de",
+          "intent": "work",
+          "baselineP10": 0.4,
+          "rankingV2P10": 0.4,
+          "deltaP10": 0
+        },
+        {
+          "id": "fr-02",
+          "query": "Être et Temps Heidegger",
+          "language": "fr",
+          "intent": "work",
+          "baselineP10": 0.8,
+          "rankingV2P10": 0.9,
+          "deltaP10": 0.1
+        },
+        {
+          "id": "pt-02",
+          "query": "Ser e Tempo Heidegger",
+          "language": "pt",
+          "intent": "work",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.7,
+          "deltaP10": 0.2
+        },
+        {
+          "id": "es-03",
+          "query": "ética de la virtud en Aristóteles",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.9,
+          "rankingV2P10": 0.9,
+          "deltaP10": 0
+        },
+        {
+          "id": "en-03",
+          "query": "virtue ethics Aristotle",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.4,
+          "rankingV2P10": 0.3,
+          "deltaP10": -0.1
+        },
+        {
+          "id": "de-03",
+          "query": "Tugendethik bei Aristoteles",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0.2
+        },
+        {
+          "id": "fr-03",
+          "query": "éthique de la vertu Aristote",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.4,
+          "rankingV2P10": 0.3,
+          "deltaP10": -0.1
+        },
+        {
+          "id": "pt-03",
+          "query": "ética da virtude em Aristóteles",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.7,
+          "rankingV2P10": 0.8,
+          "deltaP10": 0.1
+        },
+        {
+          "id": "es-04",
+          "query": "intencionalidad en Husserl",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.9,
+          "rankingV2P10": 0.9,
+          "deltaP10": 0
+        },
+        {
+          "id": "en-04",
+          "query": "intentionality in Husserl",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.4,
+          "rankingV2P10": 0.3,
+          "deltaP10": -0.1
+        },
+        {
+          "id": "de-04",
+          "query": "Intentionalität bei Husserl",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.2,
+          "rankingV2P10": 0.2,
+          "deltaP10": 0
+        },
+        {
+          "id": "fr-04",
+          "query": "intentionnalité chez Husserl",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.4,
+          "rankingV2P10": 0.4,
+          "deltaP10": 0
+        },
+        {
+          "id": "pt-04",
+          "query": "intencionalidade em Husserl",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.7,
+          "rankingV2P10": 0.7,
+          "deltaP10": 0
+        },
+        {
+          "id": "es-05",
+          "query": "alteridad en Levinas",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.8,
+          "rankingV2P10": 0.8,
+          "deltaP10": 0
+        },
+        {
+          "id": "en-05",
+          "query": "alterity in Levinas",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.1,
+          "rankingV2P10": 0,
+          "deltaP10": -0.1
+        },
+        {
+          "id": "de-05",
+          "query": "Alterität bei Levinas",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.2,
+          "rankingV2P10": 0.2,
+          "deltaP10": 0
+        },
+        {
+          "id": "fr-05",
+          "query": "altérité chez Levinas",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.3,
+          "deltaP10": 0
+        },
+        {
+          "id": "pt-05",
+          "query": "alteridade em Levinas",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0
+        },
+        {
+          "id": "es-06",
+          "query": "sustancia en Spinoza",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.4,
+          "rankingV2P10": 0.4,
+          "deltaP10": 0
+        },
+        {
+          "id": "en-06",
+          "query": "substance in Spinoza",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.2,
+          "rankingV2P10": 0.3,
+          "deltaP10": 0.1
+        },
+        {
+          "id": "de-06",
+          "query": "Substanz bei Spinoza",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.8,
+          "rankingV2P10": 0.8,
+          "deltaP10": 0
+        },
+        {
+          "id": "fr-06",
+          "query": "substance chez Spinoza",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0
+        },
+        {
+          "id": "pt-06",
+          "query": "substância em Spinoza",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.6,
+          "rankingV2P10": 0.6,
+          "deltaP10": 0
+        },
+        {
+          "id": "es-07",
+          "query": "filosofía de la liberación Dussel",
+          "language": "es",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.8,
+          "rankingV2P10": 0.8,
+          "deltaP10": 0
+        },
+        {
+          "id": "en-07",
+          "query": "philosophy of liberation Dussel",
+          "language": "en",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0
+        },
+        {
+          "id": "de-07",
+          "query": "Philosophie der Befreiung Dussel",
+          "language": "de",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.1,
+          "rankingV2P10": 0.1,
+          "deltaP10": 0
+        },
+        {
+          "id": "fr-07",
+          "query": "philosophie de la libération Dussel",
+          "language": "fr",
+          "intent": "philosopher-concept",
+          "baselineP10": 0.7,
+          "rankingV2P10": 0.7,
+          "deltaP10": 0
+        },
+        {
+          "id": "pt-07",
+          "query": "filosofia da libertação Dussel",
+          "language": "pt",
+          "intent": "philosopher-concept",
+          "baselineP10": 1,
+          "rankingV2P10": 1,
+          "deltaP10": 0
+        },
+        {
+          "id": "es-08",
+          "query": "Fenomenología del espíritu Hegel",
+          "language": "es",
+          "intent": "work",
+          "baselineP10": 0.7,
+          "rankingV2P10": 0.9,
+          "deltaP10": 0.2
+        },
+        {
+          "id": "en-08",
+          "query": "Phenomenology of Spirit Hegel",
+          "language": "en",
+          "intent": "work",
+          "baselineP10": 0.1,
+          "rankingV2P10": 0.3,
+          "deltaP10": 0.2
+        },
+        {
+          "id": "de-08",
+          "query": "Phänomenologie des Geistes Hegel",
+          "language": "de",
+          "intent": "work",
+          "baselineP10": 0.2,
+          "rankingV2P10": 0.3,
+          "deltaP10": 0.1
+        },
+        {
+          "id": "fr-08",
+          "query": "Phénoménologie de l'esprit Hegel",
+          "language": "fr",
+          "intent": "work",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.4,
+          "deltaP10": 0.1
+        },
+        {
+          "id": "pt-08",
+          "query": "Fenomenologia do Espírito Hegel",
+          "language": "pt",
+          "intent": "work",
+          "baselineP10": 0.8,
+          "rankingV2P10": 0.8,
+          "deltaP10": 0
+        },
+        {
+          "id": "es-09",
+          "query": "fenomenología en enfermería",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0.2
+        },
+        {
+          "id": "en-09",
+          "query": "phenomenology in nursing",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.1,
+          "rankingV2P10": 0.3,
+          "deltaP10": 0.2
+        },
+        {
+          "id": "de-09",
+          "query": "Phänomenologie in der Pflege",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.3,
+          "deltaP10": 0
+        },
+        {
+          "id": "fr-09",
+          "query": "phénoménologie en soins infirmiers",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.1,
+          "rankingV2P10": 0.1,
+          "deltaP10": 0
+        },
+        {
+          "id": "pt-09",
+          "query": "fenomenologia na enfermagem",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.6,
+          "deltaP10": 0.1
+        },
+        {
+          "id": "es-10",
+          "query": "ontología en informática",
+          "language": "es",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.1,
+          "rankingV2P10": 0.1,
+          "deltaP10": 0
+        },
+        {
+          "id": "en-10",
+          "query": "ontology in computer science",
+          "language": "en",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.2,
+          "rankingV2P10": 0.1,
+          "deltaP10": -0.1
+        },
+        {
+          "id": "de-10",
+          "query": "Ontologie in der Informatik",
+          "language": "de",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.5,
+          "rankingV2P10": 0.1,
+          "deltaP10": -0.4
+        },
+        {
+          "id": "fr-10",
+          "query": "ontologie en informatique",
+          "language": "fr",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.2,
+          "rankingV2P10": 0.2,
+          "deltaP10": 0
+        },
+        {
+          "id": "pt-10",
+          "query": "ontologia em ciência da computação",
+          "language": "pt",
+          "intent": "interdisciplinary-challenge",
+          "baselineP10": 0.3,
+          "rankingV2P10": 0.5,
+          "deltaP10": 0.2
+        }
+      ]
+    }
+  },
+  "binaryDisagreements": {
+    "baselineSilver": [
+      {
+        "audit_id": "H001",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "es-05",
+        "query": "alteridad en Levinas",
+        "title": "Márgenes de la Filosofía. Diálogos cruzados sobre la alteridad en Levinas y Derrida",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "La alteridad en Levinas es uno de los ejes principales, aunque el texto la aborda en diálogo con Derrida."
+      },
+      {
+        "audit_id": "H007",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "es-02",
+        "query": "Ser y tiempo Heidegger",
+        "title": "Martin Heidegger: Being and Time",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H009",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "es-09",
+        "query": "fenomenología en enfermería",
+        "title": "Hermeneutical Phenomenology",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H011",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "en-07",
+        "query": "philosophy of liberation Dussel",
+        "title": "The Pedagogics of Liberation - A Latin American Philosophy of Education",
+        "human_relevance": 2,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H014",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "en-07",
+        "query": "philosophy of liberation Dussel",
+        "title": "Europe is dead on the philosophy of liberation of Enrique Dussel",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H016",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "en-06",
+        "query": "substance in Spinoza",
+        "title": "Becoming One: Theology and Philosophy, Will and Intellect, Mode and Substance in Spinoza",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H022",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-03",
+        "query": "Tugendethik bei Aristoteles",
+        "title": "VI. Phronêsis – Die Bezeichnung von Urteilskraft bei Aristoteles?",
+        "human_relevance": 2,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H025",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-01",
+        "query": "Freiheit bei Kant",
+        "title": "Philosophie, Geographie, Geschichte: eine ‚kosmopolitische‘ Vermittlung von Natur und Freiheit bei Kant",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H026",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-07",
+        "query": "Philosophie der Befreiung Dussel",
+        "title": "Philosophie der Befreiung die phänomenologische Ontologie bei Jean-Paul Sartre ; Anhang Anarchie und Moral, Interview mit J.-P. Sartre",
+        "human_relevance": 0,
+        "silver_relevance": 3,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H029",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Ontologie und Axiomatik der Wissensbasis von LILOG",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H030",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-09",
+        "query": "Phänomenologie in der Pflege",
+        "title": "Qualitative Gesundheitsforschung aus Sicht der Neuen Phänomenologie",
+        "human_relevance": 2,
+        "silver_relevance": 0,
+        "human_note": "Aplica la Nueva Fenomenología a la investigación cualitativa en salud, pero no parece centrarse específicamente en enfermería."
+      },
+      {
+        "audit_id": "H032",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-05",
+        "query": "altérité chez Levinas",
+        "title": "Le statut philosophique de l'enseignement chez Emmanuel Levinas",
+        "human_relevance": 2,
+        "silver_relevance": 1,
+        "human_note": "La tesis se centra en el concepto de enseñanza, pero lo desarrolla sustantivamente a partir de la relación con el Otro y la ética levinasiana."
+      },
+      {
+        "audit_id": "H034",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-03",
+        "query": "éthique de la vertu Aristote",
+        "title": "Vertu éthique et rationalité pratique chez Aristote. Note sur la notion d’hexis proairetikê",
+        "human_relevance": 3,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H035",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-07",
+        "query": "philosophie de la libération Dussel",
+        "title": "Pensée critique latino-américaine: de la philosophie de la libération au tournant décolonial",
+        "human_relevance": 1,
+        "silver_relevance": 2,
+        "human_note": "La Filosofía de la Liberación es central en el artículo, pero Dussel no aparece como objeto específico o principal en el resumen."
+      },
+      {
+        "audit_id": "H038",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-08",
+        "query": "Phénoménologie de l'esprit Hegel",
+        "title": "Structures et mouvement dialectique dans la Phénoménologie de l'esprit de Hegel",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H044",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-07",
+        "query": "filosofia da libertação Dussel",
+        "title": "A DESCOLONIALIDADE EPISTEMOLÓGICA NA FILOSOFIA DA LIBERTAÇÃO DE ENRIQUE DUSSEL",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H045",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-06",
+        "query": "substância em Spinoza",
+        "title": "A substância divina e a subjetividade em Descartes",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H046",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-06",
+        "query": "substância em Spinoza",
+        "title": "Morfometria cerebral de substância cinzenta e imagens de tensores de difusão da microestrutura de substância branca de pacientes em primeiro episódio maníaco com sintomas psicóticos",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H050",
+        "reference": "baseline_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-10",
+        "query": "ontologia em ciência da computação",
+        "title": "Metaphysics of Science as Naturalized Metaphysics",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H054",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-10",
+        "query": "ontology in computer science",
+        "title": "Harmonies of Nature, in Three Volumes, Vol. I",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H055",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "fr-10",
+        "query": "ontologie en informatique",
+        "title": "Epistemology and Ontology of AI — From Lagrange and Hamilton Genre-Shift to Agentic AI Cognitive Safety: Open-Source Framework, LNN, HNN, PINN and SciML within the Dorian Codex H_SAFE by Stefano Dorian Franco — Independent Research Modules Programme",
+        "human_relevance": 1,
+        "silver_relevance": 3,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H056",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-10",
+        "query": "ontology in computer science",
+        "title": "The Dimensional Lattice: A Mathematical Framework for Consciousness Emergence and Coherence Dynamics",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H064",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-06",
+        "query": "substance in Spinoza",
+        "title": "A demonstration of the being and attributes of God: more particularly in answer to Mr. Hobbs, Spinoza, and their followers. ... Being the substance of eight sermons preach'd at the cathedral-church of St. Paul, in the year 1704. ... By Samuel Clark, ... 1705",
+        "human_relevance": 1,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H065",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-05",
+        "query": "alterity in Levinas",
+        "title": "Quanta, Alterity, And Love",
+        "human_relevance": 1,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H066",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "de-07",
+        "query": "Philosophie der Befreiung Dussel",
+        "title": "Gabriel Cercel: Martin HEIDEGGER, Reden und andere Zeugnisse eines Lebensweges; Attila Szigeti: Emmanuel LEVINAS, Positivité et transcendance. Suivi de Lévinas et la phenomenology; Cristian Ciocan: Jean-Luc MARION, Crucea vizibilului; Gabriel Cercel: Mądąlina DIACONU, Blickumkehr. Mit Martin Heidegger zu einer relationalen ästhetik; Cristina Ionescu: Mark WRATHALL, Jeff MALPAS (eds.), Essays in Honour of Hubert L. Dreyfus; Cristian Ciocan: Ion COPOERU, Aparenţą şi sens. Repere ale fenomenologiei constitutive; Cristian Ciocan: Michael INWOOD, A Heidegger Dictionary; Cristian Ciocan: Linda FISCHER, Lester EMBREE (eds.), Feminist Phenomenology; Mądąlina Diaconu: Renato CRISTIN, Fenomeno storia. Fenomenologia e storicità in Husserl e Dilthey; Cristian Ciocan: Michel HAAR, La philosophie française entre phénoménologie et métaphysique; Gabriel Cercel: Otto PöGGELER, Heidegger in seiner Zeit; Roxana Albu: James RISSER (ed.), Heidegger toward the Turn, Essays on the work of the 1930s; Cristian Ciocan: Virgil Ciomoş, Timp şi Eternitate. Aristotel, Fizica IV 10-14, Interpretare fenomenologicą; Cristina Ionescu: William D. BLATTNER, Heidegger's Temporal Idealism; Bogdan Mincą: Gino ZACCARIA, L'inizio greco del pensiero. Heidegger e l'essenza futura della filosofia; Mądąlina Diaconu: Ute GUZZONI, Wohnen und Wandern; Bogdan Tątaru-Cazaban: Emmanuel LéVINAS, Totalitate şi infinit; Mihail Neamţu: Jean-Luc MARION, étant donné. Essai d'une phénoménologie de la donation; Gabriel Cercel: Robert PETKOVŠEK, Heidegger-Index (1919-1927); Cristian Ciocan: Einar ØVERENGET, Seeing The Self. Heidegger on Subjectivity Mihail Neamţu: Rolf KüHN, Husserls Begriff der Passivität. Zur Kritik der passiven Synthesis in der genetischen Phänomenologie.",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H069",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "fr-01",
+        "query": "liberté chez Kant",
+        "title": "Kant y la construcción del significado",
+        "human_relevance": 1,
+        "silver_relevance": 2,
+        "human_note": "El artículo se centra en Kant, pero aborda lenguaje, significado y estructuras trascendentales; no trata sustantivamente el problema kantiano de la libertad."
+      },
+      {
+        "audit_id": "H072",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "fr-03",
+        "query": "éthique de la vertu Aristote",
+        "title": "La división disciplinar del tiempo en el joven Heidegger. Las influencias de su concepción de los tiempos de la ciencia y la historia",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Aristóteles aparece sólo como influencia en la concepción heideggeriana del tiempo; no se trata la ética de la virtud."
+      },
+      {
+        "audit_id": "H073",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-09",
+        "query": "phenomenology in nursing",
+        "title": "Walt Whitman, Nursing, and Phenomenology",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Clasificación basada en el título; enfermería y fenomenología aparecen como ejes explícitos del capítulo."
+      },
+      {
+        "audit_id": "H074",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Die Ontologie Mullā Ṣadrās und der Vorwurf der Ontotheologie Versuch einer Interpretation der Philosophie Mullā Ṣadrās im Lichte der Metaphysikkritik Heideggers",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Trata ontología filosófica y ontoteología en Mullā Ṣadrā y Heidegger, no ontologías en informática."
+      },
+      {
+        "audit_id": "H075",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "es-10",
+        "query": "ontología en informática",
+        "title": "Metaphysics and common sense",
+        "human_relevance": 0,
+        "silver_relevance": 3,
+        "human_note": "Trata metafísica filosófica, no ontologías en ciencias de la computación."
+      },
+      {
+        "audit_id": "H076",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-05",
+        "query": "alterity in Levinas",
+        "title": "Conscience: The Most Intimate Alterity",
+        "human_relevance": 2,
+        "silver_relevance": 1,
+        "human_note": "Aborda sustantivamente la concepción levinasiana del Otro dentro de una discusión más amplia sobre conciencia, alteridad y pasividad centrada también en Ricoeur."
+      },
+      {
+        "audit_id": "H079",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-01",
+        "query": "freedom in Kant",
+        "title": "Immanuel Kant: Cognition, Freedom and Teleology",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H080",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "en-10",
+        "query": "ontology in computer science",
+        "title": "METAPHYSICS AND INTERDISCIPLINARY MODELS",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Trata metafísica y modelos de autoorganización natural; no ontologías en ciencias de la computación."
+      },
+      {
+        "audit_id": "H082",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "es-10",
+        "query": "ontología en informática",
+        "title": "Dewey's metaphysics",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Aborda ontología y metafísica en sentido filosófico dentro del pensamiento de Dewey, pero no ontologías computacionales ni informática."
+      },
+      {
+        "audit_id": "H083",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "es-10",
+        "query": "ontología en informática",
+        "title": "Avicenna's metaphysics in context",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Estudia ontología/metafísica en sentido filosófico e histórico en Avicena; no ontologías computacionales ni informática."
+      },
+      {
+        "audit_id": "H086",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Kommentar zu Ewald Lang: Linguistische vs. konzeptuelle Aspekte der LILOG-Ontologie",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Comentario dedicado directamente a la ontología computacional de LILOG, un sistema de representación del conocimiento y procesamiento del lenguaje natural desarrollado en el proyecto de IA de IBM."
+      },
+      {
+        "audit_id": "H087",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Motivation einer Ontologie aus linguistischer Perspektive — 3 Fallstudien aus LEU/2",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Analiza directamente la ontología de LEU/2/LILOG, una base de conocimiento para sistemas de procesamiento del lenguaje natural e IA."
+      },
+      {
+        "audit_id": "H088",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Linguistische vs. konzeptuelle Aspekte der LILOG-Ontologie",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H089",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "pt-10",
+        "query": "ontologia em ciência da computação",
+        "title": "ONTOLOGIA EM CIÊNCIA DA INFORMAÇÃO: ESTUDOS AVANÇADOS - VL 3",
+        "human_relevance": 2,
+        "silver_relevance": 0,
+        "human_note": "Aborda sustantivamente la construcción y formalización de ontologías computacionales y la Web Semántica, aunque el marco principal del libro es la Ciencia de la Información y no la Ciencia de la Computación."
+      },
+      {
+        "audit_id": "H090",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Erfahrungen mit der Zeitontologie und -axiomatik",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Analiza directamente la ontología temporal y su axiomatización dentro de la base de conocimiento e inferencia del sistema LILOG."
+      },
+      {
+        "audit_id": "H093",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "es-09",
+        "query": "fenomenología en enfermería",
+        "title": "Reflections on Phenomenology, Pedagogy, and Phenomenology + Pedagogy",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Aborda fenomenología en relación con la pedagogía y la educación, no con enfermería."
+      },
+      {
+        "audit_id": "H097",
+        "reference": "baseline_silver",
+        "sample_group": "targeted",
+        "query_id": "pt-10",
+        "query": "ontologia em ciência da computação",
+        "title": "METAPHYSICS AND INTERDISCIPLINARY MODELS",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Trata metafísica y modelos matemáticos de autoorganización de sistemas naturales; no ontologías en ciencias de la computación."
+      }
+    ],
+    "rankingV2Silver": [
+      {
+        "audit_id": "H001",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "es-05",
+        "query": "alteridad en Levinas",
+        "title": "Márgenes de la Filosofía. Diálogos cruzados sobre la alteridad en Levinas y Derrida",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "La alteridad en Levinas es uno de los ejes principales, aunque el texto la aborda en diálogo con Derrida."
+      },
+      {
+        "audit_id": "H007",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "es-02",
+        "query": "Ser y tiempo Heidegger",
+        "title": "Martin Heidegger: Being and Time",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H009",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "es-09",
+        "query": "fenomenología en enfermería",
+        "title": "Hermeneutical Phenomenology",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H011",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "en-07",
+        "query": "philosophy of liberation Dussel",
+        "title": "The Pedagogics of Liberation - A Latin American Philosophy of Education",
+        "human_relevance": 2,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H014",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "en-07",
+        "query": "philosophy of liberation Dussel",
+        "title": "Europe is dead on the philosophy of liberation of Enrique Dussel",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H016",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "en-06",
+        "query": "substance in Spinoza",
+        "title": "Becoming One: Theology and Philosophy, Will and Intellect, Mode and Substance in Spinoza",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H022",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-03",
+        "query": "Tugendethik bei Aristoteles",
+        "title": "VI. Phronêsis – Die Bezeichnung von Urteilskraft bei Aristoteles?",
+        "human_relevance": 2,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H025",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-01",
+        "query": "Freiheit bei Kant",
+        "title": "Philosophie, Geographie, Geschichte: eine ‚kosmopolitische‘ Vermittlung von Natur und Freiheit bei Kant",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H026",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-07",
+        "query": "Philosophie der Befreiung Dussel",
+        "title": "Philosophie der Befreiung die phänomenologische Ontologie bei Jean-Paul Sartre ; Anhang Anarchie und Moral, Interview mit J.-P. Sartre",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H027",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-02",
+        "query": "Sein und Zeit Heidegger",
+        "title": "Martin Heidegger, Ser Y Tiempo, Sein Und Zeit, 1927",
+        "human_relevance": 3,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H029",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Ontologie und Axiomatik der Wissensbasis von LILOG",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H030",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "de-09",
+        "query": "Phänomenologie in der Pflege",
+        "title": "Qualitative Gesundheitsforschung aus Sicht der Neuen Phänomenologie",
+        "human_relevance": 2,
+        "silver_relevance": 0,
+        "human_note": "Aplica la Nueva Fenomenología a la investigación cualitativa en salud, pero no parece centrarse específicamente en enfermería."
+      },
+      {
+        "audit_id": "H032",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-05",
+        "query": "altérité chez Levinas",
+        "title": "Le statut philosophique de l'enseignement chez Emmanuel Levinas",
+        "human_relevance": 2,
+        "silver_relevance": 1,
+        "human_note": "La tesis se centra en el concepto de enseñanza, pero lo desarrolla sustantivamente a partir de la relación con el Otro y la ética levinasiana."
+      },
+      {
+        "audit_id": "H034",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-03",
+        "query": "éthique de la vertu Aristote",
+        "title": "Vertu éthique et rationalité pratique chez Aristote. Note sur la notion d’hexis proairetikê",
+        "human_relevance": 3,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H035",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-07",
+        "query": "philosophie de la libération Dussel",
+        "title": "Pensée critique latino-américaine: de la philosophie de la libération au tournant décolonial",
+        "human_relevance": 1,
+        "silver_relevance": 2,
+        "human_note": "La Filosofía de la Liberación es central en el artículo, pero Dussel no aparece como objeto específico o principal en el resumen."
+      },
+      {
+        "audit_id": "H038",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "fr-08",
+        "query": "Phénoménologie de l'esprit Hegel",
+        "title": "Structures et mouvement dialectique dans la Phénoménologie de l'esprit de Hegel",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H044",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-07",
+        "query": "filosofia da libertação Dussel",
+        "title": "A DESCOLONIALIDADE EPISTEMOLÓGICA NA FILOSOFIA DA LIBERTAÇÃO DE ENRIQUE DUSSEL",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H045",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-06",
+        "query": "substância em Spinoza",
+        "title": "A substância divina e a subjetividade em Descartes",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H046",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-06",
+        "query": "substância em Spinoza",
+        "title": "Morfometria cerebral de substância cinzenta e imagens de tensores de difusão da microestrutura de substância branca de pacientes em primeiro episódio maníaco com sintomas psicóticos",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H050",
+        "reference": "ranking_v2_silver",
+        "sample_group": "random_stratified",
+        "query_id": "pt-10",
+        "query": "ontologia em ciência da computação",
+        "title": "Metaphysics of Science as Naturalized Metaphysics",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H052",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "en-01",
+        "query": "freedom in Kant",
+        "title": "The subject of freedom : Kant, Levinas",
+        "human_relevance": 3,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H053",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "es-10",
+        "query": "ontología en informática",
+        "title": "METAPHYSICS AND INTERDISCIPLINARY MODELS",
+        "human_relevance": 0,
+        "silver_relevance": 3,
+        "human_note": "Trata metafísica y modelos de sistemas naturales; no ontologías en el sentido de informática"
+      },
+      {
+        "audit_id": "H054",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "en-10",
+        "query": "ontology in computer science",
+        "title": "Harmonies of Nature, in Three Volumes, Vol. I",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H055",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "fr-10",
+        "query": "ontologie en informatique",
+        "title": "Epistemology and Ontology of AI — From Lagrange and Hamilton Genre-Shift to Agentic AI Cognitive Safety: Open-Source Framework, LNN, HNN, PINN and SciML within the Dorian Codex H_SAFE by Stefano Dorian Franco — Independent Research Modules Programme",
+        "human_relevance": 1,
+        "silver_relevance": 3,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H056",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "en-10",
+        "query": "ontology in computer science",
+        "title": "The Dimensional Lattice: A Mathematical Framework for Consciousness Emergence and Coherence Dynamics",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H057",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "es-08",
+        "query": "Fenomenología del espíritu Hegel",
+        "title": "Federico Guillermo Hegel, Fenomenología Del Espíritu. Edición Bilingüe De Antonio Gómez.",
+        "human_relevance": 3,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H063",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "es-08",
+        "query": "Fenomenología del espíritu Hegel",
+        "title": "Hegel Fenomenología Del Espíritu 2022, Traducción De Aurelio Díaz",
+        "human_relevance": 3,
+        "silver_relevance": 1,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H065",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "en-05",
+        "query": "alterity in Levinas",
+        "title": "Quanta, Alterity, And Love",
+        "human_relevance": 1,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H066",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "de-07",
+        "query": "Philosophie der Befreiung Dussel",
+        "title": "Gabriel Cercel: Martin HEIDEGGER, Reden und andere Zeugnisse eines Lebensweges; Attila Szigeti: Emmanuel LEVINAS, Positivité et transcendance. Suivi de Lévinas et la phenomenology; Cristian Ciocan: Jean-Luc MARION, Crucea vizibilului; Gabriel Cercel: Mądąlina DIACONU, Blickumkehr. Mit Martin Heidegger zu einer relationalen ästhetik; Cristina Ionescu: Mark WRATHALL, Jeff MALPAS (eds.), Essays in Honour of Hubert L. Dreyfus; Cristian Ciocan: Ion COPOERU, Aparenţą şi sens. Repere ale fenomenologiei constitutive; Cristian Ciocan: Michael INWOOD, A Heidegger Dictionary; Cristian Ciocan: Linda FISCHER, Lester EMBREE (eds.), Feminist Phenomenology; Mądąlina Diaconu: Renato CRISTIN, Fenomeno storia. Fenomenologia e storicità in Husserl e Dilthey; Cristian Ciocan: Michel HAAR, La philosophie française entre phénoménologie et métaphysique; Gabriel Cercel: Otto PöGGELER, Heidegger in seiner Zeit; Roxana Albu: James RISSER (ed.), Heidegger toward the Turn, Essays on the work of the 1930s; Cristian Ciocan: Virgil Ciomoş, Timp şi Eternitate. Aristotel, Fizica IV 10-14, Interpretare fenomenologicą; Cristina Ionescu: William D. BLATTNER, Heidegger's Temporal Idealism; Bogdan Mincą: Gino ZACCARIA, L'inizio greco del pensiero. Heidegger e l'essenza futura della filosofia; Mądąlina Diaconu: Ute GUZZONI, Wohnen und Wandern; Bogdan Tątaru-Cazaban: Emmanuel LéVINAS, Totalitate şi infinit; Mihail Neamţu: Jean-Luc MARION, étant donné. Essai d'une phénoménologie de la donation; Gabriel Cercel: Robert PETKOVŠEK, Heidegger-Index (1919-1927); Cristian Ciocan: Einar ØVERENGET, Seeing The Self. Heidegger on Subjectivity Mihail Neamţu: Rolf KüHN, Husserls Begriff der Passivität. Zur Kritik der passiven Synthesis in der genetischen Phänomenologie.",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H069",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "fr-01",
+        "query": "liberté chez Kant",
+        "title": "Kant y la construcción del significado",
+        "human_relevance": 1,
+        "silver_relevance": 2,
+        "human_note": "El artículo se centra en Kant, pero aborda lenguaje, significado y estructuras trascendentales; no trata sustantivamente el problema kantiano de la libertad."
+      },
+      {
+        "audit_id": "H072",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "fr-03",
+        "query": "éthique de la vertu Aristote",
+        "title": "La división disciplinar del tiempo en el joven Heidegger. Las influencias de su concepción de los tiempos de la ciencia y la historia",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Aristóteles aparece sólo como influencia en la concepción heideggeriana del tiempo; no se trata la ética de la virtud."
+      },
+      {
+        "audit_id": "H073",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "en-09",
+        "query": "phenomenology in nursing",
+        "title": "Walt Whitman, Nursing, and Phenomenology",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Clasificación basada en el título; enfermería y fenomenología aparecen como ejes explícitos del capítulo."
+      },
+      {
+        "audit_id": "H074",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Die Ontologie Mullā Ṣadrās und der Vorwurf der Ontotheologie Versuch einer Interpretation der Philosophie Mullā Ṣadrās im Lichte der Metaphysikkritik Heideggers",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Trata ontología filosófica y ontoteología en Mullā Ṣadrā y Heidegger, no ontologías en informática."
+      },
+      {
+        "audit_id": "H076",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "en-05",
+        "query": "alterity in Levinas",
+        "title": "Conscience: The Most Intimate Alterity",
+        "human_relevance": 2,
+        "silver_relevance": 1,
+        "human_note": "Aborda sustantivamente la concepción levinasiana del Otro dentro de una discusión más amplia sobre conciencia, alteridad y pasividad centrada también en Ricoeur."
+      },
+      {
+        "audit_id": "H078",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "de-03",
+        "query": "Tugendethik bei Aristoteles",
+        "title": "Las falacias de composición y división en Aristóteles",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Trata lógica aristotélica y falacias, no ética de la virtud."
+      },
+      {
+        "audit_id": "H081",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "es-10",
+        "query": "ontología en informática",
+        "title": "The metaphysics of Sir William Hamilton",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Trata metafísica filosófica de William Hamilton, no ontologías en informática."
+      },
+      {
+        "audit_id": "H085",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "es-10",
+        "query": "ontología en informática",
+        "title": "The Dimensional Lattice: A Mathematical Framework for Consciousness Emergence and Coherence Dynamics",
+        "human_relevance": 0,
+        "silver_relevance": 3,
+        "human_note": "Presenta un marco matemático y computacional sobre conciencia e IA, pero no aborda ontologías como estructuras formales de representación del conocimiento en informática."
+      },
+      {
+        "audit_id": "H086",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Kommentar zu Ewald Lang: Linguistische vs. konzeptuelle Aspekte der LILOG-Ontologie",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Comentario dedicado directamente a la ontología computacional de LILOG, un sistema de representación del conocimiento y procesamiento del lenguaje natural desarrollado en el proyecto de IA de IBM."
+      },
+      {
+        "audit_id": "H087",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Motivation einer Ontologie aus linguistischer Perspektive — 3 Fallstudien aus LEU/2",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Analiza directamente la ontología de LEU/2/LILOG, una base de conocimiento para sistemas de procesamiento del lenguaje natural e IA."
+      },
+      {
+        "audit_id": "H088",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Linguistische vs. konzeptuelle Aspekte der LILOG-Ontologie",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": ""
+      },
+      {
+        "audit_id": "H089",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "pt-10",
+        "query": "ontologia em ciência da computação",
+        "title": "ONTOLOGIA EM CIÊNCIA DA INFORMAÇÃO: ESTUDOS AVANÇADOS - VL 3",
+        "human_relevance": 2,
+        "silver_relevance": 0,
+        "human_note": "Aborda sustantivamente la construcción y formalización de ontologías computacionales y la Web Semántica, aunque el marco principal del libro es la Ciencia de la Información y no la Ciencia de la Computación."
+      },
+      {
+        "audit_id": "H090",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "de-10",
+        "query": "Ontologie in der Informatik",
+        "title": "Erfahrungen mit der Zeitontologie und -axiomatik",
+        "human_relevance": 3,
+        "silver_relevance": 0,
+        "human_note": "Analiza directamente la ontología temporal y su axiomatización dentro de la base de conocimiento e inferencia del sistema LILOG."
+      },
+      {
+        "audit_id": "H093",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "es-09",
+        "query": "fenomenología en enfermería",
+        "title": "Reflections on Phenomenology, Pedagogy, and Phenomenology + Pedagogy",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Aborda fenomenología en relación con la pedagogía y la educación, no con enfermería."
+      },
+      {
+        "audit_id": "H097",
+        "reference": "ranking_v2_silver",
+        "sample_group": "targeted",
+        "query_id": "pt-10",
+        "query": "ontologia em ciência da computação",
+        "title": "METAPHYSICS AND INTERDISCIPLINARY MODELS",
+        "human_relevance": 0,
+        "silver_relevance": 2,
+        "human_note": "Trata metafísica y modelos matemáticos de autoorganización de sistemas naturales; no ontologías en ciencias de la computación."
+      }
+    ]
+  },
+  "cautions": [
+    "The random_stratified half is the appropriate subset for estimating ordinary AI-human agreement within the sampled Top-10 union; the targeted half is deliberately enriched for hard/error-prone cases.",
+    "The 100-document audit is not a complete human judgment of either 1000-document pool.",
+    "Human-corrected metrics are a sensitivity analysis, not pure human-gold metrics, because unaudited labels remain AI-silver.",
+    "Recall@10 remains relative to each frozen Top-20 pool, not corpus-wide recall."
+  ]
+}
