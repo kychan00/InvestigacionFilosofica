@@ -12,6 +12,7 @@
     "benchmark:run:v2": "npm run build:duckdb && node scripts/benchmark/run-server-v2.mjs",
     "benchmark:run:interdisciplinary-fix": "npm run build:duckdb && node scripts/benchmark/run-server-interdisciplinary-fix.mjs",
     "benchmark:run:multilingual-constraints": "npm run build:duckdb && node scripts/benchmark/run-server-multilingual-constraints.mjs",
+    "benchmark:analyze:multilingual-constraints": "node scripts/benchmark/analyze_multilingual_constraints.mjs",
     "benchmark:ai": "python3 scripts/benchmark/ai_judge.py",
     "benchmark:ai:v2": "python3 scripts/benchmark/ai_judge.py --config benchmark/ai-judge-ranking-v2.json",
     "benchmark:ai:calibrate": "python3 scripts/benchmark/calibrate_ai_judgments.py",
