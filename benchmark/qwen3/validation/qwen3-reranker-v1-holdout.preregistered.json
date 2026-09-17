@@ -1,0 +1,102 @@
+{
+  "schema_version": "qwen3-holdout-prereg-v1",
+  "validation_id": "qwen3-reranker-v1-holdout-v1",
+  "status": "preregistered-before-retrieval",
+  "purpose": "Fresh internal human validation of the frozen Qwen3 reranker candidate on new multilingual queries. No threshold retuning is permitted on this holdout.",
+  "development_freeze_commit": "b3a795b",
+  "candidate": {
+    "model": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "max_length": 4096,
+    "fixed_binary_threshold": 0.679178715,
+    "development_raw_score_sha256": "cfb7feb12c7b04bd0c16cc670ddb3b11512a7a5811ef9241adc22ac205a73ffb",
+    "development_calibration_json_sha256": "654799bec229f9d7709ce459374b4c2dbcfb19e10ebb450e0d70898a010f389a",
+    "threshold_source": "development-only best F1 on human-audit-v1; frozen before this holdout"
+  },
+  "query_design": {
+    "languages": ["es", "en", "de", "fr", "pt"],
+    "families": [
+      "descartes-mind-body-dualism",
+      "rawls-justice-fairness",
+      "wittgenstein-tractatus",
+      "philosophy-mind-psychology"
+    ],
+    "queries": 20,
+    "intent_mix": {
+      "philosopher-concept": 10,
+      "work": 5,
+      "interdisciplinary-challenge": 5
+    },
+    "retrieval_pool_depth": 20,
+    "minimum_results_per_query": 10,
+    "human_audit_ranks": [1, 3, 5, 7, 10],
+    "planned_human_pairs": 100,
+    "sampling_rule": "For every query, audit production retrieval ranks 1, 3, 5, 7 and 10. Sampling is fixed before Qwen scores and before human labels."
+  },
+  "queries": [
+    {"id":"qhv-es-01","language":"es","family":"descartes-mind-body-dualism","intent":"philosopher-concept","query":"dualismo mente-cuerpo en Descartes"},
+    {"id":"qhv-en-01","language":"en","family":"descartes-mind-body-dualism","intent":"philosopher-concept","query":"mind-body dualism in Descartes"},
+    {"id":"qhv-de-01","language":"de","family":"descartes-mind-body-dualism","intent":"philosopher-concept","query":"Leib-Seele-Dualismus bei Descartes"},
+    {"id":"qhv-fr-01","language":"fr","family":"descartes-mind-body-dualism","intent":"philosopher-concept","query":"dualisme corps-esprit chez Descartes"},
+    {"id":"qhv-pt-01","language":"pt","family":"descartes-mind-body-dualism","intent":"philosopher-concept","query":"dualismo mente-corpo em Descartes"},
+
+    {"id":"qhv-es-02","language":"es","family":"rawls-justice-fairness","intent":"philosopher-concept","query":"justicia como equidad en Rawls"},
+    {"id":"qhv-en-02","language":"en","family":"rawls-justice-fairness","intent":"philosopher-concept","query":"justice as fairness in Rawls"},
+    {"id":"qhv-de-02","language":"de","family":"rawls-justice-fairness","intent":"philosopher-concept","query":"Gerechtigkeit als Fairness bei Rawls"},
+    {"id":"qhv-fr-02","language":"fr","family":"rawls-justice-fairness","intent":"philosopher-concept","query":"justice comme équité chez Rawls"},
+    {"id":"qhv-pt-02","language":"pt","family":"rawls-justice-fairness","intent":"philosopher-concept","query":"justiça como equidade em Rawls"},
+
+    {"id":"qhv-es-03","language":"es","family":"wittgenstein-tractatus","intent":"work","query":"Tractatus lógico-filosófico de Wittgenstein"},
+    {"id":"qhv-en-03","language":"en","family":"wittgenstein-tractatus","intent":"work","query":"Wittgenstein Tractatus Logico-Philosophicus"},
+    {"id":"qhv-de-03","language":"de","family":"wittgenstein-tractatus","intent":"work","query":"Wittgensteins Tractatus Logico-Philosophicus"},
+    {"id":"qhv-fr-03","language":"fr","family":"wittgenstein-tractatus","intent":"work","query":"Tractatus logico-philosophicus de Wittgenstein"},
+    {"id":"qhv-pt-03","language":"pt","family":"wittgenstein-tractatus","intent":"work","query":"Tractatus Logico-Philosophicus de Wittgenstein"},
+
+    {"id":"qhv-es-04","language":"es","family":"philosophy-mind-psychology","intent":"interdisciplinary-challenge","query":"filosofía de la mente en psicología"},
+    {"id":"qhv-en-04","language":"en","family":"philosophy-mind-psychology","intent":"interdisciplinary-challenge","query":"philosophy of mind in psychology"},
+    {"id":"qhv-de-04","language":"de","family":"philosophy-mind-psychology","intent":"interdisciplinary-challenge","query":"Philosophie des Geistes in der Psychologie"},
+    {"id":"qhv-fr-04","language":"fr","family":"philosophy-mind-psychology","intent":"interdisciplinary-challenge","query":"philosophie de l'esprit en psychologie"},
+    {"id":"qhv-pt-04","language":"pt","family":"philosophy-mind-psychology","intent":"interdisciplinary-challenge","query":"filosofia da mente em psicologia"}
+  ],
+  "human_judgment": {
+    "scale": {
+      "0": "Irrelevante o ruido.",
+      "1": "Relacionado de forma tangencial o insuficiente para la necesidad completa.",
+      "2": "Relevante para la consulta.",
+      "3": "Altamente relevante o central para la consulta."
+    },
+    "binary_relevant_threshold": 2,
+    "blinding": "Human audit material must omit Qwen raw score, Qwen binary prediction, retrieval rank, production ranking score, provider provenance and any historical AI label.",
+    "one_human_adjudicator": true
+  },
+  "evaluation": {
+    "primary": [
+      "F1 at frozen threshold 0.679178715",
+      "balanced accuracy at frozen threshold 0.679178715"
+    ],
+    "secondary": [
+      "accuracy",
+      "precision",
+      "recall",
+      "specificity",
+      "Cohen kappa",
+      "ROC AUC",
+      "average precision",
+      "Spearman correlation with 0-3 human relevance"
+    ],
+    "breakdowns": ["query_language", "intent", "family"],
+    "threshold_retuning": false,
+    "report_development_threshold_optimization_on_holdout": false,
+    "decision_rule": "Estimate and report generalization at the frozen candidate threshold; do not change the candidate using these labels before the holdout report is frozen."
+  },
+  "ordering_constraints": [
+    "Freeze this preregistration before retrieval.",
+    "Freeze the retrieval run before constructing the 100-pair human sample.",
+    "Freeze Qwen scores and binary predictions before human adjudication begins.",
+    "Human adjudication remains blind to Qwen outputs and retrieval ranks.",
+    "Analyze only after all planned human judgments are complete.",
+    "Do not retune the 0.679178715 threshold on holdout labels."
+  ]
+}
