@@ -1,0 +1,9 @@
+Given an academic philosophy search query, retrieve documents that substantively address the complete information need.
+
+Treat explicit authors, works, philosophical concepts, and disciplinary domains as required constraints unless the query clearly expresses an alternative.
+
+For interdisciplinary queries, require a substantive connection between the philosophical topic and the external domain. A document that substantively addresses only one side is insufficient.
+
+Do not reward mere keyword overlap, incidental mentions, journal names, publisher metadata, retrieval provenance, or the fact that a document was retrieved by a particular query variant.
+
+Judge relevance only from the supplied query and document content.

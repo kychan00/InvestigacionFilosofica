@@ -1,0 +1,66 @@
+{
+  "schema_version": "qwen3-experiment-v1",
+  "experiment_id": "qwen3-reranker-v1",
+  "purpose": "development",
+  "status": "scaffolded",
+  "base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
+  "branch": "evaluation/qwen3-reranker-v1",
+  "model": {
+    "name": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "pipeline_tag": "text-ranking",
+    "license": "apache-2.0"
+  },
+  "instruction": {
+    "path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+    "language": "en",
+    "sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7"
+  },
+  "contracts": {
+    "dataset": "qwen3-dataset-v1",
+    "score": "qwen3-score-v1"
+  },
+  "input_policy": {
+    "allowed_fields": [
+      "query_id",
+      "query",
+      "record_id",
+      "title",
+      "abstract",
+      "authors",
+      "year",
+      "document_language"
+    ],
+    "forbidden_semantics": [
+      "human relevance labels",
+      "current rank",
+      "current ranking score",
+      "provider identity",
+      "retrieval provenance",
+      "matched query variants",
+      "A/B condition",
+      "conjunction score or bucket"
+    ]
+  },
+  "human_labels": {
+    "used_for_model_input": false,
+    "used_for_calibration": true,
+    "binary_relevant_threshold": 2
+  },
+  "score_policy": {
+    "raw_scores_are_immutable": true,
+    "ranking_simulations_must_not_call_model": true,
+    "cache_invalidated_by": [
+      "model revision",
+      "instruction",
+      "query",
+      "document content"
+    ]
+  },
+  "production": {
+    "changes_rank_js": false,
+    "changes_parser_js": false,
+    "changes_expander_js": false,
+    "changes_conjunction_v1": false
+  }
+}
