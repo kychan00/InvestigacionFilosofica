@@ -7,9 +7,10 @@ import { execFileSync } from 'node:child_process';
 const ROOT = process.cwd();
 const PORT = Number(process.env.BENCHMARK_PORT || 4187);
 const PREREG_PATH = 'benchmark/qwen3/validation/qwen3-reranker-v1-holdout.preregistered.json';
+const EXPERIMENT_PATH = 'benchmark/qwen3/configs/qwen3-reranker-v1.experiment.json';
 const preregText = fs.readFileSync(path.join(ROOT, PREREG_PATH), 'utf8');
 const prereg = JSON.parse(preregText);
-const releaseManifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'release-manifest.json'), 'utf8'));
+const experiment = JSON.parse(fs.readFileSync(path.join(ROOT, EXPERIMENT_PATH), 'utf8'));
 
 const runtimeCommit = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 const preregSha256 = createHash('sha256').update(preregText, 'utf8').digest('hex');
@@ -175,7 +176,8 @@ async function handleApi(request, response, pathname) {
       per_query: perQuery,
       run_sha256: runSha256,
       profile: {
-        production_runtime: releaseManifest.release.runtimeCommit,
+        production_base_commit: experiment.base_commit,
+        retrieval_runtime_commit: runtimeCommit,
         maxQueries: 5,
         openAlexPhilosophy: { enabled: true, rows: 12 },
         cucshFilosofia: { enabled: true, rows: 8 },
@@ -250,6 +252,7 @@ const server = http.createServer(async (request, response) => {
 server.on('error', (error) => {
   if (error?.code === 'EADDRINUSE') {
     console.error(`Port ${PORT} is already in use.`);
+    console.error(`Check it with: lsof -nP -iTCP:${PORT} -sTCP\\:LISTEN`);
     process.exit(1);
   }
   throw error;
@@ -261,11 +264,10 @@ server.listen(PORT, '127.0.0.1', () => {
   console.log('=============================');
   console.log(`Validation: ${prereg.validation_id}`);
   console.log(`Runtime: ${runtimeCommit}`);
+  console.log(`Production base: ${experiment.base_commit}`);
   console.log(`Queries: ${prereg.queries.length}`);
   console.log(`Pool depth: ${poolDepth}; minimum rows/query: ${minimumRows}`);
   console.log('Qwen is NOT used in this retrieval step.');
-  console.log();
   console.log(`Open: http://127.0.0.1:${PORT}/benchmark/qwen3/runner-holdout.html`);
-  console.log();
   console.log('Ctrl+C stops the server.');
 });
