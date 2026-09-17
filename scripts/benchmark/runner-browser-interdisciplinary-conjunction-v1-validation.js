@@ -1,4 +1,5 @@
 import { searchPhilosophy } from "../../src/core/search-engine.js";
+import { normalizeText } from "../../src/core/parser.js";
 
 const button = document.querySelector("#start");
 const progress = document.querySelector("#progress");
@@ -28,6 +29,19 @@ async function postJson(url, body) {
 
 function clamp(value, min = 0, max = 100) {
   return Math.max(min, Math.min(max, value));
+}
+
+function tokenSet(text = "") {
+  return new Set(normalizeText(text).split(" ").filter(Boolean));
+}
+
+function tokenOverlap(a, b) {
+  const A = tokenSet(a);
+  const B = tokenSet(b);
+  if (!A.size || !B.size) return 0;
+  let common = 0;
+  for (const token of A) if (B.has(token)) common++;
+  return common / A.size;
 }
 
 function normalizeDoi(value) {
@@ -73,20 +87,38 @@ function stableRecordId(item) {
   return ["synthetic", normalizeIdText(item.title), item.year || "na", normalizeIdText(author)].join(":");
 }
 
-function baselineScore(item) {
-  const base = Number(item.ranking?.baseScore ?? item.relevanceScore ?? 0);
-  const v2 = Number(item.ranking?.v2Adjustment ?? 0);
-  return clamp(base + v2);
+function rawPreConjunctionScore(query, item) {
+  const baseScore = Number(item.ranking?.baseScore ?? item.relevanceScore ?? 0);
+  const coverage = tokenOverlap(query.query, item.title || "");
+  const providers = new Set(item.providers || []);
+  let sourcePrior = 0;
+  if (providers.has("CUCSH Filosofía")) sourcePrior += 5;
+  if (providers.has("Internet Archive")) sourcePrior += 3;
+  if (providers.has("Crossref") && coverage < 0.50) sourcePrior -= 2;
+  return baseScore + coverage * 4 + sourcePrior;
 }
 
-function conjunctionScore(item) {
-  return clamp(Number(item.rankingSortScore ?? item.relevanceScore ?? 0));
+function conditionScore(query, item, condition) {
+  const rawBaseline = rawPreConjunctionScore(query, item);
+  if (condition === "A") return clamp(rawBaseline);
+  const conjunction = Number(item.ranking?.conjunctionAdjustment ?? 0);
+  const score = clamp(rawBaseline + conjunction);
+  const production = Number(item.rankingSortScore ?? score);
+  if (Math.abs(score - production) > 1e-9) {
+    throw new Error(
+      `${query.id}: reconstructed conjunction score mismatch for ${stableRecordId(item)}: ${score} != ${production}`
+    );
+  }
+  return score;
 }
 
-function rankCondition(results, condition) {
-  const scoreFn = condition === "A" ? baselineScore : conjunctionScore;
+function rankCondition(query, results, condition) {
   return results
-    .map(item => ({ item, recordId: stableRecordId(item), sortScore: scoreFn(item) }))
+    .map(item => ({
+      item,
+      recordId: stableRecordId(item),
+      sortScore: conditionScore(query, item, condition),
+    }))
     .sort((a, b) => b.sortScore - a.sortScore || a.recordId.localeCompare(b.recordId));
 }
 
@@ -184,7 +216,7 @@ async function run() {
 
       const conditions = {};
       for (const condition of ["A", "B"]) {
-        const ranked = rankCondition(response.results, condition);
+        const ranked = rankCondition(query, response.results, condition);
         conditions[condition] = ranked.slice(0, poolDepth).map((entry, rowIndex) =>
           serializeResult(query, condition, entry.item, rowIndex + 1, entry.sortScore)
         );
