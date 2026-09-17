@@ -177,6 +177,11 @@ async function run() {
         throw new Error(`${query.id}: falló una fuente. El run queda pausado para no congelar datos incompletos.`);
       }
 
+      const candidatePoolIds = response.results.map(stableRecordId);
+      if (new Set(candidatePoolIds).size !== candidatePoolIds.length) {
+        throw new Error(`${query.id}: stable record id collision in shared candidate pool`);
+      }
+
       const conditions = {};
       for (const condition of ["A", "B"]) {
         const ranked = rankCondition(response.results, condition);
@@ -190,6 +195,7 @@ async function run() {
         rowsA: conditions.A,
         rowsB: conditions.B,
         retrievedCandidates: response.results.length,
+        candidatePoolIds,
         sourceErrors: response.errors || [],
         expansions: response.expansions || [],
       });
