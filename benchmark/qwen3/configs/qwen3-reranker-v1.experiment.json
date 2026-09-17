@@ -2,7 +2,7 @@
   "schema_version": "qwen3-experiment-v1",
   "experiment_id": "qwen3-reranker-v1",
   "purpose": "development",
-  "status": "scaffolded",
+  "status": "adapter-scaffolded",
   "base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
   "branch": "evaluation/qwen3-reranker-v1",
   "model": {
@@ -15,6 +15,26 @@
     "path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
     "language": "en",
     "sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7"
+  },
+  "dataset": {
+    "path": "benchmark/qwen3/datasets/human-audit-v1.jsonl",
+    "metadata_path": "benchmark/qwen3/datasets/human-audit-v1.meta.json",
+    "sha256": "a939e882f95ab13f448da8c614deaa3a2a38cc8e5d266c8686bdf8cd6ab48655",
+    "rows": 100,
+    "unique_queries": 39,
+    "unique_records": 95,
+    "contains_human_labels": false,
+    "contains_ranking_provenance": false
+  },
+  "adapter": {
+    "path": "scripts/benchmark/qwen3/adapter.py",
+    "requirements": "requirements-qwen3.txt",
+    "scoring": "yes-no-softmax-probability",
+    "raw_score_range": [0, 1],
+    "max_length": 4096,
+    "device": "auto",
+    "dtype": "auto",
+    "input_fingerprint": "sha256(instruction + NUL + query + NUL + document_text)"
   },
   "contracts": {
     "dataset": "qwen3-dataset-v1",
