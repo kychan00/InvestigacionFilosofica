@@ -51,7 +51,8 @@
     "benchmark:analyze:interdisciplinary-fix": "node scripts/benchmark/analyze_interdisciplinary_expansionfix.mjs",
     "benchmark:analyze-errors": "node scripts/benchmark/analyze_errors.mjs",
     "benchmark:simulate-ranking": "node scripts/benchmark/simulate_ranking.mjs",
-    "benchmark:inspect-ranking-changes": "node scripts/benchmark/inspect_ranking_changes.mjs"
+    "benchmark:inspect-ranking-changes": "node scripts/benchmark/inspect_ranking_changes.mjs",
+    "benchmark:qwen3:dataset:human-audit": "node scripts/benchmark/qwen3/build_dataset.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
