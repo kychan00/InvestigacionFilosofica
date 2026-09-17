@@ -15,9 +15,11 @@ import {
 const PATHS = {
   sample: 'benchmark/human-audit-v1.sample.jsonl',
   judgments: 'benchmark/human-audit-v1.judgments.jsonl',
+  auditManifest: 'benchmark/human-audit-v1.manifest.json',
   qwen: 'benchmark/qwen3/scores/qwen3-reranker-v1.raw.jsonl',
   qwenMeta: 'benchmark/qwen3/scores/qwen3-reranker-v1.raw.meta.json',
-  oldSilver: 'benchmark/ai-silver-ranking-v2.jsonl',
+  oldBaseline: 'benchmark/ai-silver-v1.jsonl',
+  oldV2: 'benchmark/ai-silver-ranking-v2.jsonl',
   outputJson: 'benchmark/qwen3/reports/qwen3-reranker-v1.calibration.json',
   outputMd: 'benchmark/qwen3/reports/qwen3-reranker-v1.calibration.md',
 };
@@ -61,15 +63,26 @@ function breakdown(rows, field, threshold) {
     const subset = rows.filter((row) => (row[field] ?? 'unknown') === group);
     return [group, {
       qwen: summarizeBinary(subset, (row) => row.qwen_raw_score >= threshold),
-      old_ai_silver: summarizeBinary(subset, (row) => row.old_ai_relevance >= 2),
+      historical_ai_composite: summarizeBinary(subset, (row) => row.old_ai_relevance >= 2),
     }];
   }));
+}
+
+function pairedSystemComparison(rows, oldField, threshold) {
+  const subset = rows.filter((row) => Number.isInteger(row[oldField]));
+  return {
+    rows: subset.length,
+    qwen: summarizeBinary(subset, (row) => row.qwen_raw_score >= threshold),
+    historical_ai: summarizeBinary(subset, (row) => row[oldField] >= 2),
+  };
 }
 
 function renderMarkdown(report) {
   const q05 = report.qwen.threshold_0_5;
   const qbest = report.qwen.best_f1;
-  const old = report.old_ai_silver.binary;
+  const old = report.historical_ai_silver.composite.binary;
+  const baseline = report.historical_ai_silver.baseline_matched;
+  const v2 = report.historical_ai_silver.ranking_v2_matched;
   const lines = [
     '# Qwen3 reranker calibration — development set',
     '',
@@ -88,12 +101,23 @@ function renderMarkdown(report) {
     '|---|---:|---:|---:|---:|---:|---:|---:|',
     `| Qwen | 0.5 | ${q05.accuracy} | ${q05.precision} | ${q05.recall} | ${q05.f1} | ${q05.balanced_accuracy} | ${q05.cohen_kappa} |`,
     `| Qwen (dev best F1) | ${qbest.threshold} | ${qbest.accuracy} | ${qbest.precision} | ${qbest.recall} | ${qbest.f1} | ${qbest.balanced_accuracy} | ${qbest.cohen_kappa} |`,
-    `| Historical AI silver | relevance >= 2 | ${old.accuracy} | ${old.precision} | ${old.recall} | ${old.f1} | ${old.balanced_accuracy} | ${old.cohen_kappa} |`,
+    `| Historical AI silver composite | relevance >= 2 | ${old.accuracy} | ${old.precision} | ${old.recall} | ${old.f1} | ${old.balanced_accuracy} | ${old.cohen_kappa} |`,
+    '',
+    '## Historical AI coverage',
+    '',
+    `- Composite rows: ${report.historical_ai_silver.composite.rows}`,
+    `- Ranking-v2 label used when available: ${report.historical_ai_silver.composite.provenance.ranking_v2}`,
+    `- Baseline fallback label used: ${report.historical_ai_silver.composite.provenance.baseline_fallback}`,
+    `- Baseline-only matched comparison rows: ${baseline.rows}`,
+    `- Ranking-v2 matched comparison rows: ${v2.rows}`,
+    '',
+    'The composite is a convenience comparison because the human audit was sampled from the union of baseline and ranking-v2 pools. Separate matched-subset comparisons are retained in the JSON report.',
     '',
     '## Interpretation boundary',
     '',
     '- The best-F1 threshold is tuned on these same 100 human labels and must not be treated as independent validation performance.',
-    '- Historical AI silver is compared on the exact same query-document pairs.',
+    '- The human audit sample was drawn from the union of baseline and ranking-v2 pools, so neither historical silver file covers all 100 pairs by itself.',
+    '- The historical composite uses ranking-v2 silver when that pair exists and baseline silver only as a documented fallback.',
     '- Qwen raw scores remain immutable; this report does not rewrite or discretize the raw score store.',
     '- No production ranking code is changed by this analysis.',
     '',
@@ -102,31 +126,71 @@ function renderMarkdown(report) {
 }
 
 async function main() {
-  const [sampleFile, judgmentsFile, qwenFile, oldFile, qwenMetaText] = await Promise.all([
+  const [
+    sampleFile,
+    judgmentsFile,
+    qwenFile,
+    baselineFile,
+    v2File,
+    auditManifestText,
+    qwenMetaText,
+  ] = await Promise.all([
     readJsonl(PATHS.sample),
     readJsonl(PATHS.judgments),
     readJsonl(PATHS.qwen),
-    readJsonl(PATHS.oldSilver),
+    readJsonl(PATHS.oldBaseline),
+    readJsonl(PATHS.oldV2),
+    readFile(PATHS.auditManifest, 'utf8'),
     readFile(PATHS.qwenMeta, 'utf8'),
   ]);
 
   const sample = uniqueMap(sampleFile.records, 'sample');
   const judgments = uniqueMap(judgmentsFile.records, 'judgments');
   const qwen = uniqueMap(qwenFile.records, 'qwen');
-  const oldSilver = uniqueMap(oldFile.records, 'old silver');
+  const oldBaseline = uniqueMap(baselineFile.records, 'old baseline silver');
+  const oldV2 = uniqueMap(v2File.records, 'old ranking-v2 silver');
+  const auditManifest = JSON.parse(auditManifestText);
+  const manifestByAuditId = new Map(auditManifest.items.map((row) => [row.audit_id, row]));
   const qwenMeta = JSON.parse(qwenMetaText);
 
   if (sample.size !== 100 || judgments.size !== 100 || qwen.size !== 100) {
     throw new Error(`expected 100 sample/judgment/Qwen pairs; got ${sample.size}/${judgments.size}/${qwen.size}`);
   }
+  if (auditManifest.sampleSize !== 100 || manifestByAuditId.size !== 100) {
+    throw new Error('human audit manifest does not contain the frozen 100-item sample');
+  }
 
   const rows = [];
+  let rankingV2CompositeCount = 0;
+  let baselineFallbackCount = 0;
+
   for (const [key, sampleRow] of sample) {
     const judgment = judgments.get(key);
     const qwenRow = qwen.get(key);
-    const oldRow = oldSilver.get(key);
-    if (!judgment || !qwenRow || !oldRow) {
-      throw new Error(`missing joined row for ${sampleRow.query_id} / ${sampleRow.record_id}`);
+    const baselineRow = oldBaseline.get(key) ?? null;
+    const v2Row = oldV2.get(key) ?? null;
+    const manifestRow = manifestByAuditId.get(sampleRow.audit_id);
+
+    if (!judgment || !qwenRow || !manifestRow) {
+      throw new Error(`missing joined human/Qwen/manifest row for ${sampleRow.query_id} / ${sampleRow.record_id}`);
+    }
+    if (!baselineRow && !v2Row) {
+      throw new Error(`no historical AI silver row for ${sampleRow.query_id} / ${sampleRow.record_id}`);
+    }
+    if (manifestRow.query_id !== sampleRow.query_id || manifestRow.record_id !== sampleRow.record_id) {
+      throw new Error(`human audit manifest mismatch for ${sampleRow.audit_id}`);
+    }
+    if (baselineRow && manifestRow.baseline_silver !== baselineRow.relevance) {
+      throw new Error(`baseline silver provenance mismatch for ${sampleRow.audit_id}`);
+    }
+    if (!baselineRow && manifestRow.baseline_silver !== null) {
+      throw new Error(`baseline silver missing but manifest is non-null for ${sampleRow.audit_id}`);
+    }
+    if (v2Row && manifestRow.v2_silver !== v2Row.relevance) {
+      throw new Error(`ranking-v2 silver provenance mismatch for ${sampleRow.audit_id}`);
+    }
+    if (!v2Row && manifestRow.v2_silver !== null) {
+      throw new Error(`ranking-v2 silver missing but manifest is non-null for ${sampleRow.audit_id}`);
     }
     if (![0, 1, 2, 3].includes(judgment.human_relevance)) {
       throw new Error(`invalid human relevance for ${sampleRow.audit_id}`);
@@ -134,6 +198,12 @@ async function main() {
     if (!(qwenRow.raw_score >= 0 && qwenRow.raw_score <= 1)) {
       throw new Error(`invalid Qwen score for ${sampleRow.audit_id}`);
     }
+
+    const compositeRow = v2Row ?? baselineRow;
+    const compositeSource = v2Row ? 'ranking-v2' : 'baseline-fallback';
+    if (v2Row) rankingV2CompositeCount += 1;
+    else baselineFallbackCount += 1;
+
     rows.push({
       audit_id: sampleRow.audit_id,
       query_id: sampleRow.query_id,
@@ -143,7 +213,10 @@ async function main() {
       family: sampleRow.family,
       human_relevance: judgment.human_relevance,
       qwen_raw_score: qwenRow.raw_score,
-      old_ai_relevance: oldRow.relevance,
+      old_ai_relevance: compositeRow.relevance,
+      old_ai_source: compositeSource,
+      baseline_ai_relevance: baselineRow?.relevance ?? null,
+      v2_ai_relevance: v2Row?.relevance ?? null,
     });
   }
 
@@ -154,7 +227,9 @@ async function main() {
     threshold: round(best.threshold, 9),
     ...summarizeBinary(rows, (row) => row.qwen_raw_score >= best.threshold),
   };
-  const oldBinary = summarizeBinary(rows, (row) => row.old_ai_relevance >= 2);
+  const oldCompositeBinary = summarizeBinary(rows, (row) => row.old_ai_relevance >= 2);
+  const baselineMatched = pairedSystemComparison(rows, 'baseline_ai_relevance', best.threshold);
+  const v2Matched = pairedSystemComparison(rows, 'v2_ai_relevance', best.threshold);
 
   const report = {
     schema_version: 'qwen3-calibration-report-v1',
@@ -163,8 +238,10 @@ async function main() {
     sources: {
       sample: { path: PATHS.sample, sha256: sha256Text(sampleFile.text) },
       judgments: { path: PATHS.judgments, sha256: sha256Text(judgmentsFile.text) },
+      human_audit_manifest: { path: PATHS.auditManifest, sha256: sha256Text(auditManifestText) },
       qwen_raw_scores: { path: PATHS.qwen, sha256: sha256Text(qwenFile.text) },
-      old_ai_silver: { path: PATHS.oldSilver, sha256: sha256Text(oldFile.text) },
+      historical_ai_baseline: { path: PATHS.oldBaseline, sha256: sha256Text(baselineFile.text) },
+      historical_ai_ranking_v2: { path: PATHS.oldV2, sha256: sha256Text(v2File.text) },
     },
     qwen_runtime: {
       model: qwenMeta.model,
@@ -186,10 +263,20 @@ async function main() {
       best_f1: qwenBest,
       threshold_selection: 'development-only; maximize F1, then balanced accuracy, precision, then threshold',
     },
-    old_ai_silver: {
-      binary: oldBinary,
-      exact_ordinal_agreement: round(rows.filter((row) => row.old_ai_relevance === row.human_relevance).length / rows.length),
-      spearman_ordinal: round(spearman(rows, { xOf: (row) => row.old_ai_relevance, yOf: (row) => row.human_relevance })),
+    historical_ai_silver: {
+      composite: {
+        rows: rows.length,
+        policy: 'use ranking-v2 silver when present; otherwise baseline silver fallback',
+        provenance: {
+          ranking_v2: rankingV2CompositeCount,
+          baseline_fallback: baselineFallbackCount,
+        },
+        binary: oldCompositeBinary,
+        exact_ordinal_agreement: round(rows.filter((row) => row.old_ai_relevance === row.human_relevance).length / rows.length),
+        spearman_ordinal: round(spearman(rows, { xOf: (row) => row.old_ai_relevance, yOf: (row) => row.human_relevance })),
+      },
+      baseline_matched: baselineMatched,
+      ranking_v2_matched: v2Matched,
     },
     breakdowns: {
       language_at_qwen_best_f1: breakdown(rows, 'query_language', best.threshold),
@@ -199,7 +286,9 @@ async function main() {
     caveats: [
       'These 100 human labels are development data for Qwen calibration/model selection.',
       'Best-F1 threshold performance is in-sample and is not independent validation evidence.',
-      'Historical AI silver is compared on the same 100 pairs using relevance >= 2.',
+      'The human audit sample was drawn from the union of baseline and ranking-v2 pools, so neither historical silver artifact covers all 100 pairs alone.',
+      'The 100-row historical silver composite uses ranking-v2 silver when available and baseline silver as a documented fallback.',
+      'Separate baseline-matched and ranking-v2-matched comparisons are reported to avoid hiding source coverage differences.',
       'Raw Qwen scores are not modified by this analysis.',
       'No production ranking code is changed.',
     ],
@@ -217,7 +306,9 @@ async function main() {
   console.log(`qwen_f1_at_0_5=${report.qwen.threshold_0_5.f1}`);
   console.log(`qwen_best_f1_threshold=${report.qwen.best_f1.threshold}`);
   console.log(`qwen_best_f1=${report.qwen.best_f1.f1}`);
-  console.log(`old_ai_f1=${report.old_ai_silver.binary.f1}`);
+  console.log(`old_ai_composite_f1=${report.historical_ai_silver.composite.binary.f1}`);
+  console.log(`old_ai_composite_v2_rows=${report.historical_ai_silver.composite.provenance.ranking_v2}`);
+  console.log(`old_ai_composite_baseline_fallback_rows=${report.historical_ai_silver.composite.provenance.baseline_fallback}`);
   console.log(`output=${PATHS.outputJson}`);
 }
 
