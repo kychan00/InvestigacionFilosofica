@@ -38,3 +38,19 @@ test('Qwen3 runtime requires a Transformers version with Qwen3 support', async (
   assert.match(adapter, /token_true_id/u);
   assert.match(adapter, /token_false_id/u);
 });
+
+test('Qwen3 adapter fingerprints the exact frozen instruction bytes', async () => {
+  const adapter = await readFile(adapterPath, 'utf8');
+  assert.match(adapter, /instruction = instruction_path\.read_text\(encoding="utf-8"\)/u);
+  assert.doesNotMatch(adapter, /instruction = instruction_path\.read_text\(encoding="utf-8"\)\.strip\(\)/u);
+  assert.match(adapter, /"instruction_sha256": sha256_text\(instruction\)/u);
+  assert.match(adapter, /self\.instruction = instruction/u);
+});
+
+test('Qwen3 adapter uses current Transformers dtype argument and bounded content truncation', async () => {
+  const adapter = await readFile(adapterPath, 'utf8');
+  assert.match(adapter, /dtype=self\.torch_dtype/u);
+  assert.doesNotMatch(adapter, /torch_dtype=self\.torch_dtype/u);
+  assert.match(adapter, /truncation="longest_first"/u);
+  assert.match(adapter, /max_length=self\.content_max_length/u);
+});
