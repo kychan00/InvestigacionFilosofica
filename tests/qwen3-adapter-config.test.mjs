@@ -10,9 +10,8 @@ async function readManifest() {
   return JSON.parse(await readFile(manifestPath, 'utf8'));
 }
 
-test('Qwen3 adapter config pins the frozen dataset and model revision', async () => {
+test('Qwen3 adapter config pins the frozen dataset and model revision independently of lifecycle status', async () => {
   const manifest = await readManifest();
-  assert.equal(manifest.status, 'adapter-scaffolded');
   assert.equal(manifest.model.name, 'Qwen/Qwen3-Reranker-0.6B');
   assert.equal(manifest.model.revision, 'e61197ed45024b0ed8a2d74b80b4d909f1255473');
   assert.equal(manifest.dataset.sha256, 'a939e882f95ab13f448da8c614deaa3a2a38cc8e5d266c8686bdf8cd6ab48655');
