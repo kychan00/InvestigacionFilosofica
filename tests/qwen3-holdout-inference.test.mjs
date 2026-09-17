@@ -65,6 +65,8 @@ test('Qwen3 holdout prediction builder freezes the pre-adjudication threshold wi
   assert.match(source, /dataset_sha256/u);
   assert.doesNotMatch(source, /human_relevance/u);
   assert.doesNotMatch(source, /human_note/u);
+  assert.doesNotMatch(source, /predicted_relevant_count/u);
+  assert.doesNotMatch(source, /predicted_non_relevant_count/u);
 
   const pkg = JSON.parse(await readFile(packagePath, 'utf8'));
   assert.equal(
