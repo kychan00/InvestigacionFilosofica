@@ -2,7 +2,7 @@
   "schema_version": "qwen3-experiment-v1",
   "experiment_id": "qwen3-reranker-v1",
   "purpose": "development",
-  "status": "inference-engine-scaffolded",
+  "status": "calibration-lab-scaffolded",
   "base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
   "branch": "evaluation/qwen3-reranker-v1",
   "model": {
@@ -65,6 +65,24 @@
       "device",
       "dtype"
     ]
+  },
+  "calibration": {
+    "path": "scripts/benchmark/qwen3/calibrate.mjs",
+    "human_sample": "benchmark/human-audit-v1.sample.jsonl",
+    "human_judgments": "benchmark/human-audit-v1.judgments.jsonl",
+    "historical_ai_silver": "benchmark/ai-silver-ranking-v2.jsonl",
+    "raw_scores": "benchmark/qwen3/scores/qwen3-reranker-v1.raw.jsonl",
+    "report_json": "benchmark/qwen3/reports/qwen3-reranker-v1.calibration.json",
+    "report_markdown": "benchmark/qwen3/reports/qwen3-reranker-v1.calibration.md",
+    "human_binary_threshold": 2,
+    "fixed_qwen_threshold": 0.5,
+    "development_threshold_selection": "maximize F1, then balanced accuracy, precision, then threshold",
+    "continuous_metrics": [
+      "roc_auc",
+      "average_precision",
+      "spearman_ordinal"
+    ],
+    "labels_are_development_data_for_qwen": true
   },
   "contracts": {
     "dataset": "qwen3-dataset-v1",
