@@ -30,13 +30,18 @@
     "path": "scripts/benchmark/qwen3/adapter.py",
     "requirements": "requirements-qwen3.txt",
     "scoring": "yes-no-softmax-probability",
-    "scoring_version": "qwen3-yes-no-softmax-v1",
-    "raw_score_range": [0, 1],
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "raw_score_range": [
+      0,
+      1
+    ],
     "max_length": 4096,
     "device": "auto",
     "dtype": "auto",
     "input_fingerprint": "sha256(instruction + NUL + query + NUL + document_text)",
-    "supports_batch_scoring": true
+    "supports_batch_scoring": true,
+    "mps_model_batch_strategy": "singleton",
+    "mps_model_batch_reason": "Local validation produced non-finite scores for padded multi-item MPS forwards in float16 and bfloat16; singleton MPS forwards were finite."
   },
   "inference": {
     "path": "scripts/benchmark/qwen3/inference.py",

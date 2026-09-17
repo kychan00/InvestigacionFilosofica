@@ -70,3 +70,28 @@ test('Qwen3 adapter exposes batch scoring and local cache stays unversioned', as
   const gitignore = await readFile(gitignorePath, 'utf8');
   assert.match(gitignore, /^benchmark\/qwen3\/cache\/$/mu);
 });
+
+test('Qwen3 MPS inference uses singleton model microbatches', async () => {
+  const manifest = await readManifest();
+  const adapter = await readFile(adapterPath, 'utf8');
+
+  assert.equal(
+    manifest.adapter.mps_model_batch_strategy,
+    'singleton',
+  );
+
+  assert.match(
+    adapter,
+    /self\.device == "mps" and len\(pair_list\) > 1/u,
+  );
+
+  assert.match(
+    adapter,
+    /self\._score_batch\(\[pair\]\)\[0\]/u,
+  );
+
+  assert.match(
+    adapter,
+    /math\.isfinite\(value\)/u,
+  );
+});

@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import platform
 from pathlib import Path
 from typing import Any, Iterable
@@ -195,11 +196,7 @@ class Qwen3RerankerAdapter:
         self.content_max_length = available
 
     @torch.inference_mode()
-    def score_many(self, pairs: Iterable[tuple[str, str]]) -> list[float]:
-        pair_list = list(pairs)
-        if not pair_list:
-            return []
-
+    def _score_batch(self, pair_list: list[tuple[str, str]]) -> list[float]:
         formatted = [
             format_instruction(self.instruction, query, document)
             for query, document in pair_list
@@ -227,7 +224,32 @@ class Qwen3RerankerAdapter:
         false_logits = logits[:, self.token_false_id]
         yes_no_logits = torch.stack([false_logits, true_logits], dim=1)
         scores = torch.softmax(yes_no_logits.float(), dim=1)[:, 1]
-        return [float(value) for value in scores.detach().cpu().tolist()]
+        values = [float(value) for value in scores.detach().cpu().tolist()]
+
+        for value in values:
+            if not math.isfinite(value) or not 0.0 <= value <= 1.0:
+                raise FloatingPointError(
+                    f"Qwen3 produced a non-finite/out-of-range relevance score: {value!r}"
+                )
+
+        return values
+
+    def score_many(self, pairs: Iterable[tuple[str, str]]) -> list[float]:
+        pair_list = list(pairs)
+        if not pair_list:
+            return []
+
+        # On the validated Apple MPS runtime, padded multi-item forwards
+        # produced non-finite yes/no logits in both float16 and bfloat16.
+        # Keep the model loaded once, but evaluate MPS pairs as singleton
+        # microbatches. CUDA/CPU retain true model batching.
+        if self.device == "mps" and len(pair_list) > 1:
+            return [
+                self._score_batch([pair])[0]
+                for pair in pair_list
+            ]
+
+        return self._score_batch(pair_list)
 
     def score(self, query: str, document: str) -> float:
         return self.score_many([(query, document)])[0]

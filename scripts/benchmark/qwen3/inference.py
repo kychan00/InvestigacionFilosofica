@@ -41,7 +41,7 @@ DEFAULT_MANIFEST = "benchmark/qwen3/configs/qwen3-reranker-v1.experiment.json"
 DEFAULT_OUTPUT = "benchmark/qwen3/scores/qwen3-reranker-v1.raw.jsonl"
 DEFAULT_META = "benchmark/qwen3/scores/qwen3-reranker-v1.raw.meta.json"
 DEFAULT_CACHE = "benchmark/qwen3/cache/qwen3-reranker-v1.cache.jsonl"
-SCORING_VERSION = "qwen3-yes-no-softmax-v1"
+SCORING_VERSION = "qwen3-yes-no-softmax-v1-mps-singleton"
 SCORE_SCHEMA = "qwen3-score-v1"
 
 
