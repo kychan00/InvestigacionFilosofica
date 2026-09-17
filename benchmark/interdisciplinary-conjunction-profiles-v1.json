@@ -1,0 +1,1610 @@
+{
+  "schemaVersion": 1,
+  "name": "Interdisciplinary conjunction profile simulation v1",
+  "methodology": "Development-only simulation on the 68 already-adjudicated changed rows. Human metrics measure score separation and within-query relevant-vs-nonrelevant pairwise ordering only; they are not Top-10 effectiveness estimates. Structural B metrics rerank the frozen B pools without assigning relevance to newly entering rows.",
+  "warning": "This dataset is now tuning data and must not be reused as independent validation for the eventual conjunction ranking change.",
+  "threshold": 2,
+  "judgedRows": 68,
+  "profiles": [
+    {
+      "profile": {
+        "id": "baseline",
+        "both": 0,
+        "areaOnly": 0,
+        "domainOnly": 0,
+        "neitherWithAbstract": 0,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 29.414,
+        "nonRelevantMeanScore": 24.564,
+        "separation": 4.85,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 97,
+          "ties": 4,
+          "accuracy": 0.8609
+        },
+        "pairwiseDeltaVsBaseline": 0,
+        "separationDeltaVsBaseline": 0
+      },
+      "structuralB": {
+        "queriesChanged": 0,
+        "changedTop10Pairs": 0,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 0,
+            "newOnly": []
+          }
+        ]
+      }
+    },
+    {
+      "profile": {
+        "id": "both-plus-1",
+        "both": 1,
+        "areaOnly": 0,
+        "domainOnly": 0,
+        "neitherWithAbstract": 0,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 29.586,
+        "nonRelevantMeanScore": 24.564,
+        "separation": 5.022,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 97,
+          "ties": 4,
+          "accuracy": 0.8609
+        },
+        "pairwiseDeltaVsBaseline": 0,
+        "separationDeltaVsBaseline": 0.172
+      },
+      "structuralB": {
+        "queriesChanged": 3,
+        "changedTop10Pairs": 8,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+                "title": "Psicologia, Diferença e Epistemologia: Percorrendo os (des)caminhos de uma constituição paradoxal DOI - 10.5752/P.1678-9563.2013v19n3p462",
+                "bucket": "both",
+                "adjustedScore": 30
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "openalex:W2164532440",
+                "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+                "bucket": "both",
+                "adjustedScore": 32
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "openalex:W1992015595",
+                "title": "Logic in linguistics",
+                "bucket": "both",
+                "adjustedScore": 21
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.1007/978-94-009-9056-2_18",
+                "title": "Logic and Linguistics",
+                "bucket": "both",
+                "adjustedScore": 21
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 0,
+            "newOnly": []
+          }
+        ]
+      }
+    },
+    {
+      "profile": {
+        "id": "area-minus-1",
+        "both": 0,
+        "areaOnly": -1,
+        "domainOnly": 0,
+        "neitherWithAbstract": 0,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 29.172,
+        "nonRelevantMeanScore": 24.103,
+        "separation": 5.07,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 97,
+          "ties": 4,
+          "accuracy": 0.8609
+        },
+        "pairwiseDeltaVsBaseline": 0,
+        "separationDeltaVsBaseline": 0.22
+      },
+      "structuralB": {
+        "queriesChanged": 5,
+        "changedTop10Pairs": 14,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+                "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+                "title": "Psicologia, Diferença e Epistemologia: Percorrendo os (des)caminhos de uma constituição paradoxal DOI - 10.5752/P.1678-9563.2013v19n3p462",
+                "bucket": "both",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "openalex:W2164532440",
+                "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+                "bucket": "both",
+                "adjustedScore": 31
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.3726/978-3-653-00327-7/9",
+                "title": "La normalización lingüística en la toponimia de Canarias 73",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:logosetformalisa0000duba",
+                "title": "Logos et formalisation du langage",
+                "bucket": "neither",
+                "adjustedScore": 18
+              }
+            ]
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "openalex:W1992015595",
+                "title": "Logic in linguistics",
+                "bucket": "both",
+                "adjustedScore": 20
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.1007/978-94-009-9056-2_18",
+                "title": "Logic and Linguistics",
+                "bucket": "both",
+                "adjustedScore": 20
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 0,
+            "newOnly": []
+          }
+        ]
+      }
+    },
+    {
+      "profile": {
+        "id": "area-minus-2",
+        "both": 0,
+        "areaOnly": -2,
+        "domainOnly": 0,
+        "neitherWithAbstract": 0,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 28.931,
+        "nonRelevantMeanScore": 23.641,
+        "separation": 5.29,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 94,
+          "ties": 7,
+          "accuracy": 0.8478
+        },
+        "pairwiseDeltaVsBaseline": -0.0131,
+        "separationDeltaVsBaseline": 0.44
+      },
+      "structuralB": {
+        "queriesChanged": 9,
+        "changedTop10Pairs": 22,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "doi:10.14718/9786287554641.2023.5",
+                "title": "Formación en Psicología Comunitaria",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.4135/9781446279168.n3",
+                "title": "Social Epistemology and Psychology",
+                "bucket": "both",
+                "adjustedScore": 24
+              }
+            ]
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "source:internet-archive:ERIC_ED389230",
+                "title": "ERIC ED389230: The Discontinuity of Human Existence, Part I. The Fundamental Concepts of Human Existence and the Relation between the Singular and the Super Singular. No. 50.",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+                "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+                "title": "Psicologia, Diferença e Epistemologia: Percorrendo os (des)caminhos de uma constituição paradoxal DOI - 10.5752/P.1678-9563.2013v19n3p462",
+                "bucket": "both",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "openalex:W2164532440",
+                "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+                "bucket": "both",
+                "adjustedScore": 31
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.3726/978-3-653-00327-7/9",
+                "title": "La normalización lingüística en la toponimia de Canarias 73",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:logosetformalisa0000duba",
+                "title": "Logos et formalisation du langage",
+                "bucket": "neither",
+                "adjustedScore": 18
+              }
+            ]
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "openalex:W1992015595",
+                "title": "Logic in linguistics",
+                "bucket": "both",
+                "adjustedScore": 20
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.1007/978-94-009-9056-2_18",
+                "title": "Logic and Linguistics",
+                "bucket": "both",
+                "adjustedScore": 20
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.69609/2176-8625",
+                "title": "Caminhos em Linguística Aplicada",
+                "bucket": "domain-only",
+                "adjustedScore": 27
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "profile": {
+        "id": "area-minus-3",
+        "both": 0,
+        "areaOnly": -3,
+        "domainOnly": 0,
+        "neitherWithAbstract": 0,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 28.69,
+        "nonRelevantMeanScore": 23.179,
+        "separation": 5.51,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 92,
+          "ties": 5,
+          "accuracy": 0.8217
+        },
+        "pairwiseDeltaVsBaseline": -0.0392,
+        "separationDeltaVsBaseline": 0.66
+      },
+      "structuralB": {
+        "queriesChanged": 9,
+        "changedTop10Pairs": 24,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "doi:10.14718/9786287554641.2023.5",
+                "title": "Formación en Psicología Comunitaria",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.4135/9781446279168.n3",
+                "title": "Social Epistemology and Psychology",
+                "bucket": "both",
+                "adjustedScore": 24
+              },
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:ERIC_ED281238",
+                "title": "ERIC ED281238: Toward a Theory of Psychological Type Congruence for Advertisers.",
+                "bucket": "domain-only",
+                "adjustedScore": 24
+              }
+            ]
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "source:internet-archive:ERIC_ED389230",
+                "title": "ERIC ED389230: The Discontinuity of Human Existence, Part I. The Fundamental Concepts of Human Existence and the Relation between the Singular and the Super Singular. No. 50.",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+                "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+                "title": "Psicologia, Diferença e Epistemologia: Percorrendo os (des)caminhos de uma constituição paradoxal DOI - 10.5752/P.1678-9563.2013v19n3p462",
+                "bucket": "both",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "openalex:W2164532440",
+                "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+                "bucket": "both",
+                "adjustedScore": 31
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.3726/978-3-653-00327-7/9",
+                "title": "La normalización lingüística en la toponimia de Canarias 73",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:logosetformalisa0000duba",
+                "title": "Logos et formalisation du langage",
+                "bucket": "neither",
+                "adjustedScore": 18
+              }
+            ]
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "openalex:W1992015595",
+                "title": "Logic in linguistics",
+                "bucket": "both",
+                "adjustedScore": 20
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.1007/978-94-009-9056-2_18",
+                "title": "Logic and Linguistics",
+                "bucket": "both",
+                "adjustedScore": 20
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.69609/2176-8625",
+                "title": "Caminhos em Linguística Aplicada",
+                "bucket": "domain-only",
+                "adjustedScore": 27
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "profile": {
+        "id": "conservative",
+        "both": 1,
+        "areaOnly": -2,
+        "domainOnly": 0,
+        "neitherWithAbstract": -1,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 29.069,
+        "nonRelevantMeanScore": 23.436,
+        "separation": 5.633,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 98,
+          "ties": 3,
+          "accuracy": 0.8652
+        },
+        "pairwiseDeltaVsBaseline": 0.0043,
+        "separationDeltaVsBaseline": 0.783
+      },
+      "structuralB": {
+        "queriesChanged": 10,
+        "changedTop10Pairs": 24,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "doi:10.14718/9786287554641.2023.5",
+                "title": "Formación en Psicología Comunitaria",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.4135/9781446279168.n3",
+                "title": "Social Epistemology and Psychology",
+                "bucket": "both",
+                "adjustedScore": 25
+              }
+            ]
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "source:internet-archive:ERIC_ED389230",
+                "title": "ERIC ED389230: The Discontinuity of Human Existence, Part I. The Fundamental Concepts of Human Existence and the Relation between the Singular and the Super Singular. No. 50.",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+                "title": "Psicologia, Diferença e Epistemologia: Percorrendo os (des)caminhos de uma constituição paradoxal DOI - 10.5752/P.1678-9563.2013v19n3p462",
+                "bucket": "both",
+                "adjustedScore": 30
+              },
+              {
+                "rank_old": 12,
+                "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+                "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "source:internet-archive:physicsofidealis00hinmrich",
+                "title": "The physics of idealism ..",
+                "bucket": "domain-only",
+                "adjustedScore": 25
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "openalex:W2164532440",
+                "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+                "bucket": "both",
+                "adjustedScore": 32
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.3726/978-3-653-00327-7/9",
+                "title": "La normalización lingüística en la toponimia de Canarias 73",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:logosetformalisa0000duba",
+                "title": "Logos et formalisation du langage",
+                "bucket": "neither",
+                "adjustedScore": 17
+              }
+            ]
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "openalex:W1992015595",
+                "title": "Logic in linguistics",
+                "bucket": "both",
+                "adjustedScore": 21
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.1007/978-94-009-9056-2_18",
+                "title": "Logic and Linguistics",
+                "bucket": "both",
+                "adjustedScore": 21
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.69609/2176-8625",
+                "title": "Caminhos em Linguística Aplicada",
+                "bucket": "domain-only",
+                "adjustedScore": 27
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "profile": {
+        "id": "moderate",
+        "both": 2,
+        "areaOnly": -2,
+        "domainOnly": 0,
+        "neitherWithAbstract": -1,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 29.241,
+        "nonRelevantMeanScore": 23.436,
+        "separation": 5.805,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 98,
+          "ties": 3,
+          "accuracy": 0.8652
+        },
+        "pairwiseDeltaVsBaseline": 0.0043,
+        "separationDeltaVsBaseline": 0.955
+      },
+      "structuralB": {
+        "queriesChanged": 11,
+        "changedTop10Pairs": 28,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "doi:10.5753/weriaedu.2025.16203",
+                "title": "Inteligência Artificial na Educação: Proposta de um Framework para Adoção Ética",
+                "bucket": "both",
+                "adjustedScore": 33
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 19,
+                "record_id": "doi:10.2307/j.ctvb939d5.8",
+                "title": "Epistemología y psicología",
+                "bucket": "both",
+                "adjustedScore": 30
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.4135/9781446279168.n3",
+                "title": "Social Epistemology and Psychology",
+                "bucket": "both",
+                "adjustedScore": 26
+              },
+              {
+                "rank_old": 16,
+                "record_id": "doi:10.1093/0195162293.003.0009",
+                "title": "Putting Epistemology into Practice: Normative Disputes in Psychology",
+                "bucket": "both",
+                "adjustedScore": 25
+              }
+            ]
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "source:internet-archive:ERIC_ED389230",
+                "title": "ERIC ED389230: The Discontinuity of Human Existence, Part I. The Fundamental Concepts of Human Existence and the Relation between the Singular and the Super Singular. No. 50.",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+                "title": "Psicologia, Diferença e Epistemologia: Percorrendo os (des)caminhos de uma constituição paradoxal DOI - 10.5752/P.1678-9563.2013v19n3p462",
+                "bucket": "both",
+                "adjustedScore": 31
+              },
+              {
+                "rank_old": 12,
+                "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+                "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "source:internet-archive:physicsofidealis00hinmrich",
+                "title": "The physics of idealism ..",
+                "bucket": "domain-only",
+                "adjustedScore": 25
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "openalex:W2164532440",
+                "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+                "bucket": "both",
+                "adjustedScore": 33
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.3726/978-3-653-00327-7/9",
+                "title": "La normalización lingüística en la toponimia de Canarias 73",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:logosetformalisa0000duba",
+                "title": "Logos et formalisation du langage",
+                "bucket": "neither",
+                "adjustedScore": 17
+              }
+            ]
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "openalex:W1992015595",
+                "title": "Logic in linguistics",
+                "bucket": "both",
+                "adjustedScore": 22
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.1007/978-94-009-9056-2_18",
+                "title": "Logic and Linguistics",
+                "bucket": "both",
+                "adjustedScore": 22
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.69609/2176-8625",
+                "title": "Caminhos em Linguística Aplicada",
+                "bucket": "domain-only",
+                "adjustedScore": 27
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "profile": {
+        "id": "asymmetric",
+        "both": 1,
+        "areaOnly": -3,
+        "domainOnly": 0,
+        "neitherWithAbstract": -1,
+        "neitherWithoutAbstract": 0
+      },
+      "human": {
+        "relevantMeanScore": 28.828,
+        "nonRelevantMeanScore": 22.974,
+        "separation": 5.853,
+        "pairwise": {
+          "pairs": 115,
+          "wins": 92,
+          "ties": 9,
+          "accuracy": 0.8391
+        },
+        "pairwiseDeltaVsBaseline": -0.0218,
+        "separationDeltaVsBaseline": 1.003
+      },
+      "structuralB": {
+        "queriesChanged": 10,
+        "changedTop10Pairs": 26,
+        "perQuery": [
+          {
+            "query_id": "val-es-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-pt-01",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-es-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "doi:10.14718/9786287554641.2023.5",
+                "title": "Formación en Psicología Comunitaria",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-02",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.4135/9781446279168.n3",
+                "title": "Social Epistemology and Psychology",
+                "bucket": "both",
+                "adjustedScore": 25
+              },
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:ERIC_ED281238",
+                "title": "ERIC ED281238: Toward a Theory of Psychological Type Congruence for Advertisers.",
+                "bucket": "domain-only",
+                "adjustedScore": 24
+              }
+            ]
+          },
+          {
+            "query_id": "val-fr-02",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "source:internet-archive:ERIC_ED389230",
+                "title": "ERIC ED389230: The Discontinuity of Human Existence, Part I. The Fundamental Concepts of Human Existence and the Relation between the Singular and the Super Singular. No. 50.",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-02",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+                "title": "Psicologia, Diferença e Epistemologia: Percorrendo os (des)caminhos de uma constituição paradoxal DOI - 10.5752/P.1678-9563.2013v19n3p462",
+                "bucket": "both",
+                "adjustedScore": 30
+              },
+              {
+                "rank_old": 12,
+                "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+                "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET",
+                "bucket": "domain-only",
+                "adjustedScore": 29
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-en-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-de-03",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "source:internet-archive:physicsofidealis00hinmrich",
+                "title": "The physics of idealism ..",
+                "bucket": "domain-only",
+                "adjustedScore": 25
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-03",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 11,
+                "record_id": "openalex:W2164532440",
+                "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+                "bucket": "both",
+                "adjustedScore": 32
+              }
+            ]
+          },
+          {
+            "query_id": "val-es-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.3726/978-3-653-00327-7/9",
+                "title": "La normalización lingüística en la toponimia de Canarias 73",
+                "bucket": "domain-only",
+                "adjustedScore": 28
+              }
+            ]
+          },
+          {
+            "query_id": "val-en-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 14,
+                "record_id": "source:internet-archive:logosetformalisa0000duba",
+                "title": "Logos et formalisation du langage",
+                "bucket": "neither",
+                "adjustedScore": 17
+              }
+            ]
+          },
+          {
+            "query_id": "val-de-04",
+            "changedPairs": 0,
+            "newOnly": []
+          },
+          {
+            "query_id": "val-fr-04",
+            "changedPairs": 4,
+            "newOnly": [
+              {
+                "rank_old": 12,
+                "record_id": "openalex:W1992015595",
+                "title": "Logic in linguistics",
+                "bucket": "both",
+                "adjustedScore": 21
+              },
+              {
+                "rank_old": 13,
+                "record_id": "doi:10.1007/978-94-009-9056-2_18",
+                "title": "Logic and Linguistics",
+                "bucket": "both",
+                "adjustedScore": 21
+              }
+            ]
+          },
+          {
+            "query_id": "val-pt-04",
+            "changedPairs": 2,
+            "newOnly": [
+              {
+                "rank_old": 15,
+                "record_id": "doi:10.69609/2176-8625",
+                "title": "Caminhos em Linguística Aplicada",
+                "bucket": "domain-only",
+                "adjustedScore": 27
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

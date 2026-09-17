@@ -1,0 +1,680 @@
+{
+  "schemaVersion": 1,
+  "name": "Interdisciplinary conjunction candidate blind development audit v1",
+  "seed": 20260917,
+  "methodology": "Blind development audit of every query-document pair whose Top-10 membership differs between the frozen B ranking and either the conservative or moderate conjunction profile. Existing human judgments are reused only for the identical query-document pair. Public unresolved sample hides baseline/profile side, rank, score, evidence bucket, and profile membership.",
+  "warning": "Development/tuning data only. Do not use this audit as independent validation of the eventual conjunction change.",
+  "profiles": {
+    "conservative": {
+      "both": 1,
+      "areaOnly": -2,
+      "domainOnly": 0,
+      "neitherWithAbstract": -1,
+      "neitherWithoutAbstract": 0
+    },
+    "moderate": {
+      "both": 2,
+      "areaOnly": -2,
+      "domainOnly": 0,
+      "neitherWithAbstract": -1,
+      "neitherWithoutAbstract": 0
+    }
+  },
+  "perProfileCounts": {
+    "conservative": {
+      "queriesChanged": 10,
+      "changedPairs": 24
+    },
+    "moderate": {
+      "queriesChanged": 11,
+      "changedPairs": 28
+    }
+  },
+  "candidatePairsUnion": 29,
+  "priorHumanReused": 10,
+  "unresolved": 19,
+  "items": [
+    {
+      "query_id": "val-es-02",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.1080/02109395.1984.10821382",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ003"
+    },
+    {
+      "query_id": "val-es-02",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.14718/9786287554641.2023.5",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 11,
+          "profile_rank": 10,
+          "adjusted_score": 29
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB037",
+        "human_relevance": 2,
+        "human_note": "Aborda explícitamente los componentes epistémicos de la Psicología Comunitaria dentro del análisis de su formación posgradual y competencias."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.1515/9783110350401.224",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ017"
+    },
+    {
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.4135/9781446279168.n3",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 8,
+          "adjusted_score": 25
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 8,
+          "adjusted_score": 26
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ018"
+    },
+    {
+      "query_id": "val-fr-02",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.3917/eres.golse.2017.01.0047",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ006"
+    },
+    {
+      "query_id": "val-fr-02",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:ERIC_ED389230",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 8,
+          "adjusted_score": 28
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 8,
+          "adjusted_score": 28
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ014"
+    },
+    {
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.36311/1984-1655.2009.v2n4.1985",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ013"
+    },
+    {
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.36311/1984-1655.2013.v5n1.p190-235",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ009"
+    },
+    {
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.5752/p.1678-9563.2013v19n3p462",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 8,
+          "adjusted_score": 30
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 7,
+          "adjusted_score": 31
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ016"
+    },
+    {
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 12,
+          "profile_rank": 10,
+          "adjusted_score": 29
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 12,
+          "profile_rank": 10,
+          "adjusted_score": 29
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB063",
+        "human_relevance": 1,
+        "human_note": "Se inscribe en la tradición de psicología y epistemología genéticas de Piaget, pero el artículo se centra específicamente en psicología moral y juicio moral."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:reflectionsonsci0000chau",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB009",
+        "human_relevance": 2,
+        "human_note": "Incluye de forma sustantiva reflexiones filosóficas sobre la física dentro de una obra más amplia sobre ciencia, filosofía y arte."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:physicsofidealis00hinmrich",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 11,
+          "profile_rank": 10,
+          "adjusted_score": 25
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 11,
+          "profile_rank": 10,
+          "adjusted_score": 25
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ004"
+    },
+    {
+      "query_id": "val-pt-03",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.11606/t.81.2019.tde-17122019-164649",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ012"
+    },
+    {
+      "query_id": "val-pt-03",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W2164532440",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 11,
+          "profile_rank": 10,
+          "adjusted_score": 32
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 11,
+          "profile_rank": 8,
+          "adjusted_score": 33
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB059",
+        "human_relevance": 3,
+        "human_note": "Estudia específicamente la presencia y uso de Historia y Filosofía de la Ciencia en investigación y enseñanza de la Física."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v2i4.41",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB064",
+        "human_relevance": 1,
+        "human_note": "Trata directamente la relación entre lógica y argumentación, pero no la aplicación de la lógica dentro de la lingüística."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.3726/978-3-653-00327-7/9",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 15,
+          "profile_rank": 6,
+          "adjusted_score": 28
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 15,
+          "profile_rank": 6,
+          "adjusted_score": 28
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB039",
+        "human_relevance": 1,
+        "human_note": "Es un estudio lingüístico sobre normalización y escritura de topónimos canarios, pero no aborda lógica aplicada a la lingüística."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-en-04",
+      "language": "en",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.1017/cbo9780511621017.008",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ010"
+    },
+    {
+      "query_id": "val-en-04",
+      "language": "en",
+      "family": "logic-linguistics",
+      "record_id": "source:internet-archive:logosetformalisa0000duba",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 14,
+          "profile_rank": 7,
+          "adjusted_score": 17
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 14,
+          "profile_rank": 7,
+          "adjusted_score": 17
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ011"
+    },
+    {
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.3406/drlav.1975.887",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ002"
+    },
+    {
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v10i20.185",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB036",
+        "human_relevance": 1,
+        "human_note": "Estudia lógica, falacias y razonamiento natural, pero no la aplicación de la lógica dentro de la lingüística."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "openalex:W1992015595",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 12,
+          "profile_rank": 9,
+          "adjusted_score": 21
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 12,
+          "profile_rank": 9,
+          "adjusted_score": 22
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ019"
+    },
+    {
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.1007/978-94-009-9056-2_18",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 10,
+          "adjusted_score": 21
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 13,
+          "profile_rank": 10,
+          "adjusted_score": 22
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ015"
+    },
+    {
+      "query_id": "val-pt-04",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v2i4.43",
+      "memberships": {
+        "conservative": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        },
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB006",
+        "human_relevance": 1,
+        "human_note": "Trata sustantivamente de lógica y argumentación, pero no específicamente de lógica aplicada a la lingüística."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-pt-04",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.69609/2176-8625",
+      "memberships": {
+        "conservative": {
+          "side": "profile-only",
+          "baseline_rank": 15,
+          "profile_rank": 7,
+          "adjusted_score": 27
+        },
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 15,
+          "profile_rank": 7,
+          "adjusted_score": 27
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ007"
+    },
+    {
+      "query_id": "val-pt-01",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "record_id": "doi:10.32870/prot.i25.418",
+      "memberships": {
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 9,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ001"
+    },
+    {
+      "query_id": "val-pt-01",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "record_id": "doi:10.5753/weriaedu.2025.16203",
+      "memberships": {
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 11,
+          "profile_rank": 10,
+          "adjusted_score": 33
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB041",
+        "human_relevance": 3,
+        "human_note": "Propone directamente un marco de adopción ética de IA basado en privacidad, transparencia, justicia, supervisión humana, responsabilidad e inclusión."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-es-02",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.2307/j.ctvb939d5.8",
+      "memberships": {
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 19,
+          "profile_rank": 8,
+          "adjusted_score": 30
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ008"
+    },
+    {
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:descriptorrevisi0000hans",
+      "memberships": {
+        "moderate": {
+          "side": "baseline-only",
+          "baseline_rank": 10,
+          "profile_rank": null,
+          "adjusted_score": null
+        }
+      },
+      "prior_human": {
+        "audit_id": "HAB013",
+        "human_relevance": 1,
+        "human_note": "Estudia formalmente el cambio de creencias desde lógica y epistemología, pero no la epistemología de la psicología como disciplina."
+      },
+      "audit_id": null
+    },
+    {
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.1093/0195162293.003.0009",
+      "memberships": {
+        "moderate": {
+          "side": "profile-only",
+          "baseline_rank": 16,
+          "profile_rank": 9,
+          "adjusted_score": 25
+        }
+      },
+      "prior_human": null,
+      "audit_id": "HCJ005"
+    }
+  ]
+}
