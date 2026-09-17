@@ -22,6 +22,7 @@
     "benchmark:simulate:interdisciplinary-conjunction": "node scripts/benchmark/simulate_interdisciplinary_conjunction_profiles.mjs",
     "benchmark:interdisciplinary-conjunction-audit:sample": "node scripts/benchmark/build_interdisciplinary_conjunction_candidate_audit.mjs",
     "benchmark:interdisciplinary-conjunction-audit:analyze": "node scripts/benchmark/analyze_interdisciplinary_conjunction_candidate_audit.mjs",
+    "benchmark:verify:interdisciplinary-conjunction": "node scripts/benchmark/verify_interdisciplinary_conjunction_v1.mjs",
     "benchmark:analyze:multilingual-constraints": "node scripts/benchmark/analyze_multilingual_constraints.mjs",
     "benchmark:multilingual-delta-audit:sample": "node scripts/benchmark/build_multilingual_constraints_delta_audit.mjs",
     "benchmark:multilingual-delta-audit": "node scripts/benchmark/multilingual_constraints_delta_audit_server.mjs",
