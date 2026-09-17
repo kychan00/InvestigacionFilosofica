@@ -108,8 +108,6 @@ export async function buildHoldoutPredictions(manifestPath = MANIFEST_PATH) {
     threshold_source: manifest.prediction.threshold_source,
     threshold_retuning: false,
     row_count: predictions.length,
-    predicted_relevant_count: predictions.filter((row) => row.predicted_relevant).length,
-    predicted_non_relevant_count: predictions.filter((row) => !row.predicted_relevant).length,
     output_path: manifest.prediction.output,
     output_sha256: outputSha,
     human_labels_used: false,
@@ -124,8 +122,6 @@ async function main() {
   const result = await buildHoldoutPredictions();
   console.log('Qwen3 holdout predictions frozen');
   console.log(`rows=${result.metadata.row_count}`);
-  console.log(`predicted_relevant=${result.metadata.predicted_relevant_count}`);
-  console.log(`predicted_non_relevant=${result.metadata.predicted_non_relevant_count}`);
   console.log(`fixed_threshold=${result.metadata.fixed_binary_threshold}`);
   console.log(`raw_scores_sha256=${result.metadata.raw_scores_sha256}`);
   console.log(`predictions_sha256=${result.metadata.output_sha256}`);
