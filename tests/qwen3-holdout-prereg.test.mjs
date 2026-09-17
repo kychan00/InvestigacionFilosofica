@@ -86,6 +86,9 @@ test('Qwen3 holdout retrieval is production-only and cannot score with Qwen', as
   assert.doesNotMatch(server, /Qwen3RerankerAdapter/u);
   assert.match(server, /qwen_used_during_retrieval: false/u);
   assert.match(server, /human_labels_used_during_retrieval: false/u);
+  assert.match(server, /production_base_commit: experiment\.base_commit/u);
+  assert.match(server, /retrieval_runtime_commit: runtimeCommit/u);
+  assert.doesNotMatch(server, /releaseManifest\.release\.runtimeCommit/u);
 
   const packageJson = JSON.parse(packageText);
   assert.equal(
