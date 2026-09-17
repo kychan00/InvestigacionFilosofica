@@ -1,0 +1,19 @@
+{
+  "schema_version": "qwen3-holdout-prediction-meta-v1",
+  "validation_id": "qwen3-reranker-v1-holdout-v1",
+  "purpose": "frozen-pre-adjudication-predictions",
+  "model": "Qwen/Qwen3-Reranker-0.6B",
+  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+  "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+  "dataset_sha256": "bc0de328ea953840909435cdcf4c4e346103d56d6c97db25738c094ef3321e64",
+  "raw_scores_path": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.raw.jsonl",
+  "raw_scores_sha256": "dc8cb4c9a377e7b4191e5299e274fe9a63af55cdea407026304a6c08a33b6f23",
+  "fixed_binary_threshold": 0.679178715,
+  "threshold_source": "development-only best F1 on human-audit-v1; frozen before holdout retrieval",
+  "threshold_retuning": false,
+  "row_count": 100,
+  "output_path": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.predictions.jsonl",
+  "output_sha256": "27898e33a40b4b438946a69f616418697c6bd2862fb4e151dfbce09985657408",
+  "human_labels_used": false,
+  "production_ranking_changed": false
+}
