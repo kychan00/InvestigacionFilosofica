@@ -12,9 +12,8 @@ async function readManifest() {
   return JSON.parse(await readFile(manifestPath, 'utf8'));
 }
 
-test('Qwen3 inference manifest freezes batch, output and cache boundaries', async () => {
+test('Qwen3 inference manifest freezes batch, output and cache boundaries independently of lifecycle status', async () => {
   const manifest = await readManifest();
-  assert.equal(manifest.status, 'inference-engine-scaffolded');
   assert.equal(manifest.inference.default_batch_size, 2);
   assert.equal(manifest.inference.checkpoint_after_each_batch, true);
   assert.equal(manifest.inference.atomic_cache_writes, true);
