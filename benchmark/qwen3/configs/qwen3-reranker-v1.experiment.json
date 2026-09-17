@@ -2,7 +2,7 @@
   "schema_version": "qwen3-experiment-v1",
   "experiment_id": "qwen3-reranker-v1",
   "purpose": "development",
-  "status": "fresh-holdout-preregistered",
+  "status": "fresh-holdout-human-adjudication-ready",
   "base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
   "branch": "evaluation/qwen3-reranker-v1",
   "model": {
@@ -31,7 +31,10 @@
     "requirements": "requirements-qwen3.txt",
     "scoring": "yes-no-softmax-probability",
     "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
-    "raw_score_range": [0, 1],
+    "raw_score_range": [
+      0,
+      1
+    ],
     "max_length": 4096,
     "device": "auto",
     "dtype": "auto",
@@ -78,7 +81,11 @@
     "fixed_qwen_threshold": 0.5,
     "development_threshold_selection": "maximize F1, then balanced accuracy, precision, then threshold",
     "selected_candidate_threshold": 0.679178715,
-    "continuous_metrics": ["roc_auc", "average_precision", "spearman_ordinal"],
+    "continuous_metrics": [
+      "roc_auc",
+      "average_precision",
+      "spearman_ordinal"
+    ],
     "labels_are_development_data_for_qwen": true,
     "historical_comparison_reports_source_coverage": true
   },
@@ -88,15 +95,37 @@
     "retrieval_server": "scripts/benchmark/qwen3/run_holdout_server.mjs",
     "retrieval_ui": "benchmark/qwen3/runner-holdout.html",
     "queries": 20,
-    "languages": ["es", "en", "de", "fr", "pt"],
+    "languages": [
+      "es",
+      "en",
+      "de",
+      "fr",
+      "pt"
+    ],
     "retrieval_pool_depth": 20,
     "minimum_results_per_query": 10,
-    "human_audit_ranks": [1, 3, 5, 7, 10],
+    "human_audit_ranks": [
+      1,
+      3,
+      5,
+      7,
+      10
+    ],
     "planned_human_pairs": 100,
     "frozen_candidate_threshold": 0.679178715,
     "threshold_retuning": false,
     "qwen_used_during_retrieval": false,
-    "human_labels_used_during_retrieval": false
+    "human_labels_used_during_retrieval": false,
+    "retrieval_freeze_commit": "b49464d",
+    "sample_dataset_freeze_commit": "859216e",
+    "score_freeze_commit": "b8c4a7a",
+    "sample_sha256": "e8ccace4407ce9d235aefdf0a2cdc8ec36ec0d1df9843d9ae53611001f0f8942",
+    "dataset_sha256": "bc0de328ea953840909435cdcf4c4e346103d56d6c97db25738c094ef3321e64",
+    "raw_scores_sha256": "dc8cb4c9a377e7b4191e5299e274fe9a63af55cdea407026304a6c08a33b6f23",
+    "predictions_sha256": "27898e33a40b4b438946a69f616418697c6bd2862fb4e151dfbce09985657408",
+    "human_audit_server": "scripts/benchmark/qwen3/holdout_human_audit_server.mjs",
+    "human_audit_ui": "benchmark/qwen3/validation/qwen3-holdout-human-audit.html",
+    "human_labels_started": false
   },
   "contracts": {
     "dataset": "qwen3-dataset-v1",
