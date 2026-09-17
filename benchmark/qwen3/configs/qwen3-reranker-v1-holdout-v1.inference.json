@@ -1,0 +1,57 @@
+{
+  "schema_version": "qwen3-holdout-inference-v1",
+  "experiment_id": "qwen3-reranker-v1",
+  "validation_id": "qwen3-reranker-v1-holdout-v1",
+  "purpose": "fresh-holdout-validation",
+  "development_freeze_commit": "b3a795b",
+  "retrieval_freeze_commit": "b49464d",
+  "sample_dataset_freeze_commit": "859216e",
+  "model": {
+    "name": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473"
+  },
+  "instruction": {
+    "path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+    "sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7"
+  },
+  "dataset": {
+    "path": "benchmark/qwen3/datasets/qwen3-reranker-v1-holdout-v1.jsonl",
+    "metadata_path": "benchmark/qwen3/datasets/qwen3-reranker-v1-holdout-v1.meta.json",
+    "sha256": "bc0de328ea953840909435cdcf4c4e346103d56d6c97db25738c094ef3321e64",
+    "source_sample_sha256": "e8ccace4407ce9d235aefdf0a2cdc8ec36ec0d1df9843d9ae53611001f0f8942",
+    "rows": 100,
+    "unique_queries": 20,
+    "unique_records": 85,
+    "contains_human_labels": false,
+    "contains_ranking_provenance": false
+  },
+  "adapter": {
+    "scoring": "yes-no-softmax-probability",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "max_length": 4096,
+    "mps_model_batch_strategy": "singleton"
+  },
+  "inference": {
+    "purpose": "validation-holdout-raw-scores",
+    "default_batch_size": 2,
+    "raw_output": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.raw.jsonl",
+    "raw_metadata": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.raw.meta.json",
+    "local_cache": "benchmark/qwen3/cache/qwen3-reranker-v1-holdout-v1.cache.jsonl",
+    "refuse_completed_output_overwrite_by_default": true
+  },
+  "prediction": {
+    "fixed_binary_threshold": 0.679178715,
+    "threshold_source": "development-only best F1 on human-audit-v1; frozen before holdout retrieval",
+    "threshold_retuning": false,
+    "output": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.predictions.jsonl",
+    "metadata": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.predictions.meta.json"
+  },
+  "human_labels": {
+    "used_for_model_input": false,
+    "used_for_threshold_selection": false,
+    "must_not_exist_before_score_freeze": true
+  },
+  "production": {
+    "ranking_changed": false
+  }
+}
