@@ -2,7 +2,7 @@
   "schema_version": "qwen3-experiment-v1",
   "experiment_id": "qwen3-reranker-v1",
   "purpose": "development",
-  "status": "calibration-lab-scaffolded",
+  "status": "fresh-holdout-preregistered",
   "base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
   "branch": "evaluation/qwen3-reranker-v1",
   "model": {
@@ -31,10 +31,7 @@
     "requirements": "requirements-qwen3.txt",
     "scoring": "yes-no-softmax-probability",
     "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
-    "raw_score_range": [
-      0,
-      1
-    ],
+    "raw_score_range": [0, 1],
     "max_length": 4096,
     "device": "auto",
     "dtype": "auto",
@@ -80,13 +77,26 @@
     "human_binary_threshold": 2,
     "fixed_qwen_threshold": 0.5,
     "development_threshold_selection": "maximize F1, then balanced accuracy, precision, then threshold",
-    "continuous_metrics": [
-      "roc_auc",
-      "average_precision",
-      "spearman_ordinal"
-    ],
+    "selected_candidate_threshold": 0.679178715,
+    "continuous_metrics": ["roc_auc", "average_precision", "spearman_ordinal"],
     "labels_are_development_data_for_qwen": true,
     "historical_comparison_reports_source_coverage": true
+  },
+  "fresh_holdout": {
+    "validation_id": "qwen3-reranker-v1-holdout-v1",
+    "preregistration": "benchmark/qwen3/validation/qwen3-reranker-v1-holdout.preregistered.json",
+    "retrieval_server": "scripts/benchmark/qwen3/run_holdout_server.mjs",
+    "retrieval_ui": "benchmark/qwen3/runner-holdout.html",
+    "queries": 20,
+    "languages": ["es", "en", "de", "fr", "pt"],
+    "retrieval_pool_depth": 20,
+    "minimum_results_per_query": 10,
+    "human_audit_ranks": [1, 3, 5, 7, 10],
+    "planned_human_pairs": 100,
+    "frozen_candidate_threshold": 0.679178715,
+    "threshold_retuning": false,
+    "qwen_used_during_retrieval": false,
+    "human_labels_used_during_retrieval": false
   },
   "contracts": {
     "dataset": "qwen3-dataset-v1",
