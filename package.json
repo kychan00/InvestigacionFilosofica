@@ -24,6 +24,7 @@
     "benchmark:interdisciplinary-conjunction-audit:analyze": "node scripts/benchmark/analyze_interdisciplinary_conjunction_candidate_audit.mjs",
     "benchmark:verify:interdisciplinary-conjunction": "node scripts/benchmark/verify_interdisciplinary_conjunction_v1.mjs",
     "benchmark:validate:interdisciplinary-conjunction-v1": "node scripts/benchmark/validate_interdisciplinary_conjunction_v1_queries.mjs",
+    "benchmark:run:interdisciplinary-conjunction-v1-validation": "npm run build:duckdb && node scripts/benchmark/run-server-interdisciplinary-conjunction-v1-validation.mjs",
     "benchmark:analyze:multilingual-constraints": "node scripts/benchmark/analyze_multilingual_constraints.mjs",
     "benchmark:multilingual-delta-audit:sample": "node scripts/benchmark/build_multilingual_constraints_delta_audit.mjs",
     "benchmark:multilingual-delta-audit": "node scripts/benchmark/multilingual_constraints_delta_audit_server.mjs",
