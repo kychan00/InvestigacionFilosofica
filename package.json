@@ -54,7 +54,8 @@
     "benchmark:inspect-ranking-changes": "node scripts/benchmark/inspect_ranking_changes.mjs",
     "benchmark:qwen3:dataset:human-audit": "node scripts/benchmark/qwen3/build_dataset.mjs",
     "benchmark:qwen3:infer": "python scripts/benchmark/qwen3/inference.py",
-    "benchmark:qwen3:calibrate": "node scripts/benchmark/qwen3/calibrate.mjs"
+    "benchmark:qwen3:calibrate": "node scripts/benchmark/qwen3/calibrate.mjs",
+    "benchmark:qwen3:holdout:run": "npm run build:duckdb && node scripts/benchmark/qwen3/run_holdout_server.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
