@@ -1,0 +1,26 @@
+{
+  "schema_version": "qwen3-dataset-meta-v1",
+  "dataset_id": "human-audit-v1-model-input",
+  "purpose": "development-model-input",
+  "source_path": "benchmark/human-audit-v1.sample.jsonl",
+  "source_sha256": "c5805637a2c860b3089f833b2c18dca2bc297398c84a24b6d76c2cb61f350118",
+  "dataset_sha256": "a939e882f95ab13f448da8c614deaa3a2a38cc8e5d266c8686bdf8cd6ab48655",
+  "builder_commit": "b081cf9b530a27fde2db306a4fe87d83205a078f",
+  "row_count": 100,
+  "unique_query_count": 39,
+  "unique_record_count": 95,
+  "duplicate_rows_removed": 0,
+  "contains_human_labels": false,
+  "contains_ranking_provenance": false,
+  "model_input_fields": [
+    "schema_version",
+    "query_id",
+    "query",
+    "record_id",
+    "title",
+    "abstract",
+    "authors",
+    "year",
+    "document_language"
+  ]
+}
