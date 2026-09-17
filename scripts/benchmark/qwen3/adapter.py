@@ -12,7 +12,7 @@ import hashlib
 import json
 import platform
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -195,16 +195,26 @@ class Qwen3RerankerAdapter:
         self.content_max_length = available
 
     @torch.inference_mode()
-    def score(self, query: str, document: str) -> float:
-        pair = format_instruction(self.instruction, query, document)
+    def score_many(self, pairs: Iterable[tuple[str, str]]) -> list[float]:
+        pair_list = list(pairs)
+        if not pair_list:
+            return []
+
+        formatted = [
+            format_instruction(self.instruction, query, document)
+            for query, document in pair_list
+        ]
         inputs = self.tokenizer(
-            [pair],
+            formatted,
             padding=False,
             truncation="longest_first",
             return_attention_mask=False,
             max_length=self.content_max_length,
         )
-        input_ids = [self.prefix_tokens + ids + self.suffix_tokens for ids in inputs["input_ids"]]
+        input_ids = [
+            self.prefix_tokens + ids + self.suffix_tokens
+            for ids in inputs["input_ids"]
+        ]
         batch = self.tokenizer.pad(
             {"input_ids": input_ids},
             padding=True,
@@ -216,8 +226,11 @@ class Qwen3RerankerAdapter:
         true_logits = logits[:, self.token_true_id]
         false_logits = logits[:, self.token_false_id]
         yes_no_logits = torch.stack([false_logits, true_logits], dim=1)
-        score = torch.softmax(yes_no_logits.float(), dim=1)[:, 1]
-        return float(score.item())
+        scores = torch.softmax(yes_no_logits.float(), dim=1)[:, 1]
+        return [float(value) for value in scores.detach().cpu().tolist()]
+
+    def score(self, query: str, document: str) -> float:
+        return self.score_many([(query, document)])[0]
 
 
 def runtime_metadata(device: str, dtype: torch.dtype) -> dict[str, Any]:
