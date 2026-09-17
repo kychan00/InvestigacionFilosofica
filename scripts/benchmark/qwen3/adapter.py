@@ -83,7 +83,8 @@ def build_document_text(record: dict[str, Any]) -> str:
 
 
 def format_instruction(instruction: str, query: str, document: str) -> str:
-    return f"<Instruct>: {instruction}\n<Query>: {query}\n<Document>: {document}"
+    separator = "" if instruction.endswith("\n") else "\n"
+    return f"<Instruct>: {instruction}{separator}<Query>: {query}\n<Document>: {document}"
 
 
 def build_input_fingerprint(instruction: str, query: str, document: str) -> str:
@@ -159,10 +160,12 @@ class Qwen3RerankerAdapter:
     ) -> None:
         if max_length <= 0:
             raise ValueError("max_length must be positive")
+        if not instruction.strip():
+            raise ValueError("instruction must not be empty")
 
         self.model_name = model_name
         self.revision = revision
-        self.instruction = instruction.strip()
+        self.instruction = instruction
         self.max_length = max_length
         self.device = resolve_device(device)
         self.torch_dtype = resolve_dtype(self.device, dtype)
@@ -175,7 +178,7 @@ class Qwen3RerankerAdapter:
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
             revision=self.revision,
-            torch_dtype=self.torch_dtype,
+            dtype=self.torch_dtype,
         ).eval()
         self.model.to(self.device)
 
@@ -206,7 +209,6 @@ class Qwen3RerankerAdapter:
             {"input_ids": input_ids},
             padding=True,
             return_tensors="pt",
-            max_length=self.max_length,
         )
         batch = {key: value.to(self.device) for key, value in batch.items()}
 
@@ -251,7 +253,9 @@ def main() -> None:
     dataset_path = Path(args.dataset)
     instruction_path = Path(args.instruction)
     record = read_jsonl_row(dataset_path, args.row)
-    instruction = instruction_path.read_text(encoding="utf-8").strip()
+    instruction = instruction_path.read_text(encoding="utf-8")
+    if not instruction.strip():
+        raise ValueError(f"instruction file is empty: {instruction_path}")
     document = build_document_text(record)
     device = resolve_device(args.device)
     dtype = resolve_dtype(device, args.dtype)
