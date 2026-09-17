@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "name": "Interdisciplinary conjunction v1 fresh holdout structural analysis",
+  "methodology": "Structural analysis only. No human relevance labels are used. Conditions A and B came from one live retrieval per query and reranked the same candidate pool during collection; this report verifies the frozen A/B rows, exact score reconstruction for shared rows, and Top-10 membership changes.",
+  "limitation": "The finalized run preserves A/B Top-20 rows and collection metadata, but not the full candidatePoolIds array that the server validated before saving each query. Same-pool provenance therefore rests on the frozen runner/server contract plus the saved run, not a post-hoc full-pool snapshot.",
+  "run": "benchmark/runs/interdisciplinary-conjunction-v1-holdout-105f196.jsonl",
+  "metadata": "benchmark/runs/interdisciplinary-conjunction-v1-holdout-105f196.meta.json",
+  "runtimeCommit": "105f196c8364a945bbb2bcff9c842e88f4bd3b47",
+  "preregistrationBaseCommit": "bb9689d",
+  "queryCount": 20,
+  "topK": 10,
+  "rows": 800,
+  "queriesChanged": 14,
+  "changedTop10Pairs": 56,
+  "top10MembershipReplacements": 28,
+  "aOnlyTotal": 28,
+  "bOnlyTotal": 28,
+  "scoreChecks": {
+    "sharedRowsChecked": 365,
+    "mismatches": 0,
+    "maxAbsoluteError": 0
+  },
+  "aOnlyBuckets": {
+    "area-only": 24,
+    "domain-only": 3,
+    "neither": 1
+  },
+  "bOnlyBuckets": {
+    "both": 22,
+    "domain-only": 6
+  },
+  "changedAdjustmentCounts": {
+    "0": 9,
+    "2": 22,
+    "-2": 24,
+    "-1": 1
+  },
+  "byFamily": {
+    "ethics-medicine": {
+      "queries": 5,
+      "queriesChanged": 3,
+      "changedTop10Pairs": 14
+    },
+    "aesthetics-psychology": {
+      "queries": 5,
+      "queriesChanged": 5,
+      "changedTop10Pairs": 20
+    },
+    "philosophy-technology-education": {
+      "queries": 5,
+      "queriesChanged": 2,
+      "changedTop10Pairs": 12
+    },
+    "political-philosophy-economics": {
+      "queries": 5,
+      "queriesChanged": 4,
+      "changedTop10Pairs": 10
+    }
+  },
+  "byLanguage": {
+    "es": {
+      "queries": 4,
+      "queriesChanged": 2,
+      "changedTop10Pairs": 6
+    },
+    "en": {
+      "queries": 4,
+      "queriesChanged": 3,
+      "changedTop10Pairs": 12
+    },
+    "de": {
+      "queries": 4,
+      "queriesChanged": 4,
+      "changedTop10Pairs": 12
+    },
+    "fr": {
+      "queries": 4,
+      "queriesChanged": 2,
+      "changedTop10Pairs": 8
+    },
+    "pt": {
+      "queries": 4,
+      "queriesChanged": 3,
+      "changedTop10Pairs": 18
+    }
+  },
+  "perQuery": [
+    {
+      "query_id": "cv-es-01",
+      "query": "ética en medicina",
+      "family": "ethics-medicine",
+      "language": "es",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 0,
+      "top10MembershipReplacements": 0
+    },
+    {
+      "query_id": "cv-en-01",
+      "query": "ethics in medicine",
+      "family": "ethics-medicine",
+      "language": "en",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 20,
+      "changedTop10Pairs": 0,
+      "top10MembershipReplacements": 0
+    },
+    {
+      "query_id": "cv-de-01",
+      "query": "Ethik in der Medizin",
+      "family": "ethics-medicine",
+      "language": "de",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 2,
+      "top10MembershipReplacements": 1
+    },
+    {
+      "query_id": "cv-fr-01",
+      "query": "éthique en médecine",
+      "family": "ethics-medicine",
+      "language": "fr",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 17,
+      "changedTop10Pairs": 2,
+      "top10MembershipReplacements": 1
+    },
+    {
+      "query_id": "cv-pt-01",
+      "query": "ética em medicina",
+      "family": "ethics-medicine",
+      "language": "pt",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 16,
+      "changedTop10Pairs": 10,
+      "top10MembershipReplacements": 5
+    },
+    {
+      "query_id": "cv-es-02",
+      "query": "estética en psicología",
+      "family": "aesthetics-psychology",
+      "language": "es",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 17,
+      "changedTop10Pairs": 4,
+      "top10MembershipReplacements": 2
+    },
+    {
+      "query_id": "cv-en-02",
+      "query": "aesthetics in psychology",
+      "family": "aesthetics-psychology",
+      "language": "en",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 4,
+      "top10MembershipReplacements": 2
+    },
+    {
+      "query_id": "cv-de-02",
+      "query": "Ästhetik in der Psychologie",
+      "family": "aesthetics-psychology",
+      "language": "de",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 2,
+      "top10MembershipReplacements": 1
+    },
+    {
+      "query_id": "cv-fr-02",
+      "query": "esthétique en psychologie",
+      "family": "aesthetics-psychology",
+      "language": "fr",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 13,
+      "changedTop10Pairs": 6,
+      "top10MembershipReplacements": 3
+    },
+    {
+      "query_id": "cv-pt-02",
+      "query": "estética em psicologia",
+      "family": "aesthetics-psychology",
+      "language": "pt",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 18,
+      "changedTop10Pairs": 4,
+      "top10MembershipReplacements": 2
+    },
+    {
+      "query_id": "cv-es-03",
+      "query": "filosofía de la tecnología en educación",
+      "family": "philosophy-technology-education",
+      "language": "es",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 20,
+      "changedTop10Pairs": 0,
+      "top10MembershipReplacements": 0
+    },
+    {
+      "query_id": "cv-en-03",
+      "query": "philosophy of technology in education",
+      "family": "philosophy-technology-education",
+      "language": "en",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 6,
+      "top10MembershipReplacements": 3
+    },
+    {
+      "query_id": "cv-de-03",
+      "query": "Technikphilosophie in der Bildung",
+      "family": "philosophy-technology-education",
+      "language": "de",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 20,
+      "changedTop10Pairs": 6,
+      "top10MembershipReplacements": 3
+    },
+    {
+      "query_id": "cv-fr-03",
+      "query": "philosophie de la technologie en éducation",
+      "family": "philosophy-technology-education",
+      "language": "fr",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 0,
+      "top10MembershipReplacements": 0
+    },
+    {
+      "query_id": "cv-pt-03",
+      "query": "filosofia da tecnologia em educação",
+      "family": "philosophy-technology-education",
+      "language": "pt",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 20,
+      "changedTop10Pairs": 0,
+      "top10MembershipReplacements": 0
+    },
+    {
+      "query_id": "cv-es-04",
+      "query": "filosofía política en economía",
+      "family": "political-philosophy-economics",
+      "language": "es",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 2,
+      "top10MembershipReplacements": 1
+    },
+    {
+      "query_id": "cv-en-04",
+      "query": "political philosophy in economics",
+      "family": "political-philosophy-economics",
+      "language": "en",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 19,
+      "changedTop10Pairs": 2,
+      "top10MembershipReplacements": 1
+    },
+    {
+      "query_id": "cv-de-04",
+      "query": "politische Philosophie in der Ökonomie",
+      "family": "political-philosophy-economics",
+      "language": "de",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 14,
+      "changedTop10Pairs": 2,
+      "top10MembershipReplacements": 1
+    },
+    {
+      "query_id": "cv-fr-04",
+      "query": "philosophie politique en économie",
+      "family": "political-philosophy-economics",
+      "language": "fr",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 20,
+      "changedTop10Pairs": 0,
+      "top10MembershipReplacements": 0
+    },
+    {
+      "query_id": "cv-pt-04",
+      "query": "filosofia política em economia",
+      "family": "political-philosophy-economics",
+      "language": "pt",
+      "rowsA": 20,
+      "rowsB": 20,
+      "sharedRows": 18,
+      "changedTop10Pairs": 4,
+      "top10MembershipReplacements": 2
+    }
+  ]
+}

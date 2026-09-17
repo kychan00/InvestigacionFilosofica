@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 1,
+  "name": "Interdisciplinary conjunction ranking v1 fresh same-pool holdout",
+  "runName": "interdisciplinary-conjunction-v1-holdout-105f196",
+  "runtimeCommit": "105f196c8364a945bbb2bcff9c842e88f4bd3b47",
+  "generatedAt": "2026-09-17T05:08:00.899Z",
+  "validationQueries": "benchmark/validation-interdisciplinary-conjunction-v1.queries.json",
+  "rankingImplementationCommit": "bb9689d",
+  "queryCount": 20,
+  "topK": 10,
+  "poolDepth": 20,
+  "rows": 800,
+  "perQuery": {
+    "cv-es-01": {
+      "retrievedCandidates": 73,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 0,
+      "expansions": [
+        {
+          "query": "ética en medicina",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "ethics in medicine",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:06:37.468Z"
+    },
+    "cv-en-01": {
+      "retrievedCandidates": 37,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 0,
+      "expansions": [
+        {
+          "query": "ethics in medicine",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "savedAt": "2026-09-17T05:06:40.278Z"
+    },
+    "cv-de-01": {
+      "retrievedCandidates": 67,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 2,
+      "expansions": [
+        {
+          "query": "Ethik in der Medizin",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "ethics in medicine",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:06:45.770Z"
+    },
+    "cv-fr-01": {
+      "retrievedCandidates": 67,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 2,
+      "expansions": [
+        {
+          "query": "éthique en médecine",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "ethics in medicine",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:06:52.064Z"
+    },
+    "cv-pt-01": {
+      "retrievedCandidates": 73,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 10,
+      "expansions": [
+        {
+          "query": "ética em medicina",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "ethics in medicine",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:06:57.188Z"
+    },
+    "cv-es-02": {
+      "retrievedCandidates": 70,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 4,
+      "expansions": [
+        {
+          "query": "estética en psicología",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "aesthetics in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:01.579Z"
+    },
+    "cv-en-02": {
+      "retrievedCandidates": 33,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 4,
+      "expansions": [
+        {
+          "query": "aesthetics in psychology",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:03.828Z"
+    },
+    "cv-de-02": {
+      "retrievedCandidates": 63,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 2,
+      "expansions": [
+        {
+          "query": "Ästhetik in der Psychologie",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "aesthetics in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:09.689Z"
+    },
+    "cv-fr-02": {
+      "retrievedCandidates": 62,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 6,
+      "expansions": [
+        {
+          "query": "esthétique en psychologie",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "aesthetics in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:14.179Z"
+    },
+    "cv-pt-02": {
+      "retrievedCandidates": 69,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 4,
+      "expansions": [
+        {
+          "query": "estética em psicologia",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "aesthetics in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:18.703Z"
+    },
+    "cv-es-03": {
+      "retrievedCandidates": 73,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 0,
+      "expansions": [
+        {
+          "query": "filosofía de la tecnología en educación",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "philosophy of technology in education",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:23.523Z"
+    },
+    "cv-en-03": {
+      "retrievedCandidates": 38,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 6,
+      "expansions": [
+        {
+          "query": "philosophy of technology in education",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:25.383Z"
+    },
+    "cv-de-03": {
+      "retrievedCandidates": 62,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 6,
+      "expansions": [
+        {
+          "query": "Technikphilosophie in der Bildung",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "philosophy of technology in education",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:30.113Z"
+    },
+    "cv-fr-03": {
+      "retrievedCandidates": 73,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 0,
+      "expansions": [
+        {
+          "query": "philosophie de la technologie en éducation",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "philosophy of technology in education",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:34.510Z"
+    },
+    "cv-pt-03": {
+      "retrievedCandidates": 73,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 0,
+      "expansions": [
+        {
+          "query": "filosofia da tecnologia em educação",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "philosophy of technology in education",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:38.484Z"
+    },
+    "cv-es-04": {
+      "retrievedCandidates": 72,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 2,
+      "expansions": [
+        {
+          "query": "filosofía política en economía",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "political philosophy in economics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:43.811Z"
+    },
+    "cv-en-04": {
+      "retrievedCandidates": 38,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 2,
+      "expansions": [
+        {
+          "query": "political philosophy in economics",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:45.705Z"
+    },
+    "cv-de-04": {
+      "retrievedCandidates": 70,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 2,
+      "expansions": [
+        {
+          "query": "politische Philosophie in der Ökonomie",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "political philosophy in economics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:50.139Z"
+    },
+    "cv-fr-04": {
+      "retrievedCandidates": 71,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 0,
+      "expansions": [
+        {
+          "query": "philosophie politique en économie",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "political philosophy in economics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:07:55.057Z"
+    },
+    "cv-pt-04": {
+      "retrievedCandidates": 72,
+      "rowsA": 20,
+      "rowsB": 20,
+      "changedTop10Pairs": 4,
+      "expansions": [
+        {
+          "query": "filosofia política em economia",
+          "type": "original",
+          "weight": 1,
+          "reason": "user-query"
+        },
+        {
+          "query": "political philosophy in economics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": "english-translation-complete"
+        }
+      ],
+      "savedAt": "2026-09-17T05:08:00.489Z"
+    }
+  },
+  "pairedDesign": {
+    "sameRetrievalPoolPerQuery": true,
+    "networkCallsPerQuery": 1,
+    "conditionA": "pre-conjunction score = clamp(baseScore + v2Adjustment)",
+    "conditionB": "conjunction-v1 production rankingSortScore",
+    "deterministicTieBreak": "record_id ascending for both conditions",
+    "purpose": "isolate ranking effect from live provider drift"
+  },
+  "profile": {
+    "maxQueries": 5,
+    "providers": {
+      "openAlexPhilosophy": {
+        "enabled": true,
+        "rows": 12
+      },
+      "cucshFilosofia": {
+        "enabled": true,
+        "rows": 8
+      },
+      "openAlex": {
+        "enabled": false,
+        "perPage": 12
+      },
+      "crossref": {
+        "enabled": true,
+        "rows": 12
+      },
+      "internetArchive": {
+        "enabled": true,
+        "rows": 6
+      }
+    },
+    "delayBetweenExpansions": 600
+  },
+  "limitations": "Internal validation with one human adjudicator. It is not independent external validation."
+}
