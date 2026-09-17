@@ -1,0 +1,809 @@
+{
+  "schema_version": "qwen3-calibration-report-v1",
+  "purpose": "development-calibration",
+  "rows": 100,
+  "sources": {
+    "sample": {
+      "path": "benchmark/human-audit-v1.sample.jsonl",
+      "sha256": "c5805637a2c860b3089f833b2c18dca2bc297398c84a24b6d76c2cb61f350118"
+    },
+    "judgments": {
+      "path": "benchmark/human-audit-v1.judgments.jsonl",
+      "sha256": "cb9952b7dcb30eecb49d17172454946985fd74e52291bcaa97105b3a07fe4ac5"
+    },
+    "human_audit_manifest": {
+      "path": "benchmark/human-audit-v1.manifest.json",
+      "sha256": "dd71d6e8c6b6c8e1e7f177ff52e8d36967feb5c7083bba4fc2f7fd81203ad3b2"
+    },
+    "qwen_raw_scores": {
+      "path": "benchmark/qwen3/scores/qwen3-reranker-v1.raw.jsonl",
+      "sha256": "cfb7feb12c7b04bd0c16cc670ddb3b11512a7a5811ef9241adc22ac205a73ffb"
+    },
+    "historical_ai_baseline": {
+      "path": "benchmark/ai-silver-v1.jsonl",
+      "sha256": "d38034d06f37578e6d868116189e59b807ce923316d8140ae956266e7865b253"
+    },
+    "historical_ai_ranking_v2": {
+      "path": "benchmark/ai-silver-ranking-v2.jsonl",
+      "sha256": "6b72eb2fe822027f75b12896957ecad975d43a6669c756a6c09480672cb13716"
+    }
+  },
+  "qwen_runtime": {
+    "model": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "device": "mps",
+    "dtype": "float16"
+  },
+  "human": {
+    "relevant_threshold": 2,
+    "relevant": 60,
+    "non_relevant": 40
+  },
+  "qwen": {
+    "roc_auc": 0.920833,
+    "average_precision": 0.933997,
+    "spearman_ordinal": 0.723966,
+    "threshold_0_5": {
+      "n": 100,
+      "positives": 60,
+      "negatives": 40,
+      "tp": 55,
+      "fp": 13,
+      "tn": 27,
+      "fn": 5,
+      "accuracy": 0.82,
+      "precision": 0.808824,
+      "recall": 0.916667,
+      "specificity": 0.675,
+      "f1": 0.859375,
+      "balanced_accuracy": 0.795833,
+      "cohen_kappa": 0.612069
+    },
+    "best_f1": {
+      "threshold": 0.679178715,
+      "n": 100,
+      "positives": 60,
+      "negatives": 40,
+      "tp": 53,
+      "fp": 6,
+      "tn": 34,
+      "fn": 7,
+      "accuracy": 0.87,
+      "precision": 0.898305,
+      "recall": 0.883333,
+      "specificity": 0.85,
+      "f1": 0.890756,
+      "balanced_accuracy": 0.866667,
+      "cohen_kappa": 0.73029
+    },
+    "threshold_selection": "development-only; maximize F1, then balanced accuracy, precision, then threshold"
+  },
+  "historical_ai_silver": {
+    "composite": {
+      "rows": 100,
+      "policy": "use ranking-v2 silver when present; otherwise baseline silver fallback",
+      "provenance": {
+        "ranking_v2": 91,
+        "baseline_fallback": 9
+      },
+      "binary": {
+        "n": 100,
+        "positives": 60,
+        "negatives": 40,
+        "tp": 33,
+        "fp": 23,
+        "tn": 17,
+        "fn": 27,
+        "accuracy": 0.5,
+        "precision": 0.589286,
+        "recall": 0.55,
+        "specificity": 0.425,
+        "f1": 0.568966,
+        "balanced_accuracy": 0.4875,
+        "cohen_kappa": -0.02459
+      },
+      "exact_ordinal_agreement": 0.28,
+      "spearman_ordinal": 0.065807
+    },
+    "baseline_matched": {
+      "rows": 82,
+      "qwen": {
+        "n": 82,
+        "positives": 46,
+        "negatives": 36,
+        "tp": 40,
+        "fp": 6,
+        "tn": 30,
+        "fn": 6,
+        "accuracy": 0.853659,
+        "precision": 0.869565,
+        "recall": 0.869565,
+        "specificity": 0.833333,
+        "f1": 0.869565,
+        "balanced_accuracy": 0.851449,
+        "cohen_kappa": 0.702899
+      },
+      "historical_ai": {
+        "n": 82,
+        "positives": 46,
+        "negatives": 36,
+        "tp": 23,
+        "fp": 19,
+        "tn": 17,
+        "fn": 23,
+        "accuracy": 0.487805,
+        "precision": 0.547619,
+        "recall": 0.5,
+        "specificity": 0.472222,
+        "f1": 0.522727,
+        "balanced_accuracy": 0.486111,
+        "cohen_kappa": -0.027446
+      }
+    },
+    "ranking_v2_matched": {
+      "rows": 91,
+      "qwen": {
+        "n": 91,
+        "positives": 56,
+        "negatives": 35,
+        "tp": 50,
+        "fp": 5,
+        "tn": 30,
+        "fn": 6,
+        "accuracy": 0.879121,
+        "precision": 0.909091,
+        "recall": 0.892857,
+        "specificity": 0.857143,
+        "f1": 0.900901,
+        "balanced_accuracy": 0.875,
+        "cohen_kappa": 0.746004
+      },
+      "historical_ai": {
+        "n": 91,
+        "positives": 56,
+        "negatives": 35,
+        "tp": 30,
+        "fp": 18,
+        "tn": 17,
+        "fn": 26,
+        "accuracy": 0.516484,
+        "precision": 0.625,
+        "recall": 0.535714,
+        "specificity": 0.485714,
+        "f1": 0.576923,
+        "balanced_accuracy": 0.510714,
+        "cohen_kappa": 0.020548
+      }
+    }
+  },
+  "breakdowns": {
+    "language_at_qwen_best_f1": {
+      "de": {
+        "qwen": {
+          "n": 21,
+          "positives": 13,
+          "negatives": 8,
+          "tp": 9,
+          "fp": 1,
+          "tn": 7,
+          "fn": 4,
+          "accuracy": 0.761905,
+          "precision": 0.9,
+          "recall": 0.692308,
+          "specificity": 0.875,
+          "f1": 0.782609,
+          "balanced_accuracy": 0.783654,
+          "cohen_kappa": 0.529148
+        },
+        "historical_ai_composite": {
+          "n": 21,
+          "positives": 13,
+          "negatives": 8,
+          "tp": 4,
+          "fp": 4,
+          "tn": 4,
+          "fn": 9,
+          "accuracy": 0.380952,
+          "precision": 0.5,
+          "recall": 0.307692,
+          "specificity": 0.5,
+          "f1": 0.380952,
+          "balanced_accuracy": 0.403846,
+          "cohen_kappa": -0.171674
+        }
+      },
+      "en": {
+        "qwen": {
+          "n": 23,
+          "positives": 14,
+          "negatives": 9,
+          "tp": 13,
+          "fp": 2,
+          "tn": 7,
+          "fn": 1,
+          "accuracy": 0.869565,
+          "precision": 0.866667,
+          "recall": 0.928571,
+          "specificity": 0.777778,
+          "f1": 0.896552,
+          "balanced_accuracy": 0.853175,
+          "cohen_kappa": 0.720648
+        },
+        "historical_ai_composite": {
+          "n": 23,
+          "positives": 14,
+          "negatives": 9,
+          "tp": 7,
+          "fp": 5,
+          "tn": 4,
+          "fn": 7,
+          "accuracy": 0.478261,
+          "precision": 0.583333,
+          "recall": 0.5,
+          "specificity": 0.444444,
+          "f1": 0.538462,
+          "balanced_accuracy": 0.472222,
+          "cohen_kappa": -0.053435
+        }
+      },
+      "es": {
+        "qwen": {
+          "n": 24,
+          "positives": 14,
+          "negatives": 10,
+          "tp": 13,
+          "fp": 0,
+          "tn": 10,
+          "fn": 1,
+          "accuracy": 0.958333,
+          "precision": 1,
+          "recall": 0.928571,
+          "specificity": 1,
+          "f1": 0.962963,
+          "balanced_accuracy": 0.964286,
+          "cohen_kappa": 0.915493
+        },
+        "historical_ai_composite": {
+          "n": 24,
+          "positives": 14,
+          "negatives": 10,
+          "tp": 9,
+          "fp": 7,
+          "tn": 3,
+          "fn": 5,
+          "accuracy": 0.5,
+          "precision": 0.5625,
+          "recall": 0.642857,
+          "specificity": 0.3,
+          "f1": 0.6,
+          "balanced_accuracy": 0.471429,
+          "cohen_kappa": -0.058824
+        }
+      },
+      "fr": {
+        "qwen": {
+          "n": 17,
+          "positives": 8,
+          "negatives": 9,
+          "tp": 8,
+          "fp": 2,
+          "tn": 7,
+          "fn": 0,
+          "accuracy": 0.882353,
+          "precision": 0.8,
+          "recall": 1,
+          "specificity": 0.777778,
+          "f1": 0.888889,
+          "balanced_accuracy": 0.888889,
+          "cohen_kappa": 0.767123
+        },
+        "historical_ai_composite": {
+          "n": 17,
+          "positives": 8,
+          "negatives": 9,
+          "tp": 5,
+          "fp": 4,
+          "tn": 5,
+          "fn": 3,
+          "accuracy": 0.588235,
+          "precision": 0.555556,
+          "recall": 0.625,
+          "specificity": 0.555556,
+          "f1": 0.588235,
+          "balanced_accuracy": 0.590278,
+          "cohen_kappa": 0.17931
+        }
+      },
+      "pt": {
+        "qwen": {
+          "n": 15,
+          "positives": 11,
+          "negatives": 4,
+          "tp": 10,
+          "fp": 1,
+          "tn": 3,
+          "fn": 1,
+          "accuracy": 0.866667,
+          "precision": 0.909091,
+          "recall": 0.909091,
+          "specificity": 0.75,
+          "f1": 0.909091,
+          "balanced_accuracy": 0.829545,
+          "cohen_kappa": 0.659091
+        },
+        "historical_ai_composite": {
+          "n": 15,
+          "positives": 11,
+          "negatives": 4,
+          "tp": 8,
+          "fp": 3,
+          "tn": 1,
+          "fn": 3,
+          "accuracy": 0.6,
+          "precision": 0.727273,
+          "recall": 0.727273,
+          "specificity": 0.25,
+          "f1": 0.727273,
+          "balanced_accuracy": 0.488636,
+          "cohen_kappa": -0.022727
+        }
+      }
+    },
+    "intent_at_qwen_best_f1": {
+      "interdisciplinary-challenge": {
+        "qwen": {
+          "n": 39,
+          "positives": 13,
+          "negatives": 26,
+          "tp": 9,
+          "fp": 2,
+          "tn": 24,
+          "fn": 4,
+          "accuracy": 0.846154,
+          "precision": 0.818182,
+          "recall": 0.692308,
+          "specificity": 0.923077,
+          "f1": 0.75,
+          "balanced_accuracy": 0.807692,
+          "cohen_kappa": 0.64
+        },
+        "historical_ai_composite": {
+          "n": 39,
+          "positives": 13,
+          "negatives": 26,
+          "tp": 4,
+          "fp": 14,
+          "tn": 12,
+          "fn": 9,
+          "accuracy": 0.410256,
+          "precision": 0.222222,
+          "recall": 0.307692,
+          "specificity": 0.461538,
+          "f1": 0.258065,
+          "balanced_accuracy": 0.384615,
+          "cohen_kappa": -0.210526
+        }
+      },
+      "philosopher-concept": {
+        "qwen": {
+          "n": 44,
+          "positives": 31,
+          "negatives": 13,
+          "tp": 28,
+          "fp": 3,
+          "tn": 10,
+          "fn": 3,
+          "accuracy": 0.863636,
+          "precision": 0.903226,
+          "recall": 0.903226,
+          "specificity": 0.769231,
+          "f1": 0.903226,
+          "balanced_accuracy": 0.836228,
+          "cohen_kappa": 0.672457
+        },
+        "historical_ai_composite": {
+          "n": 44,
+          "positives": 31,
+          "negatives": 13,
+          "tp": 18,
+          "fp": 9,
+          "tn": 4,
+          "fn": 13,
+          "accuracy": 0.5,
+          "precision": 0.666667,
+          "recall": 0.580645,
+          "specificity": 0.307692,
+          "f1": 0.62069,
+          "balanced_accuracy": 0.444169,
+          "cohen_kappa": -0.102506
+        }
+      },
+      "work": {
+        "qwen": {
+          "n": 17,
+          "positives": 16,
+          "negatives": 1,
+          "tp": 16,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0,
+          "accuracy": 0.941176,
+          "precision": 0.941176,
+          "recall": 1,
+          "specificity": 0,
+          "f1": 0.969697,
+          "balanced_accuracy": 0.5,
+          "cohen_kappa": 0
+        },
+        "historical_ai_composite": {
+          "n": 17,
+          "positives": 16,
+          "negatives": 1,
+          "tp": 11,
+          "fp": 0,
+          "tn": 1,
+          "fn": 5,
+          "accuracy": 0.705882,
+          "precision": 1,
+          "recall": 0.6875,
+          "specificity": 1,
+          "f1": 0.814815,
+          "balanced_accuracy": 0.84375,
+          "cohen_kappa": 0.205607
+        }
+      }
+    },
+    "family_at_qwen_best_f1": {
+      "aristotle-virtue": {
+        "qwen": {
+          "n": 10,
+          "positives": 7,
+          "negatives": 3,
+          "tp": 5,
+          "fp": 0,
+          "tn": 3,
+          "fn": 2,
+          "accuracy": 0.8,
+          "precision": 1,
+          "recall": 0.714286,
+          "specificity": 1,
+          "f1": 0.833333,
+          "balanced_accuracy": 0.857143,
+          "cohen_kappa": 0.6
+        },
+        "historical_ai_composite": {
+          "n": 10,
+          "positives": 7,
+          "negatives": 3,
+          "tp": 5,
+          "fp": 2,
+          "tn": 1,
+          "fn": 2,
+          "accuracy": 0.6,
+          "precision": 0.714286,
+          "recall": 0.714286,
+          "specificity": 0.333333,
+          "f1": 0.714286,
+          "balanced_accuracy": 0.52381,
+          "cohen_kappa": 0.047619
+        }
+      },
+      "challenge-ontology-compsci": {
+        "qwen": {
+          "n": 27,
+          "positives": 8,
+          "negatives": 19,
+          "tp": 4,
+          "fp": 1,
+          "tn": 18,
+          "fn": 4,
+          "accuracy": 0.814815,
+          "precision": 0.8,
+          "recall": 0.5,
+          "specificity": 0.947368,
+          "f1": 0.615385,
+          "balanced_accuracy": 0.723684,
+          "cohen_kappa": 0.501845
+        },
+        "historical_ai_composite": {
+          "n": 27,
+          "positives": 8,
+          "negatives": 19,
+          "tp": 2,
+          "fp": 13,
+          "tn": 6,
+          "fn": 6,
+          "accuracy": 0.296296,
+          "precision": 0.133333,
+          "recall": 0.25,
+          "specificity": 0.315789,
+          "f1": 0.173913,
+          "balanced_accuracy": 0.282895,
+          "cohen_kappa": -0.346457
+        }
+      },
+      "challenge-phenomenology-nursing": {
+        "qwen": {
+          "n": 12,
+          "positives": 5,
+          "negatives": 7,
+          "tp": 5,
+          "fp": 1,
+          "tn": 6,
+          "fn": 0,
+          "accuracy": 0.916667,
+          "precision": 0.833333,
+          "recall": 1,
+          "specificity": 0.857143,
+          "f1": 0.909091,
+          "balanced_accuracy": 0.928571,
+          "cohen_kappa": 0.833333
+        },
+        "historical_ai_composite": {
+          "n": 12,
+          "positives": 5,
+          "negatives": 7,
+          "tp": 2,
+          "fp": 1,
+          "tn": 6,
+          "fn": 3,
+          "accuracy": 0.666667,
+          "precision": 0.666667,
+          "recall": 0.4,
+          "specificity": 0.857143,
+          "f1": 0.5,
+          "balanced_accuracy": 0.628571,
+          "cohen_kappa": 0.272727
+        }
+      },
+      "dussel-liberation": {
+        "qwen": {
+          "n": 8,
+          "positives": 4,
+          "negatives": 4,
+          "tp": 4,
+          "fp": 2,
+          "tn": 2,
+          "fn": 0,
+          "accuracy": 0.75,
+          "precision": 0.666667,
+          "recall": 1,
+          "specificity": 0.5,
+          "f1": 0.8,
+          "balanced_accuracy": 0.75,
+          "cohen_kappa": 0.5
+        },
+        "historical_ai_composite": {
+          "n": 8,
+          "positives": 4,
+          "negatives": 4,
+          "tp": 1,
+          "fp": 3,
+          "tn": 1,
+          "fn": 3,
+          "accuracy": 0.25,
+          "precision": 0.25,
+          "recall": 0.25,
+          "specificity": 0.25,
+          "f1": 0.25,
+          "balanced_accuracy": 0.25,
+          "cohen_kappa": -0.5
+        }
+      },
+      "hegel-phenomenology-spirit": {
+        "qwen": {
+          "n": 10,
+          "positives": 9,
+          "negatives": 1,
+          "tp": 9,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0,
+          "accuracy": 0.9,
+          "precision": 0.9,
+          "recall": 1,
+          "specificity": 0,
+          "f1": 0.947368,
+          "balanced_accuracy": 0.5,
+          "cohen_kappa": 0
+        },
+        "historical_ai_composite": {
+          "n": 10,
+          "positives": 9,
+          "negatives": 1,
+          "tp": 6,
+          "fp": 0,
+          "tn": 1,
+          "fn": 3,
+          "accuracy": 0.7,
+          "precision": 1,
+          "recall": 0.666667,
+          "specificity": 1,
+          "f1": 0.8,
+          "balanced_accuracy": 0.833333,
+          "cohen_kappa": 0.285714
+        }
+      },
+      "heidegger-being-time": {
+        "qwen": {
+          "n": 7,
+          "positives": 7,
+          "negatives": 0,
+          "tp": 7,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "accuracy": 1,
+          "precision": 1,
+          "recall": 1,
+          "specificity": null,
+          "f1": 1,
+          "balanced_accuracy": null,
+          "cohen_kappa": 1
+        },
+        "historical_ai_composite": {
+          "n": 7,
+          "positives": 7,
+          "negatives": 0,
+          "tp": 5,
+          "fp": 0,
+          "tn": 0,
+          "fn": 2,
+          "accuracy": 0.714286,
+          "precision": 1,
+          "recall": 0.714286,
+          "specificity": null,
+          "f1": 0.833333,
+          "balanced_accuracy": null,
+          "cohen_kappa": 0
+        }
+      },
+      "husserl-intentionality": {
+        "qwen": {
+          "n": 4,
+          "positives": 3,
+          "negatives": 1,
+          "tp": 3,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0,
+          "accuracy": 1,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "balanced_accuracy": 1,
+          "cohen_kappa": 1
+        },
+        "historical_ai_composite": {
+          "n": 4,
+          "positives": 3,
+          "negatives": 1,
+          "tp": 3,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0,
+          "accuracy": 1,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "balanced_accuracy": 1,
+          "cohen_kappa": 1
+        }
+      },
+      "kant-freedom": {
+        "qwen": {
+          "n": 10,
+          "positives": 8,
+          "negatives": 2,
+          "tp": 8,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "accuracy": 1,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "balanced_accuracy": 1,
+          "cohen_kappa": 1
+        },
+        "historical_ai_composite": {
+          "n": 10,
+          "positives": 8,
+          "negatives": 2,
+          "tp": 5,
+          "fp": 1,
+          "tn": 1,
+          "fn": 3,
+          "accuracy": 0.6,
+          "precision": 0.833333,
+          "recall": 0.625,
+          "specificity": 0.5,
+          "f1": 0.714286,
+          "balanced_accuracy": 0.5625,
+          "cohen_kappa": 0.090909
+        }
+      },
+      "levinas-alterity": {
+        "qwen": {
+          "n": 6,
+          "positives": 5,
+          "negatives": 1,
+          "tp": 5,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0,
+          "accuracy": 1,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "balanced_accuracy": 1,
+          "cohen_kappa": 1
+        },
+        "historical_ai_composite": {
+          "n": 6,
+          "positives": 5,
+          "negatives": 1,
+          "tp": 2,
+          "fp": 1,
+          "tn": 0,
+          "fn": 3,
+          "accuracy": 0.333333,
+          "precision": 0.666667,
+          "recall": 0.4,
+          "specificity": 0,
+          "f1": 0.5,
+          "balanced_accuracy": 0.2,
+          "cohen_kappa": -0.333333
+        }
+      },
+      "spinoza-substance": {
+        "qwen": {
+          "n": 6,
+          "positives": 4,
+          "negatives": 2,
+          "tp": 3,
+          "fp": 1,
+          "tn": 1,
+          "fn": 1,
+          "accuracy": 0.666667,
+          "precision": 0.75,
+          "recall": 0.75,
+          "specificity": 0.5,
+          "f1": 0.75,
+          "balanced_accuracy": 0.625,
+          "cohen_kappa": 0.25
+        },
+        "historical_ai_composite": {
+          "n": 6,
+          "positives": 4,
+          "negatives": 2,
+          "tp": 2,
+          "fp": 2,
+          "tn": 0,
+          "fn": 2,
+          "accuracy": 0.333333,
+          "precision": 0.5,
+          "recall": 0.5,
+          "specificity": 0,
+          "f1": 0.5,
+          "balanced_accuracy": 0.25,
+          "cohen_kappa": -0.5
+        }
+      }
+    }
+  },
+  "caveats": [
+    "These 100 human labels are development data for Qwen calibration/model selection.",
+    "Best-F1 threshold performance is in-sample and is not independent validation evidence.",
+    "The human audit sample was drawn from the union of baseline and ranking-v2 pools, so neither historical silver artifact covers all 100 pairs alone.",
+    "The 100-row historical silver composite uses ranking-v2 silver when available and baseline silver as a documented fallback.",
+    "Separate baseline-matched and ranking-v2-matched comparisons are reported to avoid hiding source coverage differences.",
+    "Raw Qwen scores are not modified by this analysis.",
+    "No production ranking code is changed."
+  ]
+}
