@@ -400,7 +400,7 @@ def main() -> None:
     meta = {
         "schema_version": "qwen3-score-meta-v1",
         "experiment_id": manifest["experiment_id"],
-        "purpose": "development-raw-scores",
+        "purpose": manifest.get("inference", {}).get("purpose", "development-raw-scores"),
         "model": model_name,
         "revision": revision,
         "scoring_version": SCORING_VERSION,
