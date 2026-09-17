@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qwen3 holdout · Investigación Filosófica</title>
+  <style>
+    :root { font-family: Inter, system-ui, sans-serif; background:#f3f1ed; color:#272522; }
+    body { margin:0; }
+    main { width:min(900px,calc(100% - 48px)); margin:56px auto; padding:32px; border-radius:24px; background:#fff; box-shadow:0 20px 60px rgba(0,0,0,.08); }
+    h1 { margin-top:0; font-family:Georgia,serif; }
+    button { padding:12px 18px; border:0; border-radius:10px; background:#242424; color:#fff; font-weight:700; cursor:pointer; }
+    button:disabled { opacity:.5; cursor:wait; }
+    progress { width:100%; height:20px; margin:24px 0 10px; }
+    #status { min-height:70px; padding:14px; margin-top:16px; border-radius:12px; background:#f6f4f0; white-space:pre-wrap; }
+    #log { max-height:420px; overflow:auto; margin-top:18px; padding:16px; border-radius:12px; background:#1f2022; color:#e9e9ea; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.78rem; white-space:pre-wrap; }
+    code { background:#f1efeb; padding:2px 5px; border-radius:5px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Qwen3 · fresh holdout retrieval</h1>
+    <p>Ejecuta las 20 consultas preregistradas del holdout. Esta etapa usa únicamente el ranking de producción para recuperar hasta 20 documentos por consulta.</p>
+    <p><strong>Qwen no participa todavía.</strong> Tampoco se usan etiquetas humanas. El muestreo humano posterior ya quedó fijado en rangos <code>1, 3, 5, 7, 10</code>.</p>
+    <button id="start" type="button">Ejecutar retrieval holdout</button>
+    <progress id="progress" value="0" max="20"></progress>
+    <div id="status">Listo.</div>
+    <div id="log"></div>
+  </main>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "franc-min": "https://esm.sh/franc-min@6.2.0?bundle"
+    }
+  }
+  </script>
+  <script type="module" src="/scripts/benchmark/qwen3/runner-browser-holdout.js"></script>
+</body>
+</html>
