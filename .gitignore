@@ -5,6 +5,7 @@ node_modules/
 .env.*
 .venv-hf/
 .venv-benchmark-ai/
+.venv-qwen3/
 artifacts/
 vendor/duckdb/
 tests/manual/vendor/
