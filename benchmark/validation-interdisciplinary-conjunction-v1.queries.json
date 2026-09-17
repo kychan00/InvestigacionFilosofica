@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "name": "Fresh internal validation for interdisciplinary conjunction ranking v1",
+  "baseCommit": "bb9689d",
+  "methodology": "Preregistered internal holdout created only after the conjunction-v1 profile was frozen. These queries must not be used for tuning conjunction weights. Validation compares the frozen pre-conjunction ranking against conjunction-v1 on the same retrieved candidate pool, followed by blind human adjudication of changed Top-10 query-document pairs.",
+  "limitations": "Internal validation with one human adjudicator. It is not independent external validation.",
+  "evaluation": {
+    "topK": 10,
+    "relevantThreshold": 2,
+    "languages": ["es", "en", "de", "fr", "pt"],
+    "families": 4,
+    "queries": 20
+  },
+  "forbiddenDevelopmentFamilies": [
+    "phenomenology-nursing",
+    "ontology-computer-science",
+    "ethics-artificial-intelligence",
+    "epistemology-psychology",
+    "philosophy-science-physics",
+    "logic-linguistics"
+  ],
+  "families": [
+    {
+      "id": "ethics-medicine",
+      "areaId": "ETH",
+      "domainId": "medicine",
+      "areaTerms": ["ética", "ethics", "ethik", "éthique"],
+      "domainTerms": ["medicina", "medicine", "medizin", "médecine"]
+    },
+    {
+      "id": "aesthetics-psychology",
+      "areaId": "AES",
+      "domainId": "psychology",
+      "areaTerms": ["estética", "aesthetics", "ästhetik", "esthétique"],
+      "domainTerms": ["psicología", "psychology", "psychologie", "psicologia"]
+    },
+    {
+      "id": "philosophy-technology-education",
+      "areaId": "TECH",
+      "domainId": "education",
+      "areaTerms": ["filosofía de la tecnología", "philosophy of technology", "technikphilosophie", "philosophie de la technologie", "filosofia da tecnologia"],
+      "domainTerms": ["educación", "education", "bildung", "éducation", "educação"]
+    },
+    {
+      "id": "political-philosophy-economics",
+      "areaId": "POL",
+      "domainId": "economics",
+      "areaTerms": ["filosofía política", "political philosophy", "politische philosophie", "philosophie politique", "filosofia política"],
+      "domainTerms": ["economía", "economics", "ökonomie", "économie", "economia"]
+    }
+  ],
+  "queries": [
+    {"id":"cv-es-01","family":"ethics-medicine","language":"es","query":"ética en medicina"},
+    {"id":"cv-en-01","family":"ethics-medicine","language":"en","query":"ethics in medicine"},
+    {"id":"cv-de-01","family":"ethics-medicine","language":"de","query":"Ethik in der Medizin"},
+    {"id":"cv-fr-01","family":"ethics-medicine","language":"fr","query":"éthique en médecine"},
+    {"id":"cv-pt-01","family":"ethics-medicine","language":"pt","query":"ética em medicina"},
+
+    {"id":"cv-es-02","family":"aesthetics-psychology","language":"es","query":"estética en psicología"},
+    {"id":"cv-en-02","family":"aesthetics-psychology","language":"en","query":"aesthetics in psychology"},
+    {"id":"cv-de-02","family":"aesthetics-psychology","language":"de","query":"Ästhetik in der Psychologie"},
+    {"id":"cv-fr-02","family":"aesthetics-psychology","language":"fr","query":"esthétique en psychologie"},
+    {"id":"cv-pt-02","family":"aesthetics-psychology","language":"pt","query":"estética em psicologia"},
+
+    {"id":"cv-es-03","family":"philosophy-technology-education","language":"es","query":"filosofía de la tecnología en educación"},
+    {"id":"cv-en-03","family":"philosophy-technology-education","language":"en","query":"philosophy of technology in education"},
+    {"id":"cv-de-03","family":"philosophy-technology-education","language":"de","query":"Technikphilosophie in der Bildung"},
+    {"id":"cv-fr-03","family":"philosophy-technology-education","language":"fr","query":"philosophie de la technologie en éducation"},
+    {"id":"cv-pt-03","family":"philosophy-technology-education","language":"pt","query":"filosofia da tecnologia em educação"},
+
+    {"id":"cv-es-04","family":"political-philosophy-economics","language":"es","query":"filosofía política en economía"},
+    {"id":"cv-en-04","family":"political-philosophy-economics","language":"en","query":"political philosophy in economics"},
+    {"id":"cv-de-04","family":"political-philosophy-economics","language":"de","query":"politische Philosophie in der Ökonomie"},
+    {"id":"cv-fr-04","family":"political-philosophy-economics","language":"fr","query":"philosophie politique en économie"},
+    {"id":"cv-pt-04","family":"political-philosophy-economics","language":"pt","query":"filosofia política em economia"}
+  ]
+}
