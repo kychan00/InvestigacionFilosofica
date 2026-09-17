@@ -70,7 +70,10 @@
     "path": "scripts/benchmark/qwen3/calibrate.mjs",
     "human_sample": "benchmark/human-audit-v1.sample.jsonl",
     "human_judgments": "benchmark/human-audit-v1.judgments.jsonl",
-    "historical_ai_silver": "benchmark/ai-silver-ranking-v2.jsonl",
+    "human_audit_manifest": "benchmark/human-audit-v1.manifest.json",
+    "historical_ai_silver_baseline": "benchmark/ai-silver-v1.jsonl",
+    "historical_ai_silver_ranking_v2": "benchmark/ai-silver-ranking-v2.jsonl",
+    "historical_ai_composite_policy": "use ranking-v2 silver when present; otherwise baseline silver fallback",
     "raw_scores": "benchmark/qwen3/scores/qwen3-reranker-v1.raw.jsonl",
     "report_json": "benchmark/qwen3/reports/qwen3-reranker-v1.calibration.json",
     "report_markdown": "benchmark/qwen3/reports/qwen3-reranker-v1.calibration.md",
@@ -82,7 +85,8 @@
       "average_precision",
       "spearman_ordinal"
     ],
-    "labels_are_development_data_for_qwen": true
+    "labels_are_development_data_for_qwen": true,
+    "historical_comparison_reports_source_coverage": true
   },
   "contracts": {
     "dataset": "qwen3-dataset-v1",
