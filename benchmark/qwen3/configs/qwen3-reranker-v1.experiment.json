@@ -2,7 +2,7 @@
   "schema_version": "qwen3-experiment-v1",
   "experiment_id": "qwen3-reranker-v1",
   "purpose": "development",
-  "status": "adapter-scaffolded",
+  "status": "inference-engine-scaffolded",
   "base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
   "branch": "evaluation/qwen3-reranker-v1",
   "model": {
@@ -30,11 +30,36 @@
     "path": "scripts/benchmark/qwen3/adapter.py",
     "requirements": "requirements-qwen3.txt",
     "scoring": "yes-no-softmax-probability",
+    "scoring_version": "qwen3-yes-no-softmax-v1",
     "raw_score_range": [0, 1],
     "max_length": 4096,
     "device": "auto",
     "dtype": "auto",
-    "input_fingerprint": "sha256(instruction + NUL + query + NUL + document_text)"
+    "input_fingerprint": "sha256(instruction + NUL + query + NUL + document_text)",
+    "supports_batch_scoring": true
+  },
+  "inference": {
+    "path": "scripts/benchmark/qwen3/inference.py",
+    "default_batch_size": 2,
+    "raw_output": "benchmark/qwen3/scores/qwen3-reranker-v1.raw.jsonl",
+    "raw_metadata": "benchmark/qwen3/scores/qwen3-reranker-v1.raw.meta.json",
+    "local_cache": "benchmark/qwen3/cache/qwen3-reranker-v1.cache.jsonl",
+    "cache_is_versioned": false,
+    "checkpoint_after_each_batch": true,
+    "atomic_cache_writes": true,
+    "atomic_final_writes": true,
+    "full_output_requires_complete_dataset": true,
+    "refuse_completed_output_overwrite_by_default": true,
+    "cache_key_fields": [
+      "scoring version",
+      "model",
+      "model revision",
+      "instruction sha256",
+      "input sha256",
+      "max length",
+      "device",
+      "dtype"
+    ]
   },
   "contracts": {
     "dataset": "qwen3-dataset-v1",
@@ -71,10 +96,14 @@
     "raw_scores_are_immutable": true,
     "ranking_simulations_must_not_call_model": true,
     "cache_invalidated_by": [
+      "scoring version",
       "model revision",
       "instruction",
       "query",
-      "document content"
+      "document content",
+      "max length",
+      "device",
+      "dtype"
     ]
   },
   "production": {
