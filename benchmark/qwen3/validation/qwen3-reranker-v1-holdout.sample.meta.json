@@ -1,0 +1,46 @@
+{
+  "schema_version": "qwen3-holdout-sample-meta-v1",
+  "validation_id": "qwen3-reranker-v1-holdout-v1",
+  "purpose": "blind-human-holdout-sample",
+  "preregistration_path": "benchmark/qwen3/validation/qwen3-reranker-v1-holdout.preregistered.json",
+  "preregistration_sha256": "4e0e1525d5847d5a984fdca639c8a4e91d1239c10c789fb321c89b7b7f4391ce",
+  "retrieval_run_path": "benchmark/qwen3/validation/runs/qwen3-reranker-v1-holdout-v1-233ce94.jsonl",
+  "retrieval_run_sha256": "228099a89a0eb2fac14db79fe462e7b291799b5c13fb05b0e38f31048e3485b3",
+  "retrieval_freeze_commit": "b49464d",
+  "sampling_ranks": [
+    1,
+    3,
+    5,
+    7,
+    10
+  ],
+  "sampling_rule": "For every query, audit production retrieval ranks 1, 3, 5, 7 and 10. Sampling is fixed before Qwen scores and before human labels.",
+  "audit_order": "deterministic SHA-256 order over validation_id + query_id + record_id; source retrieval rank is omitted",
+  "row_count": 100,
+  "query_count": 20,
+  "by_language": {
+    "es": 20,
+    "en": 20,
+    "de": 20,
+    "fr": 20,
+    "pt": 20
+  },
+  "by_intent": {
+    "work": 25,
+    "philosopher-concept": 50,
+    "interdisciplinary-challenge": 25
+  },
+  "by_family": {
+    "wittgenstein-tractatus": 25,
+    "descartes-mind-body-dualism": 25,
+    "rawls-justice-fairness": 25,
+    "philosophy-mind-psychology": 25
+  },
+  "sample_sha256": "e8ccace4407ce9d235aefdf0a2cdc8ec36ec0d1df9843d9ae53611001f0f8942",
+  "contains_retrieval_rank": false,
+  "contains_production_score": false,
+  "contains_provider_provenance": false,
+  "contains_qwen_outputs": false,
+  "contains_human_judgments": false,
+  "builder_commit": "6f6983c80ed31953947e0d2450884d00fe4f5308"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "qwen3-dataset-meta-v1",
+  "dataset_id": "qwen3-reranker-v1-holdout-v1-model-input",
+  "purpose": "validation-model-input",
+  "source_path": "benchmark/qwen3/validation/qwen3-reranker-v1-holdout.sample.jsonl",
+  "source_sha256": "e8ccace4407ce9d235aefdf0a2cdc8ec36ec0d1df9843d9ae53611001f0f8942",
+  "dataset_sha256": "bc0de328ea953840909435cdcf4c4e346103d56d6c97db25738c094ef3321e64",
+  "builder_commit": "6f6983c80ed31953947e0d2450884d00fe4f5308",
+  "row_count": 100,
+  "unique_query_count": 20,
+  "unique_record_count": 85,
+  "duplicate_rows_removed": 0,
+  "contains_human_labels": false,
+  "contains_ranking_provenance": false,
+  "model_input_fields": [
+    "schema_version",
+    "query_id",
+    "query",
+    "record_id",
+    "title",
+    "abstract",
+    "authors",
+    "year",
+    "document_language"
+  ]
+}
