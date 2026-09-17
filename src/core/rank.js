@@ -1,5 +1,8 @@
 import { normalizeText } from "./parser.js";
 import { disciplineScore } from "./discipline.js";
+import {
+  interdisciplinaryConjunctionAdjustment
+} from "./interdisciplinary-conjunction.js";
 
 
 function clamp(value, min = 0, max = 1) {
@@ -838,10 +841,17 @@ export function rankResult(
       parsed
     );
 
+  const conjunction =
+    interdisciplinaryConjunctionAdjustment(
+      result,
+      parsed
+    );
+
   const rankingSortScore =
     clamp(
       baseScore +
-      v2.total,
+      v2.total +
+      conjunction.total,
       0,
       100
     );
@@ -905,7 +915,25 @@ export function rankResult(
       v2Adjustment:
         Math.round(
           v2.total * 100
-        ) / 100
+        ) / 100,
+
+      conjunctionApplies:
+        conjunction.applies,
+
+      conjunctionBucket:
+        conjunction.bucket,
+
+      conjunctionAreaMatched:
+        conjunction.areaMatched,
+
+      conjunctionDomainMatched:
+        conjunction.domainMatched,
+
+      conjunctionHasAbstract:
+        conjunction.hasAbstract,
+
+      conjunctionAdjustment:
+        conjunction.total
     }
   };
 }
