@@ -1,0 +1,1137 @@
+{
+  "schemaVersion": 1,
+  "name": "Held-out multilingual A/B structural analysis v1",
+  "note": "Structural only. No relevance labels are inferred. A=original-only; B=original plus safe multilingual expansion.",
+  "sources": {
+    "queries": "benchmark/validation-multilingual-ab-v1.queries.json",
+    "run": "benchmark/runs/heldout-multilingual-ab-v1-1f2232d.jsonl",
+    "metadata": "benchmark/runs/heldout-multilingual-ab-v1-1f2232d.meta.json"
+  },
+  "summary": {
+    "queries": 20,
+    "rows": 800,
+    "top10SharedPairs": 166,
+    "top10UnionPairs": 234,
+    "meanTop10Overlap": 8.3,
+    "changedTop10Pairs": 68,
+    "changedPerSide": 34,
+    "top20SharedPairs": 316,
+    "top20UnionPairs": 484,
+    "meanTop20Overlap": 15.8,
+    "bTop10TranslationAny": 44,
+    "bTop10TranslationOnly": 30,
+    "bOnlyTranslationAny": 34,
+    "medianPairGapSeconds": 3.37,
+    "maxPairGapSeconds": 22.96,
+    "englishControls": {
+      "queries": 4,
+      "meanTop10Overlap": 10,
+      "changedPairs": 0,
+      "bOnlyTranslationAny": 0
+    },
+    "nonEnglishTargets": {
+      "queries": 16,
+      "meanTop10Overlap": 7.88,
+      "changedPairs": 68,
+      "bOnlyTranslationAny": 34
+    }
+  },
+  "perQuery": [
+    {
+      "id": "val-es-01",
+      "query": "ética en inteligencia artificial",
+      "language": "es",
+      "family": "ethics-artificial-intelligence",
+      "englishControl": false,
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedPerSide": 0,
+      "overlapTop20": 19,
+      "unionTop20": 21,
+      "bTop10TranslationAny": 0,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 0,
+      "aFirst": true,
+      "pairGapSeconds": 4.045,
+      "aOnly": [],
+      "bOnly": []
+    },
+    {
+      "id": "val-en-01",
+      "query": "ethics in artificial intelligence",
+      "language": "en",
+      "family": "ethics-artificial-intelligence",
+      "englishControl": true,
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedPerSide": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "bTop10TranslationAny": 0,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 0,
+      "aFirst": false,
+      "pairGapSeconds": 1.896,
+      "aOnly": [],
+      "bOnly": []
+    },
+    {
+      "id": "val-de-01",
+      "query": "Ethik in der künstlichen Intelligenz",
+      "language": "de",
+      "family": "ethics-artificial-intelligence",
+      "englishControl": false,
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedPerSide": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "bTop10TranslationAny": 0,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 0,
+      "aFirst": true,
+      "pairGapSeconds": 2.296,
+      "aOnly": [],
+      "bOnly": []
+    },
+    {
+      "id": "val-fr-01",
+      "query": "éthique en intelligence artificielle",
+      "language": "fr",
+      "family": "ethics-artificial-intelligence",
+      "englishControl": false,
+      "overlapTop10": 9,
+      "unionTop10": 11,
+      "changedTop10Pairs": 2,
+      "changedPerSide": 1,
+      "overlapTop20": 18,
+      "unionTop20": 22,
+      "bTop10TranslationAny": 1,
+      "bTop10TranslationOnly": 1,
+      "bOnlyTranslationAny": 1,
+      "aFirst": false,
+      "pairGapSeconds": 1.917,
+      "aOnly": [
+        {
+          "rank": 10,
+          "record_id": "source:internet-archive:about_dorian-codex-protocol-for-artificial-intelligence-by-stefano-dorian-franco",
+          "title": "Presentation Media of the Book: Dorian Codex Protocol For Artificial Intelligence By Stefano Dorian Franco"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 10,
+          "record_id": "source:internet-archive:to-the-artificial-intelligence-of-the-future-pt-jupiter-2025",
+          "title": "To The Artificial Intelligence Of The Future",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "ethics in artificial intelligence",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-pt-01",
+      "query": "ética em inteligência artificial",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "englishControl": false,
+      "overlapTop10": 9,
+      "unionTop10": 11,
+      "changedTop10Pairs": 2,
+      "changedPerSide": 1,
+      "overlapTop20": 18,
+      "unionTop20": 22,
+      "bTop10TranslationAny": 2,
+      "bTop10TranslationOnly": 1,
+      "bOnlyTranslationAny": 1,
+      "aFirst": true,
+      "pairGapSeconds": 4.106,
+      "aOnly": [
+        {
+          "rank": 10,
+          "record_id": "doi:10.5753/weriaedu.2025.16203",
+          "title": "Inteligência Artificial na Educação: Proposta de um Framework para Adoção Ética"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 7,
+          "record_id": "source:internet-archive:to-the-artificial-intelligence-of-the-future-pt-jupiter-2025",
+          "title": "To The Artificial Intelligence Of The Future",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "ethics in artificial intelligence",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-es-02",
+      "query": "epistemología en psicología",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "englishControl": false,
+      "overlapTop10": 8,
+      "unionTop10": 12,
+      "changedTop10Pairs": 4,
+      "changedPerSide": 2,
+      "overlapTop20": 17,
+      "unionTop20": 23,
+      "bTop10TranslationAny": 3,
+      "bTop10TranslationOnly": 2,
+      "bOnlyTranslationAny": 2,
+      "aFirst": false,
+      "pairGapSeconds": 3.011,
+      "aOnly": [
+        {
+          "rank": 9,
+          "record_id": "doi:10.14718/9786287554641.2023.5",
+          "title": "Formación en Psicología Comunitaria"
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.14718/9786287554641.2023.3",
+          "title": "Formación posgradual en Psicología Organizacional y del trabajo"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 6,
+          "record_id": "source:internet-archive:inductiveinferen00hila",
+          "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "source:internet-archive:ERIC_ED466631",
+          "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-en-02",
+      "query": "epistemology in psychology",
+      "language": "en",
+      "family": "epistemology-psychology",
+      "englishControl": true,
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedPerSide": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "bTop10TranslationAny": 0,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 0,
+      "aFirst": true,
+      "pairGapSeconds": 2.019,
+      "aOnly": [],
+      "bOnly": []
+    },
+    {
+      "id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "englishControl": false,
+      "overlapTop10": 6,
+      "unionTop10": 14,
+      "changedTop10Pairs": 8,
+      "changedPerSide": 4,
+      "overlapTop20": 8,
+      "unionTop20": 32,
+      "bTop10TranslationAny": 4,
+      "bTop10TranslationOnly": 4,
+      "bOnlyTranslationAny": 4,
+      "aFirst": false,
+      "pairGapSeconds": 1.947,
+      "aOnly": [
+        {
+          "rank": 7,
+          "record_id": "doi:10.1515/9783110586213-005",
+          "title": "4. Funktionen des Erzählens II: Epistemologie der Narratologie"
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.30965/9783846749326",
+          "title": "Historische Epistemologie der Strukturwissenschaften"
+        },
+        {
+          "rank": 9,
+          "record_id": "openalex:W6947466892",
+          "title": "Von der Epistemologie zur Ontologie Martin Heideggers Hermeneutik der Freiheit im Diskurs mit Immanuel Kant"
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W6966984356",
+          "title": "Der gute Mensch. Epistemologie und Rhetorik im 18. Jahrhundert (Baumgarten – Sulzer – Kant)"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 2,
+          "record_id": "source:internet-archive:inductiveinferen00hila",
+          "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "record_id": "source:internet-archive:ERIC_ED466631",
+          "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "record_id": "source:internet-archive:ERIC_ED389230",
+          "title": "ERIC ED389230: The Discontinuity of Human Existence, Part I. The Fundamental Concepts of Human Existence and the Relation between the Singular and the Super Singular. No. 50.",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "source:internet-archive:descriptorrevisi0000hans",
+          "title": "Descriptor revision : belief change through direct choice",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-fr-02",
+      "query": "épistémologie en psychologie",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "englishControl": false,
+      "overlapTop10": 8,
+      "unionTop10": 12,
+      "changedTop10Pairs": 4,
+      "changedPerSide": 2,
+      "overlapTop20": 12,
+      "unionTop20": 28,
+      "bTop10TranslationAny": 2,
+      "bTop10TranslationOnly": 2,
+      "bOnlyTranslationAny": 2,
+      "aFirst": true,
+      "pairGapSeconds": 3.559,
+      "aOnly": [
+        {
+          "rank": 9,
+          "record_id": "doi:10.3917/eres.golse.2017.01.0091",
+          "title": "Épistémologie et méthodologie en psychanalyse et en psychiatrie"
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.3917/eres.golse.2017.01.0263",
+          "title": "Épistémologie et méthodologie en psychanalyse et en psychiatrie"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 1,
+          "record_id": "source:internet-archive:inductiveinferen00hila",
+          "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "record_id": "source:internet-archive:ERIC_ED466631",
+          "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-pt-02",
+      "query": "epistemologia em psicologia",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "englishControl": false,
+      "overlapTop10": 8,
+      "unionTop10": 12,
+      "changedTop10Pairs": 4,
+      "changedPerSide": 2,
+      "overlapTop20": 13,
+      "unionTop20": 27,
+      "bTop10TranslationAny": 2,
+      "bTop10TranslationOnly": 2,
+      "bOnlyTranslationAny": 2,
+      "aFirst": false,
+      "pairGapSeconds": 2.137,
+      "aOnly": [
+        {
+          "rank": 9,
+          "record_id": "doi:10.36311/1984-1655.2012.v4n2.p233-263",
+          "title": "GEPEGE – Grupo de Estudo e Pesquisa em Epistemologia Genética e Educação"
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+          "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 7,
+          "record_id": "source:internet-archive:inductiveinferen00hila",
+          "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "source:internet-archive:ERIC_ED466631",
+          "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "epistemology in psychology",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-es-03",
+      "query": "filosofía de la ciencia en física",
+      "language": "es",
+      "family": "philosophy-science-physics",
+      "englishControl": false,
+      "overlapTop10": 9,
+      "unionTop10": 11,
+      "changedTop10Pairs": 2,
+      "changedPerSide": 1,
+      "overlapTop20": 18,
+      "unionTop20": 22,
+      "bTop10TranslationAny": 3,
+      "bTop10TranslationOnly": 1,
+      "bOnlyTranslationAny": 1,
+      "aFirst": true,
+      "pairGapSeconds": 3.961,
+      "aOnly": [
+        {
+          "rank": 10,
+          "record_id": "doi:10.2307/j.ctt1zgwjfs.9",
+          "title": "La problemática ecologista en la filosofía de la ciencia de Manuel Sacristán"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 6,
+          "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+          "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-en-03",
+      "query": "philosophy of science in physics",
+      "language": "en",
+      "family": "philosophy-science-physics",
+      "englishControl": true,
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedPerSide": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "bTop10TranslationAny": 0,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 0,
+      "aFirst": false,
+      "pairGapSeconds": 5.218,
+      "aOnly": [],
+      "bOnly": []
+    },
+    {
+      "id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "englishControl": false,
+      "overlapTop10": 3,
+      "unionTop10": 17,
+      "changedTop10Pairs": 14,
+      "changedPerSide": 7,
+      "overlapTop20": 4,
+      "unionTop20": 36,
+      "bTop10TranslationAny": 7,
+      "bTop10TranslationOnly": 7,
+      "bOnlyTranslationAny": 7,
+      "aFirst": true,
+      "pairGapSeconds": 12.911,
+      "aOnly": [
+        {
+          "rank": 4,
+          "record_id": "openalex:W2040633970",
+          "title": "Some Recent Literature of Philosophy<i>Fragments in Philosophy and Science</i>. James Mark Baldwin<i>The Limits of Evolution and Other Essays, Illustrating the Metaphysical Theory of Personal Idealism</i>. G. H. Howison<i>Elemente der Metaphysik</i>. Paul Deussen<i>Geschichte der Philosophie</i>. Karl Vorländer<i>Immanuel Kant: His Life and Doctrine</i>. Friedrich Paulsen , J. E. Creighton , Albert Lefevre<i>The Philosophy of Religion in England and America</i>. Alfred Caldecott"
+        },
+        {
+          "rank": 5,
+          "record_id": "openalex:W2580164284",
+          "title": "»Gott, Mensch und Welt in der Metaphysik von Descartes bis zu Nietzsche« (1967)"
+        },
+        {
+          "rank": 6,
+          "record_id": "openalex:W3081433947",
+          "title": "Realität als vermeintliche Grenze der Erkenntnis: Hegels Metaphysik im Anschluss an und in Abgrenzung zu Kant"
+        },
+        {
+          "rank": 7,
+          "record_id": "source:internet-archive:technik_202102",
+          "title": "Roland Bothner Fremdgesteuertes Sein, Philosophie der Technik, herausgegeben von Stefanie Bielmeier"
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1007/bf01800938",
+          "title": "Physik am normativen Gängelband?"
+        },
+        {
+          "rank": 9,
+          "record_id": "openalex:W3161673441",
+          "title": "Phänomenologie als Urwissenschaft und neue “Metaphysik der Metaphysik”. Die systematische Genealogie von Heideggers philosophischen Anfängen"
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W4285505571",
+          "title": "Von der mathematischen zur kritischen Metaphysik der Natur. Lambert und Kant"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 1,
+          "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+          "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1016/s1355-2198(03)00011-x",
+          "title": "Holism in philosophy of mind and philosophy of physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.1093/oso/9780190690649.003.0011",
+          "title": "Philosophy of Physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1016/s1355-2198(02)00035-7",
+          "title": "The philosophy of physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "record_id": "doi:10.1016/s1355-2198(02)00025-4",
+          "title": "More than the conscience of physics? From physics to philosophy",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.1016/j.shpsb.2014.08.006",
+          "title": "Time in fundamental physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "source:internet-archive:story-of-physics",
+          "title": "Story Of Physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "englishControl": false,
+      "overlapTop10": 3,
+      "unionTop10": 17,
+      "changedTop10Pairs": 14,
+      "changedPerSide": 7,
+      "overlapTop20": 8,
+      "unionTop20": 32,
+      "bTop10TranslationAny": 8,
+      "bTop10TranslationOnly": 7,
+      "bOnlyTranslationAny": 7,
+      "aFirst": false,
+      "pairGapSeconds": 18.652,
+      "aOnly": [
+        {
+          "rank": 4,
+          "record_id": "doi:10.32870/prot.i26.432",
+          "title": "Concepto en el habitar"
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.32870/prot.i26.447",
+          "title": "Influencia de la filosofía del romanticismo en el arte contemporáneo"
+        },
+        {
+          "rank": 6,
+          "record_id": "openalex:W2067109266",
+          "title": "Societe Fran�aise De Logique Et De Philosophie Des Sciences"
+        },
+        {
+          "rank": 7,
+          "record_id": "openalex:W2050076949",
+          "title": "Sur les buts et la methode de la philosophie des sciences"
+        },
+        {
+          "rank": 8,
+          "record_id": "openalex:W2087290315",
+          "title": "Du Rapport des Sciences avec la Philosophie"
+        },
+        {
+          "rank": 9,
+          "record_id": "openalex:W7114583040",
+          "title": "_The Relevance of Judgment for Philosophy of Science_. Comptes Rendus de l’Académie Internationale de Philosophie des Sciences, IV"
+        },
+        {
+          "rank": 10,
+          "record_id": "openalex:W6983063086",
+          "title": "Le problème des sciences humaines dans la philosophie herméneutique de Gadamer"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 2,
+          "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+          "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "record_id": "doi:10.1016/s1355-2198(03)00011-x",
+          "title": "Holism in philosophy of mind and philosophy of physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "record_id": "doi:10.1093/oso/9780190690649.003.0011",
+          "title": "Philosophy of Physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "record_id": "doi:10.1016/s1355-2198(02)00035-7",
+          "title": "The philosophy of physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "record_id": "doi:10.1016/s1355-2198(02)00025-4",
+          "title": "More than the conscience of physics? From physics to philosophy",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "source:internet-archive:story-of-physics",
+          "title": "Story Of Physics",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "source:internet-archive:reflectionsonsci0000chau",
+          "title": "Reflections on science, philosophy and art",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-pt-03",
+      "query": "filosofia da ciência em física",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "englishControl": false,
+      "overlapTop10": 9,
+      "unionTop10": 11,
+      "changedTop10Pairs": 2,
+      "changedPerSide": 1,
+      "overlapTop20": 16,
+      "unionTop20": 24,
+      "bTop10TranslationAny": 1,
+      "bTop10TranslationOnly": 1,
+      "bOnlyTranslationAny": 1,
+      "aFirst": true,
+      "pairGapSeconds": 5.648,
+      "aOnly": [
+        {
+          "rank": 10,
+          "record_id": "openalex:W2164532440",
+          "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 7,
+          "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+          "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "philosophy of science in physics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "englishControl": false,
+      "overlapTop10": 7,
+      "unionTop10": 13,
+      "changedTop10Pairs": 6,
+      "changedPerSide": 3,
+      "overlapTop20": 17,
+      "unionTop20": 23,
+      "bTop10TranslationAny": 5,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 3,
+      "aFirst": false,
+      "pairGapSeconds": 1.456,
+      "aOnly": [
+        {
+          "rank": 8,
+          "record_id": "doi:10.35537/10915/87451",
+          "title": "Skate en el Gran La Plata: Lógica interna, lógica externa y Educación Física"
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.2307/j.ctvb9395s.16",
+          "title": "Anticipaciones de la semiótica de Peirce en la lógica aristotélica"
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.3726/978-3-653-00327-7/9",
+          "title": "La normalización lingüística en la toponimia de Canarias 73"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 8,
+          "record_id": "doi:10.32870/qr.v2i3.49",
+          "title": "¿Ayuda la enseñanza de la lógica a los estudiantes a argumentar mejor?",
+          "translation_mode": "original+translation",
+          "matchedQueries": [
+            {
+              "query": "lógica en lingüística",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            },
+            {
+              "query": "logic in linguistics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "record_id": "doi:10.32870/qr.v2i3.48",
+          "title": "¿La lógica formal es útil para argumentar? La utilidad política",
+          "translation_mode": "original+translation",
+          "matchedQueries": [
+            {
+              "query": "lógica en lingüística",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            },
+            {
+              "query": "logic in linguistics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.32870/qr.v2i4.41",
+          "title": "Argumentación y lógica, ¿amigas o enemigas? ¿Substitutas o complementarias? ¿Relacionadas o independientes?",
+          "translation_mode": "original+translation",
+          "matchedQueries": [
+            {
+              "query": "lógica en lingüística",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            },
+            {
+              "query": "logic in linguistics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-en-04",
+      "query": "logic in linguistics",
+      "language": "en",
+      "family": "logic-linguistics",
+      "englishControl": true,
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedPerSide": 0,
+      "overlapTop20": 20,
+      "unionTop20": 20,
+      "bTop10TranslationAny": 0,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 0,
+      "aFirst": true,
+      "pairGapSeconds": 3.186,
+      "aOnly": [],
+      "bOnly": []
+    },
+    {
+      "id": "val-de-04",
+      "query": "Logik in der Linguistik",
+      "language": "de",
+      "family": "logic-linguistics",
+      "englishControl": false,
+      "overlapTop10": 10,
+      "unionTop10": 10,
+      "changedTop10Pairs": 0,
+      "changedPerSide": 0,
+      "overlapTop20": 18,
+      "unionTop20": 22,
+      "bTop10TranslationAny": 0,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 0,
+      "aFirst": false,
+      "pairGapSeconds": 4.966,
+      "aOnly": [],
+      "bOnly": []
+    },
+    {
+      "id": "val-fr-04",
+      "query": "logique en linguistique",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "englishControl": false,
+      "overlapTop10": 8,
+      "unionTop10": 12,
+      "changedTop10Pairs": 4,
+      "changedPerSide": 2,
+      "overlapTop20": 13,
+      "unionTop20": 27,
+      "bTop10TranslationAny": 2,
+      "bTop10TranslationOnly": 2,
+      "bOnlyTranslationAny": 2,
+      "aFirst": true,
+      "pairGapSeconds": 22.961,
+      "aOnly": [
+        {
+          "rank": 9,
+          "record_id": "doi:10.3917/puf.golse.2005.01.0155",
+          "title": "Le PMSI en psychiatrie infanto-juvénile"
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.1051/978-2-7598-1902-7.c001",
+          "title": "LA LOGIQUE"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 8,
+          "record_id": "source:internet-archive:DTIC_ADA460935",
+          "title": "DTIC ADA460935: Stochastic Language Generation in a Dialogue System: Toward a Domain Independent Generator",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "logic in linguistics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "record_id": "doi:10.32870/qr.v10i20.185",
+          "title": "La falsa sistematización en Lógica viva",
+          "translation_mode": "translation-only",
+          "matchedQueries": [
+            {
+              "query": "logic in linguistics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "val-pt-04",
+      "query": "lógica em linguística",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "englishControl": false,
+      "overlapTop10": 9,
+      "unionTop10": 11,
+      "changedTop10Pairs": 2,
+      "changedPerSide": 1,
+      "overlapTop20": 17,
+      "unionTop20": 23,
+      "bTop10TranslationAny": 4,
+      "bTop10TranslationOnly": 0,
+      "bOnlyTranslationAny": 1,
+      "aFirst": false,
+      "pairGapSeconds": 1.835,
+      "aOnly": [
+        {
+          "rank": 7,
+          "record_id": "doi:10.11606/d.3.2005.tde-07012006-111536",
+          "title": "Diagnóstico automático de defeitos em rolamentos baseado em lógica fuzzy"
+        }
+      ],
+      "bOnly": [
+        {
+          "rank": 10,
+          "record_id": "doi:10.32870/qr.v2i4.43",
+          "title": "Lógica y Teoría de la Argumentación",
+          "translation_mode": "original+translation",
+          "matchedQueries": [
+            {
+              "query": "lógica em linguística",
+              "type": "original",
+              "weight": 1,
+              "reason": null
+            },
+            {
+              "query": "logic in linguistics",
+              "type": "translation",
+              "weight": 0.9,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1089 @@
+{
+  "schemaVersion": 1,
+  "name": "Held-out multilingual A/B blind delta audit v1",
+  "seed": 20260917,
+  "run": "benchmark/runs/heldout-multilingual-ab-v1-1f2232d.jsonl",
+  "queries": "benchmark/validation-multilingual-ab-v1.queries.json",
+  "auditRows": 68,
+  "methodology": "Blind human relevance audit of every query-document pair in the symmetric difference between A and B Top 10. Public sample hides condition, rank, providers, scores, and translation provenance.",
+  "items": [
+    {
+      "audit_id": "HAB045",
+      "query_id": "val-fr-01",
+      "language": "fr",
+      "family": "ethics-artificial-intelligence",
+      "record_id": "source:internet-archive:about_dorian-codex-protocol-for-artificial-intelligence-by-stefano-dorian-franco",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB028",
+      "query_id": "val-fr-01",
+      "language": "fr",
+      "family": "ethics-artificial-intelligence",
+      "record_id": "source:internet-archive:to-the-artificial-intelligence-of-the-future-pt-jupiter-2025",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 10,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "ethics in artificial intelligence",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB041",
+      "query_id": "val-pt-01",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "record_id": "doi:10.5753/weriaedu.2025.16203",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB026",
+      "query_id": "val-pt-01",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "record_id": "source:internet-archive:to-the-artificial-intelligence-of-the-future-pt-jupiter-2025",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 7,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "ethics in artificial intelligence",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB037",
+      "query_id": "val-es-02",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.14718/9786287554641.2023.5",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB066",
+      "query_id": "val-es-02",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.14718/9786287554641.2023.3",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB032",
+      "query_id": "val-es-02",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 6,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB014",
+      "query_id": "val-es-02",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 8,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB052",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.1515/9783110586213-005",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB025",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.30965/9783846749326",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB067",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "openalex:W6947466892",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB022",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "openalex:W6966984356",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB021",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 2,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB004",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 3,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB001",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:ERIC_ED389230",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 5,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB013",
+      "query_id": "val-de-02",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:descriptorrevisi0000hans",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 10,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB056",
+      "query_id": "val-fr-02",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.3917/eres.golse.2017.01.0091",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB057",
+      "query_id": "val-fr-02",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.3917/eres.golse.2017.01.0263",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB034",
+      "query_id": "val-fr-02",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 1,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB038",
+      "query_id": "val-fr-02",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 2,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB017",
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.36311/1984-1655.2012.v4n2.p233-263",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB063",
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB018",
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 7,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB046",
+      "query_id": "val-pt-02",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 8,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB051",
+      "query_id": "val-es-03",
+      "language": "es",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.2307/j.ctt1zgwjfs.9",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB015",
+      "query_id": "val-es-03",
+      "language": "es",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 6,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB062",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W2040633970",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB002",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W2580164284",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB011",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W3081433947",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB031",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:technik_202102",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB048",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1007/bf01800938",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB030",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W3161673441",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB065",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W4285505571",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB007",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 1,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB010",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1016/s1355-2198(03)00011-x",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 5,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB053",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0011",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 6,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB047",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1016/s1355-2198(02)00035-7",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 7,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB003",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1016/s1355-2198(02)00025-4",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 8,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB042",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1016/j.shpsb.2014.08.006",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 9,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB058",
+      "query_id": "val-de-03",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:story-of-physics",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 10,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB027",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.32870/prot.i26.432",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB043",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.32870/prot.i26.447",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB050",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W2067109266",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB029",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W2050076949",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB049",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W2087290315",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB040",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W7114583040",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB068",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W6983063086",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB044",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 2,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB061",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1016/s1355-2198(03)00011-x",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 3,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB020",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1093/oso/9780190690649.003.0011",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 5,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB023",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1016/s1355-2198(02)00035-7",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 6,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB060",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "doi:10.1016/s1355-2198(02)00025-4",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 7,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB024",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:story-of-physics",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 9,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB009",
+      "query_id": "val-fr-03",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:reflectionsonsci0000chau",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 10,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB059",
+      "query_id": "val-pt-03",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "record_id": "openalex:W2164532440",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB008",
+      "query_id": "val-pt-03",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 7,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB005",
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.35537/10915/87451",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB033",
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.2307/j.ctvb9395s.16",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB039",
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.3726/978-3-653-00327-7/9",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB019",
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v2i3.49",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 8,
+      "b_translation_mode": "original+translation",
+      "b_matchedQueries": [
+        {
+          "query": "lógica en lingüística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB054",
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v2i3.48",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 9,
+      "b_translation_mode": "original+translation",
+      "b_matchedQueries": [
+        {
+          "query": "lógica en lingüística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB064",
+      "query_id": "val-es-04",
+      "language": "es",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v2i4.41",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 10,
+      "b_translation_mode": "original+translation",
+      "b_matchedQueries": [
+        {
+          "query": "lógica en lingüística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB012",
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.3917/puf.golse.2005.01.0155",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB035",
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.1051/978-2-7598-1902-7.c001",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB055",
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "source:internet-archive:DTIC_ADA460935",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 8,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB036",
+      "query_id": "val-fr-04",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v10i20.185",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 10,
+      "b_translation_mode": "translation-only",
+      "b_matchedQueries": [
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "audit_id": "HAB016",
+      "query_id": "val-pt-04",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.11606/d.3.2005.tde-07012006-111536",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": null,
+      "b_translation_mode": null,
+      "b_matchedQueries": []
+    },
+    {
+      "audit_id": "HAB006",
+      "query_id": "val-pt-04",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "record_id": "doi:10.32870/qr.v2i4.43",
+      "selection_side": "B-only",
+      "a_rank": null,
+      "b_rank": 10,
+      "b_translation_mode": "original+translation",
+      "b_matchedQueries": [
+        {
+          "query": "lógica em linguística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

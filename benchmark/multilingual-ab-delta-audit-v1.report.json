@@ -1,0 +1,1674 @@
+{
+  "schemaVersion": 1,
+  "name": "Held-out multilingual A/B paired human delta v1",
+  "methodology": "Exact paired human Top-10 delta for the frozen held-out A/B run. Shared A/B Top-10 rows cancel; every row in the symmetric difference was judged blind to condition, rank, provider, score, and translation provenance.",
+  "interpretationBoundary": "This is an internal held-out validation with one human adjudicator. A/B conditions were run consecutively with alternating order, reducing but not eliminating live-provider variability. English queries are drift controls because their logical expansion is unchanged.",
+  "relevantThreshold": 2,
+  "sources": {
+    "queries": "benchmark/validation-multilingual-ab-v1.queries.json",
+    "run": "benchmark/runs/heldout-multilingual-ab-v1-1f2232d.jsonl",
+    "manifest": "benchmark/multilingual-ab-delta-audit-v1.manifest.json",
+    "judgments": "benchmark/multilingual-ab-delta-audit-v1.judgments.jsonl"
+  },
+  "summary": {
+    "queries": 20,
+    "changedTop10Pairs": 68,
+    "judgments": 68,
+    "comments": 68,
+    "aOnlyRelevant": 9,
+    "bOnlyRelevant": 20,
+    "netRelevant": 11,
+    "pairedDeltaP10": 0.055,
+    "aOnlyOrdinalSum": 36,
+    "bOnlyOrdinalSum": 58,
+    "deltaOrdinalSum": 22,
+    "improvedQueries": 4,
+    "worsenedQueries": 1,
+    "tiedQueries": 15,
+    "bOnlyTranslationAny": 34,
+    "bOnlyTranslationRelevant": 20,
+    "bOnlyTranslationRelevantRate": 0.5882,
+    "bOnlyTranslationOnly": 30,
+    "bOnlyTranslationOnlyRelevant": 20,
+    "bOnlyTranslationOnlyRelevantRate": 0.6667,
+    "englishControl": {
+      "queries": 4,
+      "aOnlyRelevant": 0,
+      "bOnlyRelevant": 0,
+      "netRelevant": 0,
+      "pairedDeltaP10": 0
+    },
+    "nonEnglishTargets": {
+      "queries": 16,
+      "aOnlyRelevant": 9,
+      "bOnlyRelevant": 20,
+      "netRelevant": 11,
+      "pairedDeltaP10": 0.0688
+    },
+    "byLanguage": {
+      "es": {
+        "queries": 4,
+        "aOnlyRelevant": 1,
+        "bOnlyRelevant": 2,
+        "netRelevant": 1,
+        "pairedDeltaP10": 0.025
+      },
+      "en": {
+        "queries": 4,
+        "aOnlyRelevant": 0,
+        "bOnlyRelevant": 0,
+        "netRelevant": 0,
+        "pairedDeltaP10": 0
+      },
+      "de": {
+        "queries": 4,
+        "aOnlyRelevant": 2,
+        "bOnlyRelevant": 7,
+        "netRelevant": 5,
+        "pairedDeltaP10": 0.125
+      },
+      "fr": {
+        "queries": 4,
+        "aOnlyRelevant": 3,
+        "bOnlyRelevant": 8,
+        "netRelevant": 5,
+        "pairedDeltaP10": 0.125
+      },
+      "pt": {
+        "queries": 4,
+        "aOnlyRelevant": 3,
+        "bOnlyRelevant": 3,
+        "netRelevant": 0,
+        "pairedDeltaP10": 0
+      }
+    },
+    "byFamily": {
+      "ethics-artificial-intelligence": {
+        "queries": 5,
+        "aOnlyRelevant": 2,
+        "bOnlyRelevant": 2,
+        "netRelevant": 0,
+        "pairedDeltaP10": 0
+      },
+      "epistemology-psychology": {
+        "queries": 5,
+        "aOnlyRelevant": 4,
+        "bOnlyRelevant": 4,
+        "netRelevant": 0,
+        "pairedDeltaP10": 0
+      },
+      "philosophy-science-physics": {
+        "queries": 5,
+        "aOnlyRelevant": 3,
+        "bOnlyRelevant": 14,
+        "netRelevant": 11,
+        "pairedDeltaP10": 0.22
+      },
+      "logic-linguistics": {
+        "queries": 5,
+        "aOnlyRelevant": 0,
+        "bOnlyRelevant": 0,
+        "netRelevant": 0,
+        "pairedDeltaP10": 0
+      }
+    }
+  },
+  "perQuery": [
+    {
+      "query_id": "val-es-01",
+      "query": "ética en inteligencia artificial",
+      "language": "es",
+      "family": "ethics-artificial-intelligence",
+      "english_control": false,
+      "changed_per_side": 0,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 0,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-en-01",
+      "query": "ethics in artificial intelligence",
+      "language": "en",
+      "family": "ethics-artificial-intelligence",
+      "english_control": true,
+      "changed_per_side": 0,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 0,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-de-01",
+      "query": "Ethik in der künstlichen Intelligenz",
+      "language": "de",
+      "family": "ethics-artificial-intelligence",
+      "english_control": false,
+      "changed_per_side": 0,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 0,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-fr-01",
+      "query": "éthique en intelligence artificielle",
+      "language": "fr",
+      "family": "ethics-artificial-intelligence",
+      "english_control": false,
+      "changed_per_side": 1,
+      "a_only_relevant": 1,
+      "b_only_relevant": 1,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 2,
+      "b_only_ordinal_sum": 3,
+      "delta_ordinal_sum": 1,
+      "b_only_translation_any": 1,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-pt-01",
+      "query": "ética em inteligência artificial",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "english_control": false,
+      "changed_per_side": 1,
+      "a_only_relevant": 1,
+      "b_only_relevant": 1,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 3,
+      "b_only_ordinal_sum": 3,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 1,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-es-02",
+      "query": "epistemología en psicología",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "english_control": false,
+      "changed_per_side": 2,
+      "a_only_relevant": 1,
+      "b_only_relevant": 1,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 3,
+      "b_only_ordinal_sum": 2,
+      "delta_ordinal_sum": -1,
+      "b_only_translation_any": 2,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-en-02",
+      "query": "epistemology in psychology",
+      "language": "en",
+      "family": "epistemology-psychology",
+      "english_control": true,
+      "changed_per_side": 0,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 0,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "english_control": false,
+      "changed_per_side": 4,
+      "a_only_relevant": 0,
+      "b_only_relevant": 1,
+      "delta_relevant": 1,
+      "paired_delta_p10": 0.1,
+      "a_only_ordinal_sum": 4,
+      "b_only_ordinal_sum": 3,
+      "delta_ordinal_sum": -1,
+      "b_only_translation_any": 4,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-fr-02",
+      "query": "épistémologie en psychologie",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "english_control": false,
+      "changed_per_side": 2,
+      "a_only_relevant": 2,
+      "b_only_relevant": 1,
+      "delta_relevant": -1,
+      "paired_delta_p10": -0.1,
+      "a_only_ordinal_sum": 4,
+      "b_only_ordinal_sum": 2,
+      "delta_ordinal_sum": -2,
+      "b_only_translation_any": 2,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-pt-02",
+      "query": "epistemologia em psicologia",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "english_control": false,
+      "changed_per_side": 2,
+      "a_only_relevant": 1,
+      "b_only_relevant": 1,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 3,
+      "b_only_ordinal_sum": 2,
+      "delta_ordinal_sum": -1,
+      "b_only_translation_any": 2,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-es-03",
+      "query": "filosofía de la ciencia en física",
+      "language": "es",
+      "family": "philosophy-science-physics",
+      "english_control": false,
+      "changed_per_side": 1,
+      "a_only_relevant": 0,
+      "b_only_relevant": 1,
+      "delta_relevant": 1,
+      "paired_delta_p10": 0.1,
+      "a_only_ordinal_sum": 1,
+      "b_only_ordinal_sum": 2,
+      "delta_ordinal_sum": 1,
+      "b_only_translation_any": 1,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-en-03",
+      "query": "philosophy of science in physics",
+      "language": "en",
+      "family": "philosophy-science-physics",
+      "english_control": true,
+      "changed_per_side": 0,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 0,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "english_control": false,
+      "changed_per_side": 7,
+      "a_only_relevant": 2,
+      "b_only_relevant": 6,
+      "delta_relevant": 4,
+      "paired_delta_p10": 0.4,
+      "a_only_ordinal_sum": 5,
+      "b_only_ordinal_sum": 17,
+      "delta_ordinal_sum": 12,
+      "b_only_translation_any": 7,
+      "b_only_translation_relevant": 6
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "english_control": false,
+      "changed_per_side": 7,
+      "a_only_relevant": 0,
+      "b_only_relevant": 6,
+      "delta_relevant": 6,
+      "paired_delta_p10": 0.6,
+      "a_only_ordinal_sum": 5,
+      "b_only_ordinal_sum": 16,
+      "delta_ordinal_sum": 11,
+      "b_only_translation_any": 7,
+      "b_only_translation_relevant": 6
+    },
+    {
+      "query_id": "val-pt-03",
+      "query": "filosofia da ciência em física",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "english_control": false,
+      "changed_per_side": 1,
+      "a_only_relevant": 1,
+      "b_only_relevant": 1,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 3,
+      "b_only_ordinal_sum": 2,
+      "delta_ordinal_sum": -1,
+      "b_only_translation_any": 1,
+      "b_only_translation_relevant": 1
+    },
+    {
+      "query_id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "english_control": false,
+      "changed_per_side": 3,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 2,
+      "b_only_ordinal_sum": 3,
+      "delta_ordinal_sum": 1,
+      "b_only_translation_any": 3,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-en-04",
+      "query": "logic in linguistics",
+      "language": "en",
+      "family": "logic-linguistics",
+      "english_control": true,
+      "changed_per_side": 0,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 0,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-de-04",
+      "query": "Logik in der Linguistik",
+      "language": "de",
+      "family": "logic-linguistics",
+      "english_control": false,
+      "changed_per_side": 0,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 0,
+      "delta_ordinal_sum": 0,
+      "b_only_translation_any": 0,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-fr-04",
+      "query": "logique en linguistique",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "english_control": false,
+      "changed_per_side": 2,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 1,
+      "b_only_ordinal_sum": 2,
+      "delta_ordinal_sum": 1,
+      "b_only_translation_any": 2,
+      "b_only_translation_relevant": 0
+    },
+    {
+      "query_id": "val-pt-04",
+      "query": "lógica em linguística",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "english_control": false,
+      "changed_per_side": 1,
+      "a_only_relevant": 0,
+      "b_only_relevant": 0,
+      "delta_relevant": 0,
+      "paired_delta_p10": 0,
+      "a_only_ordinal_sum": 0,
+      "b_only_ordinal_sum": 1,
+      "delta_ordinal_sum": 1,
+      "b_only_translation_any": 1,
+      "b_only_translation_relevant": 0
+    }
+  ],
+  "changedRows": [
+    {
+      "query_id": "val-fr-01",
+      "query": "éthique en intelligence artificielle",
+      "language": "fr",
+      "family": "ethics-artificial-intelligence",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:about_dorian-codex-protocol-for-artificial-intelligence-by-stefano-dorian-franco",
+      "title": "Presentation Media of the Book: Dorian Codex Protocol For Artificial Intelligence By Stefano Dorian Franco",
+      "human_relevance": 2,
+      "human_note": "La ética y el alineamiento son componentes sustantivos del protocolo, pero el documento se centra más ampliamente en estabilidad cognitiva, coherencia y arquitectura de IA.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-01",
+      "query": "éthique en intelligence artificielle",
+      "language": "fr",
+      "family": "ethics-artificial-intelligence",
+      "side": "B-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:to-the-artificial-intelligence-of-the-future-pt-jupiter-2025",
+      "title": "To The Artificial Intelligence Of The Future",
+      "human_relevance": 3,
+      "human_note": "Propone explícitamente principios éticos y de responsabilidad para futuros sistemas de inteligencia artificial.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ethics in artificial intelligence",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-pt-01",
+      "query": "ética em inteligência artificial",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "doi:10.5753/weriaedu.2025.16203",
+      "title": "Inteligência Artificial na Educação: Proposta de um Framework para Adoção Ética",
+      "human_relevance": 3,
+      "human_note": "Propone directamente un marco de adopción ética de IA basado en privacidad, transparencia, justicia, supervisión humana, responsabilidad e inclusión.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-pt-01",
+      "query": "ética em inteligência artificial",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "side": "B-only",
+      "rank": 7,
+      "record_id": "source:internet-archive:to-the-artificial-intelligence-of-the-future-pt-jupiter-2025",
+      "title": "To The Artificial Intelligence Of The Future",
+      "human_relevance": 3,
+      "human_note": "Propone explícitamente principios éticos y de responsabilidad para el diseño y comportamiento de futuros sistemas de inteligencia artificial.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "ethics in artificial intelligence",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-es-02",
+      "query": "epistemología en psicología",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "doi:10.14718/9786287554641.2023.5",
+      "title": "Formación en Psicología Comunitaria",
+      "human_relevance": 2,
+      "human_note": "Aborda explícitamente los componentes epistémicos de la Psicología Comunitaria dentro del análisis de su formación posgradual y competencias.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-es-02",
+      "query": "epistemología en psicología",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "doi:10.14718/9786287554641.2023.3",
+      "title": "Formación posgradual en Psicología Organizacional y del trabajo",
+      "human_relevance": 1,
+      "human_note": "Capítulo sobre delimitación disciplinar, formación y competencias en Psicología Organizacional y del Trabajo; la dimensión epistemológica pertenece al marco general del volumen, pero no es su foco principal.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-es-02",
+      "query": "epistemología en psicología",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 6,
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+      "human_relevance": 2,
+      "human_note": "Desarrolla epistemología naturalizada apoyándose sustantivamente en capacidades psicológicas humanas, aunque su objeto principal es la inferencia inductiva.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-es-02",
+      "query": "epistemología en psicología",
+      "language": "es",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 8,
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+      "human_relevance": 0,
+      "human_note": "Analiza procesos de razonamiento y justificación en educación matemática, no epistemología de la psicología.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 7,
+      "record_id": "doi:10.1515/9783110586213-005",
+      "title": "4. Funktionen des Erzählens II: Epistemologie der Narratologie",
+      "human_relevance": 1,
+      "human_note": "Desarrolla una epistemología de la narratología y del conocimiento narrativo, no una epistemología de la psicología.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 8,
+      "record_id": "doi:10.30965/9783846749326",
+      "title": "Historische Epistemologie der Strukturwissenschaften",
+      "human_relevance": 1,
+      "human_note": "Desarrolla una epistemología histórica de ciencias estructurales como cibernética, informática, teoría de la información e IA, no de la psicología.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "openalex:W6947466892",
+      "title": "Von der Epistemologie zur Ontologie Martin Heideggers Hermeneutik der Freiheit im Diskurs mit Immanuel Kant",
+      "human_relevance": 1,
+      "human_note": "Aborda epistemología y ontología en Kant y Heidegger, pero no epistemología aplicada a la psicología.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "openalex:W6966984356",
+      "title": "Der gute Mensch. Epistemologie und Rhetorik im 18. Jahrhundert (Baumgarten – Sulzer – Kant)",
+      "human_relevance": 1,
+      "human_note": "La epistemología es central, pero se estudia en relación con antropología, retórica, estética y pedagogía del siglo XVIII, no con la psicología como disciplina.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 2,
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+      "human_relevance": 2,
+      "human_note": "Desarrolla epistemología naturalizada apoyándose sustantivamente en capacidades psicológicas humanas, aunque su objeto principal es la inferencia inductiva.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 3,
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+      "human_relevance": 0,
+      "human_note": "Analiza explicación y justificación en aulas de matemáticas desde una perspectiva sociocultural; no trata epistemología de la psicología.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 5,
+      "record_id": "source:internet-archive:ERIC_ED389230",
+      "title": "ERIC ED389230: The Discontinuity of Human Existence, Part I. The Fundamental Concepts of Human Existence and the Relation between the Singular and the Super Singular. No. 50.",
+      "human_relevance": 0,
+      "human_note": "Incluye referencias a psicología cognitiva y teorías psicológicas, pero su objeto es filosófico-antropológico y no la epistemología de la psicología.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-02",
+      "query": "Epistemologie in der Psychologie",
+      "language": "de",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:descriptorrevisi0000hans",
+      "title": "Descriptor revision : belief change through direct choice",
+      "human_relevance": 1,
+      "human_note": "Estudia formalmente el cambio de creencias desde lógica y epistemología, pero no la epistemología de la psicología como disciplina.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-02",
+      "query": "épistémologie en psychologie",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "doi:10.3917/eres.golse.2017.01.0091",
+      "title": "Épistémologie et méthodologie en psychanalyse et en psychiatrie",
+      "human_relevance": 2,
+      "human_note": "Aborda directamente problemas epistemológicos y metodológicos del psicoanálisis, la psiquiatría y su relación con neurociencias y psicología, aunque no se centra exclusivamente en psicología.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-02",
+      "query": "épistémologie en psychologie",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "doi:10.3917/eres.golse.2017.01.0263",
+      "title": "Épistémologie et méthodologie en psychanalyse et en psychiatrie",
+      "human_relevance": 2,
+      "human_note": "Aborda directamente problemas epistemológicos del estudio de la psique desde psicoanálisis, psiquiatría, psicología y neurociencias, pero con un alcance interdisciplinario.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-02",
+      "query": "épistémologie en psychologie",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+      "human_relevance": 2,
+      "human_note": "Integra sustantivamente psicología cognitiva en una teoría epistemológica naturalizada de la inducción.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-02",
+      "query": "épistémologie en psychologie",
+      "language": "fr",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 2,
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+      "human_relevance": 0,
+      "human_note": "Analiza razonamiento y justificación en educación matemática; no aborda epistemología de la psicología.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-pt-02",
+      "query": "epistemologia em psicologia",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "doi:10.36311/1984-1655.2012.v4n2.p233-263",
+      "title": "GEPEGE – Grupo de Estudo e Pesquisa em Epistemologia Genética e Educação",
+      "human_relevance": 2,
+      "human_note": "Presenta un grupo dedicado a Epistemología Genética, Psicología Genética y Educación; la relación epistemología-psicología es sustantiva, aunque el documento se centra en el propio grupo de investigación.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-pt-02",
+      "query": "epistemologia em psicologia",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "doi:10.36311/1984-1655.2025.v17n2.p48-76",
+      "title": "EQUÍVOCOS EM RELAÇÃO À PSICOLOGIA MORAL DE JEAN PIAGET",
+      "human_relevance": 1,
+      "human_note": "Se inscribe en la tradición de psicología y epistemología genéticas de Piaget, pero el artículo se centra específicamente en psicología moral y juicio moral.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-pt-02",
+      "query": "epistemologia em psicologia",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 7,
+      "record_id": "source:internet-archive:inductiveinferen00hila",
+      "title": "Inductive inference and its natural ground : an essay in naturalistic epistemology",
+      "human_relevance": 2,
+      "human_note": "Desarrolla una epistemología naturalizada de la inducción apoyándose sustantivamente en capacidades cognitivas y resultados de la psicología, aunque su objeto principal es epistemológico.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-pt-02",
+      "query": "epistemologia em psicologia",
+      "language": "pt",
+      "family": "epistemology-psychology",
+      "side": "B-only",
+      "rank": 8,
+      "record_id": "source:internet-archive:ERIC_ED466631",
+      "title": "ERIC ED466631: Explanation, Justification and Argumentation in Mathematics Classrooms.",
+      "human_relevance": 0,
+      "human_note": "Analiza explicación y justificación en educación matemática; no estudia la epistemología de la psicología.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "epistemology in psychology",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-es-03",
+      "query": "filosofía de la ciencia en física",
+      "language": "es",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "doi:10.2307/j.ctt1zgwjfs.9",
+      "title": "La problemática ecologista en la filosofía de la ciencia de Manuel Sacristán",
+      "human_relevance": 1,
+      "human_note": "Analiza ecologismo y filosofía de la ciencia en Manuel Sacristán, pero no la filosofía de la física específicamente.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-es-03",
+      "query": "filosofía de la ciencia en física",
+      "language": "es",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 6,
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+      "human_relevance": 2,
+      "human_note": "Aborda sustantivamente cuestiones filosóficas e históricas de la física cuántica dentro de un marco interdisciplinario más amplio sobre arte, matemáticas y ciencia.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 4,
+      "record_id": "openalex:W2040633970",
+      "title": "Some Recent Literature of Philosophy<i>Fragments in Philosophy and Science</i>. James Mark Baldwin<i>The Limits of Evolution and Other Essays, Illustrating the Metaphysical Theory of Personal Idealism</i>. G. H. Howison<i>Elemente der Metaphysik</i>. Paul Deussen<i>Geschichte der Philosophie</i>. Karl Vorländer<i>Immanuel Kant: His Life and Doctrine</i>. Friedrich Paulsen , J. E. Creighton , Albert Lefevre<i>The Philosophy of Religion in England and America</i>. Alfred Caldecott",
+      "human_relevance": 0,
+      "human_note": "Sección general de reseñas de literatura filosófica; no aborda filosofía o teoría de la ciencia en física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 5,
+      "record_id": "openalex:W2580164284",
+      "title": "»Gott, Mensch und Welt in der Metaphysik von Descartes bis zu Nietzsche« (1967)",
+      "human_relevance": 0,
+      "human_note": "Estudio histórico-metafísico sobre Dios, ser humano y mundo; no aborda la filosofía de la ciencia ni los fundamentos epistemológicos de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 6,
+      "record_id": "openalex:W3081433947",
+      "title": "Realität als vermeintliche Grenze der Erkenntnis: Hegels Metaphysik im Anschluss an und in Abgrenzung zu Kant",
+      "human_relevance": 0,
+      "human_note": "Analiza metafísica y teoría del conocimiento en Hegel y Kant; no aborda la filosofía de la ciencia ni los fundamentos de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 7,
+      "record_id": "source:internet-archive:technik_202102",
+      "title": "Roland Bothner Fremdgesteuertes Sein, Philosophie der Technik, herausgegeben von Stefanie Bielmeier",
+      "human_relevance": 0,
+      "human_note": "Es una filosofía general de la técnica y sus relaciones con ciencia y sociedad; no estudia específicamente los fundamentos epistemológicos de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 8,
+      "record_id": "doi:10.1007/bf01800938",
+      "title": "Physik am normativen Gängelband?",
+      "human_relevance": 3,
+      "human_note": "Analiza directamente, desde la teoría de la ciencia, la relación entre protophysics y física empírica.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "openalex:W3161673441",
+      "title": "Phänomenologie als Urwissenschaft und neue “Metaphysik der Metaphysik”. Die systematische Genealogie von Heideggers philosophischen Anfängen",
+      "human_relevance": 0,
+      "human_note": "Analiza la fenomenología temprana de Heidegger como “ciencia originaria” y su desarrollo ontológico; no aborda filosofía de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "openalex:W4285505571",
+      "title": "Von der mathematischen zur kritischen Metaphysik der Natur. Lambert und Kant",
+      "human_relevance": 2,
+      "human_note": "Analiza la metafísica kantiana de la naturaleza y su relación crítica con la física newtoniana, incluyendo fuerzas de atracción, repulsión y gravitación.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 1,
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+      "human_relevance": 2,
+      "human_note": "Aborda de forma sustantiva cuestiones históricas y filosóficas sobre representación, observabilidad y fundamentos de la física cuántica, aunque el volumen tiene un alcance interdisciplinario más amplio.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 5,
+      "record_id": "doi:10.1016/s1355-2198(03)00011-x",
+      "title": "Holism in philosophy of mind and philosophy of physics",
+      "human_relevance": 2,
+      "human_note": "Reseña una obra que analiza extensamente el holismo en física cuántica y espacio-tiempo, aunque comparte el foco con filosofía de la mente.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 6,
+      "record_id": "doi:10.1093/oso/9780190690649.003.0011",
+      "title": "Philosophy of Physics",
+      "human_relevance": 3,
+      "human_note": "Capítulo directamente dedicado a los fundamentos conceptuales, epistemológicos y metodológicos de la física.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 7,
+      "record_id": "doi:10.1016/s1355-2198(02)00035-7",
+      "title": "The philosophy of physics",
+      "human_relevance": 3,
+      "human_note": "Trabajo directamente dedicado a filosofía de la física, publicado en una revista especializada en historia y filosofía de la física moderna.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 8,
+      "record_id": "doi:10.1016/s1355-2198(02)00025-4",
+      "title": "More than the conscience of physics? From physics to philosophy",
+      "human_relevance": 3,
+      "human_note": "Reseña una obra dedicada explícitamente a la filosofía y los fundamentos de la física moderna, especialmente de la teoría cuántica.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 9,
+      "record_id": "doi:10.1016/j.shpsb.2014.08.006",
+      "title": "Time in fundamental physics",
+      "human_relevance": 3,
+      "human_note": "Analiza filosófica y conceptualmente la noción de tiempo en mecánica, relatividad y física cuántica como problema fundamental de la física.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-de-03",
+      "query": "Wissenschaftstheorie in der Physik",
+      "language": "de",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:story-of-physics",
+      "title": "Story Of Physics",
+      "human_relevance": 1,
+      "human_note": "Historia general de las ideas y descubrimientos de la física; la teoría de la ciencia no constituye su objeto sustantivo.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 4,
+      "record_id": "doi:10.32870/prot.i26.432",
+      "title": "Concepto en el habitar",
+      "human_relevance": 0,
+      "human_note": "Estudia filosóficamente la formación y naturaleza de los conceptos desde cognición 4E y filosofía del lenguaje; no aborda filosofía de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 5,
+      "record_id": "doi:10.32870/prot.i26.447",
+      "title": "Influencia de la filosofía del romanticismo en el arte contemporáneo",
+      "human_relevance": 0,
+      "human_note": "Estudia estética romántica y su influencia en el arte contemporáneo; no aborda filosofía de la ciencia ni física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 6,
+      "record_id": "openalex:W2067109266",
+      "title": "Societe Fran�aise De Logique Et De Philosophie Des Sciences",
+      "human_relevance": 1,
+      "human_note": "Informe sobre la Société Française de Logique et de Philosophie des Sciences; relacionado con filosofía de la ciencia, pero no específicamente con filosofía de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 7,
+      "record_id": "openalex:W2050076949",
+      "title": "Sur les buts et la methode de la philosophie des sciences",
+      "human_relevance": 1,
+      "human_note": "Está directamente dedicado a la metodología y fines de la filosofía de la ciencia en general, pero no específicamente a la filosofía de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 8,
+      "record_id": "openalex:W2087290315",
+      "title": "Du Rapport des Sciences avec la Philosophie",
+      "human_relevance": 1,
+      "human_note": "Estudia epistemología científica y las relaciones generales entre ciencia y filosofía; la física aparece dentro de ese marco, pero no constituye el objeto específico del trabajo.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "openalex:W7114583040",
+      "title": "_The Relevance of Judgment for Philosophy of Science_. Comptes Rendus de l’Académie Internationale de Philosophie des Sciences, IV",
+      "human_relevance": 1,
+      "human_note": "Obra centralmente dedicada a filosofía de la ciencia y al papel del juicio, pero de alcance general y no específicamente centrada en física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "openalex:W6983063086",
+      "title": "Le problème des sciences humaines dans la philosophie herméneutique de Gadamer",
+      "human_relevance": 1,
+      "human_note": "Analiza los fundamentos filosóficos y metodológicos de las ciencias humanas en Gadamer, no la filosofía de la física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 2,
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+      "human_relevance": 2,
+      "human_note": "Aborda sustantivamente cuestiones históricas y filosóficas de la física cuántica dentro de un marco interdisciplinario más amplio sobre arte, matemáticas y ciencia.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 3,
+      "record_id": "doi:10.1016/s1355-2198(03)00011-x",
+      "title": "Holism in philosophy of mind and philosophy of physics",
+      "human_relevance": 2,
+      "human_note": "Aborda extensamente el holismo en física cuántica y espacio-tiempo, aunque comparte el foco con filosofía de la mente.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 5,
+      "record_id": "doi:10.1093/oso/9780190690649.003.0011",
+      "title": "Philosophy of Physics",
+      "human_relevance": 3,
+      "human_note": "Capítulo dedicado específicamente a la filosofía de la física y a problemas epistemológicos y metodológicos propios de las teorías físicas.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 6,
+      "record_id": "doi:10.1016/s1355-2198(02)00035-7",
+      "title": "The philosophy of physics",
+      "human_relevance": 3,
+      "human_note": "Reseña específicamente una obra de filosofía de la física que aborda fundamentos conceptuales de relatividad y mecánica cuántica.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 7,
+      "record_id": "doi:10.1016/s1355-2198(02)00025-4",
+      "title": "More than the conscience of physics? From physics to philosophy",
+      "human_relevance": 3,
+      "human_note": "Reseña una obra específicamente dedicada a los fundamentos filosóficos de la física moderna, especialmente teoría cuántica y relatividad.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 9,
+      "record_id": "source:internet-archive:story-of-physics",
+      "title": "Story Of Physics",
+      "human_relevance": 1,
+      "human_note": "Historia general de las ideas y descubrimientos de la física; la filosofía de la ciencia no aparece como objeto sustantivo.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-03",
+      "query": "philosophie des sciences en physique",
+      "language": "fr",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 10,
+      "record_id": "source:internet-archive:reflectionsonsci0000chau",
+      "title": "Reflections on science, philosophy and art",
+      "human_relevance": 2,
+      "human_note": "Incluye de forma sustantiva reflexiones filosóficas sobre la física dentro de una obra más amplia sobre ciencia, filosofía y arte.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-pt-03",
+      "query": "filosofia da ciência em física",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "openalex:W2164532440",
+      "title": "História e Filosofia da ciência: um panorama em eventos e periódicos de ensino de Física",
+      "human_relevance": 3,
+      "human_note": "Estudia específicamente la presencia y uso de Historia y Filosofía de la Ciencia en investigación y enseñanza de la Física.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-pt-03",
+      "query": "filosofia da ciência em física",
+      "language": "pt",
+      "family": "philosophy-science-physics",
+      "side": "B-only",
+      "rank": 7,
+      "record_id": "source:internet-archive:artofsciencefrom0000lupa",
+      "title": "The Art of Science : From Perspective Drawing to Quantum Randomness",
+      "human_relevance": 2,
+      "human_note": "Mismo documento que HAB007, sólo cambia el idioma de la consulta.\nAborda sustantivamente cuestiones filosóficas e históricas de la física cuántica, aunque dentro de un marco interdisciplinario más amplio sobre arte, matemáticas y ciencia.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "philosophy of science in physics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "side": "A-only",
+      "rank": 8,
+      "record_id": "doi:10.35537/10915/87451",
+      "title": "Skate en el Gran La Plata: Lógica interna, lógica externa y Educación Física",
+      "human_relevance": 0,
+      "human_note": "“Lógica interna/externa” se refiere a categorías de la Praxiología Motriz en Educación Física, no a lógica en lingüística.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "doi:10.2307/j.ctvb9395s.16",
+      "title": "Anticipaciones de la semiótica de Peirce en la lógica aristotélica",
+      "human_relevance": 1,
+      "human_note": "Relaciona lógica y semiótica mediante Aristóteles y Peirce, pero no estudia específicamente la lógica dentro de la lingüística.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "doi:10.3726/978-3-653-00327-7/9",
+      "title": "La normalización lingüística en la toponimia de Canarias 73",
+      "human_relevance": 1,
+      "human_note": "Es un estudio lingüístico sobre normalización y escritura de topónimos canarios, pero no aborda lógica aplicada a la lingüística.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "side": "B-only",
+      "rank": 8,
+      "record_id": "doi:10.32870/qr.v2i3.49",
+      "title": "¿Ayuda la enseñanza de la lógica a los estudiantes a argumentar mejor?",
+      "human_relevance": 1,
+      "human_note": "Trata lógica y argumentación de forma sustantiva, pero no su aplicación dentro de la lingüística.",
+      "translation_mode": "original+translation",
+      "matchedQueries": [
+        {
+          "query": "lógica en lingüística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "side": "B-only",
+      "rank": 9,
+      "record_id": "doi:10.32870/qr.v2i3.48",
+      "title": "¿La lógica formal es útil para argumentar? La utilidad política",
+      "human_relevance": 1,
+      "human_note": "Aplica lógica formal al análisis de argumentación política y jurídica, pero no a problemas propios de la lingüística.",
+      "translation_mode": "original+translation",
+      "matchedQueries": [
+        {
+          "query": "lógica en lingüística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-es-04",
+      "query": "lógica en lingüística",
+      "language": "es",
+      "family": "logic-linguistics",
+      "side": "B-only",
+      "rank": 10,
+      "record_id": "doi:10.32870/qr.v2i4.41",
+      "title": "Argumentación y lógica, ¿amigas o enemigas? ¿Substitutas o complementarias? ¿Relacionadas o independientes?",
+      "human_relevance": 1,
+      "human_note": "Trata directamente la relación entre lógica y argumentación, pero no la aplicación de la lógica dentro de la lingüística.",
+      "translation_mode": "original+translation",
+      "matchedQueries": [
+        {
+          "query": "lógica en lingüística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-04",
+      "query": "logique en linguistique",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "side": "A-only",
+      "rank": 9,
+      "record_id": "doi:10.3917/puf.golse.2005.01.0155",
+      "title": "Le PMSI en psychiatrie infanto-juvénile",
+      "human_relevance": 0,
+      "human_note": "“Logique” se usa en el sentido de lógica de atención, evaluación y costos en psiquiatría; no trata lógica en lingüística.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-04",
+      "query": "logique en linguistique",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "side": "A-only",
+      "rank": 10,
+      "record_id": "doi:10.1051/978-2-7598-1902-7.c001",
+      "title": "LA LOGIQUE",
+      "human_relevance": 1,
+      "human_note": "Introducción general a la lógica y sus aplicaciones en filosofía y ciencias, pero no específicamente a la lógica en lingüística.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-fr-04",
+      "query": "logique en linguistique",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "side": "B-only",
+      "rank": 8,
+      "record_id": "source:internet-archive:DTIC_ADA460935",
+      "title": "DTIC ADA460935: Stochastic Language Generation in a Dialogue System: Toward a Domain Independent Generator",
+      "human_relevance": 1,
+      "human_note": "Trabajo de lingüística computacional sobre generación de lenguaje y sistemas de diálogo; no aborda lógica de forma sustantiva.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-fr-04",
+      "query": "logique en linguistique",
+      "language": "fr",
+      "family": "logic-linguistics",
+      "side": "B-only",
+      "rank": 10,
+      "record_id": "doi:10.32870/qr.v10i20.185",
+      "title": "La falsa sistematización en Lógica viva",
+      "human_relevance": 1,
+      "human_note": "Estudia lógica, falacias y razonamiento natural, pero no la aplicación de la lógica dentro de la lingüística.",
+      "translation_mode": "translation-only",
+      "matchedQueries": [
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    },
+    {
+      "query_id": "val-pt-04",
+      "query": "lógica em linguística",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "side": "A-only",
+      "rank": 7,
+      "record_id": "doi:10.11606/d.3.2005.tde-07012006-111536",
+      "title": "Diagnóstico automático de defeitos em rolamentos baseado em lógica fuzzy",
+      "human_relevance": 0,
+      "human_note": "Aplica lógica difusa al diagnóstico de fallas mecánicas; no trata lógica en lingüística.",
+      "translation_mode": null,
+      "matchedQueries": []
+    },
+    {
+      "query_id": "val-pt-04",
+      "query": "lógica em linguística",
+      "language": "pt",
+      "family": "logic-linguistics",
+      "side": "B-only",
+      "rank": 10,
+      "record_id": "doi:10.32870/qr.v2i4.43",
+      "title": "Lógica y Teoría de la Argumentación",
+      "human_relevance": 1,
+      "human_note": "Trata sustantivamente de lógica y argumentación, pero no específicamente de lógica aplicada a la lingüística.",
+      "translation_mode": "original+translation",
+      "matchedQueries": [
+        {
+          "query": "lógica em linguística",
+          "type": "original",
+          "weight": 1,
+          "reason": null
+        },
+        {
+          "query": "logic in linguistics",
+          "type": "translation",
+          "weight": 0.9,
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

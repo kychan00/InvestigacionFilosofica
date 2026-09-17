@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "name": "Held-out multilingual A/B validation v1",
+  "runName": "heldout-multilingual-ab-v1-1f2232d",
+  "runtimeCommit": "1f2232dfbd2e794c27d6dcb1f4f6f4503bf72749",
+  "generatedAt": "2026-09-17T00:02:59.093Z",
+  "validationQueries": "benchmark/validation-multilingual-ab-v1.queries.json",
+  "frozenFromCommit": "15d3564",
+  "queryCount": 20,
+  "conditions": {
+    "A": "original-only retrieval (maxQueries=1)",
+    "B": "original plus safe multilingual expansion (maxQueries=5)"
+  },
+  "rankingDepth": 10,
+  "poolDepth": 20,
+  "expectedPairs": 40,
+  "rows": 800,
+  "perQueryCondition": {
+    "val-es-01:A": 20,
+    "val-es-01:B": 20,
+    "val-en-01:A": 20,
+    "val-en-01:B": 20,
+    "val-de-01:A": 20,
+    "val-de-01:B": 20,
+    "val-fr-01:A": 20,
+    "val-fr-01:B": 20,
+    "val-pt-01:A": 20,
+    "val-pt-01:B": 20,
+    "val-es-02:A": 20,
+    "val-es-02:B": 20,
+    "val-en-02:A": 20,
+    "val-en-02:B": 20,
+    "val-de-02:A": 20,
+    "val-de-02:B": 20,
+    "val-fr-02:A": 20,
+    "val-fr-02:B": 20,
+    "val-pt-02:A": 20,
+    "val-pt-02:B": 20,
+    "val-es-03:A": 20,
+    "val-es-03:B": 20,
+    "val-en-03:A": 20,
+    "val-en-03:B": 20,
+    "val-de-03:A": 20,
+    "val-de-03:B": 20,
+    "val-fr-03:A": 20,
+    "val-fr-03:B": 20,
+    "val-pt-03:A": 20,
+    "val-pt-03:B": 20,
+    "val-es-04:A": 20,
+    "val-es-04:B": 20,
+    "val-en-04:A": 20,
+    "val-en-04:B": 20,
+    "val-de-04:A": 20,
+    "val-de-04:B": 20,
+    "val-fr-04:A": 20,
+    "val-fr-04:B": 20,
+    "val-pt-04:A": 20,
+    "val-pt-04:B": 20
+  },
+  "executionOrder": [
+    {
+      "query_id": "val-es-01",
+      "condition": "A",
+      "orderPosition": 0,
+      "savedAt": "2026-09-16T23:59:50.296Z"
+    },
+    {
+      "query_id": "val-es-01",
+      "condition": "B",
+      "orderPosition": 1,
+      "savedAt": "2026-09-16T23:59:54.341Z"
+    },
+    {
+      "query_id": "val-en-01",
+      "condition": "B",
+      "orderPosition": 2,
+      "savedAt": "2026-09-16T23:59:56.254Z"
+    },
+    {
+      "query_id": "val-en-01",
+      "condition": "A",
+      "orderPosition": 3,
+      "savedAt": "2026-09-16T23:59:58.150Z"
+    },
+    {
+      "query_id": "val-de-01",
+      "condition": "A",
+      "orderPosition": 4,
+      "savedAt": "2026-09-17T00:00:00.420Z"
+    },
+    {
+      "query_id": "val-de-01",
+      "condition": "B",
+      "orderPosition": 5,
+      "savedAt": "2026-09-17T00:00:02.716Z"
+    },
+    {
+      "query_id": "val-fr-01",
+      "condition": "B",
+      "orderPosition": 6,
+      "savedAt": "2026-09-17T00:00:07.819Z"
+    },
+    {
+      "query_id": "val-fr-01",
+      "condition": "A",
+      "orderPosition": 7,
+      "savedAt": "2026-09-17T00:00:09.736Z"
+    },
+    {
+      "query_id": "val-pt-01",
+      "condition": "A",
+      "orderPosition": 8,
+      "savedAt": "2026-09-17T00:00:11.679Z"
+    },
+    {
+      "query_id": "val-pt-01",
+      "condition": "B",
+      "orderPosition": 9,
+      "savedAt": "2026-09-17T00:00:15.785Z"
+    },
+    {
+      "query_id": "val-es-02",
+      "condition": "B",
+      "orderPosition": 10,
+      "savedAt": "2026-09-17T00:00:19.175Z"
+    },
+    {
+      "query_id": "val-es-02",
+      "condition": "A",
+      "orderPosition": 11,
+      "savedAt": "2026-09-17T00:00:22.186Z"
+    },
+    {
+      "query_id": "val-en-02",
+      "condition": "A",
+      "orderPosition": 12,
+      "savedAt": "2026-09-17T00:00:26.714Z"
+    },
+    {
+      "query_id": "val-en-02",
+      "condition": "B",
+      "orderPosition": 13,
+      "savedAt": "2026-09-17T00:00:28.733Z"
+    },
+    {
+      "query_id": "val-de-02",
+      "condition": "B",
+      "orderPosition": 14,
+      "savedAt": "2026-09-17T00:00:32.376Z"
+    },
+    {
+      "query_id": "val-de-02",
+      "condition": "A",
+      "orderPosition": 15,
+      "savedAt": "2026-09-17T00:00:34.323Z"
+    },
+    {
+      "query_id": "val-fr-02",
+      "condition": "A",
+      "orderPosition": 16,
+      "savedAt": "2026-09-17T00:00:35.816Z"
+    },
+    {
+      "query_id": "val-fr-02",
+      "condition": "B",
+      "orderPosition": 17,
+      "savedAt": "2026-09-17T00:00:39.375Z"
+    },
+    {
+      "query_id": "val-pt-02",
+      "condition": "B",
+      "orderPosition": 18,
+      "savedAt": "2026-09-17T00:00:43.622Z"
+    },
+    {
+      "query_id": "val-pt-02",
+      "condition": "A",
+      "orderPosition": 19,
+      "savedAt": "2026-09-17T00:00:45.759Z"
+    },
+    {
+      "query_id": "val-es-03",
+      "condition": "A",
+      "orderPosition": 20,
+      "savedAt": "2026-09-17T00:00:47.614Z"
+    },
+    {
+      "query_id": "val-es-03",
+      "condition": "B",
+      "orderPosition": 21,
+      "savedAt": "2026-09-17T00:00:51.575Z"
+    },
+    {
+      "query_id": "val-en-03",
+      "condition": "B",
+      "orderPosition": 22,
+      "savedAt": "2026-09-17T00:00:53.463Z"
+    },
+    {
+      "query_id": "val-en-03",
+      "condition": "A",
+      "orderPosition": 23,
+      "savedAt": "2026-09-17T00:00:58.681Z"
+    },
+    {
+      "query_id": "val-de-03",
+      "condition": "A",
+      "orderPosition": 24,
+      "savedAt": "2026-09-17T00:01:03.481Z"
+    },
+    {
+      "query_id": "val-de-03",
+      "condition": "B",
+      "orderPosition": 25,
+      "savedAt": "2026-09-17T00:01:16.392Z"
+    },
+    {
+      "query_id": "val-fr-03",
+      "condition": "B",
+      "orderPosition": 26,
+      "savedAt": "2026-09-17T00:01:30.755Z"
+    },
+    {
+      "query_id": "val-fr-03",
+      "condition": "A",
+      "orderPosition": 27,
+      "savedAt": "2026-09-17T00:01:49.407Z"
+    },
+    {
+      "query_id": "val-pt-03",
+      "condition": "A",
+      "orderPosition": 28,
+      "savedAt": "2026-09-17T00:01:58.560Z"
+    },
+    {
+      "query_id": "val-pt-03",
+      "condition": "B",
+      "orderPosition": 29,
+      "savedAt": "2026-09-17T00:02:04.208Z"
+    },
+    {
+      "query_id": "val-es-04",
+      "condition": "B",
+      "orderPosition": 30,
+      "savedAt": "2026-09-17T00:02:08.522Z"
+    },
+    {
+      "query_id": "val-es-04",
+      "condition": "A",
+      "orderPosition": 31,
+      "savedAt": "2026-09-17T00:02:09.978Z"
+    },
+    {
+      "query_id": "val-en-04",
+      "condition": "A",
+      "orderPosition": 32,
+      "savedAt": "2026-09-17T00:02:12.168Z"
+    },
+    {
+      "query_id": "val-en-04",
+      "condition": "B",
+      "orderPosition": 33,
+      "savedAt": "2026-09-17T00:02:15.354Z"
+    },
+    {
+      "query_id": "val-de-04",
+      "condition": "B",
+      "orderPosition": 34,
+      "savedAt": "2026-09-17T00:02:21.194Z"
+    },
+    {
+      "query_id": "val-de-04",
+      "condition": "A",
+      "orderPosition": 35,
+      "savedAt": "2026-09-17T00:02:26.160Z"
+    },
+    {
+      "query_id": "val-fr-04",
+      "condition": "A",
+      "orderPosition": 36,
+      "savedAt": "2026-09-17T00:02:29.934Z"
+    },
+    {
+      "query_id": "val-fr-04",
+      "condition": "B",
+      "orderPosition": 37,
+      "savedAt": "2026-09-17T00:02:52.895Z"
+    },
+    {
+      "query_id": "val-pt-04",
+      "condition": "B",
+      "orderPosition": 38,
+      "savedAt": "2026-09-17T00:02:56.840Z"
+    },
+    {
+      "query_id": "val-pt-04",
+      "condition": "A",
+      "orderPosition": 39,
+      "savedAt": "2026-09-17T00:02:58.675Z"
+    }
+  ],
+  "pairedDesign": {
+    "queryMajor": true,
+    "orderRule": "even query index A→B; odd query index B→A",
+    "A": {
+      "maxQueries": 1,
+      "meaning": "original-only"
+    },
+    "B": {
+      "maxQueries": 5,
+      "meaning": "safe multilingual expansion"
+    },
+    "englishQueriesAreDriftControls": true
+  },
+  "profile": {
+    "baseProductionRuntime": "1064fdb762194016e48201cbaa1b2cc0f3b209f8",
+    "rankingPolicy": "ranking-v2-current",
+    "providers": {
+      "openAlexPhilosophy": {
+        "enabled": true,
+        "rows": 12
+      },
+      "cucshFilosofia": {
+        "enabled": true,
+        "rows": 8
+      },
+      "openAlex": {
+        "enabled": false,
+        "perPage": 12
+      },
+      "crossref": {
+        "enabled": true,
+        "rows": 12
+      },
+      "internetArchive": {
+        "enabled": true,
+        "rows": 6
+      }
+    },
+    "delayBetweenExpansions": 600
+  }
+}
