@@ -48,11 +48,16 @@ test('continuous ranking metrics reward perfect separation', () => {
   assert.equal(spearman(rows, { xOf: (row) => row.score, yOf: (row) => row.grade }), 1);
 });
 
-test('Qwen3 calibration joins humans, raw Qwen and historical silver without model inference', async () => {
+test('Qwen3 calibration joins humans, raw Qwen and union-aware historical silver without model inference', async () => {
   const source = await readFile(calibrationPath, 'utf8');
   assert.match(source, /human-audit-v1\.judgments\.jsonl/u);
+  assert.match(source, /human-audit-v1\.manifest\.json/u);
   assert.match(source, /qwen3-reranker-v1\.raw\.jsonl/u);
+  assert.match(source, /ai-silver-v1\.jsonl/u);
   assert.match(source, /ai-silver-ranking-v2\.jsonl/u);
+  assert.match(source, /const compositeRow = v2Row \?\? baselineRow/u);
+  assert.match(source, /baseline silver provenance mismatch/u);
+  assert.match(source, /ranking-v2 silver provenance mismatch/u);
   assert.match(source, /human_relevance >= 2/u);
   assert.match(source, /development-calibration/u);
   assert.match(source, /Best-F1 threshold performance is in-sample/u);
