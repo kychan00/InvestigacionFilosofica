@@ -185,7 +185,7 @@
     "changes_conjunction_v1": false
   },
   "ranking_lab": {
-    "status": "raw-scores-frozen-ab-builder-ready",
+    "status": "ab-frozen-blind-delta-audit-builder-ready",
     "branch": "ranking/qwen3-reranker-v1",
     "ranking_experiment_id": "qwen3-ranking-v1",
     "preregistration": "benchmark/qwen3/ranking/qwen3-ranking-v1.preregistered.json",
@@ -219,6 +219,25 @@
     "ab_run": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-ab.jsonl",
     "ab_metadata": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-ab.meta.json",
     "movement_report": "benchmark/qwen3/ranking/reports/qwen3-ranking-v1-movement.json",
-    "movement_report_markdown": "benchmark/qwen3/ranking/reports/qwen3-ranking-v1-movement.md"
+    "movement_report_markdown": "benchmark/qwen3/ranking/reports/qwen3-ranking-v1-movement.md",
+    "ab_freeze_commit": "ebf816d",
+    "ab_sha256": "739a21abc41d34f8274a9be693e5d80b38845665d376a169c7f90214ff9c66d4",
+    "ab_metadata_sha256": "d8ef532ad4f67e51315761fc38d683ef80d07dd551af72bfca046ec49a6eab9b",
+    "top10_changed_pairs": 352,
+    "audit_builder": "scripts/benchmark/qwen3/build_ranking_delta_audit.mjs",
+    "audit_sample": "benchmark/qwen3/ranking/audit/qwen3-ranking-v1-delta-audit.sample.jsonl",
+    "audit_sample_metadata": "benchmark/qwen3/ranking/audit/qwen3-ranking-v1-delta-audit.sample.meta.json",
+    "audit_manifest": "benchmark/qwen3/ranking/audit/qwen3-ranking-v1-delta-audit.manifest.json",
+    "audit_worksheet": "benchmark/qwen3/ranking/audit/qwen3-ranking-v1-delta-audit.sample.txt",
+    "audit_scope": "all 352 query-document pairs in the A/B Top-10 symmetric difference",
+    "audit_blinding": [
+      "condition",
+      "rank",
+      "original rank",
+      "Qwen raw score",
+      "production score",
+      "record/provider identity",
+      "retrieval provenance"
+    ]
   }
 }
