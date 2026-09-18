@@ -1,0 +1,453 @@
+{
+  "schema_version": "qwen3-fresh-holdout-validation-report-v1",
+  "validation_id": "qwen3-reranker-v1-holdout-v1",
+  "purpose": "fresh-holdout-validation",
+  "rows": 100,
+  "frozen_commits": {
+    "qwen_scores_and_predictions": "b8c4a7a",
+    "human_judgments": "ad19e80"
+  },
+  "sources": {
+    "sample": {
+      "path": "benchmark/qwen3/validation/qwen3-reranker-v1-holdout.sample.jsonl",
+      "sha256": "e8ccace4407ce9d235aefdf0a2cdc8ec36ec0d1df9843d9ae53611001f0f8942"
+    },
+    "judgments": {
+      "path": "benchmark/qwen3/validation/qwen3-reranker-v1-holdout.judgments.jsonl",
+      "sha256": "d9c260018e68c376e487486c38f57894e93abdf962de105ebc3a4fda72542c9c"
+    },
+    "raw_scores": {
+      "path": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.raw.jsonl",
+      "sha256": "dc8cb4c9a377e7b4191e5299e274fe9a63af55cdea407026304a6c08a33b6f23"
+    },
+    "predictions": {
+      "path": "benchmark/qwen3/validation/scores/qwen3-reranker-v1-holdout-v1.predictions.jsonl",
+      "sha256": "27898e33a40b4b438946a69f616418697c6bd2862fb4e151dfbce09985657408"
+    },
+    "development_report": {
+      "path": "benchmark/qwen3/reports/qwen3-reranker-v1.calibration.json",
+      "sha256": "654799bec229f9d7709ce459374b4c2dbcfb19e10ebb450e0d70898a010f389a"
+    }
+  },
+  "human": {
+    "relevant_threshold": 2,
+    "relevant": 80,
+    "non_relevant": 20,
+    "ordinal_distribution": {
+      "0": 6,
+      "1": 14,
+      "2": 19,
+      "3": 61
+    }
+  },
+  "qwen": {
+    "threshold": 0.679178715,
+    "threshold_source": "development-only best F1 on human-audit-v1; frozen before holdout retrieval",
+    "threshold_retuned_on_holdout": false,
+    "roc_auc": 0.90625,
+    "average_precision": 0.977982,
+    "spearman_ordinal": 0.590891,
+    "fixed_threshold": {
+      "n": 100,
+      "positives": 80,
+      "negatives": 20,
+      "tp": 65,
+      "fp": 2,
+      "tn": 18,
+      "fn": 15,
+      "accuracy": 0.83,
+      "precision": 0.970149,
+      "recall": 0.8125,
+      "specificity": 0.9,
+      "f1": 0.884354,
+      "balanced_accuracy": 0.85625,
+      "cohen_kappa": 0.572864
+    }
+  },
+  "development_reference": {
+    "threshold": 0.679178715,
+    "f1": 0.890756,
+    "holdout_f1_same_frozen_threshold": 0.884354,
+    "f1_delta_holdout_minus_development": -0.006402,
+    "note": "Development F1 is in-sample threshold-selection performance; holdout F1 uses the threshold frozen before holdout retrieval."
+  },
+  "breakdowns": {
+    "language": {
+      "de": {
+        "n": 20,
+        "positives": 16,
+        "negatives": 4,
+        "tp": 13,
+        "fp": 0,
+        "tn": 4,
+        "fn": 3,
+        "accuracy": 0.85,
+        "precision": 1,
+        "recall": 0.8125,
+        "specificity": 1,
+        "f1": 0.896552,
+        "balanced_accuracy": 0.90625,
+        "cohen_kappa": 0.634146
+      },
+      "en": {
+        "n": 20,
+        "positives": 20,
+        "negatives": 0,
+        "tp": 18,
+        "fp": 0,
+        "tn": 0,
+        "fn": 2,
+        "accuracy": 0.9,
+        "precision": 1,
+        "recall": 0.9,
+        "specificity": null,
+        "f1": 0.947368,
+        "balanced_accuracy": null,
+        "cohen_kappa": 0
+      },
+      "es": {
+        "n": 20,
+        "positives": 16,
+        "negatives": 4,
+        "tp": 12,
+        "fp": 0,
+        "tn": 4,
+        "fn": 4,
+        "accuracy": 0.8,
+        "precision": 1,
+        "recall": 0.75,
+        "specificity": 1,
+        "f1": 0.857143,
+        "balanced_accuracy": 0.875,
+        "cohen_kappa": 0.545455
+      },
+      "fr": {
+        "n": 20,
+        "positives": 13,
+        "negatives": 7,
+        "tp": 11,
+        "fp": 1,
+        "tn": 6,
+        "fn": 2,
+        "accuracy": 0.85,
+        "precision": 0.916667,
+        "recall": 0.846154,
+        "specificity": 0.857143,
+        "f1": 0.88,
+        "balanced_accuracy": 0.851648,
+        "cohen_kappa": 0.680851
+      },
+      "pt": {
+        "n": 20,
+        "positives": 15,
+        "negatives": 5,
+        "tp": 11,
+        "fp": 1,
+        "tn": 4,
+        "fn": 4,
+        "accuracy": 0.75,
+        "precision": 0.916667,
+        "recall": 0.733333,
+        "specificity": 0.8,
+        "f1": 0.814815,
+        "balanced_accuracy": 0.766667,
+        "cohen_kappa": 0.444444
+      }
+    },
+    "family": {
+      "descartes-mind-body-dualism": {
+        "n": 25,
+        "positives": 14,
+        "negatives": 11,
+        "tp": 11,
+        "fp": 0,
+        "tn": 11,
+        "fn": 3,
+        "accuracy": 0.88,
+        "precision": 1,
+        "recall": 0.785714,
+        "specificity": 1,
+        "f1": 0.88,
+        "balanced_accuracy": 0.892857,
+        "cohen_kappa": 0.763407
+      },
+      "philosophy-mind-psychology": {
+        "n": 25,
+        "positives": 20,
+        "negatives": 5,
+        "tp": 11,
+        "fp": 1,
+        "tn": 4,
+        "fn": 9,
+        "accuracy": 0.6,
+        "precision": 0.916667,
+        "recall": 0.55,
+        "specificity": 0.8,
+        "f1": 0.6875,
+        "balanced_accuracy": 0.675,
+        "cohen_kappa": 0.21875
+      },
+      "rawls-justice-fairness": {
+        "n": 25,
+        "positives": 23,
+        "negatives": 2,
+        "tp": 23,
+        "fp": 1,
+        "tn": 1,
+        "fn": 0,
+        "accuracy": 0.96,
+        "precision": 0.958333,
+        "recall": 1,
+        "specificity": 0.5,
+        "f1": 0.978723,
+        "balanced_accuracy": 0.75,
+        "cohen_kappa": 0.647887
+      },
+      "wittgenstein-tractatus": {
+        "n": 25,
+        "positives": 23,
+        "negatives": 2,
+        "tp": 20,
+        "fp": 0,
+        "tn": 2,
+        "fn": 3,
+        "accuracy": 0.88,
+        "precision": 1,
+        "recall": 0.869565,
+        "specificity": 1,
+        "f1": 0.930233,
+        "balanced_accuracy": 0.934783,
+        "cohen_kappa": 0.516129
+      }
+    },
+    "intent": {
+      "interdisciplinary-challenge": {
+        "n": 25,
+        "positives": 20,
+        "negatives": 5,
+        "tp": 11,
+        "fp": 1,
+        "tn": 4,
+        "fn": 9,
+        "accuracy": 0.6,
+        "precision": 0.916667,
+        "recall": 0.55,
+        "specificity": 0.8,
+        "f1": 0.6875,
+        "balanced_accuracy": 0.675,
+        "cohen_kappa": 0.21875
+      },
+      "philosopher-concept": {
+        "n": 50,
+        "positives": 37,
+        "negatives": 13,
+        "tp": 34,
+        "fp": 1,
+        "tn": 12,
+        "fn": 3,
+        "accuracy": 0.92,
+        "precision": 0.971429,
+        "recall": 0.918919,
+        "specificity": 0.923077,
+        "f1": 0.944444,
+        "balanced_accuracy": 0.920998,
+        "cohen_kappa": 0.80198
+      },
+      "work": {
+        "n": 25,
+        "positives": 23,
+        "negatives": 2,
+        "tp": 20,
+        "fp": 0,
+        "tn": 2,
+        "fn": 3,
+        "accuracy": 0.88,
+        "precision": 1,
+        "recall": 0.869565,
+        "specificity": 1,
+        "f1": 0.930233,
+        "balanced_accuracy": 0.934783,
+        "cohen_kappa": 0.516129
+      }
+    }
+  },
+  "errors": {
+    "false_positives": [
+      {
+        "audit_id": "QH046",
+        "query_id": "qhv-pt-04",
+        "record_id": "doi:10.58942/eqs.209",
+        "query": "filosofia da mente em psicologia",
+        "title": "Perspectivas em filosofia da mente e da informação",
+        "human_relevance": 1,
+        "qwen_raw_score": 0.901920676
+      },
+      {
+        "audit_id": "QH084",
+        "query_id": "qhv-fr-02",
+        "record_id": "openalex:W4311842072",
+        "query": "justice comme équité chez Rawls",
+        "title": "Rawls' Theory of International Justice: A Brief Reconstruction and Critical Commentary",
+        "human_relevance": 1,
+        "qwen_raw_score": 0.773216367
+      }
+    ],
+    "false_negatives": [
+      {
+        "audit_id": "QH002",
+        "query_id": "qhv-es-03",
+        "record_id": "doi:10.15581/009.28.29816",
+        "query": "Tractatus lógico-filosófico de Wittgenstein",
+        "title": "Los pensamientos en el \"Tractatus\": la teoría psicológica y la carta de Wittgenstein a Russell de 1919",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.542863309
+      },
+      {
+        "audit_id": "QH010",
+        "query_id": "qhv-es-04",
+        "record_id": "doi:10.32870/prot.i6.92",
+        "query": "filosofía de la mente en psicología",
+        "title": "La mente computacional. Orígenes y fundamentos de la ciencia cognitiva.",
+        "human_relevance": 2,
+        "qwen_raw_score": 0.037608631
+      },
+      {
+        "audit_id": "QH015",
+        "query_id": "qhv-pt-04",
+        "record_id": "source:internet-archive:integrativepsych032637mbp",
+        "query": "filosofia da mente em psicologia",
+        "title": "Integrative Psychology",
+        "human_relevance": 2,
+        "qwen_raw_score": 0.022629196
+      },
+      {
+        "audit_id": "QH022",
+        "query_id": "qhv-es-03",
+        "record_id": "doi:10.15581/009.37.29387",
+        "query": "Tractatus lógico-filosófico de Wittgenstein",
+        "title": "Las nociones de «Sachverhalt», «Tatsache» y «Sachlage» en el \"Tractatus\" de Wittgenstein",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.345105231
+      },
+      {
+        "audit_id": "QH030",
+        "query_id": "qhv-en-04",
+        "record_id": "source:internet-archive:integrativepsych032637mbp",
+        "query": "philosophy of mind in psychology",
+        "title": "Integrative Psychology",
+        "human_relevance": 2,
+        "qwen_raw_score": 0.01312127
+      },
+      {
+        "audit_id": "QH031",
+        "query_id": "qhv-de-04",
+        "record_id": "source:internet-archive:integrativepsych032637mbp",
+        "query": "Philosophie des Geistes in der Psychologie",
+        "title": "Integrative Psychology",
+        "human_relevance": 2,
+        "qwen_raw_score": 0.023509448
+      },
+      {
+        "audit_id": "QH037",
+        "query_id": "qhv-de-04",
+        "record_id": "source:internet-archive:hanna_rationality_and_logic_2006",
+        "query": "Philosophie des Geistes in der Psychologie",
+        "title": "Rationality and Logic",
+        "human_relevance": 2,
+        "qwen_raw_score": 0.014281934
+      },
+      {
+        "audit_id": "QH045",
+        "query_id": "qhv-pt-01",
+        "record_id": "openalex:W4415184808",
+        "query": "dualismo mente-corpo em Descartes",
+        "title": "Can Critical Philosophy End the Epistemological Dilemma?: On the Break of Modern Philosophy from Descartes to Kant",
+        "human_relevance": 2,
+        "qwen_raw_score": 0.013955709
+      },
+      {
+        "audit_id": "QH057",
+        "query_id": "qhv-de-01",
+        "record_id": "doi:10.30965/9783957438409",
+        "query": "Leib-Seele-Dualismus bei Descartes",
+        "title": "Descartes im Rückspiegel",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.224055454
+      },
+      {
+        "audit_id": "QH060",
+        "query_id": "qhv-fr-04",
+        "record_id": "source:internet-archive:integrativepsych032637mbp",
+        "query": "philosophie de l'esprit en psychologie",
+        "title": "Integrative Psychology",
+        "human_relevance": 2,
+        "qwen_raw_score": 0.029535336
+      },
+      {
+        "audit_id": "QH064",
+        "query_id": "qhv-pt-04",
+        "record_id": "doi:10.5216/phi.v15i2.8679",
+        "query": "filosofia da mente em psicologia",
+        "title": "ALCANCES E LIMITES DA PSICOLOGIA EVOLUTIVA PARA A COMPREENSÃO DA MENTE",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.171061188
+      },
+      {
+        "audit_id": "QH066",
+        "query_id": "qhv-fr-04",
+        "record_id": "source:internet-archive:elementsofthephi031652mbp",
+        "query": "philosophie de l'esprit en psychologie",
+        "title": "Elements Of The Philosophy Of The Human Mind",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.259825617
+      },
+      {
+        "audit_id": "QH068",
+        "query_id": "qhv-pt-01",
+        "record_id": "openalex:W7120561930",
+        "query": "dualismo mente-corpo em Descartes",
+        "title": "The mind in the perspective of linguistic pragmatism: the categorical error of Renè Descartes and the pragmatics of Gilbert Ryle",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.129402727
+      },
+      {
+        "audit_id": "QH083",
+        "query_id": "qhv-en-04",
+        "record_id": "source:internet-archive:elementsofthephi031652mbp",
+        "query": "philosophy of mind in psychology",
+        "title": "Elements Of The Philosophy Of The Human Mind",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.25386098
+      },
+      {
+        "audit_id": "QH085",
+        "query_id": "qhv-es-03",
+        "record_id": "doi:10.47749/t/unicamp.2013.915124",
+        "query": "Tractatus lógico-filosófico de Wittgenstein",
+        "title": "Metafísica e Misticismo no Tractatus de Wittgenstein",
+        "human_relevance": 3,
+        "qwen_raw_score": 0.315735966
+      }
+    ]
+  },
+  "protocol": {
+    "qwen_scores_frozen_before_human_judgments": true,
+    "threshold_retuned_on_holdout": false,
+    "one_human_adjudicator": true,
+    "external_source_checking_during_adjudication": true,
+    "titles_abstracts_seen_before_adjudication_during_dataset_check": true,
+    "qwen_outputs_seen_before_or_during_adjudication": false,
+    "judgment_metadata_protocol_notes": [
+      "The adjudicator had previously seen document titles/abstracts during a model-input dataset check before manual labeling.",
+      "The supplied manual text includes some explicit references to checking original sources or external bibliographic information; this should be disclosed when interpreting the holdout as a validation artifact.",
+      "No per-item judgment timestamps were supplied; judged_at is null rather than fabricated."
+    ]
+  },
+  "caveats": [
+    "The binary-positive prevalence is 80/100, so class-imbalance-sensitive metrics must be read alongside specificity, balanced accuracy, kappa, ROC AUC, and the confusion matrix.",
+    "One human adjudicator supplied the relevance labels.",
+    "Some individual judgments used external source or bibliographic checking beyond the frozen title/abstract fields.",
+    "The adjudicator had previously seen titles/abstracts during a dataset check, but did not see Qwen outputs, retrieval ranks, production scores, or provider provenance before/during adjudication.",
+    "This report validates the frozen Qwen candidate on sampled query-document pairs; it does not by itself establish end-to-end ranking gains in production."
+  ]
+}
