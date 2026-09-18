@@ -185,7 +185,7 @@
     "changes_conjunction_v1": false
   },
   "ranking_lab": {
-    "status": "ab-frozen-blind-delta-audit-builder-ready",
+    "status": "human-judgments-frozen-delta-analysis-ready",
     "branch": "ranking/qwen3-reranker-v1",
     "ranking_experiment_id": "qwen3-ranking-v1",
     "preregistration": "benchmark/qwen3/ranking/qwen3-ranking-v1.preregistered.json",
@@ -238,6 +238,17 @@
       "production score",
       "record/provider identity",
       "retrieval provenance"
-    ]
+    ],
+    "human_judgments": "benchmark/qwen3/ranking/audit/qwen3-ranking-v1-delta-audit.judgments.jsonl",
+    "human_judgments_metadata": "benchmark/qwen3/ranking/audit/qwen3-ranking-v1-delta-audit.judgments.meta.json",
+    "human_judgment_freeze_commit": "5987766",
+    "human_judgments_sha256": "59a0d3e67677df21f298f184d939530120cdc5778862d936f711b8062eb03cd1",
+    "human_judgments_metadata_sha256": "af12c4d47da6e80bab77464d8937a5d4e2bd40681484e34fa7877ca0cb7e7861",
+    "human_delta_analyzer": "scripts/benchmark/qwen3/analyze_ranking_delta_audit.mjs",
+    "human_delta_report": "benchmark/qwen3/ranking/reports/qwen3-ranking-v1-human-delta.json",
+    "human_delta_report_markdown": "benchmark/qwen3/ranking/reports/qwen3-ranking-v1-human-delta.md",
+    "absolute_human_p10_identified": false,
+    "exact_human_delta_p10_identified": true,
+    "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
   }
 }
