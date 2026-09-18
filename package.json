@@ -64,7 +64,8 @@
     "benchmark:qwen3:ranking:run": "npm run build:duckdb && node scripts/benchmark/qwen3/run_ranking_lab_server.mjs",
     "benchmark:qwen3:ranking:dataset": "node scripts/benchmark/qwen3/build_ranking_dataset.mjs",
     "benchmark:qwen3:ranking:infer": "python scripts/benchmark/qwen3/inference.py --manifest benchmark/qwen3/configs/qwen3-ranking-v1.inference.json --output benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.jsonl --meta benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.meta.json --cache benchmark/qwen3/cache/qwen3-ranking-v1.cache.jsonl --batch-size 2 --dtype float16",
-    "benchmark:qwen3:ranking:ab": "node scripts/benchmark/qwen3/build_ranking_ab.mjs"
+    "benchmark:qwen3:ranking:ab": "node scripts/benchmark/qwen3/build_ranking_ab.mjs",
+    "benchmark:qwen3:ranking:audit:sample": "node scripts/benchmark/qwen3/build_ranking_delta_audit.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
