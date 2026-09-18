@@ -1,0 +1,29 @@
+{
+  "schema_version": "qwen3-holdout-manual-judgments-meta-v1",
+  "validation_id": "qwen3-reranker-v1-holdout-v1",
+  "purpose": "fresh-holdout-manual-adjudication",
+  "row_count": 100,
+  "sample_path": "benchmark/qwen3/validation/qwen3-reranker-v1-holdout.sample.jsonl",
+  "sample_sha256": "e8ccace4407ce9d235aefdf0a2cdc8ec36ec0d1df9843d9ae53611001f0f8942",
+  "score_freeze_commit": "b8c4a7a",
+  "raw_scores_sha256": "dc8cb4c9a377e7b4191e5299e274fe9a63af55cdea407026304a6c08a33b6f23",
+  "predictions_sha256": "27898e33a40b4b438946a69f616418697c6bd2862fb4e151dfbce09985657408",
+  "scores_frozen_before_manual_labels": true,
+  "qwen_outputs_used_by_converter": false,
+  "binary_relevant_threshold": 2,
+  "individual_judgment_timestamps_available": false,
+  "adjudicator_provenance": "user-supplied manual labels",
+  "label_distribution": {
+    "0": 6,
+    "1": 14,
+    "2": 19,
+    "3": 61
+  },
+  "judgments_path": "benchmark/qwen3/validation/qwen3-reranker-v1-holdout.judgments.jsonl",
+  "judgments_sha256": "d9c260018e68c376e487486c38f57894e93abdf962de105ebc3a4fda72542c9c",
+  "protocol_notes": [
+    "The adjudicator had previously seen document titles/abstracts during a model-input dataset check before manual labeling.",
+    "The supplied manual text includes some explicit references to checking original sources or external bibliographic information; this should be disclosed when interpreting the holdout as a validation artifact.",
+    "No per-item judgment timestamps were supplied; judged_at is null rather than fabricated."
+  ]
+}
