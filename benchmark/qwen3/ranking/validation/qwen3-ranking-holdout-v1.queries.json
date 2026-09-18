@@ -1,0 +1,201 @@
+{
+  "schema_version": "qwen3-ranking-holdout-queries-v1",
+  "validation_id": "qwen3-ranking-holdout-v1",
+  "purpose": "fresh-ranking-validation",
+  "languages": [
+    "es",
+    "en",
+    "de",
+    "fr",
+    "pt"
+  ],
+  "families": [
+    "nietzsche-eternal-recurrence",
+    "aquinas-natural-law",
+    "plato-republic",
+    "feminist-epistemology-science",
+    "philosophy-language-linguistics"
+  ],
+  "intent_mix": {
+    "philosopher-concept": 10,
+    "work": 5,
+    "interdisciplinary-challenge": 10
+  },
+  "queries": [
+    {
+      "id": "qrh-es-01",
+      "language": "es",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "query": "eterno retorno en Nietzsche"
+    },
+    {
+      "id": "qrh-en-01",
+      "language": "en",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "query": "eternal recurrence in Nietzsche"
+    },
+    {
+      "id": "qrh-de-01",
+      "language": "de",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "query": "ewige Wiederkunft bei Nietzsche"
+    },
+    {
+      "id": "qrh-fr-01",
+      "language": "fr",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "query": "éternel retour chez Nietzsche"
+    },
+    {
+      "id": "qrh-pt-01",
+      "language": "pt",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "query": "eterno retorno em Nietzsche"
+    },
+    {
+      "id": "qrh-es-02",
+      "language": "es",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "query": "ley natural en Tomás de Aquino"
+    },
+    {
+      "id": "qrh-en-02",
+      "language": "en",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "query": "natural law in Thomas Aquinas"
+    },
+    {
+      "id": "qrh-de-02",
+      "language": "de",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "query": "Naturrecht bei Thomas von Aquin"
+    },
+    {
+      "id": "qrh-fr-02",
+      "language": "fr",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "query": "loi naturelle chez Thomas d'Aquin"
+    },
+    {
+      "id": "qrh-pt-02",
+      "language": "pt",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "query": "lei natural em Tomás de Aquino"
+    },
+    {
+      "id": "qrh-es-03",
+      "language": "es",
+      "family": "plato-republic",
+      "intent": "work",
+      "query": "República de Platón"
+    },
+    {
+      "id": "qrh-en-03",
+      "language": "en",
+      "family": "plato-republic",
+      "intent": "work",
+      "query": "Plato Republic"
+    },
+    {
+      "id": "qrh-de-03",
+      "language": "de",
+      "family": "plato-republic",
+      "intent": "work",
+      "query": "Politeia Platon"
+    },
+    {
+      "id": "qrh-fr-03",
+      "language": "fr",
+      "family": "plato-republic",
+      "intent": "work",
+      "query": "La République Platon"
+    },
+    {
+      "id": "qrh-pt-03",
+      "language": "pt",
+      "family": "plato-republic",
+      "intent": "work",
+      "query": "República de Platão"
+    },
+    {
+      "id": "qrh-es-04",
+      "language": "es",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "query": "epistemología feminista en la ciencia"
+    },
+    {
+      "id": "qrh-en-04",
+      "language": "en",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "query": "feminist epistemology in science"
+    },
+    {
+      "id": "qrh-de-04",
+      "language": "de",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "query": "feministische Epistemologie in der Wissenschaft"
+    },
+    {
+      "id": "qrh-fr-04",
+      "language": "fr",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "query": "épistémologie féministe en science"
+    },
+    {
+      "id": "qrh-pt-04",
+      "language": "pt",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "query": "epistemologia feminista na ciência"
+    },
+    {
+      "id": "qrh-es-05",
+      "language": "es",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "query": "filosofía del lenguaje en lingüística"
+    },
+    {
+      "id": "qrh-en-05",
+      "language": "en",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "query": "philosophy of language in linguistics"
+    },
+    {
+      "id": "qrh-de-05",
+      "language": "de",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "query": "Sprachphilosophie in der Linguistik"
+    },
+    {
+      "id": "qrh-fr-05",
+      "language": "fr",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "query": "philosophie du langage en linguistique"
+    },
+    {
+      "id": "qrh-pt-05",
+      "language": "pt",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "query": "filosofia da linguagem na linguística"
+    }
+  ]
+}
