@@ -250,5 +250,30 @@
     "absolute_human_p10_identified": false,
     "exact_human_delta_p10_identified": true,
     "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
+  },
+  "ranking_holdout": {
+    "status": "preregistered-before-retrieval",
+    "validation_id": "qwen3-ranking-holdout-v1",
+    "branch": "validation/qwen3-ranking-holdout-v1",
+    "development_ranking_report_freeze_commit": "d12ba5c",
+    "preregistration": "benchmark/qwen3/ranking/validation/qwen3-ranking-holdout-v1.preregistered.json",
+    "query_set": "benchmark/qwen3/ranking/validation/qwen3-ranking-holdout-v1.queries.json",
+    "query_count": 25,
+    "languages": [
+      "es",
+      "en",
+      "de",
+      "fr",
+      "pt"
+    ],
+    "families": 5,
+    "pool_depth": 20,
+    "retrieval_server": "scripts/benchmark/qwen3/run_ranking_holdout_server.mjs",
+    "retrieval_ui": "benchmark/qwen3/runner-ranking-holdout.html",
+    "qwen_used_during_retrieval": false,
+    "human_labels_used_during_retrieval": false,
+    "ranking_policy": "pure Qwen raw-score rerank of the exact frozen Top-20 pool",
+    "primary_metric": "exact paired human delta P@10 from the blind Top-10 symmetric difference",
+    "production_change_authorized": false
   }
 }
