@@ -185,7 +185,7 @@
     "changes_conjunction_v1": false
   },
   "ranking_lab": {
-    "status": "model-input-dataset-frozen-inference-ready",
+    "status": "raw-scores-frozen-ab-builder-ready",
     "branch": "ranking/qwen3-reranker-v1",
     "ranking_experiment_id": "qwen3-ranking-v1",
     "preregistration": "benchmark/qwen3/ranking/qwen3-ranking-v1.preregistered.json",
@@ -211,6 +211,14 @@
     "inference_manifest": "benchmark/qwen3/configs/qwen3-ranking-v1.inference.json",
     "raw_scores": "benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.jsonl",
     "raw_scores_metadata": "benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.meta.json",
-    "local_cache": "benchmark/qwen3/cache/qwen3-ranking-v1.cache.jsonl"
+    "local_cache": "benchmark/qwen3/cache/qwen3-ranking-v1.cache.jsonl",
+    "raw_score_freeze_commit": "1ae4dff",
+    "raw_scores_sha256": "09483050c0c327c3fb9115c245a0584ac9f38107133e0363fa255d23a0b4b29c",
+    "raw_scores_metadata_sha256": "3c76b30b9410b2e4b553a54badf8b108c0cf2b52e12dd59fcbc676f04946fa82",
+    "ab_builder": "scripts/benchmark/qwen3/build_ranking_ab.mjs",
+    "ab_run": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-ab.jsonl",
+    "ab_metadata": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-ab.meta.json",
+    "movement_report": "benchmark/qwen3/ranking/reports/qwen3-ranking-v1-movement.json",
+    "movement_report_markdown": "benchmark/qwen3/ranking/reports/qwen3-ranking-v1-movement.md"
   }
 }
