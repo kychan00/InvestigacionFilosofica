@@ -183,5 +183,20 @@
     "changes_parser_js": false,
     "changes_expander_js": false,
     "changes_conjunction_v1": false
+  },
+  "ranking_lab": {
+    "status": "preregistered-retrieval-ready",
+    "branch": "ranking/qwen3-reranker-v1",
+    "ranking_experiment_id": "qwen3-ranking-v1",
+    "preregistration": "benchmark/qwen3/ranking/qwen3-ranking-v1.preregistered.json",
+    "production_base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
+    "validation_freeze_commit": "86c7fe2",
+    "query_set": "benchmark/queries.json",
+    "query_count": 50,
+    "pool_depth": 20,
+    "candidate_policy": "pure Qwen raw-score rerank on the same frozen Top-20 pool; production rank tie-breaker",
+    "threshold_used_for_ranking": false,
+    "score_blending": false,
+    "production_ranking_changed": false
   }
 }
