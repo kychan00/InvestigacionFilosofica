@@ -1,0 +1,27 @@
+{
+  "schema_version": "qwen3-ranking-human-judgments-meta-v1",
+  "ranking_experiment_id": "qwen3-ranking-v1",
+  "audit_version": "qwen3-ranking-v1-delta-audit-v1",
+  "purpose": "blind-human-top10-delta-adjudication",
+  "row_count": 352,
+  "audit_id_first": "QR001",
+  "audit_id_last": "QR352",
+  "relevant_threshold": 2,
+  "distribution": {
+    "0": 62,
+    "1": 38,
+    "2": 66,
+    "3": 186
+  },
+  "relevant_count": 252,
+  "nonrelevant_count": 100,
+  "contains_ab_condition": false,
+  "contains_rank": false,
+  "contains_qwen_score": false,
+  "contains_record_id": false,
+  "judged_at_policy": "null to avoid fabricating timestamps",
+  "source_note": "QR001–QR010 from the user's earlier adjudication message in this conversation; QR011–QR352 from the user's reviewed attachment.",
+  "review_method_note": "Human adjudication was blind to A/B condition; the user reports the full set as completed and reviewed. Some individual notes/opinions indicate external source checking where needed.",
+  "source_attachment_sha256": "20cd4b58fcac6216c1e8c6801fd8ce54a449b5cf469b8607eea9651a65ff88db",
+  "judgments_sha256": "59a0d3e67677df21f298f184d939530120cdc5778862d936f711b8062eb03cd1"
+}
