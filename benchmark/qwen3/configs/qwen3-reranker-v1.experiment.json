@@ -185,7 +185,7 @@
     "changes_conjunction_v1": false
   },
   "ranking_lab": {
-    "status": "production-pool-frozen-dataset-builder-ready",
+    "status": "model-input-dataset-frozen-inference-ready",
     "branch": "ranking/qwen3-reranker-v1",
     "ranking_experiment_id": "qwen3-ranking-v1",
     "preregistration": "benchmark/qwen3/ranking/qwen3-ranking-v1.preregistered.json",
@@ -204,6 +204,13 @@
     "production_pool_sha256": "596dcb74f786a4e4ff40a705ec9f440accdfebca1ffcdadcdad2548ef7003b4c",
     "model_input_dataset": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.jsonl",
     "model_input_metadata": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.meta.json",
-    "dataset_builder": "scripts/benchmark/qwen3/build_ranking_dataset.mjs"
+    "dataset_builder": "scripts/benchmark/qwen3/build_ranking_dataset.mjs",
+    "model_input_freeze_commit": "0efb8e1",
+    "model_input_sha256": "d0f6b29834053615b44f823c7cb61f14478965eb72409ba1ab98742da224c548",
+    "model_input_metadata_sha256": "c535c15f12784c69b5b14c8d641975eeef5864826b1e8d028621451a2fb70a43",
+    "inference_manifest": "benchmark/qwen3/configs/qwen3-ranking-v1.inference.json",
+    "raw_scores": "benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.jsonl",
+    "raw_scores_metadata": "benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.meta.json",
+    "local_cache": "benchmark/qwen3/cache/qwen3-ranking-v1.cache.jsonl"
   }
 }
