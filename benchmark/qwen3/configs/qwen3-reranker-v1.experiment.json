@@ -185,7 +185,7 @@
     "changes_conjunction_v1": false
   },
   "ranking_lab": {
-    "status": "preregistered-retrieval-ready",
+    "status": "production-pool-frozen-dataset-builder-ready",
     "branch": "ranking/qwen3-reranker-v1",
     "ranking_experiment_id": "qwen3-ranking-v1",
     "preregistration": "benchmark/qwen3/ranking/qwen3-ranking-v1.preregistered.json",
@@ -197,6 +197,13 @@
     "candidate_policy": "pure Qwen raw-score rerank on the same frozen Top-20 pool; production rank tie-breaker",
     "threshold_used_for_ranking": false,
     "score_blending": false,
-    "production_ranking_changed": false
+    "production_ranking_changed": false,
+    "production_pool_path": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-production-pool-c2ca5ed.jsonl",
+    "production_pool_meta": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-production-pool-c2ca5ed.meta.json",
+    "production_pool_freeze_commit": "36314cc",
+    "production_pool_sha256": "596dcb74f786a4e4ff40a705ec9f440accdfebca1ffcdadcdad2548ef7003b4c",
+    "model_input_dataset": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.jsonl",
+    "model_input_metadata": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.meta.json",
+    "dataset_builder": "scripts/benchmark/qwen3/build_ranking_dataset.mjs"
   }
 }
