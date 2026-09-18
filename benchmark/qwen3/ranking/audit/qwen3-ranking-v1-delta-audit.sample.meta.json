@@ -1,0 +1,52 @@
+{
+  "schema_version": "qwen3-ranking-delta-audit-sample-meta-v1",
+  "ranking_experiment_id": "qwen3-ranking-v1",
+  "audit_version": "qwen3-ranking-v1-delta-audit-v1",
+  "purpose": "blind-human-top10-delta-audit",
+  "ab_run_path": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-ab.jsonl",
+  "ab_run_sha256": "739a21abc41d34f8274a9be693e5d80b38845665d376a169c7f90214ff9c66d4",
+  "ab_metadata_path": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-ab.meta.json",
+  "ab_metadata_sha256": "d8ef532ad4f67e51315761fc38d683ef80d07dd551af72bfca046ec49a6eab9b",
+  "ab_freeze_commit": "ebf816d",
+  "sampling_rule": "every query-document pair in the symmetric difference between A and B Top 10",
+  "audit_order": "deterministic SHA-256 order over audit_version + query_id + record_id",
+  "row_count": 352,
+  "query_count": 50,
+  "side_counts_hidden_from_public_sample": {
+    "A-only": 176,
+    "B-only": 176
+  },
+  "by_language": {
+    "es": 72,
+    "fr": 78,
+    "en": 74,
+    "de": 66,
+    "pt": 62
+  },
+  "by_intent": {
+    "philosopher-concept": 190,
+    "interdisciplinary-challenge": 94,
+    "work": 68
+  },
+  "by_family": {
+    "aristotle-virtue": 40,
+    "challenge-phenomenology-nursing": 52,
+    "hegel-phenomenology-spirit": 34,
+    "kant-freedom": 22,
+    "husserl-intentionality": 28,
+    "levinas-alterity": 32,
+    "spinoza-substance": 42,
+    "heidegger-being-time": 34,
+    "dussel-liberation": 26,
+    "challenge-ontology-compsci": 42
+  },
+  "relevant_threshold": 2,
+  "sample_sha256": "11fe8e4f5ee4ffbe64cbfa4a2b4346955c75fe136618539c08c3f6f347aa9068",
+  "contains_condition": false,
+  "contains_rank": false,
+  "contains_record_id": false,
+  "contains_production_score": false,
+  "contains_qwen_score": false,
+  "contains_provider_provenance": false,
+  "contains_human_judgments": false
+}

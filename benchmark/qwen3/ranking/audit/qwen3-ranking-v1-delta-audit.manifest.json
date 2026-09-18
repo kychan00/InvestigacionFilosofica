@@ -1,0 +1,3535 @@
+{
+  "schema_version": "qwen3-ranking-delta-audit-manifest-v1",
+  "ranking_experiment_id": "qwen3-ranking-v1",
+  "audit_version": "qwen3-ranking-v1-delta-audit-v1",
+  "purpose": "private-audit-provenance",
+  "warning": "Do not inspect this manifest before human adjudication is frozen. It reveals A/B side and ranks.",
+  "ab_run_path": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-ab.jsonl",
+  "ab_run_sha256": "739a21abc41d34f8274a9be693e5d80b38845665d376a169c7f90214ff9c66d4",
+  "sample_path": "benchmark/qwen3/ranking/audit/qwen3-ranking-v1-delta-audit.sample.jsonl",
+  "sample_sha256": "11fe8e4f5ee4ffbe64cbfa4a2b4346955c75fe136618539c08c3f6f347aa9068",
+  "audit_rows": 352,
+  "relevant_threshold": 2,
+  "items": [
+    {
+      "audit_id": "QR001",
+      "query_id": "es-03",
+      "record_id": "doi:10.1515/9781474472845-018",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 9,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9629528522491455
+    },
+    {
+      "audit_id": "QR002",
+      "query_id": "fr-09",
+      "record_id": "doi:10.4324/9781003427407-47",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 6,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9950177073478699
+    },
+    {
+      "audit_id": "QR003",
+      "query_id": "fr-08",
+      "record_id": "doi:10.3726/978-3-653-04401-0/15",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 13,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9834704995155334
+    },
+    {
+      "audit_id": "QR004",
+      "query_id": "es-01",
+      "record_id": "openalex:W3164316448",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 17,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9609517455101013
+    },
+    {
+      "audit_id": "QR005",
+      "query_id": "en-04",
+      "record_id": "openalex:W2051758275",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 10,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9970190525054932
+    },
+    {
+      "audit_id": "QR006",
+      "query_id": "en-04",
+      "record_id": "openalex:W53650507",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 6,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9978510141372681
+    },
+    {
+      "audit_id": "QR007",
+      "query_id": "de-03",
+      "record_id": "openalex:W7084225307",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 4,
+      "original_rank": 12,
+      "qwen_raw_score": 0.7371581792831421
+    },
+    {
+      "audit_id": "QR008",
+      "query_id": "es-09",
+      "record_id": "doi:10.4324/9781003427407-48",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 8,
+      "original_rank": 15,
+      "qwen_raw_score": 0.995866060256958
+    },
+    {
+      "audit_id": "QR009",
+      "query_id": "en-03",
+      "record_id": "doi:10.1093/acprof:oso/9780198242673.003.0008",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 2,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9907320141792297
+    },
+    {
+      "audit_id": "QR010",
+      "query_id": "pt-05",
+      "record_id": "doi:10.48021/978-65-270-0447-9",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 3,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9978001713752747
+    },
+    {
+      "audit_id": "QR011",
+      "query_id": "en-09",
+      "record_id": "doi:10.1891/9780826126870.0007",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 20,
+      "original_rank": 9,
+      "qwen_raw_score": 0.9032942056655884
+    },
+    {
+      "audit_id": "QR012",
+      "query_id": "en-06",
+      "record_id": "openalex:W2049442331",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 13,
+      "original_rank": 7,
+      "qwen_raw_score": 0.9768466353416443
+    },
+    {
+      "audit_id": "QR013",
+      "query_id": "pt-05",
+      "record_id": "doi:10.36592/9786554602716-13",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 4,
+      "original_rank": 11,
+      "qwen_raw_score": 0.997730553150177
+    },
+    {
+      "audit_id": "QR014",
+      "query_id": "es-06",
+      "record_id": "source:internet-archive:14.-el-concepto-de-sustancia-de-spinoza-a-hegel",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 4,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9975656270980835
+    },
+    {
+      "audit_id": "QR015",
+      "query_id": "de-02",
+      "record_id": "source:internet-archive:heideggermartinseinundzeit_20200121",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 3,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9946980476379395
+    },
+    {
+      "audit_id": "QR016",
+      "query_id": "en-05",
+      "record_id": "openalex:W4401099553",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 10,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9938070178031921
+    },
+    {
+      "audit_id": "QR017",
+      "query_id": "pt-04",
+      "record_id": "openalex:W7119396911",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 5,
+      "original_rank": 12,
+      "qwen_raw_score": 0.997730553150177
+    },
+    {
+      "audit_id": "QR018",
+      "query_id": "fr-04",
+      "record_id": "openalex:W2968284342",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 3,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9949396848678589
+    },
+    {
+      "audit_id": "QR019",
+      "query_id": "es-02",
+      "record_id": "doi:10.31560/pimentacultural/2022.94814.08",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 3,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9976769089698792
+    },
+    {
+      "audit_id": "QR020",
+      "query_id": "es-09",
+      "record_id": "doi:10.1007/978-3-030-47253-5_374-1",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 10,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9942697286605835
+    },
+    {
+      "audit_id": "QR021",
+      "query_id": "pt-08",
+      "record_id": "doi:10.17771/pucrio.acad.7798",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 11,
+      "original_rank": 10,
+      "qwen_raw_score": 0.9972637891769409
+    },
+    {
+      "audit_id": "QR022",
+      "query_id": "de-09",
+      "record_id": "doi:10.1007/978-3-662-68848-9_16-1",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 10,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9817357659339905
+    },
+    {
+      "audit_id": "QR023",
+      "query_id": "es-07",
+      "record_id": "source:internet-archive:dussel-enrique-introduccion-a-la-filosofia-de-la-liberacion-2a-ed",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 5,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9992792010307312
+    },
+    {
+      "audit_id": "QR024",
+      "query_id": "de-08",
+      "record_id": "openalex:W1637835749",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9917484521865845
+    },
+    {
+      "audit_id": "QR025",
+      "query_id": "pt-06",
+      "record_id": "doi:10.11606/d.17.2020.tde-20082020-111631",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 14,
+      "original_rank": 7,
+      "qwen_raw_score": 0.00028685404686257243
+    },
+    {
+      "audit_id": "QR026",
+      "query_id": "de-03",
+      "record_id": "doi:10.1515/9783110859720.207",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 12,
+      "original_rank": 4,
+      "qwen_raw_score": 0.33982759714126587
+    },
+    {
+      "audit_id": "QR027",
+      "query_id": "en-09",
+      "record_id": "openalex:W4318710784",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 8,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9973269701004028
+    },
+    {
+      "audit_id": "QR028",
+      "query_id": "fr-06",
+      "record_id": "doi:10.4000/books.psorbonne.140",
+      "selection_side": "A-only",
+      "a_rank": 2,
+      "b_rank": 16,
+      "original_rank": 2,
+      "qwen_raw_score": 0.8244618773460388
+    },
+    {
+      "audit_id": "QR029",
+      "query_id": "fr-06",
+      "record_id": "doi:10.70675/f757e2d8zd909z47c6z834aze12dda684134",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 12,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9481545686721802
+    },
+    {
+      "audit_id": "QR030",
+      "query_id": "de-09",
+      "record_id": "doi:10.5771/9783495997758-221",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 11,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9709092378616333
+    },
+    {
+      "audit_id": "QR031",
+      "query_id": "en-05",
+      "record_id": "doi:10.2307/j.ctv125js37.3",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 8,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9955315589904785
+    },
+    {
+      "audit_id": "QR032",
+      "query_id": "es-02",
+      "record_id": "doi:10.32870/prot.i23.389",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 18,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9621075391769409
+    },
+    {
+      "audit_id": "QR033",
+      "query_id": "es-01",
+      "record_id": "doi:10.5840/wcp11195313421",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 20,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9273633360862732
+    },
+    {
+      "audit_id": "QR034",
+      "query_id": "fr-07",
+      "record_id": "openalex:W7023716351",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 9,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9977481961250305
+    },
+    {
+      "audit_id": "QR035",
+      "query_id": "pt-06",
+      "record_id": "doi:10.11606/d.8.2008.tde-04072008-152419",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 12,
+      "original_rank": 5,
+      "qwen_raw_score": 0.07369626313447952
+    },
+    {
+      "audit_id": "QR036",
+      "query_id": "fr-06",
+      "record_id": "openalex:W2920176162",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 3,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9949396848678589
+    },
+    {
+      "audit_id": "QR037",
+      "query_id": "de-03",
+      "record_id": "doi:10.1515/9783110856750.125",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 11,
+      "original_rank": 6,
+      "qwen_raw_score": 0.377540647983551
+    },
+    {
+      "audit_id": "QR038",
+      "query_id": "es-03",
+      "record_id": "doi:10.1515/9781474472845-017",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 6,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9750121831893921
+    },
+    {
+      "audit_id": "QR039",
+      "query_id": "de-05",
+      "record_id": "doi:10.5771/9783748969860-59",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 11,
+      "original_rank": 10,
+      "qwen_raw_score": 0.8080672025680542
+    },
+    {
+      "audit_id": "QR040",
+      "query_id": "de-06",
+      "record_id": "doi:10.30965/9783846764312_003",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 16,
+      "original_rank": 7,
+      "qwen_raw_score": 0.1233656108379364
+    },
+    {
+      "audit_id": "QR041",
+      "query_id": "de-08",
+      "record_id": "openalex:W634459012",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 16,
+      "original_rank": 10,
+      "qwen_raw_score": 0.9818752408027649
+    },
+    {
+      "audit_id": "QR042",
+      "query_id": "fr-01",
+      "record_id": "doi:10.32870/prot.i27.463",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 12,
+      "original_rank": 9,
+      "qwen_raw_score": 0.6791787147521973
+    },
+    {
+      "audit_id": "QR043",
+      "query_id": "fr-06",
+      "record_id": "openalex:W6955084309",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 7,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9919379353523254
+    },
+    {
+      "audit_id": "QR044",
+      "query_id": "es-03",
+      "record_id": "doi:10.18800/estudiosdefilosofia.202301.001",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 10,
+      "original_rank": 19,
+      "qwen_raw_score": 0.9515040516853333
+    },
+    {
+      "audit_id": "QR045",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0345",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 17,
+      "original_rank": 8,
+      "qwen_raw_score": 0.325949490070343
+    },
+    {
+      "audit_id": "QR046",
+      "query_id": "fr-09",
+      "record_id": "source:internet-archive:ERIC_EJ956977",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 10,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9184802770614624
+    },
+    {
+      "audit_id": "QR047",
+      "query_id": "en-09",
+      "record_id": "openalex:W4318710794",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 4,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9973269701004028
+    },
+    {
+      "audit_id": "QR048",
+      "query_id": "pt-03",
+      "record_id": "source:internet-archive:aristoteles-e-as-virtudes-morais",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 1,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9979652166366577
+    },
+    {
+      "audit_id": "QR049",
+      "query_id": "es-10",
+      "record_id": "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 3,
+      "original_rank": 16,
+      "qwen_raw_score": 0.8933094143867493
+    },
+    {
+      "audit_id": "QR050",
+      "query_id": "fr-10",
+      "record_id": "doi:10.32870/prot.i26.446",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 10,
+      "original_rank": 19,
+      "qwen_raw_score": 0.008847354911267757
+    },
+    {
+      "audit_id": "QR051",
+      "query_id": "es-06",
+      "record_id": "source:internet-archive:spinoza.-quinto-coloquio-aa-vv-diego-tatian-compilador",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 9,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9829546809196472
+    },
+    {
+      "audit_id": "QR052",
+      "query_id": "de-10",
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 14,
+      "original_rank": 5,
+      "qwen_raw_score": 0.3363310396671295
+    },
+    {
+      "audit_id": "QR053",
+      "query_id": "pt-06",
+      "record_id": "doi:10.47749/t/unicamp.2015.948690",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 20,
+      "original_rank": 6,
+      "qwen_raw_score": 0.000018962144167744555
+    },
+    {
+      "audit_id": "QR054",
+      "query_id": "de-05",
+      "record_id": "doi:10.32870/prot.i29.497",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 9,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9099069833755493
+    },
+    {
+      "audit_id": "QR055",
+      "query_id": "pt-10",
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 7,
+      "original_rank": 16,
+      "qwen_raw_score": 0.14223188161849976
+    },
+    {
+      "audit_id": "QR056",
+      "query_id": "es-06",
+      "record_id": "source:internet-archive:el-concepto-de-sustancia-de-spinoza-a-hegel",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 3,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9985221028327942
+    },
+    {
+      "audit_id": "QR057",
+      "query_id": "en-05",
+      "record_id": "openalex:W7132117683",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 12,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9914224743843079
+    },
+    {
+      "audit_id": "QR058",
+      "query_id": "en-01",
+      "record_id": "openalex:W2380741424",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 3,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9946150183677673
+    },
+    {
+      "audit_id": "QR059",
+      "query_id": "en-06",
+      "record_id": "openalex:W6955084309",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 11,
+      "original_rank": 10,
+      "qwen_raw_score": 0.9858275651931763
+    },
+    {
+      "audit_id": "QR060",
+      "query_id": "en-10",
+      "record_id": "openalex:W4402430982",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 16,
+      "original_rank": 6,
+      "qwen_raw_score": 0.11920291930437088
+    },
+    {
+      "audit_id": "QR061",
+      "query_id": "pt-09",
+      "record_id": "doi:10.4324/9781003427407-47",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 10,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9958011507987976
+    },
+    {
+      "audit_id": "QR062",
+      "query_id": "de-09",
+      "record_id": "doi:10.1024/1012-5302.22.3.217",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 3,
+      "original_rank": 19,
+      "qwen_raw_score": 0.9978843331336975
+    },
+    {
+      "audit_id": "QR063",
+      "query_id": "es-05",
+      "record_id": "doi:10.52781/cmm.a182",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 8,
+      "original_rank": 19,
+      "qwen_raw_score": 0.9978172779083252
+    },
+    {
+      "audit_id": "QR064",
+      "query_id": "pt-09",
+      "record_id": "doi:10.5902/2236583435112",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 12,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9950177073478699
+    },
+    {
+      "audit_id": "QR065",
+      "query_id": "en-07",
+      "record_id": "openalex:W3175007165",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 9,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9980121850967407
+    },
+    {
+      "audit_id": "QR066",
+      "query_id": "es-02",
+      "record_id": "openalex:W998181923",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 9,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9902915358543396
+    },
+    {
+      "audit_id": "QR067",
+      "query_id": "de-07",
+      "record_id": "openalex:W4229717448",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 12,
+      "original_rank": 10,
+      "qwen_raw_score": 0.0015731120947748423
+    },
+    {
+      "audit_id": "QR068",
+      "query_id": "en-10",
+      "record_id": "openalex:W7135638595",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 4,
+      "original_rank": 17,
+      "qwen_raw_score": 0.5448014140129089
+    },
+    {
+      "audit_id": "QR069",
+      "query_id": "fr-08",
+      "record_id": "source:internet-archive:phnomnologiedele0001geor",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 2,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9968273043632507
+    },
+    {
+      "audit_id": "QR070",
+      "query_id": "fr-02",
+      "record_id": "doi:10.3917/herm.ville.2014.01",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 1,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9987550973892212
+    },
+    {
+      "audit_id": "QR071",
+      "query_id": "en-03",
+      "record_id": "openalex:W6981772190",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 18,
+      "original_rank": 7,
+      "qwen_raw_score": 0.6513549089431763
+    },
+    {
+      "audit_id": "QR072",
+      "query_id": "en-07",
+      "record_id": "source:internet-archive:ethicsofliberati0000duss",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 11,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9960851669311523
+    },
+    {
+      "audit_id": "QR073",
+      "query_id": "pt-03",
+      "record_id": "openalex:W1821603059",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 9,
+      "original_rank": 19,
+      "qwen_raw_score": 0.949669361114502
+    },
+    {
+      "audit_id": "QR074",
+      "query_id": "fr-01",
+      "record_id": "doi:10.32870/prot.i27.468",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 13,
+      "original_rank": 10,
+      "qwen_raw_score": 0.531209409236908
+    },
+    {
+      "audit_id": "QR075",
+      "query_id": "de-05",
+      "record_id": "openalex:W4380635244",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 8,
+      "original_rank": 19,
+      "qwen_raw_score": 0.961533784866333
+    },
+    {
+      "audit_id": "QR076",
+      "query_id": "fr-07",
+      "record_id": "doi:10.4000/cal.1506",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 11,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9895108342170715
+    },
+    {
+      "audit_id": "QR077",
+      "query_id": "fr-10",
+      "record_id": "doi:10.56698/rfim.841",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 15,
+      "original_rank": 4,
+      "qwen_raw_score": 0.002269468503072858
+    },
+    {
+      "audit_id": "QR078",
+      "query_id": "en-09",
+      "record_id": "openalex:W4318710642",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 9,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9966233968734741
+    },
+    {
+      "audit_id": "QR079",
+      "query_id": "de-04",
+      "record_id": "openalex:W3176250734",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 10,
+      "original_rank": 14,
+      "qwen_raw_score": 0.25832599401474
+    },
+    {
+      "audit_id": "QR080",
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 11,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9961755275726318
+    },
+    {
+      "audit_id": "QR081",
+      "query_id": "en-06",
+      "record_id": "source:internet-archive:bim_eighteenth-century_a-demonstration-of-the-b_clarke-samuel_1705",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 19,
+      "original_rank": 1,
+      "qwen_raw_score": 0.7718434929847717
+    },
+    {
+      "audit_id": "QR082",
+      "query_id": "pt-10",
+      "record_id": "doi:10.56238/edimpacto2024.007",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 12,
+      "original_rank": 3,
+      "qwen_raw_score": 0.022116588428616524
+    },
+    {
+      "audit_id": "QR083",
+      "query_id": "es-06",
+      "record_id": "doi:10.5935/2079-312x.20220016",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 18,
+      "original_rank": 6,
+      "qwen_raw_score": 0.039638835936784744
+    },
+    {
+      "audit_id": "QR084",
+      "query_id": "en-08",
+      "record_id": "openalex:W3135606047",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 16,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9949396848678589
+    },
+    {
+      "audit_id": "QR085",
+      "query_id": "en-09",
+      "record_id": "doi:10.4324/9781003427407-48",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 15,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9942250847816467
+    },
+    {
+      "audit_id": "QR086",
+      "query_id": "es-03",
+      "record_id": "doi:10.67647/estrategiaminerva.2015.05",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 5,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9799765348434448
+    },
+    {
+      "audit_id": "QR087",
+      "query_id": "pt-02",
+      "record_id": "doi:10.17771/pucrio.acad.46598",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 11,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9954261183738708
+    },
+    {
+      "audit_id": "QR088",
+      "query_id": "en-08",
+      "record_id": "openalex:W3041130324",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 10,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9966756105422974
+    },
+    {
+      "audit_id": "QR089",
+      "query_id": "es-03",
+      "record_id": "doi:10.5040/9781472548153.ch-005",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 12,
+      "original_rank": 8,
+      "qwen_raw_score": 0.8509647250175476
+    },
+    {
+      "audit_id": "QR090",
+      "query_id": "es-09",
+      "record_id": "doi:10.14198/cuid.2016.44.02",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 3,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9994926452636719
+    },
+    {
+      "audit_id": "QR091",
+      "query_id": "de-08",
+      "record_id": "openalex:W7028760822",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 7,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9962051510810852
+    },
+    {
+      "audit_id": "QR092",
+      "query_id": "de-01",
+      "record_id": "doi:10.1163/9789042026551_011",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 18,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9719924926757812
+    },
+    {
+      "audit_id": "QR093",
+      "query_id": "fr-02",
+      "record_id": "doi:10.3406/enphi.1995.15502",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 15,
+      "original_rank": 4,
+      "qwen_raw_score": 0.8933094143867493
+    },
+    {
+      "audit_id": "QR094",
+      "query_id": "es-06",
+      "record_id": "doi:10.1163/9789004622005_002",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.4610167443752289
+    },
+    {
+      "audit_id": "QR095",
+      "query_id": "de-07",
+      "record_id": "source:internet-archive:againstwarviewsf0000mald",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 8,
+      "original_rank": 12,
+      "qwen_raw_score": 0.7732163667678833
+    },
+    {
+      "audit_id": "QR096",
+      "query_id": "es-08",
+      "record_id": "source:internet-archive:dri-ruben-la-fenomenologia-del-espiritu-de-hegel.-perspectiva-latinoamericana",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 12,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9979169964790344
+    },
+    {
+      "audit_id": "QR097",
+      "query_id": "en-09",
+      "record_id": "openalex:W4318614715",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 3,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9976769089698792
+    },
+    {
+      "audit_id": "QR098",
+      "query_id": "de-03",
+      "record_id": "doi:10.1524/9783050050232.135",
+      "selection_side": "A-only",
+      "a_rank": 2,
+      "b_rank": 15,
+      "original_rank": 2,
+      "qwen_raw_score": 0.217337504029274
+    },
+    {
+      "audit_id": "QR099",
+      "query_id": "fr-03",
+      "record_id": "doi:10.1484/m.stsa-eb.4.00125",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 11,
+      "original_rank": 8,
+      "qwen_raw_score": 0.15102779865264893
+    },
+    {
+      "audit_id": "QR100",
+      "query_id": "es-03",
+      "record_id": "doi:10.14409/topicos.v0i43.11887",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 14,
+      "original_rank": 1,
+      "qwen_raw_score": 0.7879312038421631
+    },
+    {
+      "audit_id": "QR101",
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:httpsdiscoveryjournals.orgmedicalsciencecurrent_issuev27n135e227ms2996.pdf_202409",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 19,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9556514620780945
+    },
+    {
+      "audit_id": "QR102",
+      "query_id": "pt-05",
+      "record_id": "source:internet-archive:entre-nos-ensaios-sobre-a-alteridade-emmanuel-levinas",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 10,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9953904151916504
+    },
+    {
+      "audit_id": "QR103",
+      "query_id": "es-02",
+      "record_id": "source:internet-archive:ser-y-tiempo-martin-heidegger_202506",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 5,
+      "original_rank": 12,
+      "qwen_raw_score": 0.997285008430481
+    },
+    {
+      "audit_id": "QR104",
+      "query_id": "de-08",
+      "record_id": "doi:10.1524/hgjb.2002.4.jg.266",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 14,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9906600117683411
+    },
+    {
+      "audit_id": "QR105",
+      "query_id": "fr-10",
+      "record_id": "doi:10.51257/a-v1-h4650",
+      "selection_side": "A-only",
+      "a_rank": 2,
+      "b_rank": 11,
+      "original_rank": 2,
+      "qwen_raw_score": 0.008644177578389645
+    },
+    {
+      "audit_id": "QR106",
+      "query_id": "de-01",
+      "record_id": "doi:10.3726/978-3-653-04362-4/16",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 8,
+      "original_rank": 19,
+      "qwen_raw_score": 0.9900636076927185
+    },
+    {
+      "audit_id": "QR107",
+      "query_id": "es-01",
+      "record_id": "doi:10.55778/ts874298874",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 7,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9940428137779236
+    },
+    {
+      "audit_id": "QR108",
+      "query_id": "pt-05",
+      "record_id": "doi:10.18226/9786558072904",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 15,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9882221817970276
+    },
+    {
+      "audit_id": "QR109",
+      "query_id": "fr-01",
+      "record_id": "doi:10.32870/prot.i27.452",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 10,
+      "original_rank": 20,
+      "qwen_raw_score": 0.8984106183052063
+    },
+    {
+      "audit_id": "QR110",
+      "query_id": "fr-02",
+      "record_id": "doi:10.32870/prot.i29.509",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 5,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9952448010444641
+    },
+    {
+      "audit_id": "QR111",
+      "query_id": "es-04",
+      "record_id": "openalex:W7119396911",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 8,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9975274205207825
+    },
+    {
+      "audit_id": "QR112",
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i18.268",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 9,
+      "original_rank": 13,
+      "qwen_raw_score": 0.05146276205778122
+    },
+    {
+      "audit_id": "QR113",
+      "query_id": "de-03",
+      "record_id": "doi:10.5771/9783495997628-111",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 14,
+      "original_rank": 5,
+      "qwen_raw_score": 0.2628418207168579
+    },
+    {
+      "audit_id": "QR114",
+      "query_id": "pt-08",
+      "record_id": "doi:10.36592/9786587424064-4",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 15,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9958011507987976
+    },
+    {
+      "audit_id": "QR115",
+      "query_id": "es-05",
+      "record_id": "doi:10.56238/arev7n9-152",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 9,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9951325058937073
+    },
+    {
+      "audit_id": "QR116",
+      "query_id": "en-09",
+      "record_id": "openalex:W4318691484",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 10,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9963215589523315
+    },
+    {
+      "audit_id": "QR117",
+      "query_id": "de-03",
+      "record_id": "openalex:W2088014604",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 7,
+      "original_rank": 20,
+      "qwen_raw_score": 0.6057990789413452
+    },
+    {
+      "audit_id": "QR118",
+      "query_id": "es-02",
+      "record_id": "openalex:W2338158763",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 15,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9808759689331055
+    },
+    {
+      "audit_id": "QR119",
+      "query_id": "fr-08",
+      "record_id": "openalex:W2792848288",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 11,
+      "original_rank": 7,
+      "qwen_raw_score": 0.9877586960792542
+    },
+    {
+      "audit_id": "QR120",
+      "query_id": "es-09",
+      "record_id": "doi:10.32870/prot.i11-12.139",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 19,
+      "original_rank": 10,
+      "qwen_raw_score": 0.07477004081010818
+    },
+    {
+      "audit_id": "QR121",
+      "query_id": "en-05",
+      "record_id": "openalex:W6986243251",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9909447431564331
+    },
+    {
+      "audit_id": "QR122",
+      "query_id": "fr-06",
+      "record_id": "doi:10.4324/9780203002285-11",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 13,
+      "original_rank": 7,
+      "qwen_raw_score": 0.9437636137008667
+    },
+    {
+      "audit_id": "QR123",
+      "query_id": "en-01",
+      "record_id": "doi:10.4324/9781315663968-27",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 17,
+      "original_rank": 8,
+      "qwen_raw_score": 0.847967803478241
+    },
+    {
+      "audit_id": "QR124",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0007",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 13,
+      "original_rank": 6,
+      "qwen_raw_score": 0.40922078490257263
+    },
+    {
+      "audit_id": "QR125",
+      "query_id": "de-04",
+      "record_id": "openalex:W2050297441",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 5,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9944880604743958
+    },
+    {
+      "audit_id": "QR126",
+      "query_id": "pt-04",
+      "record_id": "openalex:W2216442551",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 10,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9953904151916504
+    },
+    {
+      "audit_id": "QR127",
+      "query_id": "fr-05",
+      "record_id": "openalex:W1673285981",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 9,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9453993439674377
+    },
+    {
+      "audit_id": "QR128",
+      "query_id": "fr-05",
+      "record_id": "doi:10.70675/14312204ze613z4cc3z87acz2c3aafb76565",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 19,
+      "original_rank": 6,
+      "qwen_raw_score": 0.0021157031878829002
+    },
+    {
+      "audit_id": "QR129",
+      "query_id": "en-01",
+      "record_id": "doi:10.4324/9781315625546-27",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 18,
+      "original_rank": 9,
+      "qwen_raw_score": 0.847967803478241
+    },
+    {
+      "audit_id": "QR130",
+      "query_id": "es-09",
+      "record_id": "doi:10.4324/9781003427407-47",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 9,
+      "original_rank": 16,
+      "qwen_raw_score": 0.995866060256958
+    },
+    {
+      "audit_id": "QR131",
+      "query_id": "de-07",
+      "record_id": "doi:10.1515/9783110269765.422",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 10,
+      "original_rank": 18,
+      "qwen_raw_score": 0.5544704794883728
+    },
+    {
+      "audit_id": "QR132",
+      "query_id": "de-04",
+      "record_id": "openalex:W2158583534",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 12,
+      "original_rank": 5,
+      "qwen_raw_score": 0.1540575474500656
+    },
+    {
+      "audit_id": "QR133",
+      "query_id": "fr-06",
+      "record_id": "doi:10.70675/fc08e843z3cc8z4583z8b66z8a0d96ff1f90",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 18,
+      "original_rank": 9,
+      "qwen_raw_score": 0.4765796661376953
+    },
+    {
+      "audit_id": "QR134",
+      "query_id": "de-10",
+      "record_id": "doi:10.1007/978-3-642-77387-7_3",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 6,
+      "original_rank": 16,
+      "qwen_raw_score": 0.793105959892273
+    },
+    {
+      "audit_id": "QR135",
+      "query_id": "en-01",
+      "record_id": "openalex:W2305360988",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 1,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9968763589859009
+    },
+    {
+      "audit_id": "QR136",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1590/s0034-71671994000100010",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 7,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9989758729934692
+    },
+    {
+      "audit_id": "QR137",
+      "query_id": "en-10",
+      "record_id": "openalex:W7108452404",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 17,
+      "original_rank": 5,
+      "qwen_raw_score": 0.06418264657258987
+    },
+    {
+      "audit_id": "QR138",
+      "query_id": "de-05",
+      "record_id": "openalex:W927316608",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 5,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9905874133110046
+    },
+    {
+      "audit_id": "QR139",
+      "query_id": "es-08",
+      "record_id": "doi:10.55778/ts878822464",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 19,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9948603510856628
+    },
+    {
+      "audit_id": "QR140",
+      "query_id": "fr-04",
+      "record_id": "openalex:W2025692999",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 10,
+      "original_rank": 16,
+      "qwen_raw_score": 0.35220178961753845
+    },
+    {
+      "audit_id": "QR141",
+      "query_id": "es-10",
+      "record_id": "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 7,
+      "original_rank": 17,
+      "qwen_raw_score": 0.7057850360870361
+    },
+    {
+      "audit_id": "QR142",
+      "query_id": "fr-10",
+      "record_id": "doi:10.70675/b49b49dczaf97z49d6za376z591d84c712ac",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 19,
+      "original_rank": 7,
+      "qwen_raw_score": 0.0002622122992761433
+    },
+    {
+      "audit_id": "QR143",
+      "query_id": "en-02",
+      "record_id": "openalex:W7005479624",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 6,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9957020878791809
+    },
+    {
+      "audit_id": "QR144",
+      "query_id": "de-05",
+      "record_id": "doi:10.5771/9783845232416-35",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 18,
+      "original_rank": 8,
+      "qwen_raw_score": 0.23651622235774994
+    },
+    {
+      "audit_id": "QR145",
+      "query_id": "de-03",
+      "record_id": "doi:10.1515/9783110578751-009",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 16,
+      "original_rank": 3,
+      "qwen_raw_score": 0.2030746042728424
+    },
+    {
+      "audit_id": "QR146",
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i17.234",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 5,
+      "original_rank": 18,
+      "qwen_raw_score": 0.26894140243530273
+    },
+    {
+      "audit_id": "QR147",
+      "query_id": "en-05",
+      "record_id": "doi:10.36019/9781684481309-001",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 7,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9958337545394897
+    },
+    {
+      "audit_id": "QR148",
+      "query_id": "es-08",
+      "record_id": "openalex:W2071031391",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 7,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9992327690124512
+    },
+    {
+      "audit_id": "QR149",
+      "query_id": "pt-08",
+      "record_id": "doi:10.48021/978-65-252-4997-1",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 20,
+      "original_rank": 9,
+      "qwen_raw_score": 0.992061972618103
+    },
+    {
+      "audit_id": "QR150",
+      "query_id": "fr-10",
+      "record_id": "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 3,
+      "original_rank": 13,
+      "qwen_raw_score": 0.842863142490387
+    },
+    {
+      "audit_id": "QR151",
+      "query_id": "en-03",
+      "record_id": "openalex:W6906849513",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 12,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9319595694541931
+    },
+    {
+      "audit_id": "QR152",
+      "query_id": "fr-02",
+      "record_id": "openalex:W7104453643",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 7,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9921841025352478
+    },
+    {
+      "audit_id": "QR153",
+      "query_id": "de-06",
+      "record_id": "openalex:W7120794734",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 9,
+      "original_rank": 20,
+      "qwen_raw_score": 0.31573596596717834
+    },
+    {
+      "audit_id": "QR154",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0339",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 14,
+      "original_rank": 7,
+      "qwen_raw_score": 0.40922078490257263
+    },
+    {
+      "audit_id": "QR155",
+      "query_id": "fr-03",
+      "record_id": "openalex:W6946342817",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 12,
+      "original_rank": 10,
+      "qwen_raw_score": 0.07369626313447952
+    },
+    {
+      "audit_id": "QR156",
+      "query_id": "en-06",
+      "record_id": "doi:10.1163/9789004246638_007",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 6,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9925969839096069
+    },
+    {
+      "audit_id": "QR157",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:DTIC_ADA444453",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 9,
+      "original_rank": 11,
+      "qwen_raw_score": 0.32082128524780273
+    },
+    {
+      "audit_id": "QR158",
+      "query_id": "pt-03",
+      "record_id": "openalex:W2045309589",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 12,
+      "original_rank": 9,
+      "qwen_raw_score": 0.6297746300697327
+    },
+    {
+      "audit_id": "QR159",
+      "query_id": "pt-06",
+      "record_id": "openalex:W363509575",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 9,
+      "original_rank": 17,
+      "qwen_raw_score": 0.5136684775352478
+    },
+    {
+      "audit_id": "QR160",
+      "query_id": "fr-04",
+      "record_id": "doi:10.12797/9788381385978.03",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 9,
+      "original_rank": 19,
+      "qwen_raw_score": 0.3593641519546509
+    },
+    {
+      "audit_id": "QR161",
+      "query_id": "en-04",
+      "record_id": "openalex:W22131643",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9958337545394897
+    },
+    {
+      "audit_id": "QR162",
+      "query_id": "en-05",
+      "record_id": "source:internet-archive:quanta-alterity-and-love",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 20,
+      "original_rank": 10,
+      "qwen_raw_score": 0.13568952679634094
+    },
+    {
+      "audit_id": "QR163",
+      "query_id": "es-09",
+      "record_id": "doi:10.37976/enfermeria.v11i2.138",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 2,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9996540546417236
+    },
+    {
+      "audit_id": "QR164",
+      "query_id": "de-07",
+      "record_id": "doi:10.1163/9789004458024_011",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 7,
+      "original_rank": 17,
+      "qwen_raw_score": 0.8824278712272644
+    },
+    {
+      "audit_id": "QR165",
+      "query_id": "es-10",
+      "record_id": "doi:10.32870/prot.i27.460",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 17,
+      "original_rank": 10,
+      "qwen_raw_score": 0.005554924253374338
+    },
+    {
+      "audit_id": "QR166",
+      "query_id": "en-02",
+      "record_id": "doi:10.1002/9780470693476.ch31",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 14,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9867772459983826
+    },
+    {
+      "audit_id": "QR167",
+      "query_id": "es-04",
+      "record_id": "doi:10.6018/daimon.521311",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 19,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9676556587219238
+    },
+    {
+      "audit_id": "QR168",
+      "query_id": "en-08",
+      "record_id": "source:internet-archive:hegels-phenomenology-of-spirit",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 13,
+      "original_rank": 7,
+      "qwen_raw_score": 0.9962638020515442
+    },
+    {
+      "audit_id": "QR169",
+      "query_id": "pt-06",
+      "record_id": "doi:10.11606/d.5.2016.tde-04082016-160853",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 15,
+      "original_rank": 8,
+      "qwen_raw_score": 0.0001837845629779622
+    },
+    {
+      "audit_id": "QR170",
+      "query_id": "es-09",
+      "record_id": "doi:10.23913/ride.v10i20.594",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 13,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9909447431564331
+    },
+    {
+      "audit_id": "QR171",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1590/s0104-11691997000100010",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 3,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9994022846221924
+    },
+    {
+      "audit_id": "QR172",
+      "query_id": "de-07",
+      "record_id": "openalex:W7055982700",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 18,
+      "original_rank": 9,
+      "qwen_raw_score": 0.00017265153292100877
+    },
+    {
+      "audit_id": "QR173",
+      "query_id": "pt-10",
+      "record_id": "openalex:W4240899380",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 4,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9569571614265442
+    },
+    {
+      "audit_id": "QR174",
+      "query_id": "fr-09",
+      "record_id": "source:internet-archive:ERIC_EJ941709",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 8,
+      "original_rank": 19,
+      "qwen_raw_score": 0.9871788024902344
+    },
+    {
+      "audit_id": "QR175",
+      "query_id": "fr-03",
+      "record_id": "doi:10.32870/prot.i19.281",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 10,
+      "original_rank": 13,
+      "qwen_raw_score": 0.2393493503332138
+    },
+    {
+      "audit_id": "QR176",
+      "query_id": "es-02",
+      "record_id": "doi:10.1007/978-90-481-9923-5_6",
+      "selection_side": "A-only",
+      "a_rank": 2,
+      "b_rank": 11,
+      "original_rank": 2,
+      "qwen_raw_score": 0.9883127808570862
+    },
+    {
+      "audit_id": "QR177",
+      "query_id": "es-02",
+      "record_id": "doi:10.7551/mitpress/9780262029681.003.0013",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 6,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9918753504753113
+    },
+    {
+      "audit_id": "QR178",
+      "query_id": "pt-09",
+      "record_id": "openalex:W7120651308",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 16,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9900636076927185
+    },
+    {
+      "audit_id": "QR179",
+      "query_id": "fr-05",
+      "record_id": "openalex:W2352598406",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 10,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9358173608779907
+    },
+    {
+      "audit_id": "QR180",
+      "query_id": "pt-09",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 15,
+      "original_rank": 7,
+      "qwen_raw_score": 0.9903663396835327
+    },
+    {
+      "audit_id": "QR181",
+      "query_id": "pt-05",
+      "record_id": "doi:10.36592/9786554602716-03",
+      "selection_side": "A-only",
+      "a_rank": 2,
+      "b_rank": 14,
+      "original_rank": 2,
+      "qwen_raw_score": 0.9884026646614075
+    },
+    {
+      "audit_id": "QR182",
+      "query_id": "de-07",
+      "record_id": "doi:10.1515/9783110269765.465",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 14,
+      "original_rank": 7,
+      "qwen_raw_score": 0.0011424493277445436
+    },
+    {
+      "audit_id": "QR183",
+      "query_id": "de-04",
+      "record_id": "openalex:W998181923",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 11,
+      "original_rank": 10,
+      "qwen_raw_score": 0.22953517735004425
+    },
+    {
+      "audit_id": "QR184",
+      "query_id": "de-05",
+      "record_id": "openalex:W2152633171",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 10,
+      "original_rank": 18,
+      "qwen_raw_score": 0.8311430811882019
+    },
+    {
+      "audit_id": "QR185",
+      "query_id": "es-09",
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 14,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9906600117683411
+    },
+    {
+      "audit_id": "QR186",
+      "query_id": "es-08",
+      "record_id": "doi:10.2307/j.ctvt9k4nx.3",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 8,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9991704225540161
+    },
+    {
+      "audit_id": "QR187",
+      "query_id": "de-01",
+      "record_id": "doi:10.1515/9783110901290.166",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 9,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9894295334815979
+    },
+    {
+      "audit_id": "QR188",
+      "query_id": "es-09",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 11,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9938549399375916
+    },
+    {
+      "audit_id": "QR189",
+      "query_id": "de-08",
+      "record_id": "openalex:W778554678",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 1,
+      "original_rank": 12,
+      "qwen_raw_score": 0.998498797416687
+    },
+    {
+      "audit_id": "QR190",
+      "query_id": "en-08",
+      "record_id": "openalex:W7052927683",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 8,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9982725381851196
+    },
+    {
+      "audit_id": "QR191",
+      "query_id": "de-01",
+      "record_id": "source:internet-archive:dielehrevonderfr00sied",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 14,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9802808165550232
+    },
+    {
+      "audit_id": "QR192",
+      "query_id": "fr-04",
+      "record_id": "openalex:W598615762",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 7,
+      "original_rank": 14,
+      "qwen_raw_score": 0.5774953961372375
+    },
+    {
+      "audit_id": "QR193",
+      "query_id": "de-03",
+      "record_id": "doi:10.32870/qr.v2i3.46",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 19,
+      "original_rank": 9,
+      "qwen_raw_score": 0.060975175350904465
+    },
+    {
+      "audit_id": "QR194",
+      "query_id": "fr-03",
+      "record_id": "doi:10.32870/prot.i29.509",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 18,
+      "original_rank": 6,
+      "qwen_raw_score": 0.0001273110246984288
+    },
+    {
+      "audit_id": "QR195",
+      "query_id": "en-05",
+      "record_id": "openalex:W2351135246",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 15,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9870795607566833
+    },
+    {
+      "audit_id": "QR196",
+      "query_id": "en-09",
+      "record_id": "source:internet-archive:isbn_9781930538887",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 16,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9938070178031921
+    },
+    {
+      "audit_id": "QR197",
+      "query_id": "fr-01",
+      "record_id": "openalex:W7066910937",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 9,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9481545686721802
+    },
+    {
+      "audit_id": "QR198",
+      "query_id": "en-02",
+      "record_id": "openalex:W4322499409",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 4,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9979332685470581
+    },
+    {
+      "audit_id": "QR199",
+      "query_id": "de-02",
+      "record_id": "doi:10.1007/978-90-481-9923-5_6",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 11,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9606574773788452
+    },
+    {
+      "audit_id": "QR200",
+      "query_id": "es-08",
+      "record_id": "source:internet-archive:tiempo-e-historia-en-la-fenomenologia-del-espiritu-de-hegel-autor-luis-mariano-de-la-maza",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 17,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9967774748802185
+    },
+    {
+      "audit_id": "QR201",
+      "query_id": "en-03",
+      "record_id": "openalex:W2054020795",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 6,
+      "original_rank": 14,
+      "qwen_raw_score": 0.970687747001648
+    },
+    {
+      "audit_id": "QR202",
+      "query_id": "fr-06",
+      "record_id": "openalex:W2609522089",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 4,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9942250847816467
+    },
+    {
+      "audit_id": "QR203",
+      "query_id": "de-10",
+      "record_id": "source:internet-archive:DTIC_ADA624287",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 20,
+      "original_rank": 9,
+      "qwen_raw_score": 0.026155617088079453
+    },
+    {
+      "audit_id": "QR204",
+      "query_id": "fr-09",
+      "record_id": "doi:10.1007/978-3-030-47253-5_374-1",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 3,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9959613680839539
+    },
+    {
+      "audit_id": "QR205",
+      "query_id": "pt-03",
+      "record_id": "doi:10.32870/prot.i29.499",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 20,
+      "original_rank": 8,
+      "qwen_raw_score": 0.0024726230185478926
+    },
+    {
+      "audit_id": "QR206",
+      "query_id": "es-01",
+      "record_id": "doi:10.1007/978-94-017-9175-5_13",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 10,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9857181310653687
+    },
+    {
+      "audit_id": "QR207",
+      "query_id": "de-03",
+      "record_id": "openalex:W635278497",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 6,
+      "original_rank": 15,
+      "qwen_raw_score": 0.6893056035041809
+    },
+    {
+      "audit_id": "QR208",
+      "query_id": "fr-10",
+      "record_id": "doi:10.58837/chula.the.2002.1881",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 18,
+      "original_rank": 5,
+      "qwen_raw_score": 0.0005815576296299696
+    },
+    {
+      "audit_id": "QR209",
+      "query_id": "es-09",
+      "record_id": "doi:10.32870/prot.i13.148",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 20,
+      "original_rank": 9,
+      "qwen_raw_score": 0.05146276205778122
+    },
+    {
+      "audit_id": "QR210",
+      "query_id": "en-03",
+      "record_id": "openalex:W2271417477",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 7,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9489172697067261
+    },
+    {
+      "audit_id": "QR211",
+      "query_id": "de-09",
+      "record_id": "source:internet-archive:ERIC_EJ941709",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 12,
+      "original_rank": 10,
+      "qwen_raw_score": 0.8807971477508545
+    },
+    {
+      "audit_id": "QR212",
+      "query_id": "en-10",
+      "record_id": "source:internet-archive:DTIC_ADA624287",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 19,
+      "original_rank": 8,
+      "qwen_raw_score": 0.013325146399438381
+    },
+    {
+      "audit_id": "QR213",
+      "query_id": "de-08",
+      "record_id": "openalex:W4387389438",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 8,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9954967498779297
+    },
+    {
+      "audit_id": "QR214",
+      "query_id": "pt-10",
+      "record_id": "doi:10.37885/978-65-87196-55-8",
+      "selection_side": "A-only",
+      "a_rank": 2,
+      "b_rank": 15,
+      "original_rank": 2,
+      "qwen_raw_score": 0.012241274118423462
+    },
+    {
+      "audit_id": "QR215",
+      "query_id": "en-08",
+      "record_id": "openalex:W621986673",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 12,
+      "original_rank": 10,
+      "qwen_raw_score": 0.9963783621788025
+    },
+    {
+      "audit_id": "QR216",
+      "query_id": "pt-02",
+      "record_id": "doi:10.17771/pucrio.acad.14247",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 14,
+      "original_rank": 9,
+      "qwen_raw_score": 0.9908744096755981
+    },
+    {
+      "audit_id": "QR217",
+      "query_id": "pt-08",
+      "record_id": "source:internet-archive:pensamento-humano-g.-w.-f.-hegel-fenomenologia-do-espirito-2003-editora-vozes-libgen.li-1",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 4,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9996345043182373
+    },
+    {
+      "audit_id": "QR218",
+      "query_id": "fr-07",
+      "record_id": "openalex:W7009639943",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 4,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9986853003501892
+    },
+    {
+      "audit_id": "QR219",
+      "query_id": "en-09",
+      "record_id": "openalex:W4320064811",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 7,
+      "original_rank": 16,
+      "qwen_raw_score": 0.9973269701004028
+    },
+    {
+      "audit_id": "QR220",
+      "query_id": "es-03",
+      "record_id": "openalex:W7071174594",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 13,
+      "original_rank": 9,
+      "qwen_raw_score": 0.8221890926361084
+    },
+    {
+      "audit_id": "QR221",
+      "query_id": "en-02",
+      "record_id": "openalex:W82234466",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 10,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9918753504753113
+    },
+    {
+      "audit_id": "QR222",
+      "query_id": "fr-05",
+      "record_id": "doi:10.24193/cechinox.2019.37.03",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 11,
+      "original_rank": 5,
+      "qwen_raw_score": 0.6132366061210632
+    },
+    {
+      "audit_id": "QR223",
+      "query_id": "pt-01",
+      "record_id": "doi:10.47456/sofia.v1i1.4202",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 12,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9864678382873535
+    },
+    {
+      "audit_id": "QR224",
+      "query_id": "pt-06",
+      "record_id": "doi:10.11606/d.5.2016.tde-24102016-142111",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 18,
+      "original_rank": 10,
+      "qwen_raw_score": 0.000059209160099271685
+    },
+    {
+      "audit_id": "QR225",
+      "query_id": "fr-08",
+      "record_id": "openalex:W7006123070",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 3,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9959927201271057
+    },
+    {
+      "audit_id": "QR226",
+      "query_id": "fr-10",
+      "record_id": "doi:10.32870/prot.i28.487",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 9,
+      "original_rank": 20,
+      "qwen_raw_score": 0.028870902955532074
+    },
+    {
+      "audit_id": "QR227",
+      "query_id": "en-06",
+      "record_id": "openalex:W2920176162",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 4,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9929881691932678
+    },
+    {
+      "audit_id": "QR228",
+      "query_id": "fr-06",
+      "record_id": "doi:10.4000/books.psorbonne.39052",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 11,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9594592452049255
+    },
+    {
+      "audit_id": "QR229",
+      "query_id": "fr-04",
+      "record_id": "openalex:W122713909",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 13,
+      "original_rank": 9,
+      "qwen_raw_score": 0.15713684260845184
+    },
+    {
+      "audit_id": "QR230",
+      "query_id": "en-09",
+      "record_id": "openalex:W4318690797",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 5,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9973269701004028
+    },
+    {
+      "audit_id": "QR231",
+      "query_id": "pt-06",
+      "record_id": "doi:10.11606/t.17.2020.tde-23082020-134357",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 13,
+      "original_rank": 9,
+      "qwen_raw_score": 0.0005013741902075708
+    },
+    {
+      "audit_id": "QR232",
+      "query_id": "en-04",
+      "record_id": "openalex:W4225968273",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 9,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9973061084747314
+    },
+    {
+      "audit_id": "QR233",
+      "query_id": "es-07",
+      "record_id": "doi:10.4067/s0718-92732024000300035",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 13,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9969722032546997
+    },
+    {
+      "audit_id": "QR234",
+      "query_id": "de-08",
+      "record_id": "doi:10.1515/9783110835908.211",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 15,
+      "original_rank": 9,
+      "qwen_raw_score": 0.9837225079536438
+    },
+    {
+      "audit_id": "QR235",
+      "query_id": "fr-10",
+      "record_id": "source:internet-archive:DTIC_ADA515719",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 6,
+      "original_rank": 11,
+      "qwen_raw_score": 0.5156199336051941
+    },
+    {
+      "audit_id": "QR236",
+      "query_id": "es-06",
+      "record_id": "doi:10.1163/9789004622074_002",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 15,
+      "original_rank": 7,
+      "qwen_raw_score": 0.42250463366508484
+    },
+    {
+      "audit_id": "QR237",
+      "query_id": "de-07",
+      "record_id": "doi:10.32870/prot.i22.356",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 9,
+      "original_rank": 15,
+      "qwen_raw_score": 0.7310585975646973
+    },
+    {
+      "audit_id": "QR238",
+      "query_id": "pt-10",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 8,
+      "original_rank": 17,
+      "qwen_raw_score": 0.08819004148244858
+    },
+    {
+      "audit_id": "QR239",
+      "query_id": "es-10",
+      "record_id": "doi:10.32870/prot.i9-10.132",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 13,
+      "original_rank": 9,
+      "qwen_raw_score": 0.08269733935594559
+    },
+    {
+      "audit_id": "QR240",
+      "query_id": "es-10",
+      "record_id": "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 10,
+      "original_rank": 11,
+      "qwen_raw_score": 0.2436424344778061
+    },
+    {
+      "audit_id": "QR241",
+      "query_id": "en-03",
+      "record_id": "source:internet-archive:fabric-character-aristotles-theory-virtue-sherman",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 14,
+      "original_rank": 1,
+      "qwen_raw_score": 0.8643104434013367
+    },
+    {
+      "audit_id": "QR242",
+      "query_id": "pt-06",
+      "record_id": "openalex:W2048203560",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 8,
+      "original_rank": 19,
+      "qwen_raw_score": 0.6334102749824524
+    },
+    {
+      "audit_id": "QR243",
+      "query_id": "en-07",
+      "record_id": "doi:10.21983/p3.0257.1.00",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 6,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9986955523490906
+    },
+    {
+      "audit_id": "QR244",
+      "query_id": "pt-03",
+      "record_id": "doi:10.17771/pucrio.ana.59813",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 11,
+      "original_rank": 10,
+      "qwen_raw_score": 0.793105959892273
+    },
+    {
+      "audit_id": "QR245",
+      "query_id": "fr-03",
+      "record_id": "openalex:W2288982851",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 5,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9019206762313843
+    },
+    {
+      "audit_id": "QR246",
+      "query_id": "es-04",
+      "record_id": "doi:10.5944/rif.8.2011.611",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 3,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9988574981689453
+    },
+    {
+      "audit_id": "QR247",
+      "query_id": "es-03",
+      "record_id": "doi:10.18800/estudiosdefilosofia.200701.003",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 16,
+      "original_rank": 7,
+      "qwen_raw_score": 0.7534666657447815
+    },
+    {
+      "audit_id": "QR248",
+      "query_id": "en-01",
+      "record_id": "openalex:W7120405036",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 8,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9866748452186584
+    },
+    {
+      "audit_id": "QR249",
+      "query_id": "en-09",
+      "record_id": "openalex:W4318710796",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 6,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9973269701004028
+    },
+    {
+      "audit_id": "QR250",
+      "query_id": "pt-02",
+      "record_id": "source:internet-archive:ser-e-tempo-i",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 2,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9994557499885559
+    },
+    {
+      "audit_id": "QR251",
+      "query_id": "pt-08",
+      "record_id": "source:internet-archive:genese-e-estrutura-da-fenomenologia-do-espirito-de-hegel-jean-hyppolite-z-library",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 2,
+      "original_rank": 13,
+      "qwen_raw_score": 0.999783456325531
+    },
+    {
+      "audit_id": "QR252",
+      "query_id": "de-07",
+      "record_id": "openalex:W2040633970",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.0014779429184272885
+    },
+    {
+      "audit_id": "QR253",
+      "query_id": "fr-07",
+      "record_id": "doi:10.70675/2d14737az154az4d4bzbc4az3098d8eb6feb",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.7905303239822388
+    },
+    {
+      "audit_id": "QR254",
+      "query_id": "es-05",
+      "record_id": "doi:10.32735/s0718-2201202000050789",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 16,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9702399373054504
+    },
+    {
+      "audit_id": "QR255",
+      "query_id": "en-10",
+      "record_id": "openalex:W4414134214",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 5,
+      "original_rank": 19,
+      "qwen_raw_score": 0.5448014140129089
+    },
+    {
+      "audit_id": "QR256",
+      "query_id": "fr-06",
+      "record_id": "openalex:W6955033794",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 6,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9919379353523254
+    },
+    {
+      "audit_id": "QR257",
+      "query_id": "de-03",
+      "record_id": "openalex:W2522420983",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 10,
+      "original_rank": 13,
+      "qwen_raw_score": 0.42250463366508484
+    },
+    {
+      "audit_id": "QR258",
+      "query_id": "de-10",
+      "record_id": "doi:10.1007/978-3-642-77387-7",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.4668456017971039
+    },
+    {
+      "audit_id": "QR259",
+      "query_id": "es-07",
+      "record_id": "doi:10.4067/s0717-554x2017000300339",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 11,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9979810118675232
+    },
+    {
+      "audit_id": "QR260",
+      "query_id": "fr-07",
+      "record_id": "openalex:W3175007165",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 7,
+      "original_rank": 17,
+      "qwen_raw_score": 0.998245358467102
+    },
+    {
+      "audit_id": "QR261",
+      "query_id": "fr-10",
+      "record_id": "source:internet-archive:DTIC_ADA624287",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 8,
+      "original_rank": 12,
+      "qwen_raw_score": 0.06008664891123772
+    },
+    {
+      "audit_id": "QR262",
+      "query_id": "de-05",
+      "record_id": "doi:10.5771/9783495820711-168",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 17,
+      "original_rank": 5,
+      "qwen_raw_score": 0.3106943368911743
+    },
+    {
+      "audit_id": "QR263",
+      "query_id": "en-02",
+      "record_id": "openalex:W2038251314",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 5,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9962051510810852
+    },
+    {
+      "audit_id": "QR264",
+      "query_id": "fr-03",
+      "record_id": "openalex:W7034023353",
+      "selection_side": "B-only",
+      "a_rank": 16,
+      "b_rank": 8,
+      "original_rank": 16,
+      "qwen_raw_score": 0.5506073832511902
+    },
+    {
+      "audit_id": "QR265",
+      "query_id": "fr-02",
+      "record_id": "doi:10.3917/philo.140.0031",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 11,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9881309270858765
+    },
+    {
+      "audit_id": "QR266",
+      "query_id": "pt-10",
+      "record_id": "doi:10.22533/at.ed.57219070312",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 11,
+      "original_rank": 1,
+      "qwen_raw_score": 0.02931222692131996
+    },
+    {
+      "audit_id": "QR267",
+      "query_id": "fr-10",
+      "record_id": "doi:10.70675/89a8f366z3267z45cfz876fz8c7d7d2e076c",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 14,
+      "original_rank": 6,
+      "qwen_raw_score": 0.0029121784027665854
+    },
+    {
+      "audit_id": "QR268",
+      "query_id": "es-04",
+      "record_id": "source:internet-archive:husserl-edmund-lecciones-de-fenomenologia-de-la-conciencia-interna-del-tiempo",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 10,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9968763589859009
+    },
+    {
+      "audit_id": "QR269",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0347",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 18,
+      "original_rank": 9,
+      "qwen_raw_score": 0.325949490070343
+    },
+    {
+      "audit_id": "QR270",
+      "query_id": "pt-03",
+      "record_id": "openalex:W6884924462",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 5,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9838472008705139
+    },
+    {
+      "audit_id": "QR271",
+      "query_id": "es-07",
+      "record_id": "source:internet-archive:enrique-dussel-filosofia-de-la-liberacion",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 8,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9991507530212402
+    },
+    {
+      "audit_id": "QR272",
+      "query_id": "fr-09",
+      "record_id": "doi:10.7761/9789731997766.8",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 9,
+      "original_rank": 18,
+      "qwen_raw_score": 0.985042929649353
+    },
+    {
+      "audit_id": "QR273",
+      "query_id": "es-10",
+      "record_id": "openalex:W4240899380",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 2,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9235923886299133
+    },
+    {
+      "audit_id": "QR274",
+      "query_id": "en-07",
+      "record_id": "source:internet-archive:oapen-20.500.12657-24792",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 12,
+      "original_rank": 3,
+      "qwen_raw_score": 0.9945730566978455
+    },
+    {
+      "audit_id": "QR275",
+      "query_id": "en-09",
+      "record_id": "doi:10.7761/9789731997766.8",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 17,
+      "original_rank": 7,
+      "qwen_raw_score": 0.993561863899231
+    },
+    {
+      "audit_id": "QR276",
+      "query_id": "pt-07",
+      "record_id": "doi:10.22409/3v20b622",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 11,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9869794845581055
+    },
+    {
+      "audit_id": "QR277",
+      "query_id": "pt-05",
+      "record_id": "openalex:W2736760379",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 12,
+      "original_rank": 8,
+      "qwen_raw_score": 0.989591658115387
+    },
+    {
+      "audit_id": "QR278",
+      "query_id": "es-08",
+      "record_id": "doi:10.22517/9789587225662",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 15,
+      "original_rank": 7,
+      "qwen_raw_score": 0.9973477125167847
+    },
+    {
+      "audit_id": "QR279",
+      "query_id": "pt-06",
+      "record_id": "openalex:W2618202942",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 10,
+      "original_rank": 20,
+      "qwen_raw_score": 0.24944722652435303
+    },
+    {
+      "audit_id": "QR280",
+      "query_id": "es-08",
+      "record_id": "openalex:W2803719315",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 5,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9992504715919495
+    },
+    {
+      "audit_id": "QR281",
+      "query_id": "es-06",
+      "record_id": "doi:10.1163/9789004621992_002",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 14,
+      "original_rank": 9,
+      "qwen_raw_score": 0.45713669061660767
+    },
+    {
+      "audit_id": "QR282",
+      "query_id": "es-10",
+      "record_id": "doi:10.32870/prot.i28.487",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 15,
+      "original_rank": 4,
+      "qwen_raw_score": 0.016029145568609238
+    },
+    {
+      "audit_id": "QR283",
+      "query_id": "fr-07",
+      "record_id": "doi:10.32870/prot.i29.501",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 20,
+      "original_rank": 10,
+      "qwen_raw_score": 0.0000376364441763144
+    },
+    {
+      "audit_id": "QR284",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2025.01.0341",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 12,
+      "original_rank": 5,
+      "qwen_raw_score": 0.40922078490257263
+    },
+    {
+      "audit_id": "QR285",
+      "query_id": "en-04",
+      "record_id": "doi:10.1515/9780823284481-006",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 14,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9956005811691284
+    },
+    {
+      "audit_id": "QR286",
+      "query_id": "de-02",
+      "record_id": "doi:10.1515/9783110379396",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 5,
+      "original_rank": 13,
+      "qwen_raw_score": 0.991355836391449
+    },
+    {
+      "audit_id": "QR287",
+      "query_id": "en-06",
+      "record_id": "openalex:W2609522089",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 5,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9928786158561707
+    },
+    {
+      "audit_id": "QR288",
+      "query_id": "de-10",
+      "record_id": "openalex:W7114683522",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 8,
+      "original_rank": 12,
+      "qwen_raw_score": 0.6619228720664978
+    },
+    {
+      "audit_id": "QR289",
+      "query_id": "de-06",
+      "record_id": "doi:10.3726/978-3-653-01690-1/8",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 12,
+      "original_rank": 10,
+      "qwen_raw_score": 0.1980641633272171
+    },
+    {
+      "audit_id": "QR290",
+      "query_id": "fr-02",
+      "record_id": "source:internet-archive:martin-heidegger-etre-et-temps-traduction-par-emmanuel-martineau-edition-numeriq",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 12,
+      "original_rank": 9,
+      "qwen_raw_score": 0.9878528118133545
+    },
+    {
+      "audit_id": "QR291",
+      "query_id": "en-04",
+      "record_id": "source:internet-archive:diegrenzenderint0000stau",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 19,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9902915358543396
+    },
+    {
+      "audit_id": "QR292",
+      "query_id": "pt-06",
+      "record_id": "openalex:W7062509924",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 4,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9972207546234131
+    },
+    {
+      "audit_id": "QR293",
+      "query_id": "pt-08",
+      "record_id": "doi:10.36592/9786587424064-30",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 13,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9962051510810852
+    },
+    {
+      "audit_id": "QR294",
+      "query_id": "de-03",
+      "record_id": "openalex:W7037407527",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 2,
+      "original_rank": 18,
+      "qwen_raw_score": 0.7994423508644104
+    },
+    {
+      "audit_id": "QR295",
+      "query_id": "de-02",
+      "record_id": "doi:10.7551/mitpress/9780262029681.003.0013",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 15,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9246877431869507
+    },
+    {
+      "audit_id": "QR296",
+      "query_id": "pt-02",
+      "record_id": "source:internet-archive:abelardo-rodrigues-de-almeida-o-sentido-da-morte-para-a-existencia-autentica.-um",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 10,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9963500499725342
+    },
+    {
+      "audit_id": "QR297",
+      "query_id": "de-05",
+      "record_id": "doi:10.5771/9783495820711-70",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 16,
+      "original_rank": 6,
+      "qwen_raw_score": 0.3415825068950653
+    },
+    {
+      "audit_id": "QR298",
+      "query_id": "es-09",
+      "record_id": "openalex:W3189156133",
+      "selection_side": "A-only",
+      "a_rank": 7,
+      "b_rank": 12,
+      "original_rank": 7,
+      "qwen_raw_score": 0.9912208914756775
+    },
+    {
+      "audit_id": "QR299",
+      "query_id": "fr-02",
+      "record_id": "openalex:W7058239600",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 8,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9921841025352478
+    },
+    {
+      "audit_id": "QR300",
+      "query_id": "pt-04",
+      "record_id": "doi:10.1590/0103-656420130021",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 13,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9909447431564331
+    },
+    {
+      "audit_id": "QR301",
+      "query_id": "es-10",
+      "record_id": "doi:10.5771/9789563926552-1",
+      "selection_side": "A-only",
+      "a_rank": 2,
+      "b_rank": 12,
+      "original_rank": 2,
+      "qwen_raw_score": 0.12678515911102295
+    },
+    {
+      "audit_id": "QR302",
+      "query_id": "fr-07",
+      "record_id": "doi:10.4000/cal.1509",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 12,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9582261443138123
+    },
+    {
+      "audit_id": "QR303",
+      "query_id": "fr-02",
+      "record_id": "doi:10.32870/prot.i23.389",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 20,
+      "original_rank": 8,
+      "qwen_raw_score": 0.5389832258224487
+    },
+    {
+      "audit_id": "QR304",
+      "query_id": "es-08",
+      "record_id": "openalex:W2474505790",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 6,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9992504715919495
+    },
+    {
+      "audit_id": "QR305",
+      "query_id": "en-01",
+      "record_id": "doi:10.1007/978-94-017-9175-5_13",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 11,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9761291742324829
+    },
+    {
+      "audit_id": "QR306",
+      "query_id": "pt-08",
+      "record_id": "openalex:W6981811185",
+      "selection_side": "B-only",
+      "a_rank": 20,
+      "b_rank": 8,
+      "original_rank": 20,
+      "qwen_raw_score": 0.9980732202529907
+    },
+    {
+      "audit_id": "QR307",
+      "query_id": "es-03",
+      "record_id": "source:internet-archive:fabric-character-aristotles-theory-virtue-sherman",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 17,
+      "original_rank": 4,
+      "qwen_raw_score": 0.7138307690620422
+    },
+    {
+      "audit_id": "QR308",
+      "query_id": "es-04",
+      "record_id": "doi:10.36008/monograma.183.03.28575",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 16,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9901401400566101
+    },
+    {
+      "audit_id": "QR309",
+      "query_id": "pt-06",
+      "record_id": "openalex:W7030232129",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 7,
+      "original_rank": 18,
+      "qwen_raw_score": 0.7577943801879883
+    },
+    {
+      "audit_id": "QR310",
+      "query_id": "en-08",
+      "record_id": "openalex:W2110716340",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 2,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9988395571708679
+    },
+    {
+      "audit_id": "QR311",
+      "query_id": "pt-01",
+      "record_id": "openalex:W2175248823",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 8,
+      "original_rank": 18,
+      "qwen_raw_score": 0.9946568012237549
+    },
+    {
+      "audit_id": "QR312",
+      "query_id": "pt-07",
+      "record_id": "doi:10.13102/ideac.v1i53.12258",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 7,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9966495633125305
+    },
+    {
+      "audit_id": "QR313",
+      "query_id": "en-05",
+      "record_id": "doi:10.2307/j.ctt1cgf9gn.8",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 6,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9962638020515442
+    },
+    {
+      "audit_id": "QR314",
+      "query_id": "fr-06",
+      "record_id": "doi:10.70675/b2e240edzbef8z4db9zab4azc900afb25ec1",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 15,
+      "original_rank": 10,
+      "qwen_raw_score": 0.8596637845039368
+    },
+    {
+      "audit_id": "QR315",
+      "query_id": "fr-04",
+      "record_id": "openalex:W3107185438",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 18,
+      "original_rank": 10,
+      "qwen_raw_score": 0.04995851591229439
+    },
+    {
+      "audit_id": "QR316",
+      "query_id": "es-06",
+      "record_id": "doi:10.2307/j.ctv1ks0fkm.6",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 8,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9872773289680481
+    },
+    {
+      "audit_id": "QR317",
+      "query_id": "de-02",
+      "record_id": "openalex:W4362473961",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 13,
+      "original_rank": 9,
+      "qwen_raw_score": 0.9314625263214111
+    },
+    {
+      "audit_id": "QR318",
+      "query_id": "de-05",
+      "record_id": "openalex:W2777949975",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 7,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9626730680465698
+    },
+    {
+      "audit_id": "QR319",
+      "query_id": "fr-09",
+      "record_id": "doi:10.4324/9781003427407-48",
+      "selection_side": "B-only",
+      "a_rank": 15,
+      "b_rank": 5,
+      "original_rank": 15,
+      "qwen_raw_score": 0.9950177073478699
+    },
+    {
+      "audit_id": "QR320",
+      "query_id": "en-01",
+      "record_id": "openalex:W2004777400",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 7,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9869794845581055
+    },
+    {
+      "audit_id": "QR321",
+      "query_id": "pt-10",
+      "record_id": "doi:10.37885/978-65-89826-02-6",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 14,
+      "original_rank": 5,
+      "qwen_raw_score": 0.012527931481599808
+    },
+    {
+      "audit_id": "QR322",
+      "query_id": "pt-09",
+      "record_id": "source:internet-archive:revisioningpheno0000munh",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 13,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9921841025352478
+    },
+    {
+      "audit_id": "QR323",
+      "query_id": "es-05",
+      "record_id": "doi:10.15581/009.56.1.001",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 12,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9927672147750854
+    },
+    {
+      "audit_id": "QR324",
+      "query_id": "pt-10",
+      "record_id": "doi:10.17771/pucrio.dimcc.32894",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 13,
+      "original_rank": 4,
+      "qwen_raw_score": 0.017045315355062485
+    },
+    {
+      "audit_id": "QR325",
+      "query_id": "de-08",
+      "record_id": "openalex:W7006123070",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 5,
+      "original_rank": 14,
+      "qwen_raw_score": 0.9973269701004028
+    },
+    {
+      "audit_id": "QR326",
+      "query_id": "pt-06",
+      "record_id": "doi:10.32870/prot.i22.354",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 5,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9603611826896667
+    },
+    {
+      "audit_id": "QR327",
+      "query_id": "es-02",
+      "record_id": "openalex:W4362473961",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 16,
+      "original_rank": 8,
+      "qwen_raw_score": 0.970687747001648
+    },
+    {
+      "audit_id": "QR328",
+      "query_id": "pt-08",
+      "record_id": "openalex:W3191324070",
+      "selection_side": "B-only",
+      "a_rank": 19,
+      "b_rank": 9,
+      "original_rank": 19,
+      "qwen_raw_score": 0.9978677034378052
+    },
+    {
+      "audit_id": "QR329",
+      "query_id": "fr-10",
+      "record_id": "doi:10.51257/a-v1-h470",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 12,
+      "original_rank": 3,
+      "qwen_raw_score": 0.007518718019127846
+    },
+    {
+      "audit_id": "QR330",
+      "query_id": "fr-04",
+      "record_id": "openalex:W3117925707",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 12,
+      "original_rank": 8,
+      "qwen_raw_score": 0.2751297354698181
+    },
+    {
+      "audit_id": "QR331",
+      "query_id": "fr-06",
+      "record_id": "openalex:W640328102",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 2,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9977656602859497
+    },
+    {
+      "audit_id": "QR332",
+      "query_id": "en-09",
+      "record_id": "doi:10.1007/978-3-030-47253-5_374-1",
+      "selection_side": "A-only",
+      "a_rank": 4,
+      "b_rank": 13,
+      "original_rank": 4,
+      "qwen_raw_score": 0.9954615235328674
+    },
+    {
+      "audit_id": "QR333",
+      "query_id": "en-02",
+      "record_id": "openalex:W2338158763",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 20,
+      "original_rank": 10,
+      "qwen_raw_score": 0.9334307909011841
+    },
+    {
+      "audit_id": "QR334",
+      "query_id": "de-03",
+      "record_id": "openalex:W2468210261",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 5,
+      "original_rank": 17,
+      "qwen_raw_score": 0.7217432260513306
+    },
+    {
+      "audit_id": "QR335",
+      "query_id": "pt-04",
+      "record_id": "doi:10.11606/d.8.2020.tde-20042021-210713",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 14,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9884918928146362
+    },
+    {
+      "audit_id": "QR336",
+      "query_id": "de-02",
+      "record_id": "doi:10.5771/9783845250434_261",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 7,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9900636076927185
+    },
+    {
+      "audit_id": "QR337",
+      "query_id": "fr-07",
+      "record_id": "doi:10.22458/re.v24i49.5907",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 8,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9978843331336975
+    },
+    {
+      "audit_id": "QR338",
+      "query_id": "fr-04",
+      "record_id": "doi:10.1007/s10743-005-8454-9",
+      "selection_side": "A-only",
+      "a_rank": 3,
+      "b_rank": 14,
+      "original_rank": 3,
+      "qwen_raw_score": 0.1490352749824524
+    },
+    {
+      "audit_id": "QR339",
+      "query_id": "de-10",
+      "record_id": "openalex:W604892179",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 10,
+      "original_rank": 18,
+      "qwen_raw_score": 0.6187804341316223
+    },
+    {
+      "audit_id": "QR340",
+      "query_id": "fr-10",
+      "record_id": "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+      "selection_side": "B-only",
+      "a_rank": 14,
+      "b_rank": 4,
+      "original_rank": 14,
+      "qwen_raw_score": 0.6791787147521973
+    },
+    {
+      "audit_id": "QR341",
+      "query_id": "fr-06",
+      "record_id": "openalex:W2049442331",
+      "selection_side": "B-only",
+      "a_rank": 12,
+      "b_rank": 8,
+      "original_rank": 12,
+      "qwen_raw_score": 0.9811668992042542
+    },
+    {
+      "audit_id": "QR342",
+      "query_id": "de-06",
+      "record_id": "openalex:W7135698444",
+      "selection_side": "B-only",
+      "a_rank": 18,
+      "b_rank": 10,
+      "original_rank": 18,
+      "qwen_raw_score": 0.25832599401474
+    },
+    {
+      "audit_id": "QR343",
+      "query_id": "es-03",
+      "record_id": "doi:10.5040/9798881832018.ch-010",
+      "selection_side": "B-only",
+      "a_rank": 17,
+      "b_rank": 7,
+      "original_rank": 17,
+      "qwen_raw_score": 0.9717789888381958
+    },
+    {
+      "audit_id": "QR344",
+      "query_id": "es-04",
+      "record_id": "doi:10.7213/aurora.25.037.ao03",
+      "selection_side": "A-only",
+      "a_rank": 1,
+      "b_rank": 15,
+      "original_rank": 1,
+      "qwen_raw_score": 0.9922444224357605
+    },
+    {
+      "audit_id": "QR345",
+      "query_id": "pt-09",
+      "record_id": "doi:10.1590/s0080-62341997000300004",
+      "selection_side": "B-only",
+      "a_rank": 13,
+      "b_rank": 1,
+      "original_rank": 13,
+      "qwen_raw_score": 0.9998286962509155
+    },
+    {
+      "audit_id": "QR346",
+      "query_id": "en-01",
+      "record_id": "source:internet-archive:kantlimitsofauto0000shel",
+      "selection_side": "A-only",
+      "a_rank": 6,
+      "b_rank": 13,
+      "original_rank": 6,
+      "qwen_raw_score": 0.9453993439674377
+    },
+    {
+      "audit_id": "QR347",
+      "query_id": "de-05",
+      "record_id": "doi:10.5771/9783748969860-31",
+      "selection_side": "A-only",
+      "a_rank": 9,
+      "b_rank": 13,
+      "original_rank": 9,
+      "qwen_raw_score": 0.7090191841125488
+    },
+    {
+      "audit_id": "QR348",
+      "query_id": "en-02",
+      "record_id": "source:internet-archive:martin-heidegger-being-and-time-joan-stambaugh",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 12,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9912885427474976
+    },
+    {
+      "audit_id": "QR349",
+      "query_id": "en-02",
+      "record_id": "openalex:W838456230",
+      "selection_side": "A-only",
+      "a_rank": 8,
+      "b_rank": 13,
+      "original_rank": 8,
+      "qwen_raw_score": 0.9901401400566101
+    },
+    {
+      "audit_id": "QR350",
+      "query_id": "en-09",
+      "record_id": "doi:10.4324/9781003427407-47",
+      "selection_side": "A-only",
+      "a_rank": 5,
+      "b_rank": 14,
+      "original_rank": 5,
+      "qwen_raw_score": 0.9942250847816467
+    },
+    {
+      "audit_id": "QR351",
+      "query_id": "es-09",
+      "record_id": "doi:10.4321/s1132-12962007000300012",
+      "selection_side": "B-only",
+      "a_rank": 11,
+      "b_rank": 6,
+      "original_rank": 11,
+      "qwen_raw_score": 0.9988120794296265
+    },
+    {
+      "audit_id": "QR352",
+      "query_id": "fr-09",
+      "record_id": "doi:10.3917/dunod.barbi.2016.01.0353",
+      "selection_side": "A-only",
+      "a_rank": 10,
+      "b_rank": 19,
+      "original_rank": 10,
+      "qwen_raw_score": 0.325949490070343
+    }
+  ]
+}
