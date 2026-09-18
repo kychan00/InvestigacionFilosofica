@@ -2,7 +2,7 @@
   "schema_version": "qwen3-experiment-v1",
   "experiment_id": "qwen3-reranker-v1",
   "purpose": "development",
-  "status": "fresh-holdout-human-adjudication-ready",
+  "status": "fresh-holdout-human-judgments-frozen",
   "base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
   "branch": "evaluation/qwen3-reranker-v1",
   "model": {
@@ -125,7 +125,13 @@
     "predictions_sha256": "27898e33a40b4b438946a69f616418697c6bd2862fb4e151dfbce09985657408",
     "human_audit_server": "scripts/benchmark/qwen3/holdout_human_audit_server.mjs",
     "human_audit_ui": "benchmark/qwen3/validation/qwen3-holdout-human-audit.html",
-    "human_labels_started": false
+    "human_labels_started": true,
+    "human_judgment_freeze_commit": "ad19e80",
+    "human_judgments_sha256": "d9c260018e68c376e487486c38f57894e93abdf962de105ebc3a4fda72542c9c",
+    "human_labels_frozen": true,
+    "validation_analyzer": "scripts/benchmark/qwen3/analyze_holdout_validation.mjs",
+    "validation_report_json": "benchmark/qwen3/validation/reports/qwen3-reranker-v1-holdout-v1.validation.json",
+    "validation_report_markdown": "benchmark/qwen3/validation/reports/qwen3-reranker-v1-holdout-v1.validation.md"
   },
   "contracts": {
     "dataset": "qwen3-dataset-v1",
