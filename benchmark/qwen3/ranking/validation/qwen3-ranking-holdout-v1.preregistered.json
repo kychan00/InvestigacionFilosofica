@@ -1,0 +1,116 @@
+{
+  "schema_version": "qwen3-ranking-holdout-prereg-v1",
+  "validation_id": "qwen3-ranking-holdout-v1",
+  "status": "preregistered-before-retrieval",
+  "purpose": "Fresh internal end-to-end ranking validation of pure Qwen3 reranking on new multilingual queries.",
+  "lineage": {
+    "branch": "validation/qwen3-ranking-holdout-v1",
+    "development_ranking_report_freeze_commit": "d12ba5c",
+    "development_ranking_delta_report_sha256": "1ce0518a6c55a694624cd6b919ee34cd50fee6c6c99665bcc70cf9d58651a88d",
+    "production_base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
+    "previous_qwen_classifier_holdout_freeze_commit": "86c7fe2"
+  },
+  "query_set": {
+    "path": "benchmark/qwen3/ranking/validation/qwen3-ranking-holdout-v1.queries.json",
+    "query_count": 25,
+    "languages": [
+      "es",
+      "en",
+      "de",
+      "fr",
+      "pt"
+    ],
+    "families": 5,
+    "intent_mix": {
+      "philosopher-concept": 10,
+      "work": 5,
+      "interdisciplinary-challenge": 10
+    },
+    "freshness_rules": [
+      "No exact query may appear in benchmark/queries.json.",
+      "No exact query may appear in benchmark/qwen3/validation/qwen3-reranker-v1-holdout.preregistered.json.",
+      "These five semantic families were not used in the 50-query ranking development benchmark or the earlier 20-query Qwen classifier holdout."
+    ]
+  },
+  "retrieval": {
+    "pool_depth": 20,
+    "minimum_results_per_query": 20,
+    "qwen_used_during_retrieval": false,
+    "human_labels_used_during_retrieval": false,
+    "profile": {
+      "maxQueries": 5,
+      "openAlexPhilosophy": {
+        "enabled": true,
+        "rows": 12
+      },
+      "cucshFilosofia": {
+        "enabled": true,
+        "rows": 8
+      },
+      "openAlex": {
+        "enabled": false,
+        "perPage": 12
+      },
+      "crossref": {
+        "enabled": true,
+        "rows": 12
+      },
+      "internetArchive": {
+        "enabled": true,
+        "rows": 6
+      },
+      "delayBetweenExpansions": 600
+    }
+  },
+  "qwen_candidate": {
+    "model": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "max_length": 4096
+  },
+  "candidate_ranking_policy": {
+    "A": "current production order",
+    "B": "sort the exact same frozen Top-20 pool by qwen_raw_score descending",
+    "tie_breaker": "original production rank ascending",
+    "binary_threshold_used_for_ranking": false,
+    "score_blending": false,
+    "pool_membership_changes": false
+  },
+  "human_audit": {
+    "primary_metric": "exact paired delta P@10 (B minus A)",
+    "sample_rule": "Blindly adjudicate every query-document pair in the symmetric difference between A and B Top 10.",
+    "relevance_scale": {
+      "0": "Irrelevante o ruido.",
+      "1": "Relacionado de forma tangencial o insuficiente para la necesidad completa.",
+      "2": "Relevante para la consulta.",
+      "3": "Altamente relevante o central para la consulta."
+    },
+    "relevant_threshold": 2,
+    "blinding": [
+      "A/B condition",
+      "production rank",
+      "Qwen rank",
+      "production score",
+      "Qwen raw score",
+      "record/provider identity",
+      "retrieval provenance"
+    ],
+    "absolute_p10_policy": "Do not claim absolute human P@10 unless shared Top-10 slots are also adjudicated; the symmetric-difference audit identifies paired delta P@10 exactly."
+  },
+  "ordering_constraints": [
+    "Freeze this preregistration and exact fresh queries before retrieval.",
+    "Freeze production Top-20 retrieval before constructing Qwen model input.",
+    "Freeze clean model-input dataset before Qwen inference.",
+    "Freeze Qwen raw scores before constructing A/B rankings.",
+    "Freeze deterministic A/B rankings before constructing the blind human audit.",
+    "Freeze all human judgments before joining them back to A/B provenance.",
+    "Do not tune score blending, thresholds, query formulation, retrieval policy, or Qwen instruction using holdout labels."
+  ],
+  "decision_scope": {
+    "fresh_internal_ranking_validation": true,
+    "independent_external_validation": false,
+    "production_change_authorized": false,
+    "note": "A positive holdout result can support a later production integration decision, but this preregistration itself does not change production ranking code."
+  }
+}
