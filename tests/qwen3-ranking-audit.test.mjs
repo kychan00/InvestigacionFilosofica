@@ -12,7 +12,8 @@ test('Qwen3 ranking audit pins the frozen A/B artifacts and 352 changed Top-10 p
   assert.match(source, /d8ef532ad4f67e51315761fc38d683ef80d07dd551af72bfca046ec49a6eab9b/u);
   assert.match(source, /AB_FREEZE_COMMIT = 'ebf816d'/u);
   assert.match(source, /EXPECTED_CHANGED_PAIRS = 352/u);
-  assert.match(source, /expected 176/u);
+  assert.match(source, /sideCounts\['A-only'\] !== 176/u);
+  assert.match(source, /sideCounts\['B-only'\] !== 176/u);
 });
 
 test('Qwen3 ranking audit public sample hides A/B provenance, IDs, scores, and ranks', async () => {
