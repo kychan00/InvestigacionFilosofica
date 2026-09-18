@@ -1,0 +1,58 @@
+{
+  "schema_version": "qwen3-ranking-lab-prereg-v1",
+  "experiment_id": "qwen3-reranker-v1",
+  "ranking_experiment_id": "qwen3-ranking-v1",
+  "purpose": "development-ranking-experiment",
+  "development_only": true,
+  "production_base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
+  "qwen_validation_freeze_commit": "86c7fe2",
+  "query_set": {
+    "path": "benchmark/queries.json",
+    "query_count": 50,
+    "languages": ["es", "en", "de", "fr", "pt"],
+    "families": 10,
+    "note": "This is the existing development benchmark query set, not a fresh validation set."
+  },
+  "retrieval": {
+    "pool_depth": 20,
+    "minimum_results_per_query": 20,
+    "qwen_used_during_retrieval": false,
+    "human_labels_used_during_retrieval": false,
+    "profile": {
+      "maxQueries": 5,
+      "openAlexPhilosophy": { "enabled": true, "rows": 12 },
+      "cucshFilosofia": { "enabled": true, "rows": 8 },
+      "openAlex": { "enabled": false, "perPage": 12 },
+      "crossref": { "enabled": true, "rows": 12 },
+      "internetArchive": { "enabled": true, "rows": 6 },
+      "delayBetweenExpansions": 600
+    }
+  },
+  "qwen_candidate": {
+    "model": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "max_length": 4096
+  },
+  "candidate_ranking_policy": {
+    "A": "current production order",
+    "B": "sort the same frozen Top-20 pool by qwen_raw_score descending",
+    "tie_breaker": "original production rank ascending",
+    "binary_threshold_used_for_ranking": false,
+    "score_blending": false,
+    "pool_membership_changes": false
+  },
+  "evaluation_plan": {
+    "first": "freeze fresh production Top-20 retrieval pool",
+    "second": "build clean Qwen model-input dataset from the exact frozen pool",
+    "third": "freeze Qwen raw scores for all query-document pairs",
+    "fourth": "generate deterministic A/B rankings on the same pool",
+    "fifth": "blindly human-adjudicate changed Top-10 documents before selecting any alternative reranking policy",
+    "prohibited": [
+      "do not use Qwen scores as relevance judgments for evaluating Qwen reranking",
+      "do not tune a blend weight on the fresh holdout validation labels",
+      "do not change production ranking code during this lab"
+    ]
+  }
+}
