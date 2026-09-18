@@ -252,7 +252,7 @@
     "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
   },
   "ranking_holdout": {
-    "status": "preregistered-before-retrieval",
+    "status": "production-pool-frozen-dataset-builder-ready",
     "validation_id": "qwen3-ranking-holdout-v1",
     "branch": "validation/qwen3-ranking-holdout-v1",
     "development_ranking_report_freeze_commit": "d12ba5c",
@@ -274,6 +274,14 @@
     "human_labels_used_during_retrieval": false,
     "ranking_policy": "pure Qwen raw-score rerank of the exact frozen Top-20 pool",
     "primary_metric": "exact paired human delta P@10 from the blind Top-10 symmetric difference",
-    "production_change_authorized": false
+    "production_change_authorized": false,
+    "production_pool": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-production-pool-e10bbc4.jsonl",
+    "production_pool_metadata": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-production-pool-e10bbc4.meta.json",
+    "production_pool_freeze_commit": "9c1bf8b",
+    "production_pool_sha256": "26e39978dac68d37975732e2877830d58affc93a4e8c206edd4abd98f6b5d949",
+    "production_pool_metadata_sha256": "0de6853b1b4e71fab74876152d0af41d8a5c242cbad7b0a936283a0f26a36918",
+    "dataset_builder": "scripts/benchmark/qwen3/build_ranking_holdout_dataset.mjs",
+    "model_input_dataset": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.jsonl",
+    "model_input_metadata": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.meta.json"
   }
 }
