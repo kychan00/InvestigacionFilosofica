@@ -1,0 +1,36 @@
+{
+  "schema_version": "qwen3-ranking-human-judgments-meta-v1",
+  "validation_id": "qwen3-ranking-holdout-v1",
+  "audit_version": "qwen3-ranking-holdout-v1-delta-audit-v1",
+  "purpose": "fresh-blind-human-top10-delta-adjudication",
+  "row_count": 160,
+  "audit_id_first": "QRH001",
+  "audit_id_last": "QRH160",
+  "relevant_threshold": 2,
+  "distribution": {
+    "0": 27,
+    "1": 40,
+    "2": 21,
+    "3": 72
+  },
+  "relevant_count": 93,
+  "nonrelevant_count": 67,
+  "contains_ab_condition": false,
+  "contains_rank": false,
+  "contains_qwen_score": false,
+  "contains_query_id": false,
+  "contains_record_id": false,
+  "contains_provider_provenance": false,
+  "judged_at_policy": "null to avoid fabricating timestamps",
+  "source_note": "QRH001–QRH160 were supplied by the user as four completed blind text adjudication blocks in this conversation.",
+  "review_method_note": "Human adjudication remained blind to A/B condition, ranks, Qwen scores, record IDs, and provider provenance. Individual notes preserve the user's adjudication rationale, including source checks where recorded.",
+  "source_attachment_sha256s": {
+    "Markdown(20260919-154408).md pegado": "c8f1256411bb9147ca5575c77bced1e37c6d393407abaffa87ae6435189b6ae5",
+    "Markdown pegado (2)(1).md": "d1e4616f5bf4f2c0ff4895a4099840a24e537eebc0e4a34fcf81946869e0d9ff",
+    "Markdown pegado (3)(1).md": "fafd3b9335bda534edbc31356526c32ddb89ff75f3fea7badf34fef50871e362",
+    "Markdown pegado (4)(1).md": "31eca19338eafdb8a529b13d30af1c579a96a03e4641582b7840d7680f1b50c1"
+  },
+  "blind_sample_freeze_commit": "0ffceb0",
+  "blind_sample_sha256": "2981bcd4c48e59a40492d13163e9cc0a1f92e960aa7bd82bcda00f60250fc033",
+  "judgments_sha256": "bb1a44f71605b5415a2b9a47a111d6557c32f6f77c399613bc7afb87a5ba26a1"
+}
