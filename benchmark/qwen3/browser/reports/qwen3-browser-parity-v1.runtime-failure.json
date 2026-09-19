@@ -1,0 +1,63 @@
+{
+  "schema_version": "qwen3-browser-runtime-failure-v1",
+  "experiment_id": "qwen3-browser-parity-v1",
+  "status": "closed-runtime-failure",
+  "closed_date": "2026-09-19",
+  "production_changed": false,
+  "ranking_validation_affected": false,
+  "primary_parity_gate_evaluated": false,
+  "frozen_inputs": {
+    "dataset_rows": 500,
+    "dataset_sha256": "99745f88c232d50d8b6715d6062beae556a71c364623916b9c41239076d56f17",
+    "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+    "reference_scores_sha256": "a463a8473cd9a2d465e6368849a341e6fbba1923ddea9d8fe785da92a10cdbd3"
+  },
+  "browser_candidate": {
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_q4.onnx",
+    "dtype": "q4",
+    "device": "webgpu",
+    "execution_providers": [
+      "webgpu"
+    ],
+    "transformers_js_version": "4.3.0",
+    "max_length": 4096,
+    "num_logits_to_keep": 1,
+    "onnx_outputs_requested": [
+      "logits"
+    ],
+    "wasm_host_threads": 1
+  },
+  "observed_environment": {
+    "machine_model": "MacBookAir10,1",
+    "os_version": "25F80",
+    "browser": "Google Chrome",
+    "browser_version": "152.0.7977.83"
+  },
+  "failure": {
+    "diagnostic_original_index_zero_based": 403,
+    "diagnostic_row_number_one_based": 404,
+    "runtime_metadata_accepted": true,
+    "runtime_endpoint_status": 200,
+    "checkpoint_emitted": false,
+    "complete_emitted": false,
+    "error_message": "operation does not support unaligned accesses",
+    "error_type": "RuntimeError",
+    "failure_site": "_OrtReleaseTensor during ONNX Runtime Web decoder forward"
+  },
+  "prior_observations": {
+    "full_run_reached_before_failure": "403/500",
+    "failure_reproduced_on_same_frozen_pair": true,
+    "num_logits_to_keep_1_resolved_failure": false,
+    "logits_only_fetch_resolved_failure": false,
+    "wasm_num_threads_1_resolved_failure": false
+  },
+  "closure_decision": {
+    "run_remaining_500_pairs": false,
+    "change_frozen_max_length": false,
+    "tune_against_failed_holdout_pair": false,
+    "interpretation": "The q4 browser candidate is closed as a runtime-feasibility failure. This does not invalidate the separately frozen Python Qwen ranking validation.",
+    "next_experiment": "Use an independently preregistered q8 runtime-feasibility experiment with synthetic/development inputs before any new 500-pair parity run."
+  }
+}

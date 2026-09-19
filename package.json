@@ -72,7 +72,9 @@
     "benchmark:qwen3:ranking:holdout:infer": "python scripts/benchmark/qwen3/inference.py --manifest benchmark/qwen3/configs/qwen3-ranking-holdout-v1.inference.json --output benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.jsonl --meta benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.meta.json --cache benchmark/qwen3/cache/qwen3-ranking-holdout-v1.cache.jsonl --batch-size 2 --dtype float16",
     "benchmark:qwen3:ranking:holdout:ab": "node scripts/benchmark/qwen3/build_ranking_holdout_ab.mjs",
     "benchmark:qwen3:ranking:holdout:audit:sample": "node scripts/benchmark/qwen3/build_ranking_holdout_delta_audit.mjs",
-    "benchmark:qwen3:ranking:holdout:analyze": "node scripts/benchmark/qwen3/analyze_ranking_holdout_delta_audit.mjs"
+    "benchmark:qwen3:ranking:holdout:analyze": "node scripts/benchmark/qwen3/analyze_ranking_holdout_delta_audit.mjs",
+    "benchmark:qwen3:browser-parity:preflight": "node scripts/benchmark/qwen3/run_browser_parity.mjs --preflight",
+    "benchmark:qwen3:browser-parity:run": "node scripts/benchmark/qwen3/run_browser_parity.mjs --run"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
