@@ -1,0 +1,61 @@
+{
+  "schema_version": "qwen3-ranking-holdout-inference-v1",
+  "experiment_id": "qwen3-reranker-v1",
+  "validation_id": "qwen3-ranking-holdout-v1",
+  "purpose": "fresh-ranking-holdout-raw-scores",
+  "development_ranking_report_freeze_commit": "d12ba5c",
+  "retrieval_freeze_commit": "9c1bf8b",
+  "dataset_freeze_commit": "212a197",
+  "model": {
+    "name": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473"
+  },
+  "instruction": {
+    "path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+    "sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7"
+  },
+  "dataset": {
+    "path": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.jsonl",
+    "metadata_path": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.meta.json",
+    "sha256": "99745f88c232d50d8b6715d6062beae556a71c364623916b9c41239076d56f17",
+    "metadata_sha256": "e30a84ba6350f1192682031d8483793abf20bd5de9d5801593d40957586a668b",
+    "source_pool_sha256": "26e39978dac68d37975732e2877830d58affc93a4e8c206edd4abd98f6b5d949",
+    "rows": 500,
+    "unique_queries": 25,
+    "unique_records": 421,
+    "contains_human_labels": false,
+    "contains_ranking_provenance": false,
+    "contains_provider_provenance": false
+  },
+  "adapter": {
+    "scoring": "yes-no-softmax-probability",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "max_length": 4096,
+    "mps_model_batch_strategy": "singleton"
+  },
+  "inference": {
+    "purpose": "fresh-ranking-holdout-raw-scores",
+    "default_batch_size": 2,
+    "raw_output": "benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.jsonl",
+    "raw_metadata": "benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.meta.json",
+    "local_cache": "benchmark/qwen3/cache/qwen3-ranking-holdout-v1.cache.jsonl",
+    "refuse_completed_output_overwrite_by_default": true,
+    "full_output_requires_complete_dataset": true
+  },
+  "ranking_policy": {
+    "uses_raw_score_only": true,
+    "binary_threshold_used": false,
+    "score_blending": false,
+    "pool_membership_changes": false,
+    "sort": "qwen_raw_score descending",
+    "tie_breaker": "original production rank ascending"
+  },
+  "human_labels": {
+    "used_for_model_input": false,
+    "used_during_scoring": false,
+    "must_not_exist_before_score_freeze": true
+  },
+  "production": {
+    "ranking_changed": false
+  }
+}
