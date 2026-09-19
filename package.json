@@ -76,6 +76,7 @@
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
+    "@huggingface/transformers": "4.3.0",
     "franc-min": "^6.2.0"
   },
   "devDependencies": {
