@@ -31,6 +31,7 @@ const AUDIT_ID_PREFIX = 'QRH';
 const EXPECTED_AUDIT_ROWS = 160;
 const EXPECTED_SIDE_ROWS = 80;
 const EXPECTED_QUERIES = 25;
+const EXPECTED_CHANGED_QUERIES = 24;
 const POOL_DEPTH = 20;
 const TOP_K = 10;
 const RELEVANT_THRESHOLD = 2;
@@ -355,16 +356,37 @@ export async function analyzeRankingHoldoutHumanDelta() {
     throw new Error(`unexpected A/B side counts: ${aOnly.length}/${bOnly.length}`);
   }
 
-  const perQueryMap = new Map();
-  for (const row of joined) {
-    if (!perQueryMap.has(row.query_id)) {
-      perQueryMap.set(row.query_id, { A: [], B: [], meta: row });
+  const queryMetaById = new Map();
+  for (const row of abRows) {
+    if (!queryMetaById.has(row.query_id)) {
+      queryMetaById.set(row.query_id, {
+        query_id: row.query_id,
+        query: row.query,
+        query_language: row.query_language,
+        family: row.family,
+        intent: row.intent,
+      });
     }
-    const group = perQueryMap.get(row.query_id);
-    group[row.selection_side === 'A-only' ? 'A' : 'B'].push(row);
   }
-  if (perQueryMap.size !== EXPECTED_QUERIES) {
-    throw new Error(`expected ${EXPECTED_QUERIES} audited queries`);
+  if (queryMetaById.size !== EXPECTED_QUERIES) {
+    throw new Error(`expected ${EXPECTED_QUERIES} total A/B queries`);
+  }
+
+  const changedQueryIds = new Set(joined.map((row) => row.query_id));
+  if (changedQueryIds.size !== EXPECTED_CHANGED_QUERIES) {
+    throw new Error(`expected ${EXPECTED_CHANGED_QUERIES} queries with changed Top-10 membership, got ${changedQueryIds.size}`);
+  }
+
+  const perQueryMap = new Map(
+    [...queryMetaById.entries()].map(([queryId, meta]) => [
+      queryId,
+      { A: [], B: [], meta },
+    ]),
+  );
+  for (const row of joined) {
+    const group = perQueryMap.get(row.query_id);
+    if (!group) throw new Error(`unknown query in reconstructed audit: ${row.query_id}`);
+    group[row.selection_side === 'A-only' ? 'A' : 'B'].push(row);
   }
 
   const perQuery = [...perQueryMap.entries()].map(([queryId, group]) => {
@@ -423,6 +445,8 @@ export async function analyzeRankingHoldoutHumanDelta() {
     },
     overall: {
       queries: EXPECTED_QUERIES,
+      queries_with_changed_top10: changedQueryIds.size,
+      queries_with_unchanged_top10: EXPECTED_QUERIES - changedQueryIds.size,
       top10_slots_per_condition: EXPECTED_QUERIES * TOP_K,
       shared_top10_slots: sharedTop10Slots,
       changed_top10_pairs: EXPECTED_AUDIT_ROWS,
@@ -485,6 +509,8 @@ export async function analyzeRankingHoldoutHumanDelta() {
 async function main() {
   const { report, hashes } = await analyzeRankingHoldoutHumanDelta();
   console.log('Qwen3 ranking holdout human delta analysis complete');
+  console.log(`queries_with_changed_top10=${report.overall.queries_with_changed_top10}`);
+  console.log(`queries_with_unchanged_top10=${report.overall.queries_with_unchanged_top10}`);
   console.log(`A_only_relevant=${report.overall.a_only_relevant}/${report.overall.a_only_rows}`);
   console.log(`B_only_relevant=${report.overall.b_only_relevant}/${report.overall.b_only_rows}`);
   console.log(`net_relevant_gain=${signed(report.overall.net_relevant_gain)}`);
