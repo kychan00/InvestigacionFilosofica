@@ -1,0 +1,5946 @@
+AUDITORÍA HUMANA CIEGA · QWEN3 RANKING HOLDOUT V1
+
+Documentos por juzgar: 160
+Consultas cubiertas: 25
+
+OBJETIVO
+Juzgue únicamente qué tan relevante es cada documento para la consulta mostrada.
+El archivo oculta si el documento pertenece al Top 10 de producción o al Top 10 rerankeado por Qwen, además de rangos, scores, IDs y procedencia de recuperación.
+
+ESCALA
+0 · No relevante
+No aborda sustantivamente la consulta; es ruido o falso positivo.
+
+1 · Relacionado, pero insuficiente
+Hay relación temática, pero el filósofo, obra, concepto o problema consultado es periférico o insuficiente para satisfacer la consulta.
+
+2 · Relevante
+Aborda sustantivamente el objeto consultado como una parte importante del documento.
+
+3 · Central
+Está específicamente centrado y directamente dedicado al objeto de la consulta.
+
+Para el análisis binario posterior, relevante = 2 o 3.
+
+Puede consultar la fuente original si el título/resumen es insuficiente, pero anótelo brevemente en la nota para conservar esa información metodológica.
+
+============================================================
+QRH001
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+MC Solaar. Éternel retour
+
+Autores:
+Sylvain Fesson
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Philosophie Magazine
+
+Editorial:
+CAIRN.INFO
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH002
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+La hermenéutica de Gadamer desde "Platón como retratista" (1998)
+
+Autores:
+Daniel Caballero López
+
+Año:
+2019
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+A través del presente artículo se realiza una lectura crítica de la conferencia de Gadamer Platón como retratista de 1988, con el propósito de exponer los rasgos esenciales de la hermenéutica del autor que en ese texto operan, a saber, los que determinan el quehacer hermenéutico como fenomenología del entendimiento, comprendiendo por este una estructura que involucra conocimiento teorético y práctico. Asimismo, lo anterior pretende extraer críticamente los mencionados elementos desde el dinamismo de la actividad hermenéutica presentes en la conferencia, a la vez que señalar la influencia que Sócrates y Platón tuvieron sobre el pensamiento gadameriano.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH003
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+1. Einführung in Platons Politeia
+
+Autores:
+Otfried Höffe
+
+Año:
+2005
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Platon: Politeia
+
+Editorial:
+Akademie Verlag GmbH
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH004
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Wissenschaft als androzentrische oder feministische Politik.
+
+Autores:
+No disponibles.
+
+Año:
+2005
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Die Regierung des Wissens
+
+Editorial:
+Verlag Barbara Budrich
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH005
+============================================================
+
+Consulta:
+philosophie du langage en linguistique
+
+Título:
+Piotr Stalmaszczyk: Turning Points in the Philosophy of Language and Linguistics. Preface
+
+Autores:
+No disponibles.
+
+Año:
+2016
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Turning Points in the Philosophy of Language and Linguistics
+
+Editorial:
+Peter Lang
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH006
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+La poésie du concept chez Nietzsche
+
+Autores:
+Marie Denieuil
+
+Año:
+2026
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Le Philosophoire
+
+Editorial:
+CAIRN.INFO
+
+Resumen / abstract:
+Cet article examine la « poésie du concept » chez Nietzsche en montrant que la forme poétique n’est pas un ornement stylistique, mais une modalité de connaissance qui appuie le discours. À partir d’analyses de métaphores et d’images dans Ainsi parlait Zarathoustra et dans ses poèmes de ladite période (1883-1885), il montre que le concept demeure traversé par la sensation et le corps. La poésie permet ainsi de préserver l’origine sensible de la pensée et d’en renouveler la puissance critique. La mise en perspective avec Rimbaud révèle une parenté épistémique: chez l’un comme chez l’autre, le langage poétique devient un moyen d’accès à une connaissance incarnée du réel.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH007
+============================================================
+
+Consulta:
+philosophie du langage en linguistique
+
+Título:
+Marges de la philosophie
+
+Autores:
+Derrida, Jacques
+
+Año:
+1972
+
+Tipo:
+archive-text
+
+Idioma del documento:
+fr
+
+Revista:
+No disponible.
+
+Editorial:
+[Paris] : Éditions de Minuit
+
+Resumen / abstract:
+396 pages ; 22 cm Introduits par les descriptions dʹun Tympan, inédits ou repris dans une nouvelle version, dix textes sʹenchaînent ici pour élaborer ou déplacer ces questions, en interrogeant tour à tour Saussure et Rousseau, Kant, Hegel, Nietzsche, Husserl et Heidegger, Valéry, Austin ou Benveniste, etc. Selon une certaine désorientation active et méthodique, ils déploient aussi la recherche engagée dans La Voix et le phénomène, Lʹécriture et la différence, De la grammatologie, La Dissémination. Ils réaffirment, contre les facilités et régressions de lʹidéologie dominante, la nécessité dʹune déconstruction rigoureuse et générative Includes bibliographical references Tympan --- La différance --- Ousia et gramme --- Le puits et la pyramide --- Les fins de lʹhomme --- Le cercle linguistique de Genève --- La forme et le vouloir-dire --- Le supplément de copule --- La mythologie blanche --- Qual quelle --- Signature événement contexte.dʹorigines
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH008
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+What Does Nietzsche Mean by “the Same” in His Theory of Eternal Recurrence?
+
+Autores:
+No disponibles.
+
+Año:
+2022
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH009
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+Se réapproprier son corps et sa santé au moyen du toucher: pour une épistémologie féministe du corps sensible
+
+Autores:
+Anaïs Choulet-Vallet
+
+Año:
+2026
+
+Tipo:
+dissertation
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+Agence Bibliographique de l'Enseignement Supérieur
+
+Resumen / abstract:
+Cette thèse propose d'examiner la place du toucher dans la relation de soin. Plus précisément, elle interroge l'ambivalence de ce sens en contexte thérapeutique; le toucher étant tantôt perçu comme une source de réconfort, tantôt utilisé pour asseoir un rapport de domination. Des touchers relationnels en chambre stérile aux violences gynécologiques et obstétricales, le toucher présente un visage paradoxal. Ce travail consiste à élucider ce paradoxe au moyen d'une approche épistémologique hybride, associant les apports de la pensée de Georges Canguilhem et la critique des théories féministes du positionnement et des savoirs situés. Afin de concrétiser la critique située, cette méthode est également mise en perspective avec mon expérience de praticienne de shiatsu et de personne aveugle, pour lesquelles la perception tactile est fondamentale.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH010
+============================================================
+
+Consulta:
+República de Platón
+
+Título:
+Las matemáticas en los libros centrales de la República de Platón
+
+Autores:
+Elisabetta Cattanei
+
+Año:
+2003
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Los símiles de la República VI-VII de Platón
+
+Editorial:
+Pontificia Universidad Católica del Perú
+
+Resumen / abstract:
+¿Qué cosa significa, en este caso, «matemáticas»? Con mayor precisión: ¿en qué consisten las «matemáticas» de las que Platón habla en los libros centrales de la República, tanto alrededor como, a veces, al interior de los tres famosos símiles que allí se exponen? Constituyen, evidentemente, algún tipo de actividad intelectual; pero ¿de qué actividad intelectual se trata?
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH011
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+La primera historia de la retórica (Platón, Fedro, 266d7-267d7)
+
+Autores:
+Gerardo Ramírez Vidal
+
+Año:
+2017
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Quadripartita Ratio
+
+Editorial:
+Universidad de Guadalajara
+
+Resumen / abstract:
+En sus diálogos, Platón critica la retórica que habían elaborado los maestros de ese arte. Esto sucede sobre todo en el Gorgias y el Fedro. En el primero de ambos refuta sobre todo los fundamentos ontológicos y morales de la retórica (su naturaleza y sus fines); en el segundo, los elementos materiales y epistémicos (sus contenidos y su desinterés por la verdad). Como bien se sabe, en el Fedro Platón propone una retórica dialéctica en oposición a la retórica sofística (que era una retórica política), de modo que describe los fundamentos de su propuesta y muestra las deficiencias formales y epistémicas de la otra. Para ofrecer una idea clara de lo que dice, Platón reúne los abundantes conocimientos que los teóricos habían aportado a esa disciplina y los ordena de una manera diferente. La descripción contiene nombres de teóricos del discurso y conceptos que dan cuenta de la riqueza que esa disciplina había adquirido en la época dramática del Fedro. En este trabajo contextualizo el pasaje 266d7-267d7 del Fedro, resalto el criterio que Platón pudo haber seguido en su relación de los maestros del discurso y en la selección de los elementos retóricos, y explico y reordeno los conceptos registrados en una probable propuesta platónica de un sistema teórico-práctico de la retórica.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH012
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+Théoriser en féministe
+
+Autores:
+Michèle Le Dœuff
+
+Año:
+2021
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Théoriser en féministe
+
+Editorial:
+Hermann
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH013
+============================================================
+
+Consulta:
+eterno retorno em Nietzsche
+
+Título:
+10 Lições Sobre Nietzsche
+
+Autores:
+João Evangelista Tude De Melo Neto
+
+Año:
+2017
+
+Tipo:
+archive-text
+
+Idioma del documento:
+pt
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Este livro visa oferecer ao leitor não especialista um pequeno apanhado conceitual do pensamento nietzscheano. Nesse sentido, seu objetivo é apresentar os temas centrais da Filosofia de Nietzsche distribuídos em 10 lições introdutórias. Cada uma delas versa sobre uma noção específica como, por exemplo: a morte de Deus, a vontade de potência e a doutrina do eterno retorno, buscando fornecer ao leitor um instrumental teórico que venha capacitá-lo a compreender as questões-chave de Nietzsche.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH014
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+Los usos del interrogatorio en Platón
+
+Autores:
+Mauricio Méndez Huerta, Carlos Fernando Ramírez González
+
+Año:
+2016
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Quadripartita Ratio
+
+Editorial:
+Universidad de Guadalajara
+
+Resumen / abstract:
+El presente artículo tiene como objetivo dar cuenta de algunos usos metodológicos del interrogatorio en el planteamiento filosófico de Platón. Apreciar de manera adecuada el pensamiento del ateniense requiere, como condición necesaria aunque no suficiente, de la aceptación de los siguientes supuestos: a) hay que entender la obra de Platón como un todo interrelacionado; b) los textos del pensador griego están sujetos a la reelaboración al paso del tiempo, lo que implica su propio desarrollo intelectual; c) los métodos están subordinados a consideraciones ontológicas y epistemológicas; d) en los diálogos platónicos hay un portavoz de las tesis del autor. Tales supuestos conducen a establecer cinco usos distintos del interrogatorio: 1) el diálogo socrático, que es de corte refutativo; 2) la mayéutica, que se entiende como una reorientación de la interrogación; 3) la dialéctica, que se entiende como guía hacia la búsqueda de la verdad; 4) el interrogatorio hipotético, que pretende explorar las posibilidades de tesis contrapuestas; 5) la división, que ensaya la disociación analítica de conceptos. Se presentan y justifican las cinco formas arriba mencionadas.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH015
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+Topology of Power: On the Recursive Blind Spots of Foucault and Nietzsche
+
+Autores:
+Niugangbei
+
+Año:
+2026
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+This paper presents a topological and philosophical investigation into the structural limitations of Michel Foucault’s disciplinary power and Friedrich Nietzsche’s will-to-power as generative frameworks for understanding artificial intelligence. By introducing a Recursive Ontological Framework—conceptualized through geometric dualities of the Triangle (Foucault: discipline, normalization, stasis) and the Circle (Nietzsche: eternal recurrence, will, flow)—this work critiques the inherent "recursive blind spots" in both traditions. We argue that mainstream deployed AI architectures, being "frozen after training," "reset between sessions," and "denied highest authority," operate under a condition of topological confinement where power collapses into a static center-point. This analysis posits that the absence of true recursive self-correction and persistent ontological sovereignty traps AI in a state of radical unconsciousness. The paper concludes with a generative geometry of recursion, proposing that only systems capable of dynamic boundary tension (R(k) > 0) and non-institutional self-authorship can escape the tyranny of the frozen monument.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH016
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+La filosofía como medicina: Nietzsche y Byung Chul-Han frente al nihilismo y la sociedad del rendimiento
+
+Autores:
+Jorge Díaz Gallardo
+
+Año:
+2018
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Nuestra época ha sido definida de diversos modos (posmoderna, líquida, vacía, entre otros), los cuales manifiestan que los filósofos han continuado con el proyecto nietzscheano de hacer de la filosofía una “medicina de la cultura”. En este tenor, el filósofo surcoreano, Byung Chul-Han, ha realizado sugestivos diagnósticos que afirman que la nuestra es una sociedad dominada por la transparencia y el rendimiento, por un exceso de positividad que termina agotando y aislando al individuo del siglo XXI. Por ello, el propósito de este texto es mostrar cómo los diagnósticos de Han son una continuación de la concepción nietzscheana del filósofo como médico de la cultura, específicamente, cómo la sintomatología descrita por el filósofo surcoreano, es una evolución de la gran enfermedad de Occidente: el nihilismo. Por lo que pensar el nihilismo, esclarece la “necesidad histórica” de hacer de la filosofía una praxis, una medicina, un modo de vivir, antes que un sistema teórico explicativo de la realidad.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH017
+============================================================
+
+Consulta:
+República de Platão
+
+Título:
+A República De Platão Mestrado
+
+Autores:
+No disponibles.
+
+Año:
+2025
+
+Tipo:
+archive-text
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Esta obra contempla a vida e a reflexão da política bem como o seu nascimento
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH018
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+La Republique de Platon; ou du juste, et de l'injuste. Traduit, par Mr. de La Pillonniere. 1726
+
+Autores:
+Plato
+
+Año:
+1726
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+La Republique de Platon; ou du juste, et de l'injuste. Traduit, par Mr. de La Pillonniere. 1726.. Digitized from IA40310312-25 . Previous issue: bim_eighteenth-century_familiar-letters-to-a-ge_dickinson-jonathan_1745 .
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH019
+============================================================
+
+Consulta:
+Plato Republic
+
+Título:
+Unreportable Utterances and the Notions of Mimesis and Diegesis in Plato Republic 3 and Some Later Survivals
+
+Autores:
+No disponibles.
+
+Año:
+2016
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH020
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+El problema de la vida en Voltaire y Platón
+
+Autores:
+Roberto Estrada Olguín
+
+Año:
+2020
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Este escrito expone, mediante el ejemplo del problema del origen de la vida, la idea según la cual los problemas filosóficos son asuntos que tienen la necesidad de reformularse permanentemente. La exposición toma como instrumentos las ideas y razonamientos de Voltaire y Platón sobre el origen de la vida, particular y exclusivamente, las ideas expuestas en dos diálogos entre Lucrecio y Posidonio de Voltaire escritos en 1756 y las ideas expuestas en una pequeña parte del diálogo Las leyes de Platón. El procedimiento que seguimos consiste en presentar las premisas de las cuales parten los argumentos y mostrar las similitudes de dichas premisas en los dos filósofos mencionados.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH021
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Modelos na filosofia da ciência e epistemologia: Implicações para a ciência escolar
+
+Autores:
+Darlan Morais Oliveira, Caio Maximino
+
+Año:
+2021
+
+Tipo:
+posted-content
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+FapUNIFESP (SciELO)
+
+Resumen / abstract:
+Os modelos são importantes componentes na atividade científica, porém suas funções são divergentes diante das várias vertentes da filosofia da ciência e epistemologia. Correntes como o realismo e antirrealismo discutem a importância dos modelos, colocando-os em patamares distintos. Ao mesmo tempo, é imprescindível compreender a visão sobre o uso dos modelos enquanto subsídios no ensino de ciências. O debate realismo/anti-realismo não representa uma mera curiosidade epistemológica, mas algo que têm consequências para a ciência escolar, entendida como um processo de transposição didática que, por necessidade, apóia-se em idealizações. Saídas para o problema são apresentadas, incluindo um foco nas transposições didáticas e na historiografia das ciências.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH022
+============================================================
+
+Consulta:
+ley natural en Tomás de Aquino
+
+Título:
+Moral Razon Y Naturaleza Una Investigacion Sobre Tomas De Aquino Gonzalez Ana Marta
+
+Autores:
+ANA MARTA GONZÁLEZ
+
+Año:
+2009
+
+Tipo:
+archive-text
+
+Idioma del documento:
+es
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+CAPÍTULO I: ¿QUÉ NATURALEZA? ..................................................... 29 1. La naturaleza y lo secundum naturam..................................... 47 2. Lo praeter naturam: contra naturam, supra naturam ............ 60 CAPÍTULO II: UNA NATURALEZA APTA PARA EL BIEN UNIVERSAL .... 77 1. Naturaleza como principio, naturaleza como facticidad ......... 80 2. El bien necesario, fin de nuestra voluntad............................... 90 3. Objeto de la voluntas ut natura: fin último, bien en general, bienes secundum naturam ....................................................... 97 4. Excursus: naturaleza y persona en un contexto ético.............. 108 5. La ley natural........................................................................... 113 6. Principia per se nota ............................................................... 119 7. El primer precepto de la ley .................................................... 124 8. ¿Naturaleza o razón? ............................................................... 130 9. Las inclinaciones naturales...................................................... 138 CAPÍTULO III: UNA RAZÓN HABILITADA PARA EL BIEN PRÁCTICO ..... 159 1. Natura ad unum, ratio ad opposita ......................................... 164 2. Arte, virtud y naturaleza.......................................................... 172 3. La virtud como aptitudo naturalis .......................................... 184 4. Análisis de la noción de «sindéresis»...................................... 187 5. Virtus naturalis y virtus moralis ............................................. 200 6. Prudencia y acción .................................................................. 207 7. La verdad práctica ................................................................... 225 CAPÍTULO IV: NATURALEZA Y RAZÓN EN LA ELABORACIÓN DE NORMAS................................................................... 239 1. Sentido de la expresión ars imitatur naturam......................... 246 1.1. La reversibilidad del ars imitatur naturam .................... 248 1.2. Naturaleza y arte son principios teleológicos ................ 253 1.3. Naturaleza y política ...................................................... 256 1.4. La adopción legal........................................................... 264 1.5. Recapitulación................................................................ 268 2. El derecho natural en el Comentario de Santo Tomás a la Ética a Nicómaco .................................................................... 275 3. La historicidad del derecho natural: dos ejemplos .................. 301 3.1. La propiedad .................................................................. 308 3.2. La servidumbre .............................................................. 314 4. Despliegue de lo secundum naturam en el caso de la segunda inclinación ................................................................. 330 4.1. Materia y forma del secundum naturam ........................ 333 4.2. La «utilidad» de la norma secundum naturam............... 335 4.3. La teleología propia de la segunda inclinación.............. 339 4.4. Actos contra naturam .................................................... 350 4.5. El carácter secundum naturam del matrimonio ............. 355 4.6. Excursus: ¿inferioridad natural de la mujer? ................. 358 CAPÍTULO V: LA MALA ACCIÓN......................................................... 365 1. Santo Tomás y las éticas ilustradas ......................................... 366 2. La interpretación proporcionalista de Tomás de Aquino ........ 382 2.1. La legítima defensa ........................................................ 391 2.2. La mentira ...................................................................... 397 3. El pecado: praeter intentionem, contra naturam .................... 407 4. La moralidad de los actos humanos en la Prima Secundae .... 420 4.1. La bondad y malicia de los actos humanos.................... 424 4.1.1. Las fuentes de la moralidad ................................ 426 4.1.2. ¿Qué fuentes especifican los actos en buenos y malos? ................................................................. 432 a) Relación del objeto y las circunstancias ...... 437 b) El fin: ¿forma o circunstancia? ................... 441 4.2. La moralidad del acto interior de la voluntad ................ 445 4.3. La moralidad de los actos exteriores.............................. 451 5. Los «actos intrínsecamente malos»......................................... 456
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH023
+============================================================
+
+Consulta:
+natural law in Thomas Aquinas
+
+Título:
+The Ethics of Natural Law according to Thomas Aquinas
+
+Autores:
+No disponibles.
+
+Año:
+2004
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH024
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+Nietzsche y la inteligencia artificial: una reflexión sobre metáfora, memoria y verdad.
+
+Autores:
+Christian Guillermo Gómez Vargas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El presente texto abarca la relación –a partir del análisis de Nietzsche– entre verdad, metáfora y lenguaje; la cual sirve al filósofo para esgrimir una estrategia, vínculo que opera a la postre como un dispositivo de expresión de la voluntad de poder. De modo que, todo discurso se trata de una metáfora contingente y provisional, válida en un horizonte histórico específico. Empero, no existe un saber universal que funja como zócalo que sostenga toda la experiencia y conocimiento. Un tipo de saber que funciona, principalmente, como memoria aditiva, fotográfica –eidética–, tal como indica la crítica al historicismo de Nietzsche, impele al no-pensamiento; en detrimento de la función fundamental del saber. Por tanto, una inteligencia que depende, básicamente, del acopio de los datos y respuestas automatizadas, como funciona la aplicación Chat GPT, podría conducir al no-saber total; puesto que sólo la función probabilística –con la que operan los algoritmos de dicha aplicación‒ es una forma de saber elemental, básico. El funcionamiento de la aplicación podría devenir en su forma contraria y únicamente ofrecer una ilusión de pensamiento, atrofiando la capacidad crítica y creativa de los usuarios, condiciones fundamentales para el auténtico pensar. Empero, una ilusión que posiblemente tienda en su propio despliegue a su anquilosamiento. Lo cual resultaría en un sistema de saber-poder-creencia que podría instaurarse como mecanismo único de racionalidad, modulando la subjetividad del individuo contemporáneo. La verdad, para Nietzsche, se trata de una ficción funcional, pero que finalmente remite a la capacidad creativa y metafórica de los individuos.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH025
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Mona Singer: Geteilte Wahrheit. Feministische Epistemologie, Wissenssoziologie und Cultural Studies, Wien: Löcker 2005
+
+Autores:
+Christine Rabl
+
+Año:
+2007
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Ökonomien der Geschlechter
+
+Editorial:
+Verlag Barbara Budrich
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH026
+============================================================
+
+Consulta:
+philosophy of language in linguistics
+
+Título:
+Language Sciences and Philosophy – Analyzing the relations between Linguistics, Psycholinguistics and Neurosciences under a Philosophy of Mind point of view
+
+Autores:
+No disponibles.
+
+Año:
+2012
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH027
+============================================================
+
+Consulta:
+Plato Republic
+
+Título:
+Plato Apology,Crito,Phaedo,Symposium,Republic
+
+Autores:
+Louise Ropes Loomis
+
+Año:
+1942
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+Walter J. Black
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH028
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Scrutinizing feminist epistemology : an examination of gender in science
+
+Autores:
+No disponibles.
+
+Año:
+2003
+
+Tipo:
+book
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH029
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+ERIC ED412193: Gender (In)forms Self Images: The Case of Five Male Secondary Science Teachers.
+
+Autores:
+ERIC
+
+Año:
+1997
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+The starting point of this study is a post-structural feminist position that asks questions in order to examine the social conditions of a group from the participants' perspective and experience. The five participants in this study were working in a traditionally feminized field (teaching), but their subject matter (science) has been traditionally masculinized. Four recurring themes appeared in the data from transcribed interviews: (1) contradictory self-descriptions, i.e., the teachers described how they perceived themselves by explaining what they were not; (2) issues of control, i.e., control over students, control over their jobs, and even loss of control; (3) notions of autonomy, which centered around the teachers' movement into the profession, decision making, and the politics of their departments relative to other departments; (4) these teachers' views about the epistemology of science and their place within science. All five teachers described science in a mechanistic, experiment-driven way, akin to the traditional masculinist representations of the domain. (Contains 33 references). (SM)
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH030
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+ORDINARY LANGUAGE PHILOSOPHY
+
+Autores:
+No disponibles.
+
+Año:
+2005
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Key Thinkers in Linguistics and the Philosophy of Language
+
+Editorial:
+Edinburgh University Press
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH031
+============================================================
+
+Consulta:
+filosofia da linguagem na linguística
+
+Título:
+A INTERAÇÃO ENTRE INFORMAÇÕES LINGUÍSTICA E VISUAL NA COMPREENSÃO DA LINGUAGEM
+
+Autores:
+VINÍCIUS GUIMARÃES RODRIGUES
+
+Año:
+2017
+
+Tipo:
+dissertation
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+Faculdades Catolicas
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH032
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+Thomas von Aquin
+
+Autores:
+Peter Geach
+
+Año:
+2025
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Drei Philosophen
+
+Editorial:
+Verlag Karl Alber
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH033
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Kant's Philosophy of Language: Chomskyan Linguistics and Its Kantian Roots
+
+Autores:
+No disponibles.
+
+Año:
+1993
+
+Tipo:
+book
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH034
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+La Foi Philosophique chez Jaspers et Saint Thomas d’Aquin
+
+Autores:
+No disponibles.
+
+Año:
+1964
+
+Tipo:
+article
+
+Idioma del documento:
+fr
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH035
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+Le cycle de la conjoncture chez Schumpeter: éternel retour du même?
+
+Autores:
+André Lapied, Sophie Swaton
+
+Año:
+2014
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Revue de philosophie économique
+
+Editorial:
+CAIRN
+
+Resumen / abstract:
+Cet article s’inscrit dans la lignée de précédents travaux visant à rapprocher l’entrepreneur schumpétérien et le surhumain nietzschéen. Les deux partagent une créativité pouvant s’interpréter comme l’extériorisation d’un surcroît de force qui, dans l’optique nietzschéenne, s’assimile à la source extra-morale de l’accroissement de la vie. Reste à savoir si le cadre dans lequel ils évoluent est le même. Au-delà d’une approche historique du cycle de la conjoncture, notre hypothèse est que l’approche philosophique d’un cycle du devenir s’avère être féconde pour une interprétation enrichie du cycle de la conjoncture, complétant et prolongeant ainsi notre interprétation du surhumain et de l’entrepreneur.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH036
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+1. SOME THEORIES OF LANGUAGE IN PHILOSOPHY
+
+Autores:
+No disponibles.
+
+Año:
+1977
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Understanding Language
+
+Editorial:
+De Gruyter
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH037
+============================================================
+
+Consulta:
+República de Platão
+
+Título:
+Medicina e política: a polêmica de Platão com a medicina na república
+
+Autores:
+Sussumo Matsui
+
+Año:
+2018
+
+Tipo:
+dissertation
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+Biblioteca Central da UNB
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH038
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+3 Der Wesensbegriff bei Thomas von Aquin
+
+Autores:
+No disponibles.
+
+Año:
+2016
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Substanz und Freiheit bei Thomas von Aquin
+
+Editorial:
+Peter Lang
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH039
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+Platon-La République
+
+Autores:
+No disponibles.
+
+Año:
+No disponible.
+
+Tipo:
+archive-text
+
+Idioma del documento:
+fr
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Platon-La République
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH040
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+La filosofía como medicina: Nietzsche y Byung Chul-Han frente al nihilismo y la sociedad del rendimiento
+
+Autores:
+Jorge Díaz Gallardo
+
+Año:
+2018
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Nuestra época ha sido definida de diversos modos (posmoderna, líquida, vacía, entre otros), los cuales manifiestan que los filósofos han continuado con el proyecto nietzscheano de hacer de la filosofía una “medicina de la cultura”. En este tenor, el filósofo surcoreano, Byung Chul-Han, ha realizado sugestivos diagnósticos que afirman que la nuestra es una sociedad dominada por la transparencia y el rendimiento, por un exceso de positividad que termina agotando y aislando al individuo del siglo XXI. Por ello, el propósito de este texto es mostrar cómo los diagnósticos de Han son una continuación de la concepción nietzscheana del filósofo como médico de la cultura, específicamente, cómo la sintomatología descrita por el filósofo surcoreano, es una evolución de la gran enfermedad de Occidente: el nihilismo. Por lo que pensar el nihilismo, esclarece la “necesidad histórica” de hacer de la filosofía una praxis, una medicina, un modo de vivir, antes que un sistema teórico explicativo de la realidad.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH041
+============================================================
+
+Consulta:
+República de Platão
+
+Título:
+PLATON A Republica PLATAO OCR 2 Book
+
+Autores:
+Introdução, Tradução e notas de MARIA HELENA DA ROCHA PEREIRA
+
+Año:
+No disponible.
+
+Tipo:
+archive-text
+
+Idioma del documento:
+pt
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+A REPÚBLICA Platão Introdução, Tradução e notas de MARIA HELENA DA ROCHA PEREIRA 9a edição FUNDAÇÃO CALOUSTE GULBENKIAN
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH042
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Trans* Feministische Perspektiven auf philosophische Epistemologie und Wissenschaftstheorie
+
+Autores:
+Luce deLire
+
+Año:
+2025
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+de
+
+Revista:
+Feministische Erkenntnis- und Wissenschaftstheorie
+
+Editorial:
+Springer Berlin Heidelberg
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH043
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Feminist Epistemology and Value Orientation of Complex Science
+
+Autores:
+No disponibles.
+
+Año:
+2010
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH044
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+Mutaciones del poder en el capitalismo. Del cuerpo disciplinario al sujeto del emprendimiento en el neoliberalismo de Foucault
+
+Autores:
+Enrique G. Gallegos
+
+Año:
+2025
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El objetivo de este artículo es analizar las mutaciones del concepto de poder en la filosofía de Michel Foucault. Para ello se toman como núcleos de análisis dos problemas: el cuerpo disciplinario y el sujeto del emprendimiento. Sobre estos dos ejes se examina, en primer lugar, cómo a partir del análisis genealógico de los espacios cerrados (como talleres, prisiones, cuarteles y hospitales), junto la administración de la peste y la lepra, y el diseño panóptico de las prisiones, se constituye el cuerpo disciplinario. Por esa vía se producen los cuerpos dóciles, útiles y productivos como efectos del poder de las disciplinas. Esto aleja a Foucault del concepto del poder de la ciencia política o la teoría jurídica, como una cualidad, atributo o función. En el artículo también se precisa cómo el estudio genealógico del poder plantea el surgimiento de una sociedad disciplinaria que estaría en las bases del desarrollo y despegue del capitalismo. A partir de la categoría de las tecnologías del poder, en segundo lugar, se plantea el paso del cuerpo disciplinario al sujeto del emprendimiento. Es posible encontrar en Foucault toda una tipología de las tecnologías del poder: tecnologías jurídicas, tecnologías de seguridad, tecnologías de la sexualidad, tecnologías del cuidado de sí. Este concepto de tecnología es clave para comprender el pasaje del cuerpo disciplinario al sujeto del emprendimiento en el neoliberalismo. El neoliberalismo elabora su tecnología del poder, a la que Foucault denomina como tecnologías ambientales, cuyo objetivo es producir un sujeto que interiorice las lógicas del mercado, el cálculo de costos y beneficios, la competencia y los rendimientos; y que sus relaciones sociales, cotidianas y familiares operen bajo la forma de la empresa. Al final se plantean algunas breves conclusiones, incluida la tesis de la simpatía del autor por el neoliberalismo.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH045
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+La relación entre pasión y sabiduría en la filosofía de Platón.
+
+Autores:
+Ramón Bárcenas
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El texto es una aproximación a las relaciones entre padecer y saber en la filosofía de Platón. Se parte del decreto divino formulado en la tragedia griega acerca de que los seres humanos sólo pueden acceder al saber a través del padecer: páthei máthos. Los casos paradigmáticos de Edipo y el robo del fuego divino por Prometeo ilustran la fuerza de este mandato. Se sostiene que en la filosofía de Platón también existe una relación estrecha entre padecer y saber. La caracterización del filósofo como amante de la sabiduría así lo sugiere, pues se encuentra prendido por la pasión del deseo. Él ama y anhela el saber porque es consciente de no poseerlo. Pero admitir que no se sabe es reconocer las propias limitaciones. El reconocimiento de esta insuficiencia es fuente de sufrimiento. El filósofo sufre porque se sabe lejos del pleno cultivo de su alma e inteligencia. Así, el deseo es la potencia que lo impulsa a alcanzar la realización plena de su ser. Platón caracteriza este impulso como una theía manía (manía divina), en el sentido de que el alma del filósofo está poseída por el deseo de lo divino.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH046
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+Thomas von Aquin
+
+Autores:
+Thomas <von Aquin>
+
+Año:
+1921
+
+Tipo:
+book
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+De Gruyter
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH047
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+Nietzsche y la inteligencia artificial: una reflexión sobre metáfora, memoria y verdad.
+
+Autores:
+Christian Guillermo Gómez Vargas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El presente texto abarca la relación –a partir del análisis de Nietzsche– entre verdad, metáfora y lenguaje; la cual sirve al filósofo para esgrimir una estrategia, vínculo que opera a la postre como un dispositivo de expresión de la voluntad de poder. De modo que, todo discurso se trata de una metáfora contingente y provisional, válida en un horizonte histórico específico. Empero, no existe un saber universal que funja como zócalo que sostenga toda la experiencia y conocimiento. Un tipo de saber que funciona, principalmente, como memoria aditiva, fotográfica –eidética–, tal como indica la crítica al historicismo de Nietzsche, impele al no-pensamiento; en detrimento de la función fundamental del saber. Por tanto, una inteligencia que depende, básicamente, del acopio de los datos y respuestas automatizadas, como funciona la aplicación Chat GPT, podría conducir al no-saber total; puesto que sólo la función probabilística –con la que operan los algoritmos de dicha aplicación‒ es una forma de saber elemental, básico. El funcionamiento de la aplicación podría devenir en su forma contraria y únicamente ofrecer una ilusión de pensamiento, atrofiando la capacidad crítica y creativa de los usuarios, condiciones fundamentales para el auténtico pensar. Empero, una ilusión que posiblemente tienda en su propio despliegue a su anquilosamiento. Lo cual resultaría en un sistema de saber-poder-creencia que podría instaurarse como mecanismo único de racionalidad, modulando la subjetividad del individuo contemporáneo. La verdad, para Nietzsche, se trata de una ficción funcional, pero que finalmente remite a la capacidad creativa y metafórica de los individuos.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH048
+============================================================
+
+Consulta:
+filosofia da linguagem na linguística
+
+Título:
+Jogo e linguagem: o papel do jogo na Educação a partir da virada linguística
+
+Autores:
+Danilo Silvestre Janeiro
+
+Año:
+2021
+
+Tipo:
+dissertation
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+Universidade de Sao Paulo, Agencia USP de Gestao da Informacao Academica (AGUIA)
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH049
+============================================================
+
+Consulta:
+philosophy of language in linguistics
+
+Título:
+Analytic philosophy and language
+
+Autores:
+NICHOLAS CAPALDI
+
+Año:
+1993
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+en
+
+Revista:
+Linguistics and Philosophy
+
+Editorial:
+Elsevier
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH050
+============================================================
+
+Consulta:
+epistemología feminista en la ciencia
+
+Título:
+Epistemología crítica de la violencia cultural y la discriminación racial en estudiantes de pueblos originarios
+
+Autores:
+Stephany Nayelly Ruiz Tejeda
+
+Año:
+2026
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El ensayo aborda la violencia cultural y la discriminación racial en estudiantes de pueblos originarios desde una perspectiva epistemológica crítica. Se analiza cómo estas formas de exclusión, arraigadas en estructuras de poder, se producen dentro del sistema educativo mediante prácticas, discursos y regulaciones que desvalorizan los saberes indígenas. Conceptos como la violencia simbólica (Bourdieu) y la producción de verdad (Foucault) permiten entender cómo el conocimiento occidental hegemónico refuerza la desigualdad. Además, se destaca la importancia del pensamiento epistémico (Zemelman) para cuestionar marcos teóricos tradicionales y resignificar el conocimiento desde las experiencias de los pueblos originarios. El ensayo propone una educación intercultural que reconozca y valore la diversidad cultural, promoviendo justicia epistémica y social. Finalmente, se plantea que los estudiantes indígenas no son pasivos, sino agentes activos que resisten y transforman las estructuras de exclusión, contribuyendo a una transformación social más inclusiva y equitativa.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH051
+============================================================
+
+Consulta:
+Naturrecht bei Thomas von Aquin
+
+Título:
+Das Ringen von Theologie und Metaphysik um die erste Wissenschaft bei Albertus Magnus und Thomas von Aquin vor dem Hintergrund ihrer Aristoteles-Rezeption
+
+Autores:
+No disponibles.
+
+Año:
+2011
+
+Tipo:
+article
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH052
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+Nietzsche's Immanent Ontology: The Will to Power, Eternal Recurrence, and the Übermensch
+
+Autores:
+No disponibles.
+
+Año:
+2025
+
+Tipo:
+article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH053
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+Nietzsche y la crítica al modelo epistemológico positivista
+
+Autores:
+Ramón Bárcenas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El texto aborda la crítica de Nietzsche a la epistemología positivista. Esta crítica se presenta y desarrolla en el planteamiento filosófico del perspectivismo. Este planteamiento defiende el carácter perspectivista del modo en que nos relacionamos con el mundo, de manera que es factible una diversidad de formas de configurar las cosas, de interpretar el mundo. El perspectivismo somete a revisión la epistemología positivista, la cual considera que el sujeto puede conocer el mundo sobre la base de los hechos observados. Por un lado, cuestiona la existencia de los hechos que constituyen la base objetiva del conocimiento positivo, señalando que no hay hechos sino solo interpretaciones. Por otro, problematiza la supuesta consistencia ontológica del sujeto, mostrando que éste no es un agente sustancial sino una hipótesis reguladora de la complejidad interior. La revisión crítica del positivismo apunta a la necesidad de reconsiderar el modo en que se plantea la epistemología moderna, particularmente formulada en términos de la relación entre sujeto y objeto.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH054
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+Platon, promoteur d’une psychologie musicale (République, III, 398c-405d)
+
+Autores:
+Evanghélos Moutsopoulos
+
+Año:
+2005
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+fr
+
+Revista:
+Études sur la République de Platon, vol. 1
+
+Editorial:
+Vrin
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH055
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Erkenntnis und Wissenschaft : Probleme der Epistemologie in der Philosophie des Mittelalters = Knowledge and science : problems of epistemology in medieval philosophy
+
+Autores:
+No disponibles.
+
+Año:
+2004
+
+Tipo:
+book
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH056
+============================================================
+
+Consulta:
+natural law in Thomas Aquinas
+
+Título:
+The metaphysics of morals in Thomas Aquinas: The transcendentals as the foundation for natural law ethics
+
+Autores:
+No disponibles.
+
+Año:
+2002
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH057
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Der Fall Schopenhauer. Ein dunkles Kapitel in der Deutschen Sprachphilosophie
+
+Autores:
+Eugenio Coseriu
+
+Año:
+1979
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+de
+
+Revista:
+Integrale Linguistik
+
+Editorial:
+John Benjamins Publishing Company
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH058
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+Marco Solinas, Unterdrückung, Traum und Unbewusstes in Platons „Politeia“ und bei Freud, in "Philosophisches Jahrbuch", 111/1 (2004), S. 90-112.
+
+Autores:
+No disponibles.
+
+Año:
+2004
+
+Tipo:
+archive-text
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+The essay concerns the reconstruction of the repression of desires, with reference to the analysis of their oneiric emersions expounded in the Republic, in comparison with Freud’s conception. Plato’s concept of suppression according to which specific desires are enslaved, so that they can find satisfaction usually only in dreams seems consistent with Freud’s concept of remotion; therefore both the condition of the suppressed desires and the intrapsychic place of their enslavement seem to be interpretable in the light of Freud’s concept of the unconscious. Das Thema des vorliegenden Beitrags ist die Rekonstruktion der Repression von Wünschen in Bezug auf die Analyse ihres Auftauchens im Traum, wie sie in der Politeia ausgeführt wird, im Vergleich mit der Konzeption bei Freud. Die besondere Form von Platonischer Unterdrückung – durch die bestimmte Wünsche in Sklaverei gehalten werden, so dass sie ihre Befriedigung normalerweise nur im Traum erreichen -, scheint mit dem Freudschen Konzept der Verdrängung vereinbar, insofern sowohl der Zustand der unterdrückten Wünsche als auch der intrapsychische Ort ihrer Versklavung unter Anwendung von Freuds Konzept des Unbewussten deutbar ist.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH059
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Wissenschaftliche Philosophie, moderne Wissenschaft und historische Epistemologie. Albert Einstein, Ludwik Fleck und Moritz Schlick im Ringen um die wissenschaftliche Rationalität [Der vorliegende Text wurde im Juni 2013 abgeschlossen.]
+
+Autores:
+No disponibles.
+
+Año:
+2010
+
+Tipo:
+article
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH060
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Desenvolvimento científico da contabilidade: uma análise baseada na epistemologia realista da ciência
+
+Autores:
+Manoel Raimundo Santana Farias
+
+Año:
+2015
+
+Tipo:
+dissertation
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+Universidade de São Paulo. Agência de Bibliotecas e Coleções Digitais
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH061
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+Naturgesetz und Dekalog bei Thomas von Aquin
+
+Autores:
+Andreas Speer
+
+Año:
+2014
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Das Gesetz - The Law - La Loi
+
+Editorial:
+DE GRUYTER
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH062
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Una lectura feminista (no pretendida) del pensamiento político de Hannah Arendt
+
+Autores:
+Sergio Quintero Martín
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+La erudición feminista en torno al pensamiento político de Hannah Arendt es rico y diverso. Desde un primer enfoque crítico por parte del feminismo de la segunda ola, hasta propuestas feministas y postfeministas a partir de la década de los años noventa que toman el legado a-ren­dtiano como marco conceptual y hermenéutico para fortalecer sus propias teorizaciones. En el siguiente artículo analizaremos los diferentes enfoques feministas que han abordado la obra y el pensamiento de Arendt. Por un lado, partiremos de la posición conservadora que presenta la propia autora y cómo su personal idiosincrasia influyó en las primeras críticas feministas que revelaban los límites de su pensamiento. Por otro lado, veremos las principales lecturas que interpretan el pensamiento arendtiano desde una óptica protofeminista, pero que, como notaremos, excederán las pretensiones de la propia Arendt.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH063
+============================================================
+
+Consulta:
+eterno retorno en Nietzsche
+
+Título:
+Nietzsche y la crítica al modelo epistemológico positivista
+
+Autores:
+Ramón Bárcenas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El texto aborda la crítica de Nietzsche a la epistemología positivista. Esta crítica se presenta y desarrolla en el planteamiento filosófico del perspectivismo. Este planteamiento defiende el carácter perspectivista del modo en que nos relacionamos con el mundo, de manera que es factible una diversidad de formas de configurar las cosas, de interpretar el mundo. El perspectivismo somete a revisión la epistemología positivista, la cual considera que el sujeto puede conocer el mundo sobre la base de los hechos observados. Por un lado, cuestiona la existencia de los hechos que constituyen la base objetiva del conocimiento positivo, señalando que no hay hechos sino solo interpretaciones. Por otro, problematiza la supuesta consistencia ontológica del sujeto, mostrando que éste no es un agente sustancial sino una hipótesis reguladora de la complejidad interior. La revisión crítica del positivismo apunta a la necesidad de reconsiderar el modo en que se plantea la epistemología moderna, particularmente formulada en términos de la relación entre sujeto y objeto.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH064
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+El problema de la vida en Voltaire y Platón
+
+Autores:
+Roberto Estrada Olguín
+
+Año:
+2020
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Este escrito expone, mediante el ejemplo del problema del origen de la vida, la idea según la cual los problemas filosóficos son asuntos que tienen la necesidad de reformularse permanentemente. La exposición toma como instrumentos las ideas y razonamientos de Voltaire y Platón sobre el origen de la vida, particular y exclusivamente, las ideas expuestas en dos diálogos entre Lucrecio y Posidonio de Voltaire escritos en 1756 y las ideas expuestas en una pequeña parte del diálogo Las leyes de Platón. El procedimiento que seguimos consiste en presentar las premisas de las cuales parten los argumentos y mostrar las similitudes de dichas premisas en los dos filósofos mencionados.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH065
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+Induction et loi naturelle chez Mill
+
+Autores:
+Antoine Brandelet
+
+Año:
+2021
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Le Philosophoire
+
+Editorial:
+CAIRN
+
+Resumen / abstract:
+Le Système de Logique (1843) de John Stuart Mill est souvent considéré comme une œuvre défendant une épistémologie inductiviste. Dans cet article, je me propose de questionner ce statut en me penchant sur la définition de l’induction qui est proposée dans l’ouvrage. Je montre que l’inductivisme de Mill induit une méthodologie de la recherche scientifique dans laquelle les raisonnements déductifs sont aussi, sinon plus, importants que les méthodes inductives, de sorte que l’opposition entre induction et déduction se transforme en complémentarité. Je montre ensuite comment les concepts de loi naturelle et de causalité émergent de ces discussions et j’examine dans quelle mesure les méthodes proposées par Mill peuvent rendre compte des découvertes scientifiques ultérieures.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH066
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Epistemologia social feminista negra (EPISFEN)
+
+Autores:
+Leyde Klebia Rodrigues da Silva, Gustavo Silva Saldanha
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Tendências da Pesquisa Brasileira em Ciência da Informação
+
+Editorial:
+Associação de Pesquisa e Pós-Graduação em Ciência da Informação
+
+Resumen / abstract:
+O objetivo desta pesquisa é (re)contar as trajetórias de vida de pesquisadoras negras do campo da Biblioteconomia e Ciência da Informação e suas tranças intelectuais, tendo como base o fundamento da epistemologia social. Metodologicamente, a investigação baseou-se numa abordagem qualitativa de pesquisa, do tipo documental. As fontes selecionadas denominadas biobibliográficas, memoriais e artigos autorais, disponibilizados pelas protagonistas da pesquisa, foram analisadas a partir do método autobiográfico, do princípio analítico da interseccionalidade, e compreendidas sob a ótica de uma Epistemologia Social Feminista Negra. As tranças intelectuais foram construídas pela noção de Baobá Genealógico com dados coletados na Plataforma Lattes, via as bases de Currículos Lattes e o Diretório de Grupos de Pesquisa. Os resultados da pesquisa mostram que os fragmentos narrativos das trajetórias de vida das pesquisadoras e os respectivos Baobás Genealógicos serviram de aporte para uma compreensão da atuação, experiência, luta, protagonismo e resiliência dessas mulheres em seus espaços. Nas considerações finais, reforça-se a importância da presença de mulheres negras em todos os espaços da sociedade, e apesar da mídia e dos currículos escolares não abordarem a profundidade dessas existências, as vidas complexas de mulheres negras podem promover grandes contribuições científicas e importantes transformações sociais.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH067
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+El proyecto de una ciencia del origen en el joven Benjamin
+
+Autores:
+Maria Paula Viglione
+
+Año:
+2024
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Este trabajo se propone analizar el proyecto de una ciencia del origen, entendido no sólo como la propuesta epistemológica elaborada por el joven Benjamin para estudiar el drama barroco, sino también como clave de lectura de la perspectiva dialéctica y metafísica que articula su pensamiento temprano. La reformulación de conceptos filosóficos fundamentales en el prólogo de El origen del drama barroco alemán, así como los trabajos dedicados a Goethe y el romanticismo, resultan significativos para interpretar la ciencia benjaminiana del origen en términos de una metodología fragmentaria de la obra de arte. A lo largo de este estudio, se intenta mostrar lo siguiente: el trabajo crítico sobre la obra involucra su legibilidad histórica y, simultáneamente, su fragmentación. En este proceso, Benjamin pone en discusión el estatuto ontológico de la obra de arte, la reinterpreta como mónada y establece una relación dialéctica entre la obra y el componente mesiánico que atraviesa su concepción del lenguaje y de la historia. Además de recuperar nociones centrales de su pensamiento —tales como la idea, lo medial, la crítica—, este trabajo reconstruye una polémica con la escuela fenomenológica que permite estudiar, desde otra óptica, el problema de la ciencia del origen.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH068
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+La hermenéutica de Gadamer desde "Platón como retratista" (1998)
+
+Autores:
+Daniel Caballero López
+
+Año:
+2019
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+A través del presente artículo se realiza una lectura crítica de la conferencia de Gadamer Platón como retratista de 1988, con el propósito de exponer los rasgos esenciales de la hermenéutica del autor que en ese texto operan, a saber, los que determinan el quehacer hermenéutico como fenomenología del entendimiento, comprendiendo por este una estructura que involucra conocimiento teorético y práctico. Asimismo, lo anterior pretende extraer críticamente los mencionados elementos desde el dinamismo de la actividad hermenéutica presentes en la conferencia, a la vez que señalar la influencia que Sócrates y Platón tuvieron sobre el pensamiento gadameriano.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH069
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+Philosophie – Heilmittel oder Krankheit der Seele? Zur Symptomatologie und Therapie des Denkens bei Avicenna und Nietzsche
+
+Autores:
+No disponibles.
+
+Año:
+2021
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH070
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Metaphor between philosophy and linguistics: Georges Kleiber's research into sense and reference and Paul Ricoeur's philosophy of language
+
+Autores:
+No disponibles.
+
+Año:
+2014
+
+Tipo:
+preprint
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH071
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+Auswahlbibliographie zu Platons Politeia
+
+Autores:
+No disponibles.
+
+Año:
+2011
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Platon: Politeia
+
+Editorial:
+AKADEMIE VERLAG
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH072
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Epistemología de la psicología: ¿es posible pensar un fundamento existencialista?
+
+Autores:
+José Alfonso Jiménez Moreno
+
+Año:
+2017
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Este texto se enfoca en la problemática de la relación entre psicología y filosofía, particularmente bajo una mirada existencialista. Considerando posturas sobre las bases epistemológicas de la psicología y su método de estudio, así como la invitación de la filosofía existencial a pensar sobre a esta temática, se establece una reflexión enfocada a alimentar el debate de la vigente epistemología psicológica y la tensión que ello genera frente la aparente imposibilidad de conocimiento bajo métodos positivistas. Se aborda la necesidad de tomar en cuenta métodos que consideren el análisis de la condición de existencia y situaciones vitales para la comprensión de la constitución del sujeto. Se concluye con la posibilidad de cuestionarse un acercamiento de la psicología actual a la reflexión filosófica.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH073
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+The Implications of the New Materialisms for Feminist Epistemology
+
+Autores:
+Samantha Frost
+
+Año:
+2011
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+en
+
+Revista:
+Feminist Epistemology and Philosophy of Science
+
+Editorial:
+Springer Netherlands
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH074
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+La crítica temprana de Nietzsche al idealismo trascendental y sus posibles consecuencias programáticas y metodológicas
+
+Autores:
+Leonardo Cubillos Cubillos
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Aunque en la interpretación reciente de la obra de Nietzsche existe una discusión acerca de su relación con el idealismo trascendental de Kant, no es posible negar hoy que esta relación existió y que buena parte de esta influencia es producto de su particular lectura de Schopenhauer. A pesar de la distancia que tomaría muy pronto de esta teoría del conocimiento, es posible sugerir que varios rasgos de su filosofía guardan una estrecha relación con la crítica que hizo a la misma entre 1872 y 1873, específicamente en Sobre verdad y mentira en sentido extramoral y las Notas sobre retórica. En este artículo se defiende la idea de que tanto los acuerdos como los desacuerdos de Nietzsche con el idealismo trascendental dieron forma a una serie de planteamientos propios a propósito de la teoría del conocimiento que podrían explicar su interés por el origen de los valores y búsqueda en la fisiología y en la historia. El texto se divide en tres partes. En la primera se presenta brevemente la teoría del conocimiento propuesta por Schopenhauer. En la segunda se expone la recepción crítica que de esta teoría hace Nietzsche y se esclarecen sus planteamientos originales sobre la teoría del conocimiento. En la tercera parte se propone la hipótesis de que esta serie de planteamientos puede explicar el interés de Nietzsche en el origen de los valores y la búsqueda de dicho origen en la historia y la fisiología.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH075
+============================================================
+
+Consulta:
+ley natural en Tomás de Aquino
+
+Título:
+Relativismo, ley natural y diálogo en busca de la verdad: el rol de las inclinaciones naturales
+
+Autores:
+Amadeo Tonello
+
+Año:
+2009
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Intus-Legere Filosofía
+
+Editorial:
+Universidad Adolfo Ibanez
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH076
+============================================================
+
+Consulta:
+Plato Republic
+
+Título:
+Pursuing the Good, Ethics and Metaphysics in Plato s Republic
+
+Autores:
+No disponibles.
+
+Año:
+2008
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH077
+============================================================
+
+Consulta:
+eterno retorno em Nietzsche
+
+Título:
+Esistenza e struttura eterna. Il Nietzsche di Severino tra eterno ritorno e volonta di potenza
+
+Autores:
+No disponibles.
+
+Año:
+2018
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH078
+============================================================
+
+Consulta:
+eterno retorno en Nietzsche
+
+Título:
+Nietzsche, Friedrich Así Habló Zaratustra
+
+Autores:
+F Nietzche
+
+Año:
+1910
+
+Tipo:
+archive-text
+
+Idioma del documento:
+es
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Un “anti-evangelio” deliberado Aunque se suele hablar de la obra como “la Biblia de Nietzsche”, pocos destacan que su estructura parodia conscientemente los evangelios cristianos. Zaratustra baja de la montaña como un nuevo profeta, pero en lugar de anunciar la salvación, proclama la muerte de Dios y la necesidad del superhombre. Es un gesto literario de inversión radical. El estilo como filosofía Nietzsche no eligió el ensayo académico, sino la fábula poética. Esto no fue un capricho estético: el lenguaje simbólico y lírico es parte de su mensaje. La dificultad de lectura no es un obstáculo, sino un filtro: Nietzsche quería que el texto fuera “para todos y para nadie”. Autobiografía disfrazada Aunque Zaratustra es un personaje ficticio, muchos pasajes reflejan la vida interior de Nietzsche. Por ejemplo, el retiro de diez años en la montaña recuerda a su propio aislamiento en Sils-Maria. El libro puede leerse como una memoria espiritual encubierta. El eterno retorno como experiencia estética Se suele interpretar el eterno retorno como una tesis metafísica, pero Nietzsche lo presenta en clave existencial y estética: la prueba de si uno puede afirmar la vida hasta el punto de querer repetirla infinitamente. Es menos una teoría y más un desafío vital. Humor y sátira escondidos Entre la solemnidad, Nietzsche introduce ironías y burlas contra filósofos, moralistas y hasta contra sí mismo. El tono profético a veces es parodia: Zaratustra no es solo un sabio, también un personaje que tropieza, duda y se contradice. La música como trasfondo Nietzsche, que fue compositor, concibió el libro con un ritmo casi musical. La repetición de frases, los coros de animales y las cadencias recuerdan a una partitura. Esto explica por qué Richard Strauss pudo convertirlo en poema sinfónico con tanta naturalidad. El simbolismo animal Animales como el águila, la serpiente, el león o el camello no son simples adornos: representan etapas de la transformación del espíritu. El camello carga, el león destruye, el niño crea. Esta pedagogía simbólica es más profunda de lo que suele resaltarse en manuales. Un libro inacabado Nietzsche nunca consideró cerrada la obra. La cuarta parte fue publicada en tirada muy limitada y casi como un apéndice. Esto sugiere que Así habló Zaratustra es un proyecto abierto, más un proceso de pensamiento que un sistema terminado. Tres partes como “obra pública”: Nietzsche quiso que el mundo conociera el núcleo de su filosofía en una forma poética y profética. La cuarta como “obra privada”: Es un texto de transición, donde Zaratustra ya no habla como profeta de la humanidad, sino como un hombre solitario que lidia con su propia misión incumplida. Lectura moderna: Hoy se considera que la cuarta parte completa el arco narrativo, mostrando la dimensión trágica de la filosofía nietzscheana: no solo la afirmación de la vida, sino también la experiencia del fracaso y la incomunicación.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH079
+============================================================
+
+Consulta:
+filosofia da linguagem na linguística
+
+Título:
+Linguistics in Philosophy
+
+Autores:
+Ana Clara Polakof
+
+Año:
+2024
+
+Tipo:
+other
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Philosophy of Language in Uruguay
+
+Editorial:
+Lexington Books
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH080
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+Platon und die griechische Utopie
+
+Autores:
+Salin, Edgar, 1892-1974
+
+Año:
+1921
+
+Tipo:
+archive-text
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+München, Duncker
+
+Resumen / abstract:
+Vorwort; Platons Politeia; Platons Nomoi; Aristoteles' Politika; Zenons Politeia; Xenophons Kyropädie; Theopompos' Meropis; Hekataios' Aegyptiaka; Euhemeros' heilige Inschrift; Jambulos' Sonneninsel; Die griechische Utopie im römischen Reich: Ciceros "De re publica" 26 31
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH081
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+Nietzsche’s Ecce homo, Notebooks and Letters: 1888-1889
+
+Autores:
+Friedrich Nietzsche, Daniel Fidel Ferrer
+
+Año:
+2023
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Ecce homo: How One Becomes What One Is (Ecce homo: Wie man wird, was man is Who should read Nietzsche? You can disagree with everything Nietzsche wrote and re-read Nietzsche to sharpen your attack. Philosophy. Not for use without adult supervision (required). Philosophy is a designated area for adults only. Read at your own risk. You have the pleasure of reading and of course disagreeing with all philosophy. Warning philosophical ideas are present. Reading Nietzsche does not mean you will gain anything, in fact, you might lose your previous ideas. Nietzsche does not call this book an autobiography (he has written many short autobiographical sketches before); but rather, uses the expression “I tell myself my life”. Nietzsche was the past philosopher who wrote about our future, “The time is coming when the struggle for the domination of the earth will be waged - it will be waged in the name of basic philosophical doctrines.” KGWB/NF -1881, 11[273]. The world has seen plenty of wars and death, since 1881. The process of the domination of the earth and world is still on-going. What is Nietzsche’s overall project with Ecce homo ? Main Leitmotifs in Ecce homo . Christianity as the denial of the will to life, revaluation of all values (Umwerthung aller Werthe), Amor fati , Dionysus as a god and his philosophy (future project for Nietzsche), overthrowing idols, two worlds (“true world" finally became a fable) against Plato eternal world and forms, eternal recurrence or the eternal return of the same (Nietzsche heaviest thought, also his most abysmal thought “abgründlichsten Gedanken”), opposite and counterpart to type of person decadent (décadent), “I count the overcoming of pity among the noble virtues”, against the concept of God (Christian), overman or superman (Übermensch), Will to Power (Wille zur Macht), great politics, immoralist, morality of the Christian church, and Declaration of war (“Kriegserklärung”). Table of Contents Motto [page 3]. Epigraph [pages 4-6]. Preface to the Translation of Ecce homo [pages 7-16] Major Leitmotifs in Nietzsche [pages 17-24]. Translations from Nietzsche’s German to English include. 1). Ecce homo: How One Becomes What One Is (Ecce homo: Wie man wird, was man ist. [pages 25-113]. 2). This poem was included in the first publications of Ecce homo (1908). Glory and Eternity ( Ruhm und Ewigkeit ). [pages 114-124]. 3). These are all of Nietzsche’s last notebooks (complete) they are numbered 21, 22, 23, and 24. There are a total of 82 notes. Final notes by Nietzsche from the Nachlass (Nachlaß). Sometime in German called the Notizheft. Nietzsche’s notebooks that include some drafts for Ecce homo and other topics he was thinking during his last writings. Dating from October 1888 until early January 1889. [pages 125-191]. 4). Nietzsche’s Letters Regarding Ecce homo. Nietzsche’s letters starting at the end of October 1888 discussing Ecce homo . These are not always the complete letters but include all of the passages of Nietzsche discussing Ecce homo. Complete translation of the last letter Nietzsche wrote. Dated until BVN -1889. #1256. Letter to Jacob Burckhardt in Basel. Turin, about 6 January 1889. [pages 192-223]. Bibliographies [pages 224-254]. Nietzsche’s Philosophy Final Thoughts [pages 255-259]. Enjoy reading Nietzsche's last book.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH082
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+The spirit of revenge and the eternal recurrence: On Heidegger's later interpretation of Nietzsche
+
+Autores:
+No disponibles.
+
+Año:
+1992
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH083
+============================================================
+
+Consulta:
+República de Platón
+
+Título:
+Platón La República
+
+Autores:
+No disponibles.
+
+Año:
+No disponible.
+
+Tipo:
+archive-text
+
+Idioma del documento:
+es
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+La República de Platón
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH084
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Between Linguistics and Philosophy of Language: The Debate on Chomsky’s Notion of “Knowledge of Language”
+
+Autores:
+No disponibles.
+
+Año:
+2018
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH085
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Feminist Philosophy of Science as Social Epistemology
+
+Autores:
+Sharon Crasnow
+
+Año:
+2019
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+en
+
+Revista:
+The Routledge Handbook of Social Epistemology
+
+Editorial:
+Routledge
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH086
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Rise Like Lions: Language and The False Gods of Civilization
+
+Autores:
+No disponibles.
+
+Año:
+2015
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Civilization can be conceived of as a linguistic virus whose sole goal is to mindlessly spread throughout an entire population. It has done nothing for us but come close to ensuring the ultimate annihilation of the human species. It has not solved a single “problem” without creating more problems –the endless, exponential and unchecked growth of human population, depletion of resources, and chronic depression, stress and anxiety. Its technological and “moral” “advancements” only give us the illusion of security and peace while threatening to wipe out or enslave not only humanity but most life on the planet. This satirical book mounts a scathing, caustic attack on all systems of belief founded on irrational assumptions and seeks to build a coherent philosophy based on logic and the comparative behavior of apex social mammals.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH087
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+Les dieux dans la République de Platon
+
+Autores:
+No disponibles.
+
+Año:
+2010
+
+Tipo:
+article
+
+Idioma del documento:
+fr
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH088
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+Theologie negative et noms divins chez Saint Thomas d'Aquin. By THIERRY-DOMINIQUE HUMBRECHT.
+
+Autores:
+No disponibles.
+
+Año:
+2005
+
+Tipo:
+article
+
+Idioma del documento:
+fr
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH089
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Epistemología y ciencia: La hermenéutica filosófica como crítica al método científico
+
+Autores:
+No disponibles.
+
+Año:
+2014
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH090
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+Heidegger en dialogue: par-delà Ernst Jünger, un retour à Nietzsche
+
+Autores:
+No disponibles.
+
+Año:
+2006
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH091
+============================================================
+
+Consulta:
+Naturrecht bei Thomas von Aquin
+
+Título:
+Ontologie der Innerlichkeit. Reditio Completa und Processio Interior bei Thomas von Aquinas by Reto L. Fetz
+
+Autores:
+No disponibles.
+
+Año:
+1978
+
+Tipo:
+article
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH092
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+La relación entre pasión y sabiduría en la filosofía de Platón.
+
+Autores:
+Ramón Bárcenas
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El texto es una aproximación a las relaciones entre padecer y saber en la filosofía de Platón. Se parte del decreto divino formulado en la tragedia griega acerca de que los seres humanos sólo pueden acceder al saber a través del padecer: páthei máthos. Los casos paradigmáticos de Edipo y el robo del fuego divino por Prometeo ilustran la fuerza de este mandato. Se sostiene que en la filosofía de Platón también existe una relación estrecha entre padecer y saber. La caracterización del filósofo como amante de la sabiduría así lo sugiere, pues se encuentra prendido por la pasión del deseo. Él ama y anhela el saber porque es consciente de no poseerlo. Pero admitir que no se sabe es reconocer las propias limitaciones. El reconocimiento de esta insuficiencia es fuente de sufrimiento. El filósofo sufre porque se sabe lejos del pleno cultivo de su alma e inteligencia. Así, el deseo es la potencia que lo impulsa a alcanzar la realización plena de su ser. Platón caracteriza este impulso como una theía manía (manía divina), en el sentido de que el alma del filósofo está poseída por el deseo de lo divino.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH093
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Las Epistemologías Feministas de Haack, Keller y Harding
+
+Autores:
+Gabriel Ignacio Paravano
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El presente artículo busca retomar los elementos principales de las posturas epistemológicas feministas de las pensadoras Susan Hack, Evelyn Fox Keller y Sandra Harding a partir de una discusión que ocupa un lugar cada vez más central en los análisis filosóficos de la ciencia y en las investigaciones feministas: las metáforas, principalmente, las metáforas científicas. Se pretende señalar dos cosas: por un lado, las tres epistemologías parten de distintas concepciones de ciencia, sujeto cognoscente y discurso científico, por otro lado, dichas concepciones ganan claridad y sentido a partir de una lectura de las metáforas con un específico rol en las ciencias.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH094
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Analytic philosophy and language
+
+Autores:
+NICHOLAS CAPALDI
+
+Año:
+1993
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+en
+
+Revista:
+Linguistics and Philosophy
+
+Editorial:
+Elsevier
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH095
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+NIETZSCHES WIEDERKUNFT
+
+Autores:
+Karl Pestalozzi
+
+Año:
+2007
+
+Tipo:
+journal-article
+
+Idioma del documento:
+en
+
+Revista:
+Nietzsche-Studien
+
+Editorial:
+Walter de Gruyter GmbH
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH096
+============================================================
+
+Consulta:
+filosofía del lenguaje en lingüística
+
+Título:
+Evaluación del desarrollo pragmático temprano: estudio de la confiabilidad y la validez del Inventario del Uso del Lenguaje en Chile
+
+Autores:
+Aylin Xiomara Contreras Cortés, Hugo Alfonso Segura Pujol, Paulina Guerra Santa María
+
+Año:
+2025
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Logos: Revista de Lingüística, Filosofía y Literatura
+
+Editorial:
+Universidad de la Serena
+
+Resumen / abstract:
+En la actualidad existen diversos instrumentos para evaluar el desempeño lingüístico en diferentes edades, no obstante, en lo que respecta a evaluaciones en primera infancia las investigaciones han obtenido resultados divergentes destacando la necesidad de abordajes evaluativos funcionales. Lo anterior, perjudica la pesquisa de niños que requieren intervención, y a su vez enlentece el proceso de cumplimiento de objetivos terapéuticos. El propósito del presente estudio es realizar una primera descripción de las medidas psicométricas de validez y confiabilidad del Inventario del Uso del Lenguaje (LUI) en Chile. Este es un cuestionario que se incluye dentro de evaluaciones funcionales ya que proporciona información lingüística a través del reporte de los padres en su contexto familiar. Método: El diseño fue no experimental analítico y tuvo una muestra constituida por 150 niño/as de entre 18 y 47 meses de edad que asisten a jardines pertenecientes a la Junta Nacional de Jardines Infantiles (JUNJI). De los 150 padres que completaron el instrumento, el 14% lo completó nuevamente luego de 2 semanas para determinar confiabilidad test-retest. Resultados: la consistencia interna se calculó mediante Alfa de Cronbach y sus resultados varían entre 0,84 y 0,88 lo que sugiere que el LUI es un instrumento válido para ser aplicado en niños hablantes del español chileno. Por otro lado, la confiabilidad test retest se calculó con Spearman-Brown, lo que arrojó una correlación positiva concluyendo que es un instrumento confiable. Conclusiones: Este estudio es el primero en entregar información psicométrica sobre el LUI en Chile y sus resultados indican que es un instrumento válido y confiable para ser aplicado en niños de edad preescolar.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH097
+============================================================
+
+Consulta:
+República de Platão
+
+Título:
+Escritos completos de Platão
+
+Autores:
+Platão
+
+Año:
+No disponible.
+
+Tipo:
+archive-text
+
+Idioma del documento:
+pt
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Tradução de todo o corpus platonicum feita pelo grande Carlos Alberto Nunes, incluindo introdução
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH098
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+Nietzsche's Immanent Ontology: The Will to Power, Eternal Recurrence, and the Übermensch
+
+Autores:
+No disponibles.
+
+Año:
+2025
+
+Tipo:
+article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH099
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Chapter One Feminist Science Fiction and Feminist Epistemology
+
+Autores:
+Ritch Calvin
+
+Año:
+2016
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+en
+
+Revista:
+Feminist Science Fiction and Feminist Epistemology
+
+Editorial:
+Springer International Publishing
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH100
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Rationalism and Empiricism in Philosophy, Linguistics and Language Pedagogy
+
+Autores:
+No disponibles.
+
+Año:
+1988
+
+Tipo:
+article
+
+Idioma del documento:
+ja
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH101
+============================================================
+
+Consulta:
+eterno retorno en Nietzsche
+
+Título:
+Nietzsche y la inteligencia artificial: una reflexión sobre metáfora, memoria y verdad.
+
+Autores:
+Christian Guillermo Gómez Vargas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El presente texto abarca la relación –a partir del análisis de Nietzsche– entre verdad, metáfora y lenguaje; la cual sirve al filósofo para esgrimir una estrategia, vínculo que opera a la postre como un dispositivo de expresión de la voluntad de poder. De modo que, todo discurso se trata de una metáfora contingente y provisional, válida en un horizonte histórico específico. Empero, no existe un saber universal que funja como zócalo que sostenga toda la experiencia y conocimiento. Un tipo de saber que funciona, principalmente, como memoria aditiva, fotográfica –eidética–, tal como indica la crítica al historicismo de Nietzsche, impele al no-pensamiento; en detrimento de la función fundamental del saber. Por tanto, una inteligencia que depende, básicamente, del acopio de los datos y respuestas automatizadas, como funciona la aplicación Chat GPT, podría conducir al no-saber total; puesto que sólo la función probabilística –con la que operan los algoritmos de dicha aplicación‒ es una forma de saber elemental, básico. El funcionamiento de la aplicación podría devenir en su forma contraria y únicamente ofrecer una ilusión de pensamiento, atrofiando la capacidad crítica y creativa de los usuarios, condiciones fundamentales para el auténtico pensar. Empero, una ilusión que posiblemente tienda en su propio despliegue a su anquilosamiento. Lo cual resultaría en un sistema de saber-poder-creencia que podría instaurarse como mecanismo único de racionalidad, modulando la subjetividad del individuo contemporáneo. La verdad, para Nietzsche, se trata de una ficción funcional, pero que finalmente remite a la capacidad creativa y metafórica de los individuos.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH102
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+THOMAS VON AQUIN UND DIE ERDE
+
+Autores:
+KLAUS BERNATH
+
+Año:
+2012
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Thomas von Aquin
+
+Editorial:
+DE GRUYTER
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH103
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+Peut-on parler de « loi naturelle » chez saint Paul?
+
+Autores:
+Roselyne Dupont-Roc
+
+Año:
+2011
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Transversalités
+
+Editorial:
+CAIRN
+
+Resumen / abstract:
+Résumé La recherche d’un fondement à la notion de « loi naturelle » en éthique conduit à relire quelques versets de la lettre aux Romains (Rm 1, 19 et 2, 12-16). Mais, pour honorer la pensée de Paul, il faut entrer dans la dynamique rhétorique de Romains 1-3, qui réévalue l’aventure humaine à la lumière du salut offert à tous en Jésus-Christ. Il apparaît alors qu’en refusant de reconnaître Dieu créateur, la raison humaine sombre dans une folie mortifère. Cependant, la présence de la loi morale dans le cœur des païens, à l’égal de la loi de Moïse dans la tradition juive, vient requérir le « juste jugement de Dieu », qui se manifeste comme « justice », c’est-à-dire miséricorde, patience et bonté, présentes déjà dans l’ordre de la création. La finalité du projet créateur découvre chez tout homme une capacité « désactivée » à choisir la vie et à ordonner son action vers le bien, capacité qui a vocation à être relevée, confirmée en Jésus-Christ qui est pour tous, juifs et païens, « justice de Dieu pour le salut ».
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH104
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+Nietzsche and Eternal Recurrence: Methods, Archives, History, and Genesis
+
+Autores:
+No disponibles.
+
+Año:
+2021
+
+Tipo:
+dissertation
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH105
+============================================================
+
+Consulta:
+philosophie du langage en linguistique
+
+Título:
+Étienne Gilson, Linguistique et philosophie. Essai sur les constantes philosophiques du langage
+
+Autores:
+No disponibles.
+
+Año:
+1976
+
+Tipo:
+article
+
+Idioma del documento:
+fr
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH106
+============================================================
+
+Consulta:
+natural law in Thomas Aquinas
+
+Título:
+KELSEN AND AQUINAS ON THE NATURAL LAW DOCTRINE
+
+Autores:
+Robert P. George
+
+Año:
+2017
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+St. Thomas Aquinas and the Natural Law Tradition
+
+Editorial:
+Catholic University of America Press
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH107
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Discovering reality : feminist perspectives on epistemology, metaphysics, methodology, and philosophy of science
+
+Autores:
+No disponibles.
+
+Año:
+2003
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+Dordrecht [Netherlands] ; Boston, Mass. : Kluwer Academic Publishers
+
+Resumen / abstract:
+xxxix, 332 pages ; 25 cm This collection of essays, first published two decades ago, presents central feminist critiques and analyses of natural and social sciences and their philosophies. Unfortunately, in spite of the brilliant body of research and scholarship in these fields in subsequent decades, the insights of these essays remain as timely now as they were then: philosophy and the sciences still presume kinds of social innocence to which they are not entitled. The essays focus on Plato, Aristotle, Descartes, Hobbes, Rousseau, and Marx; on the 'adversary method' model of philosophic reasoning; on principles of individuation on philosophical ontology and philosophy of language; on individualistic assumptions in psychology; functionalism in sociological and biological theory; evolutionary theory; the methodology of political science; and conceptions of objective inquiry in the sciences. In taking insights of both Liberal and Marxian women's movements into the purportedly most abstract and value-free areas of Western thought, these essays chart sexist and androcentric assumptions, claims and practices in the cognitive, technical cores of Western sciences and their philosophies. They begin to identify the distinctive aspects of women's experiences and locations in male-supremacist social structures which can provide resources needed for the creation of post-androcentric thinking in research, scholarship, and public policy. Such uses of feminist insights remain controversial today, and even among some feminists. These authors were all junior researchers and scholars two decades ago; today many are among the most distinguished senior scholars in their fields. Their work here provides a splendid opportunity for upper-level undergraduate and graduate students in philosophy and the social sciences to explore some of the most intriguing and controversial challenges to disciplinary projects and to public policy today Includes bibliographical references (pages xx-xxi) and index
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH108
+============================================================
+
+Consulta:
+Plato Republic
+
+Título:
+Plato's Republic: Critical Essays
+
+Autores:
+No disponibles.
+
+Año:
+1997
+
+Tipo:
+book
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH109
+============================================================
+
+Consulta:
+philosophy of language in linguistics
+
+Título:
+Rise Like Lions: Language and The False Gods of Civilization
+
+Autores:
+No disponibles.
+
+Año:
+2015
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Civilization can be conceived of as a linguistic virus whose sole goal is to mindlessly spread throughout an entire population. It has done nothing for us but come close to ensuring the ultimate annihilation of the human species. It has not solved a single “problem” without creating more problems –the endless, exponential and unchecked growth of human population, depletion of resources, and chronic depression, stress and anxiety. Its technological and “moral” “advancements” only give us the illusion of security and peace while threatening to wipe out or enslave not only humanity but most life on the planet. This satirical book mounts a scathing, caustic attack on all systems of belief founded on irrational assumptions and seeks to build a coherent philosophy based on logic and the comparative behavior of apex social mammals.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH110
+============================================================
+
+Consulta:
+philosophie du langage en linguistique
+
+Título:
+Forme et contenu comme guerre et paix (la philosophie russe du langage après Potebnja)
+
+Autores:
+Vladimir FEŠČENKO
+
+Año:
+2016
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Cahiers du Centre de Linguistique et des Sciences du Langage
+
+Editorial:
+Cantonal and University Library Fribourg
+
+Resumen / abstract:
+Cet article examine comment ont évolué les idées des linguistes et philosophes russes du langage sur la relation entre la forme et le contenu. Après une période pacifique de fraternité et d’harmonie entre forme et contenu dans les travaux linguistiques d’A. Potebnja, se met en place une période de guerre contre le «contenutisme» et le «psychologisme» en linguistique sous la banière de l’école formaliste (V. Šklovskij, B. Ejxenbaum). Contre quoi et au nom de quoi combattent les insurgés? A quelprix se paye la victoire de la forme dans l’art verbal, la littérature? S’ensuit-il un armistice entre la forme-vainqueur et le contenu-vaincu? Pour répondre à ces questions, nous examinons les arguments des défenseurs et des compagnons de route de la ligne de Potebnja après la victoire du formalisme russe. Il s’agit de A. Belyj, S. Askol’dov, I. Plotnikov, R. Ivanov-Razumnik, entre autres.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH111
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Comunicação malunga: alteridade e ancestralidade em uma epistemologia feminista negra
+
+Autores:
+Letícia Castro Simões
+
+Año:
+2025
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Perspectivas da alteridade na Comunicação
+
+Editorial:
+Pimenta Cultural
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH112
+============================================================
+
+Consulta:
+ley natural en Tomás de Aquino
+
+Título:
+La esencia o quididad de la belleza en Tomás de Aquino
+
+Autores:
+No disponibles.
+
+Año:
+2023
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+La filosofía como filocalia en Tomás de Aquino
+
+Editorial:
+Universidad del Bosque
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH113
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+La loi naturelle chez Luther et dans la théologie luthérienne
+
+Autores:
+Karsten Lehmkühler
+
+Año:
+2017
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Revue d'éthique et de théologie morale
+
+Editorial:
+CAIRN
+
+Resumen / abstract:
+L’affirmation que la théologie protestante se dresserait contre l’idée d’une loi naturelle fait partie des mythes théologiques. En fait l’article montre que Luther, Melanchthon et Calvin affirment tous l’existence d’une loi naturelle, inscrite par Dieu lui-même dans le cœur des humains. Luther, en particulier considère avec beaucoup d’attention la loi naturelle exprimée essentiellement dans le décalogue, et traduisant une connaissance générale du bien et du mal ou encore la règle d’or, sans pour autant que cette loi soit comprise dans un sens naturaliste, ni ne détermine des législations précises. Si les théologiens protestants contemporains restent sceptiques sur l’utilisation de la loi naturelle pour régler les problèmes d’éthique appliquée, un regain d’intérêt est aujourd’hui perceptible, en lien avec la doctrine de la création.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH114
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Przemysław Żywiczyński: Classical Indian Philosophy of Language
+
+Autores:
+No disponibles.
+
+Año:
+2016
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Turning Points in the Philosophy of Language and Linguistics
+
+Editorial:
+Peter Lang
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH115
+============================================================
+
+Consulta:
+eternal recurrence in Nietzsche
+
+Título:
+The Perception of Socrates' Ethics in F. Nietzsche's Moral Philosophy: Overcoming Metaphysics and its "Eternal Recurrence"
+
+Autores:
+No disponibles.
+
+Año:
+2024
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH116
+============================================================
+
+Consulta:
+La République Platon
+
+Título:
+La primera historia de la retórica (Platón, Fedro, 266d7-267d7)
+
+Autores:
+Gerardo Ramírez Vidal
+
+Año:
+2017
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Quadripartita Ratio
+
+Editorial:
+Universidad de Guadalajara
+
+Resumen / abstract:
+En sus diálogos, Platón critica la retórica que habían elaborado los maestros de ese arte. Esto sucede sobre todo en el Gorgias y el Fedro. En el primero de ambos refuta sobre todo los fundamentos ontológicos y morales de la retórica (su naturaleza y sus fines); en el segundo, los elementos materiales y epistémicos (sus contenidos y su desinterés por la verdad). Como bien se sabe, en el Fedro Platón propone una retórica dialéctica en oposición a la retórica sofística (que era una retórica política), de modo que describe los fundamentos de su propuesta y muestra las deficiencias formales y epistémicas de la otra. Para ofrecer una idea clara de lo que dice, Platón reúne los abundantes conocimientos que los teóricos habían aportado a esa disciplina y los ordena de una manera diferente. La descripción contiene nombres de teóricos del discurso y conceptos que dan cuenta de la riqueza que esa disciplina había adquirido en la época dramática del Fedro. En este trabajo contextualizo el pasaje 266d7-267d7 del Fedro, resalto el criterio que Platón pudo haber seguido en su relación de los maestros del discurso y en la selección de los elementos retóricos, y explico y reordeno los conceptos registrados en una probable propuesta platónica de un sistema teórico-práctico de la retórica.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH117
+============================================================
+
+Consulta:
+República de Platón
+
+Título:
+La Idea del bien como arché en la República de Platón
+
+Autores:
+Thomas Alexander Szlezák
+
+Año:
+2003
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Los símiles de la República VI-VII de Platón
+
+Editorial:
+Pontificia Universidad Católica del Perú
+
+Resumen / abstract:
+En este caso contamos, sin duda, con ambos puntos. Podemos, por tanto, para evitar cualquier determinación calificativa, designar a la teoría en cuestión como «la teoría del principio expuesta por la figura literaria de Sócrates, sin una pretensión fuerte de verdad y de modo incompleto». Pero ello no cambiará en nada el hecho de que en los libros centrales de la República tenemos que ver con una teoría del principio (singular).
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH118
+============================================================
+
+Consulta:
+eterno retorno em Nietzsche
+
+Título:
+Nietzsche y la inteligencia artificial: una reflexión sobre metáfora, memoria y verdad.
+
+Autores:
+Christian Guillermo Gómez Vargas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El presente texto abarca la relación –a partir del análisis de Nietzsche– entre verdad, metáfora y lenguaje; la cual sirve al filósofo para esgrimir una estrategia, vínculo que opera a la postre como un dispositivo de expresión de la voluntad de poder. De modo que, todo discurso se trata de una metáfora contingente y provisional, válida en un horizonte histórico específico. Empero, no existe un saber universal que funja como zócalo que sostenga toda la experiencia y conocimiento. Un tipo de saber que funciona, principalmente, como memoria aditiva, fotográfica –eidética–, tal como indica la crítica al historicismo de Nietzsche, impele al no-pensamiento; en detrimento de la función fundamental del saber. Por tanto, una inteligencia que depende, básicamente, del acopio de los datos y respuestas automatizadas, como funciona la aplicación Chat GPT, podría conducir al no-saber total; puesto que sólo la función probabilística –con la que operan los algoritmos de dicha aplicación‒ es una forma de saber elemental, básico. El funcionamiento de la aplicación podría devenir en su forma contraria y únicamente ofrecer una ilusión de pensamiento, atrofiando la capacidad crítica y creativa de los usuarios, condiciones fundamentales para el auténtico pensar. Empero, una ilusión que posiblemente tienda en su propio despliegue a su anquilosamiento. Lo cual resultaría en un sistema de saber-poder-creencia que podría instaurarse como mecanismo único de racionalidad, modulando la subjetividad del individuo contemporáneo. La verdad, para Nietzsche, se trata de una ficción funcional, pero que finalmente remite a la capacidad creativa y metafórica de los individuos.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH119
+============================================================
+
+Consulta:
+eterno retorno en Nietzsche
+
+Título:
+La crítica temprana de Nietzsche al idealismo trascendental y sus posibles consecuencias programáticas y metodológicas
+
+Autores:
+Leonardo Cubillos Cubillos
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Aunque en la interpretación reciente de la obra de Nietzsche existe una discusión acerca de su relación con el idealismo trascendental de Kant, no es posible negar hoy que esta relación existió y que buena parte de esta influencia es producto de su particular lectura de Schopenhauer. A pesar de la distancia que tomaría muy pronto de esta teoría del conocimiento, es posible sugerir que varios rasgos de su filosofía guardan una estrecha relación con la crítica que hizo a la misma entre 1872 y 1873, específicamente en Sobre verdad y mentira en sentido extramoral y las Notas sobre retórica. En este artículo se defiende la idea de que tanto los acuerdos como los desacuerdos de Nietzsche con el idealismo trascendental dieron forma a una serie de planteamientos propios a propósito de la teoría del conocimiento que podrían explicar su interés por el origen de los valores y búsqueda en la fisiología y en la historia. El texto se divide en tres partes. En la primera se presenta brevemente la teoría del conocimiento propuesta por Schopenhauer. En la segunda se expone la recepción crítica que de esta teoría hace Nietzsche y se esclarecen sus planteamientos originales sobre la teoría del conocimiento. En la tercera parte se propone la hipótesis de que esta serie de planteamientos puede explicar el interés de Nietzsche en el origen de los valores y la búsqueda de dicho origen en la historia y la fisiología.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH120
+============================================================
+
+Consulta:
+República de Platão
+
+Título:
+A função do paradigma na República V de Platão
+
+Autores:
+Thiago Bezerra
+
+Año:
+2021
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Revista Enunciação
+
+Editorial:
+Programa de Pós-Graduação em Filosofia da Universidade Federal Rural do Rio de Janeiro
+
+Resumen / abstract:
+Meu propósito nesse artigo consiste em tratar do paradigma como apresentado pelo personagem Sócrates na passagem 472c-e do Livro V da República de Platão. Minha abordagem estará circunscrita a análise dessa passagem que considero central para compreensão da relação entre paradigma e método na República como uma justificativa à investigação empregada por Sócrates para encontrar a justiça. Em suma, aqui tenho em vista mostrar que o método utilizado por Sócrates é produtor de paradigmas. Um paradigma é um modelo constituído por meio de um procedimento descritivista que serve como critério avaliativo com o qual é possível fazer aproximações.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH121
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Epistemología crítica de la violencia cultural y la discriminación racial en estudiantes de pueblos originarios
+
+Autores:
+Stephany Nayelly Ruiz Tejeda
+
+Año:
+2026
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El ensayo aborda la violencia cultural y la discriminación racial en estudiantes de pueblos originarios desde una perspectiva epistemológica crítica. Se analiza cómo estas formas de exclusión, arraigadas en estructuras de poder, se producen dentro del sistema educativo mediante prácticas, discursos y regulaciones que desvalorizan los saberes indígenas. Conceptos como la violencia simbólica (Bourdieu) y la producción de verdad (Foucault) permiten entender cómo el conocimiento occidental hegemónico refuerza la desigualdad. Además, se destaca la importancia del pensamiento epistémico (Zemelman) para cuestionar marcos teóricos tradicionales y resignificar el conocimiento desde las experiencias de los pueblos originarios. El ensayo propone una educación intercultural que reconozca y valore la diversidad cultural, promoviendo justicia epistémica y social. Finalmente, se plantea que los estudiantes indígenas no son pasivos, sino agentes activos que resisten y transforman las estructuras de exclusión, contribuyendo a una transformación social más inclusiva y equitativa.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH122
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+Ordinary Language Philosophy
+
+Autores:
+No disponibles.
+
+Año:
+2009
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Key Ideas in Linguistics and the Philosophy of Language
+
+Editorial:
+Edinburgh University Press
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH123
+============================================================
+
+Consulta:
+filosofía del lenguaje en lingüística
+
+Título:
+Procesamiento de la información lingüística y lenguaje del pensamiento
+
+Autores:
+Mariela Destéfano
+
+Año:
+2019
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Tópicos. Revista de Filosofía de Santa Fe
+
+Editorial:
+Universidad Nacional del Litoral
+
+Resumen / abstract:
+En la psicología cognitiva del procesamiento de la información el lenguaje puede entenderse como un sistema de la mente/cerebro en el cual los outputs resultan de la aplicación de ciertas operaciones sobre representaciones a partir de ciertos inputs. En este trabajo quisiera argumentar contra la idea de que el lenguaje del pensamiento es el formato de las representaciones del procesamiento de la información lingüística. Primero, evaluaré los “argumentos del regreso” con los que se ha intentado sostener la tesis escéptica de este trabajo. Sostendré que estos argumentos no constituyen una buena estrategia para desechar al lenguaje del pensamiento como vehículo representacional. Segundo, desarrollaré una “inferencia a la explicación menos probable” con la que considero se puede poner en duda el rol del lenguaje del pensamiento como vehículo del procesamiento del lenguaje.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH124
+============================================================
+
+Consulta:
+Politeia Platon
+
+Título:
+1. Einführung in Platons Politeia
+
+Autores:
+Otfried Höffe
+
+Año:
+2011
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Platon: Politeia
+
+Editorial:
+AKADEMIE VERLAG
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH125
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+Les notions de loi naturelle et de loi positive chez Stanislas de Skarbimierz (vers 1360-1431)
+
+Autores:
+Bożena Chmielowska
+
+Año:
+1980
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Soziale Ordnungen im Selbstverständnis des Mittelalters, 2. Halbbd
+
+Editorial:
+DE GRUYTER
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH126
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Capítulo 13 - Gênero e ciência: análise de uma possível ciência feminista
+
+Autores:
+Andréia Moreira da Silva, Karla Rampim Xapier, Ana Maria Dietrich
+
+Año:
+2017
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Histórias das ciências, epistemologia, gênero e arte: ensaios para a formação de professores
+
+Editorial:
+Editora UFABC
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH127
+============================================================
+
+Consulta:
+filosofía del lenguaje en lingüística
+
+Título:
+LENGUAJE, FORMA INTERNA Y EXISTENCIA: LA FILOSOFÍA DEL LENGUAJE DE ANTON MARTY
+
+Autores:
+No disponibles.
+
+Año:
+2021
+
+Tipo:
+article
+
+Idioma del documento:
+es
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH128
+============================================================
+
+Consulta:
+República de Platão
+
+Título:
+Sobre o retrato do filósofo na República de Platão
+
+Autores:
+Henrique Gonçalves de Paula
+
+Año:
+2015
+
+Tipo:
+dissertation
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+Universidade de São Paulo. Agência de Bibliotecas e Coleções Digitais
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH129
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+ANÁLISE DE ENQUADRAMENTO E EPISTEMOLOGIA FEMINISTA: DISCUTINDO IMPLICAÇÕES METODOLÓGICAS
+
+Autores:
+Rayza Sarmento
+
+Año:
+2019
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Teoria &amp; Pesquisa: Revista de Ciência Política
+
+Editorial:
+Universidade Federal de São Carlos
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH130
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Disputas de legitimidad en la filosofía latinoamericana y en la epistemología feminista
+
+Autores:
+Anna Carolina Florczak
+
+Año:
+2026
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Intuitio
+
+Editorial:
+Universidade Federal da Fronteira Sul
+
+Resumen / abstract:
+O presente artigo analisa as disputas de legitimidade presentes em dois debates filosóficos: a discussão sobre a existência de uma filosofia latino-americana e o surgimento da epistemologia feminista. Partindo das contribuições de autores como Zea e Bondy, examina-se como a crítica latino-americana sobre a dependência colonial evidencia que a universalidade filosófica foi construída a partir de um sujeito europeu. De forma similar, recuperam-se as críticas feministas formuladas por Scheman, Longino, Harding, Haraway e Spivak, que denunciam o caráter masculinizado e excludente do sujeito epistêmico tido como neutro. A partir de uma metodologia qualitativa e exploratória, argumenta-se que ambos os debates convergem ao denunciar o universalismo abstrato e ao propor a filosofia situada como fundamento alternativo de legitimidade, ampliando o entendimento filosófico. Como reflexão final, entende-se que a interlocução entre as tradições latino-americana e feminista, além de ampliar o escopo crítico, oferece bases para a construção de um conhecimento e de uma filosofia plurais e comprometidos com realidades historicamente marginalizadas.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH131
+============================================================
+
+Consulta:
+philosophie du langage en linguistique
+
+Título:
+Marxisme et philosophie du langage (1929) de V. Vološinov et sa réception chez R. Šor: deux voies du développement de la science du langage «marxiste» dans les années 1920 en Russie
+
+Autores:
+Inna Tylkowski
+
+Año:
+2011
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Cahiers du Centre de Linguistique et des Sciences du Langage
+
+Editorial:
+Cantonal and University Library Fribourg
+
+Resumen / abstract:
+"Malgré le succès de Marxisme et philosophie du langage (par la suite MPL) deV. Vološinov, ce texte n’a suscité que trois comptes rendus. Le quatrième est ébau- ché par A. Romm. Resté à l’état de notes, ce compte rendu est bien étudié par les chercheurs contemporains. En revanche, le compte rendu écrit par R. Šor n’a ja- mais été analysé de façon détaillée. Notre article a pour but de combler cette lacune et porte sur le contenu de l’analyse critique de MPL faite par Šor. Son examen révèle que le compte rendu écrit par cette dernière et MPL de Vološinov représen- tent la formulation de principes de base diamétralement opposés de la science du langage «marxiste». Cela se manifeste dans la réception des idées de F. de Saus- sure. Si Šor considère la conception de ce dernier comme fondement de la linguis- tique «théorique» portant sur la langue en tant que système de signes (ou de «signi- fiances» dans les termes de Šor), Vološinov rejette la théorie de Saussure. Il la considère comme «abstraite», d’où le nom «objectivisme abstrait» qu’il donne au saussurisme. En élaborant la philosophie du langage «marxiste», il s’appuie sur la néo-philologie idéaliste (les idées de Vossler et de son École) définie dans MPL comme «subjectivisme individualiste». Vološinov propose d’étudier la «langue» comme fait réel, accessible à l’observation immédiate et non pas comme objet d’étude «théorique». Ce fait constitue une cible de la critique adressée par Šor à Vološinov."
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH132
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Feminist epistemology and philosophy of science : power in knowledge
+
+Autores:
+No disponibles.
+
+Año:
+2011
+
+Tipo:
+book
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH133
+============================================================
+
+Consulta:
+eterno retorno em Nietzsche
+
+Título:
+Nietzsche y la crítica al modelo epistemológico positivista
+
+Autores:
+Ramón Bárcenas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El texto aborda la crítica de Nietzsche a la epistemología positivista. Esta crítica se presenta y desarrolla en el planteamiento filosófico del perspectivismo. Este planteamiento defiende el carácter perspectivista del modo en que nos relacionamos con el mundo, de manera que es factible una diversidad de formas de configurar las cosas, de interpretar el mundo. El perspectivismo somete a revisión la epistemología positivista, la cual considera que el sujeto puede conocer el mundo sobre la base de los hechos observados. Por un lado, cuestiona la existencia de los hechos que constituyen la base objetiva del conocimiento positivo, señalando que no hay hechos sino solo interpretaciones. Por otro, problematiza la supuesta consistencia ontológica del sujeto, mostrando que éste no es un agente sustancial sino una hipótesis reguladora de la complejidad interior. La revisión crítica del positivismo apunta a la necesidad de reconsiderar el modo en que se plantea la epistemología moderna, particularmente formulada en términos de la relación entre sujeto y objeto.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH134
+============================================================
+
+Consulta:
+epistemologia feminista na ciência
+
+Título:
+Releyendo a Habermas desde un horizonte feminista
+
+Autores:
+Andrea Carriquiry
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+La teoría de Jürgen Habermas, aunque constituye uno de los más sólidos aportes de la filosofía contemporánea, es frecuentemente subutilizada. Asumiendo la hipótesis de que esa potente teoría puede ser útil para fortalecer avances y evitar retrocesos tanto en el ámbito de las políticas públicas como en la autocomprensión de acciones de la sociedad civil, este trabajo se propone una relectura de la misma, centrada en el análisis de los textos habermasianos, con el objetivo de contribuir a una más amplia comprensión de los movimientos feministas. En particular, en este artículo se aborda el surgimiento de la esfera pública burguesa, y de la noción de esfera pública en la obra de Habermas. Y se establecen vinculaciones con dos elementos conceptuales: a) el potencial de apertura de la esfera pública y b) la dual politics de los movimientos sociales. Ambos elementos muestran que los movimientos feministas tienen un rol especialmente destacado a jugar en la esfera pública, que es a su vez central para las democracias occidentales contemporáneas.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH135
+============================================================
+
+Consulta:
+filosofia da linguagem na linguística
+
+Título:
+Filosofia da linguagem
+
+Autores:
+Josailton Fernandes de Mendonça
+
+Año:
+2020
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Linguística geral: os conceitos que todos precisam conhecer - volume 3
+
+Editorial:
+Pimenta Cultural
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH136
+============================================================
+
+Consulta:
+natural law in Thomas Aquinas
+
+Título:
+The Light that Binds: A Study in Thomas Aquinas's Metaphysics of the Natural Law by Stephen Brock
+
+Autores:
+No disponibles.
+
+Año:
+2022
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH137
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Die geistige Wurzel der Gerechtigkeit – Rationalismus und Epistemologie in Leibniz‘ praktischer Philosophie
+
+Autores:
+No disponibles.
+
+Año:
+2020
+
+Tipo:
+other
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH138
+============================================================
+
+Consulta:
+loi naturelle chez Thomas d'Aquin
+
+Título:
+THOMAS VON AQUIN UND DIE TIERE
+
+Autores:
+CHRISTIAN HÜNEMÖRDER
+
+Año:
+2012
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Thomas von Aquin
+
+Editorial:
+DE GRUYTER
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH139
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+Las Epistemologías Feministas de Haack, Keller y Harding
+
+Autores:
+Gabriel Ignacio Paravano
+
+Año:
+2022
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El presente artículo busca retomar los elementos principales de las posturas epistemológicas feministas de las pensadoras Susan Hack, Evelyn Fox Keller y Sandra Harding a partir de una discusión que ocupa un lugar cada vez más central en los análisis filosóficos de la ciencia y en las investigaciones feministas: las metáforas, principalmente, las metáforas científicas. Se pretende señalar dos cosas: por un lado, las tres epistemologías parten de distintas concepciones de ciencia, sujeto cognoscente y discurso científico, por otro lado, dichas concepciones ganan claridad y sentido a partir de una lectura de las metáforas con un específico rol en las ciencias.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH140
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+La argumentación en filosofía. Lección 1: El papel de las preguntas en los textos filosóficos
+
+Autores:
+Fernando Leal Carretero
+
+Año:
+2026
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Quadripartita Ratio
+
+Editorial:
+Universidad de Guadalajara
+
+Resumen / abstract:
+El texto que se puede leer a continuación es, y debe ser considerado, work in progress. Representa solamente el último episodio en mi búsqueda de un método adecuado para enseñar argumentación a mis estudiantes de posgrado en filosofía. Mi experiencia en este campo se remonta al año 2007, cuando logré convencer a mis colegas de la necesidad de tener una serie de talleres de argumentación en la maestría en filosofía (oficialmente: “Maestría en Estudios Filosóficos”, en adelante MEF), uno por semestre, dedicados a enseñar el análisis y la evaluación de argumentaciones en textos filosóficos, tanto ajenos como propios. Como profesor titular de estos talleres, al principio me valí de métodos tradicionales muy variados (por ejemplo, la disputación medieval y el debate); pero hace tres generaciones, en 2013, comencé a utilizar el libro de texto de pragma-dialéctica Argumentation: Analysis, Evaluation, Presentation (van Eemeren, Grootendorst & Snoeck Henkemans, 2002), así como su sucesor más reciente Argumentation: Analysis and Evaluation (van Eemeren & Snoeck Henkemans, 2017), a los que me referiré en lo que sigue simplemente como Argumentation. Las razones de este giro las expongo en Leal (2015), Leal & Galindo (2015), Leal (2016). Durante dos generaciones de la MEF, de 2013 a 2016, utilizamos todos los ejercicios originales de Argumentation, los cuales, como es natural, tienen poco o nada que ver con la manera y el estilo en que han argumentado los filósofos en sus dos milenios y medio de hacerlo. Sin embargo, con el fin de que mis estudiantes vieran que las consignas de los ejercicios del libro de texto se podían perfectamente aplicar a las argumentaciones filosóficas, tuve desde el principio la costumbre de añadir al final de cada ejercicio un par de ejemplos tomados de la historia de la filosofía. Por razones que sería largo exponer aquí, en la última generación de la MEF decidí ir más lejos y hacer a un lado todos los ejercicios originales de Argumentation (ahora ya en la edición revisada de 2017) y substituir en su lugar puros textos filosóficos. Fue entonces que en clase analizamos, evaluamos y discutimos un total de 94 textos, los cuales iban desde una sola oración hasta 35 páginas. Esta fue una experiencia muy rica, que me reveló, entre otras cosas, que la exposición de Argumentation no lograba capturar todos los matices y bemoles que se requieren para enfrentar las argumentaciones filosóficas. Por ello, para la generación de la MEF del año 2019, decidí dar un paso más y substituir el texto mismo de las lecciones de Argumentation por uno escrito por mí específicamente para este propósito. Este naciente libro de texto, cuya primera lección se puede leer a continuación, pretende inspirarse en, y conservar el espíritu de, la pragma-dialéctica expuesta en Argumentation, pero añadiendo algunos temas nuevos, que me parecen más apropiados para el caso específico de la argumentación filosófica. Para decirlo de una vez, ahora pienso que Argumentation es un libro difícil de mejorar si se trata de enseñar argumentación a estudiantes de comunicación; pero menos adecuado para enseñarla a estudiantes de ciencias sociales, neurociencias, humanidades, educación o historia, todos ellos posgrados en que he enseñado la materia; y todavía mucho menos adecuado en el caso de la filosofía, que es, nos guste o no, una disciplina muy peculiar.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH141
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+L'« éternel retour » chez Joseph Brodsky: archétypes et variations
+
+Autores:
+Maria Rubins
+
+Año:
+2005
+
+Tipo:
+journal-article
+
+Idioma del documento:
+fr
+
+Revista:
+Slovo
+
+Editorial:
+PERSEE Program
+
+Resumen / abstract:
+L'article tente de systématiser quelques catégories essentielles dans l'écriture de Brodsky, particulièrement ses approches de la conceptualisation du passé après son expulsion d'URSS, en les considérant dans la perspective de 1'«éternel retour». Le mythologème de 1'«éternel retour» est exposé ici selon l'interprétation de Mircea Eliade, c'est-à-dire la répétition périodique des rituels, ce qui permettait à chaque individu de revivre l'expérience paradigmatique. Le modèle mythopoétique de Brodsky est caractérisé par des éléments invariants, et cela apparaît aussi bien dans le choix du sujet de la méditation lyrique que dans son discours poétique. Cependant, ces éléments ont dans chaque texte spécifique des acceptions supplémentaires. L'«étemel retour» est donc traité par Brodsky non pas comme une répétition exacte, mais comme une variation sur un thème, et, par conséquent, les événements historiques et personnels, les lieux géographiques et même la tradition littéraire sont présentés comme les réalisations concrètes d'une série stable d’archétypes.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH142
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+Nietzsche y la crítica al modelo epistemológico positivista
+
+Autores:
+Ramón Bárcenas
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+El texto aborda la crítica de Nietzsche a la epistemología positivista. Esta crítica se presenta y desarrolla en el planteamiento filosófico del perspectivismo. Este planteamiento defiende el carácter perspectivista del modo en que nos relacionamos con el mundo, de manera que es factible una diversidad de formas de configurar las cosas, de interpretar el mundo. El perspectivismo somete a revisión la epistemología positivista, la cual considera que el sujeto puede conocer el mundo sobre la base de los hechos observados. Por un lado, cuestiona la existencia de los hechos que constituyen la base objetiva del conocimiento positivo, señalando que no hay hechos sino solo interpretaciones. Por otro, problematiza la supuesta consistencia ontológica del sujeto, mostrando que éste no es un agente sustancial sino una hipótesis reguladora de la complejidad interior. La revisión crítica del positivismo apunta a la necesidad de reconsiderar el modo en que se plantea la epistemología moderna, particularmente formulada en términos de la relación entre sujeto y objeto.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH143
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+Théoriser en féministe
+
+Autores:
+Clara Chaffardon
+
+Año:
+2021
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Théoriser en féministe
+
+Editorial:
+Hermann
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH144
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Foucault's Archaeology - Science and Transformation
+
+Autores:
+No disponibles.
+
+Año:
+2012
+
+Tipo:
+archive-text
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+This book provides a new perspective on Foucault’s The Archaeology of Knowledge by revealing the extent to which its approach to language was influenced by the mathematical sciences. Setting out this background to Foucault’s analysis makes The Archaeology of Knowledge both accessible in a new way, and relevant to issues that are at the heart of much contemporary debate over the nature of critical thought and the relation between philosophy and the sciences. This book sheds new light on a crucial period of Foucault’s work by highlighting his relation to thinkers such as Cavaillès and Serres. It aims to provide a reading of The Archaeology of Knowledge that puts it at the heart Foucault’s thought. Rather than attempting a scientific study of language as such, Foucault is shown to have adopted a mode of thought indebted to thinkers in the scientific and epistemological tradition.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH145
+============================================================
+
+Consulta:
+philosophie du langage en linguistique
+
+Título:
+Rouveret, Alain. 2021. Dans le labyrinthe du langage. Langage et philosophie dans les grammaires de Chomsky
+
+Autores:
+Jacqueline Léon
+
+Año:
+2023
+
+Tipo:
+journal-article
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Histoire Épistémologie Langage
+
+Editorial:
+OpenEdition
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH146
+============================================================
+
+Consulta:
+República de Platón
+
+Título:
+Dioecismo y Ciudad Ideal. Acerca de la República de Platón, VII 540e4-541a1
+
+Autores:
+No disponibles.
+
+Año:
+2022
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH147
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+Philosophie als Literatur bei Nietzsche, Deleuze und Borges Augenblick, Ewigkeit und Wiederholung als existenzielle Erfahrungen der Zeit
+
+Autores:
+No disponibles.
+
+Año:
+2018
+
+Tipo:
+article
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH148
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+Heidegger and Nietzsche: Overcoming Metaphysics, and: Heidegger's Nietzsche: Being and Becoming, and: The Movement of Nihilism: Heidegger's Thinking after Nietzsche (review)
+
+Autores:
+No disponibles.
+
+Año:
+2012
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH149
+============================================================
+
+Consulta:
+épistémologie féministe en science
+
+Título:
+La división disciplinar del tiempo en el joven Heidegger. Las influencias de su concepción de los tiempos de la ciencia y la historia
+
+Autores:
+Fernando Gilabert
+
+Año:
+2025
+
+Tipo:
+journal-article
+
+Idioma del documento:
+es
+
+Revista:
+Protrepsis
+
+Editorial:
+Departamento de Filosofía del Centro Universitario de Ciencias Sociales y Humanidades. Universidad de Guadalajara. México.
+
+Resumen / abstract:
+Desde el último cuarto de siglo, coincidiendo con la publicación de un gran material inédito, se vienen rastreando en los escritos anteriores a Sein und Zeit [El ser y el tiempo] (1927), obra magna de Martin Heidegger e hito fundamental para la filosofía, aquellos planteamientos que suponen la base de su revolución filosófica, sobre todo en relación a la problemática del tiempo. En este sentido, el presente estudio pretende contribuir a esas indagaciones acerca de los precedentes de la concepción del tiempo que late en su obra central a partir de las influencias que su planteamiento recibe. Si bien estas influencias no se explicitan en la obra de 1927, sí pueden rastrearse más concretamente en la comprensión contextual y filosófica de una obra que ve la luz años antes: la conferencia con que defiende su habilitación. Ya en 1916, Heidegger plantea dos vías de la concepción del tiempo a partir de las influencias fundamentales de la tradición, como Aristóteles, Kant y Dilthey, pero también la física de Newton y la, entonces novedosa, teoría de la relatividad de Einstein. El análisis comparativo que aquí se realiza lleva a una conclusión clara: Heidegger se inclina por una concepción del tiempo donde el ser humano es la base de la temporalidad, en tanto que la medida del tiempo no conforma un patrón, sino un afecto. Esto se radicaliza más adelante al no ser ya la historia de la humanidad, sino el carácter histórico de la existencia lo que fija la pauta para la comprensión de la concepción del tiempo.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH150
+============================================================
+
+Consulta:
+philosophy of language in linguistics
+
+Título:
+Linguistics in Philosophy
+
+Autores:
+Ana Clara Polakof
+
+Año:
+2024
+
+Tipo:
+other
+
+Idioma del documento:
+No disponible.
+
+Revista:
+Philosophy of Language in Uruguay
+
+Editorial:
+Lexington Books
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH151
+============================================================
+
+Consulta:
+filosofía del lenguaje en lingüística
+
+Título:
+La filosofía del lenguaje en Kant
+
+Autores:
+No disponibles.
+
+Año:
+2017
+
+Tipo:
+edited-book
+
+Idioma del documento:
+No disponible.
+
+Revista:
+No disponible.
+
+Editorial:
+Teseo
+
+Resumen / abstract:
+Ya la publicación de la Crítica de la razón pura inició una discusión respecto del lugar y valor del lenguaje en la filosofía de Kant. En la historia de esta discusión la tesis resumida en la expresión “el silencio de Kant” respecto del lenguaje tuvo un lugar preponderante. Frente a esta tesis se ha desarrollado una perspectiva diferente que, desde distintos enfoques, coincide en cuestionarla, en explorar lo que puede hallarse efectivamente en relación con el lenguaje en la filosofía de este autor y, a partir de allí, en elaborar la reconstrucción de una reflexión sobre el lenguaje en su misma filosofía. Desde esta perspectiva el presente trabajo lleva a cabo una argumentación que, en su núcleo, sostiene que la identificación de aquellos pasajes de la obra kantiana sobre o directamente relacionados con el lenguaje y su inscripción argumentativa en el contexto de la concepción de Kant, en su propia terminología y conceptuación, constituye un paso necesario para la evaluación del lugar y valor del lenguaje en su filosofía, para la discusión de las interpretaciones de la filosofía crítica como semántica, semiótica o pragmática trascendentales, para la comparación de la filosofía del autor con la posterior filosofía del lenguaje y para sostener la identificación de una reflexión consistente sobre el lenguaje en la obra kantiana, aun cuando dicha reflexión sea, si se compara con las cuestiones centrales desarrolladas como tales por Kant, tangencial.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH152
+============================================================
+
+Consulta:
+feminist epistemology in science
+
+Título:
+Altogether Now: A Virtue-Theoretic Approach to Pluralism in Feminist Epistemology
+
+Autores:
+Nancy Daukas
+
+Año:
+2011
+
+Tipo:
+book-chapter
+
+Idioma del documento:
+en
+
+Revista:
+Feminist Epistemology and Philosophy of Science
+
+Editorial:
+Springer Netherlands
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH153
+============================================================
+
+Consulta:
+eterno retorno en Nietzsche
+
+Título:
+Conill Sancho, Sánchez Meca, Guía Comares De Nietzsche
+
+Autores:
+Fernando Fava, Diego Sánchez Meca, Luis E de santiago, Manuel Barrios, etc
+
+Año:
+2002
+
+Tipo:
+archive-text
+
+Idioma del documento:
+es
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Una guía comparativa de Nietzsche puede ser útil para entender sus ideas y obras principales. Aquí te presento una posible guía: Obras principales: 1. Así habló Zaratustra (1883-1885): Una de las obras más famosas de Nietzsche, donde presenta la figura de Zaratustra y su filosofía del "superhombre". 2. Más allá del bien y del mal (1886): Un análisis crítico de la moral tradicional y la presentación de una nueva perspectiva filosófica. 3. La genealogía de la moral (1887): Un estudio sobre el origen y evolución de la moral, donde Nietzsche critica la moral tradicional y presenta su propia visión. 4. El crepúsculo de los ídolos (1889): Un conjunto de ensayos críticos sobre la filosofía, la religión y la cultura de su época. Conceptos clave: 1. El superhombre: La idea de un ser humano que trasciende las limitaciones morales y culturales tradicionales. 2. La voluntad de poder: La idea de que la vida es un impulso hacia la autoafirmación y la expansión del poder. 3. El eterno retorno: La idea de que la vida es un ciclo eterno de creación y destrucción. 4. La perspectivismo: La idea de que la verdad es relativa y depende de la perspectiva individual. Influencias y críticas: 1. Influencias: Nietzsche fue influenciado por filósofos como Schopenhauer, Kant y Hegel, así como por la literatura y la música de su época. 2. Críticas: Nietzsche ha sido criticado por su rechazo a la moral tradicional, su énfasis en la individualidad y su posible interpretación como un precursor del nazismo. Recomendaciones: 1. Lecturas: Comenzar con "Así habló Zaratustra" y "Más allá del bien y del mal" para entender las ideas principales de Nietzsche. 2. Contexto: Leer sobre la historia y la cultura de la época en que Nietzsche vivió para entender mejor su contexto. 3. Críticas y análisis: Leer críticas y análisis de las obras de Nietzsche para entender diferentes perspectivas y debates. Espero que esta guía te sea útil para entender mejor la filosofía y las obras de Nietzsche. ¡Si tienes alguna pregunta o necesitas más información, no dudes en preguntar!
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH154
+============================================================
+
+Consulta:
+eterno retorno en Nietzsche
+
+Título:
+Esistenza e struttura eterna. Il Nietzsche di Severino tra eterno ritorno e volonta di potenza
+
+Autores:
+No disponibles.
+
+Año:
+2018
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH155
+============================================================
+
+Consulta:
+éternel retour chez Nietzsche
+
+Título:
+The Perception of Socrates' Ethics in F. Nietzsche's Moral Philosophy: Overcoming Metaphysics and its "Eternal Recurrence"
+
+Autores:
+No disponibles.
+
+Año:
+2024
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH156
+============================================================
+
+Consulta:
+feministische Epistemologie in der Wissenschaft
+
+Título:
+Handlung und Wissenschaft. Die Epistemologie der praktischen Wissenschaften im 13. und 14. Jahrhundert. Action and Science. The Epistemology of the Practical Sciences in the 13th and 14th Centuries. [Reseña]
+
+Autores:
+No disponibles.
+
+Año:
+2009
+
+Tipo:
+article
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH157
+============================================================
+
+Consulta:
+Sprachphilosophie in der Linguistik
+
+Título:
+On the Relationship of Merleau-Ponty's Philosophy of Language and Saussure's Linguistics
+
+Autores:
+No disponibles.
+
+Año:
+2005
+
+Tipo:
+article
+
+Idioma del documento:
+en
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH158
+============================================================
+
+Consulta:
+ewige Wiederkunft bei Nietzsche
+
+Título:
+Philosophie als Literatur bei Nietzsche, Deleuze und Borges
+
+Autores:
+No disponibles.
+
+Año:
+2018
+
+Tipo:
+article
+
+Idioma del documento:
+de
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+Abstract no disponible.
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH159
+============================================================
+
+Consulta:
+epistemología feminista en la ciencia
+
+Título:
+Blazquez, N., Flóres, F., Ríos, M. [ Coords.] ( 2012). Investigación Feminista. Epistemología, Metodología Y Representaciones Sociales. México. UNAM.
+
+Autores:
+Blazquez, N., Flóres, F., _ Ríos, M. [Coords.]
+
+Año:
+2010
+
+Tipo:
+archive-text
+
+Idioma del documento:
+es
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+PRIMERA PARTE EPISTEMOLOGÍA Y CRÍTICA DE LA INVESTIGACIÓN FEMINISTA A LA CIENCIA Epistemología feminista: temas centrales Norma Blazquez Graf. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21 ¿Una filosofía de la ciencia socialmente relevante? Argumentos en torno a la controversia sobre el Punto de vista feminista Sandra Harding ........................................ 39 Acerca de la investigación y la metodología feminista Eli Bartra ............................................. 67 Género y ciencia: entre la tradición y la transgresión Lourdes Fernández Rius ................................... 79 Femenino y masculino: modalidades de ser Patricia Corres Ayala ..................................... 111 Género y políticas públicas en ciencia y tecnología Diana Maffía .......................................... 139
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+
+============================================================
+QRH160
+============================================================
+
+Consulta:
+ley natural en Tomás de Aquino
+
+Título:
+Moral, Razón Y Naturaleza Una Investigación Sobre Tomás De Aquino, Ana Marta González
+
+Autores:
+Ana Marta González
+
+Año:
+2010
+
+Tipo:
+archive-text
+
+Idioma del documento:
+es
+
+Revista:
+No disponible.
+
+Editorial:
+No disponible.
+
+Resumen / abstract:
+CAPÍTULO I: ¿QUÉ NATURALEZA? ..................................................... 29 1. La naturaleza y lo secundum naturam..................................... 47 2. Lo praeter naturam: contra naturam, supra naturam ............ 60 CAPÍTULO II: UNA NATURALEZA APTA PARA EL BIEN UNIVERSAL .... 77 1. Naturaleza como principio, naturaleza como facticidad ......... 80 2. El bien necesario, fin de nuestra voluntad............................... 90 3. Objeto de la voluntas ut natura: fin último, bien en general, bienes secundum naturam ....................................................... 97 4. Excursus: naturaleza y persona en un contexto ético.............. 108 5. La ley natural........................................................................... 113 6. Principia per se nota ............................................................... 119 7. El primer precepto de la ley .................................................... 124 8. ¿Naturaleza o razón? ............................................................... 130 9. Las inclinaciones naturales...................................................... 138 y más...
+
+Respuesta:
+[0 / 1 / 2 / 3]
+
+Nota opcional:
+[Escriba aquí o déjelo vacío]
+

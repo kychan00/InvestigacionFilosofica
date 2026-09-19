@@ -1,0 +1,48 @@
+{
+  "schema_version": "qwen3-ranking-holdout-delta-audit-sample-meta-v1",
+  "validation_id": "qwen3-ranking-holdout-v1",
+  "audit_version": "qwen3-ranking-holdout-v1-delta-audit-v1",
+  "purpose": "blind-human-top10-delta-audit",
+  "ab_run_path": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-ab.jsonl",
+  "ab_run_sha256": "6682bf7c19cd9acc77a589483977478857493e0a7f81ce1c086c83ce6c8851aa",
+  "ab_metadata_path": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-ab.meta.json",
+  "ab_metadata_sha256": "d4413cf9a87b0e2b4fc7a5b7fd28ea922509b851f75c34c45714d4d319ba6fe2",
+  "ab_freeze_commit": "10afea1",
+  "sampling_rule": "every query-document pair in the symmetric difference between A and B Top 10",
+  "audit_order": "deterministic SHA-256 order over audit_version + query_id + record_id",
+  "row_count": 160,
+  "query_count": 25,
+  "side_count_expected_each": 80,
+  "side_counts_not_exposed_in_public_rows": true,
+  "by_language": {
+    "fr": 44,
+    "de": 40,
+    "en": 30,
+    "es": 20,
+    "pt": 26
+  },
+  "by_intent": {
+    "philosopher-concept": 58,
+    "work": 32,
+    "interdisciplinary-challenge": 70
+  },
+  "by_family": {
+    "nietzsche-eternal-recurrence": 36,
+    "plato-republic": 32,
+    "feminist-epistemology-science": 40,
+    "philosophy-language-linguistics": 30,
+    "aquinas-natural-law": 22
+  },
+  "relevant_threshold": 2,
+  "sample_sha256": "2981bcd4c48e59a40492d13163e9cc0a1f92e960aa7bd82bcda00f60250fc033",
+  "contains_condition": false,
+  "contains_rank": false,
+  "contains_query_id": false,
+  "contains_record_id": false,
+  "contains_production_score": false,
+  "contains_qwen_score": false,
+  "contains_provider_provenance": false,
+  "contains_human_judgments": false,
+  "private_mapping_artifact_written": false,
+  "unblinding_rule": "After judgments are frozen, reconstruct audit_id-to-pair mapping deterministically from the frozen A/B using the same audit_version and ordering function."
+}
