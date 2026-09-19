@@ -358,5 +358,30 @@
     "validation_scope": "fresh internal same-pool Top-20 reranking validation",
     "external_independent_validation": false,
     "production_decision_note": "Validation supports further production-integration engineering, but this experiment record does not itself modify or authorize production ranking."
+  },
+  "browser_parity": {
+    "status": "preregistered",
+    "experiment_id": "qwen3-browser-parity-v1",
+    "branch": "integration/qwen3-reranker-v1",
+    "preregistration": "benchmark/qwen3/browser/qwen3-browser-parity-v1.preregistered.json",
+    "preregistration_commit": "fa80a64cdffef9cb960ae6de0243b4168d4b8a15",
+    "validated_reference_report_freeze_commit": "ad180f6ebb4f78196f71355a48d1673cb60ebda4",
+    "validated_reference_delta_p10": 0.156,
+    "dataset": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.jsonl",
+    "dataset_sha256": "99745f88c232d50d8b6715d6062beae556a71c364623916b9c41239076d56f17",
+    "rows": 500,
+    "queries": 25,
+    "browser_model": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "browser_model_revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "browser_artifact": "onnx/model_q4.onnx",
+    "browser_dtype": "q4",
+    "primary_device": "webgpu",
+    "transformers_js_version": "4.3.0",
+    "max_length": 4096,
+    "primary_gate": "25/25 exact Top-10 membership equality with the validated reference ranking",
+    "human_labels_used": false,
+    "tuning_allowed": false,
+    "modifies_production": false,
+    "production_authorized": false
   }
 }
