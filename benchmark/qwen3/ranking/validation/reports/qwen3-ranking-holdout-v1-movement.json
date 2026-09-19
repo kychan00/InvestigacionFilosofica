@@ -1,0 +1,375 @@
+{
+  "schema_version": "qwen3-ranking-holdout-movement-report-v1",
+  "validation_id": "qwen3-ranking-holdout-v1",
+  "purpose": "fresh-ranking-validation-structural-analysis",
+  "queries": 25,
+  "pool_depth": 20,
+  "pairs": 500,
+  "ab_rows": 1000,
+  "policy": {
+    "A": "original production order",
+    "B": "qwen_raw_score descending",
+    "tie_breaker": "original production rank ascending",
+    "binary_threshold_used": false,
+    "score_blending": false,
+    "pool_membership_changes": false
+  },
+  "top5": {
+    "queries_changed": 23,
+    "symmetric_difference_pairs": 112,
+    "entrants_to_B": 56,
+    "exits_from_A": 56
+  },
+  "top10": {
+    "queries_changed": 24,
+    "symmetric_difference_pairs": 160,
+    "entrants_to_B": 80,
+    "exits_from_A": 80
+  },
+  "rank_movement": {
+    "mean_absolute_shift": 4.636,
+    "max_absolute_shift": 17,
+    "unchanged_rank_count": 41,
+    "changed_rank_count": 459
+  },
+  "score_ties": {
+    "equal_score_pairs": 13,
+    "tie_breaker": "original production rank ascending"
+  },
+  "audit": {
+    "planned_scope": "all query-document pairs in the Top-10 symmetric difference",
+    "candidate_pairs": 160,
+    "relevant_threshold": 2,
+    "primary_metric": "exact paired human delta P@10",
+    "must_hide": [
+      "condition",
+      "rank",
+      "original_rank",
+      "qwen_raw_score",
+      "production score",
+      "providers",
+      "matchedQueries",
+      "ranking provenance"
+    ]
+  },
+  "sources": {
+    "production_pool": {
+      "path": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-production-pool-e10bbc4.jsonl",
+      "sha256": "26e39978dac68d37975732e2877830d58affc93a4e8c206edd4abd98f6b5d949"
+    },
+    "model_input_dataset": {
+      "path": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.jsonl",
+      "sha256": "99745f88c232d50d8b6715d6062beae556a71c364623916b9c41239076d56f17"
+    },
+    "raw_scores": {
+      "path": "benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.jsonl",
+      "sha256": "a463a8473cd9a2d465e6368849a341e6fbba1923ddea9d8fe785da92a10cdbd3"
+    }
+  },
+  "output": {
+    "ab_run": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-ab.jsonl",
+    "ab_run_sha256": "6682bf7c19cd9acc77a589483977478857493e0a7f81ce1c086c83ce6c8851aa"
+  },
+  "per_query": [
+    {
+      "query_id": "qrh-es-01",
+      "query": "eterno retorno en Nietzsche",
+      "query_language": "es",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 6,
+      "mean_absolute_rank_shift": 4.3,
+      "max_absolute_rank_shift": 11,
+      "unchanged_rank_count": 0
+    },
+    {
+      "query_id": "qrh-en-01",
+      "query": "eternal recurrence in Nietzsche",
+      "query_language": "en",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 6,
+      "top10_symmetric_difference_pairs": 8,
+      "mean_absolute_rank_shift": 5.5,
+      "max_absolute_rank_shift": 17,
+      "unchanged_rank_count": 2
+    },
+    {
+      "query_id": "qrh-de-01",
+      "query": "ewige Wiederkunft bei Nietzsche",
+      "query_language": "de",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 8,
+      "mean_absolute_rank_shift": 5.3,
+      "max_absolute_rank_shift": 12,
+      "unchanged_rank_count": 1
+    },
+    {
+      "query_id": "qrh-fr-01",
+      "query": "éternel retour chez Nietzsche",
+      "query_language": "fr",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 0,
+      "top10_symmetric_difference_pairs": 10,
+      "mean_absolute_rank_shift": 4.8,
+      "max_absolute_rank_shift": 12,
+      "unchanged_rank_count": 3
+    },
+    {
+      "query_id": "qrh-pt-01",
+      "query": "eterno retorno em Nietzsche",
+      "query_language": "pt",
+      "family": "nietzsche-eternal-recurrence",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 2,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 3.6,
+      "max_absolute_rank_shift": 10,
+      "unchanged_rank_count": 2
+    },
+    {
+      "query_id": "qrh-es-02",
+      "query": "ley natural en Tomás de Aquino",
+      "query_language": "es",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 0,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 3.9,
+      "max_absolute_rank_shift": 12,
+      "unchanged_rank_count": 3
+    },
+    {
+      "query_id": "qrh-en-02",
+      "query": "natural law in Thomas Aquinas",
+      "query_language": "en",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 3.9,
+      "max_absolute_rank_shift": 11,
+      "unchanged_rank_count": 2
+    },
+    {
+      "query_id": "qrh-de-02",
+      "query": "Naturrecht bei Thomas von Aquin",
+      "query_language": "de",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 2,
+      "top10_symmetric_difference_pairs": 2,
+      "mean_absolute_rank_shift": 2.9,
+      "max_absolute_rank_shift": 7,
+      "unchanged_rank_count": 1
+    },
+    {
+      "query_id": "qrh-fr-02",
+      "query": "loi naturelle chez Thomas d'Aquin",
+      "query_language": "fr",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 8,
+      "top10_symmetric_difference_pairs": 12,
+      "mean_absolute_rank_shift": 5.4,
+      "max_absolute_rank_shift": 13,
+      "unchanged_rank_count": 3
+    },
+    {
+      "query_id": "qrh-pt-02",
+      "query": "lei natural em Tomás de Aquino",
+      "query_language": "pt",
+      "family": "aquinas-natural-law",
+      "intent": "philosopher-concept",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 0,
+      "mean_absolute_rank_shift": 2.8,
+      "max_absolute_rank_shift": 7,
+      "unchanged_rank_count": 3
+    },
+    {
+      "query_id": "qrh-es-03",
+      "query": "República de Platón",
+      "query_language": "es",
+      "family": "plato-republic",
+      "intent": "work",
+      "top5_symmetric_difference_pairs": 8,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 5.1,
+      "max_absolute_rank_shift": 14,
+      "unchanged_rank_count": 0
+    },
+    {
+      "query_id": "qrh-en-03",
+      "query": "Plato Republic",
+      "query_language": "en",
+      "family": "plato-republic",
+      "intent": "work",
+      "top5_symmetric_difference_pairs": 2,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 3.7,
+      "max_absolute_rank_shift": 10,
+      "unchanged_rank_count": 4
+    },
+    {
+      "query_id": "qrh-de-03",
+      "query": "Politeia Platon",
+      "query_language": "de",
+      "family": "plato-republic",
+      "intent": "work",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 10,
+      "mean_absolute_rank_shift": 5.2,
+      "max_absolute_rank_shift": 12,
+      "unchanged_rank_count": 1
+    },
+    {
+      "query_id": "qrh-fr-03",
+      "query": "La République Platon",
+      "query_language": "fr",
+      "family": "plato-republic",
+      "intent": "work",
+      "top5_symmetric_difference_pairs": 6,
+      "top10_symmetric_difference_pairs": 8,
+      "mean_absolute_rank_shift": 5,
+      "max_absolute_rank_shift": 15,
+      "unchanged_rank_count": 1
+    },
+    {
+      "query_id": "qrh-pt-03",
+      "query": "República de Platão",
+      "query_language": "pt",
+      "family": "plato-republic",
+      "intent": "work",
+      "top5_symmetric_difference_pairs": 8,
+      "top10_symmetric_difference_pairs": 6,
+      "mean_absolute_rank_shift": 4.5,
+      "max_absolute_rank_shift": 14,
+      "unchanged_rank_count": 4
+    },
+    {
+      "query_id": "qrh-es-04",
+      "query": "epistemología feminista en la ciencia",
+      "query_language": "es",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 2,
+      "top10_symmetric_difference_pairs": 2,
+      "mean_absolute_rank_shift": 4.1,
+      "max_absolute_rank_shift": 16,
+      "unchanged_rank_count": 2
+    },
+    {
+      "query_id": "qrh-en-04",
+      "query": "feminist epistemology in science",
+      "query_language": "en",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 6,
+      "top10_symmetric_difference_pairs": 10,
+      "mean_absolute_rank_shift": 5.6,
+      "max_absolute_rank_shift": 15,
+      "unchanged_rank_count": 2
+    },
+    {
+      "query_id": "qrh-de-04",
+      "query": "feministische Epistemologie in der Wissenschaft",
+      "query_language": "de",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 6,
+      "top10_symmetric_difference_pairs": 8,
+      "mean_absolute_rank_shift": 4.5,
+      "max_absolute_rank_shift": 14,
+      "unchanged_rank_count": 0
+    },
+    {
+      "query_id": "qrh-fr-04",
+      "query": "épistémologie féministe en science",
+      "query_language": "fr",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 8,
+      "mean_absolute_rank_shift": 5.7,
+      "max_absolute_rank_shift": 17,
+      "unchanged_rank_count": 1
+    },
+    {
+      "query_id": "qrh-pt-04",
+      "query": "epistemologia feminista na ciência",
+      "query_language": "pt",
+      "family": "feminist-epistemology-science",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 12,
+      "mean_absolute_rank_shift": 6.5,
+      "max_absolute_rank_shift": 13,
+      "unchanged_rank_count": 1
+    },
+    {
+      "query_id": "qrh-es-05",
+      "query": "filosofía del lenguaje en lingüística",
+      "query_language": "es",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 4,
+      "max_absolute_rank_shift": 12,
+      "unchanged_rank_count": 0
+    },
+    {
+      "query_id": "qrh-en-05",
+      "query": "philosophy of language in linguistics",
+      "query_language": "en",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 6,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 5.1,
+      "max_absolute_rank_shift": 15,
+      "unchanged_rank_count": 1
+    },
+    {
+      "query_id": "qrh-de-05",
+      "query": "Sprachphilosophie in der Linguistik",
+      "query_language": "de",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 8,
+      "top10_symmetric_difference_pairs": 12,
+      "mean_absolute_rank_shift": 7.5,
+      "max_absolute_rank_shift": 17,
+      "unchanged_rank_count": 0
+    },
+    {
+      "query_id": "qrh-fr-05",
+      "query": "philosophie du langage en linguistique",
+      "query_language": "fr",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 4,
+      "top10_symmetric_difference_pairs": 6,
+      "mean_absolute_rank_shift": 3.7,
+      "max_absolute_rank_shift": 9,
+      "unchanged_rank_count": 0
+    },
+    {
+      "query_id": "qrh-pt-05",
+      "query": "filosofia da linguagem na linguística",
+      "query_language": "pt",
+      "family": "philosophy-language-linguistics",
+      "intent": "interdisciplinary-challenge",
+      "top5_symmetric_difference_pairs": 6,
+      "top10_symmetric_difference_pairs": 4,
+      "mean_absolute_rank_shift": 3.3,
+      "max_absolute_rank_shift": 11,
+      "unchanged_rank_count": 4
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "qwen3-ranking-holdout-ab-meta-v1",
+  "validation_id": "qwen3-ranking-holdout-v1",
+  "purpose": "fresh-ranking-validation-ab",
+  "row_count": 1000,
+  "condition_rows": {
+    "A": 500,
+    "B": 500
+  },
+  "query_count": 25,
+  "pool_depth": 20,
+  "same_pool_per_condition": true,
+  "qwen_model_called_during_ab_build": false,
+  "human_labels_used": false,
+  "binary_threshold_used": false,
+  "score_blending": false,
+  "sources": {
+    "production_pool": {
+      "path": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-production-pool-e10bbc4.jsonl",
+      "sha256": "26e39978dac68d37975732e2877830d58affc93a4e8c206edd4abd98f6b5d949"
+    },
+    "model_input_dataset": {
+      "path": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.jsonl",
+      "sha256": "99745f88c232d50d8b6715d6062beae556a71c364623916b9c41239076d56f17"
+    },
+    "raw_scores": {
+      "path": "benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.jsonl",
+      "sha256": "a463a8473cd9a2d465e6368849a341e6fbba1923ddea9d8fe785da92a10cdbd3"
+    }
+  },
+  "output_sha256": "6682bf7c19cd9acc77a589483977478857493e0a7f81ce1c086c83ce6c8851aa"
+}
