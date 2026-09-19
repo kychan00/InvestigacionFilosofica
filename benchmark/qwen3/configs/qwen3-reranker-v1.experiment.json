@@ -252,7 +252,7 @@
     "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
   },
   "ranking_holdout": {
-    "status": "dataset-frozen-inference-ready",
+    "status": "raw-scores-frozen-ab-builder-ready",
     "validation_id": "qwen3-ranking-holdout-v1",
     "branch": "validation/qwen3-ranking-holdout-v1",
     "development_ranking_report_freeze_commit": "d12ba5c",
@@ -292,6 +292,14 @@
     "inference_manifest": "benchmark/qwen3/configs/qwen3-ranking-holdout-v1.inference.json",
     "raw_scores": "benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.jsonl",
     "raw_scores_metadata": "benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.meta.json",
-    "local_cache": "benchmark/qwen3/cache/qwen3-ranking-holdout-v1.cache.jsonl"
+    "local_cache": "benchmark/qwen3/cache/qwen3-ranking-holdout-v1.cache.jsonl",
+    "raw_score_freeze_commit": "833ef9b",
+    "raw_scores_sha256": "a463a8473cd9a2d465e6368849a341e6fbba1923ddea9d8fe785da92a10cdbd3",
+    "raw_scores_metadata_sha256": "2071ea327a2b90c94c6c9f2ec620ba4109d9334c91fbe515dc2d58117d678aa2",
+    "ab_builder": "scripts/benchmark/qwen3/build_ranking_holdout_ab.mjs",
+    "ab_run": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-ab.jsonl",
+    "ab_metadata": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-ab.meta.json",
+    "movement_report": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-movement.json",
+    "movement_report_markdown": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-movement.md"
   }
 }
