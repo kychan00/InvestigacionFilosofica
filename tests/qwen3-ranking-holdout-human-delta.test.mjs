@@ -46,6 +46,9 @@ test('Qwen3 ranking holdout analyzer computes exact delta P@10 but not absolute 
   assert.match(source, /EXPECTED_AUDIT_ROWS = 160/u);
   assert.match(source, /EXPECTED_SIDE_ROWS = 80/u);
   assert.match(source, /EXPECTED_QUERIES = 25/u);
+  assert.match(source, /EXPECTED_CHANGED_QUERIES = 24/u);
+  assert.match(source, /queries_with_changed_top10: changedQueryIds\.size/u);
+  assert.match(source, /queries_with_unchanged_top10: EXPECTED_QUERIES - changedQueryIds\.size/u);
   assert.match(source, /exact_human_delta_p10_identified: true/u);
   assert.match(source, /absolute_p10_identified: false/u);
   assert.match(source, /netRelevant \/ \(EXPECTED_QUERIES \* TOP_K\)/u);
@@ -62,6 +65,15 @@ test('Qwen3 ranking holdout analyzer preserves fresh internal validation boundar
   assert.match(source, /query_set_role: 'fresh-internal-validation'/u);
   assert.match(source, /fresh_internal_ranking_validation: true/u);
   assert.match(source, /external_independent_validation: false/u);
+});
+
+test('Qwen3 ranking holdout analyzer keeps unchanged Top-10 queries as zero-delta ties', async () => {
+  const source = await readFile(analyzerPath, 'utf8');
+
+  assert.match(source, /queryMetaById/u);
+  assert.match(source, /new Map\(\s*\[\.\.\.queryMetaById\.entries\(\)\]/u);
+  assert.match(source, /\{ A: \[\], B: \[\], meta \}/u);
+  assert.match(source, /expected .*queries with changed Top-10 membership/u);
 });
 
 test('Qwen3 ranking holdout analyzer reports language, intent, family, and per-query effects', async () => {
