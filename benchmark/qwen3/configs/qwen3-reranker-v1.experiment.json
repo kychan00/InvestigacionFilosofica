@@ -252,7 +252,7 @@
     "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
   },
   "ranking_holdout": {
-    "status": "human-judgments-frozen-delta-analysis-ready",
+    "status": "fresh-internal-ranking-validation-complete",
     "validation_id": "qwen3-ranking-holdout-v1",
     "branch": "validation/qwen3-ranking-holdout-v1",
     "development_ranking_report_freeze_commit": "d12ba5c",
@@ -336,6 +336,27 @@
     "human_delta_report_markdown": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-human-delta.md",
     "absolute_human_p10_identified": false,
     "exact_human_delta_p10_identified": true,
-    "analysis_boundary_note": "Reconstruct the deterministic audit_id mapping from the frozen A/B only after the frozen human judgments; shared Top-10 slots remain unlabeled, so exact delta P@10 is identified but absolute P@10 is not."
+    "analysis_boundary_note": "Reconstruct the deterministic audit_id mapping from the frozen A/B only after the frozen human judgments; shared Top-10 slots remain unlabeled, so exact delta P@10 is identified but absolute P@10 is not.",
+    "human_delta_report_freeze_commit": "ad180f6",
+    "human_delta_report_sha256": "c503b06280ebc7e1ea98fbb2c2d680469c2639de72a9649834e310a272abb92c",
+    "human_delta_report_markdown_sha256": "44ef58c5553312e0b563200dca8488b6739b3cb743b2fef7600109de3aedef4d",
+    "validation_result": {
+      "queries": 25,
+      "queries_with_changed_top10": 24,
+      "queries_with_unchanged_top10": 1,
+      "a_only_relevant": 27,
+      "b_only_relevant": 66,
+      "net_relevant_gain": 39,
+      "exact_delta_p10": 0.156,
+      "improved_queries": 17,
+      "worsened_queries": 0,
+      "tied_queries": 8,
+      "a_only_ordinal": 104,
+      "b_only_ordinal": 194,
+      "net_ordinal_gain": 90
+    },
+    "validation_scope": "fresh internal same-pool Top-20 reranking validation",
+    "external_independent_validation": false,
+    "production_decision_note": "Validation supports further production-integration engineering, but this experiment record does not itself modify or authorize production ranking."
   }
 }
