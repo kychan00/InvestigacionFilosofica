@@ -252,7 +252,7 @@
     "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
   },
   "ranking_holdout": {
-    "status": "blind-audit-frozen-human-adjudication-ready",
+    "status": "human-judgments-frozen-delta-analysis-ready",
     "validation_id": "qwen3-ranking-holdout-v1",
     "branch": "validation/qwen3-ranking-holdout-v1",
     "development_ranking_report_freeze_commit": "d12ba5c",
@@ -316,19 +316,26 @@
     "audit_sample_sha256": "2981bcd4c48e59a40492d13163e9cc0a1f92e960aa7bd82bcda00f60250fc033",
     "audit_sample_metadata_sha256": "ae546efc00fe76779f22e47768b57a53d3cce6c8d2181308c20719cf926e951d",
     "audit_worksheet_sha256": "5ddae620b8b299a11b4aac5039d13366b95f879932826e125bf852d32bb01c6b",
-    "human_audit_server": "scripts/benchmark/qwen3/ranking_holdout_human_audit_server.mjs",
-    "human_audit_browser": "scripts/benchmark/qwen3/ranking_holdout_human_audit_browser.js",
-    "human_audit_ui": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-human-audit.html",
-    "human_audit_progress": "benchmark/qwen3/cache/qwen3-ranking-holdout-v1-human-audit.progress.json",
     "human_judgments": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.judgments.jsonl",
     "human_judgments_metadata": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.judgments.meta.json",
-    "human_audit_blocks": [
-      "QRH001-QRH040",
-      "QRH041-QRH080",
-      "QRH081-QRH120",
-      "QRH121-QRH160"
-    ],
-    "human_labels_started": false,
-    "unblinding_before_human_judgment_freeze": false
+    "unblinding_before_human_judgment_freeze": false,
+    "human_judgment_freeze_commit": "18479e5",
+    "human_judgments_sha256": "bb1a44f71605b5415a2b9a47a111d6557c32f6f77c399613bc7afb87a5ba26a1",
+    "human_judgments_metadata_sha256": "9a99a82d96eac66ec1d102a714833cd4e0011e210d580af17e4a9582302250f0",
+    "human_judgment_distribution": {
+      "0": 27,
+      "1": 40,
+      "2": 21,
+      "3": 72
+    },
+    "human_relevant_count": 93,
+    "human_nonrelevant_count": 67,
+    "human_labels_frozen": true,
+    "human_delta_analyzer": "scripts/benchmark/qwen3/analyze_ranking_holdout_delta_audit.mjs",
+    "human_delta_report": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-human-delta.json",
+    "human_delta_report_markdown": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-human-delta.md",
+    "absolute_human_p10_identified": false,
+    "exact_human_delta_p10_identified": true,
+    "analysis_boundary_note": "Reconstruct the deterministic audit_id mapping from the frozen A/B only after the frozen human judgments; shared Top-10 slots remain unlabeled, so exact delta P@10 is identified but absolute P@10 is not."
   }
 }
