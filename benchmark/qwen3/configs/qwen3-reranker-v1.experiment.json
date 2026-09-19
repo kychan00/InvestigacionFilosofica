@@ -252,7 +252,7 @@
     "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
   },
   "ranking_holdout": {
-    "status": "ab-frozen-blind-audit-builder-ready",
+    "status": "blind-audit-frozen-human-adjudication-ready",
     "validation_id": "qwen3-ranking-holdout-v1",
     "branch": "validation/qwen3-ranking-holdout-v1",
     "development_ranking_report_freeze_commit": "d12ba5c",
@@ -311,6 +311,24 @@
     "audit_worksheet": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.sample.txt",
     "audit_scope": "all 160 query-document pairs in the fresh A/B Top-10 symmetric difference",
     "audit_private_mapping_pre_adjudication": false,
-    "audit_unblinding_rule": "Reconstruct the deterministic audit_id mapping from the frozen A/B only after human judgments are frozen."
+    "audit_unblinding_rule": "Reconstruct the deterministic audit_id mapping from the frozen A/B only after human judgments are frozen.",
+    "audit_sample_freeze_commit": "0ffceb0",
+    "audit_sample_sha256": "2981bcd4c48e59a40492d13163e9cc0a1f92e960aa7bd82bcda00f60250fc033",
+    "audit_sample_metadata_sha256": "ae546efc00fe76779f22e47768b57a53d3cce6c8d2181308c20719cf926e951d",
+    "audit_worksheet_sha256": "5ddae620b8b299a11b4aac5039d13366b95f879932826e125bf852d32bb01c6b",
+    "human_audit_server": "scripts/benchmark/qwen3/ranking_holdout_human_audit_server.mjs",
+    "human_audit_browser": "scripts/benchmark/qwen3/ranking_holdout_human_audit_browser.js",
+    "human_audit_ui": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-human-audit.html",
+    "human_audit_progress": "benchmark/qwen3/cache/qwen3-ranking-holdout-v1-human-audit.progress.json",
+    "human_judgments": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.judgments.jsonl",
+    "human_judgments_metadata": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.judgments.meta.json",
+    "human_audit_blocks": [
+      "QRH001-QRH040",
+      "QRH041-QRH080",
+      "QRH081-QRH120",
+      "QRH121-QRH160"
+    ],
+    "human_labels_started": false,
+    "unblinding_before_human_judgment_freeze": false
   }
 }
