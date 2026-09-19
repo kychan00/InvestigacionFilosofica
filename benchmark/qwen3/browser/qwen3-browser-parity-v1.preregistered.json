@@ -1,0 +1,102 @@
+{
+  "schema_version": "qwen3-browser-parity-preregistration-v1",
+  "experiment_id": "qwen3-browser-parity-v1",
+  "purpose": "pre-production-browser-runtime-parity",
+  "status": "preregistered-before-browser-model-execution",
+  "branch": "integration/qwen3-reranker-v1",
+  "base_commit": "e99a8d221d176a4b5ec179aa318084a7e0e23b24",
+  "validated_reference": {
+    "validation_id": "qwen3-ranking-holdout-v1",
+    "report_freeze_commit": "ad180f6ebb4f78196f71355a48d1673cb60ebda4",
+    "report_path": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-human-delta.json",
+    "report_sha256": "c503b06280ebc7e1ea98fbb2c2d680469c2639de72a9649834e310a272abb92c",
+    "exact_delta_p10": 0.156,
+    "development_reference_delta_p10": 0.06,
+    "absolute_p10_identified": false
+  },
+  "reference_model": {
+    "model_id": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "scoring": "yes-no-softmax-probability",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "max_length": 4096,
+    "raw_scores_path": "benchmark/qwen3/ranking/validation/scores/qwen3-ranking-holdout-v1.raw.jsonl",
+    "raw_scores_sha256": "a463a8473cd9a2d465e6368849a341e6fbba1923ddea9d8fe785da92a10cdbd3"
+  },
+  "browser_model": {
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_q4.onnx",
+    "dtype": "q4",
+    "quantization": "4-bit com.microsoft.MatMulNBits block_size=32",
+    "primary_device": "webgpu",
+    "wasm_is_primary": false,
+    "transformers_js_version": "4.3.0",
+    "model_weights_must_not_be_committed_to_repository": true
+  },
+  "model_input": {
+    "dataset_path": "benchmark/qwen3/ranking/validation/datasets/qwen3-ranking-holdout-v1.jsonl",
+    "dataset_sha256": "99745f88c232d50d8b6715d6062beae556a71c364623916b9c41239076d56f17",
+    "dataset_metadata_sha256": "e30a84ba6350f1192682031d8483793abf20bd5de9d5801593d40957586a668b",
+    "rows": 500,
+    "queries": 25,
+    "contains_human_labels": false,
+    "contains_ranking_provenance": false,
+    "contains_provider_provenance": false
+  },
+  "prompt_contract": {
+    "instruction_path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+    "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+    "system_text": "Judge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be \"yes\" or \"no\".",
+    "system_prefix": "<|im_start|>system\\nJudge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be \"yes\" or \"no\".<|im_end|>\\n<|im_start|>user\\n",
+    "system_suffix": "<|im_end|>\\n<|im_start|>assistant\\n<think>\\n\\n</think>\\n\\n",
+    "content_format": "<Instruct>: {instruction}[newline-if-needed]<Query>: {query}\\n<Document>: {document}",
+    "document_format": "Mirror scripts/benchmark/qwen3/adapter.py build_document_text exactly.",
+    "max_length": 4096,
+    "truncation_contract": "Tokenize formatted instruction/query/document content with longest-first truncation to max_length minus prefix and suffix token counts, then concatenate exact prefix + content + suffix.",
+    "padding_side": "left",
+    "score_tokens": [
+      "no",
+      "yes"
+    ],
+    "score_formula": "softmax([no_logit, yes_logit])[1]"
+  },
+  "ranking_contract": {
+    "pool": "same frozen Top-20 production pool per query",
+    "browser_sort": "browser_qwen_raw_score descending",
+    "tie_breaker": "original production rank ascending",
+    "threshold_used": false,
+    "score_blending": false,
+    "retrieval_changes": false,
+    "candidate_pool_changes": false
+  },
+  "primary_parity_gate": {
+    "metric": "exact Top-10 membership equality between browser q4 ranking and validated reference Qwen ranking",
+    "required_queries_equal": 25,
+    "total_queries": 25,
+    "pass_condition": "25/25 queries have identical Top-10 record membership",
+    "rationale": "If Top-10 membership is identical on all 25 frozen holdout queries, the previously frozen human delta P@10 result transfers exactly for this holdout because P@10 depends on membership, not within-Top-10 order."
+  },
+  "secondary_metrics": [
+    "exact Top-10 order equality count",
+    "Top-10 membership overlap per query",
+    "full Top-20 rank correlation",
+    "raw-score Spearman correlation",
+    "raw-score Pearson correlation",
+    "maximum absolute score difference",
+    "mean absolute score difference"
+  ],
+  "failure_policy": {
+    "any_top10_membership_difference": "Do not claim browser parity and do not ship based on the existing +0.156 result alone.",
+    "next_step": "Freeze browser scores/rankings, build a blind audit only for newly changed Top-10 memberships relative to the validated reference, adjudicate without tuning, then quantify the browser-specific delta.",
+    "retuning_on_parity_dataset": false,
+    "threshold_tuning": false,
+    "score_blending_tuning": false
+  },
+  "production_policy": {
+    "modifies_production": false,
+    "production_authorized_by_preregistration": false,
+    "browser_download_requires_explicit_product_integration_after_parity": false,
+    "fallback_if_browser_ai_unavailable": "retain existing production ranking; do not silently substitute a different AI score"
+  }
+}
