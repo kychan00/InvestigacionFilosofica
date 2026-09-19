@@ -1,0 +1,92 @@
+{
+  "schema_version": "qwen3-browser-runtime-feasibility-preregistration-v1",
+  "experiment_id": "qwen3-browser-runtime-q8-feasibility-v1",
+  "status": "preregistered-before-runtime-execution",
+  "created_date": "2026-09-19",
+  "base_commit": "ab4c0f9a5eba6cdc71e8b86f1bb525ff54347458",
+  "purpose": "Determine whether the q8 ONNX browser candidate can execute successfully at representative and boundary sequence lengths before any new frozen 500-pair browser parity experiment.",
+  "relationship_to_previous_experiment": {
+    "previous_experiment": "qwen3-browser-parity-v1",
+    "previous_result": "closed-runtime-failure",
+    "previous_candidate": "onnx/model_q4.onnx",
+    "previous_failure": "RuntimeError: operation does not support unaligned accesses",
+    "holdout_reused_for_feasibility": false,
+    "failed_holdout_pair_reused": false
+  },
+  "candidate": {
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_quantized.onnx",
+    "dtype": "q8",
+    "device": "webgpu",
+    "execution_providers": [
+      "webgpu"
+    ],
+    "transformers_js_version": "4.3.0",
+    "wasm_host_threads": 1,
+    "num_logits_to_keep": 1,
+    "onnx_outputs_requested": [
+      "logits"
+    ],
+    "maximum_total_tokens": 4096
+  },
+  "synthetic_input_contract": {
+    "source": "synthetic-only",
+    "uses_ranking_holdout": false,
+    "uses_human_labels": false,
+    "uses_reference_qwen_scores": false,
+    "base_query": "What is the relation between being and knowledge?",
+    "base_document": "Synthetic runtime feasibility document. This input exists only to exercise the browser runtime and is not part of any ranking evaluation.",
+    "filler_text": ".",
+    "construction": "Tokenize the frozen prompt prefix, fixed synthetic content, and suffix using the pinned tokenizer. Assert filler_text encodes to exactly one token. Insert repeated filler token IDs between synthetic content and suffix until the exact preregistered total token count is reached."
+  },
+  "cases": [
+    {
+      "case_id": "synthetic-512",
+      "target_total_tokens": 512
+    },
+    {
+      "case_id": "synthetic-2048",
+      "target_total_tokens": 2048
+    },
+    {
+      "case_id": "synthetic-4096",
+      "target_total_tokens": 4096
+    }
+  ],
+  "primary_gate": {
+    "required_cases_passed": 3,
+    "total_cases": 3,
+    "requirements": [
+      "exact preregistered token count is constructed",
+      "browser runtime metadata is accepted",
+      "execution provider remains WebGPU",
+      "dtype remains q8",
+      "a finite raw yes-probability score in [0,1] is produced",
+      "no runtime exception occurs"
+    ],
+    "pass_rule": "All 3 of 3 cases must pass. A failure at any length fails the experiment."
+  },
+  "secondary_observations": {
+    "record_latency": true,
+    "latency_is_primary_gate": false,
+    "record_browser_runtime": true,
+    "record_gpu_adapter": true
+  },
+  "failure_policy": {
+    "do_not_reduce_token_targets_after_results": true,
+    "do_not_substitute_holdout_rows": true,
+    "do_not_tune_against_a_failed_synthetic_case": true,
+    "do_not_run_500_pair_parity_after_failure": true,
+    "after_failure": "Freeze the result and preregister a new runtime candidate before further feasibility testing."
+  },
+  "success_policy": {
+    "production_changes_allowed": false,
+    "automatic_parity_run_allowed": false,
+    "next_step": "If and only if all three synthetic cases pass, preregister a separate q8 500-pair browser parity experiment before accessing the frozen ranking holdout with q8."
+  },
+  "planned_outputs": {
+    "result": "benchmark/qwen3/browser/q8/reports/qwen3-browser-runtime-q8-feasibility-v1.report.json",
+    "scores": "benchmark/qwen3/browser/q8/scores/qwen3-browser-runtime-q8-feasibility-v1.raw.jsonl"
+  }
+}
