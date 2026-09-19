@@ -252,7 +252,7 @@
     "absolute_p10_note": "Only the A/B Top-10 symmetric difference was adjudicated; shared Top-10 slots cancel exactly for delta but remain unlabeled for absolute P@10."
   },
   "ranking_holdout": {
-    "status": "raw-scores-frozen-ab-builder-ready",
+    "status": "ab-frozen-blind-audit-builder-ready",
     "validation_id": "qwen3-ranking-holdout-v1",
     "branch": "validation/qwen3-ranking-holdout-v1",
     "development_ranking_report_freeze_commit": "d12ba5c",
@@ -300,6 +300,17 @@
     "ab_run": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-ab.jsonl",
     "ab_metadata": "benchmark/qwen3/ranking/validation/runs/qwen3-ranking-holdout-v1-ab.meta.json",
     "movement_report": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-movement.json",
-    "movement_report_markdown": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-movement.md"
+    "movement_report_markdown": "benchmark/qwen3/ranking/validation/reports/qwen3-ranking-holdout-v1-movement.md",
+    "ab_freeze_commit": "10afea1",
+    "ab_sha256": "6682bf7c19cd9acc77a589483977478857493e0a7f81ce1c086c83ce6c8851aa",
+    "ab_metadata_sha256": "d4413cf9a87b0e2b4fc7a5b7fd28ea922509b851f75c34c45714d4d319ba6fe2",
+    "top10_changed_pairs": 160,
+    "audit_builder": "scripts/benchmark/qwen3/build_ranking_holdout_delta_audit.mjs",
+    "audit_sample": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.sample.jsonl",
+    "audit_sample_metadata": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.sample.meta.json",
+    "audit_worksheet": "benchmark/qwen3/ranking/validation/audit/qwen3-ranking-holdout-v1-delta-audit.sample.txt",
+    "audit_scope": "all 160 query-document pairs in the fresh A/B Top-10 symmetric difference",
+    "audit_private_mapping_pre_adjudication": false,
+    "audit_unblinding_rule": "Reconstruct the deterministic audit_id mapping from the frozen A/B only after human judgments are frozen."
   }
 }
