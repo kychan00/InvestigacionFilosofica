@@ -202,3 +202,28 @@ The candidate must finalize all 1000 new scores before the frozen 4096 reference
 This experiment isolates truncation only. Passing it would not establish q8/browser parity, browser performance, fresh validation, or production suitability.
 
 ---
+### Implementation inspection — qwen3-ranking-512-development-v1
+
+**Commit inspected:** `b4a777a4d506622acab9599624cb7e98b0068c29`
+
+Before implementing 512-token candidate inference, the existing Python Qwen inference engine, adapter, package scripts, and ranking inference manifests were inspected read-only so the new experiment can reuse the validated MPS/float16/singleton machinery instead of duplicating it.
+
+No model inference was executed, no reference scores were read for comparison, and no production files were changed during this inspection.
+
+---
+### Candidate implementation — qwen3-ranking-512-development-v1
+
+**Implementation base commit:** `b4a777a4d506622acab9599624cb7e98b0068c29`
+**Inference manifest SHA-256:** `73144aa390221746efe2e97ff767813235ac01a88d22b1f7fe3a06154a99ffa6`
+**Preflight SHA-256:** `6fe7e95ee8e987a31b969d3621aec5c7eed5592162456ca67db7962a04ac5860`
+**Test SHA-256:** `bab052058f562e449411f35783bb807f051886c434e50193b025cd19df5e76c2`
+
+The existing validated Python/MPS inference engine is reused unchanged. The candidate manifest preserves the frozen model, revision, instruction, 1000-pair development dataset, scoring version, and MPS singleton strategy. The intended scoring-semantic change is only `max_length: 4096 -> 512`.
+
+Candidate raw score, metadata, and cache paths are isolated from the frozen 4096 reference artifacts. The official command explicitly fixes `--device mps` and `--dtype float16`.
+
+The repository test suite and isolated preflight passed before candidate inference. The preflight did not read the 4096 reference scores, load the model, execute inference, access the ranking holdout, use human labels, or change production.
+
+During the earlier read-only implementation inspection, a zsh glob for `benchmark/qwen3/ranking/**/*inference*.json` produced `no matches found`; no inference or artifact mutation occurred. The relevant inference manifest was then inspected explicitly.
+
+---
