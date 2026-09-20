@@ -1,0 +1,179 @@
+{
+  "experiment_id": "qwen3-browser-q8-1024-feasibility-v1",
+  "status": "passed",
+  "preregistration_sha256": "9708b84836744bb1e4b40f0427ae9859386f76ecd66608d94bc10bde1bd4fb76",
+  "browser_bundle_sha256": "a65417cab3613d30e12dbf3cee1ab4ec3f5dd3ffaef192bf9057b17bce31afd5",
+  "browser_entry_sha256": "22a2c215f8291e41180ceca25242b5f58c4b300845580c6cd3ca02dedb680620",
+  "reused_browser_entry": "scripts/benchmark/qwen3/q8_feasibility_browser.js",
+  "candidate": {
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_quantized.onnx",
+    "dtype": "q8",
+    "device": "webgpu",
+    "execution_providers": [
+      "webgpu"
+    ],
+    "transformers_js_version": "4.3.0",
+    "wasm_host_threads": 1,
+    "num_logits_to_keep": 1,
+    "onnx_outputs_requested": [
+      "logits"
+    ],
+    "exact_total_tokens": 1024
+  },
+  "runtime": {
+    "runtime": "browser",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "transformers_js_version": "4.3.0",
+    "onnx_backend": "onnxruntime-web",
+    "wasm_host_threads": 1,
+    "execution_provider": "webgpu",
+    "device": "webgpu",
+    "dtype": "q8",
+    "model_artifact": "onnx/model_quantized.onnx",
+    "adapter_info": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "device": "",
+      "description": "",
+      "is_fallback_adapter": false,
+      "features": [
+        "bgra8unorm-storage",
+        "clip-distances",
+        "core-features-and-limits",
+        "depth-clip-control",
+        "depth32float-stencil8",
+        "dual-source-blending",
+        "float32-blendable",
+        "float32-filterable",
+        "indirect-first-instance",
+        "primitive-index",
+        "rg11b10ufloat-renderable",
+        "shader-f16",
+        "subgroup-size-control",
+        "subgroups",
+        "texture-component-swizzle",
+        "texture-compression-astc",
+        "texture-compression-astc-sliced-3d",
+        "texture-compression-bc",
+        "texture-compression-bc-sliced-3d",
+        "texture-compression-etc2",
+        "texture-formats-tier1",
+        "texture-formats-tier2",
+        "timestamp-query"
+      ]
+    },
+    "session_configs": {
+      "model": {
+        "dtype": "q8",
+        "device": "webgpu"
+      }
+    },
+    "yes_token_id": 9693,
+    "no_token_id": 2152,
+    "num_logits_to_keep": 1,
+    "onnx_output_selection": {
+      "session": "model",
+      "fetches": [
+        "logits"
+      ]
+    },
+    "token_layout": {
+      "prefix_tokens": 39,
+      "fixed_content_tokens": 37,
+      "suffix_tokens": 9,
+      "filler_token_id": 13
+    }
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "phase": "first",
+      "case_id": "first-1",
+      "target_total_tokens": 1024,
+      "constructed_total_tokens": 1024,
+      "filler_tokens": 939,
+      "raw_score": 0.10684293458965702,
+      "latency_ms": 174447.55499994755
+    },
+    {
+      "run_index": 1,
+      "phase": "warm",
+      "case_id": "warm-1",
+      "target_total_tokens": 1024,
+      "constructed_total_tokens": 1024,
+      "filler_tokens": 939,
+      "raw_score": 0.10684293458965702,
+      "latency_ms": 270688.4649999738
+    },
+    {
+      "run_index": 2,
+      "phase": "warm",
+      "case_id": "warm-2",
+      "target_total_tokens": 1024,
+      "constructed_total_tokens": 1024,
+      "filler_tokens": 939,
+      "raw_score": 0.10684293458965702,
+      "latency_ms": 219678.75999999046
+    },
+    {
+      "run_index": 3,
+      "phase": "warm",
+      "case_id": "warm-3",
+      "target_total_tokens": 1024,
+      "constructed_total_tokens": 1024,
+      "filler_tokens": 939,
+      "raw_score": 0.10684293458965702,
+      "latency_ms": 207968.79000002146
+    },
+    {
+      "run_index": 4,
+      "phase": "warm",
+      "case_id": "warm-4",
+      "target_total_tokens": 1024,
+      "constructed_total_tokens": 1024,
+      "filler_tokens": 939,
+      "raw_score": 0.10684293458965702,
+      "latency_ms": 211919.64999997616
+    },
+    {
+      "run_index": 5,
+      "phase": "warm",
+      "case_id": "warm-5",
+      "target_total_tokens": 1024,
+      "constructed_total_tokens": 1024,
+      "filler_tokens": 939,
+      "raw_score": 0.10684293458965702,
+      "latency_ms": 221421.58499997854
+    }
+  ],
+  "observations": {
+    "first_forward_latency_ms": 174447.55499994755,
+    "warm": {
+      "count": 5,
+      "min_ms": 207968.79000002146,
+      "max_ms": 270688.4649999738,
+      "mean_ms": 226335.44999998808,
+      "median_ms": 219678.75999999046
+    },
+    "score_repeatability": {
+      "count": 6,
+      "min": 0.10684293458965702,
+      "max": 0.10684293458965702,
+      "range": 0,
+      "all_scores_identical": true
+    }
+  },
+  "primary_gate": {
+    "passed": true,
+    "successful_runs": 6,
+    "required_successful_runs": 6,
+    "total_runs": 6
+  },
+  "error": null,
+  "elapsed_ms": 1413385,
+  "production_changed": false,
+  "holdout_accessed": false,
+  "human_labels_accessed": false
+}

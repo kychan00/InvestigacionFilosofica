@@ -610,3 +610,43 @@ Freeze the dedicated 1024 q8 runtime runner before the single official execution
 After this implementation commit, perform a final preflight from the frozen runner commit and execute the preregistered exact-1024 six-forward runtime experiment once.
 
 ---
+### Official runtime result — qwen3-browser-q8-1024-feasibility-v1
+
+**Date:** `2026-09-20`
+**Runner commit:** `99af8706218f3a577251520c1151443dc64728f4`
+**Status:** `PASSED`
+**Report SHA-256:** `2d666c704eb30ec2b0327f2c769083cbdbf9e70102cea6cdf7ce01435a4ff53a`
+**Runs SHA-256:** `054783b30a1ee3814f8ff34edfa949e4292bfb253957e821230a36b3c510daa0`
+
+### Primary gate
+
+The exact-1024 q8/WebGPU runtime experiment completed all `6/6` preregistered forwards successfully in one browser/model session. Every constructed input contained exactly `1024` total tokens, all scores were finite and in `[0,1]`, execution remained browser/WebGPU, dtype remained q8, and no fallback adapter was used.
+
+### Score repeatability
+
+All six forwards returned the identical raw score `0.10684293458965702`. Observed score range was `0`.
+
+### Runtime observations
+
+- first forward: `174447.55499994755` ms
+- warm minimum: `207968.79000002146` ms
+- warm maximum: `270688.4649999738` ms
+- warm mean: `226335.44999998808` ms
+- warm median: `219678.75999999046` ms
+- total experiment elapsed: `1413385` ms
+
+Latency was observational only and had no preregistered pass/fail threshold.
+
+### Boundaries
+
+This result establishes synthetic runtime feasibility and repeatability for the frozen q8 WebGPU candidate at exactly 1024 tokens on this browser/runtime configuration. It does not establish numerical parity with Python, ranking parity on real documents, fresh validation, human relevance quality, or production suitability. The ranking holdout and human labels were not accessed, and production was not changed.
+
+### Decision
+
+Close `qwen3-browser-q8-1024-feasibility-v1` as a successful preregistered runtime-feasibility experiment. Do not rerun or tune this frozen experiment after observing the result.
+
+### Next step
+
+A separate preregistered experiment may now test browser q8 versus the frozen Python-1024 reference on development ranking data. That future experiment must define its numerical/ranking parity gates before browser scores are observed.
+
+---
