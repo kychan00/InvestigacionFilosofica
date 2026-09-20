@@ -297,3 +297,48 @@ Freeze the corrected analyzer and tests before executing the official comparison
 After the implementation commit, execute the frozen comparison once and record the preregistered gate result without tuning against it.
 
 ---
+### Official comparison result — qwen3-ranking-512-development-v1
+
+**Date:** `2026-09-19`
+**Frozen result commit:** `f7b9fde759ba0da677b2a25162becf67358ac0c6`
+**Status:** `FAILED`
+**Report SHA-256:** `267d64c31b79310444377051810b571277357f5c5a3760706d7312089fe81aaa`
+**Markdown SHA-256:** `fafb76fce5adb25199198548f4c8aa72944dfdc71f031b65e57bc75db9eae421`
+
+### Primary gate
+
+Exact Top-10 membership equality was `44/50` development queries. The preregistered requirement was `50/50`; therefore the gate failed.
+
+### Secondary observations
+
+- Top-5 membership equal: `44/50`
+- Top-10 membership equal: `44/50`
+- Top-10 changed queries: `6/50`
+- Top-10 symmetric-difference memberships: `12`
+- Mean Top-10 overlap: `9.88`
+- Minimum Top-10 overlap: `9`
+- Mean absolute rank shift: `0.17`
+- Maximum absolute rank shift: `8`
+- Same-rank documents: `870/1000`
+- Pearson score correlation: `0.9986107663826347`
+- Spearman score correlation: `0.9986620602308067`
+
+### Interpretation
+
+Reducing the original Python Qwen maximum sequence length from 4096 to 512 preserved most development ranking behavior but did not satisfy the preregistered exact Top-10 equivalence criterion. Six queries changed Top-10 membership and the twelve symmetric-difference memberships correspond to one membership swap in each changed query.
+
+This is a structural-equivalence failure, not evidence that the 512-token ranking has worse relevance quality. Human relevance labels were not used in this comparison.
+
+### Logging incident
+
+The first attempt to append this result to `EXPERIMENT_LOG.md` failed with a Python `NameError` caused by shell quoting inside the one-line logging command. The failure occurred only while writing the log: the frozen comparison reports were unchanged and were subsequently committed as `f7b9fde`. The comparison was not rerun.
+
+### Decision
+
+Close `qwen3-ranking-512-development-v1` as a failed preregistered equivalence experiment. Do not retune the 512-token candidate against these observed development results, do not use the fresh ranking holdout to rescue or reinterpret the result, and do not automatically proceed to browser q8 quality evaluation on the basis of this candidate.
+
+### Next step
+
+Any alternative context limit or browser-ranking candidate requires a separately preregistered development experiment before its outputs are observed. The frozen fresh 500-pair ranking holdout remains untouched by this experiment.
+
+---
