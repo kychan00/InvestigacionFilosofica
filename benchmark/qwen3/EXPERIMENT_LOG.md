@@ -342,3 +342,53 @@ Close `qwen3-ranking-512-development-v1` as a failed preregistered equivalence e
 Any alternative context limit or browser-ranking candidate requires a separately preregistered development experiment before its outputs are observed. The frozen fresh 500-pair ranking holdout remains untouched by this experiment.
 
 ---
+## 2026-09-19 — qwen3-ranking-1024-development-v1
+
+**Status:** preregistered before inference
+**Base commit:** `4761c7a099f7e6b968e89495ba5ab9063e27b466`
+**Preregistration SHA-256:** `9101210b49f8cdf8c90b7c8f9caa4b650a9f154bd692c3ce1e180e16f3bffb6b`
+
+### Objective
+
+Test whether `max_length=1024` preserves the frozen 4096-token Qwen3 development ranking under the same strict exact Top-10 membership criterion.
+
+### Adaptive development provenance
+
+This experiment is intentionally development-adaptive. It was selected after the closed 512-token experiment failed its preregistered gate with aggregate result `44/50`. The identities and contents of the six changed queries have not been inspected for selecting or configuring 1024, and no 1024 candidate scores have been generated or observed before this preregistration.
+
+### Frozen plan
+
+- same `Qwen/Qwen3-Reranker-0.6B`
+- same model revision and frozen instruction
+- same 1000 development query-document pairs
+- same 50 queries x 20 documents
+- same MPS / float16 / singleton scoring implementation
+- reference max length: `4096`
+- candidate max length: `1024`
+- ranking: raw score descending
+- exact-score tie break: production rank ascending
+- no threshold
+- no score blending
+- no retrieval rerun
+- no human labels during inference
+- no fresh ranking holdout access
+
+### Primary gate
+
+Exact Top-10 membership equality on all `50/50` development queries.
+
+The complete 1000-score 1024 candidate must be finalized and frozen before comparison against the 4096 reference.
+
+### Failure policy
+
+A failure is frozen as observed. The 1024 candidate will not be tuned against the result and the fresh ranking holdout will not be used to rescue or reinterpret it. Any alternate context length requires another preregistration.
+
+### Success policy
+
+A pass establishes only development structural equivalence for this frozen pool. Browser q8 runtime, numerical parity, ranking parity, fresh validation, and production suitability would each require separate evidence.
+
+### Next step
+
+Freeze this preregistration in Git before implementing or executing 1024-token candidate inference.
+
+---
