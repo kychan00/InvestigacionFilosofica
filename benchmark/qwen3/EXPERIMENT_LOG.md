@@ -227,3 +227,31 @@ The repository test suite and isolated preflight passed before candidate inferen
 During the earlier read-only implementation inspection, a zsh glob for `benchmark/qwen3/ranking/**/*inference*.json` produced `no matches found`; no inference or artifact mutation occurred. The relevant inference manifest was then inspected explicitly.
 
 ---
+### Official inference — qwen3-ranking-512-development-v1
+
+**Runner/config commit:** `c8e26d5bd3cf0753f84ed5936ffccf4817f90e0a`
+**Status:** completed
+**Rows:** `1000/1000`
+**Raw SHA-256:** `45e236befd52e438acc46825e2b6a8ac523462ce4cc6dbdb45759f8da0366d23`
+**Metadata SHA-256:** `6fb8ac5a7a9d28f58dc8cfea66a710556c00dd4614ddf45d20a3802e500d5008`
+
+### Runtime configuration
+
+- model: `Qwen/Qwen3-Reranker-0.6B`
+- revision: `e61197ed45024b0ed8a2d74b80b4d909f1255473`
+- max length: `512`
+- device: `mps`
+- dtype: `float16`
+- batch size: `2`
+- MPS model strategy: singleton forwards
+- cache hits: `0`
+- fresh scores: `1000`
+- elapsed seconds: `495.411684083`
+
+### Boundaries
+
+The complete 512-token candidate score set was finalized before comparison with the frozen 4096-token reference. Human labels were not used as model input and production ranking was not changed.
+
+The 4096 reference must remain unopened for comparison until these 512 candidate scores are frozen in Git.
+
+---
