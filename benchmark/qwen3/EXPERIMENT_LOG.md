@@ -111,3 +111,16 @@ Measure repeated q8 browser execution at exactly 512 total tokens in one WebGPU/
 This is a runtime/stability experiment only. It cannot establish ranking quality or production suitability. A successful result may only authorize a separately preregistered development ranking experiment.
 
 ---
+### Runner implementation — q8-512-warm-v1
+
+**Implementation base commit:** `b85f42c4d8f3a8694ed0c4ffeaf21e9cd6dd1192`
+**Runner SHA-256:** `391e948592a9ef426f49953158a6970fdb1296c1a41040e6c1bc5ef4664f7516`
+**Test SHA-256:** `1461680e3ffa4785fa9df04566645b7b748333cf9c7648462a6b5c19a5b0adfc`
+
+The experiment reuses the already frozen `scripts/benchmark/qwen3/q8_feasibility_browser.js` browser scorer unchanged. A new Node orchestration runner derives exactly six 512-token cases: one first forward and five warm forwards, all inside the same browser page and loaded model session.
+
+The runner records first-forward latency, all five warm latencies, warm minimum/maximum/mean/median, and score repeatability. Latency remains observational and is not a pass/fail criterion.
+
+Preflight and the complete repository test suite were run before any experimental inference. No model inference, ranking holdout access, human-label access, or production change occurred during runner construction and preflight.
+
+---

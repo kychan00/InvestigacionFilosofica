@@ -76,7 +76,9 @@
     "benchmark:qwen3:browser-parity:preflight": "node scripts/benchmark/qwen3/run_browser_parity.mjs --preflight",
     "benchmark:qwen3:browser-parity:run": "node scripts/benchmark/qwen3/run_browser_parity.mjs --run",
     "benchmark:qwen3:browser-q8-feasibility:preflight": "node scripts/benchmark/qwen3/run_q8_feasibility.mjs --preflight",
-    "benchmark:qwen3:browser-q8-feasibility:run": "node scripts/benchmark/qwen3/run_q8_feasibility.mjs --run"
+    "benchmark:qwen3:browser-q8-feasibility:run": "node scripts/benchmark/qwen3/run_q8_feasibility.mjs --run",
+    "benchmark:qwen3:browser-q8-512-warm:preflight": "node scripts/benchmark/qwen3/run_q8_512_warm.mjs --preflight",
+    "benchmark:qwen3:browser-q8-512-warm:run": "node scripts/benchmark/qwen3/run_q8_512_warm.mjs --run"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
