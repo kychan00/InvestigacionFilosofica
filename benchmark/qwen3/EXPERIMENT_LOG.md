@@ -418,3 +418,47 @@ Freeze the corrected 1024 inference implementation before beginning the official
 Run the frozen 1024 candidate once. Finalize and commit all 1000 candidate scores before comparison against the 4096 reference.
 
 ---
+### Official inference — qwen3-ranking-1024-development-v1
+
+**Frozen score commit:** `e6aa25d997ad1f7b772e71ccad2f744f6a0de7c2`
+**Status:** completed
+**Rows:** `1000/1000`
+**Raw SHA-256:** `93618268d803c7221a116f07c5b65886f7d0e7881e7c9085eba65eb20d6d49b7`
+**Metadata SHA-256:** `e7772d7bdf550b7d0572ed2b02a0ecafaa624b333f2ce2d0b32063d4c2d7c1f7`
+
+### Runtime configuration
+
+- model: `Qwen/Qwen3-Reranker-0.6B`
+- revision: `e61197ed45024b0ed8a2d74b80b4d909f1255473`
+- max length: `1024`
+- device: `mps`
+- dtype: `float16`
+- batch size: `2`
+- MPS model strategy: singleton forwards
+- cache hits: `0`
+- fresh scores: `1000`
+- elapsed seconds: `2324.748376583`
+
+### Structural validation
+
+The finalized artifact contains 1000 unique `(query_id, record_id)` pairs across 50 queries with exactly 20 records per query. All rows use the expected `qwen3-score-v1` schema and finite raw probabilities in `[0,1]`.
+
+### Post-inference validation incidents
+
+The first structural-validation command incorrectly assumed a `document_id` field and raised `KeyError: document_id`. The actual score contract uses `record_id`, matching the closed 512-token artifact. Validation was repeated successfully without rerunning model inference.
+
+The first attempt to append this inference result to `EXPERIMENT_LOG.md` then failed with a Python `NameError` caused by shell quoting around dictionary-key expressions. The raw scores and metadata had already been generated and were unchanged. They were frozen in Git as commit `e6aa25d`; the model was not rerun.
+
+### Boundaries
+
+The complete 1024-token candidate was finalized and committed before any official comparison with the frozen 4096-token reference. No human labels were used as model input, the fresh ranking holdout was not used, and production ranking was not changed.
+
+### Decision
+
+Treat commit `e6aa25d` as the frozen 1024 candidate score set. Do not alter or rerun those scores before comparison.
+
+### Next step
+
+After this audit-log commit, implement and freeze the preregistered 1024-vs-4096 comparison analyzer before executing the gate once.
+
+---
