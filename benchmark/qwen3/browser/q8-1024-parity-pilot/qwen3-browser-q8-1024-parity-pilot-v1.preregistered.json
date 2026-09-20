@@ -24,11 +24,18 @@
     ],
     "queries": 5,
     "documents_per_query": 20,
-    "rows": 100
+    "rows": 100,
+    "dataset_group_order": [
+      "es-10",
+      "de-01",
+      "en-03",
+      "es-08",
+      "en-08"
+    ]
   },
   "model_input": {
     "dataset_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/datasets/qwen3-browser-q8-1024-parity-pilot-v1.jsonl",
-    "dataset_sha256": "8e9490479af6c6d01491e8053ea17f580ae41af9df42048b508be56feb178185",
+    "dataset_sha256": "8fa7c38f4ee6e5dc4c2b8a140b13ce8152b9836922f79ab89a06ef833b2b9e01",
     "source_dataset_path": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.jsonl",
     "source_dataset_sha256": "d0f6b29834053615b44f823c7cb61f14478965eb72409ba1ab98742da224c548",
     "contains_human_labels": false,
@@ -43,7 +50,7 @@
     "dtype": "float16",
     "max_length": 1024,
     "pilot_reference_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/reference/qwen3-browser-q8-1024-parity-pilot-v1.python-1024.jsonl",
-    "pilot_reference_sha256": "089fd2b2399d162e14e2a14b263133f49e90d014d35dc8929deb03ea5e7a3f20",
+    "pilot_reference_sha256": "52d3dc847f2faa124d395effa6d6a8864b0e683ee17b499a0c6a7bac6714b708",
     "full_reference_path": "benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.jsonl",
     "full_reference_sha256": "93618268d803c7221a116f07c5b65886f7d0e7881e7c9085eba65eb20d6d49b7"
   },
@@ -128,5 +135,14 @@
     "report": "benchmark/qwen3/browser/q8-1024-parity-pilot/reports/qwen3-browser-q8-1024-parity-pilot-v1.report.json",
     "log": "benchmark/qwen3/browser/q8-1024-parity-pilot/logs/qwen3-browser-q8-1024-parity-pilot-v1.log",
     "checkpoint": "benchmark/qwen3/cache/qwen3-browser-q8-1024-parity-pilot-v1.partial.jsonl"
+  },
+  "pre_inference_correction": {
+    "applied": true,
+    "date": "2026-09-20",
+    "previous_preregistration_commit": "6e4aaf1",
+    "reason": "Initial pilot dataset preserved source-dataset group order instead of the already frozen SHA-256 selection order. Pair membership was correct and dataset/reference pair sequences matched; only physical query-group ordering was corrected before any browser q8 score was observed.",
+    "browser_scores_observed_before_correction": false,
+    "selection_membership_changed": false,
+    "primary_gate_changed": false
   }
 }

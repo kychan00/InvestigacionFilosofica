@@ -681,3 +681,32 @@ This is adaptive development, not fresh validation. The fresh ranking holdout an
 Implement and freeze a dedicated q8/WebGPU 1024 pilot runner and tests before executing any browser score on these 100 pairs.
 
 ---
+### Pre-inference correction — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Correction base commit:** `6e4aaf112796f3c1dc11e6ff26f815e45a460b9f`
+**Corrected dataset SHA-256:** `8fa7c38f4ee6e5dc4c2b8a140b13ce8152b9836922f79ab89a06ef833b2b9e01`
+**Corrected Python-1024 reference subset SHA-256:** `52d3dc847f2faa124d395effa6d6a8864b0e683ee17b499a0c6a7bac6714b708`
+**Corrected preregistration SHA-256:** `a2dd96d0be79ccfe4da67ba4b0f09e2740b06646595170c0bf2d626ec5740c19`
+
+### Issue discovered
+
+The initial frozen pilot artifacts contained the correct five selected query groups and exactly the correct 100 unique query-document pairs, and the dataset/reference pair sequences were identical. However, the physical query-group order in the pilot dataset preserved source-dataset order rather than the already frozen SHA-256 selection order.
+
+### Correction
+
+Before any browser q8 score was observed, the dataset was regenerated in the exact preregistered selection order: `es-10`, `de-01`, `en-03`, `es-08`, `en-08`. The Python-1024 reference subset was regenerated to follow that identical pair order, and the preregistration hashes were updated accordingly.
+
+### Invariants
+
+Selection membership did not change. The five query IDs did not change. Each query still contains exactly 20 documents. The primary gate remains exact Top-10 membership equality on `5/5` queries. No thresholds, blending, holdout access, human labels, or production behavior changed.
+
+### Contamination boundary
+
+No browser q8 ranking score had been generated before this correction. Therefore this is a pre-inference artifact-order correction, not tuning against observed browser results.
+
+### Next step
+
+Freeze this correction before implementing the dedicated browser parity pilot runner.
+
+---
