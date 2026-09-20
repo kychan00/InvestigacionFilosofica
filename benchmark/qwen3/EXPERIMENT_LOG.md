@@ -124,3 +124,44 @@ The runner records first-forward latency, all five warm latencies, warm minimum/
 Preflight and the complete repository test suite were run before any experimental inference. No model inference, ranking holdout access, human-label access, or production change occurred during runner construction and preflight.
 
 ---
+### Result — q8-512-warm-v1
+
+**Runner commit:** `f30e0de15e18363acf9273b746909eb51363b3d7`
+**Status:** `passed`
+**Primary gate:** `6/6` successful runs — PASS
+
+### Observed runtime
+
+- first forward: `58507.320 ms`
+- warm runs: `5`
+- warm minimum: `30391.795 ms`
+- warm maximum: `40624.465 ms`
+- warm mean: `35420.551 ms`
+- warm median: `35701.920 ms`
+- score range: `0`
+- all six identical-input scores identical: `true`
+
+### Interpretation
+
+The preregistered runtime/stability gate passed. q8 WebGPU repeatedly executed the exact 512-token synthetic input six times in one loaded browser/model session without a runtime error.
+
+Warm execution was faster than the first forward, but observed warm latency remained approximately 30–41 seconds per forward on the tested environment. Because latency had no preregistered threshold, this does not change the PASS result. Interactive production suitability has not been established.
+
+This experiment does not establish ranking quality. No ranking holdout, human labels, or production ranking were used.
+
+### Frozen artifacts
+
+- `benchmark/qwen3/browser/q8-512-warm/reports/qwen3-browser-q8-512-warm-v1.report.json`
+- `benchmark/qwen3/browser/q8-512-warm/scores/qwen3-browser-q8-512-warm-v1.runs.jsonl`
+- report SHA-256: `14cd4da681cd17aa2df3c5c583682999a06fc041bc75355780690d3b9fa06ae9`
+- runs SHA-256: `912d2570bd630661bbbc5d6ecb9755be1a3765e9cb0658b4087f67eab05cc478`
+
+### Tracking note
+
+The first attempt to write this result entry aborted before modifying the log because shell quoting transformed a dictionary-key expression inside the Python command and produced `NameError: name status is not defined`. The experimental outputs were not changed or rerun.
+
+### Next methodological step
+
+The preregistered success policy permits a separate development-only 512-token ranking-quality experiment. That experiment must be preregistered independently and must not reuse the already-observed ranking holdout as a fresh validation set.
+
+---
