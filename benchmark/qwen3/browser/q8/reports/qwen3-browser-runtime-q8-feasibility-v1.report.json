@@ -1,0 +1,110 @@
+{
+  "experiment_id": "qwen3-browser-runtime-q8-feasibility-v1",
+  "status": "failed-runtime",
+  "preregistration_sha256": "c6d8f9d2a6fd538f5aedab2d81f8b2097258338a2b0c0fb8657160f708b22802",
+  "browser_bundle_sha256": "a65417cab3613d30e12dbf3cee1ab4ec3f5dd3ffaef192bf9057b17bce31afd5",
+  "candidate": {
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_quantized.onnx",
+    "dtype": "q8",
+    "device": "webgpu",
+    "execution_providers": [
+      "webgpu"
+    ],
+    "transformers_js_version": "4.3.0",
+    "wasm_host_threads": 1,
+    "num_logits_to_keep": 1,
+    "onnx_outputs_requested": [
+      "logits"
+    ],
+    "maximum_total_tokens": 4096
+  },
+  "runtime": {
+    "runtime": "browser",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "transformers_js_version": "4.3.0",
+    "onnx_backend": "onnxruntime-web",
+    "wasm_host_threads": 1,
+    "execution_provider": "webgpu",
+    "device": "webgpu",
+    "dtype": "q8",
+    "model_artifact": "onnx/model_quantized.onnx",
+    "adapter_info": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "device": "",
+      "description": "",
+      "is_fallback_adapter": false,
+      "features": [
+        "bgra8unorm-storage",
+        "clip-distances",
+        "core-features-and-limits",
+        "depth-clip-control",
+        "depth32float-stencil8",
+        "dual-source-blending",
+        "float32-blendable",
+        "float32-filterable",
+        "indirect-first-instance",
+        "primitive-index",
+        "rg11b10ufloat-renderable",
+        "shader-f16",
+        "subgroup-size-control",
+        "subgroups",
+        "texture-component-swizzle",
+        "texture-compression-astc",
+        "texture-compression-astc-sliced-3d",
+        "texture-compression-bc",
+        "texture-compression-bc-sliced-3d",
+        "texture-compression-etc2",
+        "texture-formats-tier1",
+        "texture-formats-tier2",
+        "timestamp-query"
+      ]
+    },
+    "session_configs": {
+      "model": {
+        "dtype": "q8",
+        "device": "webgpu"
+      }
+    },
+    "yes_token_id": 9693,
+    "no_token_id": 2152,
+    "num_logits_to_keep": 1,
+    "onnx_output_selection": {
+      "session": "model",
+      "fetches": [
+        "logits"
+      ]
+    },
+    "token_layout": {
+      "prefix_tokens": 39,
+      "fixed_content_tokens": 37,
+      "suffix_tokens": 9,
+      "filler_token_id": 13
+    }
+  },
+  "cases": [
+    {
+      "case_id": "synthetic-512",
+      "target_total_tokens": 512,
+      "constructed_total_tokens": 512,
+      "filler_tokens": 427,
+      "raw_score": 0.03741093707626879,
+      "latency_ms": 46903.78499996662
+    }
+  ],
+  "primary_gate": {
+    "passed": false,
+    "passed_cases": 1,
+    "required_cases": 3,
+    "total_cases": 3
+  },
+  "error": {
+    "message": "table index is out of bounds",
+    "stack": "RuntimeError: table index is out of bounds\n    at wasm://wasm/06678346:wasm-function[1960]:0x2c4c41\n    at wasm://wasm/06678346:wasm-function[11605]:0x1206651\n    at Object.b [as _OrtReleaseTensor] (blob:http://127.0.0.1:54166/9a344b9c-b3ee-4f35-bef2-1d2935e73486:44:53)\n    at http://127.0.0.1:54166/runner.js:3742:30\n    at Array.forEach (<anonymous>)\n    at nr (http://127.0.0.1:54166/runner.js:3742:13)\n    at async gr.run (http://127.0.0.1:54166/runner.js:3939:168)\n    at async a.run (http://127.0.0.1:54166/runner.js:527:15)\n    at async sessionRun (http://127.0.0.1:54166/runner.js:23920:20)\n    at async closure.decoder_forward [as _forward] (http://127.0.0.1:54166/runner.js:26363:10)"
+  },
+  "elapsed_ms": 346731,
+  "production_changed": false,
+  "holdout_accessed": false
+}
