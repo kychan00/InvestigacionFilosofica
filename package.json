@@ -74,7 +74,9 @@
     "benchmark:qwen3:ranking:holdout:audit:sample": "node scripts/benchmark/qwen3/build_ranking_holdout_delta_audit.mjs",
     "benchmark:qwen3:ranking:holdout:analyze": "node scripts/benchmark/qwen3/analyze_ranking_holdout_delta_audit.mjs",
     "benchmark:qwen3:browser-parity:preflight": "node scripts/benchmark/qwen3/run_browser_parity.mjs --preflight",
-    "benchmark:qwen3:browser-parity:run": "node scripts/benchmark/qwen3/run_browser_parity.mjs --run"
+    "benchmark:qwen3:browser-parity:run": "node scripts/benchmark/qwen3/run_browser_parity.mjs --run",
+    "benchmark:qwen3:browser-q8-feasibility:preflight": "node scripts/benchmark/qwen3/run_q8_feasibility.mjs --preflight",
+    "benchmark:qwen3:browser-q8-feasibility:run": "node scripts/benchmark/qwen3/run_q8_feasibility.mjs --run"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
