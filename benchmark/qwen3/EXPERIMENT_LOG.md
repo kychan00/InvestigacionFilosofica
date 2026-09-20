@@ -73,3 +73,11 @@ During the result commit, git diff --cached --check detected trailing whitespace
 The formatting was cleaned before commit. No experimental data, configuration, hashes, or conclusions were changed.
 
 ---
+### Frozen-path anomaly
+
+The preregistered q8 score output path accidentally contains a literal backslash before `.jsonl`.
+The frozen preregistration contains `qwen3-browser-runtime-q8-feasibility-v1.raw\\.jsonl`, and the generated Git-tracked file therefore also contains that literal backslash.
+The file is intentionally not renamed because the experiment is already closed and its frozen output path must remain reproducible.
+This naming anomaly does not affect the experimental result or hashes.
+
+---
