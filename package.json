@@ -86,7 +86,9 @@
     "benchmark:qwen3:ranking:1024-development:preflight": "node scripts/benchmark/qwen3/preflight_ranking_1024.mjs",
     "benchmark:qwen3:ranking:1024-development:infer": "python scripts/benchmark/qwen3/inference.py --manifest benchmark/qwen3/configs/qwen3-ranking-1024-development-v1.inference.json --output benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.jsonl --meta benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.meta.json --cache benchmark/qwen3/cache/qwen3-ranking-1024-development-v1.cache.jsonl --batch-size 2 --device mps --dtype float16",
     "benchmark:qwen3:ranking:1024-development:compare:preflight": "node scripts/benchmark/qwen3/analyze_ranking_1024_development.mjs --preflight",
-    "benchmark:qwen3:ranking:1024-development:compare": "node scripts/benchmark/qwen3/analyze_ranking_1024_development.mjs --run"
+    "benchmark:qwen3:ranking:1024-development:compare": "node scripts/benchmark/qwen3/analyze_ranking_1024_development.mjs --run",
+    "benchmark:qwen3:browser-q8-1024-feasibility:preflight": "node scripts/benchmark/qwen3/run_q8_1024_feasibility.mjs --preflight",
+    "benchmark:qwen3:browser-q8-1024-feasibility:run": "node scripts/benchmark/qwen3/run_q8_1024_feasibility.mjs --run"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",

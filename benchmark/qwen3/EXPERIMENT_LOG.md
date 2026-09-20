@@ -578,3 +578,35 @@ No ranking development pool, fresh ranking holdout, human labels, frozen Python 
 Freeze a dedicated runner and tests before executing this runtime experiment once.
 
 ---
+### Runner implementation — qwen3-browser-q8-1024-feasibility-v1
+
+**Date:** `2026-09-20`
+**Implementation base commit:** `0a294a33ce5707dd9d1e60346fef455bac214e2d`
+**Runner SHA-256:** `dad6a75102cbb395398497ca6b3feb0b0d77eb05dbc9443e1323782c0b747eb8`
+**Test SHA-256:** `5f64287b3112ca6507166871a1dea23fe5c5a8be5d08ac23a118696e5984b7e3`
+
+### Implementation
+
+The dedicated exact-1024 runner reuses the already frozen browser-only q8/WebGPU scorer and the one-session first-plus-five-warm execution structure from the closed 512-token stability experiment. The shared browser scorer itself was not modified.
+
+The runner pins preregistration SHA-256 `9708b84836744bb1e4b40f0427ae9859386f76ecd66608d94bc10bde1bd4fb76`, exact total length `1024`, q8, WebGPU, one first forward, five warm forwards, and a `6/6` finite-score gate with no latency threshold.
+
+The runner additionally enforces exclusion of the ranking development pool, fresh ranking holdout, human labels, and frozen reference Qwen scores.
+
+### Verification
+
+The complete repository test suite and dedicated preflight passed before runtime execution. The planned report and run artifacts remained absent after preflight.
+
+### Boundaries
+
+No WebGPU model forward was executed during implementation/preflight, no ranking data were accessed, and production was not changed.
+
+### Decision
+
+Freeze the dedicated 1024 q8 runtime runner before the single official execution.
+
+### Next step
+
+After this implementation commit, perform a final preflight from the frozen runner commit and execute the preregistered exact-1024 six-forward runtime experiment once.
+
+---
