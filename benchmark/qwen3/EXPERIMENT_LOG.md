@@ -551,3 +551,30 @@ Close `qwen3-ranking-1024-development-v1` as a successful preregistered Top-10 s
 Any browser q8 experiment at 1024 tokens must be separately preregistered. Passing this experiment does not establish browser runtime feasibility, numerical parity, browser ranking parity, fresh validation, or production suitability.
 
 ---
+### Preregistration — qwen3-browser-q8-1024-feasibility-v1
+
+**Date:** `2026-09-20`
+**Base commit:** `5bbb0b714e86b57e517a17e1c344b89d1a1963d7`
+**Preregistration SHA-256:** `9708b84836744bb1e4b40f0427ae9859386f76ecd66608d94bc10bde1bd4fb76`
+
+### Purpose
+
+Test runtime feasibility and repeatability of the frozen q8 WebGPU browser candidate at exactly `1024` total tokens before any browser ranking-parity experiment.
+
+### Selection provenance
+
+This is an adaptive runtime-development experiment. Exact 512-token q8 execution previously passed and exact 2048-token q8 execution previously failed at runtime. Separately, Python/MPS at max length 1024 passed the preregistered development Top-10 structural-equivalence gate versus 4096. No q8 1024 output was observed before this preregistration.
+
+### Frozen gate
+
+Use one browser/model session with one first forward followed by five warm forwards over the identical synthetic exact-1024-token input. PASS requires all `6/6` forwards to complete, remain q8/WebGPU, and produce finite scores in `[0,1]`. There is no latency threshold; latency is observational only.
+
+### Boundaries
+
+No ranking development pool, fresh ranking holdout, human labels, frozen Python reference scores, browser ranking-quality evaluation, or production changes are part of this experiment.
+
+### Next step
+
+Freeze a dedicated runner and tests before executing this runtime experiment once.
+
+---
