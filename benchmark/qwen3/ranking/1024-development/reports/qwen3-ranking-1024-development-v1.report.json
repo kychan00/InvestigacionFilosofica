@@ -1,0 +1,517 @@
+{
+  "schema_version": "qwen3-ranking-1024-development-report-v1",
+  "experiment_id": "qwen3-ranking-1024-development-v1",
+  "status": "passed",
+  "comparison": {
+    "reference_max_length": 4096,
+    "candidate_max_length": 1024,
+    "ranking_rule": "raw_score descending; exact score ties use original production rank ascending"
+  },
+  "frozen_inputs": {
+    "prereg": {
+      "path": "benchmark/qwen3/ranking/1024-development/qwen3-ranking-1024-development-v1.preregistered.json",
+      "sha256": "9101210b49f8cdf8c90b7c8f9caa4b650a9f154bd692c3ce1e180e16f3bffb6b"
+    },
+    "candidate": {
+      "path": "benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.jsonl",
+      "sha256": "93618268d803c7221a116f07c5b65886f7d0e7881e7c9085eba65eb20d6d49b7"
+    },
+    "candidateMeta": {
+      "path": "benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.meta.json",
+      "sha256": "e7772d7bdf550b7d0572ed2b02a0ecafaa624b333f2ce2d0b32063d4c2d7c1f7"
+    },
+    "reference": {
+      "path": "benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.jsonl",
+      "sha256": "09483050c0c327c3fb9115c245a0584ac9f38107133e0363fa255d23a0b4b29c"
+    },
+    "pool": {
+      "path": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-production-pool-c2ca5ed.jsonl",
+      "sha256": "596dcb74f786a4e4ff40a705ec9f440accdfebca1ffcdadcdad2548ef7003b4c"
+    }
+  },
+  "query_count": 50,
+  "pair_count": 1000,
+  "pool_depth": 20,
+  "primary_gate": {
+    "metric": "exact Top-10 membership equality",
+    "required_queries_equal": 50,
+    "queries_equal": 50,
+    "total_queries": 50,
+    "passed": true
+  },
+  "secondary_metrics": {
+    "top5_membership_equal_queries": 48,
+    "top5_membership_changed_queries": 2,
+    "top5_symmetric_difference_memberships": 4,
+    "top10_membership_equal_queries": 50,
+    "top10_membership_changed_queries": 0,
+    "top10_symmetric_difference_memberships": 0,
+    "mean_top10_overlap": 10,
+    "minimum_top10_overlap": 10,
+    "mean_absolute_rank_shift": 0.02,
+    "max_absolute_rank_shift": 5,
+    "same_rank_count": 986,
+    "score_pearson": 0.9992102080368596,
+    "score_spearman": 0.9998963645450404
+  },
+  "per_query": [
+    {
+      "query_id": "de-01",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-02",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-03",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-04",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-05",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-06",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-07",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-08",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-09",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "de-10",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-01",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-02",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-03",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-04",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-05",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-06",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-07",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-08",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-09",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "en-10",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-01",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-02",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-03",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-04",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-05",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-06",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-07",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0.1,
+      "max_absolute_rank_shift": 1
+    },
+    {
+      "query_id": "es-08",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-09",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "es-10",
+      "top5_membership_equal": false,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0.6,
+      "max_absolute_rank_shift": 5
+    },
+    {
+      "query_id": "fr-01",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-02",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-03",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-04",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-05",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-06",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-07",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-08",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-09",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "fr-10",
+      "top5_membership_equal": false,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0.3,
+      "max_absolute_rank_shift": 3
+    },
+    {
+      "query_id": "pt-01",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-02",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-03",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-04",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-05",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-06",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-07",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-08",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-09",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    },
+    {
+      "query_id": "pt-10",
+      "top5_membership_equal": true,
+      "top10_membership_equal": true,
+      "top10_overlap_count": 10,
+      "top10_symmetric_difference_memberships": 0,
+      "mean_absolute_rank_shift": 0,
+      "max_absolute_rank_shift": 0
+    }
+  ],
+  "boundaries": {
+    "development_only": true,
+    "human_labels_used": false,
+    "ranking_holdout_accessed": false,
+    "model_inference_executed_during_analysis": false,
+    "production_changed": false,
+    "browser_q8_quality_established": false
+  }
+}

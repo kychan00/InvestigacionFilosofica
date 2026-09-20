@@ -504,3 +504,50 @@ Freeze the comparison analyzer and tests before executing the official preregist
 After the implementation commit, execute the frozen 1024-vs-4096 comparison once and preserve the result without tuning against it.
 
 ---
+### Official comparison result — qwen3-ranking-1024-development-v1
+
+**Date:** `2026-09-20`
+**Analyzer commit:** `164cdb3d688921d18f19f91a52b252d601a3e942`
+**Status:** `PASSED`
+**Report SHA-256:** `fa9ad9d39a85944d873002710d9fa45de15c50a1de4fae43324b2a9847b959de`
+**Markdown SHA-256:** `6cadaa70e34abeff89e4ad96594948919236b40135b4ebe4a0f97c26ed77148a`
+
+### Primary gate
+
+Exact Top-10 membership equality was `50/50` development queries. The preregistered requirement was `50/50`; therefore the gate passed.
+
+### Secondary observations
+
+- Top-5 membership equal: `48/50`
+- Top-5 changed queries: `2/50`
+- Top-5 symmetric-difference memberships: `4`
+- Top-10 membership equal: `50/50`
+- Top-10 changed queries: `0/50`
+- Top-10 symmetric-difference memberships: `0`
+- Mean Top-10 overlap: `10`
+- Minimum Top-10 overlap: `10`
+- Mean absolute rank shift: `0.02`
+- Maximum absolute rank shift: `5`
+- Same-rank documents: `986/1000`
+- Pearson score correlation: `0.9992102080368596`
+- Spearman score correlation: `0.9998963645450404`
+
+### Interpretation
+
+The 1024-token candidate satisfied the preregistered structural-equivalence criterion for Top-10 membership on the frozen development pool. All 50 queries retained exactly the same Top-10 document membership as the 4096-token reference.
+
+This does not imply complete ranking or score identity. Two queries changed Top-5 membership and some documents shifted internal rank positions, while Top-10 membership remained invariant.
+
+### Boundaries
+
+This is a development-only truncation result. No human relevance labels, fresh ranking holdout, new model inference, browser q8 inference, or production ranking changes were part of the comparison.
+
+### Decision
+
+Close `qwen3-ranking-1024-development-v1` as a successful preregistered Top-10 structural-equivalence experiment. Freeze the observed result without further tuning against this development pool.
+
+### Next step
+
+Any browser q8 experiment at 1024 tokens must be separately preregistered. Passing this experiment does not establish browser runtime feasibility, numerical parity, browser ranking parity, fresh validation, or production suitability.
+
+---
