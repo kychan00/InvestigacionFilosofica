@@ -1,0 +1,92 @@
+{
+  "schema_version": "qwen3-ranking-512-development-preregistration-v1",
+  "experiment_id": "qwen3-ranking-512-development-v1",
+  "status": "preregistered-before-inference",
+  "created_date": "2026-09-19",
+  "base_commit": "8c530d4be73ec4dff086c25fd7220c9402fa92ce",
+  "purpose": "Test whether reducing the validated Qwen3 reranker context from 4096 to 512 tokens preserves Top-10 ranking membership on the already-frozen development pool before any browser-q8 ranking-quality experiment.",
+  "scope": {
+    "development_only": true,
+    "fresh_holdout": false,
+    "ranking_holdout_accessed": false,
+    "human_labels_used_for_inference": false,
+    "production_changed": false
+  },
+  "model": {
+    "model_id": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+    "device": "mps",
+    "dtype": "float16",
+    "batch_size": 2,
+    "forward_microbatch": "singleton",
+    "scoring": "yes-no softmax raw probability",
+    "candidate_max_length": 512
+  },
+  "frozen_input": {
+    "dataset_path": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.jsonl",
+    "dataset_sha256": "d0f6b29834053615b44f823c7cb61f14478965eb72409ba1ab98742da224c548",
+    "rows": 1000,
+    "queries": 50,
+    "documents_per_query": 20,
+    "production_pool_path": "benchmark/qwen3/ranking/runs/qwen3-ranking-v1-production-pool-c2ca5ed.jsonl",
+    "production_pool_sha256": "596dcb74f786a4e4ff40a705ec9f440accdfebca1ffcdadcdad2548ef7003b4c"
+  },
+  "reference": {
+    "description": "Previously frozen development Qwen scores at max_length=4096",
+    "scores_path": "benchmark/qwen3/ranking/scores/qwen3-ranking-v1.raw.jsonl",
+    "scores_sha256": "09483050c0c327c3fb9115c245a0584ac9f38107133e0363fa255d23a0b4b29c",
+    "max_length": 4096,
+    "model_id": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "device": "mps",
+    "dtype": "float16"
+  },
+  "isolation": {
+    "reference_scores_available_during_candidate_inference": false,
+    "candidate_inference_must_finalize_all_1000_scores_before_comparison": true,
+    "threshold_used": false,
+    "score_blending": false,
+    "retrieval_rerun": false,
+    "human_labels_used": false
+  },
+  "ranking_rule": {
+    "candidate_order": "raw_score descending",
+    "reference_order": "raw_score descending",
+    "exact_score_tie_break": "production rank ascending",
+    "comparison_depth": 10
+  },
+  "primary_gate": {
+    "metric": "exact Top-10 membership equality",
+    "required_queries_equal": 50,
+    "total_queries": 50,
+    "pass_rule": "All 50 development queries must have exactly identical Top-10 membership under max_length=512 and the frozen max_length=4096 reference."
+  },
+  "secondary_metrics": [
+    "Top-5 membership equality by query",
+    "Top-10 overlap count by query",
+    "Top-10 symmetric-difference memberships",
+    "mean absolute rank shift",
+    "maximum absolute rank shift",
+    "same-rank count",
+    "score Pearson correlation",
+    "score Spearman correlation"
+  ],
+  "failure_policy": {
+    "do_not_tune_512_after_result": true,
+    "do_not_access_fresh_ranking_holdout": true,
+    "do_not_change_production": true,
+    "do_not_automatically_run_browser_q8_quality": true,
+    "next_step_on_failure": "Freeze result. Any human audit or alternate truncation length requires a separately preregistered experiment."
+  },
+  "success_policy": {
+    "production_changes_allowed": false,
+    "next_step_on_success": "A separate preregistered experiment may test browser q8 numerical/ranking parity at 512 tokens. Success here does not establish browser-q8 parity or production suitability."
+  },
+  "planned_outputs": {
+    "candidate_scores": "benchmark/qwen3/ranking/512-development/scores/qwen3-ranking-512-development-v1.raw.jsonl",
+    "candidate_meta": "benchmark/qwen3/ranking/512-development/scores/qwen3-ranking-512-development-v1.raw.meta.json",
+    "comparison_report": "benchmark/qwen3/ranking/512-development/reports/qwen3-ranking-512-development-v1.report.json",
+    "comparison_markdown": "benchmark/qwen3/ranking/512-development/reports/qwen3-ranking-512-development-v1.report.md"
+  }
+}

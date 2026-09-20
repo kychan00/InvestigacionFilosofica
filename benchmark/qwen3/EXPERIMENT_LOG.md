@@ -165,3 +165,40 @@ The first attempt to write this result entry aborted before modifying the log be
 The preregistered success policy permits a separate development-only 512-token ranking-quality experiment. That experiment must be preregistered independently and must not reuse the already-observed ranking holdout as a fresh validation set.
 
 ---
+## 2026-09-19 — qwen3-ranking-512-development-v1
+
+**Status:** preregistered before inference
+**Base commit:** `8c530d4be73ec4dff086c25fd7220c9402fa92ce`
+**Preregistration SHA-256:** `dc68ff205aceecd2972b0fdcce4d906c9e190e0d3b51bb77dbb4a93d97054eb8`
+
+### Objective
+
+Test whether changing only Qwen maximum sequence length from 4096 to 512 preserves the validated development ranking behavior.
+
+### Frozen comparison
+
+- same `Qwen/Qwen3-Reranker-0.6B`
+- same model revision
+- same instruction
+- same 1000 query-document development pairs
+- same 50 queries × 20 documents
+- same MPS / float16 scoring implementation
+- reference max length: `4096`
+- candidate max length: `512`
+- no threshold
+- no score blending
+- no new retrieval
+- no human labels during inference
+- no fresh holdout access
+
+### Primary gate
+
+Exact Top-10 membership equality for all `50/50` development queries.
+
+The candidate must finalize all 1000 new scores before the frozen 4096 reference scores are used for comparison.
+
+### Methodological boundary
+
+This experiment isolates truncation only. Passing it would not establish q8/browser parity, browser performance, fresh validation, or production suitability.
+
+---
