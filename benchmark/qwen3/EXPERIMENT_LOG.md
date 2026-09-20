@@ -81,3 +81,33 @@ The file is intentionally not renamed because the experiment is already closed a
 This naming anomaly does not affect the experimental result or hashes.
 
 ---
+## 2026-09-19 — qwen3-browser-q8-512-warm-v1
+
+**Status:** preregistered before runtime execution
+**Base commit:** `455f71f4fdc0aed5a2c49ed7ef9b11c621ebd93d`
+**Preregistration SHA-256:** `553681d80c38d45bb5337f7ec6553511acb56cf83449ffae250d118e3c0342e1`
+
+### Objective
+
+Measure repeated q8 browser execution at exactly 512 total tokens in one WebGPU/model session, separating the first forward from five subsequent warm forwards.
+
+### Frozen plan
+
+- q8 / WebGPU / `onnx/model_quantized.onnx`
+- exact input length: `512` tokens
+- first forwards: `1`
+- measured warm forwards: `5`
+- total forwards: `6`
+- same browser session and same loaded model
+- no reload between runs
+- synthetic input only
+- no ranking holdout
+- no human labels
+- no latency threshold in the primary gate
+- primary gate requires `6/6` successful finite scores with no runtime exception
+
+### Methodological boundary
+
+This is a runtime/stability experiment only. It cannot establish ranking quality or production suitability. A successful result may only authorize a separately preregistered development ranking experiment.
+
+---

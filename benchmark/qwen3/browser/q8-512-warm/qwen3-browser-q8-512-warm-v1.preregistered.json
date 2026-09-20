@@ -1,0 +1,93 @@
+{
+  "schema_version": "qwen3-browser-q8-512-warm-preregistration-v1",
+  "experiment_id": "qwen3-browser-q8-512-warm-v1",
+  "status": "preregistered-before-runtime-execution",
+  "created_date": "2026-09-19",
+  "base_commit": "455f71f4fdc0aed5a2c49ed7ef9b11c621ebd93d",
+  "purpose": "Determine whether the q8 WebGPU browser candidate can execute a fixed 512-token synthetic input repeatedly in one browser/model session, separating the first forward from subsequent warm forwards, before any new ranking-quality experiment.",
+  "relationship_to_previous_experiment": {
+    "previous_experiment": "qwen3-browser-runtime-q8-feasibility-v1",
+    "previous_result": "failed-runtime",
+    "previous_observation": "512 tokens passed; 2048 tokens failed with table index is out of bounds; 4096 was not run",
+    "previous_holdout_reused": false,
+    "previous_failed_pair_reused": false
+  },
+  "candidate": {
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_quantized.onnx",
+    "dtype": "q8",
+    "device": "webgpu",
+    "execution_providers": [
+      "webgpu"
+    ],
+    "transformers_js_version": "4.3.0",
+    "wasm_host_threads": 1,
+    "num_logits_to_keep": 1,
+    "onnx_outputs_requested": [
+      "logits"
+    ],
+    "exact_total_tokens": 512
+  },
+  "synthetic_input_contract": {
+    "source": "synthetic-only",
+    "uses_ranking_holdout": false,
+    "uses_human_labels": false,
+    "uses_reference_qwen_scores": false,
+    "base_query": "What is the relation between being and knowledge?",
+    "base_document": "Synthetic runtime feasibility document. This input exists only to exercise the browser runtime and is not part of any ranking evaluation.",
+    "filler_text": ".",
+    "filler_must_encode_to_exactly_one_token": true,
+    "construction": "Use the pinned tokenizer and the same synthetic prompt contract as the prior feasibility experiment. Insert the preregistered one-token filler until total input length is exactly 512 tokens."
+  },
+  "run_plan": {
+    "same_browser_session": true,
+    "same_loaded_model_session": true,
+    "page_reload_between_runs": false,
+    "identical_input_each_run": true,
+    "first_forward_runs": 1,
+    "measured_warm_runs": 5,
+    "total_forward_runs": 6
+  },
+  "primary_gate": {
+    "required_successful_runs": 6,
+    "total_runs": 6,
+    "requirements": [
+      "all six forwards complete without runtime exception",
+      "every input contains exactly 512 total tokens",
+      "every score is finite and in [0,1]",
+      "runtime remains browser on WebGPU",
+      "dtype remains q8",
+      "execution provider remains WebGPU"
+    ],
+    "latency_threshold": null,
+    "pass_rule": "All 6 of 6 forwards must pass. Latency is observational only in this experiment."
+  },
+  "secondary_observations": {
+    "record_first_forward_latency": true,
+    "record_each_warm_latency": true,
+    "record_warm_min_ms": true,
+    "record_warm_max_ms": true,
+    "record_warm_mean_ms": true,
+    "record_warm_median_ms": true,
+    "record_score_repeatability": true,
+    "latency_is_primary_gate": false
+  },
+  "failure_policy": {
+    "do_not_rerun_same_experiment_after_failure": true,
+    "do_not_change_512_token_contract": true,
+    "do_not_tune_against_failed_run": true,
+    "do_not_access_ranking_holdout": true,
+    "do_not_change_production": true,
+    "after_failure": "Freeze outputs, update EXPERIMENT_LOG.md, and preregister any subsequent runtime candidate separately."
+  },
+  "success_policy": {
+    "production_changes_allowed": false,
+    "automatic_ranking_validation_allowed": false,
+    "next_step": "If and only if all six forwards pass, use the observed warm-runtime data to preregister a separate 512-token development ranking-quality experiment. Do not reuse the already-observed frozen ranking holdout."
+  },
+  "planned_outputs": {
+    "report": "benchmark/qwen3/browser/q8-512-warm/reports/qwen3-browser-q8-512-warm-v1.report.json",
+    "runs": "benchmark/qwen3/browser/q8-512-warm/scores/qwen3-browser-q8-512-warm-v1.runs.jsonl"
+  }
+}
