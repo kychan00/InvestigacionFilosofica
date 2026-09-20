@@ -255,3 +255,45 @@ The complete 512-token candidate score set was finalized before comparison with 
 The 4096 reference must remain unopened for comparison until these 512 candidate scores are frozen in Git.
 
 ---
+### Comparison implementation — qwen3-ranking-512-development-v1
+
+**Date:** `2026-09-19`
+**Implementation base commit:** `c4f130d8f2cb3ae9c06cd8b9073e760447e3485a`
+**Analyzer SHA-256:** `94e9b765c6f8a9cb777edfa7d2a60daded15486a72ae879a71d4ed2caac70a16`
+**Test SHA-256:** `71d84adfbc2d3a767b7f7c7f721dc2fe8dac8311a3cb1d80155e5816b7856666`
+
+### Action
+
+Implemented the frozen 512-vs-4096 development comparison after the complete 512 score set had already been committed. The analyzer verifies the frozen preregistration, 512 candidate scores, 4096 reference scores, candidate metadata, and original production pool by SHA-256 before analysis.
+
+### Configuration
+
+- candidate max length: `512`
+- reference max length: `4096`
+- same 1000 query-document pairs
+- 50 queries x 20 documents
+- ranking: raw score descending
+- exact score tie-break: original production rank ascending
+- primary gate: exact Top-10 membership equality on `50/50` queries
+
+### Secondary metrics
+
+Top-5 membership equality, Top-10 overlap and symmetric difference, mean/max absolute rank shift, same-rank count, Pearson score correlation, and Spearman score correlation.
+
+### Implementation note
+
+The first repository test run failed before executing the new analysis tests because the analyzer CLI footer ran during ES-module import and raised `expected --preflight or --run`. No comparison was executed and no reports were created. The analyzer was then guarded so CLI dispatch runs only when the module is invoked directly. The full test suite and comparison preflight were rerun successfully afterward.
+
+### Boundary
+
+No human labels, fresh holdout, new model inference, or production ranking changes are involved. Comparison metrics have not yet been executed.
+
+### Decision
+
+Freeze the corrected analyzer and tests before executing the official comparison once.
+
+### Next step
+
+After the implementation commit, execute the frozen comparison once and record the preregistered gate result without tuning against it.
+
+---
