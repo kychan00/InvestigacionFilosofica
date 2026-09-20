@@ -462,3 +462,45 @@ Treat commit `e6aa25d` as the frozen 1024 candidate score set. Do not alter or r
 After this audit-log commit, implement and freeze the preregistered 1024-vs-4096 comparison analyzer before executing the gate once.
 
 ---
+### Comparison implementation — qwen3-ranking-1024-development-v1
+
+**Date:** `2026-09-20`
+**Implementation base commit:** `58631266d215148312f67c2682e264523262909a`
+**Analyzer SHA-256:** `7be43888388d5ff8f82dab56958f52104bdae55112e5cb523f98bbf9bd450066`
+**Test SHA-256:** `9f138ca0ef15bc0268b0d2277e3a05ccd345a99eff2ec993f42fcb12a07f04c1`
+
+### Action
+
+Implemented the frozen 1024-vs-4096 development comparison only after the complete 1024 candidate score set had already been finalized and committed. The analyzer verifies the preregistration, 1024 candidate scores, candidate metadata, frozen 4096 reference scores, and original production pool by SHA-256 before analysis.
+
+### Configuration
+
+- candidate max length: `1024`
+- reference max length: `4096`
+- same 1000 query-document pairs
+- 50 queries x 20 documents
+- ranking: raw score descending
+- exact-score tie break: original production rank ascending
+- primary gate: exact Top-10 membership equality on `50/50` queries
+
+### Secondary metrics
+
+Top-5 membership equality, Top-10 overlap and symmetric difference, mean/max absolute rank shift, same-rank count, Pearson score correlation, and Spearman score correlation.
+
+### Verification
+
+The repository test suite passed `197/197`. The comparison preflight verified all frozen artifact hashes and completed with `comparison_executed: false`. No report files exist yet.
+
+### Boundaries
+
+No human labels, fresh ranking holdout, new model inference, browser q8 inference, or production ranking changes are involved in this implementation step.
+
+### Decision
+
+Freeze the comparison analyzer and tests before executing the official preregistered gate once.
+
+### Next step
+
+After the implementation commit, execute the frozen 1024-vs-4096 comparison once and preserve the result without tuning against it.
+
+---
