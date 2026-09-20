@@ -1,0 +1,67 @@
+{
+  "schema_version": "qwen3-ranking-inference-v1",
+  "experiment_id": "qwen3-reranker-v1",
+  "ranking_experiment_id": "qwen3-ranking-1024-development-v1",
+  "purpose": "development-ranking-1024-truncation",
+  "production_pool_freeze_commit": "36314cc",
+  "dataset_freeze_commit": "0efb8e1",
+  "model": {
+    "name": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473"
+  },
+  "instruction": {
+    "path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+    "sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7"
+  },
+  "dataset": {
+    "path": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.jsonl",
+    "metadata_path": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.meta.json",
+    "sha256": "d0f6b29834053615b44f823c7cb61f14478965eb72409ba1ab98742da224c548",
+    "source_pool_sha256": "596dcb74f786a4e4ff40a705ec9f440accdfebca1ffcdadcdad2548ef7003b4c",
+    "rows": 1000,
+    "unique_queries": 50,
+    "unique_records": 820,
+    "contains_human_labels": false,
+    "contains_ranking_provenance": false,
+    "contains_provider_provenance": false
+  },
+  "adapter": {
+    "scoring": "yes-no-softmax-probability",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "max_length": 1024,
+    "mps_model_batch_strategy": "singleton"
+  },
+  "inference": {
+    "purpose": "development-ranking-1024-raw-scores",
+    "default_batch_size": 2,
+    "raw_output": "benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.jsonl",
+    "raw_metadata": "benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.meta.json",
+    "local_cache": "benchmark/qwen3/cache/qwen3-ranking-1024-development-v1.cache.jsonl",
+    "refuse_completed_output_overwrite_by_default": true,
+    "full_output_requires_complete_dataset": true
+  },
+  "ranking_policy": {
+    "uses_raw_score_only": true,
+    "binary_threshold_used": false,
+    "score_blending": false,
+    "pool_membership_changes": false,
+    "sort": "qwen_raw_score descending",
+    "tie_breaker": "original production rank ascending"
+  },
+  "human_labels": {
+    "used_for_model_input": false,
+    "used_during_scoring": false
+  },
+  "production": {
+    "ranking_changed": false
+  },
+  "preregistration": {
+    "path": "benchmark/qwen3/ranking/1024-development/qwen3-ranking-1024-development-v1.preregistered.json",
+    "sha256": "9101210b49f8cdf8c90b7c8f9caa4b650a9f154bd692c3ce1e180e16f3bffb6b"
+  },
+  "candidate_change": {
+    "reference_max_length": 4096,
+    "candidate_max_length": 1024,
+    "only_intended_scoring_semantic_change": "maximum sequence length"
+  }
+}

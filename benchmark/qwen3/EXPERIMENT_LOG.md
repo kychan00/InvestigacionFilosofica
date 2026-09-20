@@ -392,3 +392,29 @@ A pass establishes only development structural equivalence for this frozen pool.
 Freeze this preregistration in Git before implementing or executing 1024-token candidate inference.
 
 ---
+### Candidate implementation — qwen3-ranking-1024-development-v1
+
+**Implementation base commit:** `71cbe7e14b5e260ca1351d7a853602e3dd949599`
+**Inference manifest SHA-256:** `57fbe1c8200d49093a9c54d357be56565b058de0dcf819aaa0450afc27f17df2`
+**Preflight SHA-256:** `b78d412e29c8700fecef4a13b403f8a7441341d567a8f12c4c76a6bc42089ede`
+**Test SHA-256:** `4c699e4a15c5d6da58c378e19bf54781b03fa48f2fa43a84a925218251fe2c0c`
+
+The validated Python/MPS inference engine is reused unchanged. The candidate preserves the frozen model, revision, instruction, 1000-pair development dataset, scoring version, and MPS singleton strategy. The intended scoring-semantic change relative to the 4096 reference is only `max_length: 4096 -> 1024`.
+
+Candidate raw score, metadata, and cache paths are isolated from both the frozen 4096 reference and the closed 512 experiment. The official command explicitly fixes `--device mps` and `--dtype float16`.
+
+### Implementation incident
+
+The first repository test run produced `191/192` passing tests because the newly copied 1024 test still looked up the existing `benchmark:qwen3:ranking:512-development:infer` npm script key. The 1024 manifest and preflight were already correct, and the preflight completed with no model execution. The stale test key was corrected to the 1024 command and the full suite and preflight were rerun before freezing this implementation.
+
+No 1024 model inference or score observation occurred during implementation or testing. The fresh ranking holdout was not accessed, human labels were not used, and production was not changed.
+
+### Decision
+
+Freeze the corrected 1024 inference implementation before beginning the official 1000-pair candidate run.
+
+### Next step
+
+Run the frozen 1024 candidate once. Finalize and commit all 1000 candidate scores before comparison against the 4096 reference.
+
+---
