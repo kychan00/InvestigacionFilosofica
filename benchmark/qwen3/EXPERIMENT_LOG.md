@@ -650,3 +650,34 @@ Close `qwen3-browser-q8-1024-feasibility-v1` as a successful preregistered runti
 A separate preregistered experiment may now test browser q8 versus the frozen Python-1024 reference on development ranking data. That future experiment must define its numerical/ranking parity gates before browser scores are observed.
 
 ---
+### Preregistration — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Base commit:** `ea2cc19069ab5f9fc33aa7f22fa9977b78894ea0`
+**Dataset SHA-256:** `8e9490479af6c6d01491e8053ea17f580ae41af9df42048b508be56feb178185`
+**Python-1024 reference subset SHA-256:** `089fd2b2399d162e14e2a14b263133f49e90d014d35dc8929deb03ea5e7a3f20`
+**Preregistration SHA-256:** `80cc612a0cd7760c14f0b3185374592941873bba3489f4664973eb99aa215a8f`
+
+### Purpose
+
+Development-only browser parity pilot for q8/WebGPU at max length `1024` against the frozen Python/MPS float16 1024-token reference.
+
+### Frozen selection
+
+Five complete 20-document query groups were selected deterministically by SHA-256 ordering of `query_id` under seed `qwen3-browser-q8-1024-parity-pilot-v1`, before any q8 ranking scores were observed: `es-10`, `de-01`, `en-03`, `es-08`, `en-08`. Total: `100` pairs.
+
+Selection did not use query contents, human labels, browser scores, or Python score values.
+
+### Primary gate
+
+PASS requires exact Top-10 membership equality between browser q8 and frozen Python-1024 on all `5/5` selected queries. Exact-score ties use original production rank. No thresholds or score blending are permitted.
+
+### Boundaries
+
+This is adaptive development, not fresh validation. The fresh ranking holdout and human labels are excluded. A pilot PASS does not authorize production changes and does not establish production suitability.
+
+### Next step
+
+Implement and freeze a dedicated q8/WebGPU 1024 pilot runner and tests before executing any browser score on these 100 pairs.
+
+---

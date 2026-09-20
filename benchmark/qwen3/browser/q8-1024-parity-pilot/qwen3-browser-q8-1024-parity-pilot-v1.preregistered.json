@@ -1,0 +1,132 @@
+{
+  "schema_version": "qwen3-browser-q8-1024-parity-pilot-preregistration-v1",
+  "experiment_id": "qwen3-browser-q8-1024-parity-pilot-v1",
+  "status": "preregistered-before-browser-model-execution",
+  "created_date": "2026-09-20",
+  "base_commit": "ea2cc19069ab5f9fc33aa7f22fa9977b78894ea0",
+  "purpose": "Development-only pilot testing whether q8/WebGPU at max_length 1024 preserves Python/MPS-1024 ranking structure before any larger browser parity experiment.",
+  "adaptive_development": {
+    "enabled": true,
+    "fresh_validation": false,
+    "prior_runtime_evidence": "q8 exact-1024 synthetic runtime feasibility passed 6/6",
+    "selection_uses_browser_scores": false,
+    "selection_uses_python_score_values": false
+  },
+  "selection": {
+    "method": "SHA-256 ordering of query_id using fixed seed, take first five complete query groups",
+    "seed": "qwen3-browser-q8-1024-parity-pilot-v1",
+    "selected_query_ids": [
+      "es-10",
+      "de-01",
+      "en-03",
+      "es-08",
+      "en-08"
+    ],
+    "queries": 5,
+    "documents_per_query": 20,
+    "rows": 100
+  },
+  "model_input": {
+    "dataset_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/datasets/qwen3-browser-q8-1024-parity-pilot-v1.jsonl",
+    "dataset_sha256": "8e9490479af6c6d01491e8053ea17f580ae41af9df42048b508be56feb178185",
+    "source_dataset_path": "benchmark/qwen3/ranking/datasets/qwen3-ranking-v1.jsonl",
+    "source_dataset_sha256": "d0f6b29834053615b44f823c7cb61f14478965eb72409ba1ab98742da224c548",
+    "contains_human_labels": false,
+    "contains_ranking_provenance": false,
+    "contains_provider_provenance": false
+  },
+  "reference_model": {
+    "model_id": "Qwen/Qwen3-Reranker-0.6B",
+    "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+    "scoring_version": "qwen3-yes-no-softmax-v1-mps-singleton",
+    "device": "mps",
+    "dtype": "float16",
+    "max_length": 1024,
+    "pilot_reference_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/reference/qwen3-browser-q8-1024-parity-pilot-v1.python-1024.jsonl",
+    "pilot_reference_sha256": "089fd2b2399d162e14e2a14b263133f49e90d014d35dc8929deb03ea5e7a3f20",
+    "full_reference_path": "benchmark/qwen3/ranking/1024-development/scores/qwen3-ranking-1024-development-v1.raw.jsonl",
+    "full_reference_sha256": "93618268d803c7221a116f07c5b65886f7d0e7881e7c9085eba65eb20d6d49b7"
+  },
+  "browser_model": {
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_quantized.onnx",
+    "dtype": "q8",
+    "device": "webgpu",
+    "execution_providers": [
+      "webgpu"
+    ],
+    "transformers_js_version": "4.3.0",
+    "wasm_host_threads": 1,
+    "num_logits_to_keep": 1,
+    "onnx_outputs_requested": [
+      "logits"
+    ],
+    "max_length": 1024
+  },
+  "prompt_contract": {
+    "instruction_path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+    "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+    "content_format": "<Instruct>: {instruction}[newline-if-needed]<Query>: {query}\\n<Document>: {document}",
+    "document_format": "Mirror scripts/benchmark/qwen3/adapter.py build_document_text exactly.",
+    "padding_side": "left",
+    "max_length": 1024,
+    "truncation_contract": "Match the frozen Python adapter/browser parity longest-first bounded-content construction at max_length 1024.",
+    "score_tokens": [
+      "no",
+      "yes"
+    ],
+    "score_formula": "softmax([no_logit, yes_logit])[1]"
+  },
+  "ranking_contract": {
+    "browser_sort": "browser_qwen_raw_score descending",
+    "reference_sort": "python_1024_raw_score descending",
+    "tie_breaker": "original production rank ascending for exact score ties",
+    "threshold_used": false,
+    "score_blending": false,
+    "retrieval_changes": false,
+    "candidate_pool_changes": false
+  },
+  "primary_parity_gate": {
+    "metric": "exact Top-10 membership equality between browser q8 and frozen Python-1024 ranking",
+    "required_queries_equal": 5,
+    "total_queries": 5,
+    "pass_condition": "5/5 selected development queries have identical Top-10 record membership"
+  },
+  "secondary_metrics": [
+    "exact Top-10 order equality count",
+    "exact Top-5 membership equality count",
+    "Top-10 overlap per query",
+    "full Top-20 rank correlation per query",
+    "raw-score Spearman correlation",
+    "raw-score Pearson correlation",
+    "mean absolute score difference",
+    "maximum absolute score difference"
+  ],
+  "execution_policy": {
+    "single_official_execution": true,
+    "checkpointing_allowed_for_process_recovery": true,
+    "same_frozen_inputs_after_resume": true,
+    "no_tuning_after_scores_observed": true
+  },
+  "failure_policy": {
+    "any_top10_membership_difference": "Pilot fails structural parity; freeze outputs and do not tune q8 against this pilot.",
+    "automatic_retry_after_failure": false,
+    "threshold_tuning": false,
+    "score_blending_tuning": false,
+    "fresh_holdout_access": false,
+    "production_changes": false
+  },
+  "success_policy": {
+    "automatic_production_changes": false,
+    "fresh_validation_established": false,
+    "next_step": "A 5/5 pilot PASS may justify separately preregistering a larger development browser-parity experiment. It does not itself establish production suitability or fresh validation."
+  },
+  "planned_outputs": {
+    "browser_scores": "benchmark/qwen3/browser/q8-1024-parity-pilot/scores/qwen3-browser-q8-1024-parity-pilot-v1.raw.jsonl",
+    "browser_metadata": "benchmark/qwen3/browser/q8-1024-parity-pilot/scores/qwen3-browser-q8-1024-parity-pilot-v1.raw.meta.json",
+    "report": "benchmark/qwen3/browser/q8-1024-parity-pilot/reports/qwen3-browser-q8-1024-parity-pilot-v1.report.json",
+    "log": "benchmark/qwen3/browser/q8-1024-parity-pilot/logs/qwen3-browser-q8-1024-parity-pilot-v1.log",
+    "checkpoint": "benchmark/qwen3/cache/qwen3-browser-q8-1024-parity-pilot-v1.partial.jsonl"
+  }
+}
