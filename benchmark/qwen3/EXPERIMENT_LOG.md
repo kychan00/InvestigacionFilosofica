@@ -710,3 +710,30 @@ No browser q8 ranking score had been generated before this correction. Therefore
 Freeze this correction before implementing the dedicated browser parity pilot runner.
 
 ---
+### Pre-inference prompt-contract completion — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Previous preregistration commit:** `71f1e15`
+**Completed preregistration SHA-256:** `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`
+
+### Issue discovered
+
+During dedicated runner implementation, the reused parity core was found to enforce the exact system prefix and suffix used by the frozen Qwen3 prompt construction. The pilot preregistration already froze the instruction, content format, truncation rule, and score formula, but omitted explicit `system_prefix` and `system_suffix` fields.
+
+### Completion
+
+Before any browser q8 pilot score was generated, the preregistration was completed with the exact already-established system text, prefix, and suffix used by the browser and Python parity contract.
+
+### Invariants
+
+No query selection, dataset pair, Python reference score, model artifact, dtype, max length, ranking rule, or primary gate changed. The pilot remains `100` development pairs across `5` complete queries with a `5/5` exact Top-10 membership gate.
+
+### Contamination boundary
+
+No browser q8 pilot score, checkpoint, report, metadata, or result log existed when this prompt-contract completion was made. This change therefore completes preregistration metadata before inference rather than adapting to observed results.
+
+### Next step
+
+Freeze this completed preregistration, then continue implementation and preflight of the dedicated browser runner.
+
+---

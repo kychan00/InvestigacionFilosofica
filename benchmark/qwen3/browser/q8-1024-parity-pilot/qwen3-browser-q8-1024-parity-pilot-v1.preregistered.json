@@ -83,7 +83,10 @@
       "no",
       "yes"
     ],
-    "score_formula": "softmax([no_logit, yes_logit])[1]"
+    "score_formula": "softmax([no_logit, yes_logit])[1]",
+    "system_text": "Judge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be \"yes\" or \"no\".",
+    "system_prefix": "<|im_start|>system\\nJudge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be \"yes\" or \"no\".<|im_end|>\\n<|im_start|>user\\n",
+    "system_suffix": "<|im_end|>\\n<|im_start|>assistant\\n<think>\\n\\n</think>\\n\\n"
   },
   "ranking_contract": {
     "browser_sort": "browser_qwen_raw_score descending",
@@ -144,5 +147,15 @@
     "browser_scores_observed_before_correction": false,
     "selection_membership_changed": false,
     "primary_gate_changed": false
+  },
+  "pre_inference_prompt_contract_completion": {
+    "applied": true,
+    "date": "2026-09-20",
+    "previous_preregistration_commit": "71f1e15",
+    "reason": "Complete the preregistered prompt-byte contract with the already frozen system prefix and suffix required by the parity implementation.",
+    "browser_scores_observed_before_completion": false,
+    "selection_changed": false,
+    "primary_gate_changed": false,
+    "model_changed": false
   }
 }
