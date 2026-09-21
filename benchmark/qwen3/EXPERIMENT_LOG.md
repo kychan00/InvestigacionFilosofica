@@ -737,3 +737,38 @@ No browser q8 pilot score, checkpoint, report, metadata, or result log existed w
 Freeze this completed preregistration, then continue implementation and preflight of the dedicated browser runner.
 
 ---
+### Implementation freeze — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Implementation base commit:** `8b46322e5ea2490a16a8e695b85a906e86315080`
+**Preregistration SHA-256:** `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`
+**Core SHA-256:** `efeaeac205d74dfa05912b284cb6999f8ce5471728db68c6561c75d5f070db31`
+**Browser scorer SHA-256:** `06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c`
+**Runner SHA-256:** `6389334987ee90c84a9995d35b55f39e7dec9711d7c6d5edeaa58eb51fac77ca`
+**Test SHA-256:** `b31a0a403b91df3c58ce7a7b2ae2145735adef34330257ccecff7884a3470eb5`
+**package.json SHA-256:** `5fcfb383f5f928a1dfc049847e83fe3d6fd91d2e728ac053f76a8202f0df880c`
+**Browser bundle SHA-256:** `10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f`
+
+### Implementation
+
+A dedicated development-only browser parity pilot runner was implemented for the frozen `100`-pair, `5`-query subset. The browser candidate is fixed to q8, WebGPU only, max length `1024`, one-logit-position scoring with `num_logits_to_keep=1`, and logits-only ONNX output retrieval. The runner consumes only the frozen pilot dataset and frozen Python-1024 reference subset.
+
+Diagnostic browser scoring is forbidden. The runner pins the completed preregistration SHA-256 and permits only the preregistered official `--run` path for model execution. Checkpointing remains available solely to resume the same frozen official execution after process interruption.
+
+### Verification
+
+The complete repository test suite passed `205/205`. Dedicated preflight passed with dataset `100` rows, the frozen dataset/reference/instruction hashes, Transformers.js web export, one onnxruntime-web input, and zero forbidden Node backend inputs. Preflight reported `inference_executed=false` and `model_downloaded=false`.
+
+### Boundaries
+
+No browser q8 pilot score has been generated. No checkpoint, final browser score file, metadata, parity report, or result log exists. Fresh holdout data, human labels, and production behavior remain outside this development pilot.
+
+### Decision
+
+Freeze this implementation before the single official browser execution. Do not modify the preregistration, dataset, Python reference subset, scoring semantics, ranking gate, or implementation after browser scores are observed.
+
+### Next step
+
+From the frozen implementation commit, perform one final no-inference preflight and then execute the preregistered official browser q8 parity pilot once.
+
+---

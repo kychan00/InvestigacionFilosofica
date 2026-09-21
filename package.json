@@ -88,7 +88,9 @@
     "benchmark:qwen3:ranking:1024-development:compare:preflight": "node scripts/benchmark/qwen3/analyze_ranking_1024_development.mjs --preflight",
     "benchmark:qwen3:ranking:1024-development:compare": "node scripts/benchmark/qwen3/analyze_ranking_1024_development.mjs --run",
     "benchmark:qwen3:browser-q8-1024-feasibility:preflight": "node scripts/benchmark/qwen3/run_q8_1024_feasibility.mjs --preflight",
-    "benchmark:qwen3:browser-q8-1024-feasibility:run": "node scripts/benchmark/qwen3/run_q8_1024_feasibility.mjs --run"
+    "benchmark:qwen3:browser-q8-1024-feasibility:run": "node scripts/benchmark/qwen3/run_q8_1024_feasibility.mjs --run",
+    "benchmark:qwen3:browser-q8-1024-parity-pilot:preflight": "node scripts/benchmark/qwen3/run_browser_q8_1024_parity_pilot.mjs --preflight",
+    "benchmark:qwen3:browser-q8-1024-parity-pilot:run": "node scripts/benchmark/qwen3/run_browser_q8_1024_parity_pilot.mjs --run"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
