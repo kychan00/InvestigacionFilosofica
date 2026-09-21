@@ -1,0 +1,78 @@
+{
+  "schema_version": "qwen3-browser-q8-1024-parity-pilot-score-meta-v1",
+  "experiment_id": "qwen3-browser-q8-1024-parity-pilot-v1",
+  "preregistration_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/qwen3-browser-q8-1024-parity-pilot-v1.preregistered.json",
+  "preregistration_sha256": "5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b",
+  "dataset_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/datasets/qwen3-browser-q8-1024-parity-pilot-v1.jsonl",
+  "dataset_sha256": "8fa7c38f4ee6e5dc4c2b8a140b13ce8152b9836922f79ab89a06ef833b2b9e01",
+  "instruction_path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+  "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+  "model": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+  "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+  "artifact": "onnx/model_quantized.onnx",
+  "output_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/scores/qwen3-browser-q8-1024-parity-pilot-v1.raw.jsonl",
+  "output_sha256": "4ef826f5dbc1c92c40eca5d2747a78c8a6516df5c16c4013ee3511023eb578e7",
+  "row_count": 100,
+  "runtime": {
+    "runtime": "browser",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "transformers_js_version": "4.3.0",
+    "onnx_backend": "onnxruntime-web",
+    "wasm_host_threads": 1,
+    "execution_provider": "webgpu",
+    "device": "webgpu",
+    "dtype": "q8",
+    "adapter_info": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "device": "",
+      "description": "",
+      "is_fallback_adapter": false,
+      "features": [
+        "bgra8unorm-storage",
+        "clip-distances",
+        "core-features-and-limits",
+        "depth-clip-control",
+        "depth32float-stencil8",
+        "dual-source-blending",
+        "float32-blendable",
+        "float32-filterable",
+        "indirect-first-instance",
+        "primitive-index",
+        "rg11b10ufloat-renderable",
+        "shader-f16",
+        "subgroup-size-control",
+        "subgroups",
+        "texture-component-swizzle",
+        "texture-compression-astc",
+        "texture-compression-astc-sliced-3d",
+        "texture-compression-bc",
+        "texture-compression-bc-sliced-3d",
+        "texture-compression-etc2",
+        "texture-formats-tier1",
+        "texture-formats-tier2",
+        "timestamp-query"
+      ]
+    },
+    "session_configs": {
+      "model": {
+        "dtype": "q8",
+        "device": "webgpu"
+      }
+    },
+    "yes_token_id": 9693,
+    "no_token_id": 2152,
+    "content_max_length": 976,
+    "num_logits_to_keep": 1,
+    "onnx_output_selection": {
+      "session": "model",
+      "fetches": [
+        "logits"
+      ]
+    }
+  },
+  "browser_bundle_sha256": "10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f",
+  "elapsed_seconds": 2157.153,
+  "human_labels_used_during_inference": false,
+  "production_changed": false
+}

@@ -1,0 +1,257 @@
+{
+  "schema_version": "qwen3-browser-q8-1024-parity-pilot-report-v1",
+  "experiment_id": "qwen3-browser-q8-1024-parity-pilot-v1",
+  "primary_gate": {
+    "required_queries_equal": 5,
+    "queries_equal": 0,
+    "total_queries": 5,
+    "passed": false
+  },
+  "secondary_metrics": {
+    "exact_top5_membership_queries": 0,
+    "exact_top10_order_queries": 0,
+    "raw_score_spearman": 0.8879107823112363,
+    "raw_score_pearson": 0.8545451587745371,
+    "mean_absolute_score_difference": 0.10065170599554975,
+    "max_absolute_score_difference": 0.7381553168180568
+  },
+  "per_query": [
+    {
+      "query_id": "es-10",
+      "top5_membership_equal": false,
+      "top5_overlap": 3,
+      "top10_membership_equal": false,
+      "top10_order_equal": false,
+      "top10_overlap": 8,
+      "full_top20_spearman": 0.8631578947368421,
+      "reference_top10_record_ids": [
+        "doi:10.15332/dt.inv.2020.01501",
+        "openalex:W4240899380",
+        "doi:10.14482/eidos.27.8119",
+        "doi:10.32870/prot.i17.234",
+        "doi:10.36576/summa.14367",
+        "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+        "doi:10.15332/tg.mae.2018.00307",
+        "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+        "doi:10.57027/eikasia.30.1839",
+        "source:internet-archive:99-using-apache-jena-fuseki-server-for-execution-of-sparql-queries-in-job-search"
+      ],
+      "browser_top10_record_ids": [
+        "source:internet-archive:university_independent_research_progra_dorian-codex-hsafe_stefano_dorian_franco",
+        "openalex:W4240899380",
+        "doi:10.15332/dt.inv.2020.01501",
+        "doi:10.14482/eidos.27.8119",
+        "source:internet-archive:DTIC_ADA515719",
+        "doi:10.32870/prot.i17.234",
+        "doi:10.36576/summa.14367",
+        "source:internet-archive:AConceptualModelForOntologyBasedLearning",
+        "doi:10.15332/tg.mae.2018.00307",
+        "doi:10.5771/9789563926552-1"
+      ]
+    },
+    {
+      "query_id": "de-01",
+      "top5_membership_equal": false,
+      "top5_overlap": 3,
+      "top10_membership_equal": false,
+      "top10_order_equal": false,
+      "top10_overlap": 8,
+      "full_top20_spearman": 0.5263157894736843,
+      "reference_top10_record_ids": [
+        "doi:10.3790/978-3-428-45087-9",
+        "source:internet-archive:IA41546420_0151",
+        "doi:10.1515/9783110467888-137",
+        "doi:10.1515/9783110467888-342",
+        "source:internet-archive:IA41546014_0037",
+        "doi:10.1163/9789004383586_008",
+        "source:internet-archive:zurlehrevonderfr0000jage",
+        "doi:10.3726/978-3-653-04362-4/16",
+        "doi:10.1515/9783110901290.166",
+        "source:internet-archive:gesetzundfreihei0000fors"
+      ],
+      "browser_top10_record_ids": [
+        "doi:10.5771/9783748937395-54",
+        "doi:10.1515/9783110901290.166",
+        "source:internet-archive:IA41546014_0037",
+        "source:internet-archive:IA41546420_0151",
+        "doi:10.1515/9783110467888-342",
+        "source:internet-archive:gesetzundfreihei0000fors",
+        "doi:10.3790/978-3-428-45087-9",
+        "doi:10.1515/9783110467888-137",
+        "doi:10.1163/9789004383586_008",
+        "doi:10.32870/prot.i26.431"
+      ]
+    },
+    {
+      "query_id": "en-03",
+      "top5_membership_equal": false,
+      "top5_overlap": 2,
+      "top10_membership_equal": false,
+      "top10_order_equal": false,
+      "top10_overlap": 7,
+      "full_top20_spearman": 0.544360902255639,
+      "reference_top10_record_ids": [
+        "doi:10.1515/9781474472845-017",
+        "doi:10.1093/acprof:oso/9780198242673.003.0008",
+        "doi:10.1515/9781474472845-018",
+        "doi:10.1017/cbo9781139344265.003",
+        "doi:10.5040/9798881832018.ch-010",
+        "openalex:W2054020795",
+        "openalex:W2271417477",
+        "openalex:W4390284146",
+        "openalex:W7135466861",
+        "doi:10.5040/9781472548153.ch-005"
+      ],
+      "browser_top10_record_ids": [
+        "doi:10.1515/9781474472845-018",
+        "source:internet-archive:ethicswitharisto0000broa",
+        "openalex:W7030254716",
+        "openalex:W2054020795",
+        "doi:10.5040/9798881832018.ch-010",
+        "openalex:W7135466861",
+        "doi:10.1093/acprof:oso/9780198242673.003.0008",
+        "doi:10.5040/9781472548153.ch-005",
+        "doi:10.1515/9781474472845-017",
+        "openalex:W2373257412"
+      ]
+    },
+    {
+      "query_id": "es-08",
+      "top5_membership_equal": false,
+      "top5_overlap": 2,
+      "top10_membership_equal": false,
+      "top10_order_equal": false,
+      "top10_overlap": 6,
+      "full_top20_spearman": 0.3007518796992481,
+      "reference_top10_record_ids": [
+        "source:internet-archive:fenomenologia-del-espiritu-hegel",
+        "source:internet-archive:FenomenologaDelEspiritu",
+        "source:internet-archive:fenomenologia-del-espiritu-georg-wilhelm-friedrich-hegel",
+        "doi:10.2307/j.ctvt9k4nx.4",
+        "openalex:W2803719315",
+        "openalex:W2474505790",
+        "openalex:W2071031391",
+        "doi:10.2307/j.ctvt9k4nx.3",
+        "source:internet-archive:HEGELG.W.F.FenomenologaDelEspritu.EdicinBilingeDeAntonioGmez.Ramos.MadridAbadaUAM2010.",
+        "doi:10.25009/s.2014.9.857"
+      ],
+      "browser_top10_record_ids": [
+        "doi:10.2307/j.ctvt9k4nx.4",
+        "source:internet-archive:FenomenologaDelEspiritu",
+        "source:internet-archive:dri-ruben-la-fenomenologia-del-espiritu-de-hegel.-perspectiva-latinoamericana",
+        "openalex:W2071031391",
+        "doi:10.2307/j.ctvt9k4nx.3",
+        "source:internet-archive:fenomenologia-del-espiritu-georg-wilhelm-friedrich-hegel",
+        "openalex:W2218774293",
+        "openalex:W7052017412",
+        "openalex:W103375566",
+        "source:internet-archive:HEGELG.W.F.FenomenologaDelEspritu.EdicinBilingeDeAntonioGmez.Ramos.MadridAbadaUAM2010."
+      ]
+    },
+    {
+      "query_id": "en-08",
+      "top5_membership_equal": false,
+      "top5_overlap": 3,
+      "top10_membership_equal": false,
+      "top10_order_equal": false,
+      "top10_overlap": 7,
+      "full_top20_spearman": 0.5699248120300752,
+      "reference_top10_record_ids": [
+        "doi:10.1353/book4956",
+        "openalex:W2110716340",
+        "source:internet-archive:galaxy-books-g.-w.-f.-hegel-a.-v.-miller-j.-n.-findlay-phenomenology-of-spirit-o",
+        "source:internet-archive:spiritchaptersix0000hege",
+        "source:internet-archive:the-phenomenology-of-spirit-georg-wilhelm-friedrich-hegel",
+        "doi:10.4324/9780203205044",
+        "doi:10.1515/9781400826476",
+        "openalex:W7052927683",
+        "openalex:W2054652778",
+        "openalex:W3041130324"
+      ],
+      "browser_top10_record_ids": [
+        "doi:10.4324/9780203205044",
+        "source:internet-archive:galaxy-books-g.-w.-f.-hegel-a.-v.-miller-j.-n.-findlay-phenomenology-of-spirit-o",
+        "source:internet-archive:spiritchaptersix0000hege",
+        "openalex:W7052927683",
+        "source:internet-archive:the-phenomenology-of-spirit-georg-wilhelm-friedrich-hegel",
+        "doi:10.1515/9781400826476",
+        "openalex:W3135606047",
+        "openalex:W2054652778",
+        "source:internet-archive:hegels-phenomenology-of-spirit",
+        "openalex:W621986673"
+      ]
+    }
+  ],
+  "artifacts": {
+    "browser_scores": {
+      "path": "benchmark/qwen3/browser/q8-1024-parity-pilot/scores/qwen3-browser-q8-1024-parity-pilot-v1.raw.jsonl",
+      "sha256": "4ef826f5dbc1c92c40eca5d2747a78c8a6516df5c16c4013ee3511023eb578e7"
+    },
+    "browser_metadata": {
+      "path": "benchmark/qwen3/browser/q8-1024-parity-pilot/scores/qwen3-browser-q8-1024-parity-pilot-v1.raw.meta.json",
+      "sha256": "f28fa74b8ae16d9360a20256a86374a473035dd7a18649f0ced0b85c61d9799f"
+    },
+    "reference_scores": {
+      "path": "benchmark/qwen3/browser/q8-1024-parity-pilot/reference/qwen3-browser-q8-1024-parity-pilot-v1.python-1024.jsonl",
+      "sha256": "52d3dc847f2faa124d395effa6d6a8864b0e683ee17b499a0c6a7bac6714b708"
+    }
+  },
+  "runtime": {
+    "runtime": "browser",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "transformers_js_version": "4.3.0",
+    "onnx_backend": "onnxruntime-web",
+    "wasm_host_threads": 1,
+    "execution_provider": "webgpu",
+    "device": "webgpu",
+    "dtype": "q8",
+    "adapter_info": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "device": "",
+      "description": "",
+      "is_fallback_adapter": false,
+      "features": [
+        "bgra8unorm-storage",
+        "clip-distances",
+        "core-features-and-limits",
+        "depth-clip-control",
+        "depth32float-stencil8",
+        "dual-source-blending",
+        "float32-blendable",
+        "float32-filterable",
+        "indirect-first-instance",
+        "primitive-index",
+        "rg11b10ufloat-renderable",
+        "shader-f16",
+        "subgroup-size-control",
+        "subgroups",
+        "texture-component-swizzle",
+        "texture-compression-astc",
+        "texture-compression-astc-sliced-3d",
+        "texture-compression-bc",
+        "texture-compression-bc-sliced-3d",
+        "texture-compression-etc2",
+        "texture-formats-tier1",
+        "texture-formats-tier2",
+        "timestamp-query"
+      ]
+    },
+    "session_configs": {
+      "model": {
+        "dtype": "q8",
+        "device": "webgpu"
+      }
+    },
+    "yes_token_id": 9693,
+    "no_token_id": 2152,
+    "content_max_length": 976,
+    "num_logits_to_keep": 1,
+    "onnx_output_selection": {
+      "session": "model",
+      "fetches": [
+        "logits"
+      ]
+    }
+  }
+}

@@ -772,3 +772,34 @@ Freeze this implementation before the single official browser execution. Do not 
 From the frozen implementation commit, perform one final no-inference preflight and then execute the preregistered official browser q8 parity pilot once.
 
 ---
+### Result — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Frozen implementation commit:** `7e9e7fb`
+**Browser scores SHA-256:** `4ef826f5dbc1c92c40eca5d2747a78c8a6516df5c16c4013ee3511023eb578e7`
+**Browser metadata SHA-256:** `f28fa74b8ae16d9360a20256a86374a473035dd7a18649f0ced0b85c61d9799f`
+**Parity report SHA-256:** `603d38a94c71517f95a4730d8f77ac651f3eaadbb6cab5afb03d599cd7256dd6`
+
+### Official execution
+
+The single preregistered browser execution completed all `100/100` development pairs using q8/WebGPU. All score records were unique and finite. The final checkpoint was removed after successful completion of the execution pipeline.
+
+Runtime: Transformers.js `4.3.0`, `onnxruntime-web`, WebGPU, q8, Apple `metal-3`, no fallback adapter, WASM host threads `1`, `num_logits_to_keep=1`, logits-only output. Total elapsed time: `2157.153` seconds.
+
+### Primary result
+
+**FAIL.** Exact Top-10 membership equality was `0/5`; the preregistered gate required `5/5`. No tuning, threshold adjustment, blending, retry, or production change is authorized from this result.
+
+### Secondary results
+
+Top-10 overlaps by query: `[8, 8, 7, 6, 7]`; aggregate overlap `36/50` (`72%`). Top-5 overlaps: `[3, 3, 2, 2, 3]`; aggregate overlap `13/25` (`52%`). Full-Top-20 Spearman values: `[0.8631578947368421, 0.5263157894736843, 0.544360902255639, 0.3007518796992481, 0.5699248120300752]`. Global raw-score Spearman: `0.8879107823112363`. Global raw-score Pearson: `0.8545451587745371`. Mean absolute raw-score difference: `0.10065170599554975`. Maximum absolute raw-score difference: `0.7381553168180568`.
+
+### Interpretation boundary
+
+The q8/WebGPU browser stack is runtime-feasible at the pilot inputs but does not preserve the frozen Python/MPS float16-1024 ranking structure under the preregistered exact Top-10 criterion. This experiment does not isolate quantization from ONNX/runtime effects and does not measure human relevance quality of the q8 ranking.
+
+### Decision
+
+Close this pilot as a structural-parity failure. Freeze all outputs unchanged. Do not rerun or tune q8 against these 100 observed development pairs. Any further browser-ranking experiment must be separately motivated and preregistered.
+
+---
