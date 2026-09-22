@@ -803,3 +803,28 @@ The q8/WebGPU browser stack is runtime-feasible at the pilot inputs but does not
 Close this pilot as a structural-parity failure. Freeze all outputs unchanged. Do not rerun or tune q8 against these 100 observed development pairs. Any further browser-ranking experiment must be separately motivated and preregistered.
 
 ---
+### Kickoff — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-21`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Base commit:** `34fd13a6e7eb377fc33db4f8660dc3df3bd81d97`
+
+### Research question
+
+Does the frozen q8/WebGPU browser reranker improve, preserve, or reduce human-assessed philosophical relevance compared with the current production ranking on a fresh, previously unseen query holdout?
+
+### Experimental boundary
+
+This is a new human-relevance experiment. The 100 development pairs from `qwen3-browser-q8-1024-parity-pilot-v1` are already observed and are excluded from this holdout. Prior development queries and prior Qwen validation/holdout queries are also excluded.
+
+The production search system will retrieve and freeze candidate pools without q8 scoring. The browser q8 reranker will later score only those frozen candidates. Production and q8 will therefore be compared on identical candidate membership.
+
+Human adjudication will be blind to condition, scores, ranks, provider provenance, and model provenance. Only Top-10 membership changes will require new human relevance judgments; unchanged Top-10 membership cancels in the paired delta.
+
+No query selection, retrieval, q8 inference, human judgment, threshold tuning, blending, or production modification has occurred for this experiment yet.
+
+### Next step
+
+Audit the existing fresh-holdout infrastructure, then preregister the query set, retrieval boundary, browser runtime, A/B construction, blind audit procedure, primary paired relevance metric, and failure policy before retrieving candidates.
+
+---
