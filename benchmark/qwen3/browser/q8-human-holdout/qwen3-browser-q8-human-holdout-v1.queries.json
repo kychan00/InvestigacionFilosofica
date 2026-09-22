@@ -1,0 +1,201 @@
+{
+  "schema_version": "qwen3-browser-q8-human-holdout-queries-v1",
+  "validation_id": "qwen3-browser-q8-human-holdout-v1",
+  "purpose": "fresh-browser-q8-human-ranking-validation",
+  "languages": [
+    "es",
+    "en",
+    "de",
+    "fr",
+    "pt"
+  ],
+  "families": [
+    "kierkegaard-despair",
+    "merleau-ponty-perception",
+    "hobbes-leviathan",
+    "ethics-artificial-intelligence",
+    "philosophy-biology-evolution"
+  ],
+  "intent_mix": {
+    "philosopher-concept": 10,
+    "work": 5,
+    "interdisciplinary-challenge": 10
+  },
+  "queries": [
+    {
+      "id": "q8h-es-01",
+      "language": "es",
+      "family": "kierkegaard-despair",
+      "intent": "philosopher-concept",
+      "query": "desesperación en Kierkegaard"
+    },
+    {
+      "id": "q8h-en-01",
+      "language": "en",
+      "family": "kierkegaard-despair",
+      "intent": "philosopher-concept",
+      "query": "despair in Kierkegaard"
+    },
+    {
+      "id": "q8h-de-01",
+      "language": "de",
+      "family": "kierkegaard-despair",
+      "intent": "philosopher-concept",
+      "query": "Verzweiflung bei Kierkegaard"
+    },
+    {
+      "id": "q8h-fr-01",
+      "language": "fr",
+      "family": "kierkegaard-despair",
+      "intent": "philosopher-concept",
+      "query": "désespoir chez Kierkegaard"
+    },
+    {
+      "id": "q8h-pt-01",
+      "language": "pt",
+      "family": "kierkegaard-despair",
+      "intent": "philosopher-concept",
+      "query": "desespero em Kierkegaard"
+    },
+    {
+      "id": "q8h-es-02",
+      "language": "es",
+      "family": "merleau-ponty-perception",
+      "intent": "philosopher-concept",
+      "query": "percepción en Merleau-Ponty"
+    },
+    {
+      "id": "q8h-en-02",
+      "language": "en",
+      "family": "merleau-ponty-perception",
+      "intent": "philosopher-concept",
+      "query": "perception in Merleau-Ponty"
+    },
+    {
+      "id": "q8h-de-02",
+      "language": "de",
+      "family": "merleau-ponty-perception",
+      "intent": "philosopher-concept",
+      "query": "Wahrnehmung bei Merleau-Ponty"
+    },
+    {
+      "id": "q8h-fr-02",
+      "language": "fr",
+      "family": "merleau-ponty-perception",
+      "intent": "philosopher-concept",
+      "query": "perception chez Merleau-Ponty"
+    },
+    {
+      "id": "q8h-pt-02",
+      "language": "pt",
+      "family": "merleau-ponty-perception",
+      "intent": "philosopher-concept",
+      "query": "percepção em Merleau-Ponty"
+    },
+    {
+      "id": "q8h-es-03",
+      "language": "es",
+      "family": "hobbes-leviathan",
+      "intent": "work",
+      "query": "Leviatán de Hobbes"
+    },
+    {
+      "id": "q8h-en-03",
+      "language": "en",
+      "family": "hobbes-leviathan",
+      "intent": "work",
+      "query": "Hobbes Leviathan"
+    },
+    {
+      "id": "q8h-de-03",
+      "language": "de",
+      "family": "hobbes-leviathan",
+      "intent": "work",
+      "query": "Leviathan von Hobbes"
+    },
+    {
+      "id": "q8h-fr-03",
+      "language": "fr",
+      "family": "hobbes-leviathan",
+      "intent": "work",
+      "query": "Léviathan de Hobbes"
+    },
+    {
+      "id": "q8h-pt-03",
+      "language": "pt",
+      "family": "hobbes-leviathan",
+      "intent": "work",
+      "query": "Leviatã de Hobbes"
+    },
+    {
+      "id": "q8h-es-04",
+      "language": "es",
+      "family": "ethics-artificial-intelligence",
+      "intent": "interdisciplinary-challenge",
+      "query": "ética de la inteligencia artificial"
+    },
+    {
+      "id": "q8h-en-04",
+      "language": "en",
+      "family": "ethics-artificial-intelligence",
+      "intent": "interdisciplinary-challenge",
+      "query": "ethics of artificial intelligence"
+    },
+    {
+      "id": "q8h-de-04",
+      "language": "de",
+      "family": "ethics-artificial-intelligence",
+      "intent": "interdisciplinary-challenge",
+      "query": "Ethik der künstlichen Intelligenz"
+    },
+    {
+      "id": "q8h-fr-04",
+      "language": "fr",
+      "family": "ethics-artificial-intelligence",
+      "intent": "interdisciplinary-challenge",
+      "query": "éthique de l’intelligence artificielle"
+    },
+    {
+      "id": "q8h-pt-04",
+      "language": "pt",
+      "family": "ethics-artificial-intelligence",
+      "intent": "interdisciplinary-challenge",
+      "query": "ética da inteligência artificial"
+    },
+    {
+      "id": "q8h-es-05",
+      "language": "es",
+      "family": "philosophy-biology-evolution",
+      "intent": "interdisciplinary-challenge",
+      "query": "filosofía de la biología y evolución"
+    },
+    {
+      "id": "q8h-en-05",
+      "language": "en",
+      "family": "philosophy-biology-evolution",
+      "intent": "interdisciplinary-challenge",
+      "query": "philosophy of biology and evolution"
+    },
+    {
+      "id": "q8h-de-05",
+      "language": "de",
+      "family": "philosophy-biology-evolution",
+      "intent": "interdisciplinary-challenge",
+      "query": "Philosophie der Biologie und Evolution"
+    },
+    {
+      "id": "q8h-fr-05",
+      "language": "fr",
+      "family": "philosophy-biology-evolution",
+      "intent": "interdisciplinary-challenge",
+      "query": "philosophie de la biologie et évolution"
+    },
+    {
+      "id": "q8h-pt-05",
+      "language": "pt",
+      "family": "philosophy-biology-evolution",
+      "intent": "interdisciplinary-challenge",
+      "query": "filosofia da biologia e evolução"
+    }
+  ]
+}

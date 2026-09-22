@@ -828,3 +828,30 @@ No query selection, retrieval, q8 inference, human judgment, threshold tuning, b
 Audit the existing fresh-holdout infrastructure, then preregister the query set, retrieval boundary, browser runtime, A/B construction, blind audit procedure, primary paired relevance metric, and failure policy before retrieving candidates.
 
 ---
+### Preregistration freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-21`
+**Base commit:** `4d37df6a80a1fd07bc882c1a1bd918f0d7260ff9`
+**Query-set SHA-256:** `8ace2daeb59d698e7fce9fab550600c9b3ddfb97beff0fa90d66465a4c8dbb4d`
+**Preregistration SHA-256:** `9575c35e5914dd7c6f48f1b03e12f31f381b91f52625f56155206d25ecd2b7ff`
+**Frozen q8 source preregistration SHA-256:** `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`
+
+### Frozen design
+
+The fresh holdout contains `25` queries: five languages (`es`, `en`, `de`, `fr`, `pt`) across five previously unused semantic families, with intent mix `10` philosopher-concept, `5` work, and `10` interdisciplinary-challenge queries. Normalized exact-query collision checking against existing benchmark JSON artifacts returned zero collisions.
+
+Production retrieval is frozen to the previously validated profile with exactly `20` candidates per query and excludes q8 scoring and human labels. Condition A is current production order. Condition B reranks the exact same Top-20 pool by frozen browser q8 raw score descending, with original production rank as the exact-score tie breaker.
+
+The browser candidate reuses exactly the closed q8 browser model and prompt contract from `qwen3-browser-q8-1024-parity-pilot-v1`. No threshold, blending, pool-membership modification, prompt change, or runtime tuning is permitted.
+
+The primary human metric is exact paired `ΔP@10` (`B - A`). Every changed Top-10 query-document pair will be adjudicated blindly with relevance threshold `>=2`; unchanged Top-10 slots cancel exactly and therefore need not be judged for the paired delta.
+
+### State at freeze
+
+No production retrieval, q8 inference, A/B construction, human audit, human judgment, or planned output exists yet.
+
+### Next step
+
+Implement and audit the isolated production-retrieval runner for this frozen holdout, then freeze that implementation before retrieving any candidates.
+
+---

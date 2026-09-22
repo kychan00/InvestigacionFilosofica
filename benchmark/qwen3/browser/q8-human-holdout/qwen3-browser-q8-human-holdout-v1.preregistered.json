@@ -1,0 +1,176 @@
+{
+  "schema_version": "qwen3-browser-q8-human-holdout-prereg-v1",
+  "validation_id": "qwen3-browser-q8-human-holdout-v1",
+  "status": "preregistered-before-retrieval",
+  "purpose": "Fresh internal human relevance validation of frozen browser q8 reranking against current production ranking.",
+  "lineage": {
+    "branch": "experiment/qwen3-browser-q8-human-holdout-v1",
+    "kickoff_commit": "4d37df6",
+    "production_base_commit": "bb9689da2016ca26a08359e8655eca7a5b771937",
+    "closed_q8_parity_result_commit": "34fd13a",
+    "closed_q8_preregistration_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/qwen3-browser-q8-1024-parity-pilot-v1.preregistered.json",
+    "closed_q8_preregistration_sha256": "5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b"
+  },
+  "query_set": {
+    "path": "benchmark/qwen3/browser/q8-human-holdout/qwen3-browser-q8-human-holdout-v1.queries.json",
+    "sha256": "8ace2daeb59d698e7fce9fab550600c9b3ddfb97beff0fa90d66465a4c8dbb4d",
+    "query_count": 25,
+    "languages": [
+      "es",
+      "en",
+      "de",
+      "fr",
+      "pt"
+    ],
+    "families": [
+      "kierkegaard-despair",
+      "merleau-ponty-perception",
+      "hobbes-leviathan",
+      "ethics-artificial-intelligence",
+      "philosophy-biology-evolution"
+    ],
+    "intent_mix": {
+      "philosopher-concept": 10,
+      "work": 5,
+      "interdisciplinary-challenge": 10
+    },
+    "freshness_rules": [
+      "No normalized exact query may occur in any previously versioned benchmark JSON query-bearing artifact.",
+      "No semantic family used in the 50-query ranking development benchmark is reused.",
+      "No semantic family used in qwen3-reranker-v1 classifier holdout is reused.",
+      "No semantic family used in qwen3-ranking-holdout-v1 is reused.",
+      "The observed 100-pair q8 parity pilot came from development queries and is excluded from this fresh holdout."
+    ]
+  },
+  "retrieval": {
+    "pool_depth": 20,
+    "minimum_results_per_query": 20,
+    "qwen_used_during_retrieval": false,
+    "human_labels_used_during_retrieval": false,
+    "profile": {
+      "maxQueries": 5,
+      "openAlexPhilosophy": {
+        "enabled": true,
+        "rows": 12
+      },
+      "cucshFilosofia": {
+        "enabled": true,
+        "rows": 8
+      },
+      "openAlex": {
+        "enabled": false,
+        "perPage": 12
+      },
+      "crossref": {
+        "enabled": true,
+        "rows": 12
+      },
+      "internetArchive": {
+        "enabled": true,
+        "rows": 6
+      },
+      "delayBetweenExpansions": 600
+    }
+  },
+  "browser_candidate": {
+    "source_experiment": "qwen3-browser-q8-1024-parity-pilot-v1",
+    "browser_model": {
+      "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+      "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+      "artifact": "onnx/model_quantized.onnx",
+      "dtype": "q8",
+      "device": "webgpu",
+      "execution_providers": [
+        "webgpu"
+      ],
+      "transformers_js_version": "4.3.0",
+      "wasm_host_threads": 1,
+      "num_logits_to_keep": 1,
+      "onnx_outputs_requested": [
+        "logits"
+      ],
+      "max_length": 1024
+    },
+    "prompt_contract": {
+      "instruction_path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+      "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+      "content_format": "<Instruct>: {instruction}[newline-if-needed]<Query>: {query}\\n<Document>: {document}",
+      "document_format": "Mirror scripts/benchmark/qwen3/adapter.py build_document_text exactly.",
+      "padding_side": "left",
+      "max_length": 1024,
+      "truncation_contract": "Match the frozen Python adapter/browser parity longest-first bounded-content construction at max_length 1024.",
+      "score_tokens": [
+        "no",
+        "yes"
+      ],
+      "score_formula": "softmax([no_logit, yes_logit])[1]",
+      "system_text": "Judge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be \"yes\" or \"no\".",
+      "system_prefix": "<|im_start|>system\\nJudge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be \"yes\" or \"no\".<|im_end|>\\n<|im_start|>user\\n",
+      "system_suffix": "<|im_end|>\\n<|im_start|>assistant\\n<think>\\n\\n</think>\\n\\n"
+    },
+    "scoring_policy": "continuous yes/no softmax raw probability",
+    "binary_threshold_used_for_ranking": false
+  },
+  "candidate_ranking_policy": {
+    "A": "current production order",
+    "B": "sort the exact same frozen Top-20 pool by browser_q8_raw_score descending",
+    "tie_breaker": "original production rank ascending",
+    "binary_threshold_used_for_ranking": false,
+    "score_blending": false,
+    "pool_membership_changes": false
+  },
+  "human_audit": {
+    "primary_metric": "exact paired delta P@10 (B minus A)",
+    "sample_rule": "Blindly adjudicate every query-document pair in the symmetric difference between A and B Top 10.",
+    "relevance_scale": {
+      "0": "Irrelevante o ruido.",
+      "1": "Relacionado de forma tangencial o insuficiente para la necesidad completa.",
+      "2": "Relevante para la consulta.",
+      "3": "Altamente relevante o central para la consulta."
+    },
+    "relevant_threshold": 2,
+    "blinding": [
+      "A/B condition",
+      "production rank",
+      "browser q8 rank",
+      "production score",
+      "browser q8 raw score",
+      "record/provider identity",
+      "retrieval provenance"
+    ],
+    "absolute_p10_policy": "Do not claim absolute human P@10 unless shared Top-10 slots are also adjudicated; symmetric-difference judgments identify paired delta P@10 exactly."
+  },
+  "secondary_analysis": [
+    "ordinal relevance delta on changed Top-10 pairs",
+    "improved/worsened/tied queries",
+    "breakdown by language",
+    "breakdown by intent",
+    "breakdown by family",
+    "structural Top-5 and Top-10 movement"
+  ],
+  "ordering_constraints": [
+    "Freeze this preregistration and exact fresh queries before retrieval.",
+    "Freeze production Top-20 retrieval before constructing browser model input.",
+    "Freeze clean model-input dataset before browser q8 inference.",
+    "Freeze browser q8 raw scores before constructing A/B rankings.",
+    "Freeze deterministic A/B rankings before constructing the blind human audit.",
+    "Freeze all human judgments before reconstructing A/B provenance.",
+    "Do not tune scoring, blending, thresholds, query formulation, retrieval policy, prompt, browser runtime, or q8 settings using holdout results."
+  ],
+  "decision_scope": {
+    "fresh_internal_human_ranking_validation": true,
+    "independent_external_validation": false,
+    "production_change_authorized": false,
+    "note": "The experiment estimates human relevance delta for frozen browser q8 reranking. A result does not itself authorize a production change."
+  },
+  "planned_outputs": {
+    "production_pool": "benchmark/qwen3/browser/q8-human-holdout/runs/qwen3-browser-q8-human-holdout-v1-production-pool.jsonl",
+    "production_pool_metadata": "benchmark/qwen3/browser/q8-human-holdout/runs/qwen3-browser-q8-human-holdout-v1-production-pool.meta.json",
+    "model_input_dataset": "benchmark/qwen3/browser/q8-human-holdout/datasets/qwen3-browser-q8-human-holdout-v1.jsonl",
+    "browser_scores": "benchmark/qwen3/browser/q8-human-holdout/scores/qwen3-browser-q8-human-holdout-v1.raw.jsonl",
+    "browser_metadata": "benchmark/qwen3/browser/q8-human-holdout/scores/qwen3-browser-q8-human-holdout-v1.raw.meta.json",
+    "ab_run": "benchmark/qwen3/browser/q8-human-holdout/runs/qwen3-browser-q8-human-holdout-v1-ab.jsonl",
+    "blind_audit_sample": "benchmark/qwen3/browser/q8-human-holdout/audit/qwen3-browser-q8-human-holdout-v1-delta-audit.sample.jsonl",
+    "human_delta_report": "benchmark/qwen3/browser/q8-human-holdout/reports/qwen3-browser-q8-human-holdout-v1-human-delta.json"
+  }
+}
