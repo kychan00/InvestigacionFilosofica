@@ -855,3 +855,35 @@ No production retrieval, q8 inference, A/B construction, human audit, human judg
 Implement and audit the isolated production-retrieval runner for this frozen holdout, then freeze that implementation before retrieving any candidates.
 
 ---
+### Retrieval implementation freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `b20c7ae30f13eba2106993a04dcd475f7c29eb99`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Retrieval server SHA-256:** `0a54be030b20bc424972992570b069c29925fc7de263d4187bda2e0c5d88efcb`
+**Retrieval browser SHA-256:** `7816a341cc7ebcac8e8cb92ee03307c6e4eec3b6c9a9efd2a3b5d74cfb2f5d6d`
+**Retrieval HTML SHA-256:** `f2f662ca261b4268cbeffdc04b307786e8b7f8d6b107908461e7499c6d797e4b`
+**Retrieval test SHA-256:** `4e50dffb3c113d67e6740d79b616c053a6f29886971d59ccd79745dd6c6c9501`
+**package.json SHA-256:** `6724c58e4527e301a5d844286674bcbfe8f6e53bd05d9c92c24e3dd78066d7e8`
+
+### Implementation
+
+A dedicated isolated retrieval runner was implemented for the fresh q8 human holdout. It uses the unchanged production `searchPhilosophy` path and the preregistered production retrieval profile to freeze exactly `20` candidates for each of `25` queries.
+
+The runner pins the frozen preregistration SHA-256 `9575c35e5914dd7c6f48f1b03e12f31f381b91f52625f56155206d25ecd2b7ff`, query-set SHA-256 `8ace2daeb59d698e7fce9fab550600c9b3ddfb97beff0fa90d66465a4c8dbb4d`, and production base commit `bb9689da2016ca26a08359e8655eca7a5b771937`.
+
+Only the preregistered production-pool and production-pool-metadata paths may be written. Retrieval payloads containing browser q8 scores, Qwen scores, or human relevance labels are rejected. Source failures stop the run. Partial query results may only resume the same official frozen retrieval.
+
+### Verification
+
+Dedicated retrieval tests passed `6/6`. The complete repository suite passed `211/211`. `git diff --check` passed. The no-retrieval preflight confirmed unchanged production source, absent planned outputs, absent partial state, and `retrieval_executed=false`. Browser q8 scoring, Qwen scoring, and human labels were all excluded from retrieval.
+
+### Decision
+
+Freeze this retrieval implementation before observing any candidate pool. Do not modify the query set, production search code, retrieval profile, pool depth, serialization, output paths, or retrieval implementation after candidate retrieval begins.
+
+### Next step
+
+Commit and push this frozen implementation. From that exact commit, run one final no-retrieval preflight and then start the single official production Top-20 retrieval for all 25 preregistered queries.
+
+---
