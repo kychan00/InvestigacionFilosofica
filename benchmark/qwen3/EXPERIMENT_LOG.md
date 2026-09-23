@@ -887,3 +887,30 @@ Freeze this retrieval implementation before observing any candidate pool. Do not
 Commit and push this frozen implementation. From that exact commit, run one final no-retrieval preflight and then start the single official production Top-20 retrieval for all 25 preregistered queries.
 
 ---
+### Production retrieval freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Official retrieval runtime commit:** `18333de88211ba5613ad1fb098dcca89eb4e43f3`
+**Production pool SHA-256:** `938322b67d543780a0489e0b5b0d63658c18b0fb32562f27f57fb7277c9711dd`
+**Production pool metadata SHA-256:** `0c81a62d20661d813ecf772c09f7c4adb7fef6f63f7d29c0082c6295ccfd3053`
+
+### Action
+
+Executed the single official production retrieval for the preregistered fresh q8 human holdout from frozen retrieval commit `18333de`. Production `searchPhilosophy` retrieved and ranked exactly `20` candidates for each of `25` preregistered queries.
+
+### Result
+
+The final pool contains exactly `500` rows across `25` queries with exactly `20` rows per query. Runtime metadata points to the frozen retrieval commit and the embedded run SHA matches the final pool bytes.
+
+No Qwen score, browser q8 score, or human relevance field is present in the frozen retrieval rows. Metadata records `qwen_used_during_retrieval=false`, `browser_q8_used_during_retrieval=false`, and `human_labels_used_during_retrieval=false`. The resumable partial state was removed after successful finalization.
+
+### Decision
+
+Freeze this production Top-20 pool as the sole candidate universe for both conditions A and B. Do not rerun retrieval, alter candidate membership, reorder condition A, modify the query set, or tune production retrieval based on later q8 or human results.
+
+### Next step
+
+Commit and push the frozen pool and metadata. Then construct a clean `500`-pair browser-q8 model-input dataset from this exact pool while stripping production rank, score, provider provenance, and other ranking-only fields before any q8 inference.
+
+---
