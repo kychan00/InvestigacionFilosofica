@@ -94,7 +94,9 @@
     "benchmark:qwen3:browser-q8-human-holdout:retrieval:preflight": "node scripts/benchmark/qwen3/run_browser_q8_human_holdout_retrieval.mjs --preflight",
     "benchmark:qwen3:browser-q8-human-holdout:retrieval:run": "npm run build:duckdb && node scripts/benchmark/qwen3/run_browser_q8_human_holdout_retrieval.mjs --run",
     "benchmark:qwen3:browser-q8-human-holdout:dataset:preflight": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_dataset.mjs --preflight",
-    "benchmark:qwen3:browser-q8-human-holdout:dataset:run": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_dataset.mjs --run"
+    "benchmark:qwen3:browser-q8-human-holdout:dataset:run": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_dataset.mjs --run",
+    "benchmark:qwen3:browser-q8-human-holdout:infer:preflight": "node scripts/benchmark/qwen3/run_browser_q8_human_holdout_inference.mjs --preflight",
+    "benchmark:qwen3:browser-q8-human-holdout:infer:run": "node scripts/benchmark/qwen3/run_browser_q8_human_holdout_inference.mjs --run"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",

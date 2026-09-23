@@ -975,3 +975,42 @@ Freeze this exact `500`-pair dataset as the sole input to the browser q8 inferen
 Commit and push the frozen dataset. Then audit the already-closed q8 1024 browser scoring implementation and adapt an isolated runner for these exact `500` frozen pairs without executing inference.
 
 ---
+### Browser q8 inference runner freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `eb9e7147e94a194032fdd94045f03053374fe532`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Inference runner SHA-256:** `44582ce698d10d7281e5c5c5f35f787c239c7404bd6ddf4ea881c174de438494`
+**Inference test SHA-256:** `0747c528e322ef4dfa5533ce6b3c92ff5698573655b12321dcb2081e857f537b`
+**package.json SHA-256:** `2d349812af960e7d478b6928c037d137db7e3cbb9526c1aa5adedc988c89f386`
+**Inherited closed browser scorer SHA-256:** `06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c`
+**Frozen browser bundle SHA-256:** `10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f`
+
+### Frozen inference inputs
+
+Fresh holdout preregistration SHA-256: `9575c35e5914dd7c6f48f1b03e12f31f381b91f52625f56155206d25ecd2b7ff`.
+Closed q8 source preregistration SHA-256: `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`.
+Frozen 500-pair dataset SHA-256: `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`.
+Frozen instruction SHA-256: `5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7`.
+
+### Inherited browser scorer contract
+
+The fresh holdout does not introduce a new browser scoring implementation. It reuses the exact closed q8-1024 browser scorer bytes from the completed parity pilot. Model, revision, q8 dtype, WebGPU execution provider, Transformers.js version, prompt construction, left padding, 1024-token boundary, logits-only ONNX output selection, yes/no tokens, and continuous yes/no softmax scoring remain unchanged.
+
+### Verification
+
+Dedicated inference tests passed `6/6`. Full repository tests passed `221/221`. `git diff --check` passed.
+
+The no-model preflight validated exactly `500` rows across `25` queries, the frozen dataset SHA, both preregistration SHAs, inherited scorer bytes, exact browser-model and prompt contracts, WebGPU-only browser bundle, max length `1024`, continuous raw scoring without a ranking threshold, and absent score, metadata, and checkpoint artifacts.
+
+The preflight recorded `inference_executed=false`, `model_downloaded=false`, `human_labels_used_during_inference=false`, and `production_changed=false`.
+
+### Decision
+
+Freeze this runner before the first fresh-holdout q8 score is observed. After inference starts, do not modify the scorer, model, prompt, runtime contract, dataset, pair order, max length, output paths, or ranking policy. Process recovery may resume only from the validated prefix checkpoint produced by this exact frozen runner.
+
+### Next step
+
+Commit and push this frozen inference runner. Run one final no-model preflight from that exact commit. Then execute the single official browser q8 scoring run over all `500` frozen pairs, allowing checkpoint-only recovery if interrupted.
+
+---
