@@ -949,3 +949,29 @@ Freeze this builder before materializing the dataset. Do not modify source-pool 
 Commit and push the frozen builder. Run one final preflight from that exact commit, then materialize the single official `500`-pair browser-q8 model-input dataset.
 
 ---
+### Model-input dataset freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Dataset builder commit:** `3a790b23bcfd388b7dae7577ade1c8346ecf1d9e`
+**Dataset SHA-256:** `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`
+**Rows:** `500`
+**Queries:** `25`
+**Unique query-document pairs:** `500`
+
+### Result
+
+The official browser-q8 model-input dataset was materialized once from the frozen production Top-20 pool. Its SHA-256 exactly matches the value derived during the pre-output builder preflight.
+
+The dataset preserves the exact frozen `(query_id, record_id)` sequence and contains only the clean model-input fields: `schema_version`, `query_id`, `query`, `record_id`, `title`, `abstract`, `authors`, `year`, and `document_language`.
+
+Production ranks and scores, provider provenance, retrieval diagnostics, URLs, citation information, DOI/journal/publisher/type metadata, browser q8 scores, Qwen scores, and human relevance labels are absent.
+
+### Decision
+
+Freeze this exact `500`-pair dataset as the sole input to the browser q8 inference stage. Do not rebuild, reorder, edit, augment, filter, or replace any pair after q8 scoring begins.
+
+### Next step
+
+Commit and push the frozen dataset. Then audit the already-closed q8 1024 browser scoring implementation and adapt an isolated runner for these exact `500` frozen pairs without executing inference.
+
+---
