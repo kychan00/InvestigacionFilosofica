@@ -914,3 +914,38 @@ Freeze this production Top-20 pool as the sole candidate universe for both condi
 Commit and push the frozen pool and metadata. Then construct a clean `500`-pair browser-q8 model-input dataset from this exact pool while stripping production rank, score, provider provenance, and other ranking-only fields before any q8 inference.
 
 ---
+### Dataset builder freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `dc326c9b1599b9fb73bc8969eb9f14c504ef70a4`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Dataset builder SHA-256:** `061e820e521862d279d1c418c19c066616cb5be54c0b6db9a2ebf1c9846e44fb`
+**Dataset test SHA-256:** `e468d680073b82bf0c5da816114d0aefcb2405af1c98502b5e86de35f8c1c9cf`
+**package.json SHA-256:** `969441017a665cd87003d9944ca7cd3e69b3bd868cfcd7525ee9c7aa805f7b91`
+**Preflight-derived dataset SHA-256:** `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`
+
+### Frozen input
+
+The builder consumes only the frozen production pool SHA-256 `938322b67d543780a0489e0b5b0d63658c18b0fb32562f27f57fb7277c9711dd` and its metadata SHA-256 `0c81a62d20661d813ecf772c09f7c4adb7fef6f63f7d29c0082c6295ccfd3053`, frozen at commit `dc326c9`.
+
+### Dataset contract
+
+The model-input dataset must contain exactly `500` query-document pairs across `25` queries. Pair sequence must remain identical to the frozen production pool. No duplicate pair may be removed.
+
+The only permitted model-input fields are `schema_version`, `query_id`, `query`, `record_id`, `title`, `abstract`, `authors`, `year`, and `document_language`.
+
+Production rank, production score, relevance level, provider provenance, matched queries, ranking diagnostics, URLs, citation counts, DOI, journal, publisher, document type, browser q8 scores, Qwen scores, and human relevance labels are excluded from model input.
+
+### Verification
+
+Dedicated dataset tests passed `4/4`. Full repository tests passed `215/215`. The preflight validated `500` rows, `25` queries, `419` unique records, zero duplicate pair removals, exact pair-sequence equality with the frozen pool, and absence of ranking, provider, and human-label provenance. No dataset output was written during preflight.
+
+### Decision
+
+Freeze this builder before materializing the dataset. Do not modify source-pool membership, pair ordering, cleaning fields, model-input schema, or dataset construction after the dataset is generated.
+
+### Next step
+
+Commit and push the frozen builder. Run one final preflight from that exact commit, then materialize the single official `500`-pair browser-q8 model-input dataset.
+
+---
