@@ -1014,3 +1014,29 @@ Freeze this runner before the first fresh-holdout q8 score is observed. After in
 Commit and push this frozen inference runner. Run one final no-model preflight from that exact commit. Then execute the single official browser q8 scoring run over all `500` frozen pairs, allowing checkpoint-only recovery if interrupted.
 
 ---
+### Browser q8 score freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Official inference runtime commit:** `1d21e36382ba0690da107b82e4bc569742799698`
+**Browser q8 raw scores SHA-256:** `c260c2f3194cda9cef91c9efc1b1cf7a0c0adee4c2b2d5a1e56c0855c35cd518`
+**Browser q8 metadata SHA-256:** `bdb66be6bb7222e4f2ebd510832c67024d88c84c4a94388d2fd77bb36881c26c`
+**Frozen dataset SHA-256:** `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`
+**Inherited browser scorer SHA-256:** `06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c`
+
+### Result
+
+The single official fresh-holdout browser q8 inference completed successfully over exactly `500` query-document pairs across `25` queries with exactly `20` candidates per query.
+
+The score sequence is byte-for-byte aligned to the frozen model-input pair sequence. All scores are finite probabilities in `[0,1]`. Runtime metadata records browser execution through WebGPU with q8 weights and max length `1024` from frozen inference commit `1d21e36`.
+
+The score file contains no human relevance labels. Inference used no ranking threshold, no score blending, no candidate-pool changes, and made no production changes. The resumable checkpoint was removed after successful finalization.
+
+### Decision
+
+Freeze these exact raw scores and metadata before constructing either condition A or condition B. Do not rerun inference, alter scores, change the model, modify the dataset, reorder the frozen pair sequence, tune a threshold, or introduce blending based on these results.
+
+### Next step
+
+Commit and push the frozen browser q8 scores and metadata. Then deterministically construct A/B rankings: A preserves the frozen production order; B sorts the exact same 20 candidates per query by browser q8 raw score descending with original production rank as the exact-score tie breaker.
+
+---

@@ -1,0 +1,89 @@
+{
+  "schema_version": "qwen3-browser-q8-human-holdout-score-meta-v1",
+  "experiment_id": "qwen3-browser-q8-human-holdout-v1",
+  "runtime_commit": "1d21e36382ba0690da107b82e4bc569742799698",
+  "preregistration_path": "benchmark/qwen3/browser/q8-human-holdout/qwen3-browser-q8-human-holdout-v1.preregistered.json",
+  "preregistration_sha256": "9575c35e5914dd7c6f48f1b03e12f31f381b91f52625f56155206d25ecd2b7ff",
+  "source_q8_preregistration_path": "benchmark/qwen3/browser/q8-1024-parity-pilot/qwen3-browser-q8-1024-parity-pilot-v1.preregistered.json",
+  "source_q8_preregistration_sha256": "5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b",
+  "dataset_path": "benchmark/qwen3/browser/q8-human-holdout/datasets/qwen3-browser-q8-human-holdout-v1.jsonl",
+  "dataset_sha256": "52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4",
+  "browser_scorer_path": "scripts/benchmark/qwen3/browser_q8_1024_parity_pilot.js",
+  "browser_scorer_sha256": "06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c",
+  "instruction_path": "benchmark/qwen3/configs/qwen3-reranker-v1.instruction.txt",
+  "instruction_sha256": "5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7",
+  "model": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+  "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+  "artifact": "onnx/model_quantized.onnx",
+  "output_path": "benchmark/qwen3/browser/q8-human-holdout/scores/qwen3-browser-q8-human-holdout-v1.raw.jsonl",
+  "output_sha256": "c260c2f3194cda9cef91c9efc1b1cf7a0c0adee4c2b2d5a1e56c0855c35cd518",
+  "row_count": 500,
+  "unique_query_count": 25,
+  "runtime": {
+    "runtime": "browser",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "transformers_js_version": "4.3.0",
+    "onnx_backend": "onnxruntime-web",
+    "wasm_host_threads": 1,
+    "execution_provider": "webgpu",
+    "device": "webgpu",
+    "dtype": "q8",
+    "adapter_info": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "device": "",
+      "description": "",
+      "is_fallback_adapter": false,
+      "features": [
+        "bgra8unorm-storage",
+        "clip-distances",
+        "core-features-and-limits",
+        "depth-clip-control",
+        "depth32float-stencil8",
+        "dual-source-blending",
+        "float32-blendable",
+        "float32-filterable",
+        "indirect-first-instance",
+        "primitive-index",
+        "rg11b10ufloat-renderable",
+        "shader-f16",
+        "subgroup-size-control",
+        "subgroups",
+        "texture-component-swizzle",
+        "texture-compression-astc",
+        "texture-compression-astc-sliced-3d",
+        "texture-compression-bc",
+        "texture-compression-bc-sliced-3d",
+        "texture-compression-etc2",
+        "texture-formats-tier1",
+        "texture-formats-tier2",
+        "timestamp-query"
+      ]
+    },
+    "session_configs": {
+      "model": {
+        "dtype": "q8",
+        "device": "webgpu"
+      }
+    },
+    "yes_token_id": 9693,
+    "no_token_id": 2152,
+    "content_max_length": 976,
+    "num_logits_to_keep": 1,
+    "onnx_output_selection": {
+      "session": "model",
+      "fetches": [
+        "logits"
+      ]
+    }
+  },
+  "browser_bundle_sha256": "10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f",
+  "elapsed_seconds": 19977.812,
+  "checkpointing_enabled": true,
+  "resumed_from_rows": 0,
+  "human_labels_used_during_inference": false,
+  "threshold_used_during_scoring": false,
+  "score_blending_used_during_scoring": false,
+  "candidate_pool_changed_during_scoring": false,
+  "production_changed": false
+}
