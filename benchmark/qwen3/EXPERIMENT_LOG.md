@@ -1040,3 +1040,45 @@ Freeze these exact raw scores and metadata before constructing either condition 
 Commit and push the frozen browser q8 scores and metadata. Then deterministically construct A/B rankings: A preserves the frozen production order; B sorts the exact same 20 candidates per query by browser q8 raw score descending with original production rank as the exact-score tie breaker.
 
 ---
+### A/B builder freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `604214b2e9f76e960b2488d6a8fd3dec3b1946b5`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**A/B builder SHA-256:** `a6a419632ff798ebd9b10c25890a94480a9d1526d8b029bfd5e88e1dede48abf`
+**A/B test SHA-256:** `c7f6c82750fb490b9b19723d21a29f5971dec94ef7216110f88cb1ba2450beac`
+**package.json SHA-256:** `002d8fe8f5b8bbf2cba1761e2f69a33d8b9cdf90861f5684a3783df8ffe0d56f`
+**Preflight-derived A/B SHA-256:** `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`
+
+### Frozen inputs
+
+Production pool SHA-256: `938322b67d543780a0489e0b5b0d63658c18b0fb32562f27f57fb7277c9711dd`.
+Model-input dataset SHA-256: `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`.
+Browser q8 raw scores SHA-256: `c260c2f3194cda9cef91c9efc1b1cf7a0c0adee4c2b2d5a1e56c0855c35cd518`.
+Score-freeze commit: `604214b`.
+
+### Ranking contract
+
+Condition A preserves the exact frozen production order. Condition B contains the identical candidate membership and sorts each 20-document query group by frozen browser q8 raw score descending, with original production rank ascending only for exact score ties.
+
+No binary threshold, score blending, retrieval change, candidate-pool change, model inference, or human label is permitted during A/B construction.
+
+### Preflight result
+
+The output-free preflight derived `1000` A/B rows from `500` frozen pairs across `25` queries. Top-5 membership changed in `25/25` queries with `142` symmetric-difference rows. Top-10 membership changed in `25/25` queries with `192` symmetric-difference rows, yielding `192` blind human audit candidates. Mean absolute rank shift was `5.276`, maximum shift `19`, unchanged-rank count `44`, and there were `4` exact-score pairs resolved by the frozen production-rank tie breaker.
+
+The preflight-derived A/B SHA-256 is `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`. No A/B output was written.
+
+### Verification
+
+Dedicated A/B tests passed `6/6`. Full repository tests passed `227/227`. `git diff --check` passed.
+
+### Decision
+
+Freeze this deterministic A/B builder before materializing condition A or B. Structural movement is not evidence of ranking quality; no relevance conclusion may be drawn before the blind human judgments are frozen.
+
+### Next step
+
+Commit and push this frozen builder. Run one final output-free preflight from the frozen commit. Then materialize the single official A/B artifact exactly once.
+
+---
