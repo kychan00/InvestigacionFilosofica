@@ -1108,3 +1108,44 @@ Freeze this exact A/B artifact before constructing the blind human audit. Do not
 Commit and push the frozen A/B artifact and metadata. Then construct a deterministic blind audit containing all `192` Top-10 symmetric-difference judgments while hiding condition, rank, original rank, browser q8 score, production score, provider provenance, and other ranking provenance from the human evaluator.
 
 ---
+### Blind human audit builder freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `51d9106c45fd8fb5b2ba8d547b87f5f4f960e618`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Blind audit builder SHA-256:** `fe17d0c87f95b0b69ecca07843d187b4c62fb67f0ee440fec14d0ddd5f61cc61`
+**Blind audit test SHA-256:** `c03afd95cded0bbba630b6ee7ea409c1b5f74eac0d9f44fdeecdbe629e4e81a6`
+**package.json SHA-256:** `7967c27ec904c745f57682a86b27f328fedaa017514815a09e3e330150a533a7`
+**Preflight sample SHA-256:** `b0ec1980f47e0f123a36f056c86b23965b3c9aa61693b382aac38abbb93855f9`
+**Preflight sample metadata SHA-256:** `d2f5be7b60104c2029331882646c8e742653f3a918edebf3716fa67a157b4ff4`
+**Preflight worksheet SHA-256:** `4ff6c82768738f492330d85f4b76d4275e9488bcfa1bdede9a113f107e55e776`
+
+### Frozen input
+
+A/B artifact SHA-256: `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`.
+A/B metadata SHA-256: `3225b67c62246ebc9697d30e4a278356ea45465f133676c89cfb305290b67f14`.
+A/B freeze commit: `51d9106c45fd8fb5b2ba8d547b87f5f4f960e618`.
+
+### Blind audit contract
+
+The audit contains every query-document pair in the Top-10 symmetric difference between A and B: exactly `192` judgments across `25` queries. The hidden balance is `96` A-only and `96` B-only.
+
+Public audit rows hide condition, rank, original rank, query ID, record ID, browser q8 raw score, production score, provider provenance, retrieval provenance, and all human judgments before adjudication.
+
+Audit order is deterministic and condition-independent. No private pre-adjudication mapping artifact is written. The A/B mapping may be reconstructed only after the human judgments are frozen.
+
+### Verification
+
+Dedicated blind-audit tests passed `6/6`. Full repository tests passed `233/233`. `git diff --check` passed.
+
+The output-free preflight derived exactly `192` rows and `25` queries, with `96` hidden A-only and `96` hidden B-only cases. It wrote no audit output and exposed no A/B or q8 ranking provenance.
+
+### Decision
+
+Freeze this blind-audit builder before materializing the public sample. Do not change audit membership, order, blinding fields, relevance scale, or A/B mapping after the sample is generated.
+
+### Next step
+
+Commit and push the frozen blind-audit builder. Run one final output-free preflight from that exact commit. Then materialize the single official blind sample, metadata, and worksheet exactly once.
+
+---
