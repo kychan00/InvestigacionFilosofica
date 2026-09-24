@@ -1,0 +1,56 @@
+{
+  "schema_version": "qwen3-browser-q8-human-holdout-ab-meta-v1",
+  "validation_id": "qwen3-browser-q8-human-holdout-v1",
+  "row_count": 1000,
+  "condition_rows": {
+    "A": 500,
+    "B": 500
+  },
+  "query_count": 25,
+  "pool_depth": 20,
+  "same_pool_per_condition": true,
+  "qwen_model_called_during_ab_build": false,
+  "human_labels_used": false,
+  "binary_threshold_used": false,
+  "score_blending": false,
+  "pool_membership_changes": false,
+  "policy": {
+    "A": "original production order",
+    "B": "browser_q8_raw_score descending",
+    "tie_breaker": "original production rank ascending"
+  },
+  "sources": {
+    "production_pool": {
+      "path": "benchmark/qwen3/browser/q8-human-holdout/runs/qwen3-browser-q8-human-holdout-v1-production-pool.jsonl",
+      "sha256": "938322b67d543780a0489e0b5b0d63658c18b0fb32562f27f57fb7277c9711dd"
+    },
+    "model_input_dataset": {
+      "path": "benchmark/qwen3/browser/q8-human-holdout/datasets/qwen3-browser-q8-human-holdout-v1.jsonl",
+      "sha256": "52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4"
+    },
+    "browser_q8_raw_scores": {
+      "path": "benchmark/qwen3/browser/q8-human-holdout/scores/qwen3-browser-q8-human-holdout-v1.raw.jsonl",
+      "sha256": "c260c2f3194cda9cef91c9efc1b1cf7a0c0adee4c2b2d5a1e56c0855c35cd518",
+      "freeze_commit": "604214b2e9f76e960b2488d6a8fd3dec3b1946b5"
+    }
+  },
+  "output": {
+    "path": "benchmark/qwen3/browser/q8-human-holdout/runs/qwen3-browser-q8-human-holdout-v1-ab.jsonl",
+    "sha256": "002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d"
+  },
+  "structural_summary": {
+    "queries": 25,
+    "pool_depth": 20,
+    "pairs": 500,
+    "ab_rows": 1000,
+    "top5_queries_changed": 25,
+    "top5_changed_pairs": 142,
+    "top10_queries_changed": 25,
+    "top10_changed_pairs": 192,
+    "blind_audit_candidates": 192,
+    "mean_absolute_rank_shift": 5.276,
+    "max_absolute_rank_shift": 19,
+    "unchanged_rank_count": 44,
+    "equal_score_pairs": 4
+  }
+}

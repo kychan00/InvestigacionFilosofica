@@ -1082,3 +1082,29 @@ Freeze this deterministic A/B builder before materializing condition A or B. Str
 Commit and push this frozen builder. Run one final output-free preflight from the frozen commit. Then materialize the single official A/B artifact exactly once.
 
 ---
+### A/B artifact freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**A/B builder commit:** `12dad54705be4576759a9dab40c065111d3dc878`
+**A/B artifact SHA-256:** `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`
+**A/B metadata SHA-256:** `3225b67c62246ebc9697d30e4a278356ea45465f133676c89cfb305290b67f14`
+
+### Result
+
+The single official A/B artifact was materialized from the frozen production pool and frozen browser q8 scores. It contains exactly `1000` rows: `500` condition A rows and `500` condition B rows across `25` queries, with identical candidate membership in both conditions.
+
+Condition A preserves the exact frozen production ranking. Condition B sorts the same 20 candidates per query by frozen browser q8 raw score descending, using original production rank only as the exact-score tie breaker.
+
+Top-10 membership differs in all `25/25` queries. The Top-10 symmetric difference contains `192` query-document judgments: `96` exits from production Top-10 and `96` entrants into the q8 Top-10.
+
+No human labels were used. Qwen was not called during A/B construction. No threshold, score blending, pool-membership change, retrieval change, or production change was introduced.
+
+### Decision
+
+Freeze this exact A/B artifact before constructing the blind human audit. Do not alter A/B membership, ranks, scores, tie-breaking, or candidate selection after this point.
+
+### Next step
+
+Commit and push the frozen A/B artifact and metadata. Then construct a deterministic blind audit containing all `192` Top-10 symmetric-difference judgments while hiding condition, rank, original rank, browser q8 score, production score, provider provenance, and other ranking provenance from the human evaluator.
+
+---
