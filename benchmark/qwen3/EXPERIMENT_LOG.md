@@ -1164,3 +1164,22 @@ Decision: freeze these exact blind artifacts before human adjudication. The froz
 Next step: commit and push the blind sample, then build a separate blind adjudication interface that stores judgments independently.
 
 ---
+### Blind adjudication interface freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-24
+Implementation base commit: b39163d
+Server SHA-256: 57e0fcee57e8c4495abb747ccea864cb5926c8384d79b7f1a3ddb53f664db536
+Browser SHA-256: 1b8bce166297a7c37e6a6ca6a223a0e9abb37650924c064e4134bcd7695c9981
+HTML SHA-256: b17af302d44909ce8d123a4cba91eecd46e4dc2fd336ee6bd0143b29ae3a1885
+Test SHA-256: f0d9e52e2cf5f874d5499b760a0041f20028aecc7192f1b9b8b85dda12978249
+package.json SHA-256: c9628e9be89422b2091450c7d7da6bce740336b1fe3c6279b35a59951f3867f1
+
+The adjudication interface is pinned to the frozen 192-row blind sample, metadata, and worksheet. A/B condition, rankings, browser q8 scores, production scores, provider provenance, and private mapping are unavailable during adjudication.
+
+Preflight wrote no progress or judgments. Dedicated tests passed 4/4. Full repository tests passed 237/237. git diff --check passed.
+
+Decision: freeze this interface before the adjudicator sees the first audit item. Human progress will be stored separately in the cache until all 192 judgments are finalized.
+
+Next step: commit and push this exact interface, rerun the output-free preflight from the frozen commit, then start the local adjudication server.
+
+---

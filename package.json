@@ -100,7 +100,9 @@
     "benchmark:qwen3:browser-q8-human-holdout:ab:preflight": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_ab.mjs --preflight",
     "benchmark:qwen3:browser-q8-human-holdout:ab:run": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_ab.mjs --run",
     "benchmark:qwen3:browser-q8-human-holdout:audit:sample:preflight": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_delta_audit.mjs --preflight",
-    "benchmark:qwen3:browser-q8-human-holdout:audit:sample:run": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_delta_audit.mjs --run"
+    "benchmark:qwen3:browser-q8-human-holdout:audit:sample:run": "node scripts/benchmark/qwen3/build_browser_q8_human_holdout_delta_audit.mjs --run",
+    "benchmark:qwen3:browser-q8-human-holdout:human-audit:preflight": "node scripts/benchmark/qwen3/browser_q8_human_holdout_audit_server.mjs --preflight",
+    "benchmark:qwen3:browser-q8-human-holdout:human-audit:run": "node scripts/benchmark/qwen3/browser_q8_human_holdout_audit_server.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
