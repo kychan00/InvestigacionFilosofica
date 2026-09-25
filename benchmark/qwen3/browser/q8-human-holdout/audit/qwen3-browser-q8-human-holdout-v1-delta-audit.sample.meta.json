@@ -1,0 +1,48 @@
+{
+  "schema_version": "qwen3-browser-q8-human-holdout-delta-audit-sample-meta-v1",
+  "validation_id": "qwen3-browser-q8-human-holdout-v1",
+  "audit_version": "qwen3-browser-q8-human-holdout-v1-delta-audit-v1",
+  "purpose": "blind-human-top10-delta-audit",
+  "ab_run_path": "benchmark/qwen3/browser/q8-human-holdout/runs/qwen3-browser-q8-human-holdout-v1-ab.jsonl",
+  "ab_run_sha256": "002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d",
+  "ab_metadata_path": "benchmark/qwen3/browser/q8-human-holdout/runs/qwen3-browser-q8-human-holdout-v1-ab.meta.json",
+  "ab_metadata_sha256": "3225b67c62246ebc9697d30e4a278356ea45465f133676c89cfb305290b67f14",
+  "ab_freeze_commit": "51d9106c45fd8fb5b2ba8d547b87f5f4f960e618",
+  "sampling_rule": "every query-document pair in the symmetric difference between A and B Top 10",
+  "audit_order": "deterministic SHA-256 order over audit_version + query_id + record_id",
+  "row_count": 192,
+  "query_count": 25,
+  "side_count_expected_each": 96,
+  "side_counts_not_exposed_in_public_rows": true,
+  "by_language": {
+    "fr": 42,
+    "es": 34,
+    "pt": 38,
+    "en": 44,
+    "de": 34
+  },
+  "by_intent": {
+    "philosopher-concept": 92,
+    "interdisciplinary-challenge": 56,
+    "work": 44
+  },
+  "by_family": {
+    "merleau-ponty-perception": 50,
+    "philosophy-biology-evolution": 36,
+    "ethics-artificial-intelligence": 20,
+    "kierkegaard-despair": 42,
+    "hobbes-leviathan": 44
+  },
+  "relevant_threshold": 2,
+  "sample_sha256": "b0ec1980f47e0f123a36f056c86b23965b3c9aa61693b382aac38abbb93855f9",
+  "contains_condition": false,
+  "contains_rank": false,
+  "contains_query_id": false,
+  "contains_record_id": false,
+  "contains_production_score": false,
+  "contains_browser_q8_score": false,
+  "contains_provider_provenance": false,
+  "contains_human_judgments": false,
+  "private_mapping_artifact_written": false,
+  "unblinding_rule": "After judgments are frozen, reconstruct audit_id-to-pair mapping deterministically from the frozen A/B using the same audit_version and ordering function."
+}

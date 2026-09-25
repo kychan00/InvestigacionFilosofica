@@ -1149,3 +1149,18 @@ Freeze this blind-audit builder before materializing the public sample. Do not c
 Commit and push the frozen blind-audit builder. Run one final output-free preflight from that exact commit. Then materialize the single official blind sample, metadata, and worksheet exactly once.
 
 ---
+### Blind human audit sample freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-24
+Builder commit: 7eba7d7
+Sample SHA-256: b0ec1980f47e0f123a36f056c86b23965b3c9aa61693b382aac38abbb93855f9
+Sample metadata SHA-256: d2f5be7b60104c2029331882646c8e742653f3a918edebf3716fa67a157b4ff4
+Worksheet SHA-256: 4ff6c82768738f492330d85f4b76d4275e9488bcfa1bdede9a113f107e55e776
+
+The official blind sample contains 192 judgments across 25 queries. All human relevance fields are empty at freeze time. Condition, ranks, internal IDs, q8 scores, production scores, and provider provenance remain hidden. No private pre-adjudication mapping artifact exists.
+
+Decision: freeze these exact blind artifacts before human adjudication. The frozen sample, ordering, IDs, metadata, and worksheet must not change during judging.
+
+Next step: commit and push the blind sample, then build a separate blind adjudication interface that stores judgments independently.
+
+---
