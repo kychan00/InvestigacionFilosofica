@@ -396,8 +396,6 @@ server.listen(PORT, "127.0.0.1", () => {
   console.log("QWEN3 BROWSER Q8 · FRESH BLIND HUMAN ADJUDICATION");
   console.log("================================================");
   console.log(`Sample SHA: ${SAMPLE_SHA256}`);
-  console.log(`Frozen scores SHA: ${RAW_SHA256}`);
-  console.log(`Frozen predictions SHA: ${PREDICTIONS_SHA256}`);
   console.log(`Progress: ${state.labeled}/${state.total}`);
   console.log(`Open: http://127.0.0.1:${PORT}/audit`);
   console.log();

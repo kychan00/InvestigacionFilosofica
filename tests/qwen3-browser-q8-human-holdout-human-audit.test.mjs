@@ -19,6 +19,8 @@ test('fresh q8 human holdout audit pins the frozen pre-adjudication artifacts', 
 test('fresh q8 human holdout audit server does not serve repository files or Qwen outputs', async () => {
   const server = await readFile(serverPath, 'utf8');
   assert.doesNotMatch(server, /serveStatic/u);
+  assert.doesNotMatch(server, /\bRAW_SHA256\b/u);
+  assert.doesNotMatch(server, /\bPREDICTIONS_SHA256\b/u);
   assert.match(server, /pathname === "\/__qwen3_browser_q8_human_holdout_audit\/app\.js"/u);
   assert.match(server, /response\.writeHead\(404/u);
   assert.match(server, /browser_q8_score_visible_during_adjudication: false/u);

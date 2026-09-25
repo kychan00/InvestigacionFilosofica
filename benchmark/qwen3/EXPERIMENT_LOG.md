@@ -1183,3 +1183,19 @@ Decision: freeze this interface before the adjudicator sees the first audit item
 Next step: commit and push this exact interface, rerun the output-free preflight from the frozen commit, then start the local adjudication server.
 
 ---
+### Blind adjudication interface startup hotfix — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-24
+Base interface commit: ff05646
+Server SHA-256: 940b347e69cd1c13a7b52f3ec01400e5d642f8526fd5bc152efcd04b087fb3b7
+Test SHA-256: e12ccd1f897ee7fb2912e68b03cb7159b0a7aac453486918c8b79f229cecfa40
+
+The first runtime launch exposed two stale console references to RAW_SHA256 and PREDICTIONS_SHA256 inherited from the older holdout interface. The process terminated before any audit item was adjudicated and before progress or judgment artifacts were created.
+
+The hotfix removes only those obsolete startup log references and adds regression assertions that they cannot reappear. The frozen blind sample, A/B artifact, scores, ordering, audit IDs, relevance scale, UI behavior, and finalization contract are unchanged.
+
+Dedicated tests passed 4/4. Full repository tests passed 237/237. Output-free preflight passed and no progress, judgments, or judgment metadata existed after validation. Runtime smoke test successfully served the 192-row blind state and audit HTML without writing human output.
+
+Decision: freeze this runtime-only startup hotfix before human adjudication begins.
+
+---
