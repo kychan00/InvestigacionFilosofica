@@ -1394,3 +1394,26 @@ Decision: freeze this exact model-input dataset before browser q8 inference. Do 
 Next step: construct and freeze the browser-q8 inference runner against this exact dataset and the preregistered q8/WebGPU contract before any model inference occurs.
 
 ---
+### Confirmatory holdout v2 browser q8 inference runner freeze
+
+Date: 2026-09-27
+Frozen dataset commit: 39f6a2c9ce1cee8f8940090e16384daf77716567
+Inference runner SHA-256: 35dd00e09e716f9fcf5519591585bd5fda71a4d166eb58754b646b91d5fe3711
+Inference test SHA-256: a446c25bbcb341450368cd16de4d70228e0c4d3f1ce08244d3ff1c9a75582c28
+package.json SHA-256: 378a50be992dadd8ec0b398cf9151a923b89d0ffeaba00953721ec6c405058e4
+Frozen dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Closed q8 preregistration SHA-256: 5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b
+Frozen browser scorer SHA-256: 06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c
+Instruction SHA-256: 5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7
+
+The browser-q8 inference runner is frozen before any confirmatory model execution. It consumes exactly 600 ordered pairs across 30 queries from the frozen dataset and inherits the complete closed q8/WebGPU scorer contract from the frozen source preregistration. The locally summarized confirmatory browser-model and prompt fields are checked for compatibility with that closed contract; the browser payload uses the complete closed contract itself.
+
+Runtime contract: WebGPU only, q8, Transformers.js 4.3.0, max_length 1024, one final next-token logits position, ONNX logits-only output selection, one WASM host thread, no Node inference backend, no threshold, no score blending, and no candidate-pool changes.
+
+Dedicated inference tests passed 6/6. The full repository suite immediately before the final metadata-label cleanup passed 263/263. Output-free preflight passed without model execution or model download. Browser scores, score metadata, checkpoint, and A/B artifacts were absent.
+
+Decision: freeze this exact runner before the first official browser-q8 score is observed. After freeze, no prompt, model, runtime, dataset, scoring, threshold, blending, or pool changes are permitted for this confirmatory holdout.
+
+Next step: run one resumable official browser-q8 inference over the frozen 600-pair dataset, then freeze raw scores and runtime metadata before constructing A/B rankings.
+
+---
