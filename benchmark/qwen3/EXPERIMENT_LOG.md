@@ -1274,3 +1274,21 @@ Interpretation boundary: this is fresh internal human validation, not external i
 Decision: freeze the first official unblinded human-delta reports exactly as generated before any further interpretation, diagnostics, or implementation work.
 
 ---
+### Post-hoc diagnostic closure — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Frozen primary-result commit: 3638ee5
+
+This section is explicitly post-hoc and exploratory. The frozen primary result remains exact paired delta P@10 = +0.024 and is unchanged by these diagnostics.
+
+Centrality diagnostic: interdisciplinary-challenge changed-slot relevance improved from 15/28 in A to 25/28 in B; grade-3 central documents increased from 9 to 17 and mean ordinal relevance increased from 1.714 to 2.429. Work changed-slot relevance decreased from 20/22 to 17/22, grade-3 central documents decreased from 15 to 13, and mean ordinal relevance decreased from 2.591 to 2.364; however, the work intent is represented by only the Hobbes-Leviathan family and therefore cannot support a general work-query conclusion. Philosopher-concept relevance changed from 30/46 to 29/46 while grade-3 central documents increased from 16 to 21 and mean ordinal relevance increased from 1.870 to 2.087, so the exploratory evidence does not support a simple general claim that q8 degrades philosopher-concept queries.
+
+The strongest family effect was philosophy-biology-evolution: relevant changed documents increased from 6/18 to 16/18, grade-3 documents from 2 to 10, and mean ordinal relevance from 1.222 to 2.333. Merleau-Ponty also improved, while Hobbes and Kierkegaard showed different forms of regression or threshold movement.
+
+Abstract presence does not explain the overall gain: among changed documents with abstracts, A-only and B-only were both 60 percent relevant (30/50 and 24/40). Among changed documents without abstracts, A-only was 35/46 relevant and B-only 47/56. These are descriptive post-hoc associations and are not interpreted causally because group composition differs.
+
+Confirmatory hypotheses for a future fresh holdout: H1, browser q8 has positive paired delta P@10 on interdisciplinary/conjunctive queries; H2, its delta P@10 on interdisciplinary queries is greater than its delta on exact-work queries; secondary H3, browser q8 has positive paired grade-3 centrality delta on interdisciplinary queries. No directional hypothesis is preregistered for philosopher-concept queries because the exploratory result was mixed.
+
+Decision: close this holdout for hypothesis generation only. Do not tune, relabel, rerun, or use these 25 queries as fresh evidence again. Any confirmation must use new semantic families and newly frozen retrieval.
+
+---
