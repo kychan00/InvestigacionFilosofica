@@ -1336,3 +1336,23 @@ Decision: freeze this exact retrieval implementation before the first official v
 Next step: commit and push this freeze, rerun the output-free preflight from the frozen commit, then execute the single official resumable production retrieval.
 
 ---
+### Confirmatory holdout v2 production pool freeze
+
+Date: 2026-09-27
+Frozen retrieval-runner commit: 35a938d43bd6c62a851ace8d56f1f6bdb0153124
+Production pool SHA-256: 122a9414377c10e4805639e5022cce926130efd17e82111abd4756d5be33f9f8
+Production pool metadata SHA-256: 782575648eaa1b9bc29a429cb9eb7f0f6896c4bb7532704d5f4f8e43ed8c3f75
+Preregistration SHA-256: 875910b573b56c5cba5fe586f95c621283cfdff6091f08ecbefb0a205cdf3c6e
+Query-set SHA-256: eeaeb32e9f0de28ddb8a95a74657810ecbb61afc9ff9ea2d797e155849125ad1
+
+The official confirmatory production retrieval completed with exactly 600 rows: 30 fresh queries x Top-20, with exactly 20 rows per query. Runtime commit was 35a938d43bd6c62a851ace8d56f1f6bdb0153124 and production base remained bb9689da2016ca26a08359e8655eca7a5b771937.
+
+Retrieval validation passed. Qwen/browser-q8 scoring was not used, human labels were not used, production ranking was not changed, and no model or human-relevance fields are present in the frozen pool.
+
+At production-pool freeze time, the q8 model-input dataset, browser score output, and A/B ranking artifact did not exist.
+
+Decision: freeze this exact 600-row production pool before constructing model input. Do not rerun retrieval, replace pool membership, modify queries, or alter production ordering for this confirmatory holdout.
+
+Next step: construct and freeze the clean 600-pair browser-q8 model-input dataset from this exact pool only.
+
+---
