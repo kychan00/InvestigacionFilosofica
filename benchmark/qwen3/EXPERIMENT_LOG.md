@@ -1315,3 +1315,24 @@ Decision: freeze the exact query set and preregistration before any retrieval. H
 Next step: construct and freeze the isolated production-only retrieval runner for v2, then run retrieval only after that implementation is committed.
 
 ---
+### Confirmatory holdout v2 retrieval runner freeze
+
+Date: 2026-09-27
+Frozen preregistration commit: 51fa575159a9f895f145fc057e722ad7cf163a8f
+Server SHA-256: f7ab3fdeb83492725b03a0e7cadeb461c20b9e5a08e415188100fd691aec593a
+Browser retrieval SHA-256: 6c43018f4aee32bf5f4a12ce0b9d8a7b9f6d6c6ffa7122d03247ca4e18e3acae
+HTML SHA-256: 49f3d4c7561dbc9bc475b384080c42671e407bf60f0c1a7d50d035731e9384e1
+Retrieval test SHA-256: 88bf5476f49275cbc54254dc7ff977eac157e0aafebd56ad0ebe571cd23feb0d
+package.json SHA-256: fb5d4b333a277c602ee6712a3b0af299c1f1a855ea88415d77d39827fa4e085f
+
+The isolated confirmatory retrieval runner is pinned to the frozen v2 preregistration and 30-query set. Expected retrieval is exactly 30 queries x Top-20 = 600 rows. Production src remains identical to the frozen production base.
+
+Dedicated retrieval tests passed 6/6 and the full repository suite passed 253/253. The output-free preflight confirmed no production pool, metadata, dataset, browser scores, A/B artifact, or partial retrieval state existed. Retrieval was not executed during validation.
+
+The retrieval stage excludes Qwen/browser-q8 scoring and all human labels. It writes only the preregistered production pool and its metadata and refuses existing final outputs.
+
+Decision: freeze this exact retrieval implementation before the first official v2 retrieval. Do not alter retrieval code, profile, queries, preregistration, production ranking, or output contract after retrieval begins.
+
+Next step: commit and push this freeze, rerun the output-free preflight from the frozen commit, then execute the single official resumable production retrieval.
+
+---
