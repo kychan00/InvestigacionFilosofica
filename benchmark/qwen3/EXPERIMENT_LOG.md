@@ -1235,3 +1235,22 @@ The normalized artifacts were committed first in 216e789; this log entry records
 Decision: human labels are frozen. No further adjudication changes are permitted. Next step is post-judgment analyzer construction followed by deterministic A/B reconstruction.
 
 ---
+### Post-judgment analyzer freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Pre-unblinding base commit: 4c516c6
+Analyzer SHA-256: b4c42407030908c57c2e5b675e3365409eb9ae3ab631d0c91de3dcb2c114a506
+Analyzer test SHA-256: 9c4ffae90f7b0ac797d9c107150006a72111f996f862ed8af611b8c4ffc2d9ce
+package.json SHA-256: 4a45079ca0f8d0b2444c7428facac2a1142222a1b36d9024bdc14d3879e571b0
+
+The post-judgment analyzer was constructed only after all human judgments were frozen. It pins the frozen A/B run, blind sample, normalized judgments, and their metadata hashes. It reconstructs the hidden audit_id-to-query/document mapping deterministically using the frozen audit ordering rule.
+
+Condition semantics are fixed before execution: A = original production order; B = browser q8 raw-score descending with original production rank as tie-breaker. The analyzer rejects thresholding, score blending, or candidate-pool changes.
+
+Dedicated analyzer tests passed 10/10. Full repository tests passed 247/247. git diff --check passed. Both human-delta report outputs remained absent during validation.
+
+Decision: freeze this exact analyzer before first execution and before observing any A/B human result. No analyzer changes or human-label changes are permitted after unblinding except to correct a demonstrated implementation defect, which must be documented separately.
+
+Next step: commit and push this analyzer freeze, verify reports are still absent, then execute the frozen analyzer once to perform deterministic unblinding and compute exact paired delta P@10.
+
+---
