@@ -1217,3 +1217,21 @@ Decision: freeze the completed manual human judgments before deterministic conve
 Next step: implement and freeze a blind-only deterministic converter from this manual artifact to judgments JSONL plus metadata. No A/B artifact may be read during conversion.
 
 ---
+### Normalized blind judgments freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Manual judgments freeze commit: b6e36a7092c278e43af1c48a8406f93de4f2bb07
+Normalized judgments artifact commit: 216e789803dec5b666fff1a49dccb4baaea11c22
+Judgments SHA-256: 17778c8ec5479758a9639165c53f400d366166d0aefd8263c2f4515acf64ae7b
+Judgments metadata SHA-256: e70ce2cd19cb6d6cacbbbbd757d6dc61dbf571add4a202e45fb4ad035915f97c
+Canonical label-sequence SHA-256: 835f3e4ebb1db41d2543d36276e7361f2b92a3ec6116fca0dec60834541ec0ae
+
+The frozen 192-row manual adjudication was converted deterministically to a minimal judgments JSONL containing only schema version, audit_id, human relevance, human note, and null judged_at. Distribution remains 0=12, 1=44, 2=45, 3=91; relevant at threshold >=2 is 136/192.
+
+The conversion read only the frozen manual artifact and frozen public blind sample. It did not read A/B condition, browser q8 scores, production scores, ranks, query IDs, record IDs, or provider provenance.
+
+The normalized artifacts were committed first in 216e789; this log entry records that freeze immediately afterward and still before any A/B reconstruction or unblinding.
+
+Decision: human labels are frozen. No further adjudication changes are permitted. Next step is post-judgment analyzer construction followed by deterministic A/B reconstruction.
+
+---
