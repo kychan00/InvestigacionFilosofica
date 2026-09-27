@@ -1254,3 +1254,23 @@ Decision: freeze this exact analyzer before first execution and before observing
 Next step: commit and push this analyzer freeze, verify reports are still absent, then execute the frozen analyzer once to perform deterministic unblinding and compute exact paired delta P@10.
 
 ---
+### First official human unblinding result — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Frozen analyzer commit: 74d8710
+Report SHA-256: 2b738e8bb78dcf5c850c7cf9eb40084af5b8e0ee3439d0fde88b90242d2cc421
+Markdown SHA-256: a3ceb221b2a8bb8f0f958331da16ff434a4b5077b8797e0f0cb1796affd66c8e
+
+This was the first execution of the frozen post-judgment analyzer and therefore the first deterministic unblinding of A/B human relevance. A is frozen production order; B is frozen browser q8 raw-score reranking of the identical Top-20 candidate pools.
+
+Primary result: A-only relevant=65/96; B-only relevant=71/96; net relevant gain in B=+6; exact paired delta P@10 (B-A)=+0.024. Queries improved/worsened/tied=9/4/12. Ordinal relevance A-only=191, B-only=216, delta=+25.
+
+All 25 queries changed Top-10 membership. There are 154 shared Top-10 query-document slots. Absolute human P@10 is not identified because shared slots were deliberately not adjudicated; the paired delta P@10 is exact because those slots cancel.
+
+Breakdown: de +0.100, en -0.120, es +0.080, fr +0.060, pt 0.000 mean delta P@10; philosopher-concept -0.010, work -0.060, interdisciplinary-challenge +0.100; kierkegaard-despair -0.080, merleau-ponty-perception +0.060, hobbes-leviathan -0.060, ethics-artificial-intelligence 0.000, philosophy-biology-evolution +0.200.
+
+Interpretation boundary: this is fresh internal human validation, not external independent validation. It evaluates pure q8 reranking of the frozen production Top-20 only. No threshold, blending, retrieval change, candidate-pool change, or holdout-label tuning occurred. This result does not itself authorize a production change.
+
+Decision: freeze the first official unblinded human-delta reports exactly as generated before any further interpretation, diagnostics, or implementation work.
+
+---
