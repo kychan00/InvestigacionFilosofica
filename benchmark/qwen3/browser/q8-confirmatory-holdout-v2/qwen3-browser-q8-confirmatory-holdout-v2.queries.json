@@ -1,0 +1,239 @@
+{
+  "schema_version": "qwen3-browser-q8-confirmatory-holdout-queries-v2",
+  "validation_id": "qwen3-browser-q8-confirmatory-holdout-v2",
+  "purpose": "fresh-confirmatory-ranking-validation",
+  "hypothesis_source_holdout": "qwen3-browser-q8-human-holdout-v1",
+  "hypothesis_source_commit": "91bf3d2",
+  "languages": [
+    "es",
+    "en",
+    "de",
+    "fr",
+    "pt"
+  ],
+  "families": [
+    "bergson-duration",
+    "foucault-biopower",
+    "arendt-human-condition",
+    "beauvoir-second-sex",
+    "environmental-ethics-climate-change",
+    "philosophy-mathematics-set-theory"
+  ],
+  "intent_mix": {
+    "philosopher-concept": 10,
+    "work": 10,
+    "interdisciplinary-challenge": 10
+  },
+  "queries": [
+    {
+      "id": "q8c-es-01",
+      "language": "es",
+      "family": "bergson-duration",
+      "intent": "philosopher-concept",
+      "query": "duración en Bergson"
+    },
+    {
+      "id": "q8c-es-02",
+      "language": "es",
+      "family": "foucault-biopower",
+      "intent": "philosopher-concept",
+      "query": "biopoder en Foucault"
+    },
+    {
+      "id": "q8c-es-03",
+      "language": "es",
+      "family": "arendt-human-condition",
+      "intent": "work",
+      "query": "La condición humana Hannah Arendt"
+    },
+    {
+      "id": "q8c-es-04",
+      "language": "es",
+      "family": "beauvoir-second-sex",
+      "intent": "work",
+      "query": "El segundo sexo Simone de Beauvoir"
+    },
+    {
+      "id": "q8c-es-05",
+      "language": "es",
+      "family": "environmental-ethics-climate-change",
+      "intent": "interdisciplinary-challenge",
+      "query": "ética ambiental y cambio climático"
+    },
+    {
+      "id": "q8c-es-06",
+      "language": "es",
+      "family": "philosophy-mathematics-set-theory",
+      "intent": "interdisciplinary-challenge",
+      "query": "filosofía de las matemáticas y teoría de conjuntos"
+    },
+    {
+      "id": "q8c-en-01",
+      "language": "en",
+      "family": "bergson-duration",
+      "intent": "philosopher-concept",
+      "query": "duration in Bergson"
+    },
+    {
+      "id": "q8c-en-02",
+      "language": "en",
+      "family": "foucault-biopower",
+      "intent": "philosopher-concept",
+      "query": "biopower in Foucault"
+    },
+    {
+      "id": "q8c-en-03",
+      "language": "en",
+      "family": "arendt-human-condition",
+      "intent": "work",
+      "query": "Hannah Arendt The Human Condition"
+    },
+    {
+      "id": "q8c-en-04",
+      "language": "en",
+      "family": "beauvoir-second-sex",
+      "intent": "work",
+      "query": "The Second Sex Simone de Beauvoir"
+    },
+    {
+      "id": "q8c-en-05",
+      "language": "en",
+      "family": "environmental-ethics-climate-change",
+      "intent": "interdisciplinary-challenge",
+      "query": "environmental ethics and climate change"
+    },
+    {
+      "id": "q8c-en-06",
+      "language": "en",
+      "family": "philosophy-mathematics-set-theory",
+      "intent": "interdisciplinary-challenge",
+      "query": "philosophy of mathematics and set theory"
+    },
+    {
+      "id": "q8c-de-01",
+      "language": "de",
+      "family": "bergson-duration",
+      "intent": "philosopher-concept",
+      "query": "Dauer bei Bergson"
+    },
+    {
+      "id": "q8c-de-02",
+      "language": "de",
+      "family": "foucault-biopower",
+      "intent": "philosopher-concept",
+      "query": "Biomacht bei Foucault"
+    },
+    {
+      "id": "q8c-de-03",
+      "language": "de",
+      "family": "arendt-human-condition",
+      "intent": "work",
+      "query": "Vita activa oder Vom tätigen Leben Hannah Arendt"
+    },
+    {
+      "id": "q8c-de-04",
+      "language": "de",
+      "family": "beauvoir-second-sex",
+      "intent": "work",
+      "query": "Das andere Geschlecht Simone de Beauvoir"
+    },
+    {
+      "id": "q8c-de-05",
+      "language": "de",
+      "family": "environmental-ethics-climate-change",
+      "intent": "interdisciplinary-challenge",
+      "query": "Umweltethik und Klimawandel"
+    },
+    {
+      "id": "q8c-de-06",
+      "language": "de",
+      "family": "philosophy-mathematics-set-theory",
+      "intent": "interdisciplinary-challenge",
+      "query": "Philosophie der Mathematik und Mengenlehre"
+    },
+    {
+      "id": "q8c-fr-01",
+      "language": "fr",
+      "family": "bergson-duration",
+      "intent": "philosopher-concept",
+      "query": "durée chez Bergson"
+    },
+    {
+      "id": "q8c-fr-02",
+      "language": "fr",
+      "family": "foucault-biopower",
+      "intent": "philosopher-concept",
+      "query": "biopouvoir chez Foucault"
+    },
+    {
+      "id": "q8c-fr-03",
+      "language": "fr",
+      "family": "arendt-human-condition",
+      "intent": "work",
+      "query": "Condition de l’homme moderne Hannah Arendt"
+    },
+    {
+      "id": "q8c-fr-04",
+      "language": "fr",
+      "family": "beauvoir-second-sex",
+      "intent": "work",
+      "query": "Le Deuxième Sexe Simone de Beauvoir"
+    },
+    {
+      "id": "q8c-fr-05",
+      "language": "fr",
+      "family": "environmental-ethics-climate-change",
+      "intent": "interdisciplinary-challenge",
+      "query": "éthique environnementale et changement climatique"
+    },
+    {
+      "id": "q8c-fr-06",
+      "language": "fr",
+      "family": "philosophy-mathematics-set-theory",
+      "intent": "interdisciplinary-challenge",
+      "query": "philosophie des mathématiques et théorie des ensembles"
+    },
+    {
+      "id": "q8c-pt-01",
+      "language": "pt",
+      "family": "bergson-duration",
+      "intent": "philosopher-concept",
+      "query": "duração em Bergson"
+    },
+    {
+      "id": "q8c-pt-02",
+      "language": "pt",
+      "family": "foucault-biopower",
+      "intent": "philosopher-concept",
+      "query": "biopoder em Foucault"
+    },
+    {
+      "id": "q8c-pt-03",
+      "language": "pt",
+      "family": "arendt-human-condition",
+      "intent": "work",
+      "query": "A condição humana Hannah Arendt"
+    },
+    {
+      "id": "q8c-pt-04",
+      "language": "pt",
+      "family": "beauvoir-second-sex",
+      "intent": "work",
+      "query": "O Segundo Sexo Simone de Beauvoir"
+    },
+    {
+      "id": "q8c-pt-05",
+      "language": "pt",
+      "family": "environmental-ethics-climate-change",
+      "intent": "interdisciplinary-challenge",
+      "query": "ética ambiental e mudanças climáticas"
+    },
+    {
+      "id": "q8c-pt-06",
+      "language": "pt",
+      "family": "philosophy-mathematics-set-theory",
+      "intent": "interdisciplinary-challenge",
+      "query": "filosofia da matemática e teoria dos conjuntos"
+    }
+  ]
+}

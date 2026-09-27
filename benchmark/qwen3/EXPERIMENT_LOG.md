@@ -1292,3 +1292,26 @@ Confirmatory hypotheses for a future fresh holdout: H1, browser q8 has positive 
 Decision: close this holdout for hypothesis generation only. Do not tune, relabel, rerun, or use these 25 queries as fresh evidence again. Any confirmation must use new semantic families and newly frozen retrieval.
 
 ---
+### Confirmatory holdout v2 preregistration freeze
+
+Date: 2026-09-27
+Branch: experiment/qwen3-browser-q8-confirmatory-holdout-v2
+Pre-retrieval base commit: 91bf3d2177ae665eee74964107ea38d719997f1b
+Query-set SHA-256: eeaeb32e9f0de28ddb8a95a74657810ecbb61afc9ff9ea2d797e155849125ad1
+Preregistration SHA-256: 875910b573b56c5cba5fe586f95c621283cfdff6091f08ecbefb0a205cdf3c6e
+
+The confirmatory holdout contains 30 fresh queries: 6 semantic families, 5 languages per family, and 10 queries each for philosopher-concept, work, and interdisciplinary-challenge. Each intent is represented by two independent semantic families.
+
+Freshness gate passed before retrieval: 0 duplicate candidate queries, 0 normalized exact-query collisions, and 0 prior family-ID collisions across scanned benchmark JSON/JSONL artifacts.
+
+Preregistered hypotheses before retrieval: H1 = positive exact paired delta P@10 for interdisciplinary/conjunctive queries; H2 = interdisciplinary delta P@10 greater than exact-work delta P@10; H3 = positive paired grade-3 centrality delta for interdisciplinary queries. Philosopher-concept is descriptive and nondirectional.
+
+A remains frozen production order. B remains pure browser q8 raw-score reranking of the identical frozen Top-20 pool with original production rank as the tie-breaker. No threshold, blending, pool-membership change, or human label is permitted in ranking construction.
+
+At freeze time the production pool, model-input dataset, browser scores, and A/B artifacts did not exist. Retrieval had not begun.
+
+Decision: freeze the exact query set and preregistration before any retrieval. Hypotheses, support rules, query formulation, semantic families, intent balance, retrieval profile, scoring contract, and ranking policy may not be changed using confirmatory results.
+
+Next step: construct and freeze the isolated production-only retrieval runner for v2, then run retrieval only after that implementation is committed.
+
+---
