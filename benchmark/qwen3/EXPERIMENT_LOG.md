@@ -1199,3 +1199,21 @@ Dedicated tests passed 4/4. Full repository tests passed 237/237. Output-free pr
 Decision: freeze this runtime-only startup hotfix before human adjudication begins.
 
 ---
+### Blind human judgments freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Interface/runtime commit: b960916
+Manual judgments path: benchmark/qwen3/browser/q8-human-holdout/audit/qwen3-browser-q8-human-holdout-v1-delta-audit.manual.txt
+Manual judgments SHA-256: 2d3c0d388bad68733be80854958d8dacb7361e6c5a1c54c24b440e062042e14d
+Canonical label-sequence SHA-256: 835f3e4ebb1db41d2543d36276e7361f2b92a3ec6116fca0dec60834541ec0ae
+
+Judgments: 192/192, audit IDs Q8H001–Q8H192, no duplicates or gaps.
+Distribution: 0=12, 1=44, 2=45, 3=91. Relevant at threshold >=2: 136. Nonrelevant: 56.
+
+The adjudication remained blind to A/B condition, ranks, browser q8 scores, production scores, query/record identifiers, provider provenance, and private mapping. Browser progress and generated judgment artifacts were absent at freeze time.
+
+Decision: freeze the completed manual human judgments before deterministic conversion to JSONL and before any A/B unblinding or human-delta analysis.
+
+Next step: implement and freeze a blind-only deterministic converter from this manual artifact to judgments JSONL plus metadata. No A/B artifact may be read during conversion.
+
+---
