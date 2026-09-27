@@ -1356,3 +1356,23 @@ Decision: freeze this exact 600-row production pool before constructing model in
 Next step: construct and freeze the clean 600-pair browser-q8 model-input dataset from this exact pool only.
 
 ---
+### Confirmatory holdout v2 dataset builder freeze
+
+Date: 2026-09-27
+Frozen production-pool commit: 85f866ecc56bcfca5c53e00c2fdceb014ea77fbe
+Builder SHA-256: a76c5bb7a1fc395840d570c205ea8f9f40c9688ead37d8841ccc6e967129cd55
+Dataset test SHA-256: d50a3195cf9de62a36fac3a23940abb7ad78aeedd735140d501756f591802cff
+package.json SHA-256: 2c7418db90955ff2b09098506e216c447f41de0416c4e9483089828a7bff6b54
+Expected dataset SHA-256 from output-free preflight: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+
+The frozen builder consumes only the exact 600-row production pool frozen at 85f866e. The output-free preflight produced 600 model-input pairs across 30 queries, 492 unique records, zero duplicate-pair removals, and an identical ordered query-document pair sequence to the frozen pool.
+
+The model-input contract contains only schema_version, query_id, query, record_id, title, abstract, authors, year, and document_language. Human labels, production rank, production scores, provider provenance, matched-query provenance, URLs, citation counts, and Qwen scores are excluded.
+
+The expected dataset SHA-256 was computed before writing output. At builder freeze time the official dataset, browser q8 scores, and A/B artifact did not exist.
+
+Decision: freeze this exact dataset-construction implementation before generating the official 600-pair dataset. Do not change source pool, field contract, pair ordering, duplicate policy, or model-input formatting after dataset generation begins.
+
+Next step: commit and push the builder freeze, rerun the output-free preflight from the frozen commit, then generate the official dataset exactly once.
+
+---
