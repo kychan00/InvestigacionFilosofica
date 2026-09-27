@@ -1376,3 +1376,21 @@ Decision: freeze this exact dataset-construction implementation before generatin
 Next step: commit and push the builder freeze, rerun the output-free preflight from the frozen commit, then generate the official dataset exactly once.
 
 ---
+### Confirmatory holdout v2 model-input dataset freeze
+
+Date: 2026-09-27
+Frozen dataset-builder commit: 854dde7e2c4fe2af2f42334a58bb2b99c7bb84d0
+Dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Source production-pool SHA-256: 122a9414377c10e4805639e5022cce926130efd17e82111abd4756d5be33f9f8
+
+The official confirmatory model-input dataset was generated once from the frozen production pool and contains exactly 600 ordered query-document pairs across 30 queries. Its byte hash exactly matches the SHA predicted by the output-free preflight before generation.
+
+The ordered pair sequence is identical to the frozen production pool. The dataset contains only schema_version, query_id, query, record_id, title, abstract, authors, year, and document_language. Ranking fields, production scores, provider and retrieval provenance, URLs, citation counts, Qwen scores, and human labels are absent.
+
+At dataset freeze time browser-q8 score outputs, score metadata, and the A/B ranking artifact did not exist.
+
+Decision: freeze this exact model-input dataset before browser q8 inference. Do not regenerate, reorder, filter, deduplicate, enrich, or otherwise modify these 600 pairs for this confirmatory holdout.
+
+Next step: construct and freeze the browser-q8 inference runner against this exact dataset and the preregistered q8/WebGPU contract before any model inference occurs.
+
+---
