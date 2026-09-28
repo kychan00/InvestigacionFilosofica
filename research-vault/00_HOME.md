@@ -30,6 +30,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 ## Modelo epistemológico
 
 - [[Epistemological-Model]]
+- [[ResearchProject-Contract]]
 - [[Dialectical-Genealogy]]
 
 ## Producto
