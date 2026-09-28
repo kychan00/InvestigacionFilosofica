@@ -60,7 +60,9 @@ Philosopher-concept es descriptivo y no direccional.
 - A/B artifact: ✓ congelado
 - Blind-audit builder: ✓ congelado
 - Blind audit sample: ✓ congelada, 212 ítems
-- Human adjudication: pendiente
+- Raw human submission: ✓ congelada
+- Blind judgment normalizer: ✓ congelado
+- Human adjudication: ✓ 212/212, normalizada y congelada
 - Unblinding: pendiente
 - H1/H2/H3 analysis: pendiente
 
@@ -79,6 +81,13 @@ Philosopher-concept es descriptivo y no direccional.
 - Blind sample metadata SHA: `5cc4a587a3835c40556dcc2ef8314a774ab9a0ecf0765d53030a9aeb07b43e5c`
 - Blind worksheet SHA: `74f4f3ae131bc7eebb817334e9ab51ae500ebf1f13673c6223f83630b54d6ee1`
 - Blind sample freeze commit: `2b86091cbbbd9d7191eb0b358dc7dfc6585644a5`
+- Raw human submission SHA: `a0155e47f37a97f915e84e30d386e59d6f259b6c89d57e6bcb358385927efdce`
+- Raw submission metadata SHA: `709a2ac9fa8650e55df4e9221a171665c179c42f11ff09b724388c7056667856`
+- Raw submission freeze commit: `56ef2ce2e06f2ed2371b0aad7d16091f33882ac9`
+- Blind judgment normalizer freeze commit: `4e83e08d7c7463709091ab6827f4a891bb8d44b9`
+- Normalized judgments SHA: `6dd083fc3a430f5dd5a3e7e3b7b61859e2f429edfad966a4097c11c58e516694`
+- Normalized judgments metadata SHA: `b39f95f023e5dae949ef788c90e5d946cd8ab2360d33c27fb3d9f1e50594019b`
+- Normalized judgments freeze commit: `35f4e2c929159cb78898663498990a65b6ae1a3e`
 
 ## A/B preflight congelado
 
@@ -101,14 +110,29 @@ Los registros para adjudicación ocultan condición, rangos, scores, IDs interno
 
 Los artefactos científicos canónicos permanecen en `benchmark/qwen3/browser/q8-confirmatory-holdout-v2/`. Esta nota es una capa conceptual y de navegación; no sustituye esos archivos ni sus hashes.
 
+## Juicios humanos congelados
+
+La persona adjudicadora confirmó que revisó personalmente los 212 ítems. La entrega textual original quedó preservada byte por byte antes de cualquier normalización. Contenía un bloque duplicado `Q8C041`–`Q8C080`: 39 duplicados tenían la misma etiqueta y `Q8C070` presentaba 1/2; la aclaración humana definitiva fijó `Q8C070 = 2`.
+
+El normalizador determinista leyó únicamente la entrega ciega, su metadata y la muestra pública ciega. No leyó el A/B, scores del modelo, scores de producción, rangos, IDs internos ni procedencia de recuperación. Emitió 212 filas mínimas `Q8C001`–`Q8C212` con esta distribución:
+
+- 0: **20**
+- 1: **49**
+- 2: **49**
+- 3: **94**
+- Relevantes con umbral preregistrado ≥2: **143**
+- No relevantes: **69**
+
+Los dos hashes generados coincidieron exactamente con el preflight y los juicios quedaron congelados antes de cualquier reconstrucción A/B. Esta distribución describe únicamente las etiquetas ciegas; todavía no permite inferir si A o B gana.
+
 ## Próximo límite
 
-1. Adjudicar `Q8C001`–`Q8C212` en escala 0–3 sin conocer A/B.
-2. Verificar completitud y congelar los juicios.
-3. Sólo entonces reconstruir procedencia A/B.
-4. Ejecutar el análisis congelado de H1/H2/H3.
+1. Construir un analizador post-juicio que fije los hashes de A/B, muestra y juicios congelados.
+2. Probar y congelar ese analizador antes de ejecutarlo.
+3. Sólo desde esa implementación congelada reconstruir la procedencia A/B.
+4. Ejecutar una vez el análisis preregistrado de H1/H2/H3 y congelar sus reportes.
 
-Hasta congelar los juicios no se debe abrir ni producir una correspondencia entre `audit_id`, condición, rango o score.
+Los juicios ya están congelados, pero este documento se detiene antes del unblinding: todavía no se ha abierto ni producido una correspondencia entre `audit_id`, condición, rango o score, ni se conoce el resultado de H1/H2/H3.
 
 ## Relacionado
 

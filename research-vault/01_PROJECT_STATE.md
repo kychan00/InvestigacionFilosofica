@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-09-27
+updated: 2026-09-28
 status: design
 ---
 
@@ -94,4 +94,4 @@ La sección documenta:
 
 Los informes originales permanecen preservados como snapshots en `07-Evaluation/Source-Reports/`, mientras que los artefactos canónicos siguen perteneciendo a `benchmark/qwen3/`.
 
-El experimento confirmatorio permanece separado del vault documental y congelado en su rama experimental. Su A/B determinista y la muestra ciega de 212 ítems ya están congelados; el siguiente límite es la adjudicación humana 0–3 sin acceso a procedencia A/B. Los artefactos y hashes canónicos permanecen bajo `benchmark/qwen3/` en el worktree experimental.
+El experimento confirmatorio permanece separado del vault documental y congelado en su rama experimental. Su A/B determinista, la muestra ciega de 212 ítems y los 212 juicios humanos 0–3 ya están congelados. La normalización se realizó sin leer A/B y aplicó la aclaración humana explícita `Q8C070 = 2`; el siguiente límite es construir y congelar el analizador post-juicio antes de cualquier unblinding o evaluación de H1/H2/H3. Los artefactos y hashes canónicos permanecen bajo `benchmark/qwen3/` en el worktree experimental.
