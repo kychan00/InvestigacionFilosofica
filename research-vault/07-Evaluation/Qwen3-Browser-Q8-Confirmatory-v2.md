@@ -173,10 +173,13 @@ El experimento está cerrado como registro científico reproducible. Su siguient
 - Si se desea avanzar hacia producto, definir explícitamente una nueva decisión experimental o una validación externa independiente.
 - Conservar este branch, hashes, juicios y reportes como evidencia inmutable del resultado mixto.
 
+El gate post-resultado quedó congelado en `c3e36e042407e9c465d76976a915eb556339b097`: producción permanece sin cambios y el candidato queda research-only. La continuación metodológicamente válida está descrita en [[Qwen3-External-Validation-Protocol]].
+
 ## Relacionado
 
 - [[Judgment-Protocol]]
 - [[Evaluation-Lineage]]
+- [[Qwen3-External-Validation-Protocol]]
 - [[Source-Reports/browser/q8-confirmatory-holdout-v2/reports/qwen3-browser-q8-confirmatory-holdout-v2-human-delta]]
 - [[Source-Reports/browser/q8-human-holdout/reports/qwen3-browser-q8-human-holdout-v1-human-delta]]
 - [[Source-Reports/EXPERIMENT_LOG]]

@@ -47,3 +47,9 @@ Los resultados del primer browser holdout motivaron tres hipótesis preregistrad
 → [[Qwen3-Browser-Q8-Confirmatory-v2]]
 
 → [[Source-Reports/browser/q8-confirmatory-holdout-v2/reports/qwen3-browser-q8-confirmatory-holdout-v2-human-delta]]
+
+## Siguiente nivel de evidencia
+
+El candidato permanece research-only. Una eventual promoción requiere evidencia externa independiente, con nuevas consultas o marco de muestreo, adjudicador independiente y preregistración congelada antes de retrieval.
+
+→ [[Qwen3-External-Validation-Protocol]]

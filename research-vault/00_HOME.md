@@ -1,7 +1,7 @@
 ---
 type: hub
 project: InvestigacionFilosofica
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Investigación Filosófica · Research Vault
@@ -55,3 +55,4 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Judgment-Protocol]]
 - [[Evaluation-Lineage]]
 - [[Qwen3-Browser-Q8-Confirmatory-v2]]
+- [[Qwen3-External-Validation-Protocol]]

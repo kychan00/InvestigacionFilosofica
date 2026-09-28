@@ -17,6 +17,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Evaluation-Lineage]]
 - [[Qwen3-Reranker-Laboratory]]
 - [[Qwen3-Browser-Q8-Confirmatory-v2]]
+- [[Qwen3-External-Validation-Protocol]]
 
 ## Informes originales
 
@@ -46,3 +47,5 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 > Separar recuperación, puntuación del modelo, construcción de condiciones y juicio humano permite saber qué componente está produciendo el efecto observado.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
+
+El gate posterior conserva browser-q8 como candidato research-only. La siguiente evidencia admisible requiere el protocolo de validación externa independiente; todavía no existe adjudicador ni marco externo confirmado.

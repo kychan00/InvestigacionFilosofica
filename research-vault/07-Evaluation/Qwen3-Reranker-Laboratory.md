@@ -35,4 +35,6 @@ Retrieval de producción → pool congelado → dataset limpio → Qwen raw scor
 
 El confirmatory holdout browser-q8 v2 produjo evidencia mixta. La dirección positiva de H1 se replicó, pero el contraste H2 y la centralidad H3 no. Esto favorece conservar la separación entre laboratorio y producción: el resultado es informativo sobre el candidato, pero insuficiente para convertirlo automáticamente en política de ranking.
 
+El candidato queda research-only. Su siguiente gate es [[Qwen3-External-Validation-Protocol]], no tuning adicional sobre los holdouts observados.
+
 → [[Evaluation-Lineage]]
