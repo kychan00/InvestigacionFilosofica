@@ -1417,3 +1417,23 @@ Decision: freeze this exact runner before the first official browser-q8 score is
 Next step: run one resumable official browser-q8 inference over the frozen 600-pair dataset, then freeze raw scores and runtime metadata before constructing A/B rankings.
 
 ---
+### Confirmatory holdout v2 browser q8 score freeze
+
+Date: 2026-09-27
+Frozen inference-runner commit: 79b0731ac40bf19c207fea8a3775a53e575ed336
+Raw browser-q8 scores SHA-256: ea8f06baf5144ff109b05ae9b9b690d9b25cf7cb7a12ae2dbbdeb38943aed6f1
+Runtime metadata SHA-256: 79053c9a9a02e09809ee62f2cc43643dce03ce7f961f35d201b244db43b29c51
+Frozen dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Frozen browser scorer SHA-256: 06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c
+
+The single official browser-q8 inference completed all 600 frozen query-document pairs across 30 queries. Score order is identical to the frozen dataset order. The completed checkpoint was removed.
+
+Runtime validation confirms WebGPU, q8, max_length 1024, one WASM host thread, logits-only ONNX output selection, and the frozen browser scorer. No threshold, score blending, candidate-pool changes, human labels, or production changes were used during scoring.
+
+The A/B artifact did not exist when raw scores and runtime metadata were frozen.
+
+Decision: freeze these exact raw scores and runtime metadata before constructing any A/B ranking. Do not rerun inference, rescore, normalize, calibrate, threshold, blend, reorder, or otherwise modify these browser-q8 scores for this confirmatory holdout.
+
+Next step: construct and freeze a deterministic A/B builder in which A is the frozen production order and B is the exact same Top-20 membership sorted by frozen browser-q8 raw score descending with original production rank as the exact-tie breaker.
+
+---
