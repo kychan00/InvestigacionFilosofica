@@ -109,7 +109,9 @@
     "benchmark:qwen3:browser-q8-confirmatory-holdout-v2:dataset:preflight": "node scripts/benchmark/qwen3/build_browser_q8_confirmatory_holdout_v2_dataset.mjs --preflight",
     "benchmark:qwen3:browser-q8-confirmatory-holdout-v2:dataset:run": "node scripts/benchmark/qwen3/build_browser_q8_confirmatory_holdout_v2_dataset.mjs --run",
     "benchmark:qwen3:browser-q8-confirmatory-holdout-v2:infer:preflight": "node scripts/benchmark/qwen3/run_browser_q8_confirmatory_holdout_v2_inference.mjs --preflight",
-    "benchmark:qwen3:browser-q8-confirmatory-holdout-v2:infer:run": "node scripts/benchmark/qwen3/run_browser_q8_confirmatory_holdout_v2_inference.mjs --run"
+    "benchmark:qwen3:browser-q8-confirmatory-holdout-v2:infer:run": "node scripts/benchmark/qwen3/run_browser_q8_confirmatory_holdout_v2_inference.mjs --run",
+    "benchmark:qwen3:browser-q8-confirmatory-holdout-v2:ab:preflight": "node scripts/benchmark/qwen3/build_browser_q8_confirmatory_holdout_v2_ab.mjs --preflight",
+    "benchmark:qwen3:browser-q8-confirmatory-holdout-v2:ab:run": "node scripts/benchmark/qwen3/build_browser_q8_confirmatory_holdout_v2_ab.mjs --run"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",

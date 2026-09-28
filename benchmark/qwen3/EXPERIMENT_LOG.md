@@ -1437,3 +1437,26 @@ Decision: freeze these exact raw scores and runtime metadata before constructing
 Next step: construct and freeze a deterministic A/B builder in which A is the frozen production order and B is the exact same Top-20 membership sorted by frozen browser-q8 raw score descending with original production rank as the exact-tie breaker.
 
 ---
+### Confirmatory holdout v2 A/B builder freeze
+
+Date: 2026-09-27
+Frozen score commit: 0d85099abf5c4d5e78b4de61019b324d3242b525
+A/B builder SHA-256: a4b4255061d416b8b6018f58ab6a719d1b47f197ca924735a5185ef4f70c00ac
+A/B test SHA-256: 2a2ebfb3b3298807f49d3ed4d474cc966a388ae3f248a3c4366389ace0597d3b
+package.json SHA-256: 7276d2f8b981c128b3526ac74890c5a9f3ee4c54970c0af52aad30239ab801ec
+Frozen production-pool SHA-256: 122a9414377c10e4805639e5022cce926130efd17e82111abd4756d5be33f9f8
+Frozen model-input dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Frozen browser-q8 scores SHA-256: ea8f06baf5144ff109b05ae9b9b690d9b25cf7cb7a12ae2dbbdeb38943aed6f1
+Predicted A/B SHA-256 from output-free preflight: 98d7943dc6af9590ccf4360e63f7b00e8f1c1364b4ba8a0a5ef64d77f3b2043c
+
+The deterministic confirmatory A/B builder is frozen before any A/B artifact is written. A preserves the frozen production order. B contains the exact same Top-20 membership and sorts only by frozen browser-q8 raw score descending, using original production rank ascending solely as the exact-score tie breaker.
+
+Output-free preflight produced 600 source pairs, 1200 condition rows, 30 queries, 212 Top-10 symmetric-difference query-document pairs, and predicted A/B SHA-256 98d7943dc6af9590ccf4360e63f7b00e8f1c1364b4ba8a0a5ef64d77f3b2043c. These are structural diagnostics only and do not constitute human relevance evidence.
+
+No human labels, model inference, binary threshold, score blending, or candidate-pool membership changes are permitted during A/B construction. Dedicated A/B tests passed 6/6 and the full repository suite passed 269/269. A/B output and metadata were absent at freeze time.
+
+Decision: freeze this exact A/B builder before generating the deterministic A/B artifact. Do not modify ordering policy, tie breaking, source artifacts, or condition membership after this point.
+
+Next step: execute the frozen A/B builder once, verify the generated SHA against the preflight prediction, and freeze A/B plus metadata before constructing the blind human audit sample.
+
+---
