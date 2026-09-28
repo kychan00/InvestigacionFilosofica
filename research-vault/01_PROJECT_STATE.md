@@ -94,4 +94,4 @@ La sección documenta:
 
 Los informes originales permanecen preservados como snapshots en `07-Evaluation/Source-Reports/`, mientras que los artefactos canónicos siguen perteneciendo a `benchmark/qwen3/`.
 
-El experimento confirmatorio permanece separado del vault documental y congelado en su rama experimental.
+El experimento confirmatorio permanece separado del vault documental y congelado en su rama experimental. Su A/B determinista y la muestra ciega de 212 ítems ya están congelados; el siguiente límite es la adjudicación humana 0–3 sin acceso a procedencia A/B. Los artefactos y hashes canónicos permanecen bajo `benchmark/qwen3/` en el worktree experimental.
