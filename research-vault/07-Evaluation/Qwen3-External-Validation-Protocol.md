@@ -56,7 +56,7 @@ Antes de congelar el set se deben comprobar colisiones exactas, variantes traduc
 
 La capacidad confirmada permite un balance provisional de cuatro idiomas —español, inglés, francés y portugués— y tres intenciones —philosopher-concept, work e interdisciplinary-challenge—. El diseño de borrador asigna una consulta a cada celda idioma × intención, para 12 consultas. Este tamaño está determinado por un techo humano de 250 juicios y debe revisarse explícitamente como limitación de potencia antes de la recuperación; no permite inferencia por subgrupo.
 
-Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto. La ruta API se preserva como historia de intentos output-free, pero dejó de ser la superficie activa después del bloqueo del proveedor. La adquisición aceptada usa el snapshot semanal oficial de [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy). El snapshot fuente sanitizado de 9.846 preguntas ya está congelado; todavía deberán definirse y congelarse la clasificación automática de intención, la selección SHA-256, la traducción y su verificación independiente. No se permite selección manual posterior por conveniencia.
+Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto. La ruta API se preserva como historia de intentos output-free, pero dejó de ser la superficie activa después del bloqueo del proveedor. La adquisición aceptada usa el snapshot semanal oficial de [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy). El snapshot fuente sanitizado de 9.846 preguntas y el frame determinista de candidatos por intención ya están congelados; todavía deberán definirse y congelarse las colisiones con queries previas, la exclusión de familias semánticas, la selección SHA-256, la traducción y su verificación independiente. No se permite selección manual posterior por conveniencia.
 
 ## Juicio humano
 
@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
 
-Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. El marco fuente público ya fue adquirido y congelado, pero no se inició clasificación ni selección de consultas, traducción, recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. El marco fuente y la clasificación determinista ya fueron congelados, pero no se inició selección de consultas, asignación lingüística, traducción, recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -161,14 +161,31 @@ La consulta corregida se ejecutó una sola vez en la superficie oficial de Philo
 
 La validación independiente confirmó esquema y campos exactos, 9.846 IDs únicos en orden ascendente, elegibilidad, corte temporal, URL estable, licencias permitidas, privacidad, hashes y linaje del runtime comprometido. No se conservaron autor, owner, cuerpo, contenido de respuestas, comentarios ni datos de usuario. El snapshot refleja la observación semanal de SEDE y no se presenta como estado near-live de la API.
 
-El estado operativo continúa siendo anterior a la selección: ya existe un marco público aceptado, pero no se ha ejecutado clasificación de intención ni se han elegido las 12 consultas. El siguiente límite legítimo es diseñar y congelar el clasificador contra sólo los campos públicos del snapshot.
+El estado operativo continúa siendo anterior a la selección: ya existe un marco público aceptado, pero aún no se han elegido las 12 consultas.
+
+### Hito del clasificador de intención
+
+El contrato determinista se congeló antes de leer filas en `401102e8a305f384bfa2ee19b03d5fccf7ccf9fe`. Sólo usa título y tags públicos. `work` exige una frase congelada de obra; `philosopher-concept` exige marcador de filósofo más tag conceptual no genérico y excluye obra o dominio externo; `interdisciplinary-challenge` exige marcador de dominio externo más puente filosófico y excluye obra o filósofo. No hay precedencia: únicamente coincidencias exactas de una regla son elegibles; el resto se excluye antes de selección.
+
+La ejecución única, local y sin red clasificó las 9.846 preguntas y quedó congelada en `8b9484c`:
+
+- 3.570 candidatos exactos;
+- 1.743 `philosopher-concept`;
+- 84 `work`;
+- 1.743 `interdisciplinary-challenge`;
+- 6.276 no clasificados;
+- JSONL SHA-256 `b01f07c121007512294a30e4ac59d2c45d3ade787a5a210dc859019a01f30ce0`;
+- metadata SHA-256 `9cc891a999612b3e78b0b757128d462bcf92fe6a3cb477ced7dbfa1bba75b3a6`.
+
+La validación independiente reconstruyó cada decisión desde el contrato y confirmó orden, campos, linaje y explicación de señales. Los conteos se aceptaron sin retocar reglas. No se calculó clave de selección, no se eligió ninguna pregunta y no hubo traducción, retrieval, inferencia o labels humanos.
 
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- diseñar y probar, sin seleccionar consultas, el contrato del clasificador de intención contra los campos públicos congelados;
-- congelar reglas deterministas de elegibilidad por intención, colisiones y exclusiones antes de aplicarlas al marco;
+- diseñar y probar, sin seleccionar consultas, el contrato de colisiones exactas y familias semánticas previas;
+- congelar el procedimiento de selección por SHA-256 y la asignación de idiomas antes de aplicarlos;
+- congelar el método de traducción y su verificación independiente antes de producir textos de retrieval;
 - preparar instrucciones y acuerdos de adjudicación;
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
