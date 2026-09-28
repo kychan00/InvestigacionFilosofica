@@ -54,9 +54,9 @@ El conjunto debe ser nuevo respecto de development, holdouts internos y confirma
 
 Antes de congelar el set se deben comprobar colisiones exactas, variantes traducidas y solapamiento semántico de familias con todos los benchmarks previos.
 
-La capacidad confirmada permite un balance provisional de cuatro idiomas —español, inglés, francés y portugués— y tres intenciones —philosopher-concept, work e interdisciplinary-challenge—. El diseño de borrador asigna una consulta a cada celda idioma × intención, para 12 consultas. Este tamaño está determinado por un techo humano de 250 juicios y debe revisarse explícitamente como limitación de potencia antes de la recuperación; no permite inferencia por subgrupo.
+La capacidad confirmada permite un balance de cuatro idiomas —español, inglés, francés y portugués— y tres intenciones —philosopher-concept, work e interdisciplinary-challenge—. La selección congelada asigna una consulta a cada celda idioma × intención, para 12 consultas. Este tamaño está determinado por un techo humano de 250 juicios y debe revisarse explícitamente como limitación de potencia antes de la recuperación; no permite inferencia por subgrupo.
 
-Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto. La ruta API se preserva como historia de intentos output-free, pero dejó de ser la superficie activa después del bloqueo del proveedor. La adquisición aceptada usa el snapshot semanal oficial de [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy). El snapshot fuente sanitizado de 9.846 preguntas y el frame determinista de candidatos por intención ya están congelados; todavía deberán definirse y congelarse las colisiones con queries previas, la exclusión de familias semánticas, la selección SHA-256, la traducción y su verificación independiente. No se permite selección manual posterior por conveniencia.
+Philosophy Stack Exchange es el marco externo porque contiene preguntas públicas escritas fuera del proyecto. La ruta API se preserva como historia de intentos output-free, pero dejó de ser la superficie activa después del bloqueo del proveedor. La adquisición aceptada usa el snapshot semanal oficial de [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy). El snapshot fuente sanitizado de 9.846 preguntas, el frame determinista de candidatos, las colisiones con queries previas, la exclusión semántica y la selección SHA-256 ya están congelados. No se permite selección manual posterior por conveniencia. Las nueve traducciones no inglesas y su verificación independiente siguen pendientes.
 
 ## Juicio humano
 
@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
 
-Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. El marco fuente y la clasificación determinista ya fueron congelados, pero no se inició selección de consultas, asignación lingüística, traducción, recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `source-queries-and-empty-translation-packet-frozen`, `execution_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones y el paquete ciego vacío de traducción ya fueron congelados. No se inició traducción humana, recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -161,7 +161,7 @@ La consulta corregida se ejecutó una sola vez en la superficie oficial de Philo
 
 La validación independiente confirmó esquema y campos exactos, 9.846 IDs únicos en orden ascendente, elegibilidad, corte temporal, URL estable, licencias permitidas, privacidad, hashes y linaje del runtime comprometido. No se conservaron autor, owner, cuerpo, contenido de respuestas, comentarios ni datos de usuario. El snapshot refleja la observación semanal de SEDE y no se presenta como estado near-live de la API.
 
-El estado operativo continúa siendo anterior a la selección: ya existe un marco público aceptado, pero aún no se han elegido las 12 consultas.
+El hito del marco fuente quedó cerrado con un snapshot público aceptado. La selección posterior se documenta por separado y no altera ese snapshot.
 
 ### Hito del clasificador de intención
 
@@ -179,23 +179,44 @@ La ejecución única, local y sin red clasificó las 9.846 preguntas y quedó co
 
 La validación independiente reconstruyó cada decisión desde el contrato y confirmó orden, campos, linaje y explicación de señales. Los conteos se aceptaron sin retocar reglas. No se calculó clave de selección, no se eligió ninguna pregunta y no hubo traducción, retrieval, inferencia o labels humanos.
 
+### Hito de selección y traducción
+
+El contrato de selección fijó cinco fuentes anteriores con hashes exactos, 150 consultas previas, normalización, aliases, stopwords y umbrales inclusivos de colisión antes de leer los 3.570 candidatos. La clave es `sha256(validation_id + NUL + intent + NUL + source_question_id)`; se toman las primeras cuatro claves elegibles por intención y se asignan `es`, `en`, `fr`, `pt` en ese orden.
+
+El primer intento comprometido en `b62c98afa4b1e22a5d88b1d7a511aabb183fe068` terminó antes de leer candidatos y sin outputs porque un locator apuntaba al conteo numérico y no al arreglo de consultas de un preregistro previo. La corrección `b898d6d98127370321b8c2aa87dbb82c7947c0e7` cambió sólo ese locator, añadió una regresión estructural y mantuvo intactas las reglas científicas.
+
+La ejecución válida excluyó 154 candidatos únicos y congeló 12 asignaciones en `b8df0db2ddcd55a875e12d030dc77d2ae14e9165`:
+
+- JSONL seleccionado: SHA-256 `ba03242da8a3e44440b9baf1de5deb3a009af072c3ac122ec640bb55f977b65d`;
+- metadata: SHA-256 `75634c79e91569575d244643d1f21fda0b1cd6b9f38d31eb0a3d11ce0d6dfe6d`;
+- balance: 4 por intención y 3 por idioma;
+- reconstrucción independiente: colisiones, primeras cuatro claves, linaje, asignación lingüística y bloqueo de traducción confirmados.
+
+El builder del paquete de traducción se congeló en `6e2eeda1b3a7daf482aeaf141cad7e7fcf3f6f2b` y el paquete vacío en `ea7f58e13edf0d0c8b0d248cfa5535eaf0cfd07b`:
+
+- JSONL ciego: SHA-256 `fad140a7ef765147f5fc365a82f184391fc90e81c7a34d39f4dfcddf6abe8f30`;
+- metadata: SHA-256 `93e7cc23b4cc4ed55b7c6e8e0780c68812dfae72237b347d0b000089ebfdb4ab`;
+- contenido: nueve textos fuente, tres por idioma no inglés, IDs opacos y campos humanos vacíos;
+- exclusiones: query/source ID, intención, tags, señales, clave de selección, condición, rango, score, retrieval y relevancia.
+
+Máquina y modelos de lenguaje no pueden traducir. Un preparador humano debe completar las nueve traducciones y un verificador humano distinto debe aprobar preservación de significado, intención, entidades y calificadores, además de naturalidad. Ninguno puede ser `external-adjudicator-01`. El original comprometido es inmutable; el retorno humano debe ser un JSONL manual separado.
+
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- diseñar y probar, sin seleccionar consultas, el contrato de colisiones exactas y familias semánticas previas;
-- congelar el procedimiento de selección por SHA-256 y la asignación de idiomas antes de aplicarlos;
-- congelar el método de traducción y su verificación independiente antes de producir textos de retrieval;
+- preparar y probar el validador de un retorno manual sin producir traducciones;
+- coordinar un preparador humano y un verificador distinto, ambos ajenos a la adjudicación;
 - preparar instrucciones y acuerdos de adjudicación;
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
 
-La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. No resuelve el marco externo, las traducciones, la potencia ni la preregistración y no autoriza ejecución.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo y la selección ya están resueltos, pero no las traducciones, la potencia ni la preregistración; por tanto, no autoriza retrieval ni adjudicación.
 
 No debe iniciarse retrieval, inferencia, A/B ni juicio hasta contar con:
 
-- consultas seleccionadas y su linaje SHA-256 congelados sobre el snapshot externo ya fijado;
-- reglas de selección, clasificación y traducción congeladas;
+- retorno completo de traducciones humanas, verificado independientemente y congelado;
+- reglas de selección, clasificación y traducción ya congeladas y respetadas;
 - preregistración ejecutable completa y congelada;
 - decisión explícita sobre tamaño de muestra e inferencia.
 
