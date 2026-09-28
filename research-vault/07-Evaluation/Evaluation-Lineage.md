@@ -40,8 +40,10 @@ La implementación cuantizada del navegador se evaluó separadamente porque cuan
 
 → [[Source-Reports/browser/q8-human-holdout/reports/qwen3-browser-q8-human-holdout-v1-human-delta]]
 
-## Confirmación actual
+## Confirmación browser-q8 v2
 
-Los resultados del primer browser holdout motivaron hipótesis que ahora se prueban en un segundo holdout fresco.
+Los resultados del primer browser holdout motivaron tres hipótesis preregistradas que se probaron en un segundo holdout fresco. El experimento ya está cerrado: H1 recibió apoyo direccional; H2 y H3 no. La mejora binaria descriptiva global no elimina el carácter mixto del resultado ni autoriza un cambio automático de producción.
 
 → [[Qwen3-Browser-Q8-Confirmatory-v2]]
+
+→ [[Source-Reports/browser/q8-confirmatory-holdout-v2/reports/qwen3-browser-q8-confirmatory-holdout-v2-human-delta]]

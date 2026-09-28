@@ -1,6 +1,6 @@
 ---
 type: experiment
-status: active
+status: complete
 area: evaluation
 model: qwen3-reranker-0.6b
 runtime: browser-webgpu-q8
@@ -63,8 +63,10 @@ Philosopher-concept es descriptivo y no direccional.
 - Raw human submission: ✓ congelada
 - Blind judgment normalizer: ✓ congelado
 - Human adjudication: ✓ 212/212, normalizada y congelada
-- Unblinding: pendiente
-- H1/H2/H3 analysis: pendiente
+- Post-judgment analyzer: ✓ congelado antes del unblinding
+- Unblinding: ✓ ejecutado una vez
+- H1/H2/H3 analysis: ✓ congelado
+- Production change: ✗ no autorizado
 
 ## Artefactos congelados
 
@@ -88,6 +90,11 @@ Philosopher-concept es descriptivo y no direccional.
 - Normalized judgments SHA: `6dd083fc3a430f5dd5a3e7e3b7b61859e2f429edfad966a4097c11c58e516694`
 - Normalized judgments metadata SHA: `b39f95f023e5dae949ef788c90e5d946cd8ab2360d33c27fb3d9f1e50594019b`
 - Normalized judgments freeze commit: `35f4e2c929159cb78898663498990a65b6ae1a3e`
+- Post-judgment analyzer SHA: `d5c2f729f49dc7bb5b6cb8721de8297c55508fc90965a4faf70b6bef3dbe9bc2`
+- Post-judgment analyzer freeze commit: `f8fcd5498e27851dab8e21f2db46d76bea7f3b23`
+- Human-delta JSON SHA: `6e9356ecad8fffa99e57f052a383a3fca48fd58bd7da40cb33e2d7f2f16ef95a`
+- Human-delta Markdown SHA: `7a79f30d9591d9f1adb18787622cd854b0cb25cdc65a70ddf1102436fe0ad2c3`
+- Human-delta result freeze commit: `2dd25cdbe3e005b8561041047932a9a4b0100465`
 
 ## A/B preflight congelado
 
@@ -100,7 +107,7 @@ Philosopher-concept es descriptivo y no direccional.
 - Equal-score pairs: **8**
 - Predicted A/B SHA: `98d7943dc6af9590ccf4360e63f7b00e8f1c1364b4ba8a0a5ef64d77f3b2043c`
 
-Estos datos describen movimiento estructural. Todavía no muestran que B sea mejor que A.
+Estos datos describían únicamente movimiento estructural antes del juicio. La evaluación humana posterior se documenta abajo.
 
 ## Muestra ciega congelada
 
@@ -123,20 +130,53 @@ El normalizador determinista leyó únicamente la entrega ciega, su metadata y l
 - Relevantes con umbral preregistrado ≥2: **143**
 - No relevantes: **69**
 
-Los dos hashes generados coincidieron exactamente con el preflight y los juicios quedaron congelados antes de cualquier reconstrucción A/B. Esta distribución describe únicamente las etiquetas ciegas; todavía no permite inferir si A o B gana.
+Los dos hashes generados coincidieron exactamente con el preflight y los juicios quedaron congelados antes de cualquier reconstrucción A/B. Esta distribución describía únicamente las etiquetas ciegas; el resultado A/B se produjo después desde un analizador congelado.
 
-## Próximo límite
+## Resultado confirmatorio congelado
 
-1. Construir un analizador post-juicio que fije los hashes de A/B, muestra y juicios congelados.
-2. Probar y congelar ese analizador antes de ejecutarlo.
-3. Sólo desde esa implementación congelada reconstruir la procedencia A/B.
-4. Ejecutar una vez el análisis preregistrado de H1/H2/H3 y congelar sus reportes.
+| Hipótesis | Estimando congelado | Valor | Resultado direccional |
+| --- | --- | ---: | --- |
+| H1 | ΔP@10 interdisciplinario | **+0.060** | apoyada |
+| H2 | ΔP@10 interdisciplinario − work | **−0.010** | no apoyada |
+| H3 | Δcentral-3@10 interdisciplinario | **−0.010** | no apoyada |
 
-Los juicios ya están congelados, pero este documento se detiene antes del unblinding: todavía no se ha abierto ni producido una correspondencia entre `audit_id`, condición, rango o score, ni se conoce el resultado de H1/H2/H3.
+H1 replica la dirección positiva preregistrada: B aporta 6 documentos relevantes netos en los 100 lugares Top 10 interdisciplinarios. H2 no se replica porque work obtiene `+0.070`, ligeramente por encima del `+0.060` interdisciplinario. H3 tampoco se replica: en las consultas interdisciplinarias B pierde un documento de relevancia 3 neto sobre 100 lugares.
+
+### Descriptivo global
+
+- A-only relevantes: **61/106**
+- B-only relevantes: **82/106**
+- Ganancia relevante neta de B: **+21**
+- ΔP@10 exacto global: **+0.070**
+- A-only central-3: **42/106**
+- B-only central-3: **52/106**
+- Δcentral-3@10 global: **+0.033333**
+- Delta ordinal: **+45** (`192 → 237`)
+- Consultas mejoradas / empeoradas / empatadas: **12 / 1 / 17**
+
+Por intención, philosopher-concept fue `+0.080`, work `+0.070` e interdisciplinary-challenge `+0.060` en ΔP@10. Philosopher-concept permanece descriptivo porque no tenía hipótesis direccional preregistrada.
+
+### Lectura metodológica
+
+El resultado es mixto. Hay una mejora binaria global y apoyo direccional para H1, pero no para la superioridad comparativa interdisciplinaria de H2 ni para la centralidad interdisciplinaria de H3. No es correcto resumirlo como una confirmación total del reranker.
+
+Los 194 lugares Top 10 compartidos por condición no fueron adjudicados. Por eso los deltas pareados son exactos, pero no se identifican P@10 absoluto, P@5, MRR ni nDCG. Tampoco se preregistró una prueba de significancia o potencia: “apoyada” significa únicamente que el signo del estimando satisface la regla direccional congelada.
+
+Esta es validación humana interna fresca, no validación externa independiente. No hubo tuning, threshold, blending, cambio de pool ni modificación de producción.
+
+## Cierre y siguiente decisión
+
+El experimento está cerrado como registro científico reproducible. Su siguiente uso legítimo es informar una decisión separada, no reescribir el protocolo observado.
+
+- No cambiar producción automáticamente.
+- No ajustar q8 contra este holdout ya observado.
+- Si se desea avanzar hacia producto, definir explícitamente una nueva decisión experimental o una validación externa independiente.
+- Conservar este branch, hashes, juicios y reportes como evidencia inmutable del resultado mixto.
 
 ## Relacionado
 
 - [[Judgment-Protocol]]
 - [[Evaluation-Lineage]]
+- [[Source-Reports/browser/q8-confirmatory-holdout-v2/reports/qwen3-browser-q8-confirmatory-holdout-v2-human-delta]]
 - [[Source-Reports/browser/q8-human-holdout/reports/qwen3-browser-q8-human-holdout-v1-human-delta]]
 - [[Source-Reports/EXPERIMENT_LOG]]
