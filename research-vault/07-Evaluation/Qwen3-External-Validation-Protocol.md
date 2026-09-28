@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
 
-Estado canónico actual: `verified-human-translations-frozen-preregistration-pending`, `execution_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego y las nueve traducciones humanas verificadas ya fueron congelados. No se inició recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `executable-preregistration-frozen-retrieval-runner-pending`, `execution_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final y la preregistración ejecutable ya fueron congelados. No se inició recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -212,23 +212,41 @@ El retorno completo cumplió ese contrato y quedó congelado canónicamente en `
 
 Los nombres y datos de contacto permanecen fuera de Git. Este hito cierra exclusivamente la traducción; no autoriza retrieval.
 
+### Hito de preregistración ejecutable
+
+El query set final y la preregistración quedaron congelados antes de retrieval en `1956bb7e5b4674298bda47306f9edb39ba67aef6`:
+
+- query set de 12 consultas: SHA-256 `2ead8ff5cf611dfe8836ab625d05b293fd0538e9159e663a7822458cb416a5af`;
+- preregistración: SHA-256 `d75981a5f96a625ece08f94437ff7a3e1fbd2830f1ab0e9f2fd0a5dd88f75a22`;
+- controles dedicados: `7/7`;
+- suite completa: `353/353`;
+- outputs de ejecución presentes: ninguno.
+
+El contrato fija la producción base `bb9689da2016ca26a08359e8655eca7a5b771937`, Top-20 por consulta y aborto sin sustitución si falta un resultado. B usa exactamente el mismo pool que A y sólo reordena por raw score browser-q8; WebGPU q8 y `max_length=1024` quedan obligatorios, sin onnxruntime-node, threshold, blending, tuning o labels humanos.
+
+La auditoría adjudica la unión deduplicada completa de ambos Top 10: máximo 240 pares únicos más diez repeticiones ciegas deterministas. Así identifica P@10 absoluto y ΔP@10. El profesor no verá condición, rango, score, IDs internos, proveedor, provenance, identidad de repetido ni resultados previos.
+
+El estimando primario es la media macro de los 12 ΔP@10 por consulta. La prueba unilateral enumera los `2^12 = 4096` sign flips y usa `p = count(T_perm >= T_obs) / 4096`, con α = 0.05. Apoyo requiere Δ positivo, p ≤ 0.05 y cero abstenciones primarias no resueltas. Una abstención única hace el gate inconcluso, sin imputación y con bounds de peor caso. Repetidos sólo miden consistencia intraevaluador.
+
+La potencia está limitada prospectivamente: inferencia formal sólo overall; idioma e intención son descriptivos; falta de apoyo no equivale a equivalencia o no inferioridad. Cualquier resultado mantiene el candidato research-only hasta una decisión de producto separada.
+
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- diseñar, probar y revisar la preregistración ejecutable completa;
-- resolver prospectivamente potencia, abstenciones, repetidos ciegos y gate decisorio;
+- construir y congelar un runner de retrieval que sólo use producción;
+- demostrar preflight output-free, identidad de `src` y hashes de preregistración/query set;
 - preparar instrucciones y acuerdos de adjudicación;
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
 
-La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección y las traducciones ya están resueltos, pero no la potencia ni la preregistración; por tanto, no autoriza retrieval ni adjudicación.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia y preregistración ya están resueltos. Retrieval sólo podrá ejecutarse después de congelar y preflightar un runner que implemente exactamente el contrato; la adjudicación continúa bloqueada.
 
-No debe iniciarse retrieval, inferencia, A/B ni juicio hasta contar con:
+No debe iniciarse inference, A/B ni juicio hasta contar con:
 
 - reglas de selección, clasificación y traducción ya congeladas y respetadas;
 - preregistración ejecutable completa y congelada;
-- decisión explícita sobre tamaño de muestra e inferencia.
+- producción Top-20 completa y congelada mediante el runner aún pendiente.
 
 ## Relacionado
 
