@@ -79,3 +79,19 @@ Definir el **contrato de datos del proyecto de investigación** y el **flujo com
 - [[Epistemological-Model]]
 - [[Research-Mode]]
 - [[Research-Mode-Architecture]]
+
+## Research Vault · evaluación Qwen3
+
+Se añadió [[Evaluation-Hub]] como mapa epistemológico de los experimentos Qwen3.
+
+La sección documenta:
+
+- protocolo de juicio humano;
+- linaje entre development y validaciones frescas;
+- artefactos científicos históricos;
+- separación entre AI silver, Qwen scorer/reranker y juicio humano;
+- estado del holdout confirmatorio browser-q8 v2.
+
+Los informes originales permanecen preservados como snapshots en `07-Evaluation/Source-Reports/`, mientras que los artefactos canónicos siguen perteneciendo a `benchmark/qwen3/`.
+
+El experimento confirmatorio permanece separado del vault documental y congelado en su rama experimental.

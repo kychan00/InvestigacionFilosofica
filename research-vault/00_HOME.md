@@ -48,3 +48,10 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 ## Contexto para asistentes
 
 → [[AI_CONTEXT]]
+
+## Evaluación y jueces
+
+- [[Evaluation-Hub]]
+- [[Judgment-Protocol]]
+- [[Evaluation-Lineage]]
+- [[Qwen3-Browser-Q8-Confirmatory-v2]]

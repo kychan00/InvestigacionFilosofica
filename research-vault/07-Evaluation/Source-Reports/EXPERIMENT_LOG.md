@@ -1,0 +1,1462 @@
+# Qwen3 Browser Experiment Log
+
+Bitácora versionada de los experimentos Qwen3 para Investigación Filosófica.
+
+## Regla de trazabilidad
+
+Todo experimento o cambio debe registrar fecha, commit, configuración, acciones, resultados, errores, decisión metodológica y siguiente paso.
+
+Los experimentos cerrados no se modifican para hacerlos pasar.
+
+---
+
+## 2026-09-19 — qwen3-browser-runtime-q8-feasibility-v1
+
+**Branch:** `experiment/qwen3-browser-q8-feasibility-v1`
+**Runner commit:** `d56844f3600985f4e2558ab7963a2cdd26386f74`
+**Status:** FAIL — browser runtime feasibility
+
+### Frozen candidate
+
+- Model: `onnx-community/Qwen3-Reranker-0.6B-ONNX`
+- Revision: `9995c50e2310679108a55f5ccd16ba8be9f17c20`
+- Artifact: `onnx/model_quantized.onnx`
+- dtype: `q8`
+- execution provider: `WebGPU`
+- Transformers.js: `4.3.0`
+- WASM host threads: `1`
+- `num_logits_to_keep=1`
+- ONNX output: `logits` only
+
+### Observed result
+
+- `synthetic-512` — PASS
+- exact input length: `512` tokens
+- score: `0.03741093707626879`
+- latency: `46903.8 ms`
+- `synthetic-2048` — FAIL during model execution
+- `synthetic-4096` — NOT RUN because the preregistered gate had already failed
+
+### Runtime error
+
+`RuntimeError: table index is out of bounds`
+
+Observed stack passed through `_OrtReleaseTensor`, `sessionRun`, and `decoder_forward`.
+
+### Decision
+
+The preregistered primary gate required 3/3 successful cases. Result: FAIL.
+
+Do not rerun this experiment, reduce the frozen token targets, tune against this failure, access the 500-pair holdout with q8, or change production.
+
+Any subsequent runtime candidate must be a new preregistered experiment.
+
+### Frozen outputs
+
+- `benchmark/qwen3/browser/q8/reports/qwen3-browser-runtime-q8-feasibility-v1.report.json`
+- `benchmark/qwen3/browser/q8/scores/qwen3-browser-runtime-q8-feasibility-v1.raw.jsonl`
+
+---
+
+
+### Artifact hashes
+
+- Report SHA-256: `6e943bd330c4d45502ace324c7ed32c32c435d00a307434f9c17bc337e347869`
+- Scores SHA-256: `58bd7b243dbb135aacd911b97a1718587d1f89c9fc86749a9931aaca7c918470`
+
+---
+
+
+### Tracking note
+
+During the result commit, git diff --cached --check detected trailing whitespace and an extra blank line at EOF in this Markdown log.
+The formatting was cleaned before commit. No experimental data, configuration, hashes, or conclusions were changed.
+
+---
+### Frozen-path anomaly
+
+The preregistered q8 score output path accidentally contains a literal backslash before `.jsonl`.
+The frozen preregistration contains `qwen3-browser-runtime-q8-feasibility-v1.raw\\.jsonl`, and the generated Git-tracked file therefore also contains that literal backslash.
+The file is intentionally not renamed because the experiment is already closed and its frozen output path must remain reproducible.
+This naming anomaly does not affect the experimental result or hashes.
+
+---
+## 2026-09-19 — qwen3-browser-q8-512-warm-v1
+
+**Status:** preregistered before runtime execution
+**Base commit:** `455f71f4fdc0aed5a2c49ed7ef9b11c621ebd93d`
+**Preregistration SHA-256:** `553681d80c38d45bb5337f7ec6553511acb56cf83449ffae250d118e3c0342e1`
+
+### Objective
+
+Measure repeated q8 browser execution at exactly 512 total tokens in one WebGPU/model session, separating the first forward from five subsequent warm forwards.
+
+### Frozen plan
+
+- q8 / WebGPU / `onnx/model_quantized.onnx`
+- exact input length: `512` tokens
+- first forwards: `1`
+- measured warm forwards: `5`
+- total forwards: `6`
+- same browser session and same loaded model
+- no reload between runs
+- synthetic input only
+- no ranking holdout
+- no human labels
+- no latency threshold in the primary gate
+- primary gate requires `6/6` successful finite scores with no runtime exception
+
+### Methodological boundary
+
+This is a runtime/stability experiment only. It cannot establish ranking quality or production suitability. A successful result may only authorize a separately preregistered development ranking experiment.
+
+---
+### Runner implementation — q8-512-warm-v1
+
+**Implementation base commit:** `b85f42c4d8f3a8694ed0c4ffeaf21e9cd6dd1192`
+**Runner SHA-256:** `391e948592a9ef426f49953158a6970fdb1296c1a41040e6c1bc5ef4664f7516`
+**Test SHA-256:** `1461680e3ffa4785fa9df04566645b7b748333cf9c7648462a6b5c19a5b0adfc`
+
+The experiment reuses the already frozen `scripts/benchmark/qwen3/q8_feasibility_browser.js` browser scorer unchanged. A new Node orchestration runner derives exactly six 512-token cases: one first forward and five warm forwards, all inside the same browser page and loaded model session.
+
+The runner records first-forward latency, all five warm latencies, warm minimum/maximum/mean/median, and score repeatability. Latency remains observational and is not a pass/fail criterion.
+
+Preflight and the complete repository test suite were run before any experimental inference. No model inference, ranking holdout access, human-label access, or production change occurred during runner construction and preflight.
+
+---
+### Result — q8-512-warm-v1
+
+**Runner commit:** `f30e0de15e18363acf9273b746909eb51363b3d7`
+**Status:** `passed`
+**Primary gate:** `6/6` successful runs — PASS
+
+### Observed runtime
+
+- first forward: `58507.320 ms`
+- warm runs: `5`
+- warm minimum: `30391.795 ms`
+- warm maximum: `40624.465 ms`
+- warm mean: `35420.551 ms`
+- warm median: `35701.920 ms`
+- score range: `0`
+- all six identical-input scores identical: `true`
+
+### Interpretation
+
+The preregistered runtime/stability gate passed. q8 WebGPU repeatedly executed the exact 512-token synthetic input six times in one loaded browser/model session without a runtime error.
+
+Warm execution was faster than the first forward, but observed warm latency remained approximately 30–41 seconds per forward on the tested environment. Because latency had no preregistered threshold, this does not change the PASS result. Interactive production suitability has not been established.
+
+This experiment does not establish ranking quality. No ranking holdout, human labels, or production ranking were used.
+
+### Frozen artifacts
+
+- `benchmark/qwen3/browser/q8-512-warm/reports/qwen3-browser-q8-512-warm-v1.report.json`
+- `benchmark/qwen3/browser/q8-512-warm/scores/qwen3-browser-q8-512-warm-v1.runs.jsonl`
+- report SHA-256: `14cd4da681cd17aa2df3c5c583682999a06fc041bc75355780690d3b9fa06ae9`
+- runs SHA-256: `912d2570bd630661bbbc5d6ecb9755be1a3765e9cb0658b4087f67eab05cc478`
+
+### Tracking note
+
+The first attempt to write this result entry aborted before modifying the log because shell quoting transformed a dictionary-key expression inside the Python command and produced `NameError: name status is not defined`. The experimental outputs were not changed or rerun.
+
+### Next methodological step
+
+The preregistered success policy permits a separate development-only 512-token ranking-quality experiment. That experiment must be preregistered independently and must not reuse the already-observed ranking holdout as a fresh validation set.
+
+---
+## 2026-09-19 — qwen3-ranking-512-development-v1
+
+**Status:** preregistered before inference
+**Base commit:** `8c530d4be73ec4dff086c25fd7220c9402fa92ce`
+**Preregistration SHA-256:** `dc68ff205aceecd2972b0fdcce4d906c9e190e0d3b51bb77dbb4a93d97054eb8`
+
+### Objective
+
+Test whether changing only Qwen maximum sequence length from 4096 to 512 preserves the validated development ranking behavior.
+
+### Frozen comparison
+
+- same `Qwen/Qwen3-Reranker-0.6B`
+- same model revision
+- same instruction
+- same 1000 query-document development pairs
+- same 50 queries × 20 documents
+- same MPS / float16 scoring implementation
+- reference max length: `4096`
+- candidate max length: `512`
+- no threshold
+- no score blending
+- no new retrieval
+- no human labels during inference
+- no fresh holdout access
+
+### Primary gate
+
+Exact Top-10 membership equality for all `50/50` development queries.
+
+The candidate must finalize all 1000 new scores before the frozen 4096 reference scores are used for comparison.
+
+### Methodological boundary
+
+This experiment isolates truncation only. Passing it would not establish q8/browser parity, browser performance, fresh validation, or production suitability.
+
+---
+### Implementation inspection — qwen3-ranking-512-development-v1
+
+**Commit inspected:** `b4a777a4d506622acab9599624cb7e98b0068c29`
+
+Before implementing 512-token candidate inference, the existing Python Qwen inference engine, adapter, package scripts, and ranking inference manifests were inspected read-only so the new experiment can reuse the validated MPS/float16/singleton machinery instead of duplicating it.
+
+No model inference was executed, no reference scores were read for comparison, and no production files were changed during this inspection.
+
+---
+### Candidate implementation — qwen3-ranking-512-development-v1
+
+**Implementation base commit:** `b4a777a4d506622acab9599624cb7e98b0068c29`
+**Inference manifest SHA-256:** `73144aa390221746efe2e97ff767813235ac01a88d22b1f7fe3a06154a99ffa6`
+**Preflight SHA-256:** `6fe7e95ee8e987a31b969d3621aec5c7eed5592162456ca67db7962a04ac5860`
+**Test SHA-256:** `bab052058f562e449411f35783bb807f051886c434e50193b025cd19df5e76c2`
+
+The existing validated Python/MPS inference engine is reused unchanged. The candidate manifest preserves the frozen model, revision, instruction, 1000-pair development dataset, scoring version, and MPS singleton strategy. The intended scoring-semantic change is only `max_length: 4096 -> 512`.
+
+Candidate raw score, metadata, and cache paths are isolated from the frozen 4096 reference artifacts. The official command explicitly fixes `--device mps` and `--dtype float16`.
+
+The repository test suite and isolated preflight passed before candidate inference. The preflight did not read the 4096 reference scores, load the model, execute inference, access the ranking holdout, use human labels, or change production.
+
+During the earlier read-only implementation inspection, a zsh glob for `benchmark/qwen3/ranking/**/*inference*.json` produced `no matches found`; no inference or artifact mutation occurred. The relevant inference manifest was then inspected explicitly.
+
+---
+### Official inference — qwen3-ranking-512-development-v1
+
+**Runner/config commit:** `c8e26d5bd3cf0753f84ed5936ffccf4817f90e0a`
+**Status:** completed
+**Rows:** `1000/1000`
+**Raw SHA-256:** `45e236befd52e438acc46825e2b6a8ac523462ce4cc6dbdb45759f8da0366d23`
+**Metadata SHA-256:** `6fb8ac5a7a9d28f58dc8cfea66a710556c00dd4614ddf45d20a3802e500d5008`
+
+### Runtime configuration
+
+- model: `Qwen/Qwen3-Reranker-0.6B`
+- revision: `e61197ed45024b0ed8a2d74b80b4d909f1255473`
+- max length: `512`
+- device: `mps`
+- dtype: `float16`
+- batch size: `2`
+- MPS model strategy: singleton forwards
+- cache hits: `0`
+- fresh scores: `1000`
+- elapsed seconds: `495.411684083`
+
+### Boundaries
+
+The complete 512-token candidate score set was finalized before comparison with the frozen 4096-token reference. Human labels were not used as model input and production ranking was not changed.
+
+The 4096 reference must remain unopened for comparison until these 512 candidate scores are frozen in Git.
+
+---
+### Comparison implementation — qwen3-ranking-512-development-v1
+
+**Date:** `2026-09-19`
+**Implementation base commit:** `c4f130d8f2cb3ae9c06cd8b9073e760447e3485a`
+**Analyzer SHA-256:** `94e9b765c6f8a9cb777edfa7d2a60daded15486a72ae879a71d4ed2caac70a16`
+**Test SHA-256:** `71d84adfbc2d3a767b7f7c7f721dc2fe8dac8311a3cb1d80155e5816b7856666`
+
+### Action
+
+Implemented the frozen 512-vs-4096 development comparison after the complete 512 score set had already been committed. The analyzer verifies the frozen preregistration, 512 candidate scores, 4096 reference scores, candidate metadata, and original production pool by SHA-256 before analysis.
+
+### Configuration
+
+- candidate max length: `512`
+- reference max length: `4096`
+- same 1000 query-document pairs
+- 50 queries x 20 documents
+- ranking: raw score descending
+- exact score tie-break: original production rank ascending
+- primary gate: exact Top-10 membership equality on `50/50` queries
+
+### Secondary metrics
+
+Top-5 membership equality, Top-10 overlap and symmetric difference, mean/max absolute rank shift, same-rank count, Pearson score correlation, and Spearman score correlation.
+
+### Implementation note
+
+The first repository test run failed before executing the new analysis tests because the analyzer CLI footer ran during ES-module import and raised `expected --preflight or --run`. No comparison was executed and no reports were created. The analyzer was then guarded so CLI dispatch runs only when the module is invoked directly. The full test suite and comparison preflight were rerun successfully afterward.
+
+### Boundary
+
+No human labels, fresh holdout, new model inference, or production ranking changes are involved. Comparison metrics have not yet been executed.
+
+### Decision
+
+Freeze the corrected analyzer and tests before executing the official comparison once.
+
+### Next step
+
+After the implementation commit, execute the frozen comparison once and record the preregistered gate result without tuning against it.
+
+---
+### Official comparison result — qwen3-ranking-512-development-v1
+
+**Date:** `2026-09-19`
+**Frozen result commit:** `f7b9fde759ba0da677b2a25162becf67358ac0c6`
+**Status:** `FAILED`
+**Report SHA-256:** `267d64c31b79310444377051810b571277357f5c5a3760706d7312089fe81aaa`
+**Markdown SHA-256:** `fafb76fce5adb25199198548f4c8aa72944dfdc71f031b65e57bc75db9eae421`
+
+### Primary gate
+
+Exact Top-10 membership equality was `44/50` development queries. The preregistered requirement was `50/50`; therefore the gate failed.
+
+### Secondary observations
+
+- Top-5 membership equal: `44/50`
+- Top-10 membership equal: `44/50`
+- Top-10 changed queries: `6/50`
+- Top-10 symmetric-difference memberships: `12`
+- Mean Top-10 overlap: `9.88`
+- Minimum Top-10 overlap: `9`
+- Mean absolute rank shift: `0.17`
+- Maximum absolute rank shift: `8`
+- Same-rank documents: `870/1000`
+- Pearson score correlation: `0.9986107663826347`
+- Spearman score correlation: `0.9986620602308067`
+
+### Interpretation
+
+Reducing the original Python Qwen maximum sequence length from 4096 to 512 preserved most development ranking behavior but did not satisfy the preregistered exact Top-10 equivalence criterion. Six queries changed Top-10 membership and the twelve symmetric-difference memberships correspond to one membership swap in each changed query.
+
+This is a structural-equivalence failure, not evidence that the 512-token ranking has worse relevance quality. Human relevance labels were not used in this comparison.
+
+### Logging incident
+
+The first attempt to append this result to `EXPERIMENT_LOG.md` failed with a Python `NameError` caused by shell quoting inside the one-line logging command. The failure occurred only while writing the log: the frozen comparison reports were unchanged and were subsequently committed as `f7b9fde`. The comparison was not rerun.
+
+### Decision
+
+Close `qwen3-ranking-512-development-v1` as a failed preregistered equivalence experiment. Do not retune the 512-token candidate against these observed development results, do not use the fresh ranking holdout to rescue or reinterpret the result, and do not automatically proceed to browser q8 quality evaluation on the basis of this candidate.
+
+### Next step
+
+Any alternative context limit or browser-ranking candidate requires a separately preregistered development experiment before its outputs are observed. The frozen fresh 500-pair ranking holdout remains untouched by this experiment.
+
+---
+## 2026-09-19 — qwen3-ranking-1024-development-v1
+
+**Status:** preregistered before inference
+**Base commit:** `4761c7a099f7e6b968e89495ba5ab9063e27b466`
+**Preregistration SHA-256:** `9101210b49f8cdf8c90b7c8f9caa4b650a9f154bd692c3ce1e180e16f3bffb6b`
+
+### Objective
+
+Test whether `max_length=1024` preserves the frozen 4096-token Qwen3 development ranking under the same strict exact Top-10 membership criterion.
+
+### Adaptive development provenance
+
+This experiment is intentionally development-adaptive. It was selected after the closed 512-token experiment failed its preregistered gate with aggregate result `44/50`. The identities and contents of the six changed queries have not been inspected for selecting or configuring 1024, and no 1024 candidate scores have been generated or observed before this preregistration.
+
+### Frozen plan
+
+- same `Qwen/Qwen3-Reranker-0.6B`
+- same model revision and frozen instruction
+- same 1000 development query-document pairs
+- same 50 queries x 20 documents
+- same MPS / float16 / singleton scoring implementation
+- reference max length: `4096`
+- candidate max length: `1024`
+- ranking: raw score descending
+- exact-score tie break: production rank ascending
+- no threshold
+- no score blending
+- no retrieval rerun
+- no human labels during inference
+- no fresh ranking holdout access
+
+### Primary gate
+
+Exact Top-10 membership equality on all `50/50` development queries.
+
+The complete 1000-score 1024 candidate must be finalized and frozen before comparison against the 4096 reference.
+
+### Failure policy
+
+A failure is frozen as observed. The 1024 candidate will not be tuned against the result and the fresh ranking holdout will not be used to rescue or reinterpret it. Any alternate context length requires another preregistration.
+
+### Success policy
+
+A pass establishes only development structural equivalence for this frozen pool. Browser q8 runtime, numerical parity, ranking parity, fresh validation, and production suitability would each require separate evidence.
+
+### Next step
+
+Freeze this preregistration in Git before implementing or executing 1024-token candidate inference.
+
+---
+### Candidate implementation — qwen3-ranking-1024-development-v1
+
+**Implementation base commit:** `71cbe7e14b5e260ca1351d7a853602e3dd949599`
+**Inference manifest SHA-256:** `57fbe1c8200d49093a9c54d357be56565b058de0dcf819aaa0450afc27f17df2`
+**Preflight SHA-256:** `b78d412e29c8700fecef4a13b403f8a7441341d567a8f12c4c76a6bc42089ede`
+**Test SHA-256:** `4c699e4a15c5d6da58c378e19bf54781b03fa48f2fa43a84a925218251fe2c0c`
+
+The validated Python/MPS inference engine is reused unchanged. The candidate preserves the frozen model, revision, instruction, 1000-pair development dataset, scoring version, and MPS singleton strategy. The intended scoring-semantic change relative to the 4096 reference is only `max_length: 4096 -> 1024`.
+
+Candidate raw score, metadata, and cache paths are isolated from both the frozen 4096 reference and the closed 512 experiment. The official command explicitly fixes `--device mps` and `--dtype float16`.
+
+### Implementation incident
+
+The first repository test run produced `191/192` passing tests because the newly copied 1024 test still looked up the existing `benchmark:qwen3:ranking:512-development:infer` npm script key. The 1024 manifest and preflight were already correct, and the preflight completed with no model execution. The stale test key was corrected to the 1024 command and the full suite and preflight were rerun before freezing this implementation.
+
+No 1024 model inference or score observation occurred during implementation or testing. The fresh ranking holdout was not accessed, human labels were not used, and production was not changed.
+
+### Decision
+
+Freeze the corrected 1024 inference implementation before beginning the official 1000-pair candidate run.
+
+### Next step
+
+Run the frozen 1024 candidate once. Finalize and commit all 1000 candidate scores before comparison against the 4096 reference.
+
+---
+### Official inference — qwen3-ranking-1024-development-v1
+
+**Frozen score commit:** `e6aa25d997ad1f7b772e71ccad2f744f6a0de7c2`
+**Status:** completed
+**Rows:** `1000/1000`
+**Raw SHA-256:** `93618268d803c7221a116f07c5b65886f7d0e7881e7c9085eba65eb20d6d49b7`
+**Metadata SHA-256:** `e7772d7bdf550b7d0572ed2b02a0ecafaa624b333f2ce2d0b32063d4c2d7c1f7`
+
+### Runtime configuration
+
+- model: `Qwen/Qwen3-Reranker-0.6B`
+- revision: `e61197ed45024b0ed8a2d74b80b4d909f1255473`
+- max length: `1024`
+- device: `mps`
+- dtype: `float16`
+- batch size: `2`
+- MPS model strategy: singleton forwards
+- cache hits: `0`
+- fresh scores: `1000`
+- elapsed seconds: `2324.748376583`
+
+### Structural validation
+
+The finalized artifact contains 1000 unique `(query_id, record_id)` pairs across 50 queries with exactly 20 records per query. All rows use the expected `qwen3-score-v1` schema and finite raw probabilities in `[0,1]`.
+
+### Post-inference validation incidents
+
+The first structural-validation command incorrectly assumed a `document_id` field and raised `KeyError: document_id`. The actual score contract uses `record_id`, matching the closed 512-token artifact. Validation was repeated successfully without rerunning model inference.
+
+The first attempt to append this inference result to `EXPERIMENT_LOG.md` then failed with a Python `NameError` caused by shell quoting around dictionary-key expressions. The raw scores and metadata had already been generated and were unchanged. They were frozen in Git as commit `e6aa25d`; the model was not rerun.
+
+### Boundaries
+
+The complete 1024-token candidate was finalized and committed before any official comparison with the frozen 4096-token reference. No human labels were used as model input, the fresh ranking holdout was not used, and production ranking was not changed.
+
+### Decision
+
+Treat commit `e6aa25d` as the frozen 1024 candidate score set. Do not alter or rerun those scores before comparison.
+
+### Next step
+
+After this audit-log commit, implement and freeze the preregistered 1024-vs-4096 comparison analyzer before executing the gate once.
+
+---
+### Comparison implementation — qwen3-ranking-1024-development-v1
+
+**Date:** `2026-09-20`
+**Implementation base commit:** `58631266d215148312f67c2682e264523262909a`
+**Analyzer SHA-256:** `7be43888388d5ff8f82dab56958f52104bdae55112e5cb523f98bbf9bd450066`
+**Test SHA-256:** `9f138ca0ef15bc0268b0d2277e3a05ccd345a99eff2ec993f42fcb12a07f04c1`
+
+### Action
+
+Implemented the frozen 1024-vs-4096 development comparison only after the complete 1024 candidate score set had already been finalized and committed. The analyzer verifies the preregistration, 1024 candidate scores, candidate metadata, frozen 4096 reference scores, and original production pool by SHA-256 before analysis.
+
+### Configuration
+
+- candidate max length: `1024`
+- reference max length: `4096`
+- same 1000 query-document pairs
+- 50 queries x 20 documents
+- ranking: raw score descending
+- exact-score tie break: original production rank ascending
+- primary gate: exact Top-10 membership equality on `50/50` queries
+
+### Secondary metrics
+
+Top-5 membership equality, Top-10 overlap and symmetric difference, mean/max absolute rank shift, same-rank count, Pearson score correlation, and Spearman score correlation.
+
+### Verification
+
+The repository test suite passed `197/197`. The comparison preflight verified all frozen artifact hashes and completed with `comparison_executed: false`. No report files exist yet.
+
+### Boundaries
+
+No human labels, fresh ranking holdout, new model inference, browser q8 inference, or production ranking changes are involved in this implementation step.
+
+### Decision
+
+Freeze the comparison analyzer and tests before executing the official preregistered gate once.
+
+### Next step
+
+After the implementation commit, execute the frozen 1024-vs-4096 comparison once and preserve the result without tuning against it.
+
+---
+### Official comparison result — qwen3-ranking-1024-development-v1
+
+**Date:** `2026-09-20`
+**Analyzer commit:** `164cdb3d688921d18f19f91a52b252d601a3e942`
+**Status:** `PASSED`
+**Report SHA-256:** `fa9ad9d39a85944d873002710d9fa45de15c50a1de4fae43324b2a9847b959de`
+**Markdown SHA-256:** `6cadaa70e34abeff89e4ad96594948919236b40135b4ebe4a0f97c26ed77148a`
+
+### Primary gate
+
+Exact Top-10 membership equality was `50/50` development queries. The preregistered requirement was `50/50`; therefore the gate passed.
+
+### Secondary observations
+
+- Top-5 membership equal: `48/50`
+- Top-5 changed queries: `2/50`
+- Top-5 symmetric-difference memberships: `4`
+- Top-10 membership equal: `50/50`
+- Top-10 changed queries: `0/50`
+- Top-10 symmetric-difference memberships: `0`
+- Mean Top-10 overlap: `10`
+- Minimum Top-10 overlap: `10`
+- Mean absolute rank shift: `0.02`
+- Maximum absolute rank shift: `5`
+- Same-rank documents: `986/1000`
+- Pearson score correlation: `0.9992102080368596`
+- Spearman score correlation: `0.9998963645450404`
+
+### Interpretation
+
+The 1024-token candidate satisfied the preregistered structural-equivalence criterion for Top-10 membership on the frozen development pool. All 50 queries retained exactly the same Top-10 document membership as the 4096-token reference.
+
+This does not imply complete ranking or score identity. Two queries changed Top-5 membership and some documents shifted internal rank positions, while Top-10 membership remained invariant.
+
+### Boundaries
+
+This is a development-only truncation result. No human relevance labels, fresh ranking holdout, new model inference, browser q8 inference, or production ranking changes were part of the comparison.
+
+### Decision
+
+Close `qwen3-ranking-1024-development-v1` as a successful preregistered Top-10 structural-equivalence experiment. Freeze the observed result without further tuning against this development pool.
+
+### Next step
+
+Any browser q8 experiment at 1024 tokens must be separately preregistered. Passing this experiment does not establish browser runtime feasibility, numerical parity, browser ranking parity, fresh validation, or production suitability.
+
+---
+### Preregistration — qwen3-browser-q8-1024-feasibility-v1
+
+**Date:** `2026-09-20`
+**Base commit:** `5bbb0b714e86b57e517a17e1c344b89d1a1963d7`
+**Preregistration SHA-256:** `9708b84836744bb1e4b40f0427ae9859386f76ecd66608d94bc10bde1bd4fb76`
+
+### Purpose
+
+Test runtime feasibility and repeatability of the frozen q8 WebGPU browser candidate at exactly `1024` total tokens before any browser ranking-parity experiment.
+
+### Selection provenance
+
+This is an adaptive runtime-development experiment. Exact 512-token q8 execution previously passed and exact 2048-token q8 execution previously failed at runtime. Separately, Python/MPS at max length 1024 passed the preregistered development Top-10 structural-equivalence gate versus 4096. No q8 1024 output was observed before this preregistration.
+
+### Frozen gate
+
+Use one browser/model session with one first forward followed by five warm forwards over the identical synthetic exact-1024-token input. PASS requires all `6/6` forwards to complete, remain q8/WebGPU, and produce finite scores in `[0,1]`. There is no latency threshold; latency is observational only.
+
+### Boundaries
+
+No ranking development pool, fresh ranking holdout, human labels, frozen Python reference scores, browser ranking-quality evaluation, or production changes are part of this experiment.
+
+### Next step
+
+Freeze a dedicated runner and tests before executing this runtime experiment once.
+
+---
+### Runner implementation — qwen3-browser-q8-1024-feasibility-v1
+
+**Date:** `2026-09-20`
+**Implementation base commit:** `0a294a33ce5707dd9d1e60346fef455bac214e2d`
+**Runner SHA-256:** `dad6a75102cbb395398497ca6b3feb0b0d77eb05dbc9443e1323782c0b747eb8`
+**Test SHA-256:** `5f64287b3112ca6507166871a1dea23fe5c5a8be5d08ac23a118696e5984b7e3`
+
+### Implementation
+
+The dedicated exact-1024 runner reuses the already frozen browser-only q8/WebGPU scorer and the one-session first-plus-five-warm execution structure from the closed 512-token stability experiment. The shared browser scorer itself was not modified.
+
+The runner pins preregistration SHA-256 `9708b84836744bb1e4b40f0427ae9859386f76ecd66608d94bc10bde1bd4fb76`, exact total length `1024`, q8, WebGPU, one first forward, five warm forwards, and a `6/6` finite-score gate with no latency threshold.
+
+The runner additionally enforces exclusion of the ranking development pool, fresh ranking holdout, human labels, and frozen reference Qwen scores.
+
+### Verification
+
+The complete repository test suite and dedicated preflight passed before runtime execution. The planned report and run artifacts remained absent after preflight.
+
+### Boundaries
+
+No WebGPU model forward was executed during implementation/preflight, no ranking data were accessed, and production was not changed.
+
+### Decision
+
+Freeze the dedicated 1024 q8 runtime runner before the single official execution.
+
+### Next step
+
+After this implementation commit, perform a final preflight from the frozen runner commit and execute the preregistered exact-1024 six-forward runtime experiment once.
+
+---
+### Official runtime result — qwen3-browser-q8-1024-feasibility-v1
+
+**Date:** `2026-09-20`
+**Runner commit:** `99af8706218f3a577251520c1151443dc64728f4`
+**Status:** `PASSED`
+**Report SHA-256:** `2d666c704eb30ec2b0327f2c769083cbdbf9e70102cea6cdf7ce01435a4ff53a`
+**Runs SHA-256:** `054783b30a1ee3814f8ff34edfa949e4292bfb253957e821230a36b3c510daa0`
+
+### Primary gate
+
+The exact-1024 q8/WebGPU runtime experiment completed all `6/6` preregistered forwards successfully in one browser/model session. Every constructed input contained exactly `1024` total tokens, all scores were finite and in `[0,1]`, execution remained browser/WebGPU, dtype remained q8, and no fallback adapter was used.
+
+### Score repeatability
+
+All six forwards returned the identical raw score `0.10684293458965702`. Observed score range was `0`.
+
+### Runtime observations
+
+- first forward: `174447.55499994755` ms
+- warm minimum: `207968.79000002146` ms
+- warm maximum: `270688.4649999738` ms
+- warm mean: `226335.44999998808` ms
+- warm median: `219678.75999999046` ms
+- total experiment elapsed: `1413385` ms
+
+Latency was observational only and had no preregistered pass/fail threshold.
+
+### Boundaries
+
+This result establishes synthetic runtime feasibility and repeatability for the frozen q8 WebGPU candidate at exactly 1024 tokens on this browser/runtime configuration. It does not establish numerical parity with Python, ranking parity on real documents, fresh validation, human relevance quality, or production suitability. The ranking holdout and human labels were not accessed, and production was not changed.
+
+### Decision
+
+Close `qwen3-browser-q8-1024-feasibility-v1` as a successful preregistered runtime-feasibility experiment. Do not rerun or tune this frozen experiment after observing the result.
+
+### Next step
+
+A separate preregistered experiment may now test browser q8 versus the frozen Python-1024 reference on development ranking data. That future experiment must define its numerical/ranking parity gates before browser scores are observed.
+
+---
+### Preregistration — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Base commit:** `ea2cc19069ab5f9fc33aa7f22fa9977b78894ea0`
+**Dataset SHA-256:** `8e9490479af6c6d01491e8053ea17f580ae41af9df42048b508be56feb178185`
+**Python-1024 reference subset SHA-256:** `089fd2b2399d162e14e2a14b263133f49e90d014d35dc8929deb03ea5e7a3f20`
+**Preregistration SHA-256:** `80cc612a0cd7760c14f0b3185374592941873bba3489f4664973eb99aa215a8f`
+
+### Purpose
+
+Development-only browser parity pilot for q8/WebGPU at max length `1024` against the frozen Python/MPS float16 1024-token reference.
+
+### Frozen selection
+
+Five complete 20-document query groups were selected deterministically by SHA-256 ordering of `query_id` under seed `qwen3-browser-q8-1024-parity-pilot-v1`, before any q8 ranking scores were observed: `es-10`, `de-01`, `en-03`, `es-08`, `en-08`. Total: `100` pairs.
+
+Selection did not use query contents, human labels, browser scores, or Python score values.
+
+### Primary gate
+
+PASS requires exact Top-10 membership equality between browser q8 and frozen Python-1024 on all `5/5` selected queries. Exact-score ties use original production rank. No thresholds or score blending are permitted.
+
+### Boundaries
+
+This is adaptive development, not fresh validation. The fresh ranking holdout and human labels are excluded. A pilot PASS does not authorize production changes and does not establish production suitability.
+
+### Next step
+
+Implement and freeze a dedicated q8/WebGPU 1024 pilot runner and tests before executing any browser score on these 100 pairs.
+
+---
+### Pre-inference correction — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Correction base commit:** `6e4aaf112796f3c1dc11e6ff26f815e45a460b9f`
+**Corrected dataset SHA-256:** `8fa7c38f4ee6e5dc4c2b8a140b13ce8152b9836922f79ab89a06ef833b2b9e01`
+**Corrected Python-1024 reference subset SHA-256:** `52d3dc847f2faa124d395effa6d6a8864b0e683ee17b499a0c6a7bac6714b708`
+**Corrected preregistration SHA-256:** `a2dd96d0be79ccfe4da67ba4b0f09e2740b06646595170c0bf2d626ec5740c19`
+
+### Issue discovered
+
+The initial frozen pilot artifacts contained the correct five selected query groups and exactly the correct 100 unique query-document pairs, and the dataset/reference pair sequences were identical. However, the physical query-group order in the pilot dataset preserved source-dataset order rather than the already frozen SHA-256 selection order.
+
+### Correction
+
+Before any browser q8 score was observed, the dataset was regenerated in the exact preregistered selection order: `es-10`, `de-01`, `en-03`, `es-08`, `en-08`. The Python-1024 reference subset was regenerated to follow that identical pair order, and the preregistration hashes were updated accordingly.
+
+### Invariants
+
+Selection membership did not change. The five query IDs did not change. Each query still contains exactly 20 documents. The primary gate remains exact Top-10 membership equality on `5/5` queries. No thresholds, blending, holdout access, human labels, or production behavior changed.
+
+### Contamination boundary
+
+No browser q8 ranking score had been generated before this correction. Therefore this is a pre-inference artifact-order correction, not tuning against observed browser results.
+
+### Next step
+
+Freeze this correction before implementing the dedicated browser parity pilot runner.
+
+---
+### Pre-inference prompt-contract completion — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Previous preregistration commit:** `71f1e15`
+**Completed preregistration SHA-256:** `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`
+
+### Issue discovered
+
+During dedicated runner implementation, the reused parity core was found to enforce the exact system prefix and suffix used by the frozen Qwen3 prompt construction. The pilot preregistration already froze the instruction, content format, truncation rule, and score formula, but omitted explicit `system_prefix` and `system_suffix` fields.
+
+### Completion
+
+Before any browser q8 pilot score was generated, the preregistration was completed with the exact already-established system text, prefix, and suffix used by the browser and Python parity contract.
+
+### Invariants
+
+No query selection, dataset pair, Python reference score, model artifact, dtype, max length, ranking rule, or primary gate changed. The pilot remains `100` development pairs across `5` complete queries with a `5/5` exact Top-10 membership gate.
+
+### Contamination boundary
+
+No browser q8 pilot score, checkpoint, report, metadata, or result log existed when this prompt-contract completion was made. This change therefore completes preregistration metadata before inference rather than adapting to observed results.
+
+### Next step
+
+Freeze this completed preregistration, then continue implementation and preflight of the dedicated browser runner.
+
+---
+### Implementation freeze — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Implementation base commit:** `8b46322e5ea2490a16a8e695b85a906e86315080`
+**Preregistration SHA-256:** `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`
+**Core SHA-256:** `efeaeac205d74dfa05912b284cb6999f8ce5471728db68c6561c75d5f070db31`
+**Browser scorer SHA-256:** `06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c`
+**Runner SHA-256:** `6389334987ee90c84a9995d35b55f39e7dec9711d7c6d5edeaa58eb51fac77ca`
+**Test SHA-256:** `b31a0a403b91df3c58ce7a7b2ae2145735adef34330257ccecff7884a3470eb5`
+**package.json SHA-256:** `5fcfb383f5f928a1dfc049847e83fe3d6fd91d2e728ac053f76a8202f0df880c`
+**Browser bundle SHA-256:** `10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f`
+
+### Implementation
+
+A dedicated development-only browser parity pilot runner was implemented for the frozen `100`-pair, `5`-query subset. The browser candidate is fixed to q8, WebGPU only, max length `1024`, one-logit-position scoring with `num_logits_to_keep=1`, and logits-only ONNX output retrieval. The runner consumes only the frozen pilot dataset and frozen Python-1024 reference subset.
+
+Diagnostic browser scoring is forbidden. The runner pins the completed preregistration SHA-256 and permits only the preregistered official `--run` path for model execution. Checkpointing remains available solely to resume the same frozen official execution after process interruption.
+
+### Verification
+
+The complete repository test suite passed `205/205`. Dedicated preflight passed with dataset `100` rows, the frozen dataset/reference/instruction hashes, Transformers.js web export, one onnxruntime-web input, and zero forbidden Node backend inputs. Preflight reported `inference_executed=false` and `model_downloaded=false`.
+
+### Boundaries
+
+No browser q8 pilot score has been generated. No checkpoint, final browser score file, metadata, parity report, or result log exists. Fresh holdout data, human labels, and production behavior remain outside this development pilot.
+
+### Decision
+
+Freeze this implementation before the single official browser execution. Do not modify the preregistration, dataset, Python reference subset, scoring semantics, ranking gate, or implementation after browser scores are observed.
+
+### Next step
+
+From the frozen implementation commit, perform one final no-inference preflight and then execute the preregistered official browser q8 parity pilot once.
+
+---
+### Result — qwen3-browser-q8-1024-parity-pilot-v1
+
+**Date:** `2026-09-20`
+**Frozen implementation commit:** `7e9e7fb`
+**Browser scores SHA-256:** `4ef826f5dbc1c92c40eca5d2747a78c8a6516df5c16c4013ee3511023eb578e7`
+**Browser metadata SHA-256:** `f28fa74b8ae16d9360a20256a86374a473035dd7a18649f0ced0b85c61d9799f`
+**Parity report SHA-256:** `603d38a94c71517f95a4730d8f77ac651f3eaadbb6cab5afb03d599cd7256dd6`
+
+### Official execution
+
+The single preregistered browser execution completed all `100/100` development pairs using q8/WebGPU. All score records were unique and finite. The final checkpoint was removed after successful completion of the execution pipeline.
+
+Runtime: Transformers.js `4.3.0`, `onnxruntime-web`, WebGPU, q8, Apple `metal-3`, no fallback adapter, WASM host threads `1`, `num_logits_to_keep=1`, logits-only output. Total elapsed time: `2157.153` seconds.
+
+### Primary result
+
+**FAIL.** Exact Top-10 membership equality was `0/5`; the preregistered gate required `5/5`. No tuning, threshold adjustment, blending, retry, or production change is authorized from this result.
+
+### Secondary results
+
+Top-10 overlaps by query: `[8, 8, 7, 6, 7]`; aggregate overlap `36/50` (`72%`). Top-5 overlaps: `[3, 3, 2, 2, 3]`; aggregate overlap `13/25` (`52%`). Full-Top-20 Spearman values: `[0.8631578947368421, 0.5263157894736843, 0.544360902255639, 0.3007518796992481, 0.5699248120300752]`. Global raw-score Spearman: `0.8879107823112363`. Global raw-score Pearson: `0.8545451587745371`. Mean absolute raw-score difference: `0.10065170599554975`. Maximum absolute raw-score difference: `0.7381553168180568`.
+
+### Interpretation boundary
+
+The q8/WebGPU browser stack is runtime-feasible at the pilot inputs but does not preserve the frozen Python/MPS float16-1024 ranking structure under the preregistered exact Top-10 criterion. This experiment does not isolate quantization from ONNX/runtime effects and does not measure human relevance quality of the q8 ranking.
+
+### Decision
+
+Close this pilot as a structural-parity failure. Freeze all outputs unchanged. Do not rerun or tune q8 against these 100 observed development pairs. Any further browser-ranking experiment must be separately motivated and preregistered.
+
+---
+### Kickoff — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-21`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Base commit:** `34fd13a6e7eb377fc33db4f8660dc3df3bd81d97`
+
+### Research question
+
+Does the frozen q8/WebGPU browser reranker improve, preserve, or reduce human-assessed philosophical relevance compared with the current production ranking on a fresh, previously unseen query holdout?
+
+### Experimental boundary
+
+This is a new human-relevance experiment. The 100 development pairs from `qwen3-browser-q8-1024-parity-pilot-v1` are already observed and are excluded from this holdout. Prior development queries and prior Qwen validation/holdout queries are also excluded.
+
+The production search system will retrieve and freeze candidate pools without q8 scoring. The browser q8 reranker will later score only those frozen candidates. Production and q8 will therefore be compared on identical candidate membership.
+
+Human adjudication will be blind to condition, scores, ranks, provider provenance, and model provenance. Only Top-10 membership changes will require new human relevance judgments; unchanged Top-10 membership cancels in the paired delta.
+
+No query selection, retrieval, q8 inference, human judgment, threshold tuning, blending, or production modification has occurred for this experiment yet.
+
+### Next step
+
+Audit the existing fresh-holdout infrastructure, then preregister the query set, retrieval boundary, browser runtime, A/B construction, blind audit procedure, primary paired relevance metric, and failure policy before retrieving candidates.
+
+---
+### Preregistration freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-21`
+**Base commit:** `4d37df6a80a1fd07bc882c1a1bd918f0d7260ff9`
+**Query-set SHA-256:** `8ace2daeb59d698e7fce9fab550600c9b3ddfb97beff0fa90d66465a4c8dbb4d`
+**Preregistration SHA-256:** `9575c35e5914dd7c6f48f1b03e12f31f381b91f52625f56155206d25ecd2b7ff`
+**Frozen q8 source preregistration SHA-256:** `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`
+
+### Frozen design
+
+The fresh holdout contains `25` queries: five languages (`es`, `en`, `de`, `fr`, `pt`) across five previously unused semantic families, with intent mix `10` philosopher-concept, `5` work, and `10` interdisciplinary-challenge queries. Normalized exact-query collision checking against existing benchmark JSON artifacts returned zero collisions.
+
+Production retrieval is frozen to the previously validated profile with exactly `20` candidates per query and excludes q8 scoring and human labels. Condition A is current production order. Condition B reranks the exact same Top-20 pool by frozen browser q8 raw score descending, with original production rank as the exact-score tie breaker.
+
+The browser candidate reuses exactly the closed q8 browser model and prompt contract from `qwen3-browser-q8-1024-parity-pilot-v1`. No threshold, blending, pool-membership modification, prompt change, or runtime tuning is permitted.
+
+The primary human metric is exact paired `ΔP@10` (`B - A`). Every changed Top-10 query-document pair will be adjudicated blindly with relevance threshold `>=2`; unchanged Top-10 slots cancel exactly and therefore need not be judged for the paired delta.
+
+### State at freeze
+
+No production retrieval, q8 inference, A/B construction, human audit, human judgment, or planned output exists yet.
+
+### Next step
+
+Implement and audit the isolated production-retrieval runner for this frozen holdout, then freeze that implementation before retrieving any candidates.
+
+---
+### Retrieval implementation freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `b20c7ae30f13eba2106993a04dcd475f7c29eb99`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Retrieval server SHA-256:** `0a54be030b20bc424972992570b069c29925fc7de263d4187bda2e0c5d88efcb`
+**Retrieval browser SHA-256:** `7816a341cc7ebcac8e8cb92ee03307c6e4eec3b6c9a9efd2a3b5d74cfb2f5d6d`
+**Retrieval HTML SHA-256:** `f2f662ca261b4268cbeffdc04b307786e8b7f8d6b107908461e7499c6d797e4b`
+**Retrieval test SHA-256:** `4e50dffb3c113d67e6740d79b616c053a6f29886971d59ccd79745dd6c6c9501`
+**package.json SHA-256:** `6724c58e4527e301a5d844286674bcbfe8f6e53bd05d9c92c24e3dd78066d7e8`
+
+### Implementation
+
+A dedicated isolated retrieval runner was implemented for the fresh q8 human holdout. It uses the unchanged production `searchPhilosophy` path and the preregistered production retrieval profile to freeze exactly `20` candidates for each of `25` queries.
+
+The runner pins the frozen preregistration SHA-256 `9575c35e5914dd7c6f48f1b03e12f31f381b91f52625f56155206d25ecd2b7ff`, query-set SHA-256 `8ace2daeb59d698e7fce9fab550600c9b3ddfb97beff0fa90d66465a4c8dbb4d`, and production base commit `bb9689da2016ca26a08359e8655eca7a5b771937`.
+
+Only the preregistered production-pool and production-pool-metadata paths may be written. Retrieval payloads containing browser q8 scores, Qwen scores, or human relevance labels are rejected. Source failures stop the run. Partial query results may only resume the same official frozen retrieval.
+
+### Verification
+
+Dedicated retrieval tests passed `6/6`. The complete repository suite passed `211/211`. `git diff --check` passed. The no-retrieval preflight confirmed unchanged production source, absent planned outputs, absent partial state, and `retrieval_executed=false`. Browser q8 scoring, Qwen scoring, and human labels were all excluded from retrieval.
+
+### Decision
+
+Freeze this retrieval implementation before observing any candidate pool. Do not modify the query set, production search code, retrieval profile, pool depth, serialization, output paths, or retrieval implementation after candidate retrieval begins.
+
+### Next step
+
+Commit and push this frozen implementation. From that exact commit, run one final no-retrieval preflight and then start the single official production Top-20 retrieval for all 25 preregistered queries.
+
+---
+### Production retrieval freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Official retrieval runtime commit:** `18333de88211ba5613ad1fb098dcca89eb4e43f3`
+**Production pool SHA-256:** `938322b67d543780a0489e0b5b0d63658c18b0fb32562f27f57fb7277c9711dd`
+**Production pool metadata SHA-256:** `0c81a62d20661d813ecf772c09f7c4adb7fef6f63f7d29c0082c6295ccfd3053`
+
+### Action
+
+Executed the single official production retrieval for the preregistered fresh q8 human holdout from frozen retrieval commit `18333de`. Production `searchPhilosophy` retrieved and ranked exactly `20` candidates for each of `25` preregistered queries.
+
+### Result
+
+The final pool contains exactly `500` rows across `25` queries with exactly `20` rows per query. Runtime metadata points to the frozen retrieval commit and the embedded run SHA matches the final pool bytes.
+
+No Qwen score, browser q8 score, or human relevance field is present in the frozen retrieval rows. Metadata records `qwen_used_during_retrieval=false`, `browser_q8_used_during_retrieval=false`, and `human_labels_used_during_retrieval=false`. The resumable partial state was removed after successful finalization.
+
+### Decision
+
+Freeze this production Top-20 pool as the sole candidate universe for both conditions A and B. Do not rerun retrieval, alter candidate membership, reorder condition A, modify the query set, or tune production retrieval based on later q8 or human results.
+
+### Next step
+
+Commit and push the frozen pool and metadata. Then construct a clean `500`-pair browser-q8 model-input dataset from this exact pool while stripping production rank, score, provider provenance, and other ranking-only fields before any q8 inference.
+
+---
+### Dataset builder freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `dc326c9b1599b9fb73bc8969eb9f14c504ef70a4`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Dataset builder SHA-256:** `061e820e521862d279d1c418c19c066616cb5be54c0b6db9a2ebf1c9846e44fb`
+**Dataset test SHA-256:** `e468d680073b82bf0c5da816114d0aefcb2405af1c98502b5e86de35f8c1c9cf`
+**package.json SHA-256:** `969441017a665cd87003d9944ca7cd3e69b3bd868cfcd7525ee9c7aa805f7b91`
+**Preflight-derived dataset SHA-256:** `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`
+
+### Frozen input
+
+The builder consumes only the frozen production pool SHA-256 `938322b67d543780a0489e0b5b0d63658c18b0fb32562f27f57fb7277c9711dd` and its metadata SHA-256 `0c81a62d20661d813ecf772c09f7c4adb7fef6f63f7d29c0082c6295ccfd3053`, frozen at commit `dc326c9`.
+
+### Dataset contract
+
+The model-input dataset must contain exactly `500` query-document pairs across `25` queries. Pair sequence must remain identical to the frozen production pool. No duplicate pair may be removed.
+
+The only permitted model-input fields are `schema_version`, `query_id`, `query`, `record_id`, `title`, `abstract`, `authors`, `year`, and `document_language`.
+
+Production rank, production score, relevance level, provider provenance, matched queries, ranking diagnostics, URLs, citation counts, DOI, journal, publisher, document type, browser q8 scores, Qwen scores, and human relevance labels are excluded from model input.
+
+### Verification
+
+Dedicated dataset tests passed `4/4`. Full repository tests passed `215/215`. The preflight validated `500` rows, `25` queries, `419` unique records, zero duplicate pair removals, exact pair-sequence equality with the frozen pool, and absence of ranking, provider, and human-label provenance. No dataset output was written during preflight.
+
+### Decision
+
+Freeze this builder before materializing the dataset. Do not modify source-pool membership, pair ordering, cleaning fields, model-input schema, or dataset construction after the dataset is generated.
+
+### Next step
+
+Commit and push the frozen builder. Run one final preflight from that exact commit, then materialize the single official `500`-pair browser-q8 model-input dataset.
+
+---
+### Model-input dataset freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Dataset builder commit:** `3a790b23bcfd388b7dae7577ade1c8346ecf1d9e`
+**Dataset SHA-256:** `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`
+**Rows:** `500`
+**Queries:** `25`
+**Unique query-document pairs:** `500`
+
+### Result
+
+The official browser-q8 model-input dataset was materialized once from the frozen production Top-20 pool. Its SHA-256 exactly matches the value derived during the pre-output builder preflight.
+
+The dataset preserves the exact frozen `(query_id, record_id)` sequence and contains only the clean model-input fields: `schema_version`, `query_id`, `query`, `record_id`, `title`, `abstract`, `authors`, `year`, and `document_language`.
+
+Production ranks and scores, provider provenance, retrieval diagnostics, URLs, citation information, DOI/journal/publisher/type metadata, browser q8 scores, Qwen scores, and human relevance labels are absent.
+
+### Decision
+
+Freeze this exact `500`-pair dataset as the sole input to the browser q8 inference stage. Do not rebuild, reorder, edit, augment, filter, or replace any pair after q8 scoring begins.
+
+### Next step
+
+Commit and push the frozen dataset. Then audit the already-closed q8 1024 browser scoring implementation and adapt an isolated runner for these exact `500` frozen pairs without executing inference.
+
+---
+### Browser q8 inference runner freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `eb9e7147e94a194032fdd94045f03053374fe532`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Inference runner SHA-256:** `44582ce698d10d7281e5c5c5f35f787c239c7404bd6ddf4ea881c174de438494`
+**Inference test SHA-256:** `0747c528e322ef4dfa5533ce6b3c92ff5698573655b12321dcb2081e857f537b`
+**package.json SHA-256:** `2d349812af960e7d478b6928c037d137db7e3cbb9526c1aa5adedc988c89f386`
+**Inherited closed browser scorer SHA-256:** `06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c`
+**Frozen browser bundle SHA-256:** `10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f`
+
+### Frozen inference inputs
+
+Fresh holdout preregistration SHA-256: `9575c35e5914dd7c6f48f1b03e12f31f381b91f52625f56155206d25ecd2b7ff`.
+Closed q8 source preregistration SHA-256: `5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b`.
+Frozen 500-pair dataset SHA-256: `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`.
+Frozen instruction SHA-256: `5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7`.
+
+### Inherited browser scorer contract
+
+The fresh holdout does not introduce a new browser scoring implementation. It reuses the exact closed q8-1024 browser scorer bytes from the completed parity pilot. Model, revision, q8 dtype, WebGPU execution provider, Transformers.js version, prompt construction, left padding, 1024-token boundary, logits-only ONNX output selection, yes/no tokens, and continuous yes/no softmax scoring remain unchanged.
+
+### Verification
+
+Dedicated inference tests passed `6/6`. Full repository tests passed `221/221`. `git diff --check` passed.
+
+The no-model preflight validated exactly `500` rows across `25` queries, the frozen dataset SHA, both preregistration SHAs, inherited scorer bytes, exact browser-model and prompt contracts, WebGPU-only browser bundle, max length `1024`, continuous raw scoring without a ranking threshold, and absent score, metadata, and checkpoint artifacts.
+
+The preflight recorded `inference_executed=false`, `model_downloaded=false`, `human_labels_used_during_inference=false`, and `production_changed=false`.
+
+### Decision
+
+Freeze this runner before the first fresh-holdout q8 score is observed. After inference starts, do not modify the scorer, model, prompt, runtime contract, dataset, pair order, max length, output paths, or ranking policy. Process recovery may resume only from the validated prefix checkpoint produced by this exact frozen runner.
+
+### Next step
+
+Commit and push this frozen inference runner. Run one final no-model preflight from that exact commit. Then execute the single official browser q8 scoring run over all `500` frozen pairs, allowing checkpoint-only recovery if interrupted.
+
+---
+### Browser q8 score freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Official inference runtime commit:** `1d21e36382ba0690da107b82e4bc569742799698`
+**Browser q8 raw scores SHA-256:** `c260c2f3194cda9cef91c9efc1b1cf7a0c0adee4c2b2d5a1e56c0855c35cd518`
+**Browser q8 metadata SHA-256:** `bdb66be6bb7222e4f2ebd510832c67024d88c84c4a94388d2fd77bb36881c26c`
+**Frozen dataset SHA-256:** `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`
+**Inherited browser scorer SHA-256:** `06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c`
+
+### Result
+
+The single official fresh-holdout browser q8 inference completed successfully over exactly `500` query-document pairs across `25` queries with exactly `20` candidates per query.
+
+The score sequence is byte-for-byte aligned to the frozen model-input pair sequence. All scores are finite probabilities in `[0,1]`. Runtime metadata records browser execution through WebGPU with q8 weights and max length `1024` from frozen inference commit `1d21e36`.
+
+The score file contains no human relevance labels. Inference used no ranking threshold, no score blending, no candidate-pool changes, and made no production changes. The resumable checkpoint was removed after successful finalization.
+
+### Decision
+
+Freeze these exact raw scores and metadata before constructing either condition A or condition B. Do not rerun inference, alter scores, change the model, modify the dataset, reorder the frozen pair sequence, tune a threshold, or introduce blending based on these results.
+
+### Next step
+
+Commit and push the frozen browser q8 scores and metadata. Then deterministically construct A/B rankings: A preserves the frozen production order; B sorts the exact same 20 candidates per query by browser q8 raw score descending with original production rank as the exact-score tie breaker.
+
+---
+### A/B builder freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `604214b2e9f76e960b2488d6a8fd3dec3b1946b5`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**A/B builder SHA-256:** `a6a419632ff798ebd9b10c25890a94480a9d1526d8b029bfd5e88e1dede48abf`
+**A/B test SHA-256:** `c7f6c82750fb490b9b19723d21a29f5971dec94ef7216110f88cb1ba2450beac`
+**package.json SHA-256:** `002d8fe8f5b8bbf2cba1761e2f69a33d8b9cdf90861f5684a3783df8ffe0d56f`
+**Preflight-derived A/B SHA-256:** `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`
+
+### Frozen inputs
+
+Production pool SHA-256: `938322b67d543780a0489e0b5b0d63658c18b0fb32562f27f57fb7277c9711dd`.
+Model-input dataset SHA-256: `52fa2d0c863c69270de5f77006b42106dcfb6ed7d998d9209934018e96edb4c4`.
+Browser q8 raw scores SHA-256: `c260c2f3194cda9cef91c9efc1b1cf7a0c0adee4c2b2d5a1e56c0855c35cd518`.
+Score-freeze commit: `604214b`.
+
+### Ranking contract
+
+Condition A preserves the exact frozen production order. Condition B contains the identical candidate membership and sorts each 20-document query group by frozen browser q8 raw score descending, with original production rank ascending only for exact score ties.
+
+No binary threshold, score blending, retrieval change, candidate-pool change, model inference, or human label is permitted during A/B construction.
+
+### Preflight result
+
+The output-free preflight derived `1000` A/B rows from `500` frozen pairs across `25` queries. Top-5 membership changed in `25/25` queries with `142` symmetric-difference rows. Top-10 membership changed in `25/25` queries with `192` symmetric-difference rows, yielding `192` blind human audit candidates. Mean absolute rank shift was `5.276`, maximum shift `19`, unchanged-rank count `44`, and there were `4` exact-score pairs resolved by the frozen production-rank tie breaker.
+
+The preflight-derived A/B SHA-256 is `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`. No A/B output was written.
+
+### Verification
+
+Dedicated A/B tests passed `6/6`. Full repository tests passed `227/227`. `git diff --check` passed.
+
+### Decision
+
+Freeze this deterministic A/B builder before materializing condition A or B. Structural movement is not evidence of ranking quality; no relevance conclusion may be drawn before the blind human judgments are frozen.
+
+### Next step
+
+Commit and push this frozen builder. Run one final output-free preflight from the frozen commit. Then materialize the single official A/B artifact exactly once.
+
+---
+### A/B artifact freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**A/B builder commit:** `12dad54705be4576759a9dab40c065111d3dc878`
+**A/B artifact SHA-256:** `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`
+**A/B metadata SHA-256:** `3225b67c62246ebc9697d30e4a278356ea45465f133676c89cfb305290b67f14`
+
+### Result
+
+The single official A/B artifact was materialized from the frozen production pool and frozen browser q8 scores. It contains exactly `1000` rows: `500` condition A rows and `500` condition B rows across `25` queries, with identical candidate membership in both conditions.
+
+Condition A preserves the exact frozen production ranking. Condition B sorts the same 20 candidates per query by frozen browser q8 raw score descending, using original production rank only as the exact-score tie breaker.
+
+Top-10 membership differs in all `25/25` queries. The Top-10 symmetric difference contains `192` query-document judgments: `96` exits from production Top-10 and `96` entrants into the q8 Top-10.
+
+No human labels were used. Qwen was not called during A/B construction. No threshold, score blending, pool-membership change, retrieval change, or production change was introduced.
+
+### Decision
+
+Freeze this exact A/B artifact before constructing the blind human audit. Do not alter A/B membership, ranks, scores, tie-breaking, or candidate selection after this point.
+
+### Next step
+
+Commit and push the frozen A/B artifact and metadata. Then construct a deterministic blind audit containing all `192` Top-10 symmetric-difference judgments while hiding condition, rank, original rank, browser q8 score, production score, provider provenance, and other ranking provenance from the human evaluator.
+
+---
+### Blind human audit builder freeze — qwen3-browser-q8-human-holdout-v1
+
+**Date:** `2026-09-23`
+**Implementation base commit:** `51d9106c45fd8fb5b2ba8d547b87f5f4f960e618`
+**Branch:** `experiment/qwen3-browser-q8-human-holdout-v1`
+**Blind audit builder SHA-256:** `fe17d0c87f95b0b69ecca07843d187b4c62fb67f0ee440fec14d0ddd5f61cc61`
+**Blind audit test SHA-256:** `c03afd95cded0bbba630b6ee7ea409c1b5f74eac0d9f44fdeecdbe629e4e81a6`
+**package.json SHA-256:** `7967c27ec904c745f57682a86b27f328fedaa017514815a09e3e330150a533a7`
+**Preflight sample SHA-256:** `b0ec1980f47e0f123a36f056c86b23965b3c9aa61693b382aac38abbb93855f9`
+**Preflight sample metadata SHA-256:** `d2f5be7b60104c2029331882646c8e742653f3a918edebf3716fa67a157b4ff4`
+**Preflight worksheet SHA-256:** `4ff6c82768738f492330d85f4b76d4275e9488bcfa1bdede9a113f107e55e776`
+
+### Frozen input
+
+A/B artifact SHA-256: `002ef734a26b7a7f7fc932422f4a4187f0bbb2bddab460df253dbddd1b0b196d`.
+A/B metadata SHA-256: `3225b67c62246ebc9697d30e4a278356ea45465f133676c89cfb305290b67f14`.
+A/B freeze commit: `51d9106c45fd8fb5b2ba8d547b87f5f4f960e618`.
+
+### Blind audit contract
+
+The audit contains every query-document pair in the Top-10 symmetric difference between A and B: exactly `192` judgments across `25` queries. The hidden balance is `96` A-only and `96` B-only.
+
+Public audit rows hide condition, rank, original rank, query ID, record ID, browser q8 raw score, production score, provider provenance, retrieval provenance, and all human judgments before adjudication.
+
+Audit order is deterministic and condition-independent. No private pre-adjudication mapping artifact is written. The A/B mapping may be reconstructed only after the human judgments are frozen.
+
+### Verification
+
+Dedicated blind-audit tests passed `6/6`. Full repository tests passed `233/233`. `git diff --check` passed.
+
+The output-free preflight derived exactly `192` rows and `25` queries, with `96` hidden A-only and `96` hidden B-only cases. It wrote no audit output and exposed no A/B or q8 ranking provenance.
+
+### Decision
+
+Freeze this blind-audit builder before materializing the public sample. Do not change audit membership, order, blinding fields, relevance scale, or A/B mapping after the sample is generated.
+
+### Next step
+
+Commit and push the frozen blind-audit builder. Run one final output-free preflight from that exact commit. Then materialize the single official blind sample, metadata, and worksheet exactly once.
+
+---
+### Blind human audit sample freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-24
+Builder commit: 7eba7d7
+Sample SHA-256: b0ec1980f47e0f123a36f056c86b23965b3c9aa61693b382aac38abbb93855f9
+Sample metadata SHA-256: d2f5be7b60104c2029331882646c8e742653f3a918edebf3716fa67a157b4ff4
+Worksheet SHA-256: 4ff6c82768738f492330d85f4b76d4275e9488bcfa1bdede9a113f107e55e776
+
+The official blind sample contains 192 judgments across 25 queries. All human relevance fields are empty at freeze time. Condition, ranks, internal IDs, q8 scores, production scores, and provider provenance remain hidden. No private pre-adjudication mapping artifact exists.
+
+Decision: freeze these exact blind artifacts before human adjudication. The frozen sample, ordering, IDs, metadata, and worksheet must not change during judging.
+
+Next step: commit and push the blind sample, then build a separate blind adjudication interface that stores judgments independently.
+
+---
+### Blind adjudication interface freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-24
+Implementation base commit: b39163d
+Server SHA-256: 57e0fcee57e8c4495abb747ccea864cb5926c8384d79b7f1a3ddb53f664db536
+Browser SHA-256: 1b8bce166297a7c37e6a6ca6a223a0e9abb37650924c064e4134bcd7695c9981
+HTML SHA-256: b17af302d44909ce8d123a4cba91eecd46e4dc2fd336ee6bd0143b29ae3a1885
+Test SHA-256: f0d9e52e2cf5f874d5499b760a0041f20028aecc7192f1b9b8b85dda12978249
+package.json SHA-256: c9628e9be89422b2091450c7d7da6bce740336b1fe3c6279b35a59951f3867f1
+
+The adjudication interface is pinned to the frozen 192-row blind sample, metadata, and worksheet. A/B condition, rankings, browser q8 scores, production scores, provider provenance, and private mapping are unavailable during adjudication.
+
+Preflight wrote no progress or judgments. Dedicated tests passed 4/4. Full repository tests passed 237/237. git diff --check passed.
+
+Decision: freeze this interface before the adjudicator sees the first audit item. Human progress will be stored separately in the cache until all 192 judgments are finalized.
+
+Next step: commit and push this exact interface, rerun the output-free preflight from the frozen commit, then start the local adjudication server.
+
+---
+### Blind adjudication interface startup hotfix — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-24
+Base interface commit: ff05646
+Server SHA-256: 940b347e69cd1c13a7b52f3ec01400e5d642f8526fd5bc152efcd04b087fb3b7
+Test SHA-256: e12ccd1f897ee7fb2912e68b03cb7159b0a7aac453486918c8b79f229cecfa40
+
+The first runtime launch exposed two stale console references to RAW_SHA256 and PREDICTIONS_SHA256 inherited from the older holdout interface. The process terminated before any audit item was adjudicated and before progress or judgment artifacts were created.
+
+The hotfix removes only those obsolete startup log references and adds regression assertions that they cannot reappear. The frozen blind sample, A/B artifact, scores, ordering, audit IDs, relevance scale, UI behavior, and finalization contract are unchanged.
+
+Dedicated tests passed 4/4. Full repository tests passed 237/237. Output-free preflight passed and no progress, judgments, or judgment metadata existed after validation. Runtime smoke test successfully served the 192-row blind state and audit HTML without writing human output.
+
+Decision: freeze this runtime-only startup hotfix before human adjudication begins.
+
+---
+### Blind human judgments freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Interface/runtime commit: b960916
+Manual judgments path: benchmark/qwen3/browser/q8-human-holdout/audit/qwen3-browser-q8-human-holdout-v1-delta-audit.manual.txt
+Manual judgments SHA-256: 2d3c0d388bad68733be80854958d8dacb7361e6c5a1c54c24b440e062042e14d
+Canonical label-sequence SHA-256: 835f3e4ebb1db41d2543d36276e7361f2b92a3ec6116fca0dec60834541ec0ae
+
+Judgments: 192/192, audit IDs Q8H001–Q8H192, no duplicates or gaps.
+Distribution: 0=12, 1=44, 2=45, 3=91. Relevant at threshold >=2: 136. Nonrelevant: 56.
+
+The adjudication remained blind to A/B condition, ranks, browser q8 scores, production scores, query/record identifiers, provider provenance, and private mapping. Browser progress and generated judgment artifacts were absent at freeze time.
+
+Decision: freeze the completed manual human judgments before deterministic conversion to JSONL and before any A/B unblinding or human-delta analysis.
+
+Next step: implement and freeze a blind-only deterministic converter from this manual artifact to judgments JSONL plus metadata. No A/B artifact may be read during conversion.
+
+---
+### Normalized blind judgments freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Manual judgments freeze commit: b6e36a7092c278e43af1c48a8406f93de4f2bb07
+Normalized judgments artifact commit: 216e789803dec5b666fff1a49dccb4baaea11c22
+Judgments SHA-256: 17778c8ec5479758a9639165c53f400d366166d0aefd8263c2f4515acf64ae7b
+Judgments metadata SHA-256: e70ce2cd19cb6d6cacbbbbd757d6dc61dbf571add4a202e45fb4ad035915f97c
+Canonical label-sequence SHA-256: 835f3e4ebb1db41d2543d36276e7361f2b92a3ec6116fca0dec60834541ec0ae
+
+The frozen 192-row manual adjudication was converted deterministically to a minimal judgments JSONL containing only schema version, audit_id, human relevance, human note, and null judged_at. Distribution remains 0=12, 1=44, 2=45, 3=91; relevant at threshold >=2 is 136/192.
+
+The conversion read only the frozen manual artifact and frozen public blind sample. It did not read A/B condition, browser q8 scores, production scores, ranks, query IDs, record IDs, or provider provenance.
+
+The normalized artifacts were committed first in 216e789; this log entry records that freeze immediately afterward and still before any A/B reconstruction or unblinding.
+
+Decision: human labels are frozen. No further adjudication changes are permitted. Next step is post-judgment analyzer construction followed by deterministic A/B reconstruction.
+
+---
+### Post-judgment analyzer freeze — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Pre-unblinding base commit: 4c516c6
+Analyzer SHA-256: b4c42407030908c57c2e5b675e3365409eb9ae3ab631d0c91de3dcb2c114a506
+Analyzer test SHA-256: 9c4ffae90f7b0ac797d9c107150006a72111f996f862ed8af611b8c4ffc2d9ce
+package.json SHA-256: 4a45079ca0f8d0b2444c7428facac2a1142222a1b36d9024bdc14d3879e571b0
+
+The post-judgment analyzer was constructed only after all human judgments were frozen. It pins the frozen A/B run, blind sample, normalized judgments, and their metadata hashes. It reconstructs the hidden audit_id-to-query/document mapping deterministically using the frozen audit ordering rule.
+
+Condition semantics are fixed before execution: A = original production order; B = browser q8 raw-score descending with original production rank as tie-breaker. The analyzer rejects thresholding, score blending, or candidate-pool changes.
+
+Dedicated analyzer tests passed 10/10. Full repository tests passed 247/247. git diff --check passed. Both human-delta report outputs remained absent during validation.
+
+Decision: freeze this exact analyzer before first execution and before observing any A/B human result. No analyzer changes or human-label changes are permitted after unblinding except to correct a demonstrated implementation defect, which must be documented separately.
+
+Next step: commit and push this analyzer freeze, verify reports are still absent, then execute the frozen analyzer once to perform deterministic unblinding and compute exact paired delta P@10.
+
+---
+### First official human unblinding result — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Frozen analyzer commit: 74d8710
+Report SHA-256: 2b738e8bb78dcf5c850c7cf9eb40084af5b8e0ee3439d0fde88b90242d2cc421
+Markdown SHA-256: a3ceb221b2a8bb8f0f958331da16ff434a4b5077b8797e0f0cb1796affd66c8e
+
+This was the first execution of the frozen post-judgment analyzer and therefore the first deterministic unblinding of A/B human relevance. A is frozen production order; B is frozen browser q8 raw-score reranking of the identical Top-20 candidate pools.
+
+Primary result: A-only relevant=65/96; B-only relevant=71/96; net relevant gain in B=+6; exact paired delta P@10 (B-A)=+0.024. Queries improved/worsened/tied=9/4/12. Ordinal relevance A-only=191, B-only=216, delta=+25.
+
+All 25 queries changed Top-10 membership. There are 154 shared Top-10 query-document slots. Absolute human P@10 is not identified because shared slots were deliberately not adjudicated; the paired delta P@10 is exact because those slots cancel.
+
+Breakdown: de +0.100, en -0.120, es +0.080, fr +0.060, pt 0.000 mean delta P@10; philosopher-concept -0.010, work -0.060, interdisciplinary-challenge +0.100; kierkegaard-despair -0.080, merleau-ponty-perception +0.060, hobbes-leviathan -0.060, ethics-artificial-intelligence 0.000, philosophy-biology-evolution +0.200.
+
+Interpretation boundary: this is fresh internal human validation, not external independent validation. It evaluates pure q8 reranking of the frozen production Top-20 only. No threshold, blending, retrieval change, candidate-pool change, or holdout-label tuning occurred. This result does not itself authorize a production change.
+
+Decision: freeze the first official unblinded human-delta reports exactly as generated before any further interpretation, diagnostics, or implementation work.
+
+---
+### Post-hoc diagnostic closure — qwen3-browser-q8-human-holdout-v1
+
+Date: 2026-09-27
+Frozen primary-result commit: 3638ee5
+
+This section is explicitly post-hoc and exploratory. The frozen primary result remains exact paired delta P@10 = +0.024 and is unchanged by these diagnostics.
+
+Centrality diagnostic: interdisciplinary-challenge changed-slot relevance improved from 15/28 in A to 25/28 in B; grade-3 central documents increased from 9 to 17 and mean ordinal relevance increased from 1.714 to 2.429. Work changed-slot relevance decreased from 20/22 to 17/22, grade-3 central documents decreased from 15 to 13, and mean ordinal relevance decreased from 2.591 to 2.364; however, the work intent is represented by only the Hobbes-Leviathan family and therefore cannot support a general work-query conclusion. Philosopher-concept relevance changed from 30/46 to 29/46 while grade-3 central documents increased from 16 to 21 and mean ordinal relevance increased from 1.870 to 2.087, so the exploratory evidence does not support a simple general claim that q8 degrades philosopher-concept queries.
+
+The strongest family effect was philosophy-biology-evolution: relevant changed documents increased from 6/18 to 16/18, grade-3 documents from 2 to 10, and mean ordinal relevance from 1.222 to 2.333. Merleau-Ponty also improved, while Hobbes and Kierkegaard showed different forms of regression or threshold movement.
+
+Abstract presence does not explain the overall gain: among changed documents with abstracts, A-only and B-only were both 60 percent relevant (30/50 and 24/40). Among changed documents without abstracts, A-only was 35/46 relevant and B-only 47/56. These are descriptive post-hoc associations and are not interpreted causally because group composition differs.
+
+Confirmatory hypotheses for a future fresh holdout: H1, browser q8 has positive paired delta P@10 on interdisciplinary/conjunctive queries; H2, its delta P@10 on interdisciplinary queries is greater than its delta on exact-work queries; secondary H3, browser q8 has positive paired grade-3 centrality delta on interdisciplinary queries. No directional hypothesis is preregistered for philosopher-concept queries because the exploratory result was mixed.
+
+Decision: close this holdout for hypothesis generation only. Do not tune, relabel, rerun, or use these 25 queries as fresh evidence again. Any confirmation must use new semantic families and newly frozen retrieval.
+
+---
+### Confirmatory holdout v2 preregistration freeze
+
+Date: 2026-09-27
+Branch: experiment/qwen3-browser-q8-confirmatory-holdout-v2
+Pre-retrieval base commit: 91bf3d2177ae665eee74964107ea38d719997f1b
+Query-set SHA-256: eeaeb32e9f0de28ddb8a95a74657810ecbb61afc9ff9ea2d797e155849125ad1
+Preregistration SHA-256: 875910b573b56c5cba5fe586f95c621283cfdff6091f08ecbefb0a205cdf3c6e
+
+The confirmatory holdout contains 30 fresh queries: 6 semantic families, 5 languages per family, and 10 queries each for philosopher-concept, work, and interdisciplinary-challenge. Each intent is represented by two independent semantic families.
+
+Freshness gate passed before retrieval: 0 duplicate candidate queries, 0 normalized exact-query collisions, and 0 prior family-ID collisions across scanned benchmark JSON/JSONL artifacts.
+
+Preregistered hypotheses before retrieval: H1 = positive exact paired delta P@10 for interdisciplinary/conjunctive queries; H2 = interdisciplinary delta P@10 greater than exact-work delta P@10; H3 = positive paired grade-3 centrality delta for interdisciplinary queries. Philosopher-concept is descriptive and nondirectional.
+
+A remains frozen production order. B remains pure browser q8 raw-score reranking of the identical frozen Top-20 pool with original production rank as the tie-breaker. No threshold, blending, pool-membership change, or human label is permitted in ranking construction.
+
+At freeze time the production pool, model-input dataset, browser scores, and A/B artifacts did not exist. Retrieval had not begun.
+
+Decision: freeze the exact query set and preregistration before any retrieval. Hypotheses, support rules, query formulation, semantic families, intent balance, retrieval profile, scoring contract, and ranking policy may not be changed using confirmatory results.
+
+Next step: construct and freeze the isolated production-only retrieval runner for v2, then run retrieval only after that implementation is committed.
+
+---
+### Confirmatory holdout v2 retrieval runner freeze
+
+Date: 2026-09-27
+Frozen preregistration commit: 51fa575159a9f895f145fc057e722ad7cf163a8f
+Server SHA-256: f7ab3fdeb83492725b03a0e7cadeb461c20b9e5a08e415188100fd691aec593a
+Browser retrieval SHA-256: 6c43018f4aee32bf5f4a12ce0b9d8a7b9f6d6c6ffa7122d03247ca4e18e3acae
+HTML SHA-256: 49f3d4c7561dbc9bc475b384080c42671e407bf60f0c1a7d50d035731e9384e1
+Retrieval test SHA-256: 88bf5476f49275cbc54254dc7ff977eac157e0aafebd56ad0ebe571cd23feb0d
+package.json SHA-256: fb5d4b333a277c602ee6712a3b0af299c1f1a855ea88415d77d39827fa4e085f
+
+The isolated confirmatory retrieval runner is pinned to the frozen v2 preregistration and 30-query set. Expected retrieval is exactly 30 queries x Top-20 = 600 rows. Production src remains identical to the frozen production base.
+
+Dedicated retrieval tests passed 6/6 and the full repository suite passed 253/253. The output-free preflight confirmed no production pool, metadata, dataset, browser scores, A/B artifact, or partial retrieval state existed. Retrieval was not executed during validation.
+
+The retrieval stage excludes Qwen/browser-q8 scoring and all human labels. It writes only the preregistered production pool and its metadata and refuses existing final outputs.
+
+Decision: freeze this exact retrieval implementation before the first official v2 retrieval. Do not alter retrieval code, profile, queries, preregistration, production ranking, or output contract after retrieval begins.
+
+Next step: commit and push this freeze, rerun the output-free preflight from the frozen commit, then execute the single official resumable production retrieval.
+
+---
+### Confirmatory holdout v2 production pool freeze
+
+Date: 2026-09-27
+Frozen retrieval-runner commit: 35a938d43bd6c62a851ace8d56f1f6bdb0153124
+Production pool SHA-256: 122a9414377c10e4805639e5022cce926130efd17e82111abd4756d5be33f9f8
+Production pool metadata SHA-256: 782575648eaa1b9bc29a429cb9eb7f0f6896c4bb7532704d5f4f8e43ed8c3f75
+Preregistration SHA-256: 875910b573b56c5cba5fe586f95c621283cfdff6091f08ecbefb0a205cdf3c6e
+Query-set SHA-256: eeaeb32e9f0de28ddb8a95a74657810ecbb61afc9ff9ea2d797e155849125ad1
+
+The official confirmatory production retrieval completed with exactly 600 rows: 30 fresh queries x Top-20, with exactly 20 rows per query. Runtime commit was 35a938d43bd6c62a851ace8d56f1f6bdb0153124 and production base remained bb9689da2016ca26a08359e8655eca7a5b771937.
+
+Retrieval validation passed. Qwen/browser-q8 scoring was not used, human labels were not used, production ranking was not changed, and no model or human-relevance fields are present in the frozen pool.
+
+At production-pool freeze time, the q8 model-input dataset, browser score output, and A/B ranking artifact did not exist.
+
+Decision: freeze this exact 600-row production pool before constructing model input. Do not rerun retrieval, replace pool membership, modify queries, or alter production ordering for this confirmatory holdout.
+
+Next step: construct and freeze the clean 600-pair browser-q8 model-input dataset from this exact pool only.
+
+---
+### Confirmatory holdout v2 dataset builder freeze
+
+Date: 2026-09-27
+Frozen production-pool commit: 85f866ecc56bcfca5c53e00c2fdceb014ea77fbe
+Builder SHA-256: a76c5bb7a1fc395840d570c205ea8f9f40c9688ead37d8841ccc6e967129cd55
+Dataset test SHA-256: d50a3195cf9de62a36fac3a23940abb7ad78aeedd735140d501756f591802cff
+package.json SHA-256: 2c7418db90955ff2b09098506e216c447f41de0416c4e9483089828a7bff6b54
+Expected dataset SHA-256 from output-free preflight: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+
+The frozen builder consumes only the exact 600-row production pool frozen at 85f866e. The output-free preflight produced 600 model-input pairs across 30 queries, 492 unique records, zero duplicate-pair removals, and an identical ordered query-document pair sequence to the frozen pool.
+
+The model-input contract contains only schema_version, query_id, query, record_id, title, abstract, authors, year, and document_language. Human labels, production rank, production scores, provider provenance, matched-query provenance, URLs, citation counts, and Qwen scores are excluded.
+
+The expected dataset SHA-256 was computed before writing output. At builder freeze time the official dataset, browser q8 scores, and A/B artifact did not exist.
+
+Decision: freeze this exact dataset-construction implementation before generating the official 600-pair dataset. Do not change source pool, field contract, pair ordering, duplicate policy, or model-input formatting after dataset generation begins.
+
+Next step: commit and push the builder freeze, rerun the output-free preflight from the frozen commit, then generate the official dataset exactly once.
+
+---
+### Confirmatory holdout v2 model-input dataset freeze
+
+Date: 2026-09-27
+Frozen dataset-builder commit: 854dde7e2c4fe2af2f42334a58bb2b99c7bb84d0
+Dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Source production-pool SHA-256: 122a9414377c10e4805639e5022cce926130efd17e82111abd4756d5be33f9f8
+
+The official confirmatory model-input dataset was generated once from the frozen production pool and contains exactly 600 ordered query-document pairs across 30 queries. Its byte hash exactly matches the SHA predicted by the output-free preflight before generation.
+
+The ordered pair sequence is identical to the frozen production pool. The dataset contains only schema_version, query_id, query, record_id, title, abstract, authors, year, and document_language. Ranking fields, production scores, provider and retrieval provenance, URLs, citation counts, Qwen scores, and human labels are absent.
+
+At dataset freeze time browser-q8 score outputs, score metadata, and the A/B ranking artifact did not exist.
+
+Decision: freeze this exact model-input dataset before browser q8 inference. Do not regenerate, reorder, filter, deduplicate, enrich, or otherwise modify these 600 pairs for this confirmatory holdout.
+
+Next step: construct and freeze the browser-q8 inference runner against this exact dataset and the preregistered q8/WebGPU contract before any model inference occurs.
+
+---
+### Confirmatory holdout v2 browser q8 inference runner freeze
+
+Date: 2026-09-27
+Frozen dataset commit: 39f6a2c9ce1cee8f8940090e16384daf77716567
+Inference runner SHA-256: 35dd00e09e716f9fcf5519591585bd5fda71a4d166eb58754b646b91d5fe3711
+Inference test SHA-256: a446c25bbcb341450368cd16de4d70228e0c4d3f1ce08244d3ff1c9a75582c28
+package.json SHA-256: 378a50be992dadd8ec0b398cf9151a923b89d0ffeaba00953721ec6c405058e4
+Frozen dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Closed q8 preregistration SHA-256: 5c4fd21aa9414048fe6c045350a773d661e316c902c13a225cc28ba5a976a79b
+Frozen browser scorer SHA-256: 06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c
+Instruction SHA-256: 5693a9a1377e10eb952d327aeec5c05cbbf040989feb786910b42e17cbf271a7
+
+The browser-q8 inference runner is frozen before any confirmatory model execution. It consumes exactly 600 ordered pairs across 30 queries from the frozen dataset and inherits the complete closed q8/WebGPU scorer contract from the frozen source preregistration. The locally summarized confirmatory browser-model and prompt fields are checked for compatibility with that closed contract; the browser payload uses the complete closed contract itself.
+
+Runtime contract: WebGPU only, q8, Transformers.js 4.3.0, max_length 1024, one final next-token logits position, ONNX logits-only output selection, one WASM host thread, no Node inference backend, no threshold, no score blending, and no candidate-pool changes.
+
+Dedicated inference tests passed 6/6. The full repository suite immediately before the final metadata-label cleanup passed 263/263. Output-free preflight passed without model execution or model download. Browser scores, score metadata, checkpoint, and A/B artifacts were absent.
+
+Decision: freeze this exact runner before the first official browser-q8 score is observed. After freeze, no prompt, model, runtime, dataset, scoring, threshold, blending, or pool changes are permitted for this confirmatory holdout.
+
+Next step: run one resumable official browser-q8 inference over the frozen 600-pair dataset, then freeze raw scores and runtime metadata before constructing A/B rankings.
+
+---
+### Confirmatory holdout v2 browser q8 score freeze
+
+Date: 2026-09-27
+Frozen inference-runner commit: 79b0731ac40bf19c207fea8a3775a53e575ed336
+Raw browser-q8 scores SHA-256: ea8f06baf5144ff109b05ae9b9b690d9b25cf7cb7a12ae2dbbdeb38943aed6f1
+Runtime metadata SHA-256: 79053c9a9a02e09809ee62f2cc43643dce03ce7f961f35d201b244db43b29c51
+Frozen dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Frozen browser scorer SHA-256: 06d6ecb076113f2e2d77a47499a8f60e8d600ca49b34bc54dd6654e9f536b97c
+
+The single official browser-q8 inference completed all 600 frozen query-document pairs across 30 queries. Score order is identical to the frozen dataset order. The completed checkpoint was removed.
+
+Runtime validation confirms WebGPU, q8, max_length 1024, one WASM host thread, logits-only ONNX output selection, and the frozen browser scorer. No threshold, score blending, candidate-pool changes, human labels, or production changes were used during scoring.
+
+The A/B artifact did not exist when raw scores and runtime metadata were frozen.
+
+Decision: freeze these exact raw scores and runtime metadata before constructing any A/B ranking. Do not rerun inference, rescore, normalize, calibrate, threshold, blend, reorder, or otherwise modify these browser-q8 scores for this confirmatory holdout.
+
+Next step: construct and freeze a deterministic A/B builder in which A is the frozen production order and B is the exact same Top-20 membership sorted by frozen browser-q8 raw score descending with original production rank as the exact-tie breaker.
+
+---
+### Confirmatory holdout v2 A/B builder freeze
+
+Date: 2026-09-27
+Frozen score commit: 0d85099abf5c4d5e78b4de61019b324d3242b525
+A/B builder SHA-256: a4b4255061d416b8b6018f58ab6a719d1b47f197ca924735a5185ef4f70c00ac
+A/B test SHA-256: 2a2ebfb3b3298807f49d3ed4d474cc966a388ae3f248a3c4366389ace0597d3b
+package.json SHA-256: 7276d2f8b981c128b3526ac74890c5a9f3ee4c54970c0af52aad30239ab801ec
+Frozen production-pool SHA-256: 122a9414377c10e4805639e5022cce926130efd17e82111abd4756d5be33f9f8
+Frozen model-input dataset SHA-256: 87270e16257135c133db8b395c8a65eb6197d681ded54bd68426f1c4a8666fdd
+Frozen browser-q8 scores SHA-256: ea8f06baf5144ff109b05ae9b9b690d9b25cf7cb7a12ae2dbbdeb38943aed6f1
+Predicted A/B SHA-256 from output-free preflight: 98d7943dc6af9590ccf4360e63f7b00e8f1c1364b4ba8a0a5ef64d77f3b2043c
+
+The deterministic confirmatory A/B builder is frozen before any A/B artifact is written. A preserves the frozen production order. B contains the exact same Top-20 membership and sorts only by frozen browser-q8 raw score descending, using original production rank ascending solely as the exact-score tie breaker.
+
+Output-free preflight produced 600 source pairs, 1200 condition rows, 30 queries, 212 Top-10 symmetric-difference query-document pairs, and predicted A/B SHA-256 98d7943dc6af9590ccf4360e63f7b00e8f1c1364b4ba8a0a5ef64d77f3b2043c. These are structural diagnostics only and do not constitute human relevance evidence.
+
+No human labels, model inference, binary threshold, score blending, or candidate-pool membership changes are permitted during A/B construction. Dedicated A/B tests passed 6/6 and the full repository suite passed 269/269. A/B output and metadata were absent at freeze time.
+
+Decision: freeze this exact A/B builder before generating the deterministic A/B artifact. Do not modify ordering policy, tie breaking, source artifacts, or condition membership after this point.
+
+Next step: execute the frozen A/B builder once, verify the generated SHA against the preflight prediction, and freeze A/B plus metadata before constructing the blind human audit sample.
+
+---
