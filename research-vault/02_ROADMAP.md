@@ -7,34 +7,40 @@ updated: 2026-09-27
 
 ## Fase 0 · Fundamento documental
 
-**Estado:** en curso
+**Estado:** completada
 
 - [x] Crear Research Vault.
 - [x] Definir visión inicial.
 - [x] Registrar decisiones arquitectónicas principales.
 - [x] Crear contexto rápido para asistentes.
-- [ ] Validar estructura del vault en Obsidian.
-- [ ] Mantener [[01_PROJECT_STATE]] como fuente de estado actual.
+- [x] Validar estructura del vault en Obsidian.
+- [x] Mantener [[01_PROJECT_STATE]] como fuente de estado actual.
 
 ## Fase 1 · Modelo metodológico
 
-- [ ] Formalizar [[Research-Process]].
+**Estado:** en curso
+
+- [x] Crear borrador de [[Research-Process]].
 - [ ] Convertir clases de Métodos de Investigación Filosófica en reglas de producto.
-- [ ] Formalizar [[Question-Formation]].
+- [x] Crear borrador de [[Question-Formation]].
 - [ ] Definir problemática, problema, hipótesis y asunto en juego.
-- [ ] Definir [[Research-Spiral]] y versionado de preguntas.
+- [x] Crear borrador de [[Research-Spiral]] y versionado de preguntas.
 
 ## Fase 2 · Modelo epistemológico
 
-- [ ] Especificar entidades de [[Epistemological-Model]].
-- [ ] Definir evidencia y niveles de confianza.
-- [ ] Definir taxonomía de relaciones filosóficas.
+**Estado:** en curso
+
+- [x] Crear borrador de [[Epistemological-Model]].
+- [x] Crear [[ResearchProject-Contract]] v0.1.
+- [ ] Validar el contrato con un caso filosófico completo.
+- [ ] Definir evidencia y niveles de confianza de forma ejecutable.
+- [ ] Cerrar taxonomía inicial de relaciones filosóficas.
 - [ ] Separar obra primaria, comentario, crítica, defensa, reinterpretación, aplicación, reseña y divulgación.
 - [ ] Formalizar fechas de obra, edición, traducción y publicación secundaria.
 
 ## Fase 3 · Modo Investigación MVP
 
-- [ ] Crear `ResearchProject`.
+- [ ] Implementar `ResearchProject`.
 - [ ] Implementar constructor de pregunta.
 - [ ] Generar consulta estructurada desde el proyecto.
 - [ ] Crear corpus seleccionable.
