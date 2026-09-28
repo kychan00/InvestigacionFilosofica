@@ -2,6 +2,7 @@
 type: project-state
 updated: 2026-09-27
 status: design
+active_branch: feature/research-mode-v1
 ---
 
 # Project State
@@ -32,6 +33,12 @@ Fuentes activas principales:
 
 La arquitectura actual está documentada en el `ARCHITECTURE.md` del repositorio.
 
+## Rama activa de esta fase
+
+`feature/research-mode-v1`
+
+Esta línea de trabajo está deliberadamente separada de las ramas experimentales de Qwen.
+
 ## Nueva fase estratégica
 
 Diseñar e implementar **Modo Investigación**.
@@ -56,7 +63,7 @@ La nueva fase no reemplaza el buscador existente. Construye sobre él una metodo
 
 ## En diseño
 
-- Modelo formal de `ResearchProject`.
+- [[ResearchProject-Contract]] — primer contrato formal, versión 0.1.
 - Modelo de `Problem`, `Question`, `Concept`, `Claim`, `Argument`, `Evidence`, `Relation`, `Position` y `Controversy`.
 - Constructor socrático de preguntas.
 - Modelo de investigación interdisciplinaria.
@@ -70,10 +77,15 @@ La nueva fase no reemplaza el buscador existente. Construye sobre él una metodo
 
 ## Próximo hito
 
-Definir el **contrato de datos del proyecto de investigación** y el **flujo completo del Modo Investigación** antes de modificar el runtime.
+Validar [[ResearchProject-Contract]] con un caso piloto completo antes de modificar el runtime.
+
+Caso piloto propuesto:
+
+**Estética trascendental de Kant**.
 
 ## Documentos clave
 
+- [[ResearchProject-Contract]]
 - [[Research-Process]]
 - [[Question-Formation]]
 - [[Epistemological-Model]]
