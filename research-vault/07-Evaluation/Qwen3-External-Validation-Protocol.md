@@ -56,7 +56,7 @@ Antes de congelar el set se deben comprobar colisiones exactas, variantes traduc
 
 La capacidad confirmada permite un balance provisional de cuatro idiomas —español, inglés, francés y portugués— y tres intenciones —philosopher-concept, work e interdisciplinary-challenge—. El diseño de borrador asigna una consulta a cada celda idioma × intención, para 12 consultas. Este tamaño está determinado por un techo humano de 250 juicios y debe revisarse explícitamente como limitación de potencia antes de la recuperación; no permite inferencia por subgrupo.
 
-Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto y ofrece acceso estructurado mediante [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy) y su API. El contrato y el builder de adquisición ya están congelados, pero todavía no existe un snapshot fuente aceptado. Después de congelarlo aún deberán definirse y congelarse la clasificación automática de intención, la selección SHA-256, la traducción y su verificación independiente. No se permite selección manual posterior por conveniencia.
+Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto. La ruta API se preserva como historia de intentos output-free, pero dejó de ser la superficie activa después del bloqueo del proveedor. La adquisición aceptada usa el snapshot semanal oficial de [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy). El snapshot fuente sanitizado de 9.846 preguntas ya está congelado; todavía deberán definirse y congelarse la clasificación automática de intención, la selección SHA-256, la traducción y su verificación independiente. No se permite selección manual posterior por conveniencia.
 
 ## Juicio humano
 
@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
 
-Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. Los intentos de adquisición del marco fuente no produjeron ningún snapshot aceptado. No se inició selección de consultas, recuperación de producción, inferencia, construcción A/B, auditoría ni juicio humano.
+Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. El marco fuente público ya fue adquirido y congelado, pero no se inició clasificación ni selección de consultas, traducción, recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -150,14 +150,25 @@ El builder inicial se congeló en `f454f81`. Tres ejecuciones sucesivas abortaro
 
 La primera ejecución desde ese commit también terminó antes de escribir outputs porque el proveedor respondió HTTP 400 durante una hidratación individual. Una consulta diagnóstica única a `/info` identificó `throttle_violation` y anunció nuevas solicitudes disponibles en 85,668 segundos. El intento y la decisión de esperar quedaron registrados canónicamente en `bdbfad4175bf2e15ab22fe44231f71f0d6903c7c`. No se introdujeron credenciales, mirrors, caches, truncamiento ni otra fuente.
 
-Por tanto, el estado operativo sigue siendo anterior a la selección: el builder está congelado, el snapshot y su metadata no existen, y no puede diseñarse la clasificación sobre observaciones descargadas hasta que la cuota oficial se restablezca y el artefacto pase validación independiente.
+La ruta API quedó retirada prospectivamente sin aceptar ninguno de sus intentos como snapshot. Para evitar una dependencia recurrente del throttle sin usar credenciales, mirrors, caches o truncamiento, se congeló una ruta separada mediante Stack Exchange Data Explorer. La consulta exacta conserva los predicados sustantivos —pregunta, creación anterior al corte, score ≥3, al menos una respuesta, no cerrada y licencia oficial no vacía— y sólo selecciona ID, título, tags, score, número de respuestas, fecha y licencia. La compatibilidad SQL final quedó congelada en `4557af8e34a359e21df0e76c5b467c896c876cf4`.
+
+La consulta corregida se ejecutó una sola vez en la superficie oficial de Philosophy SEDE y devolvió 9.846 filas, por debajo del techo de 50.000. El CSV temporal no se versionó; su SHA-256 `14be10aeb3873867df2955420e55e096ae42ec1207fbecf8d9faea0d78f3dace` y sus 1.504.557 bytes quedaron registrados en metadata. El normalizador offline produjo:
+
+- snapshot JSONL SHA-256 `3dc7ce68a91f7fbc5d46550a12d61d438a84c40528ad859ee1e743d2ef222374`;
+- metadata SHA-256 `454af13ddc5c8d712f2f6da9817c61424b60ef2b64b05dc3a79c0bd3aea77965`;
+- commit canónico de congelación `fea8553`;
+- controles dedicados `7/7` y suite completa `319/319`.
+
+La validación independiente confirmó esquema y campos exactos, 9.846 IDs únicos en orden ascendente, elegibilidad, corte temporal, URL estable, licencias permitidas, privacidad, hashes y linaje del runtime comprometido. No se conservaron autor, owner, cuerpo, contenido de respuestas, comentarios ni datos de usuario. El snapshot refleja la observación semanal de SEDE y no se presenta como estado near-live de la API.
+
+El estado operativo continúa siendo anterior a la selección: ya existe un marco público aceptado, pero no se ha ejecutado clasificación de intención ni se han elegido las 12 consultas. El siguiente límite legítimo es diseñar y congelar el clasificador contra sólo los campos públicos del snapshot.
 
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- verificar el reset del proveedor y ejecutar una vez el builder ya congelado;
-- validar y congelar el snapshot público antes de cualquier clasificación o selección;
+- diseñar y probar, sin seleccionar consultas, el contrato del clasificador de intención contra los campos públicos congelados;
+- congelar reglas deterministas de elegibilidad por intención, colisiones y exclusiones antes de aplicarlas al marco;
 - preparar instrucciones y acuerdos de adjudicación;
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
@@ -166,7 +177,7 @@ La respuesta del profesor resuelve el rol, la independencia declarada, los idiom
 
 No debe iniciarse retrieval, inferencia, A/B ni juicio hasta contar con:
 
-- snapshot del marco externo y consultas seleccionadas, ambos congelados;
+- consultas seleccionadas y su linaje SHA-256 congelados sobre el snapshot externo ya fijado;
 - reglas de selección, clasificación y traducción congeladas;
 - preregistración ejecutable completa y congelada;
 - decisión explícita sobre tamaño de muestra e inferencia.
