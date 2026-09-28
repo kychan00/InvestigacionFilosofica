@@ -56,7 +56,7 @@ Antes de congelar el set se deben comprobar colisiones exactas, variantes traduc
 
 La capacidad confirmada permite un balance provisional de cuatro idiomas —español, inglés, francés y portugués— y tres intenciones —philosopher-concept, work e interdisciplinary-challenge—. El diseño de borrador asigna una consulta a cada celda idioma × intención, para 12 consultas. Este tamaño está determinado por un techo humano de 250 juicios y debe revisarse explícitamente como limitación de potencia antes de la recuperación; no permite inferencia por subgrupo.
 
-Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto y ofrece acceso estructurado mediante [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy) y su API. Todavía no se adquirió el corpus. Antes de hacerlo deben congelarse filtros de elegibilidad, clasificación automática de intención, selección SHA-256, snapshot o respuesta fuente, atribución/licencia, traducción y verificación independiente. No se permite selección manual posterior por conveniencia.
+Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto y ofrece acceso estructurado mediante [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy) y su API. El contrato y el builder de adquisición ya están congelados, pero todavía no existe un snapshot fuente aceptado. Después de congelarlo aún deberán definirse y congelarse la clasificación automática de intención, la selección SHA-256, la traducción y su verificación independiente. No se permite selección manual posterior por conveniencia.
 
 ## Juicio humano
 
@@ -135,13 +135,29 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
 
-Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. Ninguna adquisición de preguntas fuente, recuperación de producción, inferencia, construcción A/B, auditoría ni juicio humano fue iniciada.
+Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. Los intentos de adquisición del marco fuente no produjeron ningún snapshot aceptado. No se inició selección de consultas, recuperación de producción, inferencia, construcción A/B, auditoría ni juicio humano.
+
+### Hito del marco fuente público
+
+El repositorio canónico congeló un contrato y builder que sólo pueden conservar campos públicos y sanitizados de Philosophy Stack Exchange: ID de pregunta, título, tags, score, número de respuestas, fecha de creación, URL estable y licencia oficial. Se excluyen autor/owner, cuerpo, respuestas, comentarios y respuestas API crudas. Esta fase no clasifica intenciones, no selecciona las 12 consultas y no ejecuta retrieval ni inferencia.
+
+El builder inicial se congeló en `f454f81`. Tres ejecuciones sucesivas abortaron sin outputs por omisiones de `content_license`; las correcciones `5a0db8f`, `9544a00` y `c00b135` mantuvieron el mismo universo y añadieron hidratación oficial acotada y exclusión explícita cuando la licencia sigue ausente. Después se detectó que la API rechaza páginas mayores que 25 sin token. La corrección `b3271f036dc4074bda851a096afa3c46c42f21b8` divide exhaustivamente el mismo universo en ocho ventanas disjuntas de score/fecha, valida pertenencia y duplicados, y conserva el límite oficial sin credenciales ni truncamiento.
+
+- Contrato de marco fuente: SHA-256 `49b202d8205a6a3aaa0cc6bf427dfc3b9c01fc267d72e282e19fd06e1770c900`.
+- Builder por ventanas: SHA-256 `ecd2d0cb26f915485e0737c475641cc46d67f632d881657ecb4aaadbec1073be`.
+- Controles dedicados: `10/10`; suite completa al congelar: `312/312`.
+- Output aceptado: **ninguno**.
+
+La primera ejecución desde ese commit también terminó antes de escribir outputs porque el proveedor respondió HTTP 400 durante una hidratación individual. Una consulta diagnóstica única a `/info` identificó `throttle_violation` y anunció nuevas solicitudes disponibles en 85,668 segundos. El intento y la decisión de esperar quedaron registrados canónicamente en `bdbfad4175bf2e15ab22fe44231f71f0d6903c7c`. No se introdujeron credenciales, mirrors, caches, truncamiento ni otra fuente.
+
+Por tanto, el estado operativo sigue siendo anterior a la selección: el builder está congelado, el snapshot y su metadata no existen, y no puede diseñarse la clasificación sobre observaciones descargadas hasta que la cuota oficial se restablezca y el artefacto pase validación independiente.
 
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- identificar posibles marcos de muestreo externos;
+- verificar el reset del proveedor y ejecutar una vez el builder ya congelado;
+- validar y congelar el snapshot público antes de cualquier clasificación o selección;
 - preparar instrucciones y acuerdos de adjudicación;
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
@@ -150,7 +166,7 @@ La respuesta del profesor resuelve el rol, la independencia declarada, los idiom
 
 No debe iniciarse retrieval, inferencia, A/B ni juicio hasta contar con:
 
-- marco externo de consultas y snapshot congelados;
+- snapshot del marco externo y consultas seleccionadas, ambos congelados;
 - reglas de selección, clasificación y traducción congeladas;
 - preregistración ejecutable completa y congelada;
 - decisión explícita sobre tamaño de muestra e inferencia.
