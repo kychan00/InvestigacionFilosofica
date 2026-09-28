@@ -54,7 +54,9 @@ El conjunto debe ser nuevo respecto de development, holdouts internos y confirma
 
 Antes de congelar el set se deben comprobar colisiones exactas, variantes traducidas y solapamiento semántico de familias con todos los benchmarks previos.
 
-El balance provisional recomendado conserva cinco idiomas y separa philosopher-concept, work e interdisciplinary-challenge. El número final de consultas y familias debe fijarse mediante una justificación de precisión o potencia antes de la recuperación, no por conveniencia posterior.
+La capacidad confirmada permite un balance provisional de cuatro idiomas —español, inglés, francés y portugués— y tres intenciones —philosopher-concept, work e interdisciplinary-challenge—. El diseño de borrador asigna una consulta a cada celda idioma × intención, para 12 consultas. Este tamaño está determinado por un techo humano de 250 juicios y debe revisarse explícitamente como limitación de potencia antes de la recuperación; no permite inferencia por subgrupo.
+
+Philosophy Stack Exchange es el marco externo candidato porque contiene preguntas públicas escritas fuera del proyecto y ofrece acceso estructurado mediante [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy) y su API. Todavía no se adquirió el corpus. Antes de hacerlo deben congelarse filtros de elegibilidad, clasificación automática de intención, selección SHA-256, snapshot o respuesta fuente, atribución/licencia, traducción y verificación independiente. No se permite selección manual posterior por conveniencia.
 
 ## Juicio humano
 
@@ -68,7 +70,7 @@ Para superar la limitación del symmetric-difference audit, la validación exter
 
 Se mantiene la escala de [[Judgment-Protocol]]: 0 irrelevante, 1 relacionado insuficiente, 2 relevante, 3 central.
 
-La hoja pública debe usar IDs ciegos y excluir condition, rank, scores, IDs internos, proveedor, DOI y procedencia de recuperación. Cualquier consulta externa durante la adjudicación debe quedar registrada mediante una política común.
+La hoja pública debe usar IDs ciegos y excluir condition, rank, scores, IDs internos, proveedor y procedencia de recuperación. A petición del adjudicador, podrá incluir un DOI normalizado, URL estable u otro identificador bibliográfico neutral, siempre que se derive de forma idéntica e independiente de condición. Toda consulta externa deberá registrarse. Si aun así falta evidencia, se permite abstención motivada; el borrador conservador declara inconcluso el gate confirmatorio ante cualquier abstención única no resuelta y exige límites de peor caso.
 
 ## Análisis que debe preregistrarse
 
@@ -121,11 +123,19 @@ El paquete canónico fue congelado en el commit experimental `27f6e4d`:
 - instrucciones ciegas de adjudicación: SHA-256 `b2b190556fd0e1facfb2957f0c5c59bd1844d31552d5ebacb517ed73b8d32e85`;
 - controles dedicados: `4/4`; suite completa: `297/297`.
 
-La función recomendada es **sólo adjudicación**. Aún deben confirmarse esa función, la ausencia de participación previa, los idiomas de juicio y el número máximo de pares que puede evaluar. Si el profesor adjudica, no puede seleccionar las consultas del lote que juzgará. La identidad y los datos de contacto deben mantenerse fuera de Git.
+La función **sólo adjudicación** ya fue confirmada. También se confirmó ausencia de participación en selección de consultas, desarrollo del sistema y evaluaciones previas. El adjudicador puede evaluar principalmente español e inglés y relevancia temática/filosófica en francés y portugués. Su capacidad aproximada es de 200–250 pares. La identidad y los datos de contacto permanecen fuera de Git.
 
 El brief que puede compartirse con el profesor sólo explica la tarea de relevancia académica, la escala 0–3, el uso de metadata descriptiva y el manejo de incertidumbre o abstención. No contiene identidad del modelo, condiciones experimentales, rangos, scores, hipótesis ni resultados previos.
 
-Estado canónico actual: `planning-not-preregistered`, `execution_authorized=false`. Ningún retrieval, inferencia, construcción A/B, auditoría ni juicio humano fue iniciado.
+El intake completo y el diseño provisional fueron congelados en el commit experimental `1681f0f`:
+
+- intake anónimo completo: SHA-256 `841507c74d0661d4d697d64f25d16681ea96c9eb070ad8856267c018c1c39b9e`;
+- diseño provisional: SHA-256 `92273a5740326f0b815bb4e07cc32da9aaaf2f9505a8c7095d49c837ca8be30c`;
+- controles dedicados acumulados: `9/9`; suite completa: `302/302`.
+
+El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
+
+Estado canónico actual: `design-draft-not-preregistered`, `execution_authorized=false`. Ninguna adquisición de preguntas fuente, recuperación de producción, inferencia, construcción A/B, auditoría ni juicio humano fue iniciada.
 
 ### Acciones permitidas ahora
 
@@ -136,12 +146,12 @@ Puede avanzarse sin riesgo en:
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
 
-La disponibilidad del profesor resuelve únicamente la búsqueda inicial de una posible persona colaboradora. No resuelve por sí sola la independencia metodológica ni autoriza ejecución.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. No resuelve el marco externo, las traducciones, la potencia ni la preregistración y no autoriza ejecución.
 
 No debe iniciarse retrieval, inferencia, A/B ni juicio hasta contar con:
 
-- propietario externo del marco de consultas;
-- adjudicador independiente confirmado;
+- marco externo de consultas y snapshot congelados;
+- reglas de selección, clasificación y traducción congeladas;
 - preregistración ejecutable completa y congelada;
 - decisión explícita sobre tamaño de muestra e inferencia.
 
