@@ -52,4 +52,6 @@ Los resultados del primer browser holdout motivaron tres hipótesis preregistrad
 
 El candidato permanece research-only. Una eventual promoción requiere evidencia externa independiente, con nuevas consultas o marco de muestreo, adjudicador independiente y preregistración congelada antes de retrieval.
 
+El primer hito de planificación externa ya está congelado en el repositorio canónico: un paquete ciego y anónimo para incorporar a un profesor que manifestó disponibilidad. El paquete no es una preregistración y mantiene bloqueados retrieval, inferencia, auditoría y juicio hasta confirmar el rol de adjudicación, la independencia, los idiomas, la capacidad, el marco externo de consultas y el diseño estadístico.
+
 → [[Qwen3-External-Validation-Protocol]]

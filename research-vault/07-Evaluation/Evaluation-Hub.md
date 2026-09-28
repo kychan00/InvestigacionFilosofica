@@ -48,4 +48,4 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 
-El gate posterior conserva browser-q8 como candidato research-only. La siguiente evidencia admisible requiere el protocolo de validación externa independiente; todavía no existe adjudicador ni marco externo confirmado.
+El gate posterior conserva browser-q8 como candidato research-only. La siguiente evidencia admisible requiere el protocolo de validación externa independiente. Un profesor externo manifestó disponibilidad para colaborar, pero todavía no está confirmado como adjudicador independiente ni existe un marco externo de consultas. El paquete canónico de incorporación permanece bloqueado para ejecución hasta resolver esos requisitos.

@@ -110,12 +110,33 @@ Ningún criterio se considera satisfecho por este borrador.
 
 ## Estado operativo
 
+### Hito de incorporación externa
+
+Un profesor externo manifestó disponibilidad para colaborar. Para proteger su privacidad y el cegamiento, el repositorio canónico no almacena nombre, correo ni institución y utiliza provisionalmente el identificador `external-adjudicator-01`.
+
+El paquete canónico fue congelado en el commit experimental `27f6e4d`:
+
+- planificación no ejecutable: SHA-256 `b0d4de9b43b1604de2b144030f47f3275f79f91fe117e4f5bffdd175bd79fd36`;
+- intake anónimo: SHA-256 `d15748c9223ace0a14222de254979a86978652594668bd4c2dd019ccf0b2d475`;
+- instrucciones ciegas de adjudicación: SHA-256 `b2b190556fd0e1facfb2957f0c5c59bd1844d31552d5ebacb517ed73b8d32e85`;
+- controles dedicados: `4/4`; suite completa: `297/297`.
+
+La función recomendada es **sólo adjudicación**. Aún deben confirmarse esa función, la ausencia de participación previa, los idiomas de juicio y el número máximo de pares que puede evaluar. Si el profesor adjudica, no puede seleccionar las consultas del lote que juzgará. La identidad y los datos de contacto deben mantenerse fuera de Git.
+
+El brief que puede compartirse con el profesor sólo explica la tarea de relevancia académica, la escala 0–3, el uso de metadata descriptiva y el manejo de incertidumbre o abstención. No contiene identidad del modelo, condiciones experimentales, rangos, scores, hipótesis ni resultados previos.
+
+Estado canónico actual: `planning-not-preregistered`, `execution_authorized=false`. Ningún retrieval, inferencia, construcción A/B, auditoría ni juicio humano fue iniciado.
+
+### Acciones permitidas ahora
+
 Puede avanzarse sin riesgo en:
 
 - identificar posibles marcos de muestreo externos;
 - preparar instrucciones y acuerdos de adjudicación;
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
+
+La disponibilidad del profesor resuelve únicamente la búsqueda inicial de una posible persona colaboradora. No resuelve por sí sola la independencia metodológica ni autoriza ejecución.
 
 No debe iniciarse retrieval, inferencia, A/B ni juicio hasta contar con:
 
