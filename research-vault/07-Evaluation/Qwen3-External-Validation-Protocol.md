@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
 
-Estado canónico actual: `source-queries-and-empty-translation-packet-frozen`, `execution_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones y el paquete ciego vacío de traducción ya fueron congelados. No se inició traducción humana, recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `verified-human-translations-frozen-preregistration-pending`, `execution_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego y las nueve traducciones humanas verificadas ya fueron congelados. No se inició recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -201,21 +201,31 @@ El builder del paquete de traducción se congeló en `6e2eeda1b3a7daf482aeaf141c
 
 Máquina y modelos de lenguaje no pueden traducir. Un preparador humano debe completar las nueve traducciones y un verificador humano distinto debe aprobar preservación de significado, intención, entidades y calificadores, además de naturalidad. Ninguno puede ser `external-adjudicator-01`. El original comprometido es inmutable; el retorno humano debe ser un JSONL manual separado.
 
+El retorno completo cumplió ese contrato y quedó congelado canónicamente en `36102cdc2c35fd97dac702fcc7adde581f1fc63b`:
+
+- attachment recibido: SHA-256 `255d8ad28610aabe8d058113cb5584afcfc89dc0b51868ad381e7e68635c23bf`;
+- JSONL canónico: SHA-256 `84ebbd50bc552cc388c74ae934a436c1110ae4943e526f8a19880af04669dbb1`;
+- metadata: SHA-256 `54bc94313cbf18f6ac83b5c18cf6a1aa3df9ceeb72bb18ad97d98e190819d66f`;
+- canonicalización: sólo se añadió newline terminal;
+- roles: `translation-preparer-01` y `translation-verifier-01`, distintos y no identificatorios;
+- resultado: 9/9 traducciones, 6/6 checks por ítem, todas con estado `verified`.
+
+Los nombres y datos de contacto permanecen fuera de Git. Este hito cierra exclusivamente la traducción; no autoriza retrieval.
+
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- preparar y probar el validador de un retorno manual sin producir traducciones;
-- coordinar un preparador humano y un verificador distinto, ambos ajenos a la adjudicación;
+- diseñar, probar y revisar la preregistración ejecutable completa;
+- resolver prospectivamente potencia, abstenciones, repetidos ciegos y gate decisorio;
 - preparar instrucciones y acuerdos de adjudicación;
 - diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
 
-La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo y la selección ya están resueltos, pero no las traducciones, la potencia ni la preregistración; por tanto, no autoriza retrieval ni adjudicación.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección y las traducciones ya están resueltos, pero no la potencia ni la preregistración; por tanto, no autoriza retrieval ni adjudicación.
 
 No debe iniciarse retrieval, inferencia, A/B ni juicio hasta contar con:
 
-- retorno completo de traducciones humanas, verificado independientemente y congelado;
 - reglas de selección, clasificación y traducción ya congeladas y respetadas;
 - preregistración ejecutable completa y congelada;
 - decisión explícita sobre tamaño de muestra e inferencia.
