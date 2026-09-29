@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario congelado es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba exacta recorre las `2^12 = 4096` permutaciones pareadas de signos.
 
-Estado canónico actual: `browser-q8-scoring-in-progress`, `inference_authorized=true-under-frozen-runner`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio y el runner browser-q8 ya fueron congelados. La ejecución resumible de inferencia comenzó después del preflight del commit congelado y aceptó el gate WebGPU/q8 antes del primer score. No existe output final congelado y no se inició construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `browser-q8-scores-frozen-ab-builder-pending`, `inference_authorized=false-complete`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio, el runner browser-q8 y los 240 raw scores ya fueron congelados. No se inició construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -261,25 +261,35 @@ El runner se congeló antes de descargar pesos o puntuar en `9441425226b233631ae
 
 El bundle auditado tiene SHA-256 `10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f`: resuelve `transformers.web.js` y `onnxruntime-web`, contiene una entrada ONNX web y cero entradas `onnxruntime-node`, `transformers.node` o backend Node. El scorer rechaza Node, exige `navigator.gpu`, adaptador no fallback, `device=webgpu`, `dtype=q8` y sesiones ONNX que reporten WebGPU/q8.
 
-El preflight output-free desde el commit congelado validó 240 filas, 12 consultas, todos los hashes, bundle web-only, ausencia de checkpoint y outputs, y cero ejecución o descarga. La ejecución oficial resumible comenzó después: antes de aceptar el primer score, el runtime confirmó un adaptador Apple no fallback con arquitectura `metal-3` y sesión ONNX `device=webgpu`, `dtype=q8`. Los pesos viven sólo en el perfil efímero de Chrome fuera del repositorio. El checkpoint es infraestructura recuperable, no un resultado científico; todavía no existe un archivo final de scores congelado.
+El preflight output-free desde el commit congelado validó 240 filas, 12 consultas, todos los hashes, bundle web-only, ausencia de checkpoint y outputs, y cero ejecución o descarga. La ejecución oficial resumible comenzó después: antes de aceptar el primer score, el runtime confirmó un adaptador Apple no fallback con arquitectura `metal-3` y sesión ONNX `device=webgpu`, `dtype=q8`.
+
+La ejecución se recuperó de dos interrupciones de infraestructura mediante el checkpoint de prefijo exacto. La primera preservó 106 filas al vencer el timeout de 7.200.000 ms después de una pausa prolongada del host; la segunda reanudó desde la fila 107, volvió a probar WebGPU/q8, preservó 142 filas y terminó cuando Chrome salió prematuramente. La tercera, con el mismo runner congelado, un timeout de infraestructura mayor y prevención de reposo del host, volvió a probar WebGPU/q8, reanudó desde la fila 143 y finalizó 240/240. No se repuntuó ninguna fila completada y el checkpoint se eliminó después del cierre atómico.
+
+Los scores y metadata quedaron congelados en `0003a7f02143faa3d03c11b9e809f50720b6ac34`:
+
+- raw scores JSONL: 240 filas, SHA-256 `85c4081cd8541946d8f21a348b15245e0bbcd5417a58ed8ecb9ec073c4c8c2d1`;
+- metadata: SHA-256 `387be19c3c32ffd53246ac7fd1054329dc803c5dd6d6614de12aae171b6e12a7`;
+- runtime: Chrome headless efímero, `onnxruntime-web`, WebGPU, q8, adaptador Apple `metal-3` no fallback;
+- límites: sin labels humanos, threshold, blending, cambio de pool, UI interactiva, pesos en el repositorio o cambio de producción;
+- validación: 240 fingerprints reconstruidos en orden exacto, 8/8 controles dedicados y 378/378 en la suite completa.
 
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- dejar terminar o reanudar exclusivamente la ejecución exacta del runner congelado, sin volver a puntuar el prefijo ya validado;
-- validar y congelar los 240 raw scores y su metadata sólo si se completa el contrato íntegro;
-- preparar el builder A/B sin ejecutarlo hasta que los scores finales estén congelados;
+- construir, probar y congelar el builder A/B determinista contra el pool y los scores exactos;
+- ejecutar A/B una sola vez sólo después de congelar ese builder y validar su output;
+- construir después el paquete de auditoría ciega sin exponer condición, rango, score o provenance;
 - preparar instrucciones y acuerdos de adjudicación;
 - mantener al adjudicador ciego a A/B, rangos, scores e identidad de repetidos.
 
-La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración, retrieval Top-20, dataset y runner de inferencia ya están resueltos. La adjudicación continúa bloqueada; el pool y el dataset congelados no deben rerunearse ni reconstruirse.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración, retrieval Top-20, dataset, runner y scores de inferencia ya están resueltos. La adjudicación continúa bloqueada; el pool, dataset e inferencia congelados no deben rerunearse ni reconstruirse.
 
-No debe iniciarse A/B ni juicio hasta contar con:
+No debe iniciarse juicio humano hasta contar con:
 
-- 240 raw scores completos producidos por el runner congelado;
-- metadata con prueba de WebGPU/q8 y ausencia de fallback;
-- validación independiente y freeze commit explícito de scores antes de construir A/B.
+- builder A/B congelado antes de construir condiciones;
+- A/B completo validado y congelado;
+- paquete de auditoría ciega construido sin provenance experimental y congelado antes de compartirlo.
 
 ## Relacionado
 
