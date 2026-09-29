@@ -1,6 +1,6 @@
 ---
 type: protocol
-status: draft
+status: active-execution
 area: evaluation
 candidate: qwen3-browser-q8-1024
 updated: 2026-09-28
@@ -12,7 +12,7 @@ updated: 2026-09-28
 
 Definir la siguiente fuente legítima de evidencia para el candidato browser-q8 después del resultado mixto de [[Qwen3-Browser-Q8-Confirmatory-v2]].
 
-Este documento es un protocolo conceptual y de gobernanza, no una preregistración ejecutable ni autorización para iniciar recolección. La preregistración canónica futura deberá vivir en `benchmark/qwen3/` y congelarse antes de recuperar candidatos.
+Este documento es la capa conceptual y de gobernanza, no la fuente ejecutable. La preregistración canónica ya vive en `benchmark/qwen3/` y fue congelada antes de recuperar candidatos; todo avance operativo debe seguir ese contrato.
 
 ## Decisión de entrada
 
@@ -56,7 +56,7 @@ Antes de congelar el set se deben comprobar colisiones exactas, variantes traduc
 
 La capacidad confirmada permite un balance de cuatro idiomas —español, inglés, francés y portugués— y tres intenciones —philosopher-concept, work e interdisciplinary-challenge—. La selección congelada asigna una consulta a cada celda idioma × intención, para 12 consultas. Este tamaño está determinado por un techo humano de 250 juicios y debe revisarse explícitamente como limitación de potencia antes de la recuperación; no permite inferencia por subgrupo.
 
-Philosophy Stack Exchange es el marco externo porque contiene preguntas públicas escritas fuera del proyecto. La ruta API se preserva como historia de intentos output-free, pero dejó de ser la superficie activa después del bloqueo del proveedor. La adquisición aceptada usa el snapshot semanal oficial de [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy). El snapshot fuente sanitizado de 9.846 preguntas, el frame determinista de candidatos, las colisiones con queries previas, la exclusión semántica y la selección SHA-256 ya están congelados. No se permite selección manual posterior por conveniencia. Las nueve traducciones no inglesas y su verificación independiente siguen pendientes.
+Philosophy Stack Exchange es el marco externo porque contiene preguntas públicas escritas fuera del proyecto. La ruta API se preserva como historia de intentos output-free, pero dejó de ser la superficie activa después del bloqueo del proveedor. La adquisición aceptada usa el snapshot semanal oficial de [Stack Exchange Data Explorer](https://data.stackexchange.com/philosophy). El snapshot fuente sanitizado de 9.846 preguntas, el frame determinista de candidatos, las colisiones con queries previas, la exclusión semántica y la selección SHA-256 ya están congelados. No se permite selección manual posterior por conveniencia. Las nueve traducciones no inglesas y su verificación independiente también están congeladas.
 
 ## Juicio humano
 
@@ -72,9 +72,9 @@ Se mantiene la escala de [[Judgment-Protocol]]: 0 irrelevante, 1 relacionado ins
 
 La hoja pública debe usar IDs ciegos y excluir condition, rank, scores, IDs internos, proveedor y procedencia de recuperación. A petición del adjudicador, podrá incluir un DOI normalizado, URL estable u otro identificador bibliográfico neutral, siempre que se derive de forma idéntica e independiente de condición. Toda consulta externa deberá registrarse. Si aun así falta evidencia, se permite abstención motivada; el borrador conservador declara inconcluso el gate confirmatorio ante cualquier abstención única no resuelta y exige límites de peor caso.
 
-## Análisis que debe preregistrarse
+## Análisis preregistrado
 
-La futura preregistración deberá decidir antes de recuperar:
+La preregistración ejecutable decidió antes de recuperar:
 
 - estimando primario y población principal;
 - denominador y tratamiento de queries sin cambios;
@@ -85,7 +85,7 @@ La futura preregistración deberá decidir antes de recuperar:
 - criterio de promoción, no inferioridad o rechazo;
 - política para análisis exploratorios y multiplicidad.
 
-El resultado confirmatorio v2 sugiere vigilar especialmente que una mejora binaria no oculte pérdida de documentos centrales, pero esa vigilancia futura debe formularse prospectivamente y no presentarse como hipótesis original del v2.
+El contrato congelado usa como estimando primario la media macro de 12 deltas P@10, prueba exacta unilateral de 4.096 sign flips, umbral de relevancia ≥2, análisis de centralidad 3 secundario, subgrupos sólo descriptivos y gate inconcluso ante cualquier abstención primaria no resuelta. La vigilancia de centralidad se formuló prospectivamente para este estudio y no se presenta como hipótesis original del v2.
 
 ## Gate de producto futuro
 
@@ -133,9 +133,9 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 - diseño provisional: SHA-256 `92273a5740326f0b815bb4e07cc32da9aaaf2f9505a8c7095d49c837ca8be30c`;
 - controles dedicados acumulados: `9/9`; suite completa: `302/302`.
 
-El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario propuesto es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba candidata recorre las `2^12 = 4096` permutaciones pareadas de etiquetas. Esta inferencia todavía debe revisarse y no está preregistrada.
+El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario congelado es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba exacta recorre las `2^12 = 4096` permutaciones pareadas de signos.
 
-Estado canónico actual: `executable-preregistration-frozen-retrieval-runner-pending`, `execution_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final y la preregistración ejecutable ya fueron congelados. No se inició recuperación de producción, inferencia, construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `production-pool-frozen-dataset-builder-pending`, `inference_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo y el pool Top-20 ya fueron congelados. No se inició inferencia, construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -230,23 +230,36 @@ El estimando primario es la media macro de los 12 ΔP@10 por consulta. La prueba
 
 La potencia está limitada prospectivamente: inferencia formal sólo overall; idioma e intención son descriptivos; falta de apoyo no equivale a equivalencia o no inferioridad. Cualquier resultado mantiene el candidato research-only hasta una decisión de producto separada.
 
+### Hito de retrieval productivo
+
+El runner se congeló antes de consultar fuentes en `2462f9857a6841bb23dc284c7fb84f365969e405`. Fijó hashes de preregistración y query set, producción base `bb9689da2016ca26a08359e8655eca7a5b771937`, Top-20 exacto, 240 filas, aborto sin sustitución y ausencia de Qwen y labels. El `src` comprometido, staged y working debía permanecer idéntico a producción.
+
+La implementación ejecutó el `searchPhilosophy` productivo intacto en Chrome headless efímero mediante CDP. No creó una UI interactiva ni añadió runtime de inferencia. El preflight desde el commit congelado fue output-free y la ejecución única completó las 12 consultas:
+
+- pool JSONL: 240 filas, SHA-256 `65f57ab021dc3d196ed3026e2785db3694cdc4a060a6668804793fb5132f84b2`;
+- metadata: SHA-256 `2ae131641505b566ced896841e8d23847a583b940f42c925141d4c836dea43f9`;
+- freeze commit: `4c0675a`;
+- runtime: Chrome 154.0.8037.58, commit `2462f9857a6841bb23dc284c7fb84f365969e405`;
+- controles posteriores: 20 registros únicos por consulta, rangos 1–20, identidad exacta de query/idioma/familia/intención, hashes y linaje correctos, cero campos de score Qwen o relevancia humana.
+
+Una primera invocación fue interrumpida antes de iniciar retrieval y no dejó proceso, parcial ni output. La ejecución válida no se repitió. Después de finalizar y escribir ambos artefactos, macOS devolvió `ENOTEMPTY` al retirar el perfil temporal de Chrome; el pool ya estaba cerrado, la metadata escrita y los parciales eliminados. El perfil efímero se retiró después de salir Chrome y la carrera de limpieza se corrigió en `7f3abd0`, sin alterar o regenerar datos.
+
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- construir y congelar un runner de retrieval que sólo use producción;
-- demostrar preflight output-free, identidad de `src` y hashes de preregistración/query set;
+- construir, probar y congelar el builder determinista del dataset limpio de 240 pares;
+- validar que elimina ranking y provenance del model input sin perder texto documental;
 - preparar instrucciones y acuerdos de adjudicación;
-- diseñar el esquema de preregistración;
 - estimar esfuerzo, costo y tamaño de muestra.
 
-La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia y preregistración ya están resueltos. Retrieval sólo podrá ejecutarse después de congelar y preflightar un runner que implemente exactamente el contrato; la adjudicación continúa bloqueada.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración y retrieval Top-20 ya están resueltos. La adjudicación continúa bloqueada y el pool congelado no debe rerunearse.
 
 No debe iniciarse inference, A/B ni juicio hasta contar con:
 
-- reglas de selección, clasificación y traducción ya congeladas y respetadas;
-- preregistración ejecutable completa y congelada;
-- producción Top-20 completa y congelada mediante el runner aún pendiente.
+- dataset de 240 pares construido una sola vez desde el pool congelado;
+- metadata y validación independiente del dataset;
+- freeze commit explícito anterior a cualquier carga del modelo.
 
 ## Relacionado
 
