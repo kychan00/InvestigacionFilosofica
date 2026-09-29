@@ -2,7 +2,7 @@
 type: hub
 area: evaluation
 project: InvestigacionFilosofica
-updated: 2026-09-28
+updated: 2026-09-29
 ---
 
 # Evaluación, jueces y Qwen3
@@ -70,4 +70,8 @@ El runner browser-q8 quedó congelado antes de inferencia en `9441425226b233631a
 
 El builder A/B se congeló en `91f00fa5fa6773c11a198d8fba829adb0d458752`; su ejecución única reprodujo el hash predicho. Las 480 filas internas y la metadata quedaron congeladas en `0a12f11acb36f8c87e6592902700ccaf43b640d4`, con SHA-256 `16f14ffae6a15956ab3a5cd45cc0394ea26b943e3262880a44bdb4ca8a1b6000` y `fd9e28e9cb3f589b23ca9a7fd8ea26a8729871097b5652295611ceb45ba832b8`. No se cambió membresía del pool, producción, threshold ni blending, y este artefacto permanece fuera de la vista humana.
 
-El builder ciego de unión completa se congeló en `5c085e32438525a47ce8fb20fc72bc48f6422f04`. La muestra de 181 filas —171 primarias únicas y diez repeticiones ciegas— quedó congelada en `9d969b75b92eb95977e3c34443c2e7ed2ab79709`, con SHA-256 `cf040edea08f643e4dc0ebb6d391d9e29b02284a4d5583f9d853b35cde380a37`; su metadata tiene SHA-256 `661684403bf69e67465749c4f1d85bb2685883c4acc5c6289cddcdc198f6feef`. La muestra no expone A/B, rangos, scores, IDs internos, provenance ni identidad de repetidos. Pasó 397/397 controles y espera los juicios externos; unblinding sigue prohibido.
+El builder ciego de unión completa se congeló en `5c085e32438525a47ce8fb20fc72bc48f6422f04`. La muestra de 181 filas —171 primarias únicas y diez repeticiones ciegas— quedó congelada en `9d969b75b92eb95977e3c34443c2e7ed2ab79709`, con SHA-256 `cf040edea08f643e4dc0ebb6d391d9e29b02284a4d5583f9d853b35cde380a37`; su metadata tiene SHA-256 `661684403bf69e67465749c4f1d85bb2685883c4acc5c6289cddcdc198f6feef`. La muestra no expone A/B, rangos, scores, IDs internos, provenance ni identidad de repetidos. Pasó 397/397 controles.
+
+El retorno de `external-adjudicator-01` quedó congelado sin cambios en `8d73a3bf2df931eb2c1b9c7f5636f69bc820bc0b`, con SHA-256 `a4e7af79e2208497f4efd95afc9418d8f8b99671894070a8ab8dc80be5f8cbb6`. Las 181 filas coinciden con la muestra pública; contienen 180 puntuaciones 0–3, una abstención motivada, 30 lookups y 30 notas. La validación se mantuvo ciega al mapa A/B y a la identidad de repeticiones.
+
+El normalizador ciego se congeló en `e750d178b8cedba101e9317f7b8dd515389b8f87` y los juicios normalizados quedaron congelados en `98de5bc25fbc73f0161ab3fb7453e429f70f4ee4`, con hashes `5112d36a2a17a5747867ae0cc26cdf915a5edc57836a872320272179cca744a1` y `2245e751762076d13ae7b0fcbe1162929a2b9b1e70fd2d36b3a8e15ebd76b87a`. El contrato mínimo preserva relevancia, lookup, abstención y nota, pero excluye consulta, documento y toda provenance experimental. Pasó 402/402 controles. Aún no se ha reconstruido el mapa privado ni ejecutado el análisis; el próximo límite es congelar primero el analizador post-juicio.

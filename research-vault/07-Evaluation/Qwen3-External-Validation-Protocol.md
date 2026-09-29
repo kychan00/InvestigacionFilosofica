@@ -3,7 +3,7 @@ type: protocol
 status: active-execution
 area: evaluation
 candidate: qwen3-browser-q8-1024
-updated: 2026-09-28
+updated: 2026-09-29
 ---
 
 # Qwen3 · Protocolo de validación externa independiente
@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe dentro de la capacidad declarada: 12 consultas y una unión observada de 171 pares primarios únicos, más diez repeticiones ciegas para consistencia intraevaluador = 181 filas. El estimando primario congelado es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba exacta recorre las `2^12 = 4096` permutaciones pareadas de signos.
 
-Estado canónico actual: `blind-audit-frozen-awaiting-external-judgments`, `inference_authorized=false-complete`, `unblinding_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete de traducción, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio, el runner browser-q8, los 240 raw scores, A/B interno y la auditoría ciega ya fueron congelados. No se inició juicio humano ni unblinding.
+Estado canónico actual: `normalized-judgments-frozen-post-judgment-analyzer-pending`, `inference_authorized=false-complete`, `unblinding_authorized=false-analyzer-not-frozen`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete de traducción, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio, el runner browser-q8, los 240 raw scores, A/B interno, la auditoría ciega, el retorno externo y los juicios normalizados ya fueron congelados. No se ha reconstruido el mapa privado ni ejecutado unblinding.
 
 ### Hito del marco fuente público
 
@@ -277,10 +277,10 @@ Los scores y metadata quedaron congelados en `0003a7f02143faa3d03c11b9e809f50720
 
 Puede avanzarse sin riesgo en:
 
-- compartir con `external-adjudicator-01` únicamente el JSONL ciego de 181 filas, nunca la metadata ni el A/B interno;
-- recibir el mismo JSONL, sin reordenar, añadir o retirar filas, con relevancia 0–3 o abstención motivada;
-- validar el retorno contra los `audit_id` y contenidos congelados y, si cumple el contrato, congelar los juicios;
-- mantener al adjudicador ciego a A/B, rangos, scores, provenance e identidad de repetidos.
+- construir y probar un analizador post-juicio que fije todos los hashes y commits congelados;
+- implementar exactamente la reconstrucción determinista de primarios y repetidos, P@10 absoluto, ΔP@10, consistencia intraevaluador, tratamiento de abstenciones, bounds de peor caso y prueba exacta de 4.096 signos;
+- congelar el analizador antes de darle acceso operativo al mapa A/B;
+- ejecutar el analizador una sola vez después de ese congelamiento y registrar por separado resultados formales y descripciones por idioma/intención.
 
 La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración, retrieval Top-20, dataset, runner, scores, A/B y paquete ciego ya están resueltos. El pool, dataset, inferencia, condiciones y muestra congelados no deben rerunearse ni reconstruirse.
 
@@ -298,7 +298,18 @@ El builder de la auditoría ciega quedó congelado en `5c085e32438525a47ce8fb20f
 - ausencia de condición, rango, scores, IDs internos, provenance, identidad de repetido y resultados previos;
 - validación independiente de esquema, orden, multiplicidades, cegamiento y 397/397 controles.
 
-El JSONL ciego es el único artefacto que puede enviarse al adjudicador. La metadata y el A/B interno permanecen privados. Cada fila debe juzgarse de forma independiente; no debe intentarse identificar o deduplicar repeticiones. El límite siguiente es humano: primero se completan y congelan los 181 juicios; sólo después podrá construirse y ejecutar el unblinding previamente controlado.
+El JSONL ciego fue el único artefacto enviado al adjudicador. La entrega exacta quedó congelada en `8d73a3bf2df931eb2c1b9c7f5636f69bc820bc0b`: JSONL SHA-256 `a4e7af79e2208497f4efd95afc9418d8f8b99671894070a8ab8dc80be5f8cbb6` y metadata SHA-256 `6b887d54008602bb4cddf845ecef14714d47a0ae0eb391f1ba5d336b02b069dc`. Contiene 180 puntuaciones y una abstención justificada; la identidad primaria o repetida de esa abstención permanece desconocida.
+
+El normalizador ciego se congeló antes de producir outputs en `e750d178b8cedba101e9317f7b8dd515389b8f87`. Leyó sólo la entrega, su metadata y la muestra pública, y reprodujo de forma exacta las 181 adjudicaciones en un contrato mínimo. La ejecución única quedó congelada en `98de5bc25fbc73f0161ab3fb7453e429f70f4ee4`:
+
+- juicios JSONL SHA-256 `5112d36a2a17a5747867ae0cc26cdf915a5edc57836a872320272179cca744a1`;
+- metadata SHA-256 `2245e751762076d13ae7b0fcbe1162929a2b9b1e70fd2d36b3a8e15ebd76b87a`;
+- 180 filas puntuadas y una abstención; distribución de presentaciones 0: 72, 1: 61, 2: 27 y 3: 20;
+- 30 lookups y 30 notas conservados;
+- cero acceso a A/B, scores, rangos, IDs internos o identidad de repetidos;
+- validación independiente y 402/402 controles.
+
+Estos conteos incluyen diez repeticiones ocultas y no constituyen todavía resultados del experimento. El siguiente límite es técnico: congelar el analizador post-juicio antes de reconstruir el mapa privado. Sólo su ejecución posterior podrá determinar si la abstención afecta un ítem primario, calcular el gate y producir el primer unblinding formal.
 
 ## Relacionado
 
