@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario congelado es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba exacta recorre las `2^12 = 4096` permutaciones pareadas de signos.
 
-Estado canónico actual: `production-pool-frozen-dataset-builder-pending`, `inference_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo y el pool Top-20 ya fueron congelados. No se inició inferencia, construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `browser-q8-scoring-in-progress`, `inference_authorized=true-under-frozen-runner`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio y el runner browser-q8 ya fueron congelados. La ejecución resumible de inferencia comenzó después del preflight del commit congelado y aceptó el gate WebGPU/q8 antes del primer score. No existe output final congelado y no se inició construcción A/B, auditoría o juicio humano.
 
 ### Hito del marco fuente público
 
@@ -244,22 +244,42 @@ La implementación ejecutó el `searchPhilosophy` productivo intacto en Chrome h
 
 Una primera invocación fue interrumpida antes de iniciar retrieval y no dejó proceso, parcial ni output. La ejecución válida no se repitió. Después de finalizar y escribir ambos artefactos, macOS devolvió `ENOTEMPTY` al retirar el perfil temporal de Chrome; el pool ya estaba cerrado, la metadata escrita y los parciales eliminados. El perfil efímero se retiró después de salir Chrome y la carrera de limpieza se corrigió en `7f3abd0`, sin alterar o regenerar datos.
 
+### Hito del dataset limpio
+
+El builder determinista se congeló antes de escribir entradas en `41a68b18891da0555cfce60756f76d3261bb9763`. Fijó el pool y su metadata, la preregistración, el query set, el runtime de retrieval, el orden exacto de los 240 pares y un contrato de nueve campos que excluye rango productivo, proveedores, provenance, condiciones, scores y labels.
+
+Después de repetir el preflight output-free desde ese commit, el builder se ejecutó una sola vez. El dataset y la metadata quedaron congelados en `ba6e06162a81e4ffa63ee5dc13166c1632bf4242`:
+
+- dataset JSONL: 240 pares ordenados, SHA-256 `c594c0beb94a1a59b0c2a7497cd49a6c0b5173540557ad05a93aca2cf1aa6ae9`;
+- metadata: SHA-256 `e09000e612d7d36c362a9118e2198e7eda506742aabc76f0b1dbc41c3ed48756`;
+- cobertura: 12 consultas y 235 documentos distintos, con 240 claves consulta-documento únicas y cero duplicados eliminados;
+- validación: reconstrucción independiente exacta, objeto por objeto y en el mismo orden.
+
+### Hito del runner browser-q8
+
+El runner se congeló antes de descargar pesos o puntuar en `9441425226b233631ae6bd4d398442fc1deb0a99`. Fija el modelo `onnx-community/Qwen3-Reranker-0.6B-ONNX`, la revisión exacta ya preregistrada, el artefacto q8, `max_length=1024`, el scorer previamente cerrado, los hashes del dataset y todos los paths de salida.
+
+El bundle auditado tiene SHA-256 `10331143893127b266366568631b4d50ea8867c2be2ee1ab790f2627aee9f39f`: resuelve `transformers.web.js` y `onnxruntime-web`, contiene una entrada ONNX web y cero entradas `onnxruntime-node`, `transformers.node` o backend Node. El scorer rechaza Node, exige `navigator.gpu`, adaptador no fallback, `device=webgpu`, `dtype=q8` y sesiones ONNX que reporten WebGPU/q8.
+
+El preflight output-free desde el commit congelado validó 240 filas, 12 consultas, todos los hashes, bundle web-only, ausencia de checkpoint y outputs, y cero ejecución o descarga. La ejecución oficial resumible comenzó después: antes de aceptar el primer score, el runtime confirmó un adaptador Apple no fallback con arquitectura `metal-3` y sesión ONNX `device=webgpu`, `dtype=q8`. Los pesos viven sólo en el perfil efímero de Chrome fuera del repositorio. El checkpoint es infraestructura recuperable, no un resultado científico; todavía no existe un archivo final de scores congelado.
+
 ### Acciones permitidas ahora
 
 Puede avanzarse sin riesgo en:
 
-- construir, probar y congelar el builder determinista del dataset limpio de 240 pares;
-- validar que elimina ranking y provenance del model input sin perder texto documental;
+- dejar terminar o reanudar exclusivamente la ejecución exacta del runner congelado, sin volver a puntuar el prefijo ya validado;
+- validar y congelar los 240 raw scores y su metadata sólo si se completa el contrato íntegro;
+- preparar el builder A/B sin ejecutarlo hasta que los scores finales estén congelados;
 - preparar instrucciones y acuerdos de adjudicación;
-- estimar esfuerzo, costo y tamaño de muestra.
+- mantener al adjudicador ciego a A/B, rangos, scores e identidad de repetidos.
 
-La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración y retrieval Top-20 ya están resueltos. La adjudicación continúa bloqueada y el pool congelado no debe rerunearse.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración, retrieval Top-20, dataset y runner de inferencia ya están resueltos. La adjudicación continúa bloqueada; el pool y el dataset congelados no deben rerunearse ni reconstruirse.
 
-No debe iniciarse inference, A/B ni juicio hasta contar con:
+No debe iniciarse A/B ni juicio hasta contar con:
 
-- dataset de 240 pares construido una sola vez desde el pool congelado;
-- metadata y validación independiente del dataset;
-- freeze commit explícito anterior a cualquier carga del modelo.
+- 240 raw scores completos producidos por el runner congelado;
+- metadata con prueba de WebGPU/q8 y ausencia de fallback;
+- validación independiente y freeze commit explícito de scores antes de construir A/B.
 
 ## Relacionado
 
