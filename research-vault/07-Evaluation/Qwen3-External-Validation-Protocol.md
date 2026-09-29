@@ -1,6 +1,6 @@
 ---
 type: protocol
-status: active-execution
+status: closed-inconclusive
 area: evaluation
 candidate: qwen3-browser-q8-1024
 updated: 2026-09-29
@@ -135,7 +135,7 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 
 El diseño cabe dentro de la capacidad declarada: 12 consultas y una unión observada de 171 pares primarios únicos, más diez repeticiones ciegas para consistencia intraevaluador = 181 filas. El estimando primario congelado es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba exacta recorre las `2^12 = 4096` permutaciones pareadas de signos.
 
-Estado canónico actual: `normalized-judgments-frozen-post-judgment-analyzer-pending`, `inference_authorized=false-complete`, `unblinding_authorized=false-analyzer-not-frozen`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete de traducción, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio, el runner browser-q8, los 240 raw scores, A/B interno, la auditoría ciega, el retorno externo y los juicios normalizados ya fueron congelados. No se ha reconstruido el mapa privado ni ejecutado unblinding.
+Estado canónico actual: `external-validation-v1-closed-inconclusive`, `inference_authorized=false-complete`, `unblinding_complete=true`, `production_ranking_action=no-change`. El marco fuente, selección, traducciones, preregistración, retrieval, dataset, browser-q8, scores, A/B, auditoría, retorno humano, juicios, analizador, reporte y decisión están congelados. El unblinding se ejecutó una sola vez después de congelar los juicios y el analizador.
 
 ### Hito del marco fuente público
 
@@ -277,10 +277,10 @@ Los scores y metadata quedaron congelados en `0003a7f02143faa3d03c11b9e809f50720
 
 Puede avanzarse sin riesgo en:
 
-- construir y probar un analizador post-juicio que fije todos los hashes y commits congelados;
-- implementar exactamente la reconstrucción determinista de primarios y repetidos, P@10 absoluto, ΔP@10, consistencia intraevaluador, tratamiento de abstenciones, bounds de peor caso y prueba exacta de 4.096 signos;
-- congelar el analizador antes de darle acceso operativo al mapa A/B;
-- ejecutar el analizador una sola vez después de ese congelamiento y registrar por separado resultados formales y descripciones por idioma/intención.
+- preservar el resultado como validación externa inconclusa con dirección pareada positiva exactamente identificada;
+- diseñar una réplica independiente prospectiva o un estudio nuevo de resolución de missingness;
+- reutilizar el candidato congelado únicamente sin tuning contra los labels externos;
+- mantener cualquier análisis adicional explícitamente post hoc y sin alterar el gate congelado.
 
 La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración, retrieval Top-20, dataset, runner, scores, A/B y paquete ciego ya están resueltos. El pool, dataset, inferencia, condiciones y muestra congelados no deben rerunearse ni reconstruirse.
 
@@ -309,7 +309,26 @@ El normalizador ciego se congeló antes de producir outputs en `e750d178b8cedba1
 - cero acceso a A/B, scores, rangos, IDs internos o identidad de repetidos;
 - validación independiente y 402/402 controles.
 
-Estos conteos incluyen diez repeticiones ocultas y no constituyen todavía resultados del experimento. El siguiente límite es técnico: congelar el analizador post-juicio antes de reconstruir el mapa privado. Sólo su ejecución posterior podrá determinar si la abstención afecta un ítem primario, calcular el gate y producir el primer unblinding formal.
+En el momento del freeze de juicios, estos conteos incluían diez repeticiones ocultas y todavía no constituían resultados del experimento. El analizador se congeló después y antes de reconstruir el mapa privado, preservando ese límite temporal.
+
+### Resultado externo y decisión
+
+El analizador quedó congelado antes del unblinding en `31539e90b96322e698bcbd6480299147fea67562`. El preflight repitió ocho hashes sin reconstruir el mapa y la ejecución única produjo el reporte congelado en `8379fd1fdfd0ba5280a380d45cfce4ea1c084707`, SHA-256 `446381edb90fea3bcc0c28153b1163d86bfbae18fe58e58c578202d4369fbbcc`.
+
+La única abstención, `Q8E031`, corresponde a un ítem primario compartido por ambos Top 10 en `q8e-pt-01`. Conforme al bound preregistrado:
+
+- P@10(A) ∈ `[0.225000, 0.233333]`;
+- P@10(B) ∈ `[0.333333, 0.341667]`;
+- ΔP@10(B−A) = `+0.108333` en ambos extremos;
+- gate primario = `inconclusive`;
+- prueba exacta de 4.096 signos = no ejecutada;
+- p-value = `null`;
+- acuerdo de repetición exacto = 10/10;
+- acuerdo dentro de un grado = 10/10.
+
+La dirección pareada positiva está identificada porque el unknown compartido cancela en B−A, pero no satisface el support rule: éste exige cero abstenciones primarias además de Δ positivo y p ≤ 0.05. Por eso no puede describirse como apoyo confirmatorio externo. Idioma e intención siguen siendo exclusivamente descriptivos.
+
+La decisión separada quedó congelada en `53e083f9f74147169dcde96f18906c52011a7ab6`: `production_ranking_action = no-change`, `candidate_status = research-only` y `promotion_status = do-not-promote-from-inconclusive-external-gate`. Ninguna imputación o adjudicación posterior puede cambiar retrospectivamente este gate; una nueva evidencia requiere preregistración prospectiva separada.
 
 ## Relacionado
 
