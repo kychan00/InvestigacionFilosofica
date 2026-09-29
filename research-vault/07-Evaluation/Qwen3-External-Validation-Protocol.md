@@ -133,9 +133,9 @@ El intake completo y el diseño provisional fueron congelados en el commit exper
 - diseño provisional: SHA-256 `92273a5740326f0b815bb4e07cc32da9aaaf2f9505a8c7095d49c837ca8be30c`;
 - controles dedicados acumulados: `9/9`; suite completa: `302/302`.
 
-El diseño cabe exactamente dentro de la capacidad máxima: 12 consultas × hasta 20 documentos de la unión Top-10 = 240 pares únicos, más 10 repeticiones ciegas para consistencia intraevaluador = 250 filas. El estimando primario congelado es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba exacta recorre las `2^12 = 4096` permutaciones pareadas de signos.
+El diseño cabe dentro de la capacidad declarada: 12 consultas y una unión observada de 171 pares primarios únicos, más diez repeticiones ciegas para consistencia intraevaluador = 181 filas. El estimando primario congelado es ΔP@10 pareado macro por consulta con umbral de relevancia ≥2; la prueba exacta recorre las `2^12 = 4096` permutaciones pareadas de signos.
 
-Estado canónico actual: `browser-q8-scores-frozen-ab-builder-pending`, `inference_authorized=false-complete`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete ciego, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio, el runner browser-q8 y los 240 raw scores ya fueron congelados. No se inició construcción A/B, auditoría o juicio humano.
+Estado canónico actual: `blind-audit-frozen-awaiting-external-judgments`, `inference_authorized=false-complete`, `unblinding_authorized=false`. El marco fuente, la clasificación determinista, las 12 asignaciones, el paquete de traducción, las traducciones humanas verificadas, el query set final, la preregistración, el runner productivo, el pool Top-20, el dataset limpio, el runner browser-q8, los 240 raw scores, A/B interno y la auditoría ciega ya fueron congelados. No se inició juicio humano ni unblinding.
 
 ### Hito del marco fuente público
 
@@ -277,19 +277,28 @@ Los scores y metadata quedaron congelados en `0003a7f02143faa3d03c11b9e809f50720
 
 Puede avanzarse sin riesgo en:
 
-- construir, probar y congelar el builder A/B determinista contra el pool y los scores exactos;
-- ejecutar A/B una sola vez sólo después de congelar ese builder y validar su output;
-- construir después el paquete de auditoría ciega sin exponer condición, rango, score o provenance;
-- preparar instrucciones y acuerdos de adjudicación;
-- mantener al adjudicador ciego a A/B, rangos, scores e identidad de repetidos.
+- compartir con `external-adjudicator-01` únicamente el JSONL ciego de 181 filas, nunca la metadata ni el A/B interno;
+- recibir el mismo JSONL, sin reordenar, añadir o retirar filas, con relevancia 0–3 o abstención motivada;
+- validar el retorno contra los `audit_id` y contenidos congelados y, si cumple el contrato, congelar los juicios;
+- mantener al adjudicador ciego a A/B, rangos, scores, provenance e identidad de repetidos.
 
-La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración, retrieval Top-20, dataset, runner y scores de inferencia ya están resueltos. La adjudicación continúa bloqueada; el pool, dataset e inferencia congelados no deben rerunearse ni reconstruirse.
+La respuesta del profesor resuelve el rol, la independencia declarada, los idiomas y la capacidad. El marco externo, la selección, traducciones, potencia, preregistración, retrieval Top-20, dataset, runner, scores, A/B y paquete ciego ya están resueltos. El pool, dataset, inferencia, condiciones y muestra congelados no deben rerunearse ni reconstruirse.
 
-No debe iniciarse juicio humano hasta contar con:
+### Hito de A/B y auditoría ciega
 
-- builder A/B congelado antes de construir condiciones;
-- A/B completo validado y congelado;
-- paquete de auditoría ciega construido sin provenance experimental y congelado antes de compartirlo.
+El builder A/B determinista quedó congelado antes de generar condiciones en `91f00fa5fa6773c11a198d8fba829adb0d458752`. Su preflight predijo 480 filas y SHA-256 `16f14ffae6a15956ab3a5cd45cc0394ea26b943e3262880a44bdb4ca8a1b6000`. La ejecución única reprodujo exactamente ese hash y los outputs quedaron congelados en `0a12f11acb36f8c87e6592902700ccaf43b640d4`; la metadata tiene SHA-256 `fd9e28e9cb3f589b23ca9a7fd8ea26a8729871097b5652295611ceb45ba832b8`. A es el orden productivo congelado; B conserva exactamente los mismos 20 candidatos por consulta y sólo los ordena por raw score descendente, con rango original ascendente para empates exactos. No hubo labels, threshold, blending, tuning ni cambio de pool.
+
+El builder de la auditoría ciega quedó congelado en `5c085e32438525a47ce8fb20fc72bc48f6422f04`. El preflight predijo el paquete final y la ejecución única volvió a producir los hashes exactos. La muestra quedó congelada en `9d969b75b92eb95977e3c34443c2e7ed2ab79709`:
+
+- 171 ítems primarios únicos de la unión completa de ambos Top 10;
+- diez repeticiones ciegas deterministas y 181 filas totales;
+- JSONL SHA-256 `cf040edea08f643e4dc0ebb6d391d9e29b02284a4d5583f9d853b35cde380a37`;
+- metadata SHA-256 `661684403bf69e67465749c4f1d85bb2685883c4acc5c6289cddcdc198f6feef`;
+- campos visibles limitados a ID ciego, consulta, bibliografía descriptiva, referencia neutral de consulta y campos vacíos de juicio;
+- ausencia de condición, rango, scores, IDs internos, provenance, identidad de repetido y resultados previos;
+- validación independiente de esquema, orden, multiplicidades, cegamiento y 397/397 controles.
+
+El JSONL ciego es el único artefacto que puede enviarse al adjudicador. La metadata y el A/B interno permanecen privados. Cada fila debe juzgarse de forma independiente; no debe intentarse identificar o deduplicar repeticiones. El límite siguiente es humano: primero se completan y congelan los 181 juicios; sólo después podrá construirse y ejecutar el unblinding previamente controlado.
 
 ## Relacionado
 
