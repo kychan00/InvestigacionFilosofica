@@ -3798,6 +3798,128 @@ async function loadMoreResults() {
   }
 }
 
+
+function renderSearchLoadingCards() {
+  return `
+    <div class="search-loading-grid" aria-hidden="true">
+      ${Array.from(
+        {
+          length: 3
+        },
+        () => `
+          <div class="search-loading-card">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        `
+      ).join("")}
+    </div>
+  `;
+}
+
+
+function renderSearchLoading() {
+  return `
+    <div class="search-live-progress">
+      <span class="search-live-spinner" aria-hidden="true"></span>
+
+      <div>
+        <strong>
+          Buscando literatura filosófica…
+        </strong>
+
+        <span>
+          Los primeros resultados aparecerán conforme respondan las fuentes.
+        </span>
+      </div>
+    </div>
+
+    ${renderSearchLoadingCards()}
+  `;
+}
+
+
+function renderProgressiveSearch(
+  response,
+  progress
+) {
+  currentParsed =
+    response.parsed;
+
+  currentResults =
+    response.results;
+
+  currentFilteredResults =
+    response.results;
+
+
+  renderInterpretation(
+    response
+  );
+
+  renderStats(
+    response
+  );
+
+
+  const currentExpansion =
+    Math.min(
+      progress.completedExpansions +
+        1,
+      progress.totalExpansions
+    );
+
+  const visible =
+    response.results.slice(
+      0,
+      20
+    );
+
+  const resultMarkup =
+    visible.length
+      ? visible
+          .map(
+            renderResult
+          )
+          .join("")
+      : renderSearchLoadingCards();
+
+
+  resultsEl.innerHTML = `
+    <div class="search-live-progress has-results">
+      <span class="search-live-spinner" aria-hidden="true"></span>
+
+      <div>
+        <strong>
+          ${response.stats.unique}
+          ${
+            response.stats.unique === 1
+              ? "resultado encontrado"
+              : "resultados encontrados"
+          }
+        </strong>
+
+        <span>
+          ${escapeHtml(progress.provider)} ·
+          búsqueda ${currentExpansion}/${progress.totalExpansions} ·
+          fuente ${progress.providersCompleted}/${progress.providersTotal}
+        </span>
+      </div>
+    </div>
+
+    ${resultMarkup}
+  `;
+
+
+  bindResultActions();
+
+  status.textContent =
+    `${response.stats.unique} resultados · ` +
+    `${progress.provider} · ` +
+    `búsqueda ${currentExpansion}/${progress.totalExpansions}`;
+}
+
 async function runSearch(
   query
 ) {
@@ -3814,9 +3936,13 @@ async function runSearch(
   currentController =
     new AbortController();
 
+  const searchController =
+    currentController;
+
   currentResults = [];
   currentResponse = null;
-  currentSearchQuery = "";
+  currentSearchQuery =
+    query;
   resetQwen3Experiment();
 
 
@@ -3824,7 +3950,12 @@ async function runSearch(
     true;
 
   resultsEl.innerHTML =
-    "";
+    renderSearchLoading();
+
+  resultsEl.setAttribute(
+    "aria-busy",
+    "true"
+  );
 
   interpretationEl
     .classList
@@ -3857,7 +3988,7 @@ async function runSearch(
         philosophyMap,
         {
           signal:
-            currentController.signal,
+            searchController.signal,
 
           maxQueries:
             5,
@@ -3876,6 +4007,23 @@ async function runSearch(
             status.textContent =
               `Buscando ${progress.completed}/${progress.total}: ` +
               `${progress.expansion.query}`;
+          },
+
+          onPartialResults(response) {
+            if (
+              currentController !==
+                searchController ||
+              searchController.signal
+                .aborted
+            ) {
+              return;
+            }
+
+
+            renderProgressiveSearch(
+              response,
+              response.progress
+            );
           }
         }
       );
@@ -3889,9 +4037,6 @@ async function runSearch(
 
     currentResults =
       response.results;
-
-    currentSearchQuery =
-      query;
 
     resetVisibleLimit();
 
@@ -3944,9 +4089,17 @@ async function runSearch(
       </div>
     `;
   } finally {
+    if (
+      currentController ===
+      searchController
+    ) {
+      button.disabled =
+        false;
 
-    button.disabled =
-      false;
+      resultsEl.removeAttribute(
+        "aria-busy"
+      );
+    }
   }
 }
 
