@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    RETRIEVAL_ARTIFACTS_DIR=/data/semantic-retrieval \
+    HF_HOME=/models/huggingface
+
+WORKDIR /app
+
+COPY requirements-semantic-retrieval.txt ./
+RUN pip install --no-cache-dir -r requirements-semantic-retrieval.txt
+
+COPY semantic_retrieval ./semantic_retrieval
+
+EXPOSE 8000
+
+CMD ["uvicorn", "semantic_retrieval.api:app", "--host", "0.0.0.0", "--port", "8000"]
