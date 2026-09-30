@@ -31,6 +31,12 @@ top 15 results with semantic_score, lexical_score and rerank_score
 The embedding and index jobs are offline. A search request never traverses the
 whole corpus and never rebuilds embeddings or FAISS.
 
+FAISS search runs in a persistent local worker process. This is an intentional
+native-runtime boundary: on macOS, executing `faiss-cpu` and PyTorch in one
+process caused reproducible interpreter crashes. The query model stays loaded
+in the API process and the FAISS index stays loaded in its worker, so the
+boundary does not reload either one per request.
+
 ## Reproducible inputs
 
 - Dataset: `CristianPelayo/openalex-philosophy`
@@ -164,3 +170,17 @@ with:
 Manual review should record conceptual relevance, topical precision, ranking
 quality, multilingual behavior and false positives. Results with and without
 reranking must be stored separately.
+
+## Local real-model smoke (2026-09-30)
+
+A non-production smoke artifact under `/tmp` validated 20 eligible records with
+the pinned embedding model on Apple MPS, a 1024-dimensional FAISS index and a
+natural-language query. The expected document, *Imaginative blocks and
+impossibility: an essay in modal psychology*, ranked first with semantic score
+`0.7154197`.
+
+The pinned reranker also kept that document first with raw score `7.8420315`.
+Its first local pass over 10 candidates took roughly three minutes, however.
+That latency is not acceptable for an interactive deployment and remains a
+serving/performance gate. The smoke does not replace a complete index build or
+the benchmark over the full corpus.

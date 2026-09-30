@@ -7,6 +7,7 @@ import numpy as np
 from .cache import QueryEmbeddingCache
 from .config import RetrievalSettings
 from .embeddings import EmbeddingBackend, SentenceTransformerEmbeddingBackend
+from .faiss_process import FaissSearchProcess
 from .filters import matches_filters
 from .index_manager import resolve_current_version
 from .models import SearchFilters, SearchResult
@@ -20,13 +21,6 @@ class SemanticSearcher:
         *,
         embedding_backend: EmbeddingBackend | None = None,
     ):
-        try:
-            import faiss
-        except ImportError as error:
-            raise RuntimeError(
-                "Install requirements-semantic-retrieval.txt before searching FAISS."
-            ) from error
-
         self.settings = settings
         self.embedding_backend = (
             embedding_backend or SentenceTransformerEmbeddingBackend(settings)
@@ -47,7 +41,10 @@ class SemanticSearcher:
                 "Query embedding model does not match the active FAISS index: "
                 f"index={actual}, query={expected}"
             )
-        self.index = faiss.read_index(str(self.version_dir / "semantic.faiss"))
+        # PyTorch/SentenceTransformers and faiss-cpu can crash the interpreter
+        # when both native runtimes execute in one macOS process. The worker is
+        # persistent, so isolation costs no model reload per query.
+        self.index = FaissSearchProcess(self.version_dir / "semantic.faiss")
         self.documents = DocumentStore(self.version_dir / "documents.sqlite3")
         self.cache = QueryEmbeddingCache(
             ttl_seconds=settings.query_cache_ttl_seconds,
@@ -55,6 +52,7 @@ class SemanticSearcher:
         )
 
     def close(self) -> None:
+        self.index.close()
         self.documents.close()
 
     def _query_embedding(self, query: str) -> np.ndarray:
