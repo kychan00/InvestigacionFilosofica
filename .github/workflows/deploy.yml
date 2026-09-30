@@ -62,6 +62,9 @@ jobs:
       - name: Build DuckDB browser assets
         run: npm run build:duckdb
 
+      - name: Build and audit Qwen3 browser assets
+        run: npm run build:qwen3-browser
+
       - name: Prepare site
         run: |
           mkdir -p _site

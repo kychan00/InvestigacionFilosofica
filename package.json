@@ -6,6 +6,7 @@
     "test": "node --test tests/*.test.mjs",
     "test:network": "node --test tests/smoke/network-smoke.mjs",
     "build:duckdb": "node scripts/build-duckdb-browser.mjs",
+    "build:qwen3-browser": "node scripts/build-qwen3-browser.mjs",
     "benchmark:validate": "node scripts/benchmark/validate.mjs",
     "benchmark:evaluate": "node scripts/benchmark/evaluate.mjs",
     "benchmark:run": "npm run build:duckdb && node scripts/benchmark/run-server.mjs",
@@ -55,6 +56,7 @@
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
+    "@huggingface/transformers": "4.3.0",
     "franc-min": "^6.2.0"
   },
   "devDependencies": {

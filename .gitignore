@@ -7,6 +7,7 @@ node_modules/
 .venv-benchmark-ai/
 artifacts/
 vendor/duckdb/
+vendor/qwen3/
 tests/manual/vendor/
 benchmark/ai-judgments-v1-smoke-*.jsonl
 benchmark/ai-judgments-v1.meta-smoke-*.json

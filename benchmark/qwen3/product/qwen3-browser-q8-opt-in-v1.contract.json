@@ -1,0 +1,76 @@
+{
+  "schema_version": "qwen3-browser-q8-opt-in-product-contract-v1",
+  "feature_id": "qwen3-browser-q8-opt-in-v1",
+  "status": "experimental-opt-in-prototype",
+  "authorization_date": "2026-09-29",
+  "scientific_boundary": {
+    "source_branch": "experiment/qwen3-browser-q8-confirmatory-holdout-v2",
+    "source_decision_path": "benchmark/qwen3/browser/q8-external-validation-v1/qwen3-browser-q8-external-validation-v1.decision.json",
+    "source_decision_sha256": "dab03330e34e898ac4100c081339f584891c91732bb894f53fbfc0c652b8afc8",
+    "source_result_path": "benchmark/qwen3/browser/q8-external-validation-v1/reports/qwen3-browser-q8-external-validation-v1-human-result.json",
+    "source_result_sha256": "446381edb90fea3bcc0c28153b1163d86bfbae18fe58e58c578202d4369fbbcc",
+    "formal_external_gate": "inconclusive",
+    "production_promotion": false,
+    "interpretation": "The prototype does not convert the inconclusive external gate into confirmatory support and does not replace the production ranker."
+  },
+  "activation": {
+    "default_enabled": false,
+    "url_opt_in": "qwen3=1",
+    "automatic_execution": false,
+    "manual_user_action_required": true
+  },
+  "ranking_contract": {
+    "candidate_source": "current frozen production result order",
+    "candidate_count": 20,
+    "candidate_membership_change": false,
+    "ordering": "frozen browser q8 raw score descending",
+    "exact_tie_break": "original production rank ascending",
+    "threshold": null,
+    "score_blending": false,
+    "human_labels_during_inference": false,
+    "fallback": "preserve the exact production order"
+  },
+  "runtime_contract": {
+    "runtime": "browser-window-only",
+    "model_id": "onnx-community/Qwen3-Reranker-0.6B-ONNX",
+    "revision": "9995c50e2310679108a55f5ccd16ba8be9f17c20",
+    "artifact": "onnx/model_quantized.onnx",
+    "transformers_js_version": "4.3.0",
+    "onnx_backend": "onnxruntime-web",
+    "execution_provider": "webgpu",
+    "dtype": "q8",
+    "max_length": 1024,
+    "onnxruntime_node_allowed": false,
+    "software_fallback_adapter_allowed": false,
+    "weights_committed_to_repository": false
+  },
+  "observed_cost": {
+    "source": "external-validation-v1 frozen 240-pair score file",
+    "pair_count": 240,
+    "median_latency_ms": 17083.075000047684,
+    "p90_latency_ms": 44137.074999928474,
+    "mean_latency_ms": 22327.682499999803,
+    "expected_top20_behavior": "minutes, not interactive seconds",
+    "ui_requirement": "show progress and permit cancellation between documents"
+  },
+  "privacy_and_data": {
+    "inference_location": "user browser",
+    "model_download_origin": "Hugging Face model repository pinned above",
+    "application_telemetry_added": false,
+    "inputs": [
+      "query",
+      "title",
+      "authors",
+      "year",
+      "document_language",
+      "abstract"
+    ],
+    "forbidden_inputs": [
+      "human relevance labels",
+      "production score",
+      "production rank",
+      "retrieval provider provenance",
+      "A/B condition"
+    ]
+  }
+}
