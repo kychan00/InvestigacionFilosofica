@@ -183,4 +183,6 @@ The pinned reranker also kept that document first with raw score `7.8420315`.
 Its first local pass over 10 candidates took roughly three minutes, however.
 That latency is not acceptable for an interactive deployment and remains a
 serving/performance gate. The smoke does not replace a complete index build or
-the benchmark over the full corpus.
+the benchmark over the full corpus. The same artifact returned HTTP 200 from
+both `/health` and `POST /api/search/semantic`, with the expected document in
+the API response.
