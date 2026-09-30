@@ -29,12 +29,14 @@ Retrieval de producción → pool congelado → dataset limpio → Qwen raw scor
 
 **Fresh internal validation:** evaluación posterior al congelamiento del candidato o hipótesis.
 
-**External validation:** todavía no realizada.
+**External validation:** realizada y cerrada; dirección pareada positiva exactamente identificada, pero gate formal inconcluso por una abstención primaria y sin p-value.
 
 ## Estado confirmatorio
 
 El confirmatory holdout browser-q8 v2 produjo evidencia mixta. La dirección positiva de H1 se replicó, pero el contraste H2 y la centralidad H3 no. Esto favorece conservar la separación entre laboratorio y producción: el resultado es informativo sobre el candidato, pero insuficiente para convertirlo automáticamente en política de ranking.
 
-El candidato queda research-only. Su siguiente gate es [[Qwen3-External-Validation-Protocol]], no tuning adicional sobre los holdouts observados.
+El candidato permanece research-only. [[Qwen3-External-Validation-Protocol]] registra el gate externo ya ejecutado y cerrado; una nueva evidencia admisible requiere una réplica prospectiva, no tuning adicional sobre los holdouts o labels observados.
+
+La integración de ingeniería posterior está documentada en [[Qwen3-Browser-Q8-Opt-in-Prototype]]. Es un modo manual oculto y reversible para estudiar factibilidad, no una promoción del candidato ni un cambio del ranking por defecto.
 
 → [[Evaluation-Lineage]]

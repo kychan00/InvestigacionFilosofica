@@ -18,6 +18,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Qwen3-Reranker-Laboratory]]
 - [[Qwen3-Browser-Q8-Confirmatory-v2]]
 - [[Qwen3-External-Validation-Protocol]]
+- [[Qwen3-Browser-Q8-Opt-in-Prototype]]
 
 ## Informes originales
 
@@ -79,3 +80,5 @@ El normalizador ciego se congeló en `e750d178b8cedba101e9317f7b8dd515389b8f87` 
 El analizador se congeló en `31539e90b96322e698bcbd6480299147fea67562` antes del primer unblinding y el resultado JSON quedó congelado en `8379fd1fdfd0ba5280a380d45cfce4ea1c084707`, con SHA-256 `446381edb90fea3bcc0c28153b1163d86bfbae18fe58e58c578202d4369fbbcc`. La única abstención es primaria y compartida por A/B. Esto deja P@10(A) en `[0.225000, 0.233333]`, P@10(B) en `[0.333333, 0.341667]` y fija ΔP@10 exactamente en `+0.108333`; aun así, el gate formal es **inconcluso** porque exige cero abstenciones primarias. No se ejecutó la prueba exacta ni se produjo p-value. Las diez repeticiones coinciden 10/10.
 
 La decisión congelada en `53e083f9f74147169dcde96f18906c52011a7ab6` mantiene browser-q8 como research-only y producción sin cambios. El resultado no debe resumirse como apoyo externo confirmado: sólo hay una dirección positiva exacta bajo bounds, acompañada de un gate inconcluso. Una réplica o estudio de resolución de missingness debe ser nuevo, prospectivo y no puede usar estos labels para tuning ni reescribir retrospectivamente el resultado.
+
+Como decisión de ingeniería separada, existe un [[Qwen3-Browser-Q8-Opt-in-Prototype|prototipo browser q8 opt-in]] oculto tras `?qwen3=1`. No cambia retrieval ni el ranking por defecto: puntúa manualmente el mismo Top 20, exige WebGPU q8 sin fallback Node/CPU y vuelve al orden normal ante cancelación o error. Su propósito es probar integración y restricciones de producto, no promover el resultado inconcluso. La latencia observada —mediana de 17.083 s por documento en el estudio externo— obliga a tratarlo como un proceso de varios minutos.
