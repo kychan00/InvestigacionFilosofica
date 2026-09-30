@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-09-29
+updated: 2026-09-30
 status: design
 ---
 
@@ -31,6 +31,34 @@ Fuentes activas principales:
 - CUCSH Filosofía
 
 La arquitectura actual está documentada en el `ARCHITECTURE.md` del repositorio.
+
+## Recuperación semántica sobre corpus propio
+
+Se abrió una línea de ingeniería separada para construir un backend de recuperación semántica sobre el corpus OpenAlex Philosophy alojado en Hugging Face.
+
+Arquitectura objetivo:
+
+```text
+Parquet fijado en Hugging Face
+→ Qwen3-Embedding-0.6B offline
+→ shards versionados de embeddings
+→ FAISS + metadata/FTS
+→ candidatos semánticos y lexicales
+→ Qwen3-Reranker-0.6B opcional
+→ API desacoplada
+```
+
+Estado al 2026-09-30:
+
+- implementación modular creada en una rama aislada del repositorio;
+- generación inicial e incremental separada de la indexación;
+- FAISS, filtros deterministas, caché de consultas, búsqueda lexical/híbrida, reranker y contratos API implementados;
+- pipeline completo validado con un backend de embeddings controlado;
+- suite pública existente: 68/68 pruebas;
+- inferencia real de Qwen3-Embedding todavía **no validada**: la descarga del modelo fue interrumpida y no se construyó el índice completo;
+- sin despliegue de API y sin integración con el frontend de producción.
+
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véase [[Semantic-Retrieval-Service]].
 
 ## Nueva fase estratégica
 
