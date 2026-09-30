@@ -82,6 +82,7 @@ El 2026-09-30 se completó además un smoke real no productivo con 20 documentos
 Por tanto:
 
 - la cadena real de Fase 1 y el reranker mínimo sí están validados;
+- la calidad de materia prima no está todavía aprobada: [[Abstract-Coverage-V3.2]] fijó `NEEDS_ENRICHMENT` y bloqueó el build masivo;
 - no existe todavía índice completo;
 - no existe todavía benchmark humano de resultados;
 - no se desplegó la API;
@@ -89,13 +90,16 @@ Por tanto:
 
 ## Próximos gates
 
-1. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
-2. Ejecutar el job offline completo en infraestructura adecuada.
-3. Construir y validar el índice completo.
-4. Ejecutar el benchmark interno con y sin reranker.
-5. Revisar manualmente relevancia, precisión, multilingüismo y falsos positivos.
-6. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
-7. Sólo después integrar el frontend mediante una bandera o rollout controlado.
+1. Congelar una revisión exacta y el esquema real de abstracts de `Mearman/OpenAlex`.
+2. Diseñar un enriquecimiento acotado por `work_id` y publicar una versión nueva del corpus sin reejecutar el clasificador.
+3. Repetir auditoría y smoke sobre la nueva revisión fijada.
+4. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
+5. Ejecutar el job offline completo en infraestructura adecuada.
+6. Construir y validar el índice completo.
+7. Ejecutar el benchmark interno con y sin reranker.
+8. Revisar manualmente relevancia, precisión, multilingüismo y falsos positivos.
+9. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
+10. Sólo después integrar el frontend mediante una bandera o rollout controlado.
 
 ## Canonicalidad
 

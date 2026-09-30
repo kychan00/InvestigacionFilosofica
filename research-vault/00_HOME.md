@@ -37,6 +37,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Research-Mode]]
 - [[Research-Mode-Architecture]]
 - [[Semantic-Retrieval-Service]]
+- [[Abstract-Coverage-V3.2]]
 
 ## Principios adoptados
 
