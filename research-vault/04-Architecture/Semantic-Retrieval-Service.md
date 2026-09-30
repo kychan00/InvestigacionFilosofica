@@ -26,7 +26,7 @@ Hugging Face Parquet
 tiempo de consulta
 consulta
 → embedding de consulta con instrucción filosófica
-→ FAISS
+→ worker persistente FAISS
 → filtros de metadata
 → unión lexical opcional
 → Qwen3-Reranker-0.6B opcional
@@ -34,6 +34,8 @@ consulta
 ```
 
 Los embeddings de documentos no se recalculan por consulta. Los documentos nuevos reciben embeddings incrementales; el índice tiene además una operación explícita de reconstrucción total.
+
+En macOS, PyTorch/SentenceTransformers y `faiss-cpu` provocaron crashes nativos reproducibles al ejecutar operaciones en el mismo proceso. La frontera de procesos es por ello parte explícita del diseño: el modelo de consulta permanece cargado en el proceso de API y FAISS permanece cargado en un worker local persistente. No se recarga ninguno por consulta.
 
 ## Corpus fijado
 
@@ -69,9 +71,16 @@ FAISS usa producto interno sobre vectores L2-normalizados, equivalente a similit
 
 El pipeline completo pasó una prueba controlada de construcción inicial, búsqueda, caché, filtros y actualización incremental con embeddings deterministas falsos. Las pruebas del producto existente también permanecen verdes.
 
-La prueba con pesos reales quedó interrumpida durante la descarga de `Qwen3-Embedding-0.6B`. Por tanto:
+El 2026-09-30 se completó además un smoke real no productivo con 20 documentos elegibles y los modelos fijados:
 
-- no afirmar todavía que la recuperación real fue validada;
+- `Qwen3-Embedding-0.6B` generó embeddings de 1024 dimensiones en Apple MPS;
+- FAISS recuperó en primer lugar *Imaginative blocks and impossibility: an essay in modal psychology* para una consulta natural sobre imaginación, imposibilidad y psicología modal, con `semantic_score = 0.7154197`;
+- `Qwen3-Reranker-0.6B` conservó ese documento en primer lugar con raw score `7.8420315`;
+- el primer reranking de diez candidatos tardó cerca de tres minutos en esta máquina, latencia no apta todavía para una experiencia interactiva.
+
+Por tanto:
+
+- la cadena real de Fase 1 y el reranker mínimo sí están validados;
 - no existe todavía índice completo;
 - no existe todavía benchmark humano de resultados;
 - no se desplegó la API;
@@ -79,14 +88,13 @@ La prueba con pesos reales quedó interrumpida durante la descarga de `Qwen3-Emb
 
 ## Próximos gates
 
-1. Reanudar una muestra técnica pequeña con el modelo real.
-2. Verificar semánticamente resultados de la muestra.
-3. Ejecutar el job offline completo en infraestructura adecuada.
-4. Construir y validar el índice completo.
-5. Ejecutar el benchmark interno con y sin reranker.
-6. Revisar manualmente relevancia, precisión, multilingüismo y falsos positivos.
-7. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
-8. Sólo después integrar el frontend mediante una bandera o rollout controlado.
+1. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
+2. Ejecutar el job offline completo en infraestructura adecuada.
+3. Construir y validar el índice completo.
+4. Ejecutar el benchmark interno con y sin reranker.
+5. Revisar manualmente relevancia, precisión, multilingüismo y falsos positivos.
+6. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
+7. Sólo después integrar el frontend mediante una bandera o rollout controlado.
 
 ## Canonicalidad
 

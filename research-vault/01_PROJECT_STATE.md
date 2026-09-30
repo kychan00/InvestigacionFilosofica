@@ -54,8 +54,12 @@ Estado al 2026-09-30:
 - generación inicial e incremental separada de la indexación;
 - FAISS, filtros deterministas, caché de consultas, búsqueda lexical/híbrida, reranker y contratos API implementados;
 - pipeline completo validado con un backend de embeddings controlado;
+- smoke real completado con 20 documentos: Qwen3-Embedding en Apple MPS, índice FAISS de 1024 dimensiones y consulta semántica con el documento esperado en primer lugar;
+- reranker real validado sobre diez candidatos y conservación de `semantic_score`/`rerank_score`;
+- FAISS aislado en un worker persistente para evitar el crash nativo reproducible al mezclar `faiss-cpu` y PyTorch en el mismo proceso macOS;
 - suite pública existente: 68/68 pruebas;
-- inferencia real de Qwen3-Embedding todavía **no validada**: la descarga del modelo fue interrumpida y no se construyó el índice completo;
+- el primer reranking local de diez candidatos tardó aproximadamente tres minutos, por lo que el rendimiento interactivo continúa abierto;
+- el índice completo y el benchmark humano aún no se han construido;
 - sin despliegue de API y sin integración con el frontend de producción.
 
 La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véase [[Semantic-Retrieval-Service]].
