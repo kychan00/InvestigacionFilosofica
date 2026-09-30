@@ -4262,3 +4262,208 @@ summary {
   opacity:
     .55;
 }
+
+
+/* Resultados progresivos durante la búsqueda federada. */
+
+.search-live-progress {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    13px;
+
+  grid-column:
+    1 / -1;
+
+  margin:
+    0 0 4px;
+
+  padding:
+    14px 16px;
+
+  border:
+    1px solid
+    #d8e5de;
+
+  border-radius:
+    12px;
+
+  background:
+    #f2f7f4;
+
+  color:
+    #234c39;
+}
+
+
+.search-live-progress.has-results {
+  margin-bottom:
+    12px;
+}
+
+
+.search-live-progress div {
+  display:
+    grid;
+
+  gap:
+    2px;
+}
+
+
+.search-live-progress strong {
+  font-size:
+    14px;
+}
+
+
+.search-live-progress span:not(.search-live-spinner) {
+  color:
+    #5b6f64;
+
+  font-size:
+    12px;
+}
+
+
+.search-live-spinner {
+  flex:
+    0 0 auto;
+
+  width:
+    18px;
+
+  height:
+    18px;
+
+  border:
+    2px solid
+    #bed3c7;
+
+  border-top-color:
+    #2f6b4f;
+
+  border-radius:
+    50%;
+
+  animation:
+    search-live-spin .8s linear infinite;
+}
+
+
+.search-loading-grid {
+  display:
+    grid;
+
+  gap:
+    12px;
+
+  grid-column:
+    1 / -1;
+
+  width:
+    100%;
+}
+
+
+.search-loading-card {
+  display:
+    grid;
+
+  gap:
+    12px;
+
+  padding:
+    24px;
+
+  border:
+    1px solid
+    #e7e2d9;
+
+  border-radius:
+    14px;
+
+  background:
+    #ffffff;
+}
+
+
+.search-loading-card span {
+  display:
+    block;
+
+  height:
+    12px;
+
+  border-radius:
+    999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ece8e0 20%,
+      #f8f6f1 45%,
+      #ece8e0 70%
+    );
+
+  background-size:
+    220% 100%;
+
+  animation:
+    search-live-shimmer 1.35s ease-in-out infinite;
+}
+
+
+.search-loading-card span:first-child {
+  width:
+    58%;
+
+  height:
+    18px;
+}
+
+
+.search-loading-card span:nth-child(2) {
+  width:
+    36%;
+}
+
+
+.search-loading-card span:last-child {
+  width:
+    84%;
+}
+
+
+@keyframes search-live-spin {
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+@keyframes search-live-shimmer {
+  0% {
+    background-position:
+      100% 0;
+  }
+
+  100% {
+    background-position:
+      -100% 0;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .search-live-spinner,
+  .search-loading-card span {
+    animation:
+      none;
+  }
+}

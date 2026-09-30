@@ -110,9 +110,79 @@ function mergeOptions(
 }
 
 
+function buildSearchResponse({
+  query,
+  parsed,
+  expansions,
+  rawResults,
+  errors,
+  philosophyMap
+}) {
+  const merged =
+    mergeResults(
+      rawResults
+    );
+
+  const ranked =
+    rankResults(
+      merged,
+      parsed,
+      philosophyMap
+    );
+
+  const providerCounts = {};
+
+
+  for (const item of rawResults) {
+    for (
+      const provider of
+      item.providers || []
+    ) {
+      providerCounts[provider] =
+        (
+          providerCounts[provider] ||
+          0
+        ) + 1;
+    }
+  }
+
+
+  return {
+    query,
+    parsed,
+    expansions,
+    results:
+      ranked,
+    errors:
+      [...errors],
+    pagination: {
+      batch:
+        1
+    },
+    stats: {
+      appearances:
+        rawResults.length,
+      unique:
+        merged.length,
+      merged:
+        rawResults.length -
+        merged.length,
+      multiProvider:
+        ranked.filter(
+          item =>
+            item.providers.length > 1
+        ).length,
+      providers:
+        providerCounts
+    }
+  };
+}
+
+
 async function searchExpansion(
   expansion,
-  options
+  options,
+  onProviderSettled = null
 ) {
   const jobs = [];
 
@@ -237,10 +307,91 @@ async function searchExpansion(
   }
 
 
+  const outcomes =
+    Array(
+      jobs.length
+    ).fill(null);
+
+  let providersCompleted = 0;
+
+
   const settled =
     await Promise.allSettled(
       jobs.map(
-        job => job.promise
+        async (
+          job,
+          index
+        ) => {
+          try {
+            const value =
+              await job.promise;
+
+            outcomes[index] = {
+              provider:
+                job.provider,
+              results:
+                value,
+              error:
+                null
+            };
+
+            return value;
+          } catch (error) {
+            outcomes[index] = {
+              provider:
+                job.provider,
+              results: [],
+              error
+            };
+
+            throw error;
+          } finally {
+            providersCompleted += 1;
+
+
+            if (
+              typeof onProviderSettled ===
+              "function"
+            ) {
+              const completedOutcomes =
+                outcomes.filter(Boolean);
+
+              onProviderSettled({
+                provider:
+                  job.provider,
+                providersCompleted,
+                providersTotal:
+                  jobs.length,
+                results:
+                  completedOutcomes.flatMap(
+                    outcome =>
+                      outcome.results
+                  ),
+                errors:
+                  completedOutcomes
+                    .filter(
+                      outcome =>
+                        outcome.error &&
+                        outcome.error.name !==
+                          "AbortError"
+                    )
+                    .map(
+                      outcome => ({
+                        provider:
+                          outcome.provider,
+                        query:
+                          expansion.query,
+                        message:
+                          outcome.error?.message ||
+                          String(
+                            outcome.error
+                          )
+                      })
+                    )
+              });
+            }
+          }
+        }
       )
     );
 
@@ -400,7 +551,54 @@ export async function searchPhilosophy(
     const batch =
       await searchExpansion(
         expansion,
-        settings
+        settings,
+        partialBatch => {
+          if (
+            typeof settings
+              .onPartialResults !==
+            "function" ||
+            settings.signal?.aborted
+          ) {
+            return;
+          }
+
+
+          const response =
+            buildSearchResponse({
+              query,
+              parsed,
+              expansions,
+              rawResults: [
+                ...rawResults,
+                ...partialBatch.results
+              ],
+              errors: [
+                ...errors,
+                ...partialBatch.errors
+              ],
+              philosophyMap
+            });
+
+
+          settings.onPartialResults({
+            ...response,
+            progress: {
+              completedExpansions:
+                i,
+              totalExpansions:
+                expansions.length,
+              expansion,
+              provider:
+                partialBatch.provider,
+              providersCompleted:
+                partialBatch
+                  .providersCompleted,
+              providersTotal:
+                partialBatch
+                  .providersTotal
+            }
+          });
+        }
       );
 
 
@@ -475,80 +673,14 @@ export async function searchPhilosophy(
   }
 
 
-  /*
-   * 4. Fusión entre consultas y proveedores.
-   */
-  const merged =
-    mergeResults(
-      rawResults
-    );
-
-
-  /*
-   * 5. Ranking filosófico.
-   */
-  const ranked =
-    rankResults(
-      merged,
-      parsed,
-      philosophyMap
-    );
-
-
-  const providerCounts = {};
-
-
-  for (const item of rawResults) {
-    for (
-      const provider of
-      item.providers || []
-    ) {
-      providerCounts[provider] =
-        (
-          providerCounts[provider] ||
-          0
-        ) + 1;
-    }
-  }
-
-
-  return {
+  return buildSearchResponse({
     query,
-
     parsed,
-
     expansions,
-
-    results:
-      ranked,
-
+    rawResults,
     errors,
-
-    pagination: {
-      batch: 1
-    },
-
-    stats: {
-      appearances:
-        rawResults.length,
-
-      unique:
-        merged.length,
-
-      merged:
-        rawResults.length -
-        merged.length,
-
-      multiProvider:
-        ranked.filter(
-          item =>
-            item.providers.length > 1
-        ).length,
-
-      providers:
-        providerCounts
-    }
-  };
+    philosophyMap
+  });
 }
 
 

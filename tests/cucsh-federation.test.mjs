@@ -178,6 +178,72 @@ test(
 
 
 test(
+  "searchPhilosophy emite resultados parciales ya fusionados y ordenados",
+  async () => {
+    const partials = [];
+
+    const response =
+      await searchPhilosophy(
+        "ética",
+        philosophyMap,
+        {
+          ...cucshOnlyOptions,
+
+          onPartialResults(
+            partial
+          ) {
+            partials.push(
+              partial
+            );
+          }
+        }
+      );
+
+
+    assert.equal(
+      partials.length,
+      1
+    );
+
+    assert.equal(
+      partials[0]
+        .progress
+        .provider,
+      "CUCSH Filosofía"
+    );
+
+    assert.equal(
+      partials[0]
+        .progress
+        .providersCompleted,
+      1
+    );
+
+    assert.equal(
+      partials[0]
+        .progress
+        .providersTotal,
+      1
+    );
+
+    assert.deepEqual(
+      partials[0].results.map(
+        item => item.id
+      ),
+      response.results.map(
+        item => item.id
+      )
+    );
+
+    assert.deepEqual(
+      partials[0].stats,
+      response.stats
+    );
+  }
+);
+
+
+test(
   "searchMorePhilosophy pagina CUCSH sin repetir la primera página",
   async () => {
     const first =
