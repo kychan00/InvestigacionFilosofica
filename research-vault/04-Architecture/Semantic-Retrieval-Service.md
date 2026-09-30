@@ -76,6 +76,7 @@ El 2026-09-30 se completó además un smoke real no productivo con 20 documentos
 - `Qwen3-Embedding-0.6B` generó embeddings de 1024 dimensiones en Apple MPS;
 - FAISS recuperó en primer lugar *Imaginative blocks and impossibility: an essay in modal psychology* para una consulta natural sobre imaginación, imposibilidad y psicología modal, con `semantic_score = 0.7154197`;
 - `Qwen3-Reranker-0.6B` conservó ese documento en primer lugar con raw score `7.8420315`;
+- el artefacto de smoke respondió HTTP 200 en `/health` y `POST /api/search/semantic`, preservando el mismo primer resultado;
 - el primer reranking de diez candidatos tardó cerca de tres minutos en esta máquina, latencia no apta todavía para una experiencia interactiva.
 
 Por tanto:
