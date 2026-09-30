@@ -186,3 +186,13 @@ serving/performance gate. The smoke does not replace a complete index build or
 the benchmark over the full corpus. The same artifact returned HTTP 200 from
 both `/health` and `POST /api/search/semantic`, with the expected document in
 the API response.
+
+## Abstract quality gate
+
+The V3.2 abstract audit is documented in
+[`ABSTRACT_COVERAGE_V3_2.md`](ABSTRACT_COVERAGE_V3_2.md). Only 207,470 of
+451,823 eligible records have a non-empty abstract (45.918%). The historical
+builder reconstructed abstracts only for selected classifier targets, and CORE
+coverage is 32.405%. The gate is `NEEDS_ENRICHMENT`; the full embedding build is
+blocked until a new, versioned corpus fills available abstracts by `work_id`
+and passes the audit and smoke tests again.
