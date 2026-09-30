@@ -19,6 +19,12 @@ import {
   explainResult
 } from "../src/core/explain.js";
 
+import {
+  isQwen3BrowserQ8OptIn,
+  rerankTopKByQwen3BrowserQ8,
+  selectQwen3BrowserQ8Candidates
+} from "../src/ai/qwen3-browser-q8-contract.js";
+
 
 const form =
   document.querySelector(
@@ -38,6 +44,26 @@ const button =
 const status =
   document.querySelector(
     "#status"
+  );
+
+const qwen3Experiment =
+  document.querySelector(
+    "#qwen3-experiment"
+  );
+
+const qwen3Start =
+  document.querySelector(
+    "#qwen3-start"
+  );
+
+const qwen3Cancel =
+  document.querySelector(
+    "#qwen3-cancel"
+  );
+
+const qwen3Progress =
+  document.querySelector(
+    "#qwen3-progress"
   );
 
 const resultsEl =
@@ -90,6 +116,16 @@ let currentResponse = null;
 
 let visibleLimit = 20;
 let currentFilteredResults = [];
+
+const qwen3OptIn =
+  isQwen3BrowserQ8OptIn(
+    window.location.search
+  );
+
+let qwen3Controller = null;
+let qwen3ScorerPromise = null;
+let currentQwen3Order = null;
+let currentSearchQuery = "";
 
 
 async function loadMap() {
@@ -2465,6 +2501,242 @@ function languageLabel(
 }
 
 
+function setQwen3Controls({
+  running = false,
+  available = false
+} = {}) {
+  if (!qwen3OptIn) {
+    return;
+  }
+
+
+  qwen3Start.disabled =
+    running ||
+    !available;
+
+  qwen3Cancel
+    .classList
+    .toggle(
+      "hidden",
+      !running
+    );
+}
+
+
+function resetQwen3Experiment() {
+  qwen3Controller?.abort();
+  qwen3Controller = null;
+  currentQwen3Order = null;
+
+
+  if (!qwen3OptIn) {
+    return;
+  }
+
+
+  qwen3Progress.textContent =
+    navigator.gpu
+      ? "Modo opt-in: el orden normal permanece activo."
+      : "WebGPU no está disponible; el orden normal permanece activo.";
+
+  setQwen3Controls({
+    available:
+      Boolean(
+        navigator.gpu &&
+        currentResults.length
+      )
+  });
+}
+
+
+async function loadQwen3Scorer() {
+  if (!qwen3ScorerPromise) {
+    qwen3ScorerPromise =
+      import(
+        "../vendor/qwen3/qwen3-browser-q8.bundle.mjs"
+      )
+        .then(
+          module =>
+            module.createQwen3BrowserQ8Scorer({
+              onProgress(event) {
+                if (
+                  event.phase ===
+                  "download"
+                ) {
+                  qwen3Progress.textContent =
+                    `Descargando ${event.file}: ${event.percent.toFixed(1)}%`;
+                }
+              }
+            })
+        )
+        .catch(
+          error => {
+            qwen3ScorerPromise =
+              null;
+            throw error;
+          }
+        );
+  }
+
+
+  return qwen3ScorerPromise;
+}
+
+
+async function runQwen3Rerank() {
+  if (
+    !qwen3OptIn ||
+    !currentResponse ||
+    !currentResults.length ||
+    qwen3Controller
+  ) {
+    return;
+  }
+
+
+  const responseAtStart =
+    currentResponse;
+
+  const productionResults =
+    [...responseAtStart.results];
+
+  const candidates =
+    selectQwen3BrowserQ8Candidates(
+      currentSearchQuery,
+      productionResults
+    );
+
+
+  qwen3Controller =
+    new AbortController();
+
+  const controller =
+    qwen3Controller;
+
+  setQwen3Controls({
+    running:
+      true,
+    available:
+      true
+  });
+
+  qwen3Progress.textContent =
+    "Preparando Qwen3 q8 en WebGPU…";
+
+
+  try {
+    const scorer =
+      await loadQwen3Scorer();
+
+
+    if (
+      controller.signal.aborted
+    ) {
+      throw new DOMException(
+        "Qwen3 cancelado",
+        "AbortError"
+      );
+    }
+
+
+    const rawScores = [];
+
+
+    for (
+      let index = 0;
+      index < candidates.length;
+      index += 1
+    ) {
+      qwen3Progress.textContent =
+        `Evaluando ${index + 1}/${candidates.length} · ` +
+        "el orden normal sigue visible";
+
+      rawScores.push(
+        await scorer.score(
+          candidates[index],
+          {
+            signal:
+              controller.signal
+          }
+        )
+      );
+    }
+
+
+    if (
+      currentResponse !==
+      responseAtStart
+    ) {
+      throw new DOMException(
+        "La búsqueda cambió",
+        "AbortError"
+      );
+    }
+
+
+    const reranked =
+      rerankTopKByQwen3BrowserQ8(
+        productionResults,
+        rawScores
+      );
+
+    currentResults =
+      reranked;
+
+    currentQwen3Order =
+      new Map(
+        reranked.map(
+          (item, index) => [
+            item,
+            index
+          ]
+        )
+      );
+
+    renderFilters(
+      currentResults
+    );
+
+    qwen3Progress.textContent =
+      "Top 20 reordenado con Qwen3 q8/WebGPU. Puedes volver a “Relevancia” para ver el orden normal.";
+
+    status.textContent =
+      `${responseAtStart.stats.unique} resultados únicos · orden Qwen3 experimental`;
+  } catch (error) {
+    if (
+      error.name ===
+      "AbortError"
+    ) {
+      qwen3Progress.textContent =
+        "Qwen3 cancelado; se conservó exactamente el orden normal.";
+    } else {
+      console.error(error);
+
+      qwen3Progress.textContent =
+        `Qwen3 no se aplicó: ${error.message}. Se conservó exactamente el orden normal.`;
+    }
+  } finally {
+    if (
+      qwen3Controller ===
+      controller
+    ) {
+      qwen3Controller =
+        null;
+    }
+
+
+    setQwen3Controls({
+      available:
+        Boolean(
+          navigator.gpu &&
+          currentResults.length &&
+          !currentQwen3Order
+        )
+    });
+  }
+}
+
+
 function renderFilters(
   results
 ) {
@@ -2631,7 +2903,27 @@ function renderFilters(
         Ordenar por
 
         <select id="filter-sort">
-          <option value="relevance">
+          ${
+            currentQwen3Order
+              ? `
+                  <option
+                    value="qwen3"
+                    selected
+                  >
+                    Qwen3 experimental
+                  </option>
+                `
+              : ""
+          }
+
+          <option
+            value="relevance"
+            ${
+              currentQwen3Order
+                ? ""
+                : "selected"
+            }
+          >
             Relevancia
           </option>
 
@@ -2943,6 +3235,18 @@ function applyFilters() {
       (a, b) =>
         b.relevanceScore -
         a.relevanceScore
+    );
+  }
+
+
+  if (
+    sort === "qwen3" &&
+    currentQwen3Order
+  ) {
+    filtered.sort(
+      (a, b) =>
+        currentQwen3Order.get(a) -
+        currentQwen3Order.get(b)
     );
   }
 
@@ -3383,6 +3687,9 @@ async function loadMoreResults() {
     );
 
 
+  qwen3Controller?.abort();
+
+
   buttons.forEach(
     button => {
       button.disabled = true;
@@ -3436,6 +3743,8 @@ async function loadMoreResults() {
 
     currentResults =
       response.results;
+
+    resetQwen3Experiment();
 
     /*
      * Al cargar nuevas páginas mostramos
@@ -3504,6 +3813,11 @@ async function runSearch(
 
   currentController =
     new AbortController();
+
+  currentResults = [];
+  currentResponse = null;
+  currentSearchQuery = "";
+  resetQwen3Experiment();
 
 
   button.disabled =
@@ -3576,6 +3890,9 @@ async function runSearch(
     currentResults =
       response.results;
 
+    currentSearchQuery =
+      query;
+
     resetVisibleLimit();
 
     if (response.errors.length) {
@@ -3596,6 +3913,8 @@ async function runSearch(
     renderFilters(
       response.results
     );
+
+    resetQwen3Experiment();
 
 
     status.textContent =
@@ -3647,6 +3966,33 @@ form.addEventListener(
     runSearch(query);
   }
 );
+
+
+if (qwen3OptIn) {
+  qwen3Experiment
+    .classList
+    .remove("hidden");
+
+  qwen3Start
+    .addEventListener(
+      "click",
+      runQwen3Rerank
+    );
+
+  qwen3Cancel
+    .addEventListener(
+      "click",
+      () => {
+        qwen3Progress.textContent =
+          "Cancelación solicitada; terminará después de la operación actual.";
+
+        qwen3Controller
+          ?.abort();
+      }
+    );
+
+  resetQwen3Experiment();
+}
 
 
 try {

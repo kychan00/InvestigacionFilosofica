@@ -135,6 +135,47 @@
           aria-live="polite"
         ></div>
 
+        <section
+          id="qwen3-experiment"
+          class="qwen3-experiment hidden"
+          aria-labelledby="qwen3-experiment-title"
+        >
+          <h2 id="qwen3-experiment-title">
+            Qwen3 experimental
+          </h2>
+
+          <p>
+            Reordena sólo los primeros 20 resultados con el modelo q8 local en WebGPU.
+            Puede tardar entre 6 y 8 minutos y descargar un modelo grande la primera vez.
+          </p>
+
+          <div class="qwen3-experiment-actions">
+            <button
+              id="qwen3-start"
+              type="button"
+              disabled
+            >
+              Reordenar Top 20
+            </button>
+
+            <button
+              id="qwen3-cancel"
+              type="button"
+              class="hidden"
+            >
+              Cancelar
+            </button>
+          </div>
+
+          <div
+            id="qwen3-progress"
+            class="qwen3-progress"
+            aria-live="polite"
+          >
+            Modo opt-in: el orden normal permanece activo.
+          </div>
+        </section>
+
       </section>
 
 
