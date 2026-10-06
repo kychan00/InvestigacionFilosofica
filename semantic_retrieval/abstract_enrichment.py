@@ -620,7 +620,23 @@ def capture_openalex_abstracts(
         for index in range(0, len(target_ids), batch_size)
     ]
     output_dir.mkdir(parents=True, exist_ok=True)
-    started_at = _now()
+    manifest_path = output_dir / "manifest.json"
+    previous_manifest = None
+    if manifest_path.is_file():
+        previous_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if previous_manifest.get("schema_version") != API_CAPTURE_SCHEMA_VERSION:
+            raise ValueError("Existing capture manifest has an unexpected schema")
+        if previous_manifest.get("targets", {}).get("sha256") != actual_targets_sha256:
+            raise ValueError("Existing capture manifest has a different target set")
+        previous_contract = previous_manifest.get("contract", {})
+        if (
+            previous_contract.get("batch_size") != batch_size
+            or previous_contract.get("total_batches") != len(batches)
+        ):
+            raise ValueError("Existing capture manifest has a different batch contract")
+    started_at = (
+        previous_manifest["started_at"] if previous_manifest else _now()
+    )
     new_batches = 0
     captured_metadata: list[dict[str, Any]] = []
 
@@ -746,7 +762,7 @@ def capture_openalex_abstracts(
             ).hexdigest(),
         }
 
-    _atomic_json(output_dir / "manifest.json", manifest)
+    _atomic_json(manifest_path, manifest)
     return manifest
 
 

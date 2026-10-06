@@ -226,6 +226,7 @@ class AbstractTargetTests(unittest.TestCase):
             )
 
             self.assertEqual(second["status"], "complete")
+            self.assertEqual(second["started_at"], first["started_at"])
             self.assertEqual(calls, [["W1", "W2"], ["W3"]])
             capture_rows = [
                 json.loads(line)

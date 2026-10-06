@@ -61,6 +61,8 @@ content.
 - Resume begins at the first absent batch after independently validating every
   completed batch's target fingerprint, raw response hash, normalized hash and
   row order.
+- The top-level capture `started_at` is preserved across resumptions; every
+  batch also retains its own request timestamp.
 - Missing or merged IDs are retained as explicit `found: false` rows; there is
   no alternative-source substitution.
 
