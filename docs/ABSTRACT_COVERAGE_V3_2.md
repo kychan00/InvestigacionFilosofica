@@ -174,3 +174,10 @@ The next admissible step is a targeted enrichment design:
 7. pin its Hugging Face revision and rerun this audit plus the 20–100 document smoke;
 8. only then reconsider the massive embedding build.
 
+The enrichment source preflight is now recorded in
+[`ABSTRACT_ENRICHMENT_V3_3_PREFLIGHT.md`](ABSTRACT_ENRICHMENT_V3_3_PREFLIGHT.md).
+It fixed 244,353 unique missing-abstract targets, verified the pinned upstream
+schema and proved a 100-ID API request can selectively recover abstracts. It
+also established that the pinned snapshot would require a near-full text scan,
+while the selective API is live rather than immutable. V3.3 and the mass
+embedding build remain blocked pending an explicit source-route decision.

@@ -196,3 +196,11 @@ builder reconstructed abstracts only for selected classifier targets, and CORE
 coverage is 32.405%. The gate is `NEEDS_ENRICHMENT`; the full embedding build is
 blocked until a new, versioned corpus fills available abstracts by `work_id`
 and passes the audit and smoke tests again.
+
+The follow-up
+[`ABSTRACT_ENRICHMENT_V3_3_PREFLIGHT.md`](ABSTRACT_ENRICHMENT_V3_3_PREFLIGHT.md)
+freezes the 244,353-row enrichment target set and compares the two admissible
+source routes. The pinned mirror is immutable but requires a near-full scan of
+the 177.3 GB abstract subset; the current OpenAlex API is selective but mutable
+and needs 2,444 requests for the complete target set. No V3.3 build or mass
+embedding job is authorized until that provenance choice is fixed.
