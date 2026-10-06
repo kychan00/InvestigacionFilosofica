@@ -40,8 +40,8 @@ boundary does not reload either one per request.
 ## Reproducible inputs
 
 - Dataset: `CristianPelayo/openalex-philosophy`
-- Dataset revision: `09c329326ed24ccf986c4b4c47c9794f055516dc`
-- Source artifact: `v3.2/philosophy-corpus-v3-2-full.parquet`
+- Dataset revision: `1c59478b679f5836ef6e8dce28b2d725d04f8e02`
+- Source artifact: `v3.3/philosophy-corpus-v3-3-full.parquet`
 - Search eligibility: `CORE` or `PROBABLE`, excluding `LOW_QUALITY` and
   `PARATEXT`
 - Embedding model revision:
@@ -49,7 +49,7 @@ boundary does not reload either one per request.
 - Reranker revision:
   `Qwen/Qwen3-Reranker-0.6B@e61197ed45024b0ed8a2d74b80b4d909f1255473`
 
-The current V3.2 corpus has title, abstract, year, language, type and classifier
+The current V3.3 corpus has title, abstract, year, language, type and classifier
 evidence. It does not currently carry authors, DOI, journal or full OpenAlex
 topics in this Parquet. The normalizer supports these fields and preserves them
 when a future enriched snapshot supplies them; absent fields are omitted from
@@ -210,3 +210,10 @@ The choice is now fixed prospectively in
 a timestamped, raw-response-preserving OpenAlex API capture over the frozen
 244,353-ID target set. V3.3 publication and embeddings remain blocked until the
 capture and separate corpus build pass their invariant checks.
+
+The capture, build and remote verification are complete. The published V3.3
+artifact is documented in
+[`ABSTRACT_COVERAGE_V3_3.md`](ABSTRACT_COVERAGE_V3_3.md). It added 82,905
+abstracts without changing any non-abstract value, raises eligible coverage to
+64.267% and passed the matter-quality gate. The remaining gate before a full
+embedding build is a real-model smoke against the pinned V3.3 revision.

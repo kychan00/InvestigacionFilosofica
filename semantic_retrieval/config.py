@@ -27,8 +27,8 @@ def _bool_env(name: str, default: bool) -> bool:
 @dataclass(frozen=True)
 class RetrievalSettings:
     dataset_repo: str = "CristianPelayo/openalex-philosophy"
-    dataset_revision: str = "09c329326ed24ccf986c4b4c47c9794f055516dc"
-    dataset_file: str = "v3.2/philosophy-corpus-v3-2-full.parquet"
+    dataset_revision: str = "1c59478b679f5836ef6e8dce28b2d725d04f8e02"
+    dataset_file: str = "v3.3/philosophy-corpus-v3-3-full.parquet"
 
     embedding_model: str = "Qwen/Qwen3-Embedding-0.6B"
     embedding_model_revision: str = "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"
