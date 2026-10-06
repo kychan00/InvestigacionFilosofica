@@ -2,7 +2,7 @@
 type: architecture-gate
 area: retrieval
 status: needs-enrichment
-updated: 2026-09-30
+updated: 2026-10-05
 ---
 
 # Cobertura de abstracts V3.2
@@ -68,6 +68,8 @@ La ruta siguiente debe:
 4. enriquecer los faltantes sin reclasificar el corpus;
 5. publicar una nueva versión, previsiblemente V3.3, con hashes y linaje;
 6. repetir la auditoría y el smoke antes de generar embeddings masivos.
+
+El preflight de la fuente está documentado en [[Abstract-Enrichment-V3.3-Preflight]]. Ya se fijaron los 244.353 targets y el esquema real, pero la ruta inmutable exige una lectura casi completa del subset de 177,3 GB; la API selectiva es una fuente viva. El gate siguiente es `SOURCE_DECISION_REQUIRED`.
 
 ## Canonicalidad
 

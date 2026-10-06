@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-09-30
+updated: 2026-10-05
 status: design
 ---
 
@@ -48,7 +48,7 @@ Parquet fijado en Hugging Face
 → API desacoplada
 ```
 
-Estado al 2026-09-30:
+Estado al 2026-10-05:
 
 - implementación modular creada en una rama aislada del repositorio;
 - generación inicial e incremental separada de la indexación;
@@ -61,10 +61,13 @@ Estado al 2026-09-30:
 - el primer reranking local de diez candidatos tardó aproximadamente tres minutos, por lo que el rendimiento interactivo continúa abierto;
 - la auditoría de abstracts V3.2 encontró 207.470 de 451.823 documentos elegibles con abstract no vacío —45,918%— y confirmó que el builder histórico sólo reconstruía abstracts para targets selectivos;
 - el gate de materia prima es `NEEDS_ENRICHMENT`: el build masivo de embeddings queda bloqueado hasta publicar y fijar una nueva versión enriquecida por `work_id`;
+- el preflight V3.3 fijó 244.353 targets únicos y confirmó el esquema upstream `work_id`/`word`/`positions` en `Mearman/OpenAlex@ef02effac13bfbd0991612f444cebcef8a882453`;
+- una muestra de ocho shards indicó que la ruta inmutable obliga a leer 88,915% de los bytes de tokens/posiciones de los row groups muestreados, mientras un lote API de cien targets recuperó 41 abstracts pero usa una fuente viva;
+- el gate actual es `SOURCE_DECISION_REQUIRED`: no publicar V3.3 ni construir embeddings hasta elegir explícitamente entre snapshot fijado y captura API timestamped;
 - el índice completo y el benchmark humano aún no se han construido;
 - sin despliegue de API y sin integración con el frontend de producción.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]] y [[Abstract-Coverage-V3.2]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]] y [[Abstract-Enrichment-V3.3-Preflight]].
 
 ## Nueva fase estratégica
 
