@@ -1,8 +1,11 @@
 # Abstract enrichment V3.3 preflight
 
-**Date:** 2026-10-05  
-**Decision:** source route unresolved  
-**V3.3 publication:** blocked  
+**Date:** 2026-10-05
+
+**Decision:** API capture chosen prospectively on 2026-10-05
+
+**V3.3 publication:** blocked
+
 **Mass embedding build:** blocked
 
 This preflight tests acquisition mechanics only. It does not modify V3.2,
@@ -119,9 +122,9 @@ artifacts/semantic-retrieval/enrichment-v3.3-preflight/openalex-api-probe-normal
 SHA-256 54146bc8d94a7ac68c325e5f572c18040a97a15d2bcabf23af4776fd89a4ba71
 ```
 
-## Gate and required decision
+## Gate decision
 
-Neither route may be silently substituted for the other:
+Neither route could be silently substituted for the other:
 
 1. **Pinned snapshot:** preserves the requested provenance, but needs a remote
    or temporary environment able to stream roughly 158 GB and should be treated
@@ -130,9 +133,15 @@ Neither route may be silently substituted for the other:
    but changes the provenance contract from an immutable mirror revision to a
    preserved live API capture.
 
-Until one route is explicitly chosen, do not run the remaining API batches,
-publish V3.3, update `RETRIEVAL_DATASET_REVISION`, or generate the 451,823
-embeddings. PR #4 remains draft.
+The project subsequently chose the timestamped API route because the current
+environment cannot support the near-full snapshot scan. That prospective
+amendment was frozen before the complete acquisition in
+[`ABSTRACT_ENRICHMENT_V3_3_API_CAPTURE.md`](ABSTRACT_ENRICHMENT_V3_3_API_CAPTURE.md).
+The API capture does not retroactively become an immutable snapshot.
+
+V3.3 publication, `RETRIEVAL_DATASET_REVISION` changes and the 451,823-document
+embedding build remain blocked until capture, corpus construction and
+validation finish. PR #4 remains draft.
 
 ## Reproduction
 
@@ -148,5 +157,5 @@ embeddings. PR #4 remains draft.
   --output artifacts/semantic-retrieval/enrichment-v3.3-preflight/mearman-source-probe.json
 ```
 
-The API probe deliberately performs exactly one bounded request. There is no
-command in this preflight that can launch the full 2,444-request acquisition.
+The original API preflight deliberately performs exactly one bounded request.
+The separately frozen capture runner owns the full resumable acquisition.

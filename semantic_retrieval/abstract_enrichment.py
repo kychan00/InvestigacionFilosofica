@@ -4,6 +4,8 @@ import hashlib
 import json
 import os
 import tempfile
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections.abc import Iterable, Iterator
@@ -16,6 +18,7 @@ from .dataset_source import HuggingFaceDocumentSource, eligible_for_search
 
 ENRICHMENT_PREFLIGHT_SCHEMA_VERSION = "semantic-abstract-enrichment-preflight-v1"
 TARGET_SCHEMA_VERSION = "semantic-abstract-enrichment-target-v1"
+API_CAPTURE_SCHEMA_VERSION = "semantic-abstract-api-capture-v1"
 OPENALEX_API_URL = "https://api.openalex.org/works"
 OPENALEX_MAX_BATCH_SIZE = 100
 MEARMAN_DATASET_REPO = "Mearman/OpenAlex"
@@ -115,6 +118,35 @@ def _atomic_json(path: Path, payload: dict[str, Any]) -> None:
         with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
             json.dump(payload, handle, ensure_ascii=False, indent=2, sort_keys=True)
             handle.write("\n")
+        os.replace(temporary_name, path)
+    except Exception:
+        Path(temporary_name).unlink(missing_ok=True)
+        raise
+
+
+def _atomic_bytes(path: Path, payload: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(
+        dir=path.parent, prefix=f".{path.name}.", suffix=".tmp"
+    )
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            handle.write(payload)
+        os.replace(temporary_name, path)
+    except Exception:
+        Path(temporary_name).unlink(missing_ok=True)
+        raise
+
+
+def _atomic_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(
+        dir=path.parent, prefix=f".{path.name}.", suffix=".tmp"
+    )
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+            for row in rows:
+                handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
         os.replace(temporary_name, path)
     except Exception:
         Path(temporary_name).unlink(missing_ok=True)
@@ -374,13 +406,12 @@ def fetch_openalex_batch(
 ) -> dict[str, Any]:
     ids = [normalize_openalex_id(value) for value in openalex_ids]
     safe_url = _safe_request_url(ids)
-    request_url = safe_url
+    headers = {"User-Agent": "InvestigacionFilosofica-abstract-enrichment/1.0"}
     if api_key:
-        request_url = f"{safe_url}&{urllib.parse.urlencode({'api_key': api_key})}"
-
+        headers["Authorization"] = f"Bearer {api_key}"
     request = urllib.request.Request(
-        request_url,
-        headers={"User-Agent": "InvestigacionFilosofica-abstract-enrichment/1.0"},
+        safe_url,
+        headers=headers,
     )
     with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
         response_bytes = response.read()
@@ -433,6 +464,290 @@ def fetch_openalex_batch(
         "payload": payload,
         "rows": normalized_rows,
     }
+
+
+def fetch_openalex_batch_with_retry(
+    openalex_ids: Iterable[str],
+    *,
+    timeout_seconds: float = 60,
+    api_key: str,
+    max_retries: int = 5,
+) -> dict[str, Any]:
+    ids = list(openalex_ids)
+    for attempt in range(max_retries + 1):
+        try:
+            return fetch_openalex_batch(
+                ids,
+                timeout_seconds=timeout_seconds,
+                api_key=api_key,
+            )
+        except urllib.error.HTTPError as error:
+            retryable = error.code == 429 or 500 <= error.code < 600
+            if not retryable or attempt >= max_retries:
+                raise
+            retry_after = error.headers.get("Retry-After")
+            wait_seconds = (
+                float(retry_after) if retry_after else min(2**attempt, 30)
+            )
+            time.sleep(max(wait_seconds, 0))
+        except (TimeoutError, urllib.error.URLError):
+            if attempt >= max_retries:
+                raise
+            time.sleep(min(2**attempt, 30))
+    raise RuntimeError("OpenAlex retry loop terminated unexpectedly")
+
+
+def _batch_fingerprint(openalex_ids: Iterable[str]) -> str:
+    payload = "\n".join(normalize_openalex_id(value) for value in openalex_ids)
+    return hashlib.sha256((payload + "\n").encode()).hexdigest()
+
+
+def _capture_batch_dir(output_dir: Path, batch_index: int) -> Path:
+    return output_dir / "batches" / f"{batch_index:05d}"
+
+
+def _validate_captured_batch(
+    batch_dir: Path,
+    *,
+    batch_index: int,
+    expected_ids: list[str],
+) -> dict[str, Any]:
+    metadata_path = batch_dir / "metadata.json"
+    raw_path = batch_dir / "response.json"
+    normalized_path = batch_dir / "normalized.jsonl"
+    if not all(path.is_file() for path in (metadata_path, raw_path, normalized_path)):
+        raise ValueError(f"Incomplete captured batch directory: {batch_dir}")
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    if metadata.get("schema_version") != API_CAPTURE_SCHEMA_VERSION:
+        raise ValueError(f"Unexpected capture schema in batch {batch_index}")
+    if metadata.get("batch_index") != batch_index:
+        raise ValueError(f"Batch index mismatch in {batch_dir}")
+    if metadata.get("target_fingerprint_sha256") != _batch_fingerprint(expected_ids):
+        raise ValueError(f"Target fingerprint mismatch in batch {batch_index}")
+    if metadata.get("raw_sha256") != sha256_file(raw_path):
+        raise ValueError(f"Raw response hash mismatch in batch {batch_index}")
+    if metadata.get("normalized_sha256") != sha256_file(normalized_path):
+        raise ValueError(f"Normalized response hash mismatch in batch {batch_index}")
+    rows = [
+        json.loads(line)
+        for line in normalized_path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    if [row.get("openalex_id") for row in rows] != expected_ids:
+        raise ValueError(f"Normalized target order mismatch in batch {batch_index}")
+    return metadata
+
+
+def _write_captured_batch(
+    output_dir: Path,
+    *,
+    batch_index: int,
+    expected_ids: list[str],
+    result: dict[str, Any],
+) -> dict[str, Any]:
+    batches_dir = output_dir / "batches"
+    batches_dir.mkdir(parents=True, exist_ok=True)
+    final_dir = _capture_batch_dir(output_dir, batch_index)
+    if final_dir.exists():
+        raise FileExistsError(f"Captured batch already exists: {final_dir}")
+    temporary_dir = Path(
+        tempfile.mkdtemp(dir=batches_dir, prefix=f".{batch_index:05d}.", suffix=".tmp")
+    )
+    try:
+        raw_path = temporary_dir / "response.json"
+        normalized_path = temporary_dir / "normalized.jsonl"
+        _atomic_bytes(raw_path, result["response_bytes"])
+        _atomic_jsonl(normalized_path, result["rows"])
+        found = sum(bool(row["found"]) for row in result["rows"])
+        with_abstract = sum(bool(row["abstract"]) for row in result["rows"])
+        metadata = {
+            "schema_version": API_CAPTURE_SCHEMA_VERSION,
+            "batch_index": batch_index,
+            "requested_at": result["requested_at"],
+            "safe_url": result["safe_url"],
+            "status": result["status"],
+            "headers": result["headers"],
+            "requested_ids": len(expected_ids),
+            "target_fingerprint_sha256": _batch_fingerprint(expected_ids),
+            "found_ids": found,
+            "with_abstract": with_abstract,
+            "without_abstract_or_missing": len(expected_ids) - with_abstract,
+            "raw_sha256": sha256_file(raw_path),
+            "normalized_sha256": sha256_file(normalized_path),
+        }
+        _atomic_json(temporary_dir / "metadata.json", metadata)
+        os.replace(temporary_dir, final_dir)
+        return metadata
+    except Exception:
+        for child in temporary_dir.iterdir():
+            child.unlink(missing_ok=True)
+        temporary_dir.rmdir()
+        raise
+
+
+def capture_openalex_abstracts(
+    *,
+    targets_path: Path,
+    output_dir: Path,
+    expected_targets_sha256: str,
+    api_key: str,
+    batch_size: int = OPENALEX_MAX_BATCH_SIZE,
+    timeout_seconds: float = 60,
+    max_retries: int = 5,
+    max_new_batches: int | None = None,
+    request_delay_seconds: float = 0,
+    fetch_batch: Any = fetch_openalex_batch_with_retry,
+) -> dict[str, Any]:
+    if not api_key:
+        raise ValueError("An OpenAlex API key is required")
+    if not 1 <= batch_size <= OPENALEX_MAX_BATCH_SIZE:
+        raise ValueError(
+            f"batch_size must be between 1 and {OPENALEX_MAX_BATCH_SIZE}"
+        )
+    actual_targets_sha256 = sha256_file(targets_path)
+    if actual_targets_sha256 != expected_targets_sha256:
+        raise ValueError(
+            "Target set hash mismatch: "
+            f"expected {expected_targets_sha256}, got {actual_targets_sha256}"
+        )
+
+    targets = read_targets(targets_path)
+    target_ids = [row["openalex_id"] for row in targets]
+    if len(target_ids) != len(set(target_ids)):
+        raise ValueError("Target set contains duplicate OpenAlex IDs")
+    batches = [
+        target_ids[index : index + batch_size]
+        for index in range(0, len(target_ids), batch_size)
+    ]
+    output_dir.mkdir(parents=True, exist_ok=True)
+    started_at = _now()
+    new_batches = 0
+    captured_metadata: list[dict[str, Any]] = []
+
+    for batch_index, ids in enumerate(batches):
+        batch_dir = _capture_batch_dir(output_dir, batch_index)
+        if batch_dir.exists():
+            metadata = _validate_captured_batch(
+                batch_dir,
+                batch_index=batch_index,
+                expected_ids=ids,
+            )
+        else:
+            if max_new_batches is not None and new_batches >= max_new_batches:
+                break
+            result = fetch_batch(
+                ids,
+                timeout_seconds=timeout_seconds,
+                api_key=api_key,
+                max_retries=max_retries,
+            )
+            metadata = _write_captured_batch(
+                output_dir,
+                batch_index=batch_index,
+                expected_ids=ids,
+                result=result,
+            )
+            new_batches += 1
+            print(
+                json.dumps(
+                    {
+                        "stage": "capture",
+                        "batch": batch_index + 1,
+                        "total_batches": len(batches),
+                        "captured_ids": min((batch_index + 1) * batch_size, len(target_ids)),
+                        "found_ids": metadata["found_ids"],
+                        "with_abstract": metadata["with_abstract"],
+                        "rate_remaining": metadata["headers"].get(
+                            "x-ratelimit-remaining"
+                        ),
+                    }
+                ),
+                flush=True,
+            )
+            if request_delay_seconds:
+                time.sleep(request_delay_seconds)
+        captured_metadata.append(metadata)
+
+    complete = len(captured_metadata) == len(batches)
+    found_ids = sum(item["found_ids"] for item in captured_metadata)
+    with_abstract = sum(item["with_abstract"] for item in captured_metadata)
+    manifest: dict[str, Any] = {
+        "schema_version": API_CAPTURE_SCHEMA_VERSION,
+        "status": "complete" if complete else "partial",
+        "started_at": started_at,
+        "updated_at": _now(),
+        "source": {
+            "kind": "timestamped_live_openalex_api_capture",
+            "endpoint": OPENALEX_API_URL,
+            "authentication": "Authorization: Bearer [redacted]",
+            "api_key_persisted": False,
+        },
+        "targets": {
+            "path": str(targets_path),
+            "sha256": actual_targets_sha256,
+            "rows": len(target_ids),
+            "unique_ids": len(set(target_ids)),
+        },
+        "contract": {
+            "batch_size": batch_size,
+            "total_batches": len(batches),
+            "select": ["id", "abstract_inverted_index", "updated_date"],
+            "normalization": "position-ordered inverted index joined with single spaces",
+            "resume": "validate immutable completed batch directories, then continue at first absent batch",
+        },
+        "progress": {
+            "captured_batches": len(captured_metadata),
+            "captured_ids": sum(item["requested_ids"] for item in captured_metadata),
+            "found_ids": found_ids,
+            "with_abstract": with_abstract,
+            "without_abstract_or_missing": sum(
+                item["without_abstract_or_missing"] for item in captured_metadata
+            ),
+            "new_batches_this_run": new_batches,
+        },
+        "gate": {
+            "v3_3_build_allowed": complete,
+            "mass_embedding_build_allowed": False,
+            "reason": (
+                "A complete validated capture permits only the separate V3.3 corpus build. "
+                "Embeddings remain blocked until V3.3 passes audit and smoke."
+            ),
+        },
+    }
+
+    if complete:
+        normalized_output = output_dir / "openalex-abstract-capture.jsonl"
+        descriptor, temporary_name = tempfile.mkstemp(
+            dir=output_dir, prefix=f".{normalized_output.name}.", suffix=".tmp"
+        )
+        try:
+            with os.fdopen(descriptor, "wb") as output_handle:
+                for batch_index in range(len(batches)):
+                    normalized_path = (
+                        _capture_batch_dir(output_dir, batch_index)
+                        / "normalized.jsonl"
+                    )
+                    with normalized_path.open("rb") as input_handle:
+                        for chunk in iter(lambda: input_handle.read(1024 * 1024), b""):
+                            output_handle.write(chunk)
+            os.replace(temporary_name, normalized_output)
+        except Exception:
+            Path(temporary_name).unlink(missing_ok=True)
+            raise
+        manifest["capture"] = {
+            "path": str(normalized_output),
+            "rows": len(target_ids),
+            "sha256": sha256_file(normalized_output),
+            "batch_metadata_aggregate_sha256": hashlib.sha256(
+                "\n".join(
+                    sha256_file(_capture_batch_dir(output_dir, index) / "metadata.json")
+                    for index in range(len(batches))
+                ).encode()
+            ).hexdigest(),
+        }
+
+    _atomic_json(output_dir / "manifest.json", manifest)
+    return manifest
 
 
 def run_openalex_probe(

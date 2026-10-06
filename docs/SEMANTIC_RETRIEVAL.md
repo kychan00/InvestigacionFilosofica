@@ -202,5 +202,11 @@ The follow-up
 freezes the 244,353-row enrichment target set and compares the two admissible
 source routes. The pinned mirror is immutable but requires a near-full scan of
 the 177.3 GB abstract subset; the current OpenAlex API is selective but mutable
-and needs 2,444 requests for the complete target set. No V3.3 build or mass
-embedding job is authorized until that provenance choice is fixed.
+and needs 2,444 requests for the complete target set. That preflight withheld
+V3.3 construction until the provenance choice was fixed.
+
+The choice is now fixed prospectively in
+[`ABSTRACT_ENRICHMENT_V3_3_API_CAPTURE.md`](ABSTRACT_ENRICHMENT_V3_3_API_CAPTURE.md):
+a timestamped, raw-response-preserving OpenAlex API capture over the frozen
+244,353-ID target set. V3.3 publication and embeddings remain blocked until the
+capture and separate corpus build pass their invariant checks.

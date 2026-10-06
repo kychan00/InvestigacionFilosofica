@@ -1,7 +1,9 @@
 # Abstract coverage audit: OpenAlex Philosophy V3.2
 
-**Date:** 2026-09-30  
-**Gate:** `NEEDS_ENRICHMENT`  
+**Date:** 2026-09-30
+
+**Gate:** `NEEDS_ENRICHMENT`
+
 **Mass embedding build:** blocked
 
 ## Audited contract
@@ -179,5 +181,11 @@ The enrichment source preflight is now recorded in
 It fixed 244,353 unique missing-abstract targets, verified the pinned upstream
 schema and proved a 100-ID API request can selectively recover abstracts. It
 also established that the pinned snapshot would require a near-full text scan,
-while the selective API is live rather than immutable. V3.3 and the mass
-embedding build remain blocked pending an explicit source-route decision.
+while the selective API is live rather than immutable. That preflight blocked
+V3.3 and the mass embedding build until an explicit source-route decision.
+
+That decision is now frozen prospectively in
+[`ABSTRACT_ENRICHMENT_V3_3_API_CAPTURE.md`](ABSTRACT_ENRICHMENT_V3_3_API_CAPTURE.md):
+use a single timestamped OpenAlex API capture, preserve every raw response and
+hash, then build a separate V3.3 artifact. This changes the upstream provenance
+contract explicitly; it does not treat the live API as an immutable snapshot.
