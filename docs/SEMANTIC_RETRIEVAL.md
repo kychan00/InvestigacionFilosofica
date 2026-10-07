@@ -222,3 +222,12 @@ documents were embedded on Apple MPS, FAISS validation passed, semantic search
 and the frozen reranker returned the expected document first, and both API
 probes returned HTTP 200. The full build is permitted but awaits storage that
 can safely hold the complete offline bundle.
+
+A free, resumable iCloud shard archive is now validated and documented in
+[`ICLOUD_EMBEDDING_ARCHIVE.md`](ICLOUD_EMBEDDING_ARCHIVE.md). A 100-document
+smoke generated four real Qwen3 shards in 46 seconds; every shard plus the
+manifest and state database passed upload, eviction, redownload and exact hash
+verification. The guarded full-build runner moves each completed shard out of
+local storage while retaining only the small resumable state. The mass build
+has not started because the smoke left the current macOS session with a large
+swap allocation and insufficient safe free-disk margin.
