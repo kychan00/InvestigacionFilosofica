@@ -4,7 +4,7 @@
 
 **Gate:** `PASS`
 
-**Mass embedding build:** allowed only after the V3.3 real-model smoke
+**Mass embedding build:** permitted; V3.3 real-model smoke passed
 
 ## Published contract
 
@@ -100,6 +100,9 @@ The complete generated audit has SHA-256
 `89e7b3f9fcb6dbd1f639a178e5426824110da1659a5678905e692337ea51574b`.
 
 This PASS approves V3.3 as semantic retrieval input. It does not approve a
-production ranking change. The next required gate is a 20–100 document
-real-model smoke from the pinned V3.3 revision; only after that passes may the
-offline full embedding job begin.
+production ranking change. The required 20-document real-model smoke also
+passed and is recorded in
+[`SEMANTIC_RETRIEVAL_SMOKE_V3_3.md`](SEMANTIC_RETRIEVAL_SMOKE_V3_3.md). The
+offline full embedding job is scientifically permitted but has not been
+started because the workstation does not have enough free storage for a safe
+complete build.

@@ -215,5 +215,10 @@ The capture, build and remote verification are complete. The published V3.3
 artifact is documented in
 [`ABSTRACT_COVERAGE_V3_3.md`](ABSTRACT_COVERAGE_V3_3.md). It added 82,905
 abstracts without changing any non-abstract value, raises eligible coverage to
-64.267% and passed the matter-quality gate. The remaining gate before a full
-embedding build is a real-model smoke against the pinned V3.3 revision.
+64.267% and passed the matter-quality gate. The subsequent real-model smoke is
+documented in
+[`SEMANTIC_RETRIEVAL_SMOKE_V3_3.md`](SEMANTIC_RETRIEVAL_SMOKE_V3_3.md): 20
+documents were embedded on Apple MPS, FAISS validation passed, semantic search
+and the frozen reranker returned the expected document first, and both API
+probes returned HTTP 200. The full build is permitted but awaits storage that
+can safely hold the complete offline bundle.
