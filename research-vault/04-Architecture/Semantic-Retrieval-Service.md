@@ -2,7 +2,7 @@
 type: architecture
 area: retrieval
 status: implementation
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 # Servicio de recuperación semántica
@@ -40,12 +40,12 @@ En macOS, PyTorch/SentenceTransformers y `faiss-cpu` provocaron crashes nativos 
 ## Corpus fijado
 
 - repositorio: `CristianPelayo/openalex-philosophy`;
-- revisión: `09c329326ed24ccf986c4b4c47c9794f055516dc`;
-- artefacto: `v3.2/philosophy-corpus-v3-2-full.parquet`;
+- revisión: `1c59478b679f5836ef6e8dce28b2d725d04f8e02`;
+- artefacto: `v3.3/philosophy-corpus-v3-3-full.parquet`;
 - elegibilidad: `CORE` o `PROBABLE`, excluyendo `LOW_QUALITY` y `PARATEXT`;
 - universo buscable esperado: 451.823 documentos.
 
-El Parquet V3.2 actual contiene título, abstract, año, idioma, tipo y evidencia clasificatoria. No contiene todavía autores, DOI, revista ni topics completos. La implementación admite esos campos y los conserva cuando una versión enriquecida los aporte, pero no los inventa. La fila fuente original se preserva y el identificador OpenAlex no se sustituye.
+El Parquet V3.3 contiene título, abstract, año, idioma, tipo y evidencia clasificatoria. No contiene todavía autores, DOI, revista ni topics completos. La implementación admite esos campos y los conserva cuando una versión posterior los aporte, pero no los inventa. La fila fuente original se preserva y el identificador OpenAlex no se sustituye.
 
 ## Modelos fijados
 
@@ -82,8 +82,9 @@ El 2026-09-30 se completó además un smoke real no productivo con 20 documentos
 Por tanto:
 
 - la cadena real de Fase 1 y el reranker mínimo sí están validados;
-- la calidad de materia prima no está todavía aprobada: [[Abstract-Coverage-V3.2]] fijó `NEEDS_ENRICHMENT` y bloqueó el build masivo;
-- [[Abstract-Enrichment-V3.3-Preflight]] fijó los targets faltantes y comparó la ruta de snapshot inmutable con la API selectiva; el gate actual exige una decisión explícita de provenance;
+- [[Abstract-Coverage-V3.3]] fijó y aprobó el corpus enriquecido: 290.375 de 451.823 documentos elegibles tienen abstract —64,267%— y no cambió ningún valor no abstract;
+- el smoke V3.3 real aprobó embedding, FAISS, búsqueda semántica, reranking y API sobre veinte documentos;
+- el batch local de embeddings debe ser 1 en este Mac: el valor 16 excedió el límite MPS antes de escribir resultados;
 - no existe todavía índice completo;
 - no existe todavía benchmark humano de resultados;
 - no se desplegó la API;
@@ -91,16 +92,14 @@ Por tanto:
 
 ## Próximos gates
 
-1. Decidir explícitamente entre lectura del snapshot fijado y captura API timestamped.
-2. Ejecutar el enriquecimiento por `work_id` y publicar una versión nueva del corpus sin reejecutar el clasificador.
-3. Repetir auditoría y smoke sobre la nueva revisión fijada.
+1. Proveer almacenamiento externo o adicional para el bundle completo.
+2. Ejecutar el job offline completo con la revisión V3.3 y modelos fijados.
+3. Construir y validar el índice completo.
 4. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
-5. Ejecutar el job offline completo en infraestructura adecuada.
-6. Construir y validar el índice completo.
-7. Ejecutar el benchmark interno con y sin reranker.
-8. Revisar manualmente relevancia, precisión, multilingüismo y falsos positivos.
-9. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
-10. Sólo después integrar el frontend mediante una bandera o rollout controlado.
+5. Ejecutar el benchmark interno con y sin reranker.
+6. Revisar manualmente relevancia, precisión, multilingüismo y falsos positivos.
+7. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
+8. Sólo después integrar el frontend mediante una bandera o rollout controlado.
 
 ## Canonicalidad
 

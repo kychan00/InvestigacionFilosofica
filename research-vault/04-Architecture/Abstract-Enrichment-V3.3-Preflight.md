@@ -1,8 +1,8 @@
 ---
 type: architecture-gate
 area: retrieval
-status: source-decision-required
-updated: 2026-10-05
+status: completed
+updated: 2026-10-06
 ---
 
 # Preflight de enriquecimiento de abstracts V3.3
@@ -73,7 +73,14 @@ Las dos rutas satisfacen propiedades distintas:
 
 No se debe sustituir una por otra en silencio. La elección debe quedar explícita antes de adquirir el conjunto completo.
 
-## Gate
+## Resolución posterior
+
+La ruta API timestamped fue adoptada prospectivamente. La captura completa, el
+builder de corpus, la publicación fijada, la auditoría y el smoke real quedaron
+completados sin sustituir fuentes durante la ejecución. El resultado se
+documenta en [[Abstract-Coverage-V3.3]].
+
+## Gate histórico
 
 `SOURCE_DECISION_REQUIRED`
 
@@ -84,6 +91,10 @@ Hasta decidir la ruta:
 - no cambiar `RETRIEVAL_DATASET_REVISION`;
 - no construir 451.823 embeddings;
 - mantener el PR semántico en draft.
+
+Estas restricciones describen el estado de este preflight antes de la decisión;
+ya no son el gate vigente. El gate actual es `PASS`, con el build masivo aún no
+iniciado por falta de almacenamiento local seguro.
 
 ## Canonicalidad
 
