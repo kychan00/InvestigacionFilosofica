@@ -40,6 +40,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Abstract-Coverage-V3.2]]
 - [[Abstract-Enrichment-V3.3-Preflight]]
 - [[Abstract-Coverage-V3.3]]
+- [[ICloud-Embedding-Archive]]
 
 ## Principios adoptados
 
