@@ -85,6 +85,8 @@ Por tanto:
 - [[Abstract-Coverage-V3.3]] fijó y aprobó el corpus enriquecido: 290.375 de 451.823 documentos elegibles tienen abstract —64,267%— y no cambió ningún valor no abstract;
 - el smoke V3.3 real aprobó embedding, FAISS, búsqueda semántica, reranking y API sobre veinte documentos;
 - el batch local de embeddings debe ser 1 en este Mac: el valor 16 excedió el límite MPS antes de escribir resultados;
+- [[ICloud-Embedding-Archive]] aprobó la ruta gratuita de archivo incremental: cien documentos reales produjeron cuatro shards y seis archivos verificaron subida, expulsión local, descarga y hashes exactos;
+- los placeholders finales conservaron 892.051 bytes lógicos con cero bloques locales asignados; manifest y SQLite permanecen como estado reanudable;
 - no existe todavía índice completo;
 - no existe todavía benchmark humano de resultados;
 - no se desplegó la API;
@@ -92,8 +94,8 @@ Por tanto:
 
 ## Próximos gates
 
-1. Proveer almacenamiento externo o adicional para el bundle completo.
-2. Ejecutar el job offline completo con la revisión V3.3 y modelos fijados.
+1. Reiniciar el Mac y comprobar de nuevo espacio libre y swap.
+2. Ejecutar una sola instancia del runner protegido hacia iCloud con la revisión V3.3, los modelos fijados y confirmación explícita del build completo.
 3. Construir y validar el índice completo.
 4. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
 5. Ejecutar el benchmark interno con y sin reranker.

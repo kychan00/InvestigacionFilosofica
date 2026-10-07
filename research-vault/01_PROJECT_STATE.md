@@ -65,11 +65,13 @@ Estado al 2026-10-06:
 - la cobertura elegible subió de 45,918% a 64,267%: 290.375 de 451.823 documentos tienen abstract;
 - la auditoría material V3.3 y el smoke real aprobaron; el documento modal esperado quedó primero con embedding y reranker, y la API respondió HTTP 200;
 - el batch 16 agotó el límite MPS de 9,07 GiB antes de escribir un shard; batch 1 completó 20/20 embeddings sin cambiar el contrato científico;
-- el build masivo está permitido científicamente pero no ha comenzado: sólo había 7,5 GiB libres y el bundle completo necesita almacenamiento externo o adicional;
+- el gate gratuito de archivo en iCloud aprobó con cien documentos reales: cuatro shards, manifest y estado SQLite pasaron subida, expulsión local, descarga y comparación SHA-256;
+- los seis archivos de la prueba conservan 892.051 bytes lógicos y ocupan cero bloques locales tras la expulsión final; el runner reanudable conserva localmente sólo manifest y SQLite;
+- el build masivo está permitido científicamente pero no ha comenzado: el smoke dejó aproximadamente 2,6 GiB de swap y 3,4 GiB libres, por lo que antes se debe reiniciar el Mac y repetir el preflight de disco;
 - el índice completo y el benchmark humano aún no se han construido;
 - sin despliegue de API y sin integración con el frontend de producción.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]] y [[Abstract-Coverage-V3.3]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]] y [[ICloud-Embedding-Archive]].
 
 ## Nueva fase estratégica
 

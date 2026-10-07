@@ -99,10 +99,17 @@ operativa, no un ajuste de relevancia.
 
 ## Límite siguiente
 
-El build completo todavía no comenzó. El equipo local sólo tenía 7,5 GiB
-libres; el bundle de 451.823 documentos debe alojar vectores, metadata repetida,
-estado SQLite, índice y una copia publicable. Debe ejecutarse con almacenamiento
-externo o adicional y conservar todos los contratos fijados.
+El build completo todavía no comenzó. [[ICloud-Embedding-Archive]] validó una
+ruta gratuita que mueve cada shard cerrado a iCloud, confirma la subida y su
+hash, prueba una descarga nueva y después expulsa la copia local. El gate real
+de cien documentos dejó los seis archivos como placeholders con cero bloques
+locales asignados.
+
+La misma prueba dejó aproximadamente 2,6 GiB de swap y sólo unos 3,4 GiB libres.
+Por ello el siguiente límite no es científico sino operativo: reiniciar el Mac,
+revisar el margen de disco y sólo entonces iniciar el runner protegido. El
+índice FAISS completo y su metadata activa requieren todavía una decisión
+separada de almacenamiento y serving.
 
 ## Canonicalidad
 
@@ -110,4 +117,3 @@ Esta nota es interpretación metodológica e histórica. El reporte, scripts,
 tests, hashes y artefactos canónicos permanecen en el worktree de código, en
 particular `docs/ABSTRACT_COVERAGE_V3_3.md` y
 `docs/SEMANTIC_RETRIEVAL_SMOKE_V3_3.md`.
-
