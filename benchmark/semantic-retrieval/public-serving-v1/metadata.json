@@ -1,0 +1,40 @@
+{
+  "schema_version": "semantic-public-serving-validation-v1",
+  "status": "public_alpha_validated",
+  "local_date": "2026-10-09",
+  "api_base_url": "https://filosofia-semantic.tail829c9b.ts.net",
+  "serving_mode": "local_mac_tailscale_funnel",
+  "cost_mode": "free_personal_plan",
+  "code_commit": "33fe90abf0d78186c77a8e7cd17bbacc11ad8893",
+  "index_build_id": "20261009T135455Z",
+  "document_count": 451823,
+  "faiss_sha256": "31b82528a42bf416c86a77822d732b8d56381e2c1b0046df821c93e64dab6f68",
+  "database_sha256": "e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0",
+  "health_sha256": "71808dd10b66905b3174589b9509707aef0e613eb74b7a24d8b54270bdb3cda5",
+  "search_smoke_sha256": "7f055ad03c466cc0e0ac55109d32952287ace37e0b233b6d5ddc6846b2962489",
+  "tailscaled_launch_agent_sha256": "68daae8dc71f2f66070e017ac49c12239696b1cf6b5fb78b8b98f22386a5f043",
+  "semantic_api_launch_agent_sha256": "e4bdd17ace16ea9ac9aa1159373c0a88c8fc5459716b06101a05bfbb724ba580",
+  "checks": {
+    "local_health_http_200": true,
+    "public_health_https_200": true,
+    "public_semantic_search_https_200": true,
+    "github_pages_cors_preflight_http_200": true,
+    "launch_agents_restart_recovered": true,
+    "funnel_state_survived_restart": true,
+    "reranker_available": false,
+    "reranker_request_escalation_blocked": true,
+    "all_rerank_scores_null": true,
+    "rate_limit_enabled": true,
+    "single_search_concurrency_enabled": true
+  },
+  "operational_limits": {
+    "requires_mac_awake": true,
+    "requires_user_session": true,
+    "cloud_sla": false,
+    "search_requests_per_window": 10,
+    "window_seconds": 600,
+    "concurrent_searches": 1
+  },
+  "production_ranking_changed": false,
+  "model_weights_committed": false
+}

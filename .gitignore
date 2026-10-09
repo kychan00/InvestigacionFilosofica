@@ -5,6 +5,9 @@ node_modules/
 .env.*
 .venv-hf/
 .venv-benchmark-ai/
+.venv-retrieval/
+__pycache__/
+*.py[cod]
 artifacts/
 vendor/duckdb/
 vendor/qwen3/

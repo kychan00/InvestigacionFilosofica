@@ -1,0 +1,29 @@
+{
+  "schema_version": "semantic-reranker-bounded-human-judgments-freeze-v1",
+  "experiment_id": "semantic-reranker-bounded-v1",
+  "status": "complete_blind_judgments_frozen",
+  "local_date": "2026-10-09",
+  "blind_audit_sha256": "53c68d09804c87d7764c8c4ca1698fb1c0898d12a41f98f4d0103ba841bfbcb4",
+  "human_judgments_sha256": "cc7fbd39d9ace255918d81581f59b1ab96d1c3688ff3e7b5e0e904c1a3f81f0e",
+  "row_count": 59,
+  "unique_item_ids": 59,
+  "completed_judgments": 59,
+  "abstentions": 0,
+  "relevance_distribution": {
+    "0": 4,
+    "1": 8,
+    "2": 16,
+    "3": 31
+  },
+  "validation": {
+    "jsonl_valid": true,
+    "line_count_matches": true,
+    "line_order_matches": true,
+    "item_ids_match": true,
+    "non_judgment_payload_matches": true,
+    "judgment_schema_valid": true,
+    "all_items_completed": true
+  },
+  "ab_opened_before_judgment_freeze": false,
+  "production_changed": false
+}
