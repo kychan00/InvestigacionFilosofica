@@ -163,6 +163,12 @@ reranking on an enabled server, but it cannot activate the model when the
 server operator left it disabled. This prevents a public request from silently
 loading the slow model or changing the validated default ranking policy.
 
+Public serving also enforces one search at a time and a per-client sliding
+window of ten search requests per ten minutes by default. The values are
+configurable with `SEARCH_RATE_LIMIT_REQUESTS` and
+`SEARCH_RATE_LIMIT_WINDOW_SECONDS`. Excess or concurrent requests receive HTTP
+429 before model inference. `/health` is not rate-limited.
+
 Because the public frontend is static GitHub Pages, it must call a separately
 deployed HTTPS instance of this API. The frontend should not be switched until
 the completed full index is archived or hosted, the benchmark is reviewed and

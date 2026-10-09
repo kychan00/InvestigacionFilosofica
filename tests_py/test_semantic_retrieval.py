@@ -121,6 +121,8 @@ class ConfigurationTests(unittest.TestCase):
         self.assertEqual(len(settings.dataset_revision), 40)
         self.assertIn("philosophically relevant", settings.retrieval_instruction)
         self.assertFalse(settings.enable_reranker)
+        self.assertEqual(settings.search_rate_limit_requests, 10)
+        self.assertEqual(settings.search_rate_limit_window_seconds, 600)
 
 
 if __name__ == "__main__":

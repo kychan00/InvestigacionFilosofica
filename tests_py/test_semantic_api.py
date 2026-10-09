@@ -8,6 +8,7 @@ try:
     from semantic_retrieval.api import (
         SearchFiltersRequest,
         SearchRequest,
+        SlidingWindowRateLimiter,
         resolve_reranker_enabled,
     )
 except ImportError:
@@ -15,6 +16,7 @@ except ImportError:
     SearchRequest = None
     ValidationError = ValueError
     resolve_reranker_enabled = None
+    SlidingWindowRateLimiter = None
 
 
 @unittest.skipIf(
@@ -48,6 +50,16 @@ class SemanticApiContractTests(unittest.TestCase):
         self.assertTrue(resolve_reranker_enabled(True, True))
         self.assertTrue(resolve_reranker_enabled(True, None))
         self.assertFalse(resolve_reranker_enabled(True, False))
+
+    def test_search_rate_limit_uses_a_sliding_window_per_client(self):
+        limiter = SlidingWindowRateLimiter(requests=2, window_seconds=10)
+        self.assertEqual(limiter.allow("first", now=0), (True, 0))
+        self.assertEqual(limiter.allow("first", now=1), (True, 0))
+        self.assertEqual(limiter.allow("second", now=1), (True, 0))
+        allowed, retry_after = limiter.allow("first", now=2)
+        self.assertFalse(allowed)
+        self.assertEqual(retry_after, 8)
+        self.assertEqual(limiter.allow("first", now=10), (True, 0))
 
 
 if __name__ == "__main__":

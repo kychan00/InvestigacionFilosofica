@@ -48,6 +48,8 @@ class RetrievalSettings:
     filter_oversample: int = 8
     query_cache_ttl_seconds: int = 900
     query_cache_max_entries: int = 512
+    search_rate_limit_requests: int = 10
+    search_rate_limit_window_seconds: int = 600
 
     artifacts_dir: Path = Path("artifacts/semantic-retrieval")
     hf_cache_dir: Path | None = None
@@ -123,6 +125,18 @@ class RetrievalSettings:
             ),
             query_cache_max_entries=int(
                 os.getenv("QUERY_CACHE_MAX_ENTRIES", defaults.query_cache_max_entries)
+            ),
+            search_rate_limit_requests=int(
+                os.getenv(
+                    "SEARCH_RATE_LIMIT_REQUESTS",
+                    defaults.search_rate_limit_requests,
+                )
+            ),
+            search_rate_limit_window_seconds=int(
+                os.getenv(
+                    "SEARCH_RATE_LIMIT_WINDOW_SECONDS",
+                    defaults.search_rate_limit_window_seconds,
+                )
             ),
             artifacts_dir=Path(
                 os.getenv("RETRIEVAL_ARTIFACTS_DIR", str(defaults.artifacts_dir))
