@@ -99,7 +99,8 @@ Por tanto:
 - el smoke público validó salud, búsqueda contra el índice completo, CORS para GitHub Pages y recuperación automática de los procesos de sesión;
 - la disponibilidad depende de que el Mac anfitrión permanezca encendido, con sesión iniciada y conectado; no es todavía un servicio cloud con SLA;
 - el frontend público quedó conectado como alfa opt-in en `main` mediante `5453c4c`; la búsqueda tradicional permanece predeterminada y actúa como fallback automático;
-- la suite de producción aprobó 72/72 pruebas y el workflow GitHub Pages `37985827954` completó el despliegue.
+- un indicador de disponibilidad y motor activo llegó a producción mediante `68eb2a2`: consulta `/health` sin inferencia, informa el conteo del índice y distingue selección, ejecución, resultado y fallback;
+- la suite de producción aprobó 74/74 pruebas y el workflow GitHub Pages `37987230177` completó el despliegue.
 
 ## Próximos gates
 

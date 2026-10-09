@@ -56,7 +56,7 @@ El smoke remoto confirmó:
 
 La implementación de endurecimiento quedó fijada en el commit de código `33fe90abf0d78186c77a8e7cd17bbacc11ad8893`. La documentación y los recibos canónicos de la publicación quedaron fijados en `92535591f05169aaad68b0feb2d45f4ac357ecdc`, bajo `benchmark/semantic-retrieval/public-serving-v1/` y `docs/SEMANTIC_PUBLIC_SERVING.md`.
 
-## Siguiente límite
+## Integración pública
 
 El frontend público consume ya la API mediante una opción `Semántica · alfa`. La búsqueda tradicional sigue siendo el valor inicial y el fallback automático. Durante una consulta semántica se muestra tiempo transcurrido y estado activo; un fallo de red, HTTP 429, HTTP 503 o indisponibilidad del Mac cambia al motor federado e informa el respaldo.
 
@@ -64,7 +64,22 @@ La integración quedó aislada en `83405c7`, se trasladó sin el backend a una r
 
 La interfaz fuerza `enable_reranker = false`, distingue similitud semántica de relevancia humana y no ofrece filtros de citas o acceso abierto cuando esos metadatos faltan. `src/core/rank.js` y la ruta federada no cambiaron.
 
-El siguiente límite es observar latencia, disponibilidad al dormir/despertar el Mac, tasa de fallback y calidad percibida antes de ampliar el rollout o buscar otro host gratuito.
+El indicador operacional se añadió después mediante PR 13 y merge `68eb2a223e53e87f8bea72239f1f943b6d7b36ed`. El workflow `37987230177` aprobó 74 pruebas, ambos builds y el despliegue.
+
+Al abrir la página —y al recuperar foco después de un intervalo— la interfaz consulta `GET /health` con un timeout acotado. Esa ruta no está sujeta a la cuota de búsquedas, no carga Qwen3 ni ejecuta inferencia. Un `status = ready` válido muestra `Semántica disponible` y el conteo real del índice; un fallo muestra `Semántica no disponible` sin inutilizar la búsqueda tradicional.
+
+El mismo indicador distingue:
+
+- motor seleccionado antes de buscar;
+- motor activo mientras trabaja;
+- motor finalmente usado al completar;
+- respaldo tradicional automático cuando una petición semántica falla.
+
+El chequeo es sólo informativo y no sustituye el fallback de la petición: el Mac puede dormir o perder red después de responder `/health`.
+
+## Siguiente límite
+
+Realizar un smoke pequeño de uso real y observar latencia, disponibilidad al dormir/despertar el Mac, tasa de fallback y calidad percibida antes de ampliar el rollout o buscar otro host gratuito.
 
 ## Canonicalidad
 

@@ -82,8 +82,10 @@ Estado al 2026-10-09:
 - el smoke remoto aprobó salud, búsqueda semántica real, rechazo del escalamiento de reranker y CORS para GitHub Pages;
 - el frontend de producción quedó integrado mediante el merge `5453c4c1fdd7625c721ce71e8d5c307289e3036a`; el workflow de GitHub Pages `37985827954` aprobó pruebas y despliegue;
 - la búsqueda federada continúa seleccionada por defecto; `Semántica · alfa` es una elección explícita, muestra tiempo transcurrido, fuerza `enable_reranker = false` y activa automáticamente el respaldo tradicional ante red, HTTP 429, HTTP 503 o Mac dormido;
+- el indicador operacional llegó a producción mediante el merge `68eb2a223e53e87f8bea72239f1f943b6d7b36ed`; consulta `/health` sin inferencia, muestra disponibilidad y conteo del índice, identifica el motor seleccionado/activo/usado y marca el fallback como respaldo automático;
+- el workflow de GitHub Pages `37987230177` aprobó pruebas y despliegue del indicador; la verificación pública confirmó el HTML/JavaScript actualizado y `/health` listo con CORS desde GitHub Pages;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
-- la suite de producción aprobó 72/72 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
+- la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
 La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]] y [[Public-Semantic-API]].
 
