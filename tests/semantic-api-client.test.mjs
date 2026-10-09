@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   SEMANTIC_API_ORIGIN,
   SemanticApiError,
+  checkPublicSemanticHealth,
   normalizeSemanticResponse,
   searchPublicSemantic
 } from "../src/core/semantic-api.js";
@@ -60,6 +61,106 @@ const payload = {
     }
   ]
 };
+
+
+test(
+  "comprueba disponibilidad con health sin ejecutar una búsqueda",
+  async () => {
+    let request;
+
+    const health =
+      await checkPublicSemanticHealth({
+        fetchImpl:
+          async (
+            url,
+            options
+          ) => {
+            request = {
+              url,
+              options
+            };
+
+            return new Response(
+              JSON.stringify({
+                status:
+                  "ready",
+                documents:
+                  451823,
+                index_build_id:
+                  "build-v1",
+                reranker_available:
+                  false
+              }),
+              {
+                status:
+                  200,
+                headers: {
+                  "Content-Type":
+                    "application/json"
+                }
+              }
+            );
+          }
+      });
+
+    assert.equal(
+      request.url,
+      `${SEMANTIC_API_ORIGIN}/health`
+    );
+
+    assert.equal(
+      request.options.method,
+      "GET"
+    );
+
+    assert.equal(
+      health.documents,
+      451823
+    );
+  }
+);
+
+
+test(
+  "rechaza un health que aún no está listo",
+  async () => {
+    await assert.rejects(
+      checkPublicSemanticHealth({
+        fetchImpl:
+          async () =>
+            new Response(
+              JSON.stringify({
+                status:
+                  "loading",
+                documents:
+                  451823
+              }),
+              {
+                status:
+                  200,
+                headers: {
+                  "Content-Type":
+                    "application/json"
+                }
+              }
+            )
+      }),
+      error => {
+        assert.ok(
+          error instanceof
+          SemanticApiError
+        );
+
+        assert.equal(
+          error.status,
+          503
+        );
+
+        return true;
+      }
+    );
+  }
+);
 
 
 test(
