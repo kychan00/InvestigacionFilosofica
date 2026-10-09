@@ -195,6 +195,119 @@ button {
 }
 
 
+.search-mode-switch {
+  display:
+    inline-flex;
+
+  gap:
+    4px;
+
+  margin-top:
+    13px;
+
+  padding:
+    4px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, .32);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(24, 23, 21, .28);
+
+  backdrop-filter:
+    blur(16px);
+}
+
+
+.search-mode-option {
+  min-height:
+    34px;
+
+  padding:
+    0 14px;
+
+  border:
+    0;
+
+  border-radius:
+    999px;
+
+  background:
+    transparent;
+
+  color:
+    rgba(255, 255, 255, .82);
+
+  cursor:
+    pointer;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+}
+
+
+.search-mode-option span {
+  margin-left:
+    3px;
+
+  color:
+    #c9e8d7;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    .08em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.search-mode-option.is-active {
+  background:
+    rgba(255, 255, 255, .94);
+
+  color:
+    #202124;
+}
+
+
+.search-mode-option.is-active span {
+  color:
+    #2f6b4f;
+}
+
+
+.search-mode-option:focus-visible {
+  outline:
+    2px solid
+    #ffffff;
+
+  outline-offset:
+    2px;
+}
+
+
+.search-mode-note {
+  margin:
+    7px 0 0;
+
+  color:
+    rgba(255, 255, 255, .78);
+
+  font-size:
+    12px;
+}
+
+
 .source-strip {
   margin-top:
     18px;
@@ -4327,6 +4440,35 @@ summary {
 
   font-size:
     12px;
+}
+
+
+.search-live-progress.semantic-progress {
+  border-color:
+    #c9d9ea;
+
+  background:
+    #f0f5fa;
+
+  color:
+    #244763;
+}
+
+
+.search-live-progress.semantic-progress
+.search-live-spinner {
+  border-color:
+    #bfd0df;
+
+  border-top-color:
+    #356987;
+}
+
+
+.search-live-progress.semantic-progress
+span:not(.search-live-spinner) {
+  color:
+    #5a7182;
 }
 
 
