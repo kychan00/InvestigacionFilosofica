@@ -2,7 +2,7 @@
 type: hub
 area: evaluation
 project: InvestigacionFilosofica
-updated: 2026-09-29
+updated: 2026-10-09
 ---
 
 # Evaluación, jueces y Qwen3
@@ -19,6 +19,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Qwen3-Browser-Q8-Confirmatory-v2]]
 - [[Qwen3-External-Validation-Protocol]]
 - [[Qwen3-Browser-Q8-Opt-in-Prototype]]
+- [[Semantic-Retrieval-Reranker-Bounded-V1]]
 
 ## Informes originales
 
@@ -46,6 +47,14 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 ## Principio
 
 > Separar recuperación, puntuación del modelo, construcción de condiciones y juicio humano permite saber qué componente está produciendo el efecto observado.
+
+La línea de recuperación semántica completa abrió una evaluación de ingeniería
+separada: [[Semantic-Retrieval-Reranker-Bounded-V1]]. El protocolo fijó cinco
+consultas, doce candidatos por consulta y Top 10 A/B antes de inferencia. El
+runner congelado puntuó 60 pares en Apple MPS y produjo 59 ítems únicos de
+auditoría ciega. El paquete excluye condición, rango y scores; ningún efecto se
+calculará hasta congelar los juicios 0–3. Esta evaluación no altera los
+experimentos browser-q8 ni autoriza cambios de producción.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 

@@ -62,3 +62,4 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Evaluation-Lineage]]
 - [[Qwen3-Browser-Q8-Confirmatory-v2]]
 - [[Qwen3-External-Validation-Protocol]]
+- [[Semantic-Retrieval-Reranker-Bounded-V1]]

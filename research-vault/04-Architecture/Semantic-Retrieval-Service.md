@@ -90,16 +90,16 @@ Por tanto:
 - los 402 shards canónicos ocupan cero bloques locales tras la expulsión final y conservan 2.829.334.705 bytes lógicos en iCloud; manifest y SQLite permanecen como estado reanudable;
 - [[Full-Semantic-Index-V3.3]] aprobó: 451.823 vectores, metadata y filas FTS, con IDs continuos, hashes congelados y autoconsistencia Top 1;
 - el smoke de corpus completo ejecutó las cinco consultas internas en modos semántico e híbrido, sin reranker ni labels humanos, y la API local respondió HTTP 200;
-- no existe todavía benchmark humano de resultados;
+- [[Semantic-Retrieval-Reranker-Bounded-V1]] congeló una comparación A/B sobre 60 pares y un paquete ciego de 59 ítems; el benchmark humano está preparado pero sus juicios siguen pendientes;
 - no se desplegó la API;
 - no se conectó el frontend público.
 
 ## Próximos gates
 
-1. Congelar el protocolo de revisión humana de las cinco consultas internas.
-2. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
-3. Ejecutar una comparación acotada con y sin reranker.
-4. Revisar manualmente relevancia, precisión, multilingüismo, duplicados y falsos positivos.
+1. Completar y congelar los 59 juicios ciegos de relevancia 0–3.
+2. Congelar el analizador antes de abrir el mapa A/B y calcular `ΔnDCG@10`.
+3. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
+4. Revisar relevancia, precisión, multilingüismo, duplicados y falsos positivos.
 5. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
 6. Sólo después integrar el frontend mediante una bandera o rollout controlado.
 

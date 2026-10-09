@@ -71,10 +71,12 @@ Estado al 2026-10-09:
 - los 402 recibos coinciden con los 402 placeholders canónicos de iCloud; todos quedaron verificados y expulsados a cero bloques locales;
 - el estado SQLite archivado tiene SHA-256 `79302121abbd35c54136b2cc8d238a562e8964b5737bdd77a935f2aca3401af1` y el último shard tiene SHA-256 `d5414b7857246dba55cde84899e2c75c98f6177eb9b8032a9dca08c13d6e3256`;
 - el índice completo quedó construido y validado: 451.823 vectores, 451.823 filas SQLite/FTS, FAISS SHA-256 `31b82528a42bf416c86a77822d732b8d56381e2c1b0046df821c93e64dab6f68` y metadata SHA-256 `e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0`;
-- las cinco consultas internas pasaron un smoke semántico e híbrido sin reranker; falta congelar y ejecutar la revisión humana y la comparación con reranker;
+- las cinco consultas internas pasaron un smoke semántico e híbrido sin reranker;
+- la comparación acotada con reranker se congeló antes de inferencia y puntuó 60 pares en 153,818 segundos; su auditoría ciega contiene 59 ítems sin condición, rango ni scores;
+- falta completar y congelar los juicios humanos 0–3 antes de abrir A/B o calcular efectos;
 - sin despliegue de API y sin integración con el frontend de producción.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]] y [[Full-Semantic-Index-V3.3]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]] y [[Semantic-Retrieval-Reranker-Bounded-V1]].
 
 ## Nueva fase estratégica
 
