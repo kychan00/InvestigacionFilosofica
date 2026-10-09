@@ -52,9 +52,12 @@ La línea de recuperación semántica completa abrió una evaluación de ingenie
 separada: [[Semantic-Retrieval-Reranker-Bounded-V1]]. El protocolo fijó cinco
 consultas, doce candidatos por consulta y Top 10 A/B antes de inferencia. El
 runner congelado puntuó 60 pares en Apple MPS y produjo 59 ítems únicos de
-auditoría ciega. El paquete excluye condición, rango y scores; ningún efecto se
-calculará hasta congelar los juicios 0–3. Esta evaluación no altera los
-experimentos browser-q8 ni autoriza cambios de producción.
+auditoría ciega. El paquete excluyó condición, rango y scores. Los 59 juicios
+0–3 se congelaron completos y sin abstenciones antes del unblinding, y el
+analizador se congeló en un commit separado antes de abrir A/B. La ejecución
+única obtuvo macro `ΔnDCG@10 = −0,001608360268`, `ΔP@10 = +0,02` y
+`ΔP@5 = 0,0`. La dirección primaria no mejoró; el resultado es descriptivo,
+sin inferencia de significancia y no autoriza cambios de producción.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 
