@@ -90,9 +90,8 @@ def validate_search_payload(
         if not isinstance(result, dict):
             raise RuntimeError(f"result {rank} is not an object")
         document_id = str(result.get("id", "")).strip()
-        title = str(result.get("title", "")).strip()
-        if not document_id or not title:
-            raise RuntimeError(f"result {rank} lacks id or title")
+        if not document_id:
+            raise RuntimeError(f"result {rank} lacks id")
         if result.get("rerank_score") is not None:
             raise RuntimeError(f"result {rank} has a rerank score")
         score = result.get("semantic_score")
@@ -176,6 +175,10 @@ def build_result_row(
             "elapsed_seconds": round(elapsed_seconds, 6),
             "engine_used": "semantic",
             "fallback_exercised": False,
+            "missing_title_results": sum(
+                not str(result.get("title") or "").strip()
+                for result in payload["results"]
+            ),
         },
         "response": payload,
     }
@@ -191,6 +194,9 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
             row["observation"]["http_status"] == 200 for row in rows
         ),
         "result_rows": sum(len(row["response"]["results"]) for row in rows),
+        "missing_title_results": sum(
+            row["observation"]["missing_title_results"] for row in rows
+        ),
         "latency_seconds": {
             "minimum": min(latencies),
             "median": statistics.median(latencies),
@@ -271,11 +277,10 @@ def main() -> None:
 
     args.output_dir.mkdir(parents=True)
     log_path = args.output_dir / "run.log"
-    log_lines: list[str] = []
-
     def log(message: str) -> None:
         line = f"{utc_now()} {message}"
-        log_lines.append(line)
+        with log_path.open("a", encoding="utf-8") as handle:
+            handle.write(line + "\n")
         print(line, flush=True)
 
     started_at = utc_now()
@@ -337,8 +342,6 @@ def main() -> None:
         f"complete queries={len(rows)} result_rows={summary['result_rows']} "
         f"mean_seconds={summary['latency_seconds']['mean']:.6f}"
     )
-    log_path.write_text("\n".join(log_lines) + "\n", encoding="utf-8")
-
     metadata = {
         "schema_version": METADATA_SCHEMA,
         "status": "frozen_public_operational_smoke",
@@ -353,6 +356,7 @@ def main() -> None:
         "concurrency": 1,
         "production_ranking_changed": False,
         "human_labels_used": False,
+        "missing_title_results": summary["missing_title_results"],
         "hashes": {
             "queries_sha256": sha256(args.queries),
             "health_sha256": sha256(health_path),

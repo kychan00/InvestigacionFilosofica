@@ -65,7 +65,7 @@ class PublicSemanticSmokeTests(unittest.TestCase):
         results = [
             {
                 "id": f"openalex-W{index}",
-                "title": f"Document {index}",
+                "title": "" if index == 1 else f"Document {index}",
                 "semantic_score": 0.9 - index / 100,
                 "rerank_score": None,
             }
@@ -90,6 +90,7 @@ class PublicSemanticSmokeTests(unittest.TestCase):
 
         summary = summarize([row])
         self.assertEqual(summary["status"], "operational_smoke_passed")
+        self.assertEqual(summary["missing_title_results"], 1)
         self.assertFalse(summary["human_relevance_reviewed"])
         self.assertIn("does not claim human relevance", summary["interpretation"])
 

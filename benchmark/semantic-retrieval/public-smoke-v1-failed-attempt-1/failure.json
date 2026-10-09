@@ -1,0 +1,27 @@
+{
+  "schema_version": "semantic-public-smoke-failure-v1",
+  "status": "stopped_on_frozen_validation",
+  "runner_commit": "3110941b81ce3756807434b16bbd5c551d5aa9bc",
+  "started_at": "2026-10-09T22:54:34.084435+00:00",
+  "completed_query_count": 1,
+  "failed_query_id": "sem-v1-002",
+  "error": "result 3 lacks id or title",
+  "official_capture_retries": 0,
+  "diagnostic_requests_after_stop": 1,
+  "diagnosis": {
+    "document_id": "openalex-W6994251083",
+    "rank": 3,
+    "title": "",
+    "semantic_score": 0.711914598941803,
+    "rerank_score": null,
+    "interpretation": "The document has a stable ID and score but an empty source title. The production client already presents this case as Sin título; the smoke runner must record and count it rather than invent bibliographic text."
+  },
+  "hashes": {
+    "queries_sha256": "595da8eae92f48c0b05e88ff02256085590aa7e2bf41a4a919499aaaa8df3b16",
+    "health_sha256": "26fe331dcbd2da846fa4d134bad04519092017f5e1c05999e6619e743a639d51",
+    "partial_results_sha256": "68323b3b00e49ce7f53aff9d86fe85e5bc2f936263855cff51d01d370bea25c0"
+  },
+  "production_changed": false,
+  "ranking_changed": false,
+  "human_labels_used": false
+}
