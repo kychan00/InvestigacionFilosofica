@@ -1,0 +1,8 @@
+2026-10-09T22:56:17.984174+00:00 start queries=5 limit=10 retries=0 concurrency=1
+2026-10-09T22:56:18.688676+00:00 health ready documents=451823 elapsed_seconds=0.703556
+2026-10-09T22:56:19.842974+00:00 query 1/5 id=sem-v1-001 http=200 results=10 elapsed_seconds=1.152527
+2026-10-09T22:56:20.578152+00:00 query 2/5 id=sem-v1-002 http=200 results=10 elapsed_seconds=0.733176
+2026-10-09T22:56:26.763803+00:00 query 3/5 id=sem-v1-003 http=200 results=10 elapsed_seconds=6.183507
+2026-10-09T22:56:30.000527+00:00 query 4/5 id=sem-v1-004 http=200 results=10 elapsed_seconds=3.233647
+2026-10-09T22:56:31.505132+00:00 query 5/5 id=sem-v1-005 http=200 results=10 elapsed_seconds=1.501462
+2026-10-09T22:56:31.510745+00:00 complete queries=5 result_rows=50 mean_seconds=2.560864

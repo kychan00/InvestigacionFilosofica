@@ -1,0 +1,18 @@
+{
+  "fallback_exercised": false,
+  "human_relevance_reviewed": false,
+  "interpretation": "This receipt validates public availability and response contracts only; it does not claim human relevance or ranking quality.",
+  "latency_seconds": {
+    "maximum": 6.183507,
+    "mean": 2.5608638,
+    "median": 1.501462,
+    "minimum": 0.733176
+  },
+  "missing_title_results": 1,
+  "query_count": 5,
+  "reranker_enabled": false,
+  "result_rows": 50,
+  "schema_version": "semantic-public-smoke-summary-v1",
+  "status": "operational_smoke_passed",
+  "successful_queries": 5
+}

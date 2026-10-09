@@ -185,6 +185,14 @@ semantic availability plus the selected, active and ultimately used engine.
 That indicator does not replace the request-time fallback and does not consume
 the inference rate limit.
 
+The first bounded public operational smoke then ran the five frozen internal
+queries with Top 10, no reranker, one request at a time and no retries. All five
+completed with HTTP 200; warm-service latency had a 1.501462-second median and
+2.5608638-second mean. The gate passed operationally with data-quality
+findings: one empty title, repeated works across distinct IDs, mojibake, literal
+title markup and a clear title/abstract-level topical drift. This smoke does not
+constitute a human relevance evaluation and does not authorize model tuning.
+
 ## Evaluation
 
 The internal queries live in

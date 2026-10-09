@@ -117,3 +117,24 @@ The indicator:
 The traditional engine remains selected by default. The health result is
 advisory: every semantic request still retains its runtime fallback because
 availability can change after the check.
+
+## Public operational smoke
+
+A bounded five-query public smoke was captured on 2026-10-09 with the frozen
+benchmark query set, Top 10, one request at a time, zero retries and reranking
+disabled. The completed capture returned HTTP 200 for 5/5 queries and 50/50
+results with null rerank scores. Warm-service latency was 0.733176–6.183507
+seconds, with a 1.501462-second median and 2.5608638-second mean.
+
+The runner was frozen before the first capture. That attempt stopped when it
+encountered an empty source title, and the partial receipt remains preserved.
+The corrected runner records missing titles instead of inventing text; it was
+frozen separately before the completed capture. The final result contains one
+missing title among 50 rows.
+
+The operational gate is `PASS_WITH_DATA_QUALITY_FINDINGS`. Post-hoc inspection
+found duplicate or near-duplicate works across distinct OpenAlex IDs, one
+mojibake title/abstract, literal title markup and one clear title/abstract-level
+topical drift in the Frege query. These are triage observations, not human
+relevance labels. Full receipts and hashes live in
+`benchmark/semantic-retrieval/public-smoke-v1/`.
