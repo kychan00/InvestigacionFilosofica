@@ -76,9 +76,13 @@ Estado al 2026-10-09:
 - los 59 juicios humanos 0–3 se congelaron completos y sin abstenciones antes del unblinding; el analizador también se congeló antes de abrir A/B;
 - la ejecución única produjo un resultado mixto: macro `ΔnDCG@10 = −0,001608360268`, `ΔP@10 = +0,02` y `ΔP@5 = 0,0`; la mejora primaria no se observó y no se autoriza promoción a producción;
 - el servicio aplica ya esa decisión: reranker desactivado por defecto, peticiones incapaces de elevar esa capacidad y opt-in local explícito; una búsqueda real completa y una petición API confirmaron resultados semánticos con scores de reranker nulos;
-- sin despliegue de API y sin integración con el frontend de producción.
+- la API semántica está expuesta como alfa pública gratuita en `https://filosofia-semantic.tail829c9b.ts.net`, mediante FastAPI en el Mac del proyecto y Tailscale Funnel como terminación HTTPS;
+- el servicio público busca sobre los 451.823 documentos, mantiene el reranker desactivado y no permite que una petición lo habilite; limita cada cliente a diez búsquedas por diez minutos y admite una sola inferencia concurrente;
+- dos agentes de sesión reinician automáticamente el daemon de Tailscale y la API después de un fallo o un nuevo inicio de sesión; el servicio depende todavía de que el Mac permanezca encendido, con sesión iniciada y conexión de red;
+- el smoke remoto aprobó salud, búsqueda semántica real, rechazo del escalamiento de reranker y CORS para GitHub Pages;
+- aún no existe integración con el frontend de producción.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]] y [[Semantic-Retrieval-Reranker-Bounded-V1]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]] y [[Public-Semantic-API]].
 
 ## Nueva fase estratégica
 

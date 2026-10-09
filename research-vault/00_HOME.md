@@ -42,6 +42,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Abstract-Coverage-V3.3]]
 - [[ICloud-Embedding-Archive]]
 - [[Full-Semantic-Index-V3.3]]
+- [[Public-Semantic-API]]
 
 ## Principios adoptados
 

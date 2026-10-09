@@ -94,16 +94,19 @@ Por tanto:
 - el commit `c158f4f` fijó el reranker como capacidad desactivada por defecto: la API no permite que una petición active un servidor que el operador dejó sin reranker, y el CLI local exige `--reranker` para optar explícitamente;
 - una prueba real contra los 451.823 documentos devolvió cinco resultados semánticos en 16,3 segundos incluyendo carga inicial, con `reranker_enabled = false` y todos los `rerank_score` en `null`;
 - una segunda prueba por API respondió HTTP 200 aun cuando la petición pidió reranking, pero mantuvo `reranker_available = false` y no cargó ni aplicó el modelo;
-- no se desplegó la API;
+- la API quedó desplegada como alfa pública gratuita en `https://filosofia-semantic.tail829c9b.ts.net`, con FastAPI local y Tailscale Funnel como terminación HTTPS;
+- el servicio remoto aprobado mantiene el reranker inhabilitado, limita cada IP a diez búsquedas por diez minutos, serializa la inferencia y responde 429 antes de cargar trabajo adicional;
+- el smoke público validó salud, búsqueda contra el índice completo, CORS para GitHub Pages y recuperación automática de los procesos de sesión;
+- la disponibilidad depende de que el Mac anfitrión permanezca encendido, con sesión iniciada y conectado; no es todavía un servicio cloud con SLA;
 - no se conectó el frontend público.
 
 ## Próximos gates
 
 1. Mantener el reranker fuera de la ruta predeterminada; cualquier nuevo estudio debe ser prospectivo y más amplio.
-2. Elegir un host HTTPS capaz de servir Python, el modelo de embeddings y el índice FAISS; GitHub Pages no puede hacerlo.
-3. Validar memoria, arranque, concurrencia, límites y persistencia del índice en ese host.
-4. Exponer primero la API semántica sin reranker mediante una bandera o rollout controlado.
-5. Integrar el frontend sólo después del smoke remoto y conservar la búsqueda actual como fallback.
+2. Integrar el frontend mediante un modo semántico explícito y conservar la búsqueda actual como fallback.
+3. Medir latencia, disponibilidad al dormir/despertar el Mac y comportamiento bajo uso público acotado.
+4. Mantener el alojamiento gratuito; evaluar otro host sólo si existe una alternativa sostenible que no introduzca coste.
+5. Promover el modo semántico gradualmente sólo después de observar el alfa pública.
 
 ## Canonicalidad
 
