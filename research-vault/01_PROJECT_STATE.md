@@ -80,7 +80,10 @@ Estado al 2026-10-09:
 - el servicio público busca sobre los 451.823 documentos, mantiene el reranker desactivado y no permite que una petición lo habilite; limita cada cliente a diez búsquedas por diez minutos y admite una sola inferencia concurrente;
 - dos agentes de sesión reinician automáticamente el daemon de Tailscale y la API después de un fallo o un nuevo inicio de sesión; el servicio depende todavía de que el Mac permanezca encendido, con sesión iniciada y conexión de red;
 - el smoke remoto aprobó salud, búsqueda semántica real, rechazo del escalamiento de reranker y CORS para GitHub Pages;
-- aún no existe integración con el frontend de producción.
+- el frontend de producción quedó integrado mediante el merge `5453c4c1fdd7625c721ce71e8d5c307289e3036a`; el workflow de GitHub Pages `37985827954` aprobó pruebas y despliegue;
+- la búsqueda federada continúa seleccionada por defecto; `Semántica · alfa` es una elección explícita, muestra tiempo transcurrido, fuerza `enable_reranker = false` y activa automáticamente el respaldo tradicional ante red, HTTP 429, HTTP 503 o Mac dormido;
+- la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
+- la suite de producción aprobó 72/72 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
 La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]] y [[Public-Semantic-API]].
 

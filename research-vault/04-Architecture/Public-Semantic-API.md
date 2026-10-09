@@ -58,7 +58,13 @@ La implementación de endurecimiento quedó fijada en el commit de código `33fe
 
 ## Siguiente límite
 
-La API existe, pero el frontend público aún no la consume. El siguiente paso es integrar un modo semántico explícito, mostrar progreso durante la espera y conservar la búsqueda actual como fallback. La observación del alfa debe preceder cualquier promoción más amplia.
+El frontend público consume ya la API mediante una opción `Semántica · alfa`. La búsqueda tradicional sigue siendo el valor inicial y el fallback automático. Durante una consulta semántica se muestra tiempo transcurrido y estado activo; un fallo de red, HTTP 429, HTTP 503 o indisponibilidad del Mac cambia al motor federado e informa el respaldo.
+
+La integración quedó aislada en `83405c7`, se trasladó sin el backend a una rama limpia de producción y llegó a `main` mediante el merge `5453c4c1fdd7625c721ce71e8d5c307289e3036a`. El workflow `37985827954` aprobó 72 pruebas, el build DuckDB, la auditoría del bundle browser-q8 y el despliegue GitHub Pages.
+
+La interfaz fuerza `enable_reranker = false`, distingue similitud semántica de relevancia humana y no ofrece filtros de citas o acceso abierto cuando esos metadatos faltan. `src/core/rank.js` y la ruta federada no cambiaron.
+
+El siguiente límite es observar latencia, disponibilidad al dormir/despertar el Mac, tasa de fallback y calidad percibida antes de ampliar el rollout o buscar otro host gratuito.
 
 ## Canonicalidad
 

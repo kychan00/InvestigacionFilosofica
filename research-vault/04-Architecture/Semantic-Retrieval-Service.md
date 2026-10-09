@@ -98,15 +98,16 @@ Por tanto:
 - el servicio remoto aprobado mantiene el reranker inhabilitado, limita cada IP a diez búsquedas por diez minutos, serializa la inferencia y responde 429 antes de cargar trabajo adicional;
 - el smoke público validó salud, búsqueda contra el índice completo, CORS para GitHub Pages y recuperación automática de los procesos de sesión;
 - la disponibilidad depende de que el Mac anfitrión permanezca encendido, con sesión iniciada y conectado; no es todavía un servicio cloud con SLA;
-- no se conectó el frontend público.
+- el frontend público quedó conectado como alfa opt-in en `main` mediante `5453c4c`; la búsqueda tradicional permanece predeterminada y actúa como fallback automático;
+- la suite de producción aprobó 72/72 pruebas y el workflow GitHub Pages `37985827954` completó el despliegue.
 
 ## Próximos gates
 
 1. Mantener el reranker fuera de la ruta predeterminada; cualquier nuevo estudio debe ser prospectivo y más amplio.
-2. Integrar el frontend mediante un modo semántico explícito y conservar la búsqueda actual como fallback.
-3. Medir latencia, disponibilidad al dormir/despertar el Mac y comportamiento bajo uso público acotado.
-4. Mantener el alojamiento gratuito; evaluar otro host sólo si existe una alternativa sostenible que no introduzca coste.
-5. Promover el modo semántico gradualmente sólo después de observar el alfa pública.
+2. Medir latencia, disponibilidad al dormir/despertar el Mac, tasa de fallback y comportamiento bajo uso público acotado.
+3. Mantener el alojamiento gratuito; evaluar otro host sólo si existe una alternativa sostenible que no introduzca coste.
+4. Promover el modo semántico gradualmente sólo después de observar el alfa pública.
+5. Mantener separadas las métricas de similitud semántica y los futuros juicios humanos de relevancia.
 
 ## Canonicalidad
 

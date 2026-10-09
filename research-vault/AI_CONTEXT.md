@@ -1,6 +1,6 @@
 ---
 type: ai-context
-updated: 2026-09-30
+updated: 2026-10-09
 ---
 
 # Contexto para asistentes
@@ -73,4 +73,4 @@ Los documentos funcionan como fuentes y evidencia de posiciones, afirmaciones, a
 
 El motor bibliográfico existente está funcionando. La nueva fase se encuentra todavía en diseño conceptual. No implementar cambios de runtime que comprometan el modelo antes de formalizar el contrato de `ResearchProject`.
 
-Existe además una línea de ingeniería desacoplada para recuperación semántica sobre el corpus propio: [[Semantic-Retrieval-Service]]. Su código y artefactos canónicos pertenecen al repositorio principal, no al vault. Esta línea puede avanzar como infraestructura de retrieval sin introducir todavía el modelo de `ResearchProject` ni alterar el buscador público.
+Existe además una línea de ingeniería desacoplada para recuperación semántica sobre el corpus propio: [[Semantic-Retrieval-Service]]. Su código y artefactos canónicos pertenecen al repositorio principal, no al vault. La ruta semántica se expone ya como alfa pública opt-in: no introduce todavía el modelo de `ResearchProject`, no cambia `src/core/rank.js`, conserva la búsqueda federada como predeterminada y vuelve automáticamente a ella cuando el backend local no está disponible.
