@@ -174,6 +174,12 @@ deployed HTTPS instance of this API. The frontend should not be switched until
 the completed full index is archived or hosted, the benchmark is reviewed and
 an API host is selected.
 
+The first free public-alpha serving route is now validated through Tailscale
+Funnel on the project Mac. Its stable HTTPS URL, startup services, security
+limits and smoke hashes are documented in
+[`SEMANTIC_PUBLIC_SERVING.md`](SEMANTIC_PUBLIC_SERVING.md). The frontend remains
+disconnected pending a separate browser integration smoke.
+
 ## Evaluation
 
 The internal queries live in
