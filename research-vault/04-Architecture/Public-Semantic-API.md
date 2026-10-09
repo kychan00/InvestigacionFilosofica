@@ -77,9 +77,15 @@ El mismo indicador distingue:
 
 El chequeo es sólo informativo y no sustituye el fallback de la petición: el Mac puede dormir o perder red después de responder `/health`.
 
+## Smoke de uso real
+
+El smoke pequeño de uso real ya fue ejecutado y congelado. Las cinco consultas internas recibieron HTTP 200, produjeron 50 resultados Top 10, no activaron el reranker y no necesitaron fallback. Sobre el servicio ya caliente, la latencia fue de 0,733 a 6,184 segundos, con mediana de 1,501 segundos y media de 2,561 segundos.
+
+El resultado es `PASS_WITH_DATA_QUALITY_FINDINGS`, no una validación humana de relevancia. Se observó un título vacío, duplicados o casi duplicados, mojibake, HTML literal y un caso visible de deriva temática. La primera ejecución se detuvo correctamente al encontrar el título vacío y fue preservada; el contrato del runner se corrigió para registrar esa carencia sin inventar metadata y se congeló antes de la ejecución completa. Véase [[Public-Semantic-Smoke-V1]].
+
 ## Siguiente límite
 
-Realizar un smoke pequeño de uso real y observar latencia, disponibilidad al dormir/despertar el Mac, tasa de fallback y calidad percibida antes de ampliar el rollout o buscar otro host gratuito.
+Priorizar higiene de metadata y deduplicación a nivel de obra sin utilizar estos resultados como labels de tuning. La relevancia debe evaluarse después en un protocolo separado y explícito. También sigue pendiente observar disponibilidad bajo suspensión y reanudación del Mac antes de ampliar el rollout o buscar otro host gratuito.
 
 ## Canonicalidad
 

@@ -101,14 +101,18 @@ Por tanto:
 - el frontend público quedó conectado como alfa opt-in en `main` mediante `5453c4c`; la búsqueda tradicional permanece predeterminada y actúa como fallback automático;
 - un indicador de disponibilidad y motor activo llegó a producción mediante `68eb2a2`: consulta `/health` sin inferencia, informa el conteo del índice y distingue selección, ejecución, resultado y fallback;
 - la suite de producción aprobó 74/74 pruebas y el workflow GitHub Pages `37987230177` completó el despliegue.
+- [[Public-Semantic-Smoke-V1]] ejecutó las cinco consultas congeladas contra la URL pública y conservó 50 resultados Top 10: 5/5 HTTP 200, cero fallback, reranker desactivado y todos los `rerank_score` nulos;
+- la latencia cálida del smoke fue 0,733–6,184 s, con mediana 1,501 s y media 2,561 s;
+- el gate operacional aprobó con hallazgos de calidad de datos: un título vacío, duplicados o casi duplicados, mojibake, HTML literal y deriva temática visible; no se usaron labels humanos y no se autorizó tuning.
 
 ## Próximos gates
 
 1. Mantener el reranker fuera de la ruta predeterminada; cualquier nuevo estudio debe ser prospectivo y más amplio.
-2. Medir latencia, disponibilidad al dormir/despertar el Mac, tasa de fallback y comportamiento bajo uso público acotado.
-3. Mantener el alojamiento gratuito; evaluar otro host sólo si existe una alternativa sostenible que no introduzca coste.
-4. Promover el modo semántico gradualmente sólo después de observar el alfa pública.
-5. Mantener separadas las métricas de similitud semántica y los futuros juicios humanos de relevancia.
+2. Corregir prospectivamente higiene de metadata y deduplicación a nivel de obra, preservando los outputs congelados del smoke.
+3. Medir disponibilidad al dormir/despertar el Mac y tasa de fallback durante uso público acotado.
+4. Mantener el alojamiento gratuito; evaluar otro host sólo si existe una alternativa sostenible que no introduzca coste.
+5. Promover el modo semántico gradualmente sólo después de observar el alfa pública.
+6. Mantener separadas las métricas de similitud semántica y los futuros juicios humanos de relevancia.
 
 ## Canonicalidad
 
