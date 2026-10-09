@@ -20,6 +20,23 @@ Judgment fields are blank.
 
 The return was frozen before the internal A/B artifact was opened for analysis.
 
+## Analysis contract
+
+`scripts/retrieval/analyze_bounded_reranker_ab.py` is frozen before unblinding.
+It verifies the exact A/B and judgment hashes, refuses to overwrite an existing
+result, and uses these fixed definitions:
+
+- nDCG gain `2^relevance - 1` and logarithmic rank discount;
+- IDCG from the ten strongest graded judgments in each query's A/B Top-10
+  union;
+- binary relevance at grade 2 or 3 for P@10 and P@5;
+- paired macro differences reported as B minus A;
+- a query is excluded from a metric only if an abstention is required by that
+  metric.
+
+Results are descriptive for five queries and do not authorize a production
+change.
+
 ## Internal provenance
 
 - `freeze-metadata.json` records the hashes and completed execution contract.
