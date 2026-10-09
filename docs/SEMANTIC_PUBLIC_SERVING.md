@@ -70,9 +70,26 @@ Both LaunchAgents were then restarted. The authenticated node, stable hostname,
 Funnel mapping, TLS certificate and public health endpoint recovered without a
 new login.
 
-## Boundary
+## Frontend integration
 
-This milestone exposes the API only. It does not change the current production
-retrieval or ranking, and it does not yet connect the public frontend. Frontend
-integration must retain the existing search as fallback and should be deployed
-separately after an end-to-end browser smoke.
+The public GitHub Pages frontend was connected on 2026-10-09 through merge
+commit `5453c4c1fdd7625c721ce71e8d5c307289e3036a`. The deployment workflow
+`37985827954` passed its test and deploy jobs.
+
+The integration preserves the operational boundary:
+
+- traditional federated search remains selected by default;
+- semantic search is an explicit `Semántica · alfa` choice;
+- the browser sends `enable_reranker: false` and cannot elevate server
+  capability;
+- elapsed time and active-search messages remain visible while the API works;
+- HTTP 429, HTTP 503, network failure or a sleeping Mac automatically activate
+  the traditional search and disclose that fallback;
+- semantic scores are labelled as similarity, not human relevance or
+  probability;
+- semantic results do not expose citation or open-access filters when those
+  fields are absent from the corpus snapshot.
+
+The integration changes neither `src/core/rank.js` nor the existing production
+retrieval pipeline. The API remains available only while the Mac is awake,
+connected and logged in; the fallback keeps the public page useful otherwise.

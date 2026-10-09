@@ -169,16 +169,17 @@ configurable with `SEARCH_RATE_LIMIT_REQUESTS` and
 `SEARCH_RATE_LIMIT_WINDOW_SECONDS`. Excess or concurrent requests receive HTTP
 429 before model inference. `/health` is not rate-limited.
 
-Because the public frontend is static GitHub Pages, it must call a separately
-deployed HTTPS instance of this API. The frontend should not be switched until
-the completed full index is archived or hosted, the benchmark is reviewed and
-an API host is selected.
+Because the public frontend is static GitHub Pages, it calls a separately
+deployed HTTPS instance of this API. The semantic path is an explicit alpha;
+the existing federated search remains the default and the automatic fallback.
 
 The first free public-alpha serving route is now validated through Tailscale
 Funnel on the project Mac. Its stable HTTPS URL, startup services, security
 limits and smoke hashes are documented in
-[`SEMANTIC_PUBLIC_SERVING.md`](SEMANTIC_PUBLIC_SERVING.md). The frontend remains
-disconnected pending a separate browser integration smoke.
+[`SEMANTIC_PUBLIC_SERVING.md`](SEMANTIC_PUBLIC_SERVING.md). The frontend
+integration is now deployed on GitHub Pages: it reports elapsed search time,
+forces reranking off, labels cosine similarity separately from relevance and
+falls back to the traditional search when the Mac/API is unavailable or busy.
 
 ## Evaluation
 
