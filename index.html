@@ -130,6 +130,40 @@
 
 
         <div
+          class="search-mode-switch"
+          role="group"
+          aria-label="Tipo de búsqueda"
+        >
+          <button
+            type="button"
+            class="search-mode-option is-active"
+            data-search-mode="federated"
+            aria-pressed="true"
+          >
+            Tradicional
+          </button>
+
+          <button
+            type="button"
+            class="search-mode-option"
+            data-search-mode="semantic"
+            aria-pressed="false"
+          >
+            Semántica
+            <span>alfa</span>
+          </button>
+        </div>
+
+
+        <p
+          id="search-mode-note"
+          class="search-mode-note"
+        >
+          Consulta fuentes académicas en vivo.
+        </p>
+
+
+        <div
           id="status"
           class="status"
           aria-live="polite"

@@ -20,6 +20,10 @@ import {
 } from "../src/core/explain.js";
 
 import {
+  searchPublicSemantic
+} from "../src/core/semantic-api.js";
+
+import {
   isQwen3BrowserQ8OptIn,
   rerankTopKByQwen3BrowserQ8,
   selectQwen3BrowserQ8Candidates
@@ -44,6 +48,16 @@ const button =
 const status =
   document.querySelector(
     "#status"
+  );
+
+const searchModeButtons =
+  document.querySelectorAll(
+    "[data-search-mode]"
+  );
+
+const searchModeNote =
+  document.querySelector(
+    "#search-mode-note"
   );
 
 const qwen3Experiment =
@@ -126,6 +140,8 @@ let qwen3Controller = null;
 let qwen3ScorerPromise = null;
 let currentQwen3Order = null;
 let currentSearchQuery = "";
+let selectedSearchMode =
+  "federated";
 
 
 async function loadMap() {
@@ -279,6 +295,57 @@ function renderStats(
     response.stats;
 
 
+  if (
+    response.searchMode ===
+    "semantic"
+  ) {
+    statsEl.innerHTML = `
+      <h2>
+        Resumen semántico
+      </h2>
+
+      <div class="stat-grid">
+
+        <div class="stat">
+          <strong>
+            ${stats.unique}
+          </strong>
+          resultados
+        </div>
+
+        <div class="stat">
+          <strong>
+            ${response.semantic.candidateCount || "—"}
+          </strong>
+          candidatos comparados
+        </div>
+
+        <div class="stat">
+          <strong>
+            451.823
+          </strong>
+          documentos indexados
+        </div>
+
+        <div class="stat">
+          <strong>
+            No
+          </strong>
+          reranker aplicado
+        </div>
+
+      </div>
+    `;
+
+
+    statsEl
+      .classList
+      .remove("hidden");
+
+    return;
+  }
+
+
   statsEl.innerHTML = `
     <h2>
       Resumen
@@ -338,9 +405,79 @@ function resultUrl(item) {
 }
 
 
+function renderSemanticExplanation(
+  item
+) {
+  const score =
+    Number.isFinite(
+      item.semanticScore
+    )
+      ? item.semanticScore
+        .toFixed(4)
+      : "—";
+
+  return `
+    <details class="explanation">
+
+      <summary>
+        ¿Por qué aparece este resultado?
+      </summary>
+
+      <div class="explanation-body">
+
+        <div class="explanation-score">
+          <strong>
+            ${item.relevanceScore}/100
+          </strong>
+
+          <span>
+            Similitud semántica
+          </span>
+        </div>
+
+        <div class="reason-block">
+          <h3>
+            Recuperación sobre corpus propio
+          </h3>
+
+          <ul>
+            <li>
+              Qwen3-Embedding comparó el sentido de la consulta con el contenido normalizado del documento.
+            </li>
+
+            <li>
+              El índice FAISS devolvió este documento entre los vecinos semánticos más próximos.
+            </li>
+
+            <li>
+              Score coseno normalizado: ${escapeHtml(score)}. No es una probabilidad ni un juicio humano de relevancia.
+            </li>
+
+            <li>
+              No se aplicó reranker ni modelo generativo.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </details>
+  `;
+}
+
+
 function renderExplanation(
   item
 ) {
+  if (
+    item.retrievalMode ===
+    "semantic"
+  ) {
+    return renderSemanticExplanation(
+      item
+    );
+  }
+
   const explanation =
     explainResult(
       item,
@@ -1029,7 +1166,12 @@ function renderRecordDetails(
           <section class="cinematic-score-card">
 
             <span class="score-eyebrow">
-              Relevancia
+              ${
+                item.retrievalMode ===
+                  "semantic"
+                  ? "Similitud"
+                  : "Relevancia"
+              }
             </span>
 
             <div class="cinematic-score-number">
@@ -1354,7 +1496,12 @@ function renderRecordDetails(
 
               <div>
                 <span class="section-eyebrow">
-                  Motor de relevancia
+                  ${
+                    item.retrievalMode ===
+                      "semantic"
+                      ? "Recuperación semántica"
+                      : "Motor de relevancia"
+                  }
                 </span>
 
                 <h3>
@@ -1843,7 +1990,10 @@ function renderResult(
 
           <span class="relevance-pill">
             ${escapeHtml(
-              item.relevanceLevel
+              item.retrievalMode ===
+                "semantic"
+                ? "Semántica"
+                : item.relevanceLevel
             )}
           </span>
 
@@ -2008,19 +2158,38 @@ function renderResult(
         </div>
 
 
-        <div class="explain">
-          Q ${item.ranking.query}
-          ·
-          P ${item.ranking.philosophy}
-          ·
-          D ${item.ranking.discipline}
-          ·
-          S ${item.ranking.consensus}
-          ·
-          B ${item.ranking.bibliography}
-          ·
-          I ${item.ranking.impact}
-        </div>
+        ${
+          item.retrievalMode ===
+            "semantic"
+            ? `
+              <div class="explain">
+                Score semántico ${
+                  Number.isFinite(
+                    item.semanticScore
+                  )
+                    ? item.semanticScore
+                      .toFixed(4)
+                    : "—"
+                }
+                · sin reranker
+              </div>
+            `
+            : `
+              <div class="explain">
+                Q ${item.ranking.query}
+                ·
+                P ${item.ranking.philosophy}
+                ·
+                D ${item.ranking.discipline}
+                ·
+                S ${item.ranking.consensus}
+                ·
+                B ${item.ranking.bibliography}
+                ·
+                I ${item.ranking.impact}
+              </div>
+            `
+        }
 
 
         ${renderExplanation(item)}
@@ -2035,7 +2204,12 @@ function renderResult(
         </div>
 
         <span>
-          Relevancia
+          ${
+            item.retrievalMode ===
+              "semantic"
+              ? "Similitud"
+              : "Relevancia"
+          }
         </span>
 
         <div class="score-meter">
@@ -2543,6 +2717,8 @@ function resetQwen3Experiment() {
     available:
       Boolean(
         navigator.gpu &&
+        currentResponse?.searchMode !==
+          "semantic" &&
         currentResults.length
       )
   });
@@ -2729,6 +2905,8 @@ async function runQwen3Rerank() {
       available:
         Boolean(
           navigator.gpu &&
+          currentResponse?.searchMode !==
+            "semantic" &&
           currentResults.length &&
           !currentQwen3Order
         )
@@ -2740,6 +2918,10 @@ async function runQwen3Rerank() {
 function renderFilters(
   results
 ) {
+  const semanticResults =
+    currentResponse?.searchMode ===
+    "semantic";
+
   const detectedLanguages =
 
     uniqueSorted(
@@ -2788,27 +2970,33 @@ function renderFilters(
 
     <div class="filter-grid">
 
-      <label>
-        Relevancia
+      ${
+        semanticResults
+          ? ""
+          : `
+            <label>
+              Relevancia
 
-        <select id="filter-level">
-          <option value="">
-            Todas
-          </option>
-          <option value="P1">
-            P1
-          </option>
-          <option value="P2">
-            P2
-          </option>
-          <option value="P3">
-            P3
-          </option>
-          <option value="P4">
-            P4
-          </option>
-        </select>
-      </label>
+              <select id="filter-level">
+                <option value="">
+                  Todas
+                </option>
+                <option value="P1">
+                  P1
+                </option>
+                <option value="P2">
+                  P2
+                </option>
+                <option value="P3">
+                  P3
+                </option>
+                <option value="P4">
+                  P4
+                </option>
+              </select>
+            </label>
+          `
+      }
 
 
       <label>
@@ -2924,7 +3112,11 @@ function renderFilters(
                 : "selected"
             }
           >
-            Relevancia
+            ${
+              semanticResults
+                ? "Similitud semántica"
+                : "Relevancia"
+            }
           </option>
 
           <option value="year-desc">
@@ -2935,21 +3127,33 @@ function renderFilters(
             Año: más antiguo
           </option>
 
-          <option value="citations">
-            Citas
-          </option>
+          ${
+            semanticResults
+              ? ""
+              : `
+                <option value="citations">
+                  Citas
+                </option>
+              `
+          }
         </select>
       </label>
 
 
-      <label class="filter-check">
-        <input
-          id="filter-open-access"
-          type="checkbox"
-        >
+      ${
+        semanticResults
+          ? ""
+          : `
+            <label class="filter-check">
+              <input
+                id="filter-open-access"
+                type="checkbox"
+              >
 
-        Sólo acceso abierto
-      </label>
+              Sólo acceso abierto
+            </label>
+          `
+      }
 
 
       <button
@@ -3357,6 +3561,10 @@ function bindResultActions() {
 }
 
 function renderFilteredResults() {
+  const semanticResults =
+    currentResponse?.searchMode ===
+    "semantic";
+
   const visible =
     currentFilteredResults
       .slice(
@@ -3375,7 +3583,11 @@ function renderFilteredResults() {
 
   resultsEl.innerHTML =
     errorHtml +
-    fetchMoreButton("top") +
+    (
+      semanticResults
+        ? ""
+        : fetchMoreButton("top")
+    ) +
     visible
       .map(
         renderResult
@@ -3439,10 +3651,12 @@ function renderFilteredResults() {
   }
 
 
-  resultsEl.insertAdjacentHTML(
-    "beforeend",
-    fetchMoreButton("bottom")
-  );
+  if (!semanticResults) {
+    resultsEl.insertAdjacentHTML(
+      "beforeend",
+      fetchMoreButton("bottom")
+    );
+  }
 
 
   document
@@ -3840,6 +4054,38 @@ function renderSearchLoading() {
 }
 
 
+function renderSemanticSearchLoading(
+  elapsedSeconds = 0
+) {
+  const message =
+    elapsedSeconds < 4
+      ? "Preparando la consulta y conectando con el corpus propio."
+      : (
+          elapsedSeconds < 10
+            ? "Comparando el significado de la consulta con el índice académico."
+            : "La búsqueda continúa activa; el primer uso puede tardar más mientras se carga el modelo."
+        );
+
+  return `
+    <div class="search-live-progress semantic-progress">
+      <span class="search-live-spinner" aria-hidden="true"></span>
+
+      <div>
+        <strong>
+          Buscando por significado · ${elapsedSeconds} s
+        </strong>
+
+        <span>
+          ${message}
+        </span>
+      </div>
+    </div>
+
+    ${renderSearchLoadingCards()}
+  `;
+}
+
+
 function renderProgressiveSearch(
   response,
   progress
@@ -3920,8 +4166,11 @@ function renderProgressiveSearch(
     `búsqueda ${currentExpansion}/${progress.totalExpansions}`;
 }
 
-async function runSearch(
-  query
+async function runFederatedSearch(
+  query,
+  {
+    fallbackReason = null
+  } = {}
 ) {
   if (!philosophyMap) {
     return;
@@ -3949,6 +4198,14 @@ async function runSearch(
   button.disabled =
     true;
 
+  searchModeButtons
+    .forEach(
+      item => {
+        item.disabled =
+          true;
+      }
+    );
+
   resultsEl.innerHTML =
     renderSearchLoading();
 
@@ -3971,7 +4228,9 @@ async function runSearch(
 
 
   status.textContent =
-    "Interpretando consulta…";
+    fallbackReason
+      ? "La búsqueda semántica no respondió; activando el respaldo tradicional…"
+      : "Interpretando consulta…";
 
 
   try {
@@ -4029,6 +4288,22 @@ async function runSearch(
       );
 
 
+    response.searchMode =
+      "federated";
+
+    if (fallbackReason) {
+      response.errors = [
+        {
+          provider:
+            "Búsqueda semántica",
+          message:
+            `${fallbackReason} Se utilizó automáticamente la búsqueda tradicional.`
+        },
+        ...response.errors
+      ];
+    }
+
+
     currentParsed =
       response.parsed;
 
@@ -4063,7 +4338,12 @@ async function runSearch(
 
 
     status.textContent =
-      `${response.stats.unique} resultados únicos`;
+      `${response.stats.unique} resultados únicos` +
+      (
+        fallbackReason
+          ? " · respaldo tradicional"
+          : ""
+      );
   } catch (error) {
 
     if (
@@ -4096,11 +4376,290 @@ async function runSearch(
       button.disabled =
         false;
 
+      searchModeButtons
+        .forEach(
+          item => {
+            item.disabled =
+              false;
+          }
+        );
+
       resultsEl.removeAttribute(
         "aria-busy"
       );
     }
   }
+}
+
+
+function semanticFallbackReason(
+  error
+) {
+  if (
+    error?.status ===
+    429
+  ) {
+    return "El servidor semántico está ocupado o alcanzó su límite temporal.";
+  }
+
+  if (
+    error?.status ===
+    503
+  ) {
+    return "El índice semántico todavía no está listo.";
+  }
+
+  return "El servidor semántico está apagado, dormido o sin conexión.";
+}
+
+
+async function runSemanticSearch(
+  query
+) {
+  if (currentController) {
+    currentController.abort();
+  }
+
+
+  currentController =
+    new AbortController();
+
+  const searchController =
+    currentController;
+
+  currentResults = [];
+  currentResponse = null;
+  currentSearchQuery =
+    query;
+  resetQwen3Experiment();
+
+
+  button.disabled =
+    true;
+
+  searchModeButtons
+    .forEach(
+      item => {
+        item.disabled =
+          true;
+      }
+    );
+
+  interpretationEl
+    .classList
+    .add("hidden");
+
+  statsEl
+    .classList
+    .add("hidden");
+
+  filtersEl
+    .classList
+    .add("hidden");
+
+  resultsEl.setAttribute(
+    "aria-busy",
+    "true"
+  );
+
+
+  const startedAt =
+    Date.now();
+
+  const updateProgress =
+    () => {
+      if (
+        currentController !==
+          searchController ||
+        searchController.signal
+          .aborted
+      ) {
+        return;
+      }
+
+      const elapsedSeconds =
+        Math.floor(
+          (
+            Date.now() -
+            startedAt
+          ) / 1000
+        );
+
+      resultsEl.innerHTML =
+        renderSemanticSearchLoading(
+          elapsedSeconds
+        );
+
+      status.textContent =
+        `Búsqueda semántica activa · ${elapsedSeconds} s transcurridos`;
+    };
+
+
+  updateProgress();
+
+  const progressTimer =
+    window.setInterval(
+      updateProgress,
+      1000
+    );
+
+
+  try {
+    const limit =
+      Number(
+        document.querySelector(
+          "#search-depth"
+        )?.value || 12
+      );
+
+    const response =
+      await searchPublicSemantic(
+        query,
+        {
+          limit,
+          signal:
+            searchController.signal
+        }
+      );
+
+
+    if (
+      currentController !==
+        searchController ||
+      searchController.signal
+        .aborted
+    ) {
+      return;
+    }
+
+
+    currentParsed =
+      response.parsed;
+
+    currentResponse =
+      response;
+
+    currentResults =
+      response.results;
+
+    resetVisibleLimit();
+
+    renderInterpretation(
+      response
+    );
+
+    renderStats(
+      response
+    );
+
+    renderFilters(
+      response.results
+    );
+
+    resetQwen3Experiment();
+
+    status.textContent =
+      `${response.stats.unique} resultados semánticos · corpus propio`;
+  } catch (error) {
+    if (
+      error.name ===
+      "AbortError"
+    ) {
+      return;
+    }
+
+
+    console.warn(
+      "Búsqueda semántica no disponible; se activa el respaldo tradicional.",
+      error
+    );
+
+    window.clearInterval(
+      progressTimer
+    );
+
+    await runFederatedSearch(
+      query,
+      {
+        fallbackReason:
+          semanticFallbackReason(
+            error
+          )
+      }
+    );
+  } finally {
+    window.clearInterval(
+      progressTimer
+    );
+
+    if (
+      currentController ===
+      searchController
+    ) {
+      button.disabled =
+        false;
+
+      searchModeButtons
+        .forEach(
+          item => {
+            item.disabled =
+              false;
+          }
+        );
+
+      resultsEl.removeAttribute(
+        "aria-busy"
+      );
+    }
+  }
+}
+
+
+function selectSearchMode(
+  mode
+) {
+  selectedSearchMode =
+    mode === "semantic"
+      ? "semantic"
+      : "federated";
+
+  searchModeButtons
+    .forEach(
+      item => {
+        const active =
+          item.dataset.searchMode ===
+          selectedSearchMode;
+
+        item.classList.toggle(
+          "is-active",
+          active
+        );
+
+        item.setAttribute(
+          "aria-pressed",
+          String(active)
+        );
+      }
+    );
+
+  if (
+    selectedSearchMode ===
+    "semantic"
+  ) {
+    searchModeNote.textContent =
+      "Busca por significado en 451.823 documentos del corpus propio; si el servidor no responde, se activa el respaldo tradicional.";
+
+    input.placeholder =
+      "Ej. ¿Qué relación hay entre lógica y ontología en Quine?";
+
+    return;
+  }
+
+  searchModeNote.textContent =
+    "Consulta fuentes académicas en vivo.";
+
+  input.placeholder =
+    "Ej. libertad en Kant";
 }
 
 
@@ -4116,9 +4675,37 @@ form.addEventListener(
       return;
     }
 
-    runSearch(query);
+    if (
+      selectedSearchMode ===
+      "semantic"
+    ) {
+      runSemanticSearch(
+        query
+      );
+
+      return;
+    }
+
+    runFederatedSearch(
+      query
+    );
   }
 );
+
+
+searchModeButtons
+  .forEach(
+    item => {
+      item.addEventListener(
+        "click",
+        () => {
+          selectSearchMode(
+            item.dataset.searchMode
+          );
+        }
+      );
+    }
+  );
 
 
 if (qwen3OptIn) {
