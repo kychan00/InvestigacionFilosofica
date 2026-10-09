@@ -20,6 +20,7 @@ import {
 } from "../src/core/explain.js";
 
 import {
+  checkPublicSemanticHealth,
   searchPublicSemantic
 } from "../src/core/semantic-api.js";
 
@@ -58,6 +59,21 @@ const searchModeButtons =
 const searchModeNote =
   document.querySelector(
     "#search-mode-note"
+  );
+
+const searchEngineIndicator =
+  document.querySelector(
+    "#search-engine-indicator"
+  );
+
+const semanticAvailabilityText =
+  document.querySelector(
+    "#semantic-availability-text"
+  );
+
+const activeEngineText =
+  document.querySelector(
+    "#active-engine-text"
   );
 
 const qwen3Experiment =
@@ -142,6 +158,155 @@ let currentQwen3Order = null;
 let currentSearchQuery = "";
 let selectedSearchMode =
   "federated";
+
+let semanticAvailability =
+  "checking";
+let semanticDocumentCount =
+  null;
+let semanticAvailabilityCheckedAt =
+  0;
+let activeEngine = {
+  mode:
+    "federated",
+  phase:
+    "selected",
+  fallback:
+    false
+};
+
+
+function renderSearchEngineIndicator() {
+  searchEngineIndicator.dataset
+    .semanticStatus =
+      semanticAvailability;
+
+  if (
+    semanticAvailability ===
+    "available"
+  ) {
+    semanticAvailabilityText
+      .textContent =
+        `Semántica disponible · ${Number(
+          semanticDocumentCount
+        ).toLocaleString("es-MX")} docs`;
+  } else if (
+    semanticAvailability ===
+    "unavailable"
+  ) {
+    semanticAvailabilityText
+      .textContent =
+        "Semántica no disponible";
+  } else {
+    semanticAvailabilityText
+      .textContent =
+        "Comprobando búsqueda semántica…";
+  }
+
+  const engineLabel =
+    activeEngine.mode ===
+    "semantic"
+      ? "semántico"
+      : "tradicional";
+
+  const phaseLabel = {
+    selected:
+      "Motor seleccionado",
+    working:
+      "Motor activo",
+    completed:
+      "Motor usado"
+  }[activeEngine.phase] ||
+    "Motor seleccionado";
+
+  activeEngineText.textContent =
+    `${phaseLabel}: ${engineLabel}` +
+    (
+      activeEngine.fallback
+        ? " · respaldo automático"
+        : ""
+    );
+}
+
+
+function setActiveEngine(
+  mode,
+  phase,
+  {
+    fallback = false
+  } = {}
+) {
+  activeEngine = {
+    mode:
+      mode === "semantic"
+        ? "semantic"
+        : "federated",
+    phase,
+    fallback
+  };
+
+  renderSearchEngineIndicator();
+}
+
+
+async function refreshSemanticAvailability(
+  {
+    force = false
+  } = {}
+) {
+  const now =
+    Date.now();
+
+  if (
+    !force &&
+    now -
+      semanticAvailabilityCheckedAt <
+      30000
+  ) {
+    return;
+  }
+
+  semanticAvailability =
+    "checking";
+  renderSearchEngineIndicator();
+
+  const controller =
+    new AbortController();
+
+  const timeout =
+    window.setTimeout(
+      () => {
+        controller.abort();
+      },
+      3500
+    );
+
+  try {
+    const health =
+      await checkPublicSemanticHealth({
+        signal:
+          controller.signal
+      });
+
+    semanticAvailability =
+      "available";
+    semanticDocumentCount =
+      health.documents;
+  } catch {
+    semanticAvailability =
+      "unavailable";
+    semanticDocumentCount =
+      null;
+  } finally {
+    window.clearTimeout(
+      timeout
+    );
+
+    semanticAvailabilityCheckedAt =
+      Date.now();
+
+    renderSearchEngineIndicator();
+  }
+}
 
 
 async function loadMap() {
@@ -4226,6 +4391,17 @@ async function runFederatedSearch(
     .classList
     .add("hidden");
 
+  setActiveEngine(
+    "federated",
+    "working",
+    {
+      fallback:
+        Boolean(
+          fallbackReason
+        )
+    }
+  );
+
 
   status.textContent =
     fallbackReason
@@ -4344,6 +4520,17 @@ async function runFederatedSearch(
           ? " · respaldo tradicional"
           : ""
       );
+
+    setActiveEngine(
+      "federated",
+      "completed",
+      {
+        fallback:
+          Boolean(
+            fallbackReason
+          )
+      }
+    );
   } catch (error) {
 
     if (
@@ -4462,6 +4649,11 @@ async function runSemanticSearch(
     "true"
   );
 
+  setActiveEngine(
+    "semantic",
+    "working"
+  );
+
 
   const startedAt =
     Date.now();
@@ -4560,6 +4752,16 @@ async function runSemanticSearch(
 
     status.textContent =
       `${response.stats.unique} resultados semánticos · corpus propio`;
+
+    semanticAvailability =
+      "available";
+    semanticAvailabilityCheckedAt =
+      Date.now();
+
+    setActiveEngine(
+      "semantic",
+      "completed"
+    );
   } catch (error) {
     if (
       error.name ===
@@ -4573,6 +4775,21 @@ async function runSemanticSearch(
       "Búsqueda semántica no disponible; se activa el respaldo tradicional.",
       error
     );
+
+    if (
+      error?.status !==
+      429
+    ) {
+      semanticAvailability =
+        "unavailable";
+      semanticDocumentCount =
+        null;
+    }
+
+    semanticAvailabilityCheckedAt =
+      Date.now();
+
+    renderSearchEngineIndicator();
 
     window.clearInterval(
       progressTimer
@@ -4642,6 +4859,11 @@ function selectSearchMode(
       }
     );
 
+  setActiveEngine(
+    selectedSearchMode,
+    "selected"
+  );
+
   if (
     selectedSearchMode ===
     "semantic"
@@ -4651,6 +4873,8 @@ function selectSearchMode(
 
     input.placeholder =
       "Ej. ¿Qué relación hay entre lógica y ontología en Quine?";
+
+    void refreshSemanticAvailability();
 
     return;
   }
@@ -4706,6 +4930,34 @@ searchModeButtons
       );
     }
   );
+
+
+window.addEventListener(
+  "focus",
+  () => {
+    void refreshSemanticAvailability();
+  }
+);
+
+
+document.addEventListener(
+  "visibilitychange",
+  () => {
+    if (
+      document.visibilityState ===
+      "visible"
+    ) {
+      void refreshSemanticAvailability();
+    }
+  }
+);
+
+
+renderSearchEngineIndicator();
+void refreshSemanticAvailability({
+  force:
+    true
+});
 
 
 if (qwen3OptIn) {

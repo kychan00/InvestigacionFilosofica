@@ -18,6 +18,117 @@ export class SemanticApiError extends Error {
 }
 
 
+export async function checkPublicSemanticHealth(
+  {
+    signal,
+    fetchImpl = globalThis.fetch
+  } = {}
+) {
+  if (
+    typeof fetchImpl !==
+    "function"
+  ) {
+    throw new SemanticApiError(
+      "El navegador no dispone de fetch."
+    );
+  }
+
+  let response;
+
+  try {
+    response =
+      await fetchImpl(
+        `${SEMANTIC_API_ORIGIN}/health`,
+        {
+          method:
+            "GET",
+          headers: {
+            Accept:
+              "application/json"
+          },
+          signal
+        }
+      );
+  } catch (error) {
+    if (
+      error?.name ===
+      "AbortError"
+    ) {
+      throw error;
+    }
+
+    throw new SemanticApiError(
+      "El servidor semántico no está disponible."
+    );
+  }
+
+  if (!response.ok) {
+    throw new SemanticApiError(
+      `El servidor semántico respondió HTTP ${response.status}.`,
+      {
+        status:
+          response.status,
+        retryAfter:
+          response.headers.get(
+            "Retry-After"
+          )
+      }
+    );
+  }
+
+  let payload;
+
+  try {
+    payload =
+      await response.json();
+  } catch {
+    throw new SemanticApiError(
+      "El estado del servidor semántico no es válido."
+    );
+  }
+
+  const documents =
+    Number(
+      payload?.documents
+    );
+
+  if (
+    payload?.status !==
+      "ready" ||
+    !Number.isFinite(
+      documents
+    )
+  ) {
+    throw new SemanticApiError(
+      "El índice semántico todavía no está listo.",
+      {
+        status:
+          503
+      }
+    );
+  }
+
+  return {
+    status:
+      "ready",
+    documents:
+      Math.max(
+        0,
+        Math.trunc(
+          documents
+        )
+      ),
+    indexBuildId:
+      payload.index_build_id ||
+      null,
+    rerankerAvailable:
+      Boolean(
+        payload.reranker_available
+      )
+  };
+}
+
+
 function normalizedAuthors(authors) {
   return (authors || [])
     .map(

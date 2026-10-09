@@ -308,6 +308,128 @@ button {
 }
 
 
+.search-engine-indicator {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  width:
+    fit-content;
+
+  max-width:
+    100%;
+
+  margin:
+    9px 0 0;
+
+  padding:
+    6px 10px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, .2);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(7, 20, 15, .28);
+
+  color:
+    rgba(255, 255, 255, .86);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.35;
+}
+
+
+.availability-dot {
+  flex:
+    0 0 auto;
+
+  width:
+    8px;
+
+  height:
+    8px;
+
+  border-radius:
+    50%;
+
+  background:
+    #d9b85c;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(217, 184, 92, .16);
+}
+
+
+.search-engine-indicator[data-semantic-status="available"]
+.availability-dot {
+  background:
+    #74d69d;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(116, 214, 157, .16);
+}
+
+
+.search-engine-indicator[data-semantic-status="unavailable"]
+.availability-dot {
+  background:
+    #f0a68c;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(240, 166, 140, .16);
+}
+
+
+.engine-indicator-separator {
+  color:
+    rgba(255, 255, 255, .46);
+}
+
+
+@media (max-width: 620px) {
+  .search-engine-indicator {
+    align-items:
+      flex-start;
+
+    flex-wrap:
+      wrap;
+
+    border-radius:
+      14px;
+  }
+
+
+  .engine-indicator-separator {
+    display:
+      none;
+  }
+
+
+  #active-engine-text {
+    flex-basis:
+      100%;
+
+    padding-left:
+      15px;
+  }
+}
+
+
 .source-strip {
   margin-top:
     18px;

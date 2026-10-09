@@ -164,6 +164,35 @@
 
 
         <div
+          id="search-engine-indicator"
+          class="search-engine-indicator"
+          data-semantic-status="checking"
+          role="status"
+          aria-live="polite"
+        >
+          <span
+            class="availability-dot"
+            aria-hidden="true"
+          ></span>
+
+          <span id="semantic-availability-text">
+            Comprobando búsqueda semántica…
+          </span>
+
+          <span
+            class="engine-indicator-separator"
+            aria-hidden="true"
+          >
+            ·
+          </span>
+
+          <span id="active-engine-text">
+            Motor seleccionado: tradicional
+          </span>
+        </div>
+
+
+        <div
           id="status"
           class="status"
           aria-live="polite"

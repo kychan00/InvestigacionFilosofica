@@ -52,6 +52,21 @@ test(
     );
 
     assert.match(
+      html,
+      /id="search-engine-indicator"[\s\S]*data-semantic-status="checking"/u
+    );
+
+    assert.match(
+      app,
+      /checkPublicSemanticHealth\(/u
+    );
+
+    assert.match(
+      app,
+      /Motor usado/u
+    );
+
+    assert.match(
       app,
       /await runFederatedSearch\([\s\S]*fallbackReason:/u
     );
@@ -69,6 +84,11 @@ test(
     assert.match(
       css,
       /\.search-live-progress\.semantic-progress/u
+    );
+
+    assert.match(
+      css,
+      /data-semantic-status="available"/u
     );
   }
 );
