@@ -13,6 +13,13 @@ full-index semantic/reranker comparison preregistered in
 The 59 audit rows contain no condition, rank, score or membership provenance.
 Judgment fields are blank.
 
+## Frozen human return
+
+- `human-judgments.jsonl` is the exact byte-for-byte blind return.
+- `human-judgments-metadata.json` records its hash and the blind validation.
+
+The return was frozen before the internal A/B artifact was opened for analysis.
+
 ## Internal provenance
 
 - `freeze-metadata.json` records the hashes and completed execution contract.
