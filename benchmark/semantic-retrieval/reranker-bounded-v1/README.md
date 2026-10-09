@@ -7,6 +7,7 @@ full-index semantic/reranker comparison preregistered in
 ## Shareable with a reviewer
 
 - `blind-audit.jsonl`
+- `REVIEWER_INSTRUCTIONS.md`
 - the judgment instructions in the preregistration
 
 The 59 audit rows contain no condition, rank, score or membership provenance.
