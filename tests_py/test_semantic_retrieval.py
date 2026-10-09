@@ -120,6 +120,7 @@ class ConfigurationTests(unittest.TestCase):
         self.assertEqual(len(settings.reranker_model_revision), 40)
         self.assertEqual(len(settings.dataset_revision), 40)
         self.assertIn("philosophically relevant", settings.retrieval_instruction)
+        self.assertFalse(settings.enable_reranker)
 
 
 if __name__ == "__main__":

@@ -22,7 +22,7 @@ FAISS IndexIDMap2(IndexFlatIP) + SQLite metadata/FTS
         +--> lexical candidates
                  |
                  v
-Qwen/Qwen3-Reranker-0.6B (optional, enabled by default)
+Qwen/Qwen3-Reranker-0.6B (optional, disabled by default)
                  |
                  v
 top 15 results with semantic_score, lexical_score and rerank_score
@@ -112,7 +112,7 @@ For a small end-to-end smoke build:
 ```bash
 .venv-retrieval/bin/python scripts/retrieval/build_embeddings.py --limit 500
 .venv-retrieval/bin/python scripts/retrieval/build_faiss_index.py
-ENABLE_RERANKER=false .venv-retrieval/bin/python scripts/retrieval/search.py "Quine y el compromiso ontológico" --no-reranker
+.venv-retrieval/bin/python scripts/retrieval/search.py "Quine y el compromiso ontológico"
 ```
 
 For the complete pinned corpus, omit `--limit`. This is a long-running offline
@@ -120,11 +120,13 @@ job and should run on a machine with adequate accelerator, disk and memory.
 
 ## Phase 2 and 3: reranking and hybrid retrieval
 
-The reranker is lazy-loaded only when enabled. Both semantic and lexical
-candidates retain their original component scores before reranking.
+The reranker is lazy-loaded only when the operator explicitly enables it. Both
+semantic and lexical candidates retain their original component scores before
+reranking. It remains off by default because the bounded five-query evaluation
+did not improve its primary nDCG@10 metric.
 
 ```bash
-.venv-retrieval/bin/python scripts/retrieval/search.py "lógica y ontología en Frege" --mode hybrid
+ENABLE_RERANKER=true .venv-retrieval/bin/python scripts/retrieval/search.py "lógica y ontología en Frege" --mode hybrid --reranker
 ```
 
 The first hybrid version deliberately uses a simple union by stable document
@@ -155,6 +157,11 @@ RETRIEVAL_ARTIFACTS_DIR=artifacts/semantic-retrieval \
 Filters are deterministic metadata comparisons and do not use a model. Query
 embeddings have a bounded in-memory TTL cache keyed by normalized query, model,
 revision, dimension and retrieval instruction.
+
+`ENABLE_RERANKER=false` is the default server capability. A request may disable
+reranking on an enabled server, but it cannot activate the model when the
+server operator left it disabled. This prevents a public request from silently
+loading the slow model or changing the validated default ranking policy.
 
 Because the public frontend is static GitHub Pages, it must call a separately
 deployed HTTPS instance of this API. The frontend should not be switched until

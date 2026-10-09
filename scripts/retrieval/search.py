@@ -19,7 +19,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mode", choices=("semantic", "hybrid"), default="semantic")
     parser.add_argument("--limit", type=int, default=15)
     parser.add_argument("--artifacts-dir", type=Path)
-    parser.add_argument("--no-reranker", action="store_true")
+    reranker = parser.add_mutually_exclusive_group()
+    reranker.add_argument(
+        "--reranker",
+        dest="enable_reranker",
+        action="store_true",
+        help="Opt in to the configured Qwen reranker for this local search.",
+    )
+    reranker.add_argument(
+        "--no-reranker",
+        dest="enable_reranker",
+        action="store_false",
+        help="Disable reranking even when ENABLE_RERANKER is true.",
+    )
+    parser.set_defaults(enable_reranker=None)
     parser.add_argument("--year-from", type=int)
     parser.add_argument("--year-to", type=int)
     parser.add_argument("--language", action="append", default=[])
@@ -57,13 +70,19 @@ def main() -> None:
             args.query,
             limit=args.limit,
             filters=filters,
-            enable_reranker=not args.no_reranker,
+            enable_reranker=args.enable_reranker,
+        )
+        reranker_enabled = (
+            settings.enable_reranker
+            if args.enable_reranker is None
+            else args.enable_reranker
         )
         print(
             json.dumps(
                 {
                     "query": args.query,
                     "mode": args.mode,
+                    "reranker_enabled": reranker_enabled,
                     "results": [result.to_dict() for result in results],
                 },
                 ensure_ascii=False,

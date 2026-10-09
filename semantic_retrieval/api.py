@@ -75,6 +75,13 @@ class SearchResponse(BaseModel):
 settings = RetrievalSettings.from_env()
 
 
+def resolve_reranker_enabled(
+    server_enabled: bool, requested: bool | None
+) -> bool:
+    """A request may disable reranking, but cannot enable a disabled server."""
+    return server_enabled and requested is not False
+
+
 @lru_cache(maxsize=1)
 def get_service() -> RetrievalService:
     return RetrievalService(settings)
@@ -113,10 +120,14 @@ def health() -> dict:
         "documents": manifest["document_count"],
         "embedding_model": manifest["embedding_model"],
         "index_build_id": manifest["build_id"],
+        "reranker_available": settings.enable_reranker,
     }
 
 
 def _search(payload: SearchRequest, mode: Literal["semantic", "hybrid"]):
+    reranker_enabled = resolve_reranker_enabled(
+        settings.enable_reranker, payload.enable_reranker
+    )
     try:
         service = get_service()
         filters = payload.filters.to_domain()
@@ -125,14 +136,14 @@ def _search(payload: SearchRequest, mode: Literal["semantic", "hybrid"]):
                 payload.query,
                 limit=payload.limit,
                 filters=filters,
-                enable_reranker=payload.enable_reranker,
+                enable_reranker=reranker_enabled,
             )
         else:
             results = service.search_hybrid(
                 payload.query,
                 limit=payload.limit,
                 filters=filters,
-                enable_reranker=payload.enable_reranker,
+                enable_reranker=reranker_enabled,
             )
     except FileNotFoundError as error:
         raise HTTPException(status_code=503, detail=str(error)) from error
@@ -141,11 +152,6 @@ def _search(payload: SearchRequest, mode: Literal["semantic", "hybrid"]):
     except ValueError as error:
         raise HTTPException(status_code=400, detail=str(error)) from error
 
-    reranker_enabled = (
-        settings.enable_reranker
-        if payload.enable_reranker is None
-        else payload.enable_reranker
-    )
     return SearchResponse(
         query=payload.query,
         mode=mode,

@@ -41,7 +41,7 @@ class RetrievalSettings:
     reranker_model_revision: str = "e61197ed45024b0ed8a2d74b80b4d909f1255473"
     reranker_instruction: str = DEFAULT_RERANK_INSTRUCTION
     reranker_batch_size: int = 4
-    enable_reranker: bool = True
+    enable_reranker: bool = False
 
     search_candidates: int = 50
     rerank_results: int = 15

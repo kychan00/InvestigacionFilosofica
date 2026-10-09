@@ -5,11 +5,16 @@ import unittest
 try:
     from pydantic import ValidationError
 
-    from semantic_retrieval.api import SearchFiltersRequest, SearchRequest
+    from semantic_retrieval.api import (
+        SearchFiltersRequest,
+        SearchRequest,
+        resolve_reranker_enabled,
+    )
 except ImportError:
     SearchFiltersRequest = None
     SearchRequest = None
     ValidationError = ValueError
+    resolve_reranker_enabled = None
 
 
 @unittest.skipIf(
@@ -36,6 +41,13 @@ class SemanticApiContractTests(unittest.TestCase):
                 query="Kant",
                 filters={"year_from": 2020, "year_to": 1900},
             )
+
+    def test_request_cannot_enable_a_server_disabled_reranker(self):
+        self.assertFalse(resolve_reranker_enabled(False, True))
+        self.assertFalse(resolve_reranker_enabled(False, None))
+        self.assertTrue(resolve_reranker_enabled(True, True))
+        self.assertTrue(resolve_reranker_enabled(True, None))
+        self.assertFalse(resolve_reranker_enabled(True, False))
 
 
 if __name__ == "__main__":
