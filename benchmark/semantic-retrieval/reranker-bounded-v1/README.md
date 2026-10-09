@@ -37,6 +37,21 @@ result, and uses these fixed definitions:
 Results are descriptive for five queries and do not authorize a production
 change.
 
+## Frozen result
+
+The exact result is in `analysis.json`; `analysis-metadata.json` records its
+hash and independent recalculation.
+
+- Primary macro ΔnDCG@10 (B−A): `-0.001608360268`.
+- Secondary macro ΔP@10 (B−A): `+0.02`.
+- Secondary macro ΔP@5 (B−A): `0.0`.
+- Coverage: 5 queries, 59 completed judgments, 0 abstentions.
+- Data-quality observation: 2 exact-normalized-title duplicate-looking groups.
+
+The primary directional improvement was not observed. The small secondary
+changes are descriptive only; no significance claim or production promotion is
+supported by this five-query bounded evaluation.
+
 ## Internal provenance
 
 - `freeze-metadata.json` records the hashes and completed execution contract.

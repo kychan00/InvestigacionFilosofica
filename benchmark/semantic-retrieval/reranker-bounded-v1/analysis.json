@@ -1,0 +1,730 @@
+{
+  "aggregate": {
+    "primary_ndcg_at_10": {
+      "eligible_queries": 5,
+      "macro_a": 0.879667621334,
+      "macro_b": 0.878059261066,
+      "macro_delta_b_minus_a": -0.001608360268
+    },
+    "secondary_precision_at_10": {
+      "eligible_queries": 5,
+      "macro_a": 0.82,
+      "macro_b": 0.84,
+      "macro_delta_b_minus_a": 0.02
+    },
+    "secondary_precision_at_5": {
+      "eligible_queries": 5,
+      "macro_a": 0.88,
+      "macro_b": 0.88,
+      "macro_delta_b_minus_a": 0.0
+    }
+  },
+  "coverage": {
+    "abstentions": 0,
+    "blind_union_documents": 59,
+    "completed_judgments": 59,
+    "queries": 5
+  },
+  "data_quality": {
+    "duplicate_looking_group_count": 2,
+    "duplicate_looking_groups": [
+      {
+        "basis": "exact_normalized_title",
+        "document_ids": [
+          "openalex-W2211243423",
+          "openalex-W7069018285",
+          "openalex-W7084231554"
+        ],
+        "normalized_value": "quine and ontology",
+        "query_id": "sem-v1-001"
+      },
+      {
+        "basis": "exact_normalized_title",
+        "document_ids": [
+          "openalex-W2313654466",
+          "openalex-W2332194292"
+        ],
+        "normalized_value": "frege s ontology",
+        "query_id": "sem-v1-004"
+      }
+    ],
+    "duplicate_looking_rule": "different document IDs with an exact normalized DOI or exact normalized title within one query union"
+  },
+  "experiment_id": "semantic-reranker-bounded-v1",
+  "input_hashes": {
+    "ab_sha256": "2787efeb33c301ea3c83081fafffd3622073f01ad08e9f97f6b43eb0525c276a",
+    "human_judgments_sha256": "cc7fbd39d9ace255918d81581f59b1ab96d1c3688ff3e7b5e0e904c1a3f81f0e"
+  },
+  "interpretation_limits": {
+    "production_change_authorized": false,
+    "scope": "five-query bounded engineering evaluation",
+    "significance_claim": false
+  },
+  "metric_definitions": {
+    "abstention_rule": "exclude a query from a metric when an abstention is required by that metric",
+    "binary_relevance_threshold": 2,
+    "ndcg_discount": "log2(rank+1)",
+    "ndcg_gain": "2^relevance-1",
+    "ndcg_ideal": "top 10 graded judgments from the per-query A/B Top-10 union"
+  },
+  "per_query": [
+    {
+      "abstentions": 0,
+      "metrics": {
+        "ndcg_at_10": {
+          "a": 1.0,
+          "b": 1.0,
+          "delta_b_minus_a": 0.0
+        },
+        "precision_at_10": {
+          "a": 1.0,
+          "b": 1.0,
+          "delta_b_minus_a": 0.0
+        },
+        "precision_at_5": {
+          "a": 1.0,
+          "b": 1.0,
+          "delta_b_minus_a": 0.0
+        }
+      },
+      "query": "¿Qué relación existe entre Quine y el compromiso ontológico?",
+      "query_id": "sem-v1-001",
+      "rank_changes": [
+        {
+          "abstain": false,
+          "document_id": "openalex-W2064418209",
+          "rank_a": 4,
+          "rank_b": 8,
+          "rank_shift_a_minus_b": -4,
+          "relevance": 3,
+          "title": "Quine on ?ontological commitment?"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2211243423",
+          "rank_a": 1,
+          "rank_b": 2,
+          "rank_shift_a_minus_b": -1,
+          "relevance": 3,
+          "title": "Quine and Ontology"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2351659844",
+          "rank_a": 7,
+          "rank_b": 5,
+          "rank_shift_a_minus_b": 2,
+          "relevance": 3,
+          "title": "A Study on Quine's \"Ontological Commitment\" and Its Value"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2352948715",
+          "rank_a": null,
+          "rank_b": 10,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "On W. Quine's Deconstruction of Metaphysical Ontology"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2917969929",
+          "rank_a": 10,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "Resolving Scheffler and Chomsky’s Problems on Quine’s Criterion of Ontological Commitments"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W3010593892",
+          "rank_a": 6,
+          "rank_b": 9,
+          "rank_shift_a_minus_b": -3,
+          "relevance": 3,
+          "title": "The logic behind Quine's criterion of ontological commitment"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W3111198217",
+          "rank_a": 5,
+          "rank_b": 1,
+          "rank_shift_a_minus_b": 4,
+          "relevance": 3,
+          "title": "Quine’s Ontology"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4252299059",
+          "rank_a": 8,
+          "rank_b": 7,
+          "rank_shift_a_minus_b": 1,
+          "relevance": 3,
+          "title": "Ontology, Analyticity, and Meaning"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W6996017243",
+          "rank_a": 9,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "On Quine's Ontology: quantification, extensionality and naturalism (or from commitment to indifference)"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7069018285",
+          "rank_a": 2,
+          "rank_b": 3,
+          "rank_shift_a_minus_b": -1,
+          "relevance": 3,
+          "title": "Quine and Ontology"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7082815640",
+          "rank_a": null,
+          "rank_b": 6,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "Quine on ontological commitment and underdetermination"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7084231554",
+          "rank_a": 3,
+          "rank_b": 4,
+          "rank_shift_a_minus_b": -1,
+          "relevance": 3,
+          "title": "Quine and Ontology"
+        }
+      ],
+      "union_documents": 12
+    },
+    {
+      "abstentions": 0,
+      "metrics": {
+        "ndcg_at_10": {
+          "a": 0.747542154158,
+          "b": 0.69925569063,
+          "delta_b_minus_a": -0.048286463528
+        },
+        "precision_at_10": {
+          "a": 0.4,
+          "b": 0.4,
+          "delta_b_minus_a": 0.0
+        },
+        "precision_at_5": {
+          "a": 0.6,
+          "b": 0.4,
+          "delta_b_minus_a": -0.2
+        }
+      },
+      "query": "Críticas contemporáneas a la estética trascendental de Kant",
+      "query_id": "sem-v1-002",
+      "rank_changes": [
+        {
+          "abstain": false,
+          "document_id": "openalex-W141593318",
+          "rank_a": 4,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 0,
+          "title": "La historia del concepto de transcendenciad en el pensamiento filosófico de la edad contemporánea a partir de Kant"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W172492819",
+          "rank_a": 9,
+          "rank_b": 3,
+          "rank_shift_a_minus_b": 6,
+          "relevance": 0,
+          "title": "Kants transzendentale Grundlegung der Autonomieästhetik der Moderne in der „Kritik der Urteilskraft“ als Voraussetzung eines neuen Bildungsprojekts — Rekonstruktion der Ansatzpunkte für die „Versprechungen des Ästhetischen“"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W179063408",
+          "rank_a": 6,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 1,
+          "title": "Kant’s Criticism and the Legacy of Modern Scepticism"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2129724470",
+          "rank_a": null,
+          "rank_b": 10,
+          "rank_shift_a_minus_b": null,
+          "relevance": 1,
+          "title": "KANT'S TRANSCENDENTAL STRATEGY"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2507424853",
+          "rank_a": 8,
+          "rank_b": 5,
+          "rank_shift_a_minus_b": 3,
+          "relevance": 2,
+          "title": "The Discussion of Kant’s Transcendental Aesthetic"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2566301543",
+          "rank_a": 10,
+          "rank_b": 4,
+          "rank_shift_a_minus_b": 6,
+          "relevance": 1,
+          "title": "IX.—Kant's Transcendental Æsthetic, with Some of its Ulterior Bearings"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2981089752",
+          "rank_a": 7,
+          "rank_b": 2,
+          "rank_shift_a_minus_b": 5,
+          "relevance": 1,
+          "title": "Kantian Transcendentalism in Contemporary Philosophical Discussions. Report of the “Transcendental Turn in Contemporary Philosophy-3” International Workshop"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W3162336370",
+          "rank_a": 1,
+          "rank_b": 1,
+          "rank_shift_a_minus_b": 0,
+          "relevance": 2,
+          "title": "Consideraciones acerca de la estética trascendental kantiana, II parte"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4388254368",
+          "rank_a": null,
+          "rank_b": 8,
+          "rank_shift_a_minus_b": null,
+          "relevance": 1,
+          "title": "Epistemic Reflection and Transcendental Proof"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W6994251083",
+          "rank_a": 3,
+          "rank_b": 6,
+          "rank_shift_a_minus_b": -3,
+          "relevance": 3,
+          "title": ""
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W6996958834",
+          "rank_a": 5,
+          "rank_b": 9,
+          "rank_shift_a_minus_b": -4,
+          "relevance": 2,
+          "title": "Teoria crítica da sensibilidade e contrapartidas incongruentes em Kant"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7048263773",
+          "rank_a": 2,
+          "rank_b": 7,
+          "rank_shift_a_minus_b": -5,
+          "relevance": 1,
+          "title": "La crítica de Hegel al enfoque trascendental kantiano"
+        }
+      ],
+      "union_documents": 12
+    },
+    {
+      "abstentions": 0,
+      "metrics": {
+        "ndcg_at_10": {
+          "a": 1.0,
+          "b": 0.955200989155,
+          "delta_b_minus_a": -0.044799010845
+        },
+        "precision_at_10": {
+          "a": 1.0,
+          "b": 1.0,
+          "delta_b_minus_a": 0.0
+        },
+        "precision_at_5": {
+          "a": 1.0,
+          "b": 1.0,
+          "delta_b_minus_a": 0.0
+        }
+      },
+      "query": "Interpretaciones del argumento del lenguaje privado de Wittgenstein",
+      "query_id": "sem-v1-003",
+      "rank_changes": [
+        {
+          "abstain": false,
+          "document_id": "openalex-W1491848614",
+          "rank_a": 10,
+          "rank_b": 3,
+          "rank_shift_a_minus_b": 7,
+          "relevance": 3,
+          "title": "Wittgenstein on private language and privat mental objects."
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2352013876",
+          "rank_a": 8,
+          "rank_b": 2,
+          "rank_shift_a_minus_b": 6,
+          "relevance": 3,
+          "title": "Wittgenstein's Arguments of Anti-Private language"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2380766582",
+          "rank_a": 6,
+          "rank_b": 10,
+          "rank_shift_a_minus_b": -4,
+          "relevance": 3,
+          "title": "On Wittgenstein's Arguments of Anti-private Language"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2494617418",
+          "rank_a": null,
+          "rank_b": 8,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "Wittgenstein's Private Language Investigation"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2613435950",
+          "rank_a": 3,
+          "rank_b": 1,
+          "rank_shift_a_minus_b": 2,
+          "relevance": 3,
+          "title": "Private language argument"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W3158859312",
+          "rank_a": 7,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "The “grammatical” nature of Wittgenstein's private language investigation"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4205997384",
+          "rank_a": 1,
+          "rank_b": 9,
+          "rank_shift_a_minus_b": -8,
+          "relevance": 3,
+          "title": "Private Language"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4249045063",
+          "rank_a": null,
+          "rank_b": 6,
+          "rank_shift_a_minus_b": null,
+          "relevance": 2,
+          "title": "An overview of the achievement of the private language arguments"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4408220181",
+          "rank_a": 5,
+          "rank_b": 5,
+          "rank_shift_a_minus_b": 0,
+          "relevance": 3,
+          "title": "Private Language in <i>Philosophical Investigation</i>s"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7020911213",
+          "rank_a": 2,
+          "rank_b": 7,
+          "rank_shift_a_minus_b": -5,
+          "relevance": 3,
+          "title": "Linguagem privada, significado e comunitarismo nas Investiga????es Filos??ficas de Wittgenstein"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7034842539",
+          "rank_a": 9,
+          "rank_b": 4,
+          "rank_shift_a_minus_b": 5,
+          "relevance": 3,
+          "title": "Wittgenstein on private language and privat mental objects.\\n\\n"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7057614804",
+          "rank_a": 4,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "Karczmarczyk, P.: \"El argumento del lenguaje privado a contrapelo\""
+        }
+      ],
+      "union_documents": 12
+    },
+    {
+      "abstentions": 0,
+      "metrics": {
+        "ndcg_at_10": {
+          "a": 0.78392025045,
+          "b": 0.82983518409,
+          "delta_b_minus_a": 0.04591493364
+        },
+        "precision_at_10": {
+          "a": 0.8,
+          "b": 0.8,
+          "delta_b_minus_a": 0.0
+        },
+        "precision_at_5": {
+          "a": 0.8,
+          "b": 1.0,
+          "delta_b_minus_a": 0.2
+        }
+      },
+      "query": "La relación entre lógica y ontología en Frege",
+      "query_id": "sem-v1-004",
+      "rank_changes": [
+        {
+          "abstain": false,
+          "document_id": "openalex-W1549887301",
+          "rank_a": 4,
+          "rank_b": 2,
+          "rank_shift_a_minus_b": 2,
+          "relevance": 2,
+          "title": "Building on Frege: New Essays about Sense, Content and Concepts"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2176156780",
+          "rank_a": 3,
+          "rank_b": 8,
+          "rank_shift_a_minus_b": -5,
+          "relevance": 3,
+          "title": "Frege: lógica e linguagem"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2210619532",
+          "rank_a": null,
+          "rank_b": 10,
+          "rank_shift_a_minus_b": null,
+          "relevance": 1,
+          "title": "Frege"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2313654466",
+          "rank_a": 10,
+          "rank_b": 7,
+          "rank_shift_a_minus_b": 3,
+          "relevance": 2,
+          "title": "Frege's Ontology"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2332194292",
+          "rank_a": 9,
+          "rank_b": 6,
+          "rank_shift_a_minus_b": 3,
+          "relevance": 2,
+          "title": "Frege's Ontology"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2333407422",
+          "rank_a": 8,
+          "rank_b": 4,
+          "rank_shift_a_minus_b": 4,
+          "relevance": 2,
+          "title": "An Apparent Difficulty in Frege's Ontology"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4307260830",
+          "rank_a": 2,
+          "rank_b": 9,
+          "rank_shift_a_minus_b": -7,
+          "relevance": 0,
+          "title": "LOGIC AND ONTOLOGY FROM THE PERSPECTIVE OF PHENOMENOLOGY IN HUSSERL AND HEIDEGGER"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4389157523",
+          "rank_a": 5,
+          "rank_b": 5,
+          "rank_shift_a_minus_b": 0,
+          "relevance": 2,
+          "title": "Fregego krytyka dowodu ontologicznego (FREGE'S CRITICISM OF THE ONTOLOGICAL ARGUMENT)"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W45334113",
+          "rank_a": 1,
+          "rank_b": 1,
+          "rank_shift_a_minus_b": 0,
+          "relevance": 2,
+          "title": "AND THE WORD BECAME FLESH: LOGIC AND THE ONTOLOGICAL ARGUMENT IN LEIBNIZ, KANT AND FREGE"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7047863913",
+          "rank_a": 6,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 0,
+          "title": "Hegel and metaphysics on logic and ontology in the system"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7099343990",
+          "rank_a": 7,
+          "rank_b": 3,
+          "rank_shift_a_minus_b": 4,
+          "relevance": 2,
+          "title": "Epistemology and Ontology in Frege and Peirce: On Thoughts and Generals* Epistemologia e Ontologia em Frege e Peirce:"
+        }
+      ],
+      "union_documents": 11
+    },
+    {
+      "abstentions": 0,
+      "metrics": {
+        "ndcg_at_10": {
+          "a": 0.866875702061,
+          "b": 0.906004441453,
+          "delta_b_minus_a": 0.039128739392
+        },
+        "precision_at_10": {
+          "a": 0.9,
+          "b": 1.0,
+          "delta_b_minus_a": 0.1
+        },
+        "precision_at_5": {
+          "a": 1.0,
+          "b": 1.0,
+          "delta_b_minus_a": 0.0
+        }
+      },
+      "query": "Críticas a la teoría marxiana del valor",
+      "query_id": "sem-v1-005",
+      "rank_changes": [
+        {
+          "abstain": false,
+          "document_id": "openalex-W1912869553",
+          "rank_a": 6,
+          "rank_b": 10,
+          "rank_shift_a_minus_b": -4,
+          "relevance": 2,
+          "title": "Sobre a leitura ricardiana de Marx"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W1985409187",
+          "rank_a": 8,
+          "rank_b": 2,
+          "rank_shift_a_minus_b": 6,
+          "relevance": 2,
+          "title": "Reglas sociales y comportamiento prudencial en la teoría laboral del valor"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2003022271",
+          "rank_a": null,
+          "rank_b": 6,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "On Replacing Labor as the Substance of Value: Early and Recent Arguments"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2141127674",
+          "rank_a": 1,
+          "rank_b": 5,
+          "rank_shift_a_minus_b": -4,
+          "relevance": 3,
+          "title": "La teoría marxista del valor: Balance crítico de los debates recientes"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2382101162",
+          "rank_a": 9,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 1,
+          "title": "Emphasizing Researches on Marx's Theory of Value"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W2978140066",
+          "rank_a": 3,
+          "rank_b": 1,
+          "rank_shift_a_minus_b": 2,
+          "relevance": 3,
+          "title": "Valor e moeda em Marx: crítica da crítica"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W3089531365",
+          "rank_a": 4,
+          "rank_b": null,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "Towards a renewal of the Marxist Theory of Value. Recent debates"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W3092630894",
+          "rank_a": 10,
+          "rank_b": 8,
+          "rank_shift_a_minus_b": 2,
+          "relevance": 2,
+          "title": "Post-Marxist reflections on the value of our time. Value theory and the (in)compatibility of discourse theory and the critique of political economy"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W4226195152",
+          "rank_a": 5,
+          "rank_b": 7,
+          "rank_shift_a_minus_b": -2,
+          "relevance": 2,
+          "title": "Hacia una renovación de la teoría marxista del valor. Debates recientes (Towards a Renewal of the Marxist Theory of Value. Recent Debates)"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W6986900749",
+          "rank_a": 7,
+          "rank_b": 9,
+          "rank_shift_a_minus_b": -2,
+          "relevance": 2,
+          "title": "A recusa de Marx da teoria do valor"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7112184944",
+          "rank_a": null,
+          "rank_b": 3,
+          "rank_shift_a_minus_b": null,
+          "relevance": 3,
+          "title": "Value and currency in Marx: critique of critique"
+        },
+        {
+          "abstain": false,
+          "document_id": "openalex-W7126879626",
+          "rank_a": 2,
+          "rank_b": 4,
+          "rank_shift_a_minus_b": -2,
+          "relevance": 3,
+          "title": "¿Un Marx sin economía? Crítica de la teoría del valor como 'análisis de las formas'"
+        }
+      ],
+      "union_documents": 12
+    }
+  ],
+  "schema_version": "semantic-reranker-bounded-analysis-v1",
+  "status": "descriptive_complete"
+}

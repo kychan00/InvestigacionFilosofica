@@ -1,0 +1,22 @@
+{
+  "schema_version": "semantic-reranker-bounded-analysis-freeze-v1",
+  "experiment_id": "semantic-reranker-bounded-v1",
+  "status": "analysis_frozen",
+  "local_date": "2026-10-09",
+  "judgments_freeze_commit": "10a2802",
+  "analyzer_freeze_commit": "9235d54",
+  "ab_sha256": "2787efeb33c301ea3c83081fafffd3622073f01ad08e9f97f6b43eb0525c276a",
+  "human_judgments_sha256": "cc7fbd39d9ace255918d81581f59b1ab96d1c3688ff3e7b5e0e904c1a3f81f0e",
+  "analysis_sha256": "f21d7c6b5c9b55477a8519de8ed2d04c07a0c21b2fa8b75ec2ab81f3678e6cf2",
+  "analyzer_sha256": "169c4b78ab8d05232e1d150d8e2015361c73d0f2fc37a3fe113b1e6144dfc611",
+  "query_count": 5,
+  "judgment_count": 59,
+  "abstentions": 0,
+  "independent_recalculation": "passed",
+  "primary_macro_delta_ndcg_at_10_b_minus_a": -0.001608360268,
+  "secondary_macro_delta_precision_at_10_b_minus_a": 0.02,
+  "secondary_macro_delta_precision_at_5_b_minus_a": 0.0,
+  "primary_directional_improvement_observed": false,
+  "significance_claim": false,
+  "production_change_authorized": false
+}
