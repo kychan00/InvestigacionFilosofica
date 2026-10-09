@@ -31,6 +31,10 @@ top 15 results with semantic_score, lexical_score and rerank_score
 The embedding and index jobs are offline. A search request never traverses the
 whole corpus and never rebuilds embeddings or FAISS.
 
+The full V3.3 embedding store and semantic index were completed and validated
+on 2026-10-09. The index contains 451,823 vectors and matching SQLite/FTS rows;
+see [`SEMANTIC_INDEX_V3_3.md`](SEMANTIC_INDEX_V3_3.md) for hashes and checks.
+
 FAISS search runs in a persistent local worker process. This is an intentional
 native-runtime boundary: on macOS, executing `faiss-cpu` and PyTorch in one
 process caused reproducible interpreter crashes. The query model stays loaded
@@ -154,7 +158,8 @@ revision, dimension and retrieval instruction.
 
 Because the public frontend is static GitHub Pages, it must call a separately
 deployed HTTPS instance of this API. The frontend should not be switched until
-the full index is built, the benchmark is reviewed and an API host is selected.
+the completed full index is archived or hosted, the benchmark is reviewed and
+an API host is selected.
 
 ## Evaluation
 
@@ -220,14 +225,16 @@ documented in
 [`SEMANTIC_RETRIEVAL_SMOKE_V3_3.md`](SEMANTIC_RETRIEVAL_SMOKE_V3_3.md): 20
 documents were embedded on Apple MPS, FAISS validation passed, semantic search
 and the frozen reranker returned the expected document first, and both API
-probes returned HTTP 200. The full build is permitted but awaits storage that
-can safely hold the complete offline bundle.
+probes returned HTTP 200. The full embedding build and full semantic index are
+now complete. Their contracts and hashes are documented in
+[`ICLOUD_EMBEDDING_ARCHIVE.md`](ICLOUD_EMBEDDING_ARCHIVE.md) and
+[`SEMANTIC_INDEX_V3_3.md`](SEMANTIC_INDEX_V3_3.md).
 
 A free, resumable iCloud shard archive is now validated and documented in
 [`ICLOUD_EMBEDDING_ARCHIVE.md`](ICLOUD_EMBEDDING_ARCHIVE.md). A 100-document
 smoke generated four real Qwen3 shards in 46 seconds; every shard plus the
 manifest and state database passed upload, eviction, redownload and exact hash
-verification. The guarded full-build runner moves each completed shard out of
-local storage while retaining only the small resumable state. The mass build
-has not started because the smoke left the current macOS session with a large
-swap allocation and insufficient safe free-disk margin.
+verification. The guarded full build later completed all 451,823 documents in
+402 shards. Those shards were materialized once for index construction,
+verified again by the indexer and finally returned to zero-block iCloud
+placeholders.

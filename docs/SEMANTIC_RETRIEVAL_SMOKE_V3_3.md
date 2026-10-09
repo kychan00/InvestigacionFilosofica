@@ -1,6 +1,6 @@
 # Semantic retrieval real-model smoke: V3.3
 
-**Local date:** 2026-10-06
+**Local date:** 2026-10-09
 
 **Gate:** `PASS`
 
@@ -102,9 +102,15 @@ The API was started against the smoke bundle and exercised over HTTP:
 `PASS`
 
 The V3.3 material-quality gate and the required real-model smoke are complete.
-A full offline embedding build is now scientifically permitted. It has not
-been started: the workstation had only 7.5 GiB free, while a 451,823-document
-bundle must hold the vectors plus repeated document metadata, SQLite state and
-the FAISS publication bundle. The full build therefore requires external or
-additional storage and must preserve the pinned contracts above.
+The subsequently authorized full offline embedding build also completed under
+the same frozen corpus and embedding contracts: 451,823 documents, 402 ordered
+Parquet shards and matching SQLite/manifest counts. Every canonical shard was
+verified through its iCloud receipt and finally evicted to a zero-block local
+placeholder. The complete build result and hashes are recorded in
+`docs/ICLOUD_EMBEDDING_ARCHIVE.md`.
 
+The persistent full-corpus index was subsequently built and validated as a
+separate gate. Its counts, hashes and functional smoke are documented in
+`docs/SEMANTIC_INDEX_V3_3.md`. Human review, reranker comparison and serving
+remain separate gates, and no production or frontend integration follows from
+this smoke or build.

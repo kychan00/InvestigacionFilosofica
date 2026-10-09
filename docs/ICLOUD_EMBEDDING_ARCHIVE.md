@@ -1,8 +1,10 @@
 # Free iCloud embedding archive
 
-**Local date:** 2026-10-06
+**Local date:** 2026-10-09
 
 **100-document gate:** `PASS`
+
+**Full V3.3 build:** `PASS`
 
 ## Purpose
 
@@ -88,14 +90,37 @@ local shards to a fresh iCloud prefix, confirmed 100 unchanged documents and
 archived verified manifest/state copies. Only the two small resumable-state
 files remained in the local `embeddings/` directory.
 
-## Operational constraint
+## Full V3.3 build result
 
-The smoke caused macOS to retain approximately 2.6 GiB of encrypted swap after
-the model process exited. Available disk fell to about 3.4 GiB. The complete
-build must therefore not start in the current session. Restart the workstation
-first, recheck free space and run the guarded command only when the local
-working margin is healthy. Omitting `--limit` also requires the explicit
-`--confirm-full-build` flag.
+The guarded build completed on 2026-10-09 with the frozen V3.3 corpus and model
+contracts. It produced embeddings for all 451,823 eligible documents in 402
+ordered Parquet shards. The final shard contains vector IDs 450,626 through
+451,822 and has SHA-256
+`d5414b7857246dba55cde84899e2c75c98f6177eb9b8032a9dca08c13d6e3256`.
+
+Independent final checks confirmed:
+
+- SQLite contains exactly 451,823 embedded documents;
+- the manifest declares 451,823 rows across exactly 402 shards;
+- 402 shard receipts exist and match the manifest set;
+- the canonical iCloud shard directory contains exactly 402 placeholders;
+- all canonical placeholders occupy zero local blocks after final eviction;
+- the local working shard directory contains no completed shard files;
+- the archived SQLite state has SHA-256
+  `79302121abbd35c54136b2cc8d238a562e8964b5737bdd77a935f2aca3401af1`;
+- the local manifest has SHA-256
+  `1facaac58b4e4113d9d40ffceeb93ee64f3e35755a701b7dd6433a0b8339af44`;
+- the final summary reports exact roundtrip hashes and final eviction for every
+  file archived in the completing run.
+
+One duplicate file created during manual web recovery was removed from the
+canonical shard namespace without deleting it: it remains quarantined under
+`recovery-unreferenced/`. It is not referenced by the manifest, receipts or
+resumable state and therefore cannot enter index construction.
+
+The completed shards contain 2,829,334,705 logical bytes. Their local allocation
+is zero after eviction. The workstation retained approximately 54 GiB free at
+final validation; encrypted swap remained below the safety threshold.
 
 ## Commands
 
@@ -120,5 +145,8 @@ RETRIEVAL_DEVICE=mps EMBEDDING_BATCH_SIZE=1 \
   --confirm-full-build
 ```
 
-The full command is documented for reproducibility; it has not been executed.
-
+This exact guarded command completed the full build. The persistent full-corpus
+index was then built and validated from the frozen manifest and verified iCloud
+shards; see `docs/SEMANTIC_INDEX_V3_3.md`. The 402 source shards were evicted
+again after index construction and occupy zero local blocks. No production
+integration is implied by either result.
