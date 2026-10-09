@@ -93,3 +93,27 @@ The integration preserves the operational boundary:
 The integration changes neither `src/core/rank.js` nor the existing production
 retrieval pipeline. The API remains available only while the Mac is awake,
 connected and logged in; the fallback keeps the public page useful otherwise.
+
+## Availability and active-engine indicator
+
+The production frontend added an explicit operational indicator on 2026-10-09
+through merge commit `68eb2a223e53e87f8bea72239f1f943b6d7b36ed` (PR 13).
+GitHub Pages workflow `37987230177` passed its test and deploy jobs.
+
+The indicator:
+
+- calls the lightweight, unmetered `GET /health` route at page load and after a
+  stale focus/visibility return;
+- does not load the embedding model, run inference or consume the search rate
+  limit;
+- displays `Semántica disponible` with the document count only after a valid
+  `status = ready` response;
+- otherwise displays `Semántica no disponible` while leaving the traditional
+  engine usable;
+- distinguishes the selected, currently active and finally used engine;
+- marks a semantic failure followed by federated retrieval as `respaldo
+  automático`.
+
+The traditional engine remains selected by default. The health result is
+advisory: every semantic request still retains its runtime fallback because
+availability can change after the check.

@@ -180,6 +180,10 @@ limits and smoke hashes are documented in
 integration is now deployed on GitHub Pages: it reports elapsed search time,
 forces reranking off, labels cosine similarity separately from relevance and
 falls back to the traditional search when the Mac/API is unavailable or busy.
+The page also checks the lightweight `/health` route and visibly identifies
+semantic availability plus the selected, active and ultimately used engine.
+That indicator does not replace the request-time fallback and does not consume
+the inference rate limit.
 
 ## Evaluation
 
