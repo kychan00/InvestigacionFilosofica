@@ -2,7 +2,7 @@
 type: architecture-gate
 area: retrieval
 status: passed
-updated: 2026-10-06
+updated: 2026-10-09
 ---
 
 # Archivo de embeddings en iCloud
@@ -60,18 +60,31 @@ documentos sin cambios y no regeneró embeddings.
 Hashes completos, tamaños, comandos y contratos ejecutables permanecen en
 `docs/ICLOUD_EMBEDDING_ARCHIVE.md` del worktree de código.
 
-## Límite operativo actual
+## Build completo V3.3
 
-El gate no autoriza todavía iniciar el build completo en la sesión actual. La
-prueba dejó aproximadamente 2,6 GiB de swap y sólo unos 3,4 GiB libres. El paso
-siguiente es reiniciar el Mac, comprobar de nuevo el margen local y sólo
-entonces ejecutar el runner protegido. La ejecución sin `--limit` exige además
-la bandera explícita `--confirm-full-build`.
+El build protegido terminó el 2026-10-09 con los contratos fijados del corpus
+V3.3 y `Qwen3-Embedding-0.6B`: 451.823 documentos, 402 shards Parquet ordenados
+y 451.823 filas tanto en SQLite como en el manifest. Los 402 recibos coinciden
+con el conjunto del manifest y el directorio canónico de iCloud contiene
+exactamente 402 placeholders con cero bloques locales asignados.
 
-Aunque los shards se archiven progresivamente, el proceso necesita espacio
-temporal para el modelo, el batch fuente y cada shard abierto. El índice FAISS
-completo y su metadata activa requerirán una decisión separada de serving y
-almacenamiento.
+El estado SQLite archivado tiene SHA-256
+`79302121abbd35c54136b2cc8d238a562e8964b5737bdd77a935f2aca3401af1`.
+El último shard cubre los IDs vectoriales 450.626–451.822 y tiene SHA-256
+`d5414b7857246dba55cde84899e2c75c98f6177eb9b8032a9dca08c13d6e3256`.
+La validación final confirmó hashes de ida y vuelta, expulsión local, conteos,
+orden y correspondencia exacta entre manifest, recibos y placeholders.
+
+Un duplicado creado durante una recuperación manual por web quedó fuera del
+namespace canónico, conservado bajo `recovery-unreferenced/` y sin referencia
+desde manifest, recibos o estado reanudable. No forma parte del corpus ni puede
+entrar a la indexación.
+
+El gate separado del índice completo aprobó después de esta etapa; véase
+[[Full-Semantic-Index-V3.3]]. Los 402 shards se expulsaron nuevamente tras la
+construcción y ocupan cero bloques locales. Ni la terminación de embeddings ni
+la del índice autorizan por sí solas serving, integración del frontend o
+cambios de producción.
 
 ## Canonicalidad
 

@@ -2,7 +2,7 @@
 type: architecture
 area: retrieval
 status: implementation
-updated: 2026-10-06
+updated: 2026-10-09
 ---
 
 # Servicio de recuperación semántica
@@ -86,22 +86,22 @@ Por tanto:
 - el smoke V3.3 real aprobó embedding, FAISS, búsqueda semántica, reranking y API sobre veinte documentos;
 - el batch local de embeddings debe ser 1 en este Mac: el valor 16 excedió el límite MPS antes de escribir resultados;
 - [[ICloud-Embedding-Archive]] aprobó la ruta gratuita de archivo incremental: cien documentos reales produjeron cuatro shards y seis archivos verificaron subida, expulsión local, descarga y hashes exactos;
-- los placeholders finales conservaron 892.051 bytes lógicos con cero bloques locales asignados; manifest y SQLite permanecen como estado reanudable;
-- no existe todavía índice completo;
+- el build completo V3.3 terminó con 451.823 embeddings en 402 shards ordenados; SQLite, manifest, recibos y placeholders coinciden exactamente;
+- los 402 shards canónicos ocupan cero bloques locales tras la expulsión final y conservan 2.829.334.705 bytes lógicos en iCloud; manifest y SQLite permanecen como estado reanudable;
+- [[Full-Semantic-Index-V3.3]] aprobó: 451.823 vectores, metadata y filas FTS, con IDs continuos, hashes congelados y autoconsistencia Top 1;
+- el smoke de corpus completo ejecutó las cinco consultas internas en modos semántico e híbrido, sin reranker ni labels humanos, y la API local respondió HTTP 200;
 - no existe todavía benchmark humano de resultados;
 - no se desplegó la API;
 - no se conectó el frontend público.
 
 ## Próximos gates
 
-1. Reiniciar el Mac y comprobar de nuevo espacio libre y swap.
-2. Ejecutar una sola instancia del runner protegido hacia iCloud con la revisión V3.3, los modelos fijados y confirmación explícita del build completo.
-3. Construir y validar el índice completo.
-4. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
-5. Ejecutar el benchmark interno con y sin reranker.
-6. Revisar manualmente relevancia, precisión, multilingüismo y falsos positivos.
-7. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
-8. Sólo después integrar el frontend mediante una bandera o rollout controlado.
+1. Congelar el protocolo de revisión humana de las cinco consultas internas.
+2. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
+3. Ejecutar una comparación acotada con y sin reranker.
+4. Revisar manualmente relevancia, precisión, multilingüismo, duplicados y falsos positivos.
+5. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
+6. Sólo después integrar el frontend mediante una bandera o rollout controlado.
 
 ## Canonicalidad
 

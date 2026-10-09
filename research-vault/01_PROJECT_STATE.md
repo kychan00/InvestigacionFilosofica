@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-10-06
+updated: 2026-10-09
 status: design
 ---
 
@@ -48,7 +48,7 @@ Parquet fijado en Hugging Face
 → API desacoplada
 ```
 
-Estado al 2026-10-06:
+Estado al 2026-10-09:
 
 - implementación modular creada en una rama aislada del repositorio;
 - generación inicial e incremental separada de la indexación;
@@ -67,11 +67,14 @@ Estado al 2026-10-06:
 - el batch 16 agotó el límite MPS de 9,07 GiB antes de escribir un shard; batch 1 completó 20/20 embeddings sin cambiar el contrato científico;
 - el gate gratuito de archivo en iCloud aprobó con cien documentos reales: cuatro shards, manifest y estado SQLite pasaron subida, expulsión local, descarga y comparación SHA-256;
 - los seis archivos de la prueba conservan 892.051 bytes lógicos y ocupan cero bloques locales tras la expulsión final; el runner reanudable conserva localmente sólo manifest y SQLite;
-- el build masivo está permitido científicamente pero no ha comenzado: el smoke dejó aproximadamente 2,6 GiB de swap y 3,4 GiB libres, por lo que antes se debe reiniciar el Mac y repetir el preflight de disco;
-- el índice completo y el benchmark humano aún no se han construido;
+- el build completo V3.3 terminó con los contratos fijados: 451.823 documentos, 402 shards ordenados y conteos exactos en SQLite y manifest;
+- los 402 recibos coinciden con los 402 placeholders canónicos de iCloud; todos quedaron verificados y expulsados a cero bloques locales;
+- el estado SQLite archivado tiene SHA-256 `79302121abbd35c54136b2cc8d238a562e8964b5737bdd77a935f2aca3401af1` y el último shard tiene SHA-256 `d5414b7857246dba55cde84899e2c75c98f6177eb9b8032a9dca08c13d6e3256`;
+- el índice completo quedó construido y validado: 451.823 vectores, 451.823 filas SQLite/FTS, FAISS SHA-256 `31b82528a42bf416c86a77822d732b8d56381e2c1b0046df821c93e64dab6f68` y metadata SHA-256 `e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0`;
+- las cinco consultas internas pasaron un smoke semántico e híbrido sin reranker; falta congelar y ejecutar la revisión humana y la comparación con reranker;
 - sin despliegue de API y sin integración con el frontend de producción.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]] y [[ICloud-Embedding-Archive]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]] y [[Full-Semantic-Index-V3.3]].
 
 ## Nueva fase estratégica
 
