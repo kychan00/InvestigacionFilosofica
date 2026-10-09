@@ -90,18 +90,20 @@ Por tanto:
 - los 402 shards canónicos ocupan cero bloques locales tras la expulsión final y conservan 2.829.334.705 bytes lógicos en iCloud; manifest y SQLite permanecen como estado reanudable;
 - [[Full-Semantic-Index-V3.3]] aprobó: 451.823 vectores, metadata y filas FTS, con IDs continuos, hashes congelados y autoconsistencia Top 1;
 - el smoke de corpus completo ejecutó las cinco consultas internas en modos semántico e híbrido, sin reranker ni labels humanos, y la API local respondió HTTP 200;
-- [[Semantic-Retrieval-Reranker-Bounded-V1]] congeló una comparación A/B sobre 60 pares y un paquete ciego de 59 ítems; el benchmark humano está preparado pero sus juicios siguen pendientes;
+- [[Semantic-Retrieval-Reranker-Bounded-V1]] cerró una comparación A/B sobre 60 pares y 59 juicios ciegos completos; la métrica primaria no mejoró (`ΔnDCG@10 = −0,001608360268`);
+- el commit `c158f4f` fijó el reranker como capacidad desactivada por defecto: la API no permite que una petición active un servidor que el operador dejó sin reranker, y el CLI local exige `--reranker` para optar explícitamente;
+- una prueba real contra los 451.823 documentos devolvió cinco resultados semánticos en 16,3 segundos incluyendo carga inicial, con `reranker_enabled = false` y todos los `rerank_score` en `null`;
+- una segunda prueba por API respondió HTTP 200 aun cuando la petición pidió reranking, pero mantuvo `reranker_available = false` y no cargó ni aplicó el modelo;
 - no se desplegó la API;
 - no se conectó el frontend público.
 
 ## Próximos gates
 
-1. Completar y congelar los 59 juicios ciegos de relevancia 0–3.
-2. Congelar el analizador antes de abrir el mapa A/B y calcular `ΔnDCG@10`.
-3. Medir y resolver la latencia de serving del reranker sin cambiar el contrato de ranking.
-4. Revisar relevancia, precisión, multilingüismo, duplicados y falsos positivos.
-5. Elegir un host HTTPS para la API; GitHub Pages no puede ejecutar FAISS/Python.
-6. Sólo después integrar el frontend mediante una bandera o rollout controlado.
+1. Mantener el reranker fuera de la ruta predeterminada; cualquier nuevo estudio debe ser prospectivo y más amplio.
+2. Elegir un host HTTPS capaz de servir Python, el modelo de embeddings y el índice FAISS; GitHub Pages no puede hacerlo.
+3. Validar memoria, arranque, concurrencia, límites y persistencia del índice en ese host.
+4. Exponer primero la API semántica sin reranker mediante una bandera o rollout controlado.
+5. Integrar el frontend sólo después del smoke remoto y conservar la búsqueda actual como fallback.
 
 ## Canonicalidad
 

@@ -72,6 +72,12 @@ compensa ese resultado ni constituye evidencia suficiente para promover el
 reranker. Cinco consultas no autorizan significancia estadística, tuning ni
 cambio automático de producción.
 
+La decisión de ingeniería posterior quedó implementada en `c158f4f`: el
+servicio semántico mantiene el reranker desactivado por defecto. Una petición
+HTTP no puede activarlo si el operador del servidor no lo habilitó, y el CLI
+local requiere una opción explícita. Esta decisión operacional no reinterpreta
+el experimento ni modifica sus artefactos congelados.
+
 ## Canonicalidad
 
 Los artefactos canónicos pertenecen a

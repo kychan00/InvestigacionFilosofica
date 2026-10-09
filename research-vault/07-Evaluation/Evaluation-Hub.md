@@ -58,6 +58,8 @@ analizador se congeló en un commit separado antes de abrir A/B. La ejecución
 única obtuvo macro `ΔnDCG@10 = −0,001608360268`, `ΔP@10 = +0,02` y
 `ΔP@5 = 0,0`. La dirección primaria no mejoró; el resultado es descriptivo,
 sin inferencia de significancia y no autoriza cambios de producción.
+La decisión operacional posterior, fijada en `c158f4f`, deja el reranker
+desactivado por defecto y preserva la recuperación semántica como ruta base.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 

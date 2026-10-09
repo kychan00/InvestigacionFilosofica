@@ -75,6 +75,7 @@ Estado al 2026-10-09:
 - la comparación acotada con reranker se congeló antes de inferencia y puntuó 60 pares en 153,818 segundos; su auditoría ciega contiene 59 ítems sin condición, rango ni scores;
 - los 59 juicios humanos 0–3 se congelaron completos y sin abstenciones antes del unblinding; el analizador también se congeló antes de abrir A/B;
 - la ejecución única produjo un resultado mixto: macro `ΔnDCG@10 = −0,001608360268`, `ΔP@10 = +0,02` y `ΔP@5 = 0,0`; la mejora primaria no se observó y no se autoriza promoción a producción;
+- el servicio aplica ya esa decisión: reranker desactivado por defecto, peticiones incapaces de elevar esa capacidad y opt-in local explícito; una búsqueda real completa y una petición API confirmaron resultados semánticos con scores de reranker nulos;
 - sin despliegue de API y sin integración con el frontend de producción.
 
 La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]] y [[Semantic-Retrieval-Reranker-Bounded-V1]].
