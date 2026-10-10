@@ -2,7 +2,7 @@
 type: architecture
 project: InvestigacionFilosofica
 updated: 2026-10-10
-status: validated
+status: operationally-closed
 ---
 
 # Runtime durable de recuperación semántica V1
@@ -54,13 +54,17 @@ FAISS. Durante esa carga, el límite de una inferencia concurrente responde 429
 a intentos adicionales; esto es comportamiento esperado, no una alteración del
 ranking.
 
-## Límite restante
+## Cierre posterior al reinicio
 
-La instalación sigue dependiendo materialmente del Mac encendido, conectado y
-con sesión iniciada. Falta un único smoke de recuperación tras login o reinicio
-completo. Si el LaunchAgent, Tailscale Funnel, la salud pública y una consulta
-se recuperan sin reparación manual, la V1 semántica puede cerrarse
-operacionalmente.
+Después de reiniciar completamente el Mac, ambos LaunchAgents se recuperaron
+sin reparación manual. Tailscale restauró el Funnel, la salud local y pública
+volvió a `ready`, y una consulta semántica pública fría respondió HTTP 200 con
+el mismo primer ID y score, reranker apagado y cero fallback presentacional.
+
+El gate operacional de la V1 queda cerrado. La instalación continúa
+dependiendo materialmente del Mac encendido, conectado y con sesión iniciada;
+esa limitación pertenece al modelo gratuito de hosting y no es un defecto del
+runtime durable.
 
 La evidencia ejecutable canónica permanece en el repositorio principal:
 `docs/SEMANTIC_DURABLE_RUNTIME_V1.md` y
