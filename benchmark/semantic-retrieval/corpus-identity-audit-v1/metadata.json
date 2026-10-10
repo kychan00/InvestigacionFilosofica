@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-10-10T02:27:01.705204+00:00",
+  "inputs": {
+    "database_sha256": "e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0",
+    "source_manifest_sha256": "cbe7e326c6687b50c734f1f19223da8de3673115ab46d11e2124ebcd30aa36c8"
+  },
+  "outputs": {
+    "duplicate-groups.jsonl": "37d7b465fe92f366db5e3261baa40079f2ae08b05a5102279d8813f20683191a",
+    "review-sample.jsonl": "d2823e5b75a32bdf0700de0385b566a9a7091ad7a285bd26b3999983957e996d",
+    "run.log": "7ebe235821a09c559eae60f21975fa3e7aedb9482b67a6ebfdac12c9e28d9918",
+    "summary.json": "1d7adbb990be413631f8bbd978e2ad1e2205445a9cf9e474ee8d549610b9c65a"
+  },
+  "plan": {
+    "changes_production": false,
+    "changes_scores_or_ranking": false,
+    "database": "artifacts/semantic-retrieval/full-v3.3-index/index/versions/20261009T135455Z/documents.sqlite3",
+    "database_open_mode": "read_only_immutable",
+    "expected_database_sha256": "e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0",
+    "expected_documents": 451823,
+    "identity_policy": "normalized_doi_or_exact_normalized_title_year_abstract",
+    "mutates_source": false,
+    "output_dir": "benchmark/semantic-retrieval/corpus-identity-audit-v1",
+    "review_sample_rule": "first_group_id_ascending",
+    "runs_inference": false,
+    "sample_size": 25,
+    "schema_version": "semantic-corpus-identity-audit-plan-v1",
+    "source_manifest": "artifacts/semantic-retrieval/full-v3.3-index/index/versions/20261009T135455Z/manifest.json",
+    "uses_human_labels": false
+  },
+  "runner_commit": "3b5e21ff32c2dd831ea6dd1c2a5fe6ecbf1e0ee9",
+  "schema_version": "semantic-corpus-identity-audit-metadata-v1",
+  "source_stat_unchanged": true
+}

@@ -1,0 +1,230 @@
+{
+  "conservative_collapse_count": 12085,
+  "doi_metadata_conflict_group_count": 0,
+  "exact_duplicate_document_count": 21351,
+  "exact_duplicate_group_count": 9266,
+  "group_classification_counts": {
+    "content_exact": 9266
+  },
+  "human_labels_used": false,
+  "inference_run": false,
+  "maximum_group_size": 471,
+  "metadata_finding_count": 14802,
+  "metadata_finding_counts": {
+    "literal_html_markup": 12284,
+    "missing_title": 751,
+    "suspected_mojibake": 1767
+  },
+  "metadata_finding_sample": [
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W4415101188",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 197936
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W2514595948",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 101863
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W6892339199",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 320995
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W2013383868",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 321880
+    },
+    {
+      "action": "preserve_and_review_encoding",
+      "code": "suspected_mojibake",
+      "document_id": "openalex-W7014401301",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 427457
+    },
+    {
+      "action": "preserve_and_review_encoding",
+      "code": "suspected_mojibake",
+      "document_id": "openalex-W7009804141",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 225041
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W2068544144",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 349197
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W97415522",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 276278
+    },
+    {
+      "action": "preserve_and_flag",
+      "code": "missing_title",
+      "document_id": "openalex-W6994251083",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 296146
+    },
+    {
+      "action": "preserve_and_review_encoding",
+      "code": "suspected_mojibake",
+      "document_id": "openalex-W2786489693",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 382360
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W4210387326",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 410644
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W4285055728",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 257403
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W2035579127",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 153346
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W1995730609",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 173413
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W7132848859",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 1347
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W1884042500",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 168003
+    },
+    {
+      "action": "preserve_and_review_encoding",
+      "code": "suspected_mojibake",
+      "document_id": "openalex-W7037321639",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 295777
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W4390608455",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 71041
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W2408396301",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 349989
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W7124458385",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 8587
+    },
+    {
+      "action": "preserve_and_review_encoding",
+      "code": "suspected_mojibake",
+      "document_id": "openalex-W7011580455",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 144899
+    },
+    {
+      "action": "preserve_and_review_encoding",
+      "code": "suspected_mojibake",
+      "document_id": "openalex-W2914266022",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 16261
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W2511984819",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 47189
+    },
+    {
+      "action": "preserve_and_review_encoding",
+      "code": "suspected_mojibake",
+      "document_id": "openalex-W240018118",
+      "field": "abstract",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 384677
+    },
+    {
+      "action": "sanitize_for_display_only",
+      "code": "literal_html_markup",
+      "document_id": "openalex-W2068466066",
+      "field": "title",
+      "schema_version": "semantic-corpus-finding-sample-v1",
+      "vector_id": 216663
+    }
+  ],
+  "production_change_authorized": false,
+  "review_only_group_count": 0,
+  "review_sample_count": 25,
+  "review_sample_rule": "first_group_id_ascending",
+  "schema_version": "semantic-corpus-identity-audit-summary-v1",
+  "scores_or_ranking_modified": false,
+  "source_document_count": 451823,
+  "source_mutated": false,
+  "source_nonempty_doi_count": 0,
+  "status": "audit_complete"
+}
