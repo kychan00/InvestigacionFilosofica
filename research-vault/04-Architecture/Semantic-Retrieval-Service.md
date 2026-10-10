@@ -105,11 +105,12 @@ Por tanto:
 - la latencia cálida del smoke fue 0,733–6,184 s, con mediana 1,501 s y media 2,561 s;
 - el gate operacional aprobó con hallazgos de calidad de datos: un título vacío, duplicados o casi duplicados, mojibake, HTML literal y deriva temática visible; no se usaron labels humanos y no se autorizó tuning.
 - [[Semantic-Metadata-Hygiene-V1]] congeló primero el contrato de auditoría en `39c5b21` y después los resultados en `40fe59f`; encontró un grupo exacto de dos IDs, un grupo probable de tres IDs y cinco hallazgos de metadata, conservando el hash, scores, orden e identificadores del smoke;
+- [[Semantic-Presentation-Hygiene-V1]] pasó 44 pruebas y una validación held-out sobre 25 documentos de rangos 11–15 sin solapamiento con el Top 10; conservó todos los IDs, ranks y scores y no produjo falsos colapsos, pero permanece fuera de la API pública;
 
 ## Próximos gates
 
 1. Mantener el reranker fuera de la ruta predeterminada; cualquier nuevo estudio debe ser prospectivo y más amplio.
-2. Diseñar y validar fuera de producción una capa de presentación que limpie HTML y colapse sólo identidad exacta, preservando todos los IDs y los outputs congelados.
+2. Ampliar fuera de producción la validación corpus-wide de la capa de presentación antes de considerar su conexión a la API.
 3. Medir disponibilidad al dormir/despertar el Mac y tasa de fallback durante uso público acotado.
 4. Mantener el alojamiento gratuito; evaluar otro host sólo si existe una alternativa sostenible que no introduzca coste.
 5. Promover el modo semántico gradualmente sólo después de observar el alfa pública.

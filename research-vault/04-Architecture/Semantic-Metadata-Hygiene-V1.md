@@ -57,8 +57,8 @@ Este hito no autoriza cambios de producción ni tuning. La deriva temática obse
 
 ## Siguiente gate
 
-1. Congelar un contrato separado de presentación.
-2. Sanitizar HTML sólo en la vista, nunca en la fuente canónica.
-3. Colapsar únicamente identidad exacta y devolver los IDs miembros como provenance.
-4. Validar con casos sintéticos y un conjunto held-out no usado para diseñar las reglas.
-5. Mantener identidad probable como señal de auditoría, no como supresión automática.
+1. El contrato separado y su primera validación están documentados en [[Semantic-Presentation-Hygiene-V1]].
+2. Ampliar la validación a una muestra más extensa del corpus antes de cualquier integración.
+3. Mantener HTML sanitizado sólo en la vista, nunca en la fuente canónica.
+4. Mantener identidad probable como señal de auditoría, no como supresión automática.
+5. Exigir provenance completa si posteriormente se propone conectar la capa a la API.
