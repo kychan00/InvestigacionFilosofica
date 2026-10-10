@@ -1,8 +1,8 @@
 ---
 type: data-contract
 project: InvestigacionFilosofica
-schema_version: 1.0.0-draft
-status: proposed
+schema_version: 1.0.0
+status: accepted
 updated: 2026-10-10
 ---
 
@@ -15,8 +15,9 @@ filosófica. No es una carpeta de papers ni una conversación efímera con un
 modelo. Debe conservar cómo una inquietud se convierte en problema, pregunta,
 corpus, interpretación, hipótesis y protocolo.
 
-Este contrato precede al runtime. Mientras permanezca `proposed`, ninguna
-implementación debe tratarlo como formato estable.
+Este contrato fue aceptado como base del MVP el 2026-10-10. Su implementación
+debe comenzar en una rama aislada con fixtures, JSON Schema y pruebas antes de
+integrarse al runtime.
 
 ## Principios normativos
 
@@ -102,7 +103,7 @@ un evento posterior con actor `researcher`.
 
 ```json
 {
-  "schema_version": "1.0.0-draft",
+  "schema_version": "1.0.0",
   "project_id": "rp_...",
   "revision": 1,
   "title": "...",

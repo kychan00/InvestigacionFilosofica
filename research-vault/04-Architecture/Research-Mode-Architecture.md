@@ -56,7 +56,7 @@ El nuevo modo `Investigar` reutiliza el motor actual pero no debe introducir dep
 
 ## Persistencia
 
-Propuesta V1:
+Decisión V1 aceptada:
 
 1. JSON canónico portable como contrato de intercambio;
 2. IndexedDB como estado de trabajo local;
@@ -66,9 +66,9 @@ Propuesta V1:
 El MVP debe evitar infraestructura permanente innecesaria. IDs, revisiones,
 provenance e historial deben sobrevivir un round-trip exportar/importar.
 
-El contrato propuesto está en [[ResearchProject-Data-Contract-V1]] y la máquina
-de estados en [[Research-Mode-Flow-V1]]. Ninguno debe tratarse como estable
-antes de superar sus gates de diseño.
+El contrato aceptado está en [[ResearchProject-Data-Contract-V1]] y la máquina
+de estados en [[Research-Mode-Flow-V1]]. La implementación debe comenzar con
+fixtures, JSON Schema y pruebas de invariantes en una rama aislada.
 
 ## Exportaciones previstas
 

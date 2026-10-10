@@ -135,10 +135,9 @@ La nueva fase no reemplaza el buscador existente. Construye sobre él una metodo
 
 ## Próximo hito
 
-Revisar y congelar los borradores [[ResearchProject-Data-Contract-V1]] y
-[[Research-Mode-Flow-V1]]. Después deben crearse fixtures mínimo/completo,
-JSON Schema y pruebas de invariantes en una rama aislada antes de modificar el
-runtime.
+Construir fixtures mínimo/completo, JSON Schema y pruebas de invariantes para
+los contratos ya aceptados [[ResearchProject-Data-Contract-V1]] y
+[[Research-Mode-Flow-V1]], en una rama aislada y antes de modificar el runtime.
 
 ## Documentos clave
 

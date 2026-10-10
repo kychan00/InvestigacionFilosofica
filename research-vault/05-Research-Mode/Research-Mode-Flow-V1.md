@@ -1,8 +1,8 @@
 ---
 type: workflow-contract
 project: InvestigacionFilosofica
-version: 1.0.0-draft
-status: proposed
+version: 1.0.0
+status: accepted
 updated: 2026-10-10
 ---
 
@@ -14,6 +14,10 @@ Este flujo convierte el método conceptual del proyecto en estados verificables
 sin fingir que la investigación es lineal. Cada paso produce un artefacto
 persistente; el investigador puede retroceder, crear una revisión y volver a
 buscar sin borrar la historia anterior.
+
+El flujo fue aceptado como base del MVP el 2026-10-10. Su aceptación autoriza
+la construcción aislada del esquema y sus pruebas, no cambios directos de
+producción.
 
 ## Máquina de estados
 
