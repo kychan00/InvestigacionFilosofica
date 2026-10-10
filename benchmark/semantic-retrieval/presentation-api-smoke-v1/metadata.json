@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-10-10T02:51:59.668768+00:00",
+  "health": {
+    "documents": 451823,
+    "embedding_model": {
+      "dimension": 1024,
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"
+    },
+    "index_build_id": "20261009T135455Z",
+    "presentation_hygiene_available": true,
+    "reranker_available": false,
+    "search_limits": {
+      "concurrent_requests": 1,
+      "requests_per_window": 10,
+      "window_seconds": 600
+    },
+    "status": "ready"
+  },
+  "outputs": {
+    "responses.json": "e0bb3e22819e55ceb7321cbc04206d500275861abcab9a50fb020af1eb2b560d",
+    "run.log": "7b69c2fc3631ff9b8d1ed60d823d97ea7fc71c70e4428a2a943e15fa91d840ff",
+    "summary.json": "50b58d83050a12a50bb47f1f7173c3c706b6d3dfe027059b3472b927b542ee39"
+  },
+  "plan": {
+    "changes_production": false,
+    "expected_build_id": "20261009T135455Z",
+    "expected_documents": 451823,
+    "limit": 10,
+    "output_dir": "benchmark/semantic-retrieval/presentation-api-smoke-v1",
+    "query": "¿Qué relación existe entre Quine y el compromiso ontológico?",
+    "requests": [
+      "default_off",
+      "explicit_double_opt_in"
+    ],
+    "requires_environment": {
+      "ENABLE_PRESENTATION_HYGIENE": "true",
+      "ENABLE_RERANKER": "false"
+    },
+    "runs_locally": true,
+    "schema_version": "semantic-presentation-api-smoke-plan-v1",
+    "uses_human_labels": false
+  },
+  "runner_commit": "30722c151b9fd8e204d70d3e8b6a886004547d54",
+  "schema_version": "semantic-presentation-api-smoke-metadata-v1"
+}

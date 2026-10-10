@@ -146,6 +146,7 @@ RETRIEVAL_ARTIFACTS_DIR=artifacts/semantic-retrieval \
 {
   "query": "¿Qué críticas existen contra la estética trascendental de Kant?",
   "limit": 15,
+  "enable_presentation_hygiene": false,
   "filters": {
     "year_from": 1950,
     "year_to": 2026,
@@ -162,6 +163,15 @@ revision, dimension and retrieval instruction.
 reranking on an enabled server, but it cannot activate the model when the
 server operator left it disabled. This prevents a public request from silently
 loading the slow model or changing the validated default ranking policy.
+
+`ENABLE_PRESENTATION_HYGIENE=false` is also the default server capability.
+Presentation hygiene requires a double opt-in: the server flag must be true
+and the request must send `enable_presentation_hygiene: true`. It runs only
+after retrieval/reranking, preserves representative order and scores, and
+stores every exact-group member under provenance. If the optional transform
+fails, the API returns the original source results and marks presentation
+fallback in the response. See
+[`SEMANTIC_PRESENTATION_API_INTEGRATION_V1.md`](SEMANTIC_PRESENTATION_API_INTEGRATION_V1.md).
 
 Public serving also enforces one search at a time and a per-client sliding
 window of ten search requests per ten minutes by default. The values are

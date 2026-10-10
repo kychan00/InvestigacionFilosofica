@@ -24,6 +24,8 @@ connected and logged in. It is a public alpha, not a cloud service with an SLA.
 - Documents: 451,823.
 - Reranker: disabled at the server capability boundary.
 - A request cannot enable a server-disabled reranker.
+- Presentation hygiene: disabled in the public daemon.
+- A request cannot enable server-disabled presentation hygiene.
 - Searches: one concurrent request.
 - Rate limit: ten searches per client per ten minutes.
 - Excess or concurrent searches return HTTP 429 before inference.
@@ -168,3 +170,21 @@ with zero overlap against the public Top 10. All IDs, ranks and scores were
 preserved; the slice contained no exact duplicates or display anomalies, so no
 record was collapsed or rewritten. Synthetic tests cover the positive collapse
 and sanitization paths. The transform is still not connected to public serving.
+
+## Default-off presentation API integration
+
+The API integration contract was frozen in `2ec41cb` and its implementation in
+`30722c1`. It uses independent server and request opt-ins, adds explicit status
+metadata, applies presentation only after retrieval, and safely falls back to
+the original result list if the optional transformation fails.
+
+A bounded local smoke over the full 451,823-document index passed. The
+default-off request preserved all ten source results exactly. The double-opt-in
+request returned nine representatives after collapsing the known exact Quine
+pair, while provenance reconstructed all ten IDs and scores in source order.
+The complete Python suite passed 53/53 tests. Canonical receipts live in
+`benchmark/semantic-retrieval/presentation-api-smoke-v1/`.
+
+This code is not enabled in the public LaunchAgent or consumed by the frontend.
+The public behavior therefore remains unchanged pending a separate deployment
+decision.

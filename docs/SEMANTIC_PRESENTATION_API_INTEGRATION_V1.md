@@ -54,3 +54,35 @@ Before any deployment:
    only when both gates are true;
 4. no production daemon, frontend, retrieval code, `src/core/rank.js`, or
    frozen experiment may change.
+
+## Frozen implementation and local smoke
+
+The double-gated API integration and its smoke runner were frozen in
+`30722c151b9fd8e204d70d3e8b6a886004547d54`. The complete Python suite passed
+53/53 tests.
+
+The bounded local smoke used index build `20261009T135455Z` with 451,823
+documents and the frozen Quine query. It made two requests over the same
+Top-10 source window:
+
+- default-off returned the ten original result objects with no presentation
+  fields;
+- explicit double opt-in returned nine representatives after collapsing one
+  exact pair;
+- the collapsed pair preserved IDs `openalex-W2211243423` and
+  `openalex-W7069018285`, source ranks, and all component scores;
+- flattening provenance reproduced the ten original IDs in their original
+  order;
+- reranking and presentation fallback remained unused.
+
+Independent validation reproduced the ID and score mappings. Frozen hashes:
+
+- `responses.json`:
+  `e0bb3e22819e55ceb7321cbc04206d500275861abcab9a50fb020af1eb2b560d`
+- `summary.json`:
+  `50b58d83050a12a50bb47f1f7173c3c706b6d3dfe027059b3472b927b542ee39`
+- `run.log`:
+  `7b69c2fc3631ff9b8d1ed60d823d97ea7fc71c70e4428a2a943e15fa91d840ff`
+
+The implementation is validated but remains disabled in the public daemon.
+Deployment and frontend consumption require a separate operational decision.

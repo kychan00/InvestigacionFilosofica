@@ -1,0 +1,29 @@
+{
+  "default_count": 10,
+  "display_fields_present_enabled": true,
+  "enabled_count": 9,
+  "exact_groups": [
+    [
+      "openalex-W2211243423",
+      "openalex-W7069018285"
+    ]
+  ],
+  "flattened_ids_equal_default": true,
+  "presentation_only_fields_absent_default": true,
+  "production_change_authorized": false,
+  "representatives": [
+    "openalex-W2211243423",
+    "openalex-W7084231554",
+    "openalex-W2064418209",
+    "openalex-W3111198217",
+    "openalex-W3010593892",
+    "openalex-W2351659844",
+    "openalex-W4252299059",
+    "openalex-W6996017243",
+    "openalex-W2917969929"
+  ],
+  "reranker_disabled": true,
+  "schema_version": "semantic-presentation-api-smoke-independent-validation-v1",
+  "scores_equal": true,
+  "status": "pass"
+}
