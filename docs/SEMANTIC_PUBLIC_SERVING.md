@@ -202,3 +202,18 @@ records. Federated search remains the default. The frontend suite passed 75/75
 tests and GitHub Pages workflow `38054638384` passed its test and deploy jobs.
 Public asset inspection confirmed the new request and rendering code without
 issuing another search.
+
+## Durable runtime installation
+
+On 2026-10-10 the API runtime was moved out of the Codex-managed worktree. The
+installed LaunchAgent now uses a source checkout fixed at `5f05e7c`, a durable
+Python environment and the V3.3 index under
+`~/.local/share/investigacionfilosofica/`. The embedding manifest was
+materialized so no runtime link points back into `.codex/worktrees`.
+
+Local and public health checks remained ready with 451,823 documents. A public
+acceptance query preserved the expected first ID and semantic score, kept the
+reranker disabled and did not exercise presentation fallback. The detailed
+layout, hashes, acceptance evidence and recovery commands are in
+`docs/SEMANTIC_DURABLE_RUNTIME_V1.md`; the machine-readable receipt is under
+`benchmark/semantic-retrieval/durable-runtime-v1/`.

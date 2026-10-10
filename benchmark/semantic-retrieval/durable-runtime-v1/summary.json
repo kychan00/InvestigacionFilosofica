@@ -1,0 +1,41 @@
+{
+  "schema_version": "semantic-retrieval-durable-runtime-v1",
+  "migrated_at": "2026-10-10T13:21:44Z",
+  "status": "pass",
+  "service_label": "io.github.kychan00.investigacionfilosofica.semantic-api",
+  "public_origin": "https://filosofia-semantic.tail829c9b.ts.net",
+  "runtime": {
+    "code_commit": "5f05e7c476f383c744e4afc55f3e2fc175e53435",
+    "working_directory": "/Users/kychan/filosofia/semantic-service",
+    "python": "/Users/kychan/.local/share/investigacionfilosofica/venvs/semantic-retrieval-v1/bin/python",
+    "artifacts_directory": "/Users/kychan/.local/share/investigacionfilosofica/semantic-retrieval/v3.3",
+    "managed_worktree_references": 0
+  },
+  "index": {
+    "build_id": "20261009T135455Z",
+    "document_count": 451823,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "embedding_revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "embedding_dimension": 1024,
+    "embedding_manifest_sha256": "1facaac58b4e4113d9d40ffceeb93ee64f3e35755a701b7dd6433a0b8339af44",
+    "faiss_sha256": "31b82528a42bf416c86a77822d732b8d56381e2c1b0046df821c93e64dab6f68",
+    "metadata_sha256": "e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0"
+  },
+  "policy": {
+    "reranker_available": false,
+    "presentation_hygiene_available": true,
+    "concurrent_requests": 1,
+    "requests_per_window": 10,
+    "window_seconds": 600
+  },
+  "acceptance": {
+    "health_status": "ready",
+    "public_search_http_status": 200,
+    "query": "¿Qué relación hay entre ontología y lógica en Quine?",
+    "limit": 1,
+    "first_result_id": "openalex-W157960258",
+    "first_semantic_score": 0.7339097261428833,
+    "reranker_enabled": false,
+    "presentation_fallback": false
+  }
+}
