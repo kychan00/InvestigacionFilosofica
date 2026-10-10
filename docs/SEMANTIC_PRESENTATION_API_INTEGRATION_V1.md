@@ -84,5 +84,8 @@ Independent validation reproduced the ID and score mappings. Frozen hashes:
 - `run.log`:
   `7b69c2fc3631ff9b8d1ed60d823d97ea7fc71c70e4428a2a943e15fa91d840ff`
 
-The implementation is validated but remains disabled in the public daemon.
-Deployment and frontend consumption require a separate operational decision.
+The later operational decision is documented in
+`SEMANTIC_PRESENTATION_PUBLIC_DEPLOYMENT_V1.md`. The public daemon now exposes
+the capability and the production semantic-search client explicitly requests
+it; the server default in code remains false and double opt-in remains
+mandatory.

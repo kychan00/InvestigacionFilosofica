@@ -57,6 +57,24 @@ Frozen hashes:
 - `summary.json`: `f2a0ada68e78cea9af5f9dcfed66a38ea06d77de5d9e10848964be7646fe1a9b`;
 - `run.log`: `fba4446ef5d01f0d40350efc09d2acd0716ff09e172a7a7aaa6cd70cb51dae61`.
 
+## Frontend deployment result
+
+The production client change was merged through PR 14 as
+`02f445ba1e7f4ddd4a0c54ae37ca01e9b0c7e3db`. It:
+
+- sends `enable_presentation_hygiene: true` only on the explicit semantic path;
+- reads sanitized `display` fields;
+- retains all exact-group member IDs and scores in normalized provenance;
+- labels exact groups as equivalent records without calling them probable
+  duplicates;
+- leaves federated search selected by default and preserves its existing
+  automatic fallback.
+
+The frontend suite passed 75/75 tests. GitHub Pages workflow `38054638384`
+passed both test and deploy jobs. Public asset inspection confirmed the request
+flag, display/provenance normalization and exact-group disclosure. No extra
+search inference was required for this verification.
+
 ## Rollback
 
 Remove `ENABLE_PRESENTATION_HYGIENE` from the installed semantic API

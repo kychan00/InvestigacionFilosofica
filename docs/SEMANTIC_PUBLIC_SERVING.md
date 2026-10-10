@@ -193,6 +193,12 @@ known exact pair. Flattened provenance reproduced all ten IDs and scores in
 source order, with no presentation fallback and no reranker.
 
 Canonical receipts and hashes live in
-`benchmark/semantic-retrieval/public-presentation-smoke-v1/`. At this backend
-milestone the production frontend had not yet been updated to request or render
-the presentation fields.
+`benchmark/semantic-retrieval/public-presentation-smoke-v1/`.
+
+The production frontend was then merged through PR 14 as `02f445b`. Its
+semantic path requests presentation hygiene, consumes sanitized display fields,
+preserves exact-group provenance and labels grouped cards as equivalent
+records. Federated search remains the default. The frontend suite passed 75/75
+tests and GitHub Pages workflow `38054638384` passed its test and deploy jobs.
+Public asset inspection confirmed the new request and rendering code without
+issuing another search.
