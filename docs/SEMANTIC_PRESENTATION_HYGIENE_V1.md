@@ -33,6 +33,12 @@ full-index hybrid benchmark. Every selected ID must be absent from the frozen
 public Top 10 smoke. The input artifact and excluded smoke are fingerprinted in
 metadata. The held-out rows contain no relevance labels.
 
+The first held-out execution was rejected before freeze because member
+`source_rank` values were relative to the five-row slice instead of the
+original benchmark ranks. Its outputs are preserved as an invalid attempt. The
+correction changes provenance numbering only; it does not change identity,
+sanitization, collapse policy, scores or source order.
+
 ## Outputs
 
 `scripts/retrieval/build_presentation_hygiene.py` writes JSON/JSONL/logs only:

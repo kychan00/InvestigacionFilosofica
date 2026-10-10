@@ -289,6 +289,8 @@ def sanitize_display_text(value: Any, *, missing_fallback: str | None = None) ->
 
 def build_presentation_results(
     results: list[Mapping[str, Any]],
+    *,
+    source_rank_offset: int = 0,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """Collapse exact identities and add display/provenance fields.
 
@@ -351,7 +353,7 @@ def build_presentation_results(
             member_receipts.append(
                 {
                     "id": document_ids[member_index],
-                    "source_rank": member_index + 1,
+                    "source_rank": source_rank_offset + member_index + 1,
                     "semantic_score": member.get("semantic_score"),
                     "lexical_score": member.get("lexical_score"),
                     "rerank_score": member.get("rerank_score"),
@@ -372,7 +374,7 @@ def build_presentation_results(
             "member_count": len(members),
             "members": member_receipts,
         }
-        representative["source_rank"] = index + 1
+        representative["source_rank"] = source_rank_offset + index + 1
         representative["presentation_rank"] = len(presented) + 1
         presented.append(representative)
 

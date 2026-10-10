@@ -1,0 +1,18 @@
+{
+  "schema_version": "semantic-presentation-hygiene-failure-v1",
+  "status": "invalid_provenance_not_accepted",
+  "runner_commit": "c7002902010426aa83d1e98154983c53f07f14d9",
+  "source_results_sha256": "f2df77553c47caa8d9b3ba6595f895489d6ce397415937e31f524cd8ef40e928",
+  "exclude_results_sha256": "ad2f581a1c5714721b088ff24c716876c86bdba6b531abc6200349875cf0490e",
+  "presented_results_sha256": "e62ab5da7e67be7afdeb89b56dded5d6c184f331d3fd00a772b1d0adee6cddb3",
+  "summary_sha256": "373e719bc390171de05d9facc18304d159b9f196a75e8a48a32499f9c63d3b8d",
+  "reason": "Member source_rank values were relative to the selected five-row window (1-5) instead of preserving their original benchmark ranks (11-15).",
+  "impact": {
+    "source_records_changed": false,
+    "source_ids_lost": false,
+    "scores_changed": false,
+    "ranking_changed": false,
+    "production_changed": false
+  },
+  "disposition": "Preserve this attempt, correct rank provenance, freeze the correction and only then run the held-out validation again."
+}

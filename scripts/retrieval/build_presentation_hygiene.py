@@ -118,7 +118,10 @@ def build_rows(
         selected = results[rank_from - 1 : rank_to]
         selected_ids = {str(result.get("id") or "") for result in selected}
         overlap_ids.update(selected_ids & excluded_ids)
-        presented, stats = build_presentation_results(selected)
+        presented, stats = build_presentation_results(
+            selected,
+            source_rank_offset=rank_from - 1,
+        )
         for key in aggregate:
             aggregate[key] += int(stats[key])
         outputs.append(

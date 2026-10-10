@@ -58,10 +58,14 @@ class PresentationHygieneTests(unittest.TestCase):
 
     def test_missing_title_is_display_fallback_not_source_rewrite(self):
         source = [{"id": "W1", "title": "", "abstract": None, "year": 2020}]
-        presented, stats = build_presentation_results(source)
+        presented, stats = build_presentation_results(source, source_rank_offset=10)
         self.assertEqual(source[0]["title"], "")
         self.assertEqual(presented[0]["title"], "")
         self.assertEqual(presented[0]["display"]["title"], "Sin título")
+        self.assertEqual(presented[0]["source_rank"], 11)
+        self.assertEqual(
+            presented[0]["work_identity"]["members"][0]["source_rank"], 11
+        )
         self.assertEqual(stats["title_fallback_count"], 1)
 
     def test_heldout_builder_rejects_overlap(self):
