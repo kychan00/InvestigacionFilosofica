@@ -1,7 +1,7 @@
 ---
 type: product-spec
 status: draft
-updated: 2026-09-27
+updated: 2026-10-10
 ---
 
 # Research Mode
@@ -88,3 +88,5 @@ No debe reemplazar silenciosamente la pregunta, la interpretación o la tesis de
 
 - [[Question-Formation]]
 - [[Research-Mode-Architecture]]
+- [[ResearchProject-Data-Contract-V1]]
+- [[Research-Mode-Flow-V1]]

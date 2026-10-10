@@ -36,6 +36,8 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 
 - [[Research-Mode]]
 - [[Research-Mode-Architecture]]
+- [[ResearchProject-Data-Contract-V1]]
+- [[Research-Mode-Flow-V1]]
 - [[Semantic-Retrieval-Service]]
 - [[Abstract-Coverage-V3.2]]
 - [[Abstract-Enrichment-V3.3-Preflight]]

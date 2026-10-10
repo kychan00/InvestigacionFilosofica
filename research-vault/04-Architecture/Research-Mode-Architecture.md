@@ -1,7 +1,7 @@
 ---
 type: architecture
 status: draft
-updated: 2026-09-27
+updated: 2026-10-10
 ---
 
 # Research Mode Architecture
@@ -56,16 +56,19 @@ El nuevo modo `Investigar` reutiliza el motor actual pero no debe introducir dep
 
 ## Persistencia
 
-Pendiente de decisión.
+Propuesta V1:
 
-Opciones a evaluar:
+1. JSON canónico portable como contrato de intercambio;
+2. IndexedDB como estado de trabajo local;
+3. Markdown y Obsidian como vistas derivadas;
+4. backend sincronizado sólo después de validar el modelo.
 
-1. estado local exportable;
-2. IndexedDB;
-3. archivo de proyecto JSON/Markdown;
-4. backend futuro para proyectos sincronizados.
+El MVP debe evitar infraestructura permanente innecesaria. IDs, revisiones,
+provenance e historial deben sobrevivir un round-trip exportar/importar.
 
-El MVP debe evitar infraestructura permanente innecesaria hasta validar el modelo.
+El contrato propuesto está en [[ResearchProject-Data-Contract-V1]] y la máquina
+de estados en [[Research-Mode-Flow-V1]]. Ninguno debe tratarse como estable
+antes de superar sus gates de diseño.
 
 ## Exportaciones previstas
 
@@ -79,3 +82,5 @@ El MVP debe evitar infraestructura permanente innecesaria hasta validar el model
 
 - [[Research-Mode]]
 - [[Epistemological-Model]]
+- [[ResearchProject-Data-Contract-V1]]
+- [[Research-Mode-Flow-V1]]
