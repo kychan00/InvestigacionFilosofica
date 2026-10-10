@@ -2249,6 +2249,17 @@ function renderResult(
               : ""
           }
 
+          ${
+            item.presentationCollapsed
+              ? `
+                <span class="provider">
+                  ${item.presentationMemberCount}
+                  registros equivalentes
+                </span>
+              `
+              : ""
+          }
+
         </div>
 
 
@@ -2337,6 +2348,11 @@ function renderResult(
                     : "—"
                 }
                 · sin reranker
+                ${
+                  item.presentationCollapsed
+                    ? ` · identidad exacta · ${item.presentationMemberCount} registros preservados`
+                    : ""
+                }
               </div>
             `
             : `

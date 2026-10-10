@@ -89,7 +89,9 @@ test(
                 index_build_id:
                   "build-v1",
                 reranker_available:
-                  false
+                  false,
+                presentation_hygiene_available:
+                  true
               }),
               {
                 status:
@@ -116,6 +118,11 @@ test(
     assert.equal(
       health.documents,
       451823
+    );
+
+    assert.equal(
+      health.presentationHygieneAvailable,
+      true
     );
   }
 );
@@ -206,7 +213,7 @@ test(
 
 
 test(
-  "el cliente fija endpoint, límite y reranker apagado",
+  "el cliente fija endpoint, límite, reranker apagado e higiene solicitada",
   async () => {
     let request;
 
@@ -259,12 +266,131 @@ test(
           20,
         filters: {},
         enable_reranker:
-          false
+          false,
+        enable_presentation_hygiene:
+          true
       }
     );
 
     assert.equal(
       result.results.length,
+      1
+    );
+  }
+);
+
+
+test(
+  "usa display y conserva provenance de un grupo exacto",
+  () => {
+    const response =
+      normalizeSemanticResponse({
+        ...payload,
+        presentation: {
+          requested:
+            true,
+          available:
+            true,
+          enabled:
+            true,
+          applied:
+            true,
+          fallback:
+            false,
+          source_result_count:
+            2,
+          presented_result_count:
+            1,
+          collapsed_result_count:
+            1
+        },
+        results: [
+          {
+            ...payload.results[0],
+            display: {
+              title:
+                "Título limpio",
+              abstract:
+                "Resumen limpio"
+            },
+            source_rank:
+              1,
+            presentation_rank:
+              1,
+            work_identity: {
+              classification:
+                "exact_identity",
+              representative_id:
+                "openalex-W1",
+              member_count:
+                2,
+              member_ids: [
+                "openalex-W1",
+                "openalex-W2"
+              ],
+              members: [
+                {
+                  id:
+                    "openalex-W1",
+                  source_rank:
+                    1,
+                  semantic_score:
+                    0.734,
+                  lexical_score:
+                    null,
+                  rerank_score:
+                    null
+                },
+                {
+                  id:
+                    "openalex-W2",
+                  source_rank:
+                    2,
+                  semantic_score:
+                    0.734,
+                  lexical_score:
+                    null,
+                  rerank_score:
+                    null
+                }
+              ]
+            }
+          }
+        ]
+      });
+
+    assert.equal(
+      response.results[0].title,
+      "Título limpio"
+    );
+    assert.equal(
+      response.results[0].abstract,
+      "Resumen limpio"
+    );
+    assert.equal(
+      response.results[0]
+        .presentationCollapsed,
+      true
+    );
+    assert.equal(
+      response.results[0]
+        .presentationMemberCount,
+      2
+    );
+    assert.deepEqual(
+      response.results[0]
+        .sourceRecords.map(
+          record =>
+            record.sourceId
+        ),
+      [
+        "openalex-W1",
+        "openalex-W2"
+      ]
+    );
+    assert.equal(
+      response.semantic.presentation
+        .collapsedResultCount,
       1
     );
   }

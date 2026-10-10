@@ -77,6 +77,16 @@ test(
     );
 
     assert.match(
+      app,
+      /registros equivalentes/u
+    );
+
+    assert.match(
+      app,
+      /identidad exacta/u
+    );
+
+    assert.match(
       css,
       /\.search-mode-option\.is-active/u
     );
