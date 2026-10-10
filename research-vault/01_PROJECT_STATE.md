@@ -86,10 +86,11 @@ Estado al 2026-10-09:
 - el workflow de GitHub Pages `37987230177` aprobó pruebas y despliegue del indicador; la verificación pública confirmó el HTML/JavaScript actualizado y `/health` listo con CORS desde GitHub Pages;
 - el primer smoke público reproducible ejecutó las cinco consultas internas congeladas, obtuvo HTTP 200 en las cinco y conservó 50 resultados Top 10 sin fallback ni reranker; la latencia cálida fue 0,733–6,184 s, con mediana 1,501 s y media 2,561 s;
 - el smoke cerró como `PASS_WITH_DATA_QUALITY_FINDINGS`: registró un título vacío, duplicados o casi duplicados, mojibake, HTML literal y una deriva temática visible; estos hallazgos abren trabajo de higiene de metadata y deduplicación, pero no constituyen etiquetas humanas ni autorizan tuning;
+- la auditoría de higiene e identidad se congeló antes de aplicarse en `39c5b21` y sus resultados quedaron congelados en `40fe59f`; confirmó un grupo exacto de dos IDs elegible para futuro colapso conservador, un grupo probable de tres IDs sólo para revisión y cinco hallazgos de metadata, sin alterar scores, orden, IDs ni el hash del smoke;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]], [[Public-Semantic-API]] y [[Public-Semantic-Smoke-V1]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]], [[Public-Semantic-API]], [[Public-Semantic-Smoke-V1]] y [[Semantic-Metadata-Hygiene-V1]].
 
 ## Nueva fase estratégica
 

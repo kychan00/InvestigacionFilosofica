@@ -70,7 +70,8 @@ Esta nota sólo conserva interpretación conceptual e histórica. No es un input
 
 ## Siguiente gate
 
-1. Diseñar una corrección de calidad de metadata y deduplicación que no altere los outputs congelados.
-2. Repetir un smoke prospectivo únicamente después de congelar el nuevo contrato.
-3. Si se desea medir relevancia, abrir una evaluación humana separada, ciega y explícita.
-4. Mantener el reranker fuera de la ruta pública predeterminada.
+1. La auditoría no destructiva ya se completó en [[Semantic-Metadata-Hygiene-V1]].
+2. Diseñar una capa de presentación prospectiva para sanitización y colapso exacto, sin integrar todavía los grupos probables.
+3. Validarla con registros sintéticos y held-out antes de modificar la API pública.
+4. Si se desea medir relevancia, abrir una evaluación humana separada, ciega y explícita.
+5. Mantener el reranker fuera de la ruta pública predeterminada.

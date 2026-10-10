@@ -44,6 +44,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Full-Semantic-Index-V3.3]]
 - [[Public-Semantic-API]]
 - [[Public-Semantic-Smoke-V1]]
+- [[Semantic-Metadata-Hygiene-V1]]
 
 ## Principios adoptados
 

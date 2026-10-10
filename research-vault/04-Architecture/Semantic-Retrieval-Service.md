@@ -104,11 +104,12 @@ Por tanto:
 - [[Public-Semantic-Smoke-V1]] ejecutó las cinco consultas congeladas contra la URL pública y conservó 50 resultados Top 10: 5/5 HTTP 200, cero fallback, reranker desactivado y todos los `rerank_score` nulos;
 - la latencia cálida del smoke fue 0,733–6,184 s, con mediana 1,501 s y media 2,561 s;
 - el gate operacional aprobó con hallazgos de calidad de datos: un título vacío, duplicados o casi duplicados, mojibake, HTML literal y deriva temática visible; no se usaron labels humanos y no se autorizó tuning.
+- [[Semantic-Metadata-Hygiene-V1]] congeló primero el contrato de auditoría en `39c5b21` y después los resultados en `40fe59f`; encontró un grupo exacto de dos IDs, un grupo probable de tres IDs y cinco hallazgos de metadata, conservando el hash, scores, orden e identificadores del smoke;
 
 ## Próximos gates
 
 1. Mantener el reranker fuera de la ruta predeterminada; cualquier nuevo estudio debe ser prospectivo y más amplio.
-2. Corregir prospectivamente higiene de metadata y deduplicación a nivel de obra, preservando los outputs congelados del smoke.
+2. Diseñar y validar fuera de producción una capa de presentación que limpie HTML y colapse sólo identidad exacta, preservando todos los IDs y los outputs congelados.
 3. Medir disponibilidad al dormir/despertar el Mac y tasa de fallback durante uso público acotado.
 4. Mantener el alojamiento gratuito; evaluar otro host sólo si existe una alternativa sostenible que no introduzca coste.
 5. Promover el modo semántico gradualmente sólo después de observar el alfa pública.
