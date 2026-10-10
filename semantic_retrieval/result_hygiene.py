@@ -5,6 +5,7 @@ import html
 import re
 import unicodedata
 from collections import defaultdict
+from copy import deepcopy
 from typing import Any, Iterable, Mapping
 
 
@@ -273,3 +274,129 @@ def audit_smoke_rows(
         "production_change_authorized": False,
     }
     return findings, groups, summary
+
+
+def sanitize_display_text(value: Any, *, missing_fallback: str | None = None) -> str | None:
+    """Return display-safe text while leaving the source value untouched."""
+
+    if value is None or not str(value).strip():
+        return missing_fallback
+    decoded = html.unescape(str(value))
+    without_markup = HTML_TAG.sub(" ", decoded)
+    normalized = unicodedata.normalize("NFC", without_markup)
+    return " ".join(normalized.split()) or missing_fallback
+
+
+def build_presentation_results(
+    results: list[Mapping[str, Any]],
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Collapse exact identities and add display/provenance fields.
+
+    Source mappings are deep-copied. Probable identity is intentionally ignored.
+    """
+
+    source_rows = [deepcopy(dict(result)) for result in results]
+    document_ids: list[str] = []
+    key_members: dict[str, list[int]] = defaultdict(list)
+    for index, document in enumerate(source_rows):
+        document_id = str(document.get("id") or "").strip()
+        if not document_id:
+            raise ValueError(f"source result {index + 1} lacks id")
+        if document_id in document_ids:
+            raise ValueError(f"duplicate source document id: {document_id}")
+        document_ids.append(document_id)
+        for key in exact_identity_keys(document):
+            key_members[key].append(index)
+
+    disjoint = _DisjointSet(len(source_rows))
+    for members in key_members.values():
+        for member in members[1:]:
+            disjoint.union(members[0], member)
+
+    components: dict[int, list[int]] = defaultdict(list)
+    for index in range(len(source_rows)):
+        components[disjoint.find(index)].append(index)
+
+    component_by_first = {
+        min(members): sorted(members) for members in components.values()
+    }
+    consumed: set[int] = set()
+    presented: list[dict[str, Any]] = []
+    html_sanitized_fields = 0
+    title_fallback_count = 0
+    metadata_finding_count = 0
+
+    for index, source in enumerate(source_rows):
+        if index in consumed:
+            continue
+        members = component_by_first[index]
+        consumed.update(members)
+        representative = deepcopy(source)
+        source_findings = metadata_findings(source)
+        metadata_finding_count += len(source_findings)
+        html_sanitized_fields += sum(
+            finding["code"] == "literal_html_markup"
+            for finding in source_findings
+        )
+
+        display_title = sanitize_display_text(
+            source.get("title"), missing_fallback="Sin título"
+        )
+        if not str(source.get("title") or "").strip():
+            title_fallback_count += 1
+        display_abstract = sanitize_display_text(source.get("abstract"))
+        member_receipts = []
+        for member_index in members:
+            member = source_rows[member_index]
+            member_receipts.append(
+                {
+                    "id": document_ids[member_index],
+                    "source_rank": member_index + 1,
+                    "semantic_score": member.get("semantic_score"),
+                    "lexical_score": member.get("lexical_score"),
+                    "rerank_score": member.get("rerank_score"),
+                }
+            )
+
+        representative["display"] = {
+            "title": display_title,
+            "abstract": display_abstract,
+        }
+        representative["metadata_findings"] = source_findings
+        representative["work_identity"] = {
+            "classification": (
+                "exact_identity" if len(members) > 1 else "singleton"
+            ),
+            "representative_id": document_ids[index],
+            "member_ids": [document_ids[member] for member in members],
+            "member_count": len(members),
+            "members": member_receipts,
+        }
+        representative["source_rank"] = index + 1
+        representative["presentation_rank"] = len(presented) + 1
+        presented.append(representative)
+
+    presented_source_ids = [
+        member_id
+        for item in presented
+        for member_id in item["work_identity"]["member_ids"]
+    ]
+    if sorted(presented_source_ids) != sorted(document_ids):
+        raise RuntimeError("presentation provenance does not preserve source IDs")
+
+    stats = {
+        "source_result_count": len(source_rows),
+        "presented_result_count": len(presented),
+        "collapsed_result_count": len(source_rows) - len(presented),
+        "exact_group_count": sum(
+            item["work_identity"]["classification"] == "exact_identity"
+            for item in presented
+        ),
+        "all_source_ids_preserved": True,
+        "html_sanitized_fields": html_sanitized_fields,
+        "title_fallback_count": title_fallback_count,
+        "metadata_finding_count": metadata_finding_count,
+        "source_scores_modified": False,
+        "source_order_recomputed": False,
+    }
+    return presented, stats
