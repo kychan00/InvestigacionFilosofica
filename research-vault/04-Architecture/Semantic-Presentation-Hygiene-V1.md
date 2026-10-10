@@ -54,9 +54,14 @@ La transformación es determinista, conserva provenance y no produjo falsos posi
 
 La capa permanece desconectada de la API y del frontend. Producción, retrieval y `src/core/rank.js` no cambiaron.
 
-## Siguiente gate
+## Gate corpus-wide completado
 
-1. Ejecutar una auditoría mucho más amplia sobre metadata del índice completo, sin inferencia.
-2. Medir cuántos grupos exactos surgirían y revisar una muestra determinista.
-3. Verificar que DOI y contenido exacto no unan ediciones filosóficamente distintas.
-4. Sólo entonces decidir si proponer integración opt-in en la API.
+La auditoría prevista se completó en [[Semantic-Corpus-Identity-Audit-V1]]:
+451.823 registros, 9.266 grupos exactos, 21.351 miembros y validación
+independiente sin conflictos de autor o contenido. Este snapshot no contiene
+DOI, por lo que una futura incorporación de DOI exige repetir su control
+material y no sólo confiar en las pruebas sintéticas.
+
+El próximo gate admisible es una propuesta separada de integración default-off
+en la API, con pruebas de provenance, scores, orden y fallback. Este documento
+no la autoriza automáticamente.

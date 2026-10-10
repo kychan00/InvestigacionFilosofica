@@ -20,6 +20,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Qwen3-External-Validation-Protocol]]
 - [[Qwen3-Browser-Q8-Opt-in-Prototype]]
 - [[Semantic-Retrieval-Reranker-Bounded-V1]]
+- [[Semantic-Corpus-Identity-Audit-V1]]
 
 ## Informes originales
 
@@ -60,6 +61,14 @@ analizador se congeló en un commit separado antes de abrir A/B. La ejecución
 sin inferencia de significancia y no autoriza cambios de producción.
 La decisión operacional posterior, fijada en `c158f4f`, deja el reranker
 desactivado por defecto y preserva la recuperación semántica como ruta base.
+
+La higiene bibliográfica abrió un gate de ingeniería separado,
+[[Semantic-Corpus-Identity-Audit-V1]]. No es una evaluación humana de
+relevancia: recorre metadata read-only y comprueba identidad exacta y
+provenance. Sobre 451.823 registros produjo 9.266 grupos exactos y 12.085
+repeticiones presentacionales potenciales; la reconstrucción independiente no
+encontró conflictos de autor ni discrepancias de contenido. El resultado no
+modifica ranking ni autoriza por sí solo integración productiva.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 
