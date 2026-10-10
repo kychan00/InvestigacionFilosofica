@@ -1,6 +1,6 @@
 # Semantic retrieval durable runtime v1
 
-**Status:** installed and validated on 2026-10-10
+**Status:** operationally closed on 2026-10-10
 
 The public semantic API no longer depends on a Codex-managed worktree. The
 runtime remains local to the project Mac and therefore still requires the Mac
@@ -75,10 +75,15 @@ The first semantic request after a process restart is a cold start and may take
 substantially longer while Qwen and the FAISS worker initialize. Concurrent
 requests are rejected with HTTP 429 during that interval by design.
 
-## Remaining closure gate
+## Post-reboot closure
 
-Perform one login or reboot recovery smoke. If the LaunchAgent, Tailscale
-Funnel, public health and one semantic query recover without manual repair,
-the public semantic retrieval v1 operational gate can be declared closed and
-the former managed worktree can be archived after preserving any desired
-rollback environment.
+After a full Mac restart, both LaunchAgents recovered automatically. Tailscale
+restored the same Funnel mapping, local and public health returned `ready`, and
+one cold public semantic request completed with HTTP 200. It preserved
+`openalex-W157960258` as the first result with score
+`0.7339097261428833`, kept reranking disabled and did not use presentation
+fallback.
+
+The operational gate is closed. The former managed worktree and its duplicate
+1.3 GiB Python rollback environment may be archived; the durable source,
+environment and index are the sole serving installation.

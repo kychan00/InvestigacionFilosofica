@@ -1,7 +1,7 @@
 {
   "schema_version": "semantic-retrieval-durable-runtime-v1",
   "migrated_at": "2026-10-10T13:21:44Z",
-  "status": "pass",
+  "status": "operationally_closed",
   "service_label": "io.github.kychan00.investigacionfilosofica.semantic-api",
   "public_origin": "https://filosofia-semantic.tail829c9b.ts.net",
   "runtime": {
@@ -30,6 +30,21 @@
   },
   "acceptance": {
     "health_status": "ready",
+    "public_search_http_status": 200,
+    "query": "¿Qué relación hay entre ontología y lógica en Quine?",
+    "limit": 1,
+    "first_result_id": "openalex-W157960258",
+    "first_semantic_score": 0.7339097261428833,
+    "reranker_enabled": false,
+    "presentation_fallback": false
+  },
+  "post_reboot_acceptance": {
+    "validated_on": "2026-10-10",
+    "semantic_launch_agent_recovered_automatically": true,
+    "tailscale_launch_agent_recovered_automatically": true,
+    "funnel_recovered_automatically": true,
+    "local_health_status": "ready",
+    "public_health_status": "ready",
     "public_search_http_status": 200,
     "query": "¿Qué relación hay entre ontología y lógica en Quine?",
     "limit": 1,

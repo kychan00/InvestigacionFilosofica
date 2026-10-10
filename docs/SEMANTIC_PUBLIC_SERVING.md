@@ -217,3 +217,8 @@ reranker disabled and did not exercise presentation fallback. The detailed
 layout, hashes, acceptance evidence and recovery commands are in
 `docs/SEMANTIC_DURABLE_RUNTIME_V1.md`; the machine-readable receipt is under
 `benchmark/semantic-retrieval/durable-runtime-v1/`.
+
+The post-reboot gate also passed on 2026-10-10. Both LaunchAgents and the
+Tailscale Funnel recovered without manual repair; local/public health and one
+cold public semantic request passed with the same first ID and score. The
+semantic retrieval V1 public-alpha runtime is therefore operationally closed.
