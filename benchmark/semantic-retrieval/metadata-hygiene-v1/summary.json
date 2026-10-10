@@ -1,0 +1,20 @@
+{
+  "conservative_collapse_count": 1,
+  "exact_duplicate_document_count": 2,
+  "exact_duplicate_group_count": 1,
+  "finding_count": 5,
+  "finding_counts": {
+    "literal_html_markup": 1,
+    "missing_title": 1,
+    "suspected_mojibake": 3
+  },
+  "human_labels_used": false,
+  "probable_duplicate_document_count": 3,
+  "probable_duplicate_group_count": 1,
+  "production_change_authorized": false,
+  "query_count": 5,
+  "result_count": 50,
+  "schema_version": "semantic-result-hygiene-summary-v1",
+  "source_scores_or_order_modified": false,
+  "status": "audit_complete"
+}

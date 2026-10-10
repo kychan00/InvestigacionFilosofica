@@ -1,0 +1,5 @@
+{"action": "preserve_and_flag", "code": "missing_title", "document_id": "openalex-W6994251083", "field": "title", "query_id": "sem-v1-002", "rank": 3, "schema_version": "semantic-result-hygiene-finding-v1"}
+{"action": "preserve_and_review_encoding", "code": "suspected_mojibake", "document_id": "openalex-W7020911213", "field": "title", "query_id": "sem-v1-003", "rank": 2, "schema_version": "semantic-result-hygiene-finding-v1"}
+{"action": "preserve_and_review_encoding", "code": "suspected_mojibake", "document_id": "openalex-W7020911213", "field": "abstract", "query_id": "sem-v1-003", "rank": 2, "schema_version": "semantic-result-hygiene-finding-v1"}
+{"action": "sanitize_for_display_only", "code": "literal_html_markup", "document_id": "openalex-W4408220181", "field": "title", "query_id": "sem-v1-003", "rank": 5, "schema_version": "semantic-result-hygiene-finding-v1"}
+{"action": "preserve_and_review_encoding", "code": "suspected_mojibake", "document_id": "openalex-W3089531365", "field": "abstract", "query_id": "sem-v1-005", "rank": 4, "schema_version": "semantic-result-hygiene-finding-v1"}

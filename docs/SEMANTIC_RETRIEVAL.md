@@ -193,6 +193,15 @@ findings: one empty title, repeated works across distinct IDs, mojibake, literal
 title markup and a clear title/abstract-level topical drift. This smoke does not
 constitute a human relevance evaluation and does not authorize model tuning.
 
+The follow-up metadata and work-identity audit is documented in
+[`SEMANTIC_METADATA_HYGIENE_V1.md`](SEMANTIC_METADATA_HYGIENE_V1.md). Its
+runner was frozen before application and then executed once against the frozen
+50-result smoke. It found one exact two-document duplicate group eligible for
+conservative presentation collapse, plus one three-document probable group
+that remains review-only. It also recorded one missing title, one literal-HTML
+field and three suspected-mojibake fields. The source order, scores, IDs and
+smoke hash remained unchanged; no production change is authorized.
+
 ## Evaluation
 
 The internal queries live in

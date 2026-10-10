@@ -138,3 +138,26 @@ mojibake title/abstract, literal title markup and one clear title/abstract-level
 topical drift in the Frege query. These are triage observations, not human
 relevance labels. Full receipts and hashes live in
 `benchmark/semantic-retrieval/public-smoke-v1/`.
+
+## Metadata and work-identity audit
+
+An audit-only runner was frozen in `39c5b21` and applied once to the frozen
+50-result smoke. It does not mutate source records, scores or order and does not
+use human labels.
+
+The audit found:
+
+- one exact-identity group containing two OpenAlex IDs, eligible for a future
+  conservative presentation collapse while preserving both identifiers;
+- one probable-same-work group containing three IDs, including the exact pair,
+  which remains review-only;
+- one missing title;
+- one literal-HTML field;
+- three suspected-mojibake fields across two documents.
+
+The audit source retained SHA-256
+`ad2f581a1c5714721b088ff24c716876c86bdba6b531abc6200349875cf0490e`.
+Outputs and their hashes live in
+`benchmark/semantic-retrieval/metadata-hygiene-v1/`. This result authorizes no
+production change; presentation integration requires a separate prospective
+contract and held-out validation.
