@@ -42,6 +42,7 @@ class RetrievalSettings:
     reranker_instruction: str = DEFAULT_RERANK_INSTRUCTION
     reranker_batch_size: int = 4
     enable_reranker: bool = False
+    enable_presentation_hygiene: bool = False
 
     search_candidates: int = 50
     rerank_results: int = 15
@@ -113,6 +114,10 @@ class RetrievalSettings:
                 os.getenv("RERANKER_BATCH_SIZE", defaults.reranker_batch_size)
             ),
             enable_reranker=_bool_env("ENABLE_RERANKER", defaults.enable_reranker),
+            enable_presentation_hygiene=_bool_env(
+                "ENABLE_PRESENTATION_HYGIENE",
+                defaults.enable_presentation_hygiene,
+            ),
             search_candidates=int(
                 os.getenv("SEARCH_CANDIDATES", defaults.search_candidates)
             ),

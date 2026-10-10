@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 import math
 import time
 from collections import deque
@@ -17,7 +18,10 @@ from pydantic import BaseModel, Field, field_validator
 from .config import RetrievalSettings
 from .index_manager import read_current_manifest
 from .models import SearchFilters
+from .result_hygiene import build_presentation_results
 from .service import RetrievalService
+
+logger = logging.getLogger(__name__)
 
 
 class SearchFiltersRequest(BaseModel):
@@ -68,6 +72,18 @@ class SearchRequest(BaseModel):
     limit: int = Field(default=15, ge=1, le=100)
     filters: SearchFiltersRequest = Field(default_factory=SearchFiltersRequest)
     enable_reranker: bool | None = None
+    enable_presentation_hygiene: bool | None = None
+
+
+class PresentationStatus(BaseModel):
+    requested: bool
+    available: bool
+    enabled: bool
+    applied: bool
+    fallback: bool
+    source_result_count: int
+    presented_result_count: int
+    collapsed_result_count: int
 
 
 class SearchResponse(BaseModel):
@@ -75,6 +91,7 @@ class SearchResponse(BaseModel):
     mode: Literal["semantic", "hybrid"]
     candidate_count: int
     reranker_enabled: bool
+    presentation: PresentationStatus
     results: list[dict]
 
 
@@ -105,7 +122,9 @@ class SlidingWindowRateLimiter:
             while events and events[0] <= cutoff:
                 events.popleft()
             if len(events) >= self.requests:
-                retry_after = max(1, math.ceil(events[0] + self.window_seconds - current))
+                retry_after = max(
+                    1, math.ceil(events[0] + self.window_seconds - current)
+                )
                 return False, retry_after
             events.append(current)
             return True, 0
@@ -118,11 +137,64 @@ search_rate_limiter = SlidingWindowRateLimiter(
 search_gate = asyncio.Lock()
 
 
-def resolve_reranker_enabled(
-    server_enabled: bool, requested: bool | None
-) -> bool:
+def resolve_reranker_enabled(server_enabled: bool, requested: bool | None) -> bool:
     """A request may disable reranking, but cannot enable a disabled server."""
     return server_enabled and requested is not False
+
+
+def resolve_presentation_hygiene_enabled(
+    server_enabled: bool, requested: bool | None
+) -> bool:
+    """Presentation requires explicit opt-in from both server and request."""
+    return server_enabled and requested is True
+
+
+def apply_optional_presentation_hygiene(
+    source_results: list[dict],
+    *,
+    server_available: bool,
+    requested: bool | None,
+) -> tuple[list[dict], PresentationStatus]:
+    enabled = resolve_presentation_hygiene_enabled(server_available, requested)
+    source_count = len(source_results)
+    if not enabled:
+        return source_results, PresentationStatus(
+            requested=requested is True,
+            available=server_available,
+            enabled=False,
+            applied=False,
+            fallback=False,
+            source_result_count=source_count,
+            presented_result_count=source_count,
+            collapsed_result_count=0,
+        )
+
+    try:
+        presented, stats = build_presentation_results(source_results)
+    except Exception:
+        logger.exception(
+            "Optional presentation hygiene failed; returning source results"
+        )
+        return source_results, PresentationStatus(
+            requested=True,
+            available=True,
+            enabled=True,
+            applied=False,
+            fallback=True,
+            source_result_count=source_count,
+            presented_result_count=source_count,
+            collapsed_result_count=0,
+        )
+    return presented, PresentationStatus(
+        requested=True,
+        available=True,
+        enabled=True,
+        applied=True,
+        fallback=False,
+        source_result_count=source_count,
+        presented_result_count=stats["presented_result_count"],
+        collapsed_result_count=stats["collapsed_result_count"],
+    )
 
 
 @lru_cache(maxsize=1)
@@ -140,7 +212,7 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(
     title="Investigación Filosófica Semantic Retrieval API",
-    version="1.0.0",
+    version="1.1.0",
     lifespan=lifespan,
 )
 app.add_middleware(
@@ -189,6 +261,7 @@ def health() -> dict:
         "embedding_model": manifest["embedding_model"],
         "index_build_id": manifest["build_id"],
         "reranker_available": settings.enable_reranker,
+        "presentation_hygiene_available": settings.enable_presentation_hygiene,
         "search_limits": {
             "concurrent_requests": 1,
             "requests_per_window": settings.search_rate_limit_requests,
@@ -225,12 +298,19 @@ def _search(payload: SearchRequest, mode: Literal["semantic", "hybrid"]):
     except ValueError as error:
         raise HTTPException(status_code=400, detail=str(error)) from error
 
+    source_results = [result.to_dict() for result in results]
+    presented_results, presentation = apply_optional_presentation_hygiene(
+        source_results,
+        server_available=settings.enable_presentation_hygiene,
+        requested=payload.enable_presentation_hygiene,
+    )
     return SearchResponse(
         query=payload.query,
         mode=mode,
         candidate_count=settings.search_candidates,
         reranker_enabled=reranker_enabled,
-        results=[result.to_dict() for result in results],
+        presentation=presentation,
+        results=presented_results,
     )
 
 
