@@ -202,6 +202,14 @@ that remains review-only. It also recorded one missing title, one literal-HTML
 field and three suspected-mojibake fields. The source order, scores, IDs and
 smoke hash remained unchanged; no production change is authorized.
 
+An experimental presentation transform was subsequently frozen and validated
+on 25 held-out documents from ranks 11–15 of the existing hybrid benchmark,
+with every public Top 10 ID explicitly excluded. It preserved all 25 IDs,
+original ranks and scores and produced no false collapse. That slice contained
+no exact duplicates or display anomalies; positive collapse, HTML cleanup and
+missing-title behavior passed synthetic tests. The layer remains disconnected
+from the API and frontend.
+
 ## Evaluation
 
 The internal queries live in

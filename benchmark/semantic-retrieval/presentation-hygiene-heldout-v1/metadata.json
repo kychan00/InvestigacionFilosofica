@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-10-10T02:19:45.017658+00:00",
+  "inputs": {
+    "exclude_results_sha256": "ad2f581a1c5714721b088ff24c716876c86bdba6b531abc6200349875cf0490e",
+    "source_results_sha256": "f2df77553c47caa8d9b3ba6595f895489d6ce397415937e31f524cd8ef40e928"
+  },
+  "outputs": {
+    "presented-results.jsonl": "8168219296c924c846c0bc7bb367d05c6aaa1be95b792145b9394297c0094651",
+    "run.log": "3a1d64cd2dd98e5f0c014ea496d41d8cb07ddc0909a81fdfe79e52b44ad8d9cb",
+    "summary.json": "373e719bc390171de05d9facc18304d159b9f196a75e8a48a32499f9c63d3b8d"
+  },
+  "plan": {
+    "changes_production": false,
+    "collapse_policy": "exact_identity_only",
+    "display_cleanup": "html_entities_and_tags_only",
+    "exclude_results": "benchmark/semantic-retrieval/public-smoke-v1/results.jsonl",
+    "missing_title_display": "Sin título",
+    "mutates_source": false,
+    "output_dir": "benchmark/semantic-retrieval/presentation-hygiene-heldout-v1",
+    "preserve_member_ids_and_scores": true,
+    "probable_identity_policy": "never_collapse",
+    "rank_window": {
+      "from": 11,
+      "to": 15
+    },
+    "schema_version": "semantic-presentation-hygiene-plan-v1",
+    "source_results": "artifacts/semantic-retrieval/full-v3.3-index/benchmark/hybrid-v1-no-reranker.jsonl",
+    "uses_human_labels": false
+  },
+  "runner_commit": "104800c40375062ab6144964bdf6b1ec67301aa1",
+  "schema_version": "semantic-presentation-hygiene-metadata-v1"
+}

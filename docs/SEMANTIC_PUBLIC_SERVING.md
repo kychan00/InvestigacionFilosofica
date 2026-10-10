@@ -161,3 +161,10 @@ Outputs and their hashes live in
 `benchmark/semantic-retrieval/metadata-hygiene-v1/`. This result authorizes no
 production change; presentation integration requires a separate prospective
 contract and held-out validation.
+
+The separate presentation transform has now passed its first held-out
+validation: ranks 11–15 from the existing hybrid benchmark supplied 25 IDs
+with zero overlap against the public Top 10. All IDs, ranks and scores were
+preserved; the slice contained no exact duplicates or display anomalies, so no
+record was collapsed or rewritten. Synthetic tests cover the positive collapse
+and sanitization paths. The transform is still not connected to public serving.

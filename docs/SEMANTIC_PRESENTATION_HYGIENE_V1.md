@@ -56,3 +56,18 @@ with the excluded Top 10 IDs.
 Passing this validation demonstrates deterministic transformation and
 provenance preservation. It does not establish ranking quality and does not by
 itself authorize API or frontend integration.
+
+## Held-out result
+
+The corrected runner was frozen in `104800c` and executed once. All 25 records
+from ranks 11–15 were disjoint from the public Top 10 and remained present with
+their original IDs, ranks and scores. The held-out slice contained no exact
+duplicate or display anomaly, so the transformation correctly produced 25
+singleton presentation records and made no content cleanup or collapse.
+
+Positive collapse and sanitization paths remain covered by synthetic tests. The
+complete Python suite passed 44 tests. The held-out output SHA-256 is
+`8168219296c924c846c0bc7bb367d05c6aaa1be95b792145b9394297c0094651`.
+
+The result validates implementation invariants, not corpus-wide safety or
+ranking quality. Production remains unchanged.
