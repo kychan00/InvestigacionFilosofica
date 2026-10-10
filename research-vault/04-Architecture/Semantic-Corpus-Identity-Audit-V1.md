@@ -1,8 +1,8 @@
 ---
 type: validation
 area: semantic-retrieval
-status: corpus-gate-passed-no-serving-change
-updated: 2026-10-09
+status: corpus-gate-passed-api-local-smoke-passed
+updated: 2026-10-10
 ---
 
 # Auditoría corpus-wide de identidad semántica V1
@@ -77,7 +77,8 @@ conserva su interpretación metodológica.
 
 ## Próximo límite
 
-Una integración posterior debe ser separada, default-off y verificable. Debe
-demostrar que la respuesta API conserva scores y orden de representantes,
-expone provenance completa para miembros colapsados y mantiene fallback. No
-debe tocar `src/core/rank.js` ni convertir identidad probable en deduplicación.
+La integración separada [[Semantic-Presentation-API-Integration-V1]] completó
+ese límite mediante doble opt-in y un smoke local reproducible. Conservó
+scores, orden y provenance, y mantuvo intacto el comportamiento default-off.
+El próximo límite es una decisión operacional separada: el daemon público y el
+frontend permanecen sin esta capacidad activa.

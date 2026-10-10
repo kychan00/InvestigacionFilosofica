@@ -2,7 +2,7 @@
 type: hub
 area: evaluation
 project: InvestigacionFilosofica
-updated: 2026-10-09
+updated: 2026-10-10
 ---
 
 # Evaluación, jueces y Qwen3
@@ -21,6 +21,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Qwen3-Browser-Q8-Opt-in-Prototype]]
 - [[Semantic-Retrieval-Reranker-Bounded-V1]]
 - [[Semantic-Corpus-Identity-Audit-V1]]
+- [[Semantic-Presentation-API-Integration-V1]]
 
 ## Informes originales
 
@@ -69,6 +70,12 @@ provenance. Sobre 451.823 registros produjo 9.266 grupos exactos y 12.085
 repeticiones presentacionales potenciales; la reconstrucción independiente no
 encontró conflictos de autor ni discrepancias de contenido. El resultado no
 modifica ranking ni autoriza por sí solo integración productiva.
+
+La integración posterior [[Semantic-Presentation-API-Integration-V1]] es otro
+gate de ingeniería, no una evaluación humana de relevancia. Con doble opt-in,
+53/53 pruebas y un smoke local, demostró conservación de IDs, scores, orden y
+provenance al colapsar sólo identidad exacta. La capacidad continúa apagada en
+el daemon público y no cambia producción ni ranking.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 

@@ -1,8 +1,8 @@
 ---
 type: validation
 area: semantic-retrieval
-status: heldout-validation-passed-no-production-change
-updated: 2026-10-09
+status: integrated-default-off-public-disabled
+updated: 2026-10-10
 ---
 
 # Higiene de presentación semántica V1
@@ -52,7 +52,9 @@ Los artefactos canónicos están en `benchmark/semantic-retrieval/presentation-h
 
 La transformación es determinista, conserva provenance y no produjo falsos positivos en la muestra held-out pequeña. Esto no prueba todavía seguridad en las 451.823 obras ni calidad de ranking.
 
-La capa permanece desconectada de la API y del frontend. Producción, retrieval y `src/core/rank.js` no cambiaron.
+En el momento de esta validación la capa permanecía desconectada de la API y
+del frontend. La conexión API local posterior está documentada por separado;
+producción, retrieval y `src/core/rank.js` no cambiaron.
 
 ## Gate corpus-wide completado
 
@@ -62,6 +64,7 @@ independiente sin conflictos de autor o contenido. Este snapshot no contiene
 DOI, por lo que una futura incorporación de DOI exige repetir su control
 material y no sólo confiar en las pruebas sintéticas.
 
-El próximo gate admisible es una propuesta separada de integración default-off
-en la API, con pruebas de provenance, scores, orden y fallback. Este documento
-no la autoriza automáticamente.
+Ese gate separado se completó en [[Semantic-Presentation-API-Integration-V1]]:
+la API exige doble opt-in y el smoke local preservó provenance, scores y orden.
+La capacidad permanece apagada en el daemon público; la validación no autoriza
+por sí sola su despliegue.

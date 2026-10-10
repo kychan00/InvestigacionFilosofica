@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-10-09
+updated: 2026-10-10
 status: design
 ---
 
@@ -48,7 +48,7 @@ Parquet fijado en Hugging Face
 → API desacoplada
 ```
 
-Estado al 2026-10-09:
+Estado al 2026-10-10:
 
 - implementación modular creada en una rama aislada del repositorio;
 - generación inicial e incremental separada de la indexación;
@@ -88,11 +88,12 @@ Estado al 2026-10-09:
 - el smoke cerró como `PASS_WITH_DATA_QUALITY_FINDINGS`: registró un título vacío, duplicados o casi duplicados, mojibake, HTML literal y una deriva temática visible; estos hallazgos abren trabajo de higiene de metadata y deduplicación, pero no constituyen etiquetas humanas ni autorizan tuning;
 - la auditoría de higiene e identidad se congeló antes de aplicarse en `39c5b21` y sus resultados quedaron congelados en `40fe59f`; confirmó un grupo exacto de dos IDs elegible para futuro colapso conservador, un grupo probable de tres IDs sólo para revisión y cinco hallazgos de metadata, sin alterar scores, orden, IDs ni el hash del smoke;
 - la transformación experimental de presentación quedó congelada en `c700290`, su corrección de provenance en `104800c` y la validación held-out en `e8c1b94`; 25 documentos de rangos 11–15, todos ajenos al Top 10, conservaron IDs, ranks y scores sin falsos colapsos, mientras los caminos positivos de sanitización y colapso exacto quedaron cubiertos por 44 pruebas;
-- el gate corpus-wide de identidad quedó congelado con runner `3b5e21f` y resultados `d9bb1ca`; recorrió 451.823 registros read-only, encontró 9.266 grupos exactos con 21.351 miembros y 12.085 repeticiones potencialmente colapsables, y la validación independiente confirmó cero conflictos de autor y cero discrepancias de contenido o IDs; el snapshot no contiene DOI y la capa continúa desconectada del serving;
+- el gate corpus-wide de identidad quedó congelado con runner `3b5e21f` y resultados `d9bb1ca`; recorrió 451.823 registros read-only, encontró 9.266 grupos exactos con 21.351 miembros y 12.085 repeticiones potencialmente colapsables, y la validación independiente confirmó cero conflictos de autor y cero discrepancias de contenido o IDs; el snapshot no contiene DOI y el gate no cambió serving;
+- la integración API presentacional quedó congelada tras contrato `2ec41cb`, implementación `30722c1` y smoke local `4b06d71`; exige doble opt-in, pasó 53/53 pruebas y redujo una ventana Top 10 a nueve representantes colapsando sólo el par exacto `openalex-W2211243423`/`openalex-W7069018285`, con IDs, orden, scores y provenance preservados; continúa apagada en el daemon público y sin consumo del frontend;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]], [[Public-Semantic-API]], [[Public-Semantic-Smoke-V1]], [[Semantic-Metadata-Hygiene-V1]], [[Semantic-Presentation-Hygiene-V1]] y [[Semantic-Corpus-Identity-Audit-V1]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]], [[Public-Semantic-API]], [[Public-Semantic-Smoke-V1]], [[Semantic-Metadata-Hygiene-V1]], [[Semantic-Presentation-Hygiene-V1]], [[Semantic-Corpus-Identity-Audit-V1]] y [[Semantic-Presentation-API-Integration-V1]].
 
 ## Nueva fase estratégica
 
