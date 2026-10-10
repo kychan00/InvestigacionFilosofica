@@ -124,6 +124,10 @@ export async function checkPublicSemanticHealth(
     rerankerAvailable:
       Boolean(
         payload.reranker_available
+      ),
+    presentationHygieneAvailable:
+      Boolean(
+        payload.presentation_hygiene_available
       )
   };
 }
@@ -228,16 +232,64 @@ export function normalizeSemanticResult(
       ? `https://doi.org/${item.doi}`
       : null;
 
+  const display =
+    item.display &&
+    typeof item.display ===
+      "object"
+      ? item.display
+      : {};
+
+  const workIdentity =
+    item.work_identity &&
+    typeof item.work_identity ===
+      "object"
+      ? item.work_identity
+      : {};
+
+  const identityMembers =
+    Array.isArray(
+      workIdentity.members
+    ) &&
+    workIdentity.members.length
+      ? workIdentity.members
+      : [
+          {
+            id:
+              item.id,
+            source_rank:
+              item.source_rank ??
+              null,
+            semantic_score:
+              semanticScore,
+            lexical_score:
+              item.lexical_score ??
+              null,
+            rerank_score:
+              item.rerank_score ??
+              null
+          }
+        ];
+
+  const presentationMemberCount =
+    Math.max(
+      1,
+      Number(
+        workIdentity.member_count
+      ) || identityMembers.length
+    );
+
   return {
     id:
       item.id,
 
     title:
+      display.title ||
       item.title ||
       "Sin título",
 
     abstract:
-      item.abstract ||
+      display.abstract ??
+      item.abstract ??
       null,
 
     authors:
@@ -276,22 +328,37 @@ export function normalizeSemanticResult(
 
     providers: [source],
 
-    sourceRecords: [
-      {
-        provider:
-          source,
+    sourceRecords:
+      identityMembers.map(
+        member => ({
+          provider:
+            source,
 
-        sourceId:
-          item.openalex_id ||
-          item.crossref_id ||
-          item.id,
+          sourceId:
+            member.id ||
+            item.openalex_id ||
+            item.crossref_id ||
+            item.id,
 
-        query,
+          query,
 
-        rank:
-          null
-      }
-    ],
+          rank:
+            member.source_rank ??
+            null,
+
+          semanticScore:
+            member.semantic_score ??
+            null,
+
+          lexicalScore:
+            member.lexical_score ??
+            null,
+
+          rerankScore:
+            member.rerank_score ??
+            null
+        })
+      ),
 
     urls: {
       canonical:
@@ -355,7 +422,47 @@ export function normalizeSemanticResult(
       null,
     crossrefId:
       item.crossref_id ||
-      null
+      null,
+    presentationMemberCount,
+    presentationCollapsed:
+      workIdentity.classification ===
+        "exact_identity" &&
+      presentationMemberCount > 1,
+    presentationRank:
+      item.presentation_rank ??
+      null,
+    sourceRank:
+      item.source_rank ??
+      null,
+    workIdentity: {
+      classification:
+        workIdentity.classification ||
+        "singleton",
+      representativeId:
+        workIdentity.representative_id ||
+        item.id,
+      memberIds:
+        Array.isArray(
+          workIdentity.member_ids
+        )
+          ? [
+              ...workIdentity.member_ids
+            ]
+          : identityMembers
+            .map(
+              member =>
+                member.id
+            )
+            .filter(Boolean)
+    },
+    metadataFindings:
+      Array.isArray(
+        item.metadata_findings
+      )
+        ? [
+            ...item.metadata_findings
+          ]
+        : []
   };
 }
 
@@ -427,6 +534,48 @@ export function normalizeSemanticResponse(
         Boolean(
           payload.reranker_enabled
         ),
+      presentation: {
+        requested:
+          Boolean(
+            payload.presentation
+              ?.requested
+          ),
+        available:
+          Boolean(
+            payload.presentation
+              ?.available
+          ),
+        enabled:
+          Boolean(
+            payload.presentation
+              ?.enabled
+          ),
+        applied:
+          Boolean(
+            payload.presentation
+              ?.applied
+          ),
+        fallback:
+          Boolean(
+            payload.presentation
+              ?.fallback
+          ),
+        sourceResultCount:
+          Number(
+            payload.presentation
+              ?.source_result_count
+          ) || results.length,
+        presentedResultCount:
+          Number(
+            payload.presentation
+              ?.presented_result_count
+          ) || results.length,
+        collapsedResultCount:
+          Number(
+            payload.presentation
+              ?.collapsed_result_count
+          ) || 0
+      },
       mode:
         payload.mode ||
         "semantic"
@@ -496,7 +645,9 @@ export async function searchPublicSemantic(
                 ),
               filters: {},
               enable_reranker:
-                false
+                false,
+              enable_presentation_hygiene:
+                true
             }),
           signal
         }
