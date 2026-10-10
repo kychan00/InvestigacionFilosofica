@@ -1,6 +1,6 @@
 # Semantic retrieval public serving
 
-**Status:** public alpha validated on 2026-10-09
+**Status:** public alpha with presentation capability validated on 2026-10-10
 
 ## Endpoint
 
@@ -24,8 +24,8 @@ connected and logged in. It is a public alpha, not a cloud service with an SLA.
 - Documents: 451,823.
 - Reranker: disabled at the server capability boundary.
 - A request cannot enable a server-disabled reranker.
-- Presentation hygiene: disabled in the public daemon.
-- A request cannot enable server-disabled presentation hygiene.
+- Presentation hygiene: available behind explicit request opt-in.
+- An omitted or false request flag preserves the original result list.
 - Searches: one concurrent request.
 - Rate limit: ten searches per client per ten minutes.
 - Excess or concurrent searches return HTTP 429 before inference.
@@ -185,6 +185,14 @@ pair, while provenance reconstructed all ten IDs and scores in source order.
 The complete Python suite passed 53/53 tests. Canonical receipts live in
 `benchmark/semantic-retrieval/presentation-api-smoke-v1/`.
 
-This code is not enabled in the public LaunchAgent or consumed by the frontend.
-The public behavior therefore remains unchanged pending a separate deployment
-decision.
+The public LaunchAgent enabled the server capability on 2026-10-10. A bounded
+public smoke made exactly two searches over the same Quine Top-10 window. The
+default-off request returned ten unchanged source results; the explicit
+double-opt-in request returned nine representatives after collapsing only the
+known exact pair. Flattened provenance reproduced all ten IDs and scores in
+source order, with no presentation fallback and no reranker.
+
+Canonical receipts and hashes live in
+`benchmark/semantic-retrieval/public-presentation-smoke-v1/`. At this backend
+milestone the production frontend had not yet been updated to request or render
+the presentation fields.

@@ -33,6 +33,30 @@ reranker disablement and absence of presentation fallback. Outputs are
 JSON/logs under
 `benchmark/semantic-retrieval/public-presentation-smoke-v1/`.
 
+## Frozen backend deployment result
+
+The LaunchAgent capability was enabled and the daemon restarted on
+2026-10-10. The frozen runner commit `43268b1` then executed its two public
+searches exactly once.
+
+The smoke passed:
+
+- health advertised 451,823 documents, reranker unavailable and presentation
+  hygiene available;
+- the omitted request flag returned ten source results unchanged;
+- the explicit request flag returned nine representatives;
+- only `openalex-W2211243423` and `openalex-W7069018285` collapsed;
+- flattened provenance reproduced the ten IDs and all component scores in
+  source order;
+- presentation fallback was not exercised.
+
+Frozen hashes:
+
+- `health.json`: `21db7fe6012066f4801914c5bac46e4e84f0f69fc70e0e3ec7b413baf77296a8`;
+- `responses.json`: `1e6b108f78e12bc4fe0cc3d6a36008f365a4843f9a7618c501f70ccd95be749f`;
+- `summary.json`: `f2a0ada68e78cea9af5f9dcfed66a38ea06d77de5d9e10848964be7646fe1a9b`;
+- `run.log`: `fba4446ef5d01f0d40350efc09d2acd0716ff09e172a7a7aaa6cd70cb51dae61`.
+
 ## Rollback
 
 Remove `ENABLE_PRESENTATION_HYGIENE` from the installed semantic API

@@ -1,0 +1,20 @@
+{
+  "api_base_url": "https://filosofia-semantic.tail829c9b.ts.net",
+  "completed_at": "2026-10-10T13:07:56.395103+00:00",
+  "hashes": {
+    "health.json": "21db7fe6012066f4801914c5bac46e4e84f0f69fc70e0e3ec7b413baf77296a8",
+    "responses.json": "1e6b108f78e12bc4fe0cc3d6a36008f365a4843f9a7618c501f70ccd95be749f",
+    "run.log": "fba4446ef5d01f0d40350efc09d2acd0716ff09e172a7a7aaa6cd70cb51dae61",
+    "summary.json": "f2a0ada68e78cea9af5f9dcfed66a38ea06d77de5d9e10848964be7646fe1a9b"
+  },
+  "human_labels_used": false,
+  "production_ranking_changed": false,
+  "query": "¿Qué relación existe entre Quine y el compromiso ontológico?",
+  "requested_limit": 10,
+  "reranker_enabled": false,
+  "runner_commit": "43268b1b36af84fec07b5aa52ba03d53b35ebd97",
+  "schema_version": "semantic-public-presentation-smoke-metadata-v1",
+  "search_request_count": 2,
+  "started_at": "2026-10-10T13:07:31.689947+00:00",
+  "status": "frozen_public_presentation_smoke"
+}

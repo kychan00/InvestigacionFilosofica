@@ -1,0 +1,5 @@
+2026-10-10T13:07:31.690107+00:00 start search_requests=2 limit=10 retries=0 concurrency=1
+2026-10-10T13:07:32.461928+00:00 health http=200 elapsed_seconds=0.770673
+2026-10-10T13:07:54.665989+00:00 default_off http=200 results=10 elapsed_seconds=22.201995
+2026-10-10T13:07:56.385291+00:00 enabled http=200 results=9 elapsed_seconds=1.715235
+2026-10-10T13:07:56.393074+00:00 complete status=public_presentation_smoke_passed
