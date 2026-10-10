@@ -48,6 +48,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Semantic-Presentation-Hygiene-V1]]
 - [[Semantic-Corpus-Identity-Audit-V1]]
 - [[Semantic-Presentation-API-Integration-V1]]
+- [[Semantic-Presentation-Public-Rollout-V1]]
 
 ## Principios adoptados
 

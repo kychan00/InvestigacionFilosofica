@@ -1,7 +1,7 @@
 ---
 type: validation
 area: semantic-retrieval
-status: local-smoke-passed-public-disabled
+status: public-deployed
 updated: 2026-10-10
 ---
 
@@ -75,7 +75,6 @@ semántico. Esta nota sólo conserva su interpretación arquitectónica.
 El gate local pasa. Esto demuestra compatibilidad, conservación y fallback;
 no demuestra mejora de relevancia ni autoriza un cambio de ranking.
 
-La capacidad continúa apagada en el daemon público y el frontend aún no la
-solicita ni renderiza sus campos. Activarla exige una decisión operacional
-separada, seguida por pruebas públicas de salud, comportamiento default-off,
-doble opt-in, provenance y fallback antes de considerarla desplegada.
+La decisión operacional posterior quedó completada y documentada en
+[[Semantic-Presentation-Public-Rollout-V1]]. El daemon y la ruta semántica del
+frontend ya usan el doble opt-in; la búsqueda federada permanece como default.

@@ -22,6 +22,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Semantic-Retrieval-Reranker-Bounded-V1]]
 - [[Semantic-Corpus-Identity-Audit-V1]]
 - [[Semantic-Presentation-API-Integration-V1]]
+- [[Semantic-Presentation-Public-Rollout-V1]]
 
 ## Informes originales
 
@@ -74,8 +75,10 @@ modifica ranking ni autoriza por sí solo integración productiva.
 La integración posterior [[Semantic-Presentation-API-Integration-V1]] es otro
 gate de ingeniería, no una evaluación humana de relevancia. Con doble opt-in,
 53/53 pruebas y un smoke local, demostró conservación de IDs, scores, orden y
-provenance al colapsar sólo identidad exacta. La capacidad continúa apagada en
-el daemon público y no cambia producción ni ranking.
+provenance al colapsar sólo identidad exacta. El rollout público posterior
+[[Semantic-Presentation-Public-Rollout-V1]] reprodujo el comportamiento en el
+endpoint público y desplegó el cliente mediante PR 14. No cambió retrieval,
+ranking ni reranker.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 
