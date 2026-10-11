@@ -8,6 +8,7 @@
     "build:duckdb": "node scripts/build-duckdb-browser.mjs",
     "build:qwen3-browser": "node scripts/build-qwen3-browser.mjs",
     "build:qwen3-browser-embedding": "node scripts/build-qwen3-browser-embedding.mjs",
+    "build:qwen3-browser-embedding-wasm": "node scripts/build-qwen3-browser-embedding-wasm.mjs",
     "benchmark:validate": "node scripts/benchmark/validate.mjs",
     "benchmark:evaluate": "node scripts/benchmark/evaluate.mjs",
     "benchmark:run": "npm run build:duckdb && node scripts/benchmark/run-server.mjs",

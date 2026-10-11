@@ -1,0 +1,11 @@
+{
+  "schema_version": "qwen3-browser-semantic-wasm-bundle-audit-v2",
+  "output": "vendor/qwen3-embedding-wasm/qwen3-browser-embedding-wasm.bundle.mjs",
+  "bytes": 551759,
+  "platform": "browser",
+  "transformers_web_entry": "../../../../filosofia/web/node_modules/@huggingface/transformers/dist/transformers.web.js",
+  "onnxruntime_web_input_count": 1,
+  "forbidden_node_input_count": 0,
+  "required_execution_provider": "wasm",
+  "required_dtype": "q8"
+}
