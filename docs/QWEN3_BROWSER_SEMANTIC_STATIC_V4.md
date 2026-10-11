@@ -1,6 +1,6 @@
 # Qwen3 browser semantic static v4
 
-**Status:** preregistered; no execution results yet
+**Status:** retrieval gate passed; static build authorized
 **Frozen on:** 2026-10-10
 **Production impact:** none
 
@@ -21,3 +21,15 @@ are published or any production integration is considered.
 
 Machine-readable contract:
 `benchmark/semantic-retrieval/browser-static-v4/preregistration.json`.
+
+## Result
+
+V4 passed every gate on 2026-10-10. Full-corpus mean Recall@10 was `0.96`, the
+minimum query Recall@10 was `0.90`, and mean Recall@50 was `0.948`. Browser
+embedding parity remained `0.999722` on average. The projected full vector
+payload is 464,474,044 bytes; the largest 32-shard query selection was
+69,356,076 bytes.
+
+The next authorized step is deterministic construction and independent hash
+validation of the static vectors, centroids and compact metadata. Production
+and the existing public semantic service remain unchanged.
