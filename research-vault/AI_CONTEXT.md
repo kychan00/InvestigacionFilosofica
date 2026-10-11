@@ -91,4 +91,12 @@ El rollout [[Semantic-Presentation-Public-Rollout-V1]] activó después la capac
 
 La instalación [[Semantic-Durable-Runtime-V1]] sacó después código, entorno Python e índice del worktree administrado por Codex. Conservó el commit de servicio, el índice de 451.823 documentos, sus hashes y la política pública. Salud local/pública y una consulta de aceptación pasaron sin cambiar primer ID o score. Tras un reinicio completo, ambos LaunchAgents, Tailscale Funnel, la salud pública y una consulta fría se recuperaron sin reparación manual; el gate operacional quedó cerrado. Sigue siendo un servicio del Mac, no hosting cloud.
 
+La ruta [[Browser-Semantic-Static-V4]] eliminó esa dependencia material para un
+modo alternativo: Qwen3-Embedding se ejecuta en WebGPU y los 451.823 documentos
+se consultan mediante shards estáticos fijados en Hugging Face. Chrome reprodujo
+exactamente las cinco clasificaciones congeladas de cincuenta resultados desde
+las URL públicas. La integración permanece default-off tras
+`?semantic=browser-v4` porque la carga fría del modelo fp16 ronda 1,12 GiB; no
+modifica retrieval, ranking, reranker ni la búsqueda federada predeterminada.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.

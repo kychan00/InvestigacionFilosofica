@@ -16,6 +16,15 @@ updated: 2026-09-27
 - [ ] Validar estructura del vault en Obsidian.
 - [ ] Mantener [[01_PROJECT_STATE]] como fuente de estado actual.
 
+## Infraestructura habilitante · recuperación semántica
+
+- [x] Construir embeddings e índice completo para 451.823 documentos.
+- [x] Validar el runtime semántico durable alojado en el Mac.
+- [x] Publicar y validar [[Browser-Semantic-Static-V4]] sin dependencia del Mac.
+- [x] Integrar el modo browser-static como opción explícita y default-off.
+- [ ] Medir descarga, memoria, caché y compatibilidad WebGPU en dispositivos
+  reales antes de promoverlo a alfa visible.
+
 ## Fase 1 · Modelo metodológico
 
 - [ ] Formalizar [[Research-Process]].

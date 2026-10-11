@@ -52,6 +52,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Semantic-Presentation-API-Integration-V1]]
 - [[Semantic-Presentation-Public-Rollout-V1]]
 - [[Semantic-Durable-Runtime-V1]]
+- [[Browser-Semantic-Static-V4]]
 
 ## Principios adoptados
 

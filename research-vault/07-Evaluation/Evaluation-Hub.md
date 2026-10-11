@@ -23,6 +23,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Semantic-Corpus-Identity-Audit-V1]]
 - [[Semantic-Presentation-API-Integration-V1]]
 - [[Semantic-Presentation-Public-Rollout-V1]]
+- [[Browser-Semantic-Static-V4]]
 
 ## Informes originales
 
@@ -79,6 +80,13 @@ provenance al colapsar sólo identidad exacta. El rollout público posterior
 [[Semantic-Presentation-Public-Rollout-V1]] reprodujo el comportamiento en el
 endpoint público y desplegó el cliente mediante PR 14. No cambió retrieval,
 ranking ni reranker.
+
+[[Browser-Semantic-Static-V4]] es también un gate de ingeniería, no una
+evaluación humana de relevancia. Mide paridad del embedding WebGPU,
+recuperación contra el índice completo y reproducción exacta desde artefactos
+estáticos públicos. Su aprobación demuestra que el buscador puede operar sin
+el Mac anfitrión; no convierte similitud en juicio filosófico, no autoriza
+tuning y no altera las conclusiones de los experimentos Qwen3 congelados.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 
