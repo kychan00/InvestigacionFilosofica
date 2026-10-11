@@ -68,6 +68,16 @@ test(
 
     assert.match(
       app,
+      /searchBrowserSemanticV4\(/u
+    );
+
+    assert.match(
+      app,
+      /browserSemanticV4OptIn/u
+    );
+
+    assert.match(
+      app,
       /await runFederatedSearch\([\s\S]*fallbackReason:/u
     );
 
