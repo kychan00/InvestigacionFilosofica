@@ -1,0 +1,111 @@
+{
+  "schema_version": "qwen3-browser-semantic-static-preregistration-v3",
+  "experiment_id": "qwen3-browser-semantic-static-v3",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-10-10",
+  "classification": "prospective engineering fidelity gate after q8 failures; not a confirmatory relevance experiment",
+  "purpose": "Determine whether the pinned fp16 browser export reproduces the frozen PyTorch embedding space and can drive the unchanged static compressed-index design.",
+  "production_change_authorized": false,
+  "lineage": {
+    "predecessors": [
+      "qwen3-browser-semantic-static-v1",
+      "qwen3-browser-semantic-static-v2"
+    ],
+    "predecessor_decisions": ["fail", "fail"],
+    "only_runtime_change_from_v1": "browser ONNX dtype changes from q8 to fp16",
+    "known_tradeoff": "the pinned fp16 ONNX payload is 1200510818 bytes before browser-cache overhead"
+  },
+  "frozen_inputs": {
+    "source_commit": "4ad76042be6be6ff5358045fa0dd850216898cdf",
+    "queries": {
+      "file": "benchmark/semantic-retrieval/queries-v1.jsonl",
+      "sha256": "595da8eae92f48c0b05e88ff02256085590aa7e2bf41a4a919499aaaa8df3b16",
+      "count": 5
+    },
+    "faiss": {
+      "build_id": "20261009T135455Z",
+      "document_count": 451823,
+      "dimension": 1024,
+      "metric": "inner_product_on_l2_normalized_vectors",
+      "sha256": "31b82528a42bf416c86a77822d732b8d56381e2c1b0046df821c93e64dab6f68"
+    },
+    "reference_embedding_model": {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimension": 1024
+    },
+    "browser_embedding_model": {
+      "model": "onnx-community/Qwen3-Embedding-0.6B-ONNX",
+      "revision": "c25a394dd583836952667c12f008335071b3f43d",
+      "dtype": "fp16",
+      "required_device": "webgpu",
+      "forbid_wasm_fallback": true,
+      "forbid_node_inference": true,
+      "remote_bytes": 1200510818
+    }
+  },
+  "fixed_design": {
+    "prototype_sample_documents": 32768,
+    "prototype_sample_method": "uniform deterministic vector-id stride over the frozen corpus",
+    "reduced_dimension": 256,
+    "prefix_truncation": true,
+    "renormalize_after_truncation": true,
+    "document_quantization": "symmetric signed int8 with fixed scale 127 after L2 normalization",
+    "query_representation": "float32 normalized 256-dimensional prefix",
+    "cluster_count": 256,
+    "cluster_training_documents": 65536,
+    "cluster_training_method": "uniform deterministic vector-id stride over the frozen corpus",
+    "cluster_seed": 20261010,
+    "cluster_iterations": 20,
+    "nprobe": 32,
+    "retrieval_limit": 50,
+    "tie_break": "score descending, vector_id ascending"
+  },
+  "gates": {
+    "browser_execution": {
+      "all_queries_complete": true,
+      "webgpu_adapter_required": true,
+      "fallback_adapter_allowed": false,
+      "onnx_session_device": "webgpu",
+      "onnx_session_dtype": "fp16",
+      "node_or_wasm_backend_allowed": false
+    },
+    "embedding_parity": {
+      "minimum_cosine_each_query": 0.98,
+      "minimum_mean_cosine": 0.99,
+      "required_dimension": 1024,
+      "finite_values_required": true
+    },
+    "prototype_retrieval": {
+      "minimum_mean_recall_at_10": 0.8,
+      "minimum_each_query_recall_at_10": 0.6,
+      "minimum_mean_recall_at_50": 0.85
+    },
+    "full_corpus_retrieval": {
+      "minimum_mean_recall_at_10": 0.8,
+      "minimum_each_query_recall_at_10": 0.6,
+      "minimum_mean_recall_at_50": 0.85
+    },
+    "static_payload": {
+      "maximum_vector_payload_mib": 140,
+      "maximum_centroid_payload_mib": 1,
+      "maximum_selected_shards_mib_per_query": 32,
+      "maximum_browser_model_remote_mib": 1200
+    }
+  },
+  "decision_rule": {
+    "pass": "Every applicable gate passes without changing the fixed design.",
+    "fail": "Any applicable gate fails. Stop v3 without tuning.",
+    "continuation_if_pass": "Build immutable full-corpus static shards and metadata, validate hashes and real-browser retrieval, and document the greater-than-1-GiB cold-start tradeoff before any default-off integration.",
+    "continuation_if_fail": "Close the current browser-Qwen3 path and keep the server-backed alpha plus traditional-search fallback unchanged."
+  },
+  "prohibitions": [
+    "No production changes in this experiment.",
+    "No changes to src/core/rank.js or existing retrieval.",
+    "No human relevance labels during construction or inference.",
+    "No reranker or generative model.",
+    "No model weights committed to Git.",
+    "No modification of frozen FAISS, embeddings or prior benchmark artifacts.",
+    "No post-hoc parameter tuning within v3."
+  ]
+}
