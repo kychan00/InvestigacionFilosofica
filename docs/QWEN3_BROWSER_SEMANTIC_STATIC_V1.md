@@ -1,6 +1,6 @@
 # Qwen3 browser semantic static v1
 
-**Status:** preregistered; no execution results yet  
+**Status:** closed — `FAIL`
 **Frozen on:** 2026-10-10  
 **Production impact:** none
 
@@ -104,3 +104,22 @@ traditional-search fallback unchanged.
 This experiment does not modify production, `src/core/rank.js`, frozen
 embeddings, frozen FAISS, prior benchmark artifacts or model weights. It uses
 no human labels, reranker or generative model.
+
+## Result
+
+The experiment ran once on 2026-10-10 and failed the preregistered parity and
+retrieval gates. Genuine browser execution passed on an Apple `metal-3`
+non-fallback adapter, with an audited q8 WebGPU ONNX session and five complete
+1,024-dimensional embeddings. The payload projection also passed: the complete
+int8 vector representation was 117,473,980 bytes and the largest 32-shard
+selection was 15,601,560 bytes.
+
+However, the browser embeddings had mean cosine `0.772495` and minimum cosine
+`0.681688` against the canonical PyTorch embeddings. End-to-end full-corpus
+mean Recall@10 was `0.32` and mean Recall@50 was `0.368`. These values are far
+below the frozen gates, so no static artifacts were published and no frontend
+or production integration was attempted.
+
+Canonical receipts and hashes are under
+`benchmark/semantic-retrieval/browser-static-v1/`. Any subsequent attempt must
+use a new preregistration and address exact embedding-space compatibility.

@@ -1,0 +1,20 @@
+{
+  "schema_version": "qwen3-browser-semantic-static-metadata-v1",
+  "experiment_id": "qwen3-browser-semantic-static-v1",
+  "executed_on": "2026-10-10",
+  "decision": "fail",
+  "preregistration_commit": "dc15efc",
+  "runner_commit": "19fed87",
+  "execution_count": 1,
+  "files": {
+    "reference-embeddings.json": "c2440278f3be00d42b626ecd7e290001493d0d1cd3246a2f446a4245f253fcfa",
+    "browser-embeddings.json": "73e3ce3e4b30a049da5e225ceaf887eccb5b494772ce401c1c96da8e81da76e9",
+    "result.json": "fe5e085626a5a3808d4e8a137410f03dc96e4773f7771188b3110f812741076c",
+    "results.jsonl": "a17b136f8807d6dc572b14cc602570ea32734c6586ced3cd9b5cba725889bcca"
+  },
+  "notes": [
+    "The first reference command failed before model construction because PYTHONPATH was absent; it produced no experimental output. The same frozen runner then completed with PYTHONPATH set.",
+    "The browser inference and evaluation each ran exactly once.",
+    "No parameters were changed after observation."
+  ]
+}
