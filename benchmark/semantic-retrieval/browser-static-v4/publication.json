@@ -1,0 +1,27 @@
+{
+  "schema_version": "qwen3-browser-semantic-static-publication-v4",
+  "status": "published_and_browser_validated",
+  "published_on": "2026-10-10",
+  "repository": "CristianPelayo/openalex-philosophy",
+  "repository_type": "dataset",
+  "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+  "path": "semantic-retrieval/v3.3/browser-static-v4/20261010-v4",
+  "base_url": "https://huggingface.co/datasets/CristianPelayo/openalex-philosophy/resolve/5a4a195085de54bf607a6c4397092ffb32716dcc/semantic-retrieval/v3.3/browser-static-v4/20261010-v4",
+  "file_count": 1397,
+  "document_count": 451823,
+  "manifest_sha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+  "validation": {
+    "artifact_validation_sha256": "19463d366d4a9356ace3729853524aefabbcd8bd544cdecafe7178d755aa8ca9",
+    "local_browser_validation_sha256": "3b26731410bf92c3f753bd54a44a4be51a4b42155c2d11b4f364c953c6ebd5f7",
+    "remote_browser_validation_sha256": "0b52cc8f3a249db4983ff0a4733a8b645fc20d5fa14a226df0059beadf4d580c",
+    "queries": 5,
+    "exact_frozen_rankings_reproduced": true
+  },
+  "model_weights_uploaded": false,
+  "production_changed": false,
+  "notes": [
+    "The four int8 shards detected as binary by the Hub were explicitly stored with Xet; their bytes and manifest hashes did not change.",
+    "The remote tree contains exactly the 1397 manifest-declared files with matching sizes.",
+    "Chrome reproduced all five frozen 50-result rankings from the public remote URLs."
+  ]
+}
