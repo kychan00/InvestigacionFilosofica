@@ -1,0 +1,11 @@
+{
+  "schema_version": "qwen3-browser-semantic-bundle-audit-v1",
+  "output": "vendor/qwen3-embedding/qwen3-browser-embedding.bundle.mjs",
+  "bytes": 552276,
+  "platform": "browser",
+  "transformers_web_entry": "../../../../filosofia/web/node_modules/@huggingface/transformers/dist/transformers.web.js",
+  "onnxruntime_web_input_count": 1,
+  "forbidden_node_input_count": 0,
+  "required_execution_provider": "webgpu",
+  "required_dtype": "q8"
+}
