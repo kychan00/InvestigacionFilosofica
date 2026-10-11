@@ -1,6 +1,6 @@
 # Qwen3 browser semantic static v3
 
-**Status:** preregistered; no execution results yet
+**Status:** closed — `FAIL`
 **Frozen on:** 2026-10-10
 **Production impact:** none
 
@@ -21,3 +21,14 @@ change the 256-dimensional prefix, int8 document quantization, 256 clusters,
 
 The machine-readable contract is
 `benchmark/semantic-retrieval/browser-static-v3/preregistration.json`.
+
+## Result
+
+V3 ran once on 2026-10-10. Genuine fp16 WebGPU execution and embedding parity
+passed: mean cosine was `0.999722` and minimum cosine was `0.999697`. The static
+payload gate also passed. The frozen 256-dimensional representation failed the
+retrieval gate, with full-corpus mean Recall@10 `0.68`, minimum Recall@10 `0.40`
+and mean Recall@50 `0.70`.
+
+No artifacts were published and production remained unchanged. Receipts and
+hashes are under `benchmark/semantic-retrieval/browser-static-v3/`.
