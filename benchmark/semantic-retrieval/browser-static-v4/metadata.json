@@ -1,0 +1,21 @@
+{
+  "schema_version": "qwen3-browser-semantic-static-metadata-v4",
+  "experiment_id": "qwen3-browser-semantic-static-v4",
+  "executed_on": "2026-10-10",
+  "decision": "pass",
+  "preregistration_commit": "8de513f",
+  "evaluator_commit": "3160e37",
+  "execution_count": 1,
+  "reused_browser_inference_from": "qwen3-browser-semantic-static-v3",
+  "files": {
+    "reference-embeddings.json": "c2440278f3be00d42b626ecd7e290001493d0d1cd3246a2f446a4245f253fcfa",
+    "browser-embeddings.json": "7aced1c051a191d354ef72ad8de1bf50e12b531016048a1f2231705b5f8f062e",
+    "result.json": "0dcf71e443250051bf28e472ddf82a08c8c5653de80787f1097e02dd78d4ddb6",
+    "results.jsonl": "b1538932e0f53628f24e56ce1373b5158677a9cf09e8cfabccf44a3b613663bf"
+  },
+  "notes": [
+    "V4 reused the already-frozen v3 fp16 browser and reference embeddings because model, revision, prompt, dtype and device are identical.",
+    "The v4 full-dimensional evaluator ran exactly once.",
+    "No v4 parameter changed after execution began."
+  ]
+}

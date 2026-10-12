@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qwen3 browser embedding WASM gate</title>
+  </head>
+  <body data-status="loading">
+    <p id="progress">Loading</p>
+    <pre id="result"></pre>
+    <script type="module">
+      import { embedQueriesWasm } from "/vendor/qwen3-embedding-wasm/qwen3-browser-embedding-wasm.bundle.mjs";
+
+      const progress = document.querySelector("#progress");
+      const result = document.querySelector("#result");
+      try {
+        const response = await fetch("/benchmark/semantic-retrieval/queries-v1.jsonl");
+        if (!response.ok) throw new Error(`Query fetch failed: ${response.status}`);
+        const queries = (await response.text()).trim().split("\n").map(JSON.parse);
+        const output = await embedQueriesWasm(queries, {
+          onProgress: item => {
+            progress.textContent = JSON.stringify(item);
+          }
+        });
+        result.textContent = JSON.stringify(output);
+        document.body.dataset.status = "complete";
+        progress.textContent = "complete";
+      } catch (error) {
+        result.textContent = JSON.stringify({
+          schema_version: "qwen3-browser-semantic-wasm-failure-v2",
+          error: String(error?.stack || error)
+        });
+        document.body.dataset.status = "failed";
+        progress.textContent = "failed";
+      }
+    </script>
+  </body>
+</html>

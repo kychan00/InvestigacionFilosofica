@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qwen3 browser static v4 search validation</title>
+  </head>
+  <body data-status="loading">
+    <p id="progress">Loading</p>
+    <pre id="result"></pre>
+    <script type="module">
+      import { BrowserStaticV4Search } from "/src/ai/qwen3-browser-static-v4-search.js";
+
+      const parameters = new URLSearchParams(location.search);
+      const baseUrl = parameters.get("base") ||
+        "/artifacts/semantic-retrieval/browser-static-v4/payload";
+      const progress = document.querySelector("#progress");
+      const result = document.querySelector("#result");
+      try {
+        const [embeddingResponse, expectedResponse] = await Promise.all([
+          fetch("/benchmark/semantic-retrieval/browser-static-v4/browser-embeddings.json"),
+          fetch("/benchmark/semantic-retrieval/browser-static-v4/result.json")
+        ]);
+        const embeddings = await embeddingResponse.json();
+        const expected = await expectedResponse.json();
+        const expectedByQuery = new Map(
+          expected.full_corpus_queries.map(row => [row.query_id, row])
+        );
+        const search = new BrowserStaticV4Search({ baseUrl });
+        const queries = [];
+        for (const row of embeddings.queries) {
+          const output = await search.search(row.embedding, {
+            limit: 50,
+            onProgress: item => {
+              progress.textContent = JSON.stringify({ query_id: row.query_id, ...item });
+            }
+          });
+          const observedIds = output.results.map(document => document.vector_id);
+          const frozen = expectedByQuery.get(row.query_id);
+          queries.push({
+            query_id: row.query_id,
+            pass: JSON.stringify(observedIds) === JSON.stringify(frozen.observed_ids),
+            observed_ids: observedIds,
+            selected_clusters: output.selected_clusters,
+            candidate_count: output.candidate_count
+          });
+        }
+        const payload = {
+          schema_version: "qwen3-browser-semantic-static-browser-validation-v4",
+          base_url: baseUrl,
+          status: queries.every(row => row.pass) ? "pass" : "fail",
+          queries
+        };
+        result.textContent = JSON.stringify(payload);
+        document.body.dataset.status = payload.status;
+        progress.textContent = payload.status;
+      } catch (error) {
+        result.textContent = JSON.stringify({ status: "error", error: String(error?.stack || error) });
+        document.body.dataset.status = "error";
+        progress.textContent = "error";
+      }
+    </script>
+  </body>
+</html>

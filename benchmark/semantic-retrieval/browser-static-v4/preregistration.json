@@ -1,0 +1,99 @@
+{
+  "schema_version": "qwen3-browser-semantic-static-preregistration-v4",
+  "experiment_id": "qwen3-browser-semantic-static-v4",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-10-10",
+  "classification": "adaptive engineering follow-up informed by v3; not a confirmatory experiment",
+  "purpose": "Test high-fidelity serverless retrieval by retaining all 1024 canonical dimensions while compressing frozen document vectors from float32 to signed int8 and routing across static semantic shards.",
+  "production_change_authorized": false,
+  "lineage": {
+    "predecessor": "qwen3-browser-semantic-static-v3",
+    "predecessor_decision": "fail",
+    "observed_reason_for_change": "fp16 browser parity passed but 256-dimensional truncation failed retrieval-preservation gates",
+    "adaptive_change": "reduced_dimension changes from 256 to 1024; all other model, clustering and ranking choices remain fixed"
+  },
+  "frozen_inputs": {
+    "queries": {
+      "file": "benchmark/semantic-retrieval/queries-v1.jsonl",
+      "sha256": "595da8eae92f48c0b05e88ff02256085590aa7e2bf41a4a919499aaaa8df3b16",
+      "count": 5
+    },
+    "faiss": {
+      "build_id": "20261009T135455Z",
+      "document_count": 451823,
+      "dimension": 1024,
+      "sha256": "31b82528a42bf416c86a77822d732b8d56381e2c1b0046df821c93e64dab6f68"
+    },
+    "reference_embedding_model": {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"
+    },
+    "browser_embedding_model": {
+      "model": "onnx-community/Qwen3-Embedding-0.6B-ONNX",
+      "revision": "c25a394dd583836952667c12f008335071b3f43d",
+      "dtype": "fp16",
+      "required_device": "webgpu",
+      "remote_bytes": 1200510818
+    }
+  },
+  "fixed_design": {
+    "prototype_sample_documents": 32768,
+    "prototype_sample_method": "uniform deterministic vector-id stride over the frozen corpus",
+    "reduced_dimension": 1024,
+    "prefix_truncation": false,
+    "renormalize_before_quantization": true,
+    "document_quantization": "symmetric signed int8 with fixed scale 127 after L2 normalization",
+    "query_representation": "float32 normalized 1024-dimensional vector",
+    "cluster_count": 256,
+    "cluster_training_documents": 65536,
+    "cluster_training_method": "uniform deterministic vector-id stride over the frozen corpus",
+    "cluster_seed": 20261010,
+    "cluster_iterations": 20,
+    "nprobe": 32,
+    "retrieval_limit": 50,
+    "tie_break": "score descending, vector_id ascending"
+  },
+  "gates": {
+    "browser_execution": {
+      "all_queries_complete": true,
+      "webgpu_adapter_required": true,
+      "fallback_adapter_allowed": false,
+      "onnx_session_device": "webgpu",
+      "onnx_session_dtype": "fp16",
+      "node_or_wasm_backend_allowed": false
+    },
+    "embedding_parity": {
+      "minimum_cosine_each_query": 0.98,
+      "minimum_mean_cosine": 0.99
+    },
+    "prototype_retrieval": {
+      "minimum_mean_recall_at_10": 0.8,
+      "minimum_each_query_recall_at_10": 0.6,
+      "minimum_mean_recall_at_50": 0.85
+    },
+    "full_corpus_retrieval": {
+      "minimum_mean_recall_at_10": 0.8,
+      "minimum_each_query_recall_at_10": 0.6,
+      "minimum_mean_recall_at_50": 0.85
+    },
+    "static_payload": {
+      "maximum_vector_payload_mib": 460,
+      "maximum_centroid_payload_mib": 2,
+      "maximum_selected_shards_mib_per_query": 128,
+      "maximum_browser_model_remote_mib": 1200
+    }
+  },
+  "decision_rule": {
+    "pass": "Every gate passes with the fixed v4 design.",
+    "fail": "Any gate fails; close the current browser-Qwen3 route without production integration.",
+    "continuation_if_pass": "Build immutable full static shards and compact metadata; validate hashes and browser search before preparing any opt-in integration."
+  },
+  "prohibitions": [
+    "No production changes in this experiment.",
+    "No changes to src/core/rank.js or existing retrieval.",
+    "No human relevance labels, reranker or generative model.",
+    "No model weights committed to Git.",
+    "No modification of frozen FAISS, embeddings or prior benchmark artifacts.",
+    "No parameter changes after v4 execution begins."
+  ]
+}

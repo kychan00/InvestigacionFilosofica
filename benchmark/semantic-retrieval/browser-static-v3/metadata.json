@@ -1,0 +1,20 @@
+{
+  "schema_version": "qwen3-browser-semantic-static-metadata-v3",
+  "experiment_id": "qwen3-browser-semantic-static-v3",
+  "executed_on": "2026-10-10",
+  "decision": "fail",
+  "preregistration_commit": "b70d0bc",
+  "runner_commit": "1544b4f",
+  "execution_count": 1,
+  "files": {
+    "reference-embeddings.json": "c2440278f3be00d42b626ecd7e290001493d0d1cd3246a2f446a4245f253fcfa",
+    "browser-embeddings.json": "7aced1c051a191d354ef72ad8de1bf50e12b531016048a1f2231705b5f8f062e",
+    "result.json": "d5e93c16344d34a4bd52ab0e0d8d20bf4072dfa4b90db7ae406b9f3334bf1380",
+    "results.jsonl": "12aaa572311c2d31bfedf49e371c3153204808d4e4791f183b20c620ad6017bb"
+  },
+  "notes": [
+    "The canonical reference vectors were reused byte-for-byte from v1.",
+    "Browser inference and evaluation each ran exactly once.",
+    "No v3 parameters were changed after observation."
+  ]
+}
