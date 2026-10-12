@@ -95,7 +95,8 @@ Estado al 2026-10-10:
 - la recuperación estática browser V4 quedó construida y publicada en la revisión inmutable de Hugging Face `5a4a195085de54bf607a6c4397092ffb32716dcc`: 451.823 documentos, 256 shards int8, 883 páginas de metadata y 1.397 archivos bajo el manifest SHA-256 `0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa`;
 - Chrome reprodujo exactamente los 50 IDs congelados para cada una de cinco consultas desde los artefactos públicos; la V4 obtuvo Recall@10 medio `0,96`, mínimo `0,90`, Recall@50 medio `0,948` y paridad media browser/canónica `0,9997217`;
 - existe una integración separada y default-off mediante `?semantic=browser-v4`: usa fp16/WebGPU, conserva la búsqueda federada como predeterminada y fallback, no necesita el Mac encendido y advierte que la primera descarga del modelo ronda 1,12 GiB;
-- esa integración quedó abierta como PR 15 sobre `main`, con 81/81 pruebas JavaScript y 3/3 pruebas Python; GitHub aceptó la rama sin bypass después de corregir un falso positivo de Push Protection causado por un nombre público de clase de Transformers.js, no por una credencial real;
+- esa integración se fusionó mediante el PR 15 en `1e874d5a4dfbb6daa0c048676c77a19c3286f263`; el workflow `38302130687` aprobó pruebas, build auditado y despliegue de GitHub Pages, y la URL pública entrega el modo únicamente con `?semantic=browser-v4`;
+- la suite local aprobó 81/81 pruebas JavaScript y 3/3 pruebas Python; GitHub aceptó la rama sin bypass después de corregir un falso positivo de Push Protection causado por un nombre público de clase de Transformers.js, no por una credencial real;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
