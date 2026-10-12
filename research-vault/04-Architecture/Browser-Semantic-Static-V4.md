@@ -1,8 +1,8 @@
 ---
 type: architecture
 area: retrieval
-status: browser-validated-opt-in
-updated: 2026-10-10
+status: pr-open-default-off
+updated: 2026-10-12
 ---
 
 # Recuperación semántica estática en navegador V4
@@ -68,6 +68,21 @@ El loader implementa filtros por año, idioma, fuente, tipo de publicación,
 autor, revista y tema únicamente cuando existe metadata material para
 evaluarlos.
 
+## Integración y revisión
+
+La integración default-off quedó publicada en la rama
+`codex/browser-semantic-static-v1` y abierta para revisión en el PR 15:
+
+`https://github.com/kychan00/InvestigacionFilosofica/pull/15`
+
+La suite final aprobó 81/81 pruebas JavaScript y 3/3 pruebas Python del builder.
+GitHub Push Protection rechazó inicialmente los bundles porque confundió el
+nombre público de clase `Mistral3ForConditionalGeneration`, incluido por
+Transformers.js, con una clave de API. No se usó bypass. El build conserva el
+mismo nombre en ejecución, pero lo construye desde dos fragmentos; después de
+reescribir esa representación en la historia de la rama, GitHub aceptó el push.
+No había una credencial real.
+
 ## Significado epistemológico
 
 Éste es un gate de ingeniería de paridad, recuperación y distribución. No es
@@ -82,7 +97,7 @@ interpretación arquitectónica e histórica.
 
 ## Mapa de salida
 
-1. Publicar la integración en una rama/PR separada y mantenerla default-off.
+1. ✓ Publicar la integración en una rama/PR separada y mantenerla default-off.
 2. Medir experiencia de descarga, memoria y caché en dispositivos reales.
 3. Decidir con evidencia si se expone como alfa pública explícita.
 4. Mantener la ruta federada como predeterminada y fallback hasta cerrar ese
@@ -94,4 +109,3 @@ interpretación arquitectónica e histórica.
 - [[Full-Semantic-Index-V3.3]]
 - [[Semantic-Durable-Runtime-V1]]
 - [[Public-Semantic-API]]
-
