@@ -78,6 +78,14 @@ hasta la primera búsqueda. Rechaza ausencia de WebGPU y adaptadores fallback.
 El URL histórico `?semantic=browser-v4` se conserva para reproducibilidad. El
 modo público funciona sin que el Mac anfitrión permanezca encendido.
 
+Una revisión visual posterior detectó que el workspace vacío se superponía al
+consentimiento y podía cortar sus acciones. La corrección se fusionó mediante
+el PR 17 en `c19f6bba94586ecc854dce3d7dc2b0b370a2d165`: el workspace permanece
+oculto hasta la primera búsqueda, el hero crece con el panel, las tres cifras
+se presentan como métricas y el modo browser aparece como pendiente antes de
+la aceptación. El workflow `38663237030` pasó 81/81 pruebas y el frontend
+público fue verificado en escritorio y móvil sin overflow horizontal.
+
 ## Integridad
 
 - runner congelado: `cac004c585d167311a32bbe6c64c1b940d5b649c`;
