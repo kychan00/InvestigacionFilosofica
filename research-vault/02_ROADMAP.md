@@ -1,6 +1,6 @@
 ---
 type: roadmap
-updated: 2026-09-27
+updated: 2026-10-14
 ---
 
 # Roadmap
@@ -22,8 +22,12 @@ updated: 2026-09-27
 - [x] Validar el runtime semántico durable alojado en el Mac.
 - [x] Publicar y validar [[Browser-Semantic-Static-V4]] sin dependencia del Mac.
 - [x] Integrar el modo browser-static como opción explícita y default-off.
-- [ ] Medir descarga, memoria, caché y compatibilidad WebGPU en dispositivos
-  reales antes de promoverlo a alfa visible.
+- [x] Medir descarga, memoria y caché en un primer entorno WebGPU real mediante
+  [[Browser-Semantic-Product-Gate-V1]].
+- [ ] Hacer visible un opt-in informado que advierta descarga, almacenamiento,
+  memoria, WebGPU y fallback antes de iniciar el modo browser.
+- [ ] Ampliar prospectivamente la matriz de compatibilidad WebGPU a más
+  dispositivos y navegadores antes de cualquier promoción más amplia.
 
 ## Fase 1 · Modelo metodológico
 

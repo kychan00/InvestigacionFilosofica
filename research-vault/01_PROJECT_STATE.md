@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-10-12
+updated: 2026-10-14
 status: design
 ---
 
@@ -97,10 +97,13 @@ Estado al 2026-10-10:
 - existe una integración separada y default-off mediante `?semantic=browser-v4`: usa fp16/WebGPU, conserva la búsqueda federada como predeterminada y fallback, no necesita el Mac encendido y advierte que la primera descarga del modelo ronda 1,12 GiB;
 - esa integración se fusionó mediante el PR 15 en `1e874d5a4dfbb6daa0c048676c77a19c3286f263`; el workflow `38302130687` aprobó pruebas, build auditado y despliegue de GitHub Pages, y la URL pública entrega el modo únicamente con `?semantic=browser-v4`;
 - la suite local aprobó 81/81 pruebas JavaScript y 3/3 pruebas Python; GitHub aceptó la rama sin bypass después de corregir un falso positivo de Push Protection causado por un nombre público de clase de Transformers.js, no por una credencial real;
+- el gate de producto browser V1 quedó preregistrado y congelado antes de una única medición pública: Chrome 155 usó WebGPU Apple `metal-3` no fallback, reprodujo exactamente 36 IDs y completó las tres fases sin POST al servicio semántico del Mac;
+- la primera consulta fría tardó 194,611 s y transfirió 1.297.598.732 bytes; la repetición en sesión tardó 1,305 s sin red y la consulta nueva tras recarga tardó 49,956 s con 80.163.169 bytes; el perfil temporal alcanzó 1.575.182.336 bytes y fue eliminado;
+- el gate técnico pasó, pero la decisión de producto conserva el modo apagado por defecto: el siguiente límite es un opt-in visible con consentimiento informado y después una matriz prospectiva en más dispositivos; véase [[Browser-Semantic-Product-Gate-V1]];
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
-La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]], [[Public-Semantic-API]], [[Public-Semantic-Smoke-V1]], [[Semantic-Metadata-Hygiene-V1]], [[Semantic-Presentation-Hygiene-V1]], [[Semantic-Corpus-Identity-Audit-V1]], [[Semantic-Presentation-API-Integration-V1]], [[Semantic-Presentation-Public-Rollout-V1]], [[Semantic-Durable-Runtime-V1]] y [[Browser-Semantic-Static-V4]].
+La fuente ejecutable canónica es `semantic_retrieval/` y `docs/SEMANTIC_RETRIEVAL.md` en el repositorio. El vault conserva únicamente la interpretación arquitectónica. Véanse [[Semantic-Retrieval-Service]], [[Abstract-Coverage-V3.2]], [[Abstract-Enrichment-V3.3-Preflight]], [[Abstract-Coverage-V3.3]], [[ICloud-Embedding-Archive]], [[Full-Semantic-Index-V3.3]], [[Semantic-Retrieval-Reranker-Bounded-V1]], [[Public-Semantic-API]], [[Public-Semantic-Smoke-V1]], [[Semantic-Metadata-Hygiene-V1]], [[Semantic-Presentation-Hygiene-V1]], [[Semantic-Corpus-Identity-Audit-V1]], [[Semantic-Presentation-API-Integration-V1]], [[Semantic-Presentation-Public-Rollout-V1]], [[Semantic-Durable-Runtime-V1]], [[Browser-Semantic-Static-V4]] y [[Browser-Semantic-Product-Gate-V1]].
 
 ## Nueva fase estratégica
 

@@ -2,7 +2,7 @@
 type: hub
 area: evaluation
 project: InvestigacionFilosofica
-updated: 2026-10-10
+updated: 2026-10-14
 ---
 
 # Evaluación, jueces y Qwen3
@@ -24,6 +24,7 @@ Los archivos históricos iniciales de `Source-Reports/` son snapshots tomados de
 - [[Semantic-Presentation-API-Integration-V1]]
 - [[Semantic-Presentation-Public-Rollout-V1]]
 - [[Browser-Semantic-Static-V4]]
+- [[Browser-Semantic-Product-Gate-V1]]
 
 ## Informes originales
 
@@ -87,6 +88,14 @@ recuperación contra el índice completo y reproducción exacta desde artefactos
 estáticos públicos. Su aprobación demuestra que el buscador puede operar sin
 el Mac anfitrión; no convierte similitud en juicio filosófico, no autoriza
 tuning y no altera las conclusiones de los experimentos Qwen3 congelados.
+
+[[Browser-Semantic-Product-Gate-V1]] continúa esa línea como medición de
+producto de un solo dispositivo. Pasó WebGPU no fallback, reproducción exacta y
+ausencia de fallback al Mac, pero observó 194,611 s y 1.297.598.732 bytes en la
+primera consulta. Su conclusión no es «promover a predeterminado», sino conservar
+el modo apagado por defecto y exigir consentimiento informado antes de una
+descarga visible. No aporta labels, no evalúa relevancia y no modifica ningún
+resultado confirmatorio o externo.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 

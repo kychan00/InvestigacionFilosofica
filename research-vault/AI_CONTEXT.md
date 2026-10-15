@@ -99,4 +99,13 @@ las URL públicas. La integración permanece default-off tras
 `?semantic=browser-v4` porque la carga fría del modelo fp16 ronda 1,12 GiB; no
 modifica retrieval, ranking, reranker ni la búsqueda federada predeterminada.
 
+El [[Browser-Semantic-Product-Gate-V1]] midió esa URL pública con un perfil
+Chrome desechable. Los siete gates pasaron sin POST al servicio del Mac y con
+WebGPU Apple `metal-3` no fallback, pero la primera consulta tardó 194,611 s y
+transfirió 1.297.598.732 bytes. La repetición en sesión tardó 1,305 s y la
+consulta distinta tras recarga 49,956 s. Es evidencia de independencia técnica
+en un solo dispositivo, no compatibilidad general; el modo sigue apagado por
+defecto y sólo puede avanzar mediante consentimiento explícito con divulgación
+del costo.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
