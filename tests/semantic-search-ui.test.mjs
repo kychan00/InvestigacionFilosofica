@@ -47,6 +47,21 @@ test(
     );
 
     assert.match(
+      html,
+      /data-search-mode="browser-semantic"[\s\S]*aria-pressed="false"/u
+    );
+
+    assert.match(
+      html,
+      /Primera descarga medida: aproximadamente 1,3 GB/u
+    );
+
+    assert.match(
+      html,
+      /Entiendo la descarga, el uso de almacenamiento y el requisito de WebGPU/u
+    );
+
+    assert.match(
       app,
       /searchPublicSemantic\(/u
     );
@@ -78,6 +93,16 @@ test(
 
     assert.match(
       app,
+      /navigator\.gpu\.requestAdapter/u
+    );
+
+    assert.match(
+      app,
+      /mode ===\s*"browser-semantic"/u
+    );
+
+    assert.match(
+      app,
       /await runFederatedSearch\([\s\S]*fallbackReason:/u
     );
 
@@ -104,6 +129,11 @@ test(
     assert.match(
       css,
       /\.search-live-progress\.semantic-progress/u
+    );
+
+    assert.match(
+      css,
+      /\.browser-semantic-consent/u
     );
 
     assert.match(

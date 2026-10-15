@@ -152,6 +152,16 @@
             Semántica
             <span>alfa</span>
           </button>
+
+          <button
+            type="button"
+            class="search-mode-option"
+            data-search-mode="browser-semantic"
+            aria-pressed="false"
+          >
+            En este navegador
+            <span>beta</span>
+          </button>
         </div>
 
 
@@ -161,6 +171,78 @@
         >
           Consulta fuentes académicas en vivo.
         </p>
+
+
+        <section
+          id="browser-semantic-consent"
+          class="browser-semantic-consent hidden"
+          aria-labelledby="browser-semantic-consent-title"
+        >
+          <h2 id="browser-semantic-consent-title">
+            Buscar sin depender de la Mac del proyecto
+          </h2>
+
+          <p>
+            Este modo ejecuta Qwen3-Embedding con WebGPU en tu dispositivo y
+            consulta los 451.823 documentos desde archivos públicos estáticos.
+          </p>
+
+          <ul>
+            <li>
+              Primera descarga medida: aproximadamente 1,3 GB.
+            </li>
+
+            <li>
+              Caché local observada: aproximadamente 1,5 GB.
+            </li>
+
+            <li>
+              Primera búsqueda observada: 3 min 15 s en un Mac con Chrome 155;
+              otros equipos pueden variar o no ser compatibles.
+            </li>
+
+            <li>
+              Si WebGPU falla, se intenta el servicio semántico y después la
+              búsqueda tradicional.
+            </li>
+          </ul>
+
+          <label class="browser-semantic-consent-check">
+            <input
+              id="browser-semantic-consent-check"
+              type="checkbox"
+            >
+
+            <span>
+              Entiendo la descarga, el uso de almacenamiento y el requisito de WebGPU.
+            </span>
+          </label>
+
+          <div class="browser-semantic-consent-actions">
+            <button
+              id="browser-semantic-consent-activate"
+              type="button"
+              disabled
+            >
+              Activar en este navegador
+            </button>
+
+            <button
+              id="browser-semantic-consent-cancel"
+              type="button"
+              class="browser-semantic-consent-cancel"
+            >
+              Ahora no
+            </button>
+          </div>
+
+          <p
+            id="browser-semantic-consent-status"
+            class="browser-semantic-consent-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
 
 
         <div

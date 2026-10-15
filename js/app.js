@@ -66,6 +66,31 @@ const searchModeNote =
     "#search-mode-note"
   );
 
+const browserSemanticConsent =
+  document.querySelector(
+    "#browser-semantic-consent"
+  );
+
+const browserSemanticConsentCheck =
+  document.querySelector(
+    "#browser-semantic-consent-check"
+  );
+
+const browserSemanticConsentActivate =
+  document.querySelector(
+    "#browser-semantic-consent-activate"
+  );
+
+const browserSemanticConsentCancel =
+  document.querySelector(
+    "#browser-semantic-consent-cancel"
+  );
+
+const browserSemanticConsentStatus =
+  document.querySelector(
+    "#browser-semantic-consent-status"
+  );
+
 const searchEngineIndicator =
   document.querySelector(
     "#search-engine-indicator"
@@ -162,6 +187,14 @@ const browserSemanticV4OptIn =
     window.location.search
   );
 
+let browserSemanticV4Enabled =
+  browserSemanticV4OptIn;
+
+let semanticBackend =
+  browserSemanticV4OptIn
+    ? "browser"
+    : "service";
+
 let qwen3Controller = null;
 let qwen3ScorerPromise = null;
 let currentQwen3Order = null;
@@ -186,11 +219,29 @@ let activeEngine = {
 
 
 function renderSearchEngineIndicator() {
+  const browserSelected =
+    selectedSearchMode ===
+      "semantic" &&
+    semanticBackend ===
+      "browser";
+
   searchEngineIndicator.dataset
     .semanticStatus =
-      semanticAvailability;
+      browserSelected
+        ? (
+            navigator.gpu
+              ? "available"
+              : "unavailable"
+          )
+        : semanticAvailability;
 
-  if (
+  if (browserSelected) {
+    semanticAvailabilityText
+      .textContent =
+        navigator.gpu
+          ? "WebGPU listo · 451.823 docs estáticos"
+          : "WebGPU no disponible";
+  } else if (
     semanticAvailability ===
     "available"
   ) {
@@ -215,7 +266,12 @@ function renderSearchEngineIndicator() {
   const engineLabel =
     activeEngine.mode ===
     "semantic"
-      ? "semántico"
+      ? (
+          activeEngine.backend ===
+          "browser"
+            ? "semántico en este navegador"
+            : "semántico por servicio"
+        )
       : "tradicional";
 
   const phaseLabel = {
@@ -242,7 +298,8 @@ function setActiveEngine(
   mode,
   phase,
   {
-    fallback = false
+    fallback = false,
+    backend = null
   } = {}
 ) {
   activeEngine = {
@@ -251,7 +308,8 @@ function setActiveEngine(
         ? "semantic"
         : "federated",
     phase,
-    fallback
+    fallback,
+    backend
   };
 
   renderSearchEngineIndicator();
@@ -4677,7 +4735,11 @@ async function runSemanticSearch(
 
   setActiveEngine(
     "semantic",
-    "working"
+    "working",
+    {
+      backend:
+        semanticBackend
+    }
   );
 
 
@@ -4712,7 +4774,8 @@ async function runSemanticSearch(
         );
 
       if (
-        browserSemanticV4OptIn &&
+        semanticBackend ===
+          "browser" &&
         browserProgress
       ) {
         const stageLabels = {
@@ -4765,7 +4828,8 @@ async function runSemanticSearch(
     let response;
 
     if (
-      browserSemanticV4OptIn
+      semanticBackend ===
+        "browser"
     ) {
       try {
         response =
@@ -4878,7 +4942,14 @@ async function runSemanticSearch(
 
     setActiveEngine(
       "semantic",
-      "completed"
+      "completed",
+      {
+        backend:
+          response.semantic.mode ===
+            "browser-static-v4"
+            ? "browser"
+            : "service"
+      }
     );
   } catch (error) {
     if (
@@ -4953,17 +5024,65 @@ async function runSemanticSearch(
 function selectSearchMode(
   mode
 ) {
+  if (
+    mode ===
+    "browser-semantic" &&
+    !browserSemanticV4Enabled
+  ) {
+    browserSemanticConsent
+      .classList
+      .remove(
+        "hidden"
+      );
+
+    browserSemanticConsentCheck
+      .focus();
+
+    return;
+  }
+
+  browserSemanticConsent
+    .classList
+    .add(
+      "hidden"
+    );
+
+  if (
+    mode ===
+    "browser-semantic"
+  ) {
+    semanticBackend =
+      "browser";
+  } else if (
+    mode ===
+    "semantic"
+  ) {
+    semanticBackend =
+      browserSemanticV4OptIn
+        ? "browser"
+        : "service";
+  }
+
   selectedSearchMode =
-    mode === "semantic"
+    mode === "semantic" ||
+    mode === "browser-semantic"
       ? "semantic"
       : "federated";
 
   searchModeButtons
     .forEach(
       item => {
+        const expectedMode =
+          selectedSearchMode ===
+            "semantic" &&
+          semanticBackend ===
+            "browser"
+            ? "browser-semantic"
+            : selectedSearchMode;
+
         const active =
           item.dataset.searchMode ===
-          selectedSearchMode;
+          expectedMode;
 
         item.classList.toggle(
           "is-active",
@@ -4979,7 +5098,14 @@ function selectSearchMode(
 
   setActiveEngine(
     selectedSearchMode,
-    "selected"
+    "selected",
+    {
+      backend:
+        selectedSearchMode ===
+        "semantic"
+          ? semanticBackend
+          : null
+    }
   );
 
   if (
@@ -4987,7 +5113,8 @@ function selectSearchMode(
     "semantic"
   ) {
     searchModeNote.textContent =
-      browserSemanticV4OptIn
+      semanticBackend ===
+        "browser"
         ? "Modo navegador V4: busca en 451.823 documentos sin depender de esta Mac. La primera búsqueda descarga un modelo de aproximadamente 1,12 GiB; si falla, se prueba el servicio y luego el respaldo tradicional."
         : "Busca por significado en 451.823 documentos del corpus propio; si el servidor no responde, se activa el respaldo tradicional.";
 
@@ -5005,6 +5132,110 @@ function selectSearchMode(
   input.placeholder =
     "Ej. libertad en Kant";
 }
+
+
+browserSemanticConsentCheck
+  ?.addEventListener(
+    "change",
+    () => {
+      browserSemanticConsentActivate.disabled =
+        !browserSemanticConsentCheck.checked;
+    }
+  );
+
+
+browserSemanticConsentCancel
+  ?.addEventListener(
+    "click",
+    () => {
+      browserSemanticConsent
+        .classList
+        .add(
+          "hidden"
+        );
+
+      browserSemanticConsentStatus.textContent =
+        "";
+
+      browserSemanticConsentCheck.checked =
+        false;
+
+      browserSemanticConsentActivate.disabled =
+        true;
+    }
+  );
+
+
+browserSemanticConsentActivate
+  ?.addEventListener(
+    "click",
+    async () => {
+      if (
+        !browserSemanticConsentCheck.checked
+      ) {
+        return;
+      }
+
+      browserSemanticConsentActivate.disabled =
+        true;
+
+      browserSemanticConsentStatus.textContent =
+        "Comprobando WebGPU…";
+
+      try {
+        if (!navigator.gpu) {
+          throw new Error(
+            "Este navegador no ofrece WebGPU."
+          );
+        }
+
+        const adapter =
+          await navigator.gpu.requestAdapter({
+            powerPreference:
+              "high-performance"
+          });
+
+        if (!adapter) {
+          throw new Error(
+            "No se encontró un adaptador WebGPU."
+          );
+        }
+
+        if (
+          adapter.info?.isFallbackAdapter ===
+            true ||
+          adapter.isFallbackAdapter ===
+            true
+        ) {
+          throw new Error(
+            "El adaptador WebGPU disponible es de respaldo y no se usará."
+          );
+        }
+
+        browserSemanticV4Enabled =
+          true;
+
+        browserSemanticConsent
+          .classList
+          .add(
+            "hidden"
+          );
+
+        browserSemanticConsentStatus.textContent =
+          "";
+
+        selectSearchMode(
+          "browser-semantic"
+        );
+      } catch (error) {
+        browserSemanticConsentStatus.textContent =
+          `${error.message} Puedes seguir usando la búsqueda semántica por servicio o la tradicional.`;
+
+        browserSemanticConsentActivate.disabled =
+          false;
+      }
+    }
+  );
 
 
 form.addEventListener(
