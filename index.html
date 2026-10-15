@@ -158,6 +158,8 @@
             class="search-mode-option"
             data-search-mode="browser-semantic"
             aria-pressed="false"
+            aria-controls="browser-semantic-consent"
+            aria-expanded="false"
           >
             En este navegador
             <span>beta</span>
@@ -177,35 +179,48 @@
           id="browser-semantic-consent"
           class="browser-semantic-consent hidden"
           aria-labelledby="browser-semantic-consent-title"
+          aria-describedby="browser-semantic-consent-description"
         >
-          <h2 id="browser-semantic-consent-title">
-            Buscar sin depender de la Mac del proyecto
-          </h2>
+          <div class="browser-semantic-consent-heading">
+            <span class="browser-semantic-consent-kicker">
+              Modo local · beta
+            </span>
 
-          <p>
-            Este modo ejecuta Qwen3-Embedding con WebGPU en tu dispositivo y
-            consulta los 451.823 documentos desde archivos públicos estáticos.
+            <h2 id="browser-semantic-consent-title">
+              Búsqueda semántica en tu navegador
+            </h2>
+
+            <p id="browser-semantic-consent-description">
+              Qwen3-Embedding consulta 451.823 documentos públicos con WebGPU,
+              sin depender de que la Mac del proyecto esté encendida.
+            </p>
+          </div>
+
+          <div
+            class="browser-semantic-consent-metrics"
+            aria-label="Costo observado de la primera ejecución"
+          >
+            <div>
+              <strong>≈ 1,3 GB</strong>
+              <span>Primera descarga</span>
+            </div>
+
+            <div>
+              <strong>≈ 1,5 GB</strong>
+              <span>Caché local</span>
+            </div>
+
+            <div>
+              <strong>≈ 3 min 15 s</strong>
+              <span>Primera búsqueda medida</span>
+            </div>
+          </div>
+
+          <p class="browser-semantic-consent-context">
+            Medición en un Mac con Chrome 155. El tiempo puede variar y algunos
+            equipos pueden no ser compatibles. Si WebGPU falla, conservamos el
+            servicio semántico y la búsqueda tradicional como respaldo.
           </p>
-
-          <ul>
-            <li>
-              Primera descarga medida: aproximadamente 1,3 GB.
-            </li>
-
-            <li>
-              Caché local observada: aproximadamente 1,5 GB.
-            </li>
-
-            <li>
-              Primera búsqueda observada: 3 min 15 s en un Mac con Chrome 155;
-              otros equipos pueden variar o no ser compatibles.
-            </li>
-
-            <li>
-              Si WebGPU falla, se intenta el servicio semántico y después la
-              búsqueda tradicional.
-            </li>
-          </ul>
 
           <label class="browser-semantic-consent-check">
             <input
@@ -340,7 +355,7 @@
 
     <section
       id="research-workspace"
-      class="research-workspace"
+      class="research-workspace hidden"
     >
 
       <aside class="workspace-sidebar">
