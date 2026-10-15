@@ -24,7 +24,7 @@ updated: 2026-10-14
 - [x] Integrar el modo browser-static como opción explícita y default-off.
 - [x] Medir descarga, memoria y caché en un primer entorno WebGPU real mediante
   [[Browser-Semantic-Product-Gate-V1]].
-- [ ] Hacer visible un opt-in informado que advierta descarga, almacenamiento,
+- [x] Hacer visible un opt-in informado que advierta descarga, almacenamiento,
   memoria, WebGPU y fallback antes de iniciar el modo browser.
 - [ ] Ampliar prospectivamente la matriz de compatibilidad WebGPU a más
   dispositivos y navegadores antes de cualquier promoción más amplia.

@@ -97,6 +97,12 @@ el modo apagado por defecto y exigir consentimiento informado antes de una
 descarga visible. No aporta labels, no evalúa relevancia y no modifica ningún
 resultado confirmatorio o externo.
 
+Ese consentimiento quedó desplegado mediante el PR 16 como
+`En este navegador · beta`, sin cambiar el modo predeterminado. El rollout pasó
+81/81 pruebas y GitHub Pages lo publicó en el workflow `38660085085`. Esto cierra
+el gate de descubribilidad; no amplía por sí solo la evidencia de compatibilidad
+más allá del dispositivo medido.
+
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 
 El gate posterior conserva browser-q8 como candidato research-only. La siguiente evidencia admisible requiere el protocolo de validación externa independiente. El profesor externo ya confirmó independencia, rol exclusivamente adjudicador, cuatro idiomas y capacidad para aproximadamente 200–250 pares. El diseño y los artefactos previos al juicio ya están congelados: 12 consultas y 181 filas ciegas dentro de esa capacidad.

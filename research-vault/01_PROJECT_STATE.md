@@ -99,7 +99,8 @@ Estado al 2026-10-10:
 - la suite local aprobó 81/81 pruebas JavaScript y 3/3 pruebas Python; GitHub aceptó la rama sin bypass después de corregir un falso positivo de Push Protection causado por un nombre público de clase de Transformers.js, no por una credencial real;
 - el gate de producto browser V1 quedó preregistrado y congelado antes de una única medición pública: Chrome 155 usó WebGPU Apple `metal-3` no fallback, reprodujo exactamente 36 IDs y completó las tres fases sin POST al servicio semántico del Mac;
 - la primera consulta fría tardó 194,611 s y transfirió 1.297.598.732 bytes; la repetición en sesión tardó 1,305 s sin red y la consulta nueva tras recarga tardó 49,956 s con 80.163.169 bytes; el perfil temporal alcanzó 1.575.182.336 bytes y fue eliminado;
-- el gate técnico pasó, pero la decisión de producto conserva el modo apagado por defecto: el siguiente límite es un opt-in visible con consentimiento informado y después una matriz prospectiva en más dispositivos; véase [[Browser-Semantic-Product-Gate-V1]];
+- el gate técnico pasó y el opt-in informado quedó desplegado como `En este navegador · beta`: advierte descarga, caché y requisito WebGPU, exige aceptación explícita, hace preflight sin descargar el modelo y conserva la búsqueda tradicional como predeterminada; el siguiente límite es una matriz prospectiva en más dispositivos; véase [[Browser-Semantic-Product-Gate-V1]];
+- el rollout se fusionó mediante el PR 16 en `97de6057004388a73b428415f7c39b1b39bb2443`; el workflow `38660085085` aprobó 81/81 pruebas y desplegó GitHub Pages, y la verificación pública confirmó `index.html` y `js/app.js` idénticos a `main`;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 

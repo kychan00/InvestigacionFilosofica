@@ -57,11 +57,26 @@ La independencia técnica del Mac queda demostrada para este entorno, pero el
 costo frío sigue siendo demasiado alto para un comportamiento implícito. El
 modo continúa apagado por defecto.
 
-El siguiente paso permitido es hacerlo descubrible mediante consentimiento
-explícito e informado, antes de descargar: aproximadamente 1,3 GB en la primera
-ejecución, alrededor de 1,5 GB de almacenamiento temporal/caché en esta medición,
-necesidad de WebGPU y fallback preservado. Después se requiere una matriz de
-compatibilidad prospectiva en más dispositivos; este gate no la sustituye.
+El paso permitido se implementó como una tercera opción visible,
+`En este navegador · beta`, con consentimiento explícito e informado antes de
+activar el modo: aproximadamente 1,3 GB en la primera ejecución, alrededor de
+1,5 GB de almacenamiento temporal/caché en esta medición, necesidad de WebGPU y
+fallback preservado. La búsqueda tradicional continúa seleccionada por defecto.
+Después se requiere una matriz de compatibilidad prospectiva en más
+dispositivos; este gate no la sustituye.
+
+## Rollout público
+
+El opt-in informado se fusionó mediante el PR 16 en
+`97de6057004388a73b428415f7c39b1b39bb2443`. El workflow de GitHub Pages
+`38660085085` aprobó 81/81 pruebas, auditó los bundles y desplegó la página.
+La verificación posterior confirmó que los `index.html` y `js/app.js` públicos
+coincidían byte por byte con `main`.
+
+La activación sólo hace un preflight del adaptador WebGPU; no descarga el modelo
+hasta la primera búsqueda. Rechaza ausencia de WebGPU y adaptadores fallback.
+El URL histórico `?semantic=browser-v4` se conserva para reproducibilidad. El
+modo público funciona sin que el Mac anfitrión permanezca encendido.
 
 ## Integridad
 
