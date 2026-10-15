@@ -308,6 +308,167 @@ button {
 }
 
 
+.browser-semantic-consent {
+  width:
+    min(680px, 100%);
+
+  margin:
+    14px auto 0;
+
+  padding:
+    18px 20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, .32);
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(12, 26, 20, .82);
+
+  color:
+    rgba(255, 255, 255, .9);
+
+  text-align:
+    left;
+
+  backdrop-filter:
+    blur(18px);
+}
+
+
+.browser-semantic-consent h2 {
+  margin:
+    0 0 8px;
+
+  color:
+    #fff;
+
+  font-size:
+    16px;
+}
+
+
+.browser-semantic-consent p,
+.browser-semantic-consent li,
+.browser-semantic-consent-check {
+  font-size:
+    12px;
+
+  line-height:
+    1.55;
+}
+
+
+.browser-semantic-consent ul {
+  margin:
+    10px 0;
+
+  padding-left:
+    20px;
+}
+
+
+.browser-semantic-consent-check {
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  gap:
+    9px;
+
+  margin-top:
+    12px;
+
+  font-weight:
+    700;
+}
+
+
+.browser-semantic-consent-check input {
+  margin-top:
+    3px;
+}
+
+
+.browser-semantic-consent-actions {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    9px;
+
+  margin-top:
+    14px;
+}
+
+
+.browser-semantic-consent-actions button {
+  min-height:
+    38px;
+
+  padding:
+    0 15px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, .45);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, .94);
+
+  color:
+    #173a2a;
+
+  cursor:
+    pointer;
+
+  font-weight:
+    800;
+}
+
+
+.browser-semantic-consent-actions button:disabled {
+  cursor:
+    not-allowed;
+
+  opacity:
+    .48;
+}
+
+
+.browser-semantic-consent-actions
+.browser-semantic-consent-cancel {
+  background:
+    transparent;
+
+  color:
+    #fff;
+}
+
+
+.browser-semantic-consent-status {
+  min-height:
+    18px;
+
+  margin:
+    10px 0 0;
+
+  color:
+    #c9e8d7;
+}
+
+
 .search-engine-indicator {
   display:
     flex;

@@ -50,3 +50,9 @@ The browser model is still a roughly 1.12 GiB cold download. Any product
 integration must therefore be explicit opt-in, show download/progress state,
 and preserve the existing search path as the default and fallback. Production
 and the existing public semantic service remain unchanged at this milestone.
+
+The subsequent single-device product gate passed technically while confirming
+that this constraint remains necessary: the measured cold search took 194.611
+seconds, transferred 1,297,598,732 encoded bytes and peaked at 1,365,499,026
+bytes of sampled JavaScript heap. See
+`docs/QWEN3_BROWSER_SEMANTIC_PRODUCT_GATE_V1.md`.

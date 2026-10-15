@@ -1,0 +1,7 @@
+2026-10-15T00:20:16.492Z qwen3-browser-semantic-product-gate-v1 pass
+browser=Chrome/155.0.8059.41
+adapter={"vendor":"apple","architecture":"metal-3","device":null,"description":null,"is_fallback_adapter":false}
+cold_first_query duration_ms=194611 encoded_bytes=1297598732 cache_hits=0 heap_peak=1365499026 exact_results=true
+same_session_repeat duration_ms=1305 encoded_bytes=0 cache_hits=0 heap_peak=202171156 exact_results=true
+warm_reload_new_query duration_ms=49956 encoded_bytes=80163169 cache_hits=1 heap_peak=1760821597 exact_results=true
+gates={"all_three_phases_complete":true,"webgpu_adapter_required":true,"fallback_adapter_forbidden":true,"browser_static_v4_completion_required":true,"semantic_service_post_fallback_forbidden":true,"rendered_result_keys_match_frozen_order":true,"public_browser_module_pins_corpus_revision":true,"warm_reload_transfer_lower_than_cold":true}
