@@ -36,12 +36,26 @@ browser or GPU memory.
 
 The technical route passes, but the measured first-use cost is too large to
 make it an implicit or default behavior. The production default remains
-unchanged. The next permitted product step is a visible, explicit opt-in that
-states the approximate 1.3 GB first download, local storage implications,
+unchanged. The permitted product step is therefore a visible, explicit opt-in
+that states the approximate 1.3 GB first download, local storage implications,
 device/WebGPU requirement and fallback behavior before the user starts it.
 
 This result applies only to the recorded Mac, Chrome version, adapter and
 uncontrolled network. It is not a general compatibility claim.
+
+## Product implementation
+
+The ordinary interface now offers `En este navegador · beta` as a third,
+non-default search mode. Selecting it first opens an informed-consent panel;
+the user must acknowledge the measured download, cache and hardware costs
+before activation. Activation performs a WebGPU adapter preflight but does not
+download the model until the first search. If WebGPU is unavailable or only a
+fallback adapter is exposed, the browser mode remains inactive and the user
+can continue with traditional search or the separate semantic-service mode.
+
+The existing `?semantic=browser-v4` URL remains supported for reproducibility.
+This interface change does not alter the corpus, candidate generation,
+retrieval implementation, ranking logic or frozen experimental artifacts.
 
 ## Integrity
 
