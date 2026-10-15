@@ -1,0 +1,120 @@
+{
+  "schema_version": "qwen3-browser-semantic-product-gate-preregistration-v1",
+  "gate_id": "qwen3-browser-semantic-product-gate-v1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-10-14",
+  "classification": "descriptive single-device product gate; not a relevance experiment and not evidence of cross-device compatibility",
+  "purpose": "Measure the real public browser-static-v4 experience before making the mode visible without a URL opt-in.",
+  "production_change_authorized": false,
+  "source": {
+    "repository_commit": "1e874d5a4dfbb6daa0c048676c77a19c3286f263",
+    "public_url": "https://kychan00.github.io/InvestigacionFilosofica/?semantic=browser-v4",
+    "corpus_revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "corpus_manifest_sha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "browser_model": "onnx-community/Qwen3-Embedding-0.6B-ONNX",
+    "browser_model_revision": "c25a394dd583836952667c12f008335071b3f43d",
+    "browser_model_dtype": "fp16",
+    "required_device": "webgpu"
+  },
+  "environment": {
+    "browser": "installed stable Google Chrome",
+    "execution": "headless=new with a fresh temporary user-data directory",
+    "machine": "the current Apple Mac; hardware, OS, browser and adapter are recorded at execution",
+    "network": "the current uncontrolled internet connection; transfer and timing observations are descriptive"
+  },
+  "fixed_sequence": [
+    {
+      "phase": "cold_first_query",
+      "navigation": "new temporary Chrome profile",
+      "query_id": "sem-v1-001",
+      "query": "¿Qué relación existe entre Quine y el compromiso ontológico?",
+      "expected_result_keys": [
+        "openalex-W7084231554",
+        "openalex-W7069018285",
+        "openalex-W2211243423",
+        "openalex-W2064418209",
+        "openalex-W3111198217",
+        "openalex-W3010593892",
+        "openalex-W4252299059",
+        "openalex-W6996017243",
+        "openalex-W2351659844",
+        "openalex-W2352948715",
+        "openalex-W7082815640",
+        "openalex-W1973837105"
+      ]
+    },
+    {
+      "phase": "same_session_repeat",
+      "navigation": "no reload; exact same query in the same page",
+      "query_id": "sem-v1-001",
+      "query": "¿Qué relación existe entre Quine y el compromiso ontológico?",
+      "expected_result_keys": [
+        "openalex-W7084231554",
+        "openalex-W7069018285",
+        "openalex-W2211243423",
+        "openalex-W2064418209",
+        "openalex-W3111198217",
+        "openalex-W3010593892",
+        "openalex-W4252299059",
+        "openalex-W6996017243",
+        "openalex-W2351659844",
+        "openalex-W2352948715",
+        "openalex-W7082815640",
+        "openalex-W1973837105"
+      ]
+    },
+    {
+      "phase": "warm_reload_new_query",
+      "navigation": "reload using the same Chrome profile and browser caches",
+      "query_id": "sem-v1-002",
+      "query": "Críticas contemporáneas a la estética trascendental de Kant",
+      "expected_result_keys": [
+        "openalex-W3162336370",
+        "openalex-W7048263773",
+        "openalex-W6994251083",
+        "openalex-W141593318",
+        "openalex-W179063408",
+        "openalex-W6996958834",
+        "openalex-W2981089752",
+        "openalex-W2507424853",
+        "openalex-W2566301543",
+        "openalex-W172492819",
+        "openalex-W4388254368",
+        "openalex-W2129724470"
+      ]
+    }
+  ],
+  "measurements": [
+    "wall-clock duration per phase",
+    "status/progress timeline visible to the user",
+    "encoded network bytes and request counts by origin",
+    "HTTP and Cache Storage cache evidence",
+    "JavaScript heap start, peak and end",
+    "temporary Chrome profile disk footprint",
+    "WebGPU adapter audit",
+    "rendered result keys and titles"
+  ],
+  "gates": {
+    "all_three_phases_complete": true,
+    "webgpu_adapter_required": true,
+    "fallback_adapter_allowed": false,
+    "browser_static_v4_completion_required": true,
+    "semantic_service_post_fallback_allowed": false,
+    "rendered_result_keys_must_match_frozen_order": true,
+    "public_browser_module_must_pin_corpus_revision": true,
+    "warm_reload_transfer_must_be_lower_than_cold_transfer": true
+  },
+  "interpretation": {
+    "latency_and_memory": "reported descriptively; this first run has no post-hoc pass threshold",
+    "compatibility": "a pass establishes compatibility only for the recorded Mac, Chrome and adapter",
+    "next_step_if_pass": "prepare a visible but still explicit user opt-in with honest cold-download disclosure; do not make semantic search the default",
+    "next_step_if_fail": "keep the URL-only opt-in and fix the observed product blocker without changing frozen retrieval scores"
+  },
+  "prohibitions": [
+    "No changes to production, src/core/rank.js or existing retrieval during this gate.",
+    "No model or corpus rebuild, inference rerun, score change or tuning.",
+    "No human relevance labels or A/B exposure.",
+    "No model weights committed to Git.",
+    "No compatibility claim beyond the recorded environment."
+  ]
+}

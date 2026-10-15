@@ -11,6 +11,7 @@
     "build:qwen3-browser-embedding-wasm": "node scripts/build-qwen3-browser-embedding-wasm.mjs",
     "build:qwen3-browser-embedding-fp16": "node scripts/build-qwen3-browser-embedding-fp16.mjs",
     "validate:qwen3-browser-static-v4": "node scripts/retrieval/run_browser_static_v4_search.mjs",
+    "measure:browser-semantic-product-gate": "node scripts/retrieval/run_browser_semantic_product_gate_v1.mjs",
     "benchmark:validate": "node scripts/benchmark/validate.mjs",
     "benchmark:evaluate": "node scripts/benchmark/evaluate.mjs",
     "benchmark:run": "npm run build:duckdb && node scripts/benchmark/run-server.mjs",
