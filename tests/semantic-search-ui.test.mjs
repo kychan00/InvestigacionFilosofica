@@ -53,7 +53,7 @@ test(
 
     assert.match(
       html,
-      /Primera descarga medida: aproximadamente 1,3 GB/u
+      /≈ 1,3 GB[\s\S]*Primera descarga/u
     );
 
     assert.match(
@@ -124,6 +124,21 @@ test(
     assert.match(
       css,
       /\.search-mode-option\.is-active/u
+    );
+
+    assert.match(
+      css,
+      /\.search-mode-option\.is-pending/u
+    );
+
+    assert.match(
+      html,
+      /id="research-workspace"[\s\S]*class="research-workspace hidden"/u
+    );
+
+    assert.match(
+      app,
+      /researchWorkspace[\s\S]*classList[\s\S]*remove\([\s\S]*"hidden"/u
     );
 
     assert.match(

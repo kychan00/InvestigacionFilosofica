@@ -131,6 +131,11 @@ const resultsEl =
     "#results"
   );
 
+const researchWorkspace =
+  document.querySelector(
+    "#research-workspace"
+  );
+
 const interpretationEl =
   document.querySelector(
     "#interpretation"
@@ -5024,6 +5029,15 @@ async function runSemanticSearch(
 function selectSearchMode(
   mode
 ) {
+  const browserModeButton =
+    Array.from(
+      searchModeButtons
+    ).find(
+      item =>
+        item.dataset.searchMode ===
+          "browser-semantic"
+    );
+
   if (
     mode ===
     "browser-semantic" &&
@@ -5033,6 +5047,18 @@ function selectSearchMode(
       .classList
       .remove(
         "hidden"
+      );
+
+    browserModeButton
+      ?.classList
+      .add(
+        "is-pending"
+      );
+
+    browserModeButton
+      ?.setAttribute(
+        "aria-expanded",
+        "true"
       );
 
     browserSemanticConsentCheck
@@ -5045,6 +5071,18 @@ function selectSearchMode(
     .classList
     .add(
       "hidden"
+    );
+
+  browserModeButton
+    ?.classList
+    .remove(
+      "is-pending"
+    );
+
+  browserModeButton
+    ?.setAttribute(
+      "aria-expanded",
+      "false"
     );
 
   if (
@@ -5148,12 +5186,6 @@ browserSemanticConsentCancel
   ?.addEventListener(
     "click",
     () => {
-      browserSemanticConsent
-        .classList
-        .add(
-          "hidden"
-        );
-
       browserSemanticConsentStatus.textContent =
         "";
 
@@ -5162,6 +5194,15 @@ browserSemanticConsentCancel
 
       browserSemanticConsentActivate.disabled =
         true;
+
+      selectSearchMode(
+        selectedSearchMode ===
+            "semantic" &&
+          semanticBackend ===
+            "browser"
+          ? "browser-semantic"
+          : selectedSearchMode
+      );
     }
   );
 
@@ -5249,6 +5290,12 @@ form.addEventListener(
     if (!query) {
       return;
     }
+
+    researchWorkspace
+      ?.classList
+      .remove(
+        "hidden"
+      );
 
     if (
       selectedSearchMode ===
