@@ -1,0 +1,61 @@
+{
+  "schema_version": "qwen3-browser-semantic-product-gate-metadata-v1",
+  "gate_id": "qwen3-browser-semantic-product-gate-v1",
+  "status": "frozen_pass",
+  "measured_at": "2026-10-15T00:20:16.492Z",
+  "frozen_on_local_date": "2026-10-14",
+  "runner_commit": "cac004c585d167311a32bbe6c64c1b940d5b649c",
+  "hashes": {
+    "preregistration_sha256": "0520c1e40ba8ea45178c0593126af7092fa95df4e857e7edf143026b2704bbf7",
+    "result_sha256": "8601b54520af8f94a5ea1d63a38eff1aacc4fdf0c08a911ca191a0b531cc0a99",
+    "run_log_sha256": "336887a75f2f2f0ff1bb0ce8a49e96602bc3d2780534ed0d3a7d956d549fd365"
+  },
+  "independent_validation": {
+    "schema": true,
+    "phase_count_and_order": true,
+    "all_frozen_result_ids_exact": true,
+    "all_gates_true": true,
+    "non_fallback_webgpu": true,
+    "semantic_service_posts": 0,
+    "temporary_profile_removed": true
+  },
+  "environment": {
+    "browser": "Chrome/155.0.8059.41",
+    "gpu_vendor": "apple",
+    "gpu_architecture": "metal-3",
+    "fallback_adapter": false,
+    "hardware_concurrency": 8,
+    "reported_device_memory_gib": 8
+  },
+  "observations": {
+    "cold": {
+      "duration_ms": 194611,
+      "encoded_network_bytes": 1297598732,
+      "peak_sampled_javascript_heap_bytes": 1365499026,
+      "profile_bytes_after": 1485078528
+    },
+    "same_session_repeat": {
+      "duration_ms": 1305,
+      "encoded_network_bytes": 0,
+      "peak_sampled_javascript_heap_bytes": 202171156,
+      "profile_bytes_after": 1485082624
+    },
+    "warm_reload_new_query": {
+      "duration_ms": 49956,
+      "encoded_network_bytes": 80163169,
+      "peak_sampled_javascript_heap_bytes": 1760821597,
+      "profile_bytes_after": 1575182336
+    }
+  },
+  "decision": {
+    "technical_gate": "pass",
+    "product_default": "remain_off",
+    "next_boundary": "prepare a visible explicit browser-mode opt-in with the measured cold-download, storage and memory disclosure; preserve traditional and service-backed semantic paths"
+  },
+  "limitations": [
+    "One Mac, one Chrome version and one Apple Metal-3 adapter were measured.",
+    "The internet connection was uncontrolled.",
+    "JavaScript heap is not total process or GPU memory.",
+    "No latency or memory threshold was added after observing the result."
+  ]
+}
