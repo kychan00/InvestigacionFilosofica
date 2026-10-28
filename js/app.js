@@ -20,9 +20,19 @@ import {
 } from "../src/core/explain.js";
 
 import {
+  parseQuery
+} from "../src/core/parser.js";
+
+import {
   checkPublicSemanticHealth,
   searchPublicSemantic
 } from "../src/core/semantic-api.js";
+
+import {
+  augmentWithAuthorResolution,
+  resolveRemoteAuthor,
+  resolveRemoteAuthorCandidate
+} from "../src/core/remote-author-resolution.js";
 
 import {
   isQwen3BrowserQ8OptIn,
@@ -178,6 +188,27 @@ let activeEngine = {
   fallback:
     false
 };
+
+
+function resolveAuthorForQuery(
+  query,
+  signal
+) {
+  const parsed = parseQuery(
+    query,
+    philosophyMap
+  );
+
+  return resolveRemoteAuthor(
+    query,
+    {
+      signal,
+      canonicalNames:
+        (parsed.philosophers || [])
+          .map(item => item.name)
+    }
+  );
+}
 
 
 function renderSearchEngineIndicator() {
@@ -363,9 +394,19 @@ function renderInterpretation(
   response
 ) {
   const parsed =
-    response.parsed;
+    response.parsed || {};
 
   const items = [];
+
+
+  if (
+    response.authorResolution?.status ===
+    "resolved"
+  ) {
+    items.push(
+      `Autor identificado: ${response.authorResolution.author.displayName}`
+    );
+  }
 
 
   for (
@@ -572,6 +613,8 @@ function resultUrl(item) {
     item.urls?.openAccess ||
     item.urls?.doi ||
     item.urls?.canonical ||
+    item.urls?.landing ||
+    item.url ||
     null
   );
 }
@@ -2165,7 +2208,10 @@ function renderResult(
               item.retrievalMode ===
                 "semantic"
                 ? "Semántica"
-                : item.relevanceLevel
+                : item.retrievalMode ===
+                    "author-index"
+                  ? "Autor"
+                  : item.relevanceLevel
             )}
           </span>
 
@@ -2362,7 +2408,20 @@ function renderResult(
                 }
               </div>
             `
-            : `
+            : item.retrievalMode ===
+                "author-index"
+              ? `
+                <div class="explain">
+                  Autoría directa confirmada en el corpus
+                  · identidad normalizada
+                  ${
+                    item.authorIdentity?.orcid
+                      ? " · ORCID disponible"
+                      : ""
+                  }
+                </div>
+              `
+              : `
               <div class="explain">
                 A ${item.ranking.author || 0}
                 ·
@@ -2398,7 +2457,10 @@ function renderResult(
             item.retrievalMode ===
               "semantic"
               ? "Similitud"
-              : "Relevancia"
+              : item.retrievalMode ===
+                  "author-index"
+                ? "Autoría"
+                : "Relevancia"
           }
         </span>
 
@@ -3750,6 +3812,219 @@ function bindResultActions() {
     );
 }
 
+
+function renderAuthorResolution(
+  resolution
+) {
+  if (
+    !resolution ||
+    ![
+      "resolved",
+      "ambiguous"
+    ].includes(resolution.status)
+  ) {
+    return "";
+  }
+
+
+  if (
+    resolution.status ===
+    "ambiguous"
+  ) {
+    const candidates =
+      resolution.candidates || [];
+
+    return `
+      <section
+        class="author-resolution is-ambiguous"
+        aria-label="Autores posibles"
+      >
+        <div>
+          <strong>
+            Encontré varias personas con ese nombre
+          </strong>
+
+          <p>
+            No elegí una identidad automáticamente.
+            Selecciona el autor correcto para ver sus obras.
+          </p>
+        </div>
+
+        <div class="author-candidates">
+          ${candidates.map(candidate => `
+            <button
+              type="button"
+              class="author-candidate"
+              data-author-id="${escapeHtml(candidate.id)}"
+            >
+              <span>
+                ${escapeHtml(candidate.n)}
+              </span>
+
+              <small>
+                ${candidate.cw || 0} obras en el corpus
+                ${
+                  candidate.o
+                    ? ` · ORCID ${escapeHtml(candidate.o.replace(/^https?:\/\/orcid\.org\//, ""))}`
+                    : ""
+                }
+              </small>
+            </button>
+          `).join("")}
+        </div>
+      </section>
+    `;
+  }
+
+
+  const author = resolution.author;
+  const wikidataUrl =
+    author.wikidataId
+      ? `https://www.wikidata.org/wiki/${author.wikidataId}`
+      : null;
+  const orcidUrl = author.orcid
+    ? (
+        author.orcid.startsWith("http")
+          ? author.orcid
+          : `https://orcid.org/${author.orcid}`
+      )
+    : null;
+
+  return `
+    <section
+      class="author-resolution is-resolved"
+      aria-label="Identidad del autor"
+    >
+      <div>
+        <span class="author-resolution-label">
+          Autor identificado
+        </span>
+
+        <strong>
+          ${escapeHtml(author.displayName)}
+        </strong>
+
+        <small>
+          Obras de autoría directa primero
+        </small>
+      </div>
+
+      <div class="author-evidence">
+        ${
+          wikidataUrl
+            ? `
+              <a
+                href="${escapeHtml(wikidataUrl)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Wikidata
+              </a>
+            `
+            : ""
+        }
+
+        ${
+          orcidUrl
+            ? `
+              <a
+                href="${escapeHtml(orcidUrl)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ORCID
+              </a>
+            `
+            : ""
+        }
+
+        <span>
+          Corpus OpenAlex Philosophy en Hugging Face
+        </span>
+      </div>
+    </section>
+  `;
+}
+
+
+function bindAuthorResolutionActions() {
+  document
+    .querySelectorAll(
+      ".author-candidate"
+    )
+    .forEach(button => {
+      button.addEventListener(
+        "click",
+        async () => {
+          const candidate =
+            currentResponse
+              ?.authorResolution
+              ?.candidates
+              ?.find(item =>
+                String(item.id) ===
+                button.dataset.authorId
+              );
+
+          if (!candidate) {
+            return;
+          }
+
+          document
+            .querySelectorAll(
+              ".author-candidate"
+            )
+            .forEach(item => {
+              item.disabled = true;
+            });
+
+          status.textContent =
+            `Cargando obras de ${candidate.n}…`;
+
+          try {
+            const resolution =
+              await resolveRemoteAuthorCandidate(
+                candidate,
+                {
+                  signal:
+                    currentController?.signal
+                }
+              );
+
+            currentResponse =
+              augmentWithAuthorResolution(
+                currentResponse,
+                resolution
+              );
+
+            currentResults =
+              currentResponse.results;
+
+            resetVisibleLimit();
+            renderInterpretation(
+              currentResponse
+            );
+            renderStats(
+              currentResponse
+            );
+            renderFilters(
+              currentResults
+            );
+
+            status.textContent =
+              `${resolution.works.length} obras de ${resolution.author.displayName}`;
+          } catch (error) {
+            if (
+              error.name !== "AbortError"
+            ) {
+              status.textContent =
+                "No fue posible cargar ese autor.";
+            }
+          }
+        }
+      );
+    });
+}
+
 function renderFilteredResults() {
   const semanticResults =
     currentResponse?.searchMode ===
@@ -3772,6 +4047,9 @@ function renderFilteredResults() {
 
 
   resultsEl.innerHTML =
+    renderAuthorResolution(
+      currentResponse?.authorResolution
+    ) +
     errorHtml +
     (
       semanticResults
@@ -3863,6 +4141,7 @@ function renderFilteredResults() {
 
 
   bindResultActions();
+  bindAuthorResolutionActions();
 }
 
 
@@ -4115,7 +4394,7 @@ async function loadMoreResults() {
         )?.value || 12
       );
 
-    const response =
+    let response =
       await searchMorePhilosophy(
         currentResponse,
         philosophyMap,
@@ -4139,6 +4418,13 @@ async function loadMoreResults() {
               `${progress.expansion.query}`;
           }
         }
+      );
+
+
+    response =
+      augmentWithAuthorResolution(
+        response,
+        currentResponse.authorResolution
       );
 
 
@@ -4280,6 +4566,9 @@ function renderProgressiveSearch(
   response,
   progress
 ) {
+  currentResponse =
+    response;
+
   currentParsed =
     response.parsed;
 
@@ -4323,6 +4612,10 @@ function renderProgressiveSearch(
 
 
   resultsEl.innerHTML = `
+    ${renderAuthorResolution(
+      response.authorResolution
+    )}
+
     <div class="search-live-progress has-results">
       <span class="search-live-spinner" aria-hidden="true"></span>
 
@@ -4349,6 +4642,7 @@ function renderProgressiveSearch(
 
 
   bindResultActions();
+  bindAuthorResolutionActions();
 
   status.textContent =
     `${response.stats.unique} resultados · ` +
@@ -4435,6 +4729,28 @@ async function runFederatedSearch(
 
 
   try {
+    status.textContent =
+      "Interpretando consulta e identidad…";
+
+    let authorResolution = {
+      status: "pending",
+      candidates: [],
+      works: []
+    };
+
+    const authorResolutionPromise =
+      resolveAuthorForQuery(
+        query,
+        searchController.signal
+      );
+
+    authorResolutionPromise.then(
+      value => {
+        authorResolution = value;
+      },
+      () => {}
+    );
+
     const depth =
       Number(
         document.querySelector(
@@ -4442,7 +4758,7 @@ async function runFederatedSearch(
         )?.value || 12
       );
 
-    const response =
+    let response =
       await searchPhilosophy(
         query,
         philosophyMap,
@@ -4480,12 +4796,29 @@ async function runFederatedSearch(
             }
 
 
+            const augmented =
+              augmentWithAuthorResolution(
+                response,
+                authorResolution
+              );
+
             renderProgressiveSearch(
-              response,
-              response.progress
+              augmented,
+              augmented.progress
             );
           }
         }
+      );
+
+
+    authorResolution =
+      await authorResolutionPromise;
+
+
+    response =
+      augmentWithAuthorResolution(
+        response,
+        authorResolution
       );
 
 
@@ -4729,14 +5062,29 @@ async function runSemanticSearch(
         )?.value || 12
       );
 
-    const response =
-      await searchPublicSemantic(
+    const [
+      semanticResponse,
+      authorResolution
+    ] = await Promise.all([
+      searchPublicSemantic(
         query,
         {
           limit,
           signal:
             searchController.signal
         }
+      ),
+      resolveAuthorForQuery(
+        query,
+        searchController.signal
+      )
+    ]);
+
+
+    const response =
+      augmentWithAuthorResolution(
+        semanticResponse,
+        authorResolution
       );
 
 

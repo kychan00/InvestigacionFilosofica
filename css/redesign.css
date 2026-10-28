@@ -4761,10 +4761,224 @@ span:not(.search-live-spinner) {
 }
 
 
+.author-resolution {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    24px;
+
+  margin:
+    0 0 20px;
+
+  padding:
+    18px 22px;
+
+  border:
+    1px solid rgba(34, 66, 55, 0.18);
+
+  border-radius:
+    18px;
+
+  background:
+    #eef3ed;
+}
+
+
+.author-resolution strong,
+.author-resolution small,
+.author-resolution-label {
+  display:
+    block;
+}
+
+
+.author-resolution strong {
+  margin-top:
+    3px;
+
+  color:
+    #1f2f29;
+
+  font-family:
+    var(--font-serif);
+
+  font-size:
+    1.3rem;
+}
+
+
+.author-resolution small,
+.author-resolution p {
+  margin:
+    4px 0 0;
+
+  color:
+    #58645f;
+}
+
+
+.author-resolution-label {
+  color:
+    #2f6d54;
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.12em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.author-evidence {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  justify-content:
+    flex-end;
+
+  gap:
+    8px;
+}
+
+
+.author-evidence a,
+.author-evidence span {
+  padding:
+    7px 10px;
+
+  border:
+    1px solid rgba(34, 66, 55, 0.14);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  color:
+    #2c5545;
+
+  font-size:
+    0.78rem;
+
+  text-decoration:
+    none;
+}
+
+
+.author-resolution.is-ambiguous {
+  align-items:
+    flex-start;
+
+  background:
+    #faf4e6;
+}
+
+
+.author-candidates {
+  display:
+    grid;
+
+  gap:
+    8px;
+
+  min-width:
+    min(100%, 360px);
+}
+
+
+.author-candidate {
+  padding:
+    10px 12px;
+
+  border:
+    1px solid rgba(96, 72, 32, 0.2);
+
+  border-radius:
+    12px;
+
+  background:
+    #fffdf8;
+
+  color:
+    #362f25;
+
+  cursor:
+    pointer;
+
+  text-align:
+    left;
+}
+
+
+.author-candidate span,
+.author-candidate small {
+  display:
+    block;
+}
+
+
+.author-candidate span {
+  font-weight:
+    750;
+}
+
+
+.author-candidate:hover,
+.author-candidate:focus-visible {
+  border-color:
+    #2f6d54;
+
+  outline:
+    2px solid rgba(47, 109, 84, 0.18);
+}
+
+
+.author-candidate:disabled {
+  cursor:
+    wait;
+
+  opacity:
+    0.58;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .search-live-spinner,
   .search-loading-card span {
     animation:
       none;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .author-resolution {
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+  }
+
+  .author-evidence {
+    justify-content:
+      flex-start;
   }
 }
