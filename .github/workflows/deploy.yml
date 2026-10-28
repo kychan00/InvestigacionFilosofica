@@ -77,6 +77,26 @@ jobs:
             --exclude 'artifacts/' \
             --exclude '_site/'
 
+      - name: Attach remote author index when available
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view author-index-v1 >/dev/null 2>&1; then
+            mkdir -p _site/data/authors
+            mkdir -p /tmp/author-index-v1
+
+            gh release download author-index-v1 \
+              --pattern 'author-index-v1.tar.gz*' \
+              --dir /tmp/author-index-v1
+
+            cd /tmp/author-index-v1
+            shasum -a 256 -c author-index-v1.tar.gz.sha256
+            tar -xzf author-index-v1.tar.gz \
+              -C "${GITHUB_WORKSPACE}/_site/data/authors"
+          else
+            echo "Remote author index v1 has not been published yet."
+          fi
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

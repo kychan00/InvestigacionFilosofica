@@ -1,0 +1,152 @@
+name: Build remote author index v1
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+
+jobs:
+  partition:
+    name: Authorship partition ${{ matrix.part }}/11
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 240
+
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+
+      matrix:
+        part:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+
+    env:
+      AUTHOR_INDEX_PART: ${{ matrix.part }}
+      AUTHOR_INDEX_PARTS: "12"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install duckdb huggingface_hub
+
+      - name: Test normalization contract
+        run: |
+          python -m unittest \
+            tests/test_author_index_common.py
+
+      - name: Build authorship partition
+        run: |
+          python \
+            scripts/openalex/build_author_index_partition.py
+
+      - name: Upload partition
+        uses: actions/upload-artifact@v5
+        with:
+          name: author-index-v1-part-${{ matrix.part }}
+          retention-days: 14
+          compression-level: 0
+          path: |
+            artifacts/author-index-v1/parts/*.parquet
+            artifacts/author-index-v1/parts/*.json
+
+
+  merge:
+    name: Merge, validate and publish
+
+    needs:
+      - partition
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 240
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install duckdb huggingface_hub
+
+      - name: Download partitions
+        uses: actions/download-artifact@v5
+        with:
+          pattern: author-index-v1-part-*
+          path: artifacts/author-index-v1/parts
+          merge-multiple: true
+
+      - name: Merge remote author index
+        run: |
+          python \
+            scripts/openalex/merge_author_index_v1.py
+
+      - name: Validate remote author index
+        run: |
+          python \
+            scripts/openalex/validate_author_index_v1.py
+
+      - name: Package site payload
+        run: |
+          tar \
+            -C artifacts/author-index-v1/site \
+            -czf artifacts/author-index-v1/author-index-v1.tar.gz \
+            author-index-v1
+
+          cd artifacts/author-index-v1
+          shasum -a 256 \
+            author-index-v1.tar.gz \
+            > author-index-v1.tar.gz.sha256
+
+      - name: Upload validated payload
+        uses: actions/upload-artifact@v5
+        with:
+          name: author-index-v1
+          retention-days: 30
+          compression-level: 0
+          path: |
+            artifacts/author-index-v1/author-index-v1.tar.gz
+            artifacts/author-index-v1/author-index-v1.tar.gz.sha256
+            artifacts/author-index-v1/site/author-index-v1/manifest.json
+            artifacts/author-index-v1/site/author-index-v1/sample-kant.json
+
+      - name: Publish immutable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create author-index-v1 \
+            artifacts/author-index-v1/author-index-v1.tar.gz \
+            artifacts/author-index-v1/author-index-v1.tar.gz.sha256 \
+            artifacts/author-index-v1/site/author-index-v1/manifest.json \
+            artifacts/author-index-v1/site/author-index-v1/sample-kant.json \
+            --target "${GITHUB_SHA}" \
+            --title "Remote author index v1" \
+            --notes "Derived remotely from the pinned OpenAlex snapshot on Hugging Face and the frozen 451,823-work philosophy search corpus."
