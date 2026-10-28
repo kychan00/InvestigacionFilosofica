@@ -36,6 +36,8 @@ ALIAS_DIRECTORY = OUTPUT_ROOT / "aliases"
 WORK_DIRECTORY = OUTPUT_ROOT / "works"
 
 AUTHOR_CHUNK_SIZE = 12
+REMOTE_RETRY_ATTEMPTS = 4
+REMOTE_RETRY_DELAY_SECONDS = 75
 
 
 class JsonlBucketWriter:
@@ -114,6 +116,49 @@ def configure(connection):
     connection.execute(
         "SET preserve_insertion_order = false"
     )
+
+
+def execute_remote_with_backoff(
+    connection,
+    statement,
+    parameters,
+    *,
+    label,
+    attempts=REMOTE_RETRY_ATTEMPTS,
+    delay_seconds=REMOTE_RETRY_DELAY_SECONDS,
+    sleeper=time.sleep,
+):
+    for attempt in range(1, attempts + 1):
+        try:
+            return connection.execute(
+                statement,
+                parameters,
+            )
+        except Exception as error:
+            message = str(error)
+            rate_limited = (
+                "HTTP 429" in message
+                or "Too Many Requests" in message
+            )
+
+            if (
+                not rate_limited
+                or attempt >= attempts
+            ):
+                raise
+
+            print(
+                json.dumps({
+                    "event": "remote_rate_limit_backoff",
+                    "label": label,
+                    "attempt": attempt,
+                    "attempts": attempts,
+                    "delay_seconds": delay_seconds,
+                }),
+                flush=True,
+            )
+
+            sleeper(delay_seconds)
 
 
 def discover_author_files():
@@ -397,7 +442,8 @@ def main():
             for path in chunk
         ]
 
-        connection.execute(
+        execute_remote_with_backoff(
+            connection,
             """
             INSERT INTO author_candidates
             SELECT
@@ -415,6 +461,11 @@ def main():
               AND trim(a.display_name) <> ''
             """,
             [urls],
+            label=(
+                "authors "
+                f"{offset + 1}-"
+                f"{min(offset + AUTHOR_CHUNK_SIZE, len(author_files))}"
+            ),
         )
 
         print(
