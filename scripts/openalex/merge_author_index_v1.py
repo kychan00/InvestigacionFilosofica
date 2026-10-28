@@ -206,9 +206,12 @@ def build_alias_buckets(connection):
     return writer.rows
 
 
-def build_work_buckets(connection):
+def build_work_buckets(
+    connection,
+    directory=WORK_DIRECTORY,
+):
     writer = JsonlBucketWriter(
-        WORK_DIRECTORY
+        directory
     )
 
     cursor = connection.execute(
@@ -227,6 +230,9 @@ def build_work_buckets(connection):
           ON c.work_id = aw.work_id
         INNER JOIN author_profiles AS p
           ON p.author_id = aw.author_id
+        WHERE
+          c.title IS NOT NULL
+          AND trim(c.title) <> ''
         ORDER BY
           aw.author_id,
           c.publication_year DESC NULLS LAST,
@@ -466,7 +472,24 @@ def main():
           ),
           (SELECT count(*) FROM author_works),
           (SELECT count(*) FROM author_ids),
-          (SELECT count(*) FROM author_profiles)
+          (SELECT count(*) FROM author_profiles),
+          (
+            SELECT count(*)
+            FROM author_works AS aw
+            INNER JOIN author_profiles AS p
+              ON p.author_id = aw.author_id
+          ),
+          (
+            SELECT count(*)
+            FROM author_works AS aw
+            INNER JOIN corpus AS c
+              ON c.work_id = aw.work_id
+            INNER JOIN author_profiles AS p
+              ON p.author_id = aw.author_id
+            WHERE
+              c.title IS NULL
+              OR trim(c.title) = ''
+          )
         """
     ).fetchone()
 
@@ -511,6 +534,10 @@ def main():
             "author_work_rows": counts[2],
             "distinct_author_ids": counts[3],
             "resolved_authors": counts[4],
+            "resolved_author_work_rows": counts[5],
+            "untitled_author_work_rows_excluded": (
+                counts[6]
+            ),
             "alias_rows": alias_rows,
             "work_rows_published": work_rows,
         },

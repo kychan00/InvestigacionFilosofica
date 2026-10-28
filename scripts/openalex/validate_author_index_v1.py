@@ -172,6 +172,25 @@ def main():
             "Corpus membership drift"
         )
 
+    excluded = counts.get(
+        "untitled_author_work_rows_excluded"
+    )
+
+    if excluded is None or excluded < 0:
+        raise AssertionError(
+            "Missing untitled-row exclusion count"
+        )
+
+    if (
+        counts["work_rows_published"]
+        + excluded
+        != counts["resolved_author_work_rows"]
+    ):
+        raise AssertionError(
+            "Published and excluded rows do not "
+            "account for resolved authorship rows"
+        )
+
     coverage = manifest["coverage"]
 
     if coverage[
