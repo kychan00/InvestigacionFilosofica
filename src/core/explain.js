@@ -256,6 +256,33 @@ function bibliographyReasons(result) {
 }
 
 
+function authorReasons(result) {
+  if (
+    !result.ranking
+      ?.authorPriorityApplies
+  ) {
+    return [];
+  }
+
+  const names =
+    (result.authors || [])
+      .map(
+        author =>
+          author?.name ||
+          author
+      )
+      .filter(Boolean);
+
+  if (!names.length) {
+    return [];
+  }
+
+  return [
+    `La autoría coincide directamente con la persona buscada: ${names.join(", ")}.`
+  ];
+}
+
+
 function strongestReasons(
   reasons,
   max = 6
@@ -276,6 +303,10 @@ export function explainResult(
 ) {
   const reasons =
     strongestReasons([
+      ...authorReasons(
+        result
+      ),
+
       ...philosopherReasons(
         result,
         parsed,
@@ -333,6 +364,9 @@ export function explainResult(
       result.relevanceLevel,
 
     dimensions: {
+      author:
+        result.ranking?.author ?? 0,
+
       query:
         result.ranking?.query ?? 0,
 

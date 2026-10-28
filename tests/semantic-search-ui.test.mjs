@@ -46,19 +46,9 @@ test(
       /data-search-mode="semantic"[\s\S]*aria-pressed="false"/u
     );
 
-    assert.match(
+    assert.doesNotMatch(
       html,
-      /data-search-mode="browser-semantic"[\s\S]*aria-pressed="false"/u
-    );
-
-    assert.match(
-      html,
-      /≈ 1,3 GB[\s\S]*Primera descarga/u
-    );
-
-    assert.match(
-      html,
-      /Entiendo la descarga, el uso de almacenamiento y el requisito de WebGPU/u
+      /En este navegador|browser-semantic/u
     );
 
     assert.match(
@@ -81,24 +71,9 @@ test(
       /Motor usado/u
     );
 
-    assert.match(
+    assert.doesNotMatch(
       app,
-      /searchBrowserSemanticV4\(/u
-    );
-
-    assert.match(
-      app,
-      /browserSemanticV4OptIn/u
-    );
-
-    assert.match(
-      app,
-      /navigator\.gpu\.requestAdapter/u
-    );
-
-    assert.match(
-      app,
-      /mode ===\s*"browser-semantic"/u
+      /searchBrowserSemanticV4|browserSemanticV4OptIn|browser-semantic/u
     );
 
     assert.match(
@@ -127,11 +102,6 @@ test(
     );
 
     assert.match(
-      css,
-      /\.search-mode-option\.is-pending/u
-    );
-
-    assert.match(
       html,
       /id="research-workspace"[\s\S]*class="research-workspace hidden"/u
     );
@@ -146,9 +116,9 @@ test(
       /\.search-live-progress\.semantic-progress/u
     );
 
-    assert.match(
+    assert.doesNotMatch(
       css,
-      /\.browser-semantic-consent/u
+      /browser-semantic-consent/u
     );
 
     assert.match(
