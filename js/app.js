@@ -25,11 +25,6 @@ import {
 } from "../src/core/semantic-api.js";
 
 import {
-  isBrowserSemanticV4OptIn,
-  searchBrowserSemanticV4
-} from "../src/core/browser-semantic-v4.js";
-
-import {
   isQwen3BrowserQ8OptIn,
   rerankTopKByQwen3BrowserQ8,
   selectQwen3BrowserQ8Candidates
@@ -64,31 +59,6 @@ const searchModeButtons =
 const searchModeNote =
   document.querySelector(
     "#search-mode-note"
-  );
-
-const browserSemanticConsent =
-  document.querySelector(
-    "#browser-semantic-consent"
-  );
-
-const browserSemanticConsentCheck =
-  document.querySelector(
-    "#browser-semantic-consent-check"
-  );
-
-const browserSemanticConsentActivate =
-  document.querySelector(
-    "#browser-semantic-consent-activate"
-  );
-
-const browserSemanticConsentCancel =
-  document.querySelector(
-    "#browser-semantic-consent-cancel"
-  );
-
-const browserSemanticConsentStatus =
-  document.querySelector(
-    "#browser-semantic-consent-status"
   );
 
 const searchEngineIndicator =
@@ -187,19 +157,6 @@ const qwen3OptIn =
     window.location.search
   );
 
-const browserSemanticV4OptIn =
-  isBrowserSemanticV4OptIn(
-    window.location.search
-  );
-
-let browserSemanticV4Enabled =
-  browserSemanticV4OptIn;
-
-let semanticBackend =
-  browserSemanticV4OptIn
-    ? "browser"
-    : "service";
-
 let qwen3Controller = null;
 let qwen3ScorerPromise = null;
 let currentQwen3Order = null;
@@ -224,29 +181,11 @@ let activeEngine = {
 
 
 function renderSearchEngineIndicator() {
-  const browserSelected =
-    selectedSearchMode ===
-      "semantic" &&
-    semanticBackend ===
-      "browser";
-
   searchEngineIndicator.dataset
     .semanticStatus =
-      browserSelected
-        ? (
-            navigator.gpu
-              ? "available"
-              : "unavailable"
-          )
-        : semanticAvailability;
+      semanticAvailability;
 
-  if (browserSelected) {
-    semanticAvailabilityText
-      .textContent =
-        navigator.gpu
-          ? "WebGPU listo · 451.823 docs estáticos"
-          : "WebGPU no disponible";
-  } else if (
+  if (
     semanticAvailability ===
     "available"
   ) {
@@ -271,12 +210,7 @@ function renderSearchEngineIndicator() {
   const engineLabel =
     activeEngine.mode ===
     "semantic"
-      ? (
-          activeEngine.backend ===
-          "browser"
-            ? "semántico en este navegador"
-            : "semántico por servicio"
-        )
+      ? "semántico por servicio"
       : "tradicional";
 
   const phaseLabel = {
@@ -2430,6 +2364,8 @@ function renderResult(
             `
             : `
               <div class="explain">
+                A ${item.ranking.author || 0}
+                ·
                 Q ${item.ranking.query}
                 ·
                 P ${item.ranking.philosophy}
@@ -4740,19 +4676,12 @@ async function runSemanticSearch(
 
   setActiveEngine(
     "semantic",
-    "working",
-    {
-      backend:
-        semanticBackend
-    }
+    "working"
   );
 
 
   const startedAt =
     Date.now();
-
-  let browserProgress =
-    null;
 
   const updateProgress =
     () => {
@@ -4778,36 +4707,6 @@ async function runSemanticSearch(
           elapsedSeconds
         );
 
-      if (
-        semanticBackend ===
-          "browser" &&
-        browserProgress
-      ) {
-        const stageLabels = {
-          embedding:
-            "Preparando Qwen3-Embedding en WebGPU",
-          adapter:
-            "Comprobando WebGPU",
-          model:
-            "Cargando el modelo",
-          download:
-            "Descargando o leyendo el modelo en caché",
-          query:
-            "Generando el embedding de la consulta",
-          routing:
-            "Seleccionando shards semánticos",
-          shards:
-            `Leyendo shards ${browserProgress.loaded || 0}/${browserProgress.total || 32}`,
-          metadata:
-            "Cargando metadatos de los resultados"
-        };
-
-        status.textContent =
-          `${stageLabels[browserProgress.stage] || "Búsqueda semántica en el navegador"} · ${elapsedSeconds} s`;
-
-        return;
-      }
-
       status.textContent =
         `Búsqueda semántica activa · ${elapsedSeconds} s transcurridos`;
     };
@@ -4830,70 +4729,15 @@ async function runSemanticSearch(
         )?.value || 12
       );
 
-    let response;
-
-    if (
-      semanticBackend ===
-        "browser"
-    ) {
-      try {
-        response =
-          await searchBrowserSemanticV4(
-            query,
-            {
-              limit,
-              signal:
-                searchController.signal,
-              onProgress(progress) {
-                browserProgress =
-                  progress;
-
-                updateProgress();
-              }
-            }
-          );
-      } catch (browserError) {
-        if (
-          browserError.name ===
-          "AbortError"
-        ) {
-          throw browserError;
+    const response =
+      await searchPublicSemantic(
+        query,
+        {
+          limit,
+          signal:
+            searchController.signal
         }
-
-        console.warn(
-          "La búsqueda semántica en navegador falló; se prueba el servicio compatible.",
-          browserError
-        );
-
-        browserProgress = {
-          stage:
-            "service-fallback"
-        };
-
-        status.textContent =
-          "El modo navegador no respondió; probando el servicio semántico…";
-
-        response =
-          await searchPublicSemantic(
-            query,
-            {
-              limit,
-              signal:
-                searchController.signal
-            }
-          );
-      }
-    } else {
-      response =
-        await searchPublicSemantic(
-          query,
-          {
-            limit,
-            signal:
-              searchController.signal
-          }
-        );
-    }
+      );
 
 
     if (
@@ -4932,13 +4776,7 @@ async function runSemanticSearch(
     resetQwen3Experiment();
 
     status.textContent =
-      `${response.stats.unique} resultados semánticos · corpus propio` +
-      (
-        response.semantic.mode ===
-          "browser-static-v4"
-          ? " · procesados en este navegador"
-          : ""
-      );
+      `${response.stats.unique} resultados semánticos · corpus propio`;
 
     semanticAvailability =
       "available";
@@ -4947,14 +4785,7 @@ async function runSemanticSearch(
 
     setActiveEngine(
       "semantic",
-      "completed",
-      {
-        backend:
-          response.semantic.mode ===
-            "browser-static-v4"
-            ? "browser"
-            : "service"
-      }
+      "completed"
     );
   } catch (error) {
     if (
@@ -5029,98 +4860,17 @@ async function runSemanticSearch(
 function selectSearchMode(
   mode
 ) {
-  const browserModeButton =
-    Array.from(
-      searchModeButtons
-    ).find(
-      item =>
-        item.dataset.searchMode ===
-          "browser-semantic"
-    );
-
-  if (
-    mode ===
-    "browser-semantic" &&
-    !browserSemanticV4Enabled
-  ) {
-    browserSemanticConsent
-      .classList
-      .remove(
-        "hidden"
-      );
-
-    browserModeButton
-      ?.classList
-      .add(
-        "is-pending"
-      );
-
-    browserModeButton
-      ?.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-    browserSemanticConsentCheck
-      .focus();
-
-    return;
-  }
-
-  browserSemanticConsent
-    .classList
-    .add(
-      "hidden"
-    );
-
-  browserModeButton
-    ?.classList
-    .remove(
-      "is-pending"
-    );
-
-  browserModeButton
-    ?.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-  if (
-    mode ===
-    "browser-semantic"
-  ) {
-    semanticBackend =
-      "browser";
-  } else if (
-    mode ===
-    "semantic"
-  ) {
-    semanticBackend =
-      browserSemanticV4OptIn
-        ? "browser"
-        : "service";
-  }
-
   selectedSearchMode =
-    mode === "semantic" ||
-    mode === "browser-semantic"
+    mode === "semantic"
       ? "semantic"
       : "federated";
 
   searchModeButtons
     .forEach(
       item => {
-        const expectedMode =
-          selectedSearchMode ===
-            "semantic" &&
-          semanticBackend ===
-            "browser"
-            ? "browser-semantic"
-            : selectedSearchMode;
-
         const active =
           item.dataset.searchMode ===
-          expectedMode;
+          selectedSearchMode;
 
         item.classList.toggle(
           "is-active",
@@ -5136,14 +4886,7 @@ function selectSearchMode(
 
   setActiveEngine(
     selectedSearchMode,
-    "selected",
-    {
-      backend:
-        selectedSearchMode ===
-        "semantic"
-          ? semanticBackend
-          : null
-    }
+    "selected"
   );
 
   if (
@@ -5151,10 +4894,7 @@ function selectSearchMode(
     "semantic"
   ) {
     searchModeNote.textContent =
-      semanticBackend ===
-        "browser"
-        ? "Modo navegador V4: busca en 451.823 documentos sin depender de esta Mac. La primera búsqueda descarga un modelo de aproximadamente 1,12 GiB; si falla, se prueba el servicio y luego el respaldo tradicional."
-        : "Busca por significado en 451.823 documentos del corpus propio; si el servidor no responde, se activa el respaldo tradicional.";
+      "Busca por significado en 451.823 documentos del corpus propio; si el servidor no responde, se activa el respaldo tradicional.";
 
     input.placeholder =
       "Ej. ¿Qué relación hay entre lógica y ontología en Quine?";
@@ -5170,113 +4910,6 @@ function selectSearchMode(
   input.placeholder =
     "Ej. libertad en Kant";
 }
-
-
-browserSemanticConsentCheck
-  ?.addEventListener(
-    "change",
-    () => {
-      browserSemanticConsentActivate.disabled =
-        !browserSemanticConsentCheck.checked;
-    }
-  );
-
-
-browserSemanticConsentCancel
-  ?.addEventListener(
-    "click",
-    () => {
-      browserSemanticConsentStatus.textContent =
-        "";
-
-      browserSemanticConsentCheck.checked =
-        false;
-
-      browserSemanticConsentActivate.disabled =
-        true;
-
-      selectSearchMode(
-        selectedSearchMode ===
-            "semantic" &&
-          semanticBackend ===
-            "browser"
-          ? "browser-semantic"
-          : selectedSearchMode
-      );
-    }
-  );
-
-
-browserSemanticConsentActivate
-  ?.addEventListener(
-    "click",
-    async () => {
-      if (
-        !browserSemanticConsentCheck.checked
-      ) {
-        return;
-      }
-
-      browserSemanticConsentActivate.disabled =
-        true;
-
-      browserSemanticConsentStatus.textContent =
-        "Comprobando WebGPU…";
-
-      try {
-        if (!navigator.gpu) {
-          throw new Error(
-            "Este navegador no ofrece WebGPU."
-          );
-        }
-
-        const adapter =
-          await navigator.gpu.requestAdapter({
-            powerPreference:
-              "high-performance"
-          });
-
-        if (!adapter) {
-          throw new Error(
-            "No se encontró un adaptador WebGPU."
-          );
-        }
-
-        if (
-          adapter.info?.isFallbackAdapter ===
-            true ||
-          adapter.isFallbackAdapter ===
-            true
-        ) {
-          throw new Error(
-            "El adaptador WebGPU disponible es de respaldo y no se usará."
-          );
-        }
-
-        browserSemanticV4Enabled =
-          true;
-
-        browserSemanticConsent
-          .classList
-          .add(
-            "hidden"
-          );
-
-        browserSemanticConsentStatus.textContent =
-          "";
-
-        selectSearchMode(
-          "browser-semantic"
-        );
-      } catch (error) {
-        browserSemanticConsentStatus.textContent =
-          `${error.message} Puedes seguir usando la búsqueda semántica por servicio o la tradicional.`;
-
-        browserSemanticConsentActivate.disabled =
-          false;
-      }
-    }
-  );
 
 
 form.addEventListener(

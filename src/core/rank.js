@@ -42,6 +42,58 @@ function tokenOverlap(a, b) {
 }
 
 
+function authorMatchTier(
+  result,
+  query
+) {
+  const queryTokens =
+    tokenSet(query);
+
+  if (!queryTokens.size) {
+    return 0;
+  }
+
+  let bestTier = 0;
+
+  for (const author of
+    result.authors || []) {
+    const authorTokens =
+      tokenSet(
+        author?.name ||
+        author ||
+        ""
+      );
+
+    if (!authorTokens.size) {
+      continue;
+    }
+
+    const containsQuery =
+      [...queryTokens]
+        .every(
+          token =>
+            authorTokens.has(token)
+        );
+
+    if (!containsQuery) {
+      continue;
+    }
+
+    const sameTokens =
+      authorTokens.size ===
+      queryTokens.size;
+
+    bestTier =
+      Math.max(
+        bestTier,
+        sameTokens ? 3 : 2
+      );
+  }
+
+  return bestTier;
+}
+
+
 function bestQuerySignal(result) {
   const matches =
     result.matchedQueries || [];
@@ -944,18 +996,115 @@ export function rankResults(
   parsed,
   philosophyMap
 ) {
-  return results
+  const queryTokens =
+    tokenSet(
+      parsed.original || ""
+    );
+
+  const knownPhilosopherQuery =
+    Boolean(
+      parsed.philosophers?.length
+    );
+
+  const ranked =
+    results
     .map(
-      result =>
-        rankResult(
-          result,
-          parsed,
-          philosophyMap
-        )
+      result => {
+        const rankedResult =
+          rankResult(
+            result,
+            parsed,
+            philosophyMap
+          );
+
+        return {
+          ...rankedResult,
+          ranking: {
+            ...rankedResult.ranking,
+            author:
+              authorMatchTier(
+                result,
+                parsed.original || ""
+              )
+          }
+        };
+      }
+    );
+
+  const strongestAuthorMatch =
+    Math.max(
+      0,
+      ...ranked.map(
+        item =>
+          item.ranking.author
+      )
+    );
+
+  const authorPriorityApplies =
+    strongestAuthorMatch === 3 ||
+    (
+      strongestAuthorMatch >= 2 &&
+      (
+        queryTokens.size >= 2 ||
+        knownPhilosopherQuery
+      )
+    );
+
+  return ranked
+    .map(
+      item => {
+        const itemAuthorPriority =
+          authorPriorityApplies &&
+          item.ranking.author > 0;
+
+        const authorScoreFloor =
+          itemAuthorPriority
+            ? (
+                item.ranking.author === 3
+                  ? 95
+                  : 90
+              )
+            : 0;
+
+        const relevanceScore =
+          Math.max(
+            item.relevanceScore,
+            authorScoreFloor
+          );
+
+        return {
+          ...item,
+          relevanceScore,
+          relevanceLevel:
+            levelFromScore(
+              relevanceScore
+            ),
+          ranking: {
+            ...item.ranking,
+            authorPriorityApplies:
+              itemAuthorPriority,
+            authorScoreFloor
+          }
+        };
+      }
     )
     .sort(
-      (a, b) =>
-        b.rankingSortScore -
-        a.rankingSortScore
+      (a, b) => {
+        if (
+          authorPriorityApplies &&
+          a.ranking.author !==
+            b.ranking.author
+        ) {
+          return (
+            b.ranking.author -
+            a.ranking.author
+          );
+        }
+
+        return (
+          b.rankingSortScore -
+          a.rankingSortScore
+        );
+      }
     );
 }

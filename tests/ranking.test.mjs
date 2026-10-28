@@ -235,3 +235,185 @@ test(
     );
   }
 );
+
+
+test(
+  "nombre completo de autor exacto precede coincidencias parciales en títulos y autores",
+  () => {
+    const authorQuery =
+      parseQuery(
+        "Alonso Nava Amezcua",
+        philosophyMap
+      );
+
+    const ranked =
+      rankResults(
+        [
+          baseResult({
+            title:
+              "Felipe Amezcua",
+            authors: [
+              {
+                name:
+                  "Felipe Amezcua"
+              }
+            ],
+            citedBy:
+              1000
+          }),
+          baseResult({
+            title:
+              "Alonso en la historia de la ciencia",
+            authors: [
+              {
+                name:
+                  "Manuel Amezcua"
+              }
+            ]
+          }),
+          baseResult({
+            title:
+              "Tecnociencia, entorno y sujeto tecnocientífico",
+            authors: [
+              {
+                name:
+                  "Alonso Nava Amezcua"
+              }
+            ],
+            doi:
+              "10.1234/alonso-nava"
+          })
+        ],
+        authorQuery,
+        philosophyMap
+      );
+
+    assert.equal(
+      ranked[0].doi,
+      "10.1234/alonso-nava"
+    );
+
+    assert.equal(
+      ranked[0].ranking.author,
+      3
+    );
+
+    assert.equal(
+      ranked[0].ranking
+        .authorPriorityApplies,
+      true
+    );
+
+    assert.equal(
+      ranked[0].relevanceScore,
+      95
+    );
+  }
+);
+
+
+test(
+  "apellido de filósofo reconocido prioriza sus obras sobre textos acerca de él",
+  () => {
+    const kantQuery =
+      parseQuery(
+        "Kant",
+        philosophyMap
+      );
+
+    const ranked =
+      rankResults(
+        [
+          baseResult({
+            title:
+              "La recepción contemporánea de Kant",
+            authors: [
+              {
+                name:
+                  "Investigadora Contemporánea"
+              }
+            ],
+            citedBy:
+              5000
+          }),
+          baseResult({
+            title:
+              "Kritik der reinen Vernunft",
+            authors: [
+              {
+                name:
+                  "Kant, Immanuel"
+              }
+            ],
+            isbn: [
+              "9780000000000"
+            ]
+          })
+        ],
+        kantQuery,
+        philosophyMap
+      );
+
+    assert.equal(
+      ranked[0].title,
+      "Kritik der reinen Vernunft"
+    );
+
+    assert.equal(
+      ranked[0].ranking.author,
+      2
+    );
+
+    assert.equal(
+      ranked[0].relevanceScore,
+      90
+    );
+  }
+);
+
+
+test(
+  "un término temático aislado no activa prioridad por coincidencia parcial de autor",
+  () => {
+    const thematicQuery =
+      parseQuery(
+        "social",
+        philosophyMap
+      );
+
+    const ranked =
+      rankResults(
+        [
+          baseResult({
+            title:
+              "Ruido sin relación temática",
+            authors: [
+              {
+                name:
+                  "Justicia Social Pérez"
+              }
+            ]
+          }),
+          baseResult({
+            title:
+              "Teorías contemporáneas de la justicia social",
+            doi:
+              "10.1234/justicia"
+          })
+        ],
+        thematicQuery,
+        philosophyMap
+      );
+
+    assert.equal(
+      ranked[1].ranking
+        .authorPriorityApplies,
+      false
+    );
+
+    assert.equal(
+      ranked[0].doi,
+      "10.1234/justicia"
+    );
+  }
+);
