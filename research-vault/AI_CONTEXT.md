@@ -1,6 +1,6 @@
 ---
 type: ai-context
-updated: 2026-10-10
+updated: 2026-10-27
 ---
 
 # Contexto para asistentes
@@ -105,9 +105,17 @@ WebGPU Apple `metal-3` no fallback, pero la primera consulta tardó 194,611 s y
 transfirió 1.297.598.732 bytes. La repetición en sesión tardó 1,305 s y la
 consulta distinta tras recarga 49,956 s. Es evidencia de independencia técnica
 en un solo dispositivo, no compatibilidad general; el modo sigue apagado por
-defecto. El consentimiento explícito con divulgación del costo ya está visible
-en producción como `En este navegador · beta`. Una corrección visual posterior
-evitó que el workspace vacío cubriera el panel, hizo crecer el hero con su
-contenido y separó el estado pendiente del motor realmente seleccionado.
+defecto. El consentimiento explícito con divulgación del costo fue desplegado
+temporalmente como `En este navegador · beta`, pero se retiró de la interfaz
+pública el 2026-10-27 por decisión de producto. Los artefactos browser V4 y su
+evidencia histórica se conservan; ya no existe una ruta pública seleccionable ni
+una activación por parámetro URL desde `js/app.js`.
+
+La producción federada aplica ahora [[Author-Intent-Ranking-V1]]: una
+coincidencia fuerte en `authors` precede menciones del nombre en títulos. La
+regla es determinista, trazable mediante la señal `A` y conservadora para no
+activar prioridad con términos temáticos aislados. Este cambio fue solicitado
+como corrección de producto y no deriva de resultados Qwen, labels humanos ni
+tuning experimental; no altera los artefactos congelados de `benchmark/qwen3`.
 
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.

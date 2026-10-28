@@ -1,6 +1,6 @@
 ---
 type: roadmap
-updated: 2026-10-14
+updated: 2026-10-27
 ---
 
 # Roadmap
@@ -26,8 +26,12 @@ updated: 2026-10-14
   [[Browser-Semantic-Product-Gate-V1]].
 - [x] Hacer visible un opt-in informado que advierta descarga, almacenamiento,
   memoria, WebGPU y fallback antes de iniciar el modo browser.
+- [x] Retirar ese opt-in de producción tras la revisión de experiencia de uso,
+  conservando artefactos y evidencia browser V4 sin una ruta pública activa.
+- [x] Priorizar coincidencias directas de autor en la búsqueda federada mediante
+  [[Author-Intent-Ranking-V1]].
 - [ ] Ampliar prospectivamente la matriz de compatibilidad WebGPU a más
-  dispositivos y navegadores antes de cualquier promoción más amplia.
+  dispositivos y navegadores antes de cualquier reintroducción pública.
 
 ## Fase 1 · Modelo metodológico
 

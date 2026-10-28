@@ -2,7 +2,7 @@
 type: hub
 area: evaluation
 project: InvestigacionFilosofica
-updated: 2026-10-14
+updated: 2026-10-27
 ---
 
 # Evaluación, jueces y Qwen3
@@ -102,6 +102,14 @@ Ese consentimiento quedó desplegado mediante el PR 16 como
 81/81 pruebas y GitHub Pages lo publicó en el workflow `38660085085`. Esto cierra
 el gate de descubribilidad; no amplía por sí solo la evidencia de compatibilidad
 más allá del dispositivo medido.
+
+El 2026-10-27 la opción visible se retiró de producción mediante el PR 18 como
+decisión de experiencia de producto. Esta retirada no invalida ni reescribe el
+gate browser V4: sus artefactos, hashes y mediciones permanecen históricos. El
+mismo PR añadió una prioridad determinista de autor a la búsqueda federada,
+documentada en [[Author-Intent-Ranking-V1]]. Esa regla no usa Qwen, no usa labels
+humanos y no debe interpretarse como consecuencia de los experimentos
+confirmatorios o externos congelados.
 
 El confirmatory holdout v2 está cerrado: H1 recibió apoyo direccional, H2 y H3 no. El resultado mixto no autoriza por sí mismo cambios de ranking en producción.
 

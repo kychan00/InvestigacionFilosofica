@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-10-14
+updated: 2026-10-27
 status: design
 ---
 
@@ -102,6 +102,9 @@ Estado al 2026-10-10:
 - el gate técnico pasó y el opt-in informado quedó desplegado como `En este navegador · beta`: advierte descarga, caché y requisito WebGPU, exige aceptación explícita, hace preflight sin descargar el modelo y conserva la búsqueda tradicional como predeterminada; el siguiente límite es una matriz prospectiva en más dispositivos; véase [[Browser-Semantic-Product-Gate-V1]];
 - el rollout se fusionó mediante el PR 16 en `97de6057004388a73b428415f7c39b1b39bb2443`; el workflow `38660085085` aprobó 81/81 pruebas y desplegó GitHub Pages, y la verificación pública confirmó `index.html` y `js/app.js` idénticos a `main`;
 - la corrección visual del consentimiento se fusionó mediante el PR 17 en `c19f6bba94586ecc854dce3d7dc2b0b370a2d165`; elimina el workspace vacío que se superponía al panel, permite que el hero crezca, presenta descarga/caché/latencia como métricas, distingue selección pendiente y conserva accesibilidad y responsive; el workflow `38663237030` aprobó 81/81 pruebas y la publicación fue verificada sin overflow horizontal;
+- la opción pública `En este navegador · beta` fue retirada por decisión de producto mediante el PR 18 y el merge `e4c5646f1db7cd50cbe151acba4114c17c9639a0`; la interfaz conserva únicamente `Tradicional` y `Semántica · alfa`, mientras los artefactos estáticos browser V4 permanecen como evidencia histórica y técnica no expuesta;
+- el mismo PR introdujo [[Author-Intent-Ranking-V1]] en la búsqueda federada: coincidencia exacta de nombre completo y coincidencia fuerte de filósofo reconocido se ordenan antes que menciones en títulos; la consulta pública `Alonso Nava Amezcua` colocó tres obras del autor en los tres primeros puestos, con señal `A 3` y score presentado de 95;
+- la suite aprobó 84/84 pruebas y el workflow de GitHub Pages `40616167147` terminó correctamente; la verificación pública reprodujo la retirada de la tercera opción y el nuevo orden de autor;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
