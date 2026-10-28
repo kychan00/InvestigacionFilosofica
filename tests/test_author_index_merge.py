@@ -20,10 +20,42 @@ sys.path.insert(
 
 from merge_author_index_v1 import (  # noqa: E402
     build_work_buckets,
+    execute_remote_with_backoff,
 )
 
 
 class AuthorIndexMergeTest(unittest.TestCase):
+    def test_retries_hugging_face_rate_limit(self):
+        class TemporaryRateLimit:
+            def __init__(self):
+                self.calls = 0
+
+            def execute(self, statement, parameters):
+                self.calls += 1
+
+                if self.calls < 3:
+                    raise RuntimeError(
+                        "HTTP 429 Too Many Requests"
+                    )
+
+                return "ok"
+
+        connection = TemporaryRateLimit()
+        sleeps = []
+
+        result = execute_remote_with_backoff(
+            connection,
+            "SELECT 1",
+            [],
+            label="synthetic",
+            delay_seconds=0,
+            sleeper=sleeps.append,
+        )
+
+        self.assertEqual(result, "ok")
+        self.assertEqual(connection.calls, 3)
+        self.assertEqual(sleeps, [0, 0])
+
     def test_excludes_untitled_work_rows(self):
         connection = duckdb.connect()
 
