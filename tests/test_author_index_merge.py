@@ -1,0 +1,108 @@
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+import duckdb
+
+
+OPENALEX_SCRIPTS = (
+    Path(__file__).parents[1]
+    / "scripts"
+    / "openalex"
+)
+
+sys.path.insert(
+    0,
+    str(OPENALEX_SCRIPTS),
+)
+
+from merge_author_index_v1 import (  # noqa: E402
+    build_work_buckets,
+)
+
+
+class AuthorIndexMergeTest(unittest.TestCase):
+    def test_excludes_untitled_work_rows(self):
+        connection = duckdb.connect()
+
+        connection.execute(
+            """
+            CREATE TABLE author_works (
+              author_id BIGINT,
+              work_id BIGINT,
+              author_position VARCHAR,
+              is_corresponding BOOLEAN
+            )
+            """
+        )
+
+        connection.execute(
+            """
+            CREATE TABLE corpus (
+              work_id BIGINT,
+              title VARCHAR,
+              publication_year INTEGER,
+              language VARCHAR,
+              type VARCHAR
+            )
+            """
+        )
+
+        connection.execute(
+            """
+            CREATE TABLE author_profiles (
+              author_id BIGINT
+            )
+            """
+        )
+
+        connection.execute(
+            "INSERT INTO author_profiles VALUES (7)"
+        )
+
+        connection.execute(
+            """
+            INSERT INTO author_works VALUES
+              (7, 10, 'first', true),
+              (7, 11, 'first', false),
+              (7, 12, 'first', false)
+            """
+        )
+
+        connection.execute(
+            """
+            INSERT INTO corpus VALUES
+              (10, 'A titled work', 2024, 'en', 'article'),
+              (11, NULL, 2023, 'en', 'article'),
+              (12, '   ', 2022, 'en', 'article')
+            """
+        )
+
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            rows = build_work_buckets(
+                connection,
+                directory,
+            )
+
+            payloads = []
+
+            for path in directory.glob("*.jsonl"):
+                payloads.extend(
+                    json.loads(line)
+                    for line in path.read_text(
+                        encoding="utf-8"
+                    ).splitlines()
+                )
+
+        self.assertEqual(rows, 1)
+        self.assertEqual(
+            payloads[0]["t"],
+            "A titled work",
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

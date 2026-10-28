@@ -104,6 +104,11 @@ jobs:
           path: artifacts/author-index-v1/parts
           merge-multiple: true
 
+      - name: Test merge contracts
+        run: |
+          python -m unittest \
+            tests/test_author_index_merge.py
+
       - name: Merge remote author index
         run: |
           python \
