@@ -118,4 +118,13 @@ activar prioridad con términos temáticos aislados. Este cambio fue solicitado
 como corrección de producto y no deriva de resultados Qwen, labels humanos ni
 tuning experimental; no altera los artefactos congelados de `benchmark/qwen3`.
 
+[[Remote-Author-Identity-V1]] amplía esa corrección sin usar la API de OpenAlex:
+un índice remoto y shardeado, construido desde los snapshots fijados de
+Hugging Face, permite resolver variantes y orden del nombre y anteponer obras
+de autoría directa. Wikidata sólo aporta alias e identidad humana; ORCID se
+conserva como evidencia del snapshot. El navegador descarga únicamente el
+shard necesario y muestra selección explícita ante homónimos. La capa tiene
+fallback federado, no descarga modelos o corpus completos y no modifica
+`src/core/rank.js` ni los experimentos Qwen congelados.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.

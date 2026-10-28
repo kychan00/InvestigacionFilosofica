@@ -69,3 +69,11 @@ no una promoción de Qwen. No usa inferencia, reranker, labels humanos, ajuste a
 holdouts ni datos del adjudicador externo. No altera retrieval, el índice
 semántico ni los artefactos congelados bajo `benchmark/qwen3`; sus conclusiones
 permanecen intactas.
+
+## Evolución
+
+[[Remote-Author-Identity-V1]] añade una capa posterior: además de reordenar
+coincidencias ya recuperadas, puede resolver variantes del nombre contra un
+índice remoto del corpus propio y anteponer obras de autoría directa. La regla
+V1 permanece como fallback cuando el autor no existe en ese snapshot o la
+resolución externa no está disponible.
