@@ -38,6 +38,10 @@ import {
 } from "../src/core/remote-author-resolution.js";
 
 import {
+  summarizeAuthorCorpus
+} from "../src/core/author-page.js";
+
+import {
   combineSemanticWithFederated
 } from "../src/core/semantic-federation.js";
 
@@ -3871,6 +3875,12 @@ function bindResultActions() {
 function showExclusiveAuthorWorks(
   resolution
 ) {
+  document.body.classList.add(
+    "author-view"
+  );
+  document.title =
+    `${resolution.author.displayName} — Investigación Filosófica`;
+
   currentParsed = parseQuery(
     resolution.author.displayName,
     philosophyMap
@@ -3952,6 +3962,11 @@ function restoreAuthorSourceSearch() {
   }
 
   currentController?.abort();
+  document.body.classList.remove(
+    "author-view"
+  );
+  document.title =
+    "Investigación Filosófica";
 
   const source =
     authorSourceSearch;
@@ -4755,6 +4770,294 @@ function bindAuthorResolutionActions() {
     });
 }
 
+
+function authorHomeUrl() {
+  const url = new URL(
+    window.location.href
+  );
+
+  for (const parameter of [
+    "view",
+    "author",
+    "authorId",
+    "authorOrcid"
+  ]) {
+    url.searchParams.delete(
+      parameter
+    );
+  }
+
+  url.hash = "";
+
+  return url.toString();
+}
+
+
+function authorMonogram(name) {
+  const parts = String(name || "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (!parts.length) {
+    return "Φ";
+  }
+
+  return [
+    parts[0],
+    parts.at(-1)
+  ]
+    .filter(Boolean)
+    .map(part =>
+      part.charAt(0).toUpperCase()
+    )
+    .join("")
+    .slice(0, 2);
+}
+
+
+function renderAuthorPage(
+  response,
+  visible
+) {
+  const resolution =
+    response.authorResolution;
+  const author =
+    resolution.author;
+  const works =
+    response.results || [];
+  const summary =
+    summarizeAuthorCorpus(
+      author,
+      works
+    );
+  const yearSpan =
+    summary.yearFrom && summary.yearTo
+      ? (
+          summary.yearFrom === summary.yearTo
+            ? String(summary.yearFrom)
+            : `${summary.yearFrom}–${summary.yearTo}`
+        )
+      : "Sin fecha suficiente";
+  const languages =
+    summary.languages
+      .map(item => `
+        <span>
+          ${escapeHtml(
+            languageLabel(item.value)
+          )}
+          <strong>${item.count}</strong>
+        </span>
+      `)
+      .join("");
+  const types =
+    summary.types
+      .map(item => `
+        <span>
+          ${escapeHtml(
+            recordTypeLabel({
+              type: item.value
+            })
+          )}
+          <strong>${item.count}</strong>
+        </span>
+      `)
+      .join("");
+  const focuses =
+    summary.focuses
+      .map(item => `
+        <span class="author-focus-term">
+          ${escapeHtml(item.term)}
+          <small>${item.count}</small>
+        </span>
+      `)
+      .join("");
+  const maxDecade = Math.max(
+    1,
+    ...summary.decades.map(item =>
+      item.count
+    )
+  );
+  const decades =
+    summary.decades
+      .map(item => `
+        <div class="author-decade-row">
+          <span>${escapeHtml(item.label)}</span>
+          <div aria-hidden="true">
+            <i style="width: ${Math.max(
+              8,
+              Math.round(
+                item.count /
+                maxDecade *
+                100
+              )
+            )}%"></i>
+          </div>
+          <strong>${item.count}</strong>
+        </div>
+      `)
+      .join("");
+  const wikidataUrl =
+    author.wikidataId
+      ? `https://www.wikidata.org/wiki/${author.wikidataId}`
+      : null;
+  const orcidUrl = author.orcid
+    ? (
+        author.orcid.startsWith("http")
+          ? author.orcid
+          : `https://orcid.org/${author.orcid}`
+      )
+    : null;
+  const corpusNotice =
+    summary.corpusWorks > summary.loadedWorks
+      ? `El índice registra ${summary.corpusWorks.toLocaleString("es-MX")} obras; esta vista presenta hasta ${summary.loadedWorks}.`
+      : `La vista contiene las ${summary.loadedWorks} obras publicables disponibles en el índice.`;
+
+  return `
+    <article class="author-page">
+      <header class="author-page-hero">
+        <div class="author-page-identity">
+          <a
+            class="author-page-back"
+            href="${escapeHtml(authorHomeUrl())}"
+          >
+            <span aria-hidden="true">←</span>
+            Nueva búsqueda
+          </a>
+
+          <span class="author-page-eyebrow">
+            Archivo de autor · corpus propio
+          </span>
+
+          <h1>${escapeHtml(author.displayName)}</h1>
+
+          <p class="author-page-biography">
+            ${escapeHtml(
+              author.biography ||
+              "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
+            )}
+          </p>
+
+          <div class="author-page-evidence">
+            ${
+              author.wikipediaUrl
+                ? `<a href="${escapeHtml(author.wikipediaUrl)}" target="_blank" rel="noopener noreferrer">Wikipedia</a>`
+                : ""
+            }
+            ${
+              wikidataUrl
+                ? `<a href="${escapeHtml(wikidataUrl)}" target="_blank" rel="noopener noreferrer">Wikidata</a>`
+                : ""
+            }
+            ${
+              orcidUrl
+                ? `<a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">ORCID</a>`
+                : ""
+            }
+          </div>
+        </div>
+
+        <div class="author-page-seal" aria-hidden="true">
+          <span>${escapeHtml(authorMonogram(author.displayName))}</span>
+          <small>Autor identificado</small>
+        </div>
+      </header>
+
+      <section class="author-page-metrics" aria-label="Resumen del corpus del autor">
+        <div>
+          <span>Obras en el corpus</span>
+          <strong>${summary.corpusWorks.toLocaleString("es-MX")}</strong>
+          <small>${summary.loadedWorks} disponibles en esta vista</small>
+        </div>
+        <div>
+          <span>Periodo visible</span>
+          <strong>${escapeHtml(yearSpan)}</strong>
+          <small>Según años bibliográficos disponibles</small>
+        </div>
+        <div>
+          <span>Idiomas</span>
+          <strong>${summary.languages.length}</strong>
+          <small>En las obras mostradas</small>
+        </div>
+        <div>
+          <span>Tipos documentales</span>
+          <strong>${summary.types.length}</strong>
+          <small>Clasificación de la fuente</small>
+        </div>
+      </section>
+
+      <section class="author-page-analysis">
+        <div class="author-analysis-card author-focus-card">
+          <span class="author-section-kicker">Mapa léxico</span>
+          <h2>Enfoques visibles en los títulos</h2>
+          <div class="author-focus-cloud">
+            ${
+              focuses ||
+              "<p>No hay títulos suficientes para extraer recurrencias.</p>"
+            }
+          </div>
+          <p class="author-method-note">
+            Indicadores automáticos por frecuencia de palabras en títulos; no son etiquetas humanas ni una interpretación exhaustiva de la obra.
+          </p>
+        </div>
+
+        <div class="author-analysis-card">
+          <span class="author-section-kicker">Cronología</span>
+          <h2>Distribución por década</h2>
+          <div class="author-decade-chart">
+            ${
+              decades ||
+              "<p>No hay años suficientes para construir la cronología.</p>"
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="author-page-taxonomy" aria-label="Idiomas y tipos documentales">
+        <div>
+          <span class="author-section-kicker">Idiomas</span>
+          <div>${languages || "<span>Sin datos</span>"}</div>
+        </div>
+        <div>
+          <span class="author-section-kicker">Tipos de obra</span>
+          <div>${types || "<span>Sin datos</span>"}</div>
+        </div>
+      </section>
+
+      <section class="author-page-works">
+        <div class="author-page-works-heading">
+          <div>
+            <span class="author-section-kicker">Bibliografía</span>
+            <h2>Obras en el corpus</h2>
+          </div>
+          <p>${escapeHtml(corpusNotice)}</p>
+        </div>
+
+        <div class="author-work-grid">
+          ${visible.map(renderResult).join("")}
+        </div>
+
+        ${
+          works.length > visibleLimit
+            ? `
+              <div class="load-more-wrap">
+                <button id="load-more" type="button" class="load-more">
+                  Mostrar más obras
+                </button>
+                <span>Mostrando ${visible.length} de ${works.length}</span>
+              </div>
+            `
+            : `
+              <div class="load-more-wrap">
+                <span>Mostrando todas las ${works.length} obras cargadas</span>
+              </div>
+            `
+        }
+      </section>
+    </article>
+  `;
+}
+
 function renderFilteredResults() {
   const semanticResults =
     currentResponse?.searchMode ===
@@ -4777,6 +5080,30 @@ function renderFilteredResults() {
           currentResponse.errors
         )
       : "";
+
+
+  if (authorOnlyResults) {
+    resultsEl.innerHTML =
+      errorHtml +
+      renderAuthorPage(
+        currentResponse,
+        visible
+      );
+
+    document
+      .querySelector("#load-more")
+      ?.addEventListener(
+        "click",
+        () => {
+          visibleLimit += 20;
+          renderFilteredResults();
+        }
+      );
+
+    bindAuthorResolutionActions();
+    bindResultActions();
+    return;
+  }
 
 
   resultsEl.innerHTML =
@@ -5397,6 +5724,12 @@ async function runFederatedSearch(
     return;
   }
 
+  document.body.classList.remove(
+    "author-view"
+  );
+  document.title =
+    "Investigación Filosófica";
+
 
   if (currentController) {
     currentController.abort();
@@ -5759,6 +6092,12 @@ async function searchSemanticCompanions(
 async function runSemanticSearch(
   query
 ) {
+  document.body.classList.remove(
+    "author-view"
+  );
+  document.title =
+    "Investigación Filosófica";
+
   if (currentController) {
     currentController.abort();
   }
