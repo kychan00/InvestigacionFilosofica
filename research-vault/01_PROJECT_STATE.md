@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-10-28
+updated: 2026-10-29
 status: design
 ---
 
@@ -114,6 +114,7 @@ Estado al 2026-10-10:
 - los PR 23 y 24 quedaron fusionados en `63bb1515aad1f76c217cad171d772260fb6105bb` y `9c391645aade2fa6a47dae4e35d9f97de5a272c3`; el deploy `40800835187` publicó V2 y un smoke real mostró autores en resultados OpenAlex Philosophy y fuentes complementarias, con API OpenAlex y reranker desactivados;
 - esta integración aprobó 98/98 pruebas JavaScript y 7/7 pruebas Python, no cambió `src/core/rank.js`, no hizo tuning y no tocó artefactos congelados de `benchmark/qwen3`;
 - el PR 25 corrigió el enriquecimiento obra→autores para que un shard con `503` o timeout no descarte los demás: concurrencia acotada, tres intentos y conservación parcial; el merge `6cad155e93850bb7bca20d7f6d3c23196ae08530`, el deploy `40803212204` y 99/99 pruebas quedaron validados, y un smoke sobre Kant recuperó autor en 7/10 resultados mientras tres ausencias correspondían realmente al snapshot;
+- [[Multi-Author-Relationship-Search-V1]] quedó desplegado mediante el PR 26 y el merge `4eaecb0e17035378d35dcdd152f84e0b0e3306c4`: resuelve cada nombre de una consulta multiautor, muestra perfiles con Wikipedia/Wikidata/ORCID y prioriza establemente documentos que cubren más autores; `Kant y Hegel` mostró ambos perfiles y artículos relacionales en los primeros puestos, el workflow `40935062110` aprobó 102/102 pruebas y no se modificaron `src/core/rank.js`, retrieval, reranker ni artefactos Qwen;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 

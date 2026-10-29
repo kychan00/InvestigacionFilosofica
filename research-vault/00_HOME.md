@@ -1,7 +1,7 @@
 ---
 type: hub
 project: InvestigacionFilosofica
-updated: 2026-10-28
+updated: 2026-10-29
 ---
 
 # Investigación Filosófica · Research Vault
@@ -57,6 +57,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Author-Intent-Ranking-V1]]
 - [[Remote-Author-Identity-V1]]
 - [[Semantic-Federation-Author-Metadata-V1]]
+- [[Multi-Author-Relationship-Search-V1]]
 
 ## Principios adoptados
 

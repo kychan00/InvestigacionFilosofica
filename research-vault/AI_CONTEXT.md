@@ -1,6 +1,6 @@
 ---
 type: ai-context
-updated: 2026-10-28
+updated: 2026-10-29
 ---
 
 # Contexto para asistentes
@@ -138,5 +138,13 @@ El enriquecimiento carga shards con concurrencia acotada, reintentos y
 conservación parcial: un fallo transitorio ya no borra los autores recuperados
 en otros shards. `Autor no disponible` permanece válido cuando la relación no
 existe en el snapshot fijado.
+
+[[Multi-Author-Relationship-Search-V1]] corrige la asimetría de consultas como
+`Kant y Hegel`: resuelve cada identidad por separado, presenta descripciones y
+enlaces de Wikipedia/Wikidata/ORCID cuando existen y ordena primero los
+documentos que mencionan a más autores de la consulta. La cobertura se calcula
+sólo sobre título, abstract y autoría, con desempate por el orden previo. No usa
+la API de OpenAlex, no cambia `src/core/rank.js` y no deriva de labels o
+resultados Qwen.
 
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
