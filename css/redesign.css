@@ -4891,6 +4891,94 @@ span:not(.search-live-spinner) {
 }
 
 
+.author-resolution.is-multiple {
+  align-items:
+    stretch;
+
+  flex-direction:
+    column;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef3ed,
+      #f7f3e9
+    );
+}
+
+
+.author-resolution-heading {
+  max-width:
+    720px;
+}
+
+
+.author-profile-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(240px, 1fr)
+    );
+
+  gap:
+    12px;
+}
+
+
+.author-profile-card {
+  padding:
+    14px;
+
+  border:
+    1px solid rgba(34, 66, 55, 0.14);
+
+  border-radius:
+    14px;
+
+  background:
+    rgba(255, 255, 255, 0.76);
+}
+
+
+.author-profile-card.is-ambiguous {
+  background:
+    #fffaf0;
+}
+
+
+.author-profile-card.is-unresolved {
+  border-style:
+    dashed;
+}
+
+
+.author-profile-query {
+  display:
+    block;
+
+  color:
+    #6c756f;
+
+  font-size:
+    0.76rem;
+
+  font-weight:
+    750;
+}
+
+
+.author-profile-card .author-evidence {
+  justify-content:
+    flex-start;
+
+  margin-top:
+    10px;
+}
+
+
 .author-candidates {
   display:
     grid;

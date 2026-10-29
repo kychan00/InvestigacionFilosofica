@@ -31,7 +31,7 @@ import {
 import {
   augmentWithAuthorResolution,
   enrichResultsWithRemoteAuthors,
-  resolveRemoteAuthor,
+  resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
 } from "../src/core/remote-author-resolution.js";
 
@@ -204,7 +204,7 @@ function resolveAuthorForQuery(
     philosophyMap
   );
 
-  return resolveRemoteAuthor(
+  return resolveRemoteAuthors(
     query,
     {
       signal,
@@ -411,6 +411,22 @@ function renderInterpretation(
     items.push(
       `Autor identificado: ${response.authorResolution.author.displayName}`
     );
+  }
+
+  if (
+    response.authorResolution?.status ===
+    "multiple"
+  ) {
+    for (
+      const identity of
+      response.authorResolution.identities || []
+    ) {
+      if (identity.status === "resolved") {
+        items.push(
+          `Autor identificado: ${identity.author.displayName}`
+        );
+      }
+    }
   }
 
 
@@ -3835,10 +3851,155 @@ function renderAuthorResolution(
     !resolution ||
     ![
       "resolved",
-      "ambiguous"
+      "ambiguous",
+      "multiple"
     ].includes(resolution.status)
   ) {
     return "";
+  }
+
+
+  if (
+    resolution.status ===
+    "multiple"
+  ) {
+    const identities =
+      resolution.identities || [];
+
+    return `
+      <section
+        class="author-resolution is-multiple"
+        aria-label="Autores de la consulta"
+      >
+        <div class="author-resolution-heading">
+          <span class="author-resolution-label">
+            Relación entre autores
+          </span>
+
+          <strong>
+            ${identities.length} identidades buscadas
+          </strong>
+
+          <p>
+            Primero aparecen los artículos que relacionan a más autores de la consulta.
+          </p>
+        </div>
+
+        <div class="author-profile-grid">
+          ${identities.map((identity, index) => {
+            if (identity.status === "resolved") {
+              const author = identity.author;
+              const wikidataUrl =
+                author.wikidataId
+                  ? `https://www.wikidata.org/wiki/${author.wikidataId}`
+                  : null;
+              const orcidUrl = author.orcid
+                ? (
+                    author.orcid.startsWith("http")
+                      ? author.orcid
+                      : `https://orcid.org/${author.orcid}`
+                  )
+                : null;
+
+              return `
+                <article class="author-profile-card">
+                  <span class="author-profile-query">
+                    ${escapeHtml(identity.input)}
+                  </span>
+
+                  <strong>
+                    ${escapeHtml(author.displayName)}
+                  </strong>
+
+                  ${
+                    author.biography
+                      ? `<p>${escapeHtml(author.biography)}</p>`
+                      : ""
+                  }
+
+                  <div class="author-evidence">
+                    ${
+                      author.wikipediaUrl
+                        ? `
+                          <a
+                            href="${escapeHtml(author.wikipediaUrl)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Biografía en Wikipedia
+                          </a>
+                        `
+                        : ""
+                    }
+                    ${
+                      wikidataUrl
+                        ? `
+                          <a
+                            href="${escapeHtml(wikidataUrl)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Wikidata
+                          </a>
+                        `
+                        : ""
+                    }
+                    ${
+                      orcidUrl
+                        ? `
+                          <a
+                            href="${escapeHtml(orcidUrl)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            ORCID
+                          </a>
+                        `
+                        : ""
+                    }
+                  </div>
+                </article>
+              `;
+            }
+
+            if (identity.status === "ambiguous") {
+              return `
+                <article class="author-profile-card is-ambiguous">
+                  <strong>
+                    ${escapeHtml(identity.input)}
+                  </strong>
+                  <p>
+                    Selecciona la identidad correcta.
+                  </p>
+                  <div class="author-candidates">
+                    ${(identity.candidates || []).map(candidate => `
+                      <button
+                        type="button"
+                        class="author-candidate"
+                        data-author-id="${escapeHtml(candidate.id)}"
+                        data-author-index="${index}"
+                      >
+                        <span>${escapeHtml(candidate.n)}</span>
+                        <small>${candidate.cw || 0} obras en el corpus</small>
+                      </button>
+                    `).join("")}
+                  </div>
+                </article>
+              `;
+            }
+
+            return `
+              <article class="author-profile-card is-unresolved">
+                <strong>${escapeHtml(identity.input)}</strong>
+                <p>
+                  No se eligió una identidad automáticamente; la búsqueda conserva el nombre escrito.
+                </p>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      </section>
+    `;
   }
 
 
@@ -3922,9 +4083,29 @@ function renderAuthorResolution(
         <small>
           Obras de autoría directa primero
         </small>
+
+        ${
+          author.biography
+            ? `<p>${escapeHtml(author.biography)}</p>`
+            : ""
+        }
       </div>
 
       <div class="author-evidence">
+        ${
+          author.wikipediaUrl
+            ? `
+              <a
+                href="${escapeHtml(author.wikipediaUrl)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Biografía en Wikipedia
+              </a>
+            `
+            : ""
+        }
+
         ${
           wikidataUrl
             ? `
@@ -3971,10 +4152,25 @@ function bindAuthorResolutionActions() {
       button.addEventListener(
         "click",
         async () => {
-          const candidate =
+          const multiResolution =
             currentResponse
               ?.authorResolution
-              ?.candidates
+              ?.status === "multiple";
+          const authorIndex = Number(
+            button.dataset.authorIndex
+          );
+          const candidateSource =
+            multiResolution &&
+            Number.isInteger(authorIndex)
+              ? currentResponse
+                  .authorResolution
+                  .identities?.[authorIndex]
+                  ?.candidates
+              : currentResponse
+                  ?.authorResolution
+                  ?.candidates;
+          const candidate =
+            candidateSource
               ?.find(item =>
                 String(item.id) ===
                 button.dataset.authorId
@@ -4005,11 +4201,46 @@ function bindAuthorResolutionActions() {
                 }
               );
 
-            currentResponse =
-              augmentWithAuthorResolution(
-                currentResponse,
-                resolution
-              );
+            if (multiResolution) {
+              const identities = [
+                ...currentResponse
+                  .authorResolution
+                  .identities
+              ];
+
+              identities[authorIndex] = {
+                input:
+                  identities[authorIndex]
+                    .input,
+                canonicalName:
+                  identities[authorIndex]
+                    .canonicalName,
+                ...resolution
+              };
+
+              const groupedResolution = {
+                ...currentResponse
+                  .authorResolution,
+                identities,
+                authors: identities
+                  .filter(item =>
+                    item.status === "resolved"
+                  )
+                  .map(item => item.author)
+              };
+
+              currentResponse =
+                augmentWithAuthorResolution(
+                  currentResponse,
+                  groupedResolution
+                );
+            } else {
+              currentResponse =
+                augmentWithAuthorResolution(
+                  currentResponse,
+                  resolution
+                );
+            }
 
             currentResults =
               currentResponse.results;
@@ -4026,7 +4257,9 @@ function bindAuthorResolutionActions() {
             );
 
             status.textContent =
-              `${resolution.works.length} obras de ${resolution.author.displayName}`;
+              multiResolution
+                ? `Identidad confirmada: ${resolution.author.displayName}`
+                : `${resolution.works.length} obras de ${resolution.author.displayName}`;
           } catch (error) {
             if (
               error.name !== "AbortError"

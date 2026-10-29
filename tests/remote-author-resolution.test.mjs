@@ -9,9 +9,11 @@ import {
   authorNameSignature,
   augmentWithAuthorResolution,
   enrichResultsWithRemoteAuthors,
+  extractRemoteAuthorQueries,
   looksLikeAuthorQuery,
   normalizeAuthorName,
-  resolveRemoteAuthor
+  resolveRemoteAuthor,
+  resolveRemoteAuthors
 } from "../src/core/remote-author-resolution.js";
 
 
@@ -263,6 +265,244 @@ test(
         "Alonso Nava Amezcua"
       ),
       true
+    );
+  }
+);
+
+
+test(
+  "separa consultas de varios autores sin romper un nombre individual",
+  () => {
+    assert.deepEqual(
+      extractRemoteAuthorQueries(
+        "Kant y Hegel",
+        [
+          "Immanuel Kant",
+          "Georg Wilhelm Friedrich Hegel"
+        ]
+      ),
+      [
+        {
+          input: "Kant",
+          canonicalName: "Immanuel Kant"
+        },
+        {
+          input: "Hegel",
+          canonicalName:
+            "Georg Wilhelm Friedrich Hegel"
+        }
+      ]
+    );
+
+    assert.deepEqual(
+      extractRemoteAuthorQueries(
+        "Jose Fuerte, Nava Amezcua, Dinora"
+      ).map(item => item.input),
+      [
+        "Jose Fuerte",
+        "Nava Amezcua",
+        "Dinora"
+      ]
+    );
+
+    assert.deepEqual(
+      extractRemoteAuthorQueries(
+        "Alonso Nava Amezcua"
+      ),
+      []
+    );
+
+    assert.deepEqual(
+      extractRemoteAuthorQueries(
+        "Kant y Hegel sobre la libertad",
+        [
+          "Immanuel Kant",
+          "Georg Wilhelm Friedrich Hegel"
+        ]
+      ).map(item => item.input),
+      ["Kant", "Hegel"]
+    );
+  }
+);
+
+
+test(
+  "resuelve varios autores y conserva sus perfiles biográficos",
+  async () => {
+    const authors = {
+      Kant: {
+        qid: "Q9312",
+        canonical: "Immanuel Kant",
+        id: 9312,
+        title: "Crítica de la razón pura"
+      },
+      Hegel: {
+        qid: "Q9235",
+        canonical:
+          "Georg Wilhelm Friedrich Hegel",
+        id: 9235,
+        title: "Fenomenología del espíritu"
+      }
+    };
+    const byCanonical = new Map(
+      Object.values(authors).map(item => [
+        authorNameSignature(item.canonical),
+        item
+      ])
+    );
+
+    const fetchImpl = async url => {
+      const parsed = new URL(url);
+      const action =
+        parsed.searchParams.get("action");
+
+      if (action === "wbsearchentities") {
+        const query =
+          parsed.searchParams.get("search");
+        const item =
+          authors[query] ||
+          Object.values(authors)
+            .find(value =>
+              value.canonical === query
+            );
+
+        return response(
+          {
+            search: item
+              ? [
+                  {
+                    id: item.qid,
+                    label: item.canonical,
+                    description:
+                      "filósofo alemán"
+                  }
+                ]
+              : []
+          },
+          { json: true }
+        );
+      }
+
+      if (action === "wbgetentities") {
+        const qid =
+          parsed.searchParams.get("ids");
+        const item = Object.values(authors)
+          .find(value => value.qid === qid);
+
+        return response(
+          {
+            entities: {
+              [qid]: {
+                labels: {
+                  es: {
+                    value: item.canonical
+                  }
+                },
+                descriptions: {
+                  es: {
+                    value: "filósofo alemán"
+                  }
+                },
+                sitelinks: {
+                  eswiki: {
+                    title: item.canonical
+                  }
+                },
+                claims: {
+                  P31: [
+                    {
+                      mainsnak: {
+                        datavalue: {
+                          value: { id: "Q5" }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          { json: true }
+        );
+      }
+
+      for (const [signature, item] of byCanonical) {
+        if (
+          parsed.pathname.endsWith(
+            bucketPath(
+              "aliases",
+              signature
+            )
+          )
+        ) {
+          return response(
+            JSON.stringify({
+              s: signature,
+              id: item.id,
+              n: item.canonical,
+              o: null,
+              cw: 40,
+              c: 100,
+              k: "full"
+            }) + "\n"
+          );
+        }
+
+        if (
+          parsed.pathname.endsWith(
+            bucketPath(
+              "works",
+              String(item.id)
+            )
+          )
+        ) {
+          return response(
+            JSON.stringify({
+              id: item.id,
+              wid: item.id,
+              t: item.title,
+              y: 1800,
+              l: "de",
+              ty: "book"
+            }) + "\n"
+          );
+        }
+      }
+
+      return response("");
+    };
+
+    const result = await resolveRemoteAuthors(
+      "Kant y Hegel",
+      {
+        canonicalNames: [
+          authors.Kant.canonical,
+          authors.Hegel.canonical
+        ],
+        fetchImpl,
+        indexBase:
+          "https://example.test/data/"
+      }
+    );
+
+    assert.equal(result.status, "multiple");
+    assert.equal(result.authors.length, 2);
+    assert.deepEqual(
+      result.authors.map(author =>
+        author.displayName
+      ),
+      [
+        authors.Kant.canonical,
+        authors.Hegel.canonical
+      ]
+    );
+    assert.equal(
+      result.authors[0].biography,
+      "filósofo alemán"
+    );
+    assert.match(
+      result.authors[1].wikipediaUrl,
+      /wikipedia\.org/u
     );
   }
 );
@@ -781,6 +1021,84 @@ test(
 
 
 test(
+  "una consulta multiautor prioriza artículos que relacionan a todos sin anteponer un autor",
+  () => {
+    const results = [
+      {
+        id: "kant-only",
+        title: "La epistemología de Kant",
+        abstract: "Estudio monográfico"
+      },
+      {
+        id: "relation",
+        title: "Kant y Hegel ante la dialéctica",
+        abstract:
+          "Una comparación entre ambos filósofos"
+      },
+      {
+        id: "hegel-only",
+        title: "La lógica de Hegel",
+        abstract: "Estudio monográfico"
+      }
+    ];
+    const resolution = {
+      status: "multiple",
+      identities: [
+        {
+          input: "Kant",
+          status: "resolved",
+          author: {
+            displayName: "Immanuel Kant"
+          },
+          works: [
+            {
+              id: "direct-kant",
+              title: "Obra de Kant"
+            }
+          ]
+        },
+        {
+          input: "Hegel",
+          status: "resolved",
+          author: {
+            displayName:
+              "Georg Wilhelm Friedrich Hegel"
+          },
+          works: [
+            {
+              id: "direct-hegel",
+              title: "Obra de Hegel"
+            }
+          ]
+        }
+      ]
+    };
+
+    const augmented =
+      augmentWithAuthorResolution(
+        { results },
+        resolution
+      );
+
+    assert.deepEqual(
+      augmented.results.map(item => item.id),
+      [
+        "relation",
+        "kant-only",
+        "hegel-only"
+      ]
+    );
+    assert.equal(
+      augmented.results.some(item =>
+        item.id === "direct-kant"
+      ),
+      false
+    );
+  }
+);
+
+
+test(
   "la interfaz integra identidad remota, evidencia y ambigüedad explícita",
   async () => {
     const [app, css] = await Promise.all([
@@ -821,8 +1139,20 @@ test(
       /ORCID/u
     );
     assert.match(
+      app,
+      /Relación entre autores/u
+    );
+    assert.match(
+      app,
+      /Biografía en Wikipedia/u
+    );
+    assert.match(
       css,
       /\.author-resolution/u
+    );
+    assert.match(
+      css,
+      /\.author-profile-grid/u
     );
   }
 );
