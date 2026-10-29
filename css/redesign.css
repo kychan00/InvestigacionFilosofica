@@ -4881,6 +4881,61 @@ span:not(.search-live-spinner) {
 }
 
 
+.author-back-to-search {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  margin:
+    0 0 10px;
+
+  padding:
+    7px 11px;
+
+  border:
+    1px solid rgba(47, 109, 84, 0.2);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  color:
+    #2c5545;
+
+  cursor:
+    pointer;
+
+  font:
+    inherit;
+
+  font-size:
+    0.8rem;
+
+  font-weight:
+    750;
+}
+
+
+.author-back-to-search:hover,
+.author-back-to-search:focus-visible {
+  border-color:
+    #2f6d54;
+
+  outline:
+    2px solid rgba(47, 109, 84, 0.16);
+
+  outline-offset:
+    2px;
+}
+
+
 .author-resolution small,
 .author-resolution p {
   margin:

@@ -1221,6 +1221,10 @@ test(
       /Mostrando únicamente obras de autoría directa/u
     );
     assert.match(
+      app,
+      /author-back-to-search/u
+    );
+    assert.match(
       css,
       /\.author-resolution/u
     );
