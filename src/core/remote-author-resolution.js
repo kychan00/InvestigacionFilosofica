@@ -539,7 +539,10 @@ async function authorWorks(
   );
 
   return parseJsonLines(text)
-    .filter(row => row.id === candidate.id)
+    .filter(row =>
+      String(row.id) ===
+      String(candidate.id)
+    )
     .slice(0, limit)
     .map((row, index) => {
       const workId = `W${row.wid}`;
@@ -1232,6 +1235,37 @@ export async function resolveRemoteAuthorCandidate(
   candidate,
   options = {}
 ) {
+  if (
+    options.includeProfile &&
+    candidate?.n
+  ) {
+    try {
+      const profiled =
+        await resolveRemoteAuthor(
+          candidate.n,
+          {
+            ...options,
+            canonicalNames: [
+              candidate.n
+            ],
+            includeProfile: true
+          }
+        );
+
+      if (
+        profiled.status === "resolved" &&
+        String(profiled.author?.id) ===
+          String(candidate.id)
+      ) {
+        return profiled;
+      }
+    } catch (error) {
+      if (options.signal?.aborted) {
+        throw error;
+      }
+    }
+  }
+
   const context = createContext(options);
 
   return resolvedPayload(

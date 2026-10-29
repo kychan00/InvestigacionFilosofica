@@ -1,6 +1,6 @@
 import {
   normalizeAuthorName
-} from "./remote-author-resolution.js";
+} from "./remote-author-resolution.js?v=20261029-author-route-v2";
 
 
 const TITLE_STOPWORDS = new Set([
