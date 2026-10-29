@@ -8,6 +8,7 @@ import {
   authorBucket,
   authorNameSignature,
   augmentWithAuthorResolution,
+  enrichResultsWithRemoteAuthors,
   looksLikeAuthorQuery,
   normalizeAuthorName,
   resolveRemoteAuthor
@@ -36,6 +37,76 @@ function bucketPath(kind, value) {
     authorBucket(value)
   ).padStart(4, "0")}.jsonl`;
 }
+
+
+test(
+  "enriquece resultados semánticos con autores por OpenAlex ID",
+  async () => {
+    const workId = "7075599623";
+    const fetchImpl = async url => {
+      const path = new URL(url).pathname;
+
+      assert.ok(
+        path.endsWith(
+          bucketPath(
+            "work-authors",
+            workId
+          )
+        )
+      );
+
+      return response(
+        JSON.stringify({
+          wid: Number(workId),
+          a: [
+            {
+              id: 5020923463,
+              n: "Immanuel Kant",
+              o: null,
+              p: "first",
+              r: true
+            }
+          ]
+        }) + "\n"
+      );
+    };
+
+    const enriched =
+      await enrichResultsWithRemoteAuthors(
+        {
+          results: [
+            {
+              id:
+                "openalex-W7075599623",
+              openalexId:
+                "W7075599623",
+              authors: []
+            }
+          ]
+        },
+        {
+          fetchImpl,
+          indexBase:
+            "https://example.test/data/"
+        }
+      );
+
+    assert.equal(
+      enriched.results[0].authors[0].name,
+      "Immanuel Kant"
+    );
+    assert.equal(
+      enriched.results[0]
+        .authors[0].isCorresponding,
+      true
+    );
+    assert.equal(
+      enriched.results[0]
+        .authorMetadataSource,
+      "OpenAlex snapshot · Hugging Face"
+    );
+  }
+);
 
 
 test(
@@ -555,7 +626,8 @@ test(
         {
           results: [
             {
-              id: "https://api.openalex.org/W1",
+              id: "openalex-W1",
+              openalexId: "W1",
               title: "Obra duplicada"
             },
             {

@@ -34,6 +34,9 @@ OUTPUT_ROOT = Path(
 
 ALIAS_DIRECTORY = OUTPUT_ROOT / "aliases"
 WORK_DIRECTORY = OUTPUT_ROOT / "works"
+WORK_AUTHOR_DIRECTORY = (
+    OUTPUT_ROOT / "work-authors"
+)
 
 AUTHOR_CHUNK_SIZE = 12
 REMOTE_RETRY_ATTEMPTS = 4
@@ -323,6 +326,88 @@ def build_work_buckets(
     return writer.rows
 
 
+def build_work_author_buckets(
+    connection,
+    directory=WORK_AUTHOR_DIRECTORY,
+):
+    writer = JsonlBucketWriter(
+        directory
+    )
+
+    cursor = connection.execute(
+        """
+        SELECT
+          aw.work_id,
+          aw.author_id,
+          p.display_name,
+          p.orcid,
+          aw.author_position,
+          aw.is_corresponding
+        FROM author_works AS aw
+        INNER JOIN author_profiles AS p
+          ON p.author_id = aw.author_id
+        ORDER BY
+          aw.work_id,
+          CASE aw.author_position
+            WHEN 'first' THEN 0
+            WHEN 'middle' THEN 1
+            WHEN 'last' THEN 2
+            ELSE 3
+          END,
+          aw.author_id
+        """
+    )
+
+    current_work = None
+    authors = []
+
+    def flush():
+        if current_work is None:
+            return
+
+        writer.write(
+            bucket_for(str(current_work)),
+            {
+                "wid": int(current_work),
+                "a": authors,
+            },
+        )
+
+    while True:
+        rows = cursor.fetchmany(5000)
+
+        if not rows:
+            break
+
+        for (
+            work_id,
+            author_id,
+            display_name,
+            orcid,
+            position,
+            corresponding,
+        ) in rows:
+            if (
+                current_work is not None
+                and work_id != current_work
+            ):
+                flush()
+                authors = []
+
+            current_work = work_id
+            authors.append({
+                "id": int(author_id),
+                "n": display_name,
+                "o": orcid,
+                "p": position,
+                "r": bool(corresponding),
+            })
+
+    flush()
+    writer.close()
+    return writer.rows
+
+
 def file_inventory(directory):
     return [
         {
@@ -513,6 +598,12 @@ def main():
         connection
     )
 
+    work_author_rows = (
+        build_work_author_buckets(
+            connection
+        )
+    )
+
     counts = connection.execute(
         """
         SELECT
@@ -549,6 +640,9 @@ def main():
     )
     works = file_inventory(
         WORK_DIRECTORY
+    )
+    work_authors = file_inventory(
+        WORK_AUTHOR_DIRECTORY
     )
 
     manifest = {
@@ -591,6 +685,9 @@ def main():
             ),
             "alias_rows": alias_rows,
             "work_rows_published": work_rows,
+            "work_author_rows_published": (
+                work_author_rows
+            ),
         },
         "coverage": {
             "works_with_authorship_ratio": (
@@ -613,6 +710,7 @@ def main():
         "files": {
             "aliases": aliases,
             "works": works,
+            "work_authors": work_authors,
         },
         "elapsed_seconds": round(
             time.time() - started,
