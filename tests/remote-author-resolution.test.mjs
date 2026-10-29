@@ -14,6 +14,7 @@ import {
   looksLikeAuthorQuery,
   normalizeAuthorName,
   resolveRemoteAuthor,
+  resolveRemoteAuthorCandidate,
   resolveRemoteAuthors
 } from "../src/core/remote-author-resolution.js";
 
@@ -730,6 +731,192 @@ test(
       result.works[0].authors[0].name,
       "Immanuel Kant"
     );
+  }
+);
+
+
+test(
+  "la ruta compartible acepta un ID de autor serializado como texto",
+  async () => {
+    const fetchImpl = async url => {
+      const parsed = new URL(url);
+
+      if (
+        parsed.pathname.endsWith(
+          bucketPath("works", "5015026668")
+        )
+      ) {
+        return response(
+          JSON.stringify({
+            id: 5015026668,
+            wid: 2072221063,
+            p: "first",
+            r: true,
+            t: "El humanitarismo, ¿un nuevo ideal moral?",
+            y: 2012,
+            l: "es",
+            ty: "article"
+          }) + "\n"
+        );
+      }
+
+      return response("");
+    };
+
+    const result =
+      await resolveRemoteAuthorCandidate(
+        {
+          id: "5015026668",
+          n: "Miguel Giusti",
+          o: "https://orcid.org/0000-0002-9837-9981",
+          cw: 3
+        },
+        {
+          fetchImpl,
+          indexBase:
+            "https://example.test/data/"
+        }
+      );
+
+    assert.equal(result.status, "resolved");
+    assert.equal(result.works.length, 1);
+    assert.equal(
+      result.works[0].title,
+      "El humanitarismo, ¿un nuevo ideal moral?"
+    );
+  }
+);
+
+
+test(
+  "la ruta compartible conserva el perfil sólo si Wikidata coincide con el ID exacto",
+  async () => {
+    const name = "Miguel Giusti";
+    const signature =
+      authorNameSignature(name);
+    const fetchImpl = async url => {
+      const parsed = new URL(url);
+      const action =
+        parsed.searchParams.get("action");
+
+      if (action === "wbsearchentities") {
+        return response(
+          {
+            search: [
+              {
+                id: "Q999",
+                label: name,
+                description:
+                  "filósofo peruano"
+              }
+            ]
+          },
+          { json: true }
+        );
+      }
+
+      if (action === "wbgetentities") {
+        return response(
+          {
+            entities: {
+              Q999: {
+                labels: {
+                  es: { value: name }
+                },
+                descriptions: {
+                  es: {
+                    value: "filósofo peruano"
+                  }
+                },
+                sitelinks: {
+                  eswiki: { title: name }
+                },
+                claims: {
+                  P31: [
+                    {
+                      mainsnak: {
+                        datavalue: {
+                          value: { id: "Q5" }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          { json: true }
+        );
+      }
+
+      if (
+        parsed.pathname.endsWith(
+          bucketPath("aliases", signature)
+        )
+      ) {
+        return response(
+          JSON.stringify({
+            s: signature,
+            id: 5015026668,
+            n: name,
+            o: "https://orcid.org/0000-0002-9837-9981",
+            cw: 3,
+            c: 10,
+            k: "full"
+          }) + "\n"
+        );
+      }
+
+      if (
+        parsed.pathname.endsWith(
+          bucketPath("works", "5015026668")
+        )
+      ) {
+        return response(
+          JSON.stringify({
+            id: 5015026668,
+            wid: 2072221063,
+            t: "El humanitarismo, ¿un nuevo ideal moral?",
+            y: 2012,
+            l: "es",
+            ty: "article"
+          }) + "\n"
+        );
+      }
+
+      return response("");
+    };
+
+    const result =
+      await resolveRemoteAuthorCandidate(
+        {
+          id: "5015026668",
+          n: name,
+          o: null,
+          cw: 0
+        },
+        {
+          fetchImpl,
+          indexBase:
+            "https://example.test/data/",
+          includeProfile: true
+        }
+      );
+
+    assert.equal(result.status, "resolved");
+    assert.equal(
+      result.author.id,
+      5015026668
+    );
+    assert.equal(
+      result.author.biography,
+      "filósofo peruano"
+    );
+    assert.match(
+      result.author.wikipediaUrl,
+      /wikipedia\.org/u
+    );
+    assert.equal(result.works.length, 1);
   }
 );
 

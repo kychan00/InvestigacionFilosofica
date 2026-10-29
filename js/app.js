@@ -35,11 +35,11 @@ import {
   resolveRemoteAuthor,
   resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
-} from "../src/core/remote-author-resolution.js";
+} from "../src/core/remote-author-resolution.js?v=20261029-author-route-v2";
 
 import {
   summarizeAuthorCorpus
-} from "../src/core/author-page.js";
+} from "../src/core/author-page.js?v=20261029-author-route-v2";
 
 import {
   combineSemanticWithFederated
@@ -4214,7 +4214,8 @@ async function openExclusiveAuthorByName(
               },
               {
                 signal:
-                  authorController.signal
+                  authorController.signal,
+                includeProfile: true
               }
             )
           : await resolveRemoteAuthor(
