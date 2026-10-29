@@ -154,6 +154,9 @@ shard remoto necesario. La vista no mezcla menciones o comentarios, no ofrece
 paginación federada y está acotada a cincuenta obras publicables por identidad.
 Conserva en memoria la consulta y los resultados de origen y ofrece un retorno
 inmediato sin una nueva recuperación; toda búsqueda nueva invalida ese estado.
+En la navegación productiva, los autores son enlaces compartibles que abren una
+nueva pestaña, de modo que la búsqueda de origen no se reemplaza. La ruta
+separa explícitamente nombre, ID OpenAlex y ORCID.
 No usa la API de OpenAlex ni modifica retrieval, ranking, reranker o artefactos
 Qwen.
 

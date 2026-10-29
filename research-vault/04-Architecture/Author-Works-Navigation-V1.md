@@ -20,6 +20,7 @@ Todo nombre de autor presentado en una tarjeta o perfil es ahora una acción:
 
 ```text
 clic en autor
+→ nueva pestaña con URL compartible
 → identidad exacta del registro cuando existe
 → shard remoto de obras del autor
 → deduplicación por identidad bibliográfica
@@ -35,6 +36,12 @@ originó. La vista exclusiva presenta `Volver a <consulta>` y restaura consulta,
 interpretación, motor y resultados previos sin ejecutar otra petición de red.
 Una búsqueda nueva invalida ese estado transitorio para evitar regresar a un
 contexto obsoleto.
+
+Desde el 2026-10-29, la navegación normal usa un enlace real con
+`target="_blank"`: la pestaña de resultados permanece intacta y la vista de
+autor se abre aparte. La URL transporta nombre, ID de OpenAlex y ORCID en
+parámetros separados; también puede copiarse o compartirse y reconstruye la
+vista al cargarse directamente.
 
 ## Resolución de identidad
 
@@ -77,6 +84,10 @@ En la release posterior, el recorrido público `Kant y Hegel → Miguel Giusti �
 Volver a Kant y Hegel` restauró 38 resultados, los dos perfiles filosóficos y
 el texto original de la consulta sin repetir la recuperación federada.
 
+La verificación final abrió `Miguel Giusti` en una segunda pestaña con ID
+OpenAlex `5015026668` y ORCID `0000-0002-9837-9981`, mientras la pestaña de
+origen conservó la consulta y sus veinte tarjetas visibles.
+
 ## Linaje de despliegue
 
 - Implementación: `6329d8ee7fa12850d22226434478f52d1b5ebaa6`.
@@ -90,6 +101,11 @@ el texto original de la consulta sin repetir la recuperación federada.
 - Navegación de retorno: `292fdaa`; PR `#30`; merge
   `32c3ee8753a17b4190b8fe1f984b4beda0ec1944`.
 - GitHub Pages con retorno de contexto: workflow `40965168441`.
+- Apertura en pestaña nueva: `b688c63`; PR `#31`; merge
+  `7966a9b7e2753e2698523b559ca7d9768bf04312`; workflow `40965813613`.
+- Corrección de tipos de identificador y caché: `59e253b`, `f73a979`; PR
+  `#32`; merge `f6c143abb4b5113cd98db7d5547b3d5e97f90f83`; workflow
+  `40966105688`.
 
 ## Límites y separación experimental
 
