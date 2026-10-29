@@ -10,6 +10,8 @@ const HUMAN_ENTITY = "Q5";
 const BUCKET_COUNT = 1024;
 const DEFAULT_TIMEOUT_MS = 4_000;
 const DEFAULT_WORK_LIMIT = 50;
+const AUTHOR_SHARD_CONCURRENCY = 4;
+const AUTHOR_SHARD_ATTEMPTS = 3;
 const WIKIDATA_HEADERS = {
   "Api-User-Agent":
     "InvestigacionFilosofica/1.0 " +
@@ -596,6 +598,74 @@ function openAlexWorkId(item) {
 }
 
 
+async function authorRowsForBuckets(
+  context,
+  buckets
+) {
+  const rows = [];
+
+  for (
+    let offset = 0;
+    offset < buckets.length;
+    offset += AUTHOR_SHARD_CONCURRENCY
+  ) {
+    const batch = buckets.slice(
+      offset,
+      offset + AUTHOR_SHARD_CONCURRENCY
+    );
+
+    const batchRows = await Promise.all(
+      batch.map(async bucket => {
+        for (
+          let attempt = 1;
+          attempt <= AUTHOR_SHARD_ATTEMPTS;
+          attempt += 1
+        ) {
+          try {
+            const url = indexUrl(
+              context,
+              "work-authors",
+              bucket
+            );
+
+            if (attempt > 1) {
+              url.searchParams.set(
+                "retry",
+                String(attempt - 1)
+              );
+            }
+
+            return parseJsonLines(
+              await cachedText(
+                context,
+                url
+              )
+            );
+          } catch (error) {
+            if (context.signal?.aborted) {
+              throw error;
+            }
+
+            if (
+              attempt ===
+              AUTHOR_SHARD_ATTEMPTS
+            ) {
+              return [];
+            }
+          }
+        }
+
+        return [];
+      })
+    );
+
+    rows.push(...batchRows.flat());
+  }
+
+  return rows;
+}
+
+
 export async function enrichResultsWithRemoteAuthors(
   response,
   options = {}
@@ -625,20 +695,11 @@ export async function enrichResultsWithRemoteAuthors(
   ];
 
   try {
-    const rows = (
-      await Promise.all(
-        buckets.map(bucket =>
-          cachedText(
-            context,
-            indexUrl(
-              context,
-              "work-authors",
-              bucket
-            )
-          ).then(parseJsonLines)
-        )
-      )
-    ).flat();
+    const rows =
+      await authorRowsForBuckets(
+        context,
+        buckets
+      );
 
     const byWork = new Map(
       rows.map(row => [
