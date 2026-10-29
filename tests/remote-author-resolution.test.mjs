@@ -1234,6 +1234,14 @@ test(
     );
     assert.match(
       app,
+      /exactAuthorId/u
+    );
+    assert.match(
+      app,
+      /exactOrcid/u
+    );
+    assert.match(
+      app,
       /target="_blank"/u
     );
     assert.match(

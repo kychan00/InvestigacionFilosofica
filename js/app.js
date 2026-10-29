@@ -4005,6 +4005,21 @@ function authorWorksUrl(
   const url = new URL(
     window.location.href
   );
+  const exactAuthorId =
+    openAlexAuthorId(
+      identity.id
+    );
+  const identityId = String(
+    identity.id || ""
+  );
+  const exactOrcid =
+    identity.orcid ||
+    (
+      /(?:orcid\.org\/)?\d{4}-\d{4}-\d{4}-[\dX]{4}$/i
+        .test(identityId)
+        ? identityId
+        : ""
+    );
 
   url.searchParams.set(
     "view",
@@ -4015,10 +4030,10 @@ function authorWorksUrl(
     String(authorName || "").trim()
   );
 
-  if (identity.id) {
+  if (exactAuthorId) {
     url.searchParams.set(
       "authorId",
-      identity.id
+      exactAuthorId
     );
   } else {
     url.searchParams.delete(
@@ -4026,10 +4041,10 @@ function authorWorksUrl(
     );
   }
 
-  if (identity.orcid) {
+  if (exactOrcid) {
     url.searchParams.set(
       "authorOrcid",
-      identity.orcid
+      exactOrcid
     );
   } else {
     url.searchParams.delete(
