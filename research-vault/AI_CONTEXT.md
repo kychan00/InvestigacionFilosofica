@@ -147,4 +147,12 @@ sólo sobre título, abstract y autoría, con desempate por el orden previo. No 
 la API de OpenAlex, no cambia `src/core/rank.js` y no deriva de labels o
 resultados Qwen.
 
+[[Author-Works-Navigation-V1]] convierte los nombres de autor en navegación
+explícita hacia una vista exclusiva de autoría directa. Usa el ID de autor del
+snapshot cuando existe, conserva desambiguación ante homónimos y carga sólo el
+shard remoto necesario. La vista no mezcla menciones o comentarios, no ofrece
+paginación federada y está acotada a cincuenta obras publicables por identidad.
+No usa la API de OpenAlex ni modifica retrieval, ranking, reranker o artefactos
+Qwen.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
