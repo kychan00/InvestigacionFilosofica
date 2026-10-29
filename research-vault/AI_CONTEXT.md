@@ -152,6 +152,8 @@ explícita hacia una vista exclusiva de autoría directa. Usa el ID de autor del
 snapshot cuando existe, conserva desambiguación ante homónimos y carga sólo el
 shard remoto necesario. La vista no mezcla menciones o comentarios, no ofrece
 paginación federada y está acotada a cincuenta obras publicables por identidad.
+Conserva en memoria la consulta y los resultados de origen y ofrece un retorno
+inmediato sin una nueva recuperación; toda búsqueda nueva invalida ese estado.
 No usa la API de OpenAlex ni modifica retrieval, ranking, reranker o artefactos
 Qwen.
 

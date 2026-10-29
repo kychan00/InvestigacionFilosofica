@@ -30,6 +30,12 @@ La vista sustituye la consulta visible y su interpretación, conserva filtros
 de año, idioma, fuente y tipo, y elimina la paginación federada. Por tanto no
 mezcla comentarios sobre el autor con obras atribuidas directamente a él.
 
+La navegación conserva además en memoria el conjunto de resultados que la
+originó. La vista exclusiva presenta `Volver a <consulta>` y restaura consulta,
+interpretación, motor y resultados previos sin ejecutar otra petición de red.
+Una búsqueda nueva invalida ese estado transitorio para evitar regresar a un
+contexto obsoleto.
+
 ## Resolución de identidad
 
 La prioridad de identificación es:
@@ -67,6 +73,10 @@ autoría directa, todas con identidad normalizada y ORCID preservado. Esta
 segunda prueba verifica la navegación desde resultados, no sólo desde perfiles
 biográficos.
 
+En la release posterior, el recorrido público `Kant y Hegel → Miguel Giusti →
+Volver a Kant y Hegel` restauró 38 resultados, los dos perfiles filosóficos y
+el texto original de la consulta sin repetir la recuperación federada.
+
 ## Linaje de despliegue
 
 - Implementación: `6329d8ee7fa12850d22226434478f52d1b5ebaa6`.
@@ -77,6 +87,9 @@ biográficos.
   `62af9f738de1c56fd137cba1dad3b65df0e6e80c`.
 - GitHub Pages definitivo: workflow `40942214479`.
 - Suite: 103/103 pruebas JavaScript.
+- Navegación de retorno: `292fdaa`; PR `#30`; merge
+  `32c3ee8753a17b4190b8fe1f984b4beda0ec1944`.
+- GitHub Pages con retorno de contexto: workflow `40965168441`.
 
 ## Límites y separación experimental
 
