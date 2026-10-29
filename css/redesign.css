@@ -4815,6 +4815,9 @@ span:not(.search-live-spinner) {
 
 
 .author-work-link {
+  display:
+    inline;
+
   margin:
     0;
 
@@ -4838,6 +4841,9 @@ span:not(.search-live-spinner) {
 
   font:
     inherit;
+
+  text-decoration:
+    none;
 
   text-align:
     left;

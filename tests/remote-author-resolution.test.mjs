@@ -1225,6 +1225,22 @@ test(
       /author-back-to-search/u
     );
     assert.match(
+      app,
+      /authorWorksUrl/u
+    );
+    assert.match(
+      app,
+      /authorWorksRequestFromLocation/u
+    );
+    assert.match(
+      app,
+      /target="_blank"/u
+    );
+    assert.match(
+      app,
+      /rel="noopener noreferrer"/u
+    );
+    assert.match(
       css,
       /\.author-resolution/u
     );
