@@ -84,10 +84,13 @@ jobs:
           mkdir -p _site/data/authors
 
           for version in author-index-v1 author-index-v2; do
-            if gh release view "${version}" >/dev/null 2>&1; then
+            if gh release view "${version}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              >/dev/null 2>&1; then
               mkdir -p "/tmp/${version}"
 
               gh release download "${version}" \
+                --repo "${GITHUB_REPOSITORY}" \
                 --pattern "${version}.tar.gz*" \
                 --dir "/tmp/${version}"
 
