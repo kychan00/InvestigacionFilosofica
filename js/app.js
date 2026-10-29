@@ -3895,16 +3895,20 @@ function bindResultActions() {
 function showExclusiveAuthorWorks(
   resolution
 ) {
-  currentResponse =
-    buildExclusiveAuthorResponse(
-      currentResponse,
-      resolution
-    );
-
   currentParsed = parseQuery(
     resolution.author.displayName,
     philosophyMap
   );
+
+  currentResponse =
+    {
+      ...buildExclusiveAuthorResponse(
+        currentResponse,
+        resolution
+      ),
+      parsed:
+        currentParsed
+    };
   currentResults =
     currentResponse.results;
   currentFilteredResults =
@@ -4378,7 +4382,11 @@ function renderAuthorResolution(
         </strong>
 
         <small>
-          Obras de autoría directa primero
+          ${
+            currentResponse?.authorOnly
+              ? "Mostrando únicamente obras de autoría directa"
+              : "Obras de autoría directa primero"
+          }
         </small>
 
         ${
