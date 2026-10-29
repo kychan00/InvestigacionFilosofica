@@ -1217,6 +1217,10 @@ test(
       /openExclusiveAuthorByName/u
     );
     assert.match(
+      app,
+      /Mostrando únicamente obras de autoría directa/u
+    );
+    assert.match(
       css,
       /\.author-resolution/u
     );
