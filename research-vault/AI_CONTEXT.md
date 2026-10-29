@@ -1,6 +1,6 @@
 ---
 type: ai-context
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 
 # Contexto para asistentes
@@ -126,5 +126,13 @@ conserva como evidencia del snapshot. El navegador descarga únicamente el
 shard necesario y muestra selección explícita ante homónimos. La capa tiene
 fallback federado, no descarga modelos o corpus completos y no modifica
 `src/core/rank.js` ni los experimentos Qwen congelados.
+
+[[Semantic-Federation-Author-Metadata-V1]] extiende después la ruta pública
+`Semántica · alfa`: un índice inverso obra→autores completa los nombres de
+autor para 362.019 obras del snapshot, y la consulta incorpora de forma
+paralela candidatos acotados de Crossref, Internet Archive, CUCSH y el proveedor
+OpenAlex Philosophy basado en el corpus propio. El núcleo semántico conserva su
+orden; los candidatos externos se presentan como `Fuente` y no reciben un score
+semántico inventado. La API de OpenAlex y el reranker permanecen desactivados.
 
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.

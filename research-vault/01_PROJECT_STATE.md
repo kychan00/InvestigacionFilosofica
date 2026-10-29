@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-10-27
+updated: 2026-10-28
 status: design
 ---
 
@@ -109,6 +109,10 @@ Estado al 2026-10-10:
 - la release inmutable `author-index-v1` contiene 852.230 aliases y 443.604 relaciones publicables de obra para 215.015 autores resueltos; el tar SHA-256 es `07f6076cb042ef3665ca159048e90cff2815c80aec937ce6c93e458c6d3106ba` y el manifest SHA-256 `5b42d423de84e6f93513060b1aeda400b691a0154d3f96eda1293ba2125df1fa`;
 - las variantes `Kant`, `Emmanuel Kant` y `Kant Emmanuel` convergen en el autor dominante `Immanuel Kant` y cargan sus obras directas; los homónimos no dominantes exigen selección explícita y toda indisponibilidad remota conserva el fallback federado;
 - la integración de identidad pasó 94/94 pruebas JavaScript y no cambió retrieval semántico, `src/core/rank.js` ni los artefactos Qwen congelados;
+- la ruta pública `Semántica · alfa` integra ahora [[Semantic-Federation-Author-Metadata-V1]]: conserva primero el núcleo semántico y añade después candidatos acotados de Crossref, Internet Archive, CUCSH y el snapshot propio OpenAlex Philosophy, rotulados como fuente y sin inventar `semantic_score`;
+- `author-index-v2` añade 1.024 shards inversos obra→autores, con 362.019 obras publicables —80,127838% del corpus—; su tar tiene SHA-256 `7575c2da2972a4bf1cc6b142a87d0a1eb5cb5bf7976d61b8ca572061612ea9c9` y los 3.072 archivos internos reprodujeron el manifest sin discrepancias;
+- los PR 23 y 24 quedaron fusionados en `63bb1515aad1f76c217cad171d772260fb6105bb` y `9c391645aade2fa6a47dae4e35d9f97de5a272c3`; el deploy `40800835187` publicó V2 y un smoke real mostró autores en resultados OpenAlex Philosophy y fuentes complementarias, con API OpenAlex y reranker desactivados;
+- esta integración aprobó 98/98 pruebas JavaScript y 7/7 pruebas Python, no cambió `src/core/rank.js`, no hizo tuning y no tocó artefactos congelados de `benchmark/qwen3`;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
