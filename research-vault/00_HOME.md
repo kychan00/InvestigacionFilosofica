@@ -59,6 +59,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Semantic-Federation-Author-Metadata-V1]]
 - [[Multi-Author-Relationship-Search-V1]]
 - [[Author-Works-Navigation-V1]]
+- [[Author-Archive-Page-V1]]
 
 ## Principios adoptados
 

@@ -160,4 +160,14 @@ separa explícitamente nombre, ID OpenAlex y ORCID.
 No usa la API de OpenAlex ni modifica retrieval, ranking, reranker o artefactos
 Qwen.
 
+[[Author-Archive-Page-V1]] transforma esa ruta compartible en una página
+intelectual dedicada. Presenta identidad, biografía verificable, métricas del
+corpus visible, frecuencias léxicas de títulos, cronología, idiomas, tipos y
+bibliografía directa. Wikipedia/Wikidata sólo enriquecen la vista cuando la
+identidad resuelta conserva el mismo ID del snapshot; ORCID proviene del
+índice. Los enfoques son indicadores descriptivos automatizados y no labels
+humanos ni una interpretación exhaustiva. La corrección de ruta normaliza IDs
+numéricos/serializados sin sustituir identificadores originales. No usa la API
+de OpenAlex y no modifica retrieval, ranking, reranker o artefactos Qwen.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
