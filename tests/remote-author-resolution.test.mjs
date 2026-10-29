@@ -8,6 +8,7 @@ import {
   authorBucket,
   authorNameSignature,
   augmentWithAuthorResolution,
+  buildExclusiveAuthorResponse,
   enrichResultsWithRemoteAuthors,
   extractRemoteAuthorQueries,
   looksLikeAuthorQuery,
@@ -1099,6 +1100,67 @@ test(
 
 
 test(
+  "la vista exclusiva conserva únicamente obras de autoría directa",
+  () => {
+    const authorWork = {
+      id: "https://openalex.org/W1",
+      title: "Obra del autor",
+      providers: [
+        "OpenAlex Philosophy"
+      ]
+    };
+    const exclusive =
+      buildExclusiveAuthorResponse(
+        {
+          results: [
+            {
+              id: "comentario",
+              title:
+                "Comentario sobre el autor"
+            }
+          ],
+          errors: [
+            { provider: "Ejemplo" }
+          ]
+        },
+        {
+          status: "resolved",
+          author: {
+            displayName:
+              "Immanuel Kant"
+          },
+          works: [
+            authorWork,
+            authorWork
+          ]
+        }
+      );
+
+    assert.equal(
+      exclusive.authorOnly,
+      true
+    );
+    assert.equal(
+      exclusive.searchMode,
+      "author-only"
+    );
+    assert.deepEqual(
+      exclusive.results,
+      [authorWork]
+    );
+    assert.equal(
+      exclusive.stats.unique,
+      1
+    );
+    assert.deepEqual(
+      exclusive.errors,
+      []
+    );
+  }
+);
+
+
+test(
   "la interfaz integra identidad remota, evidencia y ambigüedad explícita",
   async () => {
     const [app, css] = await Promise.all([
@@ -1145,6 +1207,14 @@ test(
     assert.match(
       app,
       /Biografía en Wikipedia/u
+    );
+    assert.match(
+      app,
+      /author-work-link/u
+    );
+    assert.match(
+      app,
+      /openExclusiveAuthorByName/u
     );
     assert.match(
       css,

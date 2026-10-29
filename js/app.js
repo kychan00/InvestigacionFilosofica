@@ -30,7 +30,9 @@ import {
 
 import {
   augmentWithAuthorResolution,
+  buildExclusiveAuthorResponse,
   enrichResultsWithRemoteAuthors,
+  resolveRemoteAuthor,
   resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
 } from "../src/core/remote-author-resolution.js";
@@ -2124,13 +2126,38 @@ function renderResult(
     );
 
 
-  const authors =
+  const resultAuthors =
     (item.authors || [])
-      .map(
-        author =>
-          author.name
-      )
-      .join(", ");
+      .filter(author =>
+        Boolean(author?.name)
+      );
+
+
+  const authors =
+    resultAuthors
+      .map(author => `
+        <button
+          type="button"
+          class="author-work-link"
+          data-author-name="${escapeHtml(
+            author.name
+          )}"
+          data-author-id="${escapeHtml(
+            author.id || ""
+          )}"
+          data-author-orcid="${escapeHtml(
+            author.orcid || ""
+          )}"
+          title="Ver solo las obras de ${escapeHtml(
+            author.name
+          )}"
+        >
+          ${escapeHtml(author.name)}
+        </button>
+      `)
+      .join(
+        '<span class="author-separator" aria-hidden="true">, </span>'
+      );
 
 
   const firstAuthor =
@@ -2248,9 +2275,7 @@ function renderResult(
         <p class="meta">
           ${
             authors
-              ? escapeHtml(
-                  authors
-                )
+              ? authors
               : "Autor no disponible"
           }
 
@@ -3841,6 +3866,262 @@ function bindResultActions() {
         );
       }
     );
+
+
+  document
+    .querySelectorAll(
+      ".author-work-link"
+    )
+    .forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          void openExclusiveAuthorByName(
+            button.dataset.authorName,
+            button,
+            {
+              id:
+                button.dataset.authorId,
+              orcid:
+                button.dataset.authorOrcid
+            }
+          );
+        }
+      );
+    });
+}
+
+
+function showExclusiveAuthorWorks(
+  resolution
+) {
+  currentResponse =
+    buildExclusiveAuthorResponse(
+      currentResponse,
+      resolution
+    );
+
+  currentParsed = parseQuery(
+    resolution.author.displayName,
+    philosophyMap
+  );
+  currentResults =
+    currentResponse.results;
+  currentFilteredResults =
+    currentResponse.results;
+  currentSearchQuery =
+    resolution.author.displayName;
+  input.value =
+    resolution.author.displayName;
+
+  resetVisibleLimit();
+  resetQwen3Experiment();
+  renderInterpretation(
+    currentResponse
+  );
+  renderStats(
+    currentResponse
+  );
+  renderFilters(
+    currentResults
+  );
+
+  if (!currentResults.length) {
+    renderFilteredResults();
+  }
+
+  status.textContent =
+    `${currentResults.length} obras de autoría directa de ${resolution.author.displayName}`;
+
+  researchWorkspace
+    ?.classList
+    .remove("hidden");
+}
+
+
+function openAlexAuthorId(
+  value
+) {
+  return String(value || "")
+    .match(
+      /(?:openalex\.org\/A|^A?)(\d+)$/i
+    )?.[1] || null;
+}
+
+
+function currentResolvedAuthor(
+  authorId,
+  authorName
+) {
+  const resolution =
+    currentResponse
+      ?.authorResolution;
+  const identities =
+    resolution?.status === "multiple"
+      ? resolution.identities || []
+      : [resolution];
+  const normalizedName =
+    String(authorName || "")
+      .toLocaleLowerCase("und")
+      .trim();
+
+  return identities.find(identity =>
+    identity?.status === "resolved" &&
+    (
+      authorId
+        ? String(identity.author?.id) ===
+          String(authorId)
+        : String(
+            identity.author?.displayName ||
+            ""
+          )
+            .toLocaleLowerCase("und")
+            .trim() === normalizedName
+    )
+  ) || null;
+}
+
+
+function showAuthorChoice(
+  resolution,
+  authorName
+) {
+  currentResponse = {
+    ...(currentResponse || {}),
+    authorOnlyRequested: true,
+    requestedAuthorName:
+      authorName,
+    authorResolution:
+      resolution
+  };
+
+  renderFilteredResults();
+
+  status.textContent =
+    `Selecciona la identidad correcta para ${authorName}.`;
+}
+
+
+async function openExclusiveAuthorByName(
+  authorName,
+  trigger = null,
+  identity = {}
+) {
+  const name = String(
+    authorName || ""
+  ).trim();
+
+  if (!name) {
+    return;
+  }
+
+  currentController?.abort();
+  const authorController =
+    new AbortController();
+  currentController =
+    authorController;
+
+  button.disabled = true;
+  searchModeButtons.forEach(item => {
+    item.disabled = true;
+  });
+
+  trigger?.setAttribute(
+    "aria-busy",
+    "true"
+  );
+  trigger?.setAttribute(
+    "disabled",
+    ""
+  );
+  status.textContent =
+    `Buscando obras de ${name}…`;
+
+  try {
+    const exactId =
+      openAlexAuthorId(
+        identity.id
+      );
+    const existing =
+      currentResolvedAuthor(
+        exactId,
+        name
+      );
+    const resolution =
+      existing ||
+      (
+        exactId
+          ? await resolveRemoteAuthorCandidate(
+              {
+                id: exactId,
+                n: name,
+                o:
+                  identity.orcid || null,
+                cw: 0
+              },
+              {
+                signal:
+                  authorController.signal
+              }
+            )
+          : await resolveRemoteAuthor(
+              name,
+              {
+                signal:
+                  authorController.signal,
+                includeProfile: true
+              }
+            )
+      );
+
+    if (
+      resolution.status ===
+      "resolved"
+    ) {
+      showExclusiveAuthorWorks(
+        resolution
+      );
+      return;
+    }
+
+    if (
+      resolution.status ===
+      "ambiguous"
+    ) {
+      showAuthorChoice(
+        resolution,
+        name
+      );
+      return;
+    }
+
+    status.textContent =
+      `No se pudo identificar con precisión a ${name}.`;
+  } catch (error) {
+    if (
+      error.name !== "AbortError"
+    ) {
+      status.textContent =
+        `No fue posible cargar las obras de ${name}.`;
+    }
+  } finally {
+    if (
+      currentController ===
+      authorController
+    ) {
+      button.disabled = false;
+      searchModeButtons.forEach(item => {
+        item.disabled = false;
+      });
+    }
+
+    trigger?.removeAttribute(
+      "aria-busy"
+    );
+    trigger?.removeAttribute(
+      "disabled"
+    );
+  }
 }
 
 
@@ -3908,7 +4189,15 @@ function renderAuthorResolution(
                   </span>
 
                   <strong>
-                    ${escapeHtml(author.displayName)}
+                    <button
+                      type="button"
+                      class="author-work-link author-profile-link"
+                      data-author-name="${escapeHtml(author.displayName)}"
+                      data-author-id="${escapeHtml(author.id || "")}"
+                      data-author-orcid="${escapeHtml(author.orcid || "")}"
+                    >
+                      ${escapeHtml(author.displayName)}
+                    </button>
                   </strong>
 
                   ${
@@ -4077,7 +4366,15 @@ function renderAuthorResolution(
         </span>
 
         <strong>
-          ${escapeHtml(author.displayName)}
+          <button
+            type="button"
+            class="author-work-link author-profile-link"
+            data-author-name="${escapeHtml(author.displayName)}"
+            data-author-id="${escapeHtml(author.id || "")}"
+            data-author-orcid="${escapeHtml(author.orcid || "")}"
+          >
+            ${escapeHtml(author.displayName)}
+          </button>
         </strong>
 
         <small>
@@ -4234,6 +4531,15 @@ function bindAuthorResolutionActions() {
                   currentResponse,
                   groupedResolution
                 );
+            } else if (
+              currentResponse
+                ?.authorOnlyRequested
+            ) {
+              showExclusiveAuthorWorks(
+                resolution
+              );
+
+              return;
             } else {
               currentResponse =
                 augmentWithAuthorResolution(
@@ -4277,6 +4583,9 @@ function renderFilteredResults() {
   const semanticResults =
     currentResponse?.searchMode ===
     "semantic";
+  const authorOnlyResults =
+    currentResponse?.authorOnly ===
+    true;
 
   const visible =
     currentFilteredResults
@@ -4300,7 +4609,8 @@ function renderFilteredResults() {
     ) +
     errorHtml +
     (
-      semanticResults
+      semanticResults ||
+      authorOnlyResults
         ? ""
         : fetchMoreButton("top")
     ) +
@@ -4367,7 +4677,10 @@ function renderFilteredResults() {
   }
 
 
-  if (!semanticResults) {
+  if (
+    !semanticResults &&
+    !authorOnlyResults
+  ) {
     resultsEl.insertAdjacentHTML(
       "beforeend",
       fetchMoreButton("bottom")

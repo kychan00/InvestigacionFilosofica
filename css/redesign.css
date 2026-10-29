@@ -4814,6 +4814,73 @@ span:not(.search-live-spinner) {
 }
 
 
+.author-work-link {
+  margin:
+    0;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  border-bottom:
+    1px solid rgba(47, 109, 84, 0.38);
+
+  background:
+    transparent;
+
+  color:
+    inherit;
+
+  cursor:
+    pointer;
+
+  font:
+    inherit;
+
+  text-align:
+    left;
+}
+
+
+.author-work-link:hover,
+.author-work-link:focus-visible {
+  border-bottom-color:
+    #2f6d54;
+
+  color:
+    #245842;
+
+  outline:
+    2px solid rgba(47, 109, 84, 0.16);
+
+  outline-offset:
+    3px;
+}
+
+
+.author-work-link:disabled {
+  cursor:
+    wait;
+
+  opacity:
+    0.58;
+}
+
+
+.author-profile-link {
+  border-bottom-width:
+    2px;
+
+  font-family:
+    var(--font-serif);
+
+  font-weight:
+    750;
+}
+
+
 .author-resolution small,
 .author-resolution p {
   margin:

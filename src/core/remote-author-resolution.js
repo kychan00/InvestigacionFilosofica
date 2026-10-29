@@ -1472,3 +1472,64 @@ export function augmentWithAuthorResolution(
     }
   };
 }
+
+
+export function buildExclusiveAuthorResponse(
+  response,
+  authorResolution
+) {
+  if (
+    authorResolution?.status !==
+    "resolved"
+  ) {
+    return response;
+  }
+
+  const seen = new Set();
+  const results = [];
+
+  for (
+    const item of
+    authorResolution.works || []
+  ) {
+    const key = resultKey(item);
+
+    if (seen.has(key)) {
+      continue;
+    }
+
+    seen.add(key);
+    results.push(item);
+  }
+
+  const providerCounts = {};
+
+  for (const item of results) {
+    for (
+      const provider of
+      item.providers || []
+    ) {
+      providerCounts[provider] =
+        (providerCounts[provider] || 0) +
+        1;
+    }
+  }
+
+  return {
+    ...(response || {}),
+    query:
+      authorResolution.author.displayName,
+    searchMode: "author-only",
+    authorOnly: true,
+    authorResolution,
+    results,
+    errors: [],
+    stats: {
+      unique: results.length,
+      appearances: results.length,
+      merged: 0,
+      multiProvider: 0,
+      providers: providerCounts
+    }
+  };
+}
