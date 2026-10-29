@@ -76,6 +76,12 @@ Los primeros resultados fueron relaciones explícitas, entre ellas:
 Los artículos dedicados sólo a Kant quedaron después de los documentos que
 cubren ambos nombres.
 
+La misma consulta en `Semántica · alfa` devolvió 24 resultados híbridos. Los
+primeros doce resultados visibles cubrieron a ambos autores; el primero fue
+`Hakikat Kavramı: Kant ve Hegel Arasındaki Temel Bir Ayrım Üzerine`, con score
+semántico conservado y reranker desactivado. Las fichas biográficas fueron
+idénticas en ambos modos.
+
 ## Linaje de despliegue
 
 - Implementación: `1926c5e4472dd283d1f152c5f793a93cf8e985b9`.
