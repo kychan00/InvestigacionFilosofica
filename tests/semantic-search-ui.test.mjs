@@ -57,6 +57,26 @@ test(
     );
 
     assert.match(
+      app,
+      /combineSemanticWithFederated\(/u
+    );
+
+    assert.match(
+      app,
+      /enrichResultsWithRemoteAuthors\(/u
+    );
+
+    assert.match(
+      app,
+      /openAlex:\s*\{\s*enabled:\s*false/u
+    );
+
+    assert.match(
+      app,
+      /Crossref, Internet Archive y Biblioteca UdeG/u
+    );
+
+    assert.match(
       html,
       /id="search-engine-indicator"[\s\S]*data-semantic-status="checking"/u
     );

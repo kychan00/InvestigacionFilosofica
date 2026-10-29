@@ -1,4 +1,4 @@
-name: Build remote author index v1
+name: Build remote author index v2
 
 on:
   workflow_dispatch:
@@ -65,7 +65,7 @@ jobs:
       - name: Upload partition
         uses: actions/upload-artifact@v5
         with:
-          name: author-index-v1-part-${{ matrix.part }}
+          name: author-index-v2-part-${{ matrix.part }}
           retention-days: 14
           compression-level: 0
           path: |
@@ -100,7 +100,7 @@ jobs:
       - name: Download partitions
         uses: actions/download-artifact@v5
         with:
-          pattern: author-index-v1-part-*
+          pattern: author-index-v2-part-*
           path: artifacts/author-index-v1/parts
           merge-multiple: true
 
@@ -123,35 +123,35 @@ jobs:
         run: |
           tar \
             -C artifacts/author-index-v1/site \
-            -czf artifacts/author-index-v1/author-index-v1.tar.gz \
-            author-index-v1
+            -czf artifacts/author-index-v1/author-index-v2.tar.gz \
+            author-index-v2
 
           cd artifacts/author-index-v1
           shasum -a 256 \
-            author-index-v1.tar.gz \
-            > author-index-v1.tar.gz.sha256
+            author-index-v2.tar.gz \
+            > author-index-v2.tar.gz.sha256
 
       - name: Upload validated payload
         uses: actions/upload-artifact@v5
         with:
-          name: author-index-v1
+          name: author-index-v2
           retention-days: 30
           compression-level: 0
           path: |
-            artifacts/author-index-v1/author-index-v1.tar.gz
-            artifacts/author-index-v1/author-index-v1.tar.gz.sha256
-            artifacts/author-index-v1/site/author-index-v1/manifest.json
-            artifacts/author-index-v1/site/author-index-v1/sample-kant.json
+            artifacts/author-index-v1/author-index-v2.tar.gz
+            artifacts/author-index-v1/author-index-v2.tar.gz.sha256
+            artifacts/author-index-v1/site/author-index-v2/manifest.json
+            artifacts/author-index-v1/site/author-index-v2/sample-kant.json
 
       - name: Publish immutable release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create author-index-v1 \
-            artifacts/author-index-v1/author-index-v1.tar.gz \
-            artifacts/author-index-v1/author-index-v1.tar.gz.sha256 \
-            artifacts/author-index-v1/site/author-index-v1/manifest.json \
-            artifacts/author-index-v1/site/author-index-v1/sample-kant.json \
+          gh release create author-index-v2 \
+            artifacts/author-index-v1/author-index-v2.tar.gz \
+            artifacts/author-index-v1/author-index-v2.tar.gz.sha256 \
+            artifacts/author-index-v1/site/author-index-v2/manifest.json \
+            artifacts/author-index-v1/site/author-index-v2/sample-kant.json \
             --target "${GITHUB_SHA}" \
-            --title "Remote author index v1" \
-            --notes "Derived remotely from the pinned OpenAlex snapshot on Hugging Face and the frozen 451,823-work philosophy search corpus."
+            --title "Remote author index v2" \
+            --notes "Adds inverse work-to-author shards to the pinned remote author index, without changing the Hugging Face source revisions or the 451,823-work corpus."

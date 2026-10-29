@@ -28,18 +28,27 @@ function resultKey(result) {
    * OpenAlex Philosophy y la API oficial
    * representan el mismo namespace OpenAlex.
    */
-  if (
-    result.id &&
-    /^https:\/\/openalex\.org\/W\d+/i
-      .test(
-        String(result.id)
-      )
-  ) {
-    return (
-      "openalex:" +
-      String(result.id)
-        .toLowerCase()
+  const openAlexCandidate = [
+    result.openalexId,
+    result.openalex_id,
+    result.id,
+    result.urls?.canonical
+  ]
+    .map(value => String(value || ""))
+    .find(value =>
+      /(?:^|openalex[-:/]|\/)(W\d+)/i
+        .test(value)
     );
+
+  if (openAlexCandidate) {
+    const workId = openAlexCandidate
+      .match(
+        /(?:^|openalex[-:/]|\/)(W\d+)/i
+      )?.[1];
+
+    if (workId) {
+      return `openalex:${workId.toLowerCase()}`;
+    }
   }
 
 

@@ -23,7 +23,7 @@ PHILOSOPHY_SEARCH_PATH = (
 AUTHORSHIP_PATH = "data/works/authorships"
 AUTHOR_PATH = "data/authors/main"
 
-INDEX_VERSION = "author-index-v1"
+INDEX_VERSION = "author-index-v2"
 BUCKET_COUNT = 1024
 
 

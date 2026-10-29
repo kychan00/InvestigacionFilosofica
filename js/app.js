@@ -30,9 +30,14 @@ import {
 
 import {
   augmentWithAuthorResolution,
+  enrichResultsWithRemoteAuthors,
   resolveRemoteAuthor,
   resolveRemoteAuthorCandidate
 } from "../src/core/remote-author-resolution.js";
+
+import {
+  combineSemanticWithFederated
+} from "../src/core/semantic-federation.js";
 
 import {
   isQwen3BrowserQ8OptIn,
@@ -2408,6 +2413,14 @@ function renderResult(
                 }
               </div>
             `
+            : item.semanticCompanion
+              ? `
+                <div class="explain">
+                  Fuente académica complementaria
+                  · recuperación federada
+                  · sin reranker
+                </div>
+              `
             : item.retrievalMode ===
                 "author-index"
               ? `
@@ -2457,6 +2470,8 @@ function renderResult(
             item.retrievalMode ===
               "semantic"
               ? "Similitud"
+              : item.semanticCompanion
+                ? "Fuente"
               : item.retrievalMode ===
                   "author-index"
                 ? "Autoría"
@@ -4538,8 +4553,8 @@ function renderSemanticSearchLoading(
       ? "Preparando la consulta y conectando con el corpus propio."
       : (
           elapsedSeconds < 10
-            ? "Comparando el significado de la consulta con el índice académico."
-            : "La búsqueda continúa activa; el primer uso puede tardar más mientras se carga el modelo."
+            ? "Comparando el significado y consultando fuentes académicas complementarias."
+            : "La búsqueda continúa activa; el corpus, Crossref, Internet Archive y UdeG responden a ritmos distintos."
         );
 
   return `
@@ -4958,6 +4973,66 @@ function semanticFallbackReason(
 }
 
 
+async function searchSemanticCompanions(
+  query,
+  limit,
+  signal
+) {
+  try {
+    return await searchPhilosophy(
+      query,
+      philosophyMap,
+      {
+        signal,
+        maxQueries: 3,
+        openAlex: {
+          enabled: false
+        },
+        openAlexPhilosophy: {
+          enabled: true,
+          rows: Math.min(limit, 10)
+        },
+        cucshFilosofia: {
+          enabled: true,
+          rows: Math.min(limit, 8)
+        },
+        crossref: {
+          enabled: true,
+          rows: Math.min(limit, 8)
+        },
+        internetArchive: {
+          enabled: true,
+          rows: Math.min(limit, 8)
+        }
+      }
+    );
+  } catch (error) {
+    if (error?.name === "AbortError") {
+      throw error;
+    }
+
+    return {
+      query,
+      parsed: parseQuery(
+        query,
+        philosophyMap
+      ),
+      expansions: [],
+      results: [],
+      errors: [
+        {
+          provider:
+            "Fuentes complementarias",
+          message:
+            error?.message ||
+            "No fue posible ampliar la búsqueda."
+        }
+      ]
+    };
+  }
+}
+
+
 async function runSemanticSearch(
   query
 ) {
@@ -5063,8 +5138,9 @@ async function runSemanticSearch(
       );
 
     const [
-      semanticResponse,
-      authorResolution
+      rawSemanticResponse,
+      authorResolution,
+      federatedResponse
     ] = await Promise.all([
       searchPublicSemantic(
         query,
@@ -5077,13 +5153,38 @@ async function runSemanticSearch(
       resolveAuthorForQuery(
         query,
         searchController.signal
+      ),
+      searchSemanticCompanions(
+        query,
+        limit,
+        searchController.signal
       )
     ]);
 
 
+    const semanticResponse =
+      await enrichResultsWithRemoteAuthors(
+        rawSemanticResponse,
+        {
+          signal:
+            searchController.signal
+        }
+      );
+
+
+    const combinedResponse =
+      combineSemanticWithFederated(
+        semanticResponse,
+        federatedResponse,
+        {
+          externalLimit: limit
+        }
+      );
+
+
     const response =
       augmentWithAuthorResolution(
-        semanticResponse,
+        combinedResponse,
         authorResolution
       );
 
@@ -5124,7 +5225,7 @@ async function runSemanticSearch(
     resetQwen3Experiment();
 
     status.textContent =
-      `${response.stats.unique} resultados semánticos · corpus propio`;
+      `${response.stats.unique} resultados híbridos · corpus propio + fuentes académicas`;
 
     semanticAvailability =
       "available";
@@ -5242,7 +5343,7 @@ function selectSearchMode(
     "semantic"
   ) {
     searchModeNote.textContent =
-      "Busca por significado en 451.823 documentos del corpus propio; si el servidor no responde, se activa el respaldo tradicional.";
+      "Busca por significado en 451.823 documentos y amplía con Crossref, Internet Archive y Biblioteca UdeG; no usa la API de OpenAlex ni el reranker.";
 
     input.placeholder =
       "Ej. ¿Qué relación hay entre lógica y ontología en Quine?";

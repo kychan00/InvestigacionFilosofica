@@ -112,6 +112,49 @@ def validate_works(paths):
     return rows
 
 
+def validate_work_authors(paths):
+    rows = 0
+
+    for path in paths:
+        expected_bucket = int(
+            path.stem
+        )
+
+        with path.open(
+            "r",
+            encoding="utf-8",
+        ) as stream:
+            for line in stream:
+                payload = json.loads(line)
+
+                if bucket_for(
+                    str(payload["wid"])
+                ) != expected_bucket:
+                    raise AssertionError(
+                        "Work authors in wrong bucket: "
+                        f"{path}"
+                    )
+
+                authors = payload.get("a") or []
+
+                if not authors:
+                    raise AssertionError(
+                        "Work without resolved authors"
+                    )
+
+                if any(
+                    not author.get("n")
+                    for author in authors
+                ):
+                    raise AssertionError(
+                        "Resolved author without name"
+                    )
+
+                rows += 1
+
+    return rows
+
+
 def main():
     manifest = load_json(
         ROOT / "manifest.json"
@@ -131,9 +174,13 @@ def main():
 
     aliases = manifest["files"]["aliases"]
     works = manifest["files"]["works"]
+    work_authors = manifest["files"][
+        "work_authors"
+    ]
 
     validate_inventory(ROOT, aliases)
     validate_inventory(ROOT, works)
+    validate_inventory(ROOT, work_authors)
 
     alias_paths = [
         ROOT / entry["path"]
@@ -145,12 +192,23 @@ def main():
         for entry in works
     ]
 
+    work_author_paths = [
+        ROOT / entry["path"]
+        for entry in work_authors
+    ]
+
     alias_rows = validate_aliases(
         alias_paths
     )
 
     work_rows = validate_works(
         work_paths
+    )
+
+    work_author_rows = (
+        validate_work_authors(
+            work_author_paths
+        )
     )
 
     counts = manifest["counts"]
@@ -165,6 +223,13 @@ def main():
     ]:
         raise AssertionError(
             "Work row count mismatch"
+        )
+
+    if work_author_rows != counts[
+        "work_author_rows_published"
+    ]:
+        raise AssertionError(
+            "Work-author row count mismatch"
         )
 
     if counts["corpus_works"] != 451823:
@@ -224,6 +289,9 @@ def main():
             "status": "ok",
             "alias_rows": alias_rows,
             "work_rows": work_rows,
+            "work_author_rows": (
+                work_author_rows
+            ),
             "coverage": coverage,
         })
     )

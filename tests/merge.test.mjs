@@ -7,6 +7,54 @@ import {
 
 
 test(
+  "fusiona el ID local semántico con la URL OpenAlex",
+  () => {
+    const merged = mergeResults([
+      {
+        id: "openalex-W123",
+        openalexId: "W123",
+        title: "Semantic copy",
+        authors: [],
+        providers: ["OpenAlex Philosophy"],
+        sourceRecords: [],
+        matchedQueries: [],
+        topics: [],
+        isbn: [],
+        institutionalLinks: [],
+        urls: {
+          canonical:
+            "https://openalex.org/W123"
+        }
+      },
+      {
+        id: "https://openalex.org/W123",
+        title: "Federated copy",
+        authors: [
+          { name: "Author One" }
+        ],
+        providers: ["OpenAlex Philosophy"],
+        sourceRecords: [],
+        matchedQueries: [],
+        topics: [],
+        isbn: [],
+        institutionalLinks: [],
+        urls: {
+          canonical:
+            "https://openalex.org/W123"
+        }
+      }
+    ]);
+
+    assert.equal(merged.length, 1);
+    assert.equal(
+      merged[0].authors[0].name,
+      "Author One"
+    );
+  }
+);
+
+
+test(
   "fusiona OpenAlex y Crossref por DOI",
   () => {
     const results =

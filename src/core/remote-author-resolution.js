@@ -1,5 +1,5 @@
 const INDEX_BASE = new URL(
-  "../../data/authors/author-index-v1/",
+  "../../data/authors/author-index-v2/",
   import.meta.url
 );
 
@@ -571,6 +571,124 @@ async function authorWorks(
 }
 
 
+function openAlexWorkId(item) {
+  const candidates = [
+    item?.openalexId,
+    item?.openalex_id,
+    item?.id,
+    item?.urls?.canonical,
+    item?.urls?.landing
+  ];
+
+  for (const candidate of candidates) {
+    const match = String(candidate || "")
+      .match(/(?:openalex[-:/]|\/)(W\d+)/i) ||
+      String(candidate || "")
+        .match(/^(W\d+)$/i);
+
+    if (match) {
+      return match[1]
+        .slice(1);
+    }
+  }
+
+  return null;
+}
+
+
+export async function enrichResultsWithRemoteAuthors(
+  response,
+  options = {}
+) {
+  const results = response?.results || [];
+  const missing = results
+    .map(item => ({
+      item,
+      workId: openAlexWorkId(item)
+    }))
+    .filter(entry =>
+      entry.workId &&
+      !(entry.item.authors || []).length
+    );
+
+  if (!missing.length) {
+    return response;
+  }
+
+  const context = createContext(options);
+  const buckets = [
+    ...new Set(
+      missing.map(entry =>
+        authorBucket(entry.workId)
+      )
+    )
+  ];
+
+  try {
+    const rows = (
+      await Promise.all(
+        buckets.map(bucket =>
+          cachedText(
+            context,
+            indexUrl(
+              context,
+              "work-authors",
+              bucket
+            )
+          ).then(parseJsonLines)
+        )
+      )
+    ).flat();
+
+    const byWork = new Map(
+      rows.map(row => [
+        String(row.wid),
+        row.a || []
+      ])
+    );
+
+    return {
+      ...response,
+      results: results.map(item => {
+        if ((item.authors || []).length) {
+          return item;
+        }
+
+        const workId = openAlexWorkId(item);
+        const authors = byWork.get(
+          String(workId || "")
+        );
+
+        if (!authors?.length) {
+          return item;
+        }
+
+        return {
+          ...item,
+          authors: authors.map(author => ({
+            id:
+              `https://openalex.org/A${author.id}`,
+            name: author.n,
+            orcid: author.o || null,
+            position: author.p || null,
+            isCorresponding:
+              Boolean(author.r)
+          })),
+          authorMetadataSource:
+            "OpenAlex snapshot · Hugging Face"
+        };
+      })
+    };
+  } catch (error) {
+    if (options.signal?.aborted) {
+      throw error;
+    }
+
+    return response;
+  }
+}
+
+
 async function resolvedPayload(
   context,
   selected,
@@ -806,6 +924,24 @@ export async function resolveRemoteAuthorCandidate(
 
 
 function resultKey(item) {
+  const openAlex = [
+    item.openalexId,
+    item.openalex_id,
+    item.id,
+    item.urls?.canonical
+  ]
+    .map(value => String(value || ""))
+    .map(value =>
+      value.match(
+        /(?:^|openalex[-:/]|\/)(W\d+)/i
+      )?.[1]
+    )
+    .find(Boolean);
+
+  if (openAlex) {
+    return `openalex:${openAlex.toLowerCase()}`;
+  }
+
   const id = String(item.id || "")
     .toLocaleLowerCase("und")
     .replace(/^https?:\/\/(api\.)?openalex\.org\//, "");

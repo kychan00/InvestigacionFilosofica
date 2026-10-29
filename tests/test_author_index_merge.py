@@ -19,6 +19,7 @@ sys.path.insert(
 )
 
 from merge_author_index_v1 import (  # noqa: E402
+    build_work_author_buckets,
     build_work_buckets,
     execute_remote_with_backoff,
 )
@@ -134,6 +135,59 @@ class AuthorIndexMergeTest(unittest.TestCase):
             payloads[0]["t"],
             "A titled work",
         )
+
+    def test_builds_inverse_work_author_buckets(self):
+        connection = duckdb.connect()
+
+        connection.execute(
+            """
+            CREATE TABLE author_works (
+              work_id BIGINT,
+              author_id BIGINT,
+              author_position VARCHAR,
+              is_corresponding BOOLEAN
+            );
+
+            CREATE TABLE author_profiles (
+              author_id BIGINT,
+              display_name VARCHAR,
+              orcid VARCHAR
+            );
+
+            INSERT INTO author_works VALUES
+              (99, 7, 'last', false),
+              (99, 3, 'first', true);
+
+            INSERT INTO author_profiles VALUES
+              (3, 'First Author', 'https://orcid.org/0000-0001'),
+              (7, 'Last Author', NULL);
+            """
+        )
+
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            rows = build_work_author_buckets(
+                connection,
+                directory,
+            )
+
+            payloads = []
+
+            for path in directory.glob("*.jsonl"):
+                payloads.extend(
+                    json.loads(line)
+                    for line in path.read_text(
+                        encoding="utf-8"
+                    ).splitlines()
+                )
+
+        self.assertEqual(rows, 1)
+        self.assertEqual(payloads[0]["wid"], 99)
+        self.assertEqual(
+            [author["n"] for author in payloads[0]["a"]],
+            ["First Author", "Last Author"],
+        )
+        self.assertTrue(payloads[0]["a"][0]["r"])
 
 
 if __name__ == "__main__":
