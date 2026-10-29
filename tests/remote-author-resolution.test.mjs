@@ -9,6 +9,7 @@ import {
   authorNameSignature,
   augmentWithAuthorResolution,
   buildExclusiveAuthorResponse,
+  cleanAuthorWorkTitle,
   enrichResultsWithRemoteAuthors,
   extractRemoteAuthorQueries,
   looksLikeAuthorQuery,
@@ -247,6 +248,25 @@ test(
         "René Straße"
       ),
       "rene strasse"
+    );
+  }
+);
+
+
+test(
+  "limpia HTML real o codificado de títulos del índice de autores",
+  () => {
+    assert.equal(
+      cleanAuthorWorkTitle(
+        "Teaching Ethics<sup>a</sup>"
+      ),
+      "Teaching Ethics"
+    );
+    assert.equal(
+      cleanAuthorWorkTitle(
+        "Kant: &lt;I&gt;The Metaphysics of Morals&lt;/I&gt;"
+      ),
+      "Kant: The Metaphysics of Morals"
     );
   }
 );
@@ -1377,6 +1397,10 @@ test(
     );
     assert.match(
       app,
+      /resolveCrossrefAuthor/u
+    );
+    assert.match(
+      app,
       /No elegí una identidad automáticamente/u
     );
     assert.match(
@@ -1426,6 +1450,10 @@ test(
     assert.match(
       app,
       /exactOrcid/u
+    );
+    assert.match(
+      app,
+      /Archivo de autor · catálogo federado/u
     );
     assert.match(
       app,

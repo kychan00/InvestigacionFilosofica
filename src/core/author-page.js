@@ -1,6 +1,6 @@
 import {
   normalizeAuthorName
-} from "./remote-author-resolution.js?v=20261029-author-route-v2";
+} from "./remote-author-resolution.js?v=20261029-author-reliability-v1";
 
 
 const TITLE_STOPWORDS = new Set([
@@ -35,7 +35,11 @@ function countBy(values) {
     }))
     .sort((a, b) =>
       b.count - a.count ||
-      a.value.localeCompare(b.value)
+      String(a.value).localeCompare(
+        String(b.value),
+        "und",
+        { numeric: true }
+      )
     );
 }
 

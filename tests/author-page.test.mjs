@@ -84,3 +84,28 @@ test(
     );
   }
 );
+
+
+test(
+  "ordena décadas con conteos empatados sin tratar números como texto",
+  () => {
+    const summary = summarizeAuthorCorpus(
+      {
+        displayName:
+          "Georg Wilhelm Friedrich Hegel",
+        corpusWorks: 3
+      },
+      [
+        { title: "A", year: 1817 },
+        { title: "B", year: 1821 },
+        { title: "C", year: 1899 }
+      ]
+    );
+
+    assert.deepEqual(summary.decades, [
+      { decade: 1810, label: "1810s", count: 1 },
+      { decade: 1820, label: "1820s", count: 1 },
+      { decade: 1890, label: "1890s", count: 1 }
+    ]);
+  }
+);
