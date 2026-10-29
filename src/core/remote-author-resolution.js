@@ -19,6 +19,62 @@ const WIKIDATA_HEADERS = {
 };
 
 
+function decodeTitleEntities(value) {
+  const named = {
+    amp: "&",
+    apos: "'",
+    gt: ">",
+    lt: "<",
+    nbsp: " ",
+    quot: "\""
+  };
+
+  return String(value || "")
+    .replace(
+      /&(#x[\da-f]+|#\d+|amp|apos|gt|lt|nbsp|quot);/gi,
+      (match, entity) => {
+        if (entity.startsWith("#")) {
+          const hexadecimal =
+            entity[1]?.toLowerCase() ===
+            "x";
+          const codePoint = Number.parseInt(
+            entity.slice(
+              hexadecimal ? 2 : 1
+            ),
+            hexadecimal ? 16 : 10
+          );
+
+          return Number.isFinite(codePoint)
+            ? String.fromCodePoint(codePoint)
+            : match;
+        }
+
+        return named[
+          entity.toLowerCase()
+        ] || match;
+      }
+    );
+}
+
+
+export function cleanAuthorWorkTitle(value) {
+  let text = String(value || "");
+
+  for (let pass = 0; pass < 2; pass++) {
+    text = decodeTitleEntities(text);
+  }
+
+  return text
+    .replace(
+      /<sup\b[^>]*>[\s\S]*?<\/sup>/gi,
+      ""
+    )
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+
 export function normalizeAuthorName(
   value
 ) {
@@ -551,7 +607,8 @@ async function authorWorks(
 
       return {
         id: url,
-        title: row.t,
+        title:
+          cleanAuthorWorkTitle(row.t),
         abstract: "",
         authors: [
           {

@@ -35,11 +35,15 @@ import {
   resolveRemoteAuthor,
   resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
-} from "../src/core/remote-author-resolution.js?v=20261029-author-route-v2";
+} from "../src/core/remote-author-resolution.js?v=20261029-author-reliability-v1";
 
 import {
   summarizeAuthorCorpus
-} from "../src/core/author-page.js?v=20261029-author-route-v2";
+} from "../src/core/author-page.js?v=20261029-author-reliability-v1";
+
+import {
+  resolveCrossrefAuthor
+} from "../src/core/crossref-author-fallback.js?v=20261029-author-reliability-v1";
 
 import {
   combineSemanticWithFederated
@@ -2257,8 +2261,12 @@ function renderResult(
               item.retrievalMode ===
                 "semantic"
                 ? "Semántica"
-                : item.retrievalMode ===
-                    "author-index"
+                : [
+                    "author-index",
+                    "author-crossref"
+                  ].includes(
+                    item.retrievalMode
+                  )
                   ? "Autor"
                   : item.relevanceLevel
             )}
@@ -2463,11 +2471,20 @@ function renderResult(
                   · sin reranker
                 </div>
               `
-            : item.retrievalMode ===
-                "author-index"
+            : [
+                "author-index",
+                "author-crossref"
+              ].includes(
+                item.retrievalMode
+              )
               ? `
                 <div class="explain">
-                  Autoría directa confirmada en el corpus
+                  ${
+                    item.retrievalMode ===
+                      "author-crossref"
+                      ? "Autoría directa coincidente en Crossref"
+                      : "Autoría directa confirmada en el corpus"
+                  }
                   · identidad normalizada
                   ${
                     item.authorIdentity?.orcid
@@ -2514,8 +2531,12 @@ function renderResult(
               ? "Similitud"
               : item.semanticCompanion
                 ? "Fuente"
-              : item.retrievalMode ===
-                  "author-index"
+              : [
+                  "author-index",
+                  "author-crossref"
+                ].includes(
+                  item.retrievalMode
+                )
                 ? "Autoría"
                 : "Relevancia"
           }
@@ -4200,7 +4221,7 @@ async function openExclusiveAuthorByName(
         exactId,
         name
       );
-    const resolution =
+    let resolution =
       existing ||
       (
         exactId
@@ -4227,6 +4248,26 @@ async function openExclusiveAuthorByName(
               }
             )
       );
+
+    if (
+      !exactId &&
+      resolution.status !== "resolved" &&
+      (
+        resolution.status !== "ambiguous" ||
+        identity.orcid
+      )
+    ) {
+      resolution =
+        await resolveCrossrefAuthor(
+          name,
+          {
+            orcid:
+              identity.orcid || null,
+            signal:
+              authorController.signal
+          }
+        );
+    }
 
     if (
       resolution.status ===
@@ -4832,6 +4873,9 @@ function renderAuthorPage(
       author,
       works
     );
+  const federatedCatalog =
+    resolution.resolution ===
+    "crossref-author";
   const yearSpan =
     summary.yearFrom && summary.yearTo
       ? (
@@ -4910,9 +4954,11 @@ function renderAuthorPage(
       )
     : null;
   const corpusNotice =
-    summary.corpusWorks > summary.loadedWorks
-      ? `El índice registra ${summary.corpusWorks.toLocaleString("es-MX")} obras; esta vista presenta hasta ${summary.loadedWorks}.`
-      : `La vista contiene las ${summary.loadedWorks} obras publicables disponibles en el índice.`;
+    federatedCatalog
+      ? `Crossref devolvió ${summary.loadedWorks} obras con coincidencia exacta de autor; esta vista no afirma exhaustividad bibliográfica.`
+      : summary.corpusWorks > summary.loadedWorks
+        ? `El índice registra ${summary.corpusWorks.toLocaleString("es-MX")} obras; esta vista presenta hasta ${summary.loadedWorks}.`
+        : `La vista contiene las ${summary.loadedWorks} obras publicables disponibles en el índice.`;
 
   return `
     <article class="author-page">
@@ -4927,7 +4973,11 @@ function renderAuthorPage(
           </a>
 
           <span class="author-page-eyebrow">
-            Archivo de autor · corpus propio
+            ${
+              federatedCatalog
+                ? "Archivo de autor · catálogo federado"
+                : "Archivo de autor · corpus propio"
+            }
           </span>
 
           <h1>${escapeHtml(author.displayName)}</h1>
@@ -4935,7 +4985,11 @@ function renderAuthorPage(
           <p class="author-page-biography">
             ${escapeHtml(
               author.biography ||
-              "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
+              (
+                federatedCatalog
+                  ? "Identidad bibliográfica recuperada por coincidencia exacta de nombre y ORCID cuando está disponible."
+                  : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
+              )
             )}
           </p>
 
@@ -4966,7 +5020,11 @@ function renderAuthorPage(
 
       <section class="author-page-metrics" aria-label="Resumen del corpus del autor">
         <div>
-          <span>Obras en el corpus</span>
+          <span>${
+            federatedCatalog
+              ? "Obras recuperadas"
+              : "Obras en el corpus"
+          }</span>
           <strong>${summary.corpusWorks.toLocaleString("es-MX")}</strong>
           <small>${summary.loadedWorks} disponibles en esta vista</small>
         </div>
@@ -5029,7 +5087,11 @@ function renderAuthorPage(
         <div class="author-page-works-heading">
           <div>
             <span class="author-section-kicker">Bibliografía</span>
-            <h2>Obras en el corpus</h2>
+            <h2>${
+              federatedCatalog
+                ? "Obras recuperadas"
+                : "Obras en el corpus"
+            }</h2>
           </div>
           <p>${escapeHtml(corpusNotice)}</p>
         </div>
