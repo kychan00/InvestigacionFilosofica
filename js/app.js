@@ -168,6 +168,7 @@ let currentResponse = null;
 
 let visibleLimit = 20;
 let currentFilteredResults = [];
+let authorSourceSearch = null;
 
 const qwen3OptIn =
   isQwen3BrowserQ8OptIn(
@@ -3943,6 +3944,74 @@ function showExclusiveAuthorWorks(
 }
 
 
+function rememberAuthorSourceSearch() {
+  if (
+    authorSourceSearch ||
+    currentResponse?.authorOnly
+  ) {
+    return;
+  }
+
+  authorSourceSearch = {
+    response:
+      currentResponse,
+    parsed:
+      currentParsed,
+    results:
+      currentResults,
+    query:
+      currentSearchQuery,
+    inputValue:
+      input.value,
+    activeEngine: {
+      ...activeEngine
+    }
+  };
+}
+
+
+function restoreAuthorSourceSearch() {
+  if (!authorSourceSearch) {
+    return;
+  }
+
+  currentController?.abort();
+
+  const source =
+    authorSourceSearch;
+  authorSourceSearch = null;
+
+  currentResponse =
+    source.response;
+  currentParsed =
+    source.parsed;
+  currentResults =
+    source.results;
+  currentSearchQuery =
+    source.query;
+  input.value =
+    source.inputValue;
+  activeEngine =
+    source.activeEngine;
+
+  resetVisibleLimit();
+  resetQwen3Experiment();
+  renderSearchEngineIndicator();
+  renderInterpretation(
+    currentResponse
+  );
+  renderStats(
+    currentResponse
+  );
+  renderFilters(
+    currentResults
+  );
+
+  status.textContent =
+    `${currentResponse.stats.unique} resultados restaurados para ${source.query}`;
+}
+
+
 function openAlexAuthorId(
   value
 ) {
@@ -4018,6 +4087,8 @@ async function openExclusiveAuthorByName(
   if (!name) {
     return;
   }
+
+  rememberAuthorSourceSearch();
 
   currentController?.abort();
   const authorController =
@@ -4365,6 +4436,24 @@ function renderAuthorResolution(
       aria-label="Identidad del autor"
     >
       <div>
+        ${
+          currentResponse?.authorOnly &&
+          authorSourceSearch
+            ? `
+              <button
+                type="button"
+                class="author-back-to-search"
+              >
+                <span aria-hidden="true">←</span>
+                Volver a ${escapeHtml(
+                  authorSourceSearch.query ||
+                  "la búsqueda anterior"
+                )}
+              </button>
+            `
+            : ""
+        }
+
         <span class="author-resolution-label">
           Autor identificado
         </span>
@@ -4449,6 +4538,16 @@ function renderAuthorResolution(
 
 
 function bindAuthorResolutionActions() {
+  document
+    .querySelector(
+      ".author-back-to-search"
+    )
+    ?.addEventListener(
+      "click",
+      restoreAuthorSourceSearch
+    );
+
+
   document
     .querySelectorAll(
       ".author-candidate"
@@ -5243,6 +5342,7 @@ async function runFederatedSearch(
 
   currentResults = [];
   currentResponse = null;
+  authorSourceSearch = null;
   currentSearchQuery =
     query;
   resetQwen3Experiment();
@@ -5603,6 +5703,7 @@ async function runSemanticSearch(
 
   currentResults = [];
   currentResponse = null;
+  authorSourceSearch = null;
   currentSearchQuery =
     query;
   resetQwen3Experiment();
