@@ -370,7 +370,8 @@ async function wikidataHumans(
           ids: search
             .map(item => item.id)
             .join("|"),
-          props: "labels|aliases|claims",
+          props:
+            "labels|aliases|descriptions|sitelinks|claims",
           languages: "es|en",
           languagefallback: "1"
         }
@@ -425,7 +426,22 @@ async function wikidataHumans(
           entity.labels?.es?.value ||
           entity.labels?.en?.value ||
           item.label,
-        names: [...new Set(names)]
+        names: [...new Set(names)],
+        description:
+          entity.descriptions?.es?.value ||
+          entity.descriptions?.en?.value ||
+          item.description ||
+          null,
+        wikipediaUrl:
+          entity.sitelinks?.eswiki?.title
+            ? `https://es.wikipedia.org/wiki/${encodeURIComponent(
+                entity.sitelinks.eswiki.title.replaceAll(" ", "_")
+              )}`
+            : entity.sitelinks?.enwiki?.title
+              ? `https://en.wikipedia.org/wiki/${encodeURIComponent(
+                  entity.sitelinks.enwiki.title.replaceAll(" ", "_")
+                )}`
+              : null
       };
     })
     .filter(Boolean);
@@ -470,6 +486,8 @@ async function resolveThroughWikidata(
         candidate: matches[0],
         displayName: human.name,
         wikidataId: human.id,
+        description: human.description,
+        wikipediaUrl: human.wikipediaUrl,
         resolution: "wikidata"
       };
     }
@@ -483,12 +501,18 @@ async function resolveThroughWikidata(
           authorNameSignature(row.n) ===
           canonicalSignature
       );
+      const canonicalCandidate =
+        dominantCandidate(
+          dedupeCandidates(canonical)
+        );
 
-      if (canonical.length === 1) {
+      if (canonicalCandidate) {
         return {
-          candidate: canonical[0],
+          candidate: canonicalCandidate,
           displayName: human.name,
           wikidataId: human.id,
+          description: human.description,
+          wikipediaUrl: human.wikipediaUrl,
           resolution: "wikidata"
         };
       }
@@ -774,6 +798,10 @@ async function resolvedPayload(
         selected.candidate.o || null,
       wikidataId:
         selected.wikidataId || null,
+      biography:
+        selected.description || null,
+      wikipediaUrl:
+        selected.wikipediaUrl || null,
       corpusWorks:
         selected.candidate.cw || 0
     },
@@ -816,6 +844,7 @@ export async function resolveRemoteAuthor(
       signature.split(" ").length;
     const directIdentity =
       dominantCandidate(full);
+    let canonicalSelection = null;
 
     for (
       const canonicalName of
@@ -848,16 +877,22 @@ export async function resolveRemoteAuthor(
         );
 
       if (canonicalIdentity) {
-        return resolvedPayload(
-          context,
-          {
-            candidate: canonicalIdentity,
-            displayName: canonicalName,
-            resolution:
-              "canonical-catalog"
-          },
-          options
-        );
+        canonicalSelection = {
+          candidate: canonicalIdentity,
+          displayName: canonicalName,
+          resolution:
+            "canonical-catalog"
+        };
+
+        if (!options.includeProfile) {
+          return resolvedPayload(
+            context,
+            canonicalSelection,
+            options
+          );
+        }
+
+        break;
       }
     }
 
@@ -868,7 +903,8 @@ export async function resolveRemoteAuthor(
 
     if (
       directIdentity &&
-      !verifyExternally
+      !verifyExternally &&
+      !options.includeProfile
     ) {
       return resolvedPayload(
         context,
@@ -888,7 +924,7 @@ export async function resolveRemoteAuthor(
       wikidata =
         await resolveThroughWikidata(
           context,
-          query
+          options.profileQuery || query
         );
     } catch (error) {
       if (options.signal?.aborted) {
@@ -899,9 +935,29 @@ export async function resolveRemoteAuthor(
     }
 
     if (wikidata) {
+      if (
+        canonicalSelection &&
+        String(
+          canonicalSelection.candidate.id
+        ) === String(
+          wikidata.candidate.id
+        )
+      ) {
+        wikidata.displayName =
+          canonicalSelection.displayName;
+      }
+
       return resolvedPayload(
         context,
         wikidata,
+        options
+      );
+    }
+
+    if (canonicalSelection) {
+      return resolvedPayload(
+        context,
+        canonicalSelection,
         options
       );
     }
@@ -966,6 +1022,212 @@ export async function resolveRemoteAuthor(
 }
 
 
+function uniqueAuthorNames(values) {
+  const names = [];
+  const seen = new Set();
+
+  for (const value of values) {
+    const name = String(value || "")
+      .replace(/^[\s,;]+|[\s,;]+$/g, "")
+      .trim();
+    const normalized = normalizeAuthorName(name);
+
+    if (!normalized || seen.has(normalized)) {
+      continue;
+    }
+
+    seen.add(normalized);
+    names.push(name);
+  }
+
+  return names;
+}
+
+
+function canonicalNameForSegment(
+  segment,
+  canonicalNames,
+  used
+) {
+  const segmentTokens = new Set(
+    normalizeAuthorName(segment)
+      .split(" ")
+      .filter(Boolean)
+  );
+
+  let best = null;
+
+  canonicalNames.forEach((name, index) => {
+    if (used.has(index)) {
+      return;
+    }
+
+    const canonicalTokens = new Set(
+      normalizeAuthorName(name)
+        .split(" ")
+        .filter(Boolean)
+    );
+    const matches = [...segmentTokens]
+      .filter(token => canonicalTokens.has(token))
+      .length;
+    const canonicalLast = [
+      ...canonicalTokens
+    ].at(-1);
+    const reliableMatch =
+      matches === segmentTokens.size ||
+      matches >= 2 ||
+      segmentTokens.has(canonicalLast);
+
+    if (
+      reliableMatch &&
+      (!best || matches > best.matches)
+    ) {
+      best = { name, index, matches };
+    }
+  });
+
+  if (best) {
+    used.add(best.index);
+    return best.name;
+  }
+
+  return null;
+}
+
+
+function matchedAuthorInput(
+  segment,
+  canonicalName
+) {
+  if (!canonicalName) {
+    return segment;
+  }
+
+  const canonicalTokens = new Set(
+    normalizeAuthorName(canonicalName)
+      .split(" ")
+      .filter(Boolean)
+  );
+  const matched = String(segment)
+    .split(/\s+/)
+    .filter(token =>
+      canonicalTokens.has(
+        normalizeAuthorName(token)
+      )
+    );
+
+  return matched.join(" ") || segment;
+}
+
+
+export function extractRemoteAuthorQueries(
+  query,
+  canonicalNames = []
+) {
+  const source = String(query || "").trim();
+  const canonical = uniqueAuthorNames(
+    canonicalNames
+  );
+  let segments = source
+    .split(/\s+(?:y|e|and|et|und|&)\s+/iu)
+    .map(value => value.trim())
+    .filter(Boolean);
+
+  if (
+    segments.length < 2 &&
+    (source.match(/,/g) || []).length >= 2
+  ) {
+    segments = source
+      .split(",")
+      .map(value => value.trim())
+      .filter(Boolean);
+  }
+
+  if (segments.length < 2) {
+    if (canonical.length < 2) {
+      return [];
+    }
+
+    segments = canonical;
+  }
+
+  const valid = uniqueAuthorNames(segments)
+    .filter(looksLikeAuthorQuery);
+
+  if (valid.length < 2) {
+    return [];
+  }
+
+  const used = new Set();
+
+  return valid.map(segment => {
+    const canonicalName =
+      canonicalNameForSegment(
+        segment,
+        canonical,
+        used
+      );
+
+    return {
+      input:
+        matchedAuthorInput(
+          segment,
+          canonicalName
+        ),
+      canonicalName
+    };
+  });
+}
+
+
+export async function resolveRemoteAuthors(
+  query,
+  options = {}
+) {
+  const queries = extractRemoteAuthorQueries(
+    query,
+    options.canonicalNames || []
+  );
+
+  if (queries.length < 2) {
+    return resolveRemoteAuthor(
+      query,
+      options
+    );
+  }
+
+  const identities = await Promise.all(
+    queries.map(async item => ({
+      input: item.input,
+      canonicalName: item.canonicalName,
+      ...await resolveRemoteAuthor(
+        item.input,
+        {
+          ...options,
+          includeProfile: true,
+          profileQuery:
+            item.canonicalName ||
+            item.input,
+          canonicalNames:
+            item.canonicalName
+              ? [item.canonicalName]
+              : []
+        }
+      )
+    }))
+  );
+
+  return {
+    status: "multiple",
+    identities,
+    authors: identities
+      .filter(item => item.status === "resolved")
+      .map(item => item.author),
+    works: []
+  };
+}
+
+
 export async function resolveRemoteAuthorCandidate(
   candidate,
   options = {}
@@ -1017,10 +1279,142 @@ function resultKey(item) {
 }
 
 
+function authorIdentityTerms(identity) {
+  const values = [
+    identity.input,
+    identity.canonicalName,
+    identity.author?.displayName,
+    identity.author?.sourceDisplayName
+  ];
+
+  return uniqueAuthorNames(values)
+    .map(normalizeAuthorName)
+    .filter(Boolean)
+    .sort((a, b) =>
+      b.split(" ").length -
+      a.split(" ").length
+    );
+}
+
+
+function normalizedWordSet(value) {
+  return new Set(
+    normalizeAuthorName(value)
+      .split(" ")
+      .filter(Boolean)
+  );
+}
+
+
+function containsAuthorTerm(
+  wordSet,
+  term
+) {
+  const tokens = term
+    .split(" ")
+    .filter(Boolean);
+
+  return Boolean(tokens.length) &&
+    tokens.every(token =>
+      wordSet.has(token)
+    );
+}
+
+
+function authorRelationCoverage(
+  item,
+  identities
+) {
+  const titleWords = normalizedWordSet(
+    item.title
+  );
+  const allWords = normalizedWordSet([
+    item.title,
+    item.abstract,
+    ...(item.authors || []).map(author =>
+      author?.name || author
+    )
+  ].filter(Boolean).join(" "));
+  let coverage = 0;
+  let titleCoverage = 0;
+
+  for (const identity of identities) {
+    const terms = authorIdentityTerms(identity);
+
+    if (
+      terms.some(term =>
+        containsAuthorTerm(
+          allWords,
+          term
+        )
+      )
+    ) {
+      coverage += 1;
+    }
+
+    if (
+      terms.some(term =>
+        containsAuthorTerm(
+          titleWords,
+          term
+        )
+      )
+    ) {
+      titleCoverage += 1;
+    }
+  }
+
+  return {
+    coverage,
+    titleCoverage
+  };
+}
+
+
+function prioritizeMultiAuthorRelations(
+  results,
+  resolution
+) {
+  const identities =
+    resolution.identities || [];
+
+  return results
+    .map((item, index) => ({
+      item,
+      index,
+      ...authorRelationCoverage(
+        item,
+        identities
+      )
+    }))
+    .sort((a, b) =>
+      b.coverage - a.coverage ||
+      b.titleCoverage - a.titleCoverage ||
+      a.index - b.index
+    )
+    .map(entry => entry.item);
+}
+
+
 export function augmentWithAuthorResolution(
   response,
   authorResolution
 ) {
+  if (
+    authorResolution?.status ===
+    "multiple"
+  ) {
+    return {
+      ...response,
+      authorResolution,
+      results:
+        prioritizeMultiAuthorRelations(
+          response.results || [],
+          authorResolution
+        )
+    };
+  }
+
   const works =
     authorResolution?.status === "resolved"
       ? authorResolution.works || []
