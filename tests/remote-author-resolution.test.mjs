@@ -110,6 +110,116 @@ test(
 
 
 test(
+  "un shard transitorio se reintenta y otro fallido no descarta los autores disponibles",
+  async () => {
+    const availableWorkId = "101";
+    const unavailableWorkId = "202";
+    const calls = new Map();
+
+    assert.notEqual(
+      authorBucket(availableWorkId),
+      authorBucket(unavailableWorkId)
+    );
+
+    const fetchImpl = async url => {
+      const pathname = new URL(url).pathname;
+      const count =
+        (calls.get(pathname) || 0) + 1;
+
+      calls.set(pathname, count);
+
+      if (
+        pathname.endsWith(
+          bucketPath(
+            "work-authors",
+            availableWorkId
+          )
+        )
+      ) {
+        if (count === 1) {
+          return response("busy", {
+            status: 503
+          });
+        }
+
+        return response(
+          JSON.stringify({
+            wid: Number(availableWorkId),
+            a: [
+              {
+                id: 501,
+                n: "Autora Disponible",
+                o: null,
+                p: "first",
+                r: false
+              }
+            ]
+          }) + "\n"
+        );
+      }
+
+      return response("busy", {
+        status: 503
+      });
+    };
+
+    const enriched =
+      await enrichResultsWithRemoteAuthors(
+        {
+          results: [
+            {
+              id:
+                `openalex-W${availableWorkId}`,
+              authors: []
+            },
+            {
+              id:
+                `openalex-W${unavailableWorkId}`,
+              authors: []
+            }
+          ]
+        },
+        {
+          fetchImpl,
+          indexBase:
+            "https://example.test/data/"
+        }
+      );
+
+    assert.deepEqual(
+      enriched.results[0].authors.map(
+        author => author.name
+      ),
+      ["Autora Disponible"]
+    );
+    assert.deepEqual(
+      enriched.results[1].authors,
+      []
+    );
+    const callCountFor = workId =>
+      [...calls.entries()]
+        .find(([pathname]) =>
+          pathname.endsWith(
+            bucketPath(
+              "work-authors",
+              workId
+            )
+          )
+        )?.[1];
+
+    assert.equal(
+      callCountFor(availableWorkId),
+      2
+    );
+    assert.equal(
+      callCountFor(unavailableWorkId),
+      3
+    );
+  }
+);
+
+
+test(
   "normaliza orden, acentos y apellidos compuestos",
   () => {
     assert.equal(
