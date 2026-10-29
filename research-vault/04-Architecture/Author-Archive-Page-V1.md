@@ -63,6 +63,27 @@ acepta si su autor resuelto conserva el mismo ID exacto; de lo contrario se
 vuelve a la identidad del corpus. Esta regla evita que una página compartida
 asigne la biografía de un homónimo.
 
+## Robustez de agregación y cobertura federada
+
+La primera versión suponía que la clave usada para desempatar cualquier
+agregación era texto. Las décadas son números: cuando dos décadas tenían el
+mismo conteo, la página intentaba ejecutar una comparación textual sobre un
+número y dejaba de renderizar. El comparador es ahora genérico y determinista;
+Hegel, Simone de Beauvoir y José Ortega y Gasset reproducen correctamente sus
+cronologías incluso con conteos empatados.
+
+Si el índice propio no resuelve una identidad y tampoco existe un ID OpenAlex
+exacto, la navegación puede consultar el proveedor Crossref ya integrado. Esta
+salida exige coincidencia exacta del nombre completo o del ORCID; no acepta
+apellidos parciales ni elige homónimos en silencio. La página resultante se
+rotula `catálogo federado`, habla de «obras recuperadas» y declara expresamente
+que no afirma exhaustividad bibliográfica. No se presenta como `corpus propio`.
+
+Los títulos procedentes del índice de autores se limpian sólo para
+presentación: entidades HTML, etiquetas tipográficas y notas `sup` dejan de
+aparecer como texto literal. Los IDs, enlaces y registros originales no se
+reescriben.
+
 ## Verificación pública
 
 La URL pública de Miguel Giusti reconstruyó desde cero:
@@ -79,13 +100,28 @@ La inspección visual confirmó un encabezado editorial propio, métricas
 legibles, dos paneles de análisis, taxonomía y bibliografía sin el formulario ni
 los filtros de una búsqueda ordinaria.
 
+La corrección de robustez se comprobó después en producción con cinco perfiles:
+
+- Hegel: 46 obras y cronología completa con varios empates;
+- Simone de Beauvoir: ocho obras;
+- José Ortega y Gasset: catorce obras;
+- Miguel Giusti: perfil exacto con Wikipedia, Wikidata y ORCID;
+- `Emmanuel Kant`: canonización a `Immanuel Kant`, sin HTML literal en títulos.
+
+`Alonso Nava Amezcua`, ausente del índice propio de autores, abrió una página
+federada separada con tres obras de coincidencia exacta y el ORCID
+`0000-0001-5655-0106`; los homónimos quedaron excluidos.
+
 ## Linaje de despliegue
 
 - Página de archivo: `09333a6`; PR `#33`; merge
   `0da9fa8584bcc4fd595c3a4f6362632c141bf558`; workflow `40969819348`.
 - Corrección de ruta y enriquecimiento seguro: `8a01f1b`; PR `#34`; merge
   `2f844082143bcfce5cf3100de9ffe2aefa5978f0`; workflow `40971188558`.
-- Suite final: 107/107 pruebas JavaScript.
+- Robustez de agregación, limpieza de títulos y fallback Crossref estricto:
+  `9dfe39d`; PR `#35`; merge
+  `f23da61b78b2e4b166db0e2dfb2c7f8ac9f69ea6`; workflow `40972900872`.
+- Suite final: 111/111 pruebas JavaScript.
 
 ## Límites y separación experimental
 

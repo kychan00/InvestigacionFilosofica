@@ -167,7 +167,12 @@ bibliografía directa. Wikipedia/Wikidata sólo enriquecen la vista cuando la
 identidad resuelta conserva el mismo ID del snapshot; ORCID proviene del
 índice. Los enfoques son indicadores descriptivos automatizados y no labels
 humanos ni una interpretación exhaustiva. La corrección de ruta normaliza IDs
-numéricos/serializados sin sustituir identificadores originales. No usa la API
-de OpenAlex y no modifica retrieval, ranking, reranker o artefactos Qwen.
+numéricos/serializados sin sustituir identificadores originales. Los empates
+entre décadas ya no rompen la vista y los títulos se limpian de HTML sólo para
+presentación. Cuando el índice propio no resuelve una persona sin ID exacto,
+Crossref puede aportar una vista separada de `catálogo federado`, únicamente
+con coincidencia exacta de nombre u ORCID y con aviso de no exhaustividad. No
+usa la API de OpenAlex y no modifica retrieval, ranking, reranker o artefactos
+Qwen.
 
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
