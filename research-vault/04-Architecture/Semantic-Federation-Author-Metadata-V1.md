@@ -99,6 +99,38 @@ Marqués, Gary Kemp, Dagfinn Føllesdal y Joseph S. Ullian. Crossref y CUCSH
 aparecieron después como fuentes complementarias y la interfaz declaró
 explícitamente que no se aplicó reranker.
 
+## Corrección de resiliencia del enriquecimiento
+
+Una verificación posterior detectó que la primera implementación trataba la
+carga de todos los shards requeridos como una operación indivisible. Un único
+`503` o timeout transitorio de GitHub Pages hacía fallar el `Promise.all`
+completo y dejaba todos los resultados de esa consulta con
+`Autor no disponible`, incluso cuando los demás shards sí contenían autoría.
+
+La corrección desplegada:
+
+- limita la concurrencia a cuatro shards;
+- reintenta cada shard hasta tres veces;
+- evita reutilizar una respuesta `503` cacheada en los reintentos;
+- conserva los autores recuperados aunque otro shard agote sus intentos;
+- mantiene la cancelación explícita de la búsqueda.
+
+La reproducción `estética trascendental Kant` pasó de 0/10 autores visibles a
+7/10. Las tres obras restantes no tienen relación obra→autor en el snapshot
+fijado y continúan mostrando correctamente `Autor no disponible`. La
+verificación pública con la consulta en forma de pregunta mostró, entre otros,
+a Juan Diego Moya, Plínio Junqueira Smith, François-Xavier Chenet, Flávio
+Williges y John J. Callanan.
+
+- PR de resiliencia: `#25`.
+- Merge: `6cad155e93850bb7bca20d7f6d3c23196ae08530`.
+- Deploy público: workflow `40803212204`.
+- Suite: 99/99 pruebas JavaScript.
+
+Esta corrección no amplía cobertura, no inventa autores y no modifica
+retrieval, scores, orden semántico, reranker, `src/core/rank.js` ni artefactos
+Qwen congelados.
+
 ## Límites
 
 - La autoría depende del snapshot fijado: aproximadamente 19,9% del corpus no

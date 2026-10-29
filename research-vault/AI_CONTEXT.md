@@ -134,5 +134,9 @@ paralela candidatos acotados de Crossref, Internet Archive, CUCSH y el proveedor
 OpenAlex Philosophy basado en el corpus propio. El núcleo semántico conserva su
 orden; los candidatos externos se presentan como `Fuente` y no reciben un score
 semántico inventado. La API de OpenAlex y el reranker permanecen desactivados.
+El enriquecimiento carga shards con concurrencia acotada, reintentos y
+conservación parcial: un fallo transitorio ya no borra los autores recuperados
+en otros shards. `Autor no disponible` permanece válido cuando la relación no
+existe en el snapshot fijado.
 
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.

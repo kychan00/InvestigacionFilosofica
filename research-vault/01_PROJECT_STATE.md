@@ -113,6 +113,7 @@ Estado al 2026-10-10:
 - `author-index-v2` añade 1.024 shards inversos obra→autores, con 362.019 obras publicables —80,127838% del corpus—; su tar tiene SHA-256 `7575c2da2972a4bf1cc6b142a87d0a1eb5cb5bf7976d61b8ca572061612ea9c9` y los 3.072 archivos internos reprodujeron el manifest sin discrepancias;
 - los PR 23 y 24 quedaron fusionados en `63bb1515aad1f76c217cad171d772260fb6105bb` y `9c391645aade2fa6a47dae4e35d9f97de5a272c3`; el deploy `40800835187` publicó V2 y un smoke real mostró autores en resultados OpenAlex Philosophy y fuentes complementarias, con API OpenAlex y reranker desactivados;
 - esta integración aprobó 98/98 pruebas JavaScript y 7/7 pruebas Python, no cambió `src/core/rank.js`, no hizo tuning y no tocó artefactos congelados de `benchmark/qwen3`;
+- el PR 25 corrigió el enriquecimiento obra→autores para que un shard con `503` o timeout no descarte los demás: concurrencia acotada, tres intentos y conservación parcial; el merge `6cad155e93850bb7bca20d7f6d3c23196ae08530`, el deploy `40803212204` y 99/99 pruebas quedaron validados, y un smoke sobre Kant recuperó autor en 7/10 resultados mientras tres ausencias correspondían realmente al snapshot;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 
