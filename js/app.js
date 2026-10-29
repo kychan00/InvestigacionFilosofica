@@ -2137,24 +2137,20 @@ function renderResult(
   const authors =
     resultAuthors
       .map(author => `
-        <button
-          type="button"
+        <a
           class="author-work-link"
-          data-author-name="${escapeHtml(
-            author.name
-          )}"
-          data-author-id="${escapeHtml(
-            author.id || ""
-          )}"
-          data-author-orcid="${escapeHtml(
-            author.orcid || ""
-          )}"
-          title="Ver solo las obras de ${escapeHtml(
+          href="${escapeHtml(authorWorksUrl(
+            author.name,
+            author
+          ))}"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Abrir en una pestaña nueva las obras de ${escapeHtml(
             author.name
           )}"
         >
           ${escapeHtml(author.name)}
-        </button>
+        </a>
       `)
       .join(
         '<span class="author-separator" aria-hidden="true">, </span>'
@@ -3869,27 +3865,6 @@ function bindResultActions() {
     );
 
 
-  document
-    .querySelectorAll(
-      ".author-work-link"
-    )
-    .forEach(button => {
-      button.addEventListener(
-        "click",
-        () => {
-          void openExclusiveAuthorByName(
-            button.dataset.authorName,
-            button,
-            {
-              id:
-                button.dataset.authorId,
-              orcid:
-                button.dataset.authorOrcid
-            }
-          );
-        }
-      );
-    });
 }
 
 
@@ -3947,7 +3922,8 @@ function showExclusiveAuthorWorks(
 function rememberAuthorSourceSearch() {
   if (
     authorSourceSearch ||
-    currentResponse?.authorOnly
+    currentResponse?.authorOnly ||
+    !currentResponse
   ) {
     return;
   }
@@ -4019,6 +3995,78 @@ function openAlexAuthorId(
     .match(
       /(?:openalex\.org\/A|^A?)(\d+)$/i
     )?.[1] || null;
+}
+
+
+function authorWorksUrl(
+  authorName,
+  identity = {}
+) {
+  const url = new URL(
+    window.location.href
+  );
+
+  url.searchParams.set(
+    "view",
+    "author"
+  );
+  url.searchParams.set(
+    "author",
+    String(authorName || "").trim()
+  );
+
+  if (identity.id) {
+    url.searchParams.set(
+      "authorId",
+      identity.id
+    );
+  } else {
+    url.searchParams.delete(
+      "authorId"
+    );
+  }
+
+  if (identity.orcid) {
+    url.searchParams.set(
+      "authorOrcid",
+      identity.orcid
+    );
+  } else {
+    url.searchParams.delete(
+      "authorOrcid"
+    );
+  }
+
+  url.hash = "results";
+
+  return url.toString();
+}
+
+
+function authorWorksRequestFromLocation(
+  search
+) {
+  const params = new URLSearchParams(
+    search
+  );
+  const name = String(
+    params.get("author") || ""
+  ).trim();
+
+  if (
+    params.get("view") !== "author" ||
+    !name
+  ) {
+    return null;
+  }
+
+  return {
+    name,
+    id:
+      params.get("authorId") || "",
+    orcid:
+      params.get("authorOrcid") || ""
+  };
 }
 
 
@@ -4264,15 +4312,18 @@ function renderAuthorResolution(
                   </span>
 
                   <strong>
-                    <button
-                      type="button"
+                    <a
                       class="author-work-link author-profile-link"
-                      data-author-name="${escapeHtml(author.displayName)}"
-                      data-author-id="${escapeHtml(author.id || "")}"
-                      data-author-orcid="${escapeHtml(author.orcid || "")}"
+                      href="${escapeHtml(authorWorksUrl(
+                        author.displayName,
+                        author
+                      ))}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Abrir en una pestaña nueva las obras de ${escapeHtml(author.displayName)}"
                     >
                       ${escapeHtml(author.displayName)}
-                    </button>
+                    </a>
                   </strong>
 
                   ${
@@ -4459,15 +4510,18 @@ function renderAuthorResolution(
         </span>
 
         <strong>
-          <button
-            type="button"
+          <a
             class="author-work-link author-profile-link"
-            data-author-name="${escapeHtml(author.displayName)}"
-            data-author-id="${escapeHtml(author.id || "")}"
-            data-author-orcid="${escapeHtml(author.orcid || "")}"
+            href="${escapeHtml(authorWorksUrl(
+              author.displayName,
+              author
+            ))}"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Abrir en una pestaña nueva las obras de ${escapeHtml(author.displayName)}"
           >
             ${escapeHtml(author.displayName)}
-          </button>
+          </a>
         </strong>
 
         <small>
@@ -6126,8 +6180,25 @@ try {
   philosophyMap =
     await loadMap();
 
-  status.textContent =
-    "";
+  const authorRequest =
+    authorWorksRequestFromLocation(
+      window.location.search
+    );
+
+  if (authorRequest) {
+    researchWorkspace
+      ?.classList
+      .remove("hidden");
+
+    await openExclusiveAuthorByName(
+      authorRequest.name,
+      null,
+      authorRequest
+    );
+  } else {
+    status.textContent =
+      "";
+  }
 } catch (error) {
   console.error(error);
 
