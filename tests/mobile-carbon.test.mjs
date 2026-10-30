@@ -7,13 +7,13 @@ const html = readFileSync(
   "utf8"
 );
 const mobile = readFileSync(
-  new URL("../css/mobile-carbon.css", import.meta.url),
+  new URL("../css/mobile-layout.css", import.meta.url),
   "utf8"
 );
 
 test("loads the mobile layer after the existing design system", () => {
   const grid = html.indexOf("./css/philosophical-grid.css");
-  const mobileLink = html.indexOf("./css/mobile-carbon.css");
+  const mobileLink = html.indexOf("./css/mobile-layout.css");
   assert.ok(grid >= 0);
   assert.ok(mobileLink > grid);
 });
