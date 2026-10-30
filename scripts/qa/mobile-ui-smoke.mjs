@@ -14,7 +14,7 @@ async function prepareFixture(page) {
   await page.goto(BASE, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() =>
     [...document.styleSheets].some(sheet =>
-      sheet.href?.includes("mobile-carbon.css") &&
+      sheet.href?.includes("mobile-layout.css") &&
       sheet.cssRules.length > 0
     )
   );
@@ -219,7 +219,7 @@ try {
   const desktopValues = await desktop.evaluate(() => ({
     mobileStylesMatched:
       [...document.styleSheets]
-        .filter(sheet => sheet.href?.includes("mobile-carbon.css"))
+        .filter(sheet => sheet.href?.includes("mobile-layout.css"))
         .flatMap(sheet => [...sheet.cssRules])
         .filter(rule => rule.conditionText && matchMedia(rule.conditionText).matches)
         .length,
