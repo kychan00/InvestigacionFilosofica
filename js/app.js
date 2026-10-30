@@ -46,6 +46,11 @@ import {
 } from "../src/core/crossref-author-fallback.js?v=20261029-universal-author-v1";
 
 import {
+  openAuthorDestination,
+  shouldHandleAuthorLinkClick
+} from "../src/core/author-navigation.js?v=20261029-mobile-author-links-v1";
+
+import {
   combineSemanticWithFederated
 } from "../src/core/semantic-federation.js";
 
@@ -4817,6 +4822,27 @@ function bindAuthorResolutionActions() {
       );
     });
 }
+
+
+document.addEventListener(
+  "click",
+  event => {
+    const link = event.target
+      ?.closest?.(
+        "a.author-work-link"
+      );
+
+    if (
+      !link ||
+      !shouldHandleAuthorLinkClick(event)
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    openAuthorDestination(link.href);
+  }
+);
 
 
 function authorHomeUrl() {
