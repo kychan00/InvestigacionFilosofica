@@ -141,6 +141,11 @@ const interpretationEl =
     "#interpretation"
   );
 
+const authorIdentityEl =
+  document.querySelector(
+    "#author-identity"
+  );
+
 const statsEl =
   document.querySelector(
     "#stats"
@@ -4824,6 +4829,43 @@ function bindAuthorResolutionActions() {
 }
 
 
+function renderAuthorIdentity(
+  resolution
+) {
+  if (!authorIdentityEl) {
+    return;
+  }
+
+  const markup =
+    renderAuthorResolution(
+      resolution
+    );
+
+  authorIdentityEl.innerHTML =
+    markup;
+  authorIdentityEl.classList.toggle(
+    "hidden",
+    !markup
+  );
+
+  if (markup) {
+    bindAuthorResolutionActions();
+  }
+}
+
+
+function clearAuthorIdentity() {
+  if (!authorIdentityEl) {
+    return;
+  }
+
+  authorIdentityEl.innerHTML = "";
+  authorIdentityEl.classList.add(
+    "hidden"
+  );
+}
+
+
 document.addEventListener(
   "click",
   event => {
@@ -5185,6 +5227,8 @@ function renderFilteredResults() {
 
 
   if (authorOnlyResults) {
+    clearAuthorIdentity();
+
     resultsEl.innerHTML =
       errorHtml +
       renderAuthorPage(
@@ -5208,10 +5252,12 @@ function renderFilteredResults() {
   }
 
 
+  renderAuthorIdentity(
+    currentResponse?.authorResolution
+  );
+
+
   resultsEl.innerHTML =
-    renderAuthorResolution(
-      currentResponse?.authorResolution
-    ) +
     errorHtml +
     (
       semanticResults ||
@@ -5753,6 +5799,10 @@ function renderProgressiveSearch(
     response
   );
 
+  renderAuthorIdentity(
+    response.authorResolution
+  );
+
 
   const currentExpansion =
     Math.min(
@@ -5778,10 +5828,6 @@ function renderProgressiveSearch(
 
 
   resultsEl.innerHTML = `
-    ${renderAuthorResolution(
-      response.authorResolution
-    )}
-
     <div class="search-live-progress has-results">
       <span class="search-live-spinner" aria-hidden="true"></span>
 
@@ -5850,6 +5896,7 @@ async function runFederatedSearch(
   currentSearchQuery =
     query;
   resetQwen3Experiment();
+  clearAuthorIdentity();
 
 
   button.disabled =
@@ -5920,6 +5967,17 @@ async function runFederatedSearch(
     authorResolutionPromise.then(
       value => {
         authorResolution = value;
+
+        if (
+          currentController ===
+            searchController &&
+          !searchController.signal
+            .aborted
+        ) {
+          renderAuthorIdentity(
+            value
+          );
+        }
       },
       () => {}
     );
@@ -6217,6 +6275,7 @@ async function runSemanticSearch(
   currentSearchQuery =
     query;
   resetQwen3Experiment();
+  clearAuthorIdentity();
 
 
   button.disabled =
@@ -6302,6 +6361,28 @@ async function runSemanticSearch(
         )?.value || 12
       );
 
+    const authorResolutionPromise =
+      resolveAuthorForQuery(
+        query,
+        searchController.signal
+      );
+
+    authorResolutionPromise.then(
+      value => {
+        if (
+          currentController ===
+            searchController &&
+          !searchController.signal
+            .aborted
+        ) {
+          renderAuthorIdentity(
+            value
+          );
+        }
+      },
+      () => {}
+    );
+
     const [
       rawSemanticResponse,
       authorResolution,
@@ -6315,10 +6396,7 @@ async function runSemanticSearch(
             searchController.signal
         }
       ),
-      resolveAuthorForQuery(
-        query,
-        searchController.signal
-      ),
+      authorResolutionPromise,
       searchSemanticCompanions(
         query,
         limit,
