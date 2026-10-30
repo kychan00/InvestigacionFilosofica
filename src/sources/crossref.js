@@ -2,6 +2,53 @@ const CROSSREF_BASE =
   "https://api.crossref.org/v1/works";
 
 
+/*
+ * Crossref mezcla obras citables con contenedores editoriales.
+ *
+ * Una revista, un volumen o una serie puede tener DOI propio, pero no es
+ * un documento académico recuperable como artículo, capítulo o libro.
+ * Admitirlos produce páginas enteras de fascículos cuando la consulta
+ * coincide con el nombre de una revista (por ejemplo, "tecnociencia").
+ */
+const CROSSREF_CONTAINER_TYPES =
+  new Set([
+    "journal",
+    "journal-issue",
+    "journal-volume",
+    "book-series",
+    "book-set",
+    "proceedings-series",
+    "report-series",
+    "standard-series"
+  ]);
+
+
+export function isEligibleCrossrefWork(item) {
+  const title =
+    cleanCrossrefText(
+      firstString(item?.title)
+    );
+
+  if (!title) {
+    return false;
+  }
+
+  const type =
+    String(item?.type || "")
+      .trim()
+      .toLowerCase();
+
+  return !CROSSREF_CONTAINER_TYPES.has(type);
+}
+
+
+export function crossrefQueryField(queryType) {
+  return queryType === "author"
+    ? "query.author"
+    : "query.title";
+}
+
+
 function sleep(ms) {
   return new Promise(
     resolve =>
@@ -520,7 +567,8 @@ function buildUrl(
   const {
     rows = 10,
     offset = 0,
-    mailto = null
+    mailto = null,
+    queryType = null
   } = options;
 
   const url =
@@ -529,7 +577,7 @@ function buildUrl(
     );
 
   url.searchParams.set(
-    "query.bibliographic",
+    crossrefQueryField(queryType),
     query
   );
 
@@ -698,7 +746,10 @@ export async function searchCrossref(
   const url =
     buildUrl(
       query,
-      options
+      {
+        ...options,
+        queryType
+      }
     );
 
   const response =
@@ -714,17 +765,27 @@ export async function searchCrossref(
     data?.message?.items ||
     [];
 
-  return items.map(
-    (item, index) =>
-      normalizeCrossrefWork(
+  return items
+    .map(
+      (item, index) => ({
         item,
-        {
-          query,
-          queryWeight,
-          queryType,
-          rank:
-            index + 1
-        }
-      )
-  );
+        rank: index + 1
+      })
+    )
+    .filter(
+      ({ item }) =>
+        isEligibleCrossrefWork(item)
+    )
+    .map(
+      ({ item, rank }) =>
+        normalizeCrossrefWork(
+          item,
+          {
+            query,
+            queryWeight,
+            queryType,
+            rank
+          }
+        )
+    );
 }
