@@ -20,7 +20,7 @@ import {
 
 import {
   searchCrossref
-} from "../sources/crossref.js?v=20261030-crossref-work-hygiene-v1";
+} from "../sources/crossref.js?v=20261030-crossref-work-hygiene-v2";
 
 import {
   searchInternetArchive

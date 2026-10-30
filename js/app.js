@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261030-crossref-work-hygiene-v1";
+} from "../src/core/search-engine.js?v=20261030-crossref-work-hygiene-v2";
 
 import {
   explainResult
