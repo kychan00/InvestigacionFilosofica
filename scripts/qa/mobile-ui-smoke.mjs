@@ -103,6 +103,15 @@ try {
     );
     await prepareFixture(page);
 
+    // The search panel enters from translateX(36px); measure after it settles.
+    await page.waitForTimeout(1000);
+
+    await page.screenshot({
+      path: "artifacts/mobile-ui/search-" + width + ".png",
+      fullPage: true,
+      animations: "disabled"
+    });
+
     const values = await page.evaluate(() => {
       const rect = element => {
         const box = element.getBoundingClientRect();
@@ -163,14 +172,6 @@ try {
 
     if (width <= 359) {
       assert.equal(values.filtersColumnCount, 1);
-    }
-
-    if (width === 375 || width === 768) {
-      await page.screenshot({
-        path: "artifacts/mobile-ui/search-" + width + ".png",
-        fullPage: true,
-        animations: "disabled"
-      });
     }
 
     if (width === 375) {
