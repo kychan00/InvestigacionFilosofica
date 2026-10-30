@@ -1494,5 +1494,13 @@ test(
       css,
       /overflow-wrap:\s*anywhere/u
     );
+    assert.match(
+      css,
+      /--workspace-sidebar-width/u
+    );
+    assert.match(
+      css,
+      /grid-column:\s*1 \/ -1/u
+    );
   }
 );
