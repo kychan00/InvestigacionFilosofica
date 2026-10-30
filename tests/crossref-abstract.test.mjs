@@ -2,8 +2,79 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  crossrefQueryField,
+  isEligibleCrossrefWork,
   normalizeCrossrefWork
 } from "../src/sources/crossref.js";
+
+
+test(
+  "descarta revistas, fascículos y registros sin título",
+  () => {
+    assert.equal(
+      isEligibleCrossrefWork({
+        type: "journal-issue",
+        "container-title": [
+          "TECNOCIENCIA Chihuahua"
+        ]
+      }),
+      false
+    );
+
+    assert.equal(
+      isEligibleCrossrefWork({
+        type: "journal",
+        title: [
+          "TECNOCIENCIA CHIHUAHUA"
+        ]
+      }),
+      false
+    );
+
+    assert.equal(
+      isEligibleCrossrefWork({
+        type: "journal-article",
+        title: []
+      }),
+      false
+    );
+  }
+);
+
+
+test(
+  "conserva obras reales aunque compartan nombre con una revista",
+  () => {
+    assert.equal(
+      isEligibleCrossrefWork({
+        type: "journal-article",
+        title: [
+          "Tecnociencia, entorno y sujeto tecnocientífico"
+        ],
+        "container-title": [
+          "Eikasía Revista de Filosofía"
+        ]
+      }),
+      true
+    );
+  }
+);
+
+
+test(
+  "dirige conceptos a títulos y búsquedas de autor al campo de autor",
+  () => {
+    assert.equal(
+      crossrefQueryField("original"),
+      "query.title"
+    );
+
+    assert.equal(
+      crossrefQueryField("author"),
+      "query.author"
+    );
+  }
+);
 
 
 test(
