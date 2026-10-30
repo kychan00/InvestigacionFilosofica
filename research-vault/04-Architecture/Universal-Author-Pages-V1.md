@@ -66,10 +66,23 @@ La vista distingue explícitamente:
   identidad.
 - No existe una base local manual de páginas ni mantenimiento por autor.
 
+## Navegación móvil
+
+Los nombres de autor conservan `target=_blank` como enlace nativo en escritorio.
+En un contexto móvil, el gesto táctil intenta abrir de forma síncrona un nuevo
+contexto y elimina la referencia `opener`. Si un navegador integrado o webview
+bloquea pestañas, la navegación continúa en la pestaña actual en vez de perder
+el toque. Esta degradación conserva acceso a la página del autor aunque el host
+móvil no implemente múltiples pestañas.
+
 ## Verificación pública
 
-La suite aprobó 113/113 pruebas, incluidas identidades sintéticas arbitrarias
+La suite aprobó inicialmente 113/113 pruebas, incluidas identidades sintéticas arbitrarias
 para demostrar que no existe una lista codificada de autores.
+
+La corrección móvil amplió la suite a 117/117 y cubrió detección táctil,
+apertura de contexto nuevo, eliminación de `opener`, conservación de clics con
+modificadores y fallback a la pestaña actual cuando el webview bloquea popups.
 
 El smoke público comprobó tres caminos no usados como excepciones:
 
@@ -86,6 +99,8 @@ aviso correcto de cobertura.
 - PR: `#36`.
 - Merge: `d0c48a8188965e6965953c113d22f3e742c3f00a`.
 - GitHub Pages: workflow `40985963509`.
+- Navegación móvil: implementación `d378542`; PR `#37`; merge
+  `97629f3dc93f725fb9d740f87242b8e3b92f05a9`; workflow `41011270245`.
 
 ## Separación experimental
 
