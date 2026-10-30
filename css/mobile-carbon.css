@@ -25,6 +25,17 @@
     padding: 0 24px 32px;
   }
 
+  .philo-nav-links a {
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .philo-nav-links a::before {
+    margin-right: 6px;
+  }
+
   .hero-shell .hero {
     width: 100%;
     max-width: none;
