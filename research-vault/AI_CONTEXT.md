@@ -195,4 +195,12 @@ arbitrarios; las intenciones explícitas de autor y obra usan campos precisos.
 No hay listas negras por concepto o persona, no se modificó `src/core/rank.js`
 y los experimentos Qwen permanecen intactos.
 
+[[Philosophical-Grid-Design-V1]] reemplaza la capa visual pública por una
+retícula editorial de alto contraste que conserva la identidad filosófica del
+producto. Cubre portada, búsqueda, filtros, resultados, modales y páginas
+universales de autor; usa movimiento funcional con alternativa de movimiento
+reducido y mantiene responsive verificado a 390 px. Es un cambio sólo de
+presentación: no modifica retrieval, ranking, `src/core/rank.js`, reranker ni
+artefactos Qwen congelados.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
