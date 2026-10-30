@@ -197,6 +197,14 @@
     overflow-wrap: anywhere;
   }
 
+  .result-links .record-open,
+  .result-links .institutional-card-link,
+  .result-links .result-secondary-link,
+  .result-links .result-open-link,
+  .result-links .result-doi-link {
+    min-height: 44px;
+  }
+
   .score-panel {
     grid-column: 2;
     min-width: 0;
