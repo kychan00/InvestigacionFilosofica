@@ -42,8 +42,8 @@ import {
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
 import {
-  resolveCrossrefAuthor
-} from "../src/core/crossref-author-fallback.js?v=20261029-author-reliability-v1";
+  resolveFederatedAuthor
+} from "../src/core/crossref-author-fallback.js?v=20261029-universal-author-v1";
 
 import {
   combineSemanticWithFederated
@@ -2263,7 +2263,8 @@ function renderResult(
                 ? "Semántica"
                 : [
                     "author-index",
-                    "author-crossref"
+                    "author-crossref",
+                    "author-internet-archive"
                   ].includes(
                     item.retrievalMode
                   )
@@ -2473,7 +2474,8 @@ function renderResult(
               `
             : [
                 "author-index",
-                "author-crossref"
+                "author-crossref",
+                "author-internet-archive"
               ].includes(
                 item.retrievalMode
               )
@@ -2481,9 +2483,12 @@ function renderResult(
                 <div class="explain">
                   ${
                     item.retrievalMode ===
-                      "author-crossref"
-                      ? "Autoría directa coincidente en Crossref"
-                      : "Autoría directa confirmada en el corpus"
+                      "author-index"
+                      ? "Autoría directa confirmada en el corpus"
+                      : `Autoría directa coincidente en ${escapeHtml(
+                          item.providers?.[0] ||
+                          "un catálogo federado"
+                        )}`
                   }
                   · identidad normalizada
                   ${
@@ -2533,7 +2538,8 @@ function renderResult(
                 ? "Fuente"
               : [
                   "author-index",
-                  "author-crossref"
+                  "author-crossref",
+                  "author-internet-archive"
                 ].includes(
                   item.retrievalMode
                 )
@@ -4258,7 +4264,7 @@ async function openExclusiveAuthorByName(
       )
     ) {
       resolution =
-        await resolveCrossrefAuthor(
+        await resolveFederatedAuthor(
           name,
           {
             orcid:
@@ -4874,8 +4880,15 @@ function renderAuthorPage(
       works
     );
   const federatedCatalog =
-    resolution.resolution ===
-    "crossref-author";
+    author.catalog === "federated";
+  const catalogSources =
+    author.catalogSources || [];
+  const catalogNoticeSubject =
+    catalogSources.length === 1
+      ? `${catalogSources[0]} devolvió`
+      : catalogSources.length > 1
+        ? `${catalogSources.join(" e ")} devolvieron`
+        : "Los catálogos federados devolvieron";
   const yearSpan =
     summary.yearFrom && summary.yearTo
       ? (
@@ -4955,7 +4968,7 @@ function renderAuthorPage(
     : null;
   const corpusNotice =
     federatedCatalog
-      ? `Crossref devolvió ${summary.loadedWorks} obras con coincidencia exacta de autor; esta vista no afirma exhaustividad bibliográfica.`
+      ? `${catalogNoticeSubject} ${summary.loadedWorks} obras con coincidencia exacta de autor; esta vista no afirma exhaustividad bibliográfica.`
       : summary.corpusWorks > summary.loadedWorks
         ? `El índice registra ${summary.corpusWorks.toLocaleString("es-MX")} obras; esta vista presenta hasta ${summary.loadedWorks}.`
         : `La vista contiene las ${summary.loadedWorks} obras publicables disponibles en el índice.`;
