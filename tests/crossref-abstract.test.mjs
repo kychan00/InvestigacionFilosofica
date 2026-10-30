@@ -62,16 +62,21 @@ test(
 
 
 test(
-  "dirige conceptos a títulos y búsquedas de autor al campo de autor",
+  "conserva autoría en consulta libre y usa campos precisos cuando se conoce la intención",
   () => {
     assert.equal(
       crossrefQueryField("original"),
-      "query.title"
+      "query.bibliographic"
     );
 
     assert.equal(
       crossrefQueryField("author"),
       "query.author"
+    );
+
+    assert.equal(
+      crossrefQueryField("work"),
+      "query.title"
     );
   }
 );

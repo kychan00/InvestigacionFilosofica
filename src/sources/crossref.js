@@ -43,9 +43,20 @@ export function isEligibleCrossrefWork(item) {
 
 
 export function crossrefQueryField(queryType) {
-  return queryType === "author"
-    ? "query.author"
-    : "query.title";
+  if (queryType === "author") {
+    return "query.author";
+  }
+
+  if (queryType === "work") {
+    return "query.title";
+  }
+
+  /*
+   * La consulta libre también debe encontrar autorías no conocidas por el
+   * catálogo local. `query.bibliographic` conserva esa capacidad; el gate
+   * de elegibilidad impide que revistas y fascículos entren como obras.
+   */
+  return "query.bibliographic";
 }
 
 
