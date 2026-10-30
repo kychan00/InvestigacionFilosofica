@@ -4791,6 +4791,18 @@ span:not(.search-live-spinner) {
 }
 
 
+.author-identity {
+  width:
+    100%;
+}
+
+
+.author-identity .author-resolution {
+  margin-bottom:
+    18px;
+}
+
+
 .author-resolution strong,
 .author-resolution small,
 .author-resolution-label {
@@ -5185,17 +5197,59 @@ span:not(.search-live-spinner) {
 
 
 @media (max-width: 760px) {
+  .author-identity {
+    position:
+      relative;
+
+    z-index:
+      2;
+
+    margin:
+      0 0 16px;
+  }
+
   .author-resolution {
     align-items:
       stretch;
 
     flex-direction:
       column;
+
+    gap:
+      14px;
+
+    margin:
+      0;
+
+    padding:
+      17px 18px;
+  }
+
+  .author-resolution strong {
+    font-size:
+      1.2rem;
+
+    line-height:
+      1.25;
+  }
+
+  .author-profile-link {
+    display:
+      inline-block;
+
+    max-width:
+      100%;
+
+    overflow-wrap:
+      anywhere;
   }
 
   .author-evidence {
     justify-content:
       flex-start;
+
+    width:
+      100%;
   }
 }
 
@@ -5283,6 +5337,7 @@ body.author-view .research-workspace {
 
 body.author-view .workspace-sidebar,
 body.author-view #stats,
+body.author-view #author-identity,
 body.author-view #interpretation {
   display:
     none !important;

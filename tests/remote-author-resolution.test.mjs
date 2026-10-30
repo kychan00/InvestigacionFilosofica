@@ -1370,7 +1370,7 @@ test(
 test(
   "la interfaz integra identidad remota, evidencia y ambigüedad explícita",
   async () => {
-    const [app, css] = await Promise.all([
+    const [app, css, html] = await Promise.all([
       readFile(
         new URL(
           "../js/app.js",
@@ -1381,6 +1381,13 @@ test(
       readFile(
         new URL(
           "../css/redesign.css",
+          import.meta.url
+        ),
+        "utf8"
+      ),
+      readFile(
+        new URL(
+          "../index.html",
           import.meta.url
         ),
         "utf8"
@@ -1470,6 +1477,22 @@ test(
     assert.match(
       css,
       /\.author-profile-grid/u
+    );
+    assert.match(
+      html,
+      /id="author-identity"/u
+    );
+    assert.match(
+      app,
+      /function renderAuthorIdentity/u
+    );
+    assert.match(
+      css,
+      /\.author-identity/u
+    );
+    assert.match(
+      css,
+      /overflow-wrap:\s*anywhere/u
     );
   }
 );
