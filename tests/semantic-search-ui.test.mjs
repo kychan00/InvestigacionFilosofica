@@ -11,7 +11,8 @@ test(
     const [
       html,
       app,
-      css
+      css,
+      philosophicalGrid
     ] = await Promise.all([
       readFile(
         new URL(
@@ -30,6 +31,13 @@ test(
       readFile(
         new URL(
           "../css/redesign.css",
+          import.meta.url
+        ),
+        "utf8"
+      ),
+      readFile(
+        new URL(
+          "../css/philosophical-grid.css",
           import.meta.url
         ),
         "utf8"
@@ -144,6 +152,31 @@ test(
     assert.match(
       css,
       /data-semantic-status="available"/u
+    );
+
+    assert.match(
+      html,
+      /philosophical-grid\.css\?v=20261030-philosophical-grid-v1/u
+    );
+
+    assert.match(
+      html,
+      /Buscar no es encontrar palabras[\s\S]*Es reconstruir una conversación/u
+    );
+
+    assert.match(
+      philosophicalGrid,
+      /--pg-blue:\s*#0f62fe/u
+    );
+
+    assert.match(
+      philosophicalGrid,
+      /@media \(prefers-reduced-motion: reduce\)/u
+    );
+
+    assert.doesNotMatch(
+      `${html}\n${philosophicalGrid}`,
+      /\b(?:IBM|Carbon)\b/iu
     );
   }
 );
