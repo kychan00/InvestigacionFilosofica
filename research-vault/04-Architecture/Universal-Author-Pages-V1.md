@@ -2,7 +2,7 @@
 type: product-architecture
 project: InvestigacionFilosofica
 status: deployed
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Universal Author Pages V1
@@ -75,6 +75,14 @@ bloquea pestañas, la navegación continúa en la pestaña actual en vez de perd
 el toque. Esta degradación conserva acceso a la página del autor aunque el host
 móvil no implemente múltiples pestañas.
 
+La identidad resuelta tiene además una región viva propia antes de los
+resultados. Ya no depende del render de la lista bibliográfica: aparece en
+cuanto termina la resolución remota, aunque la búsqueda semántica o federada
+continúe trabajando. En anchos de hasta 760 px la tarjeta se apila en una sola
+columna, conserva el nombre completo con corte seguro y mantiene visibles sus
+enlaces de evidencia. La página dedicada de autor conserva su encabezado
+editorial y no duplica esta tarjeta.
+
 ## Verificación pública
 
 La suite aprobó inicialmente 113/113 pruebas, incluidas identidades sintéticas arbitrarias
@@ -83,6 +91,12 @@ para demostrar que no existe una lista codificada de autores.
 La corrección móvil amplió la suite a 117/117 y cubrió detección táctil,
 apertura de contexto nuevo, eliminación de `opener`, conservación de clics con
 modificadores y fallback a la pestaña actual cuando el webview bloquea popups.
+
+La corrección de identidad móvil conservó 117/117 pruebas. El smoke público en
+un viewport CSS de 390 px resolvió `Miguel Giusti`, mostró `Autor identificado`
+en una tarjeta de 336 px dentro de la pantalla, confirmó disposición vertical
+y `overflow-wrap: anywhere`, y mantuvo Wikipedia, Wikidata, ORCID y la
+procedencia del corpus visibles. No requirió descargar corpus ni modelos.
 
 El smoke público comprobó tres caminos no usados como excepciones:
 
@@ -101,6 +115,8 @@ aviso correcto de cobertura.
 - GitHub Pages: workflow `40985963509`.
 - Navegación móvil: implementación `d378542`; PR `#37`; merge
   `97629f3dc93f725fb9d740f87242b8e3b92f05a9`; workflow `41011270245`.
+- Identidad visible en móvil: implementación `81de4ce`; PR `#38`; merge
+  `4e8744b8d9b07dd1bf343763fd20b8e086789fd8`; workflow `41012087758`.
 
 ## Separación experimental
 

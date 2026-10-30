@@ -1,7 +1,7 @@
 ---
 type: hub
 project: InvestigacionFilosofica
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Investigación Filosófica · Research Vault

@@ -1,6 +1,6 @@
 ---
 type: ai-context
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Contexto para asistentes
@@ -159,6 +159,13 @@ nueva pestaña, de modo que la búsqueda de origen no se reemplaza. La ruta
 separa explícitamente nombre, ID OpenAlex y ORCID.
 No usa la API de OpenAlex ni modifica retrieval, ranking, reranker o artefactos
 Qwen.
+
+La presentación móvil de esa identidad ya no depende de la lista de resultados:
+una región viva separada muestra `Autor identificado` apenas concluye la
+resolución, incluso si el resto de la búsqueda continúa. En teléfono se apila en
+una columna y conserva nombre, Wikipedia, Wikidata, ORCID y procedencia dentro
+del viewport. Esta es una corrección de presentación; no cambia identidad,
+retrieval ni ranking.
 
 [[Author-Archive-Page-V1]] transforma esa ruta compartible en una página
 intelectual dedicada. Presenta identidad, biografía verificable, métricas del
