@@ -186,4 +186,13 @@ u ORCID y deduplica por DOI, ISBN o huella bibliográfica. La vista federada
 mantiene aviso de no exhaustividad. No usa la API de OpenAlex y no modifica
 retrieval, ranking, reranker o artefactos Qwen.
 
+[[Crossref-Work-Eligibility-V1]] corrige una contaminación general del motor
+federado: Crossref devolvía revistas y fascículos con DOI propio como si fueran
+documentos cuando la consulta coincidía con el nombre del contenedor. El gate
+exige título y excluye tipos editoriales no citables antes de la fusión. La
+consulta libre conserva búsqueda bibliográfica para no perder autores
+arbitrarios; las intenciones explícitas de autor y obra usan campos precisos.
+No hay listas negras por concepto o persona, no se modificó `src/core/rank.js`
+y los experimentos Qwen permanecen intactos.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
