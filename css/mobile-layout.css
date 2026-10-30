@@ -73,6 +73,7 @@
   }
 
   .hero-shell .search-form select {
+    display: block;
     grid-column: 1;
     height: 48px;
     font-size: 16px;
