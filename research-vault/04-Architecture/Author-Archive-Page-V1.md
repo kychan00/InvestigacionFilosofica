@@ -7,6 +7,9 @@ updated: 2026-10-29
 
 # Author Archive Page V1
 
+La generación general de estas páginas y su cascada de identidad se documentan
+en [[Universal-Author-Pages-V1]].
+
 ## Problema
 
 [[Author-Works-Navigation-V1]] resolvió la transición desde un nombre de autor

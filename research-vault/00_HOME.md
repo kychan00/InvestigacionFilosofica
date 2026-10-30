@@ -60,6 +60,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Multi-Author-Relationship-Search-V1]]
 - [[Author-Works-Navigation-V1]]
 - [[Author-Archive-Page-V1]]
+- [[Universal-Author-Pages-V1]]
 
 ## Principios adoptados
 
