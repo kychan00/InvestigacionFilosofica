@@ -165,7 +165,8 @@ una región viva separada muestra `Autor identificado` apenas concluye la
 resolución, incluso si el resto de la búsqueda continúa. En teléfono se apila en
 una columna y conserva nombre, Wikipedia, Wikidata, ORCID y procedencia dentro
 del viewport. Esta es una corrección de presentación; no cambia identidad,
-retrieval ni ranking.
+retrieval ni ranking. La región precede a la barra lateral en el orden DOM, por
+lo que en móvil aparece antes de los filtros.
 
 [[Author-Archive-Page-V1]] transforma esa ruta compartible en una página
 intelectual dedicada. Presenta identidad, biografía verificable, métricas del

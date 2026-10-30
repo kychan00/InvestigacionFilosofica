@@ -83,6 +83,11 @@ columna, conserva el nombre completo con corte seguro y mantiene visibles sus
 enlaces de evidencia. La página dedicada de autor conserva su encabezado
 editorial y no duplica esta tarjeta.
 
+El orden DOM coloca esa región antes de la barra lateral: en teléfono, la
+identidad aparece inmediatamente después del resumen de búsqueda y antes de los
+filtros. En escritorio conserva alineación con la columna principal mediante la
+misma variable de anchura de la barra lateral.
+
 ## Verificación pública
 
 La suite aprobó inicialmente 113/113 pruebas, incluidas identidades sintéticas arbitrarias
@@ -117,6 +122,8 @@ aviso correcto de cobertura.
   `97629f3dc93f725fb9d740f87242b8e3b92f05a9`; workflow `41011270245`.
 - Identidad visible en móvil: implementación `81de4ce`; PR `#38`; merge
   `4e8744b8d9b07dd1bf343763fd20b8e086789fd8`; workflow `41012087758`.
+- Orden identidad→filtros: implementación `283409f`; PR `#39`; merge
+  `8d5c225f54832199d2d6d9e05ecf025c2e762406`; workflow `41012570499`.
 
 ## Separación experimental
 
