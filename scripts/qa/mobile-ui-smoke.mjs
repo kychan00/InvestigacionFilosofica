@@ -147,13 +147,14 @@ try {
       values.scrollWidth <= values.viewport + 2,
       "Document overflows at " + width + "px: " + JSON.stringify(values)
     );
-    for (const key of ["panel", "input", "submit", "workspace", "result", "title"]) {
+    for (const key of ["panel", "input", "select", "submit", "workspace", "result", "title"]) {
       assert.ok(
         values[key].left >= -2 && values[key].right <= values.viewport + 2,
         key + " is clipped at " + width + "px: " + JSON.stringify(values[key])
       );
     }
 
+    assert.ok(values.select.height >= 44, "Search depth must remain visible and tappable");
     assert.ok(values.submit.height >= 44, "Submit tap target too small");
     assert.ok(values.recordButton.height >= 44, "Result tap target too small");
     if (width <= 620) {
