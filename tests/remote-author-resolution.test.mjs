@@ -1397,7 +1397,7 @@ test(
     );
     assert.match(
       app,
-      /resolveCrossrefAuthor/u
+      /resolveFederatedAuthor/u
     );
     assert.match(
       app,
