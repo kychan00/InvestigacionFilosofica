@@ -1,6 +1,6 @@
 ---
 type: project-state
-updated: 2026-10-30
+updated: 2026-10-31
 status: design
 ---
 
@@ -127,6 +127,8 @@ Estado al 2026-10-10:
 - el PR 39 movió esa región antes de la barra de filtros en el orden DOM; el merge `8d5c225f54832199d2d6d9e05ecf025c2e762406`, el workflow `41012570499` y 117/117 pruebas quedaron validados; el smoke final a 390 px confirmó `Autor identificado` como primer elemento del workspace, antes de `Filtros`, con una tarjeta de 364 px dentro del viewport;
 - [[Crossref-Work-Eligibility-V1]] quedó desplegado mediante los PR 40–42 y el merge final `7a65e818d5b5233e918f8318e16ab69f9088729a`: elimina revistas, fascículos, volúmenes, series y registros sin título antes de fusionarlos como obras; conserva búsqueda bibliográfica libre para autores arbitrarios y campos precisos para intenciones explícitas; aprobó 120/120 pruebas y el workflow `41077241618`; el smoke público final mostró cero `TECNOCIENCIA Chihuahua` para `tecnociencia` y obras de Alonso Nava Amezcua en los puestos 1 y 2;
 - [[Philosophical-Grid-Design-V1]] quedó desplegado mediante el PR 43 y el merge `21b2a5999e75ae95f807b25ced8d19406cc67cb0`: introduce una retícula editorial de ocho puntos, alto contraste, tipografía filosófica, registros de archivo, movimiento funcional y una página de autor coherente, sin mostrar marcas externas; el workflow `41086150517` aprobó 120/120 pruebas y el QA público confirmó portada y responsive a 390 px sin overflow horizontal; es una capa exclusivamente visual y no modifica retrieval, ranking, `src/core/rank.js`, reranker ni artefactos Qwen;
+- los PR 44–46 normalizaron la portada y las tarjetas de resultados móviles, añadieron una regresión geométrica en CI y sustituyeron acciones verdes heredadas por superficies neutrales con un único acento azul; esa base externa quedó preservada sin reescritura;
+- [[Pre-Search-Filter-Console-V1]] quedó desplegada mediante el PR 48 y el merge `d6a5669964cf92c65ac88bad5669e87e1d0acb1d`: año desde/hasta, idioma, tipo y orden aparecen antes de buscar; todas las fuentes permanecen activas sin selector visible; Semántica envía filtros a la API y la ruta federada filtra cada lote progresivo antes de presentarlo; la regresión móvil `41222582465`, la suite 125/125 y el deploy `41222682217` aprobaron; el QA público confirmó cinco controles, cero selector de fuente, orden `Similitud semántica`, citas desactivadas y cero overflow a 390 px; no cambió retrieval, ranking, `src/core/rank.js`, reranker ni artefactos Qwen;
 - la interfaz denomina la señal `similitud`, no probabilidad ni juicio humano de relevancia, y oculta filtros sin respaldo material en el snapshot semántico;
 - la suite de producción aprobó 74/74 pruebas y el build auditado conservó cero imports Node en el bundle browser-q8.
 

@@ -1,6 +1,6 @@
 ---
 type: ai-context
-updated: 2026-10-30
+updated: 2026-10-31
 ---
 
 # Contexto para asistentes
@@ -202,5 +202,13 @@ universales de autor; usa movimiento funcional con alternativa de movimiento
 reducido y mantiene responsive verificado a 390 px. Es un cambio sólo de
 presentación: no modifica retrieval, ranking, `src/core/rank.js`, reranker ni
 artefactos Qwen congelados.
+
+[[Pre-Search-Filter-Console-V1]] lleva las restricciones de año, idioma, tipo y
+orden al panel anterior a la búsqueda. Las fuentes académicas permanecen
+activas y no existe selector de proveedor. Semántica envía filtros materiales a
+la API; la ruta federada los aplica sobre cada lote progresivo antes de
+presentarlo. `Citas` queda desactivado en Semántica porque el índice no respalda
+esa señal. La integración preserva la capa móvil anterior, no cambia retrieval,
+ranking, `src/core/rank.js`, reranker ni artefactos Qwen congelados.
 
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.
