@@ -156,7 +156,7 @@ test(
 
     assert.match(
       html,
-      /philosophical-grid\.css\?v=20261030-philosophical-grid-v1/u
+      /philosophical-grid\.css\?v=20261031-pre-search-filters-v2/u
     );
 
     assert.match(

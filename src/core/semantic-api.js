@@ -605,6 +605,7 @@ export async function searchPublicSemantic(
   query,
   {
     limit = 15,
+    filters = {},
     signal,
     fetchImpl = globalThis.fetch
   } = {}
@@ -643,7 +644,13 @@ export async function searchPublicSemantic(
                     15
                   )
                 ),
-              filters: {},
+              filters:
+                filters &&
+                typeof filters ===
+                  "object" &&
+                !Array.isArray(filters)
+                  ? filters
+                  : {},
               enable_reranker:
                 false,
               enable_presentation_hygiene:

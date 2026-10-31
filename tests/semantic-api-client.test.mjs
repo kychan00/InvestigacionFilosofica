@@ -223,6 +223,18 @@ test(
         {
           limit:
             99,
+          filters: {
+            year_from:
+              1950,
+            year_to:
+              2026,
+            languages: [
+              "es",
+              "en"
+            ],
+            publication_type:
+              "article"
+          },
           fetchImpl:
             async (
               url,
@@ -264,7 +276,18 @@ test(
           payload.query,
         limit:
           20,
-        filters: {},
+        filters: {
+          year_from:
+            1950,
+          year_to:
+            2026,
+          languages: [
+            "es",
+            "en"
+          ],
+          publication_type:
+            "article"
+        },
         enable_reranker:
           false,
         enable_presentation_hygiene:
