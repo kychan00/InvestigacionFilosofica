@@ -191,6 +191,23 @@ try {
           getComputedStyle(document.querySelector(".record-open")).backgroundColor,
         secondaryBackground:
           getComputedStyle(document.querySelector(".result-open-link")).backgroundColor,
+        doiBackground:
+          getComputedStyle(document.querySelector(".result-card:nth-of-type(2) .result-doi-link")).backgroundColor,
+        cardBackground:
+          getComputedStyle(document.querySelector(".result-card")).backgroundColor,
+        cardBorderLeft:
+          getComputedStyle(document.querySelector(".result-card")).borderLeftColor,
+        cardBorderRadius:
+          getComputedStyle(document.querySelector(".result-card")).borderTopLeftRadius,
+        recordBorderRadius:
+          getComputedStyle(document.querySelector(".record-open")).borderTopLeftRadius,
+        openBorderRadius:
+          getComputedStyle(document.querySelector(".result-open-link")).borderTopLeftRadius,
+        openShadow:
+          getComputedStyle(document.querySelector(".result-open-link")).boxShadow,
+        resultTitleFont:
+          getComputedStyle(document.querySelector(".result-card h2")).fontFamily,
+        doiButton: find(".result-card:nth-of-type(2) .result-doi-link"),
         resultGridColumns:
           getComputedStyle(document.querySelector(".result-card")).gridTemplateColumns,
         nav: [...document.querySelectorAll(".philo-nav-links a")].map(rect),
@@ -245,6 +262,28 @@ try {
       values.primaryBackground,
       values.secondaryBackground,
       "Primary and secondary actions need distinct visual hierarchy"
+    );
+    assert.deepEqual(
+      [values.primaryBackground, values.secondaryBackground, values.doiBackground],
+      ["rgb(15, 98, 254)", "rgb(57, 57, 57)", "rgb(255, 255, 255)"],
+      "Result actions must use blue, graphite and white; no green legacy overrides"
+    );
+    assert.equal(values.cardBackground, "rgb(244, 244, 244)", "Card must use neutral surface");
+    assert.equal(values.cardBorderLeft, "rgb(15, 98, 254)", "Card accent should use the single blue token");
+    for (const [name, radius] of [
+      ["Card", values.cardBorderRadius],
+      ["Primary action", values.recordBorderRadius],
+      ["Open action", values.openBorderRadius]
+    ]) {
+      assert.equal(radius, "0px", name + " must have flat corners");
+    }
+    assert.equal(values.openShadow, "none", "Legacy green button shadow must be removed");
+    assert.match(values.resultTitleFont, /Helvetica Neue|Avenir Next|Arial/, "Card title uses design-system sans typography");
+    assert.ok(
+      values.doiButton.height >= 44 &&
+        values.doiButton.left >= values.result.left &&
+        values.doiButton.right <= values.result.right,
+      "DOI secondary action must be visible and usable within the card"
     );
     assert.ok(
       values.fetchMorePanel.width <= values.workspace.width + 2 &&
