@@ -222,7 +222,13 @@ try {
     assert.ok(
       values.score.top >= values.resultContent.bottom - 2 &&
         values.score.right <= values.result.right + 2,
-      "Result score must sit beneath content, inside the card"
+      "Result score must sit beneath content, inside the card: " +
+        JSON.stringify({
+          viewport: width,
+          result: values.result,
+          content: values.resultContent,
+          score: values.score
+        })
     );
     assert.ok(
       values.resultGridColumns.split(" ").length === 1,
