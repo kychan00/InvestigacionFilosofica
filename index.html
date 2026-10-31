@@ -8,6 +8,32 @@
     content="width=device-width, initial-scale=1"
   >
 
+  <meta
+    name="theme-color"
+    content="#161616"
+  >
+
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+
+      try {
+        saved = localStorage.getItem(key);
+      } catch {}
+
+      const preferred =
+        saved === "light" || saved === "dark"
+          ? saved
+          : matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+
   <title>
     Investigación Filosófica
   </title>
@@ -36,6 +62,11 @@
     rel="stylesheet"
     href="./css/record-detail.css?v=20261031-record-detail-v1"
   >
+
+  <link
+    rel="stylesheet"
+    href="./css/theme.css?v=20261031-day-night-v4"
+  >
 </head>
 
 <body>
@@ -62,6 +93,28 @@
             Archivo vivo
           </small>
         </a>
+
+        <div
+          class="theme-switch"
+          role="group"
+          aria-label="Apariencia"
+        >
+          <button
+            type="button"
+            data-theme-choice="light"
+            aria-pressed="false"
+          >
+            Día
+          </button>
+
+          <button
+            type="button"
+            data-theme-choice="dark"
+            aria-pressed="false"
+          >
+            Oscuro
+          </button>
+        </div>
 
         <div class="philo-nav-links">
           <a href="#results">
@@ -541,6 +594,11 @@
   <script
     type="module"
     src="./js/app.js?v=20261030-crossref-work-hygiene-v2"
+  ></script>
+
+  <script
+    type="module"
+    src="./js/theme.js?v=20261031-day-night-v1"
   ></script>
 
 </body>
