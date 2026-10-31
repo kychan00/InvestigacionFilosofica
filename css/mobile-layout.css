@@ -897,3 +897,228 @@
     right: 12px;
   }
 }
+
+/* =========================================================
+   MOBILE RESEARCH CARDS · neutral surfaces and blue actions
+   Restrained to touch layouts; desktop stays unchanged.
+   The legacy editorial stylesheet uses !important for green
+   links, so only those conflicting visual tokens need it here.
+   ========================================================= */
+@media (max-width: 820px) {
+  .results > .result-card,
+  .author-work-grid .result-card {
+    --card-ink: #161616;
+    --card-text: #393939;
+    --card-muted: #525252;
+    --card-surface: #f4f4f4;
+    --card-line: #c6c6c6;
+    --card-action: #0f62fe;
+    --card-action-hover: #0353e9;
+    --card-secondary: #393939;
+    --card-secondary-hover: #525252;
+
+    padding: 20px 16px 16px;
+    border: 1px solid var(--card-line);
+    border-left: 4px solid var(--card-action);
+    border-radius: 0;
+    background: var(--card-surface) !important;
+    box-shadow: none !important;
+  }
+
+  .result-card:hover {
+    transform: none;
+  }
+
+  .result-card .result-visual {
+    width: 40px;
+    height: 40px;
+    background: var(--card-ink);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .result-card .result-rank {
+    color: #78a9ff;
+    font-size: 13px;
+  }
+
+  .result-card .relevance-pill {
+    min-height: 28px;
+    padding: 5px 10px;
+    border: 1px solid var(--card-line);
+    border-radius: 0;
+    background: #e0e0e0;
+    color: var(--card-ink);
+    font-family: var(--pg-sans);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: .02em;
+  }
+
+  .result-card h2 {
+    color: var(--card-ink);
+    font-family: var(--pg-sans);
+    font-size: clamp(21px, 5.6vw, 28px);
+    font-weight: 600;
+    line-height: 1.22;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .result-card .meta {
+    color: var(--card-text);
+    font-size: 13px;
+  }
+
+  .result-card .meta a {
+    color: var(--card-ink);
+    text-decoration-color: var(--card-action);
+  }
+
+  .result-card .provider-row {
+    margin: 16px 0;
+    gap: 6px;
+  }
+
+  .result-card .provider {
+    padding: 5px 8px !important;
+    border: 1px solid var(--card-line) !important;
+    border-radius: 0 !important;
+    background: #e0e0e0 !important;
+    color: var(--card-text) !important;
+    box-shadow: none !important;
+    font-size: 10px !important;
+  }
+
+  .result-card .result-links {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+    background: transparent;
+  }
+
+  .result-card .result-links > * {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .result-card .result-links .record-open,
+  .result-card .result-links .institutional-card-link,
+  .result-card .result-links .result-secondary-link,
+  .result-card .result-links .result-open-link,
+  .result-card .result-links .result-doi-link {
+    display: inline-flex;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    font-family: var(--pg-sans);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    justify-content: space-between;
+    transform: none;
+    transition: background-color .15s ease, color .15s ease;
+  }
+
+  .result-card .result-links .record-open {
+    border: 1px solid var(--card-action) !important;
+    background: var(--card-action) !important;
+    color: #fff !important;
+  }
+
+  .result-card .result-links .record-open:hover,
+  .result-card .result-links .record-open:active {
+    border-color: var(--card-action-hover) !important;
+    background: var(--card-action-hover) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    transform: none;
+  }
+
+  .result-card .result-links .institutional-card-link,
+  .result-card .result-links .result-secondary-link,
+  .result-card .result-links .result-open-link {
+    border: 1px solid var(--card-secondary) !important;
+    background: var(--card-secondary) !important;
+    color: #fff !important;
+  }
+
+  .result-card .result-links .institutional-card-link:hover,
+  .result-card .result-links .institutional-card-link:active,
+  .result-card .result-links .result-secondary-link:hover,
+  .result-card .result-links .result-secondary-link:active,
+  .result-card .result-links .result-open-link:hover,
+  .result-card .result-links .result-open-link:active {
+    border-color: var(--card-secondary-hover) !important;
+    background: var(--card-secondary-hover) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    transform: none;
+  }
+
+  .result-card .result-links .result-doi-link {
+    border: 1px solid #8d8d8d !important;
+    background: #fff !important;
+    color: var(--card-ink) !important;
+  }
+
+  .result-card .result-links .result-doi-link:hover,
+  .result-card .result-links .result-doi-link:active {
+    border-color: var(--card-ink) !important;
+    background: #e0e0e0 !important;
+    color: var(--card-ink) !important;
+    box-shadow: none !important;
+    transform: none;
+  }
+
+  .result-card .result-links :is(button, a):focus-visible {
+    outline: 2px solid var(--card-action) !important;
+    outline-offset: 3px;
+  }
+
+  .result-card .explain {
+    color: var(--card-muted) !important;
+    font-size: 11px !important;
+    line-height: 1.5;
+  }
+
+  .result-card .explanation {
+    border-top: 1px solid var(--card-line);
+  }
+
+  .result-card .explanation summary {
+    color: var(--card-ink);
+  }
+
+  .result-card .score-panel {
+    border-top: 1px solid var(--card-line);
+  }
+
+  .result-card .score-panel .score {
+    border: 1px solid var(--card-line);
+    border-radius: 0;
+    background: #fff;
+    color: var(--card-ink);
+    font-family: var(--pg-sans);
+    font-size: 23px;
+    font-weight: 600;
+  }
+
+  .result-card .score-panel > span {
+    color: var(--card-muted);
+  }
+
+  .result-card .score-meter {
+    height: 4px;
+    background: #d0d0d0;
+  }
+
+  .result-card .score-meter i {
+    background: var(--card-action);
+  }
+}
