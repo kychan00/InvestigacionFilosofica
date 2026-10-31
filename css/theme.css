@@ -1,0 +1,505 @@
+/* =========================================================
+   DAY / NIGHT APPEARANCE
+   Loaded after all presentation layers so both modes cover
+   search, results, author archives and bibliographic records.
+   ========================================================= */
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --theme-page: #f4f4f4;
+  --theme-surface: #ffffff;
+  --theme-surface-2: #e8e8e8;
+  --theme-text: #161616;
+  --theme-text-soft: #525252;
+  --theme-line: #c6c6c6;
+  --theme-header-line: rgba(22, 22, 22, .24);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-page: #101214;
+  --theme-surface: #161616;
+  --theme-surface-2: #262626;
+  --theme-text: #f4f4f4;
+  --theme-text-soft: #c6c6c6;
+  --theme-line: #525252;
+  --theme-header-line: rgba(255, 255, 255, .24);
+}
+
+html,
+body,
+.hero-shell,
+.search-panel,
+.research-workspace,
+.result-card,
+.author-analysis-card,
+.author-page-taxonomy,
+.record-modal-panel,
+.udeg-modal-panel {
+  transition:
+    color .24s var(--pg-ease),
+    background-color .24s var(--pg-ease),
+    border-color .24s var(--pg-ease),
+    box-shadow .24s var(--pg-ease);
+}
+
+html,
+body,
+body.author-view {
+  background: var(--theme-page);
+  color: var(--theme-text);
+}
+
+body::before {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--theme-text) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--theme-text) 4%, transparent) 1px, transparent 1px);
+}
+
+/* Appearance control */
+
+.theme-switch {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  min-width: 170px;
+  min-height: 40px;
+  margin-left: auto;
+  border: 1px solid var(--theme-header-line);
+  background: color-mix(in srgb, var(--theme-surface) 12%, transparent);
+}
+
+.theme-switch button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 10px;
+  border: 0;
+  border-right: 1px solid var(--theme-header-line);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-family: var(--pg-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.theme-switch button:last-child {
+  border-right: 0;
+}
+
+.theme-switch button[aria-pressed="true"] {
+  background: var(--pg-blue);
+  color: var(--pg-white);
+}
+
+.theme-switch button:not([aria-pressed="true"]):hover {
+  background: color-mix(in srgb, var(--theme-text) 10%, transparent);
+}
+
+/* Day hero */
+
+html[data-theme="light"] .hero-shell {
+  color: var(--pg-black);
+  background:
+    linear-gradient(90deg, rgba(247,245,240,.97) 0 41%, rgba(247,245,240,.86) 58%, rgba(247,245,240,.42) 100%),
+    linear-gradient(180deg, rgba(15,98,254,.08), rgba(247,245,240,.18)),
+    url("../assets/hero-school-athens.jpg") center 42% / cover no-repeat;
+  background-blend-mode: normal, color, luminosity;
+}
+
+html[data-theme="light"] .hero-shell::before {
+  background:
+    linear-gradient(90deg, transparent calc(50% - .5px), rgba(22,22,22,.12) 50%, transparent calc(50% + .5px)),
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(8.3333% - 1px), rgba(22,22,22,.07) calc(8.3333% - 1px), rgba(22,22,22,.07) 8.3333%);
+}
+
+html[data-theme="light"] .hero-shell::after {
+  color: rgba(22,22,22,.055);
+}
+
+html[data-theme="light"] :is(
+  .philo-brand,
+  .philo-mark,
+  .hero-shell h1,
+  .hero-marginalia strong
+) {
+  color: var(--pg-black);
+}
+
+html[data-theme="light"] :is(
+  .philo-brand-subtitle,
+  .philo-nav-links a,
+  .hero-shell .lead,
+  .hero-thesis,
+  .hero-marginalia,
+  .hero-sources
+) {
+  color: var(--pg-black-2);
+}
+
+html[data-theme="light"] :is(
+  .philo-nav,
+  .hero-thesis,
+  .hero-sources,
+  .search-mode-switch
+) {
+  border-color: rgba(22,22,22,.24);
+}
+
+html[data-theme="light"] .philo-mark {
+  border-color: rgba(22,22,22,.42);
+}
+
+html[data-theme="light"] .philo-nav-links a {
+  border-left-color: rgba(22,22,22,.18);
+}
+
+html[data-theme="light"] .hero-shell .search-panel {
+  border-color: rgba(22,22,22,.28);
+  border-left-color: var(--pg-blue);
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 24px 70px rgba(22,22,22,.16);
+}
+
+html[data-theme="light"] .search-mode-option {
+  border-right-color: rgba(22,22,22,.18);
+  color: var(--pg-gray-50);
+}
+
+html[data-theme="light"] .search-mode-option.is-active {
+  background: rgba(15,98,254,.07);
+  color: var(--pg-black);
+}
+
+html[data-theme="light"] :is(
+  .search-mode-note,
+  .search-engine-indicator,
+  .status,
+  .search-filters-heading h2,
+  .search-filters-heading p,
+  .search-filter-grid label,
+  .search-filters .filter-count
+) {
+  color: var(--pg-black-2);
+}
+
+html[data-theme="light"] .search-filter-grid :is(select, input) {
+  border-color: rgba(22,22,22,.28);
+  background-color: var(--pg-white);
+  color: var(--pg-black);
+  color-scheme: light;
+}
+
+html[data-theme="light"] .search-filter-grid label {
+  background: var(--pg-gray-100);
+  color: var(--pg-gray-50);
+}
+
+html[data-theme="light"] .search-filter-grid input::placeholder {
+  color: var(--pg-gray-50);
+}
+
+html[data-theme="light"] .search-filters #filter-reset {
+  border-color: rgba(22,22,22,.5) !important;
+  color: var(--pg-black) !important;
+}
+
+/* Shared surfaces */
+
+.research-workspace,
+.result-card,
+.author-page-metrics,
+.author-analysis-card,
+.author-page-taxonomy,
+.chip,
+.score-panel .score,
+.record-modal-panel,
+.udeg-modal-panel {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+}
+
+.research-workspace,
+.author-identity,
+.stats,
+.stat,
+.result-card,
+.provider,
+.relevance-pill,
+.score-panel .score,
+.load-more-wrap,
+.fetch-more-wrap,
+.search-loading-card,
+.source-notice,
+.error,
+.author-resolution,
+.author-page-metrics > div,
+.author-analysis-card,
+.author-focus-term,
+.author-page-taxonomy,
+.author-page-taxonomy > div > div > span,
+.record-modal-panel,
+.udeg-modal-panel {
+  border-color: var(--theme-line) !important;
+}
+
+.stats,
+.provider,
+.load-more-wrap,
+.fetch-more-wrap,
+.search-loading-card,
+.source-notice,
+.error,
+.author-identity,
+.author-resolution,
+.author-focus-term,
+.author-page-taxonomy > div > div > span {
+  background: var(--theme-surface-2) !important;
+}
+
+:is(
+  .filters h2,
+  .filter-grid label,
+  .stat strong,
+  .result-card h2,
+  .result-card .meta a,
+  .author-profile-link,
+  .result-abstract,
+  .explanation summary,
+  .score-panel .score,
+  .author-page,
+  .author-page-metrics strong,
+  .author-analysis-card h2,
+  .author-page-works-heading h2,
+  .author-focus-term
+) {
+  color: var(--theme-text);
+}
+
+:is(
+  .filter-count,
+  .stat,
+  .result-card .meta,
+  .explain,
+  .score-panel > span,
+  .author-page-metrics span,
+  .author-page-metrics small
+) {
+  color: var(--theme-text-soft) !important;
+}
+
+.result-card:hover,
+.author-page-metrics > div:hover {
+  background: color-mix(in srgb, var(--theme-surface) 88%, var(--theme-text) 12%);
+}
+
+.result-card {
+  border-left-color: var(--pg-blue) !important;
+}
+
+.relevance-pill {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+}
+
+.result-links {
+  background: var(--theme-line);
+}
+
+.result-links :is(
+  .institutional-card-link,
+  .result-secondary-link,
+  .result-open-link,
+  .result-doi-link
+) {
+  background: var(--theme-surface-2) !important;
+  color: var(--theme-text) !important;
+  box-shadow: none !important;
+}
+
+.result-links .record-open {
+  background: var(--pg-blue) !important;
+  color: var(--pg-white) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .provider {
+  color: var(--theme-text) !important;
+}
+
+html[data-theme="dark"] .load-more,
+html[data-theme="dark"] .fetch-more {
+  background: var(--pg-blue);
+}
+
+html[data-theme="dark"] .result-visual {
+  border: 1px solid var(--theme-line);
+}
+
+/* Author archive */
+
+html[data-theme="light"] .author-page-hero {
+  color: var(--pg-black);
+  background:
+    linear-gradient(90deg, rgba(247,245,240,.97), rgba(247,245,240,.70)),
+    url("../assets/hero-school-athens.jpg") center 38% / cover;
+  background-blend-mode: normal, luminosity;
+}
+
+html[data-theme="light"] :is(
+  .author-page h1,
+  .author-page-biography,
+  .author-page-back
+) {
+  color: var(--pg-black);
+}
+
+html[data-theme="light"] .author-page-seal {
+  border-color: rgba(22,22,22,.34);
+  background: rgba(255,255,255,.44);
+  box-shadow: inset 0 0 0 16px rgba(22,22,22,.025);
+}
+
+html[data-theme="light"] body.author-view .hero-shell {
+  background: var(--pg-paper);
+}
+
+html[data-theme="dark"] body.author-view .hero-shell {
+  background: var(--pg-black);
+}
+
+/* Record and library dialogs */
+
+html[data-theme="dark"] #record-modal .record-modal-panel,
+html[data-theme="dark"] #record-modal .record-cinematic,
+html[data-theme="dark"] #record-modal .record-cinematic-layout {
+  background: var(--theme-surface) !important;
+  color: var(--theme-text) !important;
+  scrollbar-color: var(--theme-line) var(--theme-surface-2);
+}
+
+html[data-theme="dark"] #record-modal :is(
+  .cinematic-author-card,
+  .cinematic-quick-grid,
+  .cinematic-section,
+  .cinematic-meta-card
+) {
+  border-color: var(--theme-line) !important;
+  background: var(--theme-surface-2) !important;
+}
+
+html[data-theme="dark"] #record-modal .record-cinematic-layout :is(
+  h2,
+  h3,
+  p,
+  li,
+  dt,
+  dd,
+  summary,
+  strong
+) {
+  color: var(--theme-text) !important;
+}
+
+html[data-theme="dark"] #record-modal :is(
+  .section-eyebrow,
+  .cinematic-meta-card span,
+  .cinematic-quick-grid span,
+  .author-card-caption,
+  .cinematic-note,
+  .cinematic-provenance li,
+  .provenance-rank
+) {
+  color: var(--theme-text-soft) !important;
+}
+
+html[data-theme="dark"] #record-modal :is(
+  .cinematic-section-heading h3,
+  .cinematic-meta-card strong,
+  .cinematic-quick-grid strong,
+  .cinematic-author-card strong,
+  .provenance-source,
+  .explanation-cinematic .explanation summary
+) {
+  color: var(--theme-text) !important;
+}
+
+html[data-theme="dark"] #record-modal :is(
+  .institutional-cinematic,
+  .cinematic-provenance li,
+  .explanation-cinematic .explanation summary,
+  .cinematic-topic
+) {
+  border-color: var(--theme-line) !important;
+  background: var(--theme-surface-2) !important;
+}
+
+html[data-theme="dark"] :is(
+  .udeg-library,
+  .udeg-resource-card,
+  .udeg-modal-content
+) {
+  background: var(--theme-surface) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-line) !important;
+}
+
+@media (max-width: 620px) {
+  .philo-brand {
+    padding-right: 156px;
+  }
+
+  .theme-switch {
+    position: absolute;
+    top: 11px;
+    right: 0;
+    z-index: 4;
+    min-width: 146px;
+  }
+
+  html[data-theme="light"] .philo-nav-links {
+    border-top-color: rgba(22,22,22,.24);
+  }
+
+  html[data-theme="light"] .hero-shell {
+    background:
+      linear-gradient(180deg, rgba(247,245,240,.96), rgba(247,245,240,.88)),
+      url("../assets/hero-school-athens.jpg") center / cover;
+  }
+}
+
+@media (max-width: 359px) {
+  .philo-brand > span:not(.philo-mark) {
+    max-width: 88px;
+  }
+
+  .theme-switch {
+    min-width: 136px;
+  }
+
+  .theme-switch button {
+    padding: 0 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .hero-shell,
+  .search-panel,
+  .research-workspace,
+  .result-card,
+  .author-analysis-card,
+  .author-page-taxonomy,
+  .record-modal-panel,
+  .udeg-modal-panel {
+    transition: none !important;
+  }
+}
+
