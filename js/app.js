@@ -3261,296 +3261,306 @@ async function runQwen3Rerank() {
 }
 
 
-function renderFilters(
-  results
+function publicationTypeLabel(
+  value
 ) {
-  const semanticResults =
-    currentResponse?.searchMode ===
-    "semantic";
+  const labels = {
+    article:
+      "Artículo",
+    "journal-article":
+      "Artículo de revista",
+    book:
+      "Libro",
+    "book-chapter":
+      "Capítulo de libro",
+    dissertation:
+      "Tesis",
+    "proceedings-article":
+      "Ponencia o acta",
+    text:
+      "Texto de archivo"
+  };
 
-  const detectedLanguages =
+  return labels[value] || value;
+}
 
-    uniqueSorted(
-      results.map(
-        item =>
-          effectiveLanguage(
-            item
-          )
+
+function appendFilterOptions(
+  selector,
+  values,
+  labelForValue
+) {
+  const select =
+    document.querySelector(
+      selector
+    );
+
+  if (!select) {
+    return;
+  }
+
+  const existing =
+    new Set(
+      [...select.options]
+        .map(
+          option =>
+            option.value
+        )
+    );
+
+  for (
+    const value of
+    uniqueSorted(values)
+  ) {
+    if (
+      !value ||
+      existing.has(value)
+    ) {
+      continue;
+    }
+
+    const option =
+      document.createElement(
+        "option"
+      );
+
+    option.value =
+      value;
+    option.textContent =
+      labelForValue(value);
+
+    select.append(option);
+    existing.add(value);
+  }
+}
+
+
+function activeSearchFilterCount() {
+  return [
+    getFilterValue(
+      "#filter-year-from"
+    ),
+    getFilterValue(
+      "#filter-year-to"
+    ),
+    getFilterValue(
+      "#filter-language"
+    ),
+    getFilterValue(
+      "#filter-type"
+    ),
+    (
+      getFilterValue(
+        "#filter-sort"
+      ) || "relevance"
+    ) === "relevance"
+      ? ""
+      : getFilterValue(
+          "#filter-sort"
+        )
+  ].filter(Boolean).length;
+}
+
+
+function updateFilterSummary(
+  resultCount = null,
+  totalCount = null
+) {
+  const countEl =
+    document.querySelector(
+      "#filter-count"
+    );
+
+  if (!countEl) {
+    return;
+  }
+
+  const activeCount =
+    activeSearchFilterCount();
+
+  if (
+    Number.isFinite(
+      resultCount
+    ) &&
+    Number.isFinite(
+      totalCount
+    )
+  ) {
+    countEl.textContent =
+      `${resultCount} de ${totalCount} resultados` +
+      (
+        activeCount
+          ? ` · ${activeCount} ${activeCount === 1 ? "ajuste activo" : "ajustes activos"}`
+          : ""
+      );
+
+    return;
+  }
+
+  countEl.textContent =
+    activeCount
+      ? `${activeCount} ${activeCount === 1 ? "ajuste listo" : "ajustes listos"} para la próxima búsqueda`
+      : "Sin restricciones adicionales";
+}
+
+
+function buildSemanticSearchFilters() {
+  const filters = {};
+
+  const yearFrom =
+    Number(
+      getFilterValue(
+        "#filter-year-from"
       )
     );
 
-
-  const languages =
-
-    uniqueSorted([
-
-      "es",
-
-      "en",
-
-      ...detectedLanguages
-
-    ])
-
-  const providers =
-    uniqueSorted(
-      results.flatMap(
-        item =>
-          item.providers || []
+  const yearTo =
+    Number(
+      getFilterValue(
+        "#filter-year-to"
       )
     );
 
-  const types =
-    uniqueSorted(
-      results.map(
-        item =>
-          item.type
+  const language =
+    getFilterValue(
+      "#filter-language"
+    );
+
+  const publicationType =
+    getFilterValue(
+      "#filter-type"
+    );
+
+  if (
+    Number.isFinite(yearFrom) &&
+    yearFrom > 0
+  ) {
+    filters.year_from =
+      yearFrom;
+  }
+
+  if (
+    Number.isFinite(yearTo) &&
+    yearTo > 0
+  ) {
+    filters.year_to =
+      yearTo;
+  }
+
+  if (language) {
+    filters.languages = [
+      language
+    ];
+  }
+
+  if (publicationType) {
+    filters.publication_type =
+      publicationType;
+  }
+
+  return filters;
+}
+
+
+function validateSearchFilterRange() {
+  const yearFrom =
+    Number(
+      getFilterValue(
+        "#filter-year-from"
       )
     );
 
+  const yearTo =
+    Number(
+      getFilterValue(
+        "#filter-year-to"
+      )
+    );
 
-  filtersEl.innerHTML = `
-    <h2>
-      Filtros
-    </h2>
+  if (
+    yearFrom > 0 &&
+    yearTo > 0 &&
+    yearFrom > yearTo
+  ) {
+    status.textContent =
+      "El año inicial no puede ser posterior al año final.";
 
-    <div class="filter-grid">
+    document
+      .querySelector(
+        "#filter-year-from"
+      )
+      ?.focus();
 
-      ${
-        semanticResults
-          ? ""
-          : `
-            <label>
-              Relevancia
+    return false;
+  }
 
-              <select id="filter-level">
-                <option value="">
-                  Todas
-                </option>
-                <option value="P1">
-                  P1
-                </option>
-                <option value="P2">
-                  P2
-                </option>
-                <option value="P3">
-                  P3
-                </option>
-                <option value="P4">
-                  P4
-                </option>
-              </select>
-            </label>
-          `
-      }
+  return true;
+}
 
 
-      <label>
-        Año desde
+function syncFiltersToSearchMode(
+  mode
+) {
+  const semantic =
+    mode === "semantic";
 
-        <input
-          id="filter-year-from"
-          type="number"
-          inputmode="numeric"
-          placeholder="1900"
-        >
-      </label>
+  const relevanceOption =
+    document.querySelector(
+      '#filter-sort option[value="relevance"]'
+    );
 
+  const citationsOption =
+    document.querySelector(
+      '#filter-sort option[value="citations"]'
+    );
 
-      <label>
-        Año hasta
+  const sortSelect =
+    document.querySelector(
+      "#filter-sort"
+    );
 
-        <input
-          id="filter-year-to"
-          type="number"
-          inputmode="numeric"
-          placeholder="2026"
-        >
-      </label>
+  if (relevanceOption) {
+    relevanceOption.textContent =
+      semantic
+        ? "Similitud semántica"
+        : "Relevancia";
+  }
 
+  if (citationsOption) {
+    citationsOption.hidden =
+      semantic;
+    citationsOption.disabled =
+      semantic;
+  }
 
-      <label>
-        Idioma
+  if (
+    semantic &&
+    sortSelect?.value ===
+      "citations"
+  ) {
+    sortSelect.value =
+      "relevance";
+  }
 
-        <select id="filter-language">
-          <option value="">
-            Todos
-          </option>
+  updateFilterSummary();
 
-          ${languages
-            .map(
-              value => `
-                <option value="${escapeHtml(value)}">
-                  ${escapeHtml(
-                    languageLabel(value)
-                  )}
-                </option>
-              `
-            )
-            .join("")}
-        </select>
-      </label>
-
-
-      <label>
-        Fuente
-
-        <select id="filter-provider">
-          <option value="">
-            Todas
-          </option>
-
-          ${providers
-            .map(
-              value => `
-                <option value="${escapeHtml(value)}">
-                  ${escapeHtml(value)}
-                </option>
-              `
-            )
-            .join("")}
-        </select>
-      </label>
+  if (currentResults.length) {
+    applyFilters();
+  }
+}
 
 
-      <label>
-        Tipo
+function bindSearchFilters() {
+  if (
+    !filtersEl ||
+    filtersEl.dataset.bound ===
+      "true"
+  ) {
+    return;
+  }
 
-        <select id="filter-type">
-          <option value="">
-            Todos
-          </option>
-
-          ${types
-            .map(
-              value => `
-                <option value="${escapeHtml(value)}">
-                  ${escapeHtml(value)}
-                </option>
-              `
-            )
-            .join("")}
-        </select>
-      </label>
-
-      <label>
-        Ordenar por
-
-        <select id="filter-sort">
-          ${
-            currentQwen3Order
-              ? `
-                  <option
-                    value="qwen3"
-                    selected
-                  >
-                    Qwen3 experimental
-                  </option>
-                `
-              : ""
-          }
-
-          <option
-            value="relevance"
-            ${
-              currentQwen3Order
-                ? ""
-                : "selected"
-            }
-          >
-            ${
-              semanticResults
-                ? "Similitud semántica"
-                : "Relevancia"
-            }
-          </option>
-
-          <option value="year-desc">
-            Año: más reciente
-          </option>
-
-          <option value="year-asc">
-            Año: más antiguo
-          </option>
-
-          ${
-            semanticResults
-              ? ""
-              : `
-                <option value="citations">
-                  Citas
-                </option>
-              `
-          }
-        </select>
-      </label>
-
-
-      ${
-        semanticResults
-          ? ""
-          : `
-            <label class="filter-check">
-              <input
-                id="filter-open-access"
-                type="checkbox"
-              >
-
-              Sólo acceso abierto
-            </label>
-          `
-      }
-
-
-      <button
-        id="filter-reset"
-        type="button"
-        class="filter-reset"
-      >
-        Limpiar filtros
-      </button>
-
-      <div class="export-actions">
-
-        <button
-          type="button"
-          class="export-button"
-          data-export="json"
-        >
-          Exportar JSON
-        </button>
-
-        <button
-          type="button"
-          class="export-button"
-          data-export="csv"
-        >
-          Exportar CSV
-        </button>
-
-        <button
-          type="button"
-          class="export-button"
-          data-export="bibtex"
-        >
-          Exportar BibTeX
-        </button>
-
-      </div>
-
-    </div>
-
-    <div
-      id="filter-count"
-      class="filter-count"
-    ></div>
-  `;
-
-
-  filtersEl
-    .classList
-    .remove("hidden");
-
+  filtersEl.dataset.bound =
+    "true";
 
   filtersEl
     .querySelectorAll(
@@ -3559,42 +3569,83 @@ function renderFilters(
     .forEach(element => {
       element.addEventListener(
         "input",
-        applyFilters
-      );
+        () => {
+          updateFilterSummary();
 
-      element.addEventListener(
-        "change",
-        applyFilters
+          if (
+            currentResults.length
+          ) {
+            applyFilters();
+          }
+        }
       );
     });
-
 
   document
     .querySelector(
       "#filter-reset"
     )
-    .addEventListener(
+    ?.addEventListener(
       "click",
       resetFilters
     );
-
 
   filtersEl
     .querySelectorAll(
       "[data-export]"
     )
     .forEach(
-      button =>
-        button.addEventListener(
-          "click",
-          () =>
-            exportResults(
-              button.dataset.export
-            )
-        )
+      exportButton =>
+        exportButton
+          .addEventListener(
+            "click",
+            () =>
+              exportResults(
+                exportButton.dataset
+                  .export
+              )
+          )
     );
 
+  updateFilterSummary();
+}
 
+
+function renderFilters(
+  results
+) {
+  appendFilterOptions(
+    "#filter-language",
+    results.map(
+      item =>
+        effectiveLanguage(
+          item
+        )
+    ),
+    languageLabel
+  );
+
+  appendFilterOptions(
+    "#filter-type",
+    results.map(
+      item =>
+        item.type
+    ),
+    publicationTypeLabel
+  );
+
+  syncFiltersToSearchMode(
+    currentResponse?.searchMode
+  );
+
+  document
+    .querySelector(
+      "#filter-exports"
+    )
+    ?.classList
+    .remove("hidden");
+
+  bindSearchFilters();
   applyFilters();
 }
 
@@ -3609,25 +3660,12 @@ function getFilterValue(id) {
 }
 
 
-function applyFilters() {
-  if (!currentResults.length) {
-    return;
-  }
-
-
-  const level =
-    getFilterValue(
-      "#filter-level"
-    );
-
+function filterAndSortResults(
+  results
+) {
   const language =
     getFilterValue(
       "#filter-language"
-    );
-
-  const provider =
-    getFilterValue(
-      "#filter-provider"
     );
 
   const type =
@@ -3654,43 +3692,15 @@ function applyFilters() {
       )
     );
 
-  const onlyOA =
-    Boolean(
-      document
-        .querySelector(
-          "#filter-open-access"
-        )
-        ?.checked
-    );
-
-
   let filtered =
-    currentResults.filter(
+    results.filter(
       item => {
-
-        if (
-          level &&
-          item.relevanceLevel !== level
-        ) {
-          return false;
-        }
-
 
         if (
           language &&
           effectiveLanguage(
             item
           ) !== language
-        ) {
-          return false;
-        }
-
-
-        if (
-          provider &&
-          !(
-            item.providers || []
-          ).includes(provider)
         ) {
           return false;
         }
@@ -3723,14 +3733,6 @@ function applyFilters() {
             !item.year ||
             item.year > to
           )
-        ) {
-          return false;
-        }
-
-
-        if (
-          onlyOA &&
-          !item.openAccess?.isOpen
         ) {
           return false;
         }
@@ -3801,25 +3803,29 @@ function applyFilters() {
   }
 
 
+  return filtered;
+}
+
+
+function applyFilters() {
+  if (!currentResults.length) {
+    updateFilterSummary();
+    return;
+  }
+
   resetVisibleLimit();
 
   currentFilteredResults =
-    filtered;
-
+    filterAndSortResults(
+      currentResults
+    );
 
   renderFilteredResults();
 
-
-  const countEl =
-    document.querySelector(
-      "#filter-count"
-    );
-
-
-  if (countEl) {
-    countEl.textContent =
-      `${filtered.length} de ${currentResults.length} resultados`;
-  }
+  updateFilterSummary(
+    currentFilteredResults.length,
+    currentResults.length
+  );
 }
 
 
@@ -5363,13 +5369,10 @@ function resetVisibleLimit() {
 
 function resetFilters() {
   const ids = [
-    "#filter-level",
     "#filter-year-from",
     "#filter-year-to",
     "#filter-language",
-    "#filter-provider",
-    "#filter-type",
-    "#filter-sort"
+    "#filter-type"
   ];
 
 
@@ -5383,17 +5386,22 @@ function resetFilters() {
   }
 
 
-  const oa =
+  const sort =
     document.querySelector(
-      "#filter-open-access"
+      "#filter-sort"
     );
 
-  if (oa) {
-    oa.checked = false;
+  if (sort) {
+    sort.value =
+      "relevance";
   }
 
 
-  applyFilters();
+  updateFilterSummary();
+
+  if (currentResults.length) {
+    applyFilters();
+  }
 }
 
 function renderResults(
@@ -5788,7 +5796,9 @@ function renderProgressiveSearch(
     response.results;
 
   currentFilteredResults =
-    response.results;
+    filterAndSortResults(
+      response.results
+    );
 
 
   renderInterpretation(
@@ -5812,7 +5822,7 @@ function renderProgressiveSearch(
     );
 
   const visible =
-    response.results.slice(
+    currentFilteredResults.slice(
       0,
       20
     );
@@ -5824,7 +5834,15 @@ function renderProgressiveSearch(
             renderResult
           )
           .join("")
-      : renderSearchLoadingCards();
+      : (
+          response.results.length
+            ? `
+                <div class="search-filter-empty">
+                  Los resultados recibidos todavía no coinciden con los parámetros seleccionados.
+                </div>
+              `
+            : renderSearchLoadingCards()
+        );
 
 
   resultsEl.innerHTML = `
@@ -5855,6 +5873,11 @@ function renderProgressiveSearch(
 
   bindResultActions();
   bindAuthorResolutionActions();
+
+  updateFilterSummary(
+    currentFilteredResults.length,
+    currentResults.length
+  );
 
   status.textContent =
     `${response.stats.unique} resultados · ` +
@@ -5923,10 +5946,6 @@ async function runFederatedSearch(
     .add("hidden");
 
   statsEl
-    .classList
-    .add("hidden");
-
-  filtersEl
     .classList
     .add("hidden");
 
@@ -6297,10 +6316,6 @@ async function runSemanticSearch(
     .classList
     .add("hidden");
 
-  filtersEl
-    .classList
-    .add("hidden");
-
   resultsEl.setAttribute(
     "aria-busy",
     "true"
@@ -6361,6 +6376,9 @@ async function runSemanticSearch(
         )?.value || 12
       );
 
+    const semanticFilters =
+      buildSemanticSearchFilters();
+
     const authorResolutionPromise =
       resolveAuthorForQuery(
         query,
@@ -6392,6 +6410,8 @@ async function runSemanticSearch(
         query,
         {
           limit,
+          filters:
+            semanticFilters,
           signal:
             searchController.signal
         }
@@ -6581,6 +6601,10 @@ function selectSearchMode(
     "selected"
   );
 
+  syncFiltersToSearchMode(
+    selectedSearchMode
+  );
+
   if (
     selectedSearchMode ===
     "semantic"
@@ -6613,6 +6637,12 @@ form.addEventListener(
       input.value.trim();
 
     if (!query) {
+      return;
+    }
+
+    if (
+      !validateSearchFilterRange()
+    ) {
       return;
     }
 
@@ -6673,6 +6703,12 @@ document.addEventListener(
       void refreshSemanticAvailability();
     }
   }
+);
+
+
+bindSearchFilters();
+syncFiltersToSearchMode(
+  selectedSearchMode
 );
 
 

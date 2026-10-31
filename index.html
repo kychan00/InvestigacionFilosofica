@@ -24,12 +24,12 @@
 
   <link
     rel="stylesheet"
-    href="./css/philosophical-grid.css?v=20261030-philosophical-grid-v1"
+    href="./css/philosophical-grid.css?v=20261031-pre-search-filters-v2"
   >
 
   <link
     rel="stylesheet"
-    href="./css/mobile-layout.css?v=20261031-mobile-cards-v3"
+    href="./css/mobile-layout.css?v=20261031-pre-search-filters-v2"
   >
 </head>
 
@@ -180,6 +180,152 @@
         </div>
 
 
+        <section
+          id="filters"
+          class="search-filters"
+          aria-labelledby="search-filters-title"
+        >
+          <header class="search-filters-heading">
+            <div>
+              <span>Parámetros / 02</span>
+
+              <h2 id="search-filters-title">
+                Delimitar búsqueda
+              </h2>
+            </div>
+
+            <p>
+              Opcionales · las fuentes académicas permanecen activas
+            </p>
+          </header>
+
+          <div class="search-filter-grid">
+            <label>
+              Año desde
+
+              <input
+                id="filter-year-from"
+                type="number"
+                inputmode="numeric"
+                min="0"
+                max="2100"
+                placeholder="Sin límite"
+              >
+            </label>
+
+            <label>
+              Año hasta
+
+              <input
+                id="filter-year-to"
+                type="number"
+                inputmode="numeric"
+                min="0"
+                max="2100"
+                placeholder="Sin límite"
+              >
+            </label>
+
+            <label>
+              Idioma
+
+              <select id="filter-language">
+                <option value="">Todos</option>
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+                <option value="fr">Francés</option>
+                <option value="pt">Portugués</option>
+                <option value="de">Alemán</option>
+                <option value="it">Italiano</option>
+                <option value="la">Latín</option>
+              </select>
+            </label>
+
+            <label>
+              Tipo
+
+              <select id="filter-type">
+                <option value="">Todos</option>
+                <option value="article">Artículo</option>
+                <option value="journal-article">Artículo de revista</option>
+                <option value="book">Libro</option>
+                <option value="book-chapter">Capítulo de libro</option>
+                <option value="dissertation">Tesis</option>
+                <option value="proceedings-article">Ponencia o acta</option>
+                <option value="text">Texto de archivo</option>
+              </select>
+            </label>
+
+            <label>
+              Ordenar por
+
+              <select id="filter-sort">
+                <option value="relevance" selected>
+                  Relevancia
+                </option>
+                <option value="year-desc">
+                  Año: más reciente
+                </option>
+                <option value="year-asc">
+                  Año: más antiguo
+                </option>
+                <option value="citations">
+                  Citas
+                </option>
+              </select>
+            </label>
+          </div>
+
+          <footer class="search-filter-footer">
+            <button
+              id="filter-reset"
+              type="button"
+              class="filter-reset"
+            >
+              Restablecer
+            </button>
+
+            <span
+              id="filter-count"
+              class="filter-count"
+              role="status"
+              aria-live="polite"
+            >
+              Sin restricciones adicionales
+            </span>
+
+            <div
+              id="filter-exports"
+              class="export-actions hidden"
+            >
+              <button
+                type="button"
+                class="export-button"
+                data-export="json"
+              >
+                JSON
+              </button>
+
+              <button
+                type="button"
+                class="export-button"
+                data-export="csv"
+              >
+                CSV
+              </button>
+
+              <button
+                type="button"
+                class="export-button"
+                data-export="bibtex"
+              >
+                BibTeX
+              </button>
+            </div>
+          </footer>
+        </section>
+
+
         <p
           id="search-mode-note"
           class="search-mode-note"
@@ -291,16 +437,6 @@
         class="author-identity hidden"
         aria-live="polite"
       ></section>
-
-      <aside class="workspace-sidebar">
-
-        <section
-          id="filters"
-          class="filters hidden"
-        ></section>
-
-      </aside>
-
 
       <div class="workspace-main">
 
