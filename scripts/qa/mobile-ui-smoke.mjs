@@ -71,6 +71,47 @@ async function prepareFixture(page) {
       '<div class="score-panel"><div class="score">87</div><span>Relevancia</span></div>',
       '</article>'
     ].join("");
+
+    const first = results.querySelector(".result-card");
+    first.querySelector(".result-rank").textContent = "1";
+    first.querySelector(".result-initial").textContent = "G";
+    first.querySelector(".relevance-pill").textContent = "Autor";
+    first.querySelector("h2").textContent =
+      "Hegel's Preface to the Phenomenology of Spirit";
+    first.querySelector(".meta").textContent =
+      "Georg Wilhelm Friedrich Hegel · 2021";
+    first.querySelector(".provider-row").innerHTML =
+      '<span class="provider">OpenAlex Philosophy</span>' +
+      '<span class="provider">English</span>';
+    first.querySelector(".result-abstract").remove();
+    first.querySelector(".institutional-card-link").remove();
+    first.querySelector(".result-doi-link").remove();
+    first.querySelector(".score").textContent = "100";
+    first.querySelector(".score-panel > span").textContent = "Autoría";
+    first.querySelector(".score-panel").insertAdjacentHTML(
+      "beforeend", '<div class="score-meter"><i style="width:100%"></i></div>'
+    );
+    first.querySelector(".result-links").insertAdjacentHTML(
+      "afterend",
+      '<p class="explain">Autoría directa confirmada en el corpus · identidad normalizada</p>' +
+      '<details class="explanation"><summary>¿Por qué aparece este resultado?</summary>' +
+      '<p>Autoría académica verificada.</p></details>'
+    );
+    const second = first.cloneNode(true);
+    second.querySelector(".result-rank").textContent = "2";
+    second.querySelector("h2").textContent =
+      "Hegel's Doctrine of Formal Logic: Being a Translation of the First, Section of the Science of Logic";
+    second.querySelector(".result-links").insertAdjacentHTML(
+      "beforeend",
+      '<button class="institutional-card-link">Biblioteca Virtual UdeG ↗</button>' +
+      '<a class="result-secondary-link result-doi-link" href="#results">DOI</a>'
+    );
+    results.append(second);
+    results.insertAdjacentHTML(
+      "afterbegin",
+      '<div class="fetch-more-wrap"><button class="fetch-more">Cargar más resultados</button>' +
+      '<span>Buscar la siguiente página en OpenAlex y Crossref</span></div>'
+    );
   });
 }
 
@@ -136,6 +177,21 @@ try {
         title: find(".result-card h2"),
         result: find(".result-card"),
         recordButton: find(".record-open"),
+        resultTile: find(".result-card .result-visual"),
+        resultContent: find(".result-card .result-content"),
+        score: find(".result-card .score-panel"),
+        scoreNumber: find(".result-card .score-panel .score"),
+        openLink: find(".result-card .result-open-link"),
+        fetchMoreButton: find(".fetch-more"),
+        fetchMorePanel: find(".fetch-more-wrap"),
+        rankVisualDisplay:
+          getComputedStyle(document.querySelector(".result-card .result-visual")).display,
+        primaryBackground:
+          getComputedStyle(document.querySelector(".record-open")).backgroundColor,
+        secondaryBackground:
+          getComputedStyle(document.querySelector(".result-open-link")).backgroundColor,
+        resultGridColumns:
+          getComputedStyle(document.querySelector(".result-card")).gridTemplateColumns,
         nav: [...document.querySelectorAll(".philo-nav-links a")].map(rect),
         filtersColumnCount:
           getComputedStyle(document.querySelector(".filter-grid"))
@@ -157,6 +213,37 @@ try {
     assert.ok(values.select.height >= 44, "Search depth must remain visible and tappable");
     assert.ok(values.submit.height >= 44, "Submit tap target too small");
     assert.ok(values.recordButton.height >= 44, "Result tap target too small");
+    assert.ok(
+      values.resultTile.height <= 44 && values.resultTile.width <= 44,
+      "Result rank tile must be compact, not a full-height left rail: " +
+        JSON.stringify(values.resultTile)
+    );
+    assert.ok(values.rankVisualDisplay !== "none", "Rank tile must remain visible");
+    assert.ok(
+      values.score.top >= values.resultContent.bottom - 2 &&
+        values.score.right <= values.result.right + 2,
+      "Result score must sit beneath content, inside the card"
+    );
+    assert.ok(
+      values.resultGridColumns.split(" ").length === 1,
+      "Mobile result cards should use one text column"
+    );
+    assert.ok(values.openLink.height >= 44, "Secondary action too small");
+    assert.ok(
+      Math.abs(values.openLink.left - values.recordButton.left) <= 2 &&
+        Math.abs(values.openLink.right - values.recordButton.right) <= 2,
+      "Two-action cards should use equal full-width buttons"
+    );
+    assert.notEqual(
+      values.primaryBackground,
+      values.secondaryBackground,
+      "Primary and secondary actions need distinct visual hierarchy"
+    );
+    assert.ok(
+      values.fetchMorePanel.width <= values.workspace.width + 2 &&
+      values.fetchMoreButton.height >= 44,
+      "Pagination panel and its button must remain usable"
+    );
     if (width <= 620) {
       assert.ok(
         Math.abs(values.input.left - values.select.left) < 2 &&
