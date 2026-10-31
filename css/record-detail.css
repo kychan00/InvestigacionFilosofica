@@ -1,0 +1,671 @@
+/*
+ * Research record detail · unified neutral/blue visual system
+ * Loaded last to replace the legacy sepia cinematic presentation.
+ * This file is intentionally scoped to #record-modal; the UdeG library
+ * overlay, the search page, and the author directory are unaffected.
+ */
+
+#record-modal {
+  box-sizing: border-box;
+  padding: 24px !important;
+}
+
+#record-modal,
+#record-modal * {
+  box-sizing: border-box;
+}
+
+#record-modal .record-modal-backdrop {
+  background: rgba(22, 22, 22, .78) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+#record-modal .record-modal-panel {
+  position: relative;
+  width: min(1040px, calc(100vw - 48px)) !important;
+  max-width: 1040px !important;
+  max-height: calc(100dvh - 48px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  border: 1px solid #8d8d8d !important;
+  border-top: 4px solid #0f62fe !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  box-shadow: 0 20px 64px rgba(0, 0, 0, .34) !important;
+  scrollbar-color: #a8a8a8 #f4f4f4;
+}
+
+#record-modal .record-modal-close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  z-index: 30 !important;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  border: 1px solid #525252 !important;
+  border-radius: 0 !important;
+  background: #393939 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  font-family: var(--pg-sans);
+  font-size: 27px !important;
+  transform: none !important;
+}
+
+#record-modal .record-modal-close:hover,
+#record-modal .record-modal-close:active {
+  border-color: #0f62fe !important;
+  background: #0f62fe !important;
+  transform: none !important;
+}
+
+#record-modal :is(a, button, summary):focus-visible {
+  outline: 2px solid #0f62fe !important;
+  outline-offset: 3px;
+}
+
+#record-modal .record-cinematic {
+  min-width: 0;
+  overflow: clip;
+  background: #ffffff;
+  color: #161616;
+  font-family: var(--pg-sans);
+}
+
+/* A compact research heading replaces the oversized brown hero. */
+#record-modal .record-cinematic-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 208px;
+  padding: 40px 88px 32px 32px;
+  color: #ffffff;
+  background: #161616;
+}
+
+#record-modal .record-cinematic-hero::before,
+#record-modal .record-cinematic-hero::after,
+#record-modal .record-hero-symbol {
+  display: none;
+  content: none;
+}
+
+#record-modal .record-hero-content {
+  width: 100%;
+  min-width: 0;
+  max-width: 860px;
+}
+
+#record-modal .record-hero-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+#record-modal :is(.record-level-pill, .record-score-pill, .record-provider-pill) {
+  min-height: 28px;
+  max-width: 100%;
+  padding: 5px 9px;
+  border: 1px solid #6f6f6f;
+  border-radius: 0;
+  background: #393939;
+  color: #ffffff;
+  font-family: var(--pg-mono);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  backdrop-filter: none;
+}
+
+#record-modal .record-level-pill {
+  border-color: #0f62fe;
+  background: #0f62fe;
+  color: #ffffff;
+}
+
+#record-modal .record-score-pill {
+  border-color: #525252;
+  background: #262626;
+}
+
+#record-modal .record-cinematic-title {
+  max-width: 100%;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-family: var(--pg-sans) !important;
+  font-size: clamp(26px, 3.4vw, 43px) !important;
+  font-weight: 600 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -.025em !important;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+
+#record-modal .record-cinematic-byline {
+  margin: 16px 0 0;
+  color: #e0e0e0;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+#record-modal .record-cinematic-layout {
+  display: grid;
+  grid-template-columns: minmax(205px, 240px) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 24px;
+  background: #ffffff;
+}
+
+#record-modal :is(.record-cinematic-sidebar, .record-cinematic-main) {
+  min-width: 0;
+  gap: 16px;
+}
+
+#record-modal :is(.cinematic-score-card, .cinematic-author-card, .cinematic-quick-grid) {
+  min-width: 0;
+  border: 1px solid #d0d0d0;
+  border-radius: 0;
+  background: #f4f4f4;
+  box-shadow: none;
+}
+
+#record-modal .cinematic-score-card {
+  padding: 20px;
+  border-left: 4px solid #0f62fe;
+  background: #262626;
+  color: #ffffff;
+}
+
+#record-modal .score-eyebrow {
+  color: #c6c6c6;
+  font-family: var(--pg-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+#record-modal .cinematic-score-number {
+  margin-top: 8px;
+  color: #ffffff;
+  font-family: var(--pg-sans);
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+
+#record-modal .cinematic-score-track {
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 0;
+  background: #525252;
+}
+
+#record-modal .cinematic-score-track span {
+  border-radius: 0;
+  background: #78a9ff;
+}
+
+#record-modal .score-level {
+  margin-top: 12px;
+  color: #e0e0e0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#record-modal .cinematic-author-card {
+  align-items: flex-start;
+  padding: 20px;
+  text-align: left;
+}
+
+#record-modal .author-orbit {
+  width: 48px;
+  height: 48px;
+  margin: 0 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: #e0e0e0;
+}
+
+#record-modal .author-orbit::before,
+#record-modal .author-orbit::after {
+  display: none;
+}
+
+#record-modal .author-initial {
+  color: #161616;
+  font-family: var(--pg-sans);
+  font-size: 27px;
+  font-weight: 600;
+}
+
+#record-modal .author-card-caption {
+  color: #525252;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+#record-modal .cinematic-author-card strong {
+  color: #161616;
+  font-family: var(--pg-sans);
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+#record-modal .cinematic-quick-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#record-modal .cinematic-quick-grid > div {
+  padding: 14px;
+  border-color: #d0d0d0;
+}
+
+#record-modal .cinematic-quick-grid span {
+  color: #525252;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+#record-modal .cinematic-quick-grid strong {
+  color: #161616;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Indexed sections, metadata tiles and explanatory text. */
+#record-modal .cinematic-section {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+#record-modal .cinematic-section-heading {
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+#record-modal .section-number {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 0;
+  background: #0f62fe;
+  color: #ffffff;
+  font-family: var(--pg-mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#record-modal .section-eyebrow {
+  margin-bottom: 4px;
+  color: #525252;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+#record-modal .cinematic-section-heading h3 {
+  color: #161616;
+  font-family: var(--pg-sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#record-modal .cinematic-metadata-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+#record-modal .cinematic-meta-card {
+  padding: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  background: #f4f4f4;
+  box-shadow: none;
+}
+
+#record-modal .cinematic-meta-card span {
+  margin-bottom: 6px;
+  color: #525252;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+#record-modal .cinematic-meta-card strong {
+  color: #161616;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+#record-modal .cinematic-abstract {
+  color: #393939;
+  font-family: var(--pg-sans);
+  font-size: 14px;
+  line-height: 1.72;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+#record-modal .cinematic-abstract::first-letter {
+  float: none;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+#record-modal .cinematic-topics {
+  gap: 6px;
+}
+
+#record-modal .cinematic-topic {
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid #c6c6c6;
+  border-radius: 0;
+  background: #e0e0e0;
+  color: #393939;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+#record-modal .cinematic-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+#record-modal .cinematic-actions .cinematic-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid #393939 !important;
+  border-radius: 0 !important;
+  background: #393939 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  font-family: var(--pg-sans);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transform: none !important;
+}
+
+#record-modal .cinematic-actions .cinematic-action.primary {
+  border-color: #0f62fe !important;
+  background: #0f62fe !important;
+}
+
+#record-modal .cinematic-actions .cinematic-action:not(.primary):hover,
+#record-modal .cinematic-actions .cinematic-action:not(.primary):active {
+  border-color: #525252 !important;
+  background: #525252 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+#record-modal .cinematic-actions .cinematic-action.primary:hover,
+#record-modal .cinematic-actions .cinematic-action.primary:active {
+  border-color: #0353e9 !important;
+  background: #0353e9 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+#record-modal .institutional-cinematic {
+  background: #f4f4f4;
+}
+
+#record-modal .cinematic-note {
+  color: #525252;
+  font-size: 12px;
+}
+
+#record-modal .cinematic-institution-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+#record-modal .cinematic-institution-link {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  min-height: 52px;
+  padding: 8px 12px;
+  border: 1px solid #393939;
+  border-radius: 0;
+  background: #393939;
+  color: #ffffff;
+  box-shadow: none;
+  font-size: 12px;
+  text-align: left;
+  transform: none;
+}
+
+#record-modal .cinematic-institution-link:hover {
+  border-color: #525252;
+  background: #525252;
+  box-shadow: none;
+  transform: none;
+}
+
+#record-modal .institution-icon {
+  border-radius: 0;
+  background: #525252;
+  font-family: var(--pg-sans);
+}
+
+#record-modal .institution-arrow {
+  color: #ffffff;
+}
+
+#record-modal .cinematic-provenance li {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  background: #f4f4f4;
+  color: #525252;
+  font-size: 11px;
+}
+
+#record-modal .provenance-source {
+  color: #161616;
+}
+
+#record-modal .provenance-rank {
+  color: #525252;
+}
+
+#record-modal .explanation-cinematic .explanation summary {
+  min-height: 44px;
+  padding: 12px 16px;
+  border: 1px solid #c6c6c6;
+  border-radius: 0;
+  background: #f4f4f4;
+  color: #161616;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+#record-modal .explanation-cinematic .explanation-body {
+  padding: 16px 0 0;
+  color: #393939;
+}
+
+@media (max-width: 900px) {
+  #record-modal {
+    padding: 12px !important;
+  }
+
+  #record-modal .record-modal-panel {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: calc(100dvh - 24px) !important;
+  }
+
+  #record-modal .record-cinematic-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 16px;
+  }
+
+  #record-modal .record-cinematic-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  #record-modal .cinematic-quick-grid {
+    grid-column: 1 / -1;
+  }
+
+  #record-modal .record-cinematic-hero {
+    min-height: 176px;
+    padding: 36px 80px 28px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  #record-modal {
+    padding: 0 !important;
+  }
+
+  #record-modal .record-modal-panel {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    max-height: 100dvh !important;
+    height: 100dvh;
+    border: 0 !important;
+    border-top: 4px solid #0f62fe !important;
+    border-radius: 0 !important;
+  }
+
+  #record-modal .record-modal-close {
+    top: 12px !important;
+    right: 12px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  #record-modal .record-cinematic-hero {
+    min-height: 0;
+    padding: 64px 16px 24px;
+  }
+
+  #record-modal .record-hero-kicker {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  #record-modal .record-provider-pill {
+    flex-basis: 100%;
+  }
+
+  #record-modal .record-cinematic-title {
+    font-size: clamp(23px, 6vw, 30px) !important;
+    line-height: 1.2 !important;
+  }
+
+  #record-modal .record-cinematic-byline {
+    margin-top: 12px;
+    font-size: 12px;
+  }
+
+  #record-modal .record-cinematic-layout {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  #record-modal .record-cinematic-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  #record-modal .cinematic-score-card {
+    padding: 16px;
+  }
+
+  #record-modal .cinematic-score-number {
+    font-size: 43px;
+  }
+
+  #record-modal .cinematic-author-card {
+    padding: 16px;
+  }
+
+  #record-modal .author-orbit {
+    width: 40px;
+    height: 40px;
+  }
+
+  #record-modal .cinematic-quick-grid {
+    grid-column: 1 / -1;
+  }
+
+  #record-modal .cinematic-section {
+    padding: 16px;
+  }
+
+  #record-modal .cinematic-section-heading h3 {
+    font-size: 16px;
+  }
+
+  #record-modal .cinematic-metadata-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #record-modal .cinematic-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #record-modal .cinematic-actions .cinematic-action {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 359px) {
+  #record-modal .record-cinematic-layout {
+    padding: 12px;
+  }
+
+  #record-modal .record-cinematic-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #record-modal .cinematic-quick-grid {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #record-modal .record-modal-panel {
+    animation: none !important;
+  }
+}
