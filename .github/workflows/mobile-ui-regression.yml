@@ -7,6 +7,7 @@ on:
       - "css/**"
       - "tests/mobile-carbon.test.mjs"
       - "scripts/qa/mobile-ui-smoke.mjs"
+      - "scripts/qa/record-modal-smoke.mjs"
       - ".github/workflows/mobile-ui-regression.yml"
   workflow_dispatch:
 
@@ -47,10 +48,14 @@ jobs:
           exit 1
       - name: Check phone, tablet and desktop geometry
         run: node scripts/qa/mobile-ui-smoke.mjs
+      - name: Check record detail modal visual design
+        run: node scripts/qa/record-modal-smoke.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mobile-ui-screenshots
-          path: artifacts/mobile-ui/
+          path: |
+            artifacts/mobile-ui/
+            artifacts/record-detail/
           if-no-files-found: ignore
