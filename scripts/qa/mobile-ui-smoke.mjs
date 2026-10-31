@@ -161,7 +161,8 @@ try {
           right: box.right,
           width: box.width,
           height: box.height,
-          top: box.top
+          top: box.top,
+          bottom: box.bottom
         };
       };
 
