@@ -211,4 +211,12 @@ presentarlo. `Citas` queda desactivado en Semántica porque el índice no respal
 esa señal. La integración preserva la capa móvil anterior, no cambia retrieval,
 ranking, `src/core/rank.js`, reranker ni artefactos Qwen congelados.
 
+[[Day-Night-Appearance-V1]] añade una elección explícita `Día`/`Oscuro` a toda
+la experiencia pública. La primera visita respeta la preferencia del sistema y
+una elección posterior se conserva localmente sin cuenta ni telemetría. La
+cobertura incluye portada, consola de filtros, resultados, archivos universales
+de autor y modales bibliográficos; mantiene contraste, navegación por teclado,
+movimiento reducido y responsive a 390 px. Es una capa visual: no cambia
+retrieval, identidad, ranking, `src/core/rank.js`, reranker ni artefactos Qwen.
+
 La fase activa vuelve ahora al Modo Investigación. [[ResearchProject-Data-Contract-V1]] y [[Research-Mode-Flow-V1]] fueron aceptados como base del MVP el 2026-10-10: definen entidades, versionado, provenance, autoridad humana, persistencia local y la espiral completa. Autorizan crear fixtures, JSON Schema y pruebas en una rama aislada, pero todavía no cambios directos de producción.

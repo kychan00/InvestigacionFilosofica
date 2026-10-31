@@ -64,6 +64,7 @@ Construir una infraestructura epistemológica para investigación filosófica: n
 - [[Crossref-Work-Eligibility-V1]]
 - [[Philosophical-Grid-Design-V1]]
 - [[Pre-Search-Filter-Console-V1]]
+- [[Day-Night-Appearance-V1]]
 
 ## Principios adoptados
 
