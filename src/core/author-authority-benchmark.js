@@ -474,7 +474,8 @@ export function buildAuthorityBenchmarkReport({
   gold = null,
   seed = 20261101,
   sampleSize = 100,
-  thresholds = {}
+  thresholds = {},
+  generatedAt = null
 } = {}) {
   const silver = evaluateSilverIdentityPartition({
     profiles,
@@ -559,7 +560,7 @@ export function buildAuthorityBenchmarkReport({
 
   return {
     schemaVersion: AUTHORITY_BENCHMARK_SCHEMA_VERSION,
-    generatedAt: new Date().toISOString(),
+    generatedAt,
     seed,
     sampleSize,
     source: {
