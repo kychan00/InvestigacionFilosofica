@@ -781,6 +781,56 @@ async function authorRowsForBuckets(
 }
 
 
+/**
+ * Add full collaborators to the first visible author works, using the
+ * inverse work-authors index from the Hugging Face snapshot. This never
+ * searches for coauthors by name (which can misattribute publications).
+ * The capped batch avoids fetching all 1,024 shards for prolific authors.
+ */
+export async function enrichAuthorWorksWithCollaborators(works, options = {}) {
+  const source = Array.isArray(works) ? works : [];
+  const cap = Math.max(1, Math.min(40, Number(options.limit) || 24));
+  const eligible = source.slice(0, cap)
+    .map(work => ({work, workId:openAlexWorkId(work)}))
+    .filter(entry => entry.workId &&
+      (entry.work.coauthorCount === null ||
+       entry.work.coauthorCount === undefined ||
+       entry.work.coauthorCount > 0));
+  if (!eligible.length) return source;
+
+  const context = createContext(options);
+  const buckets = [...new Set(eligible.map(entry =>
+    authorBucket(entry.workId)))];
+  try {
+    const rows = await authorRowsForBuckets(context, buckets);
+    const authorsByWork = new Map(rows.map(row => [
+      String(row.wid), row.a || []
+    ]));
+    return source.map((work,index) => {
+      if (index >= cap) return work;
+      const id = openAlexWorkId(work);
+      const authors = authorsByWork.get(String(id || ""));
+      if (!authors?.length) return work;
+      return {
+        ...work,
+        authors: authors.map(author => ({
+          id:`https://openalex.org/A${author.id}`,
+          name:author.n,
+          orcid:author.o || null,
+          position:author.p || null,
+          isCorresponding:Boolean(author.r)
+        })),
+        coauthorCount:Math.max(0,authors.length - 1),
+        authorMetadataSource:"OpenAlex snapshot · Hugging Face"
+      };
+    });
+  } catch(error) {
+    if (options.signal?.aborted) throw error;
+    return source;
+  }
+}
+
+
 export async function enrichResultsWithRemoteAuthors(
   response,
   options = {}
