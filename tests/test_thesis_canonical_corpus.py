@@ -223,6 +223,102 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         self.assertEqual(candidate["admission"]["status"], "exclude")
 
+    def test_udg_grantor_typo_is_confirmed_by_exact_alias(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="udg-grantor-typo",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Tesis CUCS con typo institucional"],
+                "dc.degree.name": ["LICENCIATURA EN MEDICINA"],
+                "dc.degree.grantor": ["Universidad en Guadalajara"],
+                "dc.degree.department": ["CUCS"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="udg-grantor-typo",
+        )
+
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(candidate["institution"]["status"], "confirmed")
+        self.assertEqual(
+            candidate["institution"]["institutionRef"],
+            "institution:udg",
+        )
+        self.assertEqual(
+            candidate["institution"]["raw"],
+            "Universidad en Guadalajara",
+        )
+        self.assertEqual(candidate["admission"]["status"], "quarantine")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "unknown-program",
+        )
+
+    def test_exact_external_college_grantor_is_excluded(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="external-college",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Tesis externa antropológica"],
+                "dc.degree.name": ["Doctorado en Antropología Social"],
+                "dc.degree.grantor": ["El Colegio de Michoacán A.C."],
+                "dc.publisher": ["El Colegio de Michoacán A.C."],
+                "dc.type": ["Tesis de Doctorado"],
+            },
+            raw_payload="external-college",
+        )
+
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(candidate["institution"]["status"], "external")
+        self.assertEqual(
+            candidate["institution"]["raw"],
+            "El Colegio de Michoacán A.C.",
+        )
+        self.assertEqual(candidate["admission"]["status"], "exclude")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "external-institution",
+        )
+
+    def test_institution_aliases_cannot_overlap_external_aliases(self):
+        registry = json.loads(
+            (
+                ROOT
+                / "scripts"
+                / "thesis"
+                / "config"
+                / "program-authority-v1.json"
+            ).read_text(encoding="utf-8")
+        )
+        registry["institution"]["externalAliases"].append(
+            "Universidad de Guadalajara"
+        )
+
+        temp = ROOT / "tests" / ".institution-alias-collision.json"
+        try:
+            temp.write_text(
+                json.dumps(registry, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ValueError,
+                "Institution alias collision",
+            ):
+                thesis.load_program_registry(temp)
+        finally:
+            temp.unlink(missing_ok=True)
+
     def test_program_authority_v2_resolves_full_inventory_additions(self):
         cases = {
             "MAESTRIA EN LINGUISTICA APLICADA": (
