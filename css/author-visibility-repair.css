@@ -37,6 +37,16 @@ html[data-theme="dark"] {
   --profile-blue-label: #78a9ff;
 }
 
+/* In the legacy layout .app stayed pale even when body.author-view was dark.
+ * All translucent author sections need a genuinely themed ancestor. */
+html[data-theme] body.author-view,
+html[data-theme] body.author-view .app,
+html[data-theme] body.author-view .research-workspace,
+html[data-theme] body.author-view .workspace-main,
+html[data-theme] body.author-view #results {
+  background: var(--profile-page) !important;
+}
+
 /* The photographic hero previously rendered pale labels on pale areas. */
 html[data-theme="light"] .hero-shell .eyebrow,
 html[data-theme="light"] .hero-shell .search-panel::before,
