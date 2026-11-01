@@ -147,38 +147,84 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
 
     reference_year = reference_year or datetime.now(timezone.utc).year
 
-    match = re.match(r"^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?", raw)
-    if not match:
+    numeric_only = re.fullmatch(r"\d{5,}", raw)
+    if numeric_only:
         return {
             "raw": raw,
             "value": None,
             "precision": "unknown",
-            "quality": "invalid",
+            "quality": "suspicious",
         }
 
-    year = int(match.group(1))
-    month = match.group(2)
-    day = match.group(3)
+    iso = re.fullmatch(r"(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?", raw)
+    if iso:
+        year = int(iso.group(1))
+        month = int(iso.group(2)) if iso.group(2) else None
+        day = int(iso.group(3)) if iso.group(3) else None
 
-    if day:
-        precision = "day"
-        value = f"{year:04d}-{month}-{day}"
-    elif month:
-        precision = "month"
-        value = f"{year:04d}-{month}"
-    else:
-        precision = "year"
-        value = f"{year:04d}"
+        try:
+            if day is not None:
+                datetime(year, month or 1, day)
+                precision = "day"
+                value = f"{year:04d}-{month:02d}-{day:02d}"
+            elif month is not None:
+                if month < 1 or month > 12:
+                    raise ValueError("invalid month")
+                precision = "month"
+                value = f"{year:04d}-{month:02d}"
+            else:
+                precision = "year"
+                value = f"{year:04d}"
+        except ValueError:
+            return {
+                "raw": raw,
+                "value": None,
+                "precision": "unknown",
+                "quality": "invalid",
+            }
 
-    quality = "valid"
-    if year < 1800 or year > reference_year + 1:
-        quality = "suspicious"
+        quality = "valid"
+        if year < 1800 or year > reference_year + 1:
+            quality = "suspicious"
+
+        return {
+            "raw": raw,
+            "value": value,
+            "precision": precision,
+            "quality": quality,
+        }
+
+    dmy = re.fullmatch(r"(\d{1,2})/(\d{1,2})/(\d{4})", raw)
+    if dmy:
+        day = int(dmy.group(1))
+        month = int(dmy.group(2))
+        year = int(dmy.group(3))
+        try:
+            datetime(year, month, day)
+        except ValueError:
+            return {
+                "raw": raw,
+                "value": None,
+                "precision": "unknown",
+                "quality": "invalid",
+            }
+
+        quality = "valid"
+        if year < 1800 or year > reference_year + 1:
+            quality = "suspicious"
+
+        return {
+            "raw": raw,
+            "value": f"{year:04d}-{month:02d}-{day:02d}",
+            "precision": "day",
+            "quality": quality,
+        }
 
     return {
         "raw": raw,
-        "value": value,
-        "precision": precision,
-        "quality": quality,
+        "value": None,
+        "precision": "unknown",
+        "quality": "invalid",
     }
 
 
@@ -237,6 +283,49 @@ def resolve_program(
     }
 
 
+def classify_source_type(value: str | None) -> dict[str, str]:
+    raw = clean_text(value)
+    key = normalize_key(raw)
+
+    if not key:
+        return {"raw": raw or "", "status": "unknown"}
+
+    if "tesis" in key or "thesis" in key:
+        return {"raw": raw or "", "status": "thesis"}
+
+    rejected_prefixes = (
+        "book chapter",
+        "capitulo de libro",
+        "articulo",
+        "article",
+        "libro",
+        "book",
+        "ponencia",
+        "conference",
+        "manual",
+    )
+    if any(key.startswith(prefix) for prefix in rejected_prefixes):
+        return {"raw": raw or "", "status": "non-thesis"}
+
+    return {"raw": raw or "", "status": "unknown"}
+
+
+def looks_like_institution(value: str | None) -> bool:
+    key = normalize_key(value)
+    if not key:
+        return False
+    markers = (
+        "universidad ",
+        "university ",
+        "instituto ",
+        "institute ",
+        "centro universitario ",
+        "college ",
+        "escuela ",
+    )
+    return key.startswith(markers)
+
+
 def resolve_institution(
     values: list[str],
     registry: dict[str, Any],
@@ -285,9 +374,15 @@ def admission_decision(
     source_record_id: str,
     institution: dict[str, Any],
     program: dict[str, Any],
+    source_type: dict[str, str] | None = None,
     policy_version: str = "humanities-admission-v1",
 ) -> dict[str, Any]:
-    if institution["status"] == "external":
+    source_type = source_type or {"status": "unknown"}
+
+    if source_type.get("status") == "non-thesis":
+        status = "reject-source"
+        code = "not-a-thesis"
+    elif institution["status"] == "external":
         status = "exclude"
         code = "external-institution"
     elif institution["status"] != "confirmed":
@@ -536,13 +631,17 @@ def canonical_candidate(
 
         descriptions = field_values(record, "DC.description", "dc.description")
         program_raw = infer_program_from_udgvirtual_description(descriptions)
+
         institution_values = field_values(
             record,
             "DC.publisher",
             "dc.publisher",
-            "DC.relation",
-            "dc.relation",
-        ) + descriptions
+        )
+        for value in contributor_values:
+            role, name = parse_role_from_contributor(value)
+            if role == "unknown-thesis-role" and looks_like_institution(name):
+                institution_values.append(name)
+
         academic_unit_raw = None
         date_raw = first(field_values(record, "DC.date", "dc.date"))
         language = first(field_values(record, "DC.language", "dc.language"))
@@ -565,12 +664,14 @@ def canonical_candidate(
                 }
             )
 
+    source_type = classify_source_type(thesis_type)
     program = resolve_program(program_raw, registry)
     institution = resolve_institution(institution_values, registry)
     admission = admission_decision(
         source_record_id=source_ref,
         institution=institution,
         program=program,
+        source_type=source_type,
     )
 
     contributions: list[dict[str, Any]] = []
@@ -608,6 +709,7 @@ def canonical_candidate(
         "institution": institution,
         "academicUnitRaw": academic_unit_raw,
         "thesisTypeRaw": thesis_type,
+        "sourceType": source_type,
         "persistentIdentifiers": persistent,
         "contributions": contributions,
         "admission": admission,
@@ -765,6 +867,9 @@ def build_corpus(
         elif any(item["admission"]["status"] == "exclude" for item in group):
             group_admission = "exclude"
             group_codes.append("excluded-by-source-decision")
+        elif all(item["admission"]["status"] == "reject-source" for item in group):
+            group_admission = "reject-source"
+            group_codes.append("not-a-thesis")
         else:
             group_codes.append("unresolved-or-unknown")
 
