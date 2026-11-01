@@ -472,3 +472,60 @@ T2A queda cerrada cuando:
 7. no hay cambios de runtime o producción.
 
 Después puede comenzar T2B.
+
+
+---
+
+## 19. Regresiones incorporadas desde la primera muestra real T2B
+
+La primera muestra real de T2B descubrió tres casos que se incorporan a T2A antes del merge.
+
+### 19.1 Fechas `DD/MM/YYYY`
+
+RIUdeG contiene fechas como:
+
+- `31/12/1969`;
+- `01/04/2018`;
+- `22/06/2017`.
+
+Ahora se normalizan a ISO conservando el valor raw.
+
+Ejemplo:
+
+`31/12/1969` → `1969-12-31`
+
+Un número anómalo de cinco o más dígitos como `37812` no se interpreta como año ni como fecha Excel: se conserva raw y se marca `suspicious`.
+
+### 19.2 Objetos no-tesis dentro de UDGVirtual
+
+Se observó un item de la colección con:
+
+`DC.type = Book chapter`
+
+La pertenencia a la colección no vence el tipo explícito.
+
+Ahora:
+
+`non-thesis → reject-source / not-a-thesis`
+
+No entra al corpus de tesis aunque permanezca documentado como SourceRecord.
+
+### 19.3 Instituciones externas en contributor
+
+Se observó un registro UDGVirtual con:
+
+`DC.contributor = Universidad de las Américas Puebla`
+
+Un contributor sin etiqueta de rol que tenga forma institucional se evalúa como evidencia de institución, no como persona.
+
+Si confirma una universidad externa:
+
+`EXCLUDE / external-institution`
+
+### 19.4 Evidencia institucional más estricta
+
+Los textos libres de `DC.description` y la relación genérica `UDGVirtual` ya no se utilizan como prueba de institución otorgante.
+
+Esto evita casos donde una descripción arbitraria terminaba almacenada como `institutionRaw`.
+
+La institución otorgante debe derivarse de evidencia institucional explícita o de una autoridad de programa suficientemente fuerte en una fase posterior.

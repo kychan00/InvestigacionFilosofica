@@ -134,6 +134,68 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(info["value"], "2107-01-04")
         self.assertEqual(info["quality"], "suspicious")
 
+    def test_day_first_dates_are_normalized_without_losing_raw_value(self):
+        info = thesis.date_info("31/12/1969", reference_year=2026)
+        self.assertEqual(info["raw"], "31/12/1969")
+        self.assertEqual(info["value"], "1969-12-31")
+        self.assertEqual(info["precision"], "day")
+        self.assertEqual(info["quality"], "valid")
+
+    def test_large_numeric_date_is_suspicious_and_not_reinterpreted(self):
+        info = thesis.date_info("37812", reference_year=2026)
+        self.assertEqual(info["raw"], "37812")
+        self.assertIsNone(info["value"])
+        self.assertEqual(info["quality"], "suspicious")
+
+    def test_explicit_non_thesis_record_is_rejected_as_source(self):
+        record = thesis.source_record(
+            provider="udgvirtual",
+            provider_record_id="book-chapter",
+            source_url=None,
+            raw_fields={
+                "DC.title": ["Capítulo alojado en colección"],
+                "DC.creator": ["Autora, Ana"],
+                "DC.type": ["Book chapter"],
+            },
+            raw_payload="book-chapter",
+        )
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(candidate["sourceType"]["status"], "non-thesis")
+        self.assertEqual(candidate["admission"]["status"], "reject-source")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "not-a-thesis",
+        )
+
+    def test_unlabelled_institutional_contributor_can_exclude_external_thesis(self):
+        record = thesis.source_record(
+            provider="udgvirtual",
+            provider_record_id="external-contributor",
+            source_url=None,
+            raw_fields={
+                "DC.title": ["Tesis externa"],
+                "DC.creator": ["Autor, Ejemplo"],
+                "DC.contributor": ["Universidad de las Américas Puebla"],
+                "DC.type": ["Thesis"],
+            },
+            raw_payload="external-contributor",
+        )
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(candidate["institution"]["status"], "external")
+        self.assertEqual(
+            candidate["institution"]["canonicalName"],
+            "Universidad de las Américas Puebla",
+        )
+        self.assertEqual(candidate["admission"]["status"], "exclude")
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
