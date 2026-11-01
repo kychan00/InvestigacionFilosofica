@@ -202,6 +202,74 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             item["evidenceNeeds"],
         )
 
+    def test_humanities_candidate_lane_precedes_unit_triage(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en derecho",
+                    "count": 296,
+                    "variants": {"MAESTRIA EN DERECHO": 296},
+                    "providers": {"riudg": 296},
+                    "admissionStatuses": {"quarantine": 296},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": (
+                        "maestria en la ensenanza de la lengua y literatura"
+                    ),
+                    "count": 2,
+                    "variants": {
+                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA": 2,
+                    },
+                    "providers": {"riudg": 2},
+                    "admissionStatuses": {"quarantine": 2},
+                    "programRefs": {},
+                },
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "MAESTRIA EN DERECHO",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2024", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": (
+                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA"
+                    ),
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2006", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(
+            payload["items"][0]["curationLane"],
+            "humanities-candidate",
+        )
+        self.assertEqual(
+            payload["items"][0]["normalizedKey"],
+            "maestria en la ensenanza de la lengua y literatura",
+        )
+        self.assertEqual(
+            payload["items"][1]["curationLane"],
+            "unit-triage",
+        )
+        self.assertEqual(
+            payload["metrics"]["curationLanes"],
+            {
+                "humanities-candidate": 1,
+                "unit-triage": 1,
+            },
+        )
+
     def test_invalid_or_suspicious_dates_do_not_define_historical_span(self):
         observed = {
             "programs": [
