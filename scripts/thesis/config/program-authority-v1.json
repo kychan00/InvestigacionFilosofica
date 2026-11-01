@@ -922,9 +922,36 @@
         "https://cuaad.udg.mx/index.php/node/20445",
         "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
       ]
+    },
+    {
+      "id": "program:udg:mae-artes-teoria-arte-historica",
+      "canonicalName": "Maestría en Artes opción Terminal en Teoría del Arte",
+      "level": "maestria",
+      "disciplineFamily": "teoria-arte-estetica-humanidades",
+      "admissionState": "include",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Artes opción Terminal en Teoría del Arte",
+        "Maestría en Teoría del Arte",
+        "Maestría En Teoria Del Arte"
+      ],
+      "observedCount": 1,
+      "observedThesisYears": {
+        "min": 2004,
+        "max": 2004
+      },
+      "decisionNote": "Control Escolar registra formalmente la Maestría en Artes opción Terminal en Teoría del Arte con clave DGP 730505. La documentación histórica de la UdeG ubica la creación de la Maestría en Artes en el Instituto de Investigaciones Estéticas, adscrito al Departamento de Teorías e Historias de la División de Artes y Humanidades del CUAAD, con el propósito de formar investigadores y desarrollar investigación en arte y cultura. RIUdeG observa una tesis UdeG/CUAAD de 2004 con el nombre abreviado Maestría En Teoria Del Arte. Se conserva como autoridad histórica propia y no se fusiona con Estudios Cinematográficos ni con otros programas artísticos actuales.",
+      "evidence": [
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf",
+        "https://www.gaceta.udg.mx/wp-content/uploads/2020/02/096.pdf",
+        "https://www.riudg.udg.mx/handle/20.500.12104/46409"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v5",
+  "registryRevision": "2026-11-01.v6",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
