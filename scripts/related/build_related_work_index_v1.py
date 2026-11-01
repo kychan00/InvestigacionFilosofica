@@ -322,6 +322,7 @@ def compact_neighbor(
 
     return neighbor
 
+
 def expand_compact_edge(
     seed_identity: str,
     seed_vector_id: int,
@@ -448,6 +449,7 @@ def expand_compact_edge(
         "identity": {"sameIntellectualWork": False},
     }
 
+
 def select_neighbors(
     seed: WorkMetadata,
     candidates: Iterable[tuple[int, float]],
@@ -466,10 +468,6 @@ def select_neighbors(
         "non_representative_target": 0,
         "below_floor": 0,
         "invalid_target": 0,
-        "authority_candidates": 0,
-        "authority_only_edges": 0,
-        "same_author_edges": 0,
-        "shared_coauthor_edges": 0,
     }
 
     for target_vector_id, raw_score in candidates:
@@ -661,6 +659,10 @@ def build_from_neighbor_provider(
         "non_representative_target": 0,
         "below_floor": 0,
         "invalid_target": 0,
+        "authority_candidates": 0,
+        "authority_only_edges": 0,
+        "same_author_edges": 0,
+        "shared_coauthor_edges": 0,
     }
 
     try:
