@@ -33,6 +33,9 @@ try {
   const errors=[];
   const failures=[];
   page.on("pageerror",error=>errors.push(error.message));
+  page.on("console",message=>{
+   if(message.type()==="error")errors.push(message.text());
+  });
   page.on("requestfailed",request=>failures.push(request.url()+" "+request.failure()?.errorText));
   await page.route("**/*",route=>{
    const url=new URL(route.request().url());
@@ -46,6 +49,7 @@ try {
     scanCalls++;
     scanFilter=url.searchParams.get("filter");
     return route.fulfill({status:200,contentType:"application/json",
+     headers:{"access-control-allow-origin":"*"},
      body:JSON.stringify({meta:{count:4,next_cursor:null},results:[
        liveWork(1001,"Obra del índice 1",2015),
        liveWork(1002,"Obra del índice 2",2017),
