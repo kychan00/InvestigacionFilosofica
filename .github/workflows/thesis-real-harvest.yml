@@ -196,9 +196,11 @@ jobs:
           assert isinstance(audit["metrics"]["programQueue"], dict)
           assert isinstance(audit["gateBlockers"], list)
           assert audit["programAuthorityRevision"]
+          assert audit["institutionAuthorityRevision"]
 
           print(json.dumps({
               "programAuthorityRevision": audit["programAuthorityRevision"],
+              "institutionAuthorityRevision": audit["institutionAuthorityRevision"],
               "projectedAdmission": audit["metrics"]["projectedAdmission"],
               "dateQuality": audit["metrics"]["dateQuality"],
               "gateBlockerCount": audit["metrics"]["gateBlockerCount"],
