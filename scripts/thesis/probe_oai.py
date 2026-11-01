@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Read-only OAI-PMH reconnaissance for UdeG thesis repositories.
 
-This script deliberately performs only protocol discovery and a single-record
-sample. It never follows ListRecords/ListIdentifiers resumption tokens and it
-never downloads thesis files.
+This script performs protocol discovery, set discovery and a single thesis-record
+sample. It may follow ListSets resumption tokens so the repository topology can
+be characterized, but it never follows ListRecords/ListIdentifiers resumption
+tokens and it never downloads thesis files.
 
 Output is a deterministic JSON report suitable for CI artifacts.
 """
@@ -22,9 +23,10 @@ from dataclasses import dataclass
 from typing import Any
 
 NS = {"oai": "http://www.openarchives.org/OAI/2.0/"}
-USER_AGENT = "InvestigacionFilosofica-ThesisRecon/1.0 (+https://github.com/kychan00/InvestigacionFilosofica)"
+USER_AGENT = "InvestigacionFilosofica-ThesisRecon/1.1 (+https://github.com/kychan00/InvestigacionFilosofica)"
 TIMEOUT = 25
 MAX_SAMPLE_VALUE = 240
+MAX_SET_PAGES = 10
 
 CANDIDATES = {
     "riudg": [
@@ -197,10 +199,7 @@ def metadata_formats(base: str) -> dict[str, Any]:
     return {**info, "formats": formats}
 
 
-def list_sets_first_page(base: str) -> dict[str, Any]:
-    root, info = parse_oai(fetch(base, verb="ListSets"))
-    if root is None:
-        return {**info, "sets": [], "resumption_token": None}
+def set_page(root: ET.Element) -> tuple[list[dict[str, str | None]], ET.Element | None]:
     sets = []
     for item in root.findall("oai:ListSets/oai:set", NS):
         sets.append(
@@ -209,27 +208,84 @@ def list_sets_first_page(base: str) -> dict[str, Any]:
                 "set_name": text(item, "oai:setName"),
             }
         )
-    token = root.find("oai:ListSets/oai:resumptionToken", NS)
+    return sets, root.find("oai:ListSets/oai:resumptionToken", NS)
+
+
+def list_sets(base: str) -> dict[str, Any]:
+    pages: list[dict[str, Any]] = []
+    all_sets: list[dict[str, str | None]] = []
+    token_value: str | None = None
+    complete_list_size: str | None = None
+
+    for page_number in range(MAX_SET_PAGES):
+        if token_value is None:
+            result = fetch(base, verb="ListSets")
+        else:
+            result = fetch(base, verb="ListSets", resumptionToken=token_value)
+
+        root, info = parse_oai(result)
+        if root is None or info["oai_error"] is not None:
+            pages.append({"page": page_number + 1, **info})
+            break
+
+        sets, token = set_page(root)
+        all_sets.extend(sets)
+
+        next_token = (token.text or "").strip() if token is not None else ""
+        if token is not None and complete_list_size is None:
+            complete_list_size = token.attrib.get("completeListSize")
+
+        pages.append(
+            {
+                "page": page_number + 1,
+                "count": len(sets),
+                "cursor": token.attrib.get("cursor") if token is not None else None,
+                "complete_list_size": token.attrib.get("completeListSize") if token is not None else None,
+                "token_present": bool(next_token),
+                "status": info["status"],
+                "elapsed_ms": info["elapsed_ms"],
+            }
+        )
+
+        if not next_token:
+            token_value = None
+            break
+        token_value = next_token
+
     return {
-        **info,
-        "sets": sets,
-        "resumption_token": {
-            "value": (token.text or "").strip() if token is not None else None,
-            "cursor": token.attrib.get("cursor") if token is not None else None,
-            "complete_list_size": token.attrib.get("completeListSize") if token is not None else None,
-            "expiration_date": token.attrib.get("expirationDate") if token is not None else None,
-        }
-        if token is not None
-        else None,
+        "sets": all_sets,
+        "pages": pages,
+        "complete_list_size": complete_list_size or str(len(all_sets)),
+        "truncated": bool(token_value),
     }
 
 
-def list_identifiers_first_page(base: str, metadata_prefix: str = "oai_dc") -> dict[str, Any]:
-    root, info = parse_oai(
-        fetch(base, verb="ListIdentifiers", metadataPrefix=metadata_prefix)
-    )
+def find_thesis_set(sets: list[dict[str, str | None]]) -> dict[str, str | None] | None:
+    exact = [
+        item for item in sets
+        if (item.get("set_name") or "").strip().casefold() == "tesis"
+    ]
+    if exact:
+        return exact[0]
+    candidates = [
+        item for item in sets
+        if "tesis" in (item.get("set_name") or "").strip().casefold()
+        and "otras universidades" not in (item.get("set_name") or "").strip().casefold()
+    ]
+    return candidates[0] if candidates else None
+
+
+def list_identifiers_first_page(
+    base: str,
+    metadata_prefix: str = "oai_dc",
+    set_spec: str | None = None,
+) -> dict[str, Any]:
+    params = {"verb": "ListIdentifiers", "metadataPrefix": metadata_prefix}
+    if set_spec:
+        params["set"] = set_spec
+    root, info = parse_oai(fetch(base, **params))
     if root is None:
-        return {**info, "headers": [], "resumption_token": None}
+        return {**info, "headers": [], "resumption_token": None, "set_spec": set_spec}
 
     headers = []
     for header in root.findall("oai:ListIdentifiers/oai:header", NS):
@@ -249,6 +305,7 @@ def list_identifiers_first_page(base: str, metadata_prefix: str = "oai_dc") -> d
     token = root.find("oai:ListIdentifiers/oai:resumptionToken", NS)
     return {
         **info,
+        "set_spec": set_spec,
         "headers": headers,
         "resumption_token": {
             "value_present": bool(token is not None and (token.text or "").strip()),
@@ -317,7 +374,10 @@ def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
     report["status"] = "identified"
     report["identify"] = identify(base)
     report["metadata_formats"] = metadata_formats(base)
-    report["sets_first_page"] = list_sets_first_page(base)
+    report["sets"] = list_sets(base)
+
+    thesis_set = find_thesis_set(report["sets"].get("sets", []))
+    report["thesis_set"] = thesis_set
 
     prefixes = [
         item.get("metadata_prefix")
@@ -327,12 +387,19 @@ def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
     preferred = "oai_dc" if "oai_dc" in prefixes else (prefixes[0] if prefixes else None)
 
     if preferred:
-        ids = list_identifiers_first_page(base, preferred)
-        report["identifiers_first_page"] = ids
+        report["identifiers_first_page"] = list_identifiers_first_page(base, preferred)
+
+        thesis_ids = list_identifiers_first_page(
+            base,
+            preferred,
+            thesis_set.get("set_spec") if thesis_set else None,
+        )
+        report["thesis_identifiers_first_page"] = thesis_ids
+
         first = next(
             (
                 item["identifier"]
-                for item in ids.get("headers", [])
+                for item in thesis_ids.get("headers", [])
                 if item.get("identifier") and item.get("status") != "deleted"
             ),
             None,
@@ -340,12 +407,21 @@ def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
         if first:
             sample_prefixes = [
                 prefix
-                for prefix in ("oai_dc", "dim", "xoai", "qdc")
+                for prefix in (
+                    "oai_dc",
+                    "dim",
+                    "xoai",
+                    "qdc",
+                    "uketd_dc",
+                    "etdms",
+                    "mods",
+                )
                 if prefix in prefixes
             ]
             if not sample_prefixes:
                 sample_prefixes = [preferred]
-            report["sample_records"] = [
+            report["thesis_sample_identifier"] = first
+            report["thesis_sample_records"] = [
                 sample_metadata(base, first, prefix)
                 for prefix in sample_prefixes
             ]
@@ -359,10 +435,12 @@ def main() -> int:
     args = parser.parse_args()
 
     report = {
-        "schema_version": "thesis-source-recon-v1",
+        "schema_version": "thesis-source-recon-v1.1",
         "read_only": True,
         "limits": {
-            "follows_resumption_tokens": False,
+            "follows_set_resumption_tokens": True,
+            "max_set_pages": MAX_SET_PAGES,
+            "follows_record_resumption_tokens": False,
             "downloads_thesis_files": False,
             "samples_per_repository": 1,
         },
