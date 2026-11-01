@@ -2496,6 +2496,7 @@ function renderResult(
               `
             : [
                 "author-index",
+                "author-live",
                 "author-crossref",
                 "author-internet-archive"
               ].includes(
@@ -2522,19 +2523,19 @@ function renderResult(
               `
               : `
               <div class="explain">
-                A ${item.ranking.author || 0}
+                A ${item.ranking?.author || 0}
                 ·
-                Q ${item.ranking.query}
+                Q ${item.ranking?.query}
                 ·
-                P ${item.ranking.philosophy}
+                P ${item.ranking?.philosophy}
                 ·
-                D ${item.ranking.discipline}
+                D ${item.ranking?.discipline}
                 ·
-                S ${item.ranking.consensus}
+                S ${item.ranking?.consensus}
                 ·
-                B ${item.ranking.bibliography}
+                B ${item.ranking?.bibliography}
                 ·
-                I ${item.ranking.impact}
+                I ${item.ranking?.impact}
               </div>
             `
         }
