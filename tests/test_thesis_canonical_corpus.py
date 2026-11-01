@@ -327,6 +327,67 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         self.assertEqual(corpus["metrics"]["works"], 2)
 
+    def test_author_supervisor_name_collision_is_flagged_not_fatal(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="role-collision",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Tesis con conflicto de rol en fuente"],
+                "dc.contributor.author": ["Ceja Mejia Oscar Eduardo"],
+                "dc.contributor.director": ["Ceja Mejia Oscar Eduardo"],
+                "dc.degree.name": ["Licenciatura en Historia"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="role-collision",
+        )
+
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+
+        work = corpus["works"][0]
+        self.assertEqual(
+            work["metadataQualityFlags"],
+            ["author-supervisor-name-collision"],
+        )
+        self.assertEqual(len(work["contributionConflicts"]), 1)
+
+        conflict = work["contributionConflicts"][0]
+        self.assertEqual(
+            conflict["normalizedName"],
+            "ceja mejia oscar eduardo",
+        )
+        self.assertEqual(
+            conflict["roles"],
+            ["thesis-author", "thesis-director"],
+        )
+        self.assertEqual(
+            conflict["resolutionDirective"],
+            "do-not-auto-resolve",
+        )
+
+        matching = [
+            item
+            for item in work["contributions"]
+            if item["normalizedName"] == "ceja mejia oscar eduardo"
+        ]
+        self.assertEqual(
+            {item["role"] for item in matching},
+            {"thesis-author", "thesis-director"},
+        )
+        self.assertEqual(
+            {item["resolutionState"] for item in matching},
+            {"blocked-role-conflict"},
+        )
+        self.assertEqual(
+            corpus["metrics"]["metadataQualityFlags"],
+            {"author-supervisor-name-collision": 1},
+        )
+
     def test_work_ids_are_reused_from_previous_registry(self):
         record = thesis.source_record(
             provider="riudg",

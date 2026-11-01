@@ -547,3 +547,58 @@ Reglas:
 - el valor raw original se conserva siempre.
 
 Un componente imposible como `YYYY-00-DD` permanece inválido.
+
+
+---
+
+## 20. Conflictos de rol persona — evidencia real de full harvest
+
+El primer intento de inventario completo encontró un registro donde el mismo nombre normalizado aparece simultáneamente como:
+
+- `thesis-author`;
+- `thesis-director`.
+
+Nombre observado:
+
+`Ceja Mejia Oscar Eduardo`
+
+La versión anterior trataba cualquier colisión autor/supervisor como error estructural global y abortaba el corpus completo.
+
+Ese comportamiento era demasiado rígido para metadatos históricos reales.
+
+### Política corregida
+
+La colisión ya **no se resuelve por adivinación** y tampoco invalida todo el corpus.
+
+El trabajo conserva ambas contribuciones exactamente como fueron observadas y añade:
+
+`metadataQualityFlags = ["author-supervisor-name-collision"]`
+
+Además crea `contributionConflicts` con:
+
+- nombre normalizado;
+- roles observados;
+- contribuciones afectadas;
+- SourceRecord de procedencia;
+- directiva `do-not-auto-resolve`.
+
+Todas las contribuciones afectadas quedan con:
+
+`resolutionState = "blocked-role-conflict"`
+
+### Consecuencia para Author Authority
+
+El mismo string de nombre **no puede convertirse automáticamente en una única AuthorityPerson** mientras exista esta contradicción de rol.
+
+Una fase de resolución posterior debe revisar evidencia adicional o mantener la ambigüedad.
+
+### Gate
+
+El validador sigue siendo estricto, pero ahora valida la representación del conflicto:
+
+1. toda colisión autor/supervisor debe aparecer en `contributionConflicts`;
+2. debe existir el quality flag correspondiente;
+3. las contribuciones afectadas deben estar bloqueadas para resolución automática;
+4. no se permite ocultar ni eliminar uno de los dos roles para hacer pasar la validación.
+
+Este cambio convierte una anomalía de fuente en evidencia auditable en lugar de un fallo global.
