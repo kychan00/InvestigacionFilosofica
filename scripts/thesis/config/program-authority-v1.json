@@ -577,9 +577,78 @@
         "https://cgpe.udg.mx/sites/default/files/cucsh.pdf",
         "https://www.cucsh.udg.mx/licenciaturas/licenciatura-en-docencia-del-ingles-como-lengua-extranjera"
       ]
+    },
+    {
+      "id": "program:udg:mae-gestion-cultura",
+      "canonicalName": "Maestría en Gestión de la Cultura",
+      "level": "maestria",
+      "disciplineFamily": "gestion-cultural",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "SUV",
+        "CUGDL"
+      ],
+      "aliases": [
+        "Maestría en Gestión de la Cultura",
+        "MAESTRIA EN GESTION DE LA CULTURA"
+      ],
+      "observedCount": 15,
+      "decisionNote": "La Universidad de Guadalajara clasifica explícitamente el programa en el área de Ciencias Sociales y Humanidades. El corpus histórico observa SUV y la oferta vigente se presenta desde CUGDL; se conserva esta trayectoria institucional sin fusionarlo con Gestión y Desarrollo Cultural.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/maestria-en-gestion-de-la-cultura",
+        "https://cugdl.udg.mx/oferta-academica/posgrados-virtuales/maestria-y-doctorado-en-gestion-de-la-cultura",
+        "https://www.udg.mx/sites/default/files/2025-06/maestria_en_gestion_de_la_cultura_cugdl_snp.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:doc-gestion-cultura",
+      "canonicalName": "Doctorado en Gestión de la Cultura",
+      "level": "doctorado",
+      "disciplineFamily": "gestion-cultural",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "SUV",
+        "CUGDL"
+      ],
+      "aliases": [
+        "Doctorado en Gestión de la Cultura",
+        "DOCTORADO EN GESTION DE LA CULTURA"
+      ],
+      "observedCount": 0,
+      "decisionNote": "Programa vigente del posgrado integrado de Gestión de la Cultura. UdeG lo clasifica explícitamente en Ciencias Sociales y Humanidades y la oferta actual se presenta desde CUGDL.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/doctorado-en-gestion-de-la-cultura",
+        "https://cugdl.udg.mx/oferta-academica/posgrados-virtuales/maestria-y-doctorado-en-gestion-de-la-cultura",
+        "https://www.udg.mx/sites/default/files/2026-05/doctorado_en_gestion_de_la_cultura_cugdl_snp.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-gestion-desarrollo-cultural",
+      "canonicalName": "Maestría en Gestión y Desarrollo Cultural",
+      "level": "maestria",
+      "disciplineFamily": "gestion-cultural",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Gestión y Desarrollo Cultural",
+        "MAESTRIA EN GESTION Y DESARROLLO CULTURAL"
+      ],
+      "observedCount": 40,
+      "decisionNote": "La UdeG clasifica oficialmente el programa en Arte, Arquitectura y Diseño, aunque sus objetivos y plan se centran en gestión cultural, políticas culturales, patrimonio y formación humanística. La pertenencia al corpus Humanidades requiere una decisión explícita de alcance; no se trata como alias ni sucesor de Maestría en Gestión de la Cultura.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-gestion-y-desarrollo-cultural-cuaad",
+        "https://cuaad.udg.mx/oferta/maestrias/mgdc/plan-de-estudios",
+        "https://www.udg.mx/sites/default/files/2026-04/maestria_en_gestion_y_desarrollo_cultural_cuaad_snp.pdf",
+        "https://gestioncultural.udgvirtual.udg.mx/preguntas-frecuentes"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v3",
+  "registryRevision": "2026-11-01.v4",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
