@@ -4342,6 +4342,7 @@ async function openExclusiveAuthorByName(
             },
             {
               signal: authorController.signal,
+              timeoutMs: 15_000,
               limit: Number.MAX_SAFE_INTEGER
             }
           );
