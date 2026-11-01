@@ -84,6 +84,16 @@ export const DINORA_HERNANDEZ_LOPEZ_BIBLIOGRAPHY = [
     ]
   }),
   record({
+    slug: "filosofia-pluralista-luis-villoro",
+    title: "La filosofía pluralista de Luis Villoro ante el debate sobre el multiculturalismo",
+    year: 2014,
+    type: "book-chapter",
+    containerTitle: "Luis Villoro: pensamiento y vida. Homenaje a sus 90 años",
+    sourceUrl: "https://cucsh.academia.edu/DinoraHern%C3%A1ndez/Monographs",
+    evidenceLevel: "author-profile",
+    topics: ["Luis Villoro", "Multiculturalismo", "Pluralismo"]
+  }),
+  record({
     slug: "reconocimiento-relaciones-interculturales",
     title: "El reconocimiento en las relaciones interculturales: preámbulos ético-políticos para su debate",
     year: 2016,
@@ -105,6 +115,27 @@ export const DINORA_HERNANDEZ_LOPEZ_BIBLIOGRAPHY = [
     topics: ["Educación", "Teoría crítica", "Pedagogía crítica"]
   }),
   record({
+    slug: "comentarios-feminismo-humanismo",
+    title: "Comentarios en torno a El feminismo es un humanismo",
+    year: 2016,
+    type: "book-review",
+    containerTitle: "El papel de la filosofía latinoamericana en la actualidad",
+    pages: "269–272",
+    publisher: "Universidad de Guadalajara",
+    isbn: ["9786077425564"],
+    sourceUrl: "https://biblioteca-repositorio.clacso.edu.ar/bitstream/CLACSO/253057/1/2016_978-607-742-556-4.pdf",
+    topics: ["Feminismo", "Humanismo"]
+  }),
+  record({
+    slug: "negatividad-frankfurt-dunayevskaya",
+    title: "La negatividad en el pensamiento de la Escuela de Frankfurt y Raya Dunayevskaya",
+    year: 2016,
+    type: "journal-article",
+    publisher: "Universidad Santiago de Cali",
+    sourceUrl: "https://repositorio.usc.edu.co/items/a2482db7-b085-4dc5-8921-f84b0247d4c7/full",
+    topics: ["Escuela de Frankfurt", "Raya Dunayevskaya", "Hegel", "Negatividad"]
+  }),
+  record({
     slug: "estatus-teoria-critica-contemporanea",
     title: "El estatus de la teoría crítica contemporánea. Apuntes para una teoría intransigente",
     year: 2018,
@@ -117,6 +148,25 @@ export const DINORA_HERNANDEZ_LOPEZ_BIBLIOGRAPHY = [
     collaborationKind: "collaboration",
     coauthorCount: 1,
     topics: ["Teoría crítica"]
+  }),
+  record({
+    slug: "bioetica",
+    title: "Bioética",
+    year: 2018,
+    type: "book",
+    publisher: "Universidad de Guadalajara",
+    isbn: ["9786075474021"],
+    sourceUrl: "https://isbnmexico.indautor.cerlalc.org/catalogo.php?id_autor=320094&mode=busqueda_menu",
+    collectiveWork: true,
+    collaborationKind: "collaboration",
+    coauthorCount: 11,
+    authors: [
+      author(),
+      author("Ixchel Itza Patiño González", null),
+      author("Nalliely Hernández Cornejo", null),
+      author("Cicerón Muro Cabral", null)
+    ],
+    topics: ["Bioética"]
   }),
   record({
     slug: "pedagogica-emancipacion-individuo",
@@ -293,6 +343,21 @@ export const DINORA_HERNANDEZ_LOPEZ_BIBLIOGRAPHY = [
     journal: "Constelaciones. Revista de Teoría Crítica",
     sourceUrl: "https://constelaciones-rtc.net/article/view/5540",
     topics: ["Teoría crítica", "Patriarcado", "Violencia contra las mujeres"]
+  }),
+  record({
+    slug: "teoria-pensamiento-critico-humanidades",
+    title: "Teoría y pensamiento crítico desde las humanidades",
+    year: 2024,
+    type: "book",
+    publisher: "Universidad de Guadalajara, CUCSH",
+    isbn: ["9786075814001"],
+    authors: [author(), author("Gabriel Barrón Pérez", null)],
+    sourceUrl: "https://sige.cucsh.udg.mx/editorial/publicacion/teoria-y-pensamiento-critico-desde-las-humanidades",
+    role: "coordinación",
+    collectiveWork: true,
+    collaborationKind: "collaboration",
+    coauthorCount: 1,
+    topics: ["Teoría crítica", "Pensamiento crítico", "Humanidades"]
   }),
   record({
     slug: "filosofia-feminista-intervenciones",
