@@ -21,6 +21,8 @@ on:
       - "tests/author-federated-coverage.test.mjs"
       - "tests/author-identity-lookup.test.mjs"
       - "src/core/author-identity-lookup.js"
+      - "src/core/author-authority-resolution.js"
+      - "tests/author-authority-resolution.test.mjs"
       - "src/core/author-collaborations.js"
       - "tests/author-collaborations.test.mjs"
       - "scripts/openalex/author_index_common.py"
