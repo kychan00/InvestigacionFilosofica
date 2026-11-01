@@ -1,0 +1,245 @@
+{
+  "schemaVersion": "thesis-humanities-program-authority-v1",
+  "institution": {
+    "id": "institution:udg",
+    "canonicalName": "Universidad de Guadalajara",
+    "aliases": [
+      "Universidad de Guadalajara",
+      "UdeG",
+      "Universidad de Guadalajara (México)"
+    ]
+  },
+  "programs": [
+    {
+      "id": "program:udg:lic-antropologia",
+      "canonicalName": "Licenciatura en Antropología",
+      "level": "licenciatura",
+      "disciplineFamily": "antropologia",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Antropología",
+        "Antropología"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:lic-filosofia",
+      "canonicalName": "Licenciatura en Filosofía",
+      "level": "licenciatura",
+      "disciplineFamily": "filosofia",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Filosofía",
+        "Filosofía"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:lic-geografia",
+      "canonicalName": "Licenciatura en Geografía",
+      "level": "licenciatura",
+      "disciplineFamily": "geografia",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Geografía",
+        "Geografía"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:lic-historia",
+      "canonicalName": "Licenciatura en Historia",
+      "level": "licenciatura",
+      "disciplineFamily": "historia",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Historia",
+        "Historia"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:lic-letras-hispanicas",
+      "canonicalName": "Licenciatura en Letras Hispánicas",
+      "level": "licenciatura",
+      "disciplineFamily": "letras",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Letras Hispánicas",
+        "Letras Hispánicas"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:lic-didactica-frances",
+      "canonicalName": "Licenciatura en Didáctica del Francés como Lengua Extranjera",
+      "level": "licenciatura",
+      "disciplineFamily": "lenguas",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Didáctica del Francés como Lengua Extranjera",
+        "Didáctica del Francés como Lengua Extranjera"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:lic-docencia-ingles",
+      "canonicalName": "Licenciatura en Docencia del Inglés como Lengua Extranjera",
+      "level": "licenciatura",
+      "disciplineFamily": "lenguas",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Docencia del Inglés como Lengua Extranjera",
+        "Docencia del Inglés como Lengua Extranjera"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:lic-docencia-ingles-semi",
+      "canonicalName": "Licenciatura en Docencia del Inglés Modalidad Semiescolarizada Abierta y a Distancia",
+      "level": "licenciatura",
+      "disciplineFamily": "lenguas",
+      "admissionState": "include",
+      "aliases": [
+        "Licenciatura en Docencia del Inglés Modalidad Semiescolarizada Abierta y a Distancia"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/node/6942"
+      ]
+    },
+    {
+      "id": "program:udg:doc-historia",
+      "canonicalName": "Doctorado en Historia",
+      "level": "doctorado",
+      "disciplineFamily": "historia",
+      "admissionState": "include",
+      "aliases": [
+        "Doctorado en Historia"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-desarrollo-local-territorio",
+      "canonicalName": "Maestría en Desarrollo Local y Territorio",
+      "level": "maestria",
+      "disciplineFamily": "geografia-territorio",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría en Desarrollo Local y Territorio"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ensenanza-ingles",
+      "canonicalName": "Maestría en Enseñanza del Inglés como Lengua Extranjera",
+      "level": "maestria",
+      "disciplineFamily": "lenguas",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría en Enseñanza del Inglés como Lengua Extranjera"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-estudios-criticos-lenguaje",
+      "canonicalName": "Maestría en Estudios Críticos del Lenguaje",
+      "level": "maestria",
+      "disciplineFamily": "lenguaje",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría en Estudios Críticos del Lenguaje"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-lenguas-culturas-inglesas",
+      "canonicalName": "Maestría en Estudios de las Lenguas y Culturas Inglesas",
+      "level": "maestria",
+      "disciplineFamily": "lenguas",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría en Estudios de las Lenguas y Culturas Inglesas"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-literatura-mexicana",
+      "canonicalName": "Maestría en Estudios de Literatura Mexicana",
+      "level": "maestria",
+      "disciplineFamily": "letras",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría en Estudios de Literatura Mexicana",
+        "Maestría en Estudios de la Literatura Mexicana"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-estudios-filosoficos",
+      "canonicalName": "Maestría en Estudios Filosóficos",
+      "level": "maestria",
+      "disciplineFamily": "filosofia",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría en Estudios Filosóficos",
+        "Maestría en Estudios Filosoficos"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-historia-mexico",
+      "canonicalName": "Maestría en Historia de México",
+      "level": "maestria",
+      "disciplineFamily": "historia",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría en Historia de México"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    },
+    {
+      "id": "program:udg:mae-daf",
+      "canonicalName": "Maestría Interinstitucional en Deutsch als Fremdsprache: Estudios Interculturales de Lengua, Literatura y Cultura Alemanas",
+      "level": "maestria",
+      "disciplineFamily": "lenguas",
+      "admissionState": "include",
+      "aliases": [
+        "Maestría Interinstitucional en Deutsch als Fremdsprache: Estudios Interculturales de Lengua, Literatura y Cultura Alemanas",
+        "Deutsch als Fremdsprache: Estudios Interculturales de Lengua, Literatura y Cultura Alemanas"
+      ],
+      "evidence": [
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+      ]
+    }
+  ]
+}
