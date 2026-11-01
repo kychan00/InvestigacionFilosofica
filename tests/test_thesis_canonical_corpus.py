@@ -209,6 +209,118 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         self.assertEqual(candidate["admission"]["status"], "exclude")
 
+    def test_program_authority_v2_resolves_full_inventory_additions(self):
+        cases = {
+            "MAESTRIA EN LINGUISTICA APLICADA": (
+                "program:udg:mae-linguistica-aplicada",
+                "include",
+            ),
+            "DOCTORADO EN GEOGRAFIA Y ORDENACION TERRITORIAL": (
+                "program:udg:doc-geografia-ordenacion-territorial",
+                "include",
+            ),
+            "DOCTORADO EN HUMANIDADES": (
+                "program:udg:doc-humanidades",
+                "include",
+            ),
+            "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜISTICOS": (
+                "program:udg:doc-estudios-literarios-linguisticos",
+                "include",
+            ),
+            "Maestría en Bioetica": (
+                "program:udg:mae-bioetica",
+                "include",
+            ),
+            "MAESTRIA EN CIENCIAS ANTROPOLOGICAS": (
+                "program:udg:mae-ciencias-antropologicas",
+                "include",
+            ),
+        }
+
+        for raw, (program_ref, state) in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(resolved["admissionState"], state)
+
+    def test_review_program_is_not_excluded_or_included(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="history-art-review",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Historia del arte y patrimonio"],
+                "dc.contributor.author": ["Ejemplo, Persona"],
+                "dc.degree.name": ["LICENCIATURA EN HISTORIA DEL ARTE"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUTONALA"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="history-art-review",
+        )
+
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(
+            candidate["program"]["programRef"],
+            "program:udg:lic-historia-arte",
+        )
+        self.assertEqual(candidate["program"]["admissionState"], "review")
+        self.assertEqual(candidate["admission"]["status"], "review")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "program-review",
+        )
+
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(corpus["metrics"]["worksByAdmission"], {"review": 1})
+        self.assertEqual(corpus["works"][0]["admissionStatus"], "review")
+
+    def test_historical_programs_remain_review_until_lineage_is_confirmed(self):
+        cases = {
+            "LICENCIATURA EN LETRAS": "program:udg:lic-letras-historica",
+            "Maestría en Filosofía": "program:udg:mae-filosofia-historica",
+            (
+                "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS "
+                "CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
+            ): "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
+        }
+
+        for raw, program_ref in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(resolved["admissionState"], "review")
+
+    def test_registry_revision_is_pinned_in_corpus(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="registry-revision",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Revisión"],
+                "dc.degree.name": ["Licenciatura en Historia"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+            },
+            raw_payload="registry-revision",
+        )
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
