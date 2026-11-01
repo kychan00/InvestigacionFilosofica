@@ -165,7 +165,7 @@ function allocateAuthority(candidate, {
   // identifierRegistry/candidateRegistry freeze the AuthorityPerson.id across
   // later builds even if aliases or identifiers evolve.
   const authorityId = "authority:if:v1:" + fnv1a(
-    "seed|" + keys.join("|") + "|" + String(buildRevision || "v1")
+    "seed|" + keys.join("|")
   );
 
   return {
