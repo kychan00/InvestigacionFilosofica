@@ -89,7 +89,7 @@ try {
     });
     assert.ok(metrics.documentWidth <= width + 2, "Document horizontal overflow");
     assert.ok(metrics.rootLeft >= -2 && metrics.rootRight <= width + 2,
-      "Timeline extends beyond viewport");
+      "Timeline extends beyond viewport: " + JSON.stringify(metrics));
 
     await page.screenshot({
       path:"artifacts/author-timeline/year-" + width + ".png",
