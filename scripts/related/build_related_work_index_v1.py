@@ -26,7 +26,7 @@ from authority_work_map_v1 import (
 
 
 SCHEMA_VERSION = "related-work-index-v1"
-GENERATOR_VERSION = "related-work-index-builder-v1a"
+GENERATOR_VERSION = "related-work-index-builder-v1c"
 DEFAULT_NEIGHBORS = 48
 DEFAULT_AUTHORITY_NEIGHBORS = 24
 DEFAULT_SEARCH_MULTIPLIER = 4
