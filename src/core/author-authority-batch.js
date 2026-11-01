@@ -9,6 +9,9 @@ import {
   buildAuthorityGraph
 } from "./author-authority-build-pipeline.js";
 
+// Identity batching is intentionally independent from the Related Work Index.
+// Future integration happens through explicit AuthorityPerson/Contribution/Work
+// contracts, never by sharing incidental shard IDs.
 export const AUTHORITY_BATCH_SCHEMA_VERSION =
   "author-authority-batch-v1";
 export const AUTHORITY_BATCH_SHARD_SCHEMA_VERSION =
