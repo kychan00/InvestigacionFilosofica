@@ -36,6 +36,12 @@ try {
   page.on("requestfailed",request=>failures.push(request.url()+" "+request.failure()?.errorText));
   await page.route("**/*",route=>{
    const url=new URL(route.request().url());
+   // The app imports franc-min from esm.sh. Stub the third-party module
+   // so this test isolates author discovery without requiring CDN access.
+   if(url.hostname==="esm.sh"&&url.pathname.startsWith("/franc-min")) {
+    return route.fulfill({status:200,contentType:"application/javascript",
+     body:"export function francAll(){return [];}"}); 
+   }
    if(url.hostname==="api.openalex.org"&&url.pathname==="/works"){
     scanCalls++;
     scanFilter=url.searchParams.get("filter");
