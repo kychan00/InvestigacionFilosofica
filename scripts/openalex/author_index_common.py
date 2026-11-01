@@ -27,6 +27,14 @@ INDEX_VERSION = "author-index-v2"
 BUCKET_COUNT = 1024
 
 
+HONORIFICS = {
+    "dr", "dra", "doctor", "doctora", "prof",
+    "profesor", "profesora", "lic", "licenciado",
+    "licenciada", "mtro", "mtra", "maestro",
+    "maestra", "phd",
+}
+
+
 NAME_PARTICLES = {
     "al",
     "da",
@@ -75,11 +83,19 @@ def normalize_name(value):
     text = text.replace("_", " ")
     text = text.replace("-", " ")
 
-    return re.sub(
+    normalized = re.sub(
         r"\s+",
         " ",
         text,
     ).strip()
+    tokens = normalized.split()
+
+    # Titles are not identity evidence: "Dra Dinora Hernández"
+    # should be indexed under "Dinora Hernández".
+    while len(tokens) > 1 and tokens[0] in HONORIFICS:
+        tokens.pop(0)
+
+    return " ".join(tokens)
 
 
 def name_tokens(value):
@@ -126,6 +142,16 @@ def alias_signatures(value):
         aliases.add((
             meaningful[-1],
             "surname",
+        ))
+
+    if len(tokens) >= 3:
+        # A Spanish author's second family name may be absent from
+        # citations. This is a *candidate* alias, not proof of identity.
+        aliases.add((
+            token_signature(
+                f"{tokens[0]} {tokens[1]}"
+            ),
+            "given-first-family",
         ))
 
     if len(tokens) >= 2:
