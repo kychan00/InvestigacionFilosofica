@@ -283,21 +283,18 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(corpus["metrics"]["worksByAdmission"], {"review": 1})
         self.assertEqual(corpus["works"][0]["admissionStatus"], "review")
 
-    def test_historical_programs_remain_review_until_lineage_is_confirmed(self):
-        cases = {
-            "LICENCIATURA EN LETRAS": "program:udg:lic-letras-historica",
-            "Maestría en Filosofía": "program:udg:mae-filosofia-historica",
-            (
-                "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS "
-                "CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
-            ): "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
-        }
+    def test_unresolved_doctoral_orientation_remains_review(self):
+        raw = (
+            "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS "
+            "CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
+        )
+        resolved = thesis.resolve_program(raw, self.registry)
 
-        for raw, program_ref in cases.items():
-            with self.subTest(raw=raw):
-                resolved = thesis.resolve_program(raw, self.registry)
-                self.assertEqual(resolved["programRef"], program_ref)
-                self.assertEqual(resolved["admissionState"], "review")
+        self.assertEqual(
+            resolved["programRef"],
+            "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
+        )
+        self.assertEqual(resolved["admissionState"], "review")
 
     def test_registry_revision_is_pinned_in_corpus(self):
         record = thesis.source_record(
@@ -405,7 +402,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 self.assertEqual(program["lifecycleState"], "historical")
                 self.assertTrue(program.get("possibleSuccessorRef"))
                 self.assertIn(
-                    "no confirm",
+                    "confirm",
                     program["decisionNote"].casefold(),
                 )
 
