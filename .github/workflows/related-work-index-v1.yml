@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "scripts/related/**"
+      - "package.json"
       - "src/core/related-work-contract.js"
       - "src/core/related-work-index-format.js"
       - "src/core/related-works-resolver.js"
@@ -19,6 +20,7 @@ on:
   pull_request:
     paths:
       - "scripts/related/**"
+      - "package.json"
       - "src/core/related-work-contract.js"
       - "src/core/related-work-index-format.js"
       - "src/core/related-works-resolver.js"
