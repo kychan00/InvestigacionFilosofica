@@ -653,6 +653,30 @@ Garantías actuales:
 
 ---
 
+## Estado de Fase 1C
+
+La integración del Author Authority Graph está implementada como un puente explícito y versionado:
+
+- `scripts/related/build_authority_work_map_v1.mjs`
+- `scripts/related/authority_work_map_v1.py`
+- `docs/RELATED_WORK_AUTHORITY_SIGNALS_V1.md`
+- `tests/authority-work-map.test.mjs`
+
+El Related Work Builder puede ahora:
+
+- producir `same-author` sólo desde AuthorityPerson confirmadas;
+- producir `shared-coauthor` cuando ambas obras son multi-autoriales;
+- enriquecer vecinos semánticos con evidencia de autoría;
+- introducir candidatos de autoría que no estaban en el top semántico;
+- conservar la relación de autoridad a través de registros DOI/OpenAlex deduplicados;
+- producir aristas authority-only sin inventar un score semántico.
+
+El bridge consume únicamente `work-authors` verificado y el `identifierRegistry` del Authority Graph. Los nombres nunca se utilizan para fusionar personas dentro de Related Works.
+
+La publicación masiva todavía depende de ejecutar el Authority Batch real y de recuperar/republicar los originales FAISS + metadata SQLite con sus SHA congelados.
+
+---
+
 ## 20. Fases
 
 ### Fase 0 — contrato
