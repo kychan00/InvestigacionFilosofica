@@ -9,9 +9,11 @@ on:
       - "src/core/author-curated-identities.js"
       - "scripts/authority/benchmark-author-authority-v1.mjs"
       - "scripts/authority/build-authority-batch-v1.mjs"
+      - "scripts/authority/read-jsonl-v1.mjs"
       - "tests/author-authority-batch-build.test.mjs"
       - "tests/author-authority-benchmark.test.mjs"
       - "tests/author-authority-benchmark-runner.test.mjs"
+      - "tests/authority-jsonl-reader.test.mjs"
       - "package.json"
       - ".github/workflows/author-authority-benchmark-v1.yml"
   workflow_dispatch:
