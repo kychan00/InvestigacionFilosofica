@@ -57,9 +57,35 @@ async function* readJsonLines(path) {
     crlfDelay: Infinity
   });
 
+  let lineNumber = 0;
+
   for await (const line of lines) {
+    lineNumber++;
+
     if (!line.trim()) continue;
-    yield JSON.parse(line);
+
+    try {
+      yield JSON.parse(line);
+    } catch (error) {
+      const preview =
+        JSON.stringify(
+          line.slice(0, 240)
+        );
+
+      throw new SyntaxError(
+        "Invalid JSONL in " +
+        path +
+        " at physical line " +
+        lineNumber +
+        ": " +
+        error.message +
+        "; preview=" +
+        preview,
+        {
+          cause: error
+        }
+      );
+    }
   }
 }
 
