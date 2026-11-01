@@ -1,0 +1,279 @@
+name: Authority Work Map real build v1
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/authority-work-map-real-v1.yml"
+      - "benchmark/author-authority/v1/**"
+      - "scripts/authority/build-authority-batch-v1.mjs"
+      - "scripts/authority/validate-authority-batch-v1.mjs"
+      - "scripts/related/authority_work_map_v1.py"
+      - "scripts/related/build_authority_work_map_v1.mjs"
+      - "scripts/related/validate_authority_work_map_v1.py"
+      - "tests/author-authority-batch-validator.test.mjs"
+      - "tests/authority-work-map.test.mjs"
+      - "tests/test_authority_work_map_validator.py"
+      - "package.json"
+      - ".github/workflows/authority-work-map-real-v1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-authority-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate small authority artifact fixtures
+        run: |
+          node --test             tests/author-authority-batch.test.mjs             tests/author-authority-batch-validator.test.mjs             tests/authority-work-map.test.mjs
+
+          python -m unittest             tests/test_authority_work_map_validator.py
+
+      - name: Read pinned author-index release
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const config = JSON.parse(
+            fs.readFileSync(
+              "benchmark/author-authority/v1/config.json",
+              "utf8"
+            )
+          );
+
+          const values = [
+            ["AUTHORITY_RELEASE_TAG", config.release.tag],
+            ["AUTHORITY_RELEASE_ASSET", config.release.asset],
+            ["AUTHORITY_RELEASE_SHA256", config.release.sha256]
+          ];
+
+          fs.appendFileSync(
+            process.env.GITHUB_ENV,
+            values
+              .map(([key, value]) => `${key}=${value}\n`)
+              .join("")
+          );
+          NODE
+
+      - name: Download pinned author-index release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p             artifacts/authority-work-map-real-v1/download             artifacts/authority-work-map-real-v1/input
+
+          gh release download "$AUTHORITY_RELEASE_TAG"             --repo "$GITHUB_REPOSITORY"             --pattern "$AUTHORITY_RELEASE_ASSET"             --dir artifacts/authority-work-map-real-v1/download
+
+      - name: Verify pinned author-index checksum
+        working-directory: artifacts/authority-work-map-real-v1/download
+        run: |
+          printf '%s  %s\n'             "$AUTHORITY_RELEASE_SHA256"             "$AUTHORITY_RELEASE_ASSET"             | sha256sum -c -
+
+      - name: Extract pinned author-index release
+        run: |
+          tar -xzf             "artifacts/authority-work-map-real-v1/download/$AUTHORITY_RELEASE_ASSET"             -C artifacts/authority-work-map-real-v1/input
+
+          test -f             artifacts/authority-work-map-real-v1/input/author-index-v2/manifest.json
+
+          echo "AUTHOR_INDEX_ROOT=artifacts/authority-work-map-real-v1/input/author-index-v2"             >> "$GITHUB_ENV"
+
+      - name: Re-run mass identity gate on the exact input
+        run: |
+          npm run benchmark:authority --             --input "$AUTHOR_INDEX_ROOT"             --output artifacts/authority-work-map-real-v1/benchmark/report.json
+
+      - name: Build real Author Authority Batch V1
+        run: |
+          npm run build:authority-batch --             --input "$AUTHOR_INDEX_ROOT"             --output artifacts/authority-work-map-real-v1/authority-batch             --build-revision "$GITHUB_SHA"
+
+      - name: Independently validate Author Authority Batch V1
+        run: |
+          npm run validate:authority-batch --             --authority artifacts/authority-work-map-real-v1/authority-batch             --source-manifest "$AUTHOR_INDEX_ROOT/manifest.json"             --output artifacts/authority-work-map-real-v1/authority-batch-validation.json
+
+      - name: Build real Authority Work Map V1
+        run: |
+          npm run build:authority-work-map --             --author-index "$AUTHOR_INDEX_ROOT"             --authority artifacts/authority-work-map-real-v1/authority-batch             --output artifacts/authority-work-map-real-v1/authority-work-map             --build-revision "$GITHUB_SHA"
+
+      - name: Independently validate Authority Work Map V1
+        run: |
+          npm run validate:authority-work-map --             --map artifacts/authority-work-map-real-v1/authority-work-map             --author-index "$AUTHOR_INDEX_ROOT"             --authority artifacts/authority-work-map-real-v1/authority-batch             --output artifacts/authority-work-map-real-v1/authority-work-map-validation.json
+
+      - name: Build deterministic release candidates
+        run: |
+          cd artifacts/authority-work-map-real-v1
+
+          tar             --sort=name             --mtime='UTC 1970-01-01'             --owner=0             --group=0             --numeric-owner             -cf -             authority-batch             | gzip -n > author-authority-batch-v1.tar.gz
+
+          tar             --sort=name             --mtime='UTC 1970-01-01'             --owner=0             --group=0             --numeric-owner             -cf -             authority-work-map             | gzip -n > authority-work-map-v1.tar.gz
+
+          sha256sum             author-authority-batch-v1.tar.gz             authority-work-map-v1.tar.gz             > checksums.sha256
+
+      - name: Summarize real authority build
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+          const crypto = require("crypto");
+
+          const root =
+            "artifacts/authority-work-map-real-v1";
+
+          const read = relative =>
+            JSON.parse(
+              fs.readFileSync(
+                path.join(root, relative),
+                "utf8"
+              )
+            );
+
+          const hash = relative => {
+            const digest =
+              crypto.createHash("sha256");
+            digest.update(
+              fs.readFileSync(
+                path.join(root, relative)
+              )
+            );
+            return digest.digest("hex");
+          };
+
+          const size = relative =>
+            fs.statSync(
+              path.join(root, relative)
+            ).size;
+
+          const authority =
+            read("authority-batch/manifest.json");
+          const workMap =
+            read("authority-work-map/manifest.json");
+          const authorityValidation =
+            read("authority-batch-validation.json");
+          const workMapValidation =
+            read("authority-work-map-validation.json");
+          const benchmark =
+            read("benchmark/report.json");
+
+          const summary = {
+            schemaVersion:
+              "authority-work-map-real-build-summary-v1",
+
+            buildRevision:
+              process.env.GITHUB_SHA,
+
+            sourceRelease: {
+              tag:
+                process.env.AUTHORITY_RELEASE_TAG,
+              asset:
+                process.env.AUTHORITY_RELEASE_ASSET,
+              sha256:
+                process.env.AUTHORITY_RELEASE_SHA256
+            },
+
+            benchmark: {
+              gatePassed:
+                benchmark.gate?.passed === true,
+              profiles:
+                benchmark.corpus?.aliasProfiles,
+              candidateGroups:
+                benchmark.corpus?.candidateGroups,
+              falseMergeCount:
+                benchmark.silver?.falseMergeCount,
+              falseSplitCount:
+                benchmark.silver?.falseSplitCount,
+              goldFailures:
+                benchmark.gold?.failed
+            },
+
+            authorityBatch: {
+              manifestSha256:
+                authorityValidation.manifestSha256,
+              registrySha256:
+                authorityValidation.registrySha256,
+              counts:
+                authority.counts,
+              input:
+                authority.input,
+              conflicts:
+                authority.conflicts
+            },
+
+            authorityWorkMap: {
+              manifestSha256:
+                workMapValidation.manifestSha256,
+              counts:
+                workMap.counts,
+              partition:
+                workMap.partition
+            },
+
+            packages: {
+              "author-authority-batch-v1.tar.gz": {
+                bytes:
+                  size("author-authority-batch-v1.tar.gz"),
+                sha256:
+                  hash("author-authority-batch-v1.tar.gz")
+              },
+              "authority-work-map-v1.tar.gz": {
+                bytes:
+                  size("authority-work-map-v1.tar.gz"),
+                sha256:
+                  hash("authority-work-map-v1.tar.gz")
+              }
+            }
+          };
+
+          fs.writeFileSync(
+            path.join(root, "build-summary.json"),
+            JSON.stringify(summary, null, 2) + "\n"
+          );
+
+          fs.appendFileSync(
+            process.env.GITHUB_STEP_SUMMARY,
+            [
+              "# Authority Work Map real build V1",
+              "",
+              `- Benchmark gate: **${summary.benchmark.gatePassed ? "PASS" : "FAIL"}**`,
+              `- Profiles: **${summary.benchmark.profiles}**`,
+              `- Candidate groups: **${summary.benchmark.candidateGroups}**`,
+              `- AuthorityPerson: **${summary.authorityBatch.counts.authorities}**`,
+              `- AuthorMention: **${summary.authorityBatch.counts.mentions}**`,
+              `- Mapped works: **${summary.authorityWorkMap.counts.worksMapped} / ${summary.authorityWorkMap.counts.worksSeen}**`,
+              `- Authority batch package: **${summary.packages["author-authority-batch-v1.tar.gz"].bytes} bytes**`,
+              `- Work map package: **${summary.packages["authority-work-map-v1.tar.gz"].bytes} bytes**`
+            ].join("\n") + "\n"
+          );
+          NODE
+
+      - name: Upload validated real build candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: authority-work-map-real-v1
+          path: |
+            artifacts/authority-work-map-real-v1/author-authority-batch-v1.tar.gz
+            artifacts/authority-work-map-real-v1/authority-work-map-v1.tar.gz
+            artifacts/authority-work-map-real-v1/checksums.sha256
+            artifacts/authority-work-map-real-v1/build-summary.json
+            artifacts/authority-work-map-real-v1/authority-batch-validation.json
+            artifacts/authority-work-map-real-v1/authority-work-map-validation.json
+            artifacts/authority-work-map-real-v1/benchmark/report.json
+            artifacts/authority-work-map-real-v1/benchmark/audit-sample.json
+            artifacts/authority-work-map-real-v1/benchmark/violations.json
+          if-no-files-found: error
+          retention-days: 30
