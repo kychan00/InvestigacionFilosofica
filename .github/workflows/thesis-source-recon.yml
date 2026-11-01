@@ -1,0 +1,45 @@
+name: Thesis source reconnaissance
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/probe_oai.py"
+      - "docs/THESIS_HUMANITIES_SOURCE_RECON_V1.md"
+      - ".github/workflows/thesis-source-recon.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Validate probe syntax
+        run: python -m py_compile scripts/thesis/probe_oai.py
+
+      - name: Run read-only OAI-PMH probe
+        run: |
+          mkdir -p artifacts/thesis-source-recon
+          python scripts/thesis/probe_oai.py \
+            --output artifacts/thesis-source-recon/report.json
+          cat artifacts/thesis-source-recon/report.json
+
+      - name: Upload reconnaissance report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-source-recon
+          path: artifacts/thesis-source-recon/report.json
+          if-no-files-found: error
+          retention-days: 14
