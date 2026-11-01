@@ -522,6 +522,95 @@ def compact_fetch(result: Fetch) -> dict[str, Any]:
     }
 
 
+def inspect_udgvirtual_enumeration() -> dict[str, Any]:
+    candidates = {
+        "collection": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/6",
+            {},
+        ),
+        "collection_offset_20": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/6",
+            {"offset": "20"},
+        ),
+        "browse_title_scope": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/browse",
+            {
+                "type": "title",
+                "scope": "123456789/6",
+                "rpp": "100",
+                "sort_by": "1",
+                "order": "ASC",
+            },
+        ),
+        "browse_date_scope": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/browse",
+            {
+                "type": "dateissued",
+                "scope": "123456789/6",
+                "rpp": "100",
+                "sort_by": "2",
+                "order": "DESC",
+            },
+        ),
+        "handle_browse_title": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/6/browse",
+            {
+                "type": "title",
+                "rpp": "100",
+                "sort_by": "1",
+                "order": "ASC",
+            },
+        ),
+        "rss": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/feed/rss_2.0/123456789/6",
+            {},
+        ),
+        "atom": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/feed/atom_1.0/123456789/6",
+            {},
+        ),
+    }
+
+    output: dict[str, Any] = {}
+    for name, (url, params) in candidates.items():
+        result = fetch(url, **params)
+        info = compact_fetch(result)
+        body = result.body.decode("utf-8", "replace") if result.body else ""
+        hrefs = sorted(set(
+            unescape(value)
+            for value in re.findall(
+                r"""href\\s*=\\s*["']([^"']+)["']""",
+                body,
+                flags=re.IGNORECASE,
+            )
+        ))
+        handles = sorted(set(
+            match.group(1)
+            for href in hrefs
+            for match in [re.search(r"(?:/jspui)?/handle/123456789/(\\d+)", href)]
+            if match
+        ))
+        body_handles = sorted(set(
+            re.findall(r"(?:/jspui)?/handle/123456789/(\\d+)", body)
+        ))
+        xml_item_handles = sorted(set(
+            re.findall(r"123456789/(\\d+)", body)
+        ))
+        info.update({
+            "href_count": len(hrefs),
+            "href_samples": hrefs[:40],
+            "handle_ids_from_hrefs": handles[:200],
+            "handle_count_from_hrefs": len(handles),
+            "handle_ids_from_body": body_handles[:200],
+            "handle_count_from_body": len(body_handles),
+            "identifier_like_handles": xml_item_handles[:200],
+            "identifier_like_handle_count": len(xml_item_handles),
+        })
+        output[name] = info
+
+    return output
+
+
 def inspect_udgvirtual_html() -> dict[str, Any]:
     collection = "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/6"
     item = "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/4102"
@@ -687,6 +776,7 @@ def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
 
     if name == "udgvirtual":
         report["html_fallback"] = inspect_udgvirtual_html()
+        report["enumeration_fallbacks"] = inspect_udgvirtual_enumeration()
         report["rest_fallback"] = inspect_udgvirtual_rest()
 
     return report
@@ -698,7 +788,7 @@ def main() -> int:
     args = parser.parse_args()
 
     report = {
-        "schema_version": "thesis-source-recon-v1.4",
+        "schema_version": "thesis-source-recon-v1.5",
         "read_only": True,
         "limits": {
             "follows_set_resumption_tokens": True,
