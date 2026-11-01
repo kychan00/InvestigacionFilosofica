@@ -2290,7 +2290,8 @@ function renderResult(
                     "author-index",
                     "author-crossref",
                     "author-internet-archive",
-                    "author-institutional"
+                    "author-institutional",
+                    "author-curated"
                   ].includes(
                     item.retrievalMode
                   )
@@ -2509,7 +2510,8 @@ function renderResult(
                 "author-live",
                 "author-crossref",
                 "author-internet-archive",
-                "author-institutional"
+                "author-institutional",
+                "author-curated"
               ].includes(
                 item.retrievalMode
               )
@@ -2519,11 +2521,13 @@ function renderResult(
                     item.retrievalMode ===
                       "author-index"
                       ? "Autoría directa confirmada en el corpus"
-                      : item.collectiveWork
-                        ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
-                        : `Autoría asociada al nombre en ${escapeHtml(
-                            item.providers?.[0] || "un catálogo federado"
-                          )} · verificar identidad en casos de homonimia`
+                      : item.retrievalMode === "author-curated"
+                        ? `Bibliografía verificada · identidad confirmada por ${item.authorIdentity?.orcid ? "ORCID y " : ""}fuente académica o editorial`
+                        : item.collectiveWork
+                          ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
+                          : `Autoría asociada al nombre en ${escapeHtml(
+                              item.providers?.[0] || "un catálogo federado"
+                            )} · verificar identidad en casos de homonimia`
                   }
                   · identidad normalizada
                   ${
