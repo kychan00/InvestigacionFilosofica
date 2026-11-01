@@ -118,10 +118,15 @@ export async function fetchAuthorWorksFromSnapshot({
       ...indexOptions,signal,limit:24
     });
   }
+  // Distinct author IDs may point to the same publication. Determine
+  // index completeness per ID, not by summing counts after deduplication.
   const complete=successful.length===ids.length &&
-    (total===0||works.length>=total);
+    successful.every(response=>
+      !Number(response.author?.corpusWorks||0) ||
+      (response.works||[]).length>=Number(response.author.corpusWorks)) &&
+    works.length<limit;
   return {
-    works,total:Math.max(total,works.length),
+    works,total:complete?works.length:Math.max(total,works.length),
     complete,pages:successful.length,
     linkedAuthorIds:ids,
     reason:complete?"snapshot-index-complete":"snapshot-index-partial"
