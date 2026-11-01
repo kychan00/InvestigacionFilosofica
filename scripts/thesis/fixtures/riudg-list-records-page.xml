@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"
+         xmlns:dim="http://www.dspace.org/xmlns/dspace/dim">
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>oai:riudg.udg.mx:20.500.12104/fixture-1</identifier>
+        <datestamp>2026-10-01T12:00:00Z</datestamp>
+        <setSpec>com_20.500.12104_9</setSpec>
+        <setSpec>com_20.500.12104_20529</setSpec>
+      </header>
+      <metadata>
+        <dim:dim>
+          <dim:field mdschema="dc" element="title">Historia cultural de Jalisco</dim:field>
+          <dim:field mdschema="dc" element="contributor" qualifier="author">Pérez, Ana</dim:field>
+          <dim:field mdschema="dc" element="contributor" qualifier="director">López, Laura</dim:field>
+          <dim:field mdschema="dc" element="date" qualifier="issued">2024</dim:field>
+          <dim:field mdschema="dc" element="degree" qualifier="name">Licenciatura en Historia</dim:field>
+          <dim:field mdschema="dc" element="degree" qualifier="grantor">Universidad de Guadalajara</dim:field>
+          <dim:field mdschema="dc" element="identifier" qualifier="uri">https://hdl.handle.net/20.500.12104/fixture-1</dim:field>
+        </dim:dim>
+      </metadata>
+    </record>
+    <record>
+      <header status="deleted">
+        <identifier>oai:riudg.udg.mx:20.500.12104/deleted-1</identifier>
+        <datestamp>2026-10-02T12:00:00Z</datestamp>
+        <setSpec>com_20.500.12104_9</setSpec>
+      </header>
+    </record>
+    <resumptionToken cursor="0" completeListSize="27431" expirationDate="2026-11-01T20:00:00Z">token-page-2</resumptionToken>
+  </ListRecords>
+</OAI-PMH>
