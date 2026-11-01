@@ -262,6 +262,26 @@ def load_program_registry(path: str | Path = DEFAULT_REGISTRY) -> dict[str, Any]
     if payload.get("schemaVersion") != "thesis-humanities-program-authority-v1":
         raise ValueError("Unsupported program authority registry")
 
+    institution = payload.get("institution") or {}
+    institution_aliases = {
+        normalize_key(value)
+        for value in [
+            institution.get("canonicalName"),
+            *(institution.get("aliases") or []),
+        ]
+        if value
+    }
+    external_aliases = {
+        normalize_key(value)
+        for value in (institution.get("externalAliases") or [])
+        if value
+    }
+    overlap = institution_aliases & external_aliases
+    if overlap:
+        raise ValueError(
+            "Institution alias collision: " + ", ".join(sorted(overlap))
+        )
+
     allowed_admission_states = {"include", "review", "exclude"}
     ids: set[str] = set()
     for program in payload.get("programs", []):
@@ -392,6 +412,11 @@ def resolve_institution(
         ]
         if value
     }
+    external_aliases = {
+        normalize_key(value)
+        for value in (institution.get("externalAliases") or [])
+        if value
+    }
 
     for value in clean_values:
         normalized = normalize_key(value)
@@ -400,6 +425,16 @@ def resolve_institution(
                 "status": "confirmed",
                 "institutionRef": institution.get("id"),
                 "canonicalName": institution.get("canonicalName"),
+                "raw": value,
+            }
+
+    for value in clean_values:
+        normalized = normalize_key(value)
+        if normalized in external_aliases:
+            return {
+                "status": "external",
+                "institutionRef": None,
+                "canonicalName": value,
                 "raw": value,
             }
 
@@ -419,7 +454,6 @@ def resolve_institution(
         "canonicalName": None,
         "raw": first(clean_values),
     }
-
 
 def admission_decision(
     *,
