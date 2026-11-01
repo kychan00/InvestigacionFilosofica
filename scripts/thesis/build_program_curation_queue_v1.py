@@ -300,6 +300,32 @@ def priority_for_item(
     }
 
 
+def curation_lane(
+    *,
+    state: str,
+    priority: dict[str, Any],
+    count: int,
+) -> str:
+    if state == "review":
+        return "scope-review"
+    if priority.get("nameSignals"):
+        return "humanities-candidate"
+    if priority.get("unitSignals"):
+        return "unit-triage"
+    if count >= 50:
+        return "high-impact-triage"
+    return "backlog"
+
+
+LANE_ORDER = {
+    "scope-review": 0,
+    "humanities-candidate": 1,
+    "unit-triage": 2,
+    "high-impact-triage": 3,
+    "backlog": 4,
+}
+
+
 def evidence_needs(
     *,
     state: str,
@@ -376,6 +402,12 @@ def build_queue(
             authority=authority,
         )
 
+        lane = curation_lane(
+            state=state,
+            priority=priority,
+            count=int(row.get("count") or 0),
+        )
+
         item = {
             "normalizedKey": normalized_key,
             "count": int(row.get("count") or 0),
@@ -386,6 +418,7 @@ def build_queue(
             ),
             "currentProgramRefs": dict(row.get("programRefs") or {}),
             "queueState": state,
+            "curationLane": lane,
             "authority": (
                 {
                     "id": authority.get("id"),
@@ -420,7 +453,7 @@ def build_queue(
 
     items.sort(
         key=lambda item: (
-            0 if item["queueState"] == "review" else 1,
+            LANE_ORDER[item["curationLane"]],
             -item["priority"]["score"],
             -item["count"],
             item["normalizedKey"],
@@ -432,6 +465,7 @@ def build_queue(
 
     band_counts = Counter(item["priority"]["band"] for item in items)
     queue_state_counts = Counter(item["queueState"] for item in items)
+    lane_counts = Counter(item["curationLane"] for item in items)
 
     return {
         "schemaVersion": SCHEMA_VERSION,
@@ -445,6 +479,12 @@ def build_queue(
             "queueItems": len(items),
             "queueStateCounts": dict(queue_state_counts),
             "priorityBands": dict(sorted(band_counts.items())),
+            "curationLanes": dict(
+                sorted(
+                    lane_counts.items(),
+                    key=lambda pair: LANE_ORDER[pair[0]],
+                )
+            ),
             "allProgramStates": dict(all_state_counts),
             "worksByProgramState": dict(all_work_counts),
             "worksRepresentedInQueue": sum(item["count"] for item in items),
@@ -460,6 +500,7 @@ def write_csv(path: Path, queue: dict[str, Any]) -> None:
         "priorityBand",
         "priorityScore",
         "queueState",
+        "curationLane",
         "normalizedKey",
         "count",
         "levelHint",
@@ -487,6 +528,7 @@ def write_csv(path: Path, queue: dict[str, Any]) -> None:
                     "priorityBand": item["priority"]["band"],
                     "priorityScore": item["priority"]["score"],
                     "queueState": item["queueState"],
+                    "curationLane": item["curationLane"],
                     "normalizedKey": item["normalizedKey"],
                     "count": item["count"],
                     "levelHint": item["levelHint"],
@@ -549,8 +591,8 @@ def markdown_summary(
         "",
         f"## Top {min(top, len(queue['items']))}",
         "",
-        "| # | Banda | Score | Estado | Programa observado | Tesis | Unidad principal | Años |",
-        "|---:|:---:|---:|---|---|---:|---|---|",
+        "| # | Carril | Banda | Score | Estado | Programa observado | Tesis | Unidad principal | Años |",
+        "|---:|---|:---:|---:|---|---|---:|---|---|",
     ]
 
     for item in queue["items"][:top]:
@@ -573,9 +615,10 @@ def markdown_summary(
         label = str(label).replace("|", "\\|")
 
         lines.append(
-            "| {rank} | {band} | {score:.3f} | {state} | {label} | "
+            "| {rank} | {lane} | {band} | {score:.3f} | {state} | {label} | "
             "{count} | {unit} | {span} |".format(
                 rank=item["rank"],
+                lane=item["curationLane"],
                 band=item["priority"]["band"],
                 score=item["priority"]["score"],
                 state=item["queueState"],
@@ -651,6 +694,7 @@ def main() -> int:
                         "band": item["priority"]["band"],
                         "score": item["priority"]["score"],
                         "state": item["queueState"],
+                        "lane": item["curationLane"],
                         "program": item["normalizedKey"],
                         "count": item["count"],
                     }
