@@ -66,7 +66,8 @@
     "benchmark:authority:audit:build": "node scripts/authority/build-human-authority-audit-v1.mjs",
     "benchmark:authority:audit": "node scripts/authority/human-authority-audit-server.mjs",
     "benchmark:authority:audit:analyze": "node scripts/authority/analyze-human-authority-audit-v1.mjs",
-    "test:authority-human-audit": "node --test tests/author-authority-human-audit.test.mjs tests/author-authority-human-audit-evidence.test.mjs"
+    "test:authority-human-audit": "node --test tests/author-authority-human-audit.test.mjs tests/author-authority-human-audit-evidence.test.mjs",
+    "build:authority-work-map": "node scripts/related/build_authority_work_map_v1.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
