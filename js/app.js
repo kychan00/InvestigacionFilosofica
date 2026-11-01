@@ -45,6 +45,7 @@ import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=2026103
 
 import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-federated-coverage-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
+import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
 
 import {
@@ -4282,10 +4283,19 @@ async function openExclusiveAuthorByName(
       openAlexAuthorId(
         identity.id
       );
+    const curatedIdentity = !exactId
+      ? findCuratedAuthorIdentity(name)
+      : null;
+    const canonicalName =
+      curatedIdentity?.canonicalName || name;
+    const trustedOrcid =
+      identity.orcid || curatedIdentity?.orcid || null;
+    const curatedAliases =
+      curatedIdentity?.aliases || [];
     // Name-only links first resolve against the HF-derived static author index.
     // No OpenAlex API calls or credits are required.
-    const foundIdentity = await findSnapshotAuthorIdentity(name, {
-      orcid: identity.orcid || null,
+    const foundIdentity = await findSnapshotAuthorIdentity(canonicalName, {
+      orcid: trustedOrcid,
       signal: authorController.signal
     });
     // A shared URL with an exact ID keeps that identity authoritative.
@@ -4341,7 +4351,11 @@ async function openExclusiveAuthorByName(
               {
                 signal:
                   authorController.signal,
-                includeProfile: true
+                includeProfile: true,
+                profileQuery: canonicalName,
+                canonicalNames: curatedIdentity
+                  ? [canonicalName]
+                  : []
               }
             )
       );
@@ -4356,10 +4370,10 @@ async function openExclusiveAuthorByName(
     ) {
       resolution =
         await resolveFederatedAuthor(
-          name,
+          canonicalName,
           {
-            orcid:
-              identity.orcid || null,
+            orcid: trustedOrcid,
+            aliases: [name, ...curatedAliases],
             signal:
               authorController.signal
           }
@@ -4374,6 +4388,27 @@ async function openExclusiveAuthorByName(
           displayName: liveCandidate.n || resolution.author.displayName,
           linkedAuthorIds: liveCandidate.linkedAuthorIds || [liveCandidate.id],
           aliases: [...new Set([name,...(liveCandidate.aliases || [])])]
+        }
+      };
+    }
+
+    if (resolution.status === "resolved" && curatedIdentity) {
+      resolution = {
+        ...resolution,
+        author: {
+          ...resolution.author,
+          displayName: canonicalName,
+          sourceDisplayName:
+            resolution.author.sourceDisplayName || canonicalName,
+          orcid:
+            resolution.author.orcid ||
+            `https://orcid.org/${curatedIdentity.orcid}`,
+          aliases: [...new Set([
+            name,
+            canonicalName,
+            ...curatedAliases,
+            ...(resolution.author.aliases || [])
+          ])]
         }
       };
     }
