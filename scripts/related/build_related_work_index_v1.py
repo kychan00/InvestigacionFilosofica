@@ -319,7 +319,7 @@ def expand_compact_edge(
 
     return {
         "schemaVersion": "related-work-v1",
-        "id": f"rw:{sha256_text(seed_identity + '\0' + target_identity)[:24]}",
+        "id": f"rw:{seed_vector_id}:{target_vector_id}",
         "seed": {"identity": seed_identity},
         "target": {"identity": target_identity},
         "relationTypes": list(neighbor["r"]),
@@ -453,6 +453,8 @@ def build_from_neighbor_provider(
 
     if output_dir.exists() and any(output_dir.iterdir()):
         raise RuntimeError("Output directory must be absent or empty")
+
+    output_dir.parent.mkdir(parents=True, exist_ok=True)
 
     staging = Path(
         tempfile.mkdtemp(
