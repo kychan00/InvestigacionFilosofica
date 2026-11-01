@@ -366,6 +366,10 @@ def build_audit(
             "registryRevision",
             registry.get("schemaVersion"),
         ),
+        "institutionAuthorityRevision": registry.get(
+            "institutionRevision",
+            "institution-authority-v1",
+        ),
         "referenceYear": reference_year,
         "metrics": {
             "works": len(projected_corpus.get("works", [])),
@@ -556,6 +560,9 @@ def main() -> int:
                 "schemaVersion": audit["schemaVersion"],
                 "programAuthorityRevision": audit[
                     "programAuthorityRevision"
+                ],
+                "institutionAuthorityRevision": audit[
+                    "institutionAuthorityRevision"
                 ],
                 "metrics": audit["metrics"],
                 "gateBlockers": audit["gateBlockers"],
