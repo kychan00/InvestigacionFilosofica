@@ -171,7 +171,15 @@ export async function resolveFederatedAuthor(name,options={}) {
     },
     works:matches.map((work,index)=>{
       const {matchedAuthor,...publicWork}=work;
-      return {...publicWork,
+      const full=normalizeAuthorName(preferred);
+      const statement=normalizeAuthorName(publicWork.creatorStatement);
+      const authors=publicWork.creatorStatement&&
+        statement.startsWith(full+" ")
+          ? (publicWork.authors||[]).map(a=>({
+              ...a,name:preferred
+            }))
+          : publicWork.authors;
+      return {...publicWork,authors,
         relevanceScore:Math.max(90,100-index*0.2),
         relevanceLevel:"Autor",
         authorIdentity:{
