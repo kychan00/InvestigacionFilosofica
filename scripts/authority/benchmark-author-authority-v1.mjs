@@ -6,6 +6,7 @@ import {
 import {createReadStream} from "node:fs";
 import {createHash} from "node:crypto";
 import {dirname, join, resolve} from "node:path";
+import {fileURLToPath} from "node:url";
 import {createInterface} from "node:readline";
 import {
   createAuthorAliasAccumulator,
@@ -296,7 +297,7 @@ async function main() {
 if (
   process.argv[1] &&
   resolve(process.argv[1]) ===
-    resolve(new URL(import.meta.url).pathname)
+    fileURLToPath(import.meta.url)
 ) {
   main().catch(error => {
     console.error(error);
