@@ -128,6 +128,13 @@ export function evaluateSilverIdentityPartition({
   profiles = [],
   authorIdToCandidateRef = {}
 } = {}) {
+  const unmappedAuthorIds = profiles
+    .filter(profile =>
+      !candidateRefFor(profile, authorIdToCandidateRef)
+    )
+    .map(profileId)
+    .sort();
+
   const expectedGroups = groupBy(
     profiles,
     expectedIdentityKey
@@ -204,6 +211,8 @@ export function evaluateSilverIdentityPartition({
       (sum, group) => sum + group.authorIds.length,
       0
     ),
+    unmappedProfileCount: unmappedAuthorIds.length,
+    unmappedAuthorIds,
     falseMergeCount: falseMergeGroups.length,
     falseSplitCount: falseSplitGroups.length,
     falseMergeGroups,
@@ -508,6 +517,7 @@ export function buildAuthorityBenchmarkReport({
     goldFailures: 0,
     falseMergeGroups: 0,
     falseSplitGroups: 0,
+    unmappedProfiles: 0,
     requireExactSourceCoverage: true,
     ...thresholds
   };
@@ -544,6 +554,17 @@ export function buildAuthorityBenchmarkReport({
       metric: "silver.falseSplitCount",
       actual: silver.falseSplitCount,
       threshold: gateThresholds.falseSplitGroups
+    });
+  }
+
+  if (
+    silver.unmappedProfileCount >
+    gateThresholds.unmappedProfiles
+  ) {
+    failures.push({
+      metric: "silver.unmappedProfileCount",
+      actual: silver.unmappedProfileCount,
+      threshold: gateThresholds.unmappedProfiles
     });
   }
 
