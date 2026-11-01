@@ -30,17 +30,27 @@ function safeIdPart(value) {
     .trim()
     .replace(/\s+/g, "-")
     .replace(/[^A-Za-z0-9_.:-]+/g, "")
-    .slice(0, 180);
+    .slice(0, 80);
+}
+
+function fnv1a(value) {
+  let hash = 0x811c9dc5;
+  for (const byte of new TextEncoder().encode(String(value))) {
+    hash ^= byte;
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return hash.toString(16).padStart(8, "0");
 }
 
 function sourceRecordRef(provider, sourceId) {
-  return "source:" + safeIdPart(provider) + ":" + safeIdPart(sourceId);
+  const providerKey = safeIdPart(provider) || "unknown";
+  return "source:" + providerKey + ":" +
+    fnv1a(String(provider) + "|" + String(sourceId));
 }
 
 function mentionRef(recordRef, position, rawValue) {
-  const fallback = safeIdPart(normalizeAuthorName(rawValue)).slice(0, 48) || "creator";
-  return "mention:" + safeIdPart(recordRef) + ":" +
-    (position ?? fallback);
+  const suffix = position ?? fnv1a(rawValue).slice(0, 8);
+  return "mention:" + fnv1a(recordRef) + ":" + suffix;
 }
 
 function identifierAssertionsFromCreator(creator = {}) {
