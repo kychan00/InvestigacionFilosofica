@@ -8,6 +8,10 @@ on:
       - "tests/mobile-carbon.test.mjs"
       - "scripts/qa/mobile-ui-smoke.mjs"
       - "scripts/qa/record-modal-smoke.mjs"
+      - "scripts/qa/author-timeline-smoke.mjs"
+      - "src/core/author-timeline.js"
+      - "src/core/author-timeline-ui.js"
+      - "tests/author-timeline.test.mjs"
       - ".github/workflows/mobile-ui-regression.yml"
   workflow_dispatch:
 
@@ -50,6 +54,8 @@ jobs:
         run: node scripts/qa/mobile-ui-smoke.mjs
       - name: Check record detail modal visual design
         run: node scripts/qa/record-modal-smoke.mjs
+      - name: Check author timeline interactions and layout
+        run: node scripts/qa/author-timeline-smoke.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,4 +64,5 @@ jobs:
           path: |
             artifacts/mobile-ui/
             artifacts/record-detail/
+            artifacts/author-timeline/
           if-no-files-found: ignore
