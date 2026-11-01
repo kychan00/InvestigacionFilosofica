@@ -69,6 +69,11 @@ test("perfil de Dinora recupera las publicaciones colectivas encontradas en la b
   "catalogue records with one creator cannot prove solo authorship");
  assert.ok(summary.unknown>=1);
  assert.ok(result.author.catalogSources.includes("CUCSH Filosofía"));
+ const coordinated=result.works.find(work=>
+   work.title==="Teoría crítica, planteamientos, desplazamientos, tensiones" &&
+   work.year===2019);
+ assert.equal(coordinated.authors[0].name,"Dinora Hernández López");
+ assert.ok(coordinated.creatorStatement.includes("Hermann Omar Amaya"));
 });
 
 test("no se hereda el ORCID de otra persona que participa en una colaboración",async()=>{
