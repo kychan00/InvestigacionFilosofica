@@ -75,7 +75,7 @@ try {
           const style=getComputedStyle(el);
           const raw=style.backgroundColor;
           const bg=raw==="rgba(0, 0, 0, 0)" ?
-            getComputedStyle(el.parentElement).backgroundColor : raw;
+            (theme==="light"?"rgb(255, 255, 255)":"rgb(22, 22, 22)") : raw;
           return {selector,foreground:style.color,background:bg,
             fontSize:style.fontSize,opacity:style.opacity,
             bounds:el.getBoundingClientRect().toJSON()};
