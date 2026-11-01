@@ -1084,6 +1084,10 @@ def build_corpus(
         "schemaVersion": "thesis-canonical-corpus-v1",
         "buildRevision": build_revision,
         "programAuthorityRevision": registry.get("registryRevision", registry["schemaVersion"]),
+        "institutionAuthorityRevision": registry.get(
+            "institutionRevision",
+            "institution-authority-v1",
+        ),
         "sourceRecords": source_records,
         "programAuthorities": registry.get("programs", []),
         "institutionAuthorities": [registry.get("institution")],
