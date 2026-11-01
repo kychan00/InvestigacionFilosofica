@@ -86,8 +86,10 @@ function verifiedOpenAlexAuthor(work, id, orcid) {
   return (work.authorships || []).some(entry => {
     const entryId = openAlexAuthorId(entry?.author?.id);
     const observedOrcid = cleanOrcid(entry?.author?.orcid);
-    return Boolean(id && entryId === id) ||
-      Boolean(expectedOrcid && observedOrcid && observedOrcid === expectedOrcid);
+    // With a verified OpenAlex ID, reject different IDs even if an
+    // external metadata source accidentally reused the same ORCID.
+    if (id) return entryId === id;
+    return Boolean(expectedOrcid && observedOrcid && observedOrcid === expectedOrcid);
   });
 }
 
