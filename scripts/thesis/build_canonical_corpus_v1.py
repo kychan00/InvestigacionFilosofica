@@ -675,10 +675,34 @@ def build_corpus(
     for candidate in candidates:
         by_key.setdefault(identity_key(candidate), []).append(candidate)
 
-    groups = [
-        sorted(group, key=lambda item: (0 if item["provider"] == "riudg" else 1, item["sourceRecordRef"]))
-        for _, group in sorted(by_key.items())
-    ]
+    groups: list[list[dict[str, Any]]] = []
+    vetoed_identity_groups: set[str] = set()
+
+    for key, raw_group in sorted(by_key.items()):
+        group = sorted(
+            raw_group,
+            key=lambda item: (
+                0 if item["provider"] == "riudg" else 1,
+                item["sourceRecordRef"],
+            ),
+        )
+
+        confirmed_institutions = {
+            item["institution"].get("institutionRef")
+            for item in group
+            if item["institution"].get("status") == "confirmed"
+        }
+        external_institutions = {
+            item["institution"].get("canonicalName")
+            for item in group
+            if item["institution"].get("status") == "external"
+        }
+
+        if len(group) > 1 and confirmed_institutions and external_institutions:
+            vetoed_identity_groups.add(key)
+            groups.extend([[item] for item in group])
+        else:
+            groups.append(group)
 
     group_ids, work_registry = allocate_work_ids(groups, previous_work_registry)
 
@@ -691,25 +715,15 @@ def build_corpus(
         work_id = group_ids["|".join(source_refs)]
         primary = group[0]
 
-        institution_refs = {
-            item["institution"].get("institutionRef")
-            for item in group
-            if item["institution"].get("status") == "confirmed"
-        }
-        external_institutions = {
-            item["institution"].get("canonicalName")
-            for item in group
-            if item["institution"].get("status") == "external"
-        }
+        group_identity_key = identity_key(primary)
+        identity_veto_applied = group_identity_key in vetoed_identity_groups
 
-        contradiction = bool(institution_refs and external_institutions)
-
-        if len(group) > 1 and contradiction:
-            status = "ambiguous"
-            explanation = "institution-contradiction"
-        elif len(group) > 1:
+        if len(group) > 1:
             status = "confirmed"
             explanation = "shared-persistent-identifier"
+        elif identity_veto_applied:
+            status = "rejected"
+            explanation = "institution-contradiction-veto"
         else:
             status = "single-source"
             explanation = "no-merge-needed"
@@ -742,9 +756,9 @@ def build_corpus(
 
         group_admission = "quarantine"
         group_codes = []
-        if contradiction:
-            group_admission = "quarantine"
-            group_codes.append("identity-contradiction")
+        if identity_veto_applied:
+            group_admission = primary["admission"]["status"]
+            group_codes.append("identity-contradiction-veto")
         elif any(item["admission"]["status"] == "include" for item in group):
             group_admission = "include"
             group_codes.append("confirmed-humanities-program")
@@ -827,10 +841,30 @@ def validate_corpus(corpus: dict[str, Any]) -> bool:
             if work.get("institutionRef") != "institution:udg":
                 raise ValueError("INCLUDE work without UdeG institutionRef")
 
-        for contrib in work.get("contributions", []):
-            if contrib["role"] == "thesis-director":
-                if contrib["role"] == "thesis-author":
-                    raise ValueError("Director normalized as author")
+        author_names = {
+            contrib["normalizedName"]
+            for contrib in work.get("contributions", [])
+            if contrib["role"] == "thesis-author"
+        }
+        supervisory_names = {
+            contrib["normalizedName"]
+            for contrib in work.get("contributions", [])
+            if contrib["role"] in {
+                "thesis-director",
+                "thesis-codirector",
+                "thesis-advisor",
+            }
+        }
+        overlap = {
+            name
+            for name in author_names & supervisory_names
+            if name
+        }
+        if overlap:
+            raise ValueError(
+                "Same normalized person appears as author and supervisor: "
+                + ", ".join(sorted(overlap))
+            )
 
     return True
 
