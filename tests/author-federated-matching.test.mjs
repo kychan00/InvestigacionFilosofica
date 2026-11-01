@@ -33,6 +33,10 @@ test("una compilación de varias personas cuenta como colectiva",()=>{
  assert.ok(entry);
  assert.equal(entry.collectiveWork,true);
  assert.equal(entry.coauthorCount,1);
+ assert.equal(entry.authors.length,1);
+ assert.equal(entry.authors[0].name,"Dinora Hernández");
+ assert.ok(entry.creatorStatement.includes("Hermann Omar Amaya"));
+ assert.ok(!entry.authors[0].name.includes("Hermann Omar Amaya"));
  assert.equal(workCollaboration({...entry,retrievalMode:"author-internet-archive"},target).kind,
    "collaboration");
 });
