@@ -427,6 +427,10 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             corpus["programAuthorityRevision"],
             self.registry["registryRevision"],
         )
+        self.assertEqual(
+            corpus["institutionAuthorityRevision"],
+            self.registry["institutionRevision"],
+        )
 
     def test_historical_language_literature_family_v3(self):
         cases = {
