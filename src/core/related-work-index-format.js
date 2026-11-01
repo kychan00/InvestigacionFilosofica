@@ -281,6 +281,23 @@ export function validateCompactRelatedWorkSeed(
 
     seen.add(target);
 
+    const observedVectorId =
+      Number(
+        neighbor?.o ??
+        neighbor?.v
+      );
+
+    if (
+      !Number.isInteger(
+        observedVectorId
+      ) ||
+      observedVectorId < 0
+    ) {
+      errors.push(
+        "neighbor:observed-vector-id-invalid"
+      );
+    }
+
     try {
       compactNeighborToRelatedWorkEdge(
         seed,
