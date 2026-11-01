@@ -180,19 +180,42 @@ export async function buildAuthorityBatchFromIndex({
   await rm(resolvedOutput, {recursive: true, force: true});
   await mkdir(join(resolvedOutput, "shards"), {recursive: true});
 
-  const aliasAccumulator = createAuthorAliasAccumulator();
+  const profileAccumulator = createAuthorAliasAccumulator();
   let aliasRowsSeen = 0;
+  let workAuthorRowsSeen = 0;
+  let workAuthorMembershipsSeen = 0;
 
   for (const relativePath of filePaths(inputManifest, "aliases")) {
     const path = join(resolvedInput, relativePath);
     for await (const row of readJsonLines(path)) {
-      aliasAccumulator.add(row);
+      profileAccumulator.add(row);
       aliasRowsSeen++;
     }
   }
 
+  // aliases/ is a search index, not a complete person inventory.
+  // work-authors/ covers the resolved author profiles even when a display
+  // name cannot produce a searchable alias signature.
+  for (const relativePath of filePaths(inputManifest, "work_authors")) {
+    const path = join(resolvedInput, relativePath);
+    for await (const row of readJsonLines(path)) {
+      workAuthorRowsSeen++;
+      for (const author of Array.isArray(row?.a) ? row.a : []) {
+        profileAccumulator.add({
+          id: author.id,
+          n: author.n,
+          o: author.o,
+          cw: 0,
+          w: 0,
+          c: 0
+        });
+        workAuthorMembershipsSeen++;
+      }
+    }
+  }
+
   const grouped = groupAggregatedAuthorProfiles(
-    aliasAccumulator.finish()
+    profileAccumulator.finish()
   );
   const candidateBuckets = partitionAuthorityCandidates(
     grouped.candidates,
@@ -334,7 +357,9 @@ export async function buildAuthorityBatchFromIndex({
     source: summary.sourceManifest,
     input: {
       aliasRowsSeen,
-      aggregatedAuthorProfiles: aliasAccumulator.size,
+      workAuthorRowsSeen,
+      workAuthorMembershipsSeen,
+      aggregatedAuthorProfiles: profileAccumulator.size,
       candidateGroups: grouped.candidates.length,
       workRowsSeen,
       workRowsRouted,

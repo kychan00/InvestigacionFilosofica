@@ -32,12 +32,13 @@ La entrada contiene:
 - `works/*.jsonl`;
 - `work-authors/*.jsonl`.
 
-Batch V1 utiliza inicialmente:
+Batch V1 utiliza:
 
-- `aliases`;
-- `works`.
+- `aliases` para variantes nominales y métricas;
+- `work-authors` como inventario completo de perfiles de autor;
+- `works` para materializar menciones y SourceRecord de autoría.
 
-`work-authors` queda reservado para las siguientes fases de Contribution y red de colaboración.
+Los campos de coautoría de `work-authors` todavía no se convierten en Contribution canónicas; esa parte permanece reservada para la fase posterior.
 
 ---
 
@@ -75,6 +76,26 @@ El constructor no almacena todas las filas de alias originales.
 Esto permite recorrer las 1,024 particiones de alias sin conservar millones de duplicados de firma en memoria.
 
 ---
+
+
+
+## 3.1 Alias no equivale a inventario
+
+El benchmark masivo de identidad detectó que la release `author-index-v3` declara 215,015 autores resueltos pero sólo 215,013 perfiles aparecen en `aliases/`.
+
+Esto puede ocurrir cuando un display name válido en la fuente no produce una firma nominal utilizable después de normalización.
+
+Por tanto, el batch ya no deriva el universo de personas únicamente de `aliases/`.
+
+Antes de agrupar candidatos, incorpora también los perfiles observados en `work-authors/`. Así un autor sin alias buscable conserva:
+
+- OpenAlex Author ID;
+- display name fuente;
+- ORCID si existe;
+- participación en obras;
+- posibilidad de recibir AuthorityPerson.
+
+La ausencia de alias afecta descubrimiento por nombre, no existencia ontológica dentro del grafo.
 
 ## 4. Conflicto de ORCID dentro de un OpenAlex ID
 
