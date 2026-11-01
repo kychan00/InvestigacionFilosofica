@@ -977,6 +977,69 @@ function recordTypeLabel(
 }
 
 
+function renderRecordAuthorLinks(
+  item,
+  extraClass = ""
+) {
+  const authors = (item?.authors || [])
+    .filter(author => Boolean(author?.name));
+
+  if (!authors.length) {
+    return "";
+  }
+
+  return authors
+    .map(author => `
+      <a
+        class="record-author-link ${escapeHtml(extraClass)}"
+        href="${escapeHtml(authorWorksUrl(
+          author.name,
+          author
+        ))}"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Abrir en una pestaña nueva las obras de ${escapeHtml(
+          author.name
+        )}"
+      >
+        <span>${escapeHtml(author.name)}</span>
+        <span class="record-author-link-arrow" aria-hidden="true">↗</span>
+      </a>
+    `)
+    .join(
+      '<span class="record-author-separator" aria-hidden="true">, </span>'
+    );
+}
+
+
+function renderRecordAuthorLink(
+  author,
+  extraClass = ""
+) {
+  if (!author?.name) {
+    return "";
+  }
+
+  return `
+    <a
+      class="record-author-link ${escapeHtml(extraClass)}"
+      href="${escapeHtml(authorWorksUrl(
+        author.name,
+        author
+      ))}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Abrir en una pestaña nueva las obras de ${escapeHtml(
+        author.name
+      )}"
+    >
+      <span>${escapeHtml(author.name)}</span>
+      <span class="record-author-link-arrow" aria-hidden="true">↗</span>
+    </a>
+  `;
+}
+
+
 function recordMetadataCards(
   item
 ) {
@@ -1013,19 +1076,38 @@ function recordMetadataCards(
   };
 
 
-  const authors =
-    (item.authors || [])
-      .map(
-        author =>
-          author.name
-      )
-      .filter(Boolean)
-      .join(", ");
+  const addHtml = (
+    label,
+    html
+  ) => {
+    if (!html) {
+      return;
+    }
+
+    cards.push(`
+      <div class="cinematic-meta-card cinematic-meta-card-authors">
+        <span>
+          ${escapeHtml(label)}
+        </span>
+
+        <strong class="record-author-list">
+          ${html}
+        </strong>
+      </div>
+    `);
+  };
 
 
-  add(
+  const authorLinks =
+    renderRecordAuthorLinks(
+      item,
+      "record-author-link-metadata"
+    );
+
+
+  addHtml(
     "Autores",
-    authors
+    authorLinks
   );
 
 
@@ -1134,19 +1216,29 @@ function renderRecordDetails(
     );
 
 
-  const authors =
-    (item.authors || [])
-      .map(
-        author =>
-          author.name
-      )
-      .filter(Boolean)
-      .join(", ");
+  const authorLinks =
+    renderRecordAuthorLinks(
+      item,
+      "record-author-link-byline"
+    );
+
+
+  const firstAuthorRecord =
+    item.authors?.[0] || null;
 
 
   const firstAuthor =
-    item.authors?.[0]?.name ||
+    firstAuthorRecord?.name ||
     "Filosofía";
+
+
+  const firstAuthorLink =
+    firstAuthorRecord
+      ? renderRecordAuthorLink(
+          firstAuthorRecord,
+          "record-author-link-card"
+        )
+      : escapeHtml(firstAuthor);
 
 
   const authorInitial =
@@ -1403,25 +1495,24 @@ function renderRecordDetails(
 
 
           <p class="record-cinematic-byline">
-            ${
-              authors
-                ? escapeHtml(
-                    authors
-                  )
-                : "Autor no disponible"
-            }
+            <span class="record-cinematic-byline-authors">
+              ${
+                authorLinks ||
+                "Autor no disponible"
+              }
+            </span>
 
             ${
               item.year
-                ? ` · ${item.year}`
+                ? `<span class="record-cinematic-byline-meta"> · ${item.year}</span>`
                 : ""
             }
 
             ${
               item.journal
-                ? ` · ${escapeHtml(
+                ? `<span class="record-cinematic-byline-meta"> · ${escapeHtml(
                     item.journal
-                  )}`
+                  )}</span>`
                 : ""
             }
           </p>
@@ -1479,10 +1570,8 @@ function renderRecordDetails(
               Archivo filosófico
             </span>
 
-            <strong>
-              ${escapeHtml(
-                firstAuthor
-              )}
+            <strong class="record-author-name">
+              ${firstAuthorLink}
             </strong>
 
           </section>
