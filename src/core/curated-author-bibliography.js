@@ -36,10 +36,24 @@ export function getCuratedAuthorBibliography(author = {}) {
       ""
     );
 
-  const requestedOrcid =
-    normalizeOrcid(author.orcid || identity?.orcid);
+  const explicitOrcid = normalizeOrcid(author.orcid);
+  const curatedOrcid = normalizeOrcid(identity?.orcid);
+  const hasExactCatalogId = Boolean(
+    String(author.id || "").match(/(?:openalex\.org\/)?A?\d+$/i)
+  );
 
-  const key = requestedOrcid || normalizeOrcid(identity?.orcid);
+  // An explicit catalogue identity remains authoritative. A matching name
+  // alone must never replace an exact ID belonging to a namesake.
+  if (hasExactCatalogId && !explicitOrcid) {
+    return {author: identity, works: [], source: null};
+  }
+
+  if (explicitOrcid && curatedOrcid && explicitOrcid !== curatedOrcid) {
+    return {author: identity, works: [], source: null};
+  }
+
+  const requestedOrcid = explicitOrcid || curatedOrcid;
+  const key = requestedOrcid;
   const works = key ? CURATED_AUTHOR_BIBLIOGRAPHIES[key] : null;
 
   if (!works?.length) {
