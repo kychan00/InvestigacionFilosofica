@@ -129,8 +129,11 @@ export async function resolveFederatedAuthor(name,options={}) {
     normalizeAuthorName(b).split(" ").length -
       normalizeAuthorName(a).split(" ").length ||
     b.length-a.length)[0]||aliases[0];
-  const observedOrcids=[...new Set(matches.flatMap(work=>
-    (work.authors||[]).map(a=>orcid(a.orcid||a.id)).filter(Boolean)))];
+  // A coauthor's ORCID must NEVER become the identity of the
+  // researcher being viewed.
+  const observedOrcids=[...new Set(matches
+    .map(work=>orcid(work.matchedAuthor?.orcid||work.matchedAuthor?.id))
+    .filter(Boolean))];
   const observed=orcid(options.orcid) ||
     (observedOrcids.length===1?observedOrcids[0]:null);
   const catalogSources=[...new Set(matches.flatMap(work=>work.providers||[]))];
