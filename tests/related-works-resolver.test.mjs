@@ -169,12 +169,16 @@ async function makeClient() {
       return jsonResponse(fixture.relationManifest);
     }
 
-    if (url === relationBase + "/" + shardPath) {
-      return textResponse(
-        fixture.shardRows
-          .map(row => JSON.stringify(row))
-          .join("\n") + "\n"
-      );
+    if (url.startsWith(relationBase + "/shards/")) {
+      if (url === relationBase + "/" + shardPath) {
+        return textResponse(
+          fixture.shardRows
+            .map(row => JSON.stringify(row))
+            .join("\n") + "\n"
+        );
+      }
+
+      return textResponse("");
     }
 
     if (url === metadataBase + "/manifest.json") {
