@@ -29,5 +29,15 @@ Ninguna función de perfil ni de búsqueda del sitio puede introducir llamadas a
 - Un ID OpenAlex estable o un ORCID idéntico puede unir varios nombres e IDs. Ante homónimos sin esa evidencia, la interfaz ofrece selección de identidad, sin adjudicar automáticamente las obras.
 - Las particiones `works` ya incluyen trabajos en los que el investigador es coautor, y el nuevo generador guarda además la cantidad de colaboradores por obra (`co`). El índice inverso `work-authors` permite recuperar sus nombres e identificadores para las publicaciones visibles.
 - El perfil muestra separadamente obras individuales, en colaboración y con autoría insuficiente. Si un índice antiguo carece de información de coautoría, no se inventa que la obra sea individual.
-- Para que los alias y la cantidad de colaboradores nuevos sean visibles, **es necesario reconstruir y publicar la release `author-index-v2`** ejecutando `.github/workflows/build-author-index-v1.yml` después del merge, y después desplegar el sitio con el artefacto nuevo. La publicación del JS/CSS por sí sola no actualiza los datos existentes.
+- Para que los alias y la cantidad de colaboradores nuevos sean visibles, **es necesario reconstruir las particiones de formato `author-index-v2` y publicar la **nueva release inmutable `author-index-v3`**** ejecutando `.github/workflows/build-author-index-v1.yml` después del merge, y después desplegar el sitio con el artefacto nuevo. La publicación del JS/CSS por sí sola no actualiza los datos existentes.
 - Todas las obras siguen limitadas a la cobertura del corpus filosófico de Hugging Face y sus fuentes federadas; no se garantiza exhaustividad.
+
+### Publicación coordinada del índice actualizado
+
+1. Integrar el PR de código; nunca realizar cambios directos en `main`.
+2. Ejecutar manualmente `Build remote author index v2` (`.github/workflows/build-author-index-v1.yml`). Construye los datos desde Hugging Face y publica **`author-index-v3`**, sin sobrescribir la release existente `author-index-v2`.
+3. Verificar el manifest, los archivos comprimidos y su checksum; el contenido utiliza por compatibilidad la ruta `author-index-v2/`.
+4. Ejecutar el despliegue de GitHub Pages después de la release y confirmar el SHA desplegado. El workflow de despliegue reemplaza las particiones antiguas por las nuevas.
+5. Probar las rutas públicas con «Dra Dinora Hernández», «Dinora Hernández» y «Dinora Hernández López», comprobando alias, autorías compartidas, ausencia de peticiones a `api.openalex.org` y no atribución de homónimos.
+
+**Importante:** un merge y un despliegue de la web sin reconstrucción de la release no satisfacen la publicación de los nuevos alias y recuentos.
