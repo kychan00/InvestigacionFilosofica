@@ -244,6 +244,8 @@ def compact_neighbor(
     seed: WorkMetadata,
     target: WorkMetadata,
     raw_score: float,
+    *,
+    observed_vector_id: int | None = None,
 ) -> dict[str, Any]:
     score = semantic_signal(raw_score)
     shared_topics = sorted(set(seed.topics).intersection(target.topics))
@@ -257,13 +259,21 @@ def compact_neighbor(
         relations.append("shared-topic")
         evidence["topicIds"] = shared_topics
 
-    return {
+    neighbor = {
         "t": target.identity,
         "v": target.vector_id,
         "s": score,
         "r": relations,
         "e": evidence,
     }
+
+    if (
+        observed_vector_id is not None
+        and observed_vector_id != target.vector_id
+    ):
+        neighbor["o"] = int(observed_vector_id)
+
+    return neighbor
 
 
 def expand_compact_edge(
@@ -274,6 +284,9 @@ def expand_compact_edge(
     target_identity = str(neighbor["t"])
     target_vector_id = int(neighbor["v"])
     semantic_score = float(neighbor["e"]["semanticScore"])
+    observed_vector_id = int(
+        neighbor.get("o", target_vector_id)
+    )
 
     semantic_evidence_id = (
         f"semantic:{seed_vector_id}:{target_vector_id}"
@@ -285,6 +298,7 @@ def expand_compact_edge(
             "strength": semantic_strength(semantic_score),
             "source": "qwen3-browser-static-v4",
             "semanticScore": semantic_score,
+            "observedVectorId": observed_vector_id,
         }
     ]
     reasons = [
@@ -358,6 +372,7 @@ def select_neighbors(
 
     for target_vector_id, raw_score in candidates:
         target_vector_id = int(target_vector_id)
+        observed_vector_id = target_vector_id
         if target_vector_id < 0 or target_vector_id >= len(metadata):
             counters["invalid_target"] += 1
             continue
@@ -384,7 +399,12 @@ def select_neighbors(
 
         seen_targets.add(target.identity)
         accepted.append(
-            compact_neighbor(seed, target, raw_score)
+            compact_neighbor(
+                seed,
+                target,
+                raw_score,
+                observed_vector_id=observed_vector_id,
+            )
         )
 
         if len(accepted) >= limit:
