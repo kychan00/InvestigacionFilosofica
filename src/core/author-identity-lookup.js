@@ -66,11 +66,12 @@ export function chooseLiveAuthorIdentity(query, authors = [], options = {}) {
   for (const author of authors) {
     const id = authorId(author.id);
     if (!id || ids.has(id)) continue;
-    const observedOrcid = normalizedOrcid(author.orcid);
-    if (expectedOrcid && observedOrcid && expectedOrcid !== observedOrcid)
+    const observedOrcids = [
+      author.orcid, ...(author.observed_orcids || [])
+    ].map(normalizedOrcid).filter(Boolean);
+    if (expectedOrcid && !observedOrcids.includes(expectedOrcid))
       continue;
-    const confidence = expectedOrcid && observedOrcid === expectedOrcid
-      ? "orcid" : matchAuthorName(query, author);
+    const confidence = expectedOrcid ? "orcid" : matchAuthorName(query, author);
     if (confidence === "none") continue;
     ids.add(id);
     matches.push(candidateFromAuthor(author, confidence));
@@ -134,7 +135,7 @@ export async function findOpenAlexAuthorIdentity(name,{
   url.searchParams.set("per_page",String(PAGE_SIZE));
   url.searchParams.set("select",[
     "id","display_name","display_name_alternatives","orcid",
-    "works_count","last_known_institutions"
+    "observed_orcids","works_count","last_known_institutions"
   ].join(","));
   try {
     const data=await getJson(url,{fetchImpl,signal,timeoutMs});
