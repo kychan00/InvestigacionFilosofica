@@ -1,4 +1,8 @@
-import { normalizeAuthorName, resolveRemoteAuthorCandidate } from "./remote-author-resolution.js";
+import {
+  normalizeAuthorName,
+  resolveRemoteAuthorCandidate,
+  enrichAuthorWorksWithCollaborators
+} from "./remote-author-resolution.js";
 import { resolveFederatedAuthor } from "./crossref-author-fallback.js";
 
 /*
@@ -84,28 +88,43 @@ export function mergeAuthorArchives(initial = [], additions = []) {
  */
 export async function fetchAuthorWorksFromSnapshot({
   authorId:requestedId,displayName,orcid,signal,
+  linkedAuthorIds=[],
   maxWorks=DEFAULT_MAX_WORKS,
   resolverImpl=resolveRemoteAuthorCandidate,
+  collaboratorsImpl=enrichAuthorWorksWithCollaborators,
+  enrichCollaborators=true,
   indexOptions={}
 }={}) {
   const id=authorId(requestedId);
   if(!id) return {works:[],total:null,complete:false,pages:0,reason:"no-id"};
   if(signal?.aborted) throw new DOMException("Aborted","AbortError");
   const limit=Math.max(1,Math.min(10000,Number(maxWorks)||DEFAULT_MAX_WORKS));
-  const resolved=await resolverImpl({
-    id,n:displayName||"Autor",o:orcid||null,cw:0
-  },{...indexOptions,signal,limit});
+  const ids=[...new Set([id,...linkedAuthorIds.map(authorId).filter(Boolean)])]
+    .slice(0,10);
+  const responses=await Promise.all(ids.map(async currentId=>
+    resolverImpl({
+      id:currentId,n:displayName||"Autor",o:orcid||null,cw:0
+    },{...indexOptions,signal,limit})));
   if(signal?.aborted) throw new DOMException("Aborted","AbortError");
-  if(resolved?.status!=="resolved")
+  const successful=responses.filter(response=>response?.status==="resolved");
+  if(!successful.length)
     return {works:[],total:null,complete:false,pages:0,reason:"index-unavailable"};
-  const works=(resolved.works||[]).slice(0,limit);
-  const reported=Number(resolved.author?.corpusWorks||0);
-  const total=reported>0?reported:works.length;
+  let works=mergeAuthorArchives([],successful.flatMap(x=>x.works||[]))
+    .slice(0,limit);
+  const total=successful.reduce((sum,response)=>
+    sum+Math.max(0,Number(response.author?.corpusWorks||0)),0);
+  if(enrichCollaborators&&works.length) {
+    works=await collaboratorsImpl(works,{
+      ...indexOptions,signal,limit:24
+    });
+  }
+  const complete=successful.length===ids.length &&
+    (total===0||works.length>=total);
   return {
-    works,total,
-    complete:works.length>=total,
-    pages:1,
-    reason:works.length>=total?"snapshot-index-complete":"snapshot-index-partial"
+    works,total:Math.max(total,works.length),
+    complete,pages:successful.length,
+    linkedAuthorIds:ids,
+    reason:complete?"snapshot-index-complete":"snapshot-index-partial"
   };
 }
 
@@ -122,6 +141,8 @@ export async function discoverAuthorArchive({
   const name=String(author?.displayName||author?.sourceDisplayName||"").trim();
   const id=authorId(author?.id);
   const orcid=author?.orcid||null;
+  const linkedAuthorIds=Array.isArray(author?.linkedAuthorIds)
+    ? author.linkedAuthorIds : [];
   let works=mergeAuthorArchives(initialWorks,[]);
   const errors=[];
   const sources=initialWorks.length?[AUTHOR_SNAPSHOT_SOURCE]:[];
@@ -140,7 +161,8 @@ export async function discoverAuthorArchive({
     jobs.push((async()=>{
       try {
         const result=await snapshotImpl({
-          authorId:id,displayName:name,orcid,signal,...snapshotOptions
+          authorId:id,displayName:name,orcid,linkedAuthorIds,
+          signal,...snapshotOptions
         });
         works=mergeAuthorArchives(works,result.works||[]);
         snapshotComplete=Boolean(result.complete);
