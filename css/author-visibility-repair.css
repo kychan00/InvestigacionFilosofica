@@ -274,6 +274,12 @@ html[data-theme] body.author-view .author-work-grid .result-card .meta {
   line-height: 1.55;
 }
 
+html[data-theme] body.author-view .author-work-grid .result-card .explain {
+  font-size: 12px !important;
+  line-height: 1.55;
+  letter-spacing: .015em;
+}
+
 html[data-theme] body.author-view .author-work-grid .result-card .meta a,
 html[data-theme] body.author-view .author-work-grid .result-card .author-profile-link {
   color: var(--profile-ink) !important;
