@@ -275,6 +275,15 @@ function evidenceStrengthValues() {
 }
 
 
+function reasonCodeValues() {
+  return new Set(
+    Object.values(
+      RELATION_REASON_CODES
+    )
+  );
+}
+
+
 export function relationFamilyFor(
   relationType
 ) {
@@ -497,6 +506,16 @@ export function validateRelatedWorkEdge(
         item.id
       );
     }
+
+    if (
+      item.strength ===
+      EVIDENCE_STRENGTH.VETO
+    ) {
+      errors.push(
+        "edge:veto-evidence-present:" +
+        item.id
+      );
+    }
   }
 
   const reasons =
@@ -512,6 +531,9 @@ export function validateRelatedWorkEdge(
     );
   }
 
+  const knownReasonCodes =
+    reasonCodeValues();
+
   for (
     const reason of reasons
   ) {
@@ -525,6 +547,17 @@ export function validateRelatedWorkEdge(
         "reason:code-required"
       );
       continue;
+    }
+
+    if (
+      !knownReasonCodes.has(
+        reason.code
+      )
+    ) {
+      errors.push(
+        "reason:unknown-code:" +
+        reason.code
+      );
     }
 
     if (
