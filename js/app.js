@@ -41,7 +41,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { buildAuthorTimeline } from "../src/core/author-timeline.js?v=20261031-timeline-v1";
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
 
 import {
   resolveFederatedAuthor
@@ -189,9 +189,11 @@ let currentResponse = null;
 let visibleLimit = 20;
 let currentFilteredResults = [];
 let authorSourceSearch = null;
-let authorTimelineUnit = "year";
-let authorTimelineSelectedKey = null;
-let authorTimelineNodeLimit = 60;
+let authorTimelineState = {
+  unit: "year",
+  selectedKey: null,
+  visibleLimit: 60
+};
 let authorArchiveLoading = false;
 
 const qwen3OptIn =
@@ -3926,9 +3928,11 @@ function showExclusiveAuthorWorks(
   options = {}
 ) {
   if (options.resetTimeline) {
-    authorTimelineUnit = "year";
-    authorTimelineSelectedKey = null;
-    authorTimelineNodeLimit = 60;
+    authorTimelineState = {
+      unit: "year",
+      selectedKey: null,
+      visibleLimit: 60
+    };
   }
 
   authorArchiveLoading = Boolean(options.loading);
@@ -4024,7 +4028,7 @@ function restoreAuthorSourceSearch() {
     "author-view"
   );
   authorArchiveLoading = false;
-  authorTimelineSelectedKey = null;
+  authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
 
@@ -5204,6 +5208,8 @@ function renderAuthorPage(
         </div>
       </section>
 
+      <section class="author-timeline-placeholder" id="author-timeline-root"></section>
+
       <section class="author-page-analysis">
         <div class="author-analysis-card author-focus-card">
           <span class="author-section-kicker">Mapa léxico</span>
@@ -5313,6 +5319,19 @@ function renderFilteredResults() {
         currentResponse,
         visible
       );
+
+    mountAuthorTimeline(
+      resultsEl.querySelector("#author-timeline-root"),
+      currentResponse.results || [],
+      authorTimelineState,
+      {
+        loading: authorArchiveLoading,
+        onOpenWork: index => {
+          const work = currentResponse.results?.[index];
+          if (work) openRecord(work);
+        }
+      }
+    );
 
     document
       .querySelector("#load-more")
