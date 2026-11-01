@@ -83,9 +83,23 @@ try {
    throw Error("Profile failed to initialize: "+JSON.stringify({diagnostics,errors,
      failures:failures.slice(0,12),scanCalls}));
   }
-  await page.waitForFunction(()=>
-   document.querySelectorAll(".author-work-grid .result-card").length>=4,
-   null,{timeout:20000});
+  try {
+   await page.waitForFunction(()=>
+    document.querySelectorAll(".author-work-grid .result-card").length>=4,
+    null,{timeout:8500});
+  } catch {
+   const report=await page.evaluate(()=>({
+    title:document.title,
+    status:document.querySelector("#status")?.textContent,
+    authorOnly:document.body.classList.contains("author-view"),
+    cards:document.querySelectorAll(".author-work-grid .result-card").length,
+    archive:document.querySelector(".author-archive-discovery")?.textContent,
+    results:document.querySelector("#results")?.textContent?.slice(0,350),
+    errors:[...document.querySelectorAll(".error")].map(x=>x.textContent)
+   }));
+   throw Error("Profile did not expand: "+JSON.stringify({report,errors,
+     failures:failures.slice(0,20),scanCalls,scanFilter}));
+  }
   const state=await page.evaluate(()=>{
    const cards=[...document.querySelectorAll(".author-work-grid .result-card")];
    const stats=document.querySelector("#stats");
