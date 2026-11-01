@@ -468,6 +468,108 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             "2026-11-01.v3",
         )
 
+    def test_cultural_management_family_v4(self):
+        cases = {
+            "Maestría en Gestión de la Cultura": (
+                "program:udg:mae-gestion-cultura",
+                "include",
+            ),
+            "MAESTRIA EN GESTION Y DESARROLLO CULTURAL": (
+                "program:udg:mae-gestion-desarrollo-cultural",
+                "review",
+            ),
+            "Doctorado en Gestión de la Cultura": (
+                "program:udg:doc-gestion-cultura",
+                "include",
+            ),
+        }
+
+        for raw, (program_ref, admission_state) in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(
+                    resolved["admissionState"],
+                    admission_state,
+                )
+
+    def test_cultural_management_programs_are_not_aliases(self):
+        research = thesis.resolve_program(
+            "Maestría en Gestión de la Cultura",
+            self.registry,
+        )
+        professional = thesis.resolve_program(
+            "Maestría en Gestión y Desarrollo Cultural",
+            self.registry,
+        )
+
+        self.assertNotEqual(
+            research["programRef"],
+            professional["programRef"],
+        )
+        self.assertEqual(research["admissionState"], "include")
+        self.assertEqual(professional["admissionState"], "review")
+
+    def test_cultural_management_review_gate_is_explicit(self):
+        records = [
+            thesis.source_record(
+                provider="riudg",
+                provider_record_id="culture-research",
+                source_url=None,
+                raw_fields={
+                    "dc.title": ["Investigación cultural"],
+                    "dc.degree.name": ["Maestría en Gestión de la Cultura"],
+                    "dc.degree.grantor": ["Universidad de Guadalajara"],
+                    "dc.degree.department": ["SUV"],
+                    "dc.type": ["Tesis de Maestría"],
+                },
+                raw_payload="culture-research",
+            ),
+            thesis.source_record(
+                provider="riudg",
+                provider_record_id="culture-professional",
+                source_url=None,
+                raw_fields={
+                    "dc.title": ["Proyecto cultural"],
+                    "dc.degree.name": [
+                        "Maestría en Gestión y Desarrollo Cultural"
+                    ],
+                    "dc.degree.grantor": ["Universidad de Guadalajara"],
+                    "dc.degree.department": ["CUAAD"],
+                    "dc.type": ["Tesis de Maestría"],
+                },
+                raw_payload="culture-professional",
+            ),
+        ]
+
+        corpus = thesis.build_corpus(
+            records,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(
+            corpus["metrics"]["worksByAdmission"],
+            {"include": 1, "review": 1},
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            "2026-11-01.v4",
+        )
+
+        by_program = {
+            work["programRef"]: work["admissionStatus"]
+            for work in corpus["works"]
+        }
+        self.assertEqual(
+            by_program["program:udg:mae-gestion-cultura"],
+            "include",
+        )
+        self.assertEqual(
+            by_program["program:udg:mae-gestion-desarrollo-cultural"],
+            "review",
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
