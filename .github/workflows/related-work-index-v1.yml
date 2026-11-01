@@ -1,0 +1,72 @@
+name: Related Work Index V1
+
+on:
+  push:
+    paths:
+      - "scripts/related/**"
+      - "src/core/related-work-contract.js"
+      - "src/core/related-work-index-format.js"
+      - "tests/related-work-index-format.test.mjs"
+      - "tests/test_related_work_index_builder.py"
+      - "benchmark/related-works/v1/index-builder-fixture.json"
+      - "docs/RELATED_WORK_INDEX_V1A.md"
+      - "docs/record-related-works-architecture-v1.md"
+      - ".github/workflows/related-work-index-v1.yml"
+  pull_request:
+    paths:
+      - "scripts/related/**"
+      - "src/core/related-work-contract.js"
+      - "src/core/related-work-index-format.js"
+      - "tests/related-work-index-format.test.mjs"
+      - "tests/test_related_work_index_builder.py"
+      - "benchmark/related-works/v1/index-builder-fixture.json"
+      - "docs/RELATED_WORK_INDEX_V1A.md"
+      - "docs/record-related-works-architecture-v1.md"
+      - ".github/workflows/related-work-index-v1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fixture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Validate JavaScript relation contract and compact format
+        run: |
+          node --test             tests/related-work-contract.test.mjs             tests/related-work-index-format.test.mjs
+
+      - name: Validate Python builder invariants
+        run: python -m unittest tests/test_related_work_index_builder.py
+
+      - name: Build deterministic Related Work Index fixture
+        run: |
+          python scripts/related/build_related_work_index_v1.py             --fixture-json benchmark/related-works/v1/index-builder-fixture.json             --output-dir artifacts/related-work-index-v1-fixture             --neighbors 3             --search-multiplier 3             --shards 8             --batch-size 2             --minimum-semantic-score 0.5
+
+      - name: Independently validate fixture artifact
+        run: |
+          python scripts/related/validate_related_work_index_v1.py             --artifact-dir artifacts/related-work-index-v1-fixture             --output artifacts/related-work-index-v1-fixture/validation.json
+
+      - name: Upload deterministic fixture artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: related-work-index-v1-fixture
+          path: artifacts/related-work-index-v1-fixture/
+          if-no-files-found: error
+          retention-days: 30
