@@ -105,6 +105,126 @@ test("un seed compacto válido no contiene autoría ni citación inventadas", ()
 });
 
 
+test("una relación de autoría puede existir sin señal semántica", () => {
+  const authoritySeed = {
+    s: "doi:10.1000/seed",
+    v: 0,
+    n: [
+      {
+        t: "openalex:W1004",
+        v: 3,
+        r: [
+          "same-author",
+          "shared-coauthor"
+        ],
+        e: {
+          authorityRefs: [
+            "authority:a"
+          ],
+          sharedAuthorityRefs: [
+            "authority:a"
+          ]
+        }
+      }
+    ]
+  };
+
+  const result =
+    validateCompactRelatedWorkSeed(
+      authoritySeed
+    );
+
+  assert.equal(
+    result.ok,
+    true,
+    result.errors.join("\n")
+  );
+
+  const edge =
+    compactNeighborToRelatedWorkEdge(
+      authoritySeed,
+      authoritySeed.n[0]
+    );
+
+  assert.deepEqual(
+    edge.relationTypes,
+    [
+      "same-author",
+      "shared-coauthor"
+    ]
+  );
+
+  assert.deepEqual(
+    edge.signals,
+    {
+      author: 1,
+      coauthor: 1
+    }
+  );
+
+  assert.equal(
+    edge.evidence[0].class,
+    "bibliographic"
+  );
+
+  assert.equal(
+    edge.evidence[0].structuredIdentity,
+    true
+  );
+
+  assert.deepEqual(
+    edge.evidence[0].authorityRefs,
+    [
+      "authority:a"
+    ]
+  );
+
+  assert.deepEqual(
+    edge.evidence[1].sharedAuthorityRefs,
+    [
+      "authority:a"
+    ]
+  );
+});
+
+
+test("same-author sin AuthorityPerson confirmada falla el contrato", () => {
+  const invalid = {
+    s: "doi:10.1000/seed",
+    v: 0,
+    n: [
+      {
+        t: "openalex:W1004",
+        v: 3,
+        r: [
+          "same-author"
+        ],
+        e: {}
+      }
+    ]
+  };
+
+  const result =
+    validateCompactRelatedWorkSeed(
+      invalid
+    );
+
+  assert.equal(
+    result.ok,
+    false
+  );
+
+  assert.ok(
+    result.errors.some(
+      error =>
+        error.includes(
+          "structured-evidence-field-required:same-author"
+        )
+    )
+  );
+});
+
+
 test("el formato compacto rechaza self-relations y targets duplicados", () => {
   const invalid = {
     s: "doi:10.1000/seed",
