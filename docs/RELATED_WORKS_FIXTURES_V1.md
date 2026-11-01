@@ -140,13 +140,17 @@ Una señal normalizada >1 o <0 invalida el contrato.
 
 ---
 
+## RW17 — veto activo
+
+Una contradicción bibliográfica marcada como `veto` impide publicar la arista aun si la similitud semántica es muy alta.
+
+Este caso ya forma parte de los fixtures ejecutables.
+
+---
+
 # 3. Casos obligatorios antes de Fase 1 completa
 
 La matriz debe crecer antes de congelar el builder.
-
-## RW17 — veto activo
-
-Una contradicción determinista/bibliográfica debe impedir publicar una arista aun si la semántica es alta.
 
 ## RW18 — duplicado DOI
 
