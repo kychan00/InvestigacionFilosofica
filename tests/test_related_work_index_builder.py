@@ -21,11 +21,13 @@ from build_related_work_index_v1 import (  # noqa: E402
     load_fixture_metadata,
     representative_vector_ids,
     shard_for_identity,
+    WorkMetadata,
 )
 from validate_related_work_index_v1 import validate_artifact  # noqa: E402
 from authority_work_map_v1 import (  # noqa: E402
     AuthorityWorkInfo,
     AuthorityWorkMap,
+    build_work_authority_info_index,
 )
 
 
@@ -67,6 +69,50 @@ class RelatedWorkIndexBuilderV1Tests(unittest.TestCase):
         self.assertEqual(
             representatives["doi:10.1000/seed"],
             0,
+        )
+
+    def test_authority_mapping_survives_non_openalex_representative(self) -> None:
+        metadata = [
+            WorkMetadata(
+                vector_id=0,
+                identity="doi:10.1000/shared",
+                openalex_identity=None,
+                topics=(),
+                year=2020,
+            ),
+            WorkMetadata(
+                vector_id=1,
+                identity="doi:10.1000/shared",
+                openalex_identity="openalex:W777",
+                topics=(),
+                year=2020,
+            ),
+        ]
+        _, representatives = representative_vector_ids(metadata)
+        authority_map = AuthorityWorkMap(
+            manifest={
+                "schemaVersion": "authority-work-map-v1",
+            },
+            works={
+                "openalex:W777": AuthorityWorkInfo(
+                    work_identity="openalex:W777",
+                    author_count=1,
+                    unresolved_count=0,
+                    authority_refs=("authority:canonical",),
+                ),
+            },
+        )
+
+        index = build_work_authority_info_index(
+            metadata,
+            authority_map,
+            representatives,
+        )
+
+        self.assertIn(0, index)
+        self.assertEqual(
+            index[0].authority_refs,
+            ("authority:canonical",),
         )
 
     def test_hash_routing_is_stable(self) -> None:
