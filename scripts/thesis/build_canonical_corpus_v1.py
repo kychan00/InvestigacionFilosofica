@@ -147,6 +147,11 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
 
     reference_year = reference_year or datetime.now(timezone.utc).year
 
+    # A large RIUdeG cluster uses the Unix epoch rendered in the repository's
+    # historical timezone as a placeholder date. Preserve it, but never let it
+    # act as trusted temporal evidence.
+    epoch_sentinel = raw in {"1969-12-31", "31/12/1969"}
+
     numeric_only = re.fullmatch(r"\d{5,}", raw)
     if numeric_only:
         return {
@@ -200,7 +205,11 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
             }
 
         quality = "valid"
-        if year < 1800 or year > reference_year + 1:
+        if (
+            year < 1800
+            or year > reference_year + 1
+            or epoch_sentinel
+        ):
             quality = "suspicious"
 
         return {
@@ -226,7 +235,11 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
             }
 
         quality = "valid"
-        if year < 1800 or year > reference_year + 1:
+        if (
+            year < 1800
+            or year > reference_year + 1
+            or epoch_sentinel
+        ):
             quality = "suspicious"
 
         return {
