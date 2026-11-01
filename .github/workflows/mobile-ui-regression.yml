@@ -13,6 +13,9 @@ on:
       - "scripts/qa/theme-contrast-smoke.mjs"
       - "scripts/qa/author-profile-visibility-smoke.mjs"
       - "scripts/qa/author-deep-discovery-smoke.mjs"
+      - "scripts/qa/author-name-only-smoke.mjs"
+      - "tests/author-identity-lookup.test.mjs"
+      - "src/core/author-identity-lookup.js"
       - "tests/author-deep-discovery.test.mjs"
       - "src/core/author-deep-discovery.js"
       - "src/sources/openalex.js"
@@ -73,6 +76,8 @@ jobs:
         run: node scripts/qa/author-profile-visibility-smoke.mjs
       - name: Verify deep author search on a shared page in both themes
         run: node scripts/qa/author-deep-discovery-smoke.mjs
+      - name: Verify name-only author URLs and live identity resolution
+        run: node scripts/qa/author-name-only-smoke.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -85,4 +90,5 @@ jobs:
             artifacts/theme-contrast/
             artifacts/author-profile-visibility/
             artifacts/author-deep-discovery/
+            artifacts/author-name-lookup/
           if-no-files-found: ignore

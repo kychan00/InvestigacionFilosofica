@@ -44,6 +44,7 @@ import {
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
 
 import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-deep-author-v1";
+import { findOpenAlexAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-name-author-v1";
 
 import {
   resolveFederatedAuthor
@@ -4270,13 +4271,38 @@ async function openExclusiveAuthorByName(
       openAlexAuthorId(
         identity.id
       );
+    // Name-only share links must search the live OpenAlex author
+    // directory; the small philosophy index is not a global directory.
+    const liveIdentity = exactId
+      ? null
+      : await findOpenAlexAuthorIdentity(name, {
+          orcid: identity.orcid || null,
+          signal: authorController.signal
+        });
+
+    if (liveIdentity?.status === "ambiguous") {
+      showAuthorChoice({
+        status: "ambiguous",
+        candidates: liveIdentity.candidates
+      }, name);
+      return;
+    }
+
+    const liveCandidate = liveIdentity?.status === "resolved"
+      ? liveIdentity.candidate
+      : null;
     const existing =
       currentResolvedAuthor(
         exactId,
         name
       );
     let resolution =
-      existing ||
+      liveCandidate
+        ? await resolveRemoteAuthorCandidate(
+            liveCandidate,
+            { signal: authorController.signal }
+          )
+        : existing ||
       (
         exactId
           ? await resolveRemoteAuthorCandidate(
@@ -4652,7 +4678,12 @@ function renderAuthorResolution(
               </span>
 
               <small>
-                ${candidate.cw || 0} obras en el corpus
+                ${candidate.cw || 0} obras registradas en OpenAlex
+                ${
+                  candidate.affiliation
+                    ? ` · ${escapeHtml(candidate.affiliation)}`
+                    : ""
+                }
                 ${
                   candidate.o
                     ? ` · ORCID ${escapeHtml(candidate.o.replace(/^https?:\/\/orcid\.org\//, ""))}`
@@ -4849,6 +4880,20 @@ function bindAuthorResolutionActions() {
             `Cargando obras de ${candidate.n}…`;
 
           try {
+            // Identity selection is not just an index preview:
+            // it must enter the same deep, paginated workflow.
+            if (
+              !multiResolution &&
+              currentResponse?.authorOnlyRequested
+            ) {
+              await openExclusiveAuthorByName(
+                candidate.n,
+                null,
+                { id: candidate.id, orcid: candidate.o || null }
+              );
+              return;
+            }
+
             const resolution =
               await resolveRemoteAuthorCandidate(
                 candidate,
