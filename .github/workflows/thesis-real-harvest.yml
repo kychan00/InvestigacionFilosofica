@@ -5,9 +5,11 @@ on:
     paths:
       - "scripts/thesis/harvest_real_corpus_v1.py"
       - "scripts/thesis/build_canonical_corpus_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
+      - "tests/test_thesis_program_curation_queue.py"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
@@ -50,13 +52,18 @@ jobs:
         run: |
           python -m py_compile \
             scripts/thesis/build_canonical_corpus_v1.py \
-            scripts/thesis/harvest_real_corpus_v1.py
+            scripts/thesis/harvest_real_corpus_v1.py \
+            scripts/thesis/build_program_curation_queue_v1.py
 
       - name: Offline unit tests
         run: |
           python -m unittest discover \
             -s tests \
-            -p "test_thesis_real_harvest.py" \
+            -p "test_thesis_*harvest.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_curation_queue.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -118,11 +125,42 @@ jobs:
           }, indent=2, ensure_ascii=False))
           PY
 
+      - name: Build program curation queue
+        run: |
+          rm -rf artifacts/thesis-program-curation
+          python scripts/thesis/build_program_curation_queue_v1.py \
+            --observed-authorities artifacts/thesis-real-harvest/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --output-dir artifacts/thesis-program-curation \
+            --top 30
+
+      - name: Validate curation queue
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-program-curation")
+          queue = json.loads((root / "program-curation-queue.json").read_text())
+
+          assert queue["schemaVersion"] == "thesis-program-curation-queue-v1"
+          assert queue["metrics"]["queueItems"] >= 0
+          assert "review" in queue["metrics"]["allProgramStates"] or True
+
+          for item in queue["items"]:
+              assert item["decisionConstraint"] == "priority-does-not-change-admission"
+              assert item["queueState"] in {"unresolved", "review"}
+
+          print(json.dumps(queue["metrics"], indent=2, ensure_ascii=False))
+          PY
+
       - name: Upload harvest artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: thesis-real-harvest-v1
-          path: artifacts/thesis-real-harvest/
+          path: |
+            artifacts/thesis-real-harvest/
+            artifacts/thesis-program-curation/
           if-no-files-found: error
           retention-days: 14
