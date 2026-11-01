@@ -73,7 +73,7 @@ async function fixture(root){
       p:"first",
       r:true,
       co:0,
-      t:"Obra A",
+      t:"Radbruch as an Affirmative Holist.\u2028On the Question",
       y:2024,
       l:"es",
       ty:"article"
