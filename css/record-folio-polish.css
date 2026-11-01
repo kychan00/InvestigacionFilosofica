@@ -1,0 +1,535 @@
+/*
+ * Record folio · layered research presentation
+ * Final authority for the bibliographic detail modal.
+ * Loaded after theme/visibility layers so light and dark modes remain coherent.
+ */
+
+html[data-theme="light"] #record-modal {
+  --rf-overlay: rgba(22, 22, 22, .72);
+  --rf-panel: #ffffff;
+  --rf-surface: #f4f4f4;
+  --rf-surface-raised: #e8e8e8;
+  --rf-surface-inset: #ffffff;
+  --rf-hover: #e0e0e0;
+  --rf-border: #c6c6c6;
+  --rf-border-strong: #8d8d8d;
+  --rf-text: #161616;
+  --rf-text-soft: #525252;
+  --rf-text-muted: #6f6f6f;
+  --rf-link: #0f62fe;
+  --rf-link-hover: #0043ce;
+  --rf-accent: #0f62fe;
+  --rf-accent-hover: #0353e9;
+  --rf-focus: #0f62fe;
+  --rf-button: #393939;
+  --rf-button-hover: #4c4c4c;
+  --rf-button-text: #ffffff;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] #record-modal {
+  --rf-overlay: rgba(0, 0, 0, .82);
+  --rf-panel: #161616;
+  --rf-surface: #262626;
+  --rf-surface-raised: #393939;
+  --rf-surface-inset: #161616;
+  --rf-hover: #333333;
+  --rf-border: #525252;
+  --rf-border-strong: #6f6f6f;
+  --rf-text: #f4f4f4;
+  --rf-text-soft: #c6c6c6;
+  --rf-text-muted: #a8a8a8;
+  --rf-link: #78a9ff;
+  --rf-link-hover: #a6c8ff;
+  --rf-accent: #0f62fe;
+  --rf-accent-hover: #4589ff;
+  --rf-focus: #78a9ff;
+  --rf-button: #393939;
+  --rf-button-hover: #4c4c4c;
+  --rf-button-text: #ffffff;
+  color-scheme: dark;
+}
+
+#record-modal.record-modal {
+  background: transparent !important;
+}
+
+#record-modal .record-modal-backdrop {
+  background: var(--rf-overlay) !important;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+#record-modal .record-modal-panel {
+  border: 1px solid var(--rf-border-strong) !important;
+  border-top: 3px solid var(--rf-accent) !important;
+  border-radius: 0 !important;
+  background: var(--rf-panel) !important;
+  color: var(--rf-text) !important;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .36) !important;
+  scrollbar-color: var(--rf-border-strong) var(--rf-panel);
+}
+
+#record-modal .record-modal-close {
+  z-index: 6;
+  width: 48px !important;
+  height: 48px !important;
+  border: 0 !important;
+  border-left: 1px solid var(--rf-border) !important;
+  border-bottom: 1px solid var(--rf-border) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface-raised) !important;
+  color: var(--rf-text) !important;
+  box-shadow: none !important;
+  font-family: var(--pg-sans);
+  font-size: 24px;
+  line-height: 1;
+}
+
+#record-modal .record-modal-close:hover {
+  background: var(--rf-hover) !important;
+}
+
+#record-modal .record-modal-close:focus-visible,
+#record-modal :is(a, button, summary):focus-visible {
+  outline: 2px solid var(--rf-focus) !important;
+  outline-offset: 2px !important;
+}
+
+#record-modal .record-cinematic,
+#record-modal .record-cinematic-layout,
+#record-modal .record-cinematic-main,
+#record-modal .record-cinematic-sidebar {
+  background: var(--rf-panel) !important;
+  color: var(--rf-text) !important;
+}
+
+#record-modal .record-cinematic-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rf-border) !important;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--rf-accent) 13%, transparent), transparent 34%),
+    var(--rf-panel) !important;
+  color: var(--rf-text) !important;
+}
+
+#record-modal .record-cinematic-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--rf-accent);
+}
+
+#record-modal .record-hero-symbol {
+  color: color-mix(in srgb, var(--rf-text) 8%, transparent) !important;
+}
+
+#record-modal .record-level-pill,
+#record-modal .record-score-pill,
+#record-modal .record-provider-pill {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--pg-sans);
+}
+
+#record-modal .record-level-pill {
+  border: 1px solid var(--rf-accent) !important;
+  background: var(--rf-accent) !important;
+  color: #ffffff !important;
+}
+
+#record-modal .record-score-pill {
+  border: 1px solid var(--rf-border) !important;
+  background: var(--rf-surface) !important;
+  color: var(--rf-text) !important;
+}
+
+#record-modal .record-provider-pill {
+  border: 1px solid var(--rf-border) !important;
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text-soft) !important;
+}
+
+#record-modal .record-cinematic-title {
+  color: var(--rf-text) !important;
+  text-wrap: balance;
+}
+
+#record-modal .record-cinematic-byline,
+#record-modal .record-cinematic-byline-meta {
+  color: var(--rf-text-soft) !important;
+}
+
+#record-modal .record-cinematic-layout {
+  gap: 20px !important;
+}
+
+#record-modal .record-cinematic-sidebar {
+  align-content: start;
+  gap: 14px !important;
+}
+
+#record-modal .cinematic-score-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rf-border) !important;
+  border-left: 4px solid var(--rf-accent) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface) !important;
+  color: var(--rf-text) !important;
+  box-shadow: none !important;
+}
+
+#record-modal .score-eyebrow,
+#record-modal .author-card-caption,
+#record-modal .cinematic-quick-grid span,
+#record-modal .cinematic-meta-card > span,
+#record-modal .section-eyebrow {
+  color: var(--rf-text-soft) !important;
+  opacity: 1 !important;
+}
+
+#record-modal .cinematic-score-number,
+#record-modal .score-level {
+  color: var(--rf-text) !important;
+}
+
+#record-modal .cinematic-score-track {
+  background: var(--rf-border) !important;
+}
+
+#record-modal .cinematic-score-track > span {
+  background: linear-gradient(90deg, var(--rf-accent), #78a9ff) !important;
+}
+
+#record-modal .cinematic-author-card {
+  border: 1px solid var(--rf-border) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface) !important;
+  color: var(--rf-text) !important;
+  box-shadow: none !important;
+}
+
+#record-modal .author-orbit {
+  border: 1px solid var(--rf-border-strong) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface-raised) !important;
+  color: var(--rf-text) !important;
+}
+
+#record-modal .author-initial {
+  color: var(--rf-text) !important;
+}
+
+#record-modal .record-author-name {
+  min-width: 0;
+}
+
+#record-modal .record-author-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  color: var(--rf-link) !important;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.45;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+#record-modal .record-author-link:hover {
+  color: var(--rf-link-hover) !important;
+  text-decoration: underline;
+}
+
+#record-modal .record-author-link-arrow {
+  flex: 0 0 auto;
+  font-size: .82em;
+  transform: translateY(-1px);
+}
+
+#record-modal .record-author-separator {
+  color: var(--rf-text-soft);
+}
+
+#record-modal .record-author-link-card {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+}
+
+#record-modal .record-author-list {
+  display: block;
+  color: var(--rf-text) !important;
+  font-weight: 600;
+}
+
+#record-modal .cinematic-quick-grid {
+  gap: 1px !important;
+  border: 1px solid var(--rf-border) !important;
+  border-radius: 0 !important;
+  background: var(--rf-border) !important;
+  box-shadow: none !important;
+}
+
+#record-modal .cinematic-quick-grid > div {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface) !important;
+}
+
+#record-modal .cinematic-quick-grid strong {
+  color: var(--rf-text) !important;
+}
+
+#record-modal .record-cinematic-main {
+  gap: 16px !important;
+}
+
+#record-modal .cinematic-section {
+  border: 1px solid var(--rf-border) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface) !important;
+  color: var(--rf-text) !important;
+  box-shadow: none !important;
+}
+
+#record-modal .cinematic-section-heading {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rf-border);
+}
+
+#record-modal .section-number {
+  border-radius: 0 !important;
+  background: var(--rf-accent) !important;
+  color: #ffffff !important;
+}
+
+#record-modal .cinematic-section-heading h3 {
+  color: var(--rf-text) !important;
+  font-weight: 600;
+}
+
+#record-modal .cinematic-metadata-grid {
+  gap: 1px !important;
+  border: 1px solid var(--rf-border) !important;
+  background: var(--rf-border) !important;
+}
+
+#record-modal .cinematic-meta-card {
+  min-height: 82px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text) !important;
+  box-shadow: none !important;
+}
+
+#record-modal .cinematic-meta-card:hover {
+  background: var(--rf-hover) !important;
+}
+
+#record-modal .cinematic-meta-card strong {
+  color: var(--rf-text) !important;
+}
+
+#record-modal .cinematic-meta-card-authors {
+  position: relative;
+}
+
+#record-modal .cinematic-abstract {
+  padding: 16px 18px !important;
+  border-left: 3px solid var(--rf-accent);
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text-soft) !important;
+  font-family: var(--pg-sans);
+  font-size: 14px;
+  line-height: 1.72;
+  opacity: 1 !important;
+}
+
+#record-modal .cinematic-topics {
+  gap: 8px !important;
+}
+
+#record-modal .cinematic-topic {
+  min-height: 32px;
+  border: 1px solid var(--rf-border) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface-raised) !important;
+  color: var(--rf-text) !important;
+  opacity: 1 !important;
+}
+
+#record-modal .cinematic-actions {
+  gap: 8px !important;
+}
+
+#record-modal .cinematic-action {
+  min-height: 48px !important;
+  border: 1px solid var(--rf-button) !important;
+  border-radius: 0 !important;
+  background: var(--rf-button) !important;
+  color: var(--rf-button-text) !important;
+  box-shadow: none !important;
+}
+
+#record-modal .cinematic-action:hover {
+  border-color: var(--rf-button-hover) !important;
+  background: var(--rf-button-hover) !important;
+}
+
+#record-modal .cinematic-action.primary {
+  border-color: var(--rf-accent) !important;
+  background: var(--rf-accent) !important;
+  color: #ffffff !important;
+}
+
+#record-modal .cinematic-action.primary:hover {
+  border-color: var(--rf-accent-hover) !important;
+  background: var(--rf-accent-hover) !important;
+}
+
+#record-modal .institutional-cinematic {
+  background: var(--rf-surface) !important;
+}
+
+#record-modal .cinematic-note {
+  color: var(--rf-text-soft) !important;
+  opacity: 1 !important;
+}
+
+#record-modal .cinematic-institution-link {
+  border: 1px solid var(--rf-border-strong) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface-raised) !important;
+  color: var(--rf-text) !important;
+  box-shadow: none !important;
+}
+
+#record-modal .cinematic-institution-link:hover {
+  border-color: var(--rf-link) !important;
+  background: var(--rf-hover) !important;
+}
+
+#record-modal .institution-icon {
+  border-radius: 0 !important;
+  background: var(--rf-button) !important;
+  color: #ffffff !important;
+}
+
+#record-modal .institution-arrow {
+  color: var(--rf-link) !important;
+}
+
+#record-modal .cinematic-provenance {
+  gap: 8px !important;
+}
+
+#record-modal .cinematic-provenance li {
+  border: 1px solid var(--rf-border) !important;
+  border-left: 3px solid var(--rf-accent) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text-soft) !important;
+  opacity: 1 !important;
+}
+
+#record-modal .provenance-source {
+  color: var(--rf-text) !important;
+}
+
+#record-modal .provenance-rank {
+  color: var(--rf-text-muted) !important;
+}
+
+#record-modal .explanation-cinematic .explanation {
+  border: 0 !important;
+  background: transparent !important;
+}
+
+#record-modal .explanation-cinematic .explanation summary {
+  min-height: 48px;
+  border: 1px solid var(--rf-border) !important;
+  border-radius: 0 !important;
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text) !important;
+  opacity: 1 !important;
+}
+
+#record-modal .explanation-cinematic .explanation summary:hover {
+  background: var(--rf-hover) !important;
+}
+
+#record-modal .explanation-cinematic .explanation-body,
+#record-modal .explanation-cinematic .explanation-body :is(p, li, span, strong) {
+  color: var(--rf-text-soft) !important;
+  opacity: 1 !important;
+}
+
+@media (min-width: 901px) {
+  #record-modal .record-cinematic-layout {
+    grid-template-columns: minmax(210px, 240px) minmax(0, 1fr) !important;
+  }
+
+  #record-modal .record-cinematic-sidebar {
+    position: sticky;
+    top: 18px;
+    align-self: start;
+  }
+}
+
+@media (max-width: 900px) {
+  #record-modal .record-cinematic-sidebar {
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #record-modal .record-modal-panel {
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #record-modal .record-cinematic-hero {
+    background: var(--rf-panel) !important;
+  }
+
+  #record-modal .record-cinematic-hero::before {
+    width: 100%;
+    height: 4px;
+    inset: 0 0 auto;
+  }
+
+  #record-modal .record-cinematic-layout {
+    gap: 12px !important;
+  }
+
+  #record-modal .cinematic-section {
+    padding: 16px !important;
+  }
+
+  #record-modal .cinematic-meta-card {
+    min-height: 72px;
+  }
+
+  #record-modal .record-author-link {
+    min-height: 28px;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #record-modal .record-author-link,
+  #record-modal .record-modal-close,
+  #record-modal .cinematic-action,
+  #record-modal .cinematic-institution-link {
+    transition: none !important;
+  }
+}
