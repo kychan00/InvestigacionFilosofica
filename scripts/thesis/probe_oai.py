@@ -572,6 +572,16 @@ def inspect_udgvirtual_enumeration() -> dict[str, Any]:
                 "order": "ASC",
             },
         ),
+        "handle_browse_title_offset_100": (
+            "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/6/browse",
+            {
+                "type": "title",
+                "rpp": "100",
+                "sort_by": "1",
+                "order": "ASC",
+                "offset": "100",
+            },
+        ),
         "rss": (
             "https://biblioteca.udgvirtual.udg.mx/jspui/feed/rss_2.0/123456789/6",
             {},
@@ -799,7 +809,7 @@ def main() -> int:
     args = parser.parse_args()
 
     report = {
-        "schema_version": "thesis-source-recon-v1.7",
+        "schema_version": "thesis-source-recon-v1.8",
         "read_only": True,
         "limits": {
             "follows_set_resumption_tokens": True,
