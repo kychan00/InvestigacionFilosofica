@@ -198,7 +198,7 @@ export function selectHumanAuthorityAuditPairs({
     counts: {
       pairs: output.sample.length,
       uniqueProfiles: authorIds.size,
-      byStratum: output.sample.reduce((acc, item) => {
+      byStratum: output.manifestItems.reduce((acc, item) => {
         acc[item.stratum] = (acc[item.stratum] || 0) + 1;
         return acc;
       }, {})
