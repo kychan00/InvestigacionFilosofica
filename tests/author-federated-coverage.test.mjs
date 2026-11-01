@@ -85,3 +85,18 @@ test("no se hereda el ORCID de otra persona que participa en una colaboración",
  assert.equal(res.status,"resolved");
  assert.equal(res.author.orcid,null);
 });
+
+test("dos segundos apellidos diferentes nunca se agregan en silencio",async()=>{
+ const res=await resolveFederatedAuthor("Dinora Hernández",{
+  disableCucsh:true,disableCrossref:true,maxVariants:1,
+  archiveSearchImpl:async()=>[
+   mk("ia:1","Libro de López",2024,"Dinora Hernández López","Internet Archive"),
+   mk("ia:2","Libro de Gómez",2023,"Dinora Hernández Gómez","Internet Archive"),
+   mk("ia:3","Libro sin segundo apellido",2022,"Dinora Hernández","Internet Archive")
+  ]
+ });
+ assert.equal(res.status,"resolved");
+ assert.equal(res.works.length,1);
+ assert.equal(res.works[0].title,"Libro sin segundo apellido");
+ assert.match(res.errors.join(" "),/Varias identidades/);
+});
