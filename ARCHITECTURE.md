@@ -425,3 +425,42 @@ La especificación completa de esta evolución se encuentra en:
 
 Esta sección describe una **arquitectura objetivo**. Mientras no se implementen las fases posteriores, la política y el runtime documentados en [Política de fuentes y uso de OpenAlex](docs/author-data-sources.md) siguen siendo los vigentes.
 
+---
+
+## 19. Tesis Humanidades UdeG — arquitectura objetivo
+
+Investigación Filosófica incorpora como arquitectura objetivo una sección independiente de **Tesis**, dedicada a trabajos recepcionales de programas humanísticos de la Universidad de Guadalajara.
+
+El alcance no se limita a licenciatura. Debe poder representar licenciaturas, especialidades, maestrías, doctorados, programas interinstitucionales y programas históricos cuando exista evidencia institucional suficiente.
+
+La pertenencia al corpus se decide mediante autoridad de programa y procedencia institucional, no por similitud temática. La División de Estudios Históricos y Humanos del CUCSH constituye la semilla institucional inicial, pero no el límite histórico o futuro de Humanidades UdeG.
+
+La arquitectura separa:
+
+    SourceRecord institucional
+            │
+            ▼
+    normalización y autoridades
+            │
+            ▼
+    Humanities Admission Gate
+            │
+            ▼
+    Canonical Thesis Corpus
+            │
+      ┌─────┼──────────────┐
+      ▼     ▼              ▼
+    búsqueda  atlas    Laboratorio
+
+Las personas vinculadas con tesis reutilizan el **Author Authority Graph**. Los roles de estudiante, director, codirector y asesor se modelan de manera explícita y no se reducen todos a autoría.
+
+Los embeddings, vecinos, clústeres, etiquetas y coordenadas del atlas son artefactos derivados, versionados y reconstruibles. El programa, centro, nivel o director no deben imponerse sobre la topología semántica del mapa.
+
+La especificación T0 se encuentra en:
+
+- [Arquitectura V1 — Tesis Humanidades UdeG](docs/THESIS_HUMANITIES_ARCHITECTURE_V1.md)
+- [Contratos de datos V1](docs/THESIS_HUMANITIES_DATA_CONTRACTS_V1.md)
+- [Política de fuentes y admisión V1](docs/THESIS_HUMANITIES_SOURCE_POLICY_V1.md)
+- [Benchmark y puertas de calidad V1](docs/THESIS_HUMANITIES_BENCHMARK_V1.md)
+
+Esta sección describe una **arquitectura objetivo**. T0 no cambia todavía el runtime, la UI, los proveedores activos ni el despliegue.
