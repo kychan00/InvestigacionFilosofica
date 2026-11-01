@@ -100,8 +100,8 @@ try {
     assert.equal(await page.locator(".author-timeline-work").count(), 76,
       "Expand all nodes in the selected year");
     await page.locator(".author-timeline-work").first().click();
-    assert.equal(await page.evaluate(() => window.__timelineOpened),0,
-      "Work node should open the corresponding original work");
+    assert.equal(await page.evaluate(() => window.__timelineOpened),75,
+      "The first alphabetically sorted node must open its original record");
 
     await page.getByRole("button",{name:"Por mes"}).click();
     assert.equal(
