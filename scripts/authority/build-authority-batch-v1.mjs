@@ -10,7 +10,9 @@ import {createReadStream} from "node:fs";
 import {createHash} from "node:crypto";
 import {resolve, join, dirname} from "node:path";
 import {fileURLToPath} from "node:url";
-import {createInterface} from "node:readline";
+import {
+  readJsonLines
+} from "./read-jsonl-v1.mjs";
 import {
   createAuthorAliasAccumulator,
   groupAggregatedAuthorProfiles,
@@ -47,45 +49,6 @@ async function readJsonMaybe(path) {
   } catch (error) {
     if (error?.code === "ENOENT") return null;
     throw error;
-  }
-}
-
-async function* readJsonLines(path) {
-  const input = createReadStream(path, {encoding: "utf8"});
-  const lines = createInterface({
-    input,
-    crlfDelay: Infinity
-  });
-
-  let lineNumber = 0;
-
-  for await (const line of lines) {
-    lineNumber++;
-
-    if (!line.trim()) continue;
-
-    try {
-      yield JSON.parse(line);
-    } catch (error) {
-      const preview =
-        JSON.stringify(
-          line.slice(0, 240)
-        );
-
-      throw new SyntaxError(
-        "Invalid JSONL in " +
-        path +
-        " at physical line " +
-        lineNumber +
-        ": " +
-        error.message +
-        "; preview=" +
-        preview,
-        {
-          cause: error
-        }
-      );
-    }
   }
 }
 
