@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"
+         xmlns:dim="http://www.dspace.org/xmlns/dspace/dim">
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>oai:riudg.udg.mx:20.500.12104/fixture-history</identifier>
+        <datestamp>2026-10-01T12:00:00Z</datestamp>
+        <setSpec>com_20.500.12104_9</setSpec>
+        <setSpec>com_20.500.12104_20529</setSpec>
+      </header>
+      <metadata>
+        <dim:dim>
+          <dim:field mdschema="dc" element="title">Memoria social e historia regional en Jalisco</dim:field>
+          <dim:field mdschema="dc" element="contributor" qualifier="author">Pérez López, Ana</dim:field>
+          <dim:field mdschema="dc" element="contributor" qualifier="director">Hernández García, Laura</dim:field>
+          <dim:field mdschema="dc" element="date" qualifier="issued">2024-06-14</dim:field>
+          <dim:field mdschema="dc" element="identifier" qualifier="uri">http://hdl.handle.net/20.500.12104/fixture-history</dim:field>
+          <dim:field mdschema="dc" element="description" qualifier="abstract">Estudio histórico sobre memoria social y región.</dim:field>
+          <dim:field mdschema="dc" element="subject">Historia regional</dim:field>
+          <dim:field mdschema="dc" element="language" qualifier="iso">spa</dim:field>
+          <dim:field mdschema="dc" element="type">Tesis de Licenciatura</dim:field>
+          <dim:field mdschema="dc" element="degree" qualifier="name">Licenciatura en Historia</dim:field>
+          <dim:field mdschema="dc" element="degree" qualifier="department">Centro Universitario de Ciencias Sociales y Humanidades</dim:field>
+          <dim:field mdschema="dc" element="degree" qualifier="grantor">Universidad de Guadalajara</dim:field>
+        </dim:dim>
+      </metadata>
+    </record>
+  </GetRecord>
+</OAI-PMH>
