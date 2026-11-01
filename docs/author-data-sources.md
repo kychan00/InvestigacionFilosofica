@@ -54,3 +54,23 @@ La búsqueda general y los perfiles de autores **no son intercambiables**: la b�
 - Mantener la política de **cero llamadas a la API pública OpenAlex**. La recuperación amplía consultas únicamente a las fuentes federadas ya disponibles.
 
 La interfaz debe distinguir las obras «en coautoría», las «colectivas/coordinadas» y las de «autoría no concluyente». La cobertura siempre depende de las fuentes; no se promete exhaustividad.
+
+
+## Capa de autoridad bibliográfica verificada
+
+Los índices automáticos pueden omitir autores o transportar metadatos incorrectos. Cuando una identidad ha sido comprobada mediante ORCID y fuentes institucionales/editoriales, el perfil puede incorporar una bibliografía curada en `src/data/curated-author-bibliography.js`.
+
+Reglas:
+
+- La capa curada se enlaza a una identidad canónica y ORCID; no se activa por semejanza aproximada de nombres.
+- Los registros conservan la fuente de evidencia y se muestran como **Bibliografía verificada**, no como OpenAlex ni como coincidencias automáticas.
+- DOI, ISBN, año, revista, editorial y rol bibliográfico de una fuente curada tienen prioridad sobre un registro automático duplicado.
+- `alternativeTitles` sólo se usa para unir copias conocidas del mismo registro cuando un proveedor ha deformado el título o la fecha; no es un algoritmo general de similitud.
+- Las coordinaciones, capítulos, coautorías y autorías individuales se mantienen como roles distintos.
+- La capa curada mejora cobertura y precisión, pero no permite afirmar exhaustividad universal.
+
+### Dinora Hernández López
+
+La identidad canónica verificada es **Dinora Hernández López**, ORCID **0000-0001-7335-1790**. Las formas «Dra Dinora Hernández», «Dinora Hernández» y «Dinora Hernandez» se consideran aliases de esa identidad únicamente en enlaces por nombre; un `authorId` explícito sigue siendo autoritativo.
+
+El corpus OpenAlex Philosophy/Hugging Face actualmente desplegado no contiene esta identidad. Su archivo se construye, por tanto, combinando la bibliografía verificada con Crossref, Internet Archive y catálogos institucionales, conservando las protecciones contra homónimos y sin usar `api.openalex.org`.
