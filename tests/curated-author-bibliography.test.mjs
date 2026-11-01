@@ -25,6 +25,21 @@ test("Dinora Hernández, Dra. Dinora Hernández y Dinora Hernández López son l
   }
 });
 
+
+test("un authorId explícito de un homónimo no hereda la bibliografía curada por nombre",()=>{
+  const result=getCuratedAuthorBibliography({
+    id:"https://openalex.org/A9999999999",
+    displayName:"Dinora Hernández"
+  });
+  assert.equal(result.works.length,0);
+
+  const wrongOrcid=getCuratedAuthorBibliography({
+    displayName:"Dinora Hernández",
+    orcid:"https://orcid.org/0000-0002-2222-2222"
+  });
+  assert.equal(wrongOrcid.works.length,0);
+});
+
 test("la bibliografía verificada de Dinora contiene una cobertura sustancial y metadatos autoritativos",()=>{
   const result=getCuratedAuthorBibliography({
     displayName:"Dra Dinora Hernández"
