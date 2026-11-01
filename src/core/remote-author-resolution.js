@@ -666,7 +666,7 @@ async function authorWorks(
         relevanceLevel: "Autor",
         retrievalMode: "author-index",
         authorPosition: row.p || null,
-        coauthorCount: Number.isInteger(Number(row.co)) ? Number(row.co) : null,
+        coauthorCount: row.co !== null && row.co !== undefined && Number.isInteger(Number(row.co)) ? Number(row.co) : null,
         ranking: {
           author: 100,
           query: 100,
