@@ -493,6 +493,21 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                     admission_state,
                 )
 
+    def test_cultural_management_full_inventory_baseline(self):
+        program = next(
+            item
+            for item in self.registry["programs"]
+            if item["id"] == "program:udg:doc-gestion-cultura"
+        )
+
+        self.assertEqual(program["observedCount"], 3)
+        self.assertEqual(
+            program["observedThesisYears"],
+            {"min": 2023, "max": 2025},
+        )
+        self.assertIn("SUV", program["academicUnits"])
+        self.assertEqual(program["admissionState"], "include")
+
     def test_cultural_management_programs_are_not_aliases(self):
         research = thesis.resolve_program(
             "Maestría en Gestión de la Cultura",
@@ -554,7 +569,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],
-            "2026-11-01.v4",
+            self.registry["registryRevision"],
         )
 
         by_program = {

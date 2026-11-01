@@ -122,9 +122,22 @@ Estado:
 
 Tesis con nombre exacto observadas en el snapshot:
 
-**0**
+**3**
 
-Se incorpora para resolver futuras cosechas.
+Proveedor:
+
+- RIUdeG: 3.
+
+Unidad histórica observada:
+
+- SUV: 3.
+
+Años válidos observados:
+
+- 2023–2025.
+
+La oferta institucional vigente se presenta desde CUGDL; la procedencia histórica
+SUV se conserva como evidencia del snapshot y no se reescribe.
 
 La UdeG clasifica explícitamente el Doctorado en Gestión de la Cultura en:
 
@@ -287,19 +300,23 @@ V3:
 - EXCLUDE: 7;
 - REJECT_SOURCE: 2.
 
-V4 proyectado:
+V4 proyectado, corregido contra el inventario completo:
 
-- INCLUDE: **413**;
+- INCLUDE: **416**;
 - REVIEW: **44**;
-- QUARANTINE: **27,110**;
+- QUARANTINE: **27,107**;
 - EXCLUDE: 7;
 - REJECT_SOURCE: 2.
 
-Cambios:
+Cambios frente a V3:
 
-- +15 INCLUDE;
+- +18 INCLUDE;
 - +40 REVIEW;
-- -55 QUARANTINE.
+- -58 QUARANTINE.
+
+La diferencia respecto de la primera proyección T2F son 3 tesis de
+`Doctorado en Gestión de la Cultura` que sí estaban presentes en RIUdeG y
+quedaron omitidas del conteo manual inicial.
 
 Total:
 
@@ -362,3 +379,30 @@ Esta familia deberá reutilizar la política de frontera ya aplicada aquí:
 una fuerte dimensión cultural/humanística no invalida la clasificación
 administrativa oficial, pero puede justificar REVIEW en vez de una exclusión
 automática.
+
+
+---
+
+## 12. Corrección de baseline del inventario completo
+
+Una segunda auditoría del artifact full `13099541204`, realizada antes de T2G,
+detectó que el nombre normalizado:
+
+`doctorado en gestion de la cultura`
+
+aparece **3 veces**, no 0.
+
+Las tres observaciones:
+
+- pertenecen a RIUdeG;
+- tienen unidad cruda `SUV`;
+- tienen años válidos 2023, 2024 y 2025.
+
+La autoridad y su decisión `INCLUDE` ya eran correctas. El error estaba
+limitado a:
+
+- `observedCount`;
+- la documentación de T2F;
+- la proyección manual V4.
+
+No se modifica el Admission Gate ni la identidad de las obras.

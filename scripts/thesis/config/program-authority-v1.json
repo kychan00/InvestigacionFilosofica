@@ -616,13 +616,17 @@
         "Doctorado en Gestión de la Cultura",
         "DOCTORADO EN GESTION DE LA CULTURA"
       ],
-      "observedCount": 0,
-      "decisionNote": "Programa vigente del posgrado integrado de Gestión de la Cultura. UdeG lo clasifica explícitamente en Ciencias Sociales y Humanidades y la oferta actual se presenta desde CUGDL.",
+      "observedCount": 3,
+      "decisionNote": "Programa vigente del posgrado integrado de Gestión de la Cultura. UdeG lo clasifica explícitamente en Ciencias Sociales y Humanidades y la oferta actual se presenta desde CUGDL. El inventario completo 2026-11-01 observa 3 tesis RIUdeG adscritas a SUV entre 2023 y 2025; se conserva esa procedencia histórica sin reescribir la sede vigente.",
       "evidence": [
         "https://ww1.udg.mx/es/oferta-academica/doctorado-en-gestion-de-la-cultura",
         "https://cugdl.udg.mx/oferta-academica/posgrados-virtuales/maestria-y-doctorado-en-gestion-de-la-cultura",
         "https://www.udg.mx/sites/default/files/2026-05/doctorado_en_gestion_de_la_cultura_cugdl_snp.pdf"
-      ]
+      ],
+      "observedThesisYears": {
+        "min": 2023,
+        "max": 2025
+      }
     },
     {
       "id": "program:udg:mae-gestion-desarrollo-cultural",
