@@ -585,6 +585,136 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             "review",
         )
 
+    def test_arts_heritage_family_v5(self):
+        cases = {
+            "DOCTORADO INTERINSTITUCIONAL EN ARTE Y CULTURA": (
+                "program:udg:doc-arte-cultura-interinstitucional",
+                "include",
+            ),
+            "MAESTRIA EN ETNOMUSICOLOGIA": (
+                "program:udg:mae-etnomusicologia",
+                "include",
+            ),
+            "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA": (
+                "program:udg:mae-ciencias-arquitectura",
+                "review",
+            ),
+            "Maestría En Historia De La Arquitectura Mexicana": (
+                "program:udg:mae-historia-arquitectura-mexicana-historica",
+                "review",
+            ),
+            "Maestría En Conservación Del Patrimonio Edificado": (
+                "program:udg:mae-conservacion-patrimonio-edificado-historica",
+                "review",
+            ),
+            "MAESTRIA EN EDUCACION Y EXPRESION PARA LAS ARTES": (
+                "program:udg:mae-educacion-expresion-artes",
+                "review",
+            ),
+            "Maestría En Didáctica De Las Artes Con Orientación En Artes Visuales": (
+                "program:udg:mae-didactica-artes-visuales-historica",
+                "review",
+            ),
+            "Maestría En Didáctica De Las Artes Orientación En Artes Escénicas": (
+                "program:udg:mae-didactica-artes-escenicas-historica",
+                "review",
+            ),
+            "Maestría en Estudios Cinematográficos": (
+                "program:udg:mae-estudios-cinematograficos",
+                "review",
+            ),
+        }
+
+        for raw, (program_ref, admission_state) in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(
+                    resolved["admissionState"],
+                    admission_state,
+                )
+
+    def test_architecture_historical_orientations_share_mca_authority(self):
+        aliases = [
+            "Maestría En Arquitectura; Orientacion En Historia De La Arquitectura Mexicana",
+            "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado",
+            "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
+            "Maestría En Arquitectura; Orientacion Arte Y Comunicacion",
+            "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
+            "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
+            "Maestría En Ciencias De La Arquitectura Orientación En Historia De La Arquitectura Mexicana",
+        ]
+
+        for raw in aliases:
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-ciencias-arquitectura",
+                )
+                self.assertEqual(resolved["admissionState"], "review")
+
+    def test_generic_didactica_de_las_artes_remains_unknown(self):
+        resolved = thesis.resolve_program(
+            "Maestría En Didáctica De Las Artes",
+            self.registry,
+        )
+
+        self.assertEqual(resolved["status"], "unknown")
+        self.assertIsNone(resolved["programRef"])
+
+    def test_arts_heritage_v5_gate_preserves_include_review_boundary(self):
+        rows = [
+            (
+                "Doctorado Interinstitucional en Arte y Cultura",
+                "include",
+            ),
+            (
+                "Maestría en Etnomusicología",
+                "include",
+            ),
+            (
+                "Maestría en Ciencias de la Arquitectura",
+                "review",
+            ),
+            (
+                "Maestría en Educación y Expresión para las Artes",
+                "review",
+            ),
+        ]
+        records = []
+        for index, (program, _) in enumerate(rows):
+            records.append(
+                thesis.source_record(
+                    provider="riudg",
+                    provider_record_id=f"arts-family-{index}",
+                    source_url=None,
+                    raw_fields={
+                        "dc.title": [f"Trabajo artes {index}"],
+                        "dc.degree.name": [program],
+                        "dc.degree.grantor": ["Universidad de Guadalajara"],
+                        "dc.degree.department": ["CUAAD"],
+                        "dc.type": ["Tesis"],
+                    },
+                    raw_payload=f"arts-family-{index}",
+                )
+            )
+
+        corpus = thesis.build_corpus(
+            records,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(
+            corpus["metrics"]["worksByAdmission"],
+            {"include": 2, "review": 2},
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            "2026-11-01.v5",
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],

@@ -337,6 +337,121 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "program:udg:mae-gestion-desarrollo-cultural",
         )
 
+    def test_arts_heritage_v5_queue_keeps_ambiguous_generic_didactica(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado interinstitucional en arte y cultura",
+                    "count": 6,
+                    "variants": {
+                        "DOCTORADO INTERINSTITUCIONAL EN ARTE Y CULTURA": 6,
+                    },
+                    "providers": {"riudg": 6},
+                    "admissionStatuses": {"quarantine": 6},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": "maestria en etnomusicologia",
+                    "count": 9,
+                    "variants": {"MAESTRIA EN ETNOMUSICOLOGIA": 9},
+                    "providers": {"riudg": 9},
+                    "admissionStatuses": {"quarantine": 9},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": "maestria en ciencias de la arquitectura",
+                    "count": 34,
+                    "variants": {
+                        "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA": 34,
+                    },
+                    "providers": {"riudg": 34},
+                    "admissionStatuses": {"quarantine": 34},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": "maestria en didactica de las artes",
+                    "count": 39,
+                    "variants": {
+                        "Maestría En Didáctica De Las Artes": 39,
+                    },
+                    "providers": {"riudg": 39},
+                    "admissionStatuses": {"quarantine": 39},
+                    "programRefs": {},
+                },
+            ]
+        }
+
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "DOCTORADO INTERINSTITUCIONAL EN ARTE Y CULTURA",
+                    "academicUnitRaw": "CUAAD",
+                    "date": {"value": "2019", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Doctorado",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "MAESTRIA EN ETNOMUSICOLOGIA",
+                    "academicUnitRaw": "CUAAD",
+                    "date": {"value": "2023", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA",
+                    "academicUnitRaw": "CUAAD",
+                    "date": {"value": "2021", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Maestría En Didáctica De Las Artes",
+                    "academicUnitRaw": "CUAAD",
+                    "date": {"value": "2014", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 2)
+
+        by_key = {
+            item["normalizedKey"]: item
+            for item in payload["items"]
+        }
+
+        architecture = by_key["maestria en ciencias de la arquitectura"]
+        self.assertEqual(architecture["queueState"], "review")
+        self.assertEqual(architecture["curationLane"], "scope-review")
+        self.assertEqual(
+            architecture["authority"]["id"],
+            "program:udg:mae-ciencias-arquitectura",
+        )
+
+        generic_didactica = by_key["maestria en didactica de las artes"]
+        self.assertEqual(generic_didactica["queueState"], "unresolved")
+        self.assertEqual(
+            generic_didactica["curationLane"],
+            "unit-triage",
+        )
+        self.assertIsNone(generic_didactica["authority"])
+
+        self.assertNotIn(
+            "doctorado interinstitucional en arte y cultura",
+            by_key,
+        )
+        self.assertNotIn(
+            "maestria en etnomusicologia",
+            by_key,
+        )
+
     def test_invalid_or_suspicious_dates_do_not_define_historical_span(self):
         observed = {
             "programs": [
