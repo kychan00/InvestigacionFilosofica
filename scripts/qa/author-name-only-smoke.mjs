@@ -6,7 +6,7 @@ import {authorBucket,authorNameSignature} from "../../src/core/remote-author-res
 const BASE=process.env.MOBILE_UI_BASE_URL||"http://127.0.0.1:4173/";
 const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
 await mkdir("artifacts/author-name-lookup",{recursive:true});
-const name="Dra Dinora Hernández",authorId="7654321";
+const name="Dra Marina Hernández",authorId="7654321";
 const linkedId="7654322";
 const orcid="https://orcid.org/0000-0002-1234-5678";
 const bucket=(id)=>String(authorBucket(id)).padStart(4,"0");
@@ -14,9 +14,9 @@ const aliasBucket=bucket(authorNameSignature(name));
 const workBucket=bucket(authorId);
 const linkedWorkBucket=bucket(linkedId);
 const candidate={s:authorNameSignature(name),id:Number(authorId),
-  n:"Dra Dinora Hernández",o:orcid,cw:2,w:2,c:0,k:"full"};
+  n:"Dra Marina Hernández",o:orcid,cw:2,w:2,c:0,k:"full"};
 const linkedCandidate={s:authorNameSignature(name),id:Number(linkedId),
-  n:"Dinora Hernández López",o:orcid,cw:2,w:2,c:0,k:"given-first-family"};
+  n:"Marina Hernández López",o:orcid,cw:2,w:2,c:0,k:"given-first-family"};
 const works=[
   ["101","Teoría crítica y filosofía",2020],
   ["102","Adorno y la dialéctica",2021],
@@ -61,7 +61,7 @@ try{
         body=works.map(row=>({
           wid:row.wid,
           a:[
-            {id:row.id,n:row.id===Number(authorId)?"Dinora Hernández":"Dinora Hernández López",o:orcid,p:"first",r:true},
+            {id:row.id,n:row.id===Number(authorId)?"Marina Hernández":"Marina Hernández López",o:orcid,p:"first",r:true},
             ...(row.co?[{id:900,n:"María Pérez",o:null,p:"last",r:false}]:[])
           ]
         })).filter(row=>url.pathname.endsWith("/work-authors/"+bucket(String(row.wid))+".jsonl"))
@@ -104,12 +104,12 @@ try{
   await page.waitForFunction(()=>
     document.querySelector(".author-collaboration-summary")?.textContent.includes("María Pérez"),
     null,{timeout:15000});
-  assert.match(await page.locator(".author-page-hero h1").textContent(),/Dinora Hernández López/);
-  assert.match(await page.locator(".author-page-aliases").textContent(),/Dinora Hernández/);
+  assert.match(await page.locator(".author-page-hero h1").textContent(),/Marina Hernández López/);
+  assert.match(await page.locator(".author-page-aliases").textContent(),/Marina Hernández/);
   assert.equal(await page.locator(".author-collaboration-tag").count(),2);
   assert.equal(await page.locator(".author-individual-tag").count(),2);
   await page.locator(".author-page-works").scrollIntoViewIfNeeded();
-  await page.screenshot({path:"artifacts/author-name-lookup/dinora-"+theme+"-390.png",
+  await page.screenshot({path:"artifacts/author-name-lookup/marina-"+theme+"-390.png",
     animations:"disabled"});
   await page.close();
   process.stdout.write("Hugging Face name-only author "+theme+" OK\n");

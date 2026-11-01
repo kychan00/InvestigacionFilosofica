@@ -97,10 +97,10 @@ test("el índice no disponible conserva las obras iniciales y no consume tokens"
   assert.match(result.errors.join(" "),/Hugging Face/);
 });
 
-test("sin ID OpenAlex sólo se complementa con Crossref y otras fuentes",async()=>{
+test("sin ID OpenAlex y sin autoridad curada sólo se complementa con Crossref y otras fuentes",async()=>{
   let called=false;
   const result=await discoverAuthorArchive({
-    author:{displayName:"Dinora Hernández"},
+    author:{displayName:"Autora de Prueba Sin ID"},
     snapshotImpl:async()=>{called=true;throw new Error("unexpected call")},
     federatedImpl:async()=>({
       status:"resolved",author:{catalogSources:["Crossref"]},

@@ -43,8 +43,9 @@ import {
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-federated-coverage-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-curated-bibliography-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
+import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
 
 import {
@@ -2289,7 +2290,8 @@ function renderResult(
                     "author-index",
                     "author-crossref",
                     "author-internet-archive",
-                    "author-institutional"
+                    "author-institutional",
+                    "author-curated"
                   ].includes(
                     item.retrievalMode
                   )
@@ -2508,7 +2510,8 @@ function renderResult(
                 "author-live",
                 "author-crossref",
                 "author-internet-archive",
-                "author-institutional"
+                "author-institutional",
+                "author-curated"
               ].includes(
                 item.retrievalMode
               )
@@ -2518,11 +2521,13 @@ function renderResult(
                     item.retrievalMode ===
                       "author-index"
                       ? "Autoría directa confirmada en el corpus"
-                      : item.collectiveWork
-                        ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
-                        : `Autoría asociada al nombre en ${escapeHtml(
-                            item.providers?.[0] || "un catálogo federado"
-                          )} · verificar identidad en casos de homonimia`
+                      : item.retrievalMode === "author-curated"
+                        ? `Bibliografía verificada · identidad confirmada por ${item.authorIdentity?.orcid ? "ORCID y " : ""}fuente académica o editorial`
+                        : item.collectiveWork
+                          ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
+                          : `Autoría asociada al nombre en ${escapeHtml(
+                              item.providers?.[0] || "un catálogo federado"
+                            )} · verificar identidad en casos de homonimia`
                   }
                   · identidad normalizada
                   ${
@@ -4282,10 +4287,19 @@ async function openExclusiveAuthorByName(
       openAlexAuthorId(
         identity.id
       );
+    const curatedIdentity = !exactId
+      ? findCuratedAuthorIdentity(name)
+      : null;
+    const canonicalName =
+      curatedIdentity?.canonicalName || name;
+    const trustedOrcid =
+      identity.orcid || curatedIdentity?.orcid || null;
+    const curatedAliases =
+      curatedIdentity?.aliases || [];
     // Name-only links first resolve against the HF-derived static author index.
     // No OpenAlex API calls or credits are required.
-    const foundIdentity = await findSnapshotAuthorIdentity(name, {
-      orcid: identity.orcid || null,
+    const foundIdentity = await findSnapshotAuthorIdentity(canonicalName, {
+      orcid: trustedOrcid,
       signal: authorController.signal
     });
     // A shared URL with an exact ID keeps that identity authoritative.
@@ -4341,7 +4355,11 @@ async function openExclusiveAuthorByName(
               {
                 signal:
                   authorController.signal,
-                includeProfile: true
+                includeProfile: true,
+                profileQuery: canonicalName,
+                canonicalNames: curatedIdentity
+                  ? [canonicalName]
+                  : []
               }
             )
       );
@@ -4351,15 +4369,15 @@ async function openExclusiveAuthorByName(
       resolution.status !== "resolved" &&
       (
         resolution.status !== "ambiguous" ||
-        identity.orcid
+        trustedOrcid
       )
     ) {
       resolution =
         await resolveFederatedAuthor(
-          name,
+          canonicalName,
           {
-            orcid:
-              identity.orcid || null,
+            orcid: trustedOrcid,
+            aliases: [name, ...curatedAliases],
             signal:
               authorController.signal
           }
@@ -4374,6 +4392,27 @@ async function openExclusiveAuthorByName(
           displayName: liveCandidate.n || resolution.author.displayName,
           linkedAuthorIds: liveCandidate.linkedAuthorIds || [liveCandidate.id],
           aliases: [...new Set([name,...(liveCandidate.aliases || [])])]
+        }
+      };
+    }
+
+    if (resolution.status === "resolved" && curatedIdentity) {
+      resolution = {
+        ...resolution,
+        author: {
+          ...resolution.author,
+          displayName: canonicalName,
+          sourceDisplayName:
+            resolution.author.sourceDisplayName || canonicalName,
+          orcid:
+            resolution.author.orcid ||
+            `https://orcid.org/${curatedIdentity.orcid}`,
+          aliases: [...new Set([
+            name,
+            canonicalName,
+            ...curatedAliases,
+            ...(resolution.author.aliases || [])
+          ])]
         }
       };
     }
@@ -4407,7 +4446,7 @@ async function openExclusiveAuthorByName(
               phase === "started"
                 ? (resolution.author?.id
                   ? "Consultando Hugging Face y fuentes bibliográficas…"
-                  : "Ampliando bibliografía en Crossref, Internet Archive y catálogo institucional…")
+                  : "Integrando bibliografía verificada y ampliando en Crossref, Internet Archive y catálogos institucionales…")
                 : `Consulta de ${source}: ${works.length} obras verificadas`;
 
             // Do not discard the initial results or collapse the
@@ -4436,7 +4475,7 @@ async function openExclusiveAuthorByName(
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
             ? "Se consultó el índice filosófico de Hugging Face; pueden faltar obras fuera del corpus"
-            : "Consulta parcial de los catálogos disponibles";
+            : "Bibliografía verificada integrada; los catálogos automáticos pueden seguir siendo parciales";
 
         showExclusiveAuthorWorks({
           ...resolution,

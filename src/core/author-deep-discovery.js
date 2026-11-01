@@ -4,6 +4,7 @@ import {
   enrichAuthorWorksWithCollaborators
 } from "./remote-author-resolution.js";
 import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261101-federated-coverage-v1";
+import { getCuratedAuthorBibliography } from "./curated-author-bibliography.js?v=20261101-curated-bibliography-v1";
 
 /*
  * Author catalogue policy: NEVER contact api.openalex.org from the
@@ -37,6 +38,21 @@ function titleFingerprint(work) {
   return normalizeAuthorName(work?.title || "") + ":" + String(work?.year || "");
 }
 
+function titleAliases(work) {
+  return [work?.title,...(work?.alternativeTitles||[])]
+    .map(value=>normalizeAuthorName(value||""))
+    .filter(Boolean);
+}
+
+function sourceRecords(existing, incoming) {
+  const seen=new Set();
+  return [...(existing||[]),...(incoming||[])].filter(item=>{
+    const key=[item?.provider,item?.sourceId].join("|");
+    if(seen.has(key))return false;
+    seen.add(key);return true;
+  });
+}
+
 function enrichedWork(work) {
   return {...work,
     relevanceLevel: "Autor",
@@ -49,32 +65,65 @@ export function mergeAuthorArchives(initial = [], additions = []) {
   const merged = [];
   const byId = new Map();
   const byTitle = new Map();
+  const byTitleOnly = new Map();
+  const byCuratedTitleOnly = new Map();
+
+  const register=(work,index)=>{
+    const key=fingerprint(work);
+    const titleKey=titleFingerprint(work);
+    const curated=work.metadataAuthority==="curated"||work.reviewed===true;
+    byId.set(key,index);
+    if(titleKey!==":")byTitle.set(titleKey,index);
+    for(const alias of titleAliases(work)) {
+      byTitleOnly.set(alias,index);
+      if(curated)byCuratedTitleOnly.set(alias,index);
+    }
+  };
+
   for (const work of [...initial,...additions]) {
     if (!work || !String(work.title || "").trim()) continue;
     const key = fingerprint(work);
     const titleKey = titleFingerprint(work);
+    const curated=work.metadataAuthority==="curated"||work.reviewed===true;
+    const aliasIndex=curated
+      ? titleAliases(work).map(alias=>byTitleOnly.get(alias)).find(index=>index!==undefined)
+      : byCuratedTitleOnly.get(normalizeAuthorName(work.title||""));
     const index = byId.get(key) ??
-      (titleKey !== ":" ? byTitle.get(titleKey) : undefined);
+      (titleKey !== ":" ? byTitle.get(titleKey) : undefined) ??
+      aliasIndex;
+
     if (index === undefined) {
-      byId.set(key,merged.length);
-      if (titleKey !== ":") byTitle.set(titleKey,merged.length);
-      merged.push(enrichedWork(work));
-    } else {
-      const existing = merged[index];
-      const preferIncoming = Boolean(work.doi && !existing.doi) ||
-        Boolean(work.abstract && !existing.abstract);
-      const primary = preferIncoming ? work : existing;
-      const secondary = preferIncoming ? existing : work;
-      merged[index] = {
-        ...secondary,...primary,
-        providers:[...new Set([...(existing.providers||[]),...(work.providers||[])])],
-        authors:primary.authors?.length ? primary.authors : secondary.authors,
-        relevanceLevel:"Autor",
-        relevanceScore:Math.max(90,Number(primary.relevanceScore)||98),
-        retrievalMode:primary.retrievalMode || "author-index"
-      };
-      byId.set(key,index);
+      const enriched=enrichedWork(work);
+      merged.push(enriched);
+      register(enriched,merged.length-1);
+      continue;
     }
+
+    const existing = merged[index];
+    const existingCurated=existing.metadataAuthority==="curated"||existing.reviewed===true;
+    const preferIncoming =
+      (curated && !existingCurated) ||
+      Boolean(work.doi && !existing.doi) ||
+      Boolean(work.abstract && !existing.abstract);
+    const primary = preferIncoming ? work : existing;
+    const secondary = preferIncoming ? existing : work;
+    const combined = {
+      ...secondary,...primary,
+      providers:[...new Set([...(existing.providers||[]),...(work.providers||[])])],
+      sourceRecords:sourceRecords(existing.sourceRecords,work.sourceRecords),
+      authors:primary.authors?.length ? primary.authors : secondary.authors,
+      alternativeTitles:[...new Set([
+        ...(existing.alternativeTitles||[]),
+        ...(work.alternativeTitles||[]),
+        existing.title,
+        work.title
+      ].filter(Boolean))],
+      relevanceLevel:"Autor",
+      relevanceScore:Math.max(90,Number(primary.relevanceScore)||98),
+      retrievalMode:primary.retrievalMode || "author-index"
+    };
+    merged[index]=combined;
+    register(combined,index);
   }
   return merged.sort((a,b)=>
     (Number(b.year)||0)-(Number(a.year)||0) ||
@@ -148,9 +197,13 @@ export async function discoverAuthorArchive({
   const orcid=author?.orcid||null;
   const linkedAuthorIds=Array.isArray(author?.linkedAuthorIds)
     ? author.linkedAuthorIds : [];
-  let works=mergeAuthorArchives(initialWorks,[]);
+  const curated=getCuratedAuthorBibliography(author);
+  let works=mergeAuthorArchives(initialWorks,curated.works||[]);
   const errors=[];
-  const sources=[...new Set(initialWorks.flatMap(work=>work.providers||[]))];
+  const sources=[...new Set([
+    ...initialWorks.flatMap(work=>work.providers||[]),
+    ...(curated.source?[curated.source]:[])
+  ])];
   let snapshotComplete=false;
   let snapshotTotal=null;
 
@@ -159,7 +212,9 @@ export async function discoverAuthorArchive({
     sources:[...new Set(sources)],errors:[...errors],
     snapshotComplete,snapshotTotal
   });
-  emit(id?AUTHOR_SNAPSHOT_SOURCE:"Fuentes federadas","started");
+  emit(curated.works?.length
+    ? "Bibliografía verificada"
+    : (id?AUTHOR_SNAPSHOT_SOURCE:"Fuentes federadas"),"started");
 
   const jobs=[];
   if(id) {
@@ -211,7 +266,8 @@ export async function discoverAuthorArchive({
   return {
     works,sources:[...new Set(sources)],errors,
     snapshotComplete,snapshotTotal,
-    // This is completion of the *indexed philosophy subset*, not a universal bibliography.
-    complete:snapshotComplete&&errors.length===0
+    // Curated coverage improves the archive but does not claim a universal bibliography.
+    curatedWorks:curated.works?.length||0,
+    complete:false
   };
 }
