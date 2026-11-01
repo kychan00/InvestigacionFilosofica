@@ -169,7 +169,24 @@ def alias_signatures(value):
             "initial",
         ))
 
-    return sorted(aliases)
+    # A two-token full name can also be its own suffix. Emit one
+    # identity record per signature and prioritize precise aliases.
+    priority = {
+        "full": 0,
+        "given-first-family": 1,
+        "suffix": 2,
+        "initial": 3,
+        "surname": 4,
+    }
+    unique = {}
+    for signature, kind in aliases:
+        if (
+            signature not in unique
+            or priority[kind] < priority[unique[signature]]
+        ):
+            unique[signature] = kind
+
+    return sorted(unique.items())
 
 
 def fnv1a_32(value):
