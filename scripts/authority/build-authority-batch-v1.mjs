@@ -248,10 +248,6 @@ export async function buildAuthorityBatchFromIndex({
       stagingRoot,
       shardName(shard) + ".jsonl"
     );
-    const workRows = await readJsonMaybe(stagingPath)
-      ? []
-      : null;
-
     let actualWorkRows;
     try {
       actualWorkRows = await readJsonLinesArray(stagingPath);
