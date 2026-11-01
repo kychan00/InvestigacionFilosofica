@@ -310,18 +310,77 @@ function memberProfile(candidate, authorId) {
     .find(profile => String(profile.id) === String(authorId)) || null;
 }
 
+export function authorIndexAuthorshipObservationKey(
+  row = {}
+) {
+  const authorId =
+    openAlexId(
+      row.id
+    );
+
+  const workId =
+    String(
+      row.wid ||
+      ""
+    ).trim();
+
+  const position =
+    String(
+      row.p ||
+      "unknown"
+    )
+      .trim()
+      .toLowerCase() ||
+    "unknown";
+
+  const corresponding =
+    Boolean(
+      row.r
+    )
+      ? "corresponding"
+      : "noncorresponding";
+
+  return [
+    authorId,
+    workId,
+    position,
+    corresponding
+  ].join(":");
+}
+
+
+export function authorIndexAuthorshipSourceRecordId(
+  row = {}
+) {
+  return (
+    "source:author-index-v3:authorship:" +
+    authorIndexAuthorshipObservationKey(
+      row
+    )
+  );
+}
+
+
 export function authorIndexWorkRowToSourceRecord(row = {}, candidate = {}) {
   const authorId = openAlexId(row.id);
   const workId = String(row.wid || "").trim();
   const member = memberProfile(candidate, authorId);
 
+  const observationKey =
+    authorIndexAuthorshipObservationKey(
+      row
+    );
+
   return {
     schemaVersion: "author-authority-data-v1",
     entityType: "SourceRecord",
-    id: "source:author-index-v3:authorship:" +
-      authorId + ":" + workId,
+    id:
+      "source:author-index-v3:authorship:" +
+      observationKey,
     provider: "OpenAlex Philosophy · Hugging Face",
-    providerRecordId: "author-work:" + authorId + ":" + workId,
+    providerRecordId:
+      "author-work:" +
+      observationKey,
     providerRevision: "author-index-v3",
     recordUrl: null,
     rawTitle: String(row.t || "").trim(),
@@ -361,8 +420,9 @@ export function authorIndexWorkRowToMention(row = {}, candidate = {}) {
     role: "author"
   }, {
     sourceRecordRef:
-      "source:author-index-v3:authorship:" +
-      authorId + ":" + workId,
+      authorIndexAuthorshipSourceRecordId(
+        row
+      ),
     position: row.p || null,
     fallbackRole: "author"
   });
