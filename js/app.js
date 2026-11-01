@@ -5400,7 +5400,7 @@ function renderAuthorPage(
         </div>
 
         <div class="author-work-grid">
-          ${visible.map(item => {
+          ${visible.map((item, index) => {
             const collab = workCollaboration(item, author);
             return renderResult({
               ...item,
