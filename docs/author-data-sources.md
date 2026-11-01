@@ -41,3 +41,16 @@ Ninguna función de perfil ni de búsqueda del sitio puede introducir llamadas a
 5. Probar las rutas públicas con «Dra Dinora Hernández», «Dinora Hernández» y «Dinora Hernández López», comprobando alias, autorías compartidas, ausencia de peticiones a `api.openalex.org` y no atribución de homónimos.
 
 **Importante:** un merge y un despliegue de la web sin reconstrucción de la release no satisfacen la publicación de los nuevos alias y recuentos.
+
+## Recuperación bibliográfica federada y obras colectivas (noviembre de 2026)
+
+La búsqueda general y los perfiles de autores **no son intercambiables**: la búsqueda general también contiene resultados donde un nombre aparece sólo en el título, en una reseña o como mención temática. Un perfil debe recuperar registros cuya atribución figura en el campo bibliográfico de creadores, sin importar si la persona firma individualmente, escribe en coautoría o coordina un volumen.
+
+- El motor federado consulta nombres normalizados sin títulos académicos y descubre variantes completas desde los campos de autoría, no desde coincidencias temáticas. Puede consultar adicionalmente Crossref, Internet Archive y el catálogo local CUCSH.
+- Los creadores separados por comas o punto y coma se representan como participantes individuales cuando la sintaxis es inequívoca. Un campo concatenado con «coordinadores», «colaboradores» o «y varios» se reconoce como evidencia de obra colectiva, pero **no se inventan los nombres de coautores que no puedan separarse**.
+- Un campo que sólo contiene un nombre no prueba autoría individual. En esa situación la clasificación queda **no concluyente**; sólo una fuente que reporta explícitamente cero coautores permite afirmar autoría individual.
+- El nombre presente exclusivamente en el título o en la descripción no acredita autoría. Los segundos apellidos u ORCID incompatibles impiden una fusión automática de identidades.
+- El número de resultados generales no debe mostrarse como si representara la bibliografía de una persona: incluye homónimos, reseñas y menciones ajenas. La cronología del perfil sólo incorpora entradas con evidencia bibliográfica de participación.
+- Mantener la política de **cero llamadas a la API pública OpenAlex**. La recuperación amplía consultas únicamente a las fuentes federadas ya disponibles.
+
+La interfaz debe distinguir las obras «en coautoría», las «colectivas/coordinadas» y las de «autoría no concluyente». La cobertura siempre depende de las fuentes; no se promete exhaustividad.

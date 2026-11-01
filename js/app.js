@@ -43,13 +43,13 @@ import {
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-deep-author-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-federated-coverage-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
-import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261031-coauthors-v1";
+import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
 
 import {
   resolveFederatedAuthor
-} from "../src/core/crossref-author-fallback.js?v=20261029-universal-author-v1";
+} from "../src/core/crossref-author-fallback.js?v=20261101-federated-coverage-v1";
 
 import {
   openAuthorDestination,
@@ -2288,7 +2288,8 @@ function renderResult(
                 : [
                     "author-index",
                     "author-crossref",
-                    "author-internet-archive"
+                    "author-internet-archive",
+                    "author-institutional"
                   ].includes(
                     item.retrievalMode
                   )
@@ -2383,7 +2384,7 @@ function renderResult(
           }
 
           ${item.collaborationKind === "collaboration"
-              ? `<span class="provider author-collaboration-tag">Coautoría · ${item.collaborationCount} ${item.collaborationCount === 1 ? "colaborador" : "colaboradores"}</span>`
+              ? `<span class="provider author-collaboration-tag">${item.collectiveWork ? "Obra colectiva o coordinada" : "Coautoría"} · ${item.collaborationCount} ${item.collaborationCount === 1 ? "participante" : "participantes"} como mínimo</span>`
               : item.collaborationKind === "individual"
                 ? `<span class="provider author-individual-tag">Autoría individual</span>`
                 : ""}
@@ -2506,7 +2507,8 @@ function renderResult(
                 "author-index",
                 "author-live",
                 "author-crossref",
-                "author-internet-archive"
+                "author-internet-archive",
+                "author-institutional"
               ].includes(
                 item.retrievalMode
               )
@@ -2516,10 +2518,11 @@ function renderResult(
                     item.retrievalMode ===
                       "author-index"
                       ? "Autoría directa confirmada en el corpus"
-                      : `Autoría directa coincidente en ${escapeHtml(
-                          item.providers?.[0] ||
-                          "un catálogo federado"
-                        )}`
+                      : item.collectiveWork
+                        ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
+                        : `Autoría asociada al nombre en ${escapeHtml(
+                            item.providers?.[0] || "un catálogo federado"
+                          )} · verificar identidad en casos de homonimia`
                   }
                   · identidad normalizada
                   ${
@@ -2570,7 +2573,8 @@ function renderResult(
               : [
                   "author-index",
                   "author-crossref",
-                  "author-internet-archive"
+                  "author-internet-archive",
+                  "author-institutional"
                 ].includes(
                   item.retrievalMode
                 )
@@ -4401,7 +4405,9 @@ async function openExclusiveAuthorByName(
             authorArchiveSources = sources;
             authorArchiveNotice =
               phase === "started"
-                ? "Consultando Hugging Face, Crossref y archivos…"
+                ? (resolution.author?.id
+                  ? "Consultando Hugging Face y fuentes bibliográficas…"
+                  : "Ampliando bibliografía en Crossref, Internet Archive y catálogo institucional…")
                 : `Consulta de ${source}: ${works.length} obras verificadas`;
 
             // Do not discard the initial results or collapse the
@@ -4427,7 +4433,7 @@ async function openExclusiveAuthorByName(
 
         authorArchiveSources = deep.sources;
         authorArchiveNotice = deep.errors.length
-          ? "Ampliación parcial: algunas fuentes no respondieron"
+          ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
             ? "Se consultó el índice filosófico de Hugging Face; pueden faltar obras fuera del corpus"
             : "Consulta parcial de los catálogos disponibles";
@@ -5231,7 +5237,7 @@ function renderAuthorPage(
     : null;
   const corpusNotice =
     federatedCatalog
-      ? `${catalogNoticeSubject} ${summary.loadedWorks} obras con coincidencia exacta de autor; esta vista no afirma exhaustividad bibliográfica.`
+      ? `${summary.loadedWorks} registros con autoría documentada en los catálogos consultados, incluidas variantes de nombre y obras colectivas; no afirma exhaustividad.`
       : summary.corpusWorks > summary.loadedWorks
         ? `El índice registra ${summary.corpusWorks.toLocaleString("es-MX")} obras; esta vista presenta hasta ${summary.loadedWorks}.`
         : `La vista contiene las ${summary.loadedWorks} obras publicables disponibles en el índice.`;
@@ -5263,7 +5269,7 @@ function renderAuthorPage(
               author.biography ||
               (
                 federatedCatalog
-                  ? "Identidad bibliográfica recuperada por coincidencia exacta de nombre y ORCID cuando está disponible."
+                  ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
                   : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
               )
             )}
@@ -5296,7 +5302,7 @@ function renderAuthorPage(
 
         <div class="author-page-seal" aria-hidden="true">
           <span>${escapeHtml(authorMonogram(author.displayName))}</span>
-          <small>Autor identificado</small>
+          <small>${federatedCatalog ? "Autor en catálogos" : "Autor identificado"}</small>
         </div>
       </header>
 
@@ -5360,9 +5366,9 @@ function renderAuthorPage(
         <span class="author-section-kicker">Red de autoría</span>
         <h2>Obras individuales y colaboraciones</h2>
         <div class="author-collaboration-counts">
-          <div><strong>${collaborationSummary.individual}</strong><span>Individuales verificadas</span></div>
-          <div><strong>${collaborationSummary.collaboration}</strong><span>En coautoría</span></div>
-          <div><strong>${collaborationSummary.unknown}</strong><span>Sin autoría suficiente</span></div>
+          <div><strong>${collaborationSummary.individual}</strong><span>Individuales confirmadas</span></div>
+          <div><strong>${collaborationSummary.collaboration}</strong><span>Colaboraciones y coordinación</span></div>
+          <div><strong>${collaborationSummary.unknown}</strong><span>Autoría no concluyente</span></div>
         </div>
         ${collaboratorCards ? `
           <h3>Colaboradores identificados</h3>
