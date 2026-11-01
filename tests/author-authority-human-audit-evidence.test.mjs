@@ -120,3 +120,79 @@ test("evidence pack reúne obras, ORCID y coautores sin exponer el estrato",asyn
     "Colega Dos"
   );
 });
+
+
+test("evidence pack cuarentena NDJSON malformado sin inventar evidencia",async()=>{
+  const root=await mkdtemp(join(tmpdir(),"authority-evidence-malformed-"));
+  await mkdir(join(root,"works"),{recursive:true});
+  await mkdir(join(root,"work-authors"),{recursive:true});
+
+  const bucketCount=8;
+  const authorId="777";
+  const workId="9101";
+  const workBucket=sourceWorkBucketForAuthor(authorId,bucketCount);
+  const workPath="works/"+String(workBucket).padStart(4,"0")+".jsonl";
+
+  await writeFile(
+    join(root,workPath),
+    [
+      JSON.stringify({
+        id:Number(authorId),
+        wid:Number(workId),
+        p:"first",
+        r:false,
+        co:0,
+        t:"Obra válida",
+        y:2022,
+        l:"es",
+        ty:"article"
+      }),
+      "{\"id\":777,\"wid\":9102,\"t\":\"fila truncada"
+    ].join("\n")+"\n",
+    "utf8"
+  );
+
+  const authorBucket=sourceWorkBucketForAuthor(workId,bucketCount);
+  const authorPath=
+    "work-authors/"+String(authorBucket).padStart(4,"0")+".jsonl";
+  await writeJsonl(join(root,authorPath),[
+    {
+      wid:Number(workId),
+      a:[{
+        id:Number(authorId),
+        n:"Autora Válida",
+        o:null,
+        p:"first",
+        r:false
+      }]
+    }
+  ]);
+
+  const diagnostics={invalidJsonRows:0,samples:[]};
+  const evidence=await buildHumanAuthorityEvidencePack({
+    inputRoot:root,
+    manifest:{
+      bucket_count:bucketCount,
+      files:{
+        works:[{path:workPath}],
+        work_authors:[{path:authorPath}]
+      }
+    },
+    sample:[{
+      audit_id:"AAH001",
+      left:{authorId,name:"Autora Válida"},
+      right:{authorId:"888",name:"Otra Persona"},
+      judgment:null,
+      note:""
+    }],
+    diagnostics
+  });
+
+  assert.equal(evidence.length,1);
+  assert.equal(evidence[0].left.workCountObserved,1);
+  assert.equal(evidence[0].left.works[0].title,"Obra válida");
+  assert.equal(diagnostics.invalidJsonRows,1);
+  assert.equal(diagnostics.samples.length,1);
+  assert.match(diagnostics.samples[0].error,/JSON|string|position/i);
+  assert.match(diagnostics.samples[0].preview,/fila truncada/);
+});
