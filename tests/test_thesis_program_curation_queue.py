@@ -1,0 +1,301 @@
+from __future__ import annotations
+
+import importlib.util
+import pathlib
+import sys
+import unittest
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+THESIS_DIR = ROOT / "scripts" / "thesis"
+sys.path.insert(0, str(THESIS_DIR))
+
+MODULE_PATH = THESIS_DIR / "build_program_curation_queue_v1.py"
+spec = importlib.util.spec_from_file_location("program_queue", MODULE_PATH)
+queue = importlib.util.module_from_spec(spec)
+assert spec.loader is not None
+spec.loader.exec_module(queue)
+
+canonical = queue.canonical
+
+
+class ThesisProgramCurationQueueTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.registry = canonical.load_program_registry(
+            THESIS_DIR / "config" / "program-authority-v1.json"
+        )
+
+    def test_phrase_matching_does_not_match_inside_other_words(self):
+        self.assertTrue(queue.phrase_present("historia del arte", "arte"))
+        self.assertFalse(
+            queue.phrase_present(
+                "licenciatura en medico cirujano y partero",
+                "arte",
+            )
+        )
+        self.assertFalse(
+            queue.phrase_present(
+                "maestria interinstitucional en agricultura protegida",
+                "cultura",
+            )
+        )
+
+    def test_review_authority_is_first_class_queue_state(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "licenciatura en historia del arte",
+                    "count": 2,
+                    "variants": {
+                        "LICENCIATURA EN HISTORIA DEL ARTE": 2,
+                    },
+                    "providers": {"riudg": 2},
+                    "admissionStatuses": {"quarantine": 2},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "LICENCIATURA EN HISTORIA DEL ARTE",
+                    "academicUnitRaw": "CUTONALA",
+                    "date": {
+                        "value": "2019",
+                        "quality": "valid",
+                    },
+                    "thesisTypeRaw": "Tesis de Licenciatura",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "LICENCIATURA EN HISTORIA DEL ARTE",
+                    "academicUnitRaw": "CUTONALA",
+                    "date": {
+                        "value": "2017",
+                        "quality": "valid",
+                    },
+                    "thesisTypeRaw": "Tesis de Licenciatura",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:lic-historia-arte",
+        )
+        self.assertEqual(item["priority"]["band"], "A")
+        self.assertIn("scope-decision", item["evidenceNeeds"])
+        self.assertEqual(item["observedYears"]["min"], 2017)
+        self.assertEqual(item["observedYears"]["max"], 2019)
+
+    def test_resolved_include_is_not_in_default_queue(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "licenciatura en historia",
+                    "count": 5,
+                    "variants": {"Licenciatura en Historia": 5},
+                    "providers": {"riudg": 5},
+                    "admissionStatuses": {"include": 5},
+                    "programRefs": {"program:udg:lic-historia": 5},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Licenciatura en Historia",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2024", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Licenciatura",
+                    "admissionStatus": "include",
+                }
+            ]
+        }
+
+        default = queue.build_queue(observed, corpus, self.registry)
+        self.assertEqual(default["metrics"]["queueItems"], 0)
+        self.assertEqual(
+            default["metrics"]["allProgramStates"],
+            {"resolved": 1},
+        )
+
+        all_rows = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+            include_resolved=True,
+        )
+        self.assertEqual(all_rows["metrics"]["queueItems"], 1)
+        self.assertEqual(all_rows["items"][0]["queueState"], "resolved")
+
+    def test_unresolved_humanities_candidate_is_prioritized_not_admitted(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": (
+                        "maestria en la ensenanza de la lengua y literatura"
+                    ),
+                    "count": 2,
+                    "variants": {
+                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA": 2,
+                    },
+                    "providers": {"riudg": 2},
+                    "admissionStatuses": {"quarantine": 2},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": (
+                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA"
+                    ),
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2003", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": (
+                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA"
+                    ),
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2006", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+        item = payload["items"][0]
+
+        self.assertEqual(item["queueState"], "unresolved")
+        self.assertIsNone(item["authority"])
+        self.assertIn(
+            "humanities-name-signal",
+            item["priority"]["reasons"],
+        )
+        self.assertIn(
+            "priority-unit-observed",
+            item["priority"]["reasons"],
+        )
+        self.assertEqual(
+            item["decisionConstraint"],
+            "priority-does-not-change-admission",
+        )
+        self.assertIn(
+            "historical-dictamen-or-archive",
+            item["evidenceNeeds"],
+        )
+
+    def test_invalid_or_suspicious_dates_do_not_define_historical_span(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "programa desconocido",
+                    "count": 3,
+                    "variants": {"Programa desconocido": 3},
+                    "providers": {"riudg": 3},
+                    "admissionStatuses": {"quarantine": 3},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Programa desconocido",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "1969", "quality": "suspicious"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Programa desconocido",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": None, "quality": "invalid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Programa desconocido",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2020", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+        years = payload["items"][0]["observedYears"]
+
+        self.assertEqual(years["min"], 2020)
+        self.assertEqual(years["max"], 2020)
+        self.assertEqual(years["validObservations"], 1)
+
+    def test_review_items_sort_before_unresolved_even_with_lower_frequency(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "licenciatura en historia del arte",
+                    "count": 2,
+                    "variants": {"Licenciatura en Historia del Arte": 2},
+                    "providers": {"riudg": 2},
+                    "admissionStatuses": {"quarantine": 2},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": "doctorado en ciencias sociales",
+                    "count": 217,
+                    "variants": {"Doctorado en Ciencias Sociales": 217},
+                    "providers": {"riudg": 217},
+                    "admissionStatuses": {"quarantine": 217},
+                    "programRefs": {},
+                },
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Licenciatura en Historia del Arte",
+                    "academicUnitRaw": "CUTONALA",
+                    "date": {"value": "2019", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Doctorado en Ciencias Sociales",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2024", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(
+            payload["items"][0]["normalizedKey"],
+            "licenciatura en historia del arte",
+        )
+        self.assertEqual(payload["items"][0]["queueState"], "review")
+
+
+if __name__ == "__main__":
+    unittest.main()
