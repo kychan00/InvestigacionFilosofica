@@ -34,13 +34,16 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
         institution_ref: str | None,
         admission: str,
         raw_date: str | None = "2024",
+        institution_raw: str | None = None,
     ):
+        if institution_raw is None and institution_ref == "institution:udg":
+            institution_raw = "Universidad de Guadalajara"
         return {
             "id": work_id,
             "title": work_id,
             "programRaw": program,
             "programRef": None,
-            "institutionRaw": None,
+            "institutionRaw": institution_raw,
             "institutionRef": institution_ref,
             "academicUnitRaw": "CUAAD",
             "thesisTypeRaw": "Thesis",
@@ -94,6 +97,55 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             "program:udg:mae-ciencias-arquitectura",
         )
 
+    def test_audit_reprojects_current_institution_alias_policy(self):
+        typo = self.work(
+            work_id="udg-typo",
+            program="Programa desconocido",
+            institution_ref=None,
+            institution_raw="Universidad en Guadalajara",
+            admission="exclude",
+        )
+        external = self.work(
+            work_id="external-college",
+            program="Doctorado en Antropología Social",
+            institution_ref=None,
+            institution_raw="El Colegio de Michoacán A.C.",
+            admission="quarantine",
+        )
+
+        typo_projection = audit.project_work_admission(
+            typo,
+            self.registry,
+        )
+        external_projection = audit.project_work_admission(
+            external,
+            self.registry,
+        )
+
+        self.assertEqual(
+            typo_projection["institution"]["status"],
+            "confirmed",
+        )
+        self.assertEqual(
+            typo_projection["institutionRef"],
+            "institution:udg",
+        )
+        self.assertEqual(typo_projection["status"], "quarantine")
+        self.assertEqual(
+            typo_projection["explanationCode"],
+            "unknown-program",
+        )
+
+        self.assertEqual(
+            external_projection["institution"]["status"],
+            "external",
+        )
+        self.assertEqual(external_projection["status"], "exclude")
+        self.assertEqual(
+            external_projection["explanationCode"],
+            "external-institution",
+        )
+
     def test_reprojection_updates_date_quality_and_gate_blockers(self):
         corpus = {
             "buildRevision": "fixture",
@@ -124,6 +176,7 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
                     work_id="external",
                     program="Maestría en Gestión de la Cultura",
                     institution_ref=None,
+                    institution_raw="El Colegio de Michoacán A.C.",
                     admission="exclude",
                     raw_date="2022",
                 ),
