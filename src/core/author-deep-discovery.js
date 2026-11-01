@@ -181,10 +181,9 @@ export async function fetchAuthorWorksOpenAlex({
     const rows = Array.isArray(data?.results)?data.results:[];
     const verified = rows
       .filter(item=>verifiedOpenAlexAuthor(item,id,orcid))
-      .map(item=>withVerifiedAuthor(normalizeOpenAlexWork(item),displayName,id,orcid))
-      .map((item,index)=>({
-        ...item,
-        publicationDate:rows[index]?.publication_date || null
+      .map(item=>({
+        ...withVerifiedAuthor(normalizeOpenAlexWork(item),displayName,id,orcid),
+        publicationDate:item.publication_date || null
       }));
     works.push(...verified.slice(0,ceiling-works.length));
     onPage({works:[...works],pages,total,source:"OpenAlex"});
