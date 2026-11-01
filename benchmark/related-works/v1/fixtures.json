@@ -791,6 +791,60 @@
       "expected": {
         "valid": true
       }
+    },
+    {
+      "id": "RW17",
+      "label": "veto activo bloquea una relación aunque la semántica sea alta",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:veto",
+        "seed": {
+          "identity": "openalex:W1000"
+        },
+        "target": {
+          "identity": "openalex:W1001"
+        },
+        "relationTypes": [
+          "semantic-affinity"
+        ],
+        "signals": {
+          "semantic": 0.97
+        },
+        "evidence": [
+          {
+            "id": "ev-sem-17",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "qwen3-browser-static-v4"
+          },
+          {
+            "id": "ev-veto-17",
+            "class": "bibliographic",
+            "strength": "veto",
+            "source": "work-resolution",
+            "structuredIdentity": true,
+            "note": "Contradiction detected by canonical work resolution"
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-sem-17"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:veto-evidence-present:ev-veto-17"
+        ]
+      }
     }
   ]
 }
