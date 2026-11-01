@@ -162,6 +162,22 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
         month = int(iso.group(2)) if iso.group(2) else None
         day = int(iso.group(3)) if iso.group(3) else None
 
+        # Historical DSpace metadata may encode unknown components as 00.
+        # Preserve the raw value while lowering precision instead of inventing
+        # month/day values.
+        if month == 0 and (day is None or day == 0):
+            month = None
+            day = None
+        elif month not in (None, 0) and day == 0:
+            day = None
+        elif month == 0 and day not in (None, 0):
+            return {
+                "raw": raw,
+                "value": None,
+                "precision": "unknown",
+                "quality": "invalid",
+            }
+
         try:
             if day is not None:
                 datetime(year, month or 1, day)
