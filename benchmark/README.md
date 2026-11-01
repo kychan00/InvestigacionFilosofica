@@ -150,3 +150,22 @@ Su especificación completa está en:
 
 La capa silver del benchmark de autoridades no debe interpretarse como juicio humano universal; el gold humano se mantiene separado y explícito.
 
+## Auditoría humana de identidad
+
+Después del benchmark determinista, la validación humana del Author Authority Graph vive en:
+
+`benchmark/author-authority/human-audit-v1/`
+
+Su muestra está congelada por SHA-256 y mantiene separados:
+
+- evidencia visible al revisor;
+- relación actual del algoritmo;
+- juicio humano final;
+- gold promovido.
+
+La especificación está en:
+
+`docs/AUTHOR_AUTHORITY_HUMAN_AUDIT_V1.md`
+
+CI puede construir el paquete de evidencia, pero nunca genera ni suplanta los juicios humanos.
+
