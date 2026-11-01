@@ -369,6 +369,8 @@ def build_queue(
     items: list[dict[str, Any]] = []
     all_state_counts: Counter[str] = Counter()
     all_work_counts: Counter[str] = Counter()
+    gate_ineligible_groups = 0
+    gate_ineligible_works = 0
 
     for row in observed.get("programs", []):
         normalized_key = row.get("normalizedKey") or ""
@@ -390,6 +392,16 @@ def build_queue(
                 "works": 0,
             },
         )
+
+        gate_eligible_works = sum(
+            count
+            for status, count in extra["admissionStatuses"].items()
+            if status not in {"exclude", "reject-source"}
+        )
+        if extra["works"] and gate_eligible_works == 0:
+            gate_ineligible_groups += 1
+            gate_ineligible_works += int(extra["works"])
+            continue
 
         years = sorted(extra["years"])
         priority = priority_for_item(
@@ -488,6 +500,8 @@ def build_queue(
             "allProgramStates": dict(all_state_counts),
             "worksByProgramState": dict(all_work_counts),
             "worksRepresentedInQueue": sum(item["count"] for item in items),
+            "gateIneligibleGroupsOmitted": gate_ineligible_groups,
+            "gateIneligibleWorksOmitted": gate_ineligible_works,
         },
         "items": items,
     }
