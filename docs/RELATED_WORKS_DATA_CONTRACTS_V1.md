@@ -301,6 +301,20 @@ Campos especializados posibles:
 
 La evidencia conserva la fuente. Una razón nunca debe construirse a partir de información no conservada en la arista o recuperable por referencia.
 
+
+Además, V1 exige payloads estructurados específicos:
+
+- `semantic-affinity` → `semanticScore`;
+- `shared-topic` → `topicIds[]`;
+- `shared-concept` → `conceptIds[]`;
+- `same-author` → `authorityRefs[]`;
+- `shared-coauthor` → `sharedAuthorityRefs[]`;
+- relaciones bibliográficas/citación → `sourceRecordRefs[]`;
+- `same-debate` → al menos `conceptIds[]`, `topicIds[]` o `areaIds[]`;
+- `historical-context` → `yearDistance` o `temporalRelation`.
+
+Un objeto que sólo declare su clase de evidencia, sin el dato estructurado correspondiente, no satisface el contrato.
+
 ---
 
 # 7. RelationReason
