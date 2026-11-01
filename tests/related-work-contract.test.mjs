@@ -232,3 +232,84 @@ test("las relaciones de autoría nunca dependen sólo de similitud nominal", () 
     );
   }
 });
+
+
+test("cada relación V1 exige el payload estructurado que la justifica", () => {
+  const expectedFields = new Map([
+    [RELATION_TYPES.SEMANTIC_AFFINITY, "semanticScore"],
+    [RELATION_TYPES.SHARED_TOPIC, "topicIds"],
+    [RELATION_TYPES.SHARED_CONCEPT, "conceptIds"],
+    [RELATION_TYPES.SAME_AUTHOR, "authorityRefs"],
+    [RELATION_TYPES.SHARED_COAUTHOR, "sharedAuthorityRefs"],
+    [RELATION_TYPES.CITED_BY_SEED, "sourceRecordRefs"],
+    [RELATION_TYPES.CITES_SEED, "sourceRecordRefs"],
+    [RELATION_TYPES.BIBLIOGRAPHIC_REFERENCE, "sourceRecordRefs"]
+  ]);
+
+  for (const [type, field] of expectedFields) {
+    assert.ok(
+      RELATION_EVIDENCE_REQUIREMENTS[type].requiredAnyFields.includes(field),
+      type + " must require " + field
+    );
+  }
+
+  assert.deepEqual(
+    new Set(
+      RELATION_EVIDENCE_REQUIREMENTS[
+        RELATION_TYPES.SAME_DEBATE
+      ].requiredAnyFields
+    ),
+    new Set([
+      "conceptIds",
+      "topicIds",
+      "areaIds"
+    ])
+  );
+});
+
+
+test("evidencia veto nunca puede llegar a una arista publicable", () => {
+  const fixture =
+    fixturePayload.cases.find(
+      item => item.id === "RW17"
+    );
+
+  assert.ok(fixture);
+
+  const result =
+    validateRelatedWorkEdge(
+      fixture.edge
+    );
+
+  assert.equal(result.ok, false);
+  assert.ok(
+    result.errors.includes(
+      "edge:veto-evidence-present:ev-veto-17"
+    )
+  );
+});
+
+
+test("los códigos de explicación fuera del vocabulario V1 se rechazan", () => {
+  const fixture =
+    structuredClone(
+      fixturePayload.cases.find(
+        item => item.id === "RW01"
+      ).edge
+    );
+
+  fixture.reasons[0].code =
+    "ai-thinks-it-is-related";
+
+  const result =
+    validateRelatedWorkEdge(
+      fixture
+    );
+
+  assert.equal(result.ok, false);
+  assert.ok(
+    result.errors.includes(
+      "reason:unknown-code:ai-thinks-it-is-related"
+    )
+  );
+});
