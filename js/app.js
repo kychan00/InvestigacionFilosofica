@@ -43,7 +43,7 @@ import {
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-federated-coverage-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-curated-bibliography-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -4365,7 +4365,7 @@ async function openExclusiveAuthorByName(
       resolution.status !== "resolved" &&
       (
         resolution.status !== "ambiguous" ||
-        identity.orcid
+        trustedOrcid
       )
     ) {
       resolution =
@@ -4442,7 +4442,7 @@ async function openExclusiveAuthorByName(
               phase === "started"
                 ? (resolution.author?.id
                   ? "Consultando Hugging Face y fuentes bibliográficas…"
-                  : "Ampliando bibliografía en Crossref, Internet Archive y catálogo institucional…")
+                  : "Integrando bibliografía verificada y ampliando en Crossref, Internet Archive y catálogos institucionales…")
                 : `Consulta de ${source}: ${works.length} obras verificadas`;
 
             // Do not discard the initial results or collapse the
@@ -4471,7 +4471,7 @@ async function openExclusiveAuthorByName(
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
             ? "Se consultó el índice filosófico de Hugging Face; pueden faltar obras fuera del corpus"
-            : "Consulta parcial de los catálogos disponibles";
+            : "Bibliografía verificada integrada; los catálogos automáticos pueden seguir siendo parciales";
 
         showExclusiveAuthorWorks({
           ...resolution,
