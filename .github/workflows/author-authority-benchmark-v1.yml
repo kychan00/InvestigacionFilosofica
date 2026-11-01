@@ -1,0 +1,94 @@
+name: Author Authority benchmark v1
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/author-authority/**"
+      - "src/core/author-authority-benchmark.js"
+      - "src/core/author-authority-batch.js"
+      - "src/core/author-curated-identities.js"
+      - "scripts/authority/benchmark-author-authority-v1.mjs"
+      - "tests/author-authority-benchmark.test.mjs"
+      - "tests/author-authority-benchmark-runner.test.mjs"
+      - "package.json"
+      - ".github/workflows/author-authority-benchmark-v1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authority-benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test authority benchmark contracts
+        run: npm run test:authority-benchmark
+
+      - name: Read pinned release configuration
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const config = JSON.parse(
+            fs.readFileSync(
+              "benchmark/author-authority/v1/config.json",
+              "utf8"
+            )
+          );
+          const lines = [
+            ["AUTHORITY_RELEASE_TAG", config.release.tag],
+            ["AUTHORITY_RELEASE_ASSET", config.release.asset],
+            ["AUTHORITY_RELEASE_SHA256", config.release.sha256]
+          ];
+          fs.appendFileSync(
+            process.env.GITHUB_ENV,
+            lines.map(([key, value]) => `${key}=${value}\n`).join("")
+          );
+          NODE
+
+      - name: Download pinned author-index release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p             artifacts/author-authority-benchmark-v1/download             artifacts/author-authority-benchmark-v1/input
+
+          gh release download "$AUTHORITY_RELEASE_TAG"             --repo "$GITHUB_REPOSITORY"             --pattern "$AUTHORITY_RELEASE_ASSET"             --dir artifacts/author-authority-benchmark-v1/download
+
+      - name: Verify pinned release checksum
+        working-directory: artifacts/author-authority-benchmark-v1/download
+        run: |
+          printf '%s  %s\n'             "$AUTHORITY_RELEASE_SHA256"             "$AUTHORITY_RELEASE_ASSET"             | sha256sum -c -
+
+      - name: Extract author-index release
+        run: |
+          tar             -xzf "artifacts/author-authority-benchmark-v1/download/$AUTHORITY_RELEASE_ASSET"             -C artifacts/author-authority-benchmark-v1/input
+
+          test -f             artifacts/author-authority-benchmark-v1/input/author-index-v2/manifest.json
+
+      - name: Run mass Author Authority benchmark
+        run: |
+          npm run benchmark:authority --             --input artifacts/author-authority-benchmark-v1/input/author-index-v2             --output artifacts/author-authority-benchmark-v1/report.json
+
+      - name: Upload Author Authority benchmark evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-benchmark-v1
+          path: |
+            artifacts/author-authority-benchmark-v1/report.json
+            artifacts/author-authority-benchmark-v1/audit-sample.json
+            artifacts/author-authority-benchmark-v1/violations.json
+          if-no-files-found: warn
