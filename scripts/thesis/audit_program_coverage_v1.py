@@ -49,25 +49,29 @@ def project_work_admission(
     work: dict[str, Any],
     registry: dict[str, Any],
 ) -> dict[str, Any]:
-    """Reproject only registry-dependent admission decisions.
+    """Reproject policy-dependent admission decisions over frozen evidence.
 
-    Source-type rejection and external-institution exclusion are inherited from
-    the frozen canonical snapshot. Institution confirmation is *not* inferred
-    from program identity or provider membership.
+    Raw institution evidence remains frozen from the canonical snapshot, but its
+    resolution is recomputed with the current Institution Authority policy.
+    Institution identity is never inferred from program identity, provider
+    membership or academic unit.
     """
 
     original_status = work.get("admissionStatus")
-    institution_ref = work.get("institutionRef")
-    udg_ref = (registry.get("institution") or {}).get("id")
+    raw_institution = work.get("institutionRaw")
+    institution = canonical.resolve_institution(
+        [raw_institution] if raw_institution else [],
+        registry,
+    )
     program = canonical.resolve_program(work.get("programRaw"), registry)
 
     if original_status == "reject-source":
         status = "reject-source"
         code = "not-a-thesis"
-    elif original_status == "exclude" and institution_ref != udg_ref:
+    elif institution.get("status") == "external":
         status = "exclude"
         code = "external-institution"
-    elif institution_ref != udg_ref:
+    elif institution.get("status") != "confirmed":
         status = "quarantine"
         code = "unresolved-institution"
     elif program.get("status") == "confirmed" and program.get("admissionState") == "include":
@@ -93,9 +97,9 @@ def project_work_admission(
         "status": status,
         "explanationCode": code,
         "program": program,
-        "institutionRef": institution_ref,
+        "institution": institution,
+        "institutionRef": institution.get("institutionRef"),
     }
-
 
 def reproject_corpus(
     corpus: dict[str, Any],
@@ -125,6 +129,7 @@ def reproject_corpus(
         projected_admission[projection["status"]] += 1
         work["admissionStatus"] = projection["status"]
         work["admissionExplanationCodes"] = [projection["explanationCode"]]
+        work["institutionRef"] = projection["institutionRef"]
 
         program = projection["program"]
         if program.get("status") == "confirmed":
@@ -145,7 +150,8 @@ def reproject_corpus(
                         "projectedAdmissionStatus": projection["status"],
                         "explanationCode": projection["explanationCode"],
                         "institutionRaw": work.get("institutionRaw"),
-                        "institutionRef": work.get("institutionRef"),
+                        "institutionRef": projection["institutionRef"],
+                        "institutionStatus": projection["institution"].get("status"),
                         "sourceRecordRefs": list(work.get("sourceRecordRefs") or []),
                         "persistentIdentifiers": list(
                             work.get("persistentIdentifiers") or []
@@ -349,8 +355,8 @@ def build_audit(
     return {
         "schemaVersion": SCHEMA_VERSION,
         "projectionMode": (
-            "freeze-source-type-and-institution;"
-            "reproject-program-authority-date-quality-and-curation"
+            "freeze-source-type-and-raw-institution-evidence;"
+            "reproject-institution-and-program-authority-date-quality-and-curation"
         ),
         "inputCorpusRevision": corpus.get("buildRevision"),
         "inputProgramAuthorityRevision": corpus.get(
@@ -359,6 +365,10 @@ def build_audit(
         "programAuthorityRevision": registry.get(
             "registryRevision",
             registry.get("schemaVersion"),
+        ),
+        "institutionAuthorityRevision": registry.get(
+            "institutionRevision",
+            "institution-authority-v1",
         ),
         "referenceYear": reference_year,
         "metrics": {
@@ -550,6 +560,9 @@ def main() -> int:
                 "schemaVersion": audit["schemaVersion"],
                 "programAuthorityRevision": audit[
                     "programAuthorityRevision"
+                ],
+                "institutionAuthorityRevision": audit[
+                    "institutionAuthorityRevision"
                 ],
                 "metrics": audit["metrics"],
                 "gateBlockers": audit["gateBlockers"],

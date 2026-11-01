@@ -452,6 +452,101 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             by_key,
         )
 
+    def test_gate_ineligible_program_group_is_omitted_from_queue(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado en antropologia social",
+                    "count": 1,
+                    "variants": {
+                        "Doctorado en Antropología Social": 1,
+                    },
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"exclude": 1},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Doctorado en Antropología Social",
+                    "academicUnitRaw": None,
+                    "date": {"value": "2007", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Doctorado",
+                    "admissionStatus": "exclude",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(
+            payload["metrics"]["gateIneligibleGroupsOmitted"],
+            1,
+        )
+        self.assertEqual(
+            payload["metrics"]["gateIneligibleWorksOmitted"],
+            1,
+        )
+        self.assertEqual(
+            payload["metrics"]["allProgramStates"],
+            {"unresolved": 1},
+        )
+
+    def test_mixed_external_and_gate_eligible_group_stays_in_queue(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "programa mixto",
+                    "count": 2,
+                    "variants": {"Programa mixto": 2},
+                    "providers": {"riudg": 2},
+                    "admissionStatuses": {
+                        "exclude": 1,
+                        "quarantine": 1,
+                    },
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Programa mixto",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2020", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "exclude",
+                },
+                {
+                    "programRaw": "Programa mixto",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2021", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        self.assertEqual(
+            payload["metrics"]["gateIneligibleGroupsOmitted"],
+            0,
+        )
+        self.assertEqual(payload["items"][0]["queueState"], "unresolved")
+
     def test_invalid_or_suspicious_dates_do_not_define_historical_span(self):
         observed = {
             "programs": [
