@@ -248,6 +248,29 @@ def load_program_registry(path: str | Path = DEFAULT_REGISTRY) -> dict[str, Any]
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
     if payload.get("schemaVersion") != "thesis-humanities-program-authority-v1":
         raise ValueError("Unsupported program authority registry")
+
+    allowed_admission_states = {"include", "review", "exclude"}
+    ids: set[str] = set()
+    for program in payload.get("programs", []):
+        program_id = program.get("id")
+        if not program_id:
+            raise ValueError("Program authority without id")
+        if program_id in ids:
+            raise ValueError(f"Duplicate program authority id: {program_id}")
+        ids.add(program_id)
+
+        state = program.get("admissionState")
+        if state not in allowed_admission_states:
+            raise ValueError(
+                f"Unsupported program admissionState for {program_id}: {state}"
+            )
+
+        if not program.get("canonicalName"):
+            raise ValueError(f"Program authority without canonicalName: {program_id}")
+
+        if not program.get("evidence"):
+            raise ValueError(f"Program authority without evidence: {program_id}")
+
     return payload
 
 
@@ -407,9 +430,15 @@ def admission_decision(
     elif program["status"] == "confirmed" and program.get("admissionState") == "include":
         status = "include"
         code = "confirmed-humanities-program"
-    elif program["status"] == "confirmed":
+    elif program["status"] == "confirmed" and program.get("admissionState") == "review":
+        status = "review"
+        code = "program-review"
+    elif program["status"] == "confirmed" and program.get("admissionState") == "exclude":
         status = "exclude"
         code = "non-humanities-program"
+    elif program["status"] == "confirmed":
+        status = "quarantine"
+        code = "unsupported-program-admission-state"
     elif program["status"] == "unknown":
         status = "quarantine"
         code = "unknown-program"
@@ -958,6 +987,9 @@ def build_corpus(
         elif all(item["admission"]["status"] == "reject-source" for item in group):
             group_admission = "reject-source"
             group_codes.append("not-a-thesis")
+        elif any(item["admission"]["status"] == "review" for item in group):
+            group_admission = "review"
+            group_codes.append("program-review")
         else:
             group_codes.append("unresolved-or-unknown")
 
@@ -1004,7 +1036,7 @@ def build_corpus(
     payload = {
         "schemaVersion": "thesis-canonical-corpus-v1",
         "buildRevision": build_revision,
-        "programAuthorityRevision": registry["schemaVersion"],
+        "programAuthorityRevision": registry.get("registryRevision", registry["schemaVersion"]),
         "sourceRecords": source_records,
         "programAuthorities": registry.get("programs", []),
         "institutionAuthorities": [registry.get("institution")],
@@ -1037,11 +1069,15 @@ def validate_corpus(corpus: dict[str, Any]) -> bool:
             if ref not in source_id_set:
                 raise ValueError(f"Broken SourceRecord reference: {ref}")
 
-        if work.get("admissionStatus") == "include":
+        if work.get("admissionStatus") in {"include", "review"}:
             if not work.get("programRef"):
-                raise ValueError("INCLUDE work without programRef")
+                raise ValueError(
+                    f"{work.get('admissionStatus', '').upper()} work without programRef"
+                )
             if work.get("institutionRef") != "institution:udg":
-                raise ValueError("INCLUDE work without UdeG institutionRef")
+                raise ValueError(
+                    f"{work.get('admissionStatus', '').upper()} work without UdeG institutionRef"
+                )
 
         author_names = {
             contrib["normalizedName"]
