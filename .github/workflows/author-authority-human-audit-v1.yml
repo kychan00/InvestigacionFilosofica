@@ -116,6 +116,12 @@ jobs:
             throw new Error("Expected evidence for 100 pairs");
           }
           if (
+            !evidence.diagnostics ||
+            !Number.isInteger(evidence.diagnostics.invalidJsonRows)
+          ) {
+            throw new Error("Missing malformed-evidence diagnostics");
+          }
+          if (
             sample.some(row =>
               "stratum" in row ||
               "current_relation" in row ||
@@ -146,6 +152,8 @@ jobs:
             uniqueProfiles: manifest.uniqueProfiles,
             sampleSha256: manifest.sampleSha256,
             evidenceCases: evidence.cases.length,
+            invalidEvidenceRows:
+              evidence.diagnostics.invalidJsonRows,
             blind: true
           }, null, 2));
           NODE
