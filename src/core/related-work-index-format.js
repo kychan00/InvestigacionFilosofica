@@ -30,6 +30,12 @@ export function compactNeighborToRelatedWorkEdge(
       0
     );
 
+  const observedVectorId =
+    Number(
+      neighbor?.o ??
+      targetVectorId
+    );
+
   const semanticEvidenceId =
     `semantic:${seedVectorId}:${targetVectorId}`;
 
@@ -49,7 +55,9 @@ export function compactNeighborToRelatedWorkEdge(
       source:
         "qwen3-browser-static-v4",
 
-      semanticScore
+      semanticScore,
+
+      observedVectorId
     }
   ];
 
