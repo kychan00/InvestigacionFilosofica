@@ -419,6 +419,8 @@ Las bibliografías curadas existentes se consideran evidencia de alta autoridad 
 La especificación completa de esta evolución se encuentra en:
 
 - [Arquitectura V1 — Author Authority Graph](docs/AUTHOR_AUTHORITY_ARCHITECTURE_V1.md)
+- [Contratos de datos V1](docs/AUTHOR_AUTHORITY_DATA_CONTRACTS_V1.md)
+- [Matriz de fixtures y benchmark V1](docs/AUTHOR_AUTHORITY_FIXTURES_V1.md)
 
 Esta sección describe una **arquitectura objetivo**. Mientras no se implementen las fases posteriores, la política y el runtime documentados en [Política de fuentes y uso de OpenAlex](docs/author-data-sources.md) siguen siendo los vigentes.
 
