@@ -102,10 +102,22 @@ export function matchFederatedWork(work, name, {
   // is evidence of collaboration; an incomplete single creator is NOT
   // evidence of sole authorship.
   const matched=all.find(x=>x===best.matchedAuthor);
-  const authors=all.length>1 ? all : (work?.authors||[]);
+  const compositeStatement=all.length===1 &&
+    all[0]?.creatorComposite && collective
+    ? all[0].rawCreator : null;
+  // A source may concatenate multiple coordinators into ONE creator.
+  // Never turn the concatenated string into a clickable person name.
+  const authors=all.length>1 ? all : compositeStatement
+    ? [{
+        id:best.matchedAuthor?.id||null,
+        name:best.displayName,
+        role:"coordinación",
+        originalCreatorStatement:compositeStatement
+      }] : (work?.authors||[]);
   return {
     ...work,
     authors,
+    creatorStatement:compositeStatement,
     matchedAuthor:matched||best.matchedAuthor,
     matchedAuthorEvidence:best.identityEvidence,
     matchedAuthorDisplayName:best.displayName,
