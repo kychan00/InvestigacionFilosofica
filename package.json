@@ -60,7 +60,8 @@
     "benchmark:inspect-ranking-changes": "node scripts/benchmark/inspect_ranking_changes.mjs",
     "build:authority-fixture": "node scripts/authority/build-authority-fixture-v1.mjs",
     "build:authority-batch": "node scripts/authority/build-authority-batch-v1.mjs",
-    "build:authority-batch-fixture": "node scripts/authority/build-authority-batch-fixture-v1.mjs"
+    "build:authority-batch-fixture": "node scripts/authority/build-authority-batch-fixture-v1.mjs",
+    "build:authority-work-map": "node scripts/related/build_authority_work_map_v1.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
