@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "index.html"
+      - "js/app.js"
       - "css/**"
       - "tests/mobile-carbon.test.mjs"
       - "scripts/qa/mobile-ui-smoke.mjs"
