@@ -2383,7 +2383,7 @@ function renderResult(
           }
 
           ${item.collaborationKind === "collaboration"
-              ? `<span class="provider author-collaboration-tag">Coautoría · ${item.collaborationCount} ${item.collaborationCount === 1 ? "colaborador" : "colaboradores"}</span>`
+              ? `<span class="provider author-collaboration-tag">${item.collectiveWork ? "Obra colectiva o coordinada" : "Coautoría"} · ${item.collaborationCount} ${item.collaborationCount === 1 ? "participante" : "participantes"} como mínimo</span>`
               : item.collaborationKind === "individual"
                 ? `<span class="provider author-individual-tag">Autoría individual</span>`
                 : ""}
@@ -4401,7 +4401,9 @@ async function openExclusiveAuthorByName(
             authorArchiveSources = sources;
             authorArchiveNotice =
               phase === "started"
-                ? "Consultando Hugging Face, Crossref y archivos…"
+                ? (resolution.author?.id
+                  ? "Consultando Hugging Face y fuentes bibliográficas…"
+                  : "Ampliando bibliografía en Crossref, Internet Archive y catálogo institucional…")
                 : `Consulta de ${source}: ${works.length} obras verificadas`;
 
             // Do not discard the initial results or collapse the
@@ -4427,7 +4429,7 @@ async function openExclusiveAuthorByName(
 
         authorArchiveSources = deep.sources;
         authorArchiveNotice = deep.errors.length
-          ? "Ampliación parcial: algunas fuentes no respondieron"
+          ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
             ? "Se consultó el índice filosófico de Hugging Face; pueden faltar obras fuera del corpus"
             : "Consulta parcial de los catálogos disponibles";
@@ -5231,7 +5233,7 @@ function renderAuthorPage(
     : null;
   const corpusNotice =
     federatedCatalog
-      ? `${catalogNoticeSubject} ${summary.loadedWorks} obras con coincidencia exacta de autor; esta vista no afirma exhaustividad bibliográfica.`
+      ? `${summary.loadedWorks} registros con autoría documentada en los catálogos consultados, incluidas variantes de nombre y obras colectivas; no afirma exhaustividad.`
       : summary.corpusWorks > summary.loadedWorks
         ? `El índice registra ${summary.corpusWorks.toLocaleString("es-MX")} obras; esta vista presenta hasta ${summary.loadedWorks}.`
         : `La vista contiene las ${summary.loadedWorks} obras publicables disponibles en el índice.`;
@@ -5360,9 +5362,9 @@ function renderAuthorPage(
         <span class="author-section-kicker">Red de autoría</span>
         <h2>Obras individuales y colaboraciones</h2>
         <div class="author-collaboration-counts">
-          <div><strong>${collaborationSummary.individual}</strong><span>Individuales verificadas</span></div>
-          <div><strong>${collaborationSummary.collaboration}</strong><span>En coautoría</span></div>
-          <div><strong>${collaborationSummary.unknown}</strong><span>Sin autoría suficiente</span></div>
+          <div><strong>${collaborationSummary.individual}</strong><span>Individuales confirmadas</span></div>
+          <div><strong>${collaborationSummary.collaboration}</strong><span>Colaboraciones y coordinación</span></div>
+          <div><strong>${collaborationSummary.unknown}</strong><span>Autoría no concluyente</span></div>
         </div>
         ${collaboratorCards ? `
           <h3>Colaboradores identificados</h3>
