@@ -78,7 +78,7 @@ export function cleanAuthorWorkTitle(value) {
 export function normalizeAuthorName(
   value
 ) {
-  return String(value || "")
+  const words = String(value || "")
     .normalize("NFKD")
     .replace(/\p{M}/gu, "")
     .toLocaleLowerCase("und")
@@ -87,6 +87,23 @@ export function normalizeAuthorName(
     .replace(/[^\p{L}\p{N}\s-]+/gu, " ")
     .replace(/[_-]/g, " ")
     .replace(/\s+/g, " ")
+    .trim()
+    .split(" ")
+    .filter(Boolean);
+  const honorifics = new Set([
+    "dr", "dra", "doctor", "doctora", "prof", "profesor",
+    "profesora", "lic", "licenciado", "licenciada",
+    "mtro", "mtra", "maestro", "maestra", "phd"
+  ]);
+  while (words.length > 1 && honorifics.has(words[0])) {
+    words.shift();
+  }
+  return words.join(" ");
+}
+
+export function cleanAuthorDisplayName(value) {
+  return String(value || "").trim()
+    .replace(/^(?:(?:Dra?\.?|Doctora?\.?|Prof(?:esor|esora)?\.?|Lic(?:enciado|enciada)?\.?|Mtr[oa]\.?)\s+)+/iu,"")
     .trim();
 }
 
@@ -341,6 +358,18 @@ function dedupeCandidates(rows) {
           "es"
         )
     );
+}
+
+
+export async function findSnapshotAuthorCandidates(query, options = {}) {
+  const context = createContext(options);
+  const signature = authorNameSignature(query);
+  if (!signature) return [];
+  const exact = await aliasCandidates(context, signature);
+  return dedupeCandidates(exact)
+    .filter(row => row.k === "full" || row.k === "given-first-family" ||
+      row.k === "suffix" || row.k === "initial")
+    .slice(0, 30);
 }
 
 
@@ -636,6 +665,8 @@ async function authorWorks(
           Math.max(90, 100 - index * 0.2),
         relevanceLevel: "Autor",
         retrievalMode: "author-index",
+        authorPosition: row.p || null,
+        coauthorCount: Number.isInteger(Number(row.co)) ? Number(row.co) : null,
         ranking: {
           author: 100,
           query: 100,
