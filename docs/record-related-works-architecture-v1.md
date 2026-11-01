@@ -607,6 +607,52 @@ No se publicará un peso definitivo de ranking sin comparar al menos una versió
 
 ---
 
+## Estado de Fase 1A
+
+La Fase 1A implementa el contrato físico del índice sin integrar todavía la UI.
+
+Componentes:
+
+- `scripts/related/build_related_work_index_v1.py`
+- `scripts/related/validate_related_work_index_v1.py`
+- `src/core/related-work-index-format.js`
+- `benchmark/related-works/v1/index-builder-fixture.json`
+- `tests/test_related_work_index_builder.py`
+- `tests/related-work-index-format.test.mjs`
+- `.github/workflows/related-work-index-v1.yml`
+- `docs/RELATED_WORK_INDEX_V1A.md`
+
+1A genera únicamente relaciones sustentadas por el corpus semántico y topics estructurados. Autoría, coautoría y citación quedan bloqueadas hasta integrar Authority Graph y Reference Graph.
+
+El full build de 451,823 documentos requiere los originales congelados del FAISS y metadata SQLite. Los hashes están documentados, pero su ubicación pública original no está registrada en el repositorio; por ello no se sustituye silenciosamente con los shards int8 derivados de Static V4.
+
+---
+
+## Estado de Fase 2A
+
+El runtime de lectura del índice está implementado sin integración de UI.
+
+Componentes:
+
+- `src/core/related-works-resolver.js`
+- `tests/related-works-resolver.test.mjs`
+- `docs/RELATED_WORKS_RUNTIME_V1.md`
+
+Garantías actuales:
+
+- manifest + un shard por seed;
+- sin carga automática de Qwen3;
+- sin búsquedas federadas automáticas;
+- cache de shards y metadata;
+- hidratación únicamente de páginas Static V4 necesarias;
+- empty/partial para seed ausente;
+- errores de infraestructura reintentables;
+- salida `RelatedWorkEdge V1`.
+
+2A no congela ranking final, diversidad ni UI. Es la capa de transporte/contrato que consumirá la sección del folio cuando exista un índice remoto real.
+
+---
+
 ## 20. Fases
 
 ### Fase 0 — contrato
