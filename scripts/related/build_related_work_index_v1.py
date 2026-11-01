@@ -14,10 +14,20 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Iterable, Sequence
 
+from authority_work_map_v1 import (
+    AuthorityWorkMap,
+    authority_candidate_vector_ids,
+    authority_map_source_summary,
+    authorship_relations,
+    build_authority_candidate_index,
+    load_authority_work_map,
+)
+
 
 SCHEMA_VERSION = "related-work-index-v1"
 GENERATOR_VERSION = "related-work-index-builder-v1a"
 DEFAULT_NEIGHBORS = 48
+DEFAULT_AUTHORITY_NEIGHBORS = 24
 DEFAULT_SEARCH_MULTIPLIER = 4
 DEFAULT_SHARDS = 256
 DEFAULT_BATCH_SIZE = 256
@@ -64,6 +74,11 @@ def normalize_openalex_work_id(value: Any) -> str | None:
     if not match:
         return None
     return match.group(1).upper()
+
+
+def openalex_work_identity(value: Any) -> str | None:
+    work_id = normalize_openalex_work_id(value)
+    return f"openalex:{work_id}" if work_id else None
 
 
 def canonical_work_identity(document: dict[str, Any]) -> str:
@@ -152,6 +167,7 @@ def extract_topic_ids(raw: Any) -> tuple[str, ...]:
 class WorkMetadata:
     vector_id: int
     identity: str
+    openalex_identity: str | None
     topics: tuple[str, ...]
     year: int | None
 
@@ -204,6 +220,10 @@ def load_metadata(database: Path) -> list[WorkMetadata]:
             WorkMetadata(
                 vector_id=vector_id,
                 identity=canonical_work_identity(document),
+                openalex_identity=(
+                    openalex_work_identity(openalex_id)
+                    or openalex_work_identity(source_id)
+                ),
                 topics=extract_topic_ids(topics_json),
                 year=int(year) if year is not None else None,
             )
@@ -243,38 +263,64 @@ def semantic_strength(score: float) -> str:
 def compact_neighbor(
     seed: WorkMetadata,
     target: WorkMetadata,
-    raw_score: float,
+    raw_score: float | None,
     *,
     observed_vector_id: int | None = None,
+    authority_work_map: AuthorityWorkMap | None = None,
 ) -> dict[str, Any]:
-    score = semantic_signal(raw_score)
-    shared_topics = sorted(set(seed.topics).intersection(target.topics))
+    relations: list[str] = []
+    evidence: dict[str, Any] = {}
 
-    relations = ["semantic-affinity"]
-    evidence: dict[str, Any] = {
-        "semanticScore": score,
-    }
-
-    if shared_topics:
-        relations.append("shared-topic")
-        evidence["topicIds"] = shared_topics
-
-    neighbor = {
+    neighbor: dict[str, Any] = {
         "t": target.identity,
         "v": target.vector_id,
-        "s": score,
         "r": relations,
         "e": evidence,
     }
 
+    if raw_score is not None:
+        score = semantic_signal(raw_score)
+        relations.append("semantic-affinity")
+        evidence["semanticScore"] = score
+        neighbor["s"] = score
+
+        if (
+            observed_vector_id is not None
+            and observed_vector_id != target.vector_id
+        ):
+            neighbor["o"] = int(observed_vector_id)
+
+    shared_topics = sorted(set(seed.topics).intersection(target.topics))
+    if shared_topics:
+        relations.append("shared-topic")
+        evidence["topicIds"] = shared_topics
+
     if (
-        observed_vector_id is not None
-        and observed_vector_id != target.vector_id
+        authority_work_map is not None
+        and seed.openalex_identity
+        and target.openalex_identity
     ):
-        neighbor["o"] = int(observed_vector_id)
+        seed_authority = authority_work_map.works.get(seed.openalex_identity)
+        target_authority = authority_work_map.works.get(target.openalex_identity)
+        authority_relations = authorship_relations(
+            seed_authority,
+            target_authority,
+        )
+
+        same_author_refs = authority_relations.get("same-author")
+        if same_author_refs:
+            relations.append("same-author")
+            evidence["authorityRefs"] = list(same_author_refs)
+
+        shared_coauthor_refs = authority_relations.get("shared-coauthor")
+        if shared_coauthor_refs:
+            relations.append("shared-coauthor")
+            evidence["sharedAuthorityRefs"] = list(shared_coauthor_refs)
+
+    if not relations:
+        raise RuntimeError("Related Work candidate has no supported relation")
 
     return neighbor
-
 
 def expand_compact_edge(
     seed_identity: str,
@@ -283,34 +329,42 @@ def expand_compact_edge(
 ) -> dict[str, Any]:
     target_identity = str(neighbor["t"])
     target_vector_id = int(neighbor["v"])
-    semantic_score = float(neighbor["e"]["semanticScore"])
-    observed_vector_id = int(
-        neighbor.get("o", target_vector_id)
-    )
+    relations = list(neighbor.get("r", []))
+    compact_evidence = neighbor.get("e", {})
 
-    semantic_evidence_id = (
-        f"semantic:{seed_vector_id}:{target_vector_id}"
-    )
-    evidence = [
-        {
-            "id": semantic_evidence_id,
-            "class": "semantic",
-            "strength": semantic_strength(semantic_score),
-            "source": "qwen3-browser-static-v4",
-            "semanticScore": semantic_score,
-            "observedVectorId": observed_vector_id,
-        }
-    ]
-    reasons = [
-        {
-            "code": "semantic-affinity",
-            "relationType": "semantic-affinity",
-            "evidenceRefs": [semantic_evidence_id],
-        }
-    ]
+    evidence: list[dict[str, Any]] = []
+    reasons: list[dict[str, Any]] = []
+    signals: dict[str, float] = {}
 
-    topic_ids = list(neighbor.get("e", {}).get("topicIds", []))
-    if "shared-topic" in neighbor.get("r", []) and topic_ids:
+    if "semantic-affinity" in relations:
+        semantic_score = float(compact_evidence["semanticScore"])
+        observed_vector_id = int(
+            neighbor.get("o", target_vector_id)
+        )
+        semantic_evidence_id = (
+            f"semantic:{seed_vector_id}:{target_vector_id}"
+        )
+        evidence.append(
+            {
+                "id": semantic_evidence_id,
+                "class": "semantic",
+                "strength": semantic_strength(semantic_score),
+                "source": "qwen3-browser-static-v4",
+                "semanticScore": semantic_score,
+                "observedVectorId": observed_vector_id,
+            }
+        )
+        reasons.append(
+            {
+                "code": "semantic-affinity",
+                "relationType": "semantic-affinity",
+                "evidenceRefs": [semantic_evidence_id],
+            }
+        )
+        signals["semantic"] = semantic_score
+
+    topic_ids = list(compact_evidence.get("topicIds", []))
+    if "shared-topic" in relations:
         topic_evidence_id = (
             f"topic:{seed_vector_id}:{target_vector_id}"
         )
@@ -330,26 +384,69 @@ def expand_compact_edge(
                 "evidenceRefs": [topic_evidence_id],
             }
         )
+        signals["topic"] = 1.0
+
+    authority_refs = list(compact_evidence.get("authorityRefs", []))
+    if "same-author" in relations:
+        author_evidence_id = (
+            f"author:{seed_vector_id}:{target_vector_id}"
+        )
+        evidence.append(
+            {
+                "id": author_evidence_id,
+                "class": "bibliographic",
+                "strength": "strong",
+                "source": "author-authority-graph-v1",
+                "structuredIdentity": True,
+                "authorityRefs": authority_refs,
+            }
+        )
+        reasons.append(
+            {
+                "code": "same-author",
+                "relationType": "same-author",
+                "evidenceRefs": [author_evidence_id],
+            }
+        )
+        signals["author"] = 1.0
+
+    shared_authority_refs = list(
+        compact_evidence.get("sharedAuthorityRefs", [])
+    )
+    if "shared-coauthor" in relations:
+        coauthor_evidence_id = (
+            f"coauthor:{seed_vector_id}:{target_vector_id}"
+        )
+        evidence.append(
+            {
+                "id": coauthor_evidence_id,
+                "class": "bibliographic",
+                "strength": "strong",
+                "source": "author-authority-graph-v1",
+                "structuredIdentity": True,
+                "sharedAuthorityRefs": shared_authority_refs,
+            }
+        )
+        reasons.append(
+            {
+                "code": "shared-coauthor",
+                "relationType": "shared-coauthor",
+                "evidenceRefs": [coauthor_evidence_id],
+            }
+        )
+        signals["coauthor"] = 1.0
 
     return {
         "schemaVersion": "related-work-v1",
         "id": f"rw:{seed_vector_id}:{target_vector_id}",
         "seed": {"identity": seed_identity},
         "target": {"identity": target_identity},
-        "relationTypes": list(neighbor["r"]),
-        "signals": {
-            "semantic": semantic_score,
-            **(
-                {"topic": 1.0}
-                if "shared-topic" in neighbor.get("r", [])
-                else {}
-            ),
-        },
+        "relationTypes": relations,
+        "signals": signals,
         "evidence": evidence,
         "reasons": reasons,
         "identity": {"sameIntellectualWork": False},
     }
-
 
 def select_neighbors(
     seed: WorkMetadata,
@@ -359,6 +456,7 @@ def select_neighbors(
     *,
     limit: int,
     minimum_semantic_score: float,
+    authority_work_map: AuthorityWorkMap | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, int]]:
     accepted: list[dict[str, Any]] = []
     seen_targets: set[str] = set()
@@ -368,6 +466,10 @@ def select_neighbors(
         "non_representative_target": 0,
         "below_floor": 0,
         "invalid_target": 0,
+        "authority_candidates": 0,
+        "authority_only_edges": 0,
+        "same_author_edges": 0,
+        "shared_coauthor_edges": 0,
     }
 
     for target_vector_id, raw_score in candidates:
@@ -404,6 +506,7 @@ def select_neighbors(
                 target,
                 raw_score,
                 observed_vector_id=observed_vector_id,
+                authority_work_map=authority_work_map,
             )
         )
 
@@ -411,6 +514,58 @@ def select_neighbors(
             break
 
     return accepted, counters
+
+
+
+def select_authority_neighbors(
+    seed: WorkMetadata,
+    metadata: Sequence[WorkMetadata],
+    authority_work_map: AuthorityWorkMap | None,
+    authority_candidate_index: dict[str, tuple[int, ...]],
+    *,
+    limit: int,
+) -> list[dict[str, Any]]:
+    if authority_work_map is None or limit <= 0:
+        return []
+
+    vector_ids = authority_candidate_vector_ids(
+        seed,
+        metadata,
+        authority_work_map,
+        authority_candidate_index,
+        limit=limit,
+    )
+
+    output = []
+    for vector_id in vector_ids:
+        target = metadata[vector_id]
+        output.append(
+            compact_neighbor(
+                seed,
+                target,
+                None,
+                authority_work_map=authority_work_map,
+            )
+        )
+
+    return output
+
+
+def merge_neighbor_sets(
+    semantic_neighbors: Sequence[dict[str, Any]],
+    authority_neighbors: Sequence[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    output = list(semantic_neighbors)
+    seen = {str(item["t"]) for item in output}
+
+    for neighbor in authority_neighbors:
+        identity = str(neighbor["t"])
+        if identity in seen:
+            continue
+        seen.add(identity)
+        output.append(neighbor)
+
+    return output
 
 
 def _artifact_record(
@@ -451,6 +606,8 @@ def build_from_neighbor_provider(
     output_dir: Path,
     source: dict[str, Any],
     neighbors_per_seed: int = DEFAULT_NEIGHBORS,
+    authority_neighbors_per_seed: int = DEFAULT_AUTHORITY_NEIGHBORS,
+    authority_work_map: AuthorityWorkMap | None = None,
     search_multiplier: int = DEFAULT_SEARCH_MULTIPLIER,
     shard_count: int = DEFAULT_SHARDS,
     batch_size: int = DEFAULT_BATCH_SIZE,
@@ -460,6 +617,8 @@ def build_from_neighbor_provider(
         raise RuntimeError("Metadata corpus is empty")
     if neighbors_per_seed <= 0:
         raise ValueError("neighbors_per_seed must be positive")
+    if authority_neighbors_per_seed < 0:
+        raise ValueError("authority_neighbors_per_seed must be >= 0")
     if search_multiplier < 1:
         raise ValueError("search_multiplier must be >= 1")
     if batch_size <= 0:
@@ -469,6 +628,11 @@ def build_from_neighbor_provider(
 
     seed_vector_ids, representative_by_identity = (
         representative_vector_ids(metadata)
+    )
+    authority_candidate_index = build_authority_candidate_index(
+        metadata,
+        authority_work_map,
+        representative_by_identity,
     )
 
     if output_dir.exists() and any(output_dir.iterdir()):
@@ -507,21 +671,55 @@ def build_from_neighbor_provider(
             for seed_vector_id in batch:
                 seed = metadata[seed_vector_id]
                 candidates = observed.get(seed_vector_id, [])
-                selected, local = select_neighbors(
+                semantic_selected, local = select_neighbors(
                     seed,
                     candidates,
                     metadata,
                     representative_by_identity,
                     limit=neighbors_per_seed,
                     minimum_semantic_score=minimum_semantic_score,
+                    authority_work_map=authority_work_map,
                 )
                 for key, value in local.items():
                     counters[key] += value
+
+                authority_selected = select_authority_neighbors(
+                    seed,
+                    metadata,
+                    authority_work_map,
+                    authority_candidate_index,
+                    limit=authority_neighbors_per_seed,
+                )
+                counters["authority_candidates"] += len(authority_selected)
+
+                selected = merge_neighbor_sets(
+                    semantic_selected,
+                    authority_selected,
+                )
 
                 if not selected:
                     counters["seeds_without_edges"] += 1
 
                 counters["edges"] += len(selected)
+                counters["authority_only_edges"] += sum(
+                    1
+                    for neighbor in selected
+                    if "semantic-affinity" not in neighbor.get("r", [])
+                    and (
+                        "same-author" in neighbor.get("r", [])
+                        or "shared-coauthor" in neighbor.get("r", [])
+                    )
+                )
+                counters["same_author_edges"] += sum(
+                    1
+                    for neighbor in selected
+                    if "same-author" in neighbor.get("r", [])
+                )
+                counters["shared_coauthor_edges"] += sum(
+                    1
+                    for neighbor in selected
+                    if "shared-coauthor" in neighbor.get("r", [])
+                )
                 row = {
                     "s": seed.identity,
                     "v": seed.vector_id,
@@ -555,10 +753,24 @@ def build_from_neighbor_provider(
             "generator_version": GENERATOR_VERSION,
             "document_count": len(metadata),
             "unique_seed_count": len(seed_vector_ids),
-            "neighbors_per_seed": neighbors_per_seed,
+            "neighbors_per_seed": (
+                neighbors_per_seed
+                + (
+                    authority_neighbors_per_seed
+                    if authority_work_map is not None
+                    else 0
+                )
+            ),
+            "semantic_neighbors_per_seed": neighbors_per_seed,
+            "authority_neighbors_per_seed": (
+                authority_neighbors_per_seed
+                if authority_work_map is not None
+                else 0
+            ),
             "candidate_search_k": neighbors_per_seed * search_multiplier + 1,
             "minimum_semantic_score": minimum_semantic_score,
             "source": source,
+            "authority": authority_map_source_summary(authority_work_map),
             "partition": {
                 "method": "sha256-first-byte-mod-shard-count",
                 "shard_count": shard_count,
@@ -577,11 +789,23 @@ def build_from_neighbor_provider(
                 "generated": [
                     "semantic-affinity",
                     "shared-topic",
+                    *(
+                        [
+                            "same-author",
+                            "shared-coauthor",
+                        ]
+                        if authority_work_map is not None
+                        else []
+                    ),
                 ],
-                "not_generated_without_authority_graph": [
-                    "same-author",
-                    "shared-coauthor",
-                ],
+                "not_generated_without_authority_graph": (
+                    []
+                    if authority_work_map is not None
+                    else [
+                        "same-author",
+                        "shared-coauthor",
+                    ]
+                ),
                 "not_generated_without_reference_graph": [
                     "cited-by-seed",
                     "cites-seed",
@@ -717,6 +941,10 @@ def load_fixture_metadata(payload: dict[str, Any]) -> list[WorkMetadata]:
             WorkMetadata(
                 vector_id=vector_id,
                 identity=canonical_work_identity(row),
+                openalex_identity=(
+                    openalex_work_identity(row.get("openalex_id"))
+                    or openalex_work_identity(row.get("id"))
+                ),
                 topics=extract_topic_ids(row.get("topics", [])),
                 year=int(row["year"]) if row.get("year") is not None else None,
             )
@@ -728,6 +956,15 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--neighbors", type=int, default=DEFAULT_NEIGHBORS)
+    parser.add_argument(
+        "--authority-neighbors",
+        type=int,
+        default=DEFAULT_AUTHORITY_NEIGHBORS,
+    )
+    parser.add_argument(
+        "--authority-work-map",
+        type=Path,
+    )
     parser.add_argument(
         "--search-multiplier",
         type=int,
@@ -789,12 +1026,20 @@ def main() -> None:
             "dimension": manifest.get("dimension"),
         }
 
+    authority_work_map = (
+        load_authority_work_map(args.authority_work_map)
+        if args.authority_work_map
+        else None
+    )
+
     result = build_from_neighbor_provider(
         metadata=metadata,
         neighbor_provider=provider,
         output_dir=args.output_dir,
         source=source,
         neighbors_per_seed=args.neighbors,
+        authority_neighbors_per_seed=args.authority_neighbors,
+        authority_work_map=authority_work_map,
         search_multiplier=args.search_multiplier,
         shard_count=args.shards,
         batch_size=args.batch_size,
