@@ -154,10 +154,18 @@
       "disciplineFamily": "lenguas",
       "admissionState": "include",
       "aliases": [
-        "Maestría en Enseñanza del Inglés como Lengua Extranjera"
+        "Maestría en Enseñanza del Inglés como Lengua Extranjera",
+        "Maestría en la Enseñanza del Inglés como Lengua Extranjera"
       ],
       "evidence": [
-        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv",
+        "https://www.udg.mx/sites/default/files/2026-04/maestria_en_ensenanza_del_ingles_como_lengua_extranjera_cucsh_snp.pdf",
+        "https://www.udg.mx/oferta-academica/posgrados/maestrias/maestria-en-ensenanza-del-ingles-como-lengua-extranjera"
+      ],
+      "observedCount": 19,
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
       ]
     },
     {
@@ -436,7 +444,7 @@
       "canonicalName": "Licenciatura en Letras",
       "level": "licenciatura",
       "disciplineFamily": "letras",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUCSH"
@@ -447,10 +455,11 @@
       ],
       "observedCount": 4,
       "possibleSuccessorRef": "program:udg:lic-letras-hispanicas",
-      "decisionNote": "La existencia histórica está documentada; la equivalencia/sucesión con Letras Hispánicas no se declara aún como confirmada.",
+      "decisionNote": "Programa histórico humanístico confirmado por evidencia institucional CUCSH. Su posible relación con Letras Hispánicas permanece sin declarar como identidad/sucesión confirmada.",
       "evidence": [
         "https://www.cucsh.udg.mx/actividades/convocatoria-para-egresados-de-licenciatura-en-letras-y-letras-hispanicas-realizar-el",
-        "https://cucsh.udg.mx/noticias/convocatoria-examen-global-teorico-0"
+        "https://cucsh.udg.mx/noticias/convocatoria-examen-global-teorico-0",
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf"
       ]
     },
     {
@@ -458,7 +467,7 @@
       "canonicalName": "Maestría en Filosofía",
       "level": "maestria",
       "disciplineFamily": "filosofia",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUCSH"
@@ -469,10 +478,11 @@
       ],
       "observedCount": 2,
       "possibleSuccessorRef": "program:udg:mae-estudios-filosoficos",
-      "decisionNote": "El nombre histórico aparece en Control Escolar CUCSH; falta dictamen o fuente de programa que confirme su relación de sucesión con Estudios Filosóficos.",
+      "decisionNote": "Programa histórico de Filosofía confirmado en documentación institucional CUCSH. La posible relación con Maestría en Estudios Filosóficos permanece no confirmada y no condiciona su admisión como autoridad histórica independiente.",
       "evidence": [
         "https://plataforma-tce.cucsh.udg.mx/register",
-        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos"
+        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos",
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf"
       ]
     },
     {
@@ -495,9 +505,81 @@
       "evidence": [
         "https://www.cucsh.udg.mx/Divisi%C3%B3n_y_departamentos/Departamentos_de_estudios_literarios"
       ]
+    },
+    {
+      "id": "program:udg:mae-ensenanza-lengua-literatura-historica",
+      "canonicalName": "Maestría en Enseñanza de la Lengua y la Literatura",
+      "level": "maestria",
+      "disciplineFamily": "lengua-literatura",
+      "admissionState": "include",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Enseñanza de la Lengua y la Literatura",
+        "Maestría en la Enseñanza de la Lengua y Literatura"
+      ],
+      "observedCount": 3,
+      "observedThesisYears": {
+        "min": 2003,
+        "max": 2006
+      },
+      "decisionNote": "La documentación institucional CUCSH de 2003 enumera el programa como Maestría en Enseñanza de la lengua y la Literatura. Las dos variantes observadas en RIUdeG se agrupan como aliases ortográfico-articulares de esta autoridad histórica. No se declara sucesor actual.",
+      "evidence": [
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-lengua-literatura-mexicana-historica",
+      "canonicalName": "Maestría en Lengua y Literatura Mexicana",
+      "level": "maestria",
+      "disciplineFamily": "letras",
+      "admissionState": "include",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Lengua y Literatura Mexicana"
+      ],
+      "observedCount": 1,
+      "observedThesisYears": {
+        "min": 2005,
+        "max": 2005
+      },
+      "decisionNote": "La lista institucional de claves de maestrías de la UdeG conserva explícitamente el nombre Maestría en Lengua y Literatura Mexicana (clave 221539). No se fusiona con Maestría en Estudios de Literatura Mexicana sin evidencia de lineage.",
+      "evidence": [
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:lic-docencia-ingles-corta-historica",
+      "canonicalName": "Licenciatura en la Docencia del Inglés",
+      "level": "licenciatura",
+      "disciplineFamily": "lenguas",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Licenciatura en la Docencia del Inglés"
+      ],
+      "observedCount": 1,
+      "observedThesisYears": {
+        "min": 2006,
+        "max": 2006
+      },
+      "possibleSuccessorRef": "program:udg:lic-docencia-ingles",
+      "decisionNote": "CUCSH documenta históricamente la Licenciatura en Docencia del Inglés como Lengua Extranjera y la página vigente usa la construcción 'la Docencia del Inglés como Lengua Extranjera', pero todavía no se localiza evidencia que pruebe que el nombre abreviado observado sin 'como Lengua Extranjera' sea exactamente el mismo plan. Se mantiene REVIEW.",
+      "evidence": [
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf",
+        "https://www.cucsh.udg.mx/licenciaturas/licenciatura-en-docencia-del-ingles-como-lengua-extranjera"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v2",
+  "registryRevision": "2026-11-01.v3",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

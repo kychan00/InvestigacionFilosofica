@@ -145,11 +145,11 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "programs": [
                 {
                     "normalizedKey": (
-                        "maestria en la ensenanza de la lengua y literatura"
+                        "maestria en hermeneutica y literatura comparada"
                     ),
                     "count": 2,
                     "variants": {
-                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA": 2,
+                        "MAESTRIA EN HERMENEUTICA Y LITERATURA COMPARADA": 2,
                     },
                     "providers": {"riudg": 2},
                     "admissionStatuses": {"quarantine": 2},
@@ -161,7 +161,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "works": [
                 {
                     "programRaw": (
-                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA"
+                        "MAESTRIA EN HERMENEUTICA Y LITERATURA COMPARADA"
                     ),
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2003", "quality": "valid"},
@@ -170,7 +170,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                 },
                 {
                     "programRaw": (
-                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA"
+                        "MAESTRIA EN HERMENEUTICA Y LITERATURA COMPARADA"
                     ),
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2006", "quality": "valid"},
@@ -215,11 +215,11 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                 },
                 {
                     "normalizedKey": (
-                        "maestria en la ensenanza de la lengua y literatura"
+                        "maestria en hermeneutica y literatura comparada"
                     ),
                     "count": 2,
                     "variants": {
-                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA": 2,
+                        "MAESTRIA EN HERMENEUTICA Y LITERATURA COMPARADA": 2,
                     },
                     "providers": {"riudg": 2},
                     "admissionStatuses": {"quarantine": 2},
@@ -238,7 +238,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                 },
                 {
                     "programRaw": (
-                        "MAESTRIA EN LA ENSEÑANZA DE LA LENGUA Y LITERATURA"
+                        "MAESTRIA EN HERMENEUTICA Y LITERATURA COMPARADA"
                     ),
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2006", "quality": "valid"},
@@ -256,7 +256,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         self.assertEqual(
             payload["items"][0]["normalizedKey"],
-            "maestria en la ensenanza de la lengua y literatura",
+            "maestria en hermeneutica y literatura comparada",
         )
         self.assertEqual(
             payload["items"][1]["curationLane"],
