@@ -383,3 +383,42 @@ Las siguientes mejoras previstas son:
 2. añadir pruebas end-to-end de navegador;
 3. ampliar CUCSH Filosofía a nuevas revistas;
 4. utilizar IA generativa únicamente como capa auxiliar, sin sustituir la trazabilidad, deduplicación y ranking determinista del motor.
+
+---
+
+## 18. Author Authority Graph — arquitectura objetivo
+
+La resolución profunda de autores evoluciona hacia un **sistema de autoridades bibliográficas** que separa explícitamente:
+
+    mención de autor
+          │
+          ▼
+    identidad / autoridad
+          │
+          ▼
+    contribución y rol
+          │
+          ▼
+    obra intelectual
+          │
+          ▼
+    versión / edición
+          │
+          ▼
+    registros de fuente
+
+El objetivo es que todos los autores recorran el mismo proceso de resolución, con evidencia positiva y negativa, manejo explícito de ambigüedad, IDs internos estables, trazabilidad y medición de cobertura.
+
+La arquitectura distingue dos planos:
+
+1. **Authority Build Pipeline**: reconstrucción pesada y versionada a partir de snapshots, índices y fuentes permitidas.
+2. **Author Enrichment**: carga inmediata del expediente preconstruido y enriquecimiento federado limitado desde el navegador.
+
+Las bibliografías curadas existentes se consideran evidencia de alta autoridad y semillas de construcción, no el mecanismo final para resolver autores concretos. Un autor conocido debe convertirse en caso de benchmark del algoritmo general.
+
+La especificación completa de esta evolución se encuentra en:
+
+- [Arquitectura V1 — Author Authority Graph](docs/AUTHOR_AUTHORITY_ARCHITECTURE_V1.md)
+
+Esta sección describe una **arquitectura objetivo**. Mientras no se implementen las fases posteriores, la política y el runtime documentados en [Política de fuentes y uso de OpenAlex](docs/author-data-sources.md) siguen siendo los vigentes.
+
