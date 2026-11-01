@@ -103,11 +103,41 @@ function validateSourceManifest(manifest, config) {
   );
 }
 
-function aliasPaths(manifest = {}) {
-  return (manifest.files?.aliases || [])
+function manifestPaths(
+  manifest = {},
+  key
+) {
+  return (
+    manifest.files?.[key] ||
+    []
+  )
     .map(item => item?.path)
     .filter(Boolean)
     .sort();
+}
+
+function aliasPaths(manifest = {}) {
+  return manifestPaths(
+    manifest,
+    "aliases"
+  );
+}
+
+function workAuthorPaths(manifest = {}) {
+  const direct =
+    manifestPaths(
+      manifest,
+      "work_authors"
+    );
+
+  if (direct.length) {
+    return direct;
+  }
+
+  return manifestPaths(
+    manifest,
+    "work-authors"
+  );
 }
 
 function compactViolationPayload(report, aliasConflicts) {
@@ -157,6 +187,8 @@ export async function runAuthorAuthorityBenchmark({
 
   const accumulator = createAuthorAliasAccumulator();
   let aliasRowsSeen = 0;
+  let workAuthorRowsSeen = 0;
+  let workAuthorMembershipsSeen = 0;
 
   const aliases = aliasPaths(manifest);
   if (!aliases.length) {
@@ -168,6 +200,32 @@ export async function runAuthorAuthorityBenchmark({
     for await (const row of readJsonLines(absolutePath)) {
       accumulator.add(row);
       aliasRowsSeen++;
+    }
+  }
+
+  const workAuthors =
+    workAuthorPaths(
+      manifest
+    );
+
+  // aliases/ is a search index, not a complete person inventory.
+  // Mirror the production batch pipeline: work-authors/ supplies
+  // resolved profiles whose display names cannot produce an alias signature.
+  for (const relativePath of workAuthors) {
+    const absolutePath = join(resolvedInput, relativePath);
+    for await (const row of readJsonLines(absolutePath)) {
+      workAuthorRowsSeen++;
+      for (const author of Array.isArray(row?.a) ? row.a : []) {
+        accumulator.add({
+          id: author.id,
+          n: author.n,
+          o: author.o,
+          cw: 0,
+          w: 0,
+          c: 0
+        });
+        workAuthorMembershipsSeen++;
+      }
     }
   }
 
@@ -202,6 +260,9 @@ export async function runAuthorAuthorityBenchmark({
   report.scan = {
     aliasFiles: aliases.length,
     aliasRowsSeen,
+    workAuthorFiles: workAuthors.length,
+    workAuthorRowsSeen,
+    workAuthorMembershipsSeen,
     aggregatedProfiles: aggregated.profiles.length,
     candidateGroups: grouped.candidates.length
   };
