@@ -44,7 +44,7 @@ import {
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
 
 import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-deep-author-v1";
-import { findOpenAlexAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-name-author-v1";
+import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
 
 import {
   resolveFederatedAuthor
@@ -4271,11 +4271,11 @@ async function openExclusiveAuthorByName(
       openAlexAuthorId(
         identity.id
       );
-    // Name-only share links must search the live OpenAlex author
-    // directory; the small philosophy index is not a global directory.
+    // Name-only links first resolve against the HF-derived static author index.
+    // No OpenAlex API calls or credits are required.
     const liveIdentity = exactId
       ? null
-      : await findOpenAlexAuthorIdentity(name, {
+      : await findSnapshotAuthorIdentity(name, {
           orcid: identity.orcid || null,
           signal: authorController.signal
         });
@@ -4355,9 +4355,9 @@ async function openExclusiveAuthorByName(
         { resetTimeline: true, loading: true }
       );
 
-      // The historical philosophy-only index is an initial preview,
-      // never a complete bibliography. Scan the precise author ID
-      // even if the index contains just two entries.
+      // The philosophy index is a preview, not a universal bibliography.
+      // Read every indexed work for this author and supplement with
+      // Crossref / Internet Archive, without using OpenAlex API credits.
       try {
         const deep = await discoverAuthorArchive({
           author: {
@@ -4376,7 +4376,7 @@ async function openExclusiveAuthorByName(
             authorArchiveSources = sources;
             authorArchiveNotice =
               phase === "started"
-                ? "Consultando OpenAlex, Crossref y archivos…"
+                ? "Consultando Hugging Face, Crossref y archivos…"
                 : `Consulta de ${source}: ${works.length} obras verificadas`;
 
             // Do not discard the initial results or collapse the
@@ -4403,9 +4403,9 @@ async function openExclusiveAuthorByName(
         authorArchiveSources = deep.sources;
         authorArchiveNotice = deep.errors.length
           ? "Ampliación parcial: algunas fuentes no respondieron"
-          : deep.openAlexComplete
-            ? "Consulta completa de las páginas disponibles en OpenAlex"
-            : "Consulta ampliada de las fuentes disponibles";
+          : deep.snapshotComplete
+            ? "Se consultó el índice filosófico de Hugging Face; pueden faltar obras fuera del corpus"
+            : "Consulta parcial de los catálogos disponibles";
 
         showExclusiveAuthorWorks({
           ...resolution,
