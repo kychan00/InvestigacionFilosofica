@@ -141,6 +141,19 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(info["precision"], "day")
         self.assertEqual(info["quality"], "valid")
 
+    def test_zero_month_and_day_reduce_date_precision(self):
+        year_only = thesis.date_info("1991-00-00", reference_year=2026)
+        self.assertEqual(year_only["raw"], "1991-00-00")
+        self.assertEqual(year_only["value"], "1991")
+        self.assertEqual(year_only["precision"], "year")
+        self.assertEqual(year_only["quality"], "valid")
+
+        month_only = thesis.date_info("1995-10-00", reference_year=2026)
+        self.assertEqual(month_only["raw"], "1995-10-00")
+        self.assertEqual(month_only["value"], "1995-10")
+        self.assertEqual(month_only["precision"], "month")
+        self.assertEqual(month_only["quality"], "valid")
+
     def test_large_numeric_date_is_suspicious_and_not_reinterpreted(self):
         info = thesis.date_info("37812", reference_year=2026)
         self.assertEqual(info["raw"], "37812")
