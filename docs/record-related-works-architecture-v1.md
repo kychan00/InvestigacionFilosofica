@@ -607,6 +607,27 @@ No se publicará un peso definitivo de ranking sin comparar al menos una versió
 
 ---
 
+## Estado de Fase 1A
+
+La Fase 1A implementa el contrato físico del índice sin integrar todavía la UI.
+
+Componentes:
+
+- `scripts/related/build_related_work_index_v1.py`
+- `scripts/related/validate_related_work_index_v1.py`
+- `src/core/related-work-index-format.js`
+- `benchmark/related-works/v1/index-builder-fixture.json`
+- `tests/test_related_work_index_builder.py`
+- `tests/related-work-index-format.test.mjs`
+- `.github/workflows/related-work-index-v1.yml`
+- `docs/RELATED_WORK_INDEX_V1A.md`
+
+1A genera únicamente relaciones sustentadas por el corpus semántico y topics estructurados. Autoría, coautoría y citación quedan bloqueadas hasta integrar Authority Graph y Reference Graph.
+
+El full build de 451,823 documentos requiere los originales congelados del FAISS y metadata SQLite. Los hashes están documentados, pero su ubicación pública original no está registrada en el repositorio; por ello no se sustituye silenciosamente con los shards int8 derivados de Static V4.
+
+---
+
 ## 20. Fases
 
 ### Fase 0 — contrato
