@@ -178,6 +178,52 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             "shared-persistent-identifier",
         )
 
+    def test_exact_handle_does_not_override_institution_veto(self):
+        shared = "https://hdl.handle.net/20.500.12104/777777"
+
+        udg = thesis.source_record(
+            provider="riudg",
+            provider_record_id="udg",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Trabajo con identificador compartido"],
+                "dc.degree.name": ["Licenciatura en Filosofía"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.identifier.uri": [shared],
+            },
+            raw_payload="udg",
+        )
+        external = thesis.source_record(
+            provider="udgvirtual",
+            provider_record_id="external",
+            source_url=None,
+            raw_fields={
+                "DC.title": ["Trabajo con identificador compartido"],
+                "DC.description": [
+                    "Documento de titulación para obtener el grado de Licenciatura en Filosofía"
+                ],
+                "DC.publisher": ["Universidad Autónoma de Barcelona"],
+                "DC.identifier": [shared],
+            },
+            raw_payload="external",
+        )
+
+        corpus = thesis.build_corpus(
+            [udg, external],
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(corpus["metrics"]["works"], 2)
+        self.assertEqual(
+            corpus["metrics"]["identityDecisions"].get("rejected"),
+            2,
+        )
+        self.assertEqual(
+            {item["explanationCode"] for item in corpus["identityDecisions"]},
+            {"institution-contradiction-veto"},
+        )
+
     def test_same_title_without_identifier_does_not_merge(self):
         common = {
             "dc.title": ["Título compartido"],
