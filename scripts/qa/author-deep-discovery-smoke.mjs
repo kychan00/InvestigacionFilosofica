@@ -30,6 +30,10 @@ try {
  for(const theme of ["light","dark"]) {
   const page=await browser.newPage({viewport:{width:390,height:850},
    isMobile:true,hasTouch:true,deviceScaleFactor:1});
+  const errors=[];
+  const failures=[];
+  page.on("pageerror",error=>errors.push(error.message));
+  page.on("requestfailed",request=>failures.push(request.url()+" "+request.failure()?.errorText));
   await page.route("**/*",route=>{
    const url=new URL(route.request().url());
    if(url.hostname==="api.openalex.org"&&url.pathname==="/works"){
@@ -60,7 +64,19 @@ try {
   url.hash="results";
   await page.goto(url.toString(),{waitUntil:"domcontentloaded"});
   await page.locator('[data-theme-choice="'+theme+'"]').click();
-  await page.waitForFunction(()=>document.body.classList.contains("author-view"));
+  try {
+   await page.waitForFunction(()=>document.body.classList.contains("author-view"),
+     null,{timeout:7000});
+  } catch {
+   const diagnostics=await page.evaluate(()=>({
+     title:document.title,
+     bodyClass:document.body.className,
+     status:document.querySelector("#status")?.textContent,
+     scriptSources:[...document.scripts].map(x=>x.src).filter(Boolean)
+   }));
+   throw Error("Profile failed to initialize: "+JSON.stringify({diagnostics,errors,
+     failures:failures.slice(0,12),scanCalls}));
+  }
   await page.waitForFunction(()=>
    document.querySelectorAll(".author-work-grid .result-card").length>=4,
    null,{timeout:20000});
