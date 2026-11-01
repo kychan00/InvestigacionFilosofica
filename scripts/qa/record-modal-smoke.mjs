@@ -113,7 +113,7 @@ try {
     await page.locator('[data-theme-choice="' + theme + '"]').click();
     await page.waitForFunction(() =>
       [...document.styleSheets].some(sheet =>
-        sheet.href?.includes("record-folio-carbon.css") && sheet.cssRules.length > 0
+        sheet.href?.includes("record-folio-polish.css") && sheet.cssRules.length > 0
       )
     );
     await page.evaluate(html => {
