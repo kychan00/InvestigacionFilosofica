@@ -39,7 +39,7 @@ Bloquea si:
 - falla cualquier caso gold;
 - aparece un false merge silver;
 - aparece un false split silver por ORCID;
-- el escaneo no cubre exactamente los autores resueltos declarados por el manifest fuente.
+- el inventario combinado de aliases + work-authors no cubre exactamente los autores resueltos declarados por el manifest fuente.
 
 ## Dataset fijado
 
@@ -51,3 +51,8 @@ La configuración pinnea:
 - revisión del corpus filosófico.
 
 El benchmark no usa api.openalex.org.
+
+
+## Inventario de perfiles
+
+`aliases/` no se considera ya un inventario exhaustivo de personas. El benchmark usa `work-authors/` para completar los perfiles resueltos que no producen una firma de alias utilizable y reporta por separado la cobertura nominal de `aliases/`.

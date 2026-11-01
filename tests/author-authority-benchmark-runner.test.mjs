@@ -31,6 +31,7 @@ async function writeJsonl(path,rows){
 async function fixture(root){
   const input=join(root,"author-index-v2");
   await mkdir(join(input,"aliases"),{recursive:true});
+  await mkdir(join(input,"work-authors"),{recursive:true});
 
   const rows=[
     {s:"ana perez",id:1,n:"Ana Pérez",o:"0000-0001-1111-1111",cw:2,w:2,c:0,k:"full"},
@@ -41,6 +42,19 @@ async function fixture(root){
     {s:"laura ruiz",id:6,n:"Laura Ruiz",o:null,cw:1,w:1,c:0,k:"full"}
   ];
   await writeJsonl(join(input,"aliases","0000.jsonl"),rows);
+  await writeJsonl(
+    join(input,"work-authors","0000.jsonl"),
+    [{
+      wid:99,
+      a:[{
+        id:7,
+        n:"—",
+        o:null,
+        p:"first",
+        r:false
+      }]
+    }]
+  );
 
   await writeJson(join(input,"manifest.json"),{
     schema_version:"remote-author-index-manifest-v1",
@@ -56,13 +70,13 @@ async function fixture(root){
       philosophy_path:"v3.2/test.parquet"
     },
     counts:{
-      resolved_authors:6,
+      resolved_authors:7,
       alias_rows:6
     },
     files:{
       aliases:[{path:"aliases/0000.jsonl"}],
       works:[],
-      work_authors:[]
+      work_authors:[{path:"work-authors/0000.jsonl"}]
     }
   });
 
@@ -100,96 +114,6 @@ async function fixture(root){
   return {input,config,gold};
 }
 
-test("runner completa inventario con autores presentes sólo en work-authors",async()=>{
-  const root=await mkdtemp(join(tmpdir(),"authority-benchmark-work-authors-"));
-  const {input,config,gold}=await fixture(root);
-
-  await mkdir(
-    join(input,"work-authors"),
-    {recursive:true}
-  );
-
-  await writeJsonl(
-    join(input,"work-authors","0000.jsonl"),
-    [
-      {
-        wid:100,
-        a:[
-          {
-            id:7,
-            n:"Autor sin alias publicado",
-            o:null,
-            p:"first",
-            r:false
-          }
-        ]
-      }
-    ]
-  );
-
-  const manifestPath=join(input,"manifest.json");
-  const manifest=JSON.parse(
-    await readFile(manifestPath,"utf8")
-  );
-
-  manifest.counts.resolved_authors=7;
-  manifest.files.work_authors=[
-    {
-      path:"work-authors/0000.jsonl"
-    }
-  ];
-
-  await writeJson(
-    manifestPath,
-    manifest
-  );
-
-  const result=await runAuthorAuthorityBenchmark({
-    inputRoot:input,
-    outputPath:join(root,"out","report.json"),
-    configPath:config,
-    goldPath:gold
-  });
-
-  assert.equal(
-    result.report.gate.passed,
-    true
-  );
-  assert.equal(
-    result.report.scan.aliasRowsSeen,
-    6
-  );
-  assert.equal(
-    result.report.scan.workAuthorFiles,
-    1
-  );
-  assert.equal(
-    result.report.scan.workAuthorRowsSeen,
-    1
-  );
-  assert.equal(
-    result.report.scan.workAuthorMembershipsSeen,
-    1
-  );
-  assert.equal(
-    result.report.scan.aggregatedProfiles,
-    7
-  );
-  assert.equal(
-    result.report.coverage.expectedResolvedAuthors,
-    7
-  );
-  assert.equal(
-    result.report.coverage.observedResolvedAuthors,
-    7
-  );
-  assert.equal(
-    result.report.coverage.exact,
-    true
-  );
-});
-
-
 test("runner escanea toda la fixture y produce reportes reproducibles",async()=>{
   const root=await mkdtemp(join(tmpdir(),"authority-benchmark-"));
   const {input,config,gold}=await fixture(root);
@@ -211,8 +135,15 @@ test("runner escanea toda la fixture y produce reportes reproducibles",async()=>
 
   assert.equal(first.report.gate.passed,true);
   assert.equal(first.report.scan.aliasRowsSeen,6);
-  assert.equal(first.report.corpus.aliasProfiles,6);
-  assert.equal(first.report.corpus.candidateGroups,5);
+  assert.equal(first.report.scan.workAuthorMembershipsSeen,1);
+  assert.equal(first.report.corpus.profileInventory,7);
+  assert.equal(first.report.corpus.aliasIndexedProfiles,6);
+  assert.equal(first.report.corpus.profilesMissingFromAliases,1);
+  assert.equal(
+    first.report.corpus.missingAliasProfileSample[0].authorId,
+    "7"
+  );
+  assert.equal(first.report.corpus.candidateGroups,6);
   assert.equal(first.report.silver.sharedOrcidGroups,1);
   assert.equal(first.report.silver.falseMergeCount,0);
   assert.equal(first.report.silver.falseSplitCount,0);

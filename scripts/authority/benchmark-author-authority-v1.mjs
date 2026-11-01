@@ -103,41 +103,11 @@ function validateSourceManifest(manifest, config) {
   );
 }
 
-function manifestPaths(
-  manifest = {},
-  key
-) {
-  return (
-    manifest.files?.[key] ||
-    []
-  )
+function manifestPaths(manifest = {}, key) {
+  return (manifest.files?.[key] || [])
     .map(item => item?.path)
     .filter(Boolean)
     .sort();
-}
-
-function aliasPaths(manifest = {}) {
-  return manifestPaths(
-    manifest,
-    "aliases"
-  );
-}
-
-function workAuthorPaths(manifest = {}) {
-  const direct =
-    manifestPaths(
-      manifest,
-      "work_authors"
-    );
-
-  if (direct.length) {
-    return direct;
-  }
-
-  return manifestPaths(
-    manifest,
-    "work-authors"
-  );
 }
 
 function compactViolationPayload(report, aliasConflicts) {
@@ -186,11 +156,12 @@ export async function runAuthorAuthorityBenchmark({
   validateSourceManifest(manifest, config);
 
   const accumulator = createAuthorAliasAccumulator();
+  const aliasAuthorIds = new Set();
   let aliasRowsSeen = 0;
   let workAuthorRowsSeen = 0;
   let workAuthorMembershipsSeen = 0;
 
-  const aliases = aliasPaths(manifest);
+  const aliases = manifestPaths(manifest, "aliases");
   if (!aliases.length) {
     throw new Error("Source manifest contains no alias shards");
   }
@@ -199,18 +170,16 @@ export async function runAuthorAuthorityBenchmark({
     const absolutePath = join(resolvedInput, relativePath);
     for await (const row of readJsonLines(absolutePath)) {
       accumulator.add(row);
+      aliasAuthorIds.add(String(row?.id || ""));
       aliasRowsSeen++;
     }
   }
 
-  const workAuthors =
-    workAuthorPaths(
-      manifest
-    );
+  const workAuthors = manifestPaths(
+    manifest,
+    "work_authors"
+  );
 
-  // aliases/ is a search index, not a complete person inventory.
-  // Mirror the production batch pipeline: work-authors/ supplies
-  // resolved profiles whose display names cannot produce an alias signature.
   for (const relativePath of workAuthors) {
     const absolutePath = join(resolvedInput, relativePath);
     for await (const row of readJsonLines(absolutePath)) {
@@ -232,6 +201,17 @@ export async function runAuthorAuthorityBenchmark({
   const aggregated = accumulator.finish();
   const grouped = groupAggregatedAuthorProfiles(aggregated);
 
+  const profilesMissingFromAliases = aggregated.profiles
+    .filter(profile => !aliasAuthorIds.has(String(profile.id)))
+    .map(profile => ({
+      authorId: String(profile.id),
+      name: profile.n || null,
+      orcid: profile.o || null
+    }))
+    .sort((a, b) =>
+      a.authorId.localeCompare(b.authorId)
+    );
+
   const gold = evaluateCuratedGoldCases(
     goldFile.cases || [],
     {
@@ -246,6 +226,8 @@ export async function runAuthorAuthorityBenchmark({
       manifestSha256: await sha256File(manifestPath)
     },
     profiles: aggregated.profiles,
+    aliasIndexedProfileCount: aliasAuthorIds.size,
+    profilesMissingFromAliases,
     aliasConflicts: aggregated.conflicts,
     grouped,
     gold,
@@ -339,7 +321,11 @@ async function main() {
   console.log(JSON.stringify({
     output: result.outputPath,
     gatePassed: result.report.gate.passed,
-    profiles: result.report.corpus.aliasProfiles,
+    profiles: result.report.corpus.profileInventory,
+    aliasIndexedProfiles:
+      result.report.corpus.aliasIndexedProfiles,
+    profilesMissingFromAliases:
+      result.report.corpus.profilesMissingFromAliases,
     candidateGroups:
       result.report.corpus.candidateGroups,
     sharedOrcidGroups:
