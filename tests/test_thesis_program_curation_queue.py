@@ -439,7 +439,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(generic_didactica["queueState"], "unresolved")
         self.assertEqual(
             generic_didactica["curationLane"],
-            "humanities-candidate",
+            "unit-triage",
         )
         self.assertIsNone(generic_didactica["authority"])
 
