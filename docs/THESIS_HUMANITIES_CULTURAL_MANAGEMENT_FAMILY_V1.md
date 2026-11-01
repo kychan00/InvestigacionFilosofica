@@ -300,19 +300,24 @@ V3:
 - EXCLUDE: 7;
 - REJECT_SOURCE: 2.
 
-V4 proyectado, corregido contra el inventario completo:
+V4 — cobertura por estado de programa:
 
-- INCLUDE: **416**;
+- program matches INCLUDE: **416**;
+- program matches REVIEW: **44**;
+- unresolved program works: **26,976**.
+
+V4 — Admission Gate real:
+
+- INCLUDE: **412**;
 - REVIEW: **44**;
-- QUARANTINE: **27,107**;
+- QUARANTINE: **27,111**;
 - EXCLUDE: 7;
 - REJECT_SOURCE: 2.
 
-Cambios frente a V3:
-
-- +18 INCLUDE;
-- +40 REVIEW;
-- -58 QUARANTINE.
+La diferencia de 4 obras entre program matches INCLUDE y Admission Gate INCLUDE
+corresponde a registros UDGVirtual de Maestría en Gestión de la Cultura cuyo
+programa está resuelto pero cuya institución otorgante no está confirmada de
+forma independiente.
 
 La diferencia respecto de la primera proyección T2F son 3 tesis de
 `Doctorado en Gestión de la Cultura` que sí estaban presentes en RIUdeG y
@@ -406,3 +411,22 @@ limitado a:
 - la proyección manual V4.
 
 No se modifica el Admission Gate ni la identidad de las obras.
+
+
+---
+
+## 13. Aclaración posterior — T2H Coverage Audit
+
+T2H separa formalmente dos magnitudes que esta fase había presentado bajo la
+misma etiqueta:
+
+- **program-state coverage**: el programa resuelve a una autoridad INCLUDE;
+- **gate admission**: además existe institución UdeG confirmada y la obra supera
+  el Humanities Admission Gate.
+
+Por ello el baseline V4 correcto es:
+
+- program-state INCLUDE matches: 416;
+- Admission Gate INCLUDE: 412.
+
+La decisión de las autoridades de Gestión de la Cultura no cambia.
