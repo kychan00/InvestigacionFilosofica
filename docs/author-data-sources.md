@@ -22,3 +22,12 @@ Cuando se elija un autor, se deben recuperar todas las obras disponibles en su p
 ## Norma para cambios posteriores
 
 Ninguna función de perfil ni de búsqueda del sitio puede introducir llamadas a `https://api.openalex.org` sin cambiar deliberadamente esta política y obtener aprobación explícita del propietario. Las pruebas automatizadas deben bloquear y detectar peticiones a ese dominio. Los archivos de Hugging Face y el índice estático local son la procedencia preferente.
+
+## Identidades alternativas y autoría compartida
+
+- El índice de alias se construye sin API de OpenAlex, a partir de Hugging Face. El generador ignora tratamientos profesionales («Dra.», «Dr.», etc.) y registra variantes con nombre y primer apellido. **Una coincidencia textual nunca prueba por sí sola que sean la misma persona.**
+- Un ID OpenAlex estable o un ORCID idéntico puede unir varios nombres e IDs. Ante homónimos sin esa evidencia, la interfaz ofrece selección de identidad, sin adjudicar automáticamente las obras.
+- Las particiones `works` ya incluyen trabajos en los que el investigador es coautor, y el nuevo generador guarda además la cantidad de colaboradores por obra (`co`). El índice inverso `work-authors` permite recuperar sus nombres e identificadores para las publicaciones visibles.
+- El perfil muestra separadamente obras individuales, en colaboración y con autoría insuficiente. Si un índice antiguo carece de información de coautoría, no se inventa que la obra sea individual.
+- Para que los alias y la cantidad de colaboradores nuevos sean visibles, **es necesario reconstruir y publicar la release `author-index-v2`** ejecutando `.github/workflows/build-author-index-v1.yml` después del merge, y después desplegar el sitio con el artefacto nuevo. La publicación del JS/CSS por sí sola no actualiza los datos existentes.
+- Todas las obras siguen limitadas a la cobertura del corpus filosófico de Hugging Face y sus fuentes federadas; no se garantiza exhaustividad.
