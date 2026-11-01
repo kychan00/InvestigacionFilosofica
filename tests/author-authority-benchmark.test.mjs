@@ -226,3 +226,35 @@ test("gate falla ante un false merge aunque gold pase",()=>{
     true
   );
 });
+
+
+test("gate falla si un perfil no recibe candidate group",()=>{
+  const profiles=[
+    profile(1,"Ana Pérez",{orcid:"0000-0001-1111-1111"})
+  ];
+  const report=buildAuthorityBenchmarkReport({
+    sourceManifest:{
+      schema_version:"remote-author-index-manifest-v1",
+      version:"author-index-v2",
+      counts:{resolved_authors:1}
+    },
+    profiles,
+    aliasConflicts:[],
+    grouped:{
+      candidates:[],
+      authorIdToCandidateRef:{}
+    },
+    gold:{cases:0,passed:0,failed:0,failures:[],results:[]},
+    seed:1,
+    sampleSize:10
+  });
+
+  assert.equal(report.silver.unmappedProfileCount,1);
+  assert.equal(report.gate.passed,false);
+  assert.equal(
+    report.gate.failures.some(x=>
+      x.metric==="silver.unmappedProfileCount"
+    ),
+    true
+  );
+});
