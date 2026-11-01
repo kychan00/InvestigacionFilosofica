@@ -148,11 +148,14 @@ El runner:
 
 `scripts/authority/benchmark-author-authority-v1.mjs`
 
-recorre todas las rutas:
+recorre todas las rutas declaradas por el manifest:
 
-`aliases/*.jsonl`
+- `aliases/*.jsonl`;
+- `work-authors/*.jsonl`.
 
-declaradas por el manifest.
+`aliases/` aporta variantes nominales y métricas de perfil.
+
+`work-authors/` aporta el inventario completo de autores resueltos, incluidos perfiles cuyo display name no genera una firma de alias utilizable.
 
 Usa el mismo:
 
@@ -160,26 +163,25 @@ Usa el mismo:
 
 que alimenta el batch pipeline.
 
-Esto evita que benchmark y producción tengan normalizadores paralelos.
+Esto evita que benchmark y producción tengan inventarios o normalizadores paralelos.
 
 ---
 
-## 6. Por qué aliases es suficiente para este gate
+## 6. Separación entre inventario, alias y obras
 
-Esta fase mide identidad, no bibliografía.
+Esta fase mide identidad, no cobertura bibliográfica.
 
-Para detectar:
+Para detectar merges indebidos y splits no es necesario cargar `works/`.
 
-- merges indebidos;
-- splits por ORCID;
-- perfiles perdidos;
-- colisiones nominales;
+Sin embargo, el primer run real demostró que `aliases/` no es un inventario exhaustivo: 2 de los 215,015 perfiles resueltos no tenían una firma de alias publicable.
 
-no es necesario cargar todas las obras.
+Por eso V1 distingue:
 
-`works/` y `work-authors/` se evaluarán en los benchmarks de Contribution y Work Resolution.
+- `work-authors/`: inventario completo de perfiles resueltos;
+- `aliases/`: índice de descubrimiento nominal;
+- `works/`: evidencia bibliográfica que no es necesaria para este gate de identidad.
 
-Separar esos problemas permite atribuir una regresión a su capa correcta.
+Los perfiles ausentes de `aliases/` se conservan en el Authority Graph y se reportan como cobertura nominal incompleta, no se eliminan del universo de personas.
 
 ---
 
@@ -191,7 +193,7 @@ El manifest fuente declara:
 
 El benchmark exige:
 
-`aggregatedProfiles + quarantinedOpenAlexIds == resolved_authors`.
+`profileInventory + quarantinedOpenAlexIds == resolved_authors`.
 
 Si no coincide, el gate falla.
 

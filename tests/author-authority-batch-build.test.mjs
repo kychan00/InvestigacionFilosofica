@@ -177,3 +177,83 @@ test("un rebuild conserva AuthorityPerson.id cuando aparece otro OpenAlex ID con
   assert.equal(second.manifest.counts.authorities,2);
   assert.equal(second.manifest.counts.mentions,4);
 });
+
+
+test("work-authors recupera perfiles ausentes del índice de alias",async()=>{
+  const root=await mkdtemp(join(tmpdir(),"authority-profile-fallback-"));
+  const input=join(root,"input","author-index-v2");
+  const output=join(root,"output");
+
+  await mkdir(join(input,"aliases"),{recursive:true});
+  await mkdir(join(input,"works"),{recursive:true});
+  await mkdir(join(input,"work-authors"),{recursive:true});
+
+  await writeJsonl(join(input,"aliases","0000.jsonl"),[
+    {
+      s:"ana perez",
+      id:1,
+      n:"Ana Pérez",
+      o:null,
+      cw:1,w:1,c:0,k:"full"
+    }
+  ]);
+
+  await writeJsonl(join(input,"works","0000.jsonl"),[
+    {id:1,wid:10,p:"first",r:false,co:0,t:"Obra A",y:2020,l:"es",ty:"article"},
+    {id:2,wid:20,p:"first",r:false,co:0,t:"Obra B",y:2021,l:"es",ty:"article"}
+  ]);
+
+  await writeJsonl(join(input,"work-authors","0000.jsonl"),[
+    {
+      wid:10,
+      a:[{id:1,n:"Ana Pérez",o:null,p:"first",r:false}]
+    },
+    {
+      wid:20,
+      a:[{id:2,n:"—",o:null,p:"first",r:false}]
+    }
+  ]);
+
+  await writeJson(join(input,"manifest.json"),{
+    schema_version:"remote-author-index-manifest-v1",
+    version:"author-index-v2",
+    bucket_count:1024,
+    hash:"fnv1a-32",
+    normalization:"unicode-nfkd-casefold-token-signature-v1",
+    source:{
+      snapshot_repo:"Mearman/OpenAlex",
+      snapshot_revision:"snapshot-test",
+      philosophy_repo:"CristianPelayo/openalex-philosophy",
+      philosophy_revision:"philosophy-test",
+      philosophy_path:"v3.2/test.parquet"
+    },
+    counts:{
+      resolved_authors:2,
+      alias_rows:1,
+      work_rows_published:2,
+      work_author_rows_published:2
+    },
+    files:{
+      aliases:[{path:"aliases/0000.jsonl"}],
+      works:[{path:"works/0000.jsonl"}],
+      work_authors:[{path:"work-authors/0000.jsonl"}]
+    }
+  });
+
+  const result=await buildAuthorityBatchFromIndex({
+    inputRoot:input,
+    outputRoot:output,
+    shardCount:8,
+    buildRevision:"batch:fallback"
+  });
+
+  assert.equal(result.manifest.input.aliasRowsSeen,1);
+  assert.equal(result.manifest.input.workAuthorMembershipsSeen,2);
+  assert.equal(result.manifest.input.aggregatedAuthorProfiles,2);
+  assert.equal(result.manifest.input.candidateGroups,2);
+  assert.equal(result.manifest.input.workRowsMissingCandidate,0);
+  assert.equal(result.manifest.counts.authorities,2);
+  assert.ok(
+    result.registry.identifierRegistry["openalex-author:2"]
+  );
+});

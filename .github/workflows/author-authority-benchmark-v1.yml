@@ -8,6 +8,8 @@ on:
       - "src/core/author-authority-batch.js"
       - "src/core/author-curated-identities.js"
       - "scripts/authority/benchmark-author-authority-v1.mjs"
+      - "scripts/authority/build-authority-batch-v1.mjs"
+      - "tests/author-authority-batch-build.test.mjs"
       - "tests/author-authority-benchmark.test.mjs"
       - "tests/author-authority-benchmark-runner.test.mjs"
       - "package.json"

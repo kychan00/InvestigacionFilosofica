@@ -475,6 +475,8 @@ export function buildAuthorityBenchmarkReport({
   sourceManifest = {},
   release = null,
   profiles = [],
+  aliasIndexedProfileCount = null,
+  profilesMissingFromAliases = [],
   aliasConflicts = [],
   grouped = {
     candidates: [],
@@ -594,7 +596,24 @@ export function buildAuthorityBenchmarkReport({
       }
     },
     corpus: {
-      aliasProfiles: profiles.length,
+      profileInventory: profiles.length,
+      aliasIndexedProfiles:
+        aliasIndexedProfileCount == null
+          ? profiles.length
+          : Number(aliasIndexedProfileCount),
+      profilesMissingFromAliases:
+        array(profilesMissingFromAliases).length,
+      aliasCoverageRatio: profiles.length
+        ? (
+            (
+              aliasIndexedProfileCount == null
+                ? profiles.length
+                : Number(aliasIndexedProfileCount)
+            ) / profiles.length
+          )
+        : null,
+      missingAliasProfileSample:
+        array(profilesMissingFromAliases).slice(0, 25),
       quarantinedAliasConflicts: aliasConflicts.length,
       candidateGroups: array(grouped.candidates).length
     },
