@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "author-authority-gold-v1",
+  "scope": "curated-identities",
+  "notes": "Gold humano mínimo basado exclusivamente en identidades ya verificadas y documentadas dentro del repositorio. No pretende representar por sí solo todo el universo de autores.",
+  "cases": [
+    {
+      "id": "dinora-canonical",
+      "input": "Dinora Hernández López",
+      "expected": {
+        "found": true,
+        "canonicalName": "Dinora Hernández López",
+        "orcid": "0000-0001-7335-1790"
+      }
+    },
+    {
+      "id": "dinora-short",
+      "input": "Dinora Hernández",
+      "expected": {
+        "found": true,
+        "canonicalName": "Dinora Hernández López",
+        "orcid": "0000-0001-7335-1790"
+      }
+    },
+    {
+      "id": "dinora-accentless",
+      "input": "Dinora Hernandez",
+      "expected": {
+        "found": true,
+        "canonicalName": "Dinora Hernández López",
+        "orcid": "0000-0001-7335-1790"
+      }
+    },
+    {
+      "id": "dinora-full-accentless",
+      "input": "Dinora Hernandez Lopez",
+      "expected": {
+        "found": true,
+        "canonicalName": "Dinora Hernández López",
+        "orcid": "0000-0001-7335-1790"
+      }
+    },
+    {
+      "id": "dinora-honorific",
+      "input": "Dra Dinora Hernández",
+      "expected": {
+        "found": true,
+        "canonicalName": "Dinora Hernández López",
+        "orcid": "0000-0001-7335-1790"
+      }
+    },
+    {
+      "id": "dinora-honorific-punctuated",
+      "input": "Dra. Dinora Hernández",
+      "expected": {
+        "found": true,
+        "canonicalName": "Dinora Hernández López",
+        "orcid": "0000-0001-7335-1790"
+      }
+    }
+  ]
+}
