@@ -2,9 +2,15 @@ name: Build remote author index v2
 
 on:
   workflow_dispatch:
+  # One-off GitHub-managed rebuild on this exclusive branch. Avoids
+  # requiring a manual Actions workflow dispatch.
+  push:
+    branches:
+      - automation/rebuild-author-index-v3-20261101
 
 permissions:
   contents: write
+  actions: write
 
 
 jobs:
@@ -155,3 +161,14 @@ jobs:
             --target "${GITHUB_SHA}" \
             --title "Remote author index v3 · aliases and collaborations" \
             --notes "Immutable v3 release of the author-index-v2 site schema. Adds honorific-insensitive and given-first-surname aliases plus coauthor-count fields; preserves the pinned Hugging Face source revisions and index provenance."
+
+      - name: Trigger production Pages deployment with author-index-v3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Dispatch is allowed from Actions tokens and causes a separate
+          # workflow run that downloads the newly published v3 release.
+          gh workflow run deploy.yml \
+            --repo "${GITHUB_REPOSITORY}" \
+            --ref main
+          echo "Requested Pages deployment for the newly published v3 index."
