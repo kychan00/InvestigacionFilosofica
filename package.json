@@ -62,7 +62,11 @@
     "build:authority-batch": "node scripts/authority/build-authority-batch-v1.mjs",
     "build:authority-batch-fixture": "node scripts/authority/build-authority-batch-fixture-v1.mjs",
     "benchmark:authority": "node scripts/authority/benchmark-author-authority-v1.mjs",
-    "test:authority-benchmark": "node --test tests/author-authority-benchmark.test.mjs tests/author-authority-benchmark-runner.test.mjs"
+    "test:authority-benchmark": "node --test tests/author-authority-benchmark.test.mjs tests/author-authority-benchmark-runner.test.mjs",
+    "benchmark:authority:audit:build": "node scripts/authority/build-human-authority-audit-v1.mjs",
+    "benchmark:authority:audit": "node scripts/authority/human-authority-audit-server.mjs",
+    "benchmark:authority:audit:analyze": "node scripts/authority/analyze-human-authority-audit-v1.mjs",
+    "test:authority-human-audit": "node --test tests/author-authority-human-audit.test.mjs tests/author-authority-human-audit-evidence.test.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
