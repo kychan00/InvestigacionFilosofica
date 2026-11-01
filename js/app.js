@@ -2288,7 +2288,8 @@ function renderResult(
                 : [
                     "author-index",
                     "author-crossref",
-                    "author-internet-archive"
+                    "author-internet-archive",
+                    "author-institutional"
                   ].includes(
                     item.retrievalMode
                   )
@@ -2506,7 +2507,8 @@ function renderResult(
                 "author-index",
                 "author-live",
                 "author-crossref",
-                "author-internet-archive"
+                "author-internet-archive",
+                "author-institutional"
               ].includes(
                 item.retrievalMode
               )
@@ -2516,10 +2518,11 @@ function renderResult(
                     item.retrievalMode ===
                       "author-index"
                       ? "Autoría directa confirmada en el corpus"
-                      : `Autoría directa coincidente en ${escapeHtml(
-                          item.providers?.[0] ||
-                          "un catálogo federado"
-                        )}`
+                      : item.collectiveWork
+                        ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
+                        : `Autoría asociada al nombre en ${escapeHtml(
+                            item.providers?.[0] || "un catálogo federado"
+                          )} · verificar identidad en casos de homonimia`
                   }
                   · identidad normalizada
                   ${
@@ -2570,7 +2573,8 @@ function renderResult(
               : [
                   "author-index",
                   "author-crossref",
-                  "author-internet-archive"
+                  "author-internet-archive",
+                  "author-institutional"
                 ].includes(
                   item.retrievalMode
                 )
@@ -5265,7 +5269,7 @@ function renderAuthorPage(
               author.biography ||
               (
                 federatedCatalog
-                  ? "Identidad bibliográfica recuperada por coincidencia exacta de nombre y ORCID cuando está disponible."
+                  ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
                   : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
               )
             )}
@@ -5298,7 +5302,7 @@ function renderAuthorPage(
 
         <div class="author-page-seal" aria-hidden="true">
           <span>${escapeHtml(authorMonogram(author.displayName))}</span>
-          <small>Autor identificado</small>
+          <small>${federatedCatalog ? "Autor en catálogos" : "Autor identificado"}</small>
         </div>
       </header>
 
