@@ -283,6 +283,10 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             top=10,
         )
 
+        self.assertEqual(
+            result["institutionAuthorityRevision"],
+            self.registry["institutionRevision"],
+        )
         self.assertEqual(result["metrics"]["gateBlockerCount"], 1)
         self.assertEqual(
             result["metrics"]["projectedAdmission"],
