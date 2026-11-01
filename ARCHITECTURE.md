@@ -424,6 +424,7 @@ La especificación completa de esta evolución se encuentra en:
 - [Identity Resolution Engine V1](docs/AUTHOR_AUTHORITY_IDENTITY_ENGINE_V1.md)
 - [Decision Ledger y adaptadores V1](docs/AUTHOR_AUTHORITY_DECISION_LEDGER_V1.md)
 - [Author Authority Build Pipeline V1](docs/AUTHOR_AUTHORITY_BUILD_PIPELINE_V1.md)
+- [Author Authority Batch Pipeline V1](docs/AUTHOR_AUTHORITY_BATCH_PIPELINE_V1.md)
 
 Esta sección describe una **arquitectura objetivo**. Mientras no se implementen las fases posteriores, la política y el runtime documentados en [Política de fuentes y uso de OpenAlex](docs/author-data-sources.md) siguen siendo los vigentes.
 
