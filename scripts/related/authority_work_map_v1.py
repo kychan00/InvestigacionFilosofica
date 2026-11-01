@@ -219,30 +219,56 @@ def authorship_relations(
     return output
 
 
+def build_work_authority_info_index(
+    metadata: Sequence[Any],
+    authority_map: AuthorityWorkMap | None,
+    representative_by_identity: dict[str, int],
+) -> dict[int, AuthorityWorkInfo]:
+    if authority_map is None:
+        return {}
+
+    openalex_by_identity: dict[str, set[str]] = {}
+
+    for row in metadata:
+        work_identity = getattr(row, "openalex_identity", None)
+        if not work_identity:
+            continue
+        openalex_by_identity.setdefault(row.identity, set()).add(work_identity)
+
+    output: dict[int, AuthorityWorkInfo] = {}
+
+    for identity, representative_vector_id in representative_by_identity.items():
+        candidates = sorted(openalex_by_identity.get(identity, set()))
+        for work_identity in candidates:
+            info = authority_map.works.get(work_identity)
+            if info is not None:
+                output[representative_vector_id] = info
+                break
+
+    return output
+
+
 def build_authority_candidate_index(
     metadata: Sequence[Any],
     authority_map: AuthorityWorkMap | None,
     representative_by_identity: dict[str, int],
+    work_info_by_vector: dict[int, AuthorityWorkInfo] | None = None,
 ) -> dict[str, tuple[int, ...]]:
     if authority_map is None:
         return {}
 
+    if work_info_by_vector is None:
+        work_info_by_vector = build_work_authority_info_index(
+            metadata,
+            authority_map,
+            representative_by_identity,
+        )
+
     buckets: dict[str, set[int]] = {}
 
-    for row in metadata:
-        if representative_by_identity.get(row.identity) != row.vector_id:
-            continue
-
-        work_identity = getattr(row, "openalex_identity", None)
-        if not work_identity:
-            continue
-
-        info = authority_map.works.get(work_identity)
-        if not info:
-            continue
-
+    for vector_id, info in work_info_by_vector.items():
         for authority_ref in info.authority_refs:
-            buckets.setdefault(authority_ref, set()).add(row.vector_id)
+            buckets.setdefault(authority_ref, set()).add(vector_id)
 
     return {
         authority_ref: tuple(sorted(vector_ids))
@@ -257,15 +283,18 @@ def authority_candidate_vector_ids(
     candidate_index: dict[str, tuple[int, ...]],
     *,
     limit: int,
+    work_info_by_vector: dict[int, AuthorityWorkInfo] | None = None,
 ) -> list[int]:
     if authority_map is None or limit <= 0:
         return []
 
-    work_identity = getattr(seed, "openalex_identity", None)
-    if not work_identity:
-        return []
-
-    seed_info = authority_map.works.get(work_identity)
+    seed_info = (
+        work_info_by_vector.get(seed.vector_id)
+        if work_info_by_vector is not None
+        else authority_map.works.get(
+            getattr(seed, "openalex_identity", None)
+        )
+    )
     if not seed_info:
         return []
 
