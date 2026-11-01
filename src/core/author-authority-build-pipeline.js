@@ -99,10 +99,30 @@ function mergeIdentifiers(left = [], right = []) {
 }
 
 function previousAuthorityMap(previousGraph = {}) {
-  return new Map(array(previousGraph.authorities).map(authority => [
+  const graph = previousGraph || {};
+  return new Map(array(graph.authorities).map(authority => [
     String(authority.id),
     structuredClone(authority)
   ]));
+}
+
+function dedupeEntities(items = [], label = "entity") {
+  const output = new Map();
+  for (const item of array(items)) {
+    const id = String(item?.id || "").trim();
+    if (!id) {
+      throw new TypeError(label + " requires id");
+    }
+    const existing = output.get(id);
+    if (existing) {
+      if (JSON.stringify(existing) !== JSON.stringify(item)) {
+        throw new TypeError("Conflicting duplicate " + label + " id: " + id);
+      }
+      continue;
+    }
+    output.set(id, item);
+  }
+  return [...output.values()];
 }
 
 function cloneRegistry(registry = {}) {
@@ -410,6 +430,14 @@ export function buildAuthorityGraph({
     throw new TypeError("buildAuthorityGraph requires buildRevision");
   }
 
+  const normalizedMentions = dedupeEntities(
+    mentions,
+    "AuthorMention"
+  );
+  const normalizedSourceRecords = dedupeEntities(
+    sourceRecords,
+    "SourceRecord"
+  );
   const candidateMap = candidateById(candidates);
   const authorityMap = previousAuthorityMap(previousGraph);
   const identifierRegistry = cloneRegistry(
@@ -426,7 +454,7 @@ export function buildAuthorityGraph({
   const mentionAuthorityLinks = [];
   const registryConflicts = [];
 
-  for (const mention of mentions) {
+  for (const mention of normalizedMentions) {
     const result = resolveAuthorMention(mention, candidates);
     const targetCandidate = result.targetRef
       ? candidateMap.get(result.targetRef)
@@ -530,15 +558,15 @@ export function buildAuthorityGraph({
     authorities: [...authorityMap.values()].sort((a, b) =>
       String(a.id).localeCompare(String(b.id))
     ),
-    mentions: [...mentions],
-    sourceRecords: [...sourceRecords],
+    mentions: normalizedMentions,
+    sourceRecords: normalizedSourceRecords,
     mentionAuthorityLinks,
     identifierRegistry,
     candidateRegistry,
     decisionLedger: ledger,
     buildMetrics: {
       candidatesSeen: candidates.length,
-      mentionsSeen: mentions.length,
+      mentionsSeen: normalizedMentions.length,
       authoritiesTotal: authorityMap.size,
       authoritiesPromoted:
         new Set(mentionAuthorityLinks.map(link => link.authorityRef)).size,
