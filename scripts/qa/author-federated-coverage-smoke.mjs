@@ -71,7 +71,7 @@ try{
   try{
     await page.waitForFunction(()=>
       document.querySelectorAll(".author-work-grid .result-card").length>=8 &&
-      document.querySelector(".author-archive-discovery")?.textContent.includes("obras"),
+      document.querySelector(".author-archive-discovery strong")?.textContent.includes("Archivo de publicaciones recuperadas"),
       null,{timeout:30000});
   }catch{
     const state=await page.evaluate(()=>({
