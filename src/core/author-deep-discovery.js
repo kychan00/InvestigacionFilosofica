@@ -150,7 +150,7 @@ export async function discoverAuthorArchive({
     ? author.linkedAuthorIds : [];
   let works=mergeAuthorArchives(initialWorks,[]);
   const errors=[];
-  const sources=initialWorks.length?[AUTHOR_SNAPSHOT_SOURCE]:[];
+  const sources=[...new Set(initialWorks.flatMap(work=>work.providers||[]))];
   let snapshotComplete=false;
   let snapshotTotal=null;
 
@@ -159,7 +159,7 @@ export async function discoverAuthorArchive({
     sources:[...new Set(sources)],errors:[...errors],
     snapshotComplete,snapshotTotal
   });
-  emit(AUTHOR_SNAPSHOT_SOURCE,"started");
+  emit(id?AUTHOR_SNAPSHOT_SOURCE:"Fuentes federadas","started");
 
   const jobs=[];
   if(id) {
@@ -200,7 +200,7 @@ export async function discoverAuthorArchive({
         if(signal?.aborted) throw error;
         errors.push("Fuentes complementarias: "+String(error.message||"No disponibles"));
       }
-      emit("Crossref / Internet Archive","settled");
+      emit("Crossref / Internet Archive / CUCSH Filosofía","settled");
     })());
   }
   const results=await Promise.allSettled(jobs);
