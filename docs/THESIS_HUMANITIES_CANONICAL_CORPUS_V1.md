@@ -529,3 +529,21 @@ Los textos libres de `DC.description` y la relación genérica `UDGVirtual` ya n
 Esto evita casos donde una descripción arbitraria terminaba almacenada como `institutionRaw`.
 
 La institución otorgante debe derivarse de evidencia institucional explícita o de una autoridad de programa suficientemente fuerte en una fase posterior.
+
+
+### 19.5 Componentes de fecha en cero
+
+La segunda muestra T2B observó valores históricos como:
+
+- `1991-00-00`;
+- `1995-10-00`.
+
+Estos valores no se tratan como fechas inválidas ni se completan artificialmente.
+
+Reglas:
+
+- `YYYY-00-00` → precisión `year`, valor normalizado `YYYY`;
+- `YYYY-MM-00` → precisión `month`, valor normalizado `YYYY-MM`;
+- el valor raw original se conserva siempre.
+
+Un componente imposible como `YYYY-00-DD` permanece inválido.
