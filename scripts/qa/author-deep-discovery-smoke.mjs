@@ -127,9 +127,10 @@ try {
     assert.equal(state.statsBg,"rgb(22, 22, 22)");
     assert.equal(state.statsInk,"rgb(244, 244, 244)");
   }
-  await page.locator("#stats").scrollIntoViewIfNeeded();
+  // The author-only layout intentionally hides the main search stats;
+  // the computed colours above cover the strip without forcing it visible.
   await page.screenshot({
-   path:"artifacts/author-deep-discovery/"+theme+"-stats-390.png",
+   path:"artifacts/author-deep-discovery/"+theme+"-profile-390.png",
    animations:"disabled"
   });
   await page.locator(".author-page-works").scrollIntoViewIfNeeded();
