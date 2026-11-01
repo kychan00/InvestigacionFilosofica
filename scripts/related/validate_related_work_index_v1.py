@@ -59,6 +59,10 @@ def validate_neighbor(
     if target_vector_id < 0 or target_vector_id >= document_count:
         raise RuntimeError("Neighbor vector ID is outside corpus bounds")
 
+    observed_vector_id = int(neighbor.get("o", target_vector_id))
+    if observed_vector_id < 0 or observed_vector_id >= document_count:
+        raise RuntimeError("Observed semantic vector ID is outside corpus bounds")
+
     score = float(neighbor.get("s", -1))
     if not 0 <= score <= 1:
         raise RuntimeError("Semantic signal is outside [0, 1]")
