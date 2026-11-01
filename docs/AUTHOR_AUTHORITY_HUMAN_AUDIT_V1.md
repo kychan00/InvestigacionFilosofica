@@ -127,6 +127,26 @@ La evidencia puede enlazar a páginas públicas para revisión manual, pero el p
 
 ---
 
+## 6.1 Filas de evidencia malformadas
+
+El primer build contra la release real detectó al menos una fila NDJSON de `works/` truncada o sintácticamente inválida.
+
+La auditoría no intenta reconstruir ni corregir ese contenido.
+
+Durante la extracción de evidencia:
+
+- una fila JSON válida se procesa normalmente;
+- una fila malformada se omite únicamente de la evidencia visible;
+- se incrementa `evidenceDiagnostics.invalidJsonRows`;
+- se conserva una muestra acotada con ruta, número de línea, error y preview;
+- el resto del paquete continúa construyéndose.
+
+Esta tolerancia sólo se aplica a la capa de evidencia bibliográfica del revisor. No transforma una fila corrupta en una obra válida, no inventa títulos y no altera la muestra de identidad congelada.
+
+Las filas malformadas quedan así **cuarentenadas y observables**, no reparadas silenciosamente.
+
+---
+
 ## 7. Etiquetas permitidas
 
 Cada par admite exactamente:
