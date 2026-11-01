@@ -1,0 +1,68 @@
+name: Thesis canonical corpus
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/build_canonical_corpus_v1.py"
+      - "scripts/thesis/config/**"
+      - "scripts/thesis/fixtures/**"
+      - "tests/test_thesis_canonical_corpus.py"
+      - "docs/THESIS_HUMANITIES_CANONICAL_CORPUS_V1.md"
+      - ".github/workflows/thesis-canonical-corpus.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile
+        run: python -m py_compile scripts/thesis/build_canonical_corpus_v1.py
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p "test_thesis_canonical_corpus.py" -v
+
+      - name: Build deterministic fixture corpus
+        run: |
+          mkdir -p artifacts/thesis-canonical-corpus
+          python scripts/thesis/build_canonical_corpus_v1.py \
+            --output artifacts/thesis-canonical-corpus/fixture-v1.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("artifacts/thesis-canonical-corpus/fixture-v1.json")
+          payload = json.loads(path.read_text(encoding="utf-8"))
+          assert payload["schemaVersion"] == "thesis-canonical-corpus-v1"
+          assert payload["metrics"]["works"] == 2
+          assert payload["metrics"]["worksByAdmission"] == {"include": 2}
+          print(json.dumps(payload["metrics"], indent=2, ensure_ascii=False))
+          PY
+
+      - name: Live source smoke
+        run: |
+          python scripts/thesis/build_canonical_corpus_v1.py \
+            --live-smoke \
+            --output artifacts/thesis-canonical-corpus/live-smoke.json
+          cat artifacts/thesis-canonical-corpus/live-smoke.json
+
+      - name: Upload validation artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-canonical-corpus-v1
+          path: artifacts/thesis-canonical-corpus/
+          if-no-files-found: error
+          retention-days: 14
