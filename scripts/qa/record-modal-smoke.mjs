@@ -19,7 +19,7 @@ const fixture = [
   "<span class='record-provider-pill'>OpenAlex Philosophy · Crossref</span>",
   "</div>",
   "<h2 id='record-modal-title' class='record-cinematic-title'>Hegel's Preface to the Phenomenology of Spirit</h2>",
-  "<p class='record-cinematic-byline'>Georg Wilhelm Friedrich Hegel · 2021</p>",
+  "<p class='record-cinematic-byline'><span class='record-cinematic-byline-authors'><a class='record-author-link record-author-link-byline' href='/?view=author&author=Georg+Wilhelm+Friedrich+Hegel&authorId=123#results' target='_blank'><span>Georg Wilhelm Friedrich Hegel</span><span class='record-author-link-arrow'>↗</span></a></span><span class='record-cinematic-byline-meta'> · 2021</span></p>",
   "</div></header>",
   "<div class='record-cinematic-layout'>",
   "<aside class='record-cinematic-sidebar'>",
@@ -27,7 +27,7 @@ const fixture = [
   "<div class='cinematic-score-number'>100</div><div class='cinematic-score-track'><span style='width:100%'></span></div>",
   "<div class='score-level'>Autoría directa</div></section>",
   "<section class='cinematic-author-card'><div class='author-orbit'><span class='author-initial'>G</span></div>",
-  "<span class='author-card-caption'>Archivo filosófico</span><strong>Georg Wilhelm Friedrich Hegel</strong></section>",
+  "<span class='author-card-caption'>Archivo filosófico</span><strong class='record-author-name'><a class='record-author-link record-author-link-card' href='/?view=author&author=Georg+Wilhelm+Friedrich+Hegel&authorId=123#results' target='_blank'><span>Georg Wilhelm Friedrich Hegel</span><span class='record-author-link-arrow'>↗</span></a></strong></section>",
   "<section class='cinematic-quick-grid'>",
   "<div><span>Año</span><strong>2021</strong></div>",
   "<div><span>Idioma</span><strong>English</strong></div>",
@@ -39,7 +39,7 @@ const fixture = [
   "<div class='cinematic-section-heading'><span class='section-number'>01</span>",
   "<div><span class='section-eyebrow'>Registro</span><h3>Ficha bibliográfica</h3></div></div>",
   "<div class='cinematic-metadata-grid'>",
-  "<div class='cinematic-meta-card'><span>Autores</span><strong>Georg Wilhelm Friedrich Hegel</strong></div>",
+  "<div class='cinematic-meta-card cinematic-meta-card-authors'><span>Autores</span><strong class='record-author-list'><a class='record-author-link record-author-link-metadata' href='/?view=author&author=Georg+Wilhelm+Friedrich+Hegel&authorId=123#results' target='_blank'><span>Georg Wilhelm Friedrich Hegel</span><span class='record-author-link-arrow'>↗</span></a></strong></div>",
   "<div class='cinematic-meta-card'><span>Fuente</span><strong>Phenomenology of Spirit: Studies in Modern Philosophy</strong></div>",
   "<div class='cinematic-meta-card'><span>Proveedores</span><strong>OpenAlex Philosophy · Crossref</strong></div>",
   "</div></section>",
@@ -75,7 +75,30 @@ const fixture = [
   "</section></main></div></article>"
 ].join("");
 
+function rgbChannels(value) {
+  return (value.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+}
+
+function luminance(value) {
+  const channels = rgbChannels(value).map(channel => {
+    const normalized = channel / 255;
+    return normalized <= 0.04045
+      ? normalized / 12.92
+      : Math.pow((normalized + 0.055) / 1.055, 2.4);
+  });
+  return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+}
+
+function contrast(foreground, background) {
+  const a = luminance(foreground);
+  const b = luminance(background);
+  const lighter = Math.max(a, b);
+  const darker = Math.min(a, b);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
 try {
+  for (const theme of ["light", "dark"]) {
   for (const width of [320, 375, 390, 768, 1280]) {
     const page = await browser.newPage({
       viewport: { width, height: 820 },
@@ -87,9 +110,10 @@ try {
       route.request().url().startsWith(BASE) ? route.continue() : route.abort()
     );
     await page.goto(BASE, { waitUntil: "domcontentloaded" });
+    await page.locator('[data-theme-choice="' + theme + '"]').click();
     await page.waitForFunction(() =>
       [...document.styleSheets].some(sheet =>
-        sheet.href?.includes("record-detail.css") && sheet.cssRules.length > 0
+        sheet.href?.includes("record-folio-carbon.css") && sheet.cssRules.length > 0
       )
     );
     await page.evaluate(html => {
@@ -99,7 +123,7 @@ try {
     }, fixture);
 
     await page.screenshot({
-      path: "artifacts/record-detail/modal-" + width + ".png",
+      path: "artifacts/record-detail/modal-" + theme + "-" + width + ".png",
       animations: "disabled"
     });
 
@@ -122,6 +146,14 @@ try {
         primaryBackground: style("#record-modal .cinematic-action.primary").backgroundColor,
         otherBackground: style("#record-modal .cinematic-action:not(.primary)").backgroundColor,
         titleColor: style("#record-modal-title").color,
+        titleBackground: style("#record-modal .record-cinematic-hero").backgroundColor,
+        abstractColor: style("#record-modal .cinematic-abstract").color,
+        abstractBackground: style("#record-modal .cinematic-abstract").backgroundColor,
+        sectionBackground: style("#record-modal .cinematic-section").backgroundColor,
+        authorLinkColor: style("#record-modal .record-author-link").color,
+        authorLinkBackground: style("#record-modal .cinematic-author-card").backgroundColor,
+        authorLinkHref: document.querySelector("#record-modal .record-author-link")?.href || "",
+        authorLinkTarget: document.querySelector("#record-modal .record-author-link")?.target || "",
         titleFont: style("#record-modal-title").fontFamily,
         actionRadius: style("#record-modal .cinematic-action").borderTopLeftRadius,
         sectionRadius: style("#record-modal .cinematic-section").borderTopLeftRadius,
@@ -143,12 +175,28 @@ try {
     assert.ok(info.title.left >= info.panel.left && info.title.right <= info.panel.right, "Title overflow");
     assert.ok(info.close.width >= 44 && info.close.height >= 44, "Close tap target too small");
     assert.ok(info.close.left >= info.panel.left - 2 && info.close.right <= info.panel.right + 2, "Close outside panel");
-    assert.equal(info.modalBackground, "rgb(22, 22, 22)");
-    assert.equal(info.metaBackground, "rgb(244, 244, 244)");
-    assert.equal(info.scoreBackground, "rgb(38, 38, 38)");
+    if (theme === "dark") {
+      assert.equal(info.metaBackground, "rgb(22, 22, 22)");
+      assert.equal(info.scoreBackground, "rgb(38, 38, 38)");
+      assert.equal(info.sectionBackground, "rgb(38, 38, 38)");
+      assert.equal(info.titleColor, "rgb(244, 244, 244)");
+      assert.equal(info.authorLinkColor, "rgb(120, 169, 255)");
+    } else {
+      assert.equal(info.metaBackground, "rgb(255, 255, 255)");
+      assert.equal(info.scoreBackground, "rgb(244, 244, 244)");
+      assert.equal(info.sectionBackground, "rgb(244, 244, 244)");
+      assert.equal(info.titleColor, "rgb(22, 22, 22)");
+      assert.equal(info.authorLinkColor, "rgb(15, 98, 254)");
+    }
     assert.equal(info.primaryBackground, "rgb(15, 98, 254)");
     assert.equal(info.otherBackground, "rgb(57, 57, 57)");
-    assert.equal(info.titleColor, "rgb(255, 255, 255)");
+    assert.ok(contrast(info.abstractColor, info.abstractBackground) >= 4.5,
+      "Abstract contrast must meet WCAG AA: " + theme + " " + width);
+    assert.ok(contrast(info.authorLinkColor, info.authorLinkBackground) >= 4.5,
+      "Author link contrast must meet WCAG AA: " + theme + " " + width);
+    assert.match(info.authorLinkHref, /view=author/);
+    assert.match(info.authorLinkHref, /author=Georg/);
+    assert.equal(info.authorLinkTarget, "_blank");
     assert.match(info.titleFont, /Helvetica Neue|Avenir Next|Arial/);
     for (const val of [info.actionRadius, info.sectionRadius, info.panelRadius, info.closeRadius]) {
       assert.equal(val, "0px", "Flat corners required");
@@ -173,12 +221,13 @@ try {
     assert.ok(bottom.scrollTop > 0 && bottom.visible, "All detail sections must be reachable");
     if (width === 375 || width === 1280) {
       await page.screenshot({
-        path: "artifacts/record-detail/modal-bottom-" + width + ".png",
+        path: "artifacts/record-detail/modal-bottom-" + theme + "-" + width + ".png",
         animations: "disabled"
       });
     }
     await page.close();
-    process.stdout.write("record detail OK " + width + "px\n");
+    process.stdout.write("record detail " + theme + " OK " + width + "px\n");
+  }
   }
 } finally {
   await browser.close();
