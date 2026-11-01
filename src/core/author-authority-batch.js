@@ -87,69 +87,85 @@ function chooseDisplayProfile(profiles) {
   })[0];
 }
 
-export function aggregateAuthorAliasRows(rows = []) {
+export function createAuthorAliasAccumulator() {
   const profiles = new Map();
-  const conflicts = [];
 
-  for (const row of rows) {
-    const id = openAlexId(row?.id);
-    if (!id || !String(row?.n || "").trim()) continue;
+  return {
+    add(row = {}) {
+      const id = openAlexId(row?.id);
+      if (!id || !String(row?.n || "").trim()) return;
 
-    const current = profiles.get(id) || {
-      id,
-      names: new Set(),
-      signatures: new Set(),
-      kinds: new Set(),
-      orcids: new Set(),
-      cw: 0,
-      w: 0,
-      c: 0
-    };
+      const current = profiles.get(id) || {
+        id,
+        names: new Set(),
+        signatures: new Set(),
+        kinds: new Set(),
+        orcids: new Set(),
+        cw: 0,
+        w: 0,
+        c: 0
+      };
 
-    current.names.add(String(row.n).trim());
-    if (row.s) current.signatures.add(String(row.s));
-    if (row.k) current.kinds.add(String(row.k));
+      current.names.add(String(row.n).trim());
+      if (row.s) current.signatures.add(String(row.s));
+      if (row.k) current.kinds.add(String(row.k));
 
-    const orcid = normalizedOrcid(row.o);
-    if (orcid) current.orcids.add(orcid);
+      const orcid = normalizedOrcid(row.o);
+      if (orcid) current.orcids.add(orcid);
 
-    current.cw = Math.max(current.cw, Number(row.cw || 0));
-    current.w = Math.max(current.w, Number(row.w || 0));
-    current.c = Math.max(current.c, Number(row.c || 0));
-    profiles.set(id, current);
-  }
+      current.cw = Math.max(current.cw, Number(row.cw || 0));
+      current.w = Math.max(current.w, Number(row.w || 0));
+      current.c = Math.max(current.c, Number(row.c || 0));
+      profiles.set(id, current);
+    },
 
-  const normalized = [];
-  for (const profile of profiles.values()) {
-    if (profile.orcids.size > 1) {
-      conflicts.push({
-        kind: "openalex-author-orcid-conflict",
-        authorId: profile.id,
-        orcids: [...profile.orcids].sort()
-      });
-      continue;
+    finish() {
+      const normalized = [];
+      const conflicts = [];
+
+      for (const profile of profiles.values()) {
+        if (profile.orcids.size > 1) {
+          conflicts.push({
+            kind: "openalex-author-orcid-conflict",
+            authorId: profile.id,
+            orcids: [...profile.orcids].sort()
+          });
+          continue;
+        }
+
+        normalized.push({
+          id: profile.id,
+          n: [...profile.names].sort()[0],
+          names: [...profile.names].sort(),
+          signatures: [...profile.signatures].sort(),
+          kinds: [...profile.kinds].sort(),
+          o: [...profile.orcids][0] || null,
+          cw: profile.cw,
+          w: profile.w,
+          c: profile.c
+        });
+      }
+
+      normalized.sort((a, b) => numericSort(a.id, b.id));
+      return {profiles: normalized, conflicts};
+    },
+
+    get size() {
+      return profiles.size;
     }
-
-    normalized.push({
-      id: profile.id,
-      n: [...profile.names].sort()[0],
-      names: [...profile.names].sort(),
-      signatures: [...profile.signatures].sort(),
-      kinds: [...profile.kinds].sort(),
-      o: [...profile.orcids][0] || null,
-      cw: profile.cw,
-      w: profile.w,
-      c: profile.c
-    });
-  }
-
-  normalized.sort((a, b) => numericSort(a.id, b.id));
-  return {profiles: normalized, conflicts};
+  };
 }
 
-export function groupAuthorIndexCandidates(aliasRows = []) {
-  const aggregated = aggregateAuthorAliasRows(aliasRows);
-  const ids = aggregated.profiles.map(profile => profile.id);
+export function aggregateAuthorAliasRows(rows = []) {
+  const accumulator = createAuthorAliasAccumulator();
+  for (const row of rows) accumulator.add(row);
+  return accumulator.finish();
+}
+
+export function groupAggregatedAuthorProfiles(
+  aggregated = {profiles: [], conflicts: []}
+) {
+  const ids = array(aggregated.profiles).map(profile => profile.id);
   const unionFind = createUnionFind(ids);
   const byOrcid = new Map();
 
@@ -224,8 +240,14 @@ export function groupAuthorIndexCandidates(aliasRows = []) {
   return {
     candidates,
     authorIdToCandidateRef,
-    conflicts: aggregated.conflicts
+    conflicts: array(aggregated.conflicts)
   };
+}
+
+export function groupAuthorIndexCandidates(aliasRows = []) {
+  return groupAggregatedAuthorProfiles(
+    aggregateAuthorAliasRows(aliasRows)
+  );
 }
 
 export function authorityCandidateShard(
