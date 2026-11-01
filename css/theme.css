@@ -847,8 +847,7 @@ html[data-theme="light"] #record-modal :is(
   .cinematic-quick-grid span,
   .author-card-caption,
   .cinematic-note,
-  .cinematic-provenance li,
-  .score-eyebrow
+  .cinematic-provenance li
 ) {
   color: #393939 !important;
   opacity: 1;
