@@ -43,6 +43,15 @@ class AuthorIndexCommonTest(unittest.TestCase):
             "initial",
         )
 
+    def test_academic_titles_and_compound_surnames_are_aliases(self):
+        self.assertEqual(normalize_name("Dra. Dinora Hernández"),"dinora hernandez")
+        self.assertEqual(token_signature("Dra Dinora Hernández"),
+                         token_signature("Dinora Hernández"))
+        aliases=dict(alias_signatures("Dinora Hernández López"))
+        self.assertEqual(aliases["dinora hernandez"],"given-first-family")
+        self.assertEqual(aliases["dinora hernandez lopez"],"full")
+        self.assertEqual(dict(alias_signatures("Dra Dinora Hernández"))["dinora hernandez"],"full")
+
     def test_bucket_is_deterministic(self):
         self.assertEqual(
             bucket_for("immanuel kant"),
