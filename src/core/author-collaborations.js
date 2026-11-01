@@ -35,13 +35,17 @@ export function workCollaboration(work, author={}) {
     work.coauthorCount!==undefined && Number.isInteger(count);
   const total=Math.max(others.length,fromSnapshot?Math.max(0,count):0);
   const hasPrimary=Boolean(primary)||Boolean(work.authorIdentity?.exact)||
+    Boolean(work.attributionEvidence)||
     (Array.isArray(work.authors)&&work.authors.length>0 &&
       work.retrievalMode==="author-index");
   let kind="unknown";
-  if(hasPrimary && (total>0||authors.length>1))kind="collaboration";
-  else if(hasPrimary&&fromSnapshot&&total===0)kind="individual";
-  else if(hasPrimary&&authors.length===1&&work.retrievalMode!=="author-index")
-    kind="individual";
+  if(hasPrimary && (total>0||authors.length>1||work.collectiveWork))
+    kind="collaboration";
+  else if(hasPrimary&&fromSnapshot&&total===0&&
+          !work.collectiveWork)kind="individual";
+  // A single creator field from Internet Archive or Crossref is not
+  // proof of sole authorship: its metadata may omit editors/coauthors.
+  // Do not report "individual" unless the indexed authorship count is 0.
   return {kind,count:kind==="collaboration"?total:0,coauthors:others};
 }
 
