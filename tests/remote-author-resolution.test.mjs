@@ -1504,3 +1504,34 @@ test(
     );
   }
 );
+
+test("el perfil puede recuperar todas las obras de su shard y no sólo las primeras 50", async () => {
+  const id = "734221";
+  const works = Array.from({ length: 125 }, (_, index) => ({
+    id: Number(id),
+    wid: 20000 + index,
+    t: "Obra académica " + index,
+    y: 1800 + index,
+    l: "de",
+    ty: "book"
+  }));
+  const fetchImpl = async url => {
+    if (new URL(url).pathname.endsWith(bucketPath("works", id))) {
+      return response(works.map(work => JSON.stringify(work)).join("\n") + "\n");
+    }
+    return response("");
+  };
+  const author = {id, n:"Autora de Prueba", cw:125, o:null};
+  const options = {fetchImpl,indexBase:"https://example.test/data/"};
+
+  const initial = await resolveRemoteAuthorCandidate(author,options);
+  assert.equal(initial.works.length,50);
+
+  const full = await resolveRemoteAuthorCandidate(author,{
+    ...options,limit:Number.MAX_SAFE_INTEGER
+  });
+  assert.equal(full.status,"resolved");
+  assert.equal(full.author.corpusWorks,125);
+  assert.equal(full.works.length,125);
+  assert.equal(new Set(full.works.map(work => work.id)).size,125);
+});

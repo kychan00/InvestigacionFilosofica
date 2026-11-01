@@ -41,6 +41,8 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
+
 import {
   resolveFederatedAuthor
 } from "../src/core/crossref-author-fallback.js?v=20261029-universal-author-v1";
@@ -187,6 +189,12 @@ let currentResponse = null;
 let visibleLimit = 20;
 let currentFilteredResults = [];
 let authorSourceSearch = null;
+let authorTimelineState = {
+  unit: "year",
+  selectedKey: null,
+  visibleLimit: 60
+};
+let authorArchiveLoading = false;
 
 const qwen3OptIn =
   isQwen3BrowserQ8OptIn(
@@ -3916,8 +3924,18 @@ function bindResultActions() {
 
 
 function showExclusiveAuthorWorks(
-  resolution
+  resolution,
+  options = {}
 ) {
+  if (options.resetTimeline) {
+    authorTimelineState = {
+      unit: "year",
+      selectedKey: null,
+      visibleLimit: 60
+    };
+  }
+
+  authorArchiveLoading = Boolean(options.loading);
   document.body.classList.add(
     "author-view"
   );
@@ -3963,8 +3981,9 @@ function showExclusiveAuthorWorks(
     renderFilteredResults();
   }
 
-  status.textContent =
-    `${currentResults.length} obras de autoría directa de ${resolution.author.displayName}`;
+  status.textContent = authorArchiveLoading
+    ? `${currentResults.length} obras iniciales de ${resolution.author.displayName} · ampliando el archivo…`
+    : `${currentResults.length} obras disponibles de ${resolution.author.displayName}`;
 
   researchWorkspace
     ?.classList
@@ -4008,6 +4027,8 @@ function restoreAuthorSourceSearch() {
   document.body.classList.remove(
     "author-view"
   );
+  authorArchiveLoading = false;
+  authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
 
@@ -4295,9 +4316,68 @@ async function openExclusiveAuthorByName(
       resolution.status ===
       "resolved"
     ) {
-      showExclusiveAuthorWorks(
-        resolution
+      const remoteId = openAlexAuthorId(resolution.author?.id);
+      const corpusCount = Number(resolution.author?.corpusWorks || 0);
+      const shouldExpand = Boolean(
+        remoteId &&
+        resolution.author?.catalog !== "federated" &&
+        ((resolution.works || []).length < corpusCount ||
+          (resolution.works || []).length >= 50)
       );
+
+      showExclusiveAuthorWorks(
+        resolution,
+        { resetTimeline: true, loading: shouldExpand }
+      );
+
+      if (shouldExpand) {
+        try {
+          const expanded = await resolveRemoteAuthorCandidate(
+            {
+              id: remoteId,
+              n: resolution.author.sourceDisplayName ||
+                resolution.author.displayName,
+              o: resolution.author.orcid || null,
+              cw: corpusCount
+            },
+            {
+              signal: authorController.signal,
+              timeoutMs: 15_000,
+              limit: Number.MAX_SAFE_INTEGER
+            }
+          );
+
+          if (
+            authorController.signal.aborted ||
+            currentController !== authorController
+          ) return;
+
+          if (
+            expanded.status === "resolved" &&
+            expanded.works.length >= (resolution.works || []).length
+          ) {
+            showExclusiveAuthorWorks({
+              ...resolution,
+              works: expanded.works,
+              author: {
+                ...resolution.author,
+                corpusWorks: Math.max(corpusCount, expanded.works.length)
+              }
+            }, { loading: false });
+          } else {
+            authorArchiveLoading = false;
+            renderFilteredResults();
+            status.textContent =
+              "Se muestra el archivo parcial; la ampliación no estuvo disponible.";
+          }
+        } catch (error) {
+          if (authorController.signal.aborted) return;
+          authorArchiveLoading = false;
+          renderFilteredResults();
+          status.textContent =
+            "No se pudo completar la carga. Se conservan las obras iniciales.";
+        }
+      }
       return;
     }
 
@@ -5132,6 +5212,8 @@ function renderAuthorPage(
         </div>
       </section>
 
+      <section class="author-timeline-placeholder" id="author-timeline-root"></section>
+
       <section class="author-page-analysis">
         <div class="author-analysis-card author-focus-card">
           <span class="author-section-kicker">Mapa léxico</span>
@@ -5241,6 +5323,19 @@ function renderFilteredResults() {
         currentResponse,
         visible
       );
+
+    mountAuthorTimeline(
+      resultsEl.querySelector("#author-timeline-root"),
+      currentResponse.results || [],
+      authorTimelineState,
+      {
+        loading: authorArchiveLoading,
+        onOpenWork: index => {
+          const work = currentResponse.results?.[index];
+          if (work) openRecord(work);
+        }
+      }
+    );
 
     document
       .querySelector("#load-more")
