@@ -10,6 +10,9 @@ on:
       - "scripts/qa/mobile-ui-smoke.mjs"
       - "scripts/qa/record-modal-smoke.mjs"
       - "scripts/qa/author-timeline-smoke.mjs"
+      - "scripts/qa/theme-contrast-smoke.mjs"
+      - "js/theme.js"
+      - "tests/theme-controller.test.mjs"
       - "src/core/author-timeline.js"
       - "src/core/author-timeline-ui.js"
       - "tests/author-timeline.test.mjs"
@@ -58,6 +61,8 @@ jobs:
         run: node scripts/qa/record-modal-smoke.mjs
       - name: Check author timeline interactions and layout
         run: node scripts/qa/author-timeline-smoke.mjs
+      - name: Check light dark labels and sun moon controls
+        run: node scripts/qa/theme-contrast-smoke.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -67,4 +72,5 @@ jobs:
             artifacts/mobile-ui/
             artifacts/record-detail/
             artifacts/author-timeline/
+            artifacts/theme-contrast/
           if-no-files-found: ignore

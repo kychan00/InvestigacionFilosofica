@@ -503,3 +503,427 @@ html[data-theme="dark"] :is(
   }
 }
 
+
+/* =========================================================
+   ACCESSIBLE APPEARANCE · field labels, controls and archive
+   Explicit design tokens avoid inherited white-on-light text
+   and fixed light timeline colours when switching to night.
+   ========================================================= */
+
+html[data-theme="light"] {
+  --theme-label: #161616;
+  --theme-label-muted: #393939;
+  --theme-field: #ffffff;
+  --theme-field-text: #161616;
+  --theme-field-placeholder: #525252;
+  --theme-field-border: #8d8d8d;
+  --theme-accent-text: #0043ce;
+}
+
+html[data-theme="dark"] {
+  --theme-label: #f4f4f4;
+  --theme-label-muted: #e0e0e0;
+  --theme-field: #161616;
+  --theme-field-text: #f4f4f4;
+  --theme-field-placeholder: #c6c6c6;
+  --theme-field-border: #8d8d8d;
+  --theme-accent-text: #78a9ff;
+}
+
+/* Day / night selector: real vector icons, fully visible on phones. */
+html[data-theme] .theme-switch {
+  min-width: 190px;
+  min-height: 44px;
+  border: 1px solid var(--theme-header-line);
+  background: var(--theme-surface);
+  box-shadow: none;
+}
+
+html[data-theme] .theme-switch button {
+  min-height: 44px;
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 0;
+  border-color: var(--theme-header-line);
+  color: var(--theme-text);
+  background: var(--theme-surface);
+  font-family: var(--pg-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+html[data-theme] .theme-switch button[aria-pressed="true"] {
+  background: #0f62fe;
+  color: #ffffff;
+  border-color: #0f62fe;
+}
+
+html[data-theme] .theme-switch button:not([aria-pressed="true"]):hover {
+  background: var(--theme-surface-2);
+  color: var(--theme-text);
+}
+
+html[data-theme] .theme-switch button:focus-visible {
+  outline: 3px solid var(--theme-accent-text);
+  outline-offset: 3px;
+  z-index: 1;
+}
+
+.theme-switch .theme-icon {
+  display: block;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  color: currentColor;
+}
+
+.theme-switch .theme-switch-label {
+  display: inline;
+  color: inherit;
+}
+
+/* Both modes: labels are text, not faded decorative captions. */
+html[data-theme] .search-filter-grid {
+  background: var(--theme-line);
+  border: 1px solid var(--theme-line);
+}
+
+html[data-theme] .search-filter-grid label {
+  min-width: 0;
+  padding: 12px 12px 10px;
+  gap: 8px;
+  border: 0;
+  background: var(--theme-surface-2) !important;
+  color: var(--theme-label) !important;
+  opacity: 1 !important;
+  font-family: var(--pg-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: .025em;
+  text-transform: none;
+}
+
+html[data-theme] .search-filter-grid :is(select, input) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--theme-field-border);
+  border-bottom: 2px solid var(--theme-field-border);
+  border-radius: 0;
+  background: var(--theme-field) !important;
+  color: var(--theme-field-text) !important;
+  -webkit-text-fill-color: var(--theme-field-text);
+  color-scheme: inherit;
+  opacity: 1 !important;
+  font-family: var(--pg-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+html[data-theme] .search-filter-grid :is(select, input):hover {
+  background: var(--theme-field) !important;
+  border-bottom-color: var(--theme-accent-text);
+}
+
+html[data-theme] .search-filter-grid :is(select, input):focus-visible {
+  outline: 2px solid #0f62fe;
+  outline-offset: 2px;
+  border-bottom-color: var(--theme-accent-text);
+}
+
+html[data-theme] .search-filter-grid input::placeholder {
+  color: var(--theme-field-placeholder) !important;
+  -webkit-text-fill-color: var(--theme-field-placeholder);
+  opacity: 1 !important;
+}
+
+html[data-theme] :is(
+  .search-filters-heading h2,
+  .search-filters-heading p,
+  .search-filters-heading span,
+  .search-filter-footer .filter-count,
+  .search-mode-note,
+  .search-engine-indicator,
+  .search-mode-option:not(.is-active)
+) {
+  color: var(--theme-label) !important;
+  opacity: 1;
+}
+
+html[data-theme] .search-filters-heading h2 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+html[data-theme] .search-filters-heading p,
+html[data-theme] .search-filters-heading span,
+html[data-theme] .search-filter-footer .filter-count,
+html[data-theme] .search-mode-note {
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+html[data-theme] .search-mode-option.is-active {
+  color: var(--theme-label) !important;
+  font-weight: 600;
+}
+
+html[data-theme] .search-mode-option.is-active span {
+  color: var(--theme-label-muted);
+}
+
+html[data-theme] :is(
+  .filter-grid label,
+  .filter-grid label > span,
+  .filter-grid legend,
+  .search-panel label:not(.sr-only)
+) {
+  color: var(--theme-label) !important;
+  opacity: 1;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+html[data-theme] :is(
+  .author-page-metrics span,
+  .author-page-metrics small,
+  .author-page-taxonomy > div > span,
+  .author-focus-card .author-method-note
+) {
+  color: var(--theme-text-soft) !important;
+}
+
+html[data-theme] :is(
+  .author-analysis-card h2,
+  .author-page-works-heading h2,
+  .author-page-taxonomy strong
+) {
+  color: var(--theme-text) !important;
+}
+
+html[data-theme] .author-analysis-card .author-section-kicker,
+html[data-theme] .author-page-taxonomy .author-section-kicker {
+  color: var(--theme-accent-text) !important;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+
+html[data-theme="dark"] .author-page-hero :is(
+  .author-page-eyebrow,
+  .author-page-back
+) {
+  color: #e0e0e0;
+}
+
+html[data-theme="light"] .author-page-hero :is(
+  .author-page-eyebrow,
+  .author-page-back
+) {
+  color: #393939;
+}
+
+/* Correct a bright, fixed-color timeline living inside the dark page. */
+html[data-theme="dark"] .author-page #author-timeline-root {
+  background: #161616;
+  border-color: #525252;
+  border-top-color: #4589ff;
+  color: #f4f4f4;
+}
+
+html[data-theme="dark"] .author-timeline :is(
+  .author-timeline-heading h2,
+  .author-timeline-detail-heading h3,
+  .author-timeline-work-name
+) {
+  color: #f4f4f4 !important;
+}
+
+html[data-theme="dark"] .author-timeline :is(
+  .author-timeline-heading p,
+  .author-timeline-detail-heading > span,
+  .author-timeline-method,
+  .author-timeline-empty
+) {
+  color: #c6c6c6 !important;
+}
+
+html[data-theme="dark"] .author-timeline .author-section-kicker {
+  color: #78a9ff !important;
+}
+
+html[data-theme="dark"] .author-timeline :is(
+  .author-timeline-coverage,
+  .author-timeline-precision
+) {
+  color: #f4f4f4 !important;
+  background: #262626;
+  border-color: #4589ff;
+}
+
+html[data-theme="dark"] .author-timeline :is(
+  .author-timeline-modes,
+  .author-timeline-nodes
+) {
+  background: #525252;
+  border-color: #525252;
+}
+
+html[data-theme="dark"] .author-timeline .author-timeline-modes button {
+  color: #f4f4f4;
+  background: #393939;
+}
+
+html[data-theme="dark"] .author-timeline .author-timeline-modes button.is-active {
+  background: #0f62fe;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .author-timeline-periods {
+  border-color: #525252;
+  scrollbar-color: #8d8d8d #262626;
+}
+
+html[data-theme="dark"] .author-timeline-period {
+  background: #262626;
+  border-color: #525252;
+  color: #f4f4f4;
+}
+
+html[data-theme="dark"] .author-timeline-period.is-active {
+  background: #0f62fe;
+  color: #ffffff;
+  border-top-color: #78a9ff;
+}
+
+html[data-theme="dark"] .author-timeline-period:not(.is-active):hover {
+  background: #393939;
+}
+
+html[data-theme="dark"] .author-timeline-work {
+  background: #262626;
+  color: #f4f4f4;
+}
+
+html[data-theme="dark"] .author-timeline-work:hover {
+  background: #393939;
+}
+
+html[data-theme] .author-timeline-work-type {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+html[data-theme="dark"] .author-timeline-work-type {
+  color: #c6c6c6;
+}
+
+html[data-theme="dark"] .author-timeline-node {
+  background: #161616;
+  border-color: #78a9ff;
+}
+
+html[data-theme="dark"] .author-timeline-arrow {
+  color: #78a9ff;
+}
+
+html[data-theme="dark"] .author-timeline-more {
+  background: #0f62fe;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .author-timeline-more:hover {
+  background: #0353e9;
+}
+
+/* Bibliographic labels in both record themes. */
+html[data-theme="light"] #record-modal :is(
+  .section-eyebrow,
+  .cinematic-meta-card span,
+  .cinematic-quick-grid span,
+  .author-card-caption,
+  .cinematic-note,
+  .cinematic-provenance li
+) {
+  color: #393939 !important;
+  opacity: 1;
+}
+
+html[data-theme="dark"] #record-modal :is(
+  .section-eyebrow,
+  .cinematic-meta-card span,
+  .cinematic-quick-grid span,
+  .author-card-caption,
+  .cinematic-note,
+  .cinematic-provenance li
+) {
+  color: #e0e0e0 !important;
+  opacity: 1;
+}
+
+html[data-theme] #record-modal :is(
+  .section-eyebrow,
+  .cinematic-meta-card span,
+  .cinematic-quick-grid span,
+  .author-card-caption
+) {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: .02em;
+}
+
+@media (max-width: 620px) {
+  html[data-theme] .theme-switch {
+    top: 10px;
+    right: 0;
+    min-width: 96px;
+    width: 96px;
+    height: 44px;
+  }
+
+  html[data-theme] .theme-switch button {
+    padding: 0;
+    min-width: 0;
+    min-height: 44px;
+    gap: 0;
+  }
+
+  .theme-switch .theme-icon {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
+  }
+
+  .theme-switch .theme-switch-label {
+    display: none;
+  }
+
+  .philo-brand {
+    padding-right: 104px;
+  }
+
+  html[data-theme] .search-filter-grid label {
+    padding: 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 359px) {
+  html[data-theme] .theme-switch {
+    width: 92px;
+    min-width: 92px;
+  }
+
+  .philo-brand {
+    padding-right: 96px;
+  }
+}

@@ -70,7 +70,7 @@
 
   <link
     rel="stylesheet"
-    href="./css/theme.css?v=20261031-day-night-v4"
+    href="./css/theme.css?v=20261031-day-night-v5"
   >
 </head>
 
@@ -107,17 +107,34 @@
           <button
             type="button"
             data-theme-choice="light"
+            aria-label="Activar modo claro"
+            title="Modo claro"
             aria-pressed="false"
           >
-            Día
+            <svg class="theme-icon" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+            </svg>
+            <span class="theme-switch-label">Claro</span>
           </button>
 
           <button
             type="button"
             data-theme-choice="dark"
+            aria-label="Activar modo oscuro"
+            title="Modo oscuro"
             aria-pressed="false"
           >
-            Oscuro
+            <svg class="theme-icon" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true" focusable="false">
+              <path d="M20.92 13.03A9 9 0 0 1 10.97 3.08a9 9 0 1 0 9.95 9.95Z"></path>
+            </svg>
+            <span class="theme-switch-label">Oscuro</span>
           </button>
         </div>
 
@@ -603,7 +620,7 @@
 
   <script
     type="module"
-    src="./js/theme.js?v=20261031-day-night-v1"
+    src="./js/theme.js?v=20261031-day-night-v2"
   ></script>
 
 </body>
