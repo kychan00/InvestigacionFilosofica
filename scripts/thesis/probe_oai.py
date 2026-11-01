@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Read-only OAI-PMH reconnaissance for UdeG thesis repositories.
 
-This script performs protocol discovery, set discovery and a single thesis-record
+This script performs protocol discovery, set discovery and a small thesis-record
 sample. It may follow ListSets resumption tokens so the repository topology can
-be characterized, but it never follows ListRecords/ListIdentifiers resumption
-tokens and it never downloads thesis files.
+be characterized. If a small repository advertises a thesis set but set-filtered
+ListIdentifiers is broken, it may scan only OAI headers from the general
+ListIdentifiers stream to recover thesis membership. It never downloads thesis
+files.
 
 Output is a deterministic JSON report suitable for CI artifacts.
 """
@@ -27,6 +29,8 @@ USER_AGENT = "InvestigacionFilosofica-ThesisRecon/1.1 (+https://github.com/kycha
 TIMEOUT = 25
 MAX_SAMPLE_VALUE = 240
 MAX_SET_PAGES = 10
+MAX_HEADER_FALLBACK_PAGES = 40
+MAX_HEADER_FALLBACK_UNIVERSE = 5000
 
 CANDIDATES = {
     "riudg": [
@@ -43,6 +47,11 @@ CANDIDATES = {
         "https://biblioteca.udgvirtual.udg.mx/server/oai/request",
         "http://biblioteca.udgvirtual.udg.mx/oai/request",
     ],
+}
+
+REPRESENTATIVE_THESIS_IDS = {
+    "riudg": "oai:riudg.udg.mx:20.500.12104/112380",
+    "udgvirtual": "oai:biblioteca.udgvirtual.udg.mx:123456789/4102",
 }
 
 
@@ -318,6 +327,86 @@ def list_identifiers_first_page(
     }
 
 
+def scan_headers_for_set(
+    base: str,
+    metadata_prefix: str,
+    set_spec: str,
+    first_page: dict[str, Any],
+) -> dict[str, Any]:
+    """Fallback for small repositories whose set-filtered endpoint is broken.
+
+    Only OAI headers are traversed. Metadata bodies are not requested.
+    """
+    universe_token = first_page.get("resumption_token") or {}
+    universe_size_raw = universe_token.get("complete_list_size")
+    try:
+        universe_size = int(universe_size_raw) if universe_size_raw is not None else None
+    except (TypeError, ValueError):
+        universe_size = None
+
+    if universe_size is None or universe_size > MAX_HEADER_FALLBACK_UNIVERSE:
+        return {
+            "used": False,
+            "reason": "universe-too-large-or-unknown",
+            "complete_list_size": universe_size,
+            "matching_headers": [],
+        }
+
+    matching = [
+        header
+        for header in first_page.get("headers", [])
+        if set_spec in header.get("set_specs", [])
+    ]
+    pages = 1
+    token_value = None
+
+    root, _ = parse_oai(fetch(base, verb="ListIdentifiers", metadataPrefix=metadata_prefix))
+    if root is not None:
+        token = root.find("oai:ListIdentifiers/oai:resumptionToken", NS)
+        token_value = (token.text or "").strip() if token is not None else ""
+
+    while token_value and pages < MAX_HEADER_FALLBACK_PAGES:
+        root, info = parse_oai(
+            fetch(base, verb="ListIdentifiers", resumptionToken=token_value)
+        )
+        pages += 1
+        if root is None or info["oai_error"] is not None:
+            return {
+                "used": True,
+                "complete": False,
+                "pages": pages,
+                "complete_list_size": universe_size,
+                "matching_headers": matching,
+                "failure": info,
+            }
+
+        for header in root.findall("oai:ListIdentifiers/oai:header", NS):
+            item = {
+                "identifier": text(header, "oai:identifier"),
+                "datestamp": text(header, "oai:datestamp"),
+                "status": header.attrib.get("status"),
+                "set_specs": [
+                    (node.text or "").strip()
+                    for node in header.findall("oai:setSpec", NS)
+                    if (node.text or "").strip()
+                ],
+            }
+            if set_spec in item["set_specs"]:
+                matching.append(item)
+
+        token = root.find("oai:ListIdentifiers/oai:resumptionToken", NS)
+        token_value = (token.text or "").strip() if token is not None else ""
+
+    return {
+        "used": True,
+        "complete": not bool(token_value),
+        "pages": pages,
+        "complete_list_size": universe_size,
+        "matching_count": len(matching),
+        "matching_headers": matching,
+    }
+
+
 def local_name(tag: str) -> str:
     return tag.rsplit("}", 1)[-1]
 
@@ -387,7 +476,8 @@ def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
     preferred = "oai_dc" if "oai_dc" in prefixes else (prefixes[0] if prefixes else None)
 
     if preferred:
-        report["identifiers_first_page"] = list_identifiers_first_page(base, preferred)
+        general_ids = list_identifiers_first_page(base, preferred)
+        report["identifiers_first_page"] = general_ids
 
         thesis_ids = list_identifiers_first_page(
             base,
@@ -396,14 +486,55 @@ def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
         )
         report["thesis_identifiers_first_page"] = thesis_ids
 
-        first = next(
-            (
-                item["identifier"]
-                for item in thesis_ids.get("headers", [])
-                if item.get("identifier") and item.get("status") != "deleted"
-            ),
-            None,
+        thesis_headers = thesis_ids.get("headers", [])
+        set_query_failed = (
+            thesis_set is not None
+            and (
+                thesis_ids.get("status") != 200
+                or thesis_ids.get("transport_error")
+                or thesis_ids.get("oai_error")
+            )
         )
+
+        if set_query_failed:
+            fallback = scan_headers_for_set(
+                base,
+                preferred,
+                thesis_set["set_spec"],
+                general_ids,
+            )
+            report["thesis_header_fallback_scan"] = fallback
+            if fallback.get("complete"):
+                thesis_headers = fallback.get("matching_headers", [])
+
+        fixture_id = REPRESENTATIVE_THESIS_IDS.get(name)
+        known_ids = {
+            item.get("identifier")
+            for item in thesis_headers
+            if item.get("identifier") and item.get("status") != "deleted"
+        }
+
+        if fixture_id:
+            first = fixture_id
+            report["thesis_sample_selection"] = {
+                "mode": "curated-public-fixture",
+                "identifier": fixture_id,
+                "observed_in_enumerated_thesis_headers": fixture_id in known_ids,
+            }
+        else:
+            first = next(
+                (
+                    item["identifier"]
+                    for item in thesis_headers
+                    if item.get("identifier") and item.get("status") != "deleted"
+                ),
+                None,
+            )
+            report["thesis_sample_selection"] = {
+                "mode": "first-enumerated-thesis-header",
+                "identifier": first,
+            }
+
         if first:
             sample_prefixes = [
                 prefix
@@ -435,12 +566,14 @@ def main() -> int:
     args = parser.parse_args()
 
     report = {
-        "schema_version": "thesis-source-recon-v1.1",
+        "schema_version": "thesis-source-recon-v1.2",
         "read_only": True,
         "limits": {
             "follows_set_resumption_tokens": True,
             "max_set_pages": MAX_SET_PAGES,
-            "follows_record_resumption_tokens": False,
+            "record_resumption_policy": "header-only fallback for small broken set endpoints",
+            "max_header_fallback_pages": MAX_HEADER_FALLBACK_PAGES,
+            "max_header_fallback_universe": MAX_HEADER_FALLBACK_UNIVERSE,
             "downloads_thesis_files": False,
             "samples_per_repository": 1,
         },
