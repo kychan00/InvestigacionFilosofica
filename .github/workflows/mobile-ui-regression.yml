@@ -30,6 +30,11 @@ on:
       - "src/core/author-authority-build-pipeline.js"
       - "tests/author-authority-build-pipeline.test.mjs"
       - "scripts/authority/build-authority-fixture-v1.mjs"
+      - "src/core/author-authority-batch.js"
+      - "tests/author-authority-batch.test.mjs"
+      - "tests/author-authority-batch-build.test.mjs"
+      - "scripts/authority/build-authority-batch-v1.mjs"
+      - "scripts/authority/build-authority-batch-fixture-v1.mjs"
       - "package.json"
       - "src/core/author-collaborations.js"
       - "tests/author-collaborations.test.mjs"
@@ -78,6 +83,14 @@ jobs:
         with:
           name: author-authority-fixture-v1
           path: artifacts/author-authority/
+          if-no-files-found: error
+      - name: Build batch Author Authority fixture
+        run: npm run build:authority-batch-fixture
+      - name: Upload batch Author Authority fixture
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-batch-fixture-v1
+          path: artifacts/author-authority-batch-fixture-v1/site/author-authority-v1/
           if-no-files-found: error
       - name: Verify Python author-index alias and coauthor contracts
         run: |
