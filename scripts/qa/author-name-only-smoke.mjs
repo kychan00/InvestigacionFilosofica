@@ -92,7 +92,7 @@ try {
     const titles=await page.locator(".author-work-grid .result-card h2")
       .allTextContents();
     for(const item of works) assert.ok(titles.some(x=>x.includes(item.title)));
-    const heading=await page.locator(".author-resolution.is-resolved strong").first()
+    const heading=await page.locator(".author-page-hero h1").first()
       .textContent();
     assert.match(heading,/Dinora Hernández López/);
     await page.locator(".author-page-works").scrollIntoViewIfNeeded();
