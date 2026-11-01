@@ -166,3 +166,28 @@ test("el adaptador se conecta al resolvedor genérico sin hacer excepción por a
   assert.equal(result.status,"confirmed");
   assert.equal(result.targetRef,candidate.id);
 });
+
+test("la misma URL usada por obras distintas produce SourceRecord internos distintos",()=>{
+  const a=workToSourceRecords({
+    id:"curated:a",
+    title:"Obra A",
+    year:2024,
+    sourceRecords:[{
+      provider:"Bibliografía verificada",
+      sourceId:"https://example.org/shared"
+    }]
+  })[0];
+  const b=workToSourceRecords({
+    id:"curated:b",
+    title:"Obra B",
+    year:2024,
+    sourceRecords:[{
+      provider:"Bibliografía verificada",
+      sourceId:"https://example.org/shared"
+    }]
+  })[0];
+
+  assert.equal(a.providerRecordId,b.providerRecordId);
+  assert.notEqual(a.id,b.id);
+});
+
