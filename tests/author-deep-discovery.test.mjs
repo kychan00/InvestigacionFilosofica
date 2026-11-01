@@ -68,7 +68,7 @@ test("la consulta profunda usa el ID exacto, recorre cursor y no confunde otros 
   "Primera obra","Segunda obra","Tercera obra"
  ]);
  assert.equal(result.works[2].publicationDate,"2022-10-13");
- assert.equal(result.works.every(x=>x.relevanceLevel===undefined),true);
+ assert.equal(result.works.every(x=>x.relevanceLevel===null),true);
  assert.equal(progress.length,2);
  assert.equal(urls.length,2);
 });
