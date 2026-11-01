@@ -113,6 +113,10 @@ test("una cadena estructurada de creadores genera menciones separadas",()=>{
     mentions.map(x=>x.rawValue),
     ["Dinora Hernández","Hermann Omar Amaya","Santiago M. Roggerone"]
   );
+  assert.equal(
+    mentions[0].rawCreatorStatement,
+    "Dinora Hernández, Hermann Omar Amaya, Santiago M. Roggerone"
+  );
   assert.equal(new Set(mentions.map(x=>x.id)).size,3);
 });
 
