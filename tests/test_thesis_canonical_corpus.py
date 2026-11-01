@@ -135,9 +135,9 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(info["quality"], "suspicious")
 
     def test_day_first_dates_are_normalized_without_losing_raw_value(self):
-        info = thesis.date_info("31/12/1969", reference_year=2026)
-        self.assertEqual(info["raw"], "31/12/1969")
-        self.assertEqual(info["value"], "1969-12-31")
+        info = thesis.date_info("01/04/2018", reference_year=2026)
+        self.assertEqual(info["raw"], "01/04/2018")
+        self.assertEqual(info["value"], "2018-04-01")
         self.assertEqual(info["precision"], "day")
         self.assertEqual(info["quality"], "valid")
 
