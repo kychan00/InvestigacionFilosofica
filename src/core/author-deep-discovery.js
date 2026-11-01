@@ -3,7 +3,7 @@ import {
   resolveRemoteAuthorCandidate,
   enrichAuthorWorksWithCollaborators
 } from "./remote-author-resolution.js";
-import { resolveFederatedAuthor } from "./crossref-author-fallback.js";
+import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261101-federated-coverage-v1";
 
 /*
  * Author catalogue policy: NEVER contact api.openalex.org from the
