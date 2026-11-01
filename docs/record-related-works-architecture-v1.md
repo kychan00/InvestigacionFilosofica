@@ -6,6 +6,20 @@
 
 ---
 
+## Estado de Fase 0
+
+La arquitectura ya tiene un contrato ejecutable y una matriz sintética versionada:
+
+- `src/core/related-work-contract.js`
+- `tests/related-work-contract.test.mjs`
+- `benchmark/related-works/v1/fixtures.json`
+- `docs/RELATED_WORKS_DATA_CONTRACTS_V1.md`
+- `docs/RELATED_WORKS_FIXTURES_V1.md`
+
+Fase 0 no define todavía pesos finales de ranking ni modifica la UI. Su cierre exige que todas las relaciones publicables sean tipadas, explicables y respaldadas por evidencia estructurada.
+
+---
+
 ## 1. Principio de producto
 
 La sección no debe comportarse como un recomendador genérico de comercio electrónico.
