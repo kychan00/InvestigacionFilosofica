@@ -269,11 +269,19 @@ def build_work_buckets(
           aw.work_id,
           aw.author_position,
           aw.is_corresponding,
+          authors_by_work.coauthor_count,
           c.title,
           c.publication_year,
           c.language,
           c.type
         FROM author_works AS aw
+        INNER JOIN (
+          SELECT work_id,
+            count(DISTINCT author_id) - 1 AS coauthor_count
+          FROM author_works
+          GROUP BY work_id
+        ) AS authors_by_work
+          ON authors_by_work.work_id = aw.work_id
         INNER JOIN corpus AS c
           ON c.work_id = aw.work_id
         INNER JOIN author_profiles AS p
@@ -299,6 +307,7 @@ def build_work_buckets(
             work_id,
             position,
             corresponding,
+            coauthor_count,
             title,
             year,
             language,
@@ -311,6 +320,7 @@ def build_work_buckets(
                     "wid": int(work_id),
                     "p": position,
                     "r": bool(corresponding),
+                    "co": int(coauthor_count or 0),
                     "t": title,
                     "y": (
                         int(year)

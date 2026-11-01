@@ -143,3 +143,24 @@ test("la búsqueda académica de perfiles jamás utiliza api.openalex.org",async
     assert.equal(source.includes('new URL("authors",apiBase)'),false,path);
   }
 });
+
+test("fusiona IDs respaldados por el mismo ORCID sin duplicar colaboraciones",async()=>{
+ const ids=[];
+ const result=await fetchAuthorWorksFromSnapshot({
+  authorId:"7654321",displayName:"Dinora Hernández López",
+  linkedAuthorIds:["7654322","7654321"],
+  orcid:"https://orcid.org/0000-0002-1234-5678",
+  enrichCollaborators:false,
+  resolverImpl:async candidate=>{
+    ids.push(candidate.id);
+    return {status:"resolved",author:{corpusWorks:2},works:
+      candidate.id==="7654321"
+      ?[work(101,"Obra conjunta",2021),work(102,"Primera",2022)]
+      :[work(101,"Obra conjunta",2021),work(103,"Segunda",2023)]};
+  }
+ });
+ assert.deepEqual(ids,["7654321","7654322"]);
+ assert.equal(result.works.length,3);
+ assert.equal(result.total,3);
+ assert.equal(result.complete,true);
+});

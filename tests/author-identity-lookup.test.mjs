@@ -95,3 +95,41 @@ test("abort no relanza solicitudes externas",async()=>{
     resolverImpl:async()=>{throw new DOMException("Aborted","AbortError")}
   }),{name:"AbortError"});
 });
+
+test("Dra., Dinora Hernández y Hernández López se agrupan por ORCID",()=>{
+ const res=chooseSnapshotAuthorIdentity("Dra Dinora Hernández",{
+  status:"candidates",
+  candidates:[
+    candidate("7654321","Dra Dinora Hernández","https://orcid.org/0000-0002-1234-5678",3),
+    candidate("7654322","Dinora Hernández López","https://orcid.org/0000-0002-1234-5678",9)
+  ]
+ });
+ assert.equal(res.status,"resolved");
+ assert.equal(res.joinedBy,"orcid");
+ assert.equal(res.candidate.n,"Dinora Hernández López");
+ assert.deepEqual(res.candidate.linkedAuthorIds,["7654322","7654321"]);
+ assert.equal(res.candidate.aliases.includes("Dinora Hernández"),true);
+});
+
+test("títulos académicos se normalizan sin atribuir homónimos",()=>{
+ assert.equal(matchAuthorName("Dra Dinora Hernández",{
+  display_name:"Dinora Hernández López"
+ }),"partial");
+ const res=chooseSnapshotAuthorIdentity("Dinora Hernández",{
+  status:"candidates",candidates:[
+    candidate("123","Dinora Hernández López",null,5),
+    candidate("124","Dinora Hernández Gómez",null,3)
+  ]
+ });
+ assert.equal(res.status,"ambiguous");
+});
+
+test("una búsqueda por alias del índice no se sustituye por API externa",async()=>{
+ const found=await findSnapshotAuthorIdentity("Dra Dinora Hernández",{
+  candidatesImpl:async()=>[
+    candidate("5","Dinora Hernández",null,3)
+  ]
+ });
+ assert.equal(found.status,"resolved");
+ assert.equal(found.candidate.id,"5");
+});

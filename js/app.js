@@ -45,6 +45,7 @@ import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=2026103
 
 import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-deep-author-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
+import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261031-coauthors-v1";
 
 import {
   resolveFederatedAuthor
@@ -2381,6 +2382,12 @@ function renderResult(
               : ""
           }
 
+          ${item.collaborationKind === "collaboration"
+              ? `<span class="provider author-collaboration-tag">Coautoría · ${item.collaborationCount} ${item.collaborationCount === 1 ? "colaborador" : "colaboradores"}</span>`
+              : item.collaborationKind === "individual"
+                ? `<span class="provider author-individual-tag">Autoría individual</span>`
+                : ""}
+
           ${
             item.presentationCollapsed
               ? `
@@ -4273,12 +4280,18 @@ async function openExclusiveAuthorByName(
       );
     // Name-only links first resolve against the HF-derived static author index.
     // No OpenAlex API calls or credits are required.
+    const foundIdentity = await findSnapshotAuthorIdentity(name, {
+      orcid: identity.orcid || null,
+      signal: authorController.signal
+    });
+    // A shared URL with an exact ID keeps that identity authoritative.
+    // Enrich it with linked aliases only if the cluster explicitly
+    // contains that same ID; never redirect to a mere namesake.
     const liveIdentity = exactId
-      ? null
-      : await findSnapshotAuthorIdentity(name, {
-          orcid: identity.orcid || null,
-          signal: authorController.signal
-        });
+      ? foundIdentity?.status === "resolved" &&
+        foundIdentity.candidate?.linkedAuthorIds?.includes(exactId)
+          ? foundIdentity : null
+      : foundIdentity;
 
     if (liveIdentity?.status === "ambiguous") {
       showAuthorChoice({
@@ -4347,6 +4360,18 @@ async function openExclusiveAuthorByName(
               authorController.signal
           }
         );
+    }
+
+    if (resolution.status === "resolved" && liveCandidate) {
+      resolution = {
+        ...resolution,
+        author: {
+          ...resolution.author,
+          displayName: liveCandidate.n || resolution.author.displayName,
+          linkedAuthorIds: liveCandidate.linkedAuthorIds || [liveCandidate.id],
+          aliases: [...new Set([name,...(liveCandidate.aliases || [])])]
+        }
+      };
     }
 
     if (resolution.status === "resolved") {
@@ -5103,6 +5128,20 @@ function renderAuthorPage(
       author,
       works
     );
+  const collaborationSummary = summarizeAuthorCollaborations(author, works);
+  const aliasNames = [...new Set((author.aliases || [])
+    .filter(alias => alias && alias !== author.displayName))];
+  const collaboratorCards = collaborationSummary.collaborators.slice(0, 12)
+    .map(person => `
+      <a class="author-coauthor-link"
+        href="${escapeHtml(authorWorksUrl(person.name, {
+          id: person.id, orcid: person.orcid
+        }))}"
+        target="_blank" rel="noopener noreferrer">
+        <span>${escapeHtml(person.name)}</span>
+        <strong>${person.count} ${person.count === 1 ? "obra" : "obras"}</strong>
+      </a>`)
+    .join("");
   const federatedCatalog =
     author.catalog === "federated";
   const catalogSources =
@@ -5230,6 +5269,12 @@ function renderAuthorPage(
             )}
           </p>
 
+          ${aliasNames.length ? `
+            <p class="author-page-aliases">
+              <strong>También figura como:</strong>
+              ${escapeHtml(aliasNames.join(" · "))}
+            </p>` : ""}
+
           <div class="author-page-evidence">
             ${
               author.wikipediaUrl
@@ -5311,6 +5356,21 @@ function renderAuthorPage(
         </div>
       </section>
 
+      <section class="author-collaboration-summary" aria-label="Autorías y colaboraciones">
+        <span class="author-section-kicker">Red de autoría</span>
+        <h2>Obras individuales y colaboraciones</h2>
+        <div class="author-collaboration-counts">
+          <div><strong>${collaborationSummary.individual}</strong><span>Individuales verificadas</span></div>
+          <div><strong>${collaborationSummary.collaboration}</strong><span>En coautoría</span></div>
+          <div><strong>${collaborationSummary.unknown}</strong><span>Sin autoría suficiente</span></div>
+        </div>
+        ${collaboratorCards ? `
+          <h3>Colaboradores identificados</h3>
+          <div class="author-coauthor-list">${collaboratorCards}</div>
+        ` : ""}
+        <p>Se cuentan únicamente las publicaciones recuperadas. Los coautores proceden del índice de autorías de Hugging Face o de metadatos bibliográficos verificados.</p>
+      </section>
+
       <section class="author-page-taxonomy" aria-label="Idiomas y tipos documentales">
         <div>
           <span class="author-section-kicker">Idiomas</span>
@@ -5346,7 +5406,14 @@ function renderAuthorPage(
         </div>
 
         <div class="author-work-grid">
-          ${visible.map(renderResult).join("")}
+          ${visible.map((item, index) => {
+            const collab = workCollaboration(item, author);
+            return renderResult({
+              ...item,
+              collaborationKind:collab.kind,
+              collaborationCount:collab.count
+            }, index);
+          }).join("")}
         </div>
 
         ${

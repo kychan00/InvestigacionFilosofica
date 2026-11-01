@@ -27,6 +27,14 @@ INDEX_VERSION = "author-index-v2"
 BUCKET_COUNT = 1024
 
 
+HONORIFICS = {
+    "dr", "dra", "doctor", "doctora", "prof",
+    "profesor", "profesora", "lic", "licenciado",
+    "licenciada", "mtro", "mtra", "maestro",
+    "maestra", "phd",
+}
+
+
 NAME_PARTICLES = {
     "al",
     "da",
@@ -75,11 +83,19 @@ def normalize_name(value):
     text = text.replace("_", " ")
     text = text.replace("-", " ")
 
-    return re.sub(
+    normalized = re.sub(
         r"\s+",
         " ",
         text,
     ).strip()
+    tokens = normalized.split()
+
+    # Titles are not identity evidence: "Dra Dinora Hernández"
+    # should be indexed under "Dinora Hernández".
+    while len(tokens) > 1 and tokens[0] in HONORIFICS:
+        tokens.pop(0)
+
+    return " ".join(tokens)
 
 
 def name_tokens(value):
@@ -128,6 +144,16 @@ def alias_signatures(value):
             "surname",
         ))
 
+    if len(tokens) >= 3:
+        # A Spanish author's second family name may be absent from
+        # citations. This is a *candidate* alias, not proof of identity.
+        aliases.add((
+            token_signature(
+                f"{tokens[0]} {tokens[1]}"
+            ),
+            "given-first-family",
+        ))
+
     if len(tokens) >= 2:
         aliases.add((
             token_signature(
@@ -143,7 +169,24 @@ def alias_signatures(value):
             "initial",
         ))
 
-    return sorted(aliases)
+    # A two-token full name can also be its own suffix. Emit one
+    # identity record per signature and prioritize precise aliases.
+    priority = {
+        "full": 0,
+        "given-first-family": 1,
+        "suffix": 2,
+        "initial": 3,
+        "surname": 4,
+    }
+    unique = {}
+    for signature, kind in aliases:
+        if (
+            signature not in unique
+            or priority[kind] < priority[unique[signature]]
+        ):
+            unique[signature] = kind
+
+    return sorted(unique.items())
 
 
 def fnv1a_32(value):

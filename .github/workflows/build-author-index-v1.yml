@@ -123,13 +123,13 @@ jobs:
         run: |
           tar \
             -C artifacts/author-index-v1/site \
-            -czf artifacts/author-index-v1/author-index-v2.tar.gz \
+            -czf artifacts/author-index-v1/author-index-v3.tar.gz \
             author-index-v2
 
           cd artifacts/author-index-v1
           shasum -a 256 \
-            author-index-v2.tar.gz \
-            > author-index-v2.tar.gz.sha256
+            author-index-v3.tar.gz \
+            > author-index-v3.tar.gz.sha256
 
       - name: Upload validated payload
         uses: actions/upload-artifact@v5
@@ -138,8 +138,8 @@ jobs:
           retention-days: 30
           compression-level: 0
           path: |
-            artifacts/author-index-v1/author-index-v2.tar.gz
-            artifacts/author-index-v1/author-index-v2.tar.gz.sha256
+            artifacts/author-index-v1/author-index-v3.tar.gz
+            artifacts/author-index-v1/author-index-v3.tar.gz.sha256
             artifacts/author-index-v1/site/author-index-v2/manifest.json
             artifacts/author-index-v1/site/author-index-v2/sample-kant.json
 
@@ -147,11 +147,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create author-index-v2 \
-            artifacts/author-index-v1/author-index-v2.tar.gz \
-            artifacts/author-index-v1/author-index-v2.tar.gz.sha256 \
+          gh release create author-index-v3 \
+            artifacts/author-index-v1/author-index-v3.tar.gz \
+            artifacts/author-index-v1/author-index-v3.tar.gz.sha256 \
             artifacts/author-index-v1/site/author-index-v2/manifest.json \
             artifacts/author-index-v1/site/author-index-v2/sample-kant.json \
             --target "${GITHUB_SHA}" \
-            --title "Remote author index v2" \
-            --notes "Adds inverse work-to-author shards to the pinned remote author index, without changing the Hugging Face source revisions or the 451,823-work corpus."
+            --title "Remote author index v3 · aliases and collaborations" \
+            --notes "Immutable v3 release of the author-index-v2 site schema. Adds honorific-insensitive and given-first-surname aliases plus coauthor-count fields; preserves the pinned Hugging Face source revisions and index provenance."

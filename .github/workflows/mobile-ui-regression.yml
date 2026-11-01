@@ -16,6 +16,12 @@ on:
       - "scripts/qa/author-name-only-smoke.mjs"
       - "tests/author-identity-lookup.test.mjs"
       - "src/core/author-identity-lookup.js"
+      - "src/core/author-collaborations.js"
+      - "tests/author-collaborations.test.mjs"
+      - "scripts/openalex/author_index_common.py"
+      - "scripts/openalex/merge_author_index_v1.py"
+      - "tests/test_author_index_common.py"
+      - "tests/test_author_index_merge.py"
       - "tests/author-deep-discovery.test.mjs"
       - "src/core/author-deep-discovery.js"
       - "src/sources/openalex.js"
@@ -46,6 +52,10 @@ jobs:
         run: npm ci
       - name: Run unit and integration tests
         run: npm test
+      - name: Verify Python author-index alias and coauthor contracts
+        run: |
+          python3 -m pip install --user duckdb huggingface_hub
+          python3 -m unittest tests/test_author_index_common.py tests/test_author_index_merge.py
       - name: Install browser smoke tooling
         run: |
           npm install --no-save --package-lock=false playwright@1.56.1

@@ -1,6 +1,8 @@
 import {
   authorNameSignature,
   normalizeAuthorName,
+  cleanAuthorDisplayName,
+  findSnapshotAuthorCandidates,
   resolveRemoteAuthor
 } from "./remote-author-resolution.js";
 
@@ -40,7 +42,8 @@ export function matchAuthorName(query,candidate) {
 function candidateFromIndex(candidate,confidence="snapshot") {
   const id=authorId(candidate?.id);
   return id ? {
-    id,n:String(candidate?.n||candidate?.displayName||"").trim(),
+    id,
+    n:cleanAuthorDisplayName(candidate?.n||candidate?.displayName||""),
     o:candidate?.o||candidate?.orcid||null,
     cw:Math.max(0,Number(candidate?.cw||candidate?.corpusWorks||0)),
     k:confidence,
@@ -48,45 +51,83 @@ function candidateFromIndex(candidate,confidence="snapshot") {
   }:null;
 }
 
+function authorGroup(candidates) {
+  const list=[...candidates].sort((a,b)=>
+    normalizeAuthorName(b.n).split(" ").length -
+      normalizeAuthorName(a.n).split(" ").length ||
+    b.cw-a.cw || a.n.localeCompare(b.n,"es"));
+  const [primary]=list;
+  return {
+    ...primary,
+    linkedAuthorIds:list.map(x=>x.id),
+    aliases:[...new Set(list.map(x=>x.n))]
+  };
+}
+
 export function chooseSnapshotAuthorIdentity(name,resolution,{orcid=null}={}) {
   const expected=normalizedOrcid(orcid);
+  let candidates=[];
   if(resolution?.status==="resolved") {
     const source=resolution.author||{};
-    const candidate=candidateFromIndex({
+    candidates=[candidateFromIndex({
       id:source.id,n:source.sourceDisplayName||source.displayName,
       o:source.orcid,cw:source.corpusWorks
-    });
-    if(!candidate) return {status:"none",candidates:[]};
-    if(expected&&normalizedOrcid(candidate.o)!==expected)
-      return {status:"none",candidates:[]};
-    return {status:"resolved",candidate,candidates:[candidate]};
-  }
-  if(resolution?.status==="ambiguous"){
-    const candidates=(resolution.candidates||[])
-      .map(item=>candidateFromIndex(item))
-      .filter(Boolean)
-      .filter(item=>!expected||normalizedOrcid(item.o)===expected);
-    if(candidates.length===1)
-      return {status:"resolved",candidate:candidates[0],candidates};
-    return candidates.length
-      ? {status:"ambiguous",candidates}
-      : {status:"none",candidates:[]};
-  }
-  if(resolution?.status==="unavailable")
+    })].filter(Boolean);
+  } else if(resolution?.status==="ambiguous"||
+            resolution?.status==="candidates") {
+    candidates=(resolution.candidates||[])
+      .map(item=>candidateFromIndex(item,item.k))
+      .filter(Boolean);
+  } else if(resolution?.status==="unavailable") {
     return {status:"unavailable",candidates:[],error:resolution.error};
-  return {status:"none",candidates:[]};
+  }
+
+  const unique=new Map();
+  for(const candidate of candidates) {
+    if(expected && normalizedOrcid(candidate.o)!==expected) continue;
+    if(!unique.has(candidate.id))unique.set(candidate.id,candidate);
+  }
+  const filtered=[...unique.values()];
+  if(!filtered.length) return {status:"none",candidates:[]};
+  if(filtered.length===1) {
+    return {status:"resolved",
+      candidate:authorGroup(filtered),candidates:filtered};
+  }
+
+  // A shared ORCID *unambiguously* joins distinct IDs. A name alone
+  // never does: another Dinora Hernández can be a different scholar.
+  const orcids=new Set(filtered.map(x=>normalizedOrcid(x.o)).filter(Boolean));
+  const allHaveOrcid=filtered.every(x=>normalizedOrcid(x.o));
+  if(orcids.size===1&&allHaveOrcid) {
+    return {status:"resolved",
+      candidate:authorGroup(filtered),
+      candidates:filtered,
+      joinedBy:"orcid"};
+  }
+  return {status:"ambiguous",candidates:filtered};
 }
+
 
 export async function findSnapshotAuthorIdentity(name,{
   orcid=null,signal,resolverImpl=resolveRemoteAuthor,
+  candidatesImpl=findSnapshotAuthorCandidates,
   resolverOptions={}
 }={}) {
   const query=String(name||"").trim();
   if(!query) return {status:"none",candidates:[]};
   try {
-    const resolution=await resolverImpl(query,{
-      ...resolverOptions,signal,includeProfile:false
-    });
+    // The corpus's alias partitions include exact names, academic titles,
+    // given+first-family variants and stable author IDs. Keep every
+    // candidate so that homonyms are never silently collapsed.
+    // Explicit resolver stubs retain the original integration contract.
+    const direct = resolverImpl===resolveRemoteAuthor
+      ? await candidatesImpl(query,{...resolverOptions,signal})
+      : [];
+    const resolution=direct.length
+      ? {status:"candidates",candidates:direct}
+      : await resolverImpl(query,{
+          ...resolverOptions,signal,includeProfile:false
+        });
     return {...chooseSnapshotAuthorIdentity(query,resolution,{orcid}),
       provider:"OpenAlex Philosophy · Hugging Face"};
   }catch(error){

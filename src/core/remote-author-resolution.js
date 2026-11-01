@@ -78,7 +78,7 @@ export function cleanAuthorWorkTitle(value) {
 export function normalizeAuthorName(
   value
 ) {
-  return String(value || "")
+  const words = String(value || "")
     .normalize("NFKD")
     .replace(/\p{M}/gu, "")
     .toLocaleLowerCase("und")
@@ -87,6 +87,23 @@ export function normalizeAuthorName(
     .replace(/[^\p{L}\p{N}\s-]+/gu, " ")
     .replace(/[_-]/g, " ")
     .replace(/\s+/g, " ")
+    .trim()
+    .split(" ")
+    .filter(Boolean);
+  const honorifics = new Set([
+    "dr", "dra", "doctor", "doctora", "prof", "profesor",
+    "profesora", "lic", "licenciado", "licenciada",
+    "mtro", "mtra", "maestro", "maestra", "phd"
+  ]);
+  while (words.length > 1 && honorifics.has(words[0])) {
+    words.shift();
+  }
+  return words.join(" ");
+}
+
+export function cleanAuthorDisplayName(value) {
+  return String(value || "").trim()
+    .replace(/^(?:(?:Dra?\.?|Doctora?\.?|Prof(?:esor|esora)?\.?|Lic(?:enciado|enciada)?\.?|Mtr[oa]\.?)\s+)+/iu,"")
     .trim();
 }
 
@@ -341,6 +358,18 @@ function dedupeCandidates(rows) {
           "es"
         )
     );
+}
+
+
+export async function findSnapshotAuthorCandidates(query, options = {}) {
+  const context = createContext(options);
+  const signature = authorNameSignature(query);
+  if (!signature) return [];
+  const exact = await aliasCandidates(context, signature);
+  return dedupeCandidates(exact)
+    .filter(row => row.k === "full" || row.k === "given-first-family" ||
+      row.k === "suffix" || row.k === "initial")
+    .slice(0, 30);
 }
 
 
@@ -636,6 +665,8 @@ async function authorWorks(
           Math.max(90, 100 - index * 0.2),
         relevanceLevel: "Autor",
         retrievalMode: "author-index",
+        authorPosition: row.p || null,
+        coauthorCount: row.co !== null && row.co !== undefined && Number.isInteger(Number(row.co)) ? Number(row.co) : null,
         ranking: {
           author: 100,
           query: 100,
@@ -747,6 +778,56 @@ async function authorRowsForBuckets(
   }
 
   return rows;
+}
+
+
+/**
+ * Add full collaborators to the first visible author works, using the
+ * inverse work-authors index from the Hugging Face snapshot. This never
+ * searches for coauthors by name (which can misattribute publications).
+ * The capped batch avoids fetching all 1,024 shards for prolific authors.
+ */
+export async function enrichAuthorWorksWithCollaborators(works, options = {}) {
+  const source = Array.isArray(works) ? works : [];
+  const cap = Math.max(1, Math.min(40, Number(options.limit) || 24));
+  const eligible = source.slice(0, cap)
+    .map(work => ({work, workId:openAlexWorkId(work)}))
+    .filter(entry => entry.workId &&
+      (entry.work.coauthorCount === null ||
+       entry.work.coauthorCount === undefined ||
+       entry.work.coauthorCount > 0));
+  if (!eligible.length) return source;
+
+  const context = createContext(options);
+  const buckets = [...new Set(eligible.map(entry =>
+    authorBucket(entry.workId)))];
+  try {
+    const rows = await authorRowsForBuckets(context, buckets);
+    const authorsByWork = new Map(rows.map(row => [
+      String(row.wid), row.a || []
+    ]));
+    return source.map((work,index) => {
+      if (index >= cap) return work;
+      const id = openAlexWorkId(work);
+      const authors = authorsByWork.get(String(id || ""));
+      if (!authors?.length) return work;
+      return {
+        ...work,
+        authors: authors.map(author => ({
+          id:`https://openalex.org/A${author.id}`,
+          name:author.n,
+          orcid:author.o || null,
+          position:author.p || null,
+          isCorresponding:Boolean(author.r)
+        })),
+        coauthorCount:Math.max(0,authors.length - 1),
+        authorMetadataSource:"OpenAlex snapshot · Hugging Face"
+      };
+    });
+  } catch(error) {
+    if (options.signal?.aborted) throw error;
+    return source;
+  }
 }
 
 

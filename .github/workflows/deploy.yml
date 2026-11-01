@@ -83,7 +83,7 @@ jobs:
         run: |
           mkdir -p _site/data/authors
 
-          for version in author-index-v1 author-index-v2; do
+          for version in author-index-v1 author-index-v2 author-index-v3; do
             if gh release view "${version}" \
               --repo "${GITHUB_REPOSITORY}" \
               >/dev/null 2>&1; then
@@ -96,8 +96,21 @@ jobs:
 
               cd "/tmp/${version}"
               shasum -a 256 -c "${version}.tar.gz.sha256"
-              tar -xzf "${version}.tar.gz" \
-                -C "${GITHUB_WORKSPACE}/_site/data/authors"
+              # v3 uses the existing author-index-v2 directory format.
+              # Replace old shards as one atomic staged copy so legacy
+              # alias buckets cannot remain next to updated metadata.
+              if [ "${version}" = "author-index-v3" ]; then
+                mkdir -p "/tmp/${version}/extracted"
+                tar -xzf "${version}.tar.gz" \
+                  -C "/tmp/${version}/extracted"
+                test -f "/tmp/${version}/extracted/author-index-v2/manifest.json"
+                rm -rf "${GITHUB_WORKSPACE}/_site/data/authors/author-index-v2"
+                cp -a "/tmp/${version}/extracted/author-index-v2" \
+                  "${GITHUB_WORKSPACE}/_site/data/authors/"
+              else
+                tar -xzf "${version}.tar.gz" \
+                  -C "${GITHUB_WORKSPACE}/_site/data/authors"
+              fi
             else
               echo "Remote ${version} has not been published yet."
             fi
