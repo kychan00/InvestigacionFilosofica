@@ -776,6 +776,50 @@ def allocate_work_ids(
     return group_ids, registry
 
 
+def contribution_conflicts(
+    contributions: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    roles_by_name: dict[str, set[str]] = {}
+    refs_by_name: dict[str, list[str]] = {}
+    sources_by_name: dict[str, set[str]] = {}
+
+    for item in contributions:
+        name = item.get("normalizedName") or ""
+        role = item.get("role") or ""
+        if not name or not role:
+            continue
+        roles_by_name.setdefault(name, set()).add(role)
+        refs_by_name.setdefault(name, []).append(item.get("id") or "")
+        if item.get("sourceRecordRef"):
+            sources_by_name.setdefault(name, set()).add(item["sourceRecordRef"])
+
+    supervisory = {
+        "thesis-director",
+        "thesis-codirector",
+        "thesis-advisor",
+    }
+
+    conflicts: list[dict[str, Any]] = []
+    for name, roles in sorted(roles_by_name.items()):
+        if "thesis-author" not in roles or not (roles & supervisory):
+            continue
+
+        conflicts.append(
+            {
+                "type": "author-supervisor-name-collision",
+                "normalizedName": name,
+                "roles": sorted(roles),
+                "contributionRefs": sorted(
+                    ref for ref in refs_by_name.get(name, []) if ref
+                ),
+                "sourceRecordRefs": sorted(sources_by_name.get(name, set())),
+                "resolutionDirective": "do-not-auto-resolve",
+            }
+        )
+
+    return conflicts
+
+
 def build_corpus(
     source_records: list[dict[str, Any]],
     registry: dict[str, Any],
@@ -872,6 +916,34 @@ def build_corpus(
                 )
             admissions.append(item["admission"])
 
+        group_contributions = list(contribution_map.values())
+        role_conflicts = contribution_conflicts(group_contributions)
+        blocked_names = {
+            item["normalizedName"]
+            for item in role_conflicts
+            if item.get("normalizedName")
+        }
+        if blocked_names:
+            group_contributions = [
+                {
+                    **item,
+                    "resolutionState": (
+                        "blocked-role-conflict"
+                        if item.get("normalizedName") in blocked_names
+                        else item.get("resolutionState", "unresolved")
+                    ),
+                }
+                for item in group_contributions
+            ]
+
+        metadata_quality_flags = sorted(
+            {
+                item["type"]
+                for item in role_conflicts
+                if item.get("type")
+            }
+        )
+
         group_admission = "quarantine"
         group_codes = []
         if identity_veto_applied:
@@ -905,7 +977,9 @@ def build_corpus(
                 "thesisTypeRaw": primary["thesisTypeRaw"],
                 "sourceRecordRefs": source_refs,
                 "persistentIdentifiers": list(persistent_map.values()),
-                "contributions": list(contribution_map.values()),
+                "contributions": group_contributions,
+                "contributionConflicts": role_conflicts,
+                "metadataQualityFlags": metadata_quality_flags,
                 "admissionStatus": group_admission,
                 "admissionExplanationCodes": group_codes,
             }
@@ -918,6 +992,13 @@ def build_corpus(
         "providers": dict(Counter(record["provider"] for record in source_records)),
         "dateQuality": dict(Counter(work["date"]["quality"] for work in works)),
         "identityDecisions": dict(Counter(item["status"] for item in identity_decisions)),
+        "metadataQualityFlags": dict(
+            Counter(
+                flag
+                for work in works
+                for flag in work.get("metadataQualityFlags", [])
+            )
+        ),
     }
 
     payload = {
@@ -981,11 +1062,34 @@ def validate_corpus(corpus: dict[str, Any]) -> bool:
             for name in author_names & supervisory_names
             if name
         }
-        if overlap:
+
+        reported_conflicts = {
+            item.get("normalizedName")
+            for item in work.get("contributionConflicts", [])
+            if item.get("type") == "author-supervisor-name-collision"
+            and item.get("normalizedName")
+        }
+
+        if overlap != reported_conflicts:
             raise ValueError(
-                "Same normalized person appears as author and supervisor: "
-                + ", ".join(sorted(overlap))
+                "Author/supervisor role collisions must be represented exactly "
+                "as contributionConflicts"
             )
+
+        if overlap:
+            flags = set(work.get("metadataQualityFlags", []))
+            if "author-supervisor-name-collision" not in flags:
+                raise ValueError(
+                    "Author/supervisor collision missing metadata quality flag"
+                )
+
+            for contrib in work.get("contributions", []):
+                if contrib.get("normalizedName") in overlap:
+                    if contrib.get("resolutionState") != "blocked-role-conflict":
+                        raise ValueError(
+                            "Conflicting contribution is not blocked from "
+                            "automatic person resolution"
+                        )
 
     return True
 
