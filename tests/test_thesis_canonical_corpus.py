@@ -141,6 +141,20 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(info["precision"], "day")
         self.assertEqual(info["quality"], "valid")
 
+    def test_riudg_epoch_sentinel_dates_are_suspicious(self):
+        iso = thesis.date_info("1969-12-31", reference_year=2026)
+        dmy = thesis.date_info("31/12/1969", reference_year=2026)
+
+        self.assertEqual(iso["raw"], "1969-12-31")
+        self.assertEqual(iso["value"], "1969-12-31")
+        self.assertEqual(iso["precision"], "day")
+        self.assertEqual(iso["quality"], "suspicious")
+
+        self.assertEqual(dmy["raw"], "31/12/1969")
+        self.assertEqual(dmy["value"], "1969-12-31")
+        self.assertEqual(dmy["precision"], "day")
+        self.assertEqual(dmy["quality"], "suspicious")
+
     def test_zero_month_and_day_reduce_date_precision(self):
         year_only = thesis.date_info("1991-00-00", reference_year=2026)
         self.assertEqual(year_only["raw"], "1991-00-00")
