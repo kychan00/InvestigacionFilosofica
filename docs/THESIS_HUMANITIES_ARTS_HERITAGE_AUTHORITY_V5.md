@@ -575,13 +575,23 @@ Total:
 Estudios Cinematográficos no altera el snapshot porque tiene 0 observaciones
 exactas.
 
-### V5 proyectado
+### V5 — cobertura por estado de programa
 
-- INCLUDE: **431**;
+- program matches INCLUDE: **431**;
+- program matches REVIEW: **211**;
+- unresolved program works: **26,794**;
+- obras sin programa crudo suficiente: **140**.
+
+### V5 — Admission Gate real
+
+- INCLUDE: **427**;
 - REVIEW: **211**;
-- QUARANTINE: **26,925**;
+- QUARANTINE: **26,929**;
 - EXCLUDE: 7;
 - REJECT_SOURCE: 2.
+
+Cuatro obras de UDGVirtual resuelven a Maestría en Gestión de la Cultura
+(INCLUDE) pero permanecen QUARANTINE por institución no confirmada.
 
 Total:
 
@@ -670,3 +680,19 @@ cobertura V5**:
 
 Esto permitirá decidir el siguiente bloque con datos posteriores a V5 y no con
 la cola calculada sobre V2.
+
+
+---
+
+## 17. Aclaración posterior — T2H Coverage Audit
+
+La proyección original de T2G contaba coincidencias de programa, no el resultado
+completo del Admission Gate.
+
+T2H fija esta distinción:
+
+- **431** obras resuelven a autoridades cuyo estado es INCLUDE;
+- **427** obras pasan realmente el Admission Gate;
+- las 4 restantes están bloqueadas por institución no confirmada.
+
+Las decisiones disciplinarias de V5 no cambian.
