@@ -24,10 +24,14 @@ function unique(values) {
 }
 
 function normalizedOrcid(value) {
-  return String(value || "")
+  const normalized = String(value || "")
     .replace(/^https?:\/\/orcid\.org\//i, "")
     .trim()
     .toUpperCase();
+
+  return /^\d{4}-\d{4}-\d{4}-[\dX]{4}$/.test(normalized)
+    ? normalized
+    : "";
 }
 
 function openAlexId(value) {
