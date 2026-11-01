@@ -43,6 +43,8 @@ import {
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
 
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-deep-author-v1";
+
 import {
   resolveFederatedAuthor
 } from "../src/core/crossref-author-fallback.js?v=20261029-universal-author-v1";
@@ -195,6 +197,8 @@ let authorTimelineState = {
   visibleLimit: 60
 };
 let authorArchiveLoading = false;
+let authorArchiveNotice = "";
+let authorArchiveSources = [];
 
 const qwen3OptIn =
   isQwen3BrowserQ8OptIn(
@@ -2492,6 +2496,7 @@ function renderResult(
               `
             : [
                 "author-index",
+                "author-live",
                 "author-crossref",
                 "author-internet-archive"
               ].includes(
@@ -2518,19 +2523,19 @@ function renderResult(
               `
               : `
               <div class="explain">
-                A ${item.ranking.author || 0}
+                A ${item.ranking?.author || 0}
                 ·
-                Q ${item.ranking.query}
+                Q ${item.ranking?.query}
                 ·
-                P ${item.ranking.philosophy}
+                P ${item.ranking?.philosophy}
                 ·
-                D ${item.ranking.discipline}
+                D ${item.ranking?.discipline}
                 ·
-                S ${item.ranking.consensus}
+                S ${item.ranking?.consensus}
                 ·
-                B ${item.ranking.bibliography}
+                B ${item.ranking?.bibliography}
                 ·
-                I ${item.ranking.impact}
+                I ${item.ranking?.impact}
               </div>
             `
         }
@@ -3928,6 +3933,8 @@ function showExclusiveAuthorWorks(
   options = {}
 ) {
   if (options.resetTimeline) {
+    authorArchiveNotice = "";
+    authorArchiveSources = [];
     authorTimelineState = {
       unit: "year",
       selectedKey: null,
@@ -3965,7 +3972,9 @@ function showExclusiveAuthorWorks(
   input.value =
     resolution.author.displayName;
 
-  resetVisibleLimit();
+  if (!options.preserveVisibleLimit) {
+    resetVisibleLimit();
+  }
   resetQwen3Experiment();
   renderInterpretation(
     currentResponse
@@ -3982,8 +3991,8 @@ function showExclusiveAuthorWorks(
   }
 
   status.textContent = authorArchiveLoading
-    ? `${currentResults.length} obras iniciales de ${resolution.author.displayName} · ampliando el archivo…`
-    : `${currentResults.length} obras disponibles de ${resolution.author.displayName}`;
+    ? `${currentResults.length} obras verificadas de ${resolution.author.displayName} · búsqueda profunda en curso…`
+    : `${currentResults.length} obras verificadas de ${resolution.author.displayName}${authorArchiveNotice ? " · " + authorArchiveNotice : ""}`;
 
   researchWorkspace
     ?.classList
@@ -4028,6 +4037,8 @@ function restoreAuthorSourceSearch() {
     "author-view"
   );
   authorArchiveLoading = false;
+  authorArchiveNotice = "";
+  authorArchiveSources = [];
   authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
@@ -4312,72 +4323,86 @@ async function openExclusiveAuthorByName(
         );
     }
 
-    if (
-      resolution.status ===
-      "resolved"
-    ) {
-      const remoteId = openAlexAuthorId(resolution.author?.id);
-      const corpusCount = Number(resolution.author?.corpusWorks || 0);
-      const shouldExpand = Boolean(
-        remoteId &&
-        resolution.author?.catalog !== "federated" &&
-        ((resolution.works || []).length < corpusCount ||
-          (resolution.works || []).length >= 50)
-      );
-
+    if (resolution.status === "resolved") {
       showExclusiveAuthorWorks(
         resolution,
-        { resetTimeline: true, loading: shouldExpand }
+        { resetTimeline: true, loading: true }
       );
 
-      if (shouldExpand) {
-        try {
-          const expanded = await resolveRemoteAuthorCandidate(
-            {
-              id: remoteId,
-              n: resolution.author.sourceDisplayName ||
-                resolution.author.displayName,
-              o: resolution.author.orcid || null,
-              cw: corpusCount
-            },
-            {
-              signal: authorController.signal,
-              timeoutMs: 15_000,
-              limit: Number.MAX_SAFE_INTEGER
-            }
-          );
+      // The historical philosophy-only index is an initial preview,
+      // never a complete bibliography. Scan the precise author ID
+      // even if the index contains just two entries.
+      try {
+        const deep = await discoverAuthorArchive({
+          author: {
+            ...resolution.author,
+            id: resolution.author.id || exactId,
+            orcid: resolution.author.orcid || identity.orcid || null
+          },
+          initialWorks: resolution.works,
+          signal: authorController.signal,
+          onProgress: ({works,source,phase,sources,errors}) => {
+            if (
+              authorController.signal.aborted ||
+              currentController !== authorController
+            ) return;
 
-          if (
-            authorController.signal.aborted ||
-            currentController !== authorController
-          ) return;
+            authorArchiveSources = sources;
+            authorArchiveNotice =
+              phase === "started"
+                ? "Consultando OpenAlex, Crossref y archivos…"
+                : `Consulta de ${source}: ${works.length} obras verificadas`;
 
-          if (
-            expanded.status === "resolved" &&
-            expanded.works.length >= (resolution.works || []).length
-          ) {
+            // Do not discard the initial results or collapse the
+            // user's selected year/month after each new page.
             showExclusiveAuthorWorks({
               ...resolution,
-              works: expanded.works,
+              works,
               author: {
                 ...resolution.author,
-                corpusWorks: Math.max(corpusCount, expanded.works.length)
+                corpusWorks: Math.max(
+                  Number(resolution.author.corpusWorks || 0),
+                  works.length
+                )
               }
-            }, { loading: false });
-          } else {
-            authorArchiveLoading = false;
-            renderFilteredResults();
-            status.textContent =
-              "Se muestra el archivo parcial; la ampliación no estuvo disponible.";
+            }, {loading: true, preserveVisibleLimit: true});
           }
-        } catch (error) {
-          if (authorController.signal.aborted) return;
-          authorArchiveLoading = false;
-          renderFilteredResults();
-          status.textContent =
-            "No se pudo completar la carga. Se conservan las obras iniciales.";
-        }
+        });
+
+        if (
+          authorController.signal.aborted ||
+          currentController !== authorController
+        ) return;
+
+        authorArchiveSources = deep.sources;
+        authorArchiveNotice = deep.errors.length
+          ? "Ampliación parcial: algunas fuentes no respondieron"
+          : deep.openAlexComplete
+            ? "Consulta completa de las páginas disponibles en OpenAlex"
+            : "Consulta ampliada de las fuentes disponibles";
+
+        showExclusiveAuthorWorks({
+          ...resolution,
+          works: deep.works,
+          author: {
+            ...resolution.author,
+            corpusWorks: Math.max(
+              Number(resolution.author.corpusWorks || 0),
+              deep.works.length
+            )
+          }
+        }, { loading: false, preserveVisibleLimit: true });
+      } catch(error) {
+        if (authorController.signal.aborted) return;
+        console.error("No se pudo completar el catálogo del autor:",error);
+        authorArchiveLoading = false;
+        authorArchiveNotice = "Búsqueda parcial: no fue posible consultar todas las fuentes";
+        showExclusiveAuthorWorks(
+          resolution,
+          { loading: false, preserveVisibleLimit: true }
+        );
       }
+
       return;
     }
 
@@ -5253,6 +5278,16 @@ function renderAuthorPage(
       </section>
 
       <section class="author-page-works">
+        <div class="author-archive-discovery" role="status" aria-live="polite">
+          <strong>${authorArchiveLoading ? "Buscando publicaciones del autor…" : "Archivo de publicaciones recuperadas"}</strong>
+          <span>${escapeHtml(authorArchiveNotice ||
+            (authorArchiveLoading ? "Consultando fuentes académicas…" :
+              "Resultados disponibles en los catálogos consultados."))}</span>
+          ${authorArchiveSources.length
+            ? `<small>Fuentes consultadas: ${escapeHtml(authorArchiveSources.join(" · "))}</small>`
+            : ""}
+          <small>El total recuperado no equivale necesariamente a la obra completa del autor.</small>
+        </div>
         <div class="author-page-works-heading">
           <div>
             <span class="author-section-kicker">Bibliografía</span>
