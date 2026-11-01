@@ -270,6 +270,73 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             },
         )
 
+    def test_cultural_management_v4_moves_only_review_program_to_queue(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en gestion de la cultura",
+                    "count": 15,
+                    "variants": {"Maestría en Gestión de la Cultura": 15},
+                    "providers": {"riudg": 11, "udgvirtual": 4},
+                    "admissionStatuses": {"quarantine": 15},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": "maestria en gestion y desarrollo cultural",
+                    "count": 40,
+                    "variants": {
+                        "MAESTRIA EN GESTION Y DESARROLLO CULTURAL": 40,
+                    },
+                    "providers": {"riudg": 40},
+                    "admissionStatuses": {"quarantine": 40},
+                    "programRefs": {},
+                },
+            ]
+        }
+
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Maestría en Gestión de la Cultura",
+                    "academicUnitRaw": "SUV",
+                    "date": {"value": "2025", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Maestría en Gestión y Desarrollo Cultural",
+                    "academicUnitRaw": "CUAAD",
+                    "date": {"value": "2021", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        self.assertEqual(
+            payload["metrics"]["allProgramStates"],
+            {"resolved": 1, "review": 1},
+        )
+
+        item = payload["items"][0]
+        self.assertEqual(
+            item["normalizedKey"],
+            "maestria en gestion y desarrollo cultural",
+        )
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:mae-gestion-desarrollo-cultural",
+        )
+
     def test_invalid_or_suspicious_dates_do_not_define_historical_span(self):
         observed = {
             "programs": [
