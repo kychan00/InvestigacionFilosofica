@@ -103,8 +103,8 @@ export async function resolveFederatedAuthor(name,options={}) {
   for(const candidate of suggested){
     const norm=normalizeAuthorName(candidate);
     if(!norm||used.has(norm))continue;
-    used.add(norm);additional.push(candidate);
     if(additional.length>=maxVariants-1)break;
+    used.add(norm);additional.push(candidate);
   }
   if(additional.length) {
     const next=await collectFederatedBatch(additional,options,limit);
@@ -113,7 +113,9 @@ export async function resolveFederatedAuthor(name,options={}) {
     found.push(...next.filter(e=>e.ok).flatMap(entry=>
       (entry.works||[]).map(work=>
         matchFederatedWork(work,original,{
-          aliases:[...aliases,...additional],expectedOrcid:options.orcid
+          // Query expansion broadens retrieval, but cannot turn an
+          // unverified surname into verified identity evidence.
+          aliases,expectedOrcid:options.orcid
         })
       ).filter(Boolean).map(work=>({...work,retrievalMode:entry.mode}))
     ));
