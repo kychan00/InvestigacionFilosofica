@@ -145,11 +145,20 @@ jobs:
 
           assert queue["schemaVersion"] == "thesis-program-curation-queue-v1"
           assert queue["metrics"]["queueItems"] >= 0
-          assert "review" in queue["metrics"]["allProgramStates"] or True
+          assert isinstance(queue["metrics"]["curationLanes"], dict)
+
+          allowed_lanes = {
+              "scope-review",
+              "humanities-candidate",
+              "unit-triage",
+              "high-impact-triage",
+              "backlog",
+          }
 
           for item in queue["items"]:
               assert item["decisionConstraint"] == "priority-does-not-change-admission"
               assert item["queueState"] in {"unresolved", "review"}
+              assert item["curationLane"] in allowed_lanes
 
           print(json.dumps(queue["metrics"], indent=2, ensure_ascii=False))
           PY
