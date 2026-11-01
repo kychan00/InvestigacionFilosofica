@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import time
 import urllib.error
@@ -449,6 +450,98 @@ def sample_metadata(base: str, identifier: str, metadata_prefix: str) -> dict[st
     }
 
 
+def compact_fetch(result: Fetch) -> dict[str, Any]:
+    return {
+        "url": result.url,
+        "status": result.status,
+        "content_type": result.content_type,
+        "elapsed_ms": result.elapsed_ms,
+        "transport_error": result.error,
+        "body_prefix": (
+            result.body[:300].decode("utf-8", "replace")
+            if result.body
+            else None
+        ),
+    }
+
+
+def inspect_udgvirtual_html() -> dict[str, Any]:
+    collection = "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/6"
+    item = "https://biblioteca.udgvirtual.udg.mx/jspui/handle/123456789/4102"
+
+    first = fetch(collection)
+    second = fetch(collection, offset="20")
+    normal = fetch(item)
+    full = fetch(item, mode="full")
+
+    def html_info(result: Fetch) -> dict[str, Any]:
+        info = compact_fetch(result)
+        body = result.body.decode("utf-8", "replace") if result.body else ""
+        handles = sorted(set(
+            re.findall(r"/jspui/handle/123456789/(\\d+)", body)
+        ))
+        total_match = re.search(
+            r"(?:of|de)\\s+([0-9][0-9,]*)",
+            re.sub(r"<[^>]+>", " ", body),
+            flags=re.IGNORECASE,
+        )
+        info.update({
+            "handle_ids": handles[:50],
+            "handle_count": len(handles),
+            "reported_total": total_match.group(1) if total_match else None,
+            "contains_thesis_collection_label": bool(
+                re.search(r"\\bTesis\\b", body, flags=re.IGNORECASE)
+            ),
+        })
+        return info
+
+    full_body = full.body.decode("utf-8", "replace") if full.body else ""
+    normal_body = normal.body.decode("utf-8", "replace") if normal.body else ""
+    dc_fields = sorted(set(
+        re.findall(r"dc\\.[a-zA-Z0-9_.-]+", full_body)
+    ))
+
+    return {
+        "collection_page_1": html_info(first),
+        "collection_page_2": html_info(second),
+        "representative_item": {
+            **html_info(normal),
+            "contains_director_marker": bool(
+                re.search(r"director(?:a)? de tesis", normal_body, flags=re.IGNORECASE)
+            ),
+            "contains_udg": "Universidad de Guadalajara" in normal_body,
+            "contains_degree_description": bool(
+                re.search(r"Documento de titulaci[oó]n", normal_body, flags=re.IGNORECASE)
+            ),
+        },
+        "representative_item_full": {
+            **html_info(full),
+            "dc_fields": dc_fields,
+            "dc_field_count": len(dc_fields),
+        },
+    }
+
+
+def inspect_udgvirtual_rest() -> dict[str, Any]:
+    bases = [
+        ("status", "https://biblioteca.udgvirtual.udg.mx/rest/status", {}),
+        (
+            "handle",
+            "https://biblioteca.udgvirtual.udg.mx/rest/handle/123456789/4102",
+            {},
+        ),
+        (
+            "items",
+            "https://biblioteca.udgvirtual.udg.mx/rest/items",
+            {"limit": "1"},
+        ),
+    ]
+    return {
+        name: compact_fetch(fetch(url, **params))
+        for name, url, params in bases
+    }
+
+
 def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
     base, attempts = discover_endpoint(name, candidates)
     report: dict[str, Any] = {
@@ -557,6 +650,10 @@ def inspect_repository(name: str, candidates: list[str]) -> dict[str, Any]:
                 for prefix in sample_prefixes
             ]
 
+    if name == "udgvirtual":
+        report["html_fallback"] = inspect_udgvirtual_html()
+        report["rest_fallback"] = inspect_udgvirtual_rest()
+
     return report
 
 
@@ -566,7 +663,7 @@ def main() -> int:
     args = parser.parse_args()
 
     report = {
-        "schema_version": "thesis-source-recon-v1.2",
+        "schema_version": "thesis-source-recon-v1.3",
         "read_only": True,
         "limits": {
             "follows_set_resumption_tokens": True,
