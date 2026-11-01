@@ -463,7 +463,7 @@ class ReconHTMLParser(HTMLParser):
         values = {str(k).lower(): (v or "") for k, v in attrs}
         if tag.lower() == "a":
             href = values.get("href", "")
-            match = re.search(r"handle/123456789/(\\d+)", href)
+            match = re.search(r"handle/123456789/(\d+)", href)
             if match:
                 self.handle_ids.add(match.group(1))
         if tag.lower() == "meta":
@@ -489,9 +489,9 @@ def parse_html_document(result: Fetch) -> dict[str, Any]:
         parser_error = None
 
     visible_text = unescape(" ".join(parser.text_chunks))
-    visible_text = re.sub(r"\\s+", " ", visible_text).strip()
+    visible_text = re.sub(r"\s+", " ", visible_text).strip()
     total_matches = re.findall(
-        r"(?:of|de)\\s+([0-9][0-9,]*)",
+        r"(?:of|de)\s+([0-9][0-9,]*)",
         visible_text,
         flags=re.IGNORECASE,
     )
@@ -579,7 +579,7 @@ def inspect_udgvirtual_enumeration() -> dict[str, Any]:
         hrefs = sorted(set(
             unescape(value)
             for value in re.findall(
-                r"""href\\s*=\\s*["']([^"']+)["']""",
+                r"""href\s*=\s*["']([^"']+)["']""",
                 body,
                 flags=re.IGNORECASE,
             )
@@ -587,14 +587,14 @@ def inspect_udgvirtual_enumeration() -> dict[str, Any]:
         handles = sorted(set(
             match.group(1)
             for href in hrefs
-            for match in [re.search(r"(?:/jspui)?/handle/123456789/(\\d+)", href)]
+            for match in [re.search(r"(?:/jspui)?/handle/123456789/(\d+)", href)]
             if match
         ))
         body_handles = sorted(set(
-            re.findall(r"(?:/jspui)?/handle/123456789/(\\d+)", body)
+            re.findall(r"(?:/jspui)?/handle/123456789/(\d+)", body)
         ))
         xml_item_handles = sorted(set(
-            re.findall(r"123456789/(\\d+)", body)
+            re.findall(r"123456789/(\d+)", body)
         ))
         info.update({
             "href_count": len(hrefs),
@@ -788,7 +788,7 @@ def main() -> int:
     args = parser.parse_args()
 
     report = {
-        "schema_version": "thesis-source-recon-v1.5",
+        "schema_version": "thesis-source-recon-v1.6",
         "read_only": True,
         "limits": {
             "follows_set_resumption_tokens": True,
