@@ -92,9 +92,12 @@ function mergeOptions(
       ...(options.cucshFilosofia || {})
     },
 
+    // Repository policy: all client-side OpenAlex API calls are disabled.
+    // Our Hugging Face philosophy dataset is the default source instead.
     openAlex: {
       ...DEFAULT_OPTIONS.openAlex,
-      ...(options.openAlex || {})
+      ...(options.openAlex || {}),
+      enabled: false
     },
 
     crossref: {
