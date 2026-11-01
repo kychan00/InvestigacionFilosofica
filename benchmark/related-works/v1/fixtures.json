@@ -407,13 +407,15 @@
             "id": "ev-sem-9",
             "class": "semantic",
             "strength": "strong",
-            "source": "qwen3-browser-static-v4"
+            "source": "qwen3-browser-static-v4",
+            "semanticScore": 0.88
           },
           {
             "id": "ev-time-9",
             "class": "contextual",
             "strength": "supporting",
-            "source": "publication-year"
+            "source": "publication-year",
+            "yearDistance": 2
           }
         ],
         "reasons": [
@@ -463,7 +465,8 @@
             "id": "ev-self",
             "class": "semantic",
             "strength": "strong",
-            "source": "semantic-index"
+            "source": "semantic-index",
+            "semanticScore": 1
           }
         ],
         "reasons": [
@@ -664,7 +667,8 @@
             "id": "ev-sem-14",
             "class": "semantic",
             "strength": "strong",
-            "source": "qwen3-browser-static-v4"
+            "source": "qwen3-browser-static-v4",
+            "semanticScore": 0.86
           },
           {
             "id": "ev-author-14",
@@ -772,7 +776,10 @@
             "strength": "strong",
             "source": "verified-reference-table",
             "structuredIdentity": true,
-            "explicitBibliographicEdge": true
+            "explicitBibliographicEdge": true,
+            "sourceRecordRefs": [
+              "source:reference-table:16"
+            ]
           }
         ],
         "reasons": [
@@ -815,7 +822,8 @@
             "id": "ev-sem-17",
             "class": "semantic",
             "strength": "strong",
-            "source": "qwen3-browser-static-v4"
+            "source": "qwen3-browser-static-v4",
+            "semanticScore": 0.97
           },
           {
             "id": "ev-veto-17",
