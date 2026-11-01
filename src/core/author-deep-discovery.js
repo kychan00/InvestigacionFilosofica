@@ -66,13 +66,18 @@ export function mergeAuthorArchives(initial = [], additions = []) {
   const byId = new Map();
   const byTitle = new Map();
   const byTitleOnly = new Map();
+  const byCuratedTitleOnly = new Map();
 
   const register=(work,index)=>{
     const key=fingerprint(work);
     const titleKey=titleFingerprint(work);
+    const curated=work.metadataAuthority==="curated"||work.reviewed===true;
     byId.set(key,index);
     if(titleKey!==":")byTitle.set(titleKey,index);
-    for(const alias of titleAliases(work))byTitleOnly.set(alias,index);
+    for(const alias of titleAliases(work)) {
+      byTitleOnly.set(alias,index);
+      if(curated)byCuratedTitleOnly.set(alias,index);
+    }
   };
 
   for (const work of [...initial,...additions]) {
@@ -82,7 +87,7 @@ export function mergeAuthorArchives(initial = [], additions = []) {
     const curated=work.metadataAuthority==="curated"||work.reviewed===true;
     const aliasIndex=curated
       ? titleAliases(work).map(alias=>byTitleOnly.get(alias)).find(index=>index!==undefined)
-      : undefined;
+      : byCuratedTitleOnly.get(normalizeAuthorName(work.title||""));
     const index = byId.get(key) ??
       (titleKey !== ":" ? byTitle.get(titleKey) : undefined) ??
       aliasIndex;
