@@ -4393,6 +4393,7 @@ async function openExclusiveAuthorByName(
         }, { loading: false, preserveVisibleLimit: true });
       } catch(error) {
         if (authorController.signal.aborted) return;
+        console.error("No se pudo completar el catálogo del autor:",error);
         authorArchiveLoading = false;
         authorArchiveNotice = "Búsqueda parcial: no fue posible consultar todas las fuentes";
         showExclusiveAuthorWorks(
