@@ -290,7 +290,7 @@ La política de T2A es deliberadamente minimalista.
 
 ### Merge automático permitido
 
-Dos SourceRecord pueden compartir trabajo canónico automáticamente sólo cuando comparten un **Handle normalizado exacto**.
+Dos SourceRecord pueden compartir trabajo canónico automáticamente sólo cuando comparten un **Handle normalizado exacto** y no existe un veto fuerte de institución.
 
 ### No merge automático
 
@@ -304,6 +304,8 @@ No se fusiona por:
 - similitud semántica.
 
 Un título idéntico sin identificador persistente produce dos trabajos separados.
+
+Si dos registros comparten Handle pero uno confirma UdeG y otro confirma una institución externa, el Handle **no vence el veto**: se conservan dos trabajos separados y las decisiones de identidad quedan `rejected / institution-contradiction-veto`.
 
 Esto protege contra false merge mientras T2B construye evidencia bibliográfica más rica.
 
@@ -386,6 +388,13 @@ Se comprueba:
 
 El smoke no convierte un fallo de resolución en una clasificación inventada.
 
+Resultado observado en el primer run T2A:
+
+- RIUdeG `112380`: programa `LICENCIATURA EN HISTORIA` resuelto, institución UdeG confirmada, director presente, `INCLUDE`;
+- UDGVirtual `4102`: programa `Maestría en Gestión del Aprendizaje en Ambientes Virtuales` no presente en la registry humanística inicial, institución otorgante no confirmada por los metadatos usados, director presente, `QUARANTINE`.
+
+Este resultado es intencional: la segunda ficha demuestra que el Admission Gate prefiere incertidumbre explícita a una inclusión inventada.
+
 ---
 
 ## 15. Gates implementados
@@ -404,7 +413,8 @@ Los tests cubren además:
 - programa desconocido → cuarentena;
 - universidad externa → exclusión;
 - fecha anómala preservada;
-- merge por Handle exacto;
+- merge por Handle exacto sin vetos;
+- veto institucional incluso con Handle exacto;
 - no merge por título idéntico;
 - reutilización de work ID;
 - build fixture válido.
