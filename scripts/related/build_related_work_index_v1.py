@@ -20,6 +20,7 @@ from authority_work_map_v1 import (
     authority_map_source_summary,
     authorship_relations,
     build_authority_candidate_index,
+    build_work_authority_info_index,
     load_authority_work_map,
 )
 
@@ -267,6 +268,7 @@ def compact_neighbor(
     *,
     observed_vector_id: int | None = None,
     authority_work_map: AuthorityWorkMap | None = None,
+    authority_info_by_vector: dict[int, Any] | None = None,
 ) -> dict[str, Any]:
     relations: list[str] = []
     evidence: dict[str, Any] = {}
@@ -295,13 +297,25 @@ def compact_neighbor(
         relations.append("shared-topic")
         evidence["topicIds"] = shared_topics
 
-    if (
-        authority_work_map is not None
-        and seed.openalex_identity
-        and target.openalex_identity
-    ):
-        seed_authority = authority_work_map.works.get(seed.openalex_identity)
-        target_authority = authority_work_map.works.get(target.openalex_identity)
+    if authority_work_map is not None:
+        seed_authority = (
+            authority_info_by_vector.get(seed.vector_id)
+            if authority_info_by_vector is not None
+            else (
+                authority_work_map.works.get(seed.openalex_identity)
+                if seed.openalex_identity
+                else None
+            )
+        )
+        target_authority = (
+            authority_info_by_vector.get(target.vector_id)
+            if authority_info_by_vector is not None
+            else (
+                authority_work_map.works.get(target.openalex_identity)
+                if target.openalex_identity
+                else None
+            )
+        )
         authority_relations = authorship_relations(
             seed_authority,
             target_authority,
@@ -459,6 +473,7 @@ def select_neighbors(
     limit: int,
     minimum_semantic_score: float,
     authority_work_map: AuthorityWorkMap | None = None,
+    authority_info_by_vector: dict[int, Any] | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, int]]:
     accepted: list[dict[str, Any]] = []
     seen_targets: set[str] = set()
@@ -505,6 +520,7 @@ def select_neighbors(
                 raw_score,
                 observed_vector_id=observed_vector_id,
                 authority_work_map=authority_work_map,
+                authority_info_by_vector=authority_info_by_vector,
             )
         )
 
@@ -520,6 +536,7 @@ def select_authority_neighbors(
     metadata: Sequence[WorkMetadata],
     authority_work_map: AuthorityWorkMap | None,
     authority_candidate_index: dict[str, tuple[int, ...]],
+    authority_info_by_vector: dict[int, Any],
     *,
     limit: int,
 ) -> list[dict[str, Any]]:
@@ -532,6 +549,7 @@ def select_authority_neighbors(
         authority_work_map,
         authority_candidate_index,
         limit=limit,
+        work_info_by_vector=authority_info_by_vector,
     )
 
     output = []
@@ -543,6 +561,7 @@ def select_authority_neighbors(
                 target,
                 None,
                 authority_work_map=authority_work_map,
+                authority_info_by_vector=authority_info_by_vector,
             )
         )
 
@@ -627,10 +646,16 @@ def build_from_neighbor_provider(
     seed_vector_ids, representative_by_identity = (
         representative_vector_ids(metadata)
     )
+    authority_info_by_vector = build_work_authority_info_index(
+        metadata,
+        authority_work_map,
+        representative_by_identity,
+    )
     authority_candidate_index = build_authority_candidate_index(
         metadata,
         authority_work_map,
         representative_by_identity,
+        authority_info_by_vector,
     )
 
     if output_dir.exists() and any(output_dir.iterdir()):
@@ -681,6 +706,7 @@ def build_from_neighbor_provider(
                     limit=neighbors_per_seed,
                     minimum_semantic_score=minimum_semantic_score,
                     authority_work_map=authority_work_map,
+                    authority_info_by_vector=authority_info_by_vector,
                 )
                 for key, value in local.items():
                     counters[key] += value
@@ -690,6 +716,7 @@ def build_from_neighbor_provider(
                     metadata,
                     authority_work_map,
                     authority_candidate_index,
+                    authority_info_by_vector,
                     limit=authority_neighbors_per_seed,
                 )
                 counters["authority_candidates"] += len(authority_selected)
