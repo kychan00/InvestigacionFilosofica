@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import gzip
 import hashlib
+import io
 import json
 import re
 import time
@@ -139,32 +140,15 @@ def parse_oai_error(root: ET.Element) -> dict[str, str] | None:
     }
 
 
-def riudg_list_records_page(
+def parse_riudg_list_records(
+    payload: bytes | str,
     *,
-    token: str | None = None,
-    from_datestamp: str | None = None,
-    until_datestamp: str | None = None,
+    source_url: str | None = None,
 ) -> dict[str, Any]:
-    if token:
-        params = {
-            "verb": "ListRecords",
-            "resumptionToken": token,
-        }
-    else:
-        params = {
-            "verb": "ListRecords",
-            "metadataPrefix": "dim",
-            "set": RIUDG_THESIS_SET,
-        }
-        if from_datestamp:
-            params["from"] = from_datestamp
-        if until_datestamp:
-            params["until"] = until_datestamp
+    if isinstance(payload, str):
+        payload = payload.encode("utf-8")
 
-    url = oai_url(params)
-    payload, transport = request_bytes(url)
     root = ET.fromstring(payload)
-
     error = parse_oai_error(root)
     if error:
         raise RuntimeError(f"OAI error {error['code']}: {error['message']}")
@@ -205,7 +189,7 @@ def riudg_list_records_page(
         records.append(
             canonical.parse_riudg_dim(
                 xml_text,
-                source_url=url,
+                source_url=source_url,
             )
         )
 
@@ -227,8 +211,36 @@ def riudg_list_records_page(
             if token_node is not None
             else None
         ),
-        "transport": transport,
     }
+
+
+def riudg_list_records_page(
+    *,
+    token: str | None = None,
+    from_datestamp: str | None = None,
+    until_datestamp: str | None = None,
+) -> dict[str, Any]:
+    if token:
+        params = {
+            "verb": "ListRecords",
+            "resumptionToken": token,
+        }
+    else:
+        params = {
+            "verb": "ListRecords",
+            "metadataPrefix": "dim",
+            "set": RIUDG_THESIS_SET,
+        }
+        if from_datestamp:
+            params["from"] = from_datestamp
+        if until_datestamp:
+            params["until"] = until_datestamp
+
+    url = oai_url(params)
+    payload, transport = request_bytes(url)
+    parsed = parse_riudg_list_records(payload, source_url=url)
+    parsed["transport"] = transport
+    return parsed
 
 
 def harvest_riudg(
@@ -686,23 +698,38 @@ def write_json_gz(path: Path, value: Any) -> None:
         json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         + "\n"
     ).encode("utf-8")
-    with gzip.open(path, "wb", compresslevel=9, mtime=0) as handle:
-        handle.write(encoded)
+    with path.open("wb") as raw:
+        with gzip.GzipFile(
+            fileobj=raw,
+            mode="wb",
+            compresslevel=9,
+            mtime=0,
+            filename="",
+        ) as handle:
+            handle.write(encoded)
 
 
 def write_jsonl_gz(path: Path, values: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with gzip.open(path, "wt", encoding="utf-8", compresslevel=9, mtime=0) as handle:
-        for value in values:
-            handle.write(
-                json.dumps(
-                    value,
-                    ensure_ascii=False,
-                    sort_keys=True,
-                    separators=(",", ":"),
-                )
-                + "\n"
-            )
+    with path.open("wb") as raw:
+        with gzip.GzipFile(
+            fileobj=raw,
+            mode="wb",
+            compresslevel=9,
+            mtime=0,
+            filename="",
+        ) as compressed:
+            with io.TextIOWrapper(compressed, encoding="utf-8", newline="") as handle:
+                for value in values:
+                    handle.write(
+                        json.dumps(
+                            value,
+                            ensure_ascii=False,
+                            sort_keys=True,
+                            separators=(",", ":"),
+                        )
+                        + "\n"
+                    )
 
 
 def build_manifest(
