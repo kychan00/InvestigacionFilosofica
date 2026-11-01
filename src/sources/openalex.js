@@ -74,7 +74,7 @@ function normalizeTopics(topics = []) {
     .filter(topic => topic.name);
 }
 
-function normalizeOpenAlexWork(work, context = {}) {
+export function normalizeOpenAlexWork(work, context = {}) {
   const primaryLocation =
     work.primary_location || {};
 
