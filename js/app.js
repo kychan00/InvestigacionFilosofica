@@ -5406,7 +5406,7 @@ function renderAuthorPage(
               ...item,
               collaborationKind:collab.kind,
               collaborationCount:collab.count
-            });
+            }, index);
           }).join("")}
         </div>
 
