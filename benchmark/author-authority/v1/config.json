@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "author-authority-benchmark-config-v1",
+  "seed": 20261101,
+  "sampleSizePerStratum": 100,
+  "release": {
+    "tag": "author-index-v3",
+    "asset": "author-index-v3.tar.gz",
+    "sha256": "f04eb636744f4cce7f694b1d64eab19acfbccae7a5b588b4f6102e1006930e7d"
+  },
+  "expectedSource": {
+    "snapshotRepo": "Mearman/OpenAlex",
+    "snapshotRevision": "ef02effac13bfbd0991612f444cebcef8a882453",
+    "philosophyRepo": "CristianPelayo/openalex-philosophy",
+    "philosophyRevision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "philosophyPath": "v3.2/philosophy-corpus-v3-2-search.parquet"
+  },
+  "gate": {
+    "goldFailures": 0,
+    "falseMergeGroups": 0,
+    "falseSplitGroups": 0,
+    "requireExactSourceCoverage": true,
+    "unmappedProfiles": 0
+  }
+}
