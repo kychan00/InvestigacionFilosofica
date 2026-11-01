@@ -407,3 +407,25 @@ Debe incluir:
 10. false merge rate como métrica de bloqueo.
 
 Sólo después de superar ese gate debe comenzar la integración del Author Profile V2.
+
+---
+
+## 20. Independencia respecto al índice de obras relacionadas
+
+El Author Authority Batch y el Related Work Index son pipelines ortogonales.
+
+El primero resuelve:
+
+- identidad de personas;
+- menciones de autor;
+- decisiones de atribución;
+- registry de autoridades.
+
+El segundo resuelve relaciones entre obras.
+
+Ninguno debe importar artefactos internos del otro como fuente primaria ni compartir IDs por coincidencia accidental. La integración futura debe ocurrir a través de contratos explícitos del Knowledge Graph:
+
+`AuthorityPerson → Contribution → IntellectualWork → RelatedWorkEdge`.
+
+Esto permite desplegar, reconstruir y validar ambos índices de forma independiente sin que una nueva release de obras relacionadas modifique identidades de autor.
+
