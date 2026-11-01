@@ -465,7 +465,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],
-            "2026-11-01.v3",
+            self.registry["registryRevision"],
         )
 
     def test_cultural_management_family_v4(self):
