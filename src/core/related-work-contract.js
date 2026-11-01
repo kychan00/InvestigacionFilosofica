@@ -126,7 +126,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         false,
       requiresExplicitBibliographicEdge:
-        false
+        false,
+      requiredAnyFields: [
+        "semanticScore"
+      ]
     },
     [RELATION_TYPES.SHARED_TOPIC]: {
       minimumClass:
@@ -134,7 +137,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         false,
       requiresExplicitBibliographicEdge:
-        false
+        false,
+      requiredAnyFields: [
+        "topicIds"
+      ]
     },
     [RELATION_TYPES.SHARED_CONCEPT]: {
       minimumClass:
@@ -142,7 +148,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         false,
       requiresExplicitBibliographicEdge:
-        false
+        false,
+      requiredAnyFields: [
+        "conceptIds"
+      ]
     },
     [RELATION_TYPES.SAME_AUTHOR]: {
       minimumClass:
@@ -150,7 +159,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         true,
       requiresExplicitBibliographicEdge:
-        false
+        false,
+      requiredAnyFields: [
+        "authorityRefs"
+      ]
     },
     [RELATION_TYPES.SHARED_COAUTHOR]: {
       minimumClass:
@@ -158,7 +170,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         true,
       requiresExplicitBibliographicEdge:
-        false
+        false,
+      requiredAnyFields: [
+        "sharedAuthorityRefs"
+      ]
     },
     [RELATION_TYPES.CITED_BY_SEED]: {
       minimumClass:
@@ -166,7 +181,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         true,
       requiresExplicitBibliographicEdge:
-        true
+        true,
+      requiredAnyFields: [
+        "sourceRecordRefs"
+      ]
     },
     [RELATION_TYPES.CITES_SEED]: {
       minimumClass:
@@ -174,7 +192,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         true,
       requiresExplicitBibliographicEdge:
-        true
+        true,
+      requiredAnyFields: [
+        "sourceRecordRefs"
+      ]
     },
     [RELATION_TYPES.BIBLIOGRAPHIC_REFERENCE]: {
       minimumClass:
@@ -182,7 +203,10 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         true,
       requiresExplicitBibliographicEdge:
-        true
+        true,
+      requiredAnyFields: [
+        "sourceRecordRefs"
+      ]
     },
     [RELATION_TYPES.SAME_DEBATE]: {
       minimumClass:
@@ -190,7 +214,12 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         false,
       requiresExplicitBibliographicEdge:
-        false
+        false,
+      requiredAnyFields: [
+        "conceptIds",
+        "topicIds",
+        "areaIds"
+      ]
     },
     [RELATION_TYPES.HISTORICAL_CONTEXT]: {
       minimumClass:
@@ -198,7 +227,11 @@ export const RELATION_EVIDENCE_REQUIREMENTS =
       requiresStructuredIdentity:
         false,
       requiresExplicitBibliographicEdge:
-        false
+        false,
+      requiredAnyFields: [
+        "yearDistance",
+        "temporalRelation"
+      ]
     }
   });
 
@@ -244,6 +277,33 @@ function isFiniteUnit(
     Number.isFinite(value) &&
     value >= 0 &&
     value <= 1
+  );
+}
+
+
+function hasEvidenceField(
+  item,
+  field
+) {
+  const value =
+    item?.[field];
+
+  if (
+    Array.isArray(value)
+  ) {
+    return value.length > 0;
+  }
+
+  if (
+    typeof value === "number"
+  ) {
+    return Number.isFinite(value);
+  }
+
+  return (
+    value !== null &&
+    value !== undefined &&
+    value !== ""
   );
 }
 
@@ -698,6 +758,28 @@ export function validateRelatedWorkEdge(
     ) {
       errors.push(
         "relation:explicit-bibliographic-edge-required:" +
+        relationType
+      );
+    }
+
+    if (
+      Array.isArray(
+        requirements.requiredAnyFields
+      ) &&
+      requirements.requiredAnyFields.length &&
+      !linkedEvidence.some(
+        item =>
+          requirements.requiredAnyFields.some(
+            field =>
+              hasEvidenceField(
+                item,
+                field
+              )
+          )
+      )
+    ) {
+      errors.push(
+        "relation:structured-evidence-field-required:" +
         relationType
       );
     }
