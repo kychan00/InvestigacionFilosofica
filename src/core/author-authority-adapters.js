@@ -42,10 +42,14 @@ function fnv1a(value) {
   return hash.toString(16).padStart(8, "0");
 }
 
-function sourceRecordRef(provider, sourceId) {
+function sourceRecordRef(provider, sourceId, workContext = "") {
   const providerKey = safeIdPart(provider) || "unknown";
   return "source:" + providerKey + ":" +
-    fnv1a(String(provider) + "|" + String(sourceId));
+    fnv1a(
+      String(provider) + "|" +
+      String(sourceId) + "|" +
+      String(workContext)
+    );
 }
 
 function mentionRef(recordRef, position, rawValue) {
@@ -244,7 +248,18 @@ export function workToSourceRecords(work = {}, {
   return sourceEntries.map((source, index) => {
     const provider = inferProvider(work, source);
     const providerRecordId = inferSourceId(work, source, index);
-    const ref = sourceRecordRef(provider, providerRecordId);
+    const workContext =
+      work.id ||
+      work.doi ||
+      (
+        normalizeAuthorName(work.title || "work") + ":" +
+        String(work.year || "unknown")
+      );
+    const ref = sourceRecordRef(
+      provider,
+      providerRecordId,
+      workContext
+    );
 
     return {
       schemaVersion: "author-authority-data-v1",
