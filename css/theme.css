@@ -818,6 +818,11 @@ html[data-theme="dark"] .author-timeline-work:hover {
   background: #393939;
 }
 
+html[data-theme] .author-timeline-work-type {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 html[data-theme="dark"] .author-timeline-work-type {
   color: #c6c6c6;
 }
