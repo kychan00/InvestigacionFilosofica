@@ -294,7 +294,6 @@ export async function buildHumanAuthorityEvidencePack({
 
   return sample.map(item => ({
     audit_id: item.audit_id,
-    stratum: item.stratum,
     left: profiles.get(item.left.authorId),
     right: profiles.get(item.right.authorId)
   }));
