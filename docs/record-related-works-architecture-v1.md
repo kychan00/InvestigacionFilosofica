@@ -628,6 +628,31 @@ El full build de 451,823 documentos requiere los originales congelados del FAISS
 
 ---
 
+## Estado de Fase 2A
+
+El runtime de lectura del índice está implementado sin integración de UI.
+
+Componentes:
+
+- `src/core/related-works-resolver.js`
+- `tests/related-works-resolver.test.mjs`
+- `docs/RELATED_WORKS_RUNTIME_V1.md`
+
+Garantías actuales:
+
+- manifest + un shard por seed;
+- sin carga automática de Qwen3;
+- sin búsquedas federadas automáticas;
+- cache de shards y metadata;
+- hidratación únicamente de páginas Static V4 necesarias;
+- empty/partial para seed ausente;
+- errores de infraestructura reintentables;
+- salida `RelatedWorkEdge V1`.
+
+2A no congela ranking final, diversidad ni UI. Es la capa de transporte/contrato que consumirá la sección del folio cuando exista un índice remoto real.
+
+---
+
 ## 20. Fases
 
 ### Fase 0 — contrato
