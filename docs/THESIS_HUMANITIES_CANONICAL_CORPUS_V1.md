@@ -602,3 +602,57 @@ El validador sigue siendo estricto, pero ahora valida la representación del con
 4. no se permite ocultar ni eliminar uno de los dos roles para hacer pasar la validación.
 
 Este cambio convierte una anomalía de fuente en evidencia auditable en lugar de un fallo global.
+
+
+---
+
+## 21. Fecha sentinela de epoch observada en RIUdeG
+
+El primer inventario completo reveló un patrón que no podía detectarse en las
+muestras pequeñas:
+
+- `1969-12-31`: 381 trabajos;
+- `31/12/1969`: 180 trabajos;
+- total: **561 trabajos**.
+
+La concentración exacta en la víspera del Unix epoch es evidencia de un valor
+sentinela/default del repositorio y no de 561 eventos académicos ocurridos el
+mismo día.
+
+### Política
+
+Los dos valores se conservan sin reescribir:
+
+- `raw` permanece intacto;
+- el valor normalizado puede seguir siendo `1969-12-31`;
+- precisión: `day`;
+- calidad: `suspicious`.
+
+No se sustituye por una fecha estimada.
+
+No se borra el trabajo.
+
+### Consecuencia
+
+Una fecha sentinela no puede participar como evidencia temporal confiable en:
+
+- spans históricos;
+- observedFrom / observedUntil;
+- orden cronológico de curaduría;
+- inferencias de predecessor/successor;
+- visualizaciones temporales que exijan fechas válidas.
+
+Program Curation Queue ya utiliza exclusivamente fechas con
+`quality=valid`, por lo que al corregir la calidad estos 561 valores dejan de
+crear antigüedad falsa sin necesidad de introducir excepciones en la cola.
+
+### Motivación inmediata
+
+La anomalía apareció al revisar la familia cultura/gestión cultural:
+
+- Maestría en Gestión y Desarrollo Cultural contenía múltiples
+  `31/12/1969`;
+- Maestría en Gestión de la Cultura también contenía una observación
+  `1969-12-31`.
+
+El fix se mantiene separado de la decisión disciplinaria de esos programas.
