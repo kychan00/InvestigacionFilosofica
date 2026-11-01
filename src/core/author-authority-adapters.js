@@ -305,10 +305,15 @@ export function creatorToAuthorMention(creator = {}, {
   fallbackRole = null
 } = {}) {
   const rawValue = String(
-    creator.rawCreator ||
     creator.name ||
     creator.displayName ||
+    creator.rawCreator ||
     ""
+  ).trim();
+  const rawCreatorStatement = String(
+    creator.rawCreator ||
+    creator.originalCreatorStatement ||
+    rawValue
   ).trim();
 
   return {
@@ -317,6 +322,7 @@ export function creatorToAuthorMention(creator = {}, {
     id: mentionRef(recordRef, position, rawValue),
     sourceRecordRef: recordRef,
     rawValue,
+    rawCreatorStatement,
     normalizedValue: normalizeAuthorName(rawValue),
     parsedName: null,
     rawRole: creator.role || fallbackRole || null,
