@@ -63,7 +63,9 @@
     "build:authority-batch-fixture": "node scripts/authority/build-authority-batch-fixture-v1.mjs",
     "benchmark:authority": "node scripts/authority/benchmark-author-authority-v1.mjs",
     "test:authority-benchmark": "node --test tests/author-authority-benchmark.test.mjs tests/author-authority-benchmark-runner.test.mjs",
-    "build:authority-work-map": "node scripts/related/build_authority_work_map_v1.mjs"
+    "build:authority-work-map": "node scripts/related/build_authority_work_map_v1.mjs",
+    "validate:authority-batch": "node scripts/authority/validate-authority-batch-v1.mjs",
+    "validate:authority-work-map": "python3 scripts/related/validate_authority_work_map_v1.py"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
