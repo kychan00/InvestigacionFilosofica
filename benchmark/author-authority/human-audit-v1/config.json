@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "author-authority-human-audit-config-v1",
+  "sourceBenchmark": {
+    "workflowRunId": 41343033423,
+    "headSha": "e0c14608268e00b4eadcb72d28b77d1c77b9c93c",
+    "artifactId": 13097947069,
+    "artifactName": "author-authority-benchmark-v1",
+    "artifactSha256": "beb88c2ef6a8764f4a4e61ae6cdf6be4a0fd19a151fef7158f90518335d2da52"
+  },
+  "sourceReleaseConfig": "benchmark/author-authority/v1/config.json",
+  "selection": {
+    "sampleSize": 100,
+    "uniqueProfiles": 200,
+    "automaticMergeSharedOrcid": 13,
+    "distinctOrcidHomonym": 20,
+    "anchorlessHomonym": 34,
+    "mixedAnchorHomonym": 33,
+    "expectedSampleSha256": "6265acd4e74f62719fab813078b33146ad363236244d4ff2a7c58c3e6cbdd585"
+  },
+  "evidence": {
+    "maxWorksPerProfile": 12,
+    "includeCoauthors": true,
+    "includeOrcid": true,
+    "includeOpenAlexLinks": true
+  },
+  "judgments": {
+    "labels": [
+      "same-person",
+      "different-person",
+      "unresolved"
+    ],
+    "minimumResolved": 80,
+    "requireAllJudged": true,
+    "requireAllAutomaticMergesResolved": true,
+    "falseMergeCount": 0,
+    "falseSplitRate": "reported-not-blocking-v1"
+  }
+}
