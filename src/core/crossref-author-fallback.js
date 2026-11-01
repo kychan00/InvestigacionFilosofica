@@ -119,6 +119,24 @@ export async function resolveFederatedAuthor(name,options={}) {
     ));
   }
   if(!fulfilled.length)return {status:"unavailable",works:[],errors};
+
+  // An incomplete name can refer to people with different second family
+  // names. Never merge two distinct extended identities merely because
+  // they start with the same given name and first surname.
+  const stem=normalizeAuthorName(original);
+  const extended=[...new Set(found
+    .filter(work=>work.matchedAuthorEvidence==="name-variant")
+    .map(work=>normalizeAuthorName(work.matchedAuthor?.name))
+    .filter(name=>name.startsWith(stem+" ") &&
+      name.split(" ").length<=stem.split(" ").length+2))];
+  const observedIds=[...new Set(found
+    .map(work=>orcid(work.matchedAuthor?.orcid||work.matchedAuthor?.id))
+    .filter(Boolean))];
+  if((extended.length>1||observedIds.length>1)&&!orcid(options.orcid)) {
+    found=found.filter(work=>work.matchedAuthorEvidence==="exact-name");
+    errors.push("Varias identidades compatibles: no se agruparon autores con segundos apellidos u ORCID distintos.");
+  }
+
   const matches=mergeMatchedWorks(found);
   if(!matches.length)return {status:"none",works:[],errors};
   const credible=matches.map(work=>work.matchedAuthor)
