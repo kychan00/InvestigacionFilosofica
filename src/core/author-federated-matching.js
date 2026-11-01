@@ -42,7 +42,7 @@ export function splitCreatorMetadata(authors = []) {
     return (split ? parts : [raw]).map(name => ({
       ...author,name:name.replace(/\s+(?:y colaboradores?|coordinadores?|coordinadoras?)$/iu,"").trim(),
       rawCreator: raw,
-      creatorComposite: split
+      creatorComposite: split || COLLECTIVE.test(raw)
     })).filter(item => item.name);
   });
 }
