@@ -812,8 +812,55 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],
-            "2026-11-01.v5",
+            self.registry["registryRevision"],
         )
+
+    def test_historical_art_theory_authority_v6(self):
+        for raw in (
+            "Maestría En Teoria Del Arte",
+            "Maestría en Teoría del Arte",
+            "Maestría en Artes opción Terminal en Teoría del Arte",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-artes-teoria-arte-historica",
+                )
+                self.assertEqual(
+                    resolved["admissionState"],
+                    "include",
+                )
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="art-theory-2004",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["El simbolismo en el arte"],
+                "dc.degree.name": ["Maestría En Teoria Del Arte"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUAAD"],
+                "dc.date.issued": ["2004-06-00"],
+                "dc.type": ["Tesis de Maestría"],
+            },
+            raw_payload="art-theory-2004",
+        )
+
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "include")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:mae-artes-teoria-arte-historica",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(work["date"]["value"], "2004-06")
 
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
