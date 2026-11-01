@@ -433,3 +433,76 @@ html[data-theme] body.author-view .author-work-grid .result-card :is(
     min-width: 0;
   }
 }
+
+
+/* Status totals: no pale gray ribbon in night mode. */
+html[data-theme] .research-workspace #stats.stats {
+  background: var(--profile-panel) !important;
+  border: 1px solid var(--profile-outline) !important;
+  border-left: 4px solid var(--profile-action) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--profile-ink) !important;
+}
+
+html[data-theme] .research-workspace #stats .stat-grid {
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme] .research-workspace #stats .stat {
+  background: var(--profile-card) !important;
+  color: var(--profile-muted) !important;
+  border-color: var(--profile-outline) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  min-width: 0;
+}
+
+html[data-theme] .research-workspace #stats .stat strong {
+  color: var(--profile-ink) !important;
+  font-family: var(--pg-sans);
+  font-weight: 600;
+}
+
+html[data-theme] .research-workspace #stats .stat :is(small, span) {
+  color: var(--profile-muted) !important;
+  opacity: 1 !important;
+}
+
+html[data-theme] .research-workspace #stats :is(.stat, .stat strong) {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Visible progress is explicit: do not imply that the initial index
+   already contains the author's full publication record. */
+html[data-theme] body.author-view .author-archive-discovery {
+  display: grid;
+  gap: 6px;
+  margin: 20px 0 22px;
+  padding: 16px 20px;
+  border: 1px solid var(--profile-outline);
+  border-left: 4px solid var(--profile-action);
+  border-radius: 0;
+  background: var(--profile-card);
+  color: var(--profile-ink);
+  font-family: var(--pg-sans);
+}
+
+html[data-theme] body.author-view .author-archive-discovery strong {
+  color: var(--profile-ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+html[data-theme] body.author-view .author-archive-discovery span {
+  color: var(--profile-subtle);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+html[data-theme] body.author-view .author-archive-discovery small {
+  color: var(--profile-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
