@@ -11,6 +11,7 @@ on:
       - "scripts/qa/record-modal-smoke.mjs"
       - "scripts/qa/author-timeline-smoke.mjs"
       - "scripts/qa/theme-contrast-smoke.mjs"
+      - "scripts/qa/author-profile-visibility-smoke.mjs"
       - "js/theme.js"
       - "tests/theme-controller.test.mjs"
       - "src/core/author-timeline.js"
@@ -63,6 +64,8 @@ jobs:
         run: node scripts/qa/author-timeline-smoke.mjs
       - name: Check light dark labels and sun moon controls
         run: node scripts/qa/theme-contrast-smoke.mjs
+      - name: Verify author profile cards and homepage labels in both themes
+        run: node scripts/qa/author-profile-visibility-smoke.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -73,4 +76,5 @@ jobs:
             artifacts/record-detail/
             artifacts/author-timeline/
             artifacts/theme-contrast/
+            artifacts/author-profile-visibility/
           if-no-files-found: ignore

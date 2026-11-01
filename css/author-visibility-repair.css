@@ -1,0 +1,435 @@
+/*
+ * Author profile + appearance visibility repair, November 2026.
+ * Loaded after theme.css so the historical sepia author-work style
+ * cannot produce white-on-white cards when using the dark theme.
+ * Neutral research panels, IBM Carbon-inspired blue accents.
+ */
+
+html[data-theme="light"] {
+  --profile-page: #f4f4f4;
+  --profile-card: #ffffff;
+  --profile-panel: #ffffff;
+  --profile-muted-panel: #e8e8e8;
+  --profile-ink: #161616;
+  --profile-subtle: #393939;
+  --profile-muted: #525252;
+  --profile-outline: #c6c6c6;
+  --profile-action: #0f62fe;
+  --profile-action-hover: #0353e9;
+  --profile-secondary: #393939;
+  --profile-secondary-hover: #525252;
+  --profile-blue-label: #0043ce;
+}
+
+html[data-theme="dark"] {
+  --profile-page: #101214;
+  --profile-card: #262626;
+  --profile-panel: #161616;
+  --profile-muted-panel: #393939;
+  --profile-ink: #f4f4f4;
+  --profile-subtle: #e0e0e0;
+  --profile-muted: #c6c6c6;
+  --profile-outline: #525252;
+  --profile-action: #0f62fe;
+  --profile-action-hover: #0353e9;
+  --profile-secondary: #393939;
+  --profile-secondary-hover: #525252;
+  --profile-blue-label: #78a9ff;
+}
+
+/* In the legacy layout .app stayed pale even when body.author-view was dark.
+ * All translucent author sections need a genuinely themed ancestor. */
+html[data-theme] body.author-view,
+html[data-theme] body.author-view .app,
+html[data-theme] body.author-view .research-workspace,
+html[data-theme] body.author-view .workspace-main,
+html[data-theme] body.author-view #results {
+  background: var(--profile-page) !important;
+}
+
+/* The photographic hero previously rendered pale labels on pale areas. */
+html[data-theme="light"] .hero-shell .eyebrow,
+html[data-theme="light"] .hero-shell .search-panel::before,
+html[data-theme="light"] .hero-shell .search-filters-heading > div > span {
+  color: #0043ce !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .hero-shell .eyebrow,
+html[data-theme="dark"] .hero-shell .search-panel::before,
+html[data-theme="dark"] .hero-shell .search-filters-heading > div > span {
+  color: #a6c8ff !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="light"] .hero-shell :is(
+  .hero-thesis span,
+  .hero-sources span,
+  .hero-marginalia,
+  .hero-marginalia strong
+) {
+  color: #262626 !important;
+  opacity: 1;
+}
+
+html[data-theme="dark"] .hero-shell :is(
+  .hero-thesis span,
+  .hero-sources span,
+  .hero-marginalia,
+  .hero-marginalia strong
+) {
+  color: #f4f4f4 !important;
+  opacity: 1;
+}
+
+html[data-theme] .hero-shell :is(.eyebrow, .hero-thesis span, .hero-sources span) {
+  font-size: max(11px, .72rem);
+  font-weight: 600;
+}
+
+html[data-theme="light"] .hero-shell .hero-marginalia {
+  background: rgba(255,255,255,.65);
+}
+
+html[data-theme="dark"] .hero-shell .hero-marginalia {
+  background: rgba(22,22,22,.6);
+}
+
+/* Author's archive headings and classifications use the actual theme. */
+html[data-theme] body.author-view .author-page {
+  min-width: 0;
+  color: var(--profile-ink) !important;
+}
+
+html[data-theme] body.author-view .author-page :is(
+  .author-page-works-heading h2,
+  .author-analysis-card h2,
+  .author-page-taxonomy h2
+) {
+  color: var(--profile-ink) !important;
+}
+
+html[data-theme] body.author-view .author-page :is(
+  .author-page-works-heading p,
+  .author-method-note,
+  .author-decade-row,
+  .author-page-metrics small,
+  .author-page-metrics span
+) {
+  color: var(--profile-muted) !important;
+}
+
+html[data-theme] body.author-view .author-page-works-heading p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+html[data-theme] body.author-view .author-page-taxonomy,
+html[data-theme] body.author-view .author-analysis-card,
+html[data-theme] body.author-view .author-page-metrics {
+  background: var(--profile-panel) !important;
+  color: var(--profile-ink) !important;
+  border-color: var(--profile-outline) !important;
+}
+
+html[data-theme] body.author-view .author-page-taxonomy > div > div > span,
+html[data-theme] body.author-view .author-focus-term {
+  background: var(--profile-muted-panel) !important;
+  color: var(--profile-ink) !important;
+  border: 1px solid var(--profile-outline) !important;
+  border-radius: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.4;
+}
+
+html[data-theme] body.author-view .author-page-taxonomy strong {
+  color: var(--profile-blue-label) !important;
+}
+
+html[data-theme] body.author-view .author-section-kicker {
+  color: var(--profile-blue-label) !important;
+}
+
+html[data-theme] body.author-view .author-focus-term small {
+  background: var(--profile-action) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme] body.author-view .author-decade-row > div {
+  background: var(--profile-outline);
+}
+
+/*
+ * Actual author work cards. This intentionally supersedes
+ * .author-work-grid .result-card { background: rgba(255,253,249,.96) }
+ * in redesign.css. The old light card + newly dark text caused
+ * completely invisible titles in the user's screenshots.
+ */
+html[data-theme] body.author-view .author-work-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) 88px;
+  align-items: start;
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+  padding: 22px 20px;
+  border: 1px solid var(--profile-outline) !important;
+  border-left: 4px solid var(--profile-action) !important;
+  border-radius: 0 !important;
+  background: var(--profile-card) !important;
+  color: var(--profile-ink) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card:hover {
+  background: var(--profile-card) !important;
+  transform: none;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-visual {
+  width: 76px;
+  min-width: 0;
+  min-height: 112px;
+  background: #161616 !important;
+  color: #f4f4f4 !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-initial {
+  color: #a6c8ff !important;
+  opacity: .9;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-visual-caption {
+  color: #e0e0e0 !important;
+  opacity: 1 !important;
+  font-size: 9px;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-content {
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card h2 {
+  display: block;
+  flex: 1 1 260px;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  color: var(--profile-ink) !important;
+  opacity: 1 !important;
+  font-family: var(--pg-sans);
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  text-wrap: pretty;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .relevance-pill {
+  flex: 0 0 auto;
+  max-width: 100%;
+  padding: 6px 9px;
+  background: var(--profile-muted-panel) !important;
+  color: var(--profile-ink) !important;
+  border-color: var(--profile-outline) !important;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card :is(
+  .meta,
+  .result-abstract,
+  .explain,
+  .explanation summary
+) {
+  color: var(--profile-subtle) !important;
+  opacity: 1 !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .meta {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .explain {
+  font-size: 12px !important;
+  line-height: 1.55;
+  letter-spacing: .015em;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .meta a,
+html[data-theme] body.author-view .author-work-grid .result-card .author-profile-link {
+  color: var(--profile-ink) !important;
+  text-decoration-color: var(--profile-action) !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .provider {
+  background: var(--profile-muted-panel) !important;
+  color: var(--profile-ink) !important;
+  border: 1px solid var(--profile-outline) !important;
+  opacity: 1 !important;
+  font-size: 11px !important;
+  font-weight: 600;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0;
+  background: transparent !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-links :is(
+  .record-open, .result-secondary-link, .result-open-link, .result-doi-link
+) {
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 112px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--profile-secondary) !important;
+  border-radius: 0 !important;
+  background: var(--profile-secondary) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  font-family: var(--pg-sans);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  transform: none;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-links .record-open {
+  border-color: var(--profile-action) !important;
+  background: var(--profile-action) !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-links .record-open:hover {
+  border-color: var(--profile-action-hover) !important;
+  background: var(--profile-action-hover) !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .result-links :is(
+  .result-secondary-link, .result-open-link, .result-doi-link
+):hover {
+  border-color: var(--profile-secondary-hover) !important;
+  background: var(--profile-secondary-hover) !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .score-panel {
+  min-width: 0;
+  align-self: start;
+  color: var(--profile-ink);
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .score-panel .score {
+  background: var(--profile-muted-panel) !important;
+  color: var(--profile-ink) !important;
+  border-color: var(--profile-outline) !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .score-panel > span {
+  color: var(--profile-muted) !important;
+  font-size: 10px;
+  opacity: 1 !important;
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .score-meter {
+  background: var(--profile-outline);
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .score-meter i {
+  background: var(--profile-action);
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card .explanation {
+  border-color: var(--profile-outline);
+}
+
+html[data-theme] body.author-view .author-work-grid .result-card :is(
+  a, button, summary
+):focus-visible {
+  outline: 3px solid var(--profile-blue-label) !important;
+  outline-offset: 3px;
+}
+
+/* Mobile author records remain one readable column, never cropped. */
+@media (max-width: 820px) {
+  html[data-theme] body.author-view .author-work-grid .result-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px 16px;
+  }
+
+  html[data-theme] body.author-view .author-work-grid .result-card .result-visual {
+    position: relative;
+    inset: auto;
+    width: 56px;
+    height: 56px;
+    min-height: 56px;
+    padding: 8px;
+    grid-column: 1;
+  }
+
+  html[data-theme] body.author-view .author-work-grid .result-card .result-title-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  html[data-theme] body.author-view .author-work-grid .result-card h2 {
+    flex: none;
+    width: 100%;
+    font-size: clamp(20px, 5vw, 25px);
+  }
+
+  html[data-theme] body.author-view .author-work-grid .result-card .score-panel {
+    align-items: flex-start;
+    text-align: left;
+    border-top: 1px solid var(--profile-outline);
+    padding-top: 12px;
+  }
+
+  html[data-theme] body.author-view .author-work-grid .result-card .result-links {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  html[data-theme] body.author-view .author-work-grid .result-card .result-links :is(
+    .record-open, .result-secondary-link, .result-open-link, .result-doi-link
+  ) {
+    width: 100%;
+    min-width: 0;
+  }
+}
