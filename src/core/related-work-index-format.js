@@ -23,24 +23,48 @@ export function compactNeighborToRelatedWorkEdge(
   const targetVectorId =
     Number(neighbor?.v);
 
-  const semanticScore =
-    Number(
-      neighbor?.e?.semanticScore ??
-      neighbor?.s ??
-      0
-    );
+  const relationTypes =
+    Array.isArray(
+      neighbor?.r
+    )
+      ? [...neighbor.r]
+      : [];
 
-  const observedVectorId =
-    Number(
-      neighbor?.o ??
-      targetVectorId
-    );
+  const compactEvidence =
+    (
+      neighbor?.e &&
+      typeof neighbor.e === "object" &&
+      !Array.isArray(neighbor.e)
+    )
+      ? neighbor.e
+      : {};
 
-  const semanticEvidenceId =
-    `semantic:${seedVectorId}:${targetVectorId}`;
+  const evidence = [];
+  const reasons = [];
+  const signals = {};
 
-  const evidence = [
-    {
+
+  if (
+    relationTypes.includes(
+      "semantic-affinity"
+    )
+  ) {
+    const semanticScore =
+      Number(
+        compactEvidence.semanticScore ??
+        neighbor?.s
+      );
+
+    const observedVectorId =
+      Number(
+        neighbor?.o ??
+        targetVectorId
+      );
+
+    const semanticEvidenceId =
+      `semantic:${seedVectorId}:${targetVectorId}`;
+
+    evidence.push({
       id:
         semanticEvidenceId,
 
@@ -58,12 +82,9 @@ export function compactNeighborToRelatedWorkEdge(
       semanticScore,
 
       observedVectorId
-    }
-  ];
+    });
 
-
-  const reasons = [
-    {
+    reasons.push({
       code:
         "semantic-affinity",
 
@@ -73,24 +94,25 @@ export function compactNeighborToRelatedWorkEdge(
       evidenceRefs: [
         semanticEvidenceId
       ]
-    }
-  ];
+    });
 
-
-  const topicIds =
-    Array.isArray(
-      neighbor?.e?.topicIds
-    )
-      ? neighbor.e.topicIds
-      : [];
+    signals.semantic =
+      semanticScore;
+  }
 
 
   if (
-    neighbor?.r?.includes(
+    relationTypes.includes(
       "shared-topic"
-    ) &&
-    topicIds.length
+    )
   ) {
+    const topicIds =
+      Array.isArray(
+        compactEvidence.topicIds
+      )
+        ? compactEvidence.topicIds
+        : [];
+
     const topicEvidenceId =
       `topic:${seedVectorId}:${targetVectorId}`;
 
@@ -121,6 +143,111 @@ export function compactNeighborToRelatedWorkEdge(
         topicEvidenceId
       ]
     });
+
+    signals.topic =
+      1;
+  }
+
+
+  if (
+    relationTypes.includes(
+      "same-author"
+    )
+  ) {
+    const authorityRefs =
+      Array.isArray(
+        compactEvidence.authorityRefs
+      )
+        ? compactEvidence.authorityRefs
+        : [];
+
+    const authorEvidenceId =
+      `author:${seedVectorId}:${targetVectorId}`;
+
+    evidence.push({
+      id:
+        authorEvidenceId,
+
+      class:
+        "bibliographic",
+
+      strength:
+        "strong",
+
+      source:
+        "author-authority-graph-v1",
+
+      structuredIdentity:
+        true,
+
+      authorityRefs
+    });
+
+    reasons.push({
+      code:
+        "same-author",
+
+      relationType:
+        "same-author",
+
+      evidenceRefs: [
+        authorEvidenceId
+      ]
+    });
+
+    signals.author =
+      1;
+  }
+
+
+  if (
+    relationTypes.includes(
+      "shared-coauthor"
+    )
+  ) {
+    const sharedAuthorityRefs =
+      Array.isArray(
+        compactEvidence.sharedAuthorityRefs
+      )
+        ? compactEvidence.sharedAuthorityRefs
+        : [];
+
+    const coauthorEvidenceId =
+      `coauthor:${seedVectorId}:${targetVectorId}`;
+
+    evidence.push({
+      id:
+        coauthorEvidenceId,
+
+      class:
+        "bibliographic",
+
+      strength:
+        "strong",
+
+      source:
+        "author-authority-graph-v1",
+
+      structuredIdentity:
+        true,
+
+      sharedAuthorityRefs
+    });
+
+    reasons.push({
+      code:
+        "shared-coauthor",
+
+      relationType:
+        "shared-coauthor",
+
+      evidenceRefs: [
+        coauthorEvidenceId
+      ]
+    });
+
+    signals.coauthor =
+      1;
   }
 
 
@@ -141,28 +268,9 @@ export function compactNeighborToRelatedWorkEdge(
         targetIdentity
     },
 
-    relationTypes:
-      Array.isArray(neighbor?.r)
-        ? [...neighbor.r]
-        : [
-            "semantic-affinity"
-          ],
+    relationTypes,
 
-    signals: {
-      semantic:
-        semanticScore,
-
-      ...(
-        neighbor?.r?.includes(
-          "shared-topic"
-        )
-          ? {
-              topic:
-                1
-            }
-          : {}
-      )
-    },
+    signals,
 
     evidence,
     reasons,
@@ -178,7 +286,6 @@ export function compactNeighborToRelatedWorkEdge(
     edge
   );
 }
-
 
 export function validateCompactRelatedWorkSeed(
   seed
@@ -280,6 +387,22 @@ export function validateCompactRelatedWorkSeed(
     }
 
     seen.add(target);
+
+    const targetVectorId =
+      Number(
+        neighbor?.v
+      );
+
+    if (
+      !Number.isInteger(
+        targetVectorId
+      ) ||
+      targetVectorId < 0
+    ) {
+      errors.push(
+        "neighbor:vector-id-invalid"
+      );
+    }
 
     const observedVectorId =
       Number(

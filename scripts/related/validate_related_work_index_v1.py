@@ -59,25 +59,31 @@ def validate_neighbor(
     if target_vector_id < 0 or target_vector_id >= document_count:
         raise RuntimeError("Neighbor vector ID is outside corpus bounds")
 
-    observed_vector_id = int(neighbor.get("o", target_vector_id))
-    if observed_vector_id < 0 or observed_vector_id >= document_count:
-        raise RuntimeError("Observed semantic vector ID is outside corpus bounds")
-
-    score = float(neighbor.get("s", -1))
-    if not 0 <= score <= 1:
-        raise RuntimeError("Semantic signal is outside [0, 1]")
-
     relations = neighbor.get("r")
-    if not isinstance(relations, list) or "semantic-affinity" not in relations:
-        raise RuntimeError("Every V1 neighbor must preserve semantic-affinity")
+    if not isinstance(relations, list) or not relations:
+        raise RuntimeError("Neighbor must declare at least one relation")
 
     evidence = neighbor.get("e")
     if not isinstance(evidence, dict):
         raise RuntimeError("Compact evidence payload is missing")
 
-    semantic_score = float(evidence.get("semanticScore", -1))
-    if semantic_score != score:
-        raise RuntimeError("Compact semantic score does not match signal")
+    if "semantic-affinity" in relations:
+        observed_vector_id = int(neighbor.get("o", target_vector_id))
+        if observed_vector_id < 0 or observed_vector_id >= document_count:
+            raise RuntimeError("Observed semantic vector ID is outside corpus bounds")
+
+        score = float(neighbor.get("s", -1))
+        if not 0 <= score <= 1:
+            raise RuntimeError("Semantic signal is outside [0, 1]")
+
+        semantic_score = float(evidence.get("semanticScore", -1))
+        if semantic_score != score:
+            raise RuntimeError("Compact semantic score does not match signal")
+    else:
+        if "s" in neighbor or "semanticScore" in evidence or "o" in neighbor:
+            raise RuntimeError(
+                "Authority-only neighbor contains semantic evidence without semantic-affinity"
+            )
 
     topic_ids = evidence.get("topicIds", [])
     if "shared-topic" in relations:
@@ -85,6 +91,42 @@ def validate_neighbor(
             raise RuntimeError("shared-topic requires topicIds")
     elif topic_ids:
         raise RuntimeError("topicIds present without shared-topic relation")
+
+    authority_refs = evidence.get("authorityRefs", [])
+    if "same-author" in relations:
+        if (
+            not isinstance(authority_refs, list)
+            or not authority_refs
+            or len(set(authority_refs)) != len(authority_refs)
+            or not all(str(value).strip() for value in authority_refs)
+        ):
+            raise RuntimeError("same-author requires unique authorityRefs")
+    elif authority_refs:
+        raise RuntimeError("authorityRefs present without same-author relation")
+
+    shared_authority_refs = evidence.get("sharedAuthorityRefs", [])
+    if "shared-coauthor" in relations:
+        if (
+            not isinstance(shared_authority_refs, list)
+            or not shared_authority_refs
+            or len(set(shared_authority_refs)) != len(shared_authority_refs)
+            or not all(str(value).strip() for value in shared_authority_refs)
+        ):
+            raise RuntimeError(
+                "shared-coauthor requires unique sharedAuthorityRefs"
+            )
+        if not set(shared_authority_refs).issubset(set(authority_refs)):
+            raise RuntimeError(
+                "shared-coauthor refs must also be present in same-author authorityRefs"
+            )
+        if "same-author" not in relations:
+            raise RuntimeError(
+                "shared-coauthor requires same-author in Related Work V1C"
+            )
+    elif shared_authority_refs:
+        raise RuntimeError(
+            "sharedAuthorityRefs present without shared-coauthor relation"
+        )
 
     # Expansion is the compatibility bridge to the public RelatedWorkEdge V1
     # contract. Python checks structural equivalence here; JavaScript tests run
