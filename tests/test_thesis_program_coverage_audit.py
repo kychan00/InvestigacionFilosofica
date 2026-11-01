@@ -153,10 +153,17 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
                 "review": 1,
             },
         )
-        self.assertEqual(metrics["gateBlockerCount"], 1)
+        self.assertEqual(metrics["gateBlockerCount"], 2)
+        blockers = {
+            item["workId"]: item["explanationCode"]
+            for item in metrics["gateBlockers"]
+        }
         self.assertEqual(
-            metrics["gateBlockers"][0]["workId"],
-            "blocked",
+            blockers,
+            {
+                "blocked": "unresolved-institution",
+                "external": "external-institution",
+            },
         )
         self.assertEqual(metrics["dateQuality"]["suspicious"], 1)
         self.assertEqual(
