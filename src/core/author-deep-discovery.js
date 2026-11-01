@@ -188,7 +188,7 @@ export async function discoverAuthorArchive({
     jobs.push((async()=>{
       try {
         const federated=await federatedImpl(name,{
-          signal,orcid,limit:150,...federatedOptions
+          signal,orcid,aliases:author?.aliases||[],limit:150,...federatedOptions
         });
         if(federated.status==="resolved") {
           works=mergeAuthorArchives(works,federated.works);
