@@ -127,3 +127,26 @@ Los primeros 10 resultados de una consulta deben estar completamente juzgados an
 Los resultados no juzgados no se convierten automáticamente en irrelevantes.
 
 El benchmark debe mantenerse independiente de cambios concretos del ranking. Si la política de juicio cambia sustantivamente, debe publicarse una nueva versión.
+
+## Benchmark de identidad de autores
+
+El benchmark de recuperación documental anterior es independiente del benchmark del **Author Authority Graph**.
+
+La evaluación de identidad vive en:
+
+`benchmark/author-authority/v1/`
+
+y mide:
+
+- falsos merges de personas;
+- false splits deterministas por ORCID;
+- cobertura exacta del índice de autores;
+- perfiles sin candidate group;
+- muestras reproducibles de homónimos y variantes nominales.
+
+Su especificación completa está en:
+
+`docs/AUTHOR_AUTHORITY_BENCHMARK_V1.md`
+
+La capa silver del benchmark de autoridades no debe interpretarse como juicio humano universal; el gold humano se mantiene separado y explícito.
+
