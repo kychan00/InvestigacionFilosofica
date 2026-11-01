@@ -70,7 +70,7 @@ try{
   await page.locator('[data-theme-choice="'+theme+'"]').click();
   try{
     await page.waitForFunction(()=>
-      document.querySelectorAll(".author-work-grid .result-card").length>=8 &&
+      document.querySelectorAll(".author-work-grid .result-card").length>=20 &&
       document.querySelector(".author-archive-discovery strong")?.textContent.includes("Archivo de publicaciones recuperadas"),
       null,{timeout:30000});
   }catch{
@@ -84,17 +84,29 @@ try{
     throw new Error("Federated profile failed "+JSON.stringify({theme,state,errors,requests}));
   }
   const titles=await page.locator(".author-work-grid .result-card h2").allTextContents();
-  for(const year of [2019,2023,2024]){
-    assert.ok(titles.some(t=>t.toLowerCase().includes(year===2024?"entramado":"teoría crítica")),
-      "Missing collaborative edition "+year);
+  const joined=titles.join("\n").toLowerCase();
+  for(const expected of [
+    "después del #metoo",
+    "feminicidio: elementos",
+    "sujeto y subjetividad",
+    "filosofía feminista",
+    "para una teoría crítica del racismo",
+    "theodor w. adorno: resistencia",
+    "teoría crítica. planteamientos"
+  ]) {
+    assert.ok(joined.includes(expected),"Missing verified Dinora work: "+expected);
   }
-  assert.ok(!titles.some(t=>t.includes("Gracias, Dinora")));
-  assert.ok(await page.locator(".author-collaboration-tag").count()>=3);
-  assert.equal(await page.locator(".author-individual-tag").count(),0);
+  assert.ok(!joined.includes("gracias, dinora"));
+  assert.ok(!joined.includes("1900"));
+  const pageText=await page.locator("#results").textContent();
+  assert.match(pageText,/Dinora Hernández López/);
+  assert.match(pageText,/0000-0001-7335-1790|Bibliografía verificada/);
+  assert.match(pageText,/2026/);
+  assert.ok(await page.locator(".author-work-grid .result-card").count()>=20);
   const heading=await page.locator(".author-page-hero h1").textContent();
   assert.match(heading,/Dinora Hernández López/);
   assert.ok(requests.some(x=>x.includes("Dinora Hernández López")),
-    "Full name discovered from UdeG creators should be searched");
+    "Canonical full name must be queried across federated catalogues");
   assert.equal(requests.some(x=>x.startsWith("FORBIDDEN")),false);
   await page.locator(".author-collaboration-summary").scrollIntoViewIfNeeded();
   await page.screenshot({path:"artifacts/author-federated-coverage/dinora-"+theme+".png",
