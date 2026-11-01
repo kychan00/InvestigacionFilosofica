@@ -49,7 +49,6 @@ function addPair(output, {
 
   output.sample.push({
     audit_id: auditId,
-    stratum,
     left: blindProfile(left),
     right: blindProfile(right),
     judgment: null,
@@ -316,7 +315,7 @@ export function evaluateHumanAuthorityAudit({
     const judgment = judgmentById.get(sampleItem.audit_id);
     if (!judgment) continue;
 
-    const stratum = sampleItem.stratum;
+    const stratum = manifest.stratum;
     const bucket = result.byStratum[stratum] || {
       total: 0,
       judged: 0,
@@ -383,7 +382,9 @@ export function evaluateHumanAuthorityAudit({
   }
 
   for (const item of sample) {
-    const bucket = result.byStratum[item.stratum] || {
+    const stratum =
+      manifestById.get(item.audit_id)?.stratum || "unknown";
+    const bucket = result.byStratum[stratum] || {
       total: 0,
       judged: 0,
       resolved: 0,
@@ -394,10 +395,12 @@ export function evaluateHumanAuthorityAudit({
     };
     if (!bucket._counted) {
       bucket.total = sample.filter(
-        row => row.stratum === item.stratum
+        row =>
+          (manifestById.get(row.audit_id)?.stratum || "unknown") ===
+          stratum
       ).length;
       bucket._counted = true;
-      result.byStratum[item.stratum] = bucket;
+      result.byStratum[stratum] = bucket;
     }
   }
 
@@ -514,7 +517,7 @@ export function promoteHumanAuthorityGold({
           authorId: sampleItem.right.authorId,
           name: sampleItem.right.name
         },
-        stratum: sampleItem.stratum,
+        stratum: manifest.stratum,
         note: item.note,
         evidence: item.evidence,
         judged_at: item.judged_at
