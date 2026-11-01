@@ -14,6 +14,11 @@ on:
       - "scripts/qa/author-profile-visibility-smoke.mjs"
       - "scripts/qa/author-deep-discovery-smoke.mjs"
       - "scripts/qa/author-name-only-smoke.mjs"
+      - "scripts/qa/author-federated-coverage-smoke.mjs"
+      - "src/core/author-federated-matching.js"
+      - "src/core/crossref-author-fallback.js"
+      - "tests/author-federated-matching.test.mjs"
+      - "tests/author-federated-coverage.test.mjs"
       - "tests/author-identity-lookup.test.mjs"
       - "src/core/author-identity-lookup.js"
       - "src/core/author-collaborations.js"
@@ -88,6 +93,8 @@ jobs:
         run: node scripts/qa/author-deep-discovery-smoke.mjs
       - name: Verify name-only author URLs and live identity resolution
         run: node scripts/qa/author-name-only-smoke.mjs
+      - name: Verify federated author collaborations and aliases in both themes
+        run: node scripts/qa/author-federated-coverage-smoke.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -101,4 +108,5 @@ jobs:
             artifacts/author-profile-visibility/
             artifacts/author-deep-discovery/
             artifacts/author-name-lookup/
+            artifacts/author-federated-coverage/
           if-no-files-found: ignore
