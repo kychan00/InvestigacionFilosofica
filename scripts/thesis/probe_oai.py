@@ -23,6 +23,8 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+from html import unescape
+from html.parser import HTMLParser
 from typing import Any
 
 NS = {"oai": "http://www.openarchives.org/OAI/2.0/"}
@@ -450,6 +452,61 @@ def sample_metadata(base: str, identifier: str, metadata_prefix: str) -> dict[st
     }
 
 
+class ReconHTMLParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.handle_ids: set[str] = set()
+        self.dc_meta: dict[str, list[str]] = {}
+        self.text_chunks: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = {str(k).lower(): (v or "") for k, v in attrs}
+        if tag.lower() == "a":
+            href = values.get("href", "")
+            match = re.search(r"handle/123456789/(\\d+)", href)
+            if match:
+                self.handle_ids.add(match.group(1))
+        if tag.lower() == "meta":
+            name = values.get("name", "")
+            content = values.get("content", "").strip()
+            if name.lower().startswith("dc.") and content:
+                self.dc_meta.setdefault(name, []).append(content)
+
+    def handle_data(self, data: str) -> None:
+        value = data.strip()
+        if value:
+            self.text_chunks.append(value)
+
+
+def parse_html_document(result: Fetch) -> dict[str, Any]:
+    body = result.body.decode("utf-8", "replace") if result.body else ""
+    parser = ReconHTMLParser()
+    try:
+        parser.feed(body)
+    except Exception as exc:
+        parser_error = f"{type(exc).__name__}: {exc}"
+    else:
+        parser_error = None
+
+    visible_text = unescape(" ".join(parser.text_chunks))
+    visible_text = re.sub(r"\\s+", " ", visible_text).strip()
+    total_matches = re.findall(
+        r"(?:of|de)\\s+([0-9][0-9,]*)",
+        visible_text,
+        flags=re.IGNORECASE,
+    )
+
+    return {
+        "handle_ids": sorted(parser.handle_ids),
+        "handle_count": len(parser.handle_ids),
+        "dc_meta": parser.dc_meta,
+        "dc_meta_field_count": len(parser.dc_meta),
+        "reported_totals": total_matches[:10],
+        "parser_error": parser_error,
+        "visible_text_prefix": visible_text[:500],
+    }
+
+
 def compact_fetch(result: Fetch) -> dict[str, Any]:
     return {
         "url": result.url,
@@ -476,49 +533,27 @@ def inspect_udgvirtual_html() -> dict[str, Any]:
 
     def html_info(result: Fetch) -> dict[str, Any]:
         info = compact_fetch(result)
+        parsed = parse_html_document(result)
         body = result.body.decode("utf-8", "replace") if result.body else ""
-        handles = sorted(set(
-            re.findall(r"/jspui/handle/123456789/(\\d+)", body)
-        ))
-        total_match = re.search(
-            r"(?:of|de)\\s+([0-9][0-9,]*)",
-            re.sub(r"<[^>]+>", " ", body),
-            flags=re.IGNORECASE,
+        info.update(parsed)
+        info["handle_ids"] = parsed["handle_ids"][:50]
+        info["contains_thesis_collection_label"] = bool(
+            re.search(r"\\bTesis\\b", parsed["visible_text_prefix"], flags=re.IGNORECASE)
         )
-        info.update({
-            "handle_ids": handles[:50],
-            "handle_count": len(handles),
-            "reported_total": total_match.group(1) if total_match else None,
-            "contains_thesis_collection_label": bool(
-                re.search(r"\\bTesis\\b", body, flags=re.IGNORECASE)
-            ),
-        })
+        info["contains_director_marker"] = bool(
+            re.search(r"director(?:a)? de tesis", body, flags=re.IGNORECASE)
+        )
+        info["contains_udg"] = "Universidad de Guadalajara" in body
+        info["contains_degree_description"] = bool(
+            re.search(r"Documento de titulaci[oó]n", body, flags=re.IGNORECASE)
+        )
         return info
-
-    full_body = full.body.decode("utf-8", "replace") if full.body else ""
-    normal_body = normal.body.decode("utf-8", "replace") if normal.body else ""
-    dc_fields = sorted(set(
-        re.findall(r"dc\\.[a-zA-Z0-9_.-]+", full_body)
-    ))
 
     return {
         "collection_page_1": html_info(first),
         "collection_page_2": html_info(second),
-        "representative_item": {
-            **html_info(normal),
-            "contains_director_marker": bool(
-                re.search(r"director(?:a)? de tesis", normal_body, flags=re.IGNORECASE)
-            ),
-            "contains_udg": "Universidad de Guadalajara" in normal_body,
-            "contains_degree_description": bool(
-                re.search(r"Documento de titulaci[oó]n", normal_body, flags=re.IGNORECASE)
-            ),
-        },
-        "representative_item_full": {
-            **html_info(full),
-            "dc_fields": dc_fields,
-            "dc_field_count": len(dc_fields),
-        },
+        "representative_item": html_info(normal),
+        "representative_item_full": html_info(full),
     }
 
 
@@ -663,7 +698,7 @@ def main() -> int:
     args = parser.parse_args()
 
     report = {
-        "schema_version": "thesis-source-recon-v1.3",
+        "schema_version": "thesis-source-recon-v1.4",
         "read_only": True,
         "limits": {
             "follows_set_resumption_tokens": True,
