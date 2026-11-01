@@ -27,6 +27,10 @@ on:
       - "tests/author-resolution-decision-ledger.test.mjs"
       - "src/core/author-authority-adapters.js"
       - "tests/author-authority-adapters.test.mjs"
+      - "src/core/author-authority-build-pipeline.js"
+      - "tests/author-authority-build-pipeline.test.mjs"
+      - "scripts/authority/build-authority-fixture-v1.mjs"
+      - "package.json"
       - "src/core/author-collaborations.js"
       - "tests/author-collaborations.test.mjs"
       - "scripts/openalex/author_index_common.py"
@@ -67,6 +71,14 @@ jobs:
         run: npm ci
       - name: Run unit and integration tests
         run: npm test
+      - name: Build minimal Author Authority fixture
+        run: npm run build:authority-fixture
+      - name: Upload Author Authority fixture
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-fixture-v1
+          path: artifacts/author-authority/
+          if-no-files-found: error
       - name: Verify Python author-index alias and coauthor contracts
         run: |
           python3 -m pip install --user duckdb huggingface_hub
