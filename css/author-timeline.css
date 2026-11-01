@@ -1,4 +1,21 @@
 /* Author work timeline: data-first, one-to-one linked work nodes. */
+body.author-view .results {
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  max-width: 100%;
+}
+body.author-view .results > .author-page {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+body.author-view .author-page #author-timeline-root {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .author-page #author-timeline-root {
   --tl-ink: #161616;
   --tl-neutral: #393939;
