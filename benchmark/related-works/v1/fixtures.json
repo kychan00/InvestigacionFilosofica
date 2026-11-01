@@ -1,0 +1,858 @@
+{
+  "schemaVersion": "related-work-fixtures-v1",
+  "description": "Synthetic contract fixtures for the Related Work Graph. They validate evidence semantics before ranking weights exist.",
+  "cases": [
+    {
+      "id": "RW01",
+      "label": "afinidad semántica válida",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:seed-a:target-b",
+        "seed": {
+          "identity": "openalex:W100",
+          "title": "Seed A"
+        },
+        "target": {
+          "identity": "openalex:W200",
+          "title": "Target B"
+        },
+        "relationTypes": [
+          "semantic-affinity"
+        ],
+        "signals": {
+          "semantic": 0.91
+        },
+        "evidence": [
+          {
+            "id": "ev-sem-1",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "qwen3-browser-static-v4",
+            "semanticScore": 0.91
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-sem-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW02",
+      "label": "topic compartido válido",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:seed-topic:target-topic",
+        "seed": {
+          "identity": "doi:10.1/seed"
+        },
+        "target": {
+          "identity": "doi:10.1/target"
+        },
+        "relationTypes": [
+          "shared-topic"
+        ],
+        "signals": {
+          "topic": 0.8
+        },
+        "evidence": [
+          {
+            "id": "ev-topic-1",
+            "class": "contextual",
+            "strength": "supporting",
+            "source": "openalex-philosophy-topics",
+            "topicIds": [
+              "critical-theory"
+            ]
+          }
+        ],
+        "reasons": [
+          {
+            "code": "shared-topic",
+            "relationType": "shared-topic",
+            "evidenceRefs": [
+              "ev-topic-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW03",
+      "label": "mismo autor con identidad estructurada",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:same-author",
+        "seed": {
+          "identity": "doi:10.2/a"
+        },
+        "target": {
+          "identity": "doi:10.2/b"
+        },
+        "relationTypes": [
+          "same-author"
+        ],
+        "signals": {
+          "author": 1
+        },
+        "evidence": [
+          {
+            "id": "ev-author-1",
+            "class": "bibliographic",
+            "strength": "strong",
+            "source": "authority-graph",
+            "structuredIdentity": true,
+            "authorityRefs": [
+              "person:abc"
+            ]
+          }
+        ],
+        "reasons": [
+          {
+            "code": "same-author",
+            "relationType": "same-author",
+            "evidenceRefs": [
+              "ev-author-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW04",
+      "label": "mismo nombre no demuestra mismo autor",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:name-only-author",
+        "seed": {
+          "identity": "provider:one"
+        },
+        "target": {
+          "identity": "provider:two"
+        },
+        "relationTypes": [
+          "same-author"
+        ],
+        "signals": {
+          "author": 0.5
+        },
+        "evidence": [
+          {
+            "id": "ev-name-1",
+            "class": "contextual",
+            "strength": "weak",
+            "source": "normalized-name",
+            "structuredIdentity": false,
+            "rawName": "José Martínez"
+          }
+        ],
+        "reasons": [
+          {
+            "code": "same-author",
+            "relationType": "same-author",
+            "evidenceRefs": [
+              "ev-name-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "relation:evidence-too-weak:same-author",
+          "relation:structured-identity-required:same-author"
+        ]
+      }
+    },
+    {
+      "id": "RW05",
+      "label": "coautor compartido con autoridad resuelta",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:shared-coauthor",
+        "seed": {
+          "identity": "openalex:W301"
+        },
+        "target": {
+          "identity": "openalex:W302"
+        },
+        "relationTypes": [
+          "shared-coauthor"
+        ],
+        "signals": {
+          "coauthor": 1
+        },
+        "evidence": [
+          {
+            "id": "ev-coauthor-1",
+            "class": "bibliographic",
+            "strength": "strong",
+            "source": "authority-graph",
+            "structuredIdentity": true,
+            "sharedAuthorityRefs": [
+              "person:coauthor-9"
+            ]
+          }
+        ],
+        "reasons": [
+          {
+            "code": "shared-coauthor",
+            "relationType": "shared-coauthor",
+            "evidenceRefs": [
+              "ev-coauthor-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW06",
+      "label": "citación explícita válida",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:citation-explicit",
+        "seed": {
+          "identity": "openalex:W400"
+        },
+        "target": {
+          "identity": "openalex:W401"
+        },
+        "relationTypes": [
+          "cited-by-seed"
+        ],
+        "signals": {
+          "citation": 1
+        },
+        "evidence": [
+          {
+            "id": "ev-citation-1",
+            "class": "bibliographic",
+            "strength": "strong",
+            "source": "verified-reference-table",
+            "structuredIdentity": true,
+            "explicitBibliographicEdge": true,
+            "sourceRecordRefs": [
+              "source:W400:references"
+            ]
+          }
+        ],
+        "reasons": [
+          {
+            "code": "cited-by-seed",
+            "relationType": "cited-by-seed",
+            "evidenceRefs": [
+              "ev-citation-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW07",
+      "label": "similitud semántica no puede inventar citación",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:false-citation",
+        "seed": {
+          "identity": "openalex:W410"
+        },
+        "target": {
+          "identity": "openalex:W411"
+        },
+        "relationTypes": [
+          "cites-seed"
+        ],
+        "signals": {
+          "semantic": 0.95
+        },
+        "evidence": [
+          {
+            "id": "ev-sem-cite-1",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "qwen3-browser-static-v4",
+            "structuredIdentity": false,
+            "explicitBibliographicEdge": false
+          }
+        ],
+        "reasons": [
+          {
+            "code": "cites-seed",
+            "relationType": "cites-seed",
+            "evidenceRefs": [
+              "ev-sem-cite-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "relation:evidence-too-weak:cites-seed",
+          "relation:structured-identity-required:cites-seed",
+          "relation:explicit-bibliographic-edge-required:cites-seed"
+        ]
+      }
+    },
+    {
+      "id": "RW08",
+      "label": "proximidad temporal sola no produce relación",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:historical-only",
+        "seed": {
+          "identity": "doi:10.8/a"
+        },
+        "target": {
+          "identity": "doi:10.8/b"
+        },
+        "relationTypes": [
+          "historical-context"
+        ],
+        "signals": {
+          "temporal": 0.9
+        },
+        "evidence": [
+          {
+            "id": "ev-time-1",
+            "class": "contextual",
+            "strength": "weak",
+            "source": "publication-year",
+            "yearDistance": 1
+          }
+        ],
+        "reasons": [
+          {
+            "code": "historical-context",
+            "relationType": "historical-context",
+            "evidenceRefs": [
+              "ev-time-1"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "relation:historical-only-forbidden"
+        ]
+      }
+    },
+    {
+      "id": "RW09",
+      "label": "afinidad semántica reforzada por contexto histórico",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:semantic-historical",
+        "seed": {
+          "identity": "openalex:W500"
+        },
+        "target": {
+          "identity": "openalex:W501"
+        },
+        "relationTypes": [
+          "semantic-affinity",
+          "historical-context"
+        ],
+        "signals": {
+          "semantic": 0.88,
+          "temporal": 0.7
+        },
+        "evidence": [
+          {
+            "id": "ev-sem-9",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "qwen3-browser-static-v4",
+            "semanticScore": 0.88
+          },
+          {
+            "id": "ev-time-9",
+            "class": "contextual",
+            "strength": "supporting",
+            "source": "publication-year",
+            "yearDistance": 2
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-sem-9"
+            ]
+          },
+          {
+            "code": "historical-context",
+            "relationType": "historical-context",
+            "evidenceRefs": [
+              "ev-time-9"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW10",
+      "label": "una obra no puede relacionarse consigo misma",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:self",
+        "seed": {
+          "identity": "doi:10.10/same"
+        },
+        "target": {
+          "identity": "doi:10.10/same"
+        },
+        "relationTypes": [
+          "semantic-affinity"
+        ],
+        "signals": {
+          "semantic": 1
+        },
+        "evidence": [
+          {
+            "id": "ev-self",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "semantic-index",
+            "semanticScore": 1
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-self"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:self-relation-forbidden"
+        ]
+      }
+    },
+    {
+      "id": "RW11",
+      "label": "otra edición de la misma obra no entra como obra relacionada",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:same-work-version",
+        "seed": {
+          "identity": "isbn:9780000000001"
+        },
+        "target": {
+          "identity": "isbn:9780000000002"
+        },
+        "relationTypes": [
+          "semantic-affinity"
+        ],
+        "signals": {
+          "semantic": 0.99
+        },
+        "evidence": [
+          {
+            "id": "ev-version",
+            "class": "deterministic",
+            "strength": "strong",
+            "source": "work-version-resolution",
+            "structuredIdentity": true
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-version"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": true
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:same-work-version-forbidden"
+        ]
+      }
+    },
+    {
+      "id": "RW12",
+      "label": "mismo debate con concepto estructurado",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:same-debate",
+        "seed": {
+          "identity": "openalex:W600"
+        },
+        "target": {
+          "identity": "openalex:W601"
+        },
+        "relationTypes": [
+          "shared-concept",
+          "same-debate"
+        ],
+        "signals": {
+          "philosophical": 0.82,
+          "topic": 0.75
+        },
+        "evidence": [
+          {
+            "id": "ev-concept-12",
+            "class": "contextual",
+            "strength": "supporting",
+            "source": "philosophy-map",
+            "conceptIds": [
+              "freedom"
+            ],
+            "areaIds": [
+              "ETH",
+              "POL"
+            ]
+          }
+        ],
+        "reasons": [
+          {
+            "code": "shared-concept",
+            "relationType": "shared-concept",
+            "evidenceRefs": [
+              "ev-concept-12"
+            ]
+          },
+          {
+            "code": "same-debate",
+            "relationType": "same-debate",
+            "evidenceRefs": [
+              "ev-concept-12"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW13",
+      "label": "razón debe referenciar evidencia existente",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:missing-evidence-ref",
+        "seed": {
+          "identity": "openalex:W700"
+        },
+        "target": {
+          "identity": "openalex:W701"
+        },
+        "relationTypes": [
+          "shared-topic"
+        ],
+        "signals": {
+          "topic": 0.6
+        },
+        "evidence": [
+          {
+            "id": "ev-topic-13",
+            "class": "contextual",
+            "strength": "supporting",
+            "source": "topic-index"
+          }
+        ],
+        "reasons": [
+          {
+            "code": "shared-topic",
+            "relationType": "shared-topic",
+            "evidenceRefs": [
+              "ev-does-not-exist"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "reason:unknown-evidence:ev-does-not-exist",
+          "relation:evidence-missing:shared-topic"
+        ]
+      }
+    },
+    {
+      "id": "RW14",
+      "label": "dos señales fuertes pueden coexistir sin colapsarse",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:semantic-author",
+        "seed": {
+          "identity": "openalex:W800"
+        },
+        "target": {
+          "identity": "openalex:W801"
+        },
+        "relationTypes": [
+          "semantic-affinity",
+          "same-author"
+        ],
+        "signals": {
+          "semantic": 0.86,
+          "author": 1
+        },
+        "evidence": [
+          {
+            "id": "ev-sem-14",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "qwen3-browser-static-v4",
+            "semanticScore": 0.86
+          },
+          {
+            "id": "ev-author-14",
+            "class": "bibliographic",
+            "strength": "strong",
+            "source": "authority-graph",
+            "structuredIdentity": true,
+            "authorityRefs": [
+              "person:dinora-example"
+            ]
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-sem-14"
+            ]
+          },
+          {
+            "code": "same-author",
+            "relationType": "same-author",
+            "evidenceRefs": [
+              "ev-author-14"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW15",
+      "label": "señales numéricas quedan acotadas a cero y uno",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:invalid-signal",
+        "seed": {
+          "identity": "openalex:W900"
+        },
+        "target": {
+          "identity": "openalex:W901"
+        },
+        "relationTypes": [
+          "semantic-affinity"
+        ],
+        "signals": {
+          "semantic": 1.4
+        },
+        "evidence": [
+          {
+            "id": "ev-sem-15",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "semantic-index"
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-sem-15"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "signals:not-unit:semantic"
+        ]
+      }
+    },
+    {
+      "id": "RW16",
+      "label": "relación bibliográfica genérica exige arista explícita",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:bibliographic-reference",
+        "seed": {
+          "identity": "doi:10.16/a"
+        },
+        "target": {
+          "identity": "doi:10.16/b"
+        },
+        "relationTypes": [
+          "bibliographic-reference"
+        ],
+        "signals": {
+          "bibliographic": 1
+        },
+        "evidence": [
+          {
+            "id": "ev-bib-16",
+            "class": "bibliographic",
+            "strength": "strong",
+            "source": "verified-reference-table",
+            "structuredIdentity": true,
+            "explicitBibliographicEdge": true,
+            "sourceRecordRefs": [
+              "source:reference-table:16"
+            ]
+          }
+        ],
+        "reasons": [
+          {
+            "code": "bibliographic-reference",
+            "relationType": "bibliographic-reference",
+            "evidenceRefs": [
+              "ev-bib-16"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RW17",
+      "label": "veto activo bloquea una relación aunque la semántica sea alta",
+      "edge": {
+        "schemaVersion": "related-work-v1",
+        "id": "rw:veto",
+        "seed": {
+          "identity": "openalex:W1000"
+        },
+        "target": {
+          "identity": "openalex:W1001"
+        },
+        "relationTypes": [
+          "semantic-affinity"
+        ],
+        "signals": {
+          "semantic": 0.97
+        },
+        "evidence": [
+          {
+            "id": "ev-sem-17",
+            "class": "semantic",
+            "strength": "strong",
+            "source": "qwen3-browser-static-v4",
+            "semanticScore": 0.97
+          },
+          {
+            "id": "ev-veto-17",
+            "class": "bibliographic",
+            "strength": "veto",
+            "source": "work-resolution",
+            "structuredIdentity": true,
+            "note": "Contradiction detected by canonical work resolution"
+          }
+        ],
+        "reasons": [
+          {
+            "code": "semantic-affinity",
+            "relationType": "semantic-affinity",
+            "evidenceRefs": [
+              "ev-sem-17"
+            ]
+          }
+        ],
+        "identity": {
+          "sameIntellectualWork": false
+        }
+      },
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:veto-evidence-present:ev-veto-17"
+        ]
+      }
+    }
+  ]
+}
