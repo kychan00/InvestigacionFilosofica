@@ -40,16 +40,47 @@ async function readJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
 }
 
-async function* readJsonLines(path) {
+async function* readJsonLines(
+  path,
+  {
+    tolerant = false,
+    diagnostics = null
+  } = {}
+) {
   const input = createReadStream(path, {encoding: "utf8"});
   const lines = createInterface({
     input,
     crlfDelay: Infinity
   });
+  let lineNumber = 0;
 
   for await (const line of lines) {
+    lineNumber++;
     if (!line.trim()) continue;
-    yield JSON.parse(line);
+
+    try {
+      yield JSON.parse(line);
+    } catch (error) {
+      if (!tolerant) {
+        throw new Error(
+          path + ":" + lineNumber + ": " + error.message
+        );
+      }
+
+      if (diagnostics) {
+        diagnostics.invalidJsonRows =
+          Number(diagnostics.invalidJsonRows || 0) + 1;
+        diagnostics.samples ||= [];
+        if (diagnostics.samples.length < 20) {
+          diagnostics.samples.push({
+            path,
+            lineNumber,
+            error: error.message,
+            preview: line.slice(0, 240)
+          });
+        }
+      }
+    }
   }
 }
 
@@ -141,7 +172,11 @@ export async function buildHumanAuthorityEvidencePack({
   inputRoot,
   manifest,
   sample,
-  maxWorksPerProfile = 12
+  maxWorksPerProfile = 12,
+  diagnostics = {
+    invalidJsonRows: 0,
+    samples: []
+  }
 }) {
   const targetNames = new Map();
   for (const item of sample) {
@@ -177,7 +212,10 @@ export async function buildHumanAuthorityEvidencePack({
     if (!relativePath) continue;
 
     for await (
-      const row of readJsonLines(join(inputRoot, relativePath))
+      const row of readJsonLines(
+        join(inputRoot, relativePath),
+        {tolerant: true, diagnostics}
+      )
     ) {
       const authorId = String(row?.id || "").replace(/^A/i, "");
       if (!targetIds.has(authorId)) continue;
@@ -225,7 +263,10 @@ export async function buildHumanAuthorityEvidencePack({
     if (!relativePath) continue;
 
     for await (
-      const row of readJsonLines(join(inputRoot, relativePath))
+      const row of readJsonLines(
+        join(inputRoot, relativePath),
+        {tolerant: true, diagnostics}
+      )
     ) {
       const workId = String(row?.wid || "");
       if (!selectedWorkIds.has(workId)) continue;
@@ -353,12 +394,17 @@ export async function buildHumanAuthorityAuditPacket({
     );
   }
 
+  const evidenceDiagnostics = {
+    invalidJsonRows: 0,
+    samples: []
+  };
   const evidence = await buildHumanAuthorityEvidencePack({
     inputRoot: resolvedInput,
     manifest: sourceManifest,
     sample: selection.sample,
     maxWorksPerProfile:
-      Number(auditConfig.evidence?.maxWorksPerProfile || 12)
+      Number(auditConfig.evidence?.maxWorksPerProfile || 12),
+    diagnostics: evidenceDiagnostics
   });
 
   const manifest = {
@@ -376,6 +422,7 @@ export async function buildHumanAuthorityAuditPacket({
         "sample.jsonl omits ORCID, candidate refs and current graph relation. Hidden context is retained only in manifest.json."
     },
     judgments: auditConfig.judgments,
+    evidenceDiagnostics,
     items: selection.manifestItems
   };
 
@@ -403,6 +450,7 @@ export async function buildHumanAuthorityAuditPacket({
         schemaVersion:
           "author-authority-human-audit-evidence-v1",
         sampleSha256,
+        diagnostics: evidenceDiagnostics,
         cases: evidence
       }, null, 2) + "\n",
       "utf8"
@@ -443,7 +491,9 @@ async function main() {
     uniqueProfiles: result.manifest.uniqueProfiles,
     sampleSha256: result.manifest.sampleSha256,
     strata: result.manifest.selection.counts,
-    evidenceCases: result.evidence.length
+    evidenceCases: result.evidence.length,
+    invalidEvidenceRows:
+      result.manifest.evidenceDiagnostics?.invalidJsonRows ?? null
   }, null, 2));
 }
 
