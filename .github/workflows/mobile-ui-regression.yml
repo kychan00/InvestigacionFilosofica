@@ -12,6 +12,11 @@ on:
       - "scripts/qa/author-timeline-smoke.mjs"
       - "scripts/qa/theme-contrast-smoke.mjs"
       - "scripts/qa/author-profile-visibility-smoke.mjs"
+      - "scripts/qa/author-deep-discovery-smoke.mjs"
+      - "tests/author-deep-discovery.test.mjs"
+      - "src/core/author-deep-discovery.js"
+      - "src/sources/openalex.js"
+      - "css/author-visibility-repair.css"
       - "js/theme.js"
       - "tests/theme-controller.test.mjs"
       - "src/core/author-timeline.js"
@@ -66,6 +71,8 @@ jobs:
         run: node scripts/qa/theme-contrast-smoke.mjs
       - name: Verify author profile cards and homepage labels in both themes
         run: node scripts/qa/author-profile-visibility-smoke.mjs
+      - name: Verify deep author search on a shared page in both themes
+        run: node scripts/qa/author-deep-discovery-smoke.mjs
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -77,4 +84,5 @@ jobs:
             artifacts/author-timeline/
             artifacts/theme-contrast/
             artifacts/author-profile-visibility/
+            artifacts/author-deep-discovery/
           if-no-files-found: ignore
