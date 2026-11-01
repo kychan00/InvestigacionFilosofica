@@ -6,7 +6,9 @@ on:
       - "scripts/related/**"
       - "src/core/related-work-contract.js"
       - "src/core/related-work-index-format.js"
+      - "src/core/related-works-resolver.js"
       - "tests/related-work-index-format.test.mjs"
+      - "tests/related-works-resolver.test.mjs"
       - "tests/test_related_work_index_builder.py"
       - "benchmark/related-works/v1/index-builder-fixture.json"
       - "docs/RELATED_WORK_INDEX_V1A.md"
@@ -17,7 +19,9 @@ on:
       - "scripts/related/**"
       - "src/core/related-work-contract.js"
       - "src/core/related-work-index-format.js"
+      - "src/core/related-works-resolver.js"
       - "tests/related-work-index-format.test.mjs"
+      - "tests/related-works-resolver.test.mjs"
       - "tests/test_related_work_index_builder.py"
       - "benchmark/related-works/v1/index-builder-fixture.json"
       - "docs/RELATED_WORK_INDEX_V1A.md"
@@ -50,7 +54,7 @@ jobs:
 
       - name: Validate JavaScript relation contract and compact format
         run: |
-          node --test             tests/related-work-contract.test.mjs             tests/related-work-index-format.test.mjs
+          node --test tests/related-work-contract.test.mjs tests/related-work-index-format.test.mjs tests/related-works-resolver.test.mjs
 
       - name: Validate Python builder invariants
         run: python -m unittest tests/test_related_work_index_builder.py
