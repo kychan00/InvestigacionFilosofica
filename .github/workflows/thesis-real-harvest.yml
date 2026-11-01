@@ -6,10 +6,13 @@ on:
       - "scripts/thesis/harvest_real_corpus_v1.py"
       - "scripts/thesis/build_canonical_corpus_v1.py"
       - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
       - "tests/test_thesis_program_curation_queue.py"
+      - "tests/test_thesis_program_coverage_audit.py"
+      - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
@@ -53,7 +56,8 @@ jobs:
           python -m py_compile \
             scripts/thesis/build_canonical_corpus_v1.py \
             scripts/thesis/harvest_real_corpus_v1.py \
-            scripts/thesis/build_program_curation_queue_v1.py
+            scripts/thesis/build_program_curation_queue_v1.py \
+            scripts/thesis/audit_program_coverage_v1.py
 
       - name: Offline unit tests
         run: |
@@ -64,6 +68,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_curation_queue.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_coverage_audit.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -163,6 +171,41 @@ jobs:
           print(json.dumps(queue["metrics"], indent=2, ensure_ascii=False))
           PY
 
+      - name: Build program coverage audit
+        run: |
+          rm -rf artifacts/thesis-program-coverage
+          python scripts/thesis/audit_program_coverage_v1.py \
+            --observed-authorities artifacts/thesis-real-harvest/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --output-dir artifacts/thesis-program-coverage \
+            --reference-year 2026 \
+            --top 30
+
+      - name: Validate program coverage audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-program-coverage")
+          audit = json.loads((root / "program-coverage-audit.json").read_text())
+
+          assert audit["schemaVersion"] == "thesis-program-coverage-audit-v1"
+          assert audit["metrics"]["works"] > 0
+          assert sum(audit["metrics"]["projectedAdmission"].values()) == audit["metrics"]["works"]
+          assert isinstance(audit["metrics"]["programQueue"], dict)
+          assert isinstance(audit["gateBlockers"], list)
+          assert audit["programAuthorityRevision"]
+
+          print(json.dumps({
+              "programAuthorityRevision": audit["programAuthorityRevision"],
+              "projectedAdmission": audit["metrics"]["projectedAdmission"],
+              "dateQuality": audit["metrics"]["dateQuality"],
+              "gateBlockerCount": audit["metrics"]["gateBlockerCount"],
+              "programQueue": audit["metrics"]["programQueue"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
       - name: Upload harvest artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -171,5 +214,6 @@ jobs:
           path: |
             artifacts/thesis-real-harvest/
             artifacts/thesis-program-curation/
+            artifacts/thesis-program-coverage/
           if-no-files-found: error
           retention-days: 14
