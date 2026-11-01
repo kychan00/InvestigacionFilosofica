@@ -471,6 +471,62 @@ html[data-theme="dark"] #record-modal {
   opacity: 1 !important;
 }
 
+/*
+ * Dark mode specificity lock.
+ * theme.css intentionally has high-specificity dialog rules; these final
+ * selectors establish the folio's inset hierarchy without changing light mode.
+ */
+html[data-theme="dark"] #record-modal .cinematic-meta-card {
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-meta-card:hover {
+  background: var(--rf-hover) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-abstract {
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text-soft) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-topic {
+  background: var(--rf-surface-raised) !important;
+  color: var(--rf-text) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-provenance li {
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text-soft) !important;
+}
+
+html[data-theme="dark"] #record-modal .explanation-cinematic .explanation summary {
+  background: var(--rf-surface-inset) !important;
+  color: var(--rf-text) !important;
+}
+
+html[data-theme="dark"] #record-modal .explanation-cinematic .explanation summary:hover {
+  background: var(--rf-hover) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-quick-grid {
+  background: var(--rf-border) !important;
+  border-color: var(--rf-border) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-quick-grid > div {
+  background: var(--rf-surface) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-institution-link {
+  background: var(--rf-surface-raised) !important;
+  color: var(--rf-text) !important;
+}
+
+html[data-theme="dark"] #record-modal .cinematic-institution-link:hover {
+  background: var(--rf-hover) !important;
+}
+
 @media (min-width: 901px) {
   #record-modal .record-cinematic-layout {
     grid-template-columns: minmax(210px, 240px) minmax(0, 1fr) !important;
