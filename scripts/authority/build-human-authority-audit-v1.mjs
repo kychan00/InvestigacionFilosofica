@@ -6,6 +6,7 @@ import {
 import {createReadStream} from "node:fs";
 import {createHash} from "node:crypto";
 import {basename, join, resolve} from "node:path";
+import {fileURLToPath} from "node:url";
 import {createInterface} from "node:readline";
 import {
   runAuthorAuthorityBenchmark
@@ -136,7 +137,7 @@ function selectedWork(row = {}) {
   };
 }
 
-async function buildEvidencePack({
+export async function buildHumanAuthorityEvidencePack({
   inputRoot,
   manifest,
   sample,
@@ -353,7 +354,7 @@ export async function buildHumanAuthorityAuditPacket({
     );
   }
 
-  const evidence = await buildEvidencePack({
+  const evidence = await buildHumanAuthorityEvidencePack({
     inputRoot: resolvedInput,
     manifest: sourceManifest,
     sample: selection.sample,
@@ -450,7 +451,7 @@ async function main() {
 if (
   process.argv[1] &&
   resolve(process.argv[1]) ===
-    new URL(import.meta.url).pathname
+    fileURLToPath(import.meta.url)
 ) {
   main().catch(error => {
     console.error(error);
