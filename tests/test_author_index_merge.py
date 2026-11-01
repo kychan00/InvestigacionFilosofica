@@ -135,6 +135,39 @@ class AuthorIndexMergeTest(unittest.TestCase):
             payloads[0]["t"],
             "A titled work",
         )
+        self.assertEqual(payloads[0]["co"],0)
+
+    def test_work_shards_count_collaborators_without_losing_solo_works(self):
+        connection=duckdb.connect()
+        connection.execute("""
+          CREATE TABLE author_works(
+            author_id BIGINT,work_id BIGINT,
+            author_position VARCHAR,is_corresponding BOOLEAN
+          );
+          CREATE TABLE corpus(
+            work_id BIGINT,title VARCHAR,publication_year INTEGER,
+            language VARCHAR,type VARCHAR
+          );
+          CREATE TABLE author_profiles(author_id BIGINT);
+          INSERT INTO author_profiles VALUES (7),(8);
+          INSERT INTO author_works VALUES
+            (7,100,'first',true),(8,100,'last',false),
+            (7,101,'first',true);
+          INSERT INTO corpus VALUES
+            (100,'Coauthored article',2024,'es','article'),
+            (101,'Solo article',2025,'es','article');
+        """)
+        with tempfile.TemporaryDirectory() as temporary:
+            build_work_buckets(connection,Path(temporary))
+            records=[
+              json.loads(line)
+              for file in Path(temporary).glob("*.jsonl")
+              for line in file.read_text(encoding="utf-8").splitlines()
+            ]
+        by_key={(row["id"],row["wid"]):row for row in records}
+        self.assertEqual(by_key[(7,100)]["co"],1)
+        self.assertEqual(by_key[(8,100)]["co"],1)
+        self.assertEqual(by_key[(7,101)]["co"],0)
 
     def test_builds_inverse_work_author_buckets(self):
         connection = duckdb.connect()
