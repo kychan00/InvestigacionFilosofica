@@ -6,11 +6,14 @@ on:
       - ".github/workflows/authority-work-map-real-v1.yml"
       - "benchmark/author-authority/v1/**"
       - "scripts/authority/build-authority-batch-v1.mjs"
+      - "scripts/authority/benchmark-author-authority-v1.mjs"
+      - "scripts/authority/read-jsonl-v1.mjs"
       - "scripts/authority/validate-authority-batch-v1.mjs"
       - "scripts/related/authority_work_map_v1.py"
       - "scripts/related/build_authority_work_map_v1.mjs"
       - "scripts/related/validate_authority_work_map_v1.py"
       - "tests/author-authority-batch-validator.test.mjs"
+      - "tests/authority-jsonl-reader.test.mjs"
       - "tests/authority-work-map.test.mjs"
       - "tests/test_authority_work_map_validator.py"
       - "package.json"
@@ -45,7 +48,7 @@ jobs:
 
       - name: Validate small authority artifact fixtures
         run: |
-          node --test             tests/author-authority-batch.test.mjs             tests/author-authority-batch-validator.test.mjs             tests/authority-work-map.test.mjs
+          node --test             tests/author-authority-batch.test.mjs             tests/author-authority-batch-validator.test.mjs             tests/authority-jsonl-reader.test.mjs             tests/authority-work-map.test.mjs
 
           python -m unittest             tests/test_authority_work_map_validator.py
 
