@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gzip
 import json
 import shutil
 import sys
@@ -22,6 +23,10 @@ from build_related_work_index_v1 import (  # noqa: E402
     shard_for_identity,
 )
 from validate_related_work_index_v1 import validate_artifact  # noqa: E402
+from authority_work_map_v1 import (  # noqa: E402
+    AuthorityWorkInfo,
+    AuthorityWorkMap,
+)
 
 
 FIXTURE_PATH = (
@@ -207,6 +212,200 @@ class RelatedWorkIndexBuilderV1Tests(unittest.TestCase):
         self.assertEqual(
             edge["evidence"][1]["topicIds"],
             ["openalex:T100"],
+        )
+
+    def _authority_map(self) -> AuthorityWorkMap:
+        return AuthorityWorkMap(
+            manifest={
+                "schemaVersion": "authority-work-map-v1",
+                "buildRevision": "authority-fixture",
+                "source": {
+                    "authorityGraph": {
+                        "buildRevision": "authority-graph-fixture",
+                    },
+                },
+                "counts": {
+                    "worksMapped": 3,
+                },
+            },
+            works={
+                "openalex:W1001": AuthorityWorkInfo(
+                    work_identity="openalex:W1001",
+                    author_count=2,
+                    unresolved_count=0,
+                    authority_refs=("authority:a", "authority:b"),
+                ),
+                "openalex:W1004": AuthorityWorkInfo(
+                    work_identity="openalex:W1004",
+                    author_count=2,
+                    unresolved_count=0,
+                    authority_refs=("authority:a", "authority:c"),
+                ),
+                "openalex:W1006": AuthorityWorkInfo(
+                    work_identity="openalex:W1006",
+                    author_count=1,
+                    unresolved_count=0,
+                    authority_refs=("authority:a",),
+                ),
+            },
+        )
+
+    def _row_for_seed(
+        self,
+        artifact: Path,
+        seed_identity: str,
+    ) -> dict:
+        manifest = json.loads(
+            (artifact / "manifest.json").read_text(encoding="utf-8")
+        )
+        for record in manifest["shards"]:
+            path = artifact / record["path"]
+            with gzip.open(path, "rt", encoding="utf-8") as handle:
+                for line in handle:
+                    if not line.strip():
+                        continue
+                    row = json.loads(line)
+                    if row["s"] == seed_identity:
+                        return row
+        raise AssertionError(f"Seed not found: {seed_identity}")
+
+    def test_authority_graph_adds_nonsemantic_candidates(self) -> None:
+        authority_map = self._authority_map()
+
+        def provider(seed_vector_ids):
+            output = {}
+            for vector_id in seed_vector_ids:
+                output[int(vector_id)] = [
+                    (int(vector_id), 1.0),
+                    (1, 0.90),
+                ]
+            return output
+
+        with tempfile.TemporaryDirectory() as temporary:
+            artifact = Path(temporary) / "authority-artifact"
+
+            build_from_neighbor_provider(
+                metadata=self.metadata,
+                neighbor_provider=provider,
+                output_dir=artifact,
+                source={"mode": "authority-fixture"},
+                neighbors_per_seed=1,
+                authority_neighbors_per_seed=2,
+                authority_work_map=authority_map,
+                search_multiplier=2,
+                shard_count=8,
+                batch_size=2,
+                minimum_semantic_score=0.5,
+            )
+
+            report = validate_artifact(artifact)
+            self.assertEqual(report["status"], "pass")
+
+            row = self._row_for_seed(
+                artifact,
+                "doi:10.1000/seed",
+            )
+            by_target = {
+                neighbor["t"]: neighbor
+                for neighbor in row["n"]
+            }
+
+            self.assertIn("openalex:W1006", by_target)
+            self.assertIn("openalex:W1004", by_target)
+
+            solo_target = by_target["openalex:W1006"]
+            self.assertNotIn(
+                "semantic-affinity",
+                solo_target["r"],
+            )
+            self.assertIn(
+                "same-author",
+                solo_target["r"],
+            )
+            self.assertNotIn(
+                "shared-coauthor",
+                solo_target["r"],
+            )
+            self.assertEqual(
+                solo_target["e"]["authorityRefs"],
+                ["authority:a"],
+            )
+
+            collaborative_target = by_target["openalex:W1004"]
+            self.assertIn(
+                "same-author",
+                collaborative_target["r"],
+            )
+            self.assertIn(
+                "shared-coauthor",
+                collaborative_target["r"],
+            )
+            self.assertEqual(
+                collaborative_target["e"]["sharedAuthorityRefs"],
+                ["authority:a"],
+            )
+
+            manifest = json.loads(
+                (artifact / "manifest.json").read_text(encoding="utf-8")
+            )
+            self.assertIn(
+                "same-author",
+                manifest["relations"]["generated"],
+            )
+            self.assertIn(
+                "shared-coauthor",
+                manifest["relations"]["generated"],
+            )
+            self.assertEqual(
+                manifest["relations"]["not_generated_without_authority_graph"],
+                [],
+            )
+            self.assertGreater(
+                manifest["totals"]["authority_only_edges"],
+                0,
+            )
+
+    def test_authority_only_edge_expands_to_bibliographic_evidence(self) -> None:
+        neighbor = {
+            "t": "openalex:W1004",
+            "v": 3,
+            "r": [
+                "same-author",
+                "shared-coauthor",
+            ],
+            "e": {
+                "authorityRefs": ["authority:a"],
+                "sharedAuthorityRefs": ["authority:a"],
+            },
+        }
+
+        edge = expand_compact_edge(
+            "doi:10.1000/seed",
+            0,
+            neighbor,
+        )
+
+        self.assertEqual(
+            edge["signals"],
+            {
+                "author": 1.0,
+                "coauthor": 1.0,
+            },
+        )
+        self.assertEqual(
+            edge["evidence"][0]["class"],
+            "bibliographic",
+        )
+        self.assertTrue(
+            edge["evidence"][0]["structuredIdentity"],
+        )
+        self.assertEqual(
+            edge["evidence"][0]["authorityRefs"],
+            ["authority:a"],
+        )
+        self.assertEqual(
+            edge["evidence"][1]["sharedAuthorityRefs"],
+            ["authority:a"],
         )
 
     def test_validator_detects_tampered_shard(self) -> None:
