@@ -100,6 +100,96 @@ async function fixture(root){
   return {input,config,gold};
 }
 
+test("runner completa inventario con autores presentes sólo en work-authors",async()=>{
+  const root=await mkdtemp(join(tmpdir(),"authority-benchmark-work-authors-"));
+  const {input,config,gold}=await fixture(root);
+
+  await mkdir(
+    join(input,"work-authors"),
+    {recursive:true}
+  );
+
+  await writeJsonl(
+    join(input,"work-authors","0000.jsonl"),
+    [
+      {
+        wid:100,
+        a:[
+          {
+            id:7,
+            n:"Autor sin alias publicado",
+            o:null,
+            p:"first",
+            r:false
+          }
+        ]
+      }
+    ]
+  );
+
+  const manifestPath=join(input,"manifest.json");
+  const manifest=JSON.parse(
+    await readFile(manifestPath,"utf8")
+  );
+
+  manifest.counts.resolved_authors=7;
+  manifest.files.work_authors=[
+    {
+      path:"work-authors/0000.jsonl"
+    }
+  ];
+
+  await writeJson(
+    manifestPath,
+    manifest
+  );
+
+  const result=await runAuthorAuthorityBenchmark({
+    inputRoot:input,
+    outputPath:join(root,"out","report.json"),
+    configPath:config,
+    goldPath:gold
+  });
+
+  assert.equal(
+    result.report.gate.passed,
+    true
+  );
+  assert.equal(
+    result.report.scan.aliasRowsSeen,
+    6
+  );
+  assert.equal(
+    result.report.scan.workAuthorFiles,
+    1
+  );
+  assert.equal(
+    result.report.scan.workAuthorRowsSeen,
+    1
+  );
+  assert.equal(
+    result.report.scan.workAuthorMembershipsSeen,
+    1
+  );
+  assert.equal(
+    result.report.scan.aggregatedProfiles,
+    7
+  );
+  assert.equal(
+    result.report.coverage.expectedResolvedAuthors,
+    7
+  );
+  assert.equal(
+    result.report.coverage.observedResolvedAuthors,
+    7
+  );
+  assert.equal(
+    result.report.coverage.exact,
+    true
+  );
+});
+
+
 test("runner escanea toda la fixture y produce reportes reproducibles",async()=>{
   const root=await mkdtemp(join(tmpdir(),"authority-benchmark-"));
   const {input,config,gold}=await fixture(root);
