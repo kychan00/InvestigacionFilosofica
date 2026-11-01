@@ -4352,7 +4352,10 @@ async function openExclusiveAuthorByName(
             currentController !== authorController
           ) return;
 
-          if (expanded.status === "resolved") {
+          if (
+            expanded.status === "resolved" &&
+            expanded.works.length >= (resolution.works || []).length
+          ) {
             showExclusiveAuthorWorks({
               ...resolution,
               works: expanded.works,
