@@ -4280,12 +4280,18 @@ async function openExclusiveAuthorByName(
       );
     // Name-only links first resolve against the HF-derived static author index.
     // No OpenAlex API calls or credits are required.
+    const foundIdentity = await findSnapshotAuthorIdentity(name, {
+      orcid: identity.orcid || null,
+      signal: authorController.signal
+    });
+    // A shared URL with an exact ID keeps that identity authoritative.
+    // Enrich it with linked aliases only if the cluster explicitly
+    // contains that same ID; never redirect to a mere namesake.
     const liveIdentity = exactId
-      ? null
-      : await findSnapshotAuthorIdentity(name, {
-          orcid: identity.orcid || null,
-          signal: authorController.signal
-        });
+      ? foundIdentity?.status === "resolved" &&
+        foundIdentity.candidate?.linkedAuthorIds?.includes(exactId)
+          ? foundIdentity : null
+      : foundIdentity;
 
     if (liveIdentity?.status === "ambiguous") {
       showAuthorChoice({
