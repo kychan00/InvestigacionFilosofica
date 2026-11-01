@@ -422,6 +422,7 @@ La especificación completa de esta evolución se encuentra en:
 - [Contratos de datos V1](docs/AUTHOR_AUTHORITY_DATA_CONTRACTS_V1.md)
 - [Matriz de fixtures y benchmark V1](docs/AUTHOR_AUTHORITY_FIXTURES_V1.md)
 - [Identity Resolution Engine V1](docs/AUTHOR_AUTHORITY_IDENTITY_ENGINE_V1.md)
+- [Decision Ledger y adaptadores V1](docs/AUTHOR_AUTHORITY_DECISION_LEDGER_V1.md)
 
 Esta sección describe una **arquitectura objetivo**. Mientras no se implementen las fases posteriores, la política y el runtime documentados en [Política de fuentes y uso de OpenAlex](docs/author-data-sources.md) siguen siendo los vigentes.
 
