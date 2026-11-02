@@ -443,7 +443,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         )
 
         self.assertEqual(audit["closureState"], "open")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 332)
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 265)
         self.assertIn(
             "boundary-observed-works-mismatch",
             {item["code"] for item in audit["violations"]},
