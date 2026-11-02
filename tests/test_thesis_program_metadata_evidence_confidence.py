@@ -188,6 +188,113 @@ class ThesisProgramMetadataEvidenceConfidenceTest(unittest.TestCase):
         self.assertEqual(evidence["authorityApplicability"], "allowed")
         self.assertIsNone(evidence["matchedRuleId"])
 
+    def test_psychology_v24_resolves_as_exclude_authority(self):
+        resolved = canonical.resolve_program(
+            "LICENCIATURA EN PSICOLOGÍA",
+            self.base_registry,
+        )
+
+        self.assertEqual(
+            resolved["programRef"],
+            "program:udg:lic-psicologia",
+        )
+        self.assertEqual(resolved["admissionState"], "exclude")
+        self.assertEqual(
+            self.base_registry["registryRevision"],
+            "2026-11-02.v24",
+        )
+
+    def test_psychology_v24_legacy_low_trust_remains_quarantine(self):
+        record = canonical.source_record(
+            provider="riudg",
+            provider_record_id="psychology-v24-legacy",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Registro legado"],
+                "dc.contributor.author": ["Persona, Ejemplo"],
+                "dc.degree.name": ["LICENCIATURA EN PSICOLOGÍA"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCS"],
+                "dc.date.accessioned": ["2015-09-09T18:02:20Z"],
+                "dc.date.submitted": ["1991"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="psychology-v24-legacy",
+        )
+
+        candidate = canonical.canonical_candidate(
+            record,
+            self.base_registry,
+            reference_year=2026,
+            program_metadata_policy=self.default_policy,
+        )
+
+        self.assertEqual(
+            candidate["program"]["programRef"],
+            "program:udg:lic-psicologia",
+        )
+        self.assertEqual(
+            candidate["program"]["admissionState"],
+            "exclude",
+        )
+        self.assertEqual(
+            candidate["programMetadataEvidence"]["confidenceState"],
+            "low-trust",
+        )
+        self.assertEqual(
+            candidate["programMetadataEvidence"]["authorityApplicability"],
+            "blocked",
+        )
+        self.assertEqual(candidate["admission"]["status"], "quarantine")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "program-authority-blocked-by-metadata-confidence",
+        )
+
+    def test_psychology_v24_post_migration_unassessed_is_excluded(self):
+        record = canonical.source_record(
+            provider="riudg",
+            provider_record_id="psychology-v24-later",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Registro posterior"],
+                "dc.contributor.author": ["Persona, Ejemplo"],
+                "dc.degree.name": ["LICENCIATURA EN PSICOLOGÍA"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUVALLES"],
+                "dc.date.accessioned": ["2018-01-16T12:00:00Z"],
+                "dc.date.issued": ["2017"],
+                "dc.description.abstract": ["Resumen"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="psychology-v24-later",
+        )
+
+        candidate = canonical.canonical_candidate(
+            record,
+            self.base_registry,
+            reference_year=2026,
+            program_metadata_policy=self.default_policy,
+        )
+
+        self.assertEqual(
+            candidate["program"]["programRef"],
+            "program:udg:lic-psicologia",
+        )
+        self.assertEqual(
+            candidate["programMetadataEvidence"]["confidenceState"],
+            "unassessed",
+        )
+        self.assertEqual(
+            candidate["programMetadataEvidence"]["authorityApplicability"],
+            "allowed",
+        )
+        self.assertEqual(candidate["admission"]["status"], "exclude")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "non-humanities-program",
+        )
+
     def test_low_trust_metadata_blocks_future_include_authority(self):
         candidate = canonical.canonical_candidate(
             self.record("blocked"),
