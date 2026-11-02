@@ -1,0 +1,293 @@
+name: Thesis urban territory work review T2BC
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/build_boundary_work_review_queue_v1.py"
+      - "scripts/thesis/config/boundary-work-review-policy-v1.json"
+      - "scripts/thesis/config/urban-territory-work-review-baseline-v1.json"
+      - "tests/test_thesis_boundary_work_review_queue.py"
+      - "docs/THESIS_URBAN_TERRITORY_WORK_REVIEW_QUEUE_V1.md"
+      - ".github/workflows/thesis-urban-territory-work-review-t2bc.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_boundary_work_review_queue.py" -v
+
+      - name: Compile builder
+        run: |
+          python -m py_compile scripts/thesis/build_boundary_work_review_queue_v1.py
+
+      - name: Download frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-t2bc artifacts/thesis-urban-territory-work-review
+          mkdir -p /tmp/thesis-t2bc artifacts/thesis-urban-territory-work-review
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-t2bc.zip
+          unzip -q /tmp/thesis-t2bc.zip -d /tmp/thesis-t2bc
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-t2bc/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-t2bc/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-urban-territory-work-review/canonical-confidence.json \
+            --output-report artifacts/thesis-urban-territory-work-review/confidence-report.json
+
+      - name: Build boundary work review queue
+        run: |
+          python scripts/thesis/build_boundary_work_review_queue_v1.py \
+            --canonical-corpus artifacts/thesis-urban-territory-work-review/canonical-confidence.json \
+            --output-dir artifacts/thesis-urban-territory-work-review/queue
+
+      - name: Validate full T2BC contract
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-urban-territory-work-review")
+          queue = json.loads(
+              (root / "queue/boundary-work-review-queue.json").read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "urban-territory-work-review-baseline-v1.json"
+              ).read_text()
+          )
+          policy = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "boundary-work-review-policy-v1.json"
+              ).read_text()
+          )
+          scope = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "scope-boundary-matrix-v1.json"
+              ).read_text()
+          )
+          confidence = json.loads(
+              (root / "confidence-report.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+          expected = baseline["expected"]
+
+          assert (
+              registry["registryRevision"]
+              == baseline["programAuthorityRevision"]
+          )
+          assert (
+              scope["policyRevision"]
+              == baseline["scopePolicyRevision"]
+          )
+          assert (
+              confidence["programMetadataEvidenceRevision"]
+              == baseline["programMetadataEvidenceRevision"]
+          )
+          assert (
+              queue["policyRevision"]
+              == baseline["workReviewPolicyRevision"]
+          )
+          assert (
+              policy["policyRevision"]
+              == baseline["workReviewPolicyRevision"]
+          )
+          assert queue["decisionConstraint"] == (
+              "boundary-work-review-does-not-change-admission"
+          )
+
+          authority = next(
+              p
+              for p in registry["programs"]
+              if p["id"] == baseline["programRef"]
+          )
+          assert authority["admissionState"] == expected[
+              "programAdmissionState"
+          ]
+          assert authority["observedCount"] == expected["works"]
+
+          metrics = queue["metrics"]
+          assert metrics["programs"] == 1
+          assert metrics["workItems"] == expected["works"]
+          assert (
+              metrics["projectedAdmission"]
+              == expected["projectedAdmission"]
+          )
+          assert (
+              metrics["programAuthorityApplicability"]
+              == {"allowed": expected["allowedWorks"]}
+          )
+          assert (
+              metrics["programMetadataConfidenceStates"]
+              == {"unassessed": expected["unassessedWorks"]}
+          )
+          assert metrics["academicUnits"] == expected["academicUnits"]
+          assert (
+              metrics["abstractAvailable"]
+              == expected["abstractAvailable"]
+          )
+          assert metrics["abstractMissing"] == expected["missingAbstract"]
+          assert (
+              metrics["keywordsAvailable"]
+              == expected["keywordsAvailable"]
+          )
+          assert (
+              metrics["handleAvailable"]
+              == expected["handleAvailable"]
+          )
+          assert (
+              metrics["contributorsAvailable"]
+              == expected["contributorsAvailable"]
+          )
+          assert metrics["dateQuality"] == {
+              "suspicious": expected["suspiciousDateWorks"],
+              "valid": expected["validDateWorks"],
+          }
+          assert (
+              metrics["pendingPrimarySourceReview"]
+              == expected["pendingPrimarySourceReview"]
+          )
+          assert (
+              metrics["automaticAdmissionDecisions"]
+              == expected["automaticAdmissionDecisions"]
+          )
+          assert (
+              metrics["admissionChanges"]
+              == expected["admissionChanges"]
+          )
+
+          items = queue["items"]
+          assert len(items) == expected["works"]
+          assert all(
+              item["programRef"] == baseline["programRef"]
+              for item in items
+          )
+          assert all(
+              item["projectedAdmissionStatus"] == "review"
+              for item in items
+          )
+          assert all(
+              item["workReviewState"]
+              == "pending-primary-source-review"
+              for item in items
+          )
+          assert all(item["academicUnitRaw"] == "CUAAD" for item in items)
+          assert all(item["handle"] for item in items)
+          assert all(
+              item["programMetadataEvidence"][
+                  "authorityApplicability"
+              ] == "allowed"
+              for item in items
+          )
+
+          # Supporting text is intentionally not copied into the decision queue.
+          assert all("abstract" not in item for item in items)
+          assert all("keywords" not in item for item in items)
+
+          prohibited = {
+              "title",
+              "abstract",
+              "keywords",
+              "semantic-similarity",
+              "embedding",
+              "language-model-classification",
+          }
+          assert all(
+              prohibited.issubset(
+                  set(item["prohibitedAsSoleDecisionBasis"])
+              )
+              for item in items
+          )
+
+          suspicious = [
+              item
+              for item in items
+              if item["date"]["quality"] == "suspicious"
+          ]
+          valid = [
+              item
+              for item in items
+              if item["date"]["quality"] == "valid"
+          ]
+          assert len(suspicious) == expected["suspiciousDateWorks"]
+          assert {
+              item["date"]["value"] for item in suspicious
+          } == {expected["suspiciousDateValue"]}
+
+          valid_years = sorted(
+              int(str(item["date"]["value"])[:4])
+              for item in valid
+              if str(item["date"]["value"])[:4].isdigit()
+          )
+          assert valid_years[0] == expected["observedValidYears"]["min"]
+          assert valid_years[-1] == expected["observedValidYears"]["max"]
+
+          summary = {
+              "phase": baseline["phase"],
+              "programAuthorityRevision": registry["registryRevision"],
+              "scopePolicyRevision": scope["policyRevision"],
+              "programMetadataEvidenceRevision": confidence[
+                  "programMetadataEvidenceRevision"
+              ],
+              "workReviewPolicyRevision": queue["policyRevision"],
+              "programRef": baseline["programRef"],
+              "works": metrics["workItems"],
+              "projectedAdmission": metrics["projectedAdmission"],
+              "pendingPrimarySourceReview": metrics[
+                  "pendingPrimarySourceReview"
+              ],
+              "automaticAdmissionDecisions": metrics[
+                  "automaticAdmissionDecisions"
+              ],
+              "admissionChanges": metrics["admissionChanges"],
+              "abstractAvailable": metrics["abstractAvailable"],
+              "keywordsAvailable": metrics["keywordsAvailable"],
+              "handleAvailable": metrics["handleAvailable"],
+              "dateQuality": metrics["dateQuality"],
+          }
+          (root / "t2bc-summary.json").write_text(
+              json.dumps(
+                  summary,
+                  ensure_ascii=False,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload T2BC evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-urban-territory-work-review-t2bc
+          path: artifacts/thesis-urban-territory-work-review/
+          if-no-files-found: error
+          retention-days: 14
