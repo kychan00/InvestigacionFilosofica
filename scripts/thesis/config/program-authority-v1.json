@@ -801,7 +801,7 @@
       "canonicalName": "Maestría en Conservación del Patrimonio Edificado",
       "level": "maestria",
       "disciplineFamily": "patrimonio-conservacion",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUAAD"
@@ -815,11 +815,14 @@
         "max": 2014
       },
       "possibleSuccessorRef": "program:udg:mae-ciencias-arquitectura",
-      "decisionNote": "RIUdeG conserva grados expedidos con el nombre standalone Maestría en Conservación del Patrimonio Edificado, mientras la oferta vigente la presenta como orientación de Ciencias de la Arquitectura. La relación es plausible pero no se fuerza como alias; queda autoridad histórica REVIEW con possibleSuccessorRef.",
+      "decisionNote": "T2BE/V35 resuelve INCLUDE bajo humanities-only para la autoridad histórica standalone Maestría en Conservación del Patrimonio Edificado. La decisión se apoya en evidencia programática específica: la línea vigente de Conservación del Patrimonio Edificado forma parte de la Maestría en Ciencias de la Arquitectura adscrita a la División de Artes y Humanidades del CUAAD, con orientación de investigación y un plan que integra Arqueología, Historia y Teoría de la Conservación I-II, análisis de documentos históricos, Barroco, Historia de la Arquitectura, Arte Medieval y Semiótica, además de talleres y técnicas de restauración. La identidad histórica exacta se conserva separada; possibleSuccessorRef permanece hacia program:udg:mae-ciencias-arquitectura y no se crea alias ni propagación de INCLUDE al programa base de 112 obras, que continúa REVIEW.",
       "evidence": [
         "https://www.riudg.udg.mx/handle/20.500.12104/73084?mode=full",
         "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
-        "https://www.udg.mx/sites/default/files/2024-06/triptico-maestria-2024-2026-editable-02-de-febrero.pdf"
+        "https://cuaad.udg.mx/oferta/maestrias/mca/plan-de-estudios",
+        "https://cuaad.udg.mx/index.php/oferta/maestrias/mca/perfil-de-egreso",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencias-de-la-arquitectura",
+        "https://cuaad.udg.mx/sites/default/files/directorio_ext_0_0_0_0.pdf"
       ]
     },
     {
@@ -1591,7 +1594,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v34",
+  "registryRevision": "2026-11-02.v35",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
