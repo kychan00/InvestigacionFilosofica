@@ -1,0 +1,81 @@
+name: Thesis QFB evidence T2AV
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/qfb-evidence-t2av-baseline-v1.json"
+      - "docs/THESIS_QFB_EVIDENCE_T2AV.md"
+      - ".github/workflows/thesis-qfb-evidence-t2av.yml"
+      - "scripts/thesis/audit_program_metadata_family_v1.py"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Compile
+        run: python -m py_compile scripts/thesis/audit_program_metadata_family_v1.py
+      - name: Retrieve frozen full source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/thesis-qfb-t2av artifacts/thesis-qfb-t2av
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-qfb-t2av.zip
+          unzip -q /tmp/thesis-qfb-t2av.zip -d /tmp/thesis-qfb-t2av
+      - name: Build full structural QFB evidence audit
+        run: |
+          python scripts/thesis/audit_program_metadata_family_v1.py \
+            --canonical-corpus /tmp/thesis-qfb-t2av/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-qfb-t2av/source-records.jsonl.gz \
+            --normalized-program-regex '^licenciatura en quimica farmacobiologica$' \
+            --family-id udg-chemical-pharmaceutical-biological-undergraduate-v1 \
+            --output-dir artifacts/thesis-qfb-t2av
+      - name: Validate frozen HOLD boundaries
+        run: |
+          python - <<'PY'
+          import gzip
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0,"scripts/thesis")
+          from audit_program_metadata_integrity_v2 import normalize_key
+          b=json.loads(Path("scripts/thesis/config/qfb-evidence-t2av-baseline-v1.json").read_text())
+          a=json.loads(Path("artifacts/thesis-qfb-t2av/program-metadata-family-audit.json").read_text())
+          with gzip.open("/tmp/thesis-qfb-t2av/canonical-corpus.json.gz","rt") as f:
+              corpus=json.load(f)
+          e=b["expected"]
+          selected=[w for w in corpus["works"] if normalize_key(w.get("programRaw"))==e["sourceProgramKey"]]
+          assert len(selected)==e["works"]==a["metrics"]["works"]
+          assert a["metrics"]["normalizedProgramGroups"]==e["normalizedGroups"]
+          assert a["metrics"]["observedUnits"]==e["units"]
+          assert a["metrics"]["dateQuality"]==e["dateQuality"]
+          assert a["familyId"]==b["familyId"]
+          assert a["authorityDecision"]=="hold"
+          assert a["decisionConstraint"]=="family-audit-does-not-change-admission"
+          assert all(w.get("programRef") is None for w in selected)
+          assert Counter(w.get("admissionStatus") for w in selected)=={e["admissionStatus"]:e["works"]}
+          summary={"decision":"HOLD / audit only","metrics":a["metrics"],
+            "structuralPairs":a["pairs"],"registryAtStart":b["registryAtStart"]}
+          Path("artifacts/thesis-qfb-t2av/verified-boundaries.json").write_text(
+              json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True)+"\n"
+          )
+          print(json.dumps(a["metrics"],ensure_ascii=False,indent=2))
+          PY
+      - name: Upload QFB evidence report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-qfb-evidence-t2av
+          path: artifacts/thesis-qfb-t2av/
+          if-no-files-found: error
+          retention-days: 14
