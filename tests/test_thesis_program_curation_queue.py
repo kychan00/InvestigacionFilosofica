@@ -903,6 +903,37 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
 
+    def test_relaciones_internacionales_exclude_is_resolved_and_omitted_from_queue(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "licenciatura en relaciones internacionales",
+                "count": 48,
+                "variants": {"Licenciatura en Relaciones Internacionales": 48},
+                "providers": {"riudg": 48},
+                "admissionStatuses": {"quarantine": 48},
+                "programRefs": {},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "programRaw": "Licenciatura en Relaciones Internacionales",
+                "academicUnitRaw": "CUCSH",
+                "date": {"value": "2021", "quality": "valid"},
+                "thesisTypeRaw": "Tesis de Licenciatura",
+                "admissionStatus": "exclude",
+            }]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(payload["metrics"]["allProgramStates"], {"resolved": 1})
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"resolved": 48},
+        )
+        self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
