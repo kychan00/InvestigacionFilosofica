@@ -320,9 +320,12 @@ Fuentes:
 
 ### Política V4
 
-`doctorado en educacion` sale de `scope:education-research`.
+`doctorado en educacion` sale de `scope:education-research` y pasa a una
+fila explícita:
 
-La fila conserva:
+`scope:education-doctorado → outside-scope`
+
+La fila `scope:education-research` conserva:
 
 - `maestria en investigacion educativa`;
 - `doctorado en cognicion y aprendizaje`.
@@ -580,19 +583,16 @@ Total:
 
 **191 tesis**
 
-### fuera de boundary-review resuelto por autoridad programática
-
-- Doctorado en Educación: 73 → EXCLUDE V31.
-
 ### outside-scope · Policy V4
 
 - Comunicación: 67;
+- Doctorado en Educación: 73;
 - Ciencias Sociales: 277;
 - Política/Relaciones/Desarrollo: 212.
 
 Total:
 
-**556 tesis**
+**629 tesis**
 
 ### Total matriz
 
