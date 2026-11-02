@@ -1062,6 +1062,56 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_maestria_estudios_genero_boundary_authority_v11(self):
+        for raw in (
+            "Maestría en Estudios de Género",
+            "MAESTRIA EN ESTUDIOS DE GENERO",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-estudios-genero",
+                )
+                self.assertEqual(
+                    resolved["admissionState"],
+                    "review",
+                )
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="maestria-estudios-genero-boundary",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Género, cultura y transformación social"],
+                "dc.degree.name": ["Maestría en Estudios de Género"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCSH"],
+                "dc.date.issued": ["2026-06-00"],
+                "dc.type": ["Tesis de Maestría"],
+            },
+            raw_payload="maestria-estudios-genero-boundary",
+        )
+
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:mae-estudios-genero",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(work["date"]["value"], "2026-06")
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
