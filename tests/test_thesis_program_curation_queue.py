@@ -1381,6 +1381,16 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                     "admissionStatuses": {"quarantine": 2},
                     "programRefs": {},
                 },
+                {
+                    "normalizedKey": "licenciatura en ingenieria en nanotecnologia",
+                    "count": 19,
+                    "variants": {
+                        "Licenciatura en Ingeniería en Nanotecnología": 19,
+                    },
+                    "providers": {"riudg": 19},
+                    "admissionStatuses": {"quarantine": 19},
+                    "programRefs": {},
+                },
             ]
         }
         corpus = {
@@ -1395,6 +1405,13 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                 {
                     "programRaw": "Doctorado en Historia de las Ideas",
                     "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2024", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Licenciatura en Ingeniería en Nanotecnología",
+                    "academicUnitRaw": "CUTONALA",
                     "date": {"value": "2024", "quality": "valid"},
                     "thesisTypeRaw": "Tesis",
                     "admissionStatus": "quarantine",
@@ -1417,6 +1434,12 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(
             by_key["doctorado en historia de las ideas"]["curationLane"],
             "humanities-candidate",
+        )
+        self.assertEqual(
+            by_key["licenciatura en ingenieria en nanotecnologia"][
+                "curationLane"
+            ],
+            "unit-triage",
         )
         self.assertEqual(
             [
