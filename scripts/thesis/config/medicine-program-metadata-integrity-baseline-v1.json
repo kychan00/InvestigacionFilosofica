@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "thesis-medicine-program-metadata-integrity-baseline-v1",
+  "targetProgramKey": "licenciatura en medicina",
+  "legacyAccessionDay": "2015-09-09",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "metadata-integrity-audit-does-not-change-admission",
+  "authorityDecision": "hold",
+  "expectedConclusion": "source-program-metadata-conflict-confirmed",
+  "expectedMetrics": {
+    "observedWorks": 1383,
+    "providers": {
+      "riudg": 1383
+    },
+    "observedUnits": {
+      "CUCS": 1383
+    },
+    "dateQuality": {
+      "invalid": 2,
+      "suspicious": 2,
+      "unknown": 45,
+      "valid": 1334
+    },
+    "validYearSpan": {
+      "min": 1970,
+      "max": 2018,
+      "observations": 1334
+    },
+    "sourceProgramAgreementWorks": 1383,
+    "sourceProgramDisagreementWorks": 0,
+    "sourceFieldPresence": {
+      "dc.date.issued": 1,
+      "dc.description.abstract": 1,
+      "dc.date.submitted": 1337
+    },
+    "accessionDays": {
+      "2015-09-09": 1381,
+      "2015-10-01": 1,
+      "2020-01-12": 1
+    },
+    "exactTitleCrossProgramConflictWorks": 82,
+    "exactTitleAuthorCrossProgramConflictWorks": 9,
+    "structuralConflictWorks": 9,
+    "warningOnlyWorks": 73,
+    "noDetectedConflictWorks": 1301,
+    "structuralConflictProgramKeys": {
+      "licenciatura en psicologia": 6,
+      "licenciatura en odontologia": 2,
+      "licenciatura en medicina veterinaria zootecnista": 1
+    }
+  },
+  "expectedLegacyCohort": {
+    "works": 1381,
+    "validYearObservations": 1332,
+    "hasIssuedDate": 0,
+    "hasAbstract": 0,
+    "hasSubmittedDate": 1336,
+    "exactTitleCrossProgramConflictWorks": 82,
+    "exactTitleAuthorCrossProgramConflictWorks": 9,
+    "structuralConflictWorks": 9,
+    "warningOnlyWorks": 73,
+    "noDetectedConflictWorks": 1299
+  },
+  "expectedOtherCohort": {
+    "works": 2,
+    "validYearObservations": 2,
+    "hasIssuedDate": 1,
+    "hasAbstract": 1,
+    "hasSubmittedDate": 1,
+    "exactTitleCrossProgramConflictWorks": 0,
+    "exactTitleAuthorCrossProgramConflictWorks": 0,
+    "structuralConflictWorks": 0,
+    "warningOnlyWorks": 0,
+    "noDetectedConflictWorks": 2
+  },
+  "requiredConcentration": {
+    "allExactTitleConflictsInLegacy": true,
+    "allStructuralConflictsInLegacy": true,
+    "legacyHasNoIssuedDates": true,
+    "legacyHasNoAbstracts": true
+  }
+}

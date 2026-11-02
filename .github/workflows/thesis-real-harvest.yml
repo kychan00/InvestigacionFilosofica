@@ -13,6 +13,7 @@ on:
       - "scripts/thesis/audit_program_metadata_contamination_v1.py"
       - "scripts/thesis/audit_program_metadata_provenance_v1.py"
       - "scripts/thesis/audit_program_metadata_evidence_confidence_v1.py"
+      - "scripts/thesis/audit_program_metadata_integrity_v2.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
@@ -25,6 +26,7 @@ on:
       - "tests/test_thesis_program_metadata_contamination_audit.py"
       - "tests/test_thesis_program_metadata_provenance_audit.py"
       - "tests/test_thesis_program_metadata_evidence_confidence.py"
+      - "tests/test_thesis_program_metadata_integrity_v2.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -37,6 +39,7 @@ on:
       - "docs/THESIS_PROGRAM_METADATA_PROVENANCE_PSYCHOLOGY_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_EVIDENCE_CONFIDENCE_V1.md"
       - "docs/THESIS_PROGRAM_AUTHORITY_PSYCHOLOGY_V24.md"
+      - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_MEDICINE_V2.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -86,7 +89,8 @@ jobs:
             scripts/thesis/audit_outside_scope_closure_v1.py \
             scripts/thesis/audit_program_metadata_contamination_v1.py \
             scripts/thesis/audit_program_metadata_provenance_v1.py \
-            scripts/thesis/audit_program_metadata_evidence_confidence_v1.py
+            scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
+            scripts/thesis/audit_program_metadata_integrity_v2.py
 
       - name: Offline unit tests
         run: |
@@ -129,6 +133,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_metadata_evidence_confidence.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_integrity_v2.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -356,6 +364,119 @@ jobs:
               "baseline": "closed",
               "expectedCohorts": baseline["expectedCohorts"],
               "anomalyConcentration": baseline["requiredAnomalyConcentration"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build Medicine program metadata integrity audit V2
+        run: |
+          rm -rf artifacts/thesis-program-metadata-integrity-medicine
+          python scripts/thesis/audit_program_metadata_integrity_v2.py \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --source-records artifacts/thesis-real-harvest/source-records.jsonl.gz \
+            --program-key "licenciatura en medicina" \
+            --legacy-accession-day "2015-09-09" \
+            --output-dir artifacts/thesis-program-metadata-integrity-medicine
+
+      - name: Validate Medicine program metadata integrity audit V2
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-integrity-medicine/"
+                  "program-metadata-integrity-audit.json"
+              ).read_text()
+          )
+
+          assert report["schemaVersion"] == "thesis-program-metadata-integrity-audit-v2"
+          assert (
+              report["decisionConstraint"]
+              == "metadata-integrity-audit-does-not-change-admission"
+          )
+          assert report["targetProgramKey"] == "licenciatura en medicina"
+          assert report["authorityDecision"] == "hold"
+          assert report["metrics"]["observedWorks"] >= 0
+          assert (
+              report["metrics"]["sourceProgramAgreementWorks"]
+              + report["metrics"]["sourceProgramDisagreementWorks"]
+              == report["metrics"]["observedWorks"]
+          )
+          assert (
+              report["metrics"]["structuralConflictWorks"]
+              == report["metrics"][
+                  "exactTitleAuthorCrossProgramConflictWorks"
+              ]
+          )
+          assert (
+              report["metrics"]["structuralConflictWorks"]
+              + report["metrics"]["warningOnlyWorks"]
+              + report["metrics"]["noDetectedConflictWorks"]
+              == report["metrics"]["observedWorks"]
+          )
+
+          cohort = report["cohortAnalysis"]
+          assert cohort["legacyAccessionDay"] == "2015-09-09"
+          assert (
+              cohort["legacy"]["works"] + cohort["other"]["works"]
+              == report["metrics"]["observedWorks"]
+          )
+
+          print(json.dumps({
+              "conclusion": report["conclusion"],
+              "authorityDecision": report["authorityDecision"],
+              "metrics": report["metrics"],
+              "cohortAnalysis": report["cohortAnalysis"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Validate full Medicine metadata integrity baseline
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'full'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-integrity-medicine/"
+                  "program-metadata-integrity-audit.json"
+              ).read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "medicine-program-metadata-integrity-baseline-v1.json"
+              ).read_text()
+          )
+
+          assert report["decisionConstraint"] == baseline["decisionConstraint"]
+          assert report["authorityDecision"] == baseline["authorityDecision"]
+          assert report["conclusion"] == baseline["expectedConclusion"]
+
+          for key, expected in baseline["expectedMetrics"].items():
+              actual = report["metrics"][key]
+              assert actual == expected, (key, actual, expected)
+
+          assert (
+              report["cohortAnalysis"]["legacy"]
+              == baseline["expectedLegacyCohort"]
+          )
+          assert (
+              report["cohortAnalysis"]["other"]
+              == baseline["expectedOtherCohort"]
+          )
+          assert (
+              report["cohortAnalysis"]["concentration"]
+              == baseline["requiredConcentration"]
+          )
+
+          print(json.dumps({
+              "baseline": "closed",
+              "expectedMetrics": baseline["expectedMetrics"],
+              "legacy": baseline["expectedLegacyCohort"],
+              "other": baseline["expectedOtherCohort"],
           }, indent=2, ensure_ascii=False))
           PY
 
@@ -841,5 +962,6 @@ jobs:
             artifacts/thesis-program-metadata-contamination/
             artifacts/thesis-program-metadata-provenance/
             artifacts/thesis-program-metadata-confidence/
+            artifacts/thesis-program-metadata-integrity-medicine/
           if-no-files-found: error
           retention-days: 14
