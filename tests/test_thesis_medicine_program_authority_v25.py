@@ -62,10 +62,10 @@ class MedicineProgramAuthorityV25Test(unittest.TestCase):
             raw_payload=provider_record_id,
         )
 
-    def test_global_registry_revision_is_v26(self):
+    def test_global_registry_revision_is_v27(self):
         self.assertEqual(
             self.registry["registryRevision"],
-            "2026-11-02.v26",
+            "2026-11-02.v27",
         )
 
     def test_historical_medicine_name_resolves_to_v25(self):
