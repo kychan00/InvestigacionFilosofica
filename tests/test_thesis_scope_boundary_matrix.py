@@ -346,6 +346,63 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             {"review": 1},
         )
 
+    def test_maestria_investigacion_educativa_boundary_row_matches_program_authority_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en investigacion educativa",
+                    "count": 34,
+                    "variants": {
+                        "Maestría en Investigación Educativa": 34,
+                    },
+                    "providers": {"riudg": 34},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "id": "work:maestria-investigacion-educativa",
+                    "programRaw": "Maestría en Investigación Educativa",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2021", "quality": "valid"},
+                    "admissionStatus": "review",
+                    "institutionRef": "institution:udg",
+                }
+            ]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item
+            for item in report["rows"]
+            if item["id"] == "scope:education-research"
+        )
+        self.assertEqual(row["boundaryState"], "boundary-review")
+        program = row["programs"][0]
+        self.assertEqual(
+            program["programAuthority"]["status"],
+            "confirmed",
+        )
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:mae-investigacion-educativa",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "review",
+        )
+        self.assertEqual(
+            program["currentAdmissionStatuses"],
+            {"review": 1},
+        )
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [
