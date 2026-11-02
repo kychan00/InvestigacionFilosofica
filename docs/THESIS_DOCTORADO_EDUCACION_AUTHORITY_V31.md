@@ -147,6 +147,13 @@ y conserva únicamente:
 - `maestria en investigacion educativa`;
 - `doctorado en cognicion y aprendizaje`.
 
+Doctorado en Educación pasa a una nueva fila explícita:
+
+`scope:education-doctorado → outside-scope`
+
+Así la Scope Matrix conserva las **820 tesis** de su superficie auditada, pero
+la frontera abierta se reduce.
+
 Esto reduce el contrato pendiente de boundary-review:
 
 ### V3
