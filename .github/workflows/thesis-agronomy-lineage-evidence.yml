@@ -136,11 +136,22 @@ jobs:
           assert len(hold_rows) == 48
           assert sum(row["works"] for row in hold_rows) == 338
 
-          assert registry["registryRevision"] == "2026-11-02.v26"
-          assert all(
-              program["id"] != "program:udg:ingeniero-agronomo"
+          assert registry["registryRevision"] == "2026-11-02.v27"
+          authority = next(
+              program
               for program in registry["programs"]
+              if program["id"] == "program:udg:ingeniero-agronomo"
           )
+          candidate_keys = {
+              key
+              for evidence_class in config["evidenceClasses"]
+              if evidence_class["authorityRecommendation"] == "candidate-v27"
+              for key in evidence_class["programKeys"]
+          }
+          assert authority["canonicalName"] == "Ingeniero Agrónomo"
+          assert authority["admissionState"] == "exclude"
+          assert authority["observedCount"] == 2155
+          assert set(authority["aliases"]) == candidate_keys
 
           print(json.dumps({
               "registryRevision": registry["registryRevision"],

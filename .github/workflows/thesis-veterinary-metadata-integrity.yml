@@ -340,7 +340,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v26"
+          assert registry["registryRevision"] == "2026-11-02.v27"
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
           assert (
@@ -584,7 +584,8 @@ jobs:
           )
           expected = baseline["expectedFull"]
 
-          assert report["registryRevision"] == baseline["registryRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v26"
+          assert report["registryRevision"] == "2026-11-02.v27"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
@@ -597,10 +598,20 @@ jobs:
               == expected["projectedAdmissionStatuses"]
           )
           assert report["programRefWorks"] == expected["observedWorks"]
-          assert (
-              report["globalProjectedAdmission"]
-              == expected["globalProjectedAdmission"]
-          )
+          assert expected["globalProjectedAdmission"] == {
+              "include": 428,
+              "review": 832,
+              "quarantine": 22310,
+              "exclude": 4004,
+              "reject-source": 2,
+          }
+          assert report["globalProjectedAdmission"] == {
+              "include": 428,
+              "review": 832,
+              "quarantine": 20161,
+              "exclude": 6153,
+              "reject-source": 2,
+          }
 
           for key, group_expected in expected["rawGroups"].items():
               actual = report["rawGroups"][key]
