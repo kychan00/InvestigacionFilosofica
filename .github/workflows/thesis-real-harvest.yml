@@ -33,6 +33,8 @@ on:
       - "tests/test_thesis_program_metadata_confidence_reprojection.py"
       - "tests/test_thesis_medicine_program_authority_v25.py"
       - "tests/test_thesis_veterinary_program_authority_v26.py"
+      - "tests/test_thesis_program_metadata_family_audit.py"
+      - "tests/test_thesis_agronomy_metadata_conflict_protection.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -50,6 +52,7 @@ on:
       - "docs/THESIS_PROGRAM_METADATA_ITEM_CONFLICT_PROTECTION_V2.md"
       - "docs/THESIS_PROGRAM_AUTHORITY_MEDICINE_V25.md"
       - "docs/THESIS_PROGRAM_AUTHORITY_VETERINARY_V26.md"
+      - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_AGRONOMY_V4.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -103,7 +106,8 @@ jobs:
             scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
             scripts/thesis/audit_program_metadata_integrity_v2.py \
             scripts/thesis/build_program_metadata_conflict_registry_v1.py \
-            scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py
+            scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            scripts/thesis/audit_program_metadata_family_v1.py
 
       - name: Offline unit tests
         run: |
@@ -166,6 +170,14 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_veterinary_program_authority_v26.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_family_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_agronomy_metadata_conflict_protection.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -758,7 +770,7 @@ jobs:
               report["decisionConstraint"]
               == "metadata-confidence-does-not-create-program-authority"
           )
-          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v3"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v4"
           assert report["metrics"]["works"] > 0
           assert report["metrics"]["violations"] == 0
           assert report["violations"] == []
