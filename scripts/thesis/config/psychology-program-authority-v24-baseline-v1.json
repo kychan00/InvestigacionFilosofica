@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "thesis-psychology-program-authority-v24-baseline-v1",
+  "registryRevision": "2026-11-02.v24",
+  "programRef": "program:udg:lic-psicologia",
+  "normalizedKey": "licenciatura en psicologia",
+  "admissionState": "exclude",
+  "programMetadataEvidenceRevision": "2026-11-02.v1",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "expectedFull": {
+    "observedWorks": 485,
+    "blockedWorks": 460,
+    "authorityApplicableWorks": 25,
+    "projectedAdmissionStatuses": {
+      "exclude": 25,
+      "quarantine": 460
+    },
+    "queueState": "metadata-review",
+    "curationLane": "metadata-confidence-review"
+  },
+  "invariants": [
+    "psychology-program-authority-is-exclude",
+    "low-trust-metadata-blocks-exclude-authority",
+    "blocked-legacy-records-remain-quarantine",
+    "post-migration-unassessed-records-may-receive-exclude",
+    "program-authority-does-not-reclassify-metadata-confidence"
+  ]
+}

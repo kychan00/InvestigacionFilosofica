@@ -36,6 +36,7 @@ on:
       - "docs/THESIS_PROGRAM_METADATA_CONTAMINATION_PSYCHOLOGY_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_PROVENANCE_PSYCHOLOGY_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_EVIDENCE_CONFIDENCE_V1.md"
+      - "docs/THESIS_PROGRAM_AUTHORITY_PSYCHOLOGY_V24.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -401,6 +402,73 @@ jobs:
           print(json.dumps(queue["metrics"], indent=2, ensure_ascii=False))
           PY
 
+      - name: Validate Psychology Program Authority V24 interaction
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          registry = json.loads(
+              Path(
+                  "scripts/thesis/config/program-authority-v1.json"
+              ).read_text()
+          )
+          queue = json.loads(
+              Path(
+                  "artifacts/thesis-program-curation/"
+                  "program-curation-queue.json"
+              ).read_text()
+          )
+
+          assert registry["registryRevision"] == "2026-11-02.v24"
+
+          authority = next(
+              program
+              for program in registry["programs"]
+              if program["id"] == "program:udg:lic-psicologia"
+          )
+          assert authority["admissionState"] == "exclude"
+          assert authority["observedCount"] == 485
+
+          item = next(
+              (
+                  row
+                  for row in queue["items"]
+                  if row["normalizedKey"] == "licenciatura en psicologia"
+              ),
+              None,
+          )
+
+          if item is not None:
+              assert item["queueState"] == "metadata-review"
+              assert (
+                  item["curationLane"]
+                  == "metadata-confidence-review"
+              )
+              assert (
+                  item["authority"]["id"]
+                  == "program:udg:lic-psicologia"
+              )
+              assert item["authority"]["admissionState"] == "exclude"
+              assert (
+                  item["programMetadataEvidence"]["blockedWorks"] > 0
+              )
+              assert not (
+                  set(item["currentObservedAdmissionStatuses"])
+                  & {"include", "review"}
+              )
+
+          print(json.dumps({
+              "registryRevision": registry["registryRevision"],
+              "authority": {
+                  "id": authority["id"],
+                  "admissionState": authority["admissionState"],
+                  "observedCount": authority["observedCount"],
+              },
+              "sampleQueueItem": item,
+          }, indent=2, ensure_ascii=False))
+          PY
+
       - name: Build program metadata evidence confidence audit
         run: |
           rm -rf artifacts/thesis-program-metadata-confidence
@@ -481,6 +549,61 @@ jobs:
               "metadataReviewQueueItems": report[
                   "metadataReviewQueueItems"
               ],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Validate full Psychology Program Authority V24 baseline
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'full'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "psychology-program-authority-v24-baseline-v1.json"
+              ).read_text()
+          )
+          queue = json.loads(
+              Path(
+                  "artifacts/thesis-program-curation/"
+                  "program-curation-queue.json"
+              ).read_text()
+          )
+
+          item = next(
+              row
+              for row in queue["items"]
+              if row["normalizedKey"] == baseline["normalizedKey"]
+          )
+          expected = baseline["expectedFull"]
+
+          assert item["count"] == expected["observedWorks"]
+          assert (
+              item["programMetadataEvidence"]["blockedWorks"]
+              == expected["blockedWorks"]
+          )
+          assert (
+              item["count"]
+              - item["programMetadataEvidence"]["blockedWorks"]
+              == expected["authorityApplicableWorks"]
+          )
+          assert (
+              item["currentObservedAdmissionStatuses"]
+              == expected["projectedAdmissionStatuses"]
+          )
+          assert item["queueState"] == expected["queueState"]
+          assert item["curationLane"] == expected["curationLane"]
+          assert item["authority"]["id"] == baseline["programRef"]
+          assert (
+              item["authority"]["admissionState"]
+              == baseline["admissionState"]
+          )
+
+          print(json.dumps({
+              "baseline": "closed",
+              "program": item,
           }, indent=2, ensure_ascii=False))
           PY
 

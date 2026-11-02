@@ -1438,9 +1438,40 @@
         "https://cuvalles.udg.mx/posgrados/maestria-en-tecnologias-para-el-aprendizaje",
         "https://www.cusur.udg.mx/es/mta"
       ]
+    },
+    {
+      "id": "program:udg:lic-psicologia",
+      "canonicalName": "Licenciatura en Psicología",
+      "level": "licenciatura",
+      "disciplineFamily": "psicologia-ciencias-salud",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCS",
+        "CUVALLES",
+        "CUCIÉNEGA",
+        "CUSUR",
+        "CUCOSTA"
+      ],
+      "aliases": [
+        "Licenciatura en Psicología",
+        "LICENCIATURA EN PSICOLOGÍA",
+        "Licenciatura en Psicologia",
+        "LICENCIATURA EN PSICOLOGIA"
+      ],
+      "observedCount": 485,
+      "decisionNote": "La Universidad de Guadalajara clasifica explícitamente la Licenciatura en Psicología en el área de conocimiento Ciencias de la Salud. La Guía de Carreras la ofrece en CUCS y diversos centros multitemáticos; CUCS la integra históricamente entre sus programas de Ciencias de la Salud y su plan vigente combina psicología clínica, salud mental, neuropsicología, psicodiagnóstico, psicobiología, psicología social y educativa. Bajo targetScope humanities-only, la presencia de fundamentos filosóficos, epistemológicos, sociales y educativos no cambia la identidad programática principal declarada por UdeG como Ciencias de la Salud, por lo que se registra como EXCLUDE. El full inventory observa 485 registros con este nombre, pero T2AG/T2AH/T2AI demostraron contaminación programática en un cohort legacy: 460 registros son low-trust y tienen authorityApplicability=blocked. Esta autoridad no debe excluir esos 460; permanecen QUARANTINE. Sólo los registros con metadata programático no bloqueado pueden recibir el EXCLUDE de V24. No se utiliza el rango temporal bruto del grupo como historia académica porque contiene fechas imposibles anteriores a la creación de la carrera.",
+      "evidence": [
+        "https://guiadecarreras.udg.mx/oferta_academica/licenciatura-en-psicologia",
+        "https://www.udg.mx/es/oferta-academica/ciencias-salud",
+        "https://www.cucs.udg.mx/node/65",
+        "https://www.cucs.udg.mx/node/1837",
+        "https://www.cuc.udg.mx/psicologia/plan-de-estudios",
+        "https://cualtos.udg.mx/index.php/oferta-academica/licenciatura-psicologia"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v23",
+  "registryRevision": "2026-11-02.v24",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
