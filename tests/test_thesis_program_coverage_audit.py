@@ -1002,6 +1002,52 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             {"resolved": 1},
         )
 
+    def test_doctorado_derechos_humanos_v21_reprojects_to_review(self):
+        observed = {
+            "schemaVersion": "fixture",
+            "programs": [{
+                "normalizedKey": "doctorado en derechos humanos",
+                "count": 1,
+                "variants": {"Doctorado en Derechos Humanos": 1},
+                "providers": {"riudg": 1},
+                "admissionStatuses": {"quarantine": 1},
+                "programRefs": {},
+            }],
+        }
+        corpus = {
+            "buildRevision": "fixture",
+            "programAuthorityRevision": "old",
+            "works": [
+                self.work(
+                    work_id="doctorado-derechos-humanos",
+                    program="Doctorado en Derechos Humanos",
+                    institution_ref="institution:udg",
+                    admission="quarantine",
+                    raw_date="2024",
+                )
+            ],
+        }
+
+        result = audit.build_audit(
+            observed=observed,
+            corpus=corpus,
+            registry=self.registry,
+            reference_year=2026,
+            top=10,
+        )
+
+        self.assertEqual(result["metrics"]["projectedAdmission"], {"review": 1})
+        self.assertEqual(result["metrics"]["programStateWorks"], {"review": 1})
+        self.assertEqual(result["metrics"]["programQueue"]["queueItems"], 1)
+        self.assertEqual(
+            result["topReviewGroups"][0]["normalizedKey"],
+            "doctorado en derechos humanos",
+        )
+        self.assertEqual(
+            result["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
         observed = {
             "schemaVersion": "fixture",
