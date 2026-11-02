@@ -1,0 +1,171 @@
+name: Human Authority Audit packet v1
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/author-authority/human-audit-v1/**"
+      - "src/core/author-authority-human-audit.js"
+      - "scripts/authority/build-human-authority-audit-v1.mjs"
+      - "scripts/authority/analyze-human-authority-audit-v1.mjs"
+      - "scripts/authority/human-authority-audit-server.mjs"
+      - "scripts/authority/human-authority-audit-browser.js"
+      - "tests/author-authority-human-audit.test.mjs"
+      - "tests/author-authority-human-audit-evidence.test.mjs"
+      - "package.json"
+      - ".github/workflows/author-authority-human-audit-v1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  human-authority-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test Human Authority Audit contracts
+        run: npm run test:authority-human-audit
+
+      - name: Read pinned release configuration
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const config = JSON.parse(
+            fs.readFileSync(
+              "benchmark/author-authority/v1/config.json",
+              "utf8"
+            )
+          );
+          const lines = [
+            ["AUTHORITY_RELEASE_TAG", config.release.tag],
+            ["AUTHORITY_RELEASE_ASSET", config.release.asset],
+            ["AUTHORITY_RELEASE_SHA256", config.release.sha256]
+          ];
+          fs.appendFileSync(
+            process.env.GITHUB_ENV,
+            lines.map(([key, value]) => `${key}=${value}\n`).join("")
+          );
+          NODE
+
+      - name: Download pinned author-index release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p             artifacts/author-authority-human-audit-v1/download             artifacts/author-authority-human-audit-v1/input
+
+          gh release download "$AUTHORITY_RELEASE_TAG"             --repo "$GITHUB_REPOSITORY"             --pattern "$AUTHORITY_RELEASE_ASSET"             --dir artifacts/author-authority-human-audit-v1/download
+
+      - name: Verify pinned release checksum
+        working-directory: artifacts/author-authority-human-audit-v1/download
+        run: |
+          printf '%s  %s\n'             "$AUTHORITY_RELEASE_SHA256"             "$AUTHORITY_RELEASE_ASSET"             | sha256sum -c -
+
+      - name: Extract author-index release
+        run: |
+          tar             -xzf "artifacts/author-authority-human-audit-v1/download/$AUTHORITY_RELEASE_ASSET"             -C artifacts/author-authority-human-audit-v1/input
+
+          test -f             artifacts/author-authority-human-audit-v1/input/author-index-v2/manifest.json
+
+      - name: Build frozen Human Authority Audit packet
+        run: |
+          npm run benchmark:authority:audit:build --             --input artifacts/author-authority-human-audit-v1/input/author-index-v2             --output artifacts/author-authority-human-audit-v1/packet
+
+      - name: Verify blindness and packet invariants
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const root = "artifacts/author-authority-human-audit-v1/packet";
+          const manifest = JSON.parse(
+            fs.readFileSync(root + "/manifest.json", "utf8")
+          );
+          const evidence = JSON.parse(
+            fs.readFileSync(root + "/evidence.json", "utf8")
+          );
+          const sample = fs.readFileSync(root + "/sample.jsonl", "utf8")
+            .trim()
+            .split(/\r?\n/)
+            .filter(Boolean)
+            .map(JSON.parse);
+
+          if (sample.length !== 100) {
+            throw new Error("Expected 100 audit pairs");
+          }
+          if (manifest.uniqueProfiles !== 200) {
+            throw new Error("Expected 200 unique profiles");
+          }
+          if (
+            manifest.sampleSha256 !==
+            "6265acd4e74f62719fab813078b33146ad363236244d4ff2a7c58c3e6cbdd585"
+          ) {
+            throw new Error("Frozen sample SHA mismatch");
+          }
+          if ((evidence.cases || []).length !== 100) {
+            throw new Error("Expected evidence for 100 pairs");
+          }
+          if (
+            !evidence.diagnostics ||
+            !Number.isInteger(evidence.diagnostics.invalidJsonRows)
+          ) {
+            throw new Error("Missing malformed-evidence diagnostics");
+          }
+          if (
+            sample.some(row =>
+              "stratum" in row ||
+              "current_relation" in row ||
+              "orcid" in (row.left || {}) ||
+              "orcid" in (row.right || {})
+            )
+          ) {
+            throw new Error("Blind sample leaked hidden authority context");
+          }
+          if (
+            (evidence.cases || []).some(row =>
+              "stratum" in row ||
+              "current_relation" in row
+            )
+          ) {
+            throw new Error("Reviewer evidence leaked algorithm relation");
+          }
+          if (
+            !(manifest.items || []).every(row =>
+              row.stratum && row.current_relation
+            )
+          ) {
+            throw new Error("Internal manifest lost evaluation context");
+          }
+
+          console.log(JSON.stringify({
+            sampleSize: sample.length,
+            uniqueProfiles: manifest.uniqueProfiles,
+            sampleSha256: manifest.sampleSha256,
+            evidenceCases: evidence.cases.length,
+            invalidEvidenceRows:
+              evidence.diagnostics.invalidJsonRows,
+            blind: true
+          }, null, 2));
+          NODE
+
+      - name: Upload Human Authority Audit packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-human-audit-v1
+          path: |
+            artifacts/author-authority-human-audit-v1/packet/sample.jsonl
+            artifacts/author-authority-human-audit-v1/packet/manifest.json
+            artifacts/author-authority-human-audit-v1/packet/evidence.json
+            artifacts/author-authority-human-audit-v1/packet/judgments.template.jsonl
+            artifacts/author-authority-human-audit-v1/packet/source-benchmark-report.json
+          if-no-files-found: error

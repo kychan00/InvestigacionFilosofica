@@ -547,3 +547,112 @@ Reglas:
 - el valor raw original se conserva siempre.
 
 Un componente imposible como `YYYY-00-DD` permanece inválido.
+
+
+---
+
+## 20. Conflictos de rol persona — evidencia real de full harvest
+
+El primer intento de inventario completo encontró un registro donde el mismo nombre normalizado aparece simultáneamente como:
+
+- `thesis-author`;
+- `thesis-director`.
+
+Nombre observado:
+
+`Ceja Mejia Oscar Eduardo`
+
+La versión anterior trataba cualquier colisión autor/supervisor como error estructural global y abortaba el corpus completo.
+
+Ese comportamiento era demasiado rígido para metadatos históricos reales.
+
+### Política corregida
+
+La colisión ya **no se resuelve por adivinación** y tampoco invalida todo el corpus.
+
+El trabajo conserva ambas contribuciones exactamente como fueron observadas y añade:
+
+`metadataQualityFlags = ["author-supervisor-name-collision"]`
+
+Además crea `contributionConflicts` con:
+
+- nombre normalizado;
+- roles observados;
+- contribuciones afectadas;
+- SourceRecord de procedencia;
+- directiva `do-not-auto-resolve`.
+
+Todas las contribuciones afectadas quedan con:
+
+`resolutionState = "blocked-role-conflict"`
+
+### Consecuencia para Author Authority
+
+El mismo string de nombre **no puede convertirse automáticamente en una única AuthorityPerson** mientras exista esta contradicción de rol.
+
+Una fase de resolución posterior debe revisar evidencia adicional o mantener la ambigüedad.
+
+### Gate
+
+El validador sigue siendo estricto, pero ahora valida la representación del conflicto:
+
+1. toda colisión autor/supervisor debe aparecer en `contributionConflicts`;
+2. debe existir el quality flag correspondiente;
+3. las contribuciones afectadas deben estar bloqueadas para resolución automática;
+4. no se permite ocultar ni eliminar uno de los dos roles para hacer pasar la validación.
+
+Este cambio convierte una anomalía de fuente en evidencia auditable en lugar de un fallo global.
+
+
+---
+
+## 21. Fecha sentinela de epoch observada en RIUdeG
+
+El primer inventario completo reveló un patrón que no podía detectarse en las
+muestras pequeñas:
+
+- `1969-12-31`: 381 trabajos;
+- `31/12/1969`: 180 trabajos;
+- total: **561 trabajos**.
+
+La concentración exacta en la víspera del Unix epoch es evidencia de un valor
+sentinela/default del repositorio y no de 561 eventos académicos ocurridos el
+mismo día.
+
+### Política
+
+Los dos valores se conservan sin reescribir:
+
+- `raw` permanece intacto;
+- el valor normalizado puede seguir siendo `1969-12-31`;
+- precisión: `day`;
+- calidad: `suspicious`.
+
+No se sustituye por una fecha estimada.
+
+No se borra el trabajo.
+
+### Consecuencia
+
+Una fecha sentinela no puede participar como evidencia temporal confiable en:
+
+- spans históricos;
+- observedFrom / observedUntil;
+- orden cronológico de curaduría;
+- inferencias de predecessor/successor;
+- visualizaciones temporales que exijan fechas válidas.
+
+Program Curation Queue ya utiliza exclusivamente fechas con
+`quality=valid`, por lo que al corregir la calidad estos 561 valores dejan de
+crear antigüedad falsa sin necesidad de introducir excepciones en la cola.
+
+### Motivación inmediata
+
+La anomalía apareció al revisar la familia cultura/gestión cultural:
+
+- Maestría en Gestión y Desarrollo Cultural contenía múltiples
+  `31/12/1969`;
+- Maestría en Gestión de la Cultura también contenía una observación
+  `1969-12-31`.
+
+El fix se mantiene separado de la decisión disciplinaria de esos programas.

@@ -135,11 +135,25 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(info["quality"], "suspicious")
 
     def test_day_first_dates_are_normalized_without_losing_raw_value(self):
-        info = thesis.date_info("31/12/1969", reference_year=2026)
-        self.assertEqual(info["raw"], "31/12/1969")
-        self.assertEqual(info["value"], "1969-12-31")
+        info = thesis.date_info("01/04/2018", reference_year=2026)
+        self.assertEqual(info["raw"], "01/04/2018")
+        self.assertEqual(info["value"], "2018-04-01")
         self.assertEqual(info["precision"], "day")
         self.assertEqual(info["quality"], "valid")
+
+    def test_riudg_epoch_sentinel_dates_are_suspicious(self):
+        iso = thesis.date_info("1969-12-31", reference_year=2026)
+        dmy = thesis.date_info("31/12/1969", reference_year=2026)
+
+        self.assertEqual(iso["raw"], "1969-12-31")
+        self.assertEqual(iso["value"], "1969-12-31")
+        self.assertEqual(iso["precision"], "day")
+        self.assertEqual(iso["quality"], "suspicious")
+
+        self.assertEqual(dmy["raw"], "31/12/1969")
+        self.assertEqual(dmy["value"], "1969-12-31")
+        self.assertEqual(dmy["precision"], "day")
+        self.assertEqual(dmy["quality"], "suspicious")
 
     def test_zero_month_and_day_reduce_date_precision(self):
         year_only = thesis.date_info("1991-00-00", reference_year=2026)
@@ -208,6 +222,598 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             "Universidad de las Américas Puebla",
         )
         self.assertEqual(candidate["admission"]["status"], "exclude")
+
+    def test_udg_grantor_typo_is_confirmed_by_exact_alias(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="udg-grantor-typo",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Tesis CUCS con typo institucional"],
+                "dc.degree.name": ["LICENCIATURA EN MEDICINA"],
+                "dc.degree.grantor": ["Universidad en Guadalajara"],
+                "dc.degree.department": ["CUCS"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="udg-grantor-typo",
+        )
+
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(candidate["institution"]["status"], "confirmed")
+        self.assertEqual(
+            candidate["institution"]["institutionRef"],
+            "institution:udg",
+        )
+        self.assertEqual(
+            candidate["institution"]["raw"],
+            "Universidad en Guadalajara",
+        )
+        self.assertEqual(candidate["admission"]["status"], "quarantine")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "unknown-program",
+        )
+
+    def test_exact_external_college_grantor_is_excluded(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="external-college",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Tesis externa antropológica"],
+                "dc.degree.name": ["Doctorado en Antropología Social"],
+                "dc.degree.grantor": ["El Colegio de Michoacán A.C."],
+                "dc.publisher": ["El Colegio de Michoacán A.C."],
+                "dc.type": ["Tesis de Doctorado"],
+            },
+            raw_payload="external-college",
+        )
+
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(candidate["institution"]["status"], "external")
+        self.assertEqual(
+            candidate["institution"]["raw"],
+            "El Colegio de Michoacán A.C.",
+        )
+        self.assertEqual(candidate["admission"]["status"], "exclude")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "external-institution",
+        )
+
+    def test_institution_aliases_cannot_overlap_external_aliases(self):
+        registry = json.loads(
+            (
+                ROOT
+                / "scripts"
+                / "thesis"
+                / "config"
+                / "program-authority-v1.json"
+            ).read_text(encoding="utf-8")
+        )
+        registry["institution"]["externalAliases"].append(
+            "Universidad de Guadalajara"
+        )
+
+        temp = ROOT / "tests" / ".institution-alias-collision.json"
+        try:
+            temp.write_text(
+                json.dumps(registry, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ValueError,
+                "Institution alias collision",
+            ):
+                thesis.load_program_registry(temp)
+        finally:
+            temp.unlink(missing_ok=True)
+
+    def test_program_authority_v2_resolves_full_inventory_additions(self):
+        cases = {
+            "MAESTRIA EN LINGUISTICA APLICADA": (
+                "program:udg:mae-linguistica-aplicada",
+                "include",
+            ),
+            "DOCTORADO EN GEOGRAFIA Y ORDENACION TERRITORIAL": (
+                "program:udg:doc-geografia-ordenacion-territorial",
+                "include",
+            ),
+            "DOCTORADO EN HUMANIDADES": (
+                "program:udg:doc-humanidades",
+                "include",
+            ),
+            "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜISTICOS": (
+                "program:udg:doc-estudios-literarios-linguisticos",
+                "include",
+            ),
+            "Maestría en Bioetica": (
+                "program:udg:mae-bioetica",
+                "include",
+            ),
+            "MAESTRIA EN CIENCIAS ANTROPOLOGICAS": (
+                "program:udg:mae-ciencias-antropologicas",
+                "include",
+            ),
+        }
+
+        for raw, (program_ref, state) in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(resolved["admissionState"], state)
+
+    def test_review_program_is_not_excluded_or_included(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="history-art-review",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Historia del arte y patrimonio"],
+                "dc.contributor.author": ["Ejemplo, Persona"],
+                "dc.degree.name": ["LICENCIATURA EN HISTORIA DEL ARTE"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUTONALA"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="history-art-review",
+        )
+
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(
+            candidate["program"]["programRef"],
+            "program:udg:lic-historia-arte",
+        )
+        self.assertEqual(candidate["program"]["admissionState"], "review")
+        self.assertEqual(candidate["admission"]["status"], "review")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "program-review",
+        )
+
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(corpus["metrics"]["worksByAdmission"], {"review": 1})
+        self.assertEqual(corpus["works"][0]["admissionStatus"], "review")
+
+    def test_unresolved_doctoral_orientation_remains_review(self):
+        raw = (
+            "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS "
+            "CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
+        )
+        resolved = thesis.resolve_program(raw, self.registry)
+
+        self.assertEqual(
+            resolved["programRef"],
+            "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
+        )
+        self.assertEqual(resolved["admissionState"], "review")
+
+    def test_registry_revision_is_pinned_in_corpus(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="registry-revision",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Revisión"],
+                "dc.degree.name": ["Licenciatura en Historia"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+            },
+            raw_payload="registry-revision",
+        )
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+        self.assertEqual(
+            corpus["institutionAuthorityRevision"],
+            self.registry["institutionRevision"],
+        )
+
+    def test_historical_language_literature_family_v3(self):
+        cases = {
+            "Maestría en Enseñanza de la Lengua y la Literatura": (
+                "program:udg:mae-ensenanza-lengua-literatura-historica",
+                "include",
+            ),
+            "Maestría en la Enseñanza de la Lengua y Literatura": (
+                "program:udg:mae-ensenanza-lengua-literatura-historica",
+                "include",
+            ),
+            "Maestría en Lengua y Literatura Mexicana": (
+                "program:udg:mae-lengua-literatura-mexicana-historica",
+                "include",
+            ),
+            "Maestría en la Enseñanza del Inglés como Lengua Extranjera": (
+                "program:udg:mae-ensenanza-ingles",
+                "include",
+            ),
+            "Licenciatura en la Docencia del Inglés": (
+                "program:udg:lic-docencia-ingles-corta-historica",
+                "review",
+            ),
+            "Licenciatura en Letras": (
+                "program:udg:lic-letras-historica",
+                "include",
+            ),
+            "Maestría en Filosofía": (
+                "program:udg:mae-filosofia-historica",
+                "include",
+            ),
+        }
+
+        for raw, (program_ref, state) in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(resolved["admissionState"], state)
+
+    def test_short_historical_english_degree_remains_review(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="short-english-degree",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Una tesis histórica"],
+                "dc.degree.name": ["LICENCIATURA EN LA DOCENCIA DEL INGLÉS"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCSH"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="short-english-degree",
+        )
+
+        candidate = thesis.canonical_candidate(
+            record,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(
+            candidate["program"]["programRef"],
+            "program:udg:lic-docencia-ingles-corta-historica",
+        )
+        self.assertEqual(candidate["admission"]["status"], "review")
+        self.assertEqual(
+            candidate["admission"]["explanationCode"],
+            "program-review",
+        )
+
+    def test_historical_program_can_be_include_without_confirmed_successor(self):
+        for program_id in (
+            "program:udg:lic-letras-historica",
+            "program:udg:mae-filosofia-historica",
+        ):
+            with self.subTest(program_id=program_id):
+                program = next(
+                    item
+                    for item in self.registry["programs"]
+                    if item["id"] == program_id
+                )
+                self.assertEqual(program["admissionState"], "include")
+                self.assertEqual(program["lifecycleState"], "historical")
+                self.assertTrue(program.get("possibleSuccessorRef"))
+                self.assertIn(
+                    "confirm",
+                    program["decisionNote"].casefold(),
+                )
+
+    def test_language_literature_v3_projection_states(self):
+        rows = [
+            (
+                "Maestría en Enseñanza de la Lengua y la Literatura",
+                "include",
+            ),
+            (
+                "Maestría en la Enseñanza del Inglés como Lengua Extranjera",
+                "include",
+            ),
+            (
+                "Licenciatura en la Docencia del Inglés",
+                "review",
+            ),
+        ]
+        records = []
+        for index, (program, _) in enumerate(rows):
+            records.append(
+                thesis.source_record(
+                    provider="riudg",
+                    provider_record_id=f"family-{index}",
+                    source_url=None,
+                    raw_fields={
+                        "dc.title": [f"Trabajo {index}"],
+                        "dc.degree.name": [program],
+                        "dc.degree.grantor": ["Universidad de Guadalajara"],
+                        "dc.degree.department": ["CUCSH"],
+                        "dc.type": ["Tesis"],
+                    },
+                    raw_payload=f"family-{index}",
+                )
+            )
+
+        corpus = thesis.build_corpus(
+            records,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(
+            corpus["metrics"]["worksByAdmission"],
+            {"include": 2, "review": 1},
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
+    def test_cultural_management_family_v4(self):
+        cases = {
+            "Maestría en Gestión de la Cultura": (
+                "program:udg:mae-gestion-cultura",
+                "include",
+            ),
+            "MAESTRIA EN GESTION Y DESARROLLO CULTURAL": (
+                "program:udg:mae-gestion-desarrollo-cultural",
+                "review",
+            ),
+            "Doctorado en Gestión de la Cultura": (
+                "program:udg:doc-gestion-cultura",
+                "include",
+            ),
+        }
+
+        for raw, (program_ref, admission_state) in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(
+                    resolved["admissionState"],
+                    admission_state,
+                )
+
+    def test_cultural_management_full_inventory_baseline(self):
+        program = next(
+            item
+            for item in self.registry["programs"]
+            if item["id"] == "program:udg:doc-gestion-cultura"
+        )
+
+        self.assertEqual(program["observedCount"], 3)
+        self.assertEqual(
+            program["observedThesisYears"],
+            {"min": 2023, "max": 2025},
+        )
+        self.assertIn("SUV", program["academicUnits"])
+        self.assertEqual(program["admissionState"], "include")
+
+    def test_cultural_management_programs_are_not_aliases(self):
+        research = thesis.resolve_program(
+            "Maestría en Gestión de la Cultura",
+            self.registry,
+        )
+        professional = thesis.resolve_program(
+            "Maestría en Gestión y Desarrollo Cultural",
+            self.registry,
+        )
+
+        self.assertNotEqual(
+            research["programRef"],
+            professional["programRef"],
+        )
+        self.assertEqual(research["admissionState"], "include")
+        self.assertEqual(professional["admissionState"], "review")
+
+    def test_cultural_management_review_gate_is_explicit(self):
+        records = [
+            thesis.source_record(
+                provider="riudg",
+                provider_record_id="culture-research",
+                source_url=None,
+                raw_fields={
+                    "dc.title": ["Investigación cultural"],
+                    "dc.degree.name": ["Maestría en Gestión de la Cultura"],
+                    "dc.degree.grantor": ["Universidad de Guadalajara"],
+                    "dc.degree.department": ["SUV"],
+                    "dc.type": ["Tesis de Maestría"],
+                },
+                raw_payload="culture-research",
+            ),
+            thesis.source_record(
+                provider="riudg",
+                provider_record_id="culture-professional",
+                source_url=None,
+                raw_fields={
+                    "dc.title": ["Proyecto cultural"],
+                    "dc.degree.name": [
+                        "Maestría en Gestión y Desarrollo Cultural"
+                    ],
+                    "dc.degree.grantor": ["Universidad de Guadalajara"],
+                    "dc.degree.department": ["CUAAD"],
+                    "dc.type": ["Tesis de Maestría"],
+                },
+                raw_payload="culture-professional",
+            ),
+        ]
+
+        corpus = thesis.build_corpus(
+            records,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(
+            corpus["metrics"]["worksByAdmission"],
+            {"include": 1, "review": 1},
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
+        by_program = {
+            work["programRef"]: work["admissionStatus"]
+            for work in corpus["works"]
+        }
+        self.assertEqual(
+            by_program["program:udg:mae-gestion-cultura"],
+            "include",
+        )
+        self.assertEqual(
+            by_program["program:udg:mae-gestion-desarrollo-cultural"],
+            "review",
+        )
+
+    def test_arts_heritage_family_v5(self):
+        cases = {
+            "DOCTORADO INTERINSTITUCIONAL EN ARTE Y CULTURA": (
+                "program:udg:doc-arte-cultura-interinstitucional",
+                "include",
+            ),
+            "MAESTRIA EN ETNOMUSICOLOGIA": (
+                "program:udg:mae-etnomusicologia",
+                "include",
+            ),
+            "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA": (
+                "program:udg:mae-ciencias-arquitectura",
+                "review",
+            ),
+            "Maestría En Historia De La Arquitectura Mexicana": (
+                "program:udg:mae-historia-arquitectura-mexicana-historica",
+                "review",
+            ),
+            "Maestría En Conservación Del Patrimonio Edificado": (
+                "program:udg:mae-conservacion-patrimonio-edificado-historica",
+                "review",
+            ),
+            "MAESTRIA EN EDUCACION Y EXPRESION PARA LAS ARTES": (
+                "program:udg:mae-educacion-expresion-artes",
+                "review",
+            ),
+            "Maestría En Didáctica De Las Artes Con Orientación En Artes Visuales": (
+                "program:udg:mae-didactica-artes-visuales-historica",
+                "review",
+            ),
+            "Maestría En Didáctica De Las Artes Orientación En Artes Escénicas": (
+                "program:udg:mae-didactica-artes-escenicas-historica",
+                "review",
+            ),
+            "Maestría en Estudios Cinematográficos": (
+                "program:udg:mae-estudios-cinematograficos",
+                "review",
+            ),
+        }
+
+        for raw, (program_ref, admission_state) in cases.items():
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(resolved["programRef"], program_ref)
+                self.assertEqual(
+                    resolved["admissionState"],
+                    admission_state,
+                )
+
+    def test_architecture_historical_orientations_share_mca_authority(self):
+        aliases = [
+            "Maestría En Arquitectura; Orientacion En Historia De La Arquitectura Mexicana",
+            "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado",
+            "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
+            "Maestría En Arquitectura; Orientacion Arte Y Comunicacion",
+            "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
+            "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
+            "Maestría En Ciencias De La Arquitectura Orientación En Historia De La Arquitectura Mexicana",
+        ]
+
+        for raw in aliases:
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-ciencias-arquitectura",
+                )
+                self.assertEqual(resolved["admissionState"], "review")
+
+    def test_generic_didactica_de_las_artes_remains_unknown(self):
+        resolved = thesis.resolve_program(
+            "Maestría En Didáctica De Las Artes",
+            self.registry,
+        )
+
+        self.assertEqual(resolved["status"], "unknown")
+        self.assertIsNone(resolved["programRef"])
+
+    def test_arts_heritage_v5_gate_preserves_include_review_boundary(self):
+        rows = [
+            (
+                "Doctorado Interinstitucional en Arte y Cultura",
+                "include",
+            ),
+            (
+                "Maestría en Etnomusicología",
+                "include",
+            ),
+            (
+                "Maestría en Ciencias de la Arquitectura",
+                "review",
+            ),
+            (
+                "Maestría en Educación y Expresión para las Artes",
+                "review",
+            ),
+        ]
+        records = []
+        for index, (program, _) in enumerate(rows):
+            records.append(
+                thesis.source_record(
+                    provider="riudg",
+                    provider_record_id=f"arts-family-{index}",
+                    source_url=None,
+                    raw_fields={
+                        "dc.title": [f"Trabajo artes {index}"],
+                        "dc.degree.name": [program],
+                        "dc.degree.grantor": ["Universidad de Guadalajara"],
+                        "dc.degree.department": ["CUAAD"],
+                        "dc.type": ["Tesis"],
+                    },
+                    raw_payload=f"arts-family-{index}",
+                )
+            )
+
+        corpus = thesis.build_corpus(
+            records,
+            self.registry,
+            reference_year=2026,
+        )
+
+        self.assertEqual(
+            corpus["metrics"]["worksByAdmission"],
+            {"include": 2, "review": 2},
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            "2026-11-01.v5",
+        )
 
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
@@ -326,6 +932,67 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             reference_year=2026,
         )
         self.assertEqual(corpus["metrics"]["works"], 2)
+
+    def test_author_supervisor_name_collision_is_flagged_not_fatal(self):
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="role-collision",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Tesis con conflicto de rol en fuente"],
+                "dc.contributor.author": ["Ceja Mejia Oscar Eduardo"],
+                "dc.contributor.director": ["Ceja Mejia Oscar Eduardo"],
+                "dc.degree.name": ["Licenciatura en Historia"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="role-collision",
+        )
+
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+
+        work = corpus["works"][0]
+        self.assertEqual(
+            work["metadataQualityFlags"],
+            ["author-supervisor-name-collision"],
+        )
+        self.assertEqual(len(work["contributionConflicts"]), 1)
+
+        conflict = work["contributionConflicts"][0]
+        self.assertEqual(
+            conflict["normalizedName"],
+            "ceja mejia oscar eduardo",
+        )
+        self.assertEqual(
+            conflict["roles"],
+            ["thesis-author", "thesis-director"],
+        )
+        self.assertEqual(
+            conflict["resolutionDirective"],
+            "do-not-auto-resolve",
+        )
+
+        matching = [
+            item
+            for item in work["contributions"]
+            if item["normalizedName"] == "ceja mejia oscar eduardo"
+        ]
+        self.assertEqual(
+            {item["role"] for item in matching},
+            {"thesis-author", "thesis-director"},
+        )
+        self.assertEqual(
+            {item["resolutionState"] for item in matching},
+            {"blocked-role-conflict"},
+        )
+        self.assertEqual(
+            corpus["metrics"]["metadataQualityFlags"],
+            {"author-supervisor-name-collision": 1},
+        )
 
     def test_work_ids_are_reused_from_previous_registry(self):
         record = thesis.source_record(

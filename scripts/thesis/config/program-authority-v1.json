@@ -6,7 +6,16 @@
     "aliases": [
       "Universidad de Guadalajara",
       "UdeG",
-      "Universidad de Guadalajara (México)"
+      "Universidad de Guadalajara (México)",
+      "Universidad en Guadalajara"
+    ],
+    "externalAliases": [
+      "El Colegio de Michoacán A.C."
+    ],
+    "evidence": [
+      "https://www.riudg.udg.mx/handle/20.500.12104/49659",
+      "https://www.riudg.udg.mx/handle/20.500.12104/80475",
+      "https://www.riudg.udg.mx/handle/20.500.12104/34977"
     ]
   },
   "programs": [
@@ -154,10 +163,18 @@
       "disciplineFamily": "lenguas",
       "admissionState": "include",
       "aliases": [
-        "Maestría en Enseñanza del Inglés como Lengua Extranjera"
+        "Maestría en Enseñanza del Inglés como Lengua Extranjera",
+        "Maestría en la Enseñanza del Inglés como Lengua Extranjera"
       ],
       "evidence": [
-        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
+        "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv",
+        "https://www.udg.mx/sites/default/files/2026-04/maestria_en_ensenanza_del_ingles_como_lengua_extranjera_cucsh_snp.pdf",
+        "https://www.udg.mx/oferta-academica/posgrados/maestrias/maestria-en-ensenanza-del-ingles-como-lengua-extranjera"
+      ],
+      "observedCount": 19,
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
       ]
     },
     {
@@ -240,6 +257,680 @@
       "evidence": [
         "https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv"
       ]
+    },
+    {
+      "id": "program:udg:mae-linguistica-aplicada",
+      "canonicalName": "Maestría en Lingüística Aplicada",
+      "level": "maestria",
+      "disciplineFamily": "linguistica",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Lingüística Aplicada",
+        "MAESTRIA EN LINGUISTICA APLICADA",
+        "MAESTRIA EN LINGÜÍSTICA APLICADA"
+      ],
+      "observedCount": 69,
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria-en-linguistica-aplicada"
+      ]
+    },
+    {
+      "id": "program:udg:doc-geografia-ordenacion-territorial",
+      "canonicalName": "Doctorado en Geografía y Ordenación Territorial",
+      "level": "doctorado",
+      "disciplineFamily": "geografia-territorio",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Geografía y Ordenación Territorial",
+        "DOCTORADO EN GEOGRAFIA Y ORDENACION TERRITORIAL"
+      ],
+      "observedCount": 12,
+      "evidence": [
+        "https://cucsh.udg.mx/doctorados/doctorado_en_geografia_ordenacion_territorial"
+      ]
+    },
+    {
+      "id": "program:udg:doc-humanidades",
+      "canonicalName": "Doctorado en Humanidades",
+      "level": "doctorado",
+      "disciplineFamily": "humanidades",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Humanidades",
+        "DOCTORADO EN HUMANIDADES"
+      ],
+      "observedCount": 7,
+      "evidence": [
+        "https://cucsh.udg.mx/convocatorias/convocatoria-abierta-doctorado-en-humanidades"
+      ]
+    },
+    {
+      "id": "program:udg:doc-estudios-literarios-linguisticos",
+      "canonicalName": "Doctorado en Estudios Literarios y Lingüísticos",
+      "level": "doctorado",
+      "disciplineFamily": "letras-linguistica",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Estudios Literarios y Lingüísticos",
+        "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜISTICOS"
+      ],
+      "observedCount": 1,
+      "evidence": [
+        "https://www.cucsh.udg.mx/Divisi%C3%B3n_y_departamentos/Departamentos_de_estudios_literarios"
+      ]
+    },
+    {
+      "id": "program:udg:mae-bioetica",
+      "canonicalName": "Maestría en Bioética",
+      "level": "maestria",
+      "disciplineFamily": "filosofia-bioetica",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Bioética",
+        "Maestría en Bioetica"
+      ],
+      "observedCount": 2,
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria_bioetica"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-antropologicas",
+      "canonicalName": "Maestría en Ciencias Antropológicas",
+      "level": "maestria",
+      "disciplineFamily": "antropologia",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUTONALA"
+      ],
+      "aliases": [
+        "Maestría en Ciencias Antropológicas",
+        "MAESTRIA EN CIENCIAS ANTROPOLOGICAS"
+      ],
+      "observedCount": 1,
+      "evidence": [
+        "https://cutonala.udg.mx/ofertaacademica/maestrias/ciencias-antropologicas"
+      ]
+    },
+    {
+      "id": "program:udg:mae-literaturas-interamericanas",
+      "canonicalName": "Maestría en Literaturas Interamericanas",
+      "level": "maestria",
+      "disciplineFamily": "letras-estudios-culturales",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Literaturas Interamericanas"
+      ],
+      "observedCount": 0,
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria-en-literaturas-interamericanas"
+      ]
+    },
+    {
+      "id": "program:udg:mae-estudios-mesoamericanos",
+      "canonicalName": "Maestría en Estudios Mesoamericanos",
+      "level": "maestria",
+      "disciplineFamily": "historia-antropologia-linguistica",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Estudios Mesoamericanos"
+      ],
+      "observedCount": 0,
+      "evidence": [
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-estudios-mesoamericanos"
+      ]
+    },
+    {
+      "id": "program:udg:lic-escritura-creativa",
+      "canonicalName": "Licenciatura en Escritura Creativa",
+      "level": "licenciatura",
+      "disciplineFamily": "letras-escritura",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Licenciatura en Escritura Creativa"
+      ],
+      "observedCount": 0,
+      "evidence": [
+        "https://cucsh.udg.mx/licenciaturas/licenciatura-en-escritura-creativa"
+      ]
+    },
+    {
+      "id": "program:udg:lic-historia-arte",
+      "canonicalName": "Licenciatura en Historia del Arte",
+      "level": "licenciatura",
+      "disciplineFamily": "historia-arte",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUTONALA"
+      ],
+      "aliases": [
+        "Licenciatura en Historia del Arte",
+        "LICENCIATURA EN HISTORIA DEL ARTE"
+      ],
+      "observedCount": 2,
+      "decisionNote": "CUTonalá la describe como disciplina científica y humanística, pero la Guía de Carreras UdeG la clasifica en Artes, Arquitectura y Diseño; requiere decisión explícita de alcance.",
+      "evidence": [
+        "https://cutonala.udg.mx/index.php/oferta/licenciaturas/historia-del-arte/presentacion",
+        "https://guiadecarreras.udg.mx/oferta_academica/licenciatura-en-historia-del-arte"
+      ]
+    },
+    {
+      "id": "program:udg:lic-letras-historica",
+      "canonicalName": "Licenciatura en Letras",
+      "level": "licenciatura",
+      "disciplineFamily": "letras",
+      "admissionState": "include",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Licenciatura en Letras",
+        "LICENCIATURA EN LETRAS"
+      ],
+      "observedCount": 4,
+      "possibleSuccessorRef": "program:udg:lic-letras-hispanicas",
+      "decisionNote": "Programa histórico humanístico confirmado por evidencia institucional CUCSH. Su posible relación con Letras Hispánicas permanece sin declarar como identidad/sucesión confirmada.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/actividades/convocatoria-para-egresados-de-licenciatura-en-letras-y-letras-hispanicas-realizar-el",
+        "https://cucsh.udg.mx/noticias/convocatoria-examen-global-teorico-0",
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-filosofia-historica",
+      "canonicalName": "Maestría en Filosofía",
+      "level": "maestria",
+      "disciplineFamily": "filosofia",
+      "admissionState": "include",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Filosofía",
+        "Mastría en Filosofía"
+      ],
+      "observedCount": 2,
+      "possibleSuccessorRef": "program:udg:mae-estudios-filosoficos",
+      "decisionNote": "Programa histórico de Filosofía confirmado en documentación institucional CUCSH. La posible relación con Maestría en Estudios Filosóficos permanece no confirmada y no condiciona su admisión como autoridad histórica independiente.",
+      "evidence": [
+        "https://plataforma-tce.cucsh.udg.mx/register",
+        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos",
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
+      "canonicalName": "Doctorado en Estudios Literarios y Lingüísticos con Orientación en Lingüística Aplicada",
+      "level": "doctorado",
+      "disciplineFamily": "letras-linguistica",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Estudios Literarios y Lingüísticos con Orientación en Lingüística Aplicada",
+        "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
+      ],
+      "observedCount": 1,
+      "possibleSuccessorRef": "program:udg:doc-estudios-literarios-linguisticos",
+      "decisionNote": "RIUdeG observa una orientación histórica; la existencia del Doctorado base está confirmada, pero la relación exacta de esta orientación requiere evidencia adicional.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/Divisi%C3%B3n_y_departamentos/Departamentos_de_estudios_literarios"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ensenanza-lengua-literatura-historica",
+      "canonicalName": "Maestría en Enseñanza de la Lengua y la Literatura",
+      "level": "maestria",
+      "disciplineFamily": "lengua-literatura",
+      "admissionState": "include",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Enseñanza de la Lengua y la Literatura",
+        "Maestría en la Enseñanza de la Lengua y Literatura"
+      ],
+      "observedCount": 3,
+      "observedThesisYears": {
+        "min": 2003,
+        "max": 2006
+      },
+      "decisionNote": "La documentación institucional CUCSH de 2003 enumera el programa como Maestría en Enseñanza de la lengua y la Literatura. Las dos variantes observadas en RIUdeG se agrupan como aliases ortográfico-articulares de esta autoridad histórica. No se declara sucesor actual.",
+      "evidence": [
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-lengua-literatura-mexicana-historica",
+      "canonicalName": "Maestría en Lengua y Literatura Mexicana",
+      "level": "maestria",
+      "disciplineFamily": "letras",
+      "admissionState": "include",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Lengua y Literatura Mexicana"
+      ],
+      "observedCount": 1,
+      "observedThesisYears": {
+        "min": 2005,
+        "max": 2005
+      },
+      "decisionNote": "La lista institucional de claves de maestrías de la UdeG conserva explícitamente el nombre Maestría en Lengua y Literatura Mexicana (clave 221539). No se fusiona con Maestría en Estudios de Literatura Mexicana sin evidencia de lineage.",
+      "evidence": [
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:lic-docencia-ingles-corta-historica",
+      "canonicalName": "Licenciatura en la Docencia del Inglés",
+      "level": "licenciatura",
+      "disciplineFamily": "lenguas",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Licenciatura en la Docencia del Inglés"
+      ],
+      "observedCount": 1,
+      "observedThesisYears": {
+        "min": 2006,
+        "max": 2006
+      },
+      "possibleSuccessorRef": "program:udg:lic-docencia-ingles",
+      "decisionNote": "CUCSH documenta históricamente la Licenciatura en Docencia del Inglés como Lengua Extranjera y la página vigente usa la construcción 'la Docencia del Inglés como Lengua Extranjera', pero todavía no se localiza evidencia que pruebe que el nombre abreviado observado sin 'como Lengua Extranjera' sea exactamente el mismo plan. Se mantiene REVIEW.",
+      "evidence": [
+        "https://cgpe.udg.mx/sites/default/files/cucsh.pdf",
+        "https://www.cucsh.udg.mx/licenciaturas/licenciatura-en-docencia-del-ingles-como-lengua-extranjera"
+      ]
+    },
+    {
+      "id": "program:udg:mae-gestion-cultura",
+      "canonicalName": "Maestría en Gestión de la Cultura",
+      "level": "maestria",
+      "disciplineFamily": "gestion-cultural",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "SUV",
+        "CUGDL"
+      ],
+      "aliases": [
+        "Maestría en Gestión de la Cultura",
+        "MAESTRIA EN GESTION DE LA CULTURA"
+      ],
+      "observedCount": 15,
+      "decisionNote": "La Universidad de Guadalajara clasifica explícitamente el programa en el área de Ciencias Sociales y Humanidades. El corpus histórico observa SUV y la oferta vigente se presenta desde CUGDL; se conserva esta trayectoria institucional sin fusionarlo con Gestión y Desarrollo Cultural.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/maestria-en-gestion-de-la-cultura",
+        "https://cugdl.udg.mx/oferta-academica/posgrados-virtuales/maestria-y-doctorado-en-gestion-de-la-cultura",
+        "https://www.udg.mx/sites/default/files/2025-06/maestria_en_gestion_de_la_cultura_cugdl_snp.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:doc-gestion-cultura",
+      "canonicalName": "Doctorado en Gestión de la Cultura",
+      "level": "doctorado",
+      "disciplineFamily": "gestion-cultural",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "SUV",
+        "CUGDL"
+      ],
+      "aliases": [
+        "Doctorado en Gestión de la Cultura",
+        "DOCTORADO EN GESTION DE LA CULTURA"
+      ],
+      "observedCount": 3,
+      "decisionNote": "Programa vigente del posgrado integrado de Gestión de la Cultura. UdeG lo clasifica explícitamente en Ciencias Sociales y Humanidades y la oferta actual se presenta desde CUGDL. El inventario completo 2026-11-01 observa 3 tesis RIUdeG adscritas a SUV entre 2023 y 2025; se conserva esa procedencia histórica sin reescribir la sede vigente.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/doctorado-en-gestion-de-la-cultura",
+        "https://cugdl.udg.mx/oferta-academica/posgrados-virtuales/maestria-y-doctorado-en-gestion-de-la-cultura",
+        "https://www.udg.mx/sites/default/files/2026-05/doctorado_en_gestion_de_la_cultura_cugdl_snp.pdf"
+      ],
+      "observedThesisYears": {
+        "min": 2023,
+        "max": 2025
+      }
+    },
+    {
+      "id": "program:udg:mae-gestion-desarrollo-cultural",
+      "canonicalName": "Maestría en Gestión y Desarrollo Cultural",
+      "level": "maestria",
+      "disciplineFamily": "gestion-cultural",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Gestión y Desarrollo Cultural",
+        "MAESTRIA EN GESTION Y DESARROLLO CULTURAL"
+      ],
+      "observedCount": 40,
+      "decisionNote": "La UdeG clasifica oficialmente el programa en Arte, Arquitectura y Diseño, aunque sus objetivos y plan se centran en gestión cultural, políticas culturales, patrimonio y formación humanística. La pertenencia al corpus Humanidades requiere una decisión explícita de alcance; no se trata como alias ni sucesor de Maestría en Gestión de la Cultura.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-gestion-y-desarrollo-cultural-cuaad",
+        "https://cuaad.udg.mx/oferta/maestrias/mgdc/plan-de-estudios",
+        "https://www.udg.mx/sites/default/files/2026-04/maestria_en_gestion_y_desarrollo_cultural_cuaad_snp.pdf",
+        "https://gestioncultural.udgvirtual.udg.mx/preguntas-frecuentes"
+      ]
+    },
+    {
+      "id": "program:udg:doc-arte-cultura-interinstitucional",
+      "canonicalName": "Doctorado Interinstitucional en Arte y Cultura",
+      "level": "doctorado",
+      "disciplineFamily": "arte-cultura-humanidades",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Doctorado Interinstitucional en Arte y Cultura",
+        "DOCTORADO INTERINSTITUCIONAL EN ARTE Y CULTURA"
+      ],
+      "observedCount": 6,
+      "observedThesisYears": {
+        "min": 2017,
+        "max": 2019
+      },
+      "decisionNote": "CUAAD describe explícitamente el Doctorado Interinstitucional en Arte y Cultura como un posgrado de carácter humanístico, orientado a investigación y análisis de fenómenos artísticos, culturales y patrimoniales. Esa evidencia programática específica prevalece sobre la clasificación administrativa general Arte, Arquitectura y Diseño.",
+      "evidence": [
+        "https://cuaad.udg.mx/index.php/oferta/doctorados/diac/identificacion-del-programa-de-posgrado",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/doctorados/doctorado-interinstitucional-arte-y-cultura",
+        "https://ww1.udg.mx/es/convocatorias/doctorado-interinstitucional-en-arte-y-cultura-diac-convocatoria-2024-2028"
+      ]
+    },
+    {
+      "id": "program:udg:mae-etnomusicologia",
+      "canonicalName": "Maestría en Etnomusicología",
+      "level": "maestria",
+      "disciplineFamily": "etnomusicologia-antropologia-cultural",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Etnomusicología",
+        "MAESTRIA EN ETNOMUSICOLOGIA"
+      ],
+      "observedCount": 9,
+      "observedThesisYears": {
+        "min": 2015,
+        "max": 2023
+      },
+      "decisionNote": "La documentación histórica institucional de CUAAD ubica su antecedente en el área Educación y Humanidades, y la oferta vigente define el programa como investigación interdisciplinaria en antropología de la música, historia, arqueología, lingüística y culturas expresivas. Se admite por evidencia programática humanística explícita, no por similitud temática de tesis.",
+      "evidence": [
+        "https://cuaad.udg.mx/oferta/maestrias/met/presentacion",
+        "https://cuaad.udg.mx/oferta/maestrias/met/requisitos-de-ingreso",
+        "https://cgpe.udg.mx/sites/default/files/prodescuaad2004.pdf",
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-arquitectura",
+      "canonicalName": "Maestría en Ciencias de la Arquitectura",
+      "level": "maestria",
+      "disciplineFamily": "arquitectura-historia-patrimonio",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Ciencias de la Arquitectura",
+        "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado",
+        "Maestría En Arquitectura; Edificacion Arquitectonica",
+        "Maestría En Arquitectura, Orientacion Arte Y Comunicacion",
+        "Maestría En Arquitectura, Orientacion Edificacion Arquitectonica",
+        "Maestría En Arquitectura; Orientacion En Arte Y Comunicacion",
+        "Maestría En Arquitectura; Orientacion En Historia De La Arquitectura Mexicana",
+        "Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo",
+        "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
+        "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
+        "Maestría En Ciencias De La Arquitectura Con Orientación A La Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación",
+        "Maestría En Ciencias De La Arquitectura, Con Orientación En Conservación De Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
+        "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA CON ORIENTACION EN HISTORIA DE LA ARQUITECTURA MEXICANA",
+        "Maestría En Ciencias De La Arquitectura Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientación A La Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación",
+        "Maestría En Ciencias De La Arquitectura Orientación Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Orientacion: Edificacion Arquitectonica",
+        "Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación",
+        "Maestría En Ciencias De La Arquitectura Orientación En Conservación De Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Orientación En Historia De La Arquitectura Mexicana",
+        "Maestría En Ciencias De La Arquitectura Orientación En: Historia De La Arquitectura Mexicana",
+        "Maestría En Ciencias De La Arquitectura Orientación Historia De La Arquitectura Mexicana",
+        "Maestría En Ciencias De La Arquitectura Orientación: Edificación Arquitectónica",
+        "Maestría En Ciencias De La Arquitectura Y Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion",
+        "Maestría En Ciencias De La Arquitectura, Orientacion En Conservacion Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo",
+        "Maestría En Ciencias De La Arquitectura. Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura. Orientación: Conservación Del Patrimonio Edificado"
+      ],
+      "observedCount": 112,
+      "observedThesisYears": {
+        "min": 1996,
+        "max": 2021
+      },
+      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con orientaciones en Historia de la Arquitectura Mexicana, Conservación del Patrimonio Edificado, Teoría y Crítica, Edificación Arquitectónica, Urbanismo y Desarrollo, Arte y Comunicación y Administración de Procesos, con retroactividad a 1995-B. En 2003 reabrió conservando Historia y Conservación. El catálogo institucional asigna claves a esas orientaciones. Se agrupan los strings observados que corresponden a ese lineage programático, pero la autoridad permanece REVIEW porque la UdeG clasifica el programa en Arte, Arquitectura y Diseño aunque sus líneas actuales sean historia y patrimonio.",
+      "evidence": [
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cuaad.udg.mx/node/21768",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencias-de-la-arquitectura",
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-historia-arquitectura-mexicana-historica",
+      "canonicalName": "Maestría en Historia de la Arquitectura Mexicana",
+      "level": "maestria",
+      "disciplineFamily": "historia-arquitectura",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Historia de la Arquitectura Mexicana"
+      ],
+      "observedCount": 4,
+      "observedThesisYears": {
+        "min": 2004,
+        "max": 2009
+      },
+      "possibleSuccessorRef": "program:udg:mae-ciencias-arquitectura",
+      "decisionNote": "Control Escolar conserva una clave DGP específica para Maestría en Historia de la Arquitectura Mexicana, mientras la oferta vigente la presenta como orientación de Ciencias de la Arquitectura. Se mantiene como autoridad histórica REVIEW y possibleSuccessorRef, sin fusionarla automáticamente con el programa actual.",
+      "evidence": [
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf",
+        "https://www.riudg.udg.mx/handle/20.500.12104/73111?mode=full",
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos"
+      ]
+    },
+    {
+      "id": "program:udg:mae-conservacion-patrimonio-edificado-historica",
+      "canonicalName": "Maestría en Conservación del Patrimonio Edificado",
+      "level": "maestria",
+      "disciplineFamily": "patrimonio-conservacion",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Conservación del Patrimonio Edificado"
+      ],
+      "observedCount": 5,
+      "observedThesisYears": {
+        "min": 2006,
+        "max": 2014
+      },
+      "possibleSuccessorRef": "program:udg:mae-ciencias-arquitectura",
+      "decisionNote": "RIUdeG conserva grados expedidos con el nombre standalone Maestría en Conservación del Patrimonio Edificado, mientras la oferta vigente la presenta como orientación de Ciencias de la Arquitectura. La relación es plausible pero no se fuerza como alias; queda autoridad histórica REVIEW con possibleSuccessorRef.",
+      "evidence": [
+        "https://www.riudg.udg.mx/handle/20.500.12104/73084?mode=full",
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://www.udg.mx/sites/default/files/2024-06/triptico-maestria-2024-2026-editable-02-de-febrero.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-educacion-expresion-artes",
+      "canonicalName": "Maestría en Educación y Expresión para las Artes",
+      "level": "maestria",
+      "disciplineFamily": "educacion-artes",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Educación y Expresión para las Artes",
+        "MAESTRIA EN EDUCACION Y EXPRESION PARA LAS ARTES"
+      ],
+      "observedCount": 27,
+      "observedThesisYears": {
+        "min": 2018,
+        "max": 2026
+      },
+      "decisionNote": "Programa vigente de CUAAD con educación artística, producción artística e investigación; la UdeG lo clasifica administrativamente en Arte, Arquitectura y Diseño. Su cercanía con Humanidades justifica REVIEW, no inclusión automática.",
+      "evidence": [
+        "https://ww1.udg.mx/es/node/14999",
+        "https://cuaad.udg.mx/oferta/maestrias/meea/perfil-del-aspirante",
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-didactica-artes-visuales-historica",
+      "canonicalName": "Maestría en Didáctica de las Artes en el Área de Artes Visuales",
+      "level": "maestria",
+      "disciplineFamily": "didactica-artes-visuales",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Didáctica De Las Artes Con Orientación En Artes Visuales",
+        "Maestría En Didáctica De Las Artes, Con Orientación En Artes Visuales",
+        "Maestría En Didactica De Las Artes; Orientacion Artes Visuales",
+        "Maestría En Didáctica De Las Artes Orientación En Artes Visuales",
+        "Maestría En Didáctica De Las Artes Con Especialidad En Artes Visuales"
+      ],
+      "observedCount": 16,
+      "observedThesisYears": {
+        "min": 2003,
+        "max": 2006
+      },
+      "decisionNote": "Control Escolar documenta una carrera específica Maestría en Didáctica de las Artes en el Área de Artes Visuales (DGP 714513). Se agrupan únicamente las variantes observadas que identifican explícitamente Artes Visuales; el nombre genérico Maestría en Didáctica de las Artes no se absorbe por ser ambiguo entre varias áreas.",
+      "evidence": [
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-didactica-artes-escenicas-historica",
+      "canonicalName": "Maestría en Didáctica de las Artes en el Área de Artes Escénicas",
+      "level": "maestria",
+      "disciplineFamily": "didactica-artes-escenicas",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Didáctica De Las Artes Orientación En Artes Escénicas",
+        "Maestría En Didactica De Las Artes Con Orientación En Artes Escénicas"
+      ],
+      "observedCount": 3,
+      "observedThesisYears": {
+        "min": 2005,
+        "max": 2006
+      },
+      "decisionNote": "Control Escolar documenta una carrera específica Maestría en Didáctica de las Artes en el Área de Artes Escénicas (DGP 726502). Se resuelven sólo variantes que identifican explícitamente Artes Escénicas; el nombre genérico permanece sin resolver.",
+      "evidence": [
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-estudios-cinematograficos",
+      "canonicalName": "Maestría en Estudios Cinematográficos",
+      "level": "maestria",
+      "disciplineFamily": "cine-estudios-culturales",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría en Estudios Cinematográficos"
+      ],
+      "observedCount": 0,
+      "decisionNote": "Programa vigente centrado en teoría e historia del cine, estudios culturales, crítica y análisis, dirigido también a carreras humanísticas afines; sin embargo, la UdeG lo clasifica en Arte, Arquitectura y Diseño. Se registra anticipadamente como REVIEW para futuras cosechas.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/maestria-en-estudios-cinematograficos",
+        "https://cuaad.udg.mx/index.php/node/21873",
+        "https://cuaad.udg.mx/index.php/node/20445",
+        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
     }
-  ]
+  ],
+  "registryRevision": "2026-11-01.v5",
+  "inventoryBaseline": {
+    "artifactId": 13099541204,
+    "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+    "observedProgramNames": 701,
+    "sourceRecords": 27576,
+    "observedAt": "2026-11-01"
+  },
+  "institutionRevision": "2026-11-01.v2"
 }

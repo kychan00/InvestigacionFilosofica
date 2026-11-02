@@ -1,0 +1,221 @@
+name: Thesis real corpus harvest
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/harvest_real_corpus_v1.py"
+      - "scripts/thesis/build_canonical_corpus_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/config/**"
+      - "scripts/thesis/fixtures/**"
+      - "tests/test_thesis_real_harvest.py"
+      - "tests/test_thesis_program_curation_queue.py"
+      - "tests/test_thesis_program_coverage_audit.py"
+      - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
+      - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
+      - ".github/workflows/thesis-real-harvest.yml"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Harvest mode"
+        required: true
+        default: "sample"
+        type: choice
+        options:
+          - sample
+          - full
+      riudg_from:
+        description: "Optional OAI-PMH from datestamp (ISO 8601)"
+        required: false
+        type: string
+      riudg_until:
+        description: "Optional OAI-PMH until datestamp (ISO 8601)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile
+        run: |
+          python -m py_compile \
+            scripts/thesis/build_canonical_corpus_v1.py \
+            scripts/thesis/harvest_real_corpus_v1.py \
+            scripts/thesis/build_program_curation_queue_v1.py \
+            scripts/thesis/audit_program_coverage_v1.py
+
+      - name: Offline unit tests
+        run: |
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_*harvest.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_curation_queue.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_coverage_audit.py" \
+            -v
+
+      - name: Harvest sample for pull request
+        if: github.event_name == 'pull_request'
+        run: |
+          rm -rf artifacts/thesis-real-harvest
+          python scripts/thesis/harvest_real_corpus_v1.py \
+            --mode sample \
+            --riudg-max-records 100 \
+            --riudg-max-pages 2 \
+            --udgvirtual-max-records 10 \
+            --delay 0.25 \
+            --output-dir artifacts/thesis-real-harvest
+
+      - name: Harvest requested mode
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          MODE: ${{ inputs.mode }}
+          RIUDG_FROM: ${{ inputs.riudg_from }}
+          RIUDG_UNTIL: ${{ inputs.riudg_until }}
+        run: |
+          rm -rf artifacts/thesis-real-harvest
+          ARGS=(
+            --mode "$MODE"
+            --delay 0.35
+            --output-dir artifacts/thesis-real-harvest
+          )
+          if [ -n "$RIUDG_FROM" ]; then
+            ARGS+=(--riudg-from "$RIUDG_FROM")
+          fi
+          if [ -n "$RIUDG_UNTIL" ]; then
+            ARGS+=(--riudg-until "$RIUDG_UNTIL")
+          fi
+          python scripts/thesis/harvest_real_corpus_v1.py "${ARGS[@]}"
+
+      - name: Validate reconciliation and artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-real-harvest")
+          ledger = json.loads((root / "coverage-ledger.json").read_text())
+          manifest = json.loads((root / "manifest.json").read_text())
+          catalog = json.loads((root / "observed-authorities.json").read_text())
+
+          assert ledger["providers"]["riudg"]["records"] > 0
+          assert ledger["providers"]["riudg"]["completeListSize"] is not None
+          assert ledger["providers"]["udgvirtual"]["enumeratedHandles"] == 147
+          assert ledger["providers"]["udgvirtual"]["reportedTotal"] == 147
+          assert manifest["files"]
+          assert isinstance(catalog["programs"], list)
+
+          print(json.dumps({
+              "riudg": ledger["providers"]["riudg"],
+              "udgvirtual": ledger["providers"]["udgvirtual"],
+              "corpus": ledger["corpus"],
+              "programsObserved": len(catalog["programs"]),
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build program curation queue
+        run: |
+          rm -rf artifacts/thesis-program-curation
+          python scripts/thesis/build_program_curation_queue_v1.py \
+            --observed-authorities artifacts/thesis-real-harvest/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --output-dir artifacts/thesis-program-curation \
+            --top 30
+
+      - name: Validate curation queue
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-program-curation")
+          queue = json.loads((root / "program-curation-queue.json").read_text())
+
+          assert queue["schemaVersion"] == "thesis-program-curation-queue-v1"
+          assert queue["metrics"]["queueItems"] >= 0
+          assert isinstance(queue["metrics"]["curationLanes"], dict)
+
+          allowed_lanes = {
+              "scope-review",
+              "humanities-candidate",
+              "unit-triage",
+              "high-impact-triage",
+              "backlog",
+          }
+
+          for item in queue["items"]:
+              assert item["decisionConstraint"] == "priority-does-not-change-admission"
+              assert item["queueState"] in {"unresolved", "review"}
+              assert item["curationLane"] in allowed_lanes
+
+          print(json.dumps(queue["metrics"], indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build program coverage audit
+        run: |
+          rm -rf artifacts/thesis-program-coverage
+          python scripts/thesis/audit_program_coverage_v1.py \
+            --observed-authorities artifacts/thesis-real-harvest/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --output-dir artifacts/thesis-program-coverage \
+            --reference-year 2026 \
+            --top 30
+
+      - name: Validate program coverage audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-program-coverage")
+          audit = json.loads((root / "program-coverage-audit.json").read_text())
+
+          assert audit["schemaVersion"] == "thesis-program-coverage-audit-v1"
+          assert audit["metrics"]["works"] > 0
+          assert sum(audit["metrics"]["projectedAdmission"].values()) == audit["metrics"]["works"]
+          assert isinstance(audit["metrics"]["programQueue"], dict)
+          assert isinstance(audit["gateBlockers"], list)
+          assert audit["programAuthorityRevision"]
+          assert audit["institutionAuthorityRevision"]
+
+          print(json.dumps({
+              "programAuthorityRevision": audit["programAuthorityRevision"],
+              "institutionAuthorityRevision": audit["institutionAuthorityRevision"],
+              "projectedAdmission": audit["metrics"]["projectedAdmission"],
+              "dateQuality": audit["metrics"]["dateQuality"],
+              "gateBlockerCount": audit["metrics"]["gateBlockerCount"],
+              "programQueue": audit["metrics"]["programQueue"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Upload harvest artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-real-harvest-v1
+          path: |
+            artifacts/thesis-real-harvest/
+            artifacts/thesis-program-curation/
+            artifacts/thesis-program-coverage/
+          if-no-files-found: error
+          retention-days: 14

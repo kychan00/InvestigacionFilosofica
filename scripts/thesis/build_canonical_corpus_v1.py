@@ -147,6 +147,11 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
 
     reference_year = reference_year or datetime.now(timezone.utc).year
 
+    # A large RIUdeG cluster uses the Unix epoch rendered in the repository's
+    # historical timezone as a placeholder date. Preserve it, but never let it
+    # act as trusted temporal evidence.
+    epoch_sentinel = raw in {"1969-12-31", "31/12/1969"}
+
     numeric_only = re.fullmatch(r"\d{5,}", raw)
     if numeric_only:
         return {
@@ -200,7 +205,11 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
             }
 
         quality = "valid"
-        if year < 1800 or year > reference_year + 1:
+        if (
+            year < 1800
+            or year > reference_year + 1
+            or epoch_sentinel
+        ):
             quality = "suspicious"
 
         return {
@@ -226,7 +235,11 @@ def date_info(raw: str | None, reference_year: int | None = None) -> dict[str, A
             }
 
         quality = "valid"
-        if year < 1800 or year > reference_year + 1:
+        if (
+            year < 1800
+            or year > reference_year + 1
+            or epoch_sentinel
+        ):
             quality = "suspicious"
 
         return {
@@ -248,6 +261,49 @@ def load_program_registry(path: str | Path = DEFAULT_REGISTRY) -> dict[str, Any]
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
     if payload.get("schemaVersion") != "thesis-humanities-program-authority-v1":
         raise ValueError("Unsupported program authority registry")
+
+    institution = payload.get("institution") or {}
+    institution_aliases = {
+        normalize_key(value)
+        for value in [
+            institution.get("canonicalName"),
+            *(institution.get("aliases") or []),
+        ]
+        if value
+    }
+    external_aliases = {
+        normalize_key(value)
+        for value in (institution.get("externalAliases") or [])
+        if value
+    }
+    overlap = institution_aliases & external_aliases
+    if overlap:
+        raise ValueError(
+            "Institution alias collision: " + ", ".join(sorted(overlap))
+        )
+
+    allowed_admission_states = {"include", "review", "exclude"}
+    ids: set[str] = set()
+    for program in payload.get("programs", []):
+        program_id = program.get("id")
+        if not program_id:
+            raise ValueError("Program authority without id")
+        if program_id in ids:
+            raise ValueError(f"Duplicate program authority id: {program_id}")
+        ids.add(program_id)
+
+        state = program.get("admissionState")
+        if state not in allowed_admission_states:
+            raise ValueError(
+                f"Unsupported program admissionState for {program_id}: {state}"
+            )
+
+        if not program.get("canonicalName"):
+            raise ValueError(f"Program authority without canonicalName: {program_id}")
+
+        if not program.get("evidence"):
+            raise ValueError(f"Program authority without evidence: {program_id}")
+
     return payload
 
 
@@ -356,6 +412,11 @@ def resolve_institution(
         ]
         if value
     }
+    external_aliases = {
+        normalize_key(value)
+        for value in (institution.get("externalAliases") or [])
+        if value
+    }
 
     for value in clean_values:
         normalized = normalize_key(value)
@@ -364,6 +425,16 @@ def resolve_institution(
                 "status": "confirmed",
                 "institutionRef": institution.get("id"),
                 "canonicalName": institution.get("canonicalName"),
+                "raw": value,
+            }
+
+    for value in clean_values:
+        normalized = normalize_key(value)
+        if normalized in external_aliases:
+            return {
+                "status": "external",
+                "institutionRef": None,
+                "canonicalName": value,
                 "raw": value,
             }
 
@@ -383,7 +454,6 @@ def resolve_institution(
         "canonicalName": None,
         "raw": first(clean_values),
     }
-
 
 def admission_decision(
     *,
@@ -407,9 +477,15 @@ def admission_decision(
     elif program["status"] == "confirmed" and program.get("admissionState") == "include":
         status = "include"
         code = "confirmed-humanities-program"
-    elif program["status"] == "confirmed":
+    elif program["status"] == "confirmed" and program.get("admissionState") == "review":
+        status = "review"
+        code = "program-review"
+    elif program["status"] == "confirmed" and program.get("admissionState") == "exclude":
         status = "exclude"
         code = "non-humanities-program"
+    elif program["status"] == "confirmed":
+        status = "quarantine"
+        code = "unsupported-program-admission-state"
     elif program["status"] == "unknown":
         status = "quarantine"
         code = "unknown-program"
@@ -776,6 +852,50 @@ def allocate_work_ids(
     return group_ids, registry
 
 
+def contribution_conflicts(
+    contributions: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    roles_by_name: dict[str, set[str]] = {}
+    refs_by_name: dict[str, list[str]] = {}
+    sources_by_name: dict[str, set[str]] = {}
+
+    for item in contributions:
+        name = item.get("normalizedName") or ""
+        role = item.get("role") or ""
+        if not name or not role:
+            continue
+        roles_by_name.setdefault(name, set()).add(role)
+        refs_by_name.setdefault(name, []).append(item.get("id") or "")
+        if item.get("sourceRecordRef"):
+            sources_by_name.setdefault(name, set()).add(item["sourceRecordRef"])
+
+    supervisory = {
+        "thesis-director",
+        "thesis-codirector",
+        "thesis-advisor",
+    }
+
+    conflicts: list[dict[str, Any]] = []
+    for name, roles in sorted(roles_by_name.items()):
+        if "thesis-author" not in roles or not (roles & supervisory):
+            continue
+
+        conflicts.append(
+            {
+                "type": "author-supervisor-name-collision",
+                "normalizedName": name,
+                "roles": sorted(roles),
+                "contributionRefs": sorted(
+                    ref for ref in refs_by_name.get(name, []) if ref
+                ),
+                "sourceRecordRefs": sorted(sources_by_name.get(name, set())),
+                "resolutionDirective": "do-not-auto-resolve",
+            }
+        )
+
+    return conflicts
+
+
 def build_corpus(
     source_records: list[dict[str, Any]],
     registry: dict[str, Any],
@@ -872,6 +992,34 @@ def build_corpus(
                 )
             admissions.append(item["admission"])
 
+        group_contributions = list(contribution_map.values())
+        role_conflicts = contribution_conflicts(group_contributions)
+        blocked_names = {
+            item["normalizedName"]
+            for item in role_conflicts
+            if item.get("normalizedName")
+        }
+        if blocked_names:
+            group_contributions = [
+                {
+                    **item,
+                    "resolutionState": (
+                        "blocked-role-conflict"
+                        if item.get("normalizedName") in blocked_names
+                        else item.get("resolutionState", "unresolved")
+                    ),
+                }
+                for item in group_contributions
+            ]
+
+        metadata_quality_flags = sorted(
+            {
+                item["type"]
+                for item in role_conflicts
+                if item.get("type")
+            }
+        )
+
         group_admission = "quarantine"
         group_codes = []
         if identity_veto_applied:
@@ -886,6 +1034,9 @@ def build_corpus(
         elif all(item["admission"]["status"] == "reject-source" for item in group):
             group_admission = "reject-source"
             group_codes.append("not-a-thesis")
+        elif any(item["admission"]["status"] == "review" for item in group):
+            group_admission = "review"
+            group_codes.append("program-review")
         else:
             group_codes.append("unresolved-or-unknown")
 
@@ -905,7 +1056,9 @@ def build_corpus(
                 "thesisTypeRaw": primary["thesisTypeRaw"],
                 "sourceRecordRefs": source_refs,
                 "persistentIdentifiers": list(persistent_map.values()),
-                "contributions": list(contribution_map.values()),
+                "contributions": group_contributions,
+                "contributionConflicts": role_conflicts,
+                "metadataQualityFlags": metadata_quality_flags,
                 "admissionStatus": group_admission,
                 "admissionExplanationCodes": group_codes,
             }
@@ -918,12 +1071,23 @@ def build_corpus(
         "providers": dict(Counter(record["provider"] for record in source_records)),
         "dateQuality": dict(Counter(work["date"]["quality"] for work in works)),
         "identityDecisions": dict(Counter(item["status"] for item in identity_decisions)),
+        "metadataQualityFlags": dict(
+            Counter(
+                flag
+                for work in works
+                for flag in work.get("metadataQualityFlags", [])
+            )
+        ),
     }
 
     payload = {
         "schemaVersion": "thesis-canonical-corpus-v1",
         "buildRevision": build_revision,
-        "programAuthorityRevision": registry["schemaVersion"],
+        "programAuthorityRevision": registry.get("registryRevision", registry["schemaVersion"]),
+        "institutionAuthorityRevision": registry.get(
+            "institutionRevision",
+            "institution-authority-v1",
+        ),
         "sourceRecords": source_records,
         "programAuthorities": registry.get("programs", []),
         "institutionAuthorities": [registry.get("institution")],
@@ -956,11 +1120,15 @@ def validate_corpus(corpus: dict[str, Any]) -> bool:
             if ref not in source_id_set:
                 raise ValueError(f"Broken SourceRecord reference: {ref}")
 
-        if work.get("admissionStatus") == "include":
+        if work.get("admissionStatus") in {"include", "review"}:
             if not work.get("programRef"):
-                raise ValueError("INCLUDE work without programRef")
+                raise ValueError(
+                    f"{work.get('admissionStatus', '').upper()} work without programRef"
+                )
             if work.get("institutionRef") != "institution:udg":
-                raise ValueError("INCLUDE work without UdeG institutionRef")
+                raise ValueError(
+                    f"{work.get('admissionStatus', '').upper()} work without UdeG institutionRef"
+                )
 
         author_names = {
             contrib["normalizedName"]
@@ -981,11 +1149,34 @@ def validate_corpus(corpus: dict[str, Any]) -> bool:
             for name in author_names & supervisory_names
             if name
         }
-        if overlap:
+
+        reported_conflicts = {
+            item.get("normalizedName")
+            for item in work.get("contributionConflicts", [])
+            if item.get("type") == "author-supervisor-name-collision"
+            and item.get("normalizedName")
+        }
+
+        if overlap != reported_conflicts:
             raise ValueError(
-                "Same normalized person appears as author and supervisor: "
-                + ", ".join(sorted(overlap))
+                "Author/supervisor role collisions must be represented exactly "
+                "as contributionConflicts"
             )
+
+        if overlap:
+            flags = set(work.get("metadataQualityFlags", []))
+            if "author-supervisor-name-collision" not in flags:
+                raise ValueError(
+                    "Author/supervisor collision missing metadata quality flag"
+                )
+
+            for contrib in work.get("contributions", []):
+                if contrib.get("normalizedName") in overlap:
+                    if contrib.get("resolutionState") != "blocked-role-conflict":
+                        raise ValueError(
+                            "Conflicting contribution is not blocked from "
+                            "automatic person resolution"
+                        )
 
     return True
 

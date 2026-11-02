@@ -426,6 +426,7 @@ La especificación completa de esta evolución se encuentra en:
 - [Author Authority Build Pipeline V1](docs/AUTHOR_AUTHORITY_BUILD_PIPELINE_V1.md)
 - [Author Authority Batch Pipeline V1](docs/AUTHOR_AUTHORITY_BATCH_PIPELINE_V1.md)
 - [Author Authority Benchmark V1](docs/AUTHOR_AUTHORITY_BENCHMARK_V1.md)
+- [Human Authority Audit V1](docs/AUTHOR_AUTHORITY_HUMAN_AUDIT_V1.md)
 
 Esta sección describe una **arquitectura objetivo**. Mientras no se implementen las fases posteriores, la política y el runtime documentados en [Política de fuentes y uso de OpenAlex](docs/author-data-sources.md) siguen siendo los vigentes.
 
