@@ -699,13 +699,24 @@ def markdown_summary(
             )
         ),
         "",
-        f"## Top {min(top, len(queue['items']))}",
+        (
+            "- cola accionable Humanidades: "
+            f"{metrics['humanitiesActionQueueItems']} programas / "
+            f"{metrics['humanitiesActionWorks']} tesis"
+        ),
+        (
+            "- high-impact sin señal humanística (sólo auditoría): "
+            f"{metrics['deferredHighImpactItems']} programas / "
+            f"{metrics['deferredHighImpactWorks']} tesis"
+        ),
+        "",
+        f"## Top Humanidades {min(top, len(queue['humanitiesActionItems']))}",
         "",
         "| # | Carril | Banda | Score | Estado | Programa observado | Tesis | Unidad principal | Años |",
         "|---:|---|:---:|---:|---|---|---:|---|---|",
     ]
 
-    for item in queue["items"][:top]:
+    for item in queue["humanitiesActionItems"][:top]:
         units = list(item["observedUnits"].items())
         unit = (
             f"{units[0][0]} ({units[0][1]})"
@@ -748,6 +759,12 @@ def markdown_summary(
             "Ningún score, señal lexical o unidad académica puede cambiar "
             "INCLUDE/REVIEW/EXCLUDE sin una decisión explícita en "
             "AcademicProgramAuthority.",
+            "",
+            "Para elegir la siguiente fase del corpus `humanities-only`, "
+            "se debe usar exclusivamente `humanitiesActionItems`. Los carriles "
+            "`high-impact-triage` y `backlog` permanecen en `items` sólo como "
+            "auditoría/observabilidad y nunca pueden impulsar una nueva "
+            "Program Authority por frecuencia.",
             "",
         ]
     )
