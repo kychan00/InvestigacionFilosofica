@@ -29,10 +29,14 @@ class CommunicationProgramAuthorityV29Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v29(self):
+    def test_v29_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v29",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            29,
         )
 
     def test_communication_authority_is_exact_exclude(self):
