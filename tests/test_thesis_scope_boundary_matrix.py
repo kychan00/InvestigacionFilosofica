@@ -597,6 +597,88 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             {"exclude": 1},
         )
 
+    def test_social_sciences_row_is_fully_resolved_as_outside_scope_exclude(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado en ciencias sociales",
+                    "count": 217,
+                    "variants": {"Doctorado en Ciencias Sociales": 217},
+                    "providers": {"riudg": 217},
+                },
+                {
+                    "normalizedKey": "maestria en ciencias sociales",
+                    "count": 60,
+                    "variants": {"Maestría en Ciencias Sociales": 60},
+                    "providers": {"riudg": 60},
+                },
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "id": "work:doctorado-ciencias-sociales",
+                    "programRaw": "Doctorado en Ciencias Sociales",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2020", "quality": "valid"},
+                    "admissionStatus": "exclude",
+                    "institutionRef": "institution:udg",
+                },
+                {
+                    "id": "work:maestria-ciencias-sociales",
+                    "programRaw": "Maestría en Ciencias Sociales",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2022", "quality": "valid"},
+                    "admissionStatus": "exclude",
+                    "institutionRef": "institution:udg",
+                },
+            ]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item
+            for item in report["rows"]
+            if item["id"] == "scope:social-sciences"
+        )
+        self.assertEqual(row["boundaryState"], "outside-scope")
+        self.assertEqual(row["observedWorks"], 277)
+
+        programs = {
+            item["normalizedKey"]: item
+            for item in row["programs"]
+        }
+        self.assertEqual(
+            programs["doctorado en ciencias sociales"]["programAuthority"]["programRef"],
+            "program:udg:doc-ciencias-sociales",
+        )
+        self.assertEqual(
+            programs["maestria en ciencias sociales"]["programAuthority"]["programRef"],
+            "program:udg:mae-ciencias-sociales",
+        )
+        for key in (
+            "doctorado en ciencias sociales",
+            "maestria en ciencias sociales",
+        ):
+            self.assertEqual(
+                programs[key]["programAuthority"]["status"],
+                "confirmed",
+            )
+            self.assertEqual(
+                programs[key]["programAuthority"]["admissionState"],
+                "exclude",
+            )
+            self.assertEqual(
+                programs[key]["currentAdmissionStatuses"],
+                {"exclude": 1},
+            )
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [
