@@ -1530,9 +1530,50 @@
         "https://www.riudg.udg.mx/handle/20.500.12104/21362",
         "https://www.riudg.udg.mx/browse?type=author&value=LICENCIATURA+EN+VETERINARIO+Y+ZOOTECNISTA"
       ]
+    },
+    {
+      "id": "program:udg:ingeniero-agronomo",
+      "canonicalName": "Ingeniero Agrónomo",
+      "level": "licenciatura",
+      "disciplineFamily": "agronomia-ciencias-biologico-agropecuarias",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCBA",
+        "CUCSUR"
+      ],
+      "aliases": [
+        "licenciatura en ingeniero agronomo",
+        "licenciatura en ingeniero agronomo administrador de empresas agropecuarias",
+        "licenciatura en ingeniero agronomo fitotecnista",
+        "licenciatura en ingeniero agronomo forestal",
+        "licenciatura en ingeniero agronomo zootecnista",
+        "licenciatura en ingeniero agronomo orientacion fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion fitotecnista",
+        "licenciatura en ingeniero agronomo orientacion zootecnia",
+        "licenciatura en ingeniero agronomo orientacion zootecnista",
+        "licenciatura en ingeniero agronomo orientacion bosques",
+        "licenciatura en ingeniero agronomo con orientacion forestal",
+        "licenciatura en ingeniero agronomo orientacion forestal",
+        "licenciatura en ingeniero agronomo especialista en bosques",
+        "licenciatura en ingeniero agronomo orientacion administracion empresas agropecuarias",
+        "licenciatura en ingeniero agronomo orientacion administracion de empresas agropecuarias",
+        "licenciatura en ingeniero agronomo en administracion de empresas agropecuarias"
+      ],
+      "observedCount": 2155,
+      "decisionNote": "La Universidad de Guadalajara publica actualmente el programa Ingeniero Agrónomo y el Sistema Institucional de Estadísticas usa el código 5081300016 para Ingeniero Agrónomo en CUCBA y CUCSUR. La evidencia histórica del Estatuto Orgánico del CUCBA, el Segundo Informe de Actividades 1996–1997 y el dictamen CGU I/2000/738 demuestra una línea común entre Ingeniero Agrónomo y los perfiles históricos Fitotecnista, Zootecnista, Forestal y Administrador de Empresas Agropecuarias; la documentación del Departamento de Producción Forestal aporta además continuidad explícita para Bosques/Forestal. Bajo targetScope humanities-only, la identidad institucional y disciplinaria del programa corresponde a Ciencias Biológico Agropecuarias, producción agrícola, pecuaria y forestal, por lo que V27 se registra como EXCLUDE. Esta autoridad es deliberadamente parcial: sólo incorpora los 16 labels exactos clasificados por T2AR como candidate-v27, que representan 2,155 obras. Los otros 48 labels agronómicos observados, 338 obras, permanecen HOLD/unresolved y no se absorben por similitud léxica, errores ortográficos, combinaciones de orientaciones ni pertenencia temática. Program Metadata Evidence Confidence V4 bloquea 6 records candidate involucrados en structural conflicts; esos 6 permanecen QUARANTINE y sólo los 2,149 records candidate con authorityApplicability=allowed reciben EXCLUDE.",
+      "evidence": [
+        "https://cucba.udg.mx/oferta-academica/licenciaturas/ingeniero-agronomo",
+        "https://sie.udg.mx/listados/matricula",
+        "https://cucba.udg.mx/sites/default/files/pdf/EstatutoOrganicodelCentroUniversitariodeCienciasBiol.pdf",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/2_informe_1996-1997.pdf",
+        "https://cucsur.udg.mx/sites/default/files/adjuntos/dictamen-agronomia.pdf",
+        "https://cucba.udg.mx/documento/historia-dpf",
+        "https://cucba.udg.mx/documento/docencia-dpf"
+      ]
     }
   ],
-  "registryRevision": "2026-11-02.v26",
+  "registryRevision": "2026-11-02.v27",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
