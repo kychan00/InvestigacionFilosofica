@@ -1356,7 +1356,7 @@ jobs:
           report = json.loads((root / "scope-boundary-matrix.json").read_text())
 
           assert report["schemaVersion"] == "thesis-humanities-scope-boundary-report-v1"
-          assert report["policyRevision"] == "2026-11-01.v2"
+          assert report["policyRevision"] == "2026-11-02.v3"
           assert report["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert report["targetScope"] == "humanities-only"
           assert report["metrics"]["matrixRows"] == 6
@@ -1397,7 +1397,7 @@ jobs:
           rm -rf artifacts/thesis-boundary-closure
           python scripts/thesis/audit_boundary_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/boundary-closure-contract-v2.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v3.json \
             --output-dir artifacts/thesis-boundary-closure
 
       - name: Validate boundary closure audit
@@ -1411,14 +1411,14 @@ jobs:
 
           assert audit["schemaVersion"] == "thesis-humanities-boundary-closure-audit-v1"
           assert audit["closureState"] == "closed"
-          assert audit["policyRevision"] == "2026-11-01.v2"
+          assert audit["policyRevision"] == "2026-11-02.v3"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
-          assert audit["metrics"]["boundaryRows"] == 4
-          assert audit["metrics"]["boundaryProgramKeys"] == 6
-          assert audit["metrics"]["confirmedAuthorities"] == 6
-          assert audit["metrics"]["authorityObservedWorks"] == 331
-          assert audit["metrics"]["admissionStates"] == {"review": 6}
+          assert audit["metrics"]["boundaryRows"] == 3
+          assert audit["metrics"]["boundaryProgramKeys"] == 5
+          assert audit["metrics"]["confirmedAuthorities"] == 5
+          assert audit["metrics"]["authorityObservedWorks"] == 264
+          assert audit["metrics"]["admissionStates"] == {"review": 5}
           assert audit["metrics"]["violations"] == 0
           assert audit["violations"] == []
 
