@@ -515,6 +515,65 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_maestria_estudios_genero_v11_reprojects_to_review(self):
+        observed = {
+            "schemaVersion": "fixture",
+            "programs": [
+                {
+                    "normalizedKey": "maestria en estudios de genero",
+                    "count": 1,
+                    "variants": {
+                        "Maestría en Estudios de Género": 1,
+                    },
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"quarantine": 1},
+                    "programRefs": {},
+                }
+            ],
+        }
+        corpus = {
+            "buildRevision": "fixture",
+            "programAuthorityRevision": "old",
+            "works": [
+                self.work(
+                    work_id="maestria-estudios-genero",
+                    program="Maestría en Estudios de Género",
+                    institution_ref="institution:udg",
+                    admission="quarantine",
+                    raw_date="2026",
+                )
+            ],
+        }
+
+        result = audit.build_audit(
+            observed=observed,
+            corpus=corpus,
+            registry=self.registry,
+            reference_year=2026,
+            top=10,
+        )
+
+        self.assertEqual(
+            result["metrics"]["projectedAdmission"],
+            {"review": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programStateWorks"],
+            {"review": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programQueue"]["queueItems"],
+            1,
+        )
+        self.assertEqual(
+            result["topReviewGroups"][0]["normalizedKey"],
+            "maestria en estudios de genero",
+        )
+        self.assertEqual(
+            result["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
         observed = {
             "schemaVersion": "fixture",

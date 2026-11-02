@@ -1056,9 +1056,35 @@
         "https://cucsh.udg.mx/convocatorias/convocatoria-de-ingreso-doctorado-en-cognicion-y-aprendizaje-2026-2029",
         "https://www.cucsh.udg.mx/sites/default/files/2026-01/convocatoria-2026-2029-version-acualizada-1.pdf"
       ]
+    },
+    {
+      "id": "program:udg:mae-estudios-genero",
+      "canonicalName": "Maestría en Estudios de Género",
+      "level": "maestria",
+      "disciplineFamily": "estudios-genero-ciencias-sociales-humanidades",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Estudios de Género",
+        "MAESTRIA EN ESTUDIOS DE GENERO"
+      ],
+      "observedCount": 1,
+      "observedThesisYears": {
+        "min": 2026,
+        "max": 2026
+      },
+      "decisionNote": "Programa vigente de CUCSH orientado a investigación. La UdeG lo clasifica en el área de Ciencias Sociales y Humanidades y admite perfiles de Ciencias Sociales, Humanidades y Psicología. Sus LGAC articulan desigualdad, justicia y poder con educación, arte, cultura, sexualidad, cuerpo, identidades y masculinidades. La identidad programática está confirmada, pero su naturaleza interdisciplinaria impide tratarlo como humanities-only o excluirlo como campo externo; se registra como REVIEW.",
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria-en-estudios-de-genero",
+        "https://ww1.udg.mx/es/oferta-academica/maestria-en-estudios-de-genero",
+        "https://cucsh.udg.mx/convocatorias/convocatoria-de-la-maestria-en-estudios-de-genero-generacion-2027-2029"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v10",
+  "registryRevision": "2026-11-01.v11",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

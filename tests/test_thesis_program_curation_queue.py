@@ -701,6 +701,52 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "review",
         )
 
+    def test_maestria_estudios_genero_v11_moves_to_scope_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en estudios de genero",
+                    "count": 1,
+                    "variants": {
+                        "Maestría en Estudios de Género": 1,
+                    },
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"quarantine": 1},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Maestría en Estudios de Género",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2026", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "review",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:mae-estudios-genero",
+        )
+        self.assertEqual(
+            item["authority"]["admissionState"],
+            "review",
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [

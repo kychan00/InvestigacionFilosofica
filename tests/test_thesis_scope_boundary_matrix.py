@@ -474,6 +474,68 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             {"review": 1},
         )
 
+    def test_maestria_estudios_genero_boundary_row_matches_program_authority_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en estudios de genero",
+                    "count": 1,
+                    "variants": {
+                        "Maestría en Estudios de Género": 1,
+                    },
+                    "providers": {"riudg": 1},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "id": "work:maestria-estudios-genero",
+                    "programRaw": "Maestría en Estudios de Género",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2026", "quality": "valid"},
+                    "admissionStatus": "review",
+                    "institutionRef": "institution:udg",
+                }
+            ]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item
+            for item in report["rows"]
+            if item["id"] == "scope:gender-studies"
+        )
+        self.assertEqual(row["boundaryState"], "boundary-review")
+        program = next(
+            item
+            for item in row["programs"]
+            if item["normalizedKey"]
+            == "maestria en estudios de genero"
+        )
+        self.assertEqual(
+            program["programAuthority"]["status"],
+            "confirmed",
+        )
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:mae-estudios-genero",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "review",
+        )
+        self.assertEqual(
+            program["currentAdmissionStatuses"],
+            {"review": 1},
+        )
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [
