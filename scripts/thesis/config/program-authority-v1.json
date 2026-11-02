@@ -1378,9 +1378,37 @@
         "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH/procesodetitulacion",
         "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH/vinculacion"
       ]
+    },
+    {
+      "id": "program:udg:doc-derecho",
+      "canonicalName": "Doctorado en Derecho",
+      "level": "doctorado",
+      "disciplineFamily": "derecho-ciencias-juridicas",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Derecho",
+        "DOCTORADO EN DERECHO"
+      ],
+      "observedCount": 21,
+      "observedThesisYears": {
+        "min": 2016,
+        "max": 2021
+      },
+      "decisionNote": "Programa vigente del CUCSH orientado explícitamente a la investigación jurídica. La presentación institucional lo ubica en la Coordinación de Posgrado en Derecho de la División de Estudios Jurídicos y declara como objetivo generar conocimiento jurídico sobre fenómenos y procesos sociales. Sus LIES son Derecho Constitucional, Derecho Corporativo, Derecho Penal, Derecho del Trabajo y Filosofía Jurídica. El perfil de ingreso parte de licenciatura y maestría en Derecho o afín, vocación para investigación jurídica y capacidad para impulsar grupos de investigación jurídica; el perfil de egreso se formula en términos de Ciencia Jurídica, teorías del Derecho e investigación jurídica especializada. Filosofía Jurídica constituye una línea sustantiva, pero permanece dentro de una arquitectura doctoral jurídica y no convierte el programa completo en humanities-only. Se registra como EXCLUDE.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/doctorados/doctorado-en-derecho",
+        "https://cucsh.udg.mx/doctorados/doctorado-en-derecho",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/doctorados/doctorado-derecho",
+        "https://www.cucsh.udg.mx/sites/default/files/2024-09/Convocatoria%20Doctorado%20en%20Derecho%202025.pdf",
+        "https://www.udg.mx/sites/default/files/2025-06/doctorado_en_derecho_cucsh_snp.pdf"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v21",
+  "registryRevision": "2026-11-01.v22",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
