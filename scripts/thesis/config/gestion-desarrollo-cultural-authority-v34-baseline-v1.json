@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "thesis-gestion-desarrollo-cultural-authority-v34-baseline-v1",
+  "phase": "T2BB",
+  "registryRevision": "2026-11-02.v34",
+  "scopePolicyRevision": "2026-11-02.v4",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:mae-gestion-desarrollo-cultural",
+  "canonicalName": "Maestría en Gestión y Desarrollo Cultural",
+  "admissionState": "include",
+  "siblingProgramRef": "program:udg:mae-gestion-cultura",
+  "sourceV33ArtifactId": 13184291739,
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 40,
+    "blockedWorks": 0,
+    "unassessedWorks": 40,
+    "allowedWorks": 40,
+    "academicUnits": {
+      "CUAAD": 39
+    },
+    "missingAcademicUnitWorks": 1,
+    "observedYears": {
+      "min": 2008,
+      "max": 2021
+    },
+    "validDateWorks": 32,
+    "suspiciousDateWorks": 8,
+    "admissionStatuses": {
+      "include": 40
+    },
+    "siblingProgramWorks": 15,
+    "humanitiesActionQueueItems": 42,
+    "humanitiesActionWorks": 646,
+    "nextHumanitiesActionKey": "doctorado en ciudad territorio y sustentabilidad",
+    "nextHumanitiesActionWorks": 152,
+    "globalProjectedAdmission": {
+      "include": 474,
+      "review": 646,
+      "quarantine": 18964,
+      "exclude": 7490,
+      "reject-source": 2
+    },
+    "siblingProgramAdmissionStatuses": {
+      "include": 11,
+      "quarantine": 4
+    },
+    "siblingUnresolvedInstitutionWorks": 4
+  },
+  "invariants": [
+    "gestion-desarrollo-cultural-is-include-by-program-evidence",
+    "gestion-desarrollo-cultural-remains-separate-from-gestion-cultura",
+    "no-alias-or-successor-collapse-between-cultural-management-programs",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-policy-v4-remains-unchanged",
+    "suspicious-1969-dates-are-not-used-as-program-history",
+    "prior-authorities-v25-v33-remain-stable"
+  ]
+}

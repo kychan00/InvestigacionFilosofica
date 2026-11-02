@@ -270,7 +270,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             },
         )
 
-    def test_cultural_management_v4_moves_only_review_program_to_queue(self):
+    def test_cultural_management_v34_omits_both_resolved_programs(self):
         observed = {
             "programs": [
                 {
@@ -319,23 +319,12 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             self.registry,
         )
 
-        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
         self.assertEqual(
             payload["metrics"]["allProgramStates"],
-            {"resolved": 1, "review": 1},
+            {"resolved": 2},
         )
-
-        item = payload["items"][0]
-        self.assertEqual(
-            item["normalizedKey"],
-            "maestria en gestion y desarrollo cultural",
-        )
-        self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
-        self.assertEqual(
-            item["authority"]["id"],
-            "program:udg:mae-gestion-desarrollo-cultural",
-        )
+        self.assertEqual(payload["items"], [])
 
     def test_arts_heritage_v5_queue_keeps_ambiguous_generic_didactica(self):
         observed = {
