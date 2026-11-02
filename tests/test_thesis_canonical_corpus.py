@@ -862,7 +862,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(work["institutionRef"], "institution:udg")
         self.assertEqual(work["date"]["value"], "2004-06")
 
-    def test_communication_boundary_authority_v7(self):
+    def test_communication_outside_scope_authority_v29(self):
         for raw in (
             "Maestría en Comunicación",
             "MAESTRIA EN COMUNICACION",
@@ -875,7 +875,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 )
                 self.assertEqual(
                     resolved["admissionState"],
-                    "review",
+                    "exclude",
                 )
 
         record = thesis.source_record(
@@ -900,7 +900,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         work = corpus["works"][0]
 
-        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(work["admissionStatus"], "exclude")
         self.assertEqual(
             work["programRef"],
             "program:udg:mae-comunicacion",
