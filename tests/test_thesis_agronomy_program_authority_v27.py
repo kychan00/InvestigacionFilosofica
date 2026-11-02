@@ -86,7 +86,7 @@ class AgronomyProgramAuthorityV27Test(unittest.TestCase):
     def test_registry_revision_is_v27(self):
         self.assertEqual(
             self.registry["registryRevision"],
-            "2026-11-02.v32",
+            "2026-11-02.v33",
         )
 
     def test_v27_authority_is_exactly_lineage_candidate_set(self):

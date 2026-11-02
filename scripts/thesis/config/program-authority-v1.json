@@ -555,7 +555,7 @@
       "canonicalName": "Licenciatura en la Docencia del Inglés",
       "level": "licenciatura",
       "disciplineFamily": "lenguas",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUCSH"
@@ -569,10 +569,13 @@
         "max": 2006
       },
       "possibleSuccessorRef": "program:udg:lic-docencia-ingles",
-      "decisionNote": "CUCSH documenta históricamente la Licenciatura en Docencia del Inglés como Lengua Extranjera y la página vigente usa la construcción 'la Docencia del Inglés como Lengua Extranjera', pero todavía no se localiza evidencia que pruebe que el nombre abreviado observado sin 'como Lengua Extranjera' sea exactamente el mismo plan. Se mantiene REVIEW.",
+      "decisionNote": "La identidad histórica queda confirmada por evidencia institucional UdeG independiente del parecido nominal: la Enciclopedia Histórica de la Universidad registra que el H. Consejo General Universitario estableció en 1987 la «Licenciatura en la Docencia del Inglés», exactamente el nombre observado en RIUdeG; el Cuarto Informe de Actividades 1998–1999 vuelve a usar esa denominación, mientras documentos posteriores del CUCSH y la oferta vigente documentan la forma «Licenciatura en Docencia del Inglés como Lengua Extranjera» dentro del Departamento de Lenguas Modernas. Bajo humanities-only, la autoridad histórica se resuelve INCLUDE por su identidad disciplinaria en lenguas y formación humanística. Se conserva como autoridad histórica separada y mantiene possibleSuccessorRef hacia LIDILE: la evidencia de continuidad institucional no se convierte en un alias automático ni borra diferencias de plan o modalidad.",
       "evidence": [
+        "https://enciclopedia.udg.mx/capitulos/desarrollo-historico-1975-1989",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/4_informe_1998-1999.pdf",
         "https://cgpe.udg.mx/sites/default/files/cucsh.pdf",
-        "https://www.cucsh.udg.mx/licenciaturas/licenciatura-en-docencia-del-ingles-como-lengua-extranjera"
+        "https://www.cucsh.udg.mx/licenciaturas/licenciatura-en-docencia-del-ingles-como-lengua-extranjera",
+        "https://riudg.udg.mx/handle/20.500.12104/34245?mode=full"
       ]
     },
     {
@@ -1584,7 +1587,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v32",
+  "registryRevision": "2026-11-02.v33",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

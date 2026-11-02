@@ -128,7 +128,8 @@ jobs:
           )
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v32"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 32
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
           assert len(corpus["works"]) == 27576
 
@@ -186,10 +187,11 @@ jobs:
               expected["conservationHistoricalAdmissionState"]: len(conservation)
           })
 
-          assert (
-              projection["projectedAdmission"]
-              == expected["globalProjectedAdmission"]
-          )
+          expected_global = dict(expected["globalProjectedAdmission"])
+          # V33: historical Licenciatura en la Docencia del Inglés REVIEW -> INCLUDE.
+          expected_global["include"] += 1
+          expected_global["review"] -= 1
+          assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           target_key = "maestria en historia de la arquitectura mexicana"
