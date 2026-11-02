@@ -172,6 +172,20 @@ class ThesisOutsideScopeClosureAuditTest(unittest.TestCase):
         self.assertEqual(audit["metrics"]["authorityObservedWorks"], 277)
         self.assertEqual(audit["metrics"]["admissionStates"], {"exclude": 2})
 
+    def test_licenciatura_derecho_does_not_reopen_social_sciences_closure(self):
+        report = self.empty_scope_report()
+        audit = closure.build_audit(
+            report,
+            self.registry,
+            self.scope_config,
+            self.contract,
+        )
+        excluded = canonical.resolve_program("Licenciatura en Derecho", self.registry)
+        self.assertEqual(excluded["status"], "confirmed")
+        self.assertEqual(excluded["admissionState"], "exclude")
+        self.assertEqual(audit["closureState"], "closed")
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 277)
+
     def test_sample_absence_is_informative_not_a_closure_failure(self):
         report = self.empty_scope_report()
         audit = closure.build_audit(
