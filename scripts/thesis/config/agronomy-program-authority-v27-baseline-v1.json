@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "thesis-agronomy-program-authority-v27-baseline-v1",
+  "registryRevision": "2026-11-02.v27",
+  "programRef": "program:udg:ingeniero-agronomo",
+  "canonicalName": "Ingeniero Agrónomo",
+  "admissionState": "exclude",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "lineageFamilyId": "udg-agronomy-observed-family-v1",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "sourceLineageArtifactId": 13164804317,
+  "sourceLineageArtifactSha256": "ebd29248c3f7c48393a6bb18cf60b24b54a652a2076ea76d19f61e23b465a30d",
+  "expectedFull": {
+    "observedWorks": 2155,
+    "blockedWorks": 6,
+    "authorityApplicableWorks": 2149,
+    "projectedAdmissionStatuses": {
+      "exclude": 2149,
+      "quarantine": 6
+    },
+    "candidateRawGroups": {
+      "licenciatura en ingeniero agronomo": {
+        "works": 1381,
+        "blockedWorks": 3,
+        "authorityApplicableWorks": 1378,
+        "projectedAdmissionStatuses": {
+          "exclude": 1378,
+          "quarantine": 3
+        },
+        "expectedQueuePresenceAfterProjection": true,
+        "queueState": "metadata-review",
+        "curationLane": "metadata-confidence-review"
+      },
+      "licenciatura en ingeniero agronomo orientacion fitotecnia": {
+        "works": 516,
+        "blockedWorks": 1,
+        "authorityApplicableWorks": 515,
+        "projectedAdmissionStatuses": {
+          "exclude": 515,
+          "quarantine": 1
+        },
+        "expectedQueuePresenceAfterProjection": true,
+        "queueState": "metadata-review",
+        "curationLane": "metadata-confidence-review"
+      },
+      "licenciatura en ingeniero agronomo orientacion zootecnia": {
+        "works": 68,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 68,
+        "projectedAdmissionStatuses": {
+          "exclude": 68
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo zootecnista": {
+        "works": 50,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 50,
+        "projectedAdmissionStatuses": {
+          "exclude": 50
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo orientacion bosques": {
+        "works": 44,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 44,
+        "projectedAdmissionStatuses": {
+          "exclude": 44
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo orientacion fitotecnista": {
+        "works": 31,
+        "blockedWorks": 1,
+        "authorityApplicableWorks": 30,
+        "projectedAdmissionStatuses": {
+          "exclude": 30,
+          "quarantine": 1
+        },
+        "expectedQueuePresenceAfterProjection": true,
+        "queueState": "metadata-review",
+        "curationLane": "metadata-confidence-review"
+      },
+      "licenciatura en ingeniero agronomo fitotecnista": {
+        "works": 31,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 31,
+        "projectedAdmissionStatuses": {
+          "exclude": 31
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo forestal": {
+        "works": 18,
+        "blockedWorks": 1,
+        "authorityApplicableWorks": 17,
+        "projectedAdmissionStatuses": {
+          "exclude": 17,
+          "quarantine": 1
+        },
+        "expectedQueuePresenceAfterProjection": true,
+        "queueState": "metadata-review",
+        "curationLane": "metadata-confidence-review"
+      },
+      "licenciatura en ingeniero agronomo orientacion administracion empresas agropecuarias": {
+        "works": 4,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 4,
+        "projectedAdmissionStatuses": {
+          "exclude": 4
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo orientacion zootecnista": {
+        "works": 4,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 4,
+        "projectedAdmissionStatuses": {
+          "exclude": 4
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo administrador de empresas agropecuarias": {
+        "works": 3,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 3,
+        "projectedAdmissionStatuses": {
+          "exclude": 3
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo con orientacion forestal": {
+        "works": 1,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 1,
+        "projectedAdmissionStatuses": {
+          "exclude": 1
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo en administracion de empresas agropecuarias": {
+        "works": 1,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 1,
+        "projectedAdmissionStatuses": {
+          "exclude": 1
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo orientacion forestal": {
+        "works": 1,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 1,
+        "projectedAdmissionStatuses": {
+          "exclude": 1
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo especialista en bosques": {
+        "works": 1,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 1,
+        "projectedAdmissionStatuses": {
+          "exclude": 1
+        },
+        "expectedQueuePresenceAfterProjection": false
+      },
+      "licenciatura en ingeniero agronomo orientacion administracion de empresas agropecuarias": {
+        "works": 1,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 1,
+        "projectedAdmissionStatuses": {
+          "exclude": 1
+        },
+        "expectedQueuePresenceAfterProjection": false
+      }
+    },
+    "blockedCandidateKeys": [
+      "licenciatura en ingeniero agronomo",
+      "licenciatura en ingeniero agronomo orientacion fitotecnia",
+      "licenciatura en ingeniero agronomo orientacion fitotecnista",
+      "licenciatura en ingeniero agronomo forestal"
+    ],
+    "hold": {
+      "groups": 48,
+      "works": 338,
+      "blockedWorks": 4,
+      "expectedProgramRef": null,
+      "projectedAdmissionStatuses": {
+        "quarantine": 338
+      },
+      "expectedAllQueueItemsPresent": true
+    },
+    "knownStructuralPairs": 5,
+    "structuralPairDisposition": {
+      "candidate|candidate": 2,
+      "candidate|hold": 2,
+      "hold|hold": 1
+    },
+    "globalProjectedAdmission": {
+      "include": 428,
+      "review": 832,
+      "quarantine": 20161,
+      "exclude": 6153,
+      "reject-source": 2
+    }
+  },
+  "invariants": [
+    "only-sixteen-lineage-supported-labels-resolve-to-v27",
+    "all-338-hold-works-remain-without-v27-program-ref",
+    "six-candidate-structural-conflict-records-remain-quarantine",
+    "candidate-allowed-records-receive-exclude",
+    "metadata-confidence-v4-remains-unchanged",
+    "no-fuzzy-regex-topic-or-orthographic-program-merges",
+    "v25-medicine-and-v26-veterinary-regressions-remain-green"
+  ]
+}
