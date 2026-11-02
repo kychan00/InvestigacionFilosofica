@@ -841,6 +841,37 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             0,
         )
 
+    def test_gestion_desarrollo_social_exclude_is_resolved_and_omitted_from_queue(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "maestria en gestion y desarrollo social",
+                "count": 106,
+                "variants": {"Maestría en Gestión y Desarrollo Social": 106},
+                "providers": {"riudg": 106},
+                "admissionStatuses": {"quarantine": 106},
+                "programRefs": {},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "programRaw": "Maestría en Gestión y Desarrollo Social",
+                "academicUnitRaw": "CUCSH",
+                "date": {"value": "2024", "quality": "valid"},
+                "thesisTypeRaw": "Tesis de Maestría",
+                "admissionStatus": "exclude",
+            }]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(payload["metrics"]["allProgramStates"], {"resolved": 1})
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"resolved": 106},
+        )
+        self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
