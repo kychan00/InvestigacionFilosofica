@@ -379,10 +379,10 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             "program:udg:lic-historia-arte",
         )
         self.assertEqual(candidate["program"]["admissionState"], "review")
-        self.assertEqual(candidate["admission"]["status"], "include")
+        self.assertEqual(candidate["admission"]["status"], "review")
         self.assertEqual(
             candidate["admission"]["explanationCode"],
-            "confirmed-humanities-program",
+            "program-review",
         )
 
         corpus = thesis.build_corpus(
@@ -495,10 +495,10 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             candidate["program"]["programRef"],
             "program:udg:lic-docencia-ingles-corta-historica",
         )
-        self.assertEqual(candidate["admission"]["status"], "review")
+        self.assertEqual(candidate["admission"]["status"], "include")
         self.assertEqual(
             candidate["admission"]["explanationCode"],
-            "program-review",
+            "confirmed-humanities-program",
         )
 
     def test_historical_program_can_be_include_without_confirmed_successor(self):
