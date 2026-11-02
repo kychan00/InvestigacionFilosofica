@@ -609,6 +609,52 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "review",
         )
 
+    def test_maestria_investigacion_educativa_v9_moves_to_scope_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en investigacion educativa",
+                    "count": 34,
+                    "variants": {
+                        "Maestría en Investigación Educativa": 34,
+                    },
+                    "providers": {"riudg": 34},
+                    "admissionStatuses": {"quarantine": 34},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Maestría en Investigación Educativa",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2021", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "review",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:mae-investigacion-educativa",
+        )
+        self.assertEqual(
+            item["authority"]["admissionState"],
+            "review",
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [

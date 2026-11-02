@@ -962,6 +962,56 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_maestria_investigacion_educativa_boundary_authority_v9(self):
+        for raw in (
+            "Maestría en Investigación Educativa",
+            "MAESTRIA EN INVESTIGACION EDUCATIVA",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-investigacion-educativa",
+                )
+                self.assertEqual(
+                    resolved["admissionState"],
+                    "review",
+                )
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="maestria-investigacion-educativa-boundary",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Historia, alteridad y procesos educativos"],
+                "dc.degree.name": ["Maestría en Investigación Educativa"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCSH"],
+                "dc.date.issued": ["2021-06-00"],
+                "dc.type": ["Tesis de Maestría"],
+            },
+            raw_payload="maestria-investigacion-educativa-boundary",
+        )
+
+        corpus = thesis.build_corpus(
+            [record],
+            self.registry,
+            reference_year=2026,
+        )
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:mae-investigacion-educativa",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(work["date"]["value"], "2021-06")
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
