@@ -124,6 +124,8 @@ def aggregate_work_dimensions(
                 "years": [],
                 "thesisTypes": Counter(),
                 "admissionStatuses": Counter(),
+                "programMetadataConfidenceStates": Counter(),
+                "programAuthorityApplicability": Counter(),
                 "works": 0,
             },
         )
@@ -155,6 +157,14 @@ def aggregate_work_dimensions(
             work.get("admissionStatus") or "unknown"
         ] += 1
 
+        evidence = work.get("programMetadataEvidence") or {}
+        item["programMetadataConfidenceStates"][
+            evidence.get("confidenceState") or "unassessed"
+        ] += 1
+        item["programAuthorityApplicability"][
+            evidence.get("authorityApplicability") or "allowed"
+        ] += 1
+
     return aggregate
 
 
@@ -165,7 +175,13 @@ def authority_for_key(
     return authority_lookup.get(normalized_key)
 
 
-def queue_state(authority: dict[str, Any] | None) -> str:
+def queue_state(
+    authority: dict[str, Any] | None,
+    *,
+    metadata_blocked_works: int = 0,
+) -> str:
+    if metadata_blocked_works > 0:
+        return "metadata-review"
     if authority is None:
         return "unresolved"
     state = authority.get("admissionState")
@@ -242,6 +258,10 @@ def priority_for_item(
     if state == "review":
         reasons.append("existing-review-decision")
 
+    metadata_points = 30 if state == "metadata-review" else 0
+    if state == "metadata-review":
+        reasons.append("program-metadata-confidence-block")
+
     variant_points = 4 if len(variants) > 1 else 0
     if variant_points:
         reasons.append("multiple-source-variants")
@@ -266,6 +286,7 @@ def priority_for_item(
             + lexical_points
             + unit_points
             + review_points
+            + metadata_points
             + variant_points
             + historical_points
             + lineage_points,
@@ -273,7 +294,7 @@ def priority_for_item(
         3,
     )
 
-    if state == "review" or score >= 60:
+    if state in {"review", "metadata-review"} or score >= 60:
         band = "A"
     elif score >= 45:
         band = "B"
@@ -291,6 +312,7 @@ def priority_for_item(
             "nameSignals": lexical_points,
             "unitSignals": unit_points,
             "reviewState": review_points,
+            "metadataConfidence": metadata_points,
             "variantComplexity": variant_points,
             "historicalSpan": historical_points,
             "lineage": lineage_points,
@@ -306,6 +328,8 @@ def curation_lane(
     priority: dict[str, Any],
     count: int,
 ) -> str:
+    if state == "metadata-review":
+        return "metadata-confidence-review"
     if state == "review":
         return "scope-review"
     if priority.get("nameSignals"):
@@ -318,11 +342,12 @@ def curation_lane(
 
 
 LANE_ORDER = {
-    "scope-review": 0,
-    "humanities-candidate": 1,
-    "unit-triage": 2,
-    "high-impact-triage": 3,
-    "backlog": 4,
+    "metadata-confidence-review": 0,
+    "scope-review": 1,
+    "humanities-candidate": 2,
+    "unit-triage": 3,
+    "high-impact-triage": 4,
+    "backlog": 5,
 }
 
 
@@ -333,6 +358,17 @@ def evidence_needs(
     years: list[int],
 ) -> list[str]:
     needs: list[str] = []
+
+    if state == "metadata-review":
+        needs.extend(
+            [
+                "program-metadata-confidence-evidence",
+                "source-program-metadata-repair",
+            ]
+        )
+        if authority is None:
+            needs.append("official-program-evidence")
+        return needs
 
     if state == "review":
         needs.append("scope-decision")
@@ -375,12 +411,6 @@ def build_queue(
     for row in observed.get("programs", []):
         normalized_key = row.get("normalizedKey") or ""
         authority = authority_for_key(normalized_key, authority_lookup)
-        state = queue_state(authority)
-        all_state_counts[state] += 1
-        all_work_counts[state] += int(row.get("count") or 0)
-
-        if state == "resolved" and not include_resolved:
-            continue
 
         extra = dimensions.get(
             normalized_key,
@@ -389,9 +419,23 @@ def build_queue(
                 "years": [],
                 "thesisTypes": Counter(),
                 "admissionStatuses": Counter(),
+                "programMetadataConfidenceStates": Counter(),
+                "programAuthorityApplicability": Counter(),
                 "works": 0,
             },
         )
+        metadata_blocked_works = int(
+            extra["programAuthorityApplicability"].get("blocked", 0)
+        )
+        state = queue_state(
+            authority,
+            metadata_blocked_works=metadata_blocked_works,
+        )
+        all_state_counts[state] += 1
+        all_work_counts[state] += int(row.get("count") or 0)
+
+        if state == "resolved" and not include_resolved:
+            continue
 
         gate_eligible_works = sum(
             count
@@ -429,6 +473,15 @@ def build_queue(
                 row.get("admissionStatuses") or {}
             ),
             "currentProgramRefs": dict(row.get("programRefs") or {}),
+            "programMetadataEvidence": {
+                "confidenceStates": dict(
+                    extra["programMetadataConfidenceStates"].most_common()
+                ),
+                "authorityApplicability": dict(
+                    extra["programAuthorityApplicability"].most_common()
+                ),
+                "blockedWorks": metadata_blocked_works,
+            },
             "queueState": state,
             "curationLane": lane,
             "authority": (
