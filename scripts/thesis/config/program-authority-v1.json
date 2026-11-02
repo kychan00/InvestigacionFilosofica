@@ -1312,9 +1312,47 @@
         "https://www.cusur.udg.mx/es/sites/default/files/adjuntos/2021-1215-1044-modificacion-dictamen-md-udg.pdf",
         "https://cgpe.udg.mx/sites/default/files/prodes_cucosta_ica3.0_0.pdf"
       ]
+    },
+    {
+      "id": "program:udg:lic-derecho-abogado",
+      "canonicalName": "Licenciatura en Derecho / Carrera de Abogado",
+      "level": "licenciatura",
+      "disciplineFamily": "derecho-ciencias-juridicas",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CULAGOS",
+        "CUCIÉNEGA",
+        "CUCSUR",
+        "CUSUR",
+        "CUCOSTA",
+        "CUCSH"
+      ],
+      "aliases": [
+        "Licenciatura en Derecho",
+        "LICENCIATURA EN DERECHO",
+        "Licenciatura en Derecho o Abogado",
+        "Licenciatura en Abogado",
+        "Carrera en Abogado",
+        "Abogado"
+      ],
+      "observedCount": 150,
+      "observedThesisYears": {
+        "min": 1995,
+        "max": 2018
+      },
+      "decisionNote": "El full inventory observa 150 tesis con el nombre exacto Licenciatura en Derecho en CULAGOS, CUCIÉNEGA, CUCSUR, CUSUR, CUCOSTA y CUCSH; todas tienen institución UdeG confirmada. La oferta académica vigente de la Universidad usa las denominaciones Licenciatura en Derecho o Abogado / Carrera en Abogado en distintos centros de la Red. CUCSH documenta un plan estructurado en Derecho Constitucional, Romano, Penal, Civil, Mercantil, Amparo, Derecho Internacional, metodología jurídica y práctica profesional, junto con Ética Jurídica, Filosofía del Derecho, Historia del Derecho, Sociología Jurídica y argumentación. Estos componentes humanísticos son fundamentos dentro de una formación jurídica profesional y no convierten el programa completo en humanities-only. Se registra como EXCLUDE. La autoridad unifica denominaciones institucionales equivalentes para admisión, sin afirmar continuidad administrativa perfecta de todos los planes históricos.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/carreras/licenciaturas",
+        "https://www.cucsh.udg.mx/licenciaturas/carrera-en-abogado",
+        "https://cucsh.udg.mx/licenciaturas/carrera-en-abogado-semiescolarizado",
+        "https://culagos.udg.mx/oferta",
+        "https://cgpe.udg.mx/sites/default/files/1_prodes_cu_lagos.pdf",
+        "https://secgral.udg.mx/sites/default/files/Normatividad_especifica/10%20EOCUCostaSur%20%28Febrero%202025%29.pdf"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v19",
+  "registryRevision": "2026-11-01.v20",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
