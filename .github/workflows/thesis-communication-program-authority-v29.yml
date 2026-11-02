@@ -1,0 +1,232 @@
+name: Thesis Communication Program Authority V29
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/scope-boundary-matrix-v1.json"
+      - "scripts/thesis/config/communication-program-authority-v29-baseline-v1.json"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/build_scope_boundary_matrix_v1.py"
+      - "tests/test_thesis_communication_program_authority_v29.py"
+      - "tests/test_thesis_scope_boundary_matrix.py"
+      - "tests/test_thesis_program_curation_queue.py"
+      - "docs/THESIS_HUMANITIES_COMMUNICATION_BOUNDARY_V1.md"
+      - "docs/THESIS_HUMANITIES_COMMUNICATION_OUTSIDE_SCOPE_V2.md"
+      - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
+      - ".github/workflows/thesis-communication-program-authority-v29.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_communication_program_authority_v29.py" -v
+          python -m unittest discover -s tests -p "test_thesis_scope_boundary_matrix.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-communication-v29
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-communication-v29
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-communication-v29/canonical-confidence.json \
+            --output-report artifacts/thesis-communication-v29/confidence-report.json
+
+      - name: Reproject V29 and actionable Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+
+          root = Path("artifacts/thesis-communication-v29")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-full-baseline/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed,
+              projection["programDimensions"],
+          )
+          queue = curation.build_queue(
+              projected_observed,
+              projected,
+              registry,
+          )
+
+          (root / "canonical-v29.json").write_text(
+              json.dumps(projected, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "observed-v29.json").write_text(
+              json.dumps(projected_observed, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "queue-v29.json").write_text(
+              json.dumps(queue, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "projection-v29.json").write_text(
+              json.dumps(projection, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+
+      - name: Build Scope Boundary Matrix V3
+        run: |
+          python scripts/thesis/build_scope_boundary_matrix_v1.py \
+            --observed-authorities artifacts/thesis-communication-v29/observed-v29.json \
+            --canonical-corpus artifacts/thesis-communication-v29/canonical-v29.json \
+            --output-dir artifacts/thesis-communication-v29/scope
+
+      - name: Validate full V29 baseline
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-communication-v29")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "communication-program-authority-v29-baseline-v1.json"
+              ).read_text()
+          )
+          corpus = json.loads((root / "canonical-v29.json").read_text())
+          projection = json.loads((root / "projection-v29.json").read_text())
+          queue = json.loads((root / "queue-v29.json").read_text())
+          scope = json.loads(
+              (root / "scope" / "scope-boundary-matrix.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+          expected = baseline["expected"]
+
+          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert len(corpus["works"]) == 27576
+
+          selected = [
+              w
+              for w in corpus["works"]
+              if w.get("programRef") == baseline["programRef"]
+          ]
+          assert len(selected) == expected["works"]
+          blocked = [
+              w
+              for w in selected
+              if (w.get("programMetadataEvidence") or {}).get(
+                  "authorityApplicability"
+              ) == "blocked"
+          ]
+          assert len(blocked) == expected["blockedWorks"]
+          assert Counter(
+              w.get("admissionStatus") for w in selected
+          ) == Counter(expected["projectedAdmissionStatuses"])
+          assert Counter(
+              w.get("academicUnitRaw") for w in selected
+          ) == Counter(expected["academicUnits"])
+
+          years = sorted(
+              int((w.get("date") or {}).get("value")[:4])
+              for w in selected
+              if (w.get("date") or {}).get("quality") == "valid"
+              and str((w.get("date") or {}).get("value") or "")[:4].isdigit()
+          )
+          assert years[0] == expected["observedYears"]["min"]
+          assert years[-1] == expected["observedYears"]["max"]
+
+          assert (
+              projection["projectedAdmission"]
+              == expected["globalProjectedAdmission"]
+          )
+          assert sum(projection["projectedAdmission"].values()) == 27576
+
+          communication_key = "maestria en comunicacion"
+          assert all(
+              item["normalizedKey"] != communication_key
+              for item in queue["items"]
+          )
+          assert (
+              queue["nextHumanitiesAction"] is None
+              or queue["nextHumanitiesAction"]["normalizedKey"]
+              != communication_key
+          )
+
+          scope_row = next(
+              row
+              for row in scope["rows"]
+              if row["id"] == "scope:communication-culture"
+          )
+          assert (
+              scope_row["boundaryState"]
+              == expected["scopeBoundaryState"]
+              == "outside-scope"
+          )
+          program = scope_row["programs"][0]
+          assert program["programAuthority"]["programRef"] == baseline["programRef"]
+          assert program["programAuthority"]["admissionState"] == "exclude"
+          assert program["currentAdmissionStatuses"] == {"exclude": 67}
+
+          summary = {
+              "registryRevision": registry["registryRevision"],
+              "scopePolicyRevision": scope["policyRevision"],
+              "communicationWorks": len(selected),
+              "communicationAdmission": dict(
+                  Counter(w.get("admissionStatus") for w in selected)
+              ),
+              "globalProjectedAdmission": projection["projectedAdmission"],
+              "nextHumanitiesAction": queue["nextHumanitiesAction"],
+          }
+          (root / "v29-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload V29 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-communication-program-authority-v29
+          path: artifacts/thesis-communication-v29/
+          if-no-files-found: error
+          retention-days: 14
