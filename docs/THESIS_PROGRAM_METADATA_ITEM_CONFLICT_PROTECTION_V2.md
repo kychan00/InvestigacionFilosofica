@@ -1,5 +1,7 @@
 # T2AM — Item-level Program Metadata Conflict Protection V2
 
+> Historical note · policy V3: T2AM congeló la primera protección item-level de 18 records. T2AO amplía el mismo mecanismo a 22 records y la policy ejecutable pasa a `2026-11-02.v3`, sin cambiar el schema ni la semántica del matcher.
+
 ## Objetivo
 
 T2AL congeló 9 pares estructuralmente conflictivos alrededor de `Licenciatura en Medicina`.
