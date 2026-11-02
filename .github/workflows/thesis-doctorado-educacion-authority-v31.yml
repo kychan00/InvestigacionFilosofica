@@ -246,6 +246,8 @@ jobs:
               == "review"
           )
 
+          assert scope["metrics"]["matrixRows"] == expected["scopeMatrixRows"]
+
           education_row = next(
               row
               for row in scope["rows"]
@@ -256,6 +258,23 @@ jobs:
               "maestria en investigacion educativa",
               "doctorado en cognicion y aprendizaje",
           ]
+
+          education_outside = next(
+              row
+              for row in scope["rows"]
+              if row["id"] == "scope:education-doctorado"
+          )
+          assert (
+              education_outside["boundaryState"]
+              == expected["educationOutsideBoundaryState"]
+          )
+          assert education_outside["programKeys"] == [
+              "doctorado en educacion"
+          ]
+          assert (
+              education_outside["observedWorks"]
+              == expected["educationOutsideWorks"]
+          )
 
           assert boundary["closureState"] == "closed"
           assert boundary["policyRevision"] == baseline["scopePolicyRevision"]
