@@ -198,6 +198,93 @@ test("reutiliza el AuthorityPerson.id de un build previo aunque aparezca un iden
   );
 });
 
+test("candidate hints conservan la resolución determinista por OpenAlex ID",()=>{
+  const target=currentAuthorProfileToAuthorityCandidate({
+    id:"https://openalex.org/A123456",
+    displayName:"José Martínez"
+  });
+
+  const decoy=currentAuthorProfileToAuthorityCandidate({
+    id:"https://openalex.org/A999999",
+    displayName:"José Martínez"
+  });
+
+  const mention=creatorToAuthorMention({
+    id:"https://openalex.org/A123456",
+    name:"José Martínez"
+  },{
+    sourceRecordRef:"source:test:hinted",
+    position:0
+  });
+
+  const graph=buildAuthorityGraph({
+    candidates:[target,decoy],
+    mentions:[mention],
+    algorithmVersion:"identity-v1",
+    datasetRevision:"hint:test",
+    buildRevision:"build:hint",
+    candidateRefsByMention:{
+      [mention.id]:[
+        target.id
+      ]
+    }
+  });
+
+  assert.equal(
+    graph.authorities.length,
+    1
+  );
+  assert.equal(
+    graph.mentionAuthorityLinks.length,
+    1
+  );
+  assert.equal(
+    graph.buildMetrics.decisionsByStatus.confirmed,
+    1
+  );
+  assert.equal(
+    graph.identifierRegistry["openalex-author:123456"],
+    graph.authorities[0].id
+  );
+  assert.equal(
+    graph.identifierRegistry["openalex-author:999999"],
+    undefined
+  );
+});
+
+
+test("candidate hints inválidos fallan en lugar de ampliar silenciosamente el scan",()=>{
+  const candidate=currentAuthorProfileToAuthorityCandidate({
+    id:"https://openalex.org/A123456",
+    displayName:"Ana Pérez"
+  });
+
+  const mention=creatorToAuthorMention({
+    id:"https://openalex.org/A123456",
+    name:"Ana Pérez"
+  },{
+    sourceRecordRef:"source:test:bad-hint",
+    position:0
+  });
+
+  assert.throws(
+    ()=>buildAuthorityGraph({
+      candidates:[candidate],
+      mentions:[mention],
+      algorithmVersion:"identity-v1",
+      datasetRevision:"hint:test",
+      buildRevision:"build:bad-hint",
+      candidateRefsByMention:{
+        [mention.id]:[
+          "candidate:missing"
+        ]
+      }
+    }),
+    /Candidate hint points to unknown candidate/
+  );
+});
+
+
 test("golden set cuenta un falso merge si se confirma la persona equivocada",()=>{
   const candidate=currentAuthorProfileToAuthorityCandidate({
     displayName:"José Martínez",
