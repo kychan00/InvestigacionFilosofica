@@ -132,6 +132,100 @@ class ThesisProgramMetadataEvidenceConfidenceTest(unittest.TestCase):
             raw_payload=record_id,
         )
 
+    def test_default_policy_marks_structural_conflict_record_as_conflicted(self):
+        record = canonical.source_record(
+            provider="riudg",
+            provider_record_id=(
+                "oai:riudg.udg.mx:20.500.12104/32360"
+            ),
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Ejemplo conflicted"],
+                "dc.degree.name": ["LICENCIATURA EN MEDICINA"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.date.accessioned": ["2015-09-09T18:02:20Z"],
+                "dc.date.submitted": ["1991"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="medicine-conflict",
+        )
+
+        evidence = canonical.evaluate_program_metadata_evidence(
+            record,
+            "LICENCIATURA EN MEDICINA",
+            self.default_policy,
+        )
+
+        self.assertEqual(evidence["confidenceState"], "conflicted")
+        self.assertEqual(evidence["authorityApplicability"], "blocked")
+        self.assertEqual(
+            evidence["matchedRuleId"],
+            "riudg-structural-program-metadata-conflicts-v1",
+        )
+        self.assertEqual(
+            evidence["evidence"]["providerRecordId"],
+            "oai:riudg.udg.mx:20.500.12104/32360",
+        )
+
+    def test_item_level_conflict_rule_outranks_psychology_legacy_rule(self):
+        record = canonical.source_record(
+            provider="riudg",
+            provider_record_id=(
+                "oai:riudg.udg.mx:20.500.12104/33719"
+            ),
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Ejemplo psychology conflicted"],
+                "dc.degree.name": ["LICENCIATURA EN PSICOLOGÍA"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.date.accessioned": ["2015-09-09T18:02:20Z"],
+                "dc.date.submitted": ["1991"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="psychology-conflict",
+        )
+
+        evidence = canonical.evaluate_program_metadata_evidence(
+            record,
+            "LICENCIATURA EN PSICOLOGÍA",
+            self.default_policy,
+        )
+
+        self.assertEqual(evidence["confidenceState"], "conflicted")
+        self.assertEqual(evidence["authorityApplicability"], "blocked")
+        self.assertEqual(
+            evidence["matchedRuleId"],
+            "riudg-structural-program-metadata-conflicts-v1",
+        )
+
+    def test_non_conflicted_medicine_record_remains_unassessed(self):
+        record = canonical.source_record(
+            provider="riudg",
+            provider_record_id=(
+                "oai:riudg.udg.mx:20.500.12104/999999"
+            ),
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Medicina no conflictiva"],
+                "dc.degree.name": ["LICENCIATURA EN MEDICINA"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.date.accessioned": ["2015-09-09T18:02:20Z"],
+                "dc.date.submitted": ["1991"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="medicine-unassessed",
+        )
+
+        evidence = canonical.evaluate_program_metadata_evidence(
+            record,
+            "LICENCIATURA EN MEDICINA",
+            self.default_policy,
+        )
+
+        self.assertEqual(evidence["confidenceState"], "unassessed")
+        self.assertEqual(evidence["authorityApplicability"], "allowed")
+        self.assertIsNone(evidence["matchedRuleId"])
+
     def test_default_policy_marks_legacy_psychology_cohort_low_trust(self):
         record = canonical.source_record(
             provider="riudg",
