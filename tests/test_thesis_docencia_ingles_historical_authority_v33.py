@@ -22,10 +22,14 @@ class DocenciaInglesHistoricalAuthorityV33Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v33(self):
+    def test_v33_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v33",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            33,
         )
 
     def test_exact_historical_name_resolves_to_historical_include(self):
