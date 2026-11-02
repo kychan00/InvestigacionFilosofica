@@ -191,6 +191,24 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(audit["closureState"], "closed")
         self.assertEqual(audit["metrics"]["authorityObservedWorks"], 179)
 
+    def test_urban_review_authority_does_not_reopen_boundary_review_contract(self):
+        report = self.empty_scope_report()
+        audit = closure.build_audit(
+            report,
+            self.registry,
+            self.scope_config,
+            self.contract,
+        )
+        reviewed = canonical.resolve_program(
+            "Doctorado en Ciudad, Territorio y Sustentabilidad",
+            self.registry,
+        )
+        self.assertEqual(reviewed["status"], "confirmed")
+        self.assertEqual(reviewed["admissionState"], "review")
+        self.assertEqual(audit["closureState"], "closed")
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 179)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 5})
+
     def test_sample_absence_is_informative_not_a_closure_failure(self):
         report = self.empty_scope_report()
         audit = closure.build_audit(
