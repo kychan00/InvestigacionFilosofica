@@ -339,7 +339,7 @@ def load_program_metadata_evidence_policy(
         raise ValueError("Unsupported program metadata evidence policy")
 
     default = payload.get("defaultResult") or {}
-    allowed_confidence = {"unassessed", "low-trust", "sufficient"}
+    allowed_confidence = {"unassessed", "low-trust", "conflicted", "sufficient"}
     allowed_applicability = {"allowed", "blocked"}
 
     if default.get("confidenceState") not in allowed_confidence:
@@ -361,6 +361,7 @@ def load_program_metadata_evidence_policy(
         match = rule.get("match") or {}
         unsupported = set(match) - {
             "providers",
+            "providerRecordIds",
             "programKeys",
             "accessionDays",
             "allFieldsPresent",
@@ -406,6 +407,7 @@ def evaluate_program_metadata_evidence(
     policy: dict[str, Any],
 ) -> dict[str, Any]:
     provider = clean_text(record.get("provider")) or ""
+    provider_record_id = clean_text(record.get("providerRecordId")) or ""
     program_key = normalize_key(raw_program)
     accession_day = _source_accession_day(record)
 
@@ -422,6 +424,15 @@ def evaluate_program_metadata_evidence(
 
         providers = set(match.get("providers") or [])
         if providers and provider not in providers:
+            continue
+
+        provider_record_ids = set(
+            match.get("providerRecordIds") or []
+        )
+        if (
+            provider_record_ids
+            and provider_record_id not in provider_record_ids
+        ):
             continue
 
         program_keys = {
@@ -462,6 +473,7 @@ def evaluate_program_metadata_evidence(
             "matchedRuleId": rule.get("id"),
             "evidence": {
                 "provider": provider or None,
+                "providerRecordId": provider_record_id or None,
                 "programKey": program_key or None,
                 "accessionDay": accession_day,
             },
@@ -481,6 +493,7 @@ def evaluate_program_metadata_evidence(
         "matchedRuleId": None,
         "evidence": {
             "provider": provider or None,
+            "providerRecordId": provider_record_id or None,
             "programKey": program_key or None,
             "accessionDay": accession_day,
         },
