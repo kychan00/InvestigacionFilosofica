@@ -1029,9 +1029,36 @@
         "https://www.udg.mx/node/79448",
         "https://www.cucsh.udg.mx/convocatorias/convocatoria-abierta-la-maestria-en-investigacion-educativa-generacion-2026-2028"
       ]
+    },
+    {
+      "id": "program:udg:doc-cognicion-aprendizaje",
+      "canonicalName": "Doctorado en Cognición y Aprendizaje",
+      "level": "doctorado",
+      "disciplineFamily": "cognicion-aprendizaje-educacion-cultura-sociedad",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Cognición y Aprendizaje",
+        "DOCTORADO EN COGNICION Y APRENDIZAJE"
+      ],
+      "observedCount": 4,
+      "observedThesisYears": {
+        "min": 2022,
+        "max": 2022
+      },
+      "decisionNote": "Programa vigente de CUCSH adscrito al Departamento de Estudios en Educación. La UdeG lo define como un doctorado de investigación interdisciplinario sobre cognición y aprendizaje, con una mirada biopsicosocial e integración de psicología, educación, neurociencias, cultura y sociedad. Sus LGAC son Procesos cognitivos y Cognición, culturas y sociedad. La presencia estructural de enfoques empíricos, cognitivos y biopsicosociales impide tratarlo como humanities-only, mientras que su componente cultural, social, interpretativo y educativo impide excluirlo automáticamente. Se registra como REVIEW.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/doctorados/doctorado-en-cognicion-y-aprendizaje",
+        "https://www.udg.mx/oferta-academica/doctorado-en-cognicion-y-aprendizaje",
+        "https://cucsh.udg.mx/convocatorias/convocatoria-de-ingreso-doctorado-en-cognicion-y-aprendizaje-2026-2029",
+        "https://www.cucsh.udg.mx/sites/default/files/2026-01/convocatoria-2026-2029-version-acualizada-1.pdf"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v9",
+  "registryRevision": "2026-11-01.v10",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

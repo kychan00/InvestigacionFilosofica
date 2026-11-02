@@ -412,6 +412,68 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             {"review": 1},
         )
 
+    def test_doctorado_cognicion_aprendizaje_boundary_row_matches_program_authority_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado en cognicion y aprendizaje",
+                    "count": 4,
+                    "variants": {
+                        "Doctorado en Cognición y Aprendizaje": 4,
+                    },
+                    "providers": {"riudg": 4},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "id": "work:doctorado-cognicion-aprendizaje",
+                    "programRaw": "Doctorado en Cognición y Aprendizaje",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2022", "quality": "valid"},
+                    "admissionStatus": "review",
+                    "institutionRef": "institution:udg",
+                }
+            ]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item
+            for item in report["rows"]
+            if item["id"] == "scope:education-research"
+        )
+        self.assertEqual(row["boundaryState"], "boundary-review")
+        program = next(
+            item
+            for item in row["programs"]
+            if item["normalizedKey"]
+            == "doctorado en cognicion y aprendizaje"
+        )
+        self.assertEqual(
+            program["programAuthority"]["status"],
+            "confirmed",
+        )
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:doc-cognicion-aprendizaje",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "review",
+        )
+        self.assertEqual(
+            program["currentAdmissionStatuses"],
+            {"review": 1},
+        )
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [

@@ -655,6 +655,52 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "review",
         )
 
+    def test_doctorado_cognicion_aprendizaje_v10_moves_to_scope_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado en cognicion y aprendizaje",
+                    "count": 4,
+                    "variants": {
+                        "Doctorado en Cognición y Aprendizaje": 4,
+                    },
+                    "providers": {"riudg": 4},
+                    "admissionStatuses": {"quarantine": 4},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Doctorado en Cognición y Aprendizaje",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2022", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Doctorado",
+                    "admissionStatus": "review",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:doc-cognicion-aprendizaje",
+        )
+        self.assertEqual(
+            item["authority"]["admissionState"],
+            "review",
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
