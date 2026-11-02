@@ -98,6 +98,29 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(audit["metrics"]["authorityObservedWorks"], 179)
         self.assertEqual(audit["metrics"]["admissionStates"], {"review": 5})
 
+    def test_social_sciences_outside_scope_closure_does_not_reopen_review_boundary(self):
+        report = self.empty_scope_report()
+        audit = closure.build_audit(
+            report,
+            self.registry,
+            self.scope_config,
+            self.contract,
+        )
+
+        for raw in (
+            "Doctorado en Ciencias Sociales",
+            "Maestría en Ciencias Sociales",
+        ):
+            with self.subTest(raw=raw):
+                excluded = canonical.resolve_program(raw, self.registry)
+                self.assertEqual(excluded["status"], "confirmed")
+                self.assertEqual(excluded["admissionState"], "exclude")
+
+        self.assertEqual(audit["closureState"], "closed")
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 179)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 5})
+        self.assertEqual(audit["metrics"]["violations"], 0)
+
     def test_sample_absence_is_informative_not_a_closure_failure(self):
         report = self.empty_scope_report()
         audit = closure.build_audit(
