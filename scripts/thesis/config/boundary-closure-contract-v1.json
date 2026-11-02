@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "thesis-humanities-boundary-closure-contract-v1",
+  "policyRevision": "2026-11-01.v1",
+  "targetScope": "humanities-only",
+  "boundaryState": "boundary-review",
+  "decisionConstraint": "scope-matrix-does-not-change-admission",
+  "expectedBoundaryRows": 3,
+  "expectedProgramKeys": 5,
+  "expectedAuthorityObservedWorks": 179,
+  "expectedAdmissionStates": {
+    "review": 5
+  },
+  "closureRule": "any-change-reopens-boundary-curation"
+}
