@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "thesis-urban-territory-work-review-baseline-v1",
+  "phase": "T2BC",
+  "programAuthorityRevision": "2026-11-02.v34",
+  "scopePolicyRevision": "2026-11-02.v4",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "workReviewPolicyRevision": "2026-11-02.urban-v1",
+  "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
+  "canonicalName": "Doctorado en Ciudad, Territorio y Sustentabilidad",
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 152,
+    "programAdmissionState": "review",
+    "projectedAdmission": {
+      "review": 152
+    },
+    "blockedWorks": 0,
+    "allowedWorks": 152,
+    "unassessedWorks": 152,
+    "academicUnits": {
+      "CUAAD": 152
+    },
+    "abstractAvailable": 147,
+    "missingAbstract": 5,
+    "keywordsAvailable": 73,
+    "handleAvailable": 152,
+    "contributorsAvailable": 152,
+    "validDateWorks": 86,
+    "suspiciousDateWorks": 66,
+    "suspiciousDateValue": "1969-12-31",
+    "observedValidYears": {
+      "min": 2000,
+      "max": 2021
+    },
+    "pendingPrimarySourceReview": 152,
+    "automaticAdmissionDecisions": 0,
+    "admissionChanges": 0
+  },
+  "invariants": [
+    "program-authority-remains-review",
+    "scope-policy-v4-remains-unchanged",
+    "metadata-confidence-v4-remains-unchanged",
+    "title-abstract-keywords-llm-and-embeddings-are-not-sufficient-for-admission",
+    "all-work-decisions-remain-pending-until-primary-source-human-review",
+    "1969-sentinel-dates-do-not-define-program-history",
+    "queue-generation-does-not-change-admission"
+  ]
+}
