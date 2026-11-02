@@ -65,6 +65,10 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             "boundary-review",
         )
         self.assertEqual(
+            states["scope:education-doctorado"],
+            "outside-scope",
+        )
+        self.assertEqual(
             states["scope:gender-studies"],
             "boundary-review",
         )
@@ -305,19 +309,33 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         )
         self.assertEqual(resolved["admissionState"], "exclude")
 
-        row = next(
+        boundary_row = next(
             item
             for item in self.config["rows"]
             if item["id"] == "scope:education-research"
         )
-        self.assertEqual(row["boundaryState"], "boundary-review")
-        self.assertNotIn("doctorado en educacion", row["programKeys"])
+        self.assertEqual(boundary_row["boundaryState"], "boundary-review")
+        self.assertNotIn(
+            "doctorado en educacion",
+            boundary_row["programKeys"],
+        )
         self.assertEqual(
-            row["programKeys"],
+            boundary_row["programKeys"],
             [
                 "maestria en investigacion educativa",
                 "doctorado en cognicion y aprendizaje",
             ],
+        )
+
+        outside_row = next(
+            item
+            for item in self.config["rows"]
+            if item["id"] == "scope:education-doctorado"
+        )
+        self.assertEqual(outside_row["boundaryState"], "outside-scope")
+        self.assertEqual(
+            outside_row["programKeys"],
+            ["doctorado en educacion"],
         )
 
     def test_maestria_investigacion_educativa_boundary_row_matches_program_authority_review(self):
