@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "thesis-program-lineage-evidence-config-v1",
+  "familyId": "udg-agronomy-observed-family-v1",
+  "decisionConstraint": "lineage-evidence-does-not-create-program-authority",
+  "authorityDecision": "hold",
+  "candidateAuthorityId": "program:udg:ingeniero-agronomo",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "evidenceSources": {
+    "currentProgram": "https://cucba.udg.mx/oferta-academica/licenciaturas/ingeniero-agronomo",
+    "currentStatistics": "https://sie.udg.mx/listados/matricula",
+    "historicalStatute": "https://cucba.udg.mx/sites/default/files/pdf/EstatutoOrganicodelCentroUniversitariodeCienciasBiol.pdf",
+    "curriculum2000": "https://cucsur.udg.mx/sites/default/files/adjuntos/dictamen-agronomia.pdf",
+    "report1996_1997": "https://cgpe.udg.mx/sites/default/files/adjuntos/2_informe_1996-1997.pdf",
+    "forestHistory": "https://cucba.udg.mx/documento/historia-dpf",
+    "forestTeaching": "https://cucba.udg.mx/documento/docencia-dpf"
+  },
+  "evidenceClasses": [
+    {
+      "id": "core-confirmed",
+      "authorityRecommendation": "candidate-v27",
+      "evidenceLevel": "direct-institutional",
+      "rationale": "Current UdeG program name and current SIE code 5081300016 at CUCBA/CUCSUR.",
+      "programKeys": [
+        "licenciatura en ingeniero agronomo"
+      ]
+    },
+    {
+      "id": "historical-terminal-exact-confirmed",
+      "authorityRecommendation": "candidate-v27",
+      "evidenceLevel": "direct-historical-governance",
+      "rationale": "Historical CUCBA statute and 1996-1997 UdeG report explicitly list the four terminal Agronomy profiles under Ingeniero Agrónomo; the 2000 curriculum unifies them as specializations within one Ingeniero Agrónomo plan.",
+      "programKeys": [
+        "licenciatura en ingeniero agronomo administrador de empresas agropecuarias",
+        "licenciatura en ingeniero agronomo fitotecnista",
+        "licenciatura en ingeniero agronomo forestal",
+        "licenciatura en ingeniero agronomo zootecnista"
+      ]
+    },
+    {
+      "id": "profile-lineage-supported",
+      "authorityRecommendation": "candidate-v27",
+      "evidenceLevel": "institutional-lineage-supported",
+      "rationale": "Single-profile orientation labels align with institutionally documented terminal profiles; forest/bosques forms also have direct DPF historical continuity.",
+      "programKeys": [
+        "licenciatura en ingeniero agronomo orientacion fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion fitotecnista",
+        "licenciatura en ingeniero agronomo orientacion zootecnia",
+        "licenciatura en ingeniero agronomo orientacion zootecnista",
+        "licenciatura en ingeniero agronomo orientacion bosques",
+        "licenciatura en ingeniero agronomo con orientacion forestal",
+        "licenciatura en ingeniero agronomo orientacion forestal",
+        "licenciatura en ingeniero agronomo especialista en bosques",
+        "licenciatura en ingeniero agronomo orientacion administracion empresas agropecuarias",
+        "licenciatura en ingeniero agronomo orientacion administracion de empresas agropecuarias",
+        "licenciatura en ingeniero agronomo en administracion de empresas agropecuarias"
+      ]
+    },
+    {
+      "id": "repository-attested-hold",
+      "authorityRecommendation": "hold",
+      "evidenceLevel": "repository-only",
+      "rationale": "RIUdeG attests these labels, but no independent UdeG governance source was found establishing them as formal aliases/terminal profiles of the unified program.",
+      "programKeys": [
+        "licenciatura en ingeniero agronomo orientacion suelos",
+        "licenciatura en ingeniero agronomo extensionista",
+        "licenciatura en ingeniero agronomo orientacion ganaderia",
+        "licenciatura en ingeniero agronomo orientacion extension agricola",
+        "licenciatura en ingeniero agronomo orientacion extensionista",
+        "licenciatura en ingeniero agronomo extension agricola",
+        "licenciatura en ingeniero agronomo orientacion en extension agricola",
+        "licenciatura en ingeniero agronomo orientacion agricola",
+        "licenciatura en ingeniero agronomo orientacion en suelos",
+        "licenciatura en ingeniero agronomo con orientacion en suelos",
+        "licenciatura en ingeniero agronomo orientacion extension pecuaria",
+        "licenciatura en ingeniero agronomo orientacion fruticultura y horticultura"
+      ]
+    },
+    {
+      "id": "lexical-current-variant-hold",
+      "authorityRecommendation": "hold",
+      "evidenceLevel": "lexical-only",
+      "rationale": "The phrase Ingeniería en Agronomía appears in corpus metadata and colloquial institutional prose, but the current official program authority is Ingeniero Agrónomo; no exact governance alias is asserted here.",
+      "programKeys": [
+        "ingenieria en agronomia"
+      ]
+    },
+    {
+      "id": "orthographic-variant-hold",
+      "authorityRecommendation": "hold",
+      "evidenceLevel": "metadata-variant-only",
+      "rationale": "Typos, missing spaces or malformed forms are not auto-normalized into Program Authority without exact source-level evidence.",
+      "programKeys": [
+        "licenciatura en ingeniero agronomo extencionista",
+        "licenciatura en ingeniero agronomoorientacion extencion agricola y fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion extencion agricola",
+        "licenciatura en ingeniero agronomo en extesion agricola y ganaderia",
+        "licenciatura en ingeniero agronomo orientacion ganadreia",
+        "licenciatura en ingeniero agronomoorientacionfitotecnia",
+        "licenciatura en ingeniero agronomoorientacionsuelos"
+      ]
+    },
+    {
+      "id": "composite-orientation-hold",
+      "authorityRecommendation": "hold",
+      "evidenceLevel": "repository-composite-only",
+      "rationale": "Multi-orientation combinations are attested in RIUdeG but lack an independent governance bridge proving they are formal aliases of the unified current authority.",
+      "programKeys": [
+        "licenciatura en ingeniero agronomo orientacion fitotecnia extensionista",
+        "licenciatura en ingeniero agronomo orientacion ganaderia fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion fitotecnia ganaderia extension agricola",
+        "licenciatura en ingeniero agronomo orientacion ganaderia extensionista",
+        "licenciatura en ingeniero agronomo orientacion fitotecnia suelos",
+        "licenciatura en ingeniero agronomo orientacion fitotecnista ganaderia agricola",
+        "licenciatura en ingeniero agronomo orientacion forestal fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion fitotecnia y suelos",
+        "licenciatura en ingeniero agronomo orientacion extensionista fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion extension agricola suelos",
+        "licenciatura en ingeniero agronomo forestal fitotecnista",
+        "licenciatura en ingeniero agronomo en administracion de empresas agropecuarias y forestales",
+        "licenciatura en ingeniero agronomo orientacion zootecnia fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion ganaderia fitotecnia extension agricola",
+        "licenciatura en ingeniero agronomo orientacion ganaderia y fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion suelos ganaderia fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion suelos extensionista",
+        "licenciatura en ingeniero agronomo orientacion suelos fitotecnia extensionista",
+        "licenciatura en ingeniero agronomo orientacion zootecnista fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion suelos fitotecnia ganaderia fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion extensionista zootecnia",
+        "licenciatura en ingeniero agronomo orientacion extensionista ganaderia fitotecnia",
+        "licenciatura en ingeniero agronomo orientacion extensionista suelos",
+        "licenciatura en ingeniero agronomo orientacion suelos zootecnia fitotecnia",
+        "licenciatura en ingeniero agronomo fitotecnista ganaderia",
+        "licenciatura en ingeniero agronomo orientacion fitotecnia y extension",
+        "licenciatura en ingeniero agronomo extensionista y suelos",
+        "licenciatura en ingeniero agronomo orientacion extension agricola y zootecnia"
+      ]
+    }
+  ],
+  "expectedSummary": {
+    "familyGroups": 64,
+    "familyWorks": 2493,
+    "candidateV27": {
+      "groups": 16,
+      "works": 2155
+    },
+    "hold": {
+      "groups": 48,
+      "works": 338
+    },
+    "byClass": {
+      "core-confirmed": {
+        "groups": 1,
+        "works": 1381
+      },
+      "historical-terminal-exact-confirmed": {
+        "groups": 4,
+        "works": 102
+      },
+      "profile-lineage-supported": {
+        "groups": 11,
+        "works": 672
+      },
+      "repository-attested-hold": {
+        "groups": 12,
+        "works": 292
+      },
+      "lexical-current-variant-hold": {
+        "groups": 1,
+        "works": 5
+      },
+      "orthographic-variant-hold": {
+        "groups": 7,
+        "works": 7
+      },
+      "composite-orientation-hold": {
+        "groups": 28,
+        "works": 34
+      }
+    },
+    "structuralPairDisposition": {
+      "candidate|candidate": 2,
+      "candidate|hold": 2,
+      "hold|hold": 1
+    }
+  },
+  "invariants": [
+    "every-observed-agronomy-label-is-classified-exactly-once",
+    "lineage-matrix-does-not-create-program-authority",
+    "candidate-v27-is-an-evidence-recommendation-only",
+    "repository-only-or-lexical-only-labels-remain-hold",
+    "no-fuzzy-or-topic-based-aliasing",
+    "program-authority-remains-v26"
+  ]
+}
