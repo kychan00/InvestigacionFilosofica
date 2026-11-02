@@ -649,7 +649,11 @@
         "https://cuaad.udg.mx/oferta/maestrias/mgdc/plan-de-estudios",
         "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-gestion-y-desarrollo-cultural-cuaad",
         "https://observatoriocultural.udgvirtual.udg.mx/contenido/maestria-en-gestion-y-desarrollo-cultural"
-      ]
+      ],
+      "observedThesisYears": {
+        "min": 2008,
+        "max": 2021
+      }
     },
     {
       "id": "program:udg:doc-arte-cultura-interinstitucional",
