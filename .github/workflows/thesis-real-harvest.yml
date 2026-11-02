@@ -11,6 +11,7 @@ on:
       - "scripts/thesis/audit_boundary_closure_v1.py"
       - "scripts/thesis/audit_outside_scope_closure_v1.py"
       - "scripts/thesis/audit_program_metadata_contamination_v1.py"
+      - "scripts/thesis/audit_program_metadata_provenance_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
@@ -21,6 +22,7 @@ on:
       - "tests/test_thesis_outside_scope_closure_audit.py"
       - "tests/test_thesis_political_international_closure_audit.py"
       - "tests/test_thesis_program_metadata_contamination_audit.py"
+      - "tests/test_thesis_program_metadata_provenance_audit.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -30,6 +32,7 @@ on:
       - "docs/THESIS_HUMANITIES_POLITICAL_INTERNATIONAL_OUTSIDE_SCOPE_CLOSURE_V1.md"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_CONTAMINATION_PSYCHOLOGY_V1.md"
+      - "docs/THESIS_PROGRAM_METADATA_PROVENANCE_PSYCHOLOGY_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -77,7 +80,8 @@ jobs:
             scripts/thesis/build_scope_boundary_matrix_v1.py \
             scripts/thesis/audit_boundary_closure_v1.py \
             scripts/thesis/audit_outside_scope_closure_v1.py \
-            scripts/thesis/audit_program_metadata_contamination_v1.py
+            scripts/thesis/audit_program_metadata_contamination_v1.py \
+            scripts/thesis/audit_program_metadata_provenance_v1.py
 
       - name: Offline unit tests
         run: |
@@ -112,6 +116,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_metadata_contamination_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_provenance_audit.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -243,6 +251,102 @@ jobs:
           print(json.dumps({
               "baseline": "closed",
               "expectedMetrics": baseline["expectedMetrics"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build Psychology metadata provenance cohorts
+        run: |
+          rm -rf artifacts/thesis-program-metadata-provenance
+          python scripts/thesis/audit_program_metadata_provenance_v1.py \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --source-records artifacts/thesis-real-harvest/source-records.jsonl.gz \
+            --program-key "licenciatura en psicologia" \
+            --foundation-year 1975 \
+            --legacy-accession-day "2015-09-09" \
+            --output-dir artifacts/thesis-program-metadata-provenance
+
+      - name: Validate Psychology metadata provenance cohorts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-provenance/"
+                  "program-metadata-provenance-cohort.json"
+              ).read_text()
+          )
+
+          assert report["schemaVersion"] == "thesis-program-metadata-provenance-cohort-v1"
+          assert report["decisionConstraint"] == "provenance-does-not-change-admission"
+          assert report["authorityDecision"] == "hold"
+          assert (
+              report["gateRecommendation"]
+              == "do-not-apply-program-authority-unconditionally"
+          )
+          assert report["legacyAccessionDay"] == "2015-09-09"
+
+          legacy = report["cohorts"]["legacy-migration-review"]
+          later = report["cohorts"]["post-migration-review"]
+
+          assert legacy["provenanceState"] == "low-trust-review"
+          assert later["provenanceState"] == "higher-context-review"
+          assert (
+              legacy["metrics"]["works"] + later["metrics"]["works"]
+              == len(report["records"])
+          )
+
+          print(json.dumps({
+              "authorityDecision": report["authorityDecision"],
+              "gateRecommendation": report["gateRecommendation"],
+              "cohorts": report["cohorts"],
+              "anomalyConcentration": report["anomalyConcentration"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Validate full Psychology provenance baseline
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'full'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-provenance/"
+                  "program-metadata-provenance-cohort.json"
+              ).read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "psychology-metadata-provenance-baseline-v1.json"
+              ).read_text()
+          )
+
+          assert report["decisionConstraint"] == baseline["decisionConstraint"]
+          assert report["authorityDecision"] == baseline["authorityDecision"]
+          assert report["legacyAccessionDay"] == baseline["legacyAccessionDay"]
+
+          for cohort_id, expected in baseline["expectedCohorts"].items():
+              actual = report["cohorts"][cohort_id]
+              assert actual["provenanceState"] == expected["provenanceState"]
+              assert actual["metrics"] == expected["metrics"], (
+                  cohort_id,
+                  actual["metrics"],
+                  expected["metrics"],
+              )
+
+          assert (
+              report["anomalyConcentration"]
+              == baseline["requiredAnomalyConcentration"]
+          )
+
+          print(json.dumps({
+              "baseline": "closed",
+              "expectedCohorts": baseline["expectedCohorts"],
+              "anomalyConcentration": baseline["requiredAnomalyConcentration"],
           }, indent=2, ensure_ascii=False))
           PY
 
@@ -510,5 +614,6 @@ jobs:
             artifacts/thesis-outside-scope-closure/
             artifacts/thesis-political-international-closure/
             artifacts/thesis-program-metadata-contamination/
+            artifacts/thesis-program-metadata-provenance/
           if-no-files-found: error
           retention-days: 14
