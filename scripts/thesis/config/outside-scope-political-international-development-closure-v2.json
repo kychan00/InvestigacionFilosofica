@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "thesis-humanities-outside-scope-closure-contract-v1",
+  "policyRevision": "2026-11-02.v3",
+  "closureId": "political-international-development-v2",
+  "targetScope": "humanities-only",
+  "boundaryState": "outside-scope",
+  "decisionConstraint": "scope-matrix-does-not-change-admission",
+  "rows": [
+    {
+      "id": "scope:political-international-development",
+      "programs": [
+        {
+          "normalizedKey": "maestria en ciencia politica",
+          "programRef": "program:udg:mae-ciencia-politica",
+          "admissionState": "exclude",
+          "authorityObservedCount": 51
+        },
+        {
+          "normalizedKey": "maestria en gestion y desarrollo social",
+          "programRef": "program:udg:mae-gestion-desarrollo-social",
+          "admissionState": "exclude",
+          "authorityObservedCount": 106
+        },
+        {
+          "normalizedKey": "licenciatura en relaciones internacionales",
+          "programRef": "program:udg:lic-relaciones-internacionales",
+          "admissionState": "exclude",
+          "authorityObservedCount": 48
+        },
+        {
+          "normalizedKey": "maestria en global politics and transpacific studies",
+          "programRef": "program:udg:mae-global-politics-transpacific",
+          "admissionState": "exclude",
+          "authorityObservedCount": 7
+        }
+      ]
+    }
+  ],
+  "expectedRows": 1,
+  "expectedProgramKeys": 4,
+  "expectedAuthorityObservedWorks": 212,
+  "expectedAdmissionStates": {
+    "exclude": 4
+  },
+  "closureRule": "any-change-reopens-outside-scope-curation"
+}
