@@ -183,6 +183,9 @@ jobs:
           # V31: Doctorado en Educación REVIEW -> EXCLUDE.
           expected_global["review"] -= 73
           expected_global["exclude"] += 73
+          # V32: four historical architecture-history works REVIEW -> INCLUDE.
+          expected_global["review"] -= 4
+          expected_global["include"] += 4
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
