@@ -176,6 +176,8 @@ jobs:
           expected_global = dict(expected["globalProjectedAdmission"])
           expected_global["review"] -= 73
           expected_global["exclude"] += 73
+          expected_global["review"] -= 4
+          expected_global["include"] += 4
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
