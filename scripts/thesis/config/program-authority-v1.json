@@ -976,9 +976,35 @@
         "https://vreddiehgdl.cucsh.udg.mx/maestrias/maestria_en_comunicacion/plan_de_estudios",
         "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20la%20Cultura/estructuradiv"
       ]
+    },
+    {
+      "id": "program:udg:doc-educacion",
+      "canonicalName": "Doctorado en Educación",
+      "level": "doctorado",
+      "disciplineFamily": "educacion-ciencias-sociales-humanidades",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Educación",
+        "DOCTORADO EN EDUCACION"
+      ],
+      "observedCount": 73,
+      "observedThesisYears": {
+        "min": 2005,
+        "max": 2024
+      },
+      "decisionNote": "Programa vigente de CUCSH adscrito al Departamento de Estudios en Educación. La UdeG lo define como formación de investigadores en el campo de las ciencias de la educación y declara explícitamente que su estudio exige un acercamiento multidisciplinario con convergencia de disciplinas de Ciencias Sociales y Humanidades. Sus LGAC combinan comunicación, procesos de enseñanza-aprendizaje, cultura, organizaciones, mercados de trabajo, políticas e inclusión. La identidad programática está confirmada, pero su pertenencia a un corpus humanities-only no puede resolverse en bloque; se registra como REVIEW.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/doctorados/doctorado-en-educacion",
+        "https://www.udg.mx/oferta-academica/posgrados/doctorados/doctorado-en-educacion",
+        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v7",
+  "registryRevision": "2026-11-01.v8",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
