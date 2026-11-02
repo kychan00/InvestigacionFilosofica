@@ -452,6 +452,70 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             by_key,
         )
 
+    def test_art_theory_v6_is_resolved_and_omitted_from_default_queue(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en teoria del arte",
+                    "count": 1,
+                    "variants": {
+                        "Maestría En Teoria Del Arte": 1,
+                    },
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"quarantine": 1},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": "licenciatura en cultura fisica y deportes",
+                    "count": 11,
+                    "variants": {
+                        "Licenciatura en Cultura Física y Deportes": 11,
+                    },
+                    "providers": {"riudg": 11},
+                    "admissionStatuses": {"quarantine": 11},
+                    "programRefs": {},
+                },
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Maestría En Teoria Del Arte",
+                    "academicUnitRaw": "CUAAD",
+                    "date": {"value": "2004-06", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "include",
+                },
+                {
+                    "programRaw": "Licenciatura en Cultura Física y Deportes",
+                    "academicUnitRaw": "CUCS",
+                    "date": {"value": "2020", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Licenciatura",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        self.assertEqual(
+            payload["metrics"]["allProgramStates"],
+            {"resolved": 1, "unresolved": 1},
+        )
+        self.assertEqual(
+            payload["items"][0]["normalizedKey"],
+            "licenciatura en cultura fisica y deportes",
+        )
+        self.assertEqual(
+            payload["items"][0]["curationLane"],
+            "humanities-candidate",
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [

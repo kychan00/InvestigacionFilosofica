@@ -224,6 +224,61 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_art_theory_v6_reprojects_to_include(self):
+        observed = {
+            "schemaVersion": "fixture",
+            "programs": [
+                {
+                    "normalizedKey": "maestria en teoria del arte",
+                    "count": 1,
+                    "variants": {
+                        "Maestría En Teoria Del Arte": 1,
+                    },
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"quarantine": 1},
+                    "programRefs": {},
+                }
+            ],
+        }
+        corpus = {
+            "buildRevision": "fixture",
+            "programAuthorityRevision": "old",
+            "works": [
+                self.work(
+                    work_id="art-theory",
+                    program="Maestría En Teoria Del Arte",
+                    institution_ref="institution:udg",
+                    admission="quarantine",
+                    raw_date="2004-06-00",
+                )
+            ],
+        }
+
+        result = audit.build_audit(
+            observed=observed,
+            corpus=corpus,
+            registry=self.registry,
+            reference_year=2026,
+            top=10,
+        )
+
+        self.assertEqual(
+            result["metrics"]["projectedAdmission"],
+            {"include": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programStateWorks"],
+            {"include": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programQueue"]["queueItems"],
+            0,
+        )
+        self.assertEqual(
+            result["programAuthorityRevision"],
+            "2026-11-01.v6",
+        )
+
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
         observed = {
             "schemaVersion": "fixture",
