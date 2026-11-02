@@ -110,7 +110,9 @@ class VeterinaryProgramAuthorityV26Test(unittest.TestCase):
             "LICENCIATURA EN VETERINARIO Y ZOOTECNISTA",
             self.registry,
         )
-        self.assertIsNone(resolved)
+        self.assertEqual(resolved["status"], "unknown")
+        self.assertIsNone(resolved["programRef"])
+        self.assertIsNone(resolved["canonicalName"])
 
     def test_conflicted_veterinary_record_remains_quarantine(self):
         candidate = canonical.canonical_candidate(
