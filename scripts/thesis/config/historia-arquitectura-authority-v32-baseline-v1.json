@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "thesis-historia-arquitectura-authority-v32-baseline-v1",
+  "phase": "T2AZ",
+  "registryRevision": "2026-11-02.v32",
+  "scopePolicyRevision": "2026-11-02.v4",
+  "programRef": "program:udg:mae-historia-arquitectura-mexicana-historica",
+  "canonicalName": "Maestría en Historia de la Arquitectura Mexicana",
+  "admissionState": "include",
+  "administrativeKey": "261508",
+  "lineageRef": "program:udg:mae-ciencias-arquitectura",
+  "sourceV31ArtifactId": 13175689829,
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 4,
+    "blockedWorks": 0,
+    "academicUnits": {
+      "CUAAD": 4
+    },
+    "observedYears": {
+      "min": 2004,
+      "max": 2009
+    },
+    "admissionStatuses": {
+      "include": 4
+    },
+    "baseProgramRef": "program:udg:mae-ciencias-arquitectura",
+    "baseProgramWorks": 112,
+    "baseProgramAdmissionState": "review",
+    "conservationHistoricalRef": "program:udg:mae-conservacion-patrimonio-edificado-historica",
+    "conservationHistoricalWorks": 5,
+    "conservationHistoricalAdmissionState": "review",
+    "globalProjectedAdmission": {
+      "include": 433,
+      "review": 687,
+      "quarantine": 18964,
+      "exclude": 7490,
+      "reject-source": 2
+    }
+  },
+  "invariants": [
+    "exact-administrative-key-supports-separate-historical-authority",
+    "historical-history-architecture-authority-is-include",
+    "current-mca-base-remains-review",
+    "historical-conservation-remains-review",
+    "lineage-does-not-propagate-admission",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-policy-v4-remains-unchanged",
+    "prior-authorities-v25-v31-remain-stable"
+  ]
+}
