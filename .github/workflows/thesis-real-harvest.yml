@@ -43,6 +43,7 @@ on:
       - "docs/THESIS_PROGRAM_AUTHORITY_PSYCHOLOGY_V24.md"
       - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_MEDICINE_V2.md"
       - "docs/THESIS_PROGRAM_METADATA_CONFLICT_REGISTRY_MEDICINE_V1.md"
+      - "docs/THESIS_PROGRAM_METADATA_ITEM_CONFLICT_PROTECTION_V2.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -737,7 +738,7 @@ jobs:
               report["decisionConstraint"]
               == "metadata-confidence-does-not-create-program-authority"
           )
-          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v1"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v2"
           assert report["metrics"]["works"] > 0
           assert report["metrics"]["violations"] == 0
           assert report["violations"] == []
@@ -771,22 +772,45 @@ jobs:
           )
 
           by_rule = report["metrics"]["ruleMatches"]
+          assert (
+              report["metrics"]["confidenceStates"]
+              == baseline["expectedConfidenceStates"]
+          )
+          assert (
+              report["metrics"]["authorityApplicability"]
+              == baseline["expectedAuthorityApplicability"]
+          )
+
+          for rule_id, expected in baseline["expectedRules"].items():
+              assert by_rule.get(rule_id, 0) == expected["matchedWorks"]
+
           queue_rows = {
               row["normalizedKey"]: row
               for row in report["metadataReviewQueueItems"]
           }
-
-          for rule_id, expected in baseline["expectedRules"].items():
-              assert by_rule.get(rule_id, 0) == expected["matchedWorks"]
-              row = queue_rows[expected["programKey"]]
+          for program_key, expected in (
+              baseline["expectedMetadataReviewPrograms"].items()
+          ):
+              row = queue_rows[program_key]
+              evidence = row["programMetadataEvidence"]
+              assert row["queueState"] == expected["queueState"]
               assert row["curationLane"] == expected["curationLane"]
+              assert evidence["blockedWorks"] == expected["blockedWorks"]
               assert (
-                  row["programMetadataEvidence"]["blockedWorks"]
-                  == expected["matchedWorks"]
+                  evidence["confidenceStates"]
+                  == expected["confidenceStates"]
+              )
+              assert (
+                  evidence["authorityApplicability"]
+                  == expected["authorityApplicability"]
               )
 
           print(json.dumps({
               "baseline": "closed",
+              "confidenceStates": report["metrics"]["confidenceStates"],
+              "authorityApplicability": report["metrics"][
+                  "authorityApplicability"
+              ],
               "ruleMatches": by_rule,
               "metadataReviewQueueItems": report[
                   "metadataReviewQueueItems"
