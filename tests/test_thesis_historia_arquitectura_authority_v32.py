@@ -70,6 +70,16 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
         policy = canonical.load_program_metadata_evidence_policy()
         self.assertEqual(policy["policyRevision"], "2026-11-02.v4")
 
+    def test_scope_policy_stays_v4(self):
+        scope = json.loads(
+            (
+                ROOT
+                / "scripts/thesis/config/"
+                / "scope-boundary-matrix-v1.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(scope["policyRevision"], "2026-11-02.v4")
+
 
 if __name__ == "__main__":
     unittest.main()
