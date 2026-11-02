@@ -189,6 +189,9 @@ jobs:
           # V33: one historical English-teaching work REVIEW -> INCLUDE.
           expected_global["review"] -= 1
           expected_global["include"] += 1
+          # V34: forty Gestión y Desarrollo Cultural works REVIEW -> INCLUDE.
+          expected_global["review"] -= 40
+          expected_global["include"] += 40
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
