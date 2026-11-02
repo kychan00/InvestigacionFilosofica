@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-program-metadata-evidence-confidence-v1",
-  "policyRevision": "2026-11-02.v1",
+  "policyRevision": "2026-11-02.v2",
   "decisionConstraint": "metadata-confidence-does-not-create-program-authority",
   "defaultResult": {
     "confidenceState": "unassessed",
@@ -8,6 +8,46 @@
     "reasonCode": "no-metadata-confidence-rule"
   },
   "rules": [
+    {
+      "id": "riudg-structural-program-metadata-conflicts-v1",
+      "priority": 200,
+      "match": {
+        "providers": [
+          "riudg"
+        ],
+        "providerRecordIds": [
+          "oai:riudg.udg.mx:20.500.12104/21932",
+          "oai:riudg.udg.mx:20.500.12104/32360",
+          "oai:riudg.udg.mx:20.500.12104/32769",
+          "oai:riudg.udg.mx:20.500.12104/33028",
+          "oai:riudg.udg.mx:20.500.12104/33043",
+          "oai:riudg.udg.mx:20.500.12104/33046",
+          "oai:riudg.udg.mx:20.500.12104/33068",
+          "oai:riudg.udg.mx:20.500.12104/33107",
+          "oai:riudg.udg.mx:20.500.12104/33570",
+          "oai:riudg.udg.mx:20.500.12104/33681",
+          "oai:riudg.udg.mx:20.500.12104/33719",
+          "oai:riudg.udg.mx:20.500.12104/33759",
+          "oai:riudg.udg.mx:20.500.12104/33843",
+          "oai:riudg.udg.mx:20.500.12104/33923",
+          "oai:riudg.udg.mx:20.500.12104/33975",
+          "oai:riudg.udg.mx:20.500.12104/34005",
+          "oai:riudg.udg.mx:20.500.12104/34016",
+          "oai:riudg.udg.mx:20.500.12104/34103"
+        ]
+      },
+      "result": {
+        "confidenceState": "conflicted",
+        "authorityApplicability": "blocked",
+        "reasonCode": "structural-cross-program-metadata-conflict"
+      },
+      "evidence": [
+        "docs/THESIS_PROGRAM_METADATA_INTEGRITY_MEDICINE_V2.md",
+        "docs/THESIS_PROGRAM_METADATA_CONFLICT_REGISTRY_MEDICINE_V1.md",
+        "scripts/thesis/config/medicine-program-metadata-conflict-registry-baseline-v1.json"
+      ],
+      "note": "Generic item-level matcher over stable source providerRecordId values. Both sides of each structural conflict are blocked symmetrically; no program-specific engine branch is used."
+    },
     {
       "id": "riudg-psychology-legacy-migration-2015-09-09",
       "priority": 100,
@@ -42,6 +82,8 @@
     "title-and-keywords-never-control-program-metadata-confidence",
     "blocked-confidence-never-applies-program-authority",
     "unassessed-preserves-existing-authority-behavior",
-    "confidence-policy-never-creates-program-authority"
+    "confidence-policy-never-creates-program-authority",
+    "structural-conflict-records-block-authority-symmetrically",
+    "item-level-conflict-rules-outrank-broader-cohort-rules"
   ]
 }
