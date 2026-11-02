@@ -814,6 +814,11 @@ def markdown_summary(
             f"{metrics['humanitiesActionWorks']} tesis"
         ),
         (
+            "- revisión por obra separada: "
+            f"{metrics['workReviewQueueItems']} programas / "
+            f"{metrics['workReviewWorks']} tesis"
+        ),
+        (
             "- high-impact sin señal humanística (sólo auditoría): "
             f"{metrics['deferredHighImpactItems']} programas / "
             f"{metrics['deferredHighImpactWorks']} tesis"
@@ -870,7 +875,9 @@ def markdown_summary(
             "AcademicProgramAuthority.",
             "",
             "Para elegir la siguiente fase del corpus `humanities-only`, "
-            "se debe usar exclusivamente `humanitiesActionItems`. Los carriles "
+            "se debe usar exclusivamente `humanitiesActionItems`. Los programas "
+            "con revisión programática agotada pasan a `workReviewItems` y no "
+            "pueden bloquear la siguiente autoridad. Los carriles "
             "`high-impact-triage` y `backlog` permanecen en `items` sólo como "
             "auditoría/observabilidad y nunca pueden impulsar una nueva "
             "Program Authority por frecuencia.",
