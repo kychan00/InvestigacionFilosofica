@@ -33,6 +33,10 @@ queue = load_module(
     "metadata_confidence_queue",
     "build_program_curation_queue_v1.py",
 )
+confidence_audit = load_module(
+    "metadata_confidence_audit",
+    "audit_program_metadata_evidence_confidence_v1.py",
+)
 
 
 class ThesisProgramMetadataEvidenceConfidenceTest(unittest.TestCase):
@@ -319,6 +323,54 @@ class ThesisProgramMetadataEvidenceConfidenceTest(unittest.TestCase):
             projection["explanationCode"],
             "program-authority-blocked-by-metadata-confidence",
         )
+
+    def test_confidence_audit_surfaces_blocked_rule_and_queue_item(self):
+        corpus = {
+            "programMetadataEvidenceRevision": "fixture.v1",
+            "programAuthorityRevision": "fixture-authority",
+            "works": [
+                {
+                    "id": "audit-blocked",
+                    "programRaw": "Programa Sintético Sensible",
+                    "programRef": "program:fixture:synthetic-sensitive",
+                    "admissionStatus": "quarantine",
+                    "programMetadataEvidence": {
+                        "confidenceState": "low-trust",
+                        "authorityApplicability": "blocked",
+                        "matchedRuleId": "fixture-low-trust",
+                    },
+                }
+            ],
+        }
+        queue_payload = {
+            "items": [
+                {
+                    "rank": 1,
+                    "normalizedKey": "programa sintetico sensible",
+                    "count": 1,
+                    "queueState": "metadata-review",
+                    "curationLane": "metadata-confidence-review",
+                    "authority": {
+                        "id": "program:fixture:synthetic-sensitive"
+                    },
+                    "programMetadataEvidence": {
+                        "confidenceStates": {"low-trust": 1},
+                        "authorityApplicability": {"blocked": 1},
+                        "blockedWorks": 1,
+                    },
+                }
+            ]
+        }
+
+        report = confidence_audit.build_audit(corpus, queue_payload)
+
+        self.assertEqual(report["metrics"]["blockedWorks"], 1)
+        self.assertEqual(report["metrics"]["metadataReviewQueueItems"], 1)
+        self.assertEqual(
+            report["metrics"]["ruleMatches"],
+            {"fixture-low-trust": 1},
+        )
+        self.assertEqual(report["metrics"]["violations"], 0)
 
     def test_queue_keeps_metadata_blocked_program_visible(self):
         registry = self.synthetic_registry()
