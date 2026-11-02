@@ -1,0 +1,471 @@
+name: Thesis agronomy Program Authority V27
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/build_canonical_corpus_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/audit_program_metadata_family_v1.py"
+      - "scripts/thesis/build_program_lineage_evidence_matrix_v1.py"
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/program-metadata-evidence-confidence-v1.json"
+      - "scripts/thesis/config/agronomy-program-lineage-evidence-v1.json"
+      - "scripts/thesis/config/agronomy-program-authority-v27-baseline-v1.json"
+      - "tests/test_thesis_agronomy_program_authority_v27.py"
+      - "tests/test_thesis_medicine_program_authority_v25.py"
+      - "tests/test_thesis_veterinary_program_authority_v26.py"
+      - "tests/test_thesis_agronomy_metadata_conflict_protection.py"
+      - "tests/test_thesis_program_lineage_evidence_matrix.py"
+      - "docs/THESIS_PROGRAM_AUTHORITY_AGRONOMY_V27.md"
+      - "docs/THESIS_PROGRAM_LINEAGE_AGRONOMY_V1.md"
+      - ".github/workflows/thesis-agronomy-program-authority-v27.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile
+        run: |
+          python -m py_compile \
+            scripts/thesis/build_canonical_corpus_v1.py \
+            scripts/thesis/audit_program_coverage_v1.py \
+            scripts/thesis/build_program_curation_queue_v1.py \
+            scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            scripts/thesis/audit_program_metadata_family_v1.py \
+            scripts/thesis/build_program_lineage_evidence_matrix_v1.py
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_agronomy_program_authority_v27.py" -v
+          python -m unittest discover -s tests -p "test_thesis_medicine_program_authority_v25.py" -v
+          python -m unittest discover -s tests -p "test_thesis_veterinary_program_authority_v26.py" -v
+          python -m unittest discover -s tests -p "test_thesis_agronomy_metadata_conflict_protection.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_lineage_evidence_matrix.py" -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-agronomy-v27
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-agronomy-v27
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-agronomy-v27/canonical-reprojected.json \
+            --output-report artifacts/thesis-agronomy-v27/confidence-reprojection.json
+
+      - name: Rebuild Agronomy lineage evidence
+        run: |
+          python scripts/thesis/audit_program_metadata_family_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --normalized-program-regex '^(?:licenciatura en ingeniero agronom|ingenieria en agronomia)' \
+            --family-id "udg-agronomy-observed-family-v1" \
+            --output-dir artifacts/thesis-agronomy-v27/family
+
+          python scripts/thesis/build_program_lineage_evidence_matrix_v1.py \
+            --family-audit artifacts/thesis-agronomy-v27/family/program-metadata-family-audit.json \
+            --config scripts/thesis/config/agronomy-program-lineage-evidence-v1.json \
+            --output-dir artifacts/thesis-agronomy-v27/matrix
+
+      - name: Reproject partial V27 over frozen full baseline
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+
+          root = Path("artifacts/thesis-agronomy-v27")
+          corpus = json.loads((root / "canonical-reprojected.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-full-baseline/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+          policy = canonical.load_program_metadata_evidence_policy()
+          matrix = json.loads(
+              (root / "matrix" / "program-lineage-evidence-matrix.json").read_text()
+          )
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed,
+              projection["programDimensions"],
+          )
+          queue = curation.build_queue(
+              projected_observed,
+              projected,
+              registry,
+          )
+
+          program_ref = "program:udg:ingeniero-agronomo"
+          candidate_keys = {
+              row["normalizedKey"]
+              for row in matrix["rows"]
+              if row["authorityRecommendation"] == "candidate-v27"
+          }
+          hold_keys = {
+              row["normalizedKey"]
+              for row in matrix["rows"]
+              if row["authorityRecommendation"] == "hold"
+          }
+
+          selected = [
+              work
+              for work in projected["works"]
+              if work.get("programRef") == program_ref
+          ]
+
+          by_raw = {}
+          for work in selected:
+              key = canonical.normalize_key(work.get("programRaw"))
+              row = by_raw.setdefault(
+                  key,
+                  {
+                      "works": 0,
+                      "blockedWorks": 0,
+                      "authorityApplicableWorks": 0,
+                      "projectedAdmissionStatuses": Counter(),
+                  },
+              )
+              row["works"] += 1
+              evidence = work.get("programMetadataEvidence") or {}
+              if evidence.get("authorityApplicability") == "blocked":
+                  row["blockedWorks"] += 1
+              else:
+                  row["authorityApplicableWorks"] += 1
+              row["projectedAdmissionStatuses"][
+                  work.get("admissionStatus") or "unknown"
+              ] += 1
+
+          serial_by_raw = {
+              key: {
+                  **row,
+                  "projectedAdmissionStatuses": dict(
+                      row["projectedAdmissionStatuses"].most_common()
+                  ),
+              }
+              for key, row in by_raw.items()
+          }
+
+          candidate_statuses = Counter(
+              work.get("admissionStatus") or "unknown"
+              for work in selected
+          )
+          candidate_blocked = sum(
+              1
+              for work in selected
+              if (
+                  (work.get("programMetadataEvidence") or {}).get(
+                      "authorityApplicability"
+                  )
+                  == "blocked"
+              )
+          )
+
+          hold = [
+              work
+              for work in projected["works"]
+              if canonical.normalize_key(work.get("programRaw")) in hold_keys
+          ]
+          hold_statuses = Counter(
+              work.get("admissionStatus") or "unknown"
+              for work in hold
+          )
+          hold_program_refs = Counter(
+              work.get("programRef") or "<null>"
+              for work in hold
+          )
+          hold_blocked = sum(
+              1
+              for work in hold
+              if (
+                  (work.get("programMetadataEvidence") or {}).get(
+                      "authorityApplicability"
+                  )
+                  == "blocked"
+              )
+          )
+
+          queue_rows = {
+              item["normalizedKey"]: item
+              for item in queue["items"]
+          }
+          authority = next(
+              program
+              for program in registry["programs"]
+              if program["id"] == program_ref
+          )
+
+          payload = {
+              "registryRevision": registry["registryRevision"],
+              "programMetadataEvidenceRevision": policy["policyRevision"],
+              "programRef": program_ref,
+              "canonicalName": authority["canonicalName"],
+              "aliases": authority["aliases"],
+              "observedWorks": len(selected),
+              "blockedWorks": candidate_blocked,
+              "authorityApplicableWorks": len(selected) - candidate_blocked,
+              "projectedAdmissionStatuses": dict(
+                  candidate_statuses.most_common()
+              ),
+              "rawGroups": serial_by_raw,
+              "candidateKeys": sorted(candidate_keys),
+              "candidateQueue": {
+                  key: queue_rows.get(key)
+                  for key in sorted(candidate_keys)
+              },
+              "hold": {
+                  "keys": sorted(hold_keys),
+                  "works": len(hold),
+                  "blockedWorks": hold_blocked,
+                  "programRefs": dict(hold_program_refs.most_common()),
+                  "projectedAdmissionStatuses": dict(
+                      hold_statuses.most_common()
+                  ),
+                  "queue": {
+                      key: queue_rows.get(key)
+                      for key in sorted(hold_keys)
+                  },
+              },
+              "programRefWorks": projection["programRefWorks"].get(
+                  program_ref,
+                  0,
+              ),
+              "gateBlockers": [
+                  item
+                  for item in projection["gateBlockers"]
+                  if item.get("programRef") == program_ref
+              ],
+              "globalProjectedAdmission": projection["projectedAdmission"],
+              "lineageSummary": matrix["summary"],
+          }
+
+          (root / "v27-authority-reprojection.json").write_text(
+              json.dumps(
+                  payload,
+                  ensure_ascii=False,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n"
+          )
+
+          print(json.dumps(payload, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Validate frozen full Agronomy Program Authority V27 baseline
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "agronomy-program-authority-v27-baseline-v1.json"
+              ).read_text()
+          )
+          lineage = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "agronomy-program-lineage-evidence-v1.json"
+              ).read_text()
+          )
+          report = json.loads(
+              Path(
+                  "artifacts/thesis-agronomy-v27/"
+                  "v27-authority-reprojection.json"
+              ).read_text()
+          )
+          expected = baseline["expectedFull"]
+
+          assert report["registryRevision"] == baseline["registryRevision"]
+          assert report["registryRevision"] == "2026-11-02.v27"
+          assert (
+              report["programMetadataEvidenceRevision"]
+              == baseline["programMetadataEvidenceRevision"]
+              == "2026-11-02.v4"
+          )
+          assert report["programRef"] == baseline["programRef"]
+          assert report["canonicalName"] == baseline["canonicalName"]
+          assert report["observedWorks"] == expected["observedWorks"]
+          assert report["blockedWorks"] == expected["blockedWorks"]
+          assert (
+              report["authorityApplicableWorks"]
+              == expected["authorityApplicableWorks"]
+          )
+          assert (
+              report["projectedAdmissionStatuses"]
+              == expected["projectedAdmissionStatuses"]
+          )
+          assert report["programRefWorks"] == expected["observedWorks"]
+          assert (
+              report["globalProjectedAdmission"]
+              == expected["globalProjectedAdmission"]
+          )
+          assert sum(report["globalProjectedAdmission"].values()) == 27576
+
+          candidate_keys = {
+              key
+              for evidence_class in lineage["evidenceClasses"]
+              if evidence_class["authorityRecommendation"] == "candidate-v27"
+              for key in evidence_class["programKeys"]
+          }
+          hold_keys = {
+              key
+              for evidence_class in lineage["evidenceClasses"]
+              if evidence_class["authorityRecommendation"] == "hold"
+              for key in evidence_class["programKeys"]
+          }
+
+          assert len(candidate_keys) == 16
+          assert len(hold_keys) == 48
+          assert set(report["candidateKeys"]) == candidate_keys
+          assert set(report["aliases"]) == candidate_keys
+          assert set(report["rawGroups"]) == candidate_keys
+
+          for key, group_expected in expected["candidateRawGroups"].items():
+              actual = report["rawGroups"][key]
+              assert actual["works"] == group_expected["works"]
+              assert (
+                  actual["blockedWorks"]
+                  == group_expected["blockedWorks"]
+              )
+              assert (
+                  actual["authorityApplicableWorks"]
+                  == group_expected["authorityApplicableWorks"]
+              )
+              assert (
+                  actual["projectedAdmissionStatuses"]
+                  == group_expected["projectedAdmissionStatuses"]
+              )
+
+              queue_item = report["candidateQueue"][key]
+              assert (
+                  queue_item is not None
+              ) == group_expected["expectedQueuePresenceAfterProjection"]
+              if queue_item is not None:
+                  assert queue_item["authority"]["id"] == baseline["programRef"]
+                  assert queue_item["authority"]["admissionState"] == "exclude"
+                  assert (
+                      queue_item["queueState"]
+                      == group_expected["queueState"]
+                  )
+                  assert (
+                      queue_item["curationLane"]
+                      == group_expected["curationLane"]
+                  )
+                  assert (
+                      queue_item["programMetadataEvidence"]["blockedWorks"]
+                      == group_expected["blockedWorks"]
+                  )
+
+          hold_expected = expected["hold"]
+          hold = report["hold"]
+          assert set(hold["keys"]) == hold_keys
+          assert len(hold_keys) == hold_expected["groups"]
+          assert hold["works"] == hold_expected["works"]
+          assert hold["blockedWorks"] == hold_expected["blockedWorks"]
+          assert hold["programRefs"] == {"<null>": hold_expected["works"]}
+          assert (
+              hold["projectedAdmissionStatuses"]
+              == hold_expected["projectedAdmissionStatuses"]
+          )
+          assert all(item is not None for item in hold["queue"].values())
+          assert all(
+              item["authority"] is None
+              for item in hold["queue"].values()
+          )
+
+          assert len(report["gateBlockers"]) == expected["blockedWorks"]
+          assert all(
+              item["projectedAdmissionStatus"] == "quarantine"
+              for item in report["gateBlockers"]
+          )
+          assert all(
+              item["programAdmissionState"] == "exclude"
+              for item in report["gateBlockers"]
+          )
+
+          assert (
+              report["lineageSummary"]["candidateV27"]
+              == {"groups": 16, "works": 2155}
+          )
+          assert (
+              report["lineageSummary"]["hold"]
+              == {"groups": 48, "works": 338}
+          )
+          assert (
+              report["lineageSummary"]["structuralPairDisposition"]
+              == expected["structuralPairDisposition"]
+          )
+          assert expected["knownStructuralPairs"] == 5
+
+          print(json.dumps({
+              "baseline": "closed",
+              "authority": {
+                  "programRef": report["programRef"],
+                  "observedWorks": report["observedWorks"],
+                  "blockedWorks": report["blockedWorks"],
+                  "authorityApplicableWorks": report[
+                      "authorityApplicableWorks"
+                  ],
+                  "projectedAdmissionStatuses": report[
+                      "projectedAdmissionStatuses"
+                  ],
+              },
+              "hold": {
+                  "groups": len(hold_keys),
+                  "works": hold["works"],
+                  "blockedWorks": hold["blockedWorks"],
+                  "programRefs": hold["programRefs"],
+              },
+              "globalProjectedAdmission": report[
+                  "globalProjectedAdmission"
+              ],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Upload Agronomy V27 artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-agronomy-program-authority-v27
+          path: artifacts/thesis-agronomy-v27/
+          if-no-files-found: error
+          retention-days: 14
