@@ -128,7 +128,10 @@ V34 mantiene la separación:
 - SUV/CUGDL;
 - orientación de investigación;
 - 15 works observados;
-- INCLUDE.
+- Program Authority: INCLUDE;
+- proyección full actual: 11 INCLUDE + 4 QUARANTINE.
+
+Las cuatro obras QUARANTINE proceden de UDGVirtual y conservan `institutionRef = null` / `unresolved-institution`. V34 no las promueve: una Program Authority INCLUDE no puede sobreponerse a una institución unresolved.
 
 ### Maestría en Gestión y Desarrollo Cultural
 
