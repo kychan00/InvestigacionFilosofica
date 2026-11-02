@@ -665,6 +665,7 @@ jobs:
           allowed_lanes = {
               "metadata-confidence-review",
               "scope-review",
+              "work-level-review",
               "humanities-candidate",
               "unit-triage",
               "high-impact-triage",
