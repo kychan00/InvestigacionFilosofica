@@ -1593,6 +1593,47 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_doctorado_derechos_humanos_authority_v21_reviews_program(self):
+        for raw in (
+            "Doctorado en Derechos Humanos",
+            "DOCTORADO EN DERECHOS HUMANOS",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:doc-derechos-humanos",
+                )
+                self.assertEqual(resolved["admissionState"], "review")
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="doctorado-derechos-humanos-boundary",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Teoría y filosofía de los derechos humanos y justicia social"],
+                "dc.degree.name": ["Doctorado en Derechos Humanos"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUTONALA"],
+                "dc.date.issued": ["2024-06-00"],
+                "dc.type": ["Tesis de Doctorado"],
+            },
+            raw_payload="doctorado-derechos-humanos-boundary",
+        )
+        corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:doc-derechos-humanos",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
