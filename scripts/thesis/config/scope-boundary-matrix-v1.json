@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-humanities-scope-boundary-matrix-v1",
-  "policyRevision": "2026-11-01.v1",
+  "policyRevision": "2026-11-01.v2",
   "decisionConstraint": "scope-matrix-does-not-change-admission",
   "targetScope": "humanities-only",
   "policyPrinciples": [
@@ -152,17 +152,19 @@
     {
       "id": "scope:urban-territory-sustainability",
       "label": "Ciudad, territorio y sustentabilidad",
-      "boundaryState": "outside-scope",
+      "boundaryState": "boundary-review",
       "programKeys": [
         "doctorado en ciudad territorio y sustentabilidad"
       ],
-      "rationale": "El doctorado está adscrito al CUAAD y se articula alrededor de ciudad, arquitectura, territorio, movilidad, ordenación urbana y sustentabilidad. Es investigación interdisciplinaria, pero su identidad institucional principal es urbanística/territorial y no Humanidades.",
+      "rationale": "La evidencia programática específica V18 vence el prior outside-scope anterior. La convocatoria oficial 2026 clasifica el Doctorado en el Área Humanidades y Ciencias de la Conducta, Campo Arquitectura y Urbanismo, mientras sus LIES combinan teoría de la ciudad, cultura, identidades, derechos humanos, historia y pensamiento crítico con planeación, diseño urbano, movilidad, ordenación territorial, ambiente y sustentabilidad. Es una frontera disciplinaria real y debe permanecer en REVIEW.",
       "evidence": [
-        "https://dcts.cuaad.udg.mx/informacion-general",
-        "https://dcts.cuaad.udg.mx/informacion-general/trayectoria",
-        "https://cima.cuaad.udg.mx/estructura-curricular"
+        "https://dcts.cuaad.udg.mx/images/dcts/CONVOCATORIAS/Convocatoria%202026.pdf",
+        "https://www.udg.mx/oferta-academica/posgrados/doctorados/doctorado-en-ciudad-territorio-y-sustentabilidad",
+        "https://mpegpau.cuaad.udg.mx/informacion-general/mision--vision",
+        "https://cima.cuaad.udg.mx/estructura-curricular",
+        "https://mpegpau.cuaad.udg.mx/informacion-general/trayectoria"
       ],
-      "nextQuestion": "¿Se conserva fuera del corpus Humanidades aunque algunos trabajos tengan componentes históricos, culturales o filosóficos?"
+      "nextQuestion": "¿Qué criterios de revisión por obra deben distinguir aportes humanísticos sustantivos de investigación urbano-territorial técnica dentro de este programa fronterizo?"
     }
   ]
 }

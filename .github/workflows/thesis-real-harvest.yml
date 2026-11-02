@@ -22,6 +22,8 @@ on:
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
+      - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V2.md"
+      - "docs/THESIS_HUMANITIES_URBAN_TERRITORY_SCOPE_POLICY_RECONCILIATION_V2.md"
       - "docs/THESIS_HUMANITIES_SOCIAL_SCIENCES_OUTSIDE_SCOPE_CLOSURE_V1.md"
       - "docs/THESIS_HUMANITIES_POLITICAL_INTERNATIONAL_OUTSIDE_SCOPE_CLOSURE_V1.md"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
@@ -256,7 +258,7 @@ jobs:
           report = json.loads((root / "scope-boundary-matrix.json").read_text())
 
           assert report["schemaVersion"] == "thesis-humanities-scope-boundary-report-v1"
-          assert report["policyRevision"] == "2026-11-01.v1"
+          assert report["policyRevision"] == "2026-11-01.v2"
           assert report["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert report["targetScope"] == "humanities-only"
           assert report["metrics"]["matrixRows"] == 6
@@ -272,6 +274,18 @@ jobs:
               assert row["boundaryState"] in allowed_states
               assert row["decisionConstraint"] == "scope-matrix-does-not-change-admission"
 
+          urban = next(
+              row for row in report["rows"]
+              if row["id"] == "scope:urban-territory-sustainability"
+          )
+          assert urban["boundaryState"] == "boundary-review"
+          assert len(urban["programs"]) == 1
+          urban_program = urban["programs"][0]
+          assert urban_program["normalizedKey"] == "doctorado en ciudad territorio y sustentabilidad"
+          assert urban_program["programAuthority"]["status"] == "confirmed"
+          assert urban_program["programAuthority"]["programRef"] == "program:udg:doc-ciudad-territorio-sustentabilidad"
+          assert urban_program["programAuthority"]["admissionState"] == "review"
+
           print(json.dumps({
               "policyRevision": report["policyRevision"],
               "programAuthorityRevision": report["programAuthorityRevision"],
@@ -285,6 +299,7 @@ jobs:
           rm -rf artifacts/thesis-boundary-closure
           python scripts/thesis/audit_boundary_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v2.json \
             --output-dir artifacts/thesis-boundary-closure
 
       - name: Validate boundary closure audit
@@ -298,13 +313,14 @@ jobs:
 
           assert audit["schemaVersion"] == "thesis-humanities-boundary-closure-audit-v1"
           assert audit["closureState"] == "closed"
+          assert audit["policyRevision"] == "2026-11-01.v2"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
-          assert audit["metrics"]["boundaryRows"] == 3
-          assert audit["metrics"]["boundaryProgramKeys"] == 5
-          assert audit["metrics"]["confirmedAuthorities"] == 5
-          assert audit["metrics"]["authorityObservedWorks"] == 179
-          assert audit["metrics"]["admissionStates"] == {"review": 5}
+          assert audit["metrics"]["boundaryRows"] == 4
+          assert audit["metrics"]["boundaryProgramKeys"] == 6
+          assert audit["metrics"]["confirmedAuthorities"] == 6
+          assert audit["metrics"]["authorityObservedWorks"] == 331
+          assert audit["metrics"]["admissionStates"] == {"review": 6}
           assert audit["metrics"]["violations"] == 0
           assert audit["violations"] == []
 

@@ -78,7 +78,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         )
         self.assertEqual(
             states["scope:urban-territory-sustainability"],
-            "outside-scope",
+            "boundary-review",
         )
 
     def test_program_keys_are_unique_across_rows(self):
@@ -180,8 +180,8 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         self.assertEqual(
             report["metrics"]["worksByBoundaryState"],
             {
-                "boundary-review": 5,
-                "outside-scope": 15,
+                "boundary-review": 11,
+                "outside-scope": 9,
             },
         )
 
@@ -884,7 +884,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
                 "exclude",
             )
 
-    def test_urban_territory_outside_scope_prior_is_overridden_by_review_authority(self):
+    def test_urban_territory_is_reconciled_as_boundary_review(self):
         observed = {
             "programs": [{
                 "normalizedKey": "doctorado en ciudad territorio y sustentabilidad",
@@ -915,7 +915,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             item for item in report["rows"]
             if item["id"] == "scope:urban-territory-sustainability"
         )
-        self.assertEqual(row["boundaryState"], "outside-scope")
+        self.assertEqual(row["boundaryState"], "boundary-review")
         self.assertEqual(row["observedWorks"], 152)
         self.assertEqual(len(row["programs"]), 1)
         program = row["programs"][0]
@@ -981,7 +981,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
 
         self.assertEqual(
             report["policyRevision"],
-            "2026-11-01.v1",
+            "2026-11-01.v2",
         )
         self.assertEqual(
             report["programAuthorityRevision"],
