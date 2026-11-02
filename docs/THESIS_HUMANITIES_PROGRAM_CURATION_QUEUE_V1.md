@@ -232,11 +232,12 @@ Desde el guardrail de alcance posterior a T2AV, el artifact conserva dos vistas:
 `humanitiesActionItems` sólo admite:
 
 1. `scope-review`;
-2. `humanities-candidate`;
-3. `unit-triage`.
+2. `humanities-candidate`.
 
-`high-impact-triage` y `backlog` permanecen visibles para diagnóstico, pero
-**no pueden ser usados como “siguiente programa”**.
+`unit-triage`, `high-impact-triage` y `backlog` permanecen visibles para
+diagnóstico, pero **no pueden ser usados como “siguiente programa”**. Un caso
+de `unit-triage` necesita primero evidencia programática suficiente para subir
+a `scope-review` o una señal humanística específica antes de dirigir una fase.
 
 Esto impide que una carrera grande de CUCEI desplace a programas pequeños pero
 directamente humanísticos, y corrige el error de tratar frecuencia como
