@@ -230,17 +230,19 @@ jobs:
           )
           assert (
               queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"] - 1
+              == expected["humanitiesActionQueueItems"] - 2
           )
           assert (
               queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"] - 40
+              == expected["humanitiesActionWorks"] - 192
           )
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
-              "doctorado en ciudad territorio y sustentabilidad"
+              "maestria en conservacion del patrimonio edificado"
           )
-          assert next_action["count"] == 152
+          assert next_action["count"] == 5
+          assert queue["metrics"]["workReviewQueueItems"] == 1
+          assert queue["metrics"]["workReviewWorks"] == 152
 
           summary = {
               "registryRevision": registry["registryRevision"],
