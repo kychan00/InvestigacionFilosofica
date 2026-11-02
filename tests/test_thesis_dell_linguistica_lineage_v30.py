@@ -22,10 +22,14 @@ class DellLinguisticaLineageV30Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v30(self):
+    def test_v30_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v30",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            30,
         )
 
     def test_orientation_and_base_resolve_to_same_include_authority(self):
