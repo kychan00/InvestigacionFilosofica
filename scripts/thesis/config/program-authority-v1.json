@@ -1350,9 +1350,37 @@
         "https://cgpe.udg.mx/sites/default/files/1_prodes_cu_lagos.pdf",
         "https://secgral.udg.mx/sites/default/files/Normatividad_especifica/10%20EOCUCostaSur%20%28Febrero%202025%29.pdf"
       ]
+    },
+    {
+      "id": "program:udg:doc-derechos-humanos",
+      "canonicalName": "Doctorado en Derechos Humanos",
+      "level": "doctorado",
+      "disciplineFamily": "derechos-humanos-interdisciplinario",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUTONALA"
+      ],
+      "aliases": [
+        "Doctorado en Derechos Humanos",
+        "DOCTORADO EN DERECHOS HUMANOS"
+      ],
+      "observedCount": 24,
+      "observedThesisYears": {
+        "min": 2021,
+        "max": 2025
+      },
+      "decisionNote": "Programa vigente del Centro Universitario de Tonalá orientado a investigación multidisciplinaria en Derechos Humanos. La UdeG declara explícitamente que busca cerrar la brecha entre el derecho y la realidad y formar investigadores que aporten no sólo desde la perspectiva jurídica sino multidisciplinar. El dictamen de creación incluye teoría y filosofía de los Derechos Humanos, teorías políticas y sociales, derechos civiles y políticos, derechos económicos/sociales/culturales, grupos vulnerables, estudios sobre seguridad, cultura, sustentabilidad y desarrollo tecnológico, junto con Derecho Internacional de los Derechos Humanos y mecanismos de protección. El programa no se restringe a perfiles jurídicos y exige sólo grado de maestría o equivalente. Bajo targetScope humanities-only la evidencia humanística es demasiado fuerte para EXCLUDE, pero la combinación estructural con Derecho, política pública y ciencias sociales impide INCLUDE automático. Se registra como REVIEW.",
+      "evidence": [
+        "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH",
+        "https://cutonala.udg.mx/sites/default/files/adjuntos/doctorado_en_derechos_humanos.pdf",
+        "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH/snp-conahcyt",
+        "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH/procesodetitulacion",
+        "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH/vinculacion"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v20",
+  "registryRevision": "2026-11-01.v21",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
