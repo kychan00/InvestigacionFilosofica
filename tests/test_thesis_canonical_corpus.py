@@ -1634,6 +1634,52 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_doctorado_derecho_authority_v22_excludes_by_program(self):
+        for raw in (
+            "Doctorado en Derecho",
+            "DOCTORADO EN DERECHO",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:doc-derecho",
+                )
+                self.assertEqual(resolved["admissionState"], "exclude")
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="doctorado-derecho-outside-scope",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Filosofía jurídica, teoría crítica y argumentación constitucional"],
+                "dc.degree.name": ["Doctorado en Derecho"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCSH"],
+                "dc.date.issued": ["2021-06-00"],
+                "dc.type": ["Tesis de Doctorado"],
+            },
+            raw_payload="doctorado-derecho-outside-scope",
+        )
+        corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "exclude")
+        self.assertEqual(work["programRef"], "program:udg:doc-derecho")
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(
+            work["admissionExplanationCodes"],
+            ["excluded-by-source-decision"],
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["explanationCode"],
+            "non-humanities-program",
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
