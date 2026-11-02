@@ -263,7 +263,7 @@ class ThesisOutsideScopeClosureAuditTest(unittest.TestCase):
         row = next(
             item
             for item in config["rows"]
-            if item["id"] == "scope:urban-territory"
+            if item["id"] == "scope:urban-territory-sustainability"
         )
         row["programKeys"].append("programa urbano pendiente adicional")
 
