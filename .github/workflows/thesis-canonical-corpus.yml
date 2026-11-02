@@ -10,6 +10,8 @@ on:
       - "tests/test_thesis_program_metadata_evidence_confidence.py"
       - "tests/test_thesis_medicine_program_authority_v25.py"
       - "tests/test_thesis_veterinary_program_authority_v26.py"
+      - "tests/test_thesis_program_metadata_family_audit.py"
+      - "tests/test_thesis_agronomy_metadata_conflict_protection.py"
       - "docs/THESIS_HUMANITIES_CANONICAL_CORPUS_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_EVIDENCE_CONFIDENCE_V1.md"
       - ".github/workflows/thesis-canonical-corpus.yml"
@@ -41,6 +43,8 @@ jobs:
           python -m unittest discover -s tests -p "test_thesis_program_metadata_evidence_confidence.py" -v
           python -m unittest discover -s tests -p "test_thesis_medicine_program_authority_v25.py" -v
           python -m unittest discover -s tests -p "test_thesis_veterinary_program_authority_v26.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_metadata_family_audit.py" -v
+          python -m unittest discover -s tests -p "test_thesis_agronomy_metadata_conflict_protection.py" -v
 
       - name: Build deterministic fixture corpus
         run: |
@@ -56,7 +60,7 @@ jobs:
           assert payload["schemaVersion"] == "thesis-canonical-corpus-v1"
           assert payload["metrics"]["works"] == 2
           assert payload["metrics"]["worksByAdmission"] == {"include": 2}
-          assert payload["programMetadataEvidenceRevision"] == "2026-11-02.v3"
+          assert payload["programMetadataEvidenceRevision"] == "2026-11-02.v4"
           assert payload["metrics"]["programAuthorityApplicability"] == {"allowed": 2}
           assert payload["metrics"]["programMetadataConfidenceStates"] == {"unassessed": 2}
           print(json.dumps(payload["metrics"], indent=2, ensure_ascii=False))
