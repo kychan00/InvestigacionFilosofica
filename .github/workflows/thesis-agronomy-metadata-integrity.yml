@@ -1,0 +1,331 @@
+name: Thesis agronomy metadata integrity
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/audit_program_metadata_integrity_v2.py"
+      - "scripts/thesis/audit_program_metadata_family_v1.py"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/audit_program_metadata_evidence_confidence_v1.py"
+      - "scripts/thesis/config/program-metadata-evidence-confidence-v1.json"
+      - "scripts/thesis/config/program-metadata-evidence-confidence-baseline-v1.json"
+      - "scripts/thesis/config/agronomy-program-metadata-family-baseline-v1.json"
+      - "tests/test_thesis_program_metadata_family_audit.py"
+      - "tests/test_thesis_agronomy_metadata_conflict_protection.py"
+      - "tests/test_thesis_veterinary_metadata_conflict_protection.py"
+      - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_AGRONOMY_V4.md"
+      - ".github/workflows/thesis-agronomy-metadata-integrity.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile
+        run: |
+          python -m py_compile \
+            scripts/thesis/build_canonical_corpus_v1.py \
+            scripts/thesis/audit_program_metadata_integrity_v2.py \
+            scripts/thesis/audit_program_metadata_family_v1.py \
+            scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            scripts/thesis/build_program_curation_queue_v1.py \
+            scripts/thesis/audit_program_metadata_evidence_confidence_v1.py
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_family_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_agronomy_metadata_conflict_protection.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_veterinary_metadata_conflict_protection.py" \
+            -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-agronomy-metadata
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-agronomy-metadata
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Build primary Ingeniero Agrónomo integrity audit
+        run: |
+          python scripts/thesis/audit_program_metadata_integrity_v2.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --program-key "licenciatura en ingeniero agronomo" \
+            --legacy-accession-day "2015-09-09" \
+            --output-dir artifacts/thesis-agronomy-metadata/primary
+
+      - name: Build Agronomy family audit
+        run: |
+          python scripts/thesis/audit_program_metadata_family_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --normalized-program-regex '^(?:licenciatura en ingeniero agronom|ingenieria en agronomia)' \
+            --family-id "udg-agronomy-observed-family-v1" \
+            --output-dir artifacts/thesis-agronomy-metadata/family
+
+      - name: Validate frozen full Agronomy baselines
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "agronomy-program-metadata-family-baseline-v1.json"
+              ).read_text()
+          )
+          family = json.loads(
+              Path(
+                  "artifacts/thesis-agronomy-metadata/family/"
+                  "program-metadata-family-audit.json"
+              ).read_text()
+          )
+          primary = json.loads(
+              Path(
+                  "artifacts/thesis-agronomy-metadata/primary/"
+                  "program-metadata-integrity-audit.json"
+              ).read_text()
+          )
+
+          assert (
+              family["schemaVersion"]
+              == "thesis-program-metadata-family-audit-v1"
+          )
+          assert family["familyId"] == baseline["familyId"]
+          assert (
+              family["normalizedProgramRegex"]
+              == baseline["normalizedProgramRegex"]
+          )
+          assert (
+              family["decisionConstraint"]
+              == baseline["decisionConstraint"]
+          )
+          assert family["authorityDecision"] == "hold"
+          assert family["metrics"] == baseline["expectedMetrics"]
+
+          actual_pairs = {
+              pair["pairId"]: sorted(
+                  side["providerRecordId"]
+                  for side in pair["sides"]
+              )
+              for pair in family["pairs"]
+          }
+          expected_pairs = {
+              row["pairId"]: sorted(row["providerRecordIds"])
+              for row in baseline["expectedPairs"]
+          }
+          assert actual_pairs == expected_pairs
+          assert all(
+              pair["internalToSelectedFamily"]
+              for pair in family["pairs"]
+          )
+
+          protected = sorted(
+              {
+                  side["providerRecordId"]
+                  for pair in family["pairs"]
+                  for side in pair["sides"]
+              }
+          )
+          assert protected == sorted(
+              baseline["expectedProtectedProviderRecordIds"]
+          )
+
+          expected_primary = baseline["primaryGroup"]
+          metrics = primary["metrics"]
+          assert primary["targetProgramKey"] == expected_primary["normalizedKey"]
+          assert primary["authorityDecision"] == "hold"
+
+          for key in [
+              "observedWorks",
+              "sourceProgramAgreementWorks",
+              "sourceProgramDisagreementWorks",
+              "observedUnits",
+              "dateQuality",
+              "accessionDays",
+              "sourceFieldPresence",
+              "exactTitleCrossProgramConflictWorks",
+              "structuralConflictWorks",
+              "warningOnlyWorks",
+              "noDetectedConflictWorks",
+          ]:
+              baseline_key = (
+                  "works"
+                  if key == "observedWorks"
+                  else key
+              )
+              assert metrics[key] == expected_primary[baseline_key], (
+                  key,
+                  metrics[key],
+                  expected_primary[baseline_key],
+              )
+
+          print(json.dumps({
+              "family": family["metrics"],
+              "primary": primary["metrics"],
+              "pairs": family["pairs"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Reproject Metadata Confidence V4 on frozen full baseline
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-agronomy-metadata/canonical-reprojected.json \
+            --output-report artifacts/thesis-agronomy-metadata/reprojection-report.json
+
+          python scripts/thesis/build_program_curation_queue_v1.py \
+            --observed-authorities /tmp/thesis-full-baseline/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-agronomy-metadata/canonical-reprojected.json \
+            --output-dir artifacts/thesis-agronomy-metadata/queue \
+            --top 30
+
+          python scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
+            --canonical-corpus artifacts/thesis-agronomy-metadata/canonical-reprojected.json \
+            --queue artifacts/thesis-agronomy-metadata/queue/program-curation-queue.json \
+            --output-dir artifacts/thesis-agronomy-metadata/confidence-audit
+
+      - name: Validate frozen full Metadata Confidence V4
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-agronomy-metadata")
+          report = json.loads(
+              (
+                  root
+                  / "confidence-audit"
+                  / "program-metadata-confidence-audit.json"
+              ).read_text()
+          )
+          reprojection = json.loads(
+              (root / "reprojection-report.json").read_text()
+          )
+          queue = json.loads(
+              (
+                  root
+                  / "queue"
+                  / "program-curation-queue.json"
+              ).read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "program-metadata-evidence-confidence-baseline-v1.json"
+              ).read_text()
+          )
+          registry = json.loads(
+              Path(
+                  "scripts/thesis/config/program-authority-v1.json"
+              ).read_text()
+          )
+
+          assert registry["registryRevision"] == "2026-11-02.v26"
+          assert reprojection["metrics"]["works"] == 27576
+          assert reprojection["metrics"]["multiSourceWorks"] == 0
+          assert (
+              report["programMetadataEvidenceRevision"]
+              == baseline["policyRevision"]
+              == "2026-11-02.v4"
+          )
+          assert (
+              report["metrics"]["confidenceStates"]
+              == baseline["expectedConfidenceStates"]
+          )
+          assert (
+              report["metrics"]["authorityApplicability"]
+              == baseline["expectedAuthorityApplicability"]
+          )
+          assert report["metrics"]["violations"] == 0
+          assert report["violations"] == []
+
+          for rule_id, expected in baseline["expectedRules"].items():
+              assert (
+                  report["metrics"]["ruleMatches"].get(rule_id, 0)
+                  == expected["matchedWorks"]
+              )
+
+          metadata_rows = {
+              row["normalizedKey"]: row
+              for row in report["metadataReviewQueueItems"]
+          }
+          for key, expected in (
+              baseline["expectedMetadataReviewPrograms"].items()
+          ):
+              row = metadata_rows[key]
+              evidence = row["programMetadataEvidence"]
+              assert row["queueState"] == expected["queueState"]
+              assert row["curationLane"] == expected["curationLane"]
+              assert evidence["blockedWorks"] == expected["blockedWorks"]
+              assert (
+                  evidence["confidenceStates"]
+                  == expected["confidenceStates"]
+              )
+              assert (
+                  evidence["authorityApplicability"]
+                  == expected["authorityApplicability"]
+              )
+
+          primary = next(
+              row
+              for row in queue["items"]
+              if row["normalizedKey"]
+              == "licenciatura en ingeniero agronomo"
+          )
+          assert primary["count"] == 1381
+          assert primary["authority"] is None
+          assert primary["queueState"] == "metadata-review"
+          assert (
+              primary["curationLane"]
+              == "metadata-confidence-review"
+          )
+          assert primary["programMetadataEvidence"]["blockedWorks"] == 3
+          assert primary["currentProgramRefs"] == {}
+
+          print(json.dumps({
+              "registryRevision": registry["registryRevision"],
+              "reprojection": reprojection["metrics"],
+              "confidence": report["metrics"],
+              "primaryAgronomyQueue": primary,
+              "queueMetrics": queue["metrics"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Upload Agronomy audit artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-agronomy-metadata-integrity-v4
+          path: artifacts/thesis-agronomy-metadata/
+          if-no-files-found: error
+          retention-days: 14
