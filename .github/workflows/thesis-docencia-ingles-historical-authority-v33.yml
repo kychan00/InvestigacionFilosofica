@@ -135,7 +135,7 @@ jobs:
           assert registry["registryRevision"] == baseline["registryRevision"]
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
           assert (
-              confidence["policyRevision"]
+              confidence["programMetadataEvidenceRevision"]
               == baseline["programMetadataEvidenceRevision"]
           )
           assert len(corpus["works"]) == 27576
@@ -241,7 +241,7 @@ jobs:
           summary = {
               "registryRevision": registry["registryRevision"],
               "scopePolicyRevision": scope["policyRevision"],
-              "programMetadataEvidenceRevision": confidence["policyRevision"],
+              "programMetadataEvidenceRevision": confidence["programMetadataEvidenceRevision"],
               "historicalDocenciaInglesWorks": len(selected),
               "historicalDocenciaInglesAdmission": dict(
                   Counter(w.get("admissionStatus") for w in selected)
