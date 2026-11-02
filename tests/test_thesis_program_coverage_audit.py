@@ -276,7 +276,7 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
         )
         self.assertEqual(
             result["programAuthorityRevision"],
-            "2026-11-01.v6",
+            self.registry["registryRevision"],
         )
 
     def test_communication_v7_reprojects_to_review(self):
