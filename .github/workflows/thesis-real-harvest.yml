@@ -18,10 +18,12 @@ on:
       - "tests/test_thesis_scope_boundary_matrix.py"
       - "tests/test_thesis_boundary_closure_audit.py"
       - "tests/test_thesis_outside_scope_closure_audit.py"
+      - "tests/test_thesis_political_international_closure_audit.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SOCIAL_SCIENCES_OUTSIDE_SCOPE_CLOSURE_V1.md"
+      - "docs/THESIS_HUMANITIES_POLITICAL_INTERNATIONAL_OUTSIDE_SCOPE_CLOSURE_V1.md"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
@@ -96,6 +98,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_outside_scope_closure_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_political_international_closure_audit.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -352,6 +358,47 @@ jobs:
           }, indent=2, ensure_ascii=False))
           PY
 
+      - name: Build political international development outside-scope closure audit
+        run: |
+          rm -rf artifacts/thesis-political-international-closure
+          python scripts/thesis/audit_outside_scope_closure_v1.py \
+            --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v1.json \
+            --output-dir artifacts/thesis-political-international-closure
+
+      - name: Validate political international development outside-scope closure audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-political-international-closure")
+          audit = json.loads((root / "outside-scope-closure-audit.json").read_text())
+
+          assert audit["schemaVersion"] == "thesis-humanities-outside-scope-closure-audit-v1"
+          assert audit["closureId"] == "political-international-development-v1"
+          assert audit["closureState"] == "closed"
+          assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
+          assert audit["targetScope"] == "humanities-only"
+          assert audit["boundaryState"] == "outside-scope"
+          assert audit["metrics"]["contractRows"] == 1
+          assert audit["metrics"]["contractProgramKeys"] == 4
+          assert audit["metrics"]["confirmedAuthorities"] == 4
+          assert audit["metrics"]["authorityObservedWorks"] == 212
+          assert audit["metrics"]["admissionStates"] == {"exclude": 4}
+          assert audit["metrics"]["violations"] == 0
+          assert audit["violations"] == []
+
+          print(json.dumps({
+              "closureId": audit["closureId"],
+              "closureState": audit["closureState"],
+              "programAuthorityRevision": audit["programAuthorityRevision"],
+              "institutionAuthorityRevision": audit["institutionAuthorityRevision"],
+              "metrics": audit["metrics"],
+              "expected": audit["expected"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
       - name: Upload harvest artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -364,5 +411,6 @@ jobs:
             artifacts/thesis-scope-boundary/
             artifacts/thesis-boundary-closure/
             artifacts/thesis-outside-scope-closure/
+            artifacts/thesis-political-international-closure/
           if-no-files-found: error
           retention-days: 14
