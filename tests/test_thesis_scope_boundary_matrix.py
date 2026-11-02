@@ -536,6 +536,67 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             {"review": 1},
         )
 
+    def test_doctorado_ciencias_sociales_outside_scope_matches_exclude_authority(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado en ciencias sociales",
+                    "count": 217,
+                    "variants": {
+                        "Doctorado en Ciencias Sociales": 217,
+                    },
+                    "providers": {"riudg": 217},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "id": "work:doctorado-ciencias-sociales",
+                    "programRaw": "Doctorado en Ciencias Sociales",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2020", "quality": "valid"},
+                    "admissionStatus": "exclude",
+                    "institutionRef": "institution:udg",
+                }
+            ]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item
+            for item in report["rows"]
+            if item["id"] == "scope:social-sciences"
+        )
+        self.assertEqual(row["boundaryState"], "outside-scope")
+        program = next(
+            item
+            for item in row["programs"]
+            if item["normalizedKey"] == "doctorado en ciencias sociales"
+        )
+        self.assertEqual(
+            program["programAuthority"]["status"],
+            "confirmed",
+        )
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:doc-ciencias-sociales",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "exclude",
+        )
+        self.assertEqual(
+            program["currentAdmissionStatuses"],
+            {"exclude": 1},
+        )
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [

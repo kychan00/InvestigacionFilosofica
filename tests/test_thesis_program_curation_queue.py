@@ -747,6 +747,53 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "review",
         )
 
+    def test_confirmed_exclude_program_is_resolved_and_omitted_from_queue(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado en ciencias sociales",
+                    "count": 217,
+                    "variants": {
+                        "Doctorado en Ciencias Sociales": 217,
+                    },
+                    "providers": {"riudg": 217},
+                    "admissionStatuses": {"quarantine": 217},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Doctorado en Ciencias Sociales",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2020", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Doctorado",
+                    "admissionStatus": "exclude",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(
+            payload["metrics"]["allProgramStates"],
+            {"resolved": 1},
+        )
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"resolved": 217},
+        )
+        self.assertEqual(
+            payload["metrics"]["gateIneligibleGroupsOmitted"],
+            0,
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
