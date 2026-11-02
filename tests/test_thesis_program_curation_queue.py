@@ -1064,6 +1064,44 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             {"resolved": 150},
         )
 
+    def test_doctorado_derechos_humanos_moves_to_scope_review(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "doctorado en derechos humanos",
+                "count": 24,
+                "variants": {"Doctorado en Derechos Humanos": 24},
+                "providers": {"riudg": 24},
+                "admissionStatuses": {"quarantine": 24},
+                "programRefs": {},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "programRaw": "Doctorado en Derechos Humanos",
+                "academicUnitRaw": "CUTONALA",
+                "date": {"value": "2024", "quality": "valid"},
+                "thesisTypeRaw": "Tesis de Doctorado",
+                "admissionStatus": "review",
+            }]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        self.assertEqual(payload["metrics"]["allProgramStates"], {"review": 1})
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"review": 24},
+        )
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:doc-derechos-humanos",
+        )
+        self.assertEqual(item["authority"]["admissionState"], "review")
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
