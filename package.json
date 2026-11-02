@@ -65,7 +65,9 @@
     "test:authority-benchmark": "node --test tests/author-authority-benchmark.test.mjs tests/author-authority-benchmark-runner.test.mjs tests/authority-jsonl-reader.test.mjs",
     "build:authority-work-map": "node scripts/related/build_authority_work_map_v1.mjs",
     "validate:authority-batch": "node scripts/authority/validate-authority-batch-v1.mjs",
-    "validate:authority-work-map": "python3 scripts/related/validate_authority_work_map_v1.py"
+    "validate:authority-work-map": "python3 scripts/related/validate_authority_work_map_v1.py",
+    "test:authority-human-audit": "node --test tests/author-authority-human-audit.test.mjs tests/author-authority-human-audit-evidence.test.mjs",
+    "benchmark:authority:audit:build": "node scripts/authority/build-human-authority-audit-v1.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
