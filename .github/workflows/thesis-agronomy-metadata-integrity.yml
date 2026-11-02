@@ -303,7 +303,8 @@ jobs:
               == "licenciatura en ingeniero agronomo"
           )
           assert primary["count"] == 1381
-          assert primary["authority"] is None
+          assert primary["authority"]["id"] == "program:udg:ingeniero-agronomo"
+          assert primary["authority"]["admissionState"] == "exclude"
           assert primary["queueState"] == "metadata-review"
           assert (
               primary["curationLane"]
