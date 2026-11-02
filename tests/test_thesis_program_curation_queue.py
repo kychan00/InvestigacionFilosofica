@@ -206,9 +206,9 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         observed = {
             "programs": [
                 {
-                    "normalizedKey": "maestria en derecho",
+                    "normalizedKey": "maestria en gestion publica aplicada",
                     "count": 296,
-                    "variants": {"MAESTRIA EN DERECHO": 296},
+                    "variants": {"MAESTRIA EN GESTION PUBLICA APLICADA": 296},
                     "providers": {"riudg": 296},
                     "admissionStatuses": {"quarantine": 296},
                     "programRefs": {},
@@ -230,7 +230,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         corpus = {
             "works": [
                 {
-                    "programRaw": "MAESTRIA EN DERECHO",
+                    "programRaw": "MAESTRIA EN GESTION PUBLICA APLICADA",
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2024", "quality": "valid"},
                     "thesisTypeRaw": "Tesis",
