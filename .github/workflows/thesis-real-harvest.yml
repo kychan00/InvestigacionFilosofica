@@ -31,6 +31,7 @@ on:
       - "tests/test_thesis_program_metadata_integrity_v2.py"
       - "tests/test_thesis_program_metadata_conflict_registry.py"
       - "tests/test_thesis_program_metadata_confidence_reprojection.py"
+      - "tests/test_thesis_medicine_program_authority_v25.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -46,6 +47,7 @@ on:
       - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_MEDICINE_V2.md"
       - "docs/THESIS_PROGRAM_METADATA_CONFLICT_REGISTRY_MEDICINE_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_ITEM_CONFLICT_PROTECTION_V2.md"
+      - "docs/THESIS_PROGRAM_AUTHORITY_MEDICINE_V25.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -154,6 +156,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_metadata_confidence_reprojection.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_medicine_program_authority_v25.py" \
             -v
 
       - name: Harvest sample for pull request
