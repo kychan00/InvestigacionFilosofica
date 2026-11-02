@@ -454,5 +454,9 @@ Total:
 
 La siguiente fase ya no debe volver a decidir identidades de estos programas.
 
-Debe pasar a la siguiente frontera pendiente de Scope Boundary Matrix o a una
-política explícita de revisión individual para los programas REVIEW.
+La siguiente frontera pendiente de Scope Boundary Matrix es:
+
+`Maestría en Estudios de Género — 1 tesis`
+
+Ese programa debe revisarse como T2P antes de diseñar una política de revisión
+individual para los programas REVIEW.
