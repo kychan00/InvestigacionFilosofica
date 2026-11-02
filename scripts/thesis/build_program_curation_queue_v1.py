@@ -360,6 +360,47 @@ HUMANITIES_ACTION_LANES = {
     "humanities-candidate",
 }
 
+# Generic words such as arte/cultura/patrimonio are useful discovery signals,
+# but are too broad to autonomously drive a humanities-only expansion phase.
+# At least one strong disciplinary signal is required for unresolved lexical
+# candidates; explicit scope-review authorities remain actionable separately.
+STRONG_HUMANITIES_ACTION_SIGNALS = {
+    "humanidades",
+    "filosofia",
+    "bioetica",
+    "historia",
+    "literatura",
+    "literario",
+    "letras",
+    "linguistica",
+    "antropologia",
+    "geografia",
+    "mesoamericano",
+    "mesoamericanos",
+    "lengua",
+    "idiomas",
+    "ingles",
+    "frances",
+    "aleman",
+    "escritura",
+    "hermeneutica",
+    "arqueologia",
+    "etnografia",
+}
+
+
+def is_humanities_action_item(item: dict[str, Any]) -> bool:
+    lane = item.get("curationLane")
+    if lane == "scope-review":
+        return True
+    if lane != "humanities-candidate":
+        return False
+    signals = {
+        signal.get("signal")
+        for signal in (item.get("priority") or {}).get("nameSignals", [])
+    }
+    return bool(signals & STRONG_HUMANITIES_ACTION_SIGNALS)
+
 
 def evidence_needs(
     *,
@@ -544,7 +585,7 @@ def build_queue(
             (
                 item
                 for item in items
-                if item["curationLane"] in HUMANITIES_ACTION_LANES
+                if is_humanities_action_item(item)
             ),
             start=1,
         )
