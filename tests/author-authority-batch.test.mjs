@@ -7,7 +7,8 @@ import {
   partitionAuthorityCandidates,
   buildAuthorityBatchShard,
   summarizeAuthorityBatchShards,
-  sourceWorkBucketForAuthor
+  sourceWorkBucketForAuthor,
+  authorIndexAuthorshipSourceRecordId
 } from "../src/core/author-authority-batch.js";
 
 function alias(id,name,{orcid=null,cw=1,kind="full",signature=null}={}){
@@ -166,6 +167,127 @@ test("IDs enlazados por ORCID producen una autoridad con obras de ambos IDs",()=
     2
   );
 });
+
+test("preserva varias observaciones del mismo autor en una obra",()=>{
+  const grouped=groupAuthorIndexCandidates([
+    alias(
+      5004281027,
+      "David Sedley"
+    )
+  ]);
+
+  const rows=[
+    {
+      id:5004281027,
+      wid:569490510,
+      p:"first",
+      r:true,
+      co:12,
+      t:"The Philosophy of Antiochus",
+      y:2012,
+      l:"en",
+      ty:"book"
+    },
+    {
+      id:5004281027,
+      wid:569490510,
+      p:"middle",
+      r:false,
+      co:12,
+      t:"The Philosophy of Antiochus",
+      y:2012,
+      l:"en",
+      ty:"book"
+    },
+    {
+      id:5004281027,
+      wid:569490510,
+      p:"last",
+      r:false,
+      co:12,
+      t:"The Philosophy of Antiochus",
+      y:2012,
+      l:"en",
+      ty:"book"
+    }
+  ];
+
+  const built=buildAuthorityBatchShard({
+    shard:0,
+    shardCount:1,
+    candidates:grouped.candidates,
+    workRows:rows,
+    algorithmVersion:"identity-v1",
+    datasetRevision:"fixture:index",
+    buildRevision:"fixture:build"
+  });
+
+  assert.equal(
+    built.graph.authorities.length,
+    1
+  );
+
+  assert.equal(
+    built.graph.sourceRecords.length,
+    3
+  );
+
+  assert.equal(
+    built.graph.mentions.length,
+    3
+  );
+
+  assert.equal(
+    new Set(
+      built.graph.sourceRecords.map(
+        item=>item.id
+      )
+    ).size,
+    3
+  );
+
+  assert.deepEqual(
+    built.graph.sourceRecords
+      .map(item=>item.id)
+      .sort(),
+    rows
+      .map(
+        row=>
+          authorIndexAuthorshipSourceRecordId(
+            row
+          )
+      )
+      .sort()
+  );
+
+  assert.ok(
+    built.graph.sourceRecords.some(
+      item=>
+        item.id.endsWith(
+          ":first:corresponding"
+        )
+    )
+  );
+
+  assert.ok(
+    built.graph.sourceRecords.some(
+      item=>
+        item.id.endsWith(
+          ":middle:noncorresponding"
+        )
+    )
+  );
+
+  assert.ok(
+    built.graph.sourceRecords.some(
+      item=>
+        item.id.endsWith(
+          ":last:noncorresponding"
+        )
+    )
+  );
+});
+
 
 test("particiona candidatos exactamente una vez",()=>{
   const grouped=groupAuthorIndexCandidates([

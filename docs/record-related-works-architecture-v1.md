@@ -677,6 +677,33 @@ La publicación masiva todavía depende de ejecutar el Authority Batch real y de
 
 ---
 
+## Estado de Fase 1D
+
+La construcción real del Authority Graph y su bridge de obras queda separada de la publicación.
+
+Componentes:
+
+- scripts/authority/validate-authority-batch-v1.mjs
+- scripts/related/validate_authority_work_map_v1.py
+- .github/workflows/authority-work-map-real-v1.yml
+- docs/AUTHORITY_WORK_MAP_REAL_BUILD_V1.md
+
+El workflow utiliza exclusivamente la release pinneada author-index-v3 y verifica su SHA-256 antes de construir.
+
+Orden obligatorio:
+
+1. benchmark masivo de identidad;
+2. Authority Batch real;
+3. validación independiente de manifest, registry y shards;
+4. Authority Work Map real;
+5. validación independiente del bridge y sus fuentes;
+6. empaquetado determinista;
+7. artifact temporal de CI.
+
+1D no publica automáticamente una release ni activa la UI. La promoción sólo se autoriza después de revisar métricas, payload y checksums reales.
+
+---
+
 ## 20. Fases
 
 ### Fase 0 — contrato
