@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "thesis-urban-territory-adjudication-ledger-baseline-v1",
+  "phase": "T2BD",
+  "programAuthorityRevision": "2026-11-02.v34",
+  "scopePolicyRevision": "2026-11-02.v4",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "workReviewPolicyRevision": "2026-11-02.urban-v1",
+  "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
+  "batchId": "urban-territory-001",
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "programCuration": {
+      "humanitiesActionQueueItems": 42,
+      "humanitiesActionWorks": 495,
+      "workReviewQueueItems": 1,
+      "workReviewWorks": 152,
+      "nextHumanitiesActionKey": "maestria en conservacion del patrimonio edificado",
+      "nextHumanitiesActionWorks": 5
+    },
+    "workReview": {
+      "works": 152,
+      "projectedAdmission": {
+        "review": 152
+      },
+      "pendingPrimarySourceReview": 152,
+      "automaticAdmissionDecisions": 0,
+      "admissionChanges": 0
+    },
+    "batchLedger": {
+      "works": 7,
+      "primarySourceAccess": {
+        "restricted": 7
+      },
+      "adjudicationStates": {
+        "blocked-primary-source-access": 7
+      },
+      "candidateDecisions": {
+        "none": 7
+      },
+      "humanValidation": {
+        "required": 7
+      },
+      "admissionChanges": 0
+    },
+    "globalProjectedAdmission": {
+      "include": 474,
+      "review": 646,
+      "quarantine": 18964,
+      "exclude": 7490,
+      "reject-source": 2
+    }
+  },
+  "invariants": [
+    "doctorado-ciudad-territorio-remains-program-review",
+    "program-level-review-no-longer-blocks-humanities-action-queue",
+    "work-review-queue-remains-separate-and-non-admissive",
+    "restricted-primary-source-produces-no-include-exclude-candidate",
+    "explicit-human-validation-is-required",
+    "scope-policy-v4-remains-unchanged",
+    "metadata-confidence-v4-remains-unchanged",
+    "global-admission-counts-remain-unchanged"
+  ]
+}
