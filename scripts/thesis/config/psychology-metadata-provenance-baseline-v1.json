@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "thesis-program-metadata-provenance-baseline-v1",
+  "targetProgramKey": "licenciatura en psicologia",
+  "legacyAccessionDay": "2015-09-09",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "provenance-does-not-change-admission",
+  "authorityDecision": "hold",
+  "expectedCohorts": {
+    "legacy-migration-review": {
+      "provenanceState": "low-trust-review",
+      "metrics": {
+        "works": 460,
+        "hasIssuedDate": 0,
+        "hasAbstract": 0,
+        "hasSubmittedDate": 445,
+        "validYearObservations": 443,
+        "preProgramFoundationWorks": 3,
+        "exactTitleCrossProgramConflictWorks": 46,
+        "exactTitleAuthorCrossProgramConflictWorks": 8,
+        "titleDomainWarningWorks": 44,
+        "highConfidenceAnomalyWorks": 11,
+        "warningOnlyWorks": 66,
+        "noDetectedContradictionWorks": 383
+      }
+    },
+    "post-migration-review": {
+      "provenanceState": "higher-context-review",
+      "metrics": {
+        "works": 25,
+        "hasIssuedDate": 24,
+        "hasAbstract": 24,
+        "hasSubmittedDate": 0,
+        "validYearObservations": 24,
+        "preProgramFoundationWorks": 0,
+        "exactTitleCrossProgramConflictWorks": 0,
+        "exactTitleAuthorCrossProgramConflictWorks": 0,
+        "titleDomainWarningWorks": 0,
+        "highConfidenceAnomalyWorks": 0,
+        "warningOnlyWorks": 0,
+        "noDetectedContradictionWorks": 25
+      }
+    }
+  },
+  "requiredAnomalyConcentration": {
+    "allPreFoundationInLegacy": true,
+    "allExactTitleConflictsInLegacy": true,
+    "allExactTitleAuthorConflictsInLegacy": true,
+    "allTitleDomainWarningsInLegacy": true,
+    "legacyHasNoIssuedDates": true,
+    "legacyHasNoAbstracts": true
+  }
+}
