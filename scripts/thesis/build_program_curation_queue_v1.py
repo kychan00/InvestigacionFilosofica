@@ -23,6 +23,11 @@ import build_canonical_corpus_v1 as canonical
 
 
 SCHEMA_VERSION = "thesis-program-curation-queue-v1"
+DEFAULT_WORK_REVIEW_POLICY = (
+    Path(__file__).resolve().parent
+    / "config"
+    / "boundary-work-review-policy-v1.json"
+)
 
 HUMANITIES_NAME_SIGNALS: tuple[tuple[str, int], ...] = (
     ("humanidades", 24),
@@ -327,9 +332,12 @@ def curation_lane(
     state: str,
     priority: dict[str, Any],
     count: int,
+    work_review: bool = False,
 ) -> str:
     if state == "metadata-review":
         return "metadata-confidence-review"
+    if state == "review" and work_review:
+        return "work-level-review"
     if state == "review":
         return "scope-review"
     if priority.get("nameSignals"):
@@ -344,10 +352,11 @@ def curation_lane(
 LANE_ORDER = {
     "metadata-confidence-review": 0,
     "scope-review": 1,
-    "humanities-candidate": 2,
-    "unit-triage": 3,
-    "high-impact-triage": 4,
-    "backlog": 5,
+    "work-level-review": 2,
+    "humanities-candidate": 3,
+    "unit-triage": 4,
+    "high-impact-triage": 5,
+    "backlog": 6,
 }
 
 # Only these lanes may drive the next scope-expansion phase for the
@@ -407,6 +416,7 @@ def evidence_needs(
     state: str,
     authority: dict[str, Any] | None,
     years: list[int],
+    work_review: bool = False,
 ) -> list[str]:
     needs: list[str] = []
 
@@ -419,6 +429,15 @@ def evidence_needs(
         )
         if authority is None:
             needs.append("official-program-evidence")
+        return needs
+
+    if state == "review" and work_review:
+        needs.extend(
+            [
+                "work-level-primary-source-adjudication",
+                "explicit-human-validation",
+            ]
+        )
         return needs
 
     if state == "review":
@@ -449,9 +468,20 @@ def build_queue(
     registry: dict[str, Any],
     *,
     include_resolved: bool = False,
+    work_review_policy: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     dimensions = aggregate_work_dimensions(corpus)
     authority_lookup = build_authority_lookup(registry)
+
+    if work_review_policy is None and DEFAULT_WORK_REVIEW_POLICY.exists():
+        work_review_policy = read_json(DEFAULT_WORK_REVIEW_POLICY)
+    work_review_by_ref = {
+        item["programRef"]: item
+        for item in (work_review_policy or {}).get("programs", [])
+        if item.get("programRef")
+        and item.get("programLevelConclusion")
+        == "program-level-scope-review-exhausted"
+    }
 
     items: list[dict[str, Any]] = []
     all_state_counts: Counter[str] = Counter()
@@ -509,10 +539,16 @@ def build_queue(
             authority=authority,
         )
 
+        work_review = (
+            work_review_by_ref.get(authority.get("id"))
+            if authority
+            else None
+        )
         lane = curation_lane(
             state=state,
             priority=priority,
             count=int(row.get("count") or 0),
+            work_review=work_review is not None,
         )
 
         item = {
@@ -556,10 +592,27 @@ def build_queue(
             },
             "thesisTypes": dict(extra["thesisTypes"].most_common()),
             "priority": priority,
+            "workReview": (
+                {
+                    "policyRevision": (work_review_policy or {}).get(
+                        "policyRevision"
+                    ),
+                    "resolutionMode": work_review.get("resolutionMode"),
+                    "programLevelConclusion": work_review.get(
+                        "programLevelConclusion"
+                    ),
+                    "admissionInvariant": work_review.get(
+                        "admissionInvariant"
+                    ),
+                }
+                if work_review
+                else None
+            ),
             "evidenceNeeds": evidence_needs(
                 state=state,
                 authority=authority,
                 years=years,
+                work_review=work_review is not None,
             ),
             "decisionConstraint": (
                 "priority-does-not-change-admission"
@@ -586,6 +639,17 @@ def build_queue(
                 item
                 for item in items
                 if is_humanities_action_item(item)
+            ),
+            start=1,
+        )
+    ]
+    work_review_items = [
+        {**item, "workReviewRank": rank}
+        for rank, item in enumerate(
+            (
+                item
+                for item in items
+                if item.get("curationLane") == "work-level-review"
             ),
             start=1,
         )
@@ -622,6 +686,10 @@ def build_queue(
             "humanitiesActionWorks": sum(
                 item["count"] for item in humanities_action_items
             ),
+            "workReviewQueueItems": len(work_review_items),
+            "workReviewWorks": sum(
+                item["count"] for item in work_review_items
+            ),
             "deferredHighImpactItems": sum(
                 1
                 for item in items
@@ -635,6 +703,7 @@ def build_queue(
         },
         "items": items,
         "humanitiesActionItems": humanities_action_items,
+        "workReviewItems": work_review_items,
         "nextHumanitiesAction": (
             humanities_action_items[0]
             if humanities_action_items
@@ -745,6 +814,11 @@ def markdown_summary(
             f"{metrics['humanitiesActionWorks']} tesis"
         ),
         (
+            "- revisión por obra separada: "
+            f"{metrics['workReviewQueueItems']} programas / "
+            f"{metrics['workReviewWorks']} tesis"
+        ),
+        (
             "- high-impact sin señal humanística (sólo auditoría): "
             f"{metrics['deferredHighImpactItems']} programas / "
             f"{metrics['deferredHighImpactWorks']} tesis"
@@ -801,7 +875,9 @@ def markdown_summary(
             "AcademicProgramAuthority.",
             "",
             "Para elegir la siguiente fase del corpus `humanities-only`, "
-            "se debe usar exclusivamente `humanitiesActionItems`. Los carriles "
+            "se debe usar exclusivamente `humanitiesActionItems`. Los programas "
+            "con revisión programática agotada pasan a `workReviewItems` y no "
+            "pueden bloquear la siguiente autoridad. Los carriles "
             "`high-impact-triage` y `backlog` permanecen en `items` sólo como "
             "auditoría/observabilidad y nunca pueden impulsar una nueva "
             "Program Authority por frecuencia.",

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "thesis-boundary-work-adjudication-batch-v1",
+  "batchId": "urban-territory-001",
+  "phase": "T2BD",
+  "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
+  "workReviewPolicyRevision": "2026-11-02.urban-v1",
+  "selectionMethod": "explicit-source-access-audited-work-ids",
+  "decisionConstraint": "batch-does-not-change-admission",
+  "humanValidationRequired": true,
+  "works": [
+    {
+      "workId": "thesis:work:00002168",
+      "handle": "http://hdl.handle.net/20.500.12104/20543",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/20543",
+      "primarySourceAccess": "restricted",
+      "accessEvidence": "RIUdeG item page lists DCUAAD00001.pdf as Restricted Access.",
+      "accessVerifiedDate": "2026-11-02"
+    },
+    {
+      "workId": "thesis:work:00002169",
+      "handle": "http://hdl.handle.net/20.500.12104/20544",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/20544",
+      "primarySourceAccess": "restricted",
+      "accessEvidence": "RIUdeG item page lists DCUAAD00002.pdf as Restricted Access.",
+      "accessVerifiedDate": "2026-11-02"
+    },
+    {
+      "workId": "thesis:work:00020181",
+      "handle": "https://hdl.handle.net/20.500.12104/73118",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/73118",
+      "primarySourceAccess": "restricted",
+      "accessEvidence": "RIUdeG item page lists DCUAAD00003.pdf as Restricted Access.",
+      "accessVerifiedDate": "2026-11-02"
+    },
+    {
+      "workId": "thesis:work:00020186",
+      "handle": "https://hdl.handle.net/20.500.12104/73123",
+      "institutionalRecordUrl": "https://riudg.udg.mx/handle/20.500.12104/73123",
+      "primarySourceAccess": "restricted",
+      "accessEvidence": "RIUdeG item page lists DCUAAD00016.pdf as Restricted Access.",
+      "accessVerifiedDate": "2026-11-02"
+    },
+    {
+      "workId": "thesis:work:00020187",
+      "handle": "https://hdl.handle.net/20.500.12104/73124",
+      "institutionalRecordUrl": "https://riudg.udg.mx/handle/20.500.12104/73124",
+      "primarySourceAccess": "restricted",
+      "accessEvidence": "RIUdeG item page lists DCUAAD00017.pdf as Restricted Access.",
+      "accessVerifiedDate": "2026-11-02"
+    },
+    {
+      "workId": "thesis:work:00020189",
+      "handle": "https://hdl.handle.net/20.500.12104/73126",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/73126",
+      "primarySourceAccess": "restricted",
+      "accessEvidence": "RIUdeG item page lists DCUAAD00019.pdf as Restricted Access.",
+      "accessVerifiedDate": "2026-11-02"
+    },
+    {
+      "workId": "thesis:work:00020190",
+      "handle": "https://hdl.handle.net/20.500.12104/73127",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/73127",
+      "primarySourceAccess": "restricted",
+      "accessEvidence": "RIUdeG item page lists DCUAAD00020.pdf as Restricted Access.",
+      "accessVerifiedDate": "2026-11-02"
+    }
+  ]
+}

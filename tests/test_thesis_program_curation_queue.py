@@ -940,7 +940,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
 
-    def test_ciudad_territorio_sustentabilidad_moves_to_scope_review(self):
+    def test_ciudad_territorio_sustentabilidad_moves_to_work_level_review(self):
         observed = {
             "programs": [{
                 "normalizedKey": "doctorado en ciudad territorio y sustentabilidad",
@@ -969,14 +969,32 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             payload["metrics"]["worksByProgramState"],
             {"review": 152},
         )
+        self.assertEqual(payload["metrics"]["humanitiesActionQueueItems"], 0)
+        self.assertEqual(payload["metrics"]["humanitiesActionWorks"], 0)
+        self.assertEqual(payload["metrics"]["workReviewQueueItems"], 1)
+        self.assertEqual(payload["metrics"]["workReviewWorks"], 152)
+        self.assertEqual(payload["humanitiesActionItems"], [])
+        self.assertEqual(len(payload["workReviewItems"]), 1)
+
         item = payload["items"][0]
         self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(item["curationLane"], "work-level-review")
         self.assertEqual(
             item["authority"]["id"],
             "program:udg:doc-ciudad-territorio-sustentabilidad",
         )
         self.assertEqual(item["authority"]["admissionState"], "review")
+        self.assertEqual(
+            item["evidenceNeeds"],
+            [
+                "work-level-primary-source-adjudication",
+                "explicit-human-validation",
+            ],
+        )
+        self.assertEqual(
+            item["workReview"]["programLevelConclusion"],
+            "program-level-scope-review-exhausted",
+        )
 
     def test_maestria_derecho_exclude_is_resolved_and_omitted_from_queue(self):
         observed = {

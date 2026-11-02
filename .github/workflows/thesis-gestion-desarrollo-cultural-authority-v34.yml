@@ -236,15 +236,19 @@ jobs:
           )
           assert (
               queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"]
+              == expected["humanitiesActionQueueItems"] - 1
           )
           assert (
               queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"]
+              == expected["humanitiesActionWorks"] - 152
           )
           next_action = queue["nextHumanitiesAction"]
-          assert next_action["normalizedKey"] == expected["nextHumanitiesActionKey"]
-          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+          assert next_action["normalizedKey"] == (
+              "maestria en conservacion del patrimonio edificado"
+          )
+          assert next_action["count"] == 5
+          assert queue["metrics"]["workReviewQueueItems"] == 1
+          assert queue["metrics"]["workReviewWorks"] == 152
 
           summary = {
               "registryRevision": registry["registryRevision"],
