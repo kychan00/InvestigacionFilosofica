@@ -568,6 +568,10 @@ class ThesisProgramMetadataEvidenceConfidenceTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["blockedWorks"], 1)
         self.assertEqual(report["metrics"]["metadataReviewQueueItems"], 1)
         self.assertEqual(
+            report["metadataReviewQueueItems"][0]["queueState"],
+            "metadata-review",
+        )
+        self.assertEqual(
             report["metrics"]["ruleMatches"],
             {"fixture-low-trust": 1},
         )
