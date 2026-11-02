@@ -315,7 +315,7 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v27"
-          assert report["registryRevision"] == "2026-11-02.v31"
+          assert report["registryRevision"] == "2026-11-02.v32"
           assert (
               report["programMetadataEvidenceRevision"]
               == baseline["programMetadataEvidenceRevision"]
@@ -346,6 +346,9 @@ jobs:
           expected_global["include"] += 1
           expected_global["review"] -= 73
           expected_global["exclude"] += 73
+          # V32: Historia de la Arquitectura Mexicana REVIEW -> INCLUDE.
+          expected_global["review"] -= 4
+          expected_global["include"] += 4
           assert report["globalProjectedAdmission"] == expected_global
           assert sum(report["globalProjectedAdmission"].values()) == 27576
 
