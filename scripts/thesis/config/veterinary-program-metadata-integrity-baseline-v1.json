@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "thesis-veterinary-program-metadata-integrity-baseline-v1",
+  "targetProgramKey": "licenciatura en medicina veterinaria zootecnista",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "metadata-integrity-audit-does-not-change-admission",
+  "authorityDecision": "hold",
+  "expectedConclusion": "source-program-metadata-conflict-confirmed",
+  "expectedMetrics": {
+    "observedWorks": 1340,
+    "sourceProgramAgreementWorks": 1340,
+    "sourceProgramDisagreementWorks": 0,
+    "exactTitleCrossProgramConflictWorks": 7,
+    "exactTitleAuthorCrossProgramConflictWorks": 3,
+    "structuralConflictWorks": 3,
+    "warningOnlyWorks": 4,
+    "noDetectedConflictWorks": 1333
+  },
+  "expectedLegacyCohort": {
+    "works": 1340,
+    "validYearObservations": 1325,
+    "hasIssuedDate": 0,
+    "hasAbstract": 0,
+    "hasSubmittedDate": 1340,
+    "exactTitleCrossProgramConflictWorks": 7,
+    "exactTitleAuthorCrossProgramConflictWorks": 3,
+    "structuralConflictWorks": 3,
+    "warningOnlyWorks": 4,
+    "noDetectedConflictWorks": 1333
+  },
+  "expectedOtherCohort": {
+    "works": 0,
+    "validYearObservations": 0,
+    "hasIssuedDate": 0,
+    "hasAbstract": 0,
+    "hasSubmittedDate": 0,
+    "exactTitleCrossProgramConflictWorks": 0,
+    "exactTitleAuthorCrossProgramConflictWorks": 0,
+    "structuralConflictWorks": 0,
+    "warningOnlyWorks": 0,
+    "noDetectedConflictWorks": 0
+  },
+  "requiredConcentration": {
+    "allExactTitleConflictsInLegacy": true,
+    "allStructuralConflictsInLegacy": true,
+    "legacyHasNoIssuedDates": true,
+    "legacyHasNoAbstracts": true
+  },
+  "expectedStructuralConflictProgramKeys": {
+    "licenciatura en odontologia": 1,
+    "licenciatura en medicina": 1,
+    "licenciatura en psicologia": 1
+  }
+}

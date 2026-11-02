@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "thesis-veterinary-program-metadata-conflict-registry-baseline-v1",
+  "targetProgramKey": "licenciatura en medicina veterinaria zootecnista",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "conflict-registry-does-not-change-admission",
+  "authorityDecision": "hold",
+  "expectedMetrics": {
+    "conflictPairs": 3,
+    "targetStructuralWorks": 3,
+    "alternateWorks": 3,
+    "uniqueWorks": 6,
+    "uniqueSourceRecords": 6,
+    "alternateProgramKeys": {
+      "licenciatura en odontologia": 1,
+      "licenciatura en medicina": 1,
+      "licenciatura en psicologia": 1
+    },
+    "accessionPairDays": {
+      "2015-09-09 | 2015-09-09": 3
+    }
+  },
+  "expectedPairs": [
+    {
+      "pairId": "program-conflict:7ab435f671141492bbc2",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/21606",
+      "targetHandle": "20.500.12104/21606",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33113",
+      "alternateHandle": "20.500.12104/33113",
+      "alternateProgramKey": "licenciatura en odontologia"
+    },
+    {
+      "pairId": "program-conflict:3322dc3e62bae2076501",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/21932",
+      "targetHandle": "20.500.12104/21932",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/34005",
+      "alternateHandle": "20.500.12104/34005",
+      "alternateProgramKey": "licenciatura en medicina"
+    },
+    {
+      "pairId": "program-conflict:68c93d8fd08d35ae00aa",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/21949",
+      "targetHandle": "20.500.12104/21949",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33882",
+      "alternateHandle": "20.500.12104/33882",
+      "alternateProgramKey": "licenciatura en psicologia"
+    }
+  ]
+}

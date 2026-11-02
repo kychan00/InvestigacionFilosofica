@@ -1,0 +1,397 @@
+name: Thesis veterinary metadata integrity
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/audit_program_metadata_integrity_v2.py"
+      - "scripts/thesis/build_program_metadata_conflict_registry_v1.py"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/audit_program_metadata_evidence_confidence_v1.py"
+      - "scripts/thesis/config/program-metadata-evidence-confidence-v1.json"
+      - "scripts/thesis/config/program-metadata-evidence-confidence-baseline-v1.json"
+      - "scripts/thesis/config/veterinary-program-metadata-integrity-baseline-v1.json"
+      - "scripts/thesis/config/veterinary-program-metadata-conflict-registry-baseline-v1.json"
+      - "scripts/thesis/config/veterinary-program-alias-integrity-baseline-v1.json"
+      - "tests/test_thesis_veterinary_metadata_conflict_protection.py"
+      - "tests/test_thesis_program_metadata_conflict_registry.py"
+      - "tests/test_thesis_program_metadata_evidence_confidence.py"
+      - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_VETERINARY_V3.md"
+      - ".github/workflows/thesis-veterinary-metadata-integrity.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile
+        run: |
+          python -m py_compile \
+            scripts/thesis/build_canonical_corpus_v1.py \
+            scripts/thesis/audit_program_metadata_integrity_v2.py \
+            scripts/thesis/build_program_metadata_conflict_registry_v1.py \
+            scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            scripts/thesis/build_program_curation_queue_v1.py \
+            scripts/thesis/audit_program_metadata_evidence_confidence_v1.py
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_veterinary_metadata_conflict_protection.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_conflict_registry.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_evidence_confidence.py" \
+            -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-veterinary-metadata
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-veterinary-metadata
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Build four veterinary integrity audits
+        run: |
+          python scripts/thesis/audit_program_metadata_integrity_v2.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --program-key "licenciatura en medicina veterinaria zootecnista" \
+            --legacy-accession-day "2015-09-09" \
+            --output-dir artifacts/thesis-veterinary-metadata/primary
+
+          python scripts/thesis/audit_program_metadata_integrity_v2.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --program-key "licenciatura en medico veterinario y zootecnista" \
+            --legacy-accession-day "2015-09-09" \
+            --output-dir artifacts/thesis-veterinary-metadata/medico-veterinario
+
+          python scripts/thesis/audit_program_metadata_integrity_v2.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --program-key "licenciatura en veterinario y zootecnista" \
+            --legacy-accession-day "2015-09-09" \
+            --output-dir artifacts/thesis-veterinary-metadata/veterinario
+
+          python scripts/thesis/audit_program_metadata_integrity_v2.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --program-key "licenciatura en medicina veterinaria y zootecnia" \
+            --output-dir artifacts/thesis-veterinary-metadata/medicina-veterinaria-zootecnia
+
+      - name: Validate veterinary integrity baselines
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-veterinary-metadata")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "veterinary-program-alias-integrity-baseline-v1.json"
+              ).read_text()
+          )
+          primary_baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "veterinary-program-metadata-integrity-baseline-v1.json"
+              ).read_text()
+          )
+
+          dirs = {
+              "licenciatura en medicina veterinaria zootecnista": "primary",
+              "licenciatura en medico veterinario y zootecnista": "medico-veterinario",
+              "licenciatura en veterinario y zootecnista": "veterinario",
+              "licenciatura en medicina veterinaria y zootecnia": "medicina-veterinaria-zootecnia",
+          }
+
+          reports = {}
+          for key, dirname in dirs.items():
+              report = json.loads(
+                  (
+                      root
+                      / dirname
+                      / "program-metadata-integrity-audit.json"
+                  ).read_text()
+              )
+              reports[key] = report
+
+              assert (
+                  report["schemaVersion"]
+                  == "thesis-program-metadata-integrity-audit-v2"
+              )
+              assert (
+                  report["decisionConstraint"]
+                  == baseline["decisionConstraint"]
+              )
+              assert report["targetProgramKey"] == key
+              assert report["authorityDecision"] == "hold"
+
+              expected = baseline["groups"][key]
+              metrics = report["metrics"]
+
+              for scalar in [
+                  "observedWorks",
+                  "sourceProgramAgreementWorks",
+                  "sourceProgramDisagreementWorks",
+                  "exactTitleCrossProgramConflictWorks",
+                  "exactTitleAuthorCrossProgramConflictWorks",
+                  "structuralConflictWorks",
+                  "warningOnlyWorks",
+                  "noDetectedConflictWorks",
+              ]:
+                  assert metrics[scalar] == expected[scalar], (
+                      key,
+                      scalar,
+                      metrics[scalar],
+                      expected[scalar],
+                  )
+
+              assert metrics["observedUnits"] == expected["observedUnits"]
+              assert metrics["validYearSpan"] == expected["validYearSpan"]
+              assert metrics["accessionDays"] == expected["accessionDays"]
+              assert (
+                  metrics["sourceFieldPresence"]
+                  == expected["sourceFieldPresence"]
+              )
+
+          primary = reports[
+              "licenciatura en medicina veterinaria zootecnista"
+          ]
+          assert primary["conclusion"] == primary_baseline["expectedConclusion"]
+          assert (
+              primary["metrics"]["structuralConflictProgramKeys"]
+              == primary_baseline[
+                  "expectedStructuralConflictProgramKeys"
+              ]
+          )
+          assert (
+              primary["cohortAnalysis"]["legacy"]
+              == primary_baseline["expectedLegacyCohort"]
+          )
+          assert (
+              primary["cohortAnalysis"]["other"]
+              == primary_baseline["expectedOtherCohort"]
+          )
+          assert (
+              primary["cohortAnalysis"]["concentration"]
+              == primary_baseline["requiredConcentration"]
+          )
+
+          aggregate_works = sum(
+              report["metrics"]["observedWorks"]
+              for report in reports.values()
+          )
+          aggregate_structural = sum(
+              report["metrics"]["structuralConflictWorks"]
+              for report in reports.values()
+          )
+          assert aggregate_works == baseline["aggregate"]["observedWorks"]
+          assert (
+              aggregate_structural
+              == baseline["aggregate"]["structuralConflictWorks"]
+          )
+
+          print(json.dumps({
+              "aggregateWorks": aggregate_works,
+              "aggregateStructuralConflicts": aggregate_structural,
+              "groups": {
+                  key: report["metrics"]
+                  for key, report in reports.items()
+              },
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build veterinary item-level conflict registry
+        run: |
+          python scripts/thesis/build_program_metadata_conflict_registry_v1.py \
+            --integrity-audit artifacts/thesis-veterinary-metadata/primary/program-metadata-integrity-audit.json \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-dir artifacts/thesis-veterinary-metadata/conflict-registry
+
+      - name: Validate veterinary conflict registry baseline
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          registry = json.loads(
+              Path(
+                  "artifacts/thesis-veterinary-metadata/"
+                  "conflict-registry/"
+                  "program-metadata-conflict-registry.json"
+              ).read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "veterinary-program-metadata-conflict-registry-baseline-v1.json"
+              ).read_text()
+          )
+
+          assert registry["decisionConstraint"] == baseline["decisionConstraint"]
+          assert registry["authorityDecision"] == baseline["authorityDecision"]
+          assert registry["metrics"] == baseline["expectedMetrics"]
+
+          actual_pairs = {
+              pair["pairId"]: {
+                  "pairId": pair["pairId"],
+                  "targetProviderRecordId": pair["target"]["providerRecordId"],
+                  "targetHandle": pair["target"]["handle"],
+                  "alternateProviderRecordId": pair["alternate"]["providerRecordId"],
+                  "alternateHandle": pair["alternate"]["handle"],
+                  "alternateProgramKey": pair["alternate"]["programKey"],
+              }
+              for pair in registry["pairs"]
+          }
+          expected_pairs = {
+              pair["pairId"]: pair
+              for pair in baseline["expectedPairs"]
+          }
+          assert actual_pairs == expected_pairs
+
+          print(json.dumps({
+              "metrics": registry["metrics"],
+              "pairs": registry["pairs"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Reproject Metadata Confidence V3 on frozen full baseline
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-veterinary-metadata/canonical-reprojected.json \
+            --output-report artifacts/thesis-veterinary-metadata/reprojection-report.json
+
+          python scripts/thesis/build_program_curation_queue_v1.py \
+            --observed-authorities /tmp/thesis-full-baseline/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-veterinary-metadata/canonical-reprojected.json \
+            --output-dir artifacts/thesis-veterinary-metadata/queue \
+            --top 30
+
+          python scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
+            --canonical-corpus artifacts/thesis-veterinary-metadata/canonical-reprojected.json \
+            --queue artifacts/thesis-veterinary-metadata/queue/program-curation-queue.json \
+            --output-dir artifacts/thesis-veterinary-metadata/confidence-audit
+
+      - name: Validate frozen full Metadata Confidence V3
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-veterinary-metadata")
+          report = json.loads(
+              (
+                  root
+                  / "confidence-audit"
+                  / "program-metadata-confidence-audit.json"
+              ).read_text()
+          )
+          reprojection = json.loads(
+              (root / "reprojection-report.json").read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "program-metadata-evidence-confidence-baseline-v1.json"
+              ).read_text()
+          )
+          registry = json.loads(
+              Path(
+                  "scripts/thesis/config/program-authority-v1.json"
+              ).read_text()
+          )
+
+          assert registry["registryRevision"] == "2026-11-02.v25"
+          assert reprojection["metrics"]["works"] == 27576
+          assert reprojection["metrics"]["multiSourceWorks"] == 0
+          assert (
+              report["programMetadataEvidenceRevision"]
+              == baseline["policyRevision"]
+              == "2026-11-02.v3"
+          )
+          assert (
+              report["metrics"]["confidenceStates"]
+              == baseline["expectedConfidenceStates"]
+          )
+          assert (
+              report["metrics"]["authorityApplicability"]
+              == baseline["expectedAuthorityApplicability"]
+          )
+
+          for rule_id, expected in baseline["expectedRules"].items():
+              assert (
+                  report["metrics"]["ruleMatches"].get(rule_id, 0)
+                  == expected["matchedWorks"]
+              )
+
+          queue_rows = {
+              row["normalizedKey"]: row
+              for row in report["metadataReviewQueueItems"]
+          }
+          for key, expected in (
+              baseline["expectedMetadataReviewPrograms"].items()
+          ):
+              row = queue_rows[key]
+              evidence = row["programMetadataEvidence"]
+              assert row["queueState"] == expected["queueState"]
+              assert row["curationLane"] == expected["curationLane"]
+              assert evidence["blockedWorks"] == expected["blockedWorks"]
+              assert (
+                  evidence["confidenceStates"]
+                  == expected["confidenceStates"]
+              )
+              assert (
+                  evidence["authorityApplicability"]
+                  == expected["authorityApplicability"]
+              )
+
+          assert report["metrics"]["violations"] == 0
+          assert report["violations"] == []
+
+          print(json.dumps({
+              "registryRevision": registry["registryRevision"],
+              "reprojection": reprojection["metrics"],
+              "confidence": report["metrics"],
+              "metadataReviewQueueItems": report[
+                  "metadataReviewQueueItems"
+              ],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Upload veterinary audit artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-veterinary-metadata-integrity-v3
+          path: artifacts/thesis-veterinary-metadata/
+          if-no-files-found: error
+          retention-days: 14

@@ -752,7 +752,7 @@ jobs:
               report["decisionConstraint"]
               == "metadata-confidence-does-not-create-program-authority"
           )
-          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v2"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v3"
           assert report["metrics"]["works"] > 0
           assert report["metrics"]["violations"] == 0
           assert report["violations"] == []
