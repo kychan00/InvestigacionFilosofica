@@ -752,7 +752,7 @@
         "min": 1996,
         "max": 2021
       },
-      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con orientaciones en Historia de la Arquitectura Mexicana, Conservación del Patrimonio Edificado, Teoría y Crítica, Edificación Arquitectónica, Urbanismo y Desarrollo, Arte y Comunicación y Administración de Procesos, con retroactividad a 1995-B. En 2003 reabrió conservando Historia y Conservación. El catálogo institucional asigna claves a esas orientaciones. Se agrupan los strings observados que corresponden a ese lineage programático, pero la autoridad permanece REVIEW porque la UdeG clasifica el programa en Arte, Arquitectura y Diseño aunque sus líneas actuales sean historia y patrimonio.",
+      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con múltiples orientaciones; desde la reapertura de 2003 conserva Historia de la Arquitectura Mexicana y Conservación del Patrimonio Edificado. V32 confirma además que Control Escolar mantiene una clave propia para la histórica Maestría en Historia de la Arquitectura Mexicana (261508), cuya autoridad separada queda INCLUDE. Esta autoridad base permanece REVIEW porque agrupa tesis sin orientación explícita y orientaciones heterogéneas de historia, conservación, edificación, urbanismo, arte/comunicación y teoría/crítica; no se hereda el INCLUDE de la autoridad histórica.",
       "evidence": [
         "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
         "https://cuaad.udg.mx/node/21768",
@@ -765,7 +765,7 @@
       "canonicalName": "Maestría en Historia de la Arquitectura Mexicana",
       "level": "maestria",
       "disciplineFamily": "historia-arquitectura",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUAAD"
@@ -779,11 +779,14 @@
         "max": 2009
       },
       "possibleSuccessorRef": "program:udg:mae-ciencias-arquitectura",
-      "decisionNote": "Control Escolar conserva una clave DGP específica para Maestría en Historia de la Arquitectura Mexicana, mientras la oferta vigente la presenta como orientación de Ciencias de la Arquitectura. Se mantiene como autoridad histórica REVIEW y possibleSuccessorRef, sin fusionarla automáticamente con el programa actual.",
+      "decisionNote": "Control Escolar de la UdeG conserva una clave administrativa propia (261508) para Maestría en Historia de la Arquitectura Mexicana. RIUdeG registra cuatro tesis 2004–2009 con ese grado exacto y Metadata Confidence permitido. La oferta vigente de la Maestría en Ciencias de la Arquitectura mantiene Historia de la Arquitectura Mexicana como orientación formal, y sus antecedentes documentan esa orientación desde la modificación de 1999 y la reapertura de 2003. Bajo humanities-only, la autoridad histórica se resuelve INCLUDE porque su identidad programática específica es Historia de la Arquitectura Mexicana. Se conserva separada de la Maestría en Ciencias de la Arquitectura, que permanece REVIEW por combinar Historia con Conservación y otras orientaciones; el lineage no arrastra la admisión del programa base.",
       "evidence": [
         "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf",
+        "https://escolar.udg.mx/sites/default/files/Maestrias.pdf",
         "https://www.riudg.udg.mx/handle/20.500.12104/73111?mode=full",
-        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos"
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cuaad.udg.mx/oferta/maestrias/mca/plan-de-estudios",
+        "https://cuaad.udg.mx/sites/default/files/convocatoria_mca_2026_informacion.pdf"
       ]
     },
     {
@@ -1581,7 +1584,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v31",
+  "registryRevision": "2026-11-02.v32",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
