@@ -37,12 +37,14 @@
       "exclude": 7490,
       "reject-source": 2
     },
-    "humanitiesActionQueueItems": 41,
-    "humanitiesActionWorks": 490,
+    "humanitiesActionQueueItems": 40,
+    "humanitiesActionWorks": 489,
     "workReviewQueueItems": 1,
     "workReviewWorks": 152,
     "nextHumanitiesActionKey": "maestria en investigacion educativa",
-    "nextHumanitiesActionWorks": 34
+    "nextHumanitiesActionWorks": 34,
+    "externalInstitutionGroupsOmitted": 1,
+    "externalInstitutionWorksOmitted": 1
   },
   "invariants": [
     "historical-conservacion-patrimonio-is-include",
@@ -52,6 +54,7 @@
     "historical-historia-arquitectura-remains-include",
     "scope-policy-v4-remains-unchanged",
     "metadata-confidence-v4-remains-unchanged",
-    "dcts-work-review-remains-1-program-152-works"
+    "dcts-work-review-remains-1-program-152-works",
+    "external-colegio-michoacan-anthropology-work-is-not-humanities-actionable"
   ]
 }
