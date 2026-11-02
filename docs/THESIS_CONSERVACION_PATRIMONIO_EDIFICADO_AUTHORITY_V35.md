@@ -201,11 +201,23 @@ Resultado esperado:
 
 Después de resolver esta autoridad:
 
-- humanities action programs: **41**;
-- humanities action works: **490**;
+- humanities action programs: **40**;
+- humanities action works: **489**;
 - DCTS permanece en work-level review:
   - 1 programa;
   - 152 tesis.
+
+La diferencia adicional de una obra frente al conteo histórico T2BD proviene de:
+
+`Doctorado en Antropología Social`
+
+La obra `thesis:work:00016567` tiene:
+
+- `institutionRaw = El Colegio de Michoacán A.C.`;
+- `admissionStatus = exclude`;
+- `admissionExplanationCodes = external-institution`.
+
+La cola actual reproyectada la omite correctamente de `humanitiesActionItems`. No se fuerza su regreso para conservar un conteo histórico.
 
 Siguiente autoridad programática:
 
