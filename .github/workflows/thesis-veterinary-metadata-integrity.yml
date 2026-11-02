@@ -340,7 +340,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v29"
+          assert registry["registryRevision"] == "2026-11-02.v30"
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
           assert (
@@ -585,7 +585,7 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v26"
-          assert report["registryRevision"] == "2026-11-02.v29"
+          assert report["registryRevision"] == "2026-11-02.v30"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
@@ -605,11 +605,12 @@ jobs:
               "exclude": 4004,
               "reject-source": 2,
           }
-          # The V26 baseline stays frozen; active V29 additionally
-          # applies Civil Engineering V28 and Communication V29.
+          # The V26 baseline stays frozen; active V30 additionally
+          # applies Civil Engineering V28, Communication V29, and resolves
+          # the DELL Lingüística Aplicada orientation in V30.
           assert report["globalProjectedAdmission"] == {
-              "include": 428,
-              "review": 765,
+              "include": 429,
+              "review": 764,
               "quarantine": 18964,
               "exclude": 7417,
               "reject-source": 2,

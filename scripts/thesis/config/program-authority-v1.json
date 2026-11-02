@@ -328,12 +328,21 @@
       ],
       "aliases": [
         "Doctorado en Estudios Literarios y Lingüísticos",
-        "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜISTICOS"
+        "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜISTICOS",
+        "Doctorado en Estudios Literarios y Lingüísticos con Orientación en Lingüística Aplicada",
+        "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
       ],
-      "observedCount": 1,
+      "observedCount": 2,
       "evidence": [
-        "https://www.cucsh.udg.mx/Divisi%C3%B3n_y_departamentos/Departamentos_de_estudios_literarios"
-      ]
+        "https://www.udg.mx/sites/default/files/Doctorado%20en%20Estudios%20Literarios%20y%20Ling%C3%BC%C3%ADsticos-CUCSH.pdf",
+        "https://www.cucsh.udg.mx/Divisi%C3%B3n_y_departamentos/Departamentos_de_estudios_literarios",
+        "https://riudg.udg.mx/handle/20.500.12104/20540"
+      ],
+      "observedThesisYears": {
+        "min": 2011,
+        "max": 2014
+      },
+      "decisionNote": "La UdeG documenta el Doctorado en Estudios Literarios y Lingüísticos como un solo programa de investigación y, dentro de sus requisitos de ingreso, distingue explícitamente la orientación de Lingüística Aplicada y la de Literaturas Comparadas, refiriéndose a la 'orientación seleccionada'. Por ello, el string RIUdeG 'Doctorado en Estudios Literarios y Lingüísticos con Orientación en Lingüística Aplicada' se resuelve como alias/orientación interna del mismo doctorado y no como programa histórico independiente. La evidencia actual del Departamento de Estudios Literarios conserva el Doctorado en Estudios Literarios y Lingüísticos como programa institucional. Bajo humanities-only, ambas observaciones se integran en la misma autoridad INCLUDE."
     },
     {
       "id": "program:udg:mae-bioetica",
@@ -492,27 +501,6 @@
         "https://plataforma-tce.cucsh.udg.mx/register",
         "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos",
         "https://cgpe.udg.mx/sites/default/files/cucsh.pdf"
-      ]
-    },
-    {
-      "id": "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
-      "canonicalName": "Doctorado en Estudios Literarios y Lingüísticos con Orientación en Lingüística Aplicada",
-      "level": "doctorado",
-      "disciplineFamily": "letras-linguistica",
-      "admissionState": "review",
-      "lifecycleState": "historical",
-      "academicUnits": [
-        "CUCSH"
-      ],
-      "aliases": [
-        "Doctorado en Estudios Literarios y Lingüísticos con Orientación en Lingüística Aplicada",
-        "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
-      ],
-      "observedCount": 1,
-      "possibleSuccessorRef": "program:udg:doc-estudios-literarios-linguisticos",
-      "decisionNote": "RIUdeG observa una orientación histórica; la existencia del Doctorado base está confirmada, pero la relación exacta de esta orientación requiere evidencia adicional.",
-      "evidence": [
-        "https://www.cucsh.udg.mx/Divisi%C3%B3n_y_departamentos/Departamentos_de_estudios_literarios"
       ]
     },
     {
@@ -1592,7 +1580,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v29",
+  "registryRevision": "2026-11-02.v30",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

@@ -393,7 +393,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         self.assertEqual(corpus["metrics"]["worksByAdmission"], {"review": 1})
         self.assertEqual(corpus["works"][0]["admissionStatus"], "review")
 
-    def test_unresolved_doctoral_orientation_remains_review(self):
+    def test_doctoral_linguistica_orientation_resolves_to_base_v30(self):
         raw = (
             "DOCTORADO EN ESTUDIOS LITERARIOS Y LINGÜÍSTICOS "
             "CON ORIENTACIÓN EN LINGÜÍSTICA APLICADA"
@@ -402,9 +402,9 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
 
         self.assertEqual(
             resolved["programRef"],
-            "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
+            "program:udg:doc-estudios-literarios-linguisticos",
         )
-        self.assertEqual(resolved["admissionState"], "review")
+        self.assertEqual(resolved["admissionState"], "include")
 
     def test_registry_revision_is_pinned_in_corpus(self):
         record = thesis.source_record(

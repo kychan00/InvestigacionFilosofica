@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "thesis-dell-linguistica-lineage-v30-baseline-v1",
+  "phase": "T2AX",
+  "registryRevision": "2026-11-02.v30",
+  "programRef": "program:udg:doc-estudios-literarios-linguisticos",
+  "canonicalName": "Doctorado en Estudios Literarios y Lingüísticos",
+  "admissionState": "include",
+  "sourceV29ArtifactId": 13173857588,
+  "sourceFullArtifactId": 13099541204,
+  "orientationKey": "doctorado en estudios literarios y linguisticos con orientacion en linguistica aplicada",
+  "baseKey": "doctorado en estudios literarios y linguisticos",
+  "removedProvisionalProgramRef": "program:udg:doc-estudios-literarios-linguisticos-orient-linguistica",
+  "expected": {
+    "works": 2,
+    "blockedWorks": 0,
+    "academicUnits": {
+      "CUCSH": 2
+    },
+    "observedYears": {
+      "min": 2011,
+      "max": 2014
+    },
+    "rawGroups": {
+      "doctorado en estudios literarios y linguisticos": 1,
+      "doctorado en estudios literarios y linguisticos con orientacion en linguistica aplicada": 1
+    },
+    "admissionStatuses": {
+      "include": 2
+    },
+    "globalProjectedAdmission": {
+      "include": 429,
+      "review": 764,
+      "quarantine": 18964,
+      "exclude": 7417,
+      "reject-source": 2
+    },
+    "queueOrientationPresent": false,
+    "nextHumanitiesActionKey": "doctorado en educacion"
+  },
+  "lineageDecision": "orientation-is-internal-track-of-same-doctorate",
+  "invariants": [
+    "official-program-document-explicitly-describes-linguistica-aplicada-as-an-orientation",
+    "orientation-resolves-to-base-program-authority",
+    "provisional-historical-authority-is-removed",
+    "one-review-work-moves-to-include",
+    "no-fuzzy-or-topic-based-merge",
+    "metadata-confidence-v4-remains-unchanged",
+    "communication-v29-and-other-prior-authorities-remain-stable"
+  ]
+}

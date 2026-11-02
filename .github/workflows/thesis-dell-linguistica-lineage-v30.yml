@@ -1,0 +1,212 @@
+name: Thesis DELL Lingüística Lineage V30
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/dell-linguistica-lineage-v30-baseline-v1.json"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "tests/test_thesis_dell_linguistica_lineage_v30.py"
+      - "tests/test_thesis_canonical_corpus.py"
+      - "docs/THESIS_DELL_LINGUISTICA_LINEAGE_V30.md"
+      - "docs/THESIS_HUMANITIES_LANGUAGE_LITERATURE_LINEAGE_V1.md"
+      - ".github/workflows/thesis-dell-linguistica-lineage-v30.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_dell_linguistica_lineage_v30.py" -v
+          python -m unittest discover -s tests -p "test_thesis_canonical_corpus.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-dell-v30
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-dell-v30
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-dell-v30/canonical-confidence.json \
+            --output-report artifacts/thesis-dell-v30/confidence-report.json
+
+      - name: Reproject V30 and actionable Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+
+          root = Path("artifacts/thesis-dell-v30")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-full-baseline/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed,
+              projection["programDimensions"],
+          )
+          queue = curation.build_queue(
+              projected_observed,
+              projected,
+              registry,
+          )
+
+          (root / "canonical-v30.json").write_text(
+              json.dumps(projected, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "observed-v30.json").write_text(
+              json.dumps(projected_observed, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "queue-v30.json").write_text(
+              json.dumps(queue, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "projection-v30.json").write_text(
+              json.dumps(projection, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+
+      - name: Validate full V30 lineage baseline
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-dell-v30")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "dell-linguistica-lineage-v30-baseline-v1.json"
+              ).read_text()
+          )
+          corpus = json.loads((root / "canonical-v30.json").read_text())
+          projection = json.loads((root / "projection-v30.json").read_text())
+          queue = json.loads((root / "queue-v30.json").read_text())
+          registry = canonical.load_program_registry()
+          expected = baseline["expected"]
+
+          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert len(corpus["works"]) == 27576
+
+          assert not any(
+              p["id"] == baseline["removedProvisionalProgramRef"]
+              for p in registry["programs"]
+          )
+
+          selected = [
+              w
+              for w in corpus["works"]
+              if w.get("programRef") == baseline["programRef"]
+          ]
+          assert len(selected) == expected["works"]
+
+          blocked = [
+              w
+              for w in selected
+              if (w.get("programMetadataEvidence") or {}).get(
+                  "authorityApplicability"
+              ) == "blocked"
+          ]
+          assert len(blocked) == expected["blockedWorks"]
+
+          assert Counter(
+              w.get("academicUnitRaw") for w in selected
+          ) == Counter(expected["academicUnits"])
+          assert Counter(
+              w.get("admissionStatus") for w in selected
+          ) == Counter(expected["admissionStatuses"])
+
+          raw_groups = Counter(
+              canonical.normalize_key(w.get("programRaw"))
+              for w in selected
+          )
+          assert dict(raw_groups) == expected["rawGroups"]
+
+          years = sorted(
+              int(str((w.get("date") or {}).get("value"))[:4])
+              for w in selected
+              if (w.get("date") or {}).get("quality") == "valid"
+              and str((w.get("date") or {}).get("value") or "")[:4].isdigit()
+          )
+          assert years[0] == expected["observedYears"]["min"]
+          assert years[-1] == expected["observedYears"]["max"]
+
+          assert (
+              projection["projectedAdmission"]
+              == expected["globalProjectedAdmission"]
+          )
+          assert sum(projection["projectedAdmission"].values()) == 27576
+
+          assert all(
+              item["normalizedKey"] != baseline["orientationKey"]
+              for item in queue["items"]
+          )
+          assert queue["nextHumanitiesAction"]["normalizedKey"] == (
+              expected["nextHumanitiesActionKey"]
+          )
+
+          summary = {
+              "registryRevision": registry["registryRevision"],
+              "programRef": baseline["programRef"],
+              "works": len(selected),
+              "byAdmission": dict(
+                  Counter(w.get("admissionStatus") for w in selected)
+              ),
+              "globalProjectedAdmission": projection["projectedAdmission"],
+              "nextHumanitiesAction": queue["nextHumanitiesAction"],
+          }
+          (root / "v30-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload V30 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-dell-linguistica-lineage-v30
+          path: artifacts/thesis-dell-v30/
+          if-no-files-found: error
+          retention-days: 14
