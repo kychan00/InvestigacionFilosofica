@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "thesis-medicine-program-metadata-conflict-registry-baseline-v1",
+  "targetProgramKey": "licenciatura en medicina",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "conflict-registry-does-not-change-admission",
+  "authorityDecision": "hold",
+  "expectedMetrics": {
+    "conflictPairs": 9,
+    "targetStructuralWorks": 9,
+    "alternateWorks": 9,
+    "uniqueWorks": 18,
+    "uniqueSourceRecords": 18,
+    "alternateProgramKeys": {
+      "licenciatura en psicologia": 6,
+      "licenciatura en odontologia": 2,
+      "licenciatura en medicina veterinaria zootecnista": 1
+    },
+    "accessionPairDays": {
+      "2015-09-09 | 2015-09-09": 9
+    }
+  },
+  "expectedPairs": [
+    {
+      "pairId": "program-conflict:980dd1395124a5359f76",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/32360",
+      "targetHandle": "20.500.12104/32360",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33719",
+      "alternateHandle": "20.500.12104/33719",
+      "alternateProgramKey": "licenciatura en psicologia"
+    },
+    {
+      "pairId": "program-conflict:675660f44cd54a30c5d1",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33028",
+      "targetHandle": "20.500.12104/33028",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33923",
+      "alternateHandle": "20.500.12104/33923",
+      "alternateProgramKey": "licenciatura en psicologia"
+    },
+    {
+      "pairId": "program-conflict:77dcc264a0f9d02a9248",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33043",
+      "targetHandle": "20.500.12104/33043",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33681",
+      "alternateHandle": "20.500.12104/33681",
+      "alternateProgramKey": "licenciatura en psicologia"
+    },
+    {
+      "pairId": "program-conflict:5a282eee35a5057f6fd7",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33107",
+      "targetHandle": "20.500.12104/33107",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33570",
+      "alternateHandle": "20.500.12104/33570",
+      "alternateProgramKey": "licenciatura en odontologia"
+    },
+    {
+      "pairId": "program-conflict:b8ead8b790d5175619cc",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33759",
+      "targetHandle": "20.500.12104/33759",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/34016",
+      "alternateHandle": "20.500.12104/34016",
+      "alternateProgramKey": "licenciatura en odontologia"
+    },
+    {
+      "pairId": "program-conflict:a824329fc0e934a8177c",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33843",
+      "targetHandle": "20.500.12104/33843",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/32769",
+      "alternateHandle": "20.500.12104/32769",
+      "alternateProgramKey": "licenciatura en psicologia"
+    },
+    {
+      "pairId": "program-conflict:942f24520407a0c042a6",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33975",
+      "targetHandle": "20.500.12104/33975",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33046",
+      "alternateHandle": "20.500.12104/33046",
+      "alternateProgramKey": "licenciatura en psicologia"
+    },
+    {
+      "pairId": "program-conflict:3322dc3e62bae2076501",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/34005",
+      "targetHandle": "20.500.12104/34005",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/21932",
+      "alternateHandle": "20.500.12104/21932",
+      "alternateProgramKey": "licenciatura en medicina veterinaria zootecnista"
+    },
+    {
+      "pairId": "program-conflict:d99ff6bc68284de3f22e",
+      "targetProviderRecordId": "oai:riudg.udg.mx:20.500.12104/34103",
+      "targetHandle": "20.500.12104/34103",
+      "alternateProviderRecordId": "oai:riudg.udg.mx:20.500.12104/33068",
+      "alternateHandle": "20.500.12104/33068",
+      "alternateProgramKey": "licenciatura en psicologia"
+    }
+  ]
+}
