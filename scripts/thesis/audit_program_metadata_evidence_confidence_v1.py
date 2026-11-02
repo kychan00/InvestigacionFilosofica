@@ -123,6 +123,7 @@ def build_audit(
                 "rank": item.get("rank"),
                 "normalizedKey": item.get("normalizedKey"),
                 "count": item.get("count"),
+                "queueState": item.get("queueState"),
                 "curationLane": item.get("curationLane"),
                 "authority": item.get("authority"),
                 "programMetadataEvidence": item.get(
