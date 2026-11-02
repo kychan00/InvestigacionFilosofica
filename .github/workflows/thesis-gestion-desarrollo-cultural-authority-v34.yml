@@ -149,7 +149,7 @@ jobs:
               if p["id"] == baseline["siblingProgramRef"]
           )
           assert target["admissionState"] == "include"
-          assert sibling["admissionState"] == expected["siblingProgramAdmissionState"]
+          assert sibling["admissionState"] == "include"
           assert target["id"] != sibling["id"]
           assert target.get("possibleSuccessorRef") is None
           assert sibling.get("possibleSuccessorRef") is None
@@ -208,9 +208,16 @@ jobs:
           assert len(sibling_works) == expected["siblingProgramWorks"]
           assert Counter(
               w.get("admissionStatus") for w in sibling_works
-          ) == Counter({
-              expected["siblingProgramAdmissionState"]: len(sibling_works)
-          })
+          ) == Counter(expected["siblingProgramAdmissionStatuses"])
+          sibling_quarantine = [
+              w for w in sibling_works
+              if w.get("admissionStatus") == "quarantine"
+          ]
+          assert len(sibling_quarantine) == expected["siblingUnresolvedInstitutionWorks"]
+          assert all(
+              "unresolved-institution" in (w.get("admissionExplanationCodes") or [])
+              for w in sibling_quarantine
+          )
 
           assert (
               projection["projectedAdmission"]
