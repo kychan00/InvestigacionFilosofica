@@ -949,9 +949,36 @@
         "https://www.gaceta.udg.mx/wp-content/uploads/2020/02/096.pdf",
         "https://www.riudg.udg.mx/handle/20.500.12104/46409"
       ]
+    },
+    {
+      "id": "program:udg:mae-comunicacion",
+      "canonicalName": "Maestría en Comunicación",
+      "level": "maestria",
+      "disciplineFamily": "comunicacion-estudios-culturales-sociales",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Comunicación",
+        "MAESTRIA EN COMUNICACION"
+      ],
+      "observedCount": 67,
+      "observedThesisYears": {
+        "min": 2002,
+        "max": 2021
+      },
+      "decisionNote": "Programa vigente de CUCSH adscrito a la División de Estudios de la Cultura y al Departamento de Estudios de la Comunicación Social. La UdeG lo dirige a egresados de Ciencias Sociales y Humanidades y lo define como formación para investigación y docencia en el campo de la comunicación. Sus líneas combinan tecnología y sociedad, economía y poder político, periodismo, procesos socioculturales y producción simbólica. La evidencia confirma una frontera interdisciplinaria real; se registra como REVIEW, no como INCLUDE ni EXCLUDE.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-comunicacion",
+        "https://cucsh.udg.mx/maestrias/maestria_en_comunicacion/lineas_generacion",
+        "https://vreddiehgdl.cucsh.udg.mx/maestrias/maestria_en_comunicacion/plan_de_estudios",
+        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20la%20Cultura/estructuradiv"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v6",
+  "registryRevision": "2026-11-01.v7",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
