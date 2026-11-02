@@ -56,7 +56,11 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
             self.baseline["expected"]["baseProgramAdmissionState"],
         )
 
-    def test_conservation_historical_remains_review(self):
+    def test_v32_conservation_baseline_is_preserved_under_v35(self):
+        self.assertEqual(
+            self.baseline["expected"]["conservationHistoricalAdmissionState"],
+            "review",
+        )
         resolved = canonical.resolve_program(
             "Maestría en Conservación del Patrimonio Edificado",
             self.registry,
@@ -65,10 +69,7 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
             resolved["programRef"],
             self.baseline["expected"]["conservationHistoricalRef"],
         )
-        self.assertEqual(
-            resolved["admissionState"],
-            self.baseline["expected"]["conservationHistoricalAdmissionState"],
-        )
+        self.assertEqual(resolved["admissionState"], "include")
 
     def test_metadata_confidence_stays_v4(self):
         policy = canonical.load_program_metadata_evidence_policy()
