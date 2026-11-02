@@ -1,0 +1,116 @@
+name: Thesis civil engineering evidence T2AT
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/audit_program_metadata_family_v1.py"
+      - "scripts/thesis/config/civil-engineering-evidence-baseline-v1.json"
+      - "docs/THESIS_CIVIL_ENGINEERING_EVIDENCE_T2AT.md"
+      - ".github/workflows/thesis-civil-engineering-evidence-t2at.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Compile auditor
+        run: python -m py_compile scripts/thesis/audit_program_metadata_family_v1.py
+      - name: Download frozen full source snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/thesis-civil-t2at artifacts/thesis-civil-t2at
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-civil-t2at.zip
+          unzip -q /tmp/thesis-civil-t2at.zip -d /tmp/thesis-civil-t2at
+      - name: Audit exact undergraduate civil engineering cohort
+        run: |
+          python scripts/thesis/audit_program_metadata_family_v1.py \
+            --canonical-corpus /tmp/thesis-civil-t2at/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-civil-t2at/source-records.jsonl.gz \
+            --normalized-program-regex '^licenciatura en ingenieria civil$' \
+            --family-id udg-civil-engineering-undergraduate-v1 \
+            --output-dir artifacts/thesis-civil-t2at/family
+      - name: Verify frozen evidence boundaries
+        run: |
+          python - <<'PY'
+          import gzip
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          from audit_program_metadata_integrity_v2 import normalize_key
+
+          base = json.loads(
+              Path("scripts/thesis/config/civil-engineering-evidence-baseline-v1.json").read_text()
+          )
+          report = json.loads(
+              Path("artifacts/thesis-civil-t2at/family/program-metadata-family-audit.json").read_text()
+          )
+          with gzip.open("/tmp/thesis-civil-t2at/canonical-corpus.json.gz", "rt") as stream:
+              corpus = json.load(stream)
+
+          e = base["expected"]
+          metrics = report["metrics"]
+          assert len(corpus["works"]) == e["fullWorks"]
+          assert report["decisionConstraint"] == "family-audit-does-not-change-admission"
+          assert report["authorityDecision"] == "hold"
+          assert report["familyId"] == base["familyId"]
+          assert metrics["works"] == e["targetWorks"]
+          assert metrics["normalizedProgramGroups"] == e["targetGroups"]
+          assert metrics["observedUnits"] == e["targetAcademicUnits"]
+          assert report["programGroups"] == [{
+              "normalizedKey": e["targetProgramKey"],
+              "works": e["targetWorks"],
+          }]
+
+          selected = [
+              w for w in corpus["works"]
+              if normalize_key(w.get("programRaw")) == e["targetProgramKey"]
+          ]
+          assert len(selected) == e["targetWorks"]
+          assert all(w.get("programRef") is None for w in selected)
+          assert all(w.get("admissionStatus") == e["targetAdmissionState"] for w in selected)
+          assert all(w.get("academicUnitRaw") == "CUCEI" for w in selected)
+
+          graduate = Counter(
+              normalize_key(w.get("programRaw"))
+              for w in corpus["works"]
+              if normalize_key(w.get("programRaw")) in e["adjacentGraduateGroups"]
+          )
+          assert dict(graduate) == e["adjacentGraduateGroups"]
+          assert sum(graduate.values()) == e["adjacentGraduateWorks"]
+          assert not set(graduate) & {e["targetProgramKey"]}
+
+          summary = {
+              "decision": "HOLD / evidence-only",
+              "undergraduate": metrics,
+              "adjacentGraduateGroups": dict(graduate),
+              "sourceFullArtifactId": base["sourceFullArtifactId"],
+          }
+          Path("artifacts/thesis-civil-t2at/verified-boundaries.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+      - name: Upload full evidence audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-civil-engineering-evidence-t2at
+          path: artifacts/thesis-civil-t2at/
+          retention-days: 14
+          if-no-files-found: error
