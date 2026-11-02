@@ -276,7 +276,66 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
         )
         self.assertEqual(
             result["programAuthorityRevision"],
-            "2026-11-01.v6",
+            self.registry["registryRevision"],
+        )
+
+    def test_communication_v7_reprojects_to_review(self):
+        observed = {
+            "schemaVersion": "fixture",
+            "programs": [
+                {
+                    "normalizedKey": "maestria en comunicacion",
+                    "count": 1,
+                    "variants": {
+                        "Maestría en Comunicación": 1,
+                    },
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"quarantine": 1},
+                    "programRefs": {},
+                }
+            ],
+        }
+        corpus = {
+            "buildRevision": "fixture",
+            "programAuthorityRevision": "old",
+            "works": [
+                self.work(
+                    work_id="communication",
+                    program="Maestría en Comunicación",
+                    institution_ref="institution:udg",
+                    admission="quarantine",
+                    raw_date="2018",
+                )
+            ],
+        }
+
+        result = audit.build_audit(
+            observed=observed,
+            corpus=corpus,
+            registry=self.registry,
+            reference_year=2026,
+            top=10,
+        )
+
+        self.assertEqual(
+            result["metrics"]["projectedAdmission"],
+            {"review": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programStateWorks"],
+            {"review": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programQueue"]["queueItems"],
+            1,
+        )
+        self.assertEqual(
+            result["topReviewGroups"][0]["normalizedKey"],
+            "maestria en comunicacion",
+        )
+        self.assertEqual(
+            result["programAuthorityRevision"],
+            self.registry["registryRevision"],
         )
 
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
