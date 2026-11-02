@@ -773,6 +773,53 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         )
         self.assertEqual(program["currentAdmissionStatuses"], {"exclude": 1})
 
+    def test_relaciones_internacionales_outside_scope_matches_exclude_authority(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "licenciatura en relaciones internacionales",
+                "count": 48,
+                "variants": {"Licenciatura en Relaciones Internacionales": 48},
+                "providers": {"riudg": 48},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "id": "work:relaciones-internacionales",
+                "programRaw": "Licenciatura en Relaciones Internacionales",
+                "academicUnitRaw": "CUCSH",
+                "date": {"value": "2021", "quality": "valid"},
+                "admissionStatus": "exclude",
+                "institutionRef": "institution:udg",
+            }]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item for item in report["rows"]
+            if item["id"] == "scope:political-international-development"
+        )
+        self.assertEqual(row["boundaryState"], "outside-scope")
+        program = next(
+            item for item in row["programs"]
+            if item["normalizedKey"] == "licenciatura en relaciones internacionales"
+        )
+        self.assertEqual(program["programAuthority"]["status"], "confirmed")
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:lic-relaciones-internacionales",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "exclude",
+        )
+        self.assertEqual(program["currentAdmissionStatuses"], {"exclude": 1})
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [

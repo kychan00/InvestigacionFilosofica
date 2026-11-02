@@ -784,6 +784,48 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_relaciones_internacionales_v16_reprojects_to_exclude(self):
+        observed = {
+            "schemaVersion": "fixture",
+            "programs": [{
+                "normalizedKey": "licenciatura en relaciones internacionales",
+                "count": 1,
+                "variants": {"Licenciatura en Relaciones Internacionales": 1},
+                "providers": {"riudg": 1},
+                "admissionStatuses": {"quarantine": 1},
+                "programRefs": {},
+            }],
+        }
+        corpus = {
+            "buildRevision": "fixture",
+            "programAuthorityRevision": "old",
+            "works": [
+                self.work(
+                    work_id="relaciones-internacionales",
+                    program="Licenciatura en Relaciones Internacionales",
+                    institution_ref="institution:udg",
+                    admission="quarantine",
+                    raw_date="2021",
+                )
+            ],
+        }
+
+        result = audit.build_audit(
+            observed=observed,
+            corpus=corpus,
+            registry=self.registry,
+            reference_year=2026,
+            top=10,
+        )
+
+        self.assertEqual(result["metrics"]["projectedAdmission"], {"exclude": 1})
+        self.assertEqual(result["metrics"]["programStateWorks"], {"exclude": 1})
+        self.assertEqual(result["metrics"]["programQueue"]["queueItems"], 0)
+        self.assertEqual(
+            result["metrics"]["programQueue"]["allProgramStates"],
+            {"resolved": 1},
+        )
+
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
         observed = {
             "schemaVersion": "fixture",

@@ -1348,6 +1348,59 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_relaciones_internacionales_authority_v16_excludes_by_program(self):
+        for raw in (
+            "Licenciatura en Relaciones Internacionales",
+            "LICENCIATURA EN RELACIONES INTERNACIONALES",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:lic-relaciones-internacionales",
+                )
+                self.assertEqual(resolved["admissionState"], "exclude")
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="relaciones-internacionales-outside-scope",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Historia, cultura y derechos humanos en la política exterior"],
+                "dc.degree.name": ["Licenciatura en Relaciones Internacionales"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCSH"],
+                "dc.date.issued": ["2021-06-00"],
+                "dc.type": ["Tesis de Licenciatura"],
+            },
+            raw_payload="relaciones-internacionales-outside-scope",
+        )
+        corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "exclude")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:lic-relaciones-internacionales",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(
+            work["admissionExplanationCodes"],
+            ["excluded-by-source-decision"],
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["explanationCode"],
+            "non-humanities-program",
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["programRef"],
+            "program:udg:lic-relaciones-internacionales",
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
