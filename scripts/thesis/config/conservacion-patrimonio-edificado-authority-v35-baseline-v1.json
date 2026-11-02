@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "thesis-conservacion-patrimonio-edificado-authority-v35-baseline-v1",
+  "phase": "T2BE",
+  "registryRevision": "2026-11-02.v35",
+  "scopePolicyRevision": "2026-11-02.v4",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:mae-conservacion-patrimonio-edificado-historica",
+  "canonicalName": "Maestría en Conservación del Patrimonio Edificado",
+  "baseProgramRef": "program:udg:mae-ciencias-arquitectura",
+  "historyHistoricalRef": "program:udg:mae-historia-arquitectura-mexicana-historica",
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 5,
+    "blockedWorks": 0,
+    "unassessedWorks": 5,
+    "allowedWorks": 5,
+    "academicUnits": {
+      "CUAAD": 5
+    },
+    "validDateWorks": 4,
+    "unknownDateWorks": 1,
+    "observedYears": {
+      "min": 2006,
+      "max": 2014
+    },
+    "admissionStatuses": {
+      "include": 5
+    },
+    "baseProgramWorks": 112,
+    "baseProgramAdmissionState": "review",
+    "historyHistoricalWorks": 4,
+    "historyHistoricalAdmissionState": "include",
+    "globalProjectedAdmission": {
+      "include": 479,
+      "review": 641,
+      "quarantine": 18964,
+      "exclude": 7490,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 41,
+    "humanitiesActionWorks": 490,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "nextHumanitiesActionKey": "maestria en investigacion educativa",
+    "nextHumanitiesActionWorks": 34
+  },
+  "invariants": [
+    "historical-conservacion-patrimonio-is-include",
+    "historical-authority-remains-separate-from-base-mca",
+    "possible-successor-does-not-become-alias",
+    "base-mca-remains-review",
+    "historical-historia-arquitectura-remains-include",
+    "scope-policy-v4-remains-unchanged",
+    "metadata-confidence-v4-remains-unchanged",
+    "dcts-work-review-remains-1-program-152-works"
+  ]
+}
