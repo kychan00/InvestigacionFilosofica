@@ -386,7 +386,8 @@ T2R verifica:
 - Program Authority → EXCLUDE;
 - tesis UdeG → EXCLUDE;
 - institutionRef sigue siendo UdeG;
-- explanationCode = `non-humanities-program`;
+- source explanationCode = `non-humanities-program`;
+- canonical work explanation = `excluded-by-source-decision`;
 - Coverage Audit → EXCLUDE;
 - Program Queue → resolved y fuera de cola;
 - Scope Matrix → outside-scope + confirmed/EXCLUDE;
