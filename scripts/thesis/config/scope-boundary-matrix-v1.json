@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-humanities-scope-boundary-matrix-v1",
-  "policyRevision": "2026-11-02.v3",
+  "policyRevision": "2026-11-02.v4",
   "decisionConstraint": "scope-matrix-does-not-change-admission",
   "targetScope": "humanities-only",
   "policyPrinciples": [
@@ -88,18 +88,18 @@
       "label": "Educación, investigación educativa y cognición",
       "boundaryState": "boundary-review",
       "programKeys": [
-        "doctorado en educacion",
         "maestria en investigacion educativa",
         "doctorado en cognicion y aprendizaje"
       ],
-      "rationale": "Los programas de educación se ubican en Estudios de Estado y Sociedad y combinan explícitamente Ciencias Sociales y Humanidades. Sus líneas incluyen historia, cultura, políticas, psicología y cognición; no forman una familia puramente humanística ni puramente social.",
+      "rationale": "La familia educativa permanece como frontera interdisciplinaria, pero Doctorado en Educación queda resuelto fuera de alcance en Program Authority V31 por identidad programática centrada en Educación/Ciencias de la Educación y convergencia explícita de Ciencias Sociales y Humanidades. Maestría en Investigación Educativa y Doctorado en Cognición y Aprendizaje continúan en boundary-review y requieren decisiones programáticas propias.",
       "evidence": [
-        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad/estructuradiv",
-        "https://www.cucsh.udg.mx/doctorados/doctorado-en-educacion",
-        "https://www.cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa",
+        "https://cucsh.udg.mx/doctorados/doctorado-en-educacion",
+        "https://www.cucsh.udg.mx/doctorados/doctorado_en_educacion",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/doctorados/doctorado-en-educacion",
+        "https://cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa",
         "https://www.cucsh.udg.mx/doctorados/doctorado-en-cognicion-y-aprendizaje"
       ],
-      "nextQuestion": "¿El corpus Humanidades debe incluir investigación educativa interdisciplinaria o sólo programas cuya identidad principal sea una disciplina humanística?"
+      "nextQuestion": "¿Maestría en Investigación Educativa y Doctorado en Cognición y Aprendizaje deben permanecer fuera de humanities-only o existe evidencia programática suficiente para tratarlos de otro modo?"
     },
     {
       "id": "scope:gender-studies",
