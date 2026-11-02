@@ -315,7 +315,7 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v27"
-          assert report["registryRevision"] == "2026-11-02.v29"
+          assert report["registryRevision"] == "2026-11-02.v30"
           assert (
               report["programMetadataEvidenceRevision"]
               == baseline["programMetadataEvidenceRevision"]
@@ -334,13 +334,16 @@ jobs:
               == expected["projectedAdmissionStatuses"]
           )
           assert report["programRefWorks"] == expected["observedWorks"]
-          # V27 authority metrics remain frozen; V28 adds Civil Engineering
-          # and V29 resolves Communication from REVIEW to EXCLUDE.
+          # V27 authority metrics remain frozen; V28 adds Civil Engineering,
+          # V29 resolves Communication, and V30 resolves one DELL orientation
+          # from REVIEW into the existing INCLUDE doctorate authority.
           expected_global = dict(expected["globalProjectedAdmission"])
           expected_global["quarantine"] -= 1197
           expected_global["exclude"] += 1197
           expected_global["review"] -= 67
           expected_global["exclude"] += 67
+          expected_global["review"] -= 1
+          expected_global["include"] += 1
           assert report["globalProjectedAdmission"] == expected_global
           assert sum(report["globalProjectedAdmission"].values()) == 27576
 
