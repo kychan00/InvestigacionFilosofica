@@ -340,7 +340,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v31"
+          assert registry["registryRevision"] == "2026-11-02.v32"
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
           assert (
@@ -585,7 +585,7 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v26"
-          assert report["registryRevision"] == "2026-11-02.v31"
+          assert report["registryRevision"] == "2026-11-02.v32"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
@@ -609,8 +609,8 @@ jobs:
           # Civil Engineering V28, Communication V29, DELL V30, and resolves
           # Doctorado en Educación from REVIEW to EXCLUDE in V31.
           assert report["globalProjectedAdmission"] == {
-              "include": 429,
-              "review": 691,
+              "include": 433,
+              "review": 687,
               "quarantine": 18964,
               "exclude": 7490,
               "reject-source": 2,
