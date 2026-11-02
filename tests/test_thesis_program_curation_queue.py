@@ -794,6 +794,53 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             0,
         )
 
+    def test_maestria_ciencias_sociales_exclude_is_resolved_and_omitted_from_queue(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en ciencias sociales",
+                    "count": 60,
+                    "variants": {
+                        "Maestría en Ciencias Sociales": 60,
+                    },
+                    "providers": {"riudg": 60},
+                    "admissionStatuses": {"quarantine": 60},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Maestría en Ciencias Sociales",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2022", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "exclude",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(
+            payload["metrics"]["allProgramStates"],
+            {"resolved": 1},
+        )
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"resolved": 60},
+        )
+        self.assertEqual(
+            payload["metrics"]["gateIneligibleGroupsOmitted"],
+            0,
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [

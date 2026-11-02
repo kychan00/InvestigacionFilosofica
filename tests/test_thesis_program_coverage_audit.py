@@ -633,6 +633,65 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_maestria_ciencias_sociales_v13_reprojects_to_exclude(self):
+        observed = {
+            "schemaVersion": "fixture",
+            "programs": [
+                {
+                    "normalizedKey": "maestria en ciencias sociales",
+                    "count": 1,
+                    "variants": {
+                        "Maestría en Ciencias Sociales": 1,
+                    },
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"quarantine": 1},
+                    "programRefs": {},
+                }
+            ],
+        }
+        corpus = {
+            "buildRevision": "fixture",
+            "programAuthorityRevision": "old",
+            "works": [
+                self.work(
+                    work_id="maestria-ciencias-sociales",
+                    program="Maestría en Ciencias Sociales",
+                    institution_ref="institution:udg",
+                    admission="quarantine",
+                    raw_date="2022",
+                )
+            ],
+        }
+
+        result = audit.build_audit(
+            observed=observed,
+            corpus=corpus,
+            registry=self.registry,
+            reference_year=2026,
+            top=10,
+        )
+
+        self.assertEqual(
+            result["metrics"]["projectedAdmission"],
+            {"exclude": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programStateWorks"],
+            {"exclude": 1},
+        )
+        self.assertEqual(
+            result["metrics"]["programQueue"]["queueItems"],
+            0,
+        )
+        self.assertEqual(
+            result["metrics"]["programQueue"]["allProgramStates"],
+            {"resolved": 1},
+        )
+        self.assertEqual(
+            result["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
         observed = {
             "schemaVersion": "fixture",
