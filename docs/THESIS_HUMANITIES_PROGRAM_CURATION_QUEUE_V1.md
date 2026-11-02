@@ -232,12 +232,19 @@ Desde el guardrail de alcance posterior a T2AV, el artifact conserva dos vistas:
 `humanitiesActionItems` sólo admite:
 
 1. `scope-review`;
-2. `humanities-candidate`.
+2. `humanities-candidate` con al menos una señal disciplinaria fuerte.
+
+Las señales fuertes incluyen filosofía, historia, literatura, letras,
+lingüística, antropología, geografía, humanidades, bioética, lenguas,
+hermenéutica, arqueología y etnografía. Señales genéricas como `arte`,
+`cultura`, `cultural` o `patrimonio` siguen ayudando al descubrimiento, pero no
+pueden por sí solas activar una nueva fase; así se evita que casos como
+`Cultura Física y Deportes` entren por coincidencia lexical.
 
 `unit-triage`, `high-impact-triage` y `backlog` permanecen visibles para
 diagnóstico, pero **no pueden ser usados como “siguiente programa”**. Un caso
 de `unit-triage` necesita primero evidencia programática suficiente para subir
-a `scope-review` o una señal humanística específica antes de dirigir una fase.
+a `scope-review` antes de dirigir una fase.
 
 Esto impide que una carrera grande de CUCEI desplace a programas pequeños pero
 directamente humanísticos, y corrige el error de tratar frecuencia como
