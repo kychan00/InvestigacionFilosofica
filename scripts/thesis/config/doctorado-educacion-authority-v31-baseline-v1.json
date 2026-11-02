@@ -33,7 +33,10 @@
     "boundaryReviewWorks": 191,
     "boundaryReviewStates": {
       "review": 4
-    }
+    },
+    "scopeMatrixRows": 7,
+    "educationOutsideBoundaryState": "outside-scope",
+    "educationOutsideWorks": 73
   },
   "invariants": [
     "decision-is-program-level-not-thesis-topic-level",
