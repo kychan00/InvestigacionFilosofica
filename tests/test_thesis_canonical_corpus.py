@@ -701,7 +701,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "Maestría En Historia De La Arquitectura Mexicana": (
                 "program:udg:mae-historia-arquitectura-mexicana-historica",
-                "review",
+                "include",
             ),
             "Maestría En Conservación Del Patrimonio Edificado": (
                 "program:udg:mae-conservacion-patrimonio-edificado-historica",
