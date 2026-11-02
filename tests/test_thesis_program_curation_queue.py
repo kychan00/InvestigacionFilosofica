@@ -1003,6 +1003,37 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         self.assertEqual(item["authority"]["admissionState"], "review")
 
+    def test_maestria_derecho_exclude_is_resolved_and_omitted_from_queue(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "maestria en derecho",
+                "count": 296,
+                "variants": {"Maestría en Derecho": 296},
+                "providers": {"riudg": 296},
+                "admissionStatuses": {"quarantine": 296},
+                "programRefs": {},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "programRaw": "Maestría en Derecho",
+                "academicUnitRaw": "CUCSH",
+                "date": {"value": "2025", "quality": "valid"},
+                "thesisTypeRaw": "Tesis de Maestría",
+                "admissionStatus": "exclude",
+            }]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(payload["metrics"]["allProgramStates"], {"resolved": 1})
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"resolved": 296},
+        )
+        self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
