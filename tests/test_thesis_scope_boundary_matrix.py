@@ -679,6 +679,53 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
                 {"exclude": 1},
             )
 
+    def test_gestion_desarrollo_social_outside_scope_matches_exclude_authority(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "maestria en gestion y desarrollo social",
+                "count": 106,
+                "variants": {"Maestría en Gestión y Desarrollo Social": 106},
+                "providers": {"riudg": 106},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "id": "work:gestion-desarrollo-social",
+                "programRaw": "Maestría en Gestión y Desarrollo Social",
+                "academicUnitRaw": "CUCSH",
+                "date": {"value": "2024", "quality": "valid"},
+                "admissionStatus": "exclude",
+                "institutionRef": "institution:udg",
+            }]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item for item in report["rows"]
+            if item["id"] == "scope:political-international-development"
+        )
+        self.assertEqual(row["boundaryState"], "outside-scope")
+        program = next(
+            item for item in row["programs"]
+            if item["normalizedKey"] == "maestria en gestion y desarrollo social"
+        )
+        self.assertEqual(program["programAuthority"]["status"], "confirmed")
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:mae-gestion-desarrollo-social",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "exclude",
+        )
+        self.assertEqual(program["currentAdmissionStatuses"], {"exclude": 1})
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [
