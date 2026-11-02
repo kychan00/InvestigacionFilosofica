@@ -14,6 +14,7 @@ on:
       - "scripts/thesis/audit_program_metadata_provenance_v1.py"
       - "scripts/thesis/audit_program_metadata_evidence_confidence_v1.py"
       - "scripts/thesis/audit_program_metadata_integrity_v2.py"
+      - "scripts/thesis/build_program_metadata_conflict_registry_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
@@ -27,6 +28,7 @@ on:
       - "tests/test_thesis_program_metadata_provenance_audit.py"
       - "tests/test_thesis_program_metadata_evidence_confidence.py"
       - "tests/test_thesis_program_metadata_integrity_v2.py"
+      - "tests/test_thesis_program_metadata_conflict_registry.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -40,6 +42,7 @@ on:
       - "docs/THESIS_PROGRAM_METADATA_EVIDENCE_CONFIDENCE_V1.md"
       - "docs/THESIS_PROGRAM_AUTHORITY_PSYCHOLOGY_V24.md"
       - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_MEDICINE_V2.md"
+      - "docs/THESIS_PROGRAM_METADATA_CONFLICT_REGISTRY_MEDICINE_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -90,7 +93,8 @@ jobs:
             scripts/thesis/audit_program_metadata_contamination_v1.py \
             scripts/thesis/audit_program_metadata_provenance_v1.py \
             scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
-            scripts/thesis/audit_program_metadata_integrity_v2.py
+            scripts/thesis/audit_program_metadata_integrity_v2.py \
+            scripts/thesis/build_program_metadata_conflict_registry_v1.py
 
       - name: Offline unit tests
         run: |
@@ -137,6 +141,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_metadata_integrity_v2.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_conflict_registry.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -477,6 +485,119 @@ jobs:
               "expectedMetrics": baseline["expectedMetrics"],
               "legacy": baseline["expectedLegacyCohort"],
               "other": baseline["expectedOtherCohort"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build Medicine item-level program metadata conflict registry
+        run: |
+          rm -rf artifacts/thesis-program-metadata-conflicts-medicine
+          python scripts/thesis/build_program_metadata_conflict_registry_v1.py \
+            --integrity-audit artifacts/thesis-program-metadata-integrity-medicine/program-metadata-integrity-audit.json \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --source-records artifacts/thesis-real-harvest/source-records.jsonl.gz \
+            --output-dir artifacts/thesis-program-metadata-conflicts-medicine
+
+      - name: Validate Medicine item-level program metadata conflict registry
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          registry = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-conflicts-medicine/"
+                  "program-metadata-conflict-registry.json"
+              ).read_text()
+          )
+
+          assert (
+              registry["schemaVersion"]
+              == "thesis-program-metadata-conflict-registry-v1"
+          )
+          assert (
+              registry["decisionConstraint"]
+              == "conflict-registry-does-not-change-admission"
+          )
+          assert registry["targetProgramKey"] == "licenciatura en medicina"
+          assert registry["authorityDecision"] == "hold"
+          assert registry["applicationState"] == "recommendation-only"
+          assert (
+              registry["metrics"]["uniqueSourceRecords"]
+              == registry["metrics"]["uniqueWorks"]
+          )
+
+          for pair in registry["pairs"]:
+              assert pair["integrityState"] == "structural-conflict"
+              assert (
+                  pair["evidenceCode"]
+                  == "exact-title-author-cross-program-conflict"
+              )
+              assert pair["recommendedConfidenceState"] == "conflicted"
+              assert (
+                  pair["recommendedAuthorityApplicability"]
+                  == "blocked"
+              )
+              assert (
+                  pair["target"]["programKey"]
+                  == "licenciatura en medicina"
+              )
+              assert (
+                  pair["target"]["providerRecordId"]
+                  != pair["alternate"]["providerRecordId"]
+              )
+
+          print(json.dumps({
+              "metrics": registry["metrics"],
+              "pairs": registry["pairs"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Validate full Medicine item-level conflict registry baseline
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'full'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          registry = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-conflicts-medicine/"
+                  "program-metadata-conflict-registry.json"
+              ).read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "medicine-program-metadata-conflict-registry-baseline-v1.json"
+              ).read_text()
+          )
+
+          assert registry["decisionConstraint"] == baseline["decisionConstraint"]
+          assert registry["authorityDecision"] == baseline["authorityDecision"]
+          assert registry["metrics"] == baseline["expectedMetrics"]
+
+          actual_pairs = {
+              pair["pairId"]: {
+                  "pairId": pair["pairId"],
+                  "targetProviderRecordId": pair["target"]["providerRecordId"],
+                  "targetHandle": pair["target"]["handle"],
+                  "alternateProviderRecordId": pair["alternate"]["providerRecordId"],
+                  "alternateHandle": pair["alternate"]["handle"],
+                  "alternateProgramKey": pair["alternate"]["programKey"],
+              }
+              for pair in registry["pairs"]
+          }
+          expected_pairs = {
+              pair["pairId"]: pair
+              for pair in baseline["expectedPairs"]
+          }
+
+          assert actual_pairs == expected_pairs
+
+          print(json.dumps({
+              "baseline": "closed",
+              "metrics": registry["metrics"],
+              "pairIds": sorted(actual_pairs),
           }, indent=2, ensure_ascii=False))
           PY
 
@@ -963,5 +1084,6 @@ jobs:
             artifacts/thesis-program-metadata-provenance/
             artifacts/thesis-program-metadata-confidence/
             artifacts/thesis-program-metadata-integrity-medicine/
+            artifacts/thesis-program-metadata-conflicts-medicine/
           if-no-files-found: error
           retention-days: 14
