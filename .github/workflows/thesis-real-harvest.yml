@@ -33,6 +33,7 @@ on:
       - "tests/test_thesis_program_metadata_confidence_reprojection.py"
       - "tests/test_thesis_medicine_program_authority_v25.py"
       - "tests/test_thesis_veterinary_program_authority_v26.py"
+      - "tests/test_thesis_agronomy_program_authority_v27.py"
       - "tests/test_thesis_program_metadata_family_audit.py"
       - "tests/test_thesis_agronomy_metadata_conflict_protection.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
@@ -52,6 +53,7 @@ on:
       - "docs/THESIS_PROGRAM_METADATA_ITEM_CONFLICT_PROTECTION_V2.md"
       - "docs/THESIS_PROGRAM_AUTHORITY_MEDICINE_V25.md"
       - "docs/THESIS_PROGRAM_AUTHORITY_VETERINARY_V26.md"
+      - "docs/THESIS_PROGRAM_AUTHORITY_AGRONOMY_V27.md"
       - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_AGRONOMY_V4.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
@@ -170,6 +172,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_veterinary_program_authority_v26.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_agronomy_program_authority_v27.py" \
             -v
           python -m unittest discover \
             -s tests \
@@ -695,7 +701,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v26"
+          assert registry["registryRevision"] == "2026-11-02.v27"
 
           authority = next(
               program
@@ -1143,7 +1149,7 @@ jobs:
 
           expected = baseline["expectedFull"]
 
-          assert report["registryRevision"] == "2026-11-02.v26"
+          assert report["registryRevision"] == "2026-11-02.v27"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
