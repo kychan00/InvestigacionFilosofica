@@ -1454,6 +1454,47 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_ciudad_territorio_sustentabilidad_authority_v18_reviews_program(self):
+        for raw in (
+            "Doctorado en Ciudad, Territorio y Sustentabilidad",
+            "DOCTORADO EN CIUDAD, TERRITORIO Y SUSTENTABILIDAD",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:doc-ciudad-territorio-sustentabilidad",
+                )
+                self.assertEqual(resolved["admissionState"], "review")
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="ciudad-territorio-sustentabilidad-boundary",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Identidad, cultura y derecho a la ciudad en el espacio público"],
+                "dc.degree.name": ["Doctorado en Ciudad, Territorio y Sustentabilidad"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUAAD"],
+                "dc.date.issued": ["2021-06-00"],
+                "dc.type": ["Tesis de Doctorado"],
+            },
+            raw_payload="ciudad-territorio-sustentabilidad-boundary",
+        )
+        corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:doc-ciudad-territorio-sustentabilidad",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
