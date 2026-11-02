@@ -1,0 +1,174 @@
+name: Thesis agronomy lineage evidence
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/audit_program_metadata_family_v1.py"
+      - "scripts/thesis/build_program_lineage_evidence_matrix_v1.py"
+      - "scripts/thesis/config/agronomy-program-lineage-evidence-v1.json"
+      - "tests/test_thesis_program_lineage_evidence_matrix.py"
+      - "docs/THESIS_PROGRAM_LINEAGE_AGRONOMY_V1.md"
+      - ".github/workflows/thesis-agronomy-lineage-evidence.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile
+        run: |
+          python -m py_compile \
+            scripts/thesis/audit_program_metadata_family_v1.py \
+            scripts/thesis/build_program_lineage_evidence_matrix_v1.py
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_lineage_evidence_matrix.py" \
+            -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-agronomy-lineage
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-agronomy-lineage
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Rebuild frozen full Agronomy family audit
+        run: |
+          python scripts/thesis/audit_program_metadata_family_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --normalized-program-regex '^(?:licenciatura en ingeniero agronom|ingenieria en agronomia)' \
+            --family-id "udg-agronomy-observed-family-v1" \
+            --output-dir artifacts/thesis-agronomy-lineage/family
+
+      - name: Build Agronomy lineage matrix
+        run: |
+          python scripts/thesis/build_program_lineage_evidence_matrix_v1.py \
+            --family-audit artifacts/thesis-agronomy-lineage/family/program-metadata-family-audit.json \
+            --config scripts/thesis/config/agronomy-program-lineage-evidence-v1.json \
+            --output-dir artifacts/thesis-agronomy-lineage/matrix
+
+      - name: Validate frozen lineage matrix
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          config = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "agronomy-program-lineage-evidence-v1.json"
+              ).read_text()
+          )
+          matrix = json.loads(
+              Path(
+                  "artifacts/thesis-agronomy-lineage/matrix/"
+                  "program-lineage-evidence-matrix.json"
+              ).read_text()
+          )
+          family = json.loads(
+              Path(
+                  "artifacts/thesis-agronomy-lineage/family/"
+                  "program-metadata-family-audit.json"
+              ).read_text()
+          )
+          registry = json.loads(
+              Path(
+                  "scripts/thesis/config/program-authority-v1.json"
+              ).read_text()
+          )
+
+          assert (
+              matrix["schemaVersion"]
+              == "thesis-program-lineage-evidence-matrix-v1"
+          )
+          assert (
+              matrix["decisionConstraint"]
+              == "lineage-evidence-does-not-create-program-authority"
+          )
+          assert matrix["authorityDecision"] == "hold"
+          assert matrix["summary"] == config["expectedSummary"]
+
+          assert family["metrics"]["works"] == 2493
+          assert family["metrics"]["normalizedProgramGroups"] == 64
+          assert family["metrics"]["structuralConflictPairs"] == 5
+
+          assert len(matrix["rows"]) == 64
+          assert (
+              sum(row["works"] for row in matrix["rows"])
+              == 2493
+          )
+
+          candidate_rows = [
+              row
+              for row in matrix["rows"]
+              if row["authorityRecommendation"] == "candidate-v27"
+          ]
+          hold_rows = [
+              row
+              for row in matrix["rows"]
+              if row["authorityRecommendation"] == "hold"
+          ]
+
+          assert len(candidate_rows) == 16
+          assert sum(row["works"] for row in candidate_rows) == 2155
+          assert len(hold_rows) == 48
+          assert sum(row["works"] for row in hold_rows) == 338
+
+          assert registry["registryRevision"] == "2026-11-02.v26"
+          assert all(
+              program["id"] != "program:udg:ingeniero-agronomo"
+              for program in registry["programs"]
+          )
+
+          print(json.dumps({
+              "registryRevision": registry["registryRevision"],
+              "summary": matrix["summary"],
+              "candidatePrograms": [
+                  {
+                      "normalizedKey": row["normalizedKey"],
+                      "works": row["works"],
+                      "evidenceClass": row["evidenceClass"],
+                  }
+                  for row in candidate_rows
+              ],
+              "holdPrograms": [
+                  {
+                      "normalizedKey": row["normalizedKey"],
+                      "works": row["works"],
+                      "evidenceClass": row["evidenceClass"],
+                  }
+                  for row in hold_rows
+              ],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Upload Agronomy lineage artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-agronomy-lineage-evidence-v1
+          path: artifacts/thesis-agronomy-lineage/
+          if-no-files-found: error
+          retention-days: 14
