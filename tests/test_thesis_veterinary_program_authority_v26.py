@@ -100,6 +100,10 @@ class VeterinaryProgramAuthorityV26Test(unittest.TestCase):
             resolved["programRef"],
             "program:udg:lic-medicina-veterinaria-zootecnia",
         )
+        self.assertEqual(
+            resolved["canonicalName"],
+            "Licenciatura en Medicina Veterinaria y Zootecnia",
+        )
 
     def test_held_veterinario_y_zootecnista_name_is_not_an_alias(self):
         resolved = canonical.resolve_program(
