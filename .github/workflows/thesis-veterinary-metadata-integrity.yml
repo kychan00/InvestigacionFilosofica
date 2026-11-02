@@ -584,7 +584,8 @@ jobs:
           )
           expected = baseline["expectedFull"]
 
-          assert baseline["registryRevision"] == "2026-11-02.v26"\n          assert report["registryRevision"] == "2026-11-02.v27"
+          assert baseline["registryRevision"] == "2026-11-02.v26"
+          assert report["registryRevision"] == "2026-11-02.v27"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
