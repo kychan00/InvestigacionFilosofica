@@ -131,12 +131,42 @@ def projected_target_works(
     registry: dict[str, Any],
     program_ref: str,
 ) -> list[tuple[dict[str, Any], dict[str, Any]]]:
+    authority = next(
+        (
+            item
+            for item in registry.get("programs") or []
+            if item.get("id") == program_ref
+        ),
+        None,
+    )
+    if authority is None:
+        raise ValueError(f"Unknown target Program Authority: {program_ref}")
+
+    # Program resolution is exact normalized alias lookup. Pre-filtering on the
+    # target authority's own canonical name / aliases avoids reprojection over
+    # the entire 27k-work corpus while preserving identical resolution
+    # semantics for the selected cohort.
+    target_keys = {
+        canonical.normalize_key(value)
+        for value in [
+            authority.get("canonicalName"),
+            *(authority.get("aliases") or []),
+        ]
+        if value
+    }
+
     selected = []
     for work in corpus.get("works") or []:
+        if canonical.normalize_key(work.get("programRaw")) not in target_keys:
+            continue
         projection = coverage.project_work_admission(work, registry)
         program = projection.get("program") or {}
-        if program.get("programRef") == program_ref:
-            selected.append((work, projection))
+        if program.get("programRef") != program_ref:
+            raise ValueError(
+                "Exact target alias did not resolve to the expected authority: "
+                f"{work.get('programRaw')}"
+            )
+        selected.append((work, projection))
     return selected
 
 
