@@ -239,10 +239,11 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(audit["closureState"], "open")
         codes = {item["code"] for item in audit["violations"]}
         self.assertIn("policy-revision-mismatch", codes)
-        self.assertIn("boundary-row-count-mismatch", codes)
-        self.assertIn("boundary-program-key-count-mismatch", codes)
+        self.assertIn("scope-report-policy-revision-mismatch", codes)
         self.assertIn("boundary-observed-works-mismatch", codes)
-        self.assertIn("boundary-admission-state-mismatch", codes)
+        self.assertNotIn("boundary-row-count-mismatch", codes)
+        self.assertNotIn("boundary-program-key-count-mismatch", codes)
+        self.assertNotIn("boundary-admission-state-mismatch", codes)
 
     def test_moving_urban_row_back_outside_scope_reopens_v3(self):
         config = copy.deepcopy(self.scope_config)
