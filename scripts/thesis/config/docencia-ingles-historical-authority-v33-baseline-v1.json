@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "thesis-docencia-ingles-historical-authority-v33-baseline-v1",
+  "phase": "T2BA",
+  "registryRevision": "2026-11-02.v33",
+  "scopePolicyRevision": "2026-11-02.v4",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:lic-docencia-ingles-corta-historica",
+  "canonicalName": "Licenciatura en la Docencia del Inglés",
+  "admissionState": "include",
+  "successorProgramRef": "program:udg:lic-docencia-ingles",
+  "semiescolarizedProgramRef": "program:udg:lic-docencia-ingles-semi",
+  "sourceV32ArtifactId": 13179490493,
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 1,
+    "blockedWorks": 0,
+    "academicUnits": {
+      "CUCSH": 1
+    },
+    "observedYears": {
+      "min": 2006,
+      "max": 2006
+    },
+    "admissionStatuses": {
+      "include": 1
+    },
+    "successorAdmissionState": "include",
+    "semiescolarizedAdmissionState": "include",
+    "humanitiesActionQueueItems": 43,
+    "humanitiesActionWorks": 686,
+    "nextHumanitiesActionKey": "maestria en gestion y desarrollo cultural",
+    "nextHumanitiesActionWorks": 40,
+    "globalProjectedAdmission": {
+      "include": 434,
+      "review": 686,
+      "quarantine": 18964,
+      "exclude": 7490,
+      "reject-source": 2
+    }
+  },
+  "invariants": [
+    "exact-historical-name-is-attested-by-independent-udg-evidence",
+    "historical-authority-is-include",
+    "historical-authority-remains-separate-from-current-lidile",
+    "semiescolarized-authority-remains-separate",
+    "possible-successor-does-not-imply-alias-collapse",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-policy-v4-remains-unchanged",
+    "prior-authorities-v25-v32-remain-stable"
+  ]
+}
