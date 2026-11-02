@@ -633,7 +633,7 @@
       "canonicalName": "Maestría en Gestión y Desarrollo Cultural",
       "level": "maestria",
       "disciplineFamily": "gestion-cultural",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "active",
       "academicUnits": [
         "CUAAD"
@@ -643,12 +643,12 @@
         "MAESTRIA EN GESTION Y DESARROLLO CULTURAL"
       ],
       "observedCount": 40,
-      "decisionNote": "La UdeG clasifica oficialmente el programa en Arte, Arquitectura y Diseño, aunque sus objetivos y plan se centran en gestión cultural, políticas culturales, patrimonio y formación humanística. La pertenencia al corpus Humanidades requiere una decisión explícita de alcance; no se trata como alias ni sucesor de Maestría en Gestión de la Cultura.",
+      "decisionNote": "La UdeG mantiene la Maestría en Gestión y Desarrollo Cultural como programa activo del CUAAD, con orientación profesionalizante y tres orientaciones formales: Investigación y Gestión Cultural, Políticas Públicas en el Campo de la Cultura y Mercadotecnia Cultural. La evidencia programática específica supera el prior administrativo del centro: el objetivo es formar expertos, docentes, promotores e investigadores de la gestión cultural; el perfil de egreso exige dominio de historia de la cultura, historia del arte y estética, formación humanística y ética, investigación sociocultural, patrimonio y políticas culturales; y el plan incluye Paradigmas en torno a la cultura y Arte y Cultura I–III. Bajo humanities-only se resuelve INCLUDE por el objeto disciplinario y la formación humanística explícita. Se conserva como autoridad distinta de la Maestría en Gestión de la Cultura de SUV/CUGDL: comparten familia de gestión cultural, pero no se infiere alias, sucesión ni identidad de plan.",
       "evidence": [
-        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-gestion-y-desarrollo-cultural-cuaad",
-        "https://cuaad.udg.mx/oferta/maestrias/mgdc/plan-de-estudios",
         "https://www.udg.mx/sites/default/files/2026-04/maestria_en_gestion_y_desarrollo_cultural_cuaad_snp.pdf",
-        "https://gestioncultural.udgvirtual.udg.mx/preguntas-frecuentes"
+        "https://cuaad.udg.mx/oferta/maestrias/mgdc/plan-de-estudios",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-gestion-y-desarrollo-cultural-cuaad",
+        "https://observatoriocultural.udgvirtual.udg.mx/contenido/maestria-en-gestion-y-desarrollo-cultural"
       ]
     },
     {
@@ -1587,7 +1587,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v33",
+  "registryRevision": "2026-11-02.v34",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
