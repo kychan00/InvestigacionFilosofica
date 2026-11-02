@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-humanities-scope-boundary-matrix-v1",
-  "policyRevision": "2026-11-01.v2",
+  "policyRevision": "2026-11-02.v3",
   "decisionConstraint": "scope-matrix-does-not-change-admission",
   "targetScope": "humanities-only",
   "policyPrinciples": [
@@ -71,16 +71,17 @@
     {
       "id": "scope:communication-culture",
       "label": "Comunicación y estudios de la cultura",
-      "boundaryState": "boundary-review",
+      "boundaryState": "outside-scope",
       "programKeys": [
         "maestria en comunicacion"
       ],
-      "rationale": "La Maestría en Comunicación está en la División de Estudios de la Cultura, pero su objeto y líneas pertenecen a estudios de comunicación con componentes sociológicos, tecnológicos y culturales. La división no basta para declararla Humanidades.",
+      "rationale": "La evidencia programática específica vigente supera el prior organizacional de la División de Estudios de la Cultura: la convocatoria 2026 define la Maestría en Comunicación como un posgrado interdisciplinario que integra enfoques teóricos y metodológicos de las ciencias sociales, y sus objetivos sitúan la investigación en Ciencias Sociales y Ciencias de la Comunicación. Bajo humanities-only, la identidad principal del programa queda fuera de alcance.",
       "evidence": [
-        "https://www.cucsh.udg.mx/maestrias/maestria-en-comunicacion",
-        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20la%20Cultura/estructuradiv"
+        "https://www.cucsh.udg.mx/sites/default/files/2025-09/CONVOCATORIA%202026%202028%20MAESTR%C3%8DA%20EN%20COMUNICACI%C3%93N_1.pdf",
+        "https://www.cucsh.udg.mx/maestrias/maestria_en_comunicacion/objetivos",
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-comunicacion"
       ],
-      "nextQuestion": "¿El programa debe entrar por su orientación cultural/humanística o permanecer fuera por ser Comunicación?"
+      "nextQuestion": "Resuelto en Program Authority V29: EXCLUDE bajo humanities-only."
     },
     {
       "id": "scope:education-research",
