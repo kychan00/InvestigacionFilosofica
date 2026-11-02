@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "thesis-humanities-scope-boundary-matrix-v1",
+  "policyRevision": "2026-11-01.v1",
+  "decisionConstraint": "scope-matrix-does-not-change-admission",
+  "targetScope": "humanities-only",
+  "policyPrinciples": [
+    "AcademicProgramAuthority remains the only program-level admission authority.",
+    "A university center or division name never decides admission by itself.",
+    "Program-specific institutional evidence outranks organizational proximity.",
+    "Thesis title, abstract, keywords and semantic similarity never decide scope.",
+    "Social-science, education, communication, arts and urban programs require explicit boundary policy rather than topic inference."
+  ],
+  "precedence": [
+    "explicit-program-authority-decision",
+    "program-specific-institutional-evidence",
+    "department-and-division-evidence",
+    "center-level-classification",
+    "lexical-or-topic-signals-never-decide"
+  ],
+  "states": {
+    "core-humanities": {
+      "description": "Program family is institutionally and disciplinarily inside the intended humanities scope.",
+      "defaultNextAction": "eligible-for-program-authority-review"
+    },
+    "boundary-review": {
+      "description": "Program family is genuinely interdisciplinary or organizationally mixed; each program needs explicit evidence before INCLUDE/EXCLUDE.",
+      "defaultNextAction": "review-program-specific-evidence"
+    },
+    "outside-scope": {
+      "description": "Program family is institutionally centered in social science, political science, professional practice, urbanism or another adjacent field outside the humanities-only target.",
+      "defaultNextAction": "candidate-for-explicit-exclude-only-after-program-review"
+    },
+    "unresolved-evidence": {
+      "description": "Current institutional evidence is insufficient or contradictory.",
+      "defaultNextAction": "collect-more-evidence"
+    }
+  },
+  "organizationalGuidance": [
+    {
+      "organization": "CUCSH · División de Estudios Históricos y Humanos",
+      "state": "core-humanities",
+      "rule": "positive-prior-not-auto-include",
+      "note": "Program-level authority is still required."
+    },
+    {
+      "organization": "CUCSH · División de Estudios de la Cultura",
+      "state": "boundary-review",
+      "rule": "mixed-division",
+      "note": "Contains clearly humanistic programs and Communication; do not classify the whole division uniformly."
+    },
+    {
+      "organization": "CUCSH · División de Estudios de Estado y Sociedad",
+      "state": "boundary-review",
+      "rule": "mixed-division",
+      "note": "Contains core humanities, social sciences, education and gender studies; division membership is not dispositive."
+    },
+    {
+      "organization": "CUCSH · División de Estudios Políticos y Sociales",
+      "state": "outside-scope",
+      "rule": "negative-prior-not-auto-exclude",
+      "note": "Programs remain reviewable individually, but the division is institutionally centered in political and social sciences."
+    },
+    {
+      "organization": "CUAAD",
+      "state": "boundary-review",
+      "rule": "mixed-center",
+      "note": "T2G/T2J already show both humanistic and non-humanistic programs inside CUAAD."
+    }
+  ],
+  "rows": [
+    {
+      "id": "scope:communication-culture",
+      "label": "Comunicación y estudios de la cultura",
+      "boundaryState": "boundary-review",
+      "programKeys": [
+        "maestria en comunicacion"
+      ],
+      "rationale": "La Maestría en Comunicación está en la División de Estudios de la Cultura, pero su objeto y líneas pertenecen a estudios de comunicación con componentes sociológicos, tecnológicos y culturales. La división no basta para declararla Humanidades.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-comunicacion",
+        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20la%20Cultura/estructuradiv"
+      ],
+      "nextQuestion": "¿El programa debe entrar por su orientación cultural/humanística o permanecer fuera por ser Comunicación?"
+    },
+    {
+      "id": "scope:education-research",
+      "label": "Educación, investigación educativa y cognición",
+      "boundaryState": "boundary-review",
+      "programKeys": [
+        "doctorado en educacion",
+        "maestria en investigacion educativa",
+        "doctorado en cognicion y aprendizaje"
+      ],
+      "rationale": "Los programas de educación se ubican en Estudios de Estado y Sociedad y combinan explícitamente Ciencias Sociales y Humanidades. Sus líneas incluyen historia, cultura, políticas, psicología y cognición; no forman una familia puramente humanística ni puramente social.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad/estructuradiv",
+        "https://www.cucsh.udg.mx/doctorados/doctorado-en-educacion",
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa",
+        "https://www.cucsh.udg.mx/doctorados/doctorado-en-cognicion-y-aprendizaje"
+      ],
+      "nextQuestion": "¿El corpus Humanidades debe incluir investigación educativa interdisciplinaria o sólo programas cuya identidad principal sea una disciplina humanística?"
+    },
+    {
+      "id": "scope:gender-studies",
+      "label": "Estudios de género",
+      "boundaryState": "boundary-review",
+      "programKeys": [
+        "maestria en estudios de genero"
+      ],
+      "rationale": "Estudios de Género es interdisciplinario y está ubicado administrativamente en Estudios de Estado y Sociedad / Departamento de Estudios en Educación. Requiere una decisión de alcance propia.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/convocatorias/convocatoria-maestria-en-estudios-de-genero-generacion-2025-2027",
+        "https://cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad"
+      ],
+      "nextQuestion": "¿Estudios de Género se considera parte del núcleo humanístico del corpus o un campo interdisciplinario adyacente?"
+    },
+    {
+      "id": "scope:social-sciences",
+      "label": "Ciencias Sociales",
+      "boundaryState": "outside-scope",
+      "programKeys": [
+        "doctorado en ciencias sociales",
+        "maestria en ciencias sociales"
+      ],
+      "rationale": "La identidad disciplinaria declarada es Ciencias Sociales. Aunque existan líneas culturales o humanísticas y la división comparta espacio con programas humanísticos, el objetivo del corpus es Humanidades, no Ciencias Sociales en general.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad/estructuradiv",
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-ciencias-sociales"
+      ],
+      "nextQuestion": "¿Se mantiene el corpus estrictamente en Humanidades, excluyendo programas cuyo nombre y finalidad principal son Ciencias Sociales?"
+    },
+    {
+      "id": "scope:political-international-development",
+      "label": "Política, relaciones internacionales y desarrollo social",
+      "boundaryState": "outside-scope",
+      "programKeys": [
+        "maestria en ciencia politica",
+        "maestria en gestion y desarrollo social",
+        "licenciatura en relaciones internacionales",
+        "maestria en global politics and transpacific studies"
+      ],
+      "rationale": "La evidencia institucional sitúa estos programas en Estudios Políticos y Sociales o en áreas de política internacional/desarrollo social. Son campos adyacentes pero no Humanidades bajo el alcance actual.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Pol%C3%ADticos%20y%20Sociales/estructuradiv",
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-ciencia-politica",
+        "https://cucsh.udg.mx/noticias/abre-convocatoria-de-ingreso-la-maestria-en-gestion-y-desarrollo-social-2026-2028",
+        "https://www.cucsh.udg.mx/licenciaturas/licenciatura-en-relaciones-internacionales",
+        "https://cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad"
+      ],
+      "nextQuestion": "¿Existe alguna excepción programática con evidencia humanística suficientemente fuerte para vencer este prior de fuera de alcance?"
+    },
+    {
+      "id": "scope:urban-territory-sustainability",
+      "label": "Ciudad, territorio y sustentabilidad",
+      "boundaryState": "outside-scope",
+      "programKeys": [
+        "doctorado en ciudad territorio y sustentabilidad"
+      ],
+      "rationale": "El doctorado está adscrito al CUAAD y se articula alrededor de ciudad, arquitectura, territorio, movilidad, ordenación urbana y sustentabilidad. Es investigación interdisciplinaria, pero su identidad institucional principal es urbanística/territorial y no Humanidades.",
+      "evidence": [
+        "https://dcts.cuaad.udg.mx/informacion-general",
+        "https://dcts.cuaad.udg.mx/informacion-general/trayectoria",
+        "https://cima.cuaad.udg.mx/estructura-curricular"
+      ],
+      "nextQuestion": "¿Se conserva fuera del corpus Humanidades aunque algunos trabajos tengan componentes históricos, culturales o filosóficos?"
+    }
+  ]
+}
