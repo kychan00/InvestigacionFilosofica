@@ -1194,9 +1194,37 @@
         "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencia-politica",
         "https://cuci.udg.mx/maestrias/c-politica/plan"
       ]
+    },
+    {
+      "id": "program:udg:lic-relaciones-internacionales",
+      "canonicalName": "Licenciatura en Relaciones Internacionales",
+      "level": "licenciatura",
+      "disciplineFamily": "relaciones-internacionales-ciencias-sociales",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Licenciatura en Relaciones Internacionales",
+        "LICENCIATURA EN RELACIONES INTERNACIONALES"
+      ],
+      "observedCount": 48,
+      "observedThesisYears": {
+        "min": 2010,
+        "max": 2022
+      },
+      "decisionNote": "Programa vigente de CUCSH adscrito al Departamento de Estudios Internacionales dentro de la División de Estudios Políticos y Sociales. La UdeG define su objetivo como formar profesionistas capaces de comprender y aplicar herramientas conceptuales, analíticas y prácticas de la disciplina de las Relaciones Internacionales, con salidas en diplomacia, consultoría, negociación, derechos humanos, cooperación internacional, política exterior y gestión internacional. El plan combina historia y teoría de las relaciones internacionales con derecho internacional, estadística, metodología, comercio internacional, organizaciones internacionales y formación profesional. Aunque incluye historia, ética, cultura, derechos humanos y formación intercultural, la identidad institucional principal es la disciplina de Relaciones Internacionales dentro de las Ciencias Sociales. Bajo targetScope humanities-only se registra como EXCLUDE.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/licenciatura/licenciatura-en-relaciones-internacionales/objetivos",
+        "https://www.cucsh.udg.mx/licenciatura/licenciatura-en-relaciones-internacionales/plan_estudios",
+        "https://cucsh.udg.mx/index.php/licenciaturas/Licenciatura%20en%20Relaciones%20Internacionales/perfil_egreso",
+        "https://cucsh.udg.mx/index.php/licenciaturas/Licenciatura%20en%20Relaciones%20Internacionales/perfil_ingreso",
+        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Pol%C3%ADticos%20y%20Sociales"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v15",
+  "registryRevision": "2026-11-01.v16",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
