@@ -7,12 +7,15 @@ on:
       - "scripts/thesis/build_canonical_corpus_v1.py"
       - "scripts/thesis/build_program_curation_queue_v1.py"
       - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_scope_boundary_matrix_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
       - "tests/test_thesis_program_curation_queue.py"
       - "tests/test_thesis_program_coverage_audit.py"
+      - "tests/test_thesis_scope_boundary_matrix.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
+      - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
@@ -57,7 +60,8 @@ jobs:
             scripts/thesis/build_canonical_corpus_v1.py \
             scripts/thesis/harvest_real_corpus_v1.py \
             scripts/thesis/build_program_curation_queue_v1.py \
-            scripts/thesis/audit_program_coverage_v1.py
+            scripts/thesis/audit_program_coverage_v1.py \
+            scripts/thesis/build_scope_boundary_matrix_v1.py
 
       - name: Offline unit tests
         run: |
@@ -72,6 +76,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_coverage_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_scope_boundary_matrix.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -208,6 +216,48 @@ jobs:
           }, indent=2, ensure_ascii=False))
           PY
 
+      - name: Build scope boundary matrix
+        run: |
+          rm -rf artifacts/thesis-scope-boundary
+          python scripts/thesis/build_scope_boundary_matrix_v1.py \
+            --observed-authorities artifacts/thesis-real-harvest/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --output-dir artifacts/thesis-scope-boundary
+
+      - name: Validate scope boundary matrix
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-scope-boundary")
+          report = json.loads((root / "scope-boundary-matrix.json").read_text())
+
+          assert report["schemaVersion"] == "thesis-humanities-scope-boundary-report-v1"
+          assert report["policyRevision"] == "2026-11-01.v1"
+          assert report["decisionConstraint"] == "scope-matrix-does-not-change-admission"
+          assert report["targetScope"] == "humanities-only"
+          assert report["metrics"]["matrixRows"] == 6
+          assert isinstance(report["rows"], list)
+
+          allowed_states = {
+              "core-humanities",
+              "boundary-review",
+              "outside-scope",
+              "unresolved-evidence",
+          }
+          for row in report["rows"]:
+              assert row["boundaryState"] in allowed_states
+              assert row["decisionConstraint"] == "scope-matrix-does-not-change-admission"
+
+          print(json.dumps({
+              "policyRevision": report["policyRevision"],
+              "programAuthorityRevision": report["programAuthorityRevision"],
+              "institutionAuthorityRevision": report["institutionAuthorityRevision"],
+              "metrics": report["metrics"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
       - name: Upload harvest artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -217,5 +267,6 @@ jobs:
             artifacts/thesis-real-harvest/
             artifacts/thesis-program-curation/
             artifacts/thesis-program-coverage/
+            artifacts/thesis-scope-boundary/
           if-no-files-found: error
           retention-days: 14
