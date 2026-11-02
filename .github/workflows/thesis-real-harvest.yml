@@ -9,6 +9,7 @@ on:
       - "scripts/thesis/audit_program_coverage_v1.py"
       - "scripts/thesis/build_scope_boundary_matrix_v1.py"
       - "scripts/thesis/audit_boundary_closure_v1.py"
+      - "scripts/thesis/audit_outside_scope_closure_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
@@ -16,9 +17,11 @@ on:
       - "tests/test_thesis_program_coverage_audit.py"
       - "tests/test_thesis_scope_boundary_matrix.py"
       - "tests/test_thesis_boundary_closure_audit.py"
+      - "tests/test_thesis_outside_scope_closure_audit.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
+      - "docs/THESIS_HUMANITIES_SOCIAL_SCIENCES_OUTSIDE_SCOPE_CLOSURE_V1.md"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
@@ -65,7 +68,8 @@ jobs:
             scripts/thesis/build_program_curation_queue_v1.py \
             scripts/thesis/audit_program_coverage_v1.py \
             scripts/thesis/build_scope_boundary_matrix_v1.py \
-            scripts/thesis/audit_boundary_closure_v1.py
+            scripts/thesis/audit_boundary_closure_v1.py \
+            scripts/thesis/audit_outside_scope_closure_v1.py
 
       - name: Offline unit tests
         run: |
@@ -88,6 +92,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_boundary_closure_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_outside_scope_closure_audit.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -303,6 +311,47 @@ jobs:
           }, indent=2, ensure_ascii=False))
           PY
 
+      - name: Build social sciences outside-scope closure audit
+        run: |
+          rm -rf artifacts/thesis-outside-scope-closure
+          python scripts/thesis/audit_outside_scope_closure_v1.py \
+            --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v1.json \
+            --output-dir artifacts/thesis-outside-scope-closure
+
+      - name: Validate social sciences outside-scope closure audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-outside-scope-closure")
+          audit = json.loads((root / "outside-scope-closure-audit.json").read_text())
+
+          assert audit["schemaVersion"] == "thesis-humanities-outside-scope-closure-audit-v1"
+          assert audit["closureId"] == "social-sciences-v1"
+          assert audit["closureState"] == "closed"
+          assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
+          assert audit["targetScope"] == "humanities-only"
+          assert audit["boundaryState"] == "outside-scope"
+          assert audit["metrics"]["contractRows"] == 1
+          assert audit["metrics"]["contractProgramKeys"] == 2
+          assert audit["metrics"]["confirmedAuthorities"] == 2
+          assert audit["metrics"]["authorityObservedWorks"] == 277
+          assert audit["metrics"]["admissionStates"] == {"exclude": 2}
+          assert audit["metrics"]["violations"] == 0
+          assert audit["violations"] == []
+
+          print(json.dumps({
+              "closureId": audit["closureId"],
+              "closureState": audit["closureState"],
+              "programAuthorityRevision": audit["programAuthorityRevision"],
+              "institutionAuthorityRevision": audit["institutionAuthorityRevision"],
+              "metrics": audit["metrics"],
+              "expected": audit["expected"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
       - name: Upload harvest artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -314,5 +363,6 @@ jobs:
             artifacts/thesis-program-coverage/
             artifacts/thesis-scope-boundary/
             artifacts/thesis-boundary-closure/
+            artifacts/thesis-outside-scope-closure/
           if-no-files-found: error
           retention-days: 14
