@@ -114,6 +114,19 @@ def build_audit(
 
     violations: list[dict[str, Any]] = []
 
+    if scope_config.get("policyRevision") != contract.get("policyRevision"):
+        add_violation(
+            violations,
+            "policy-revision-mismatch",
+            detail="Scope config policyRevision diverged from closure contract.",
+        )
+    if report.get("policyRevision") != contract.get("policyRevision"):
+        add_violation(
+            violations,
+            "scope-report-policy-revision-mismatch",
+            detail="Scope report policyRevision diverged from closure contract.",
+        )
+
     if scope_config.get("decisionConstraint") != contract["decisionConstraint"]:
         add_violation(
             violations,
