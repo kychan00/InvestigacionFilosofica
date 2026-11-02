@@ -216,7 +216,15 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         ]["programs"][0]
         self.assertEqual(
             communication_program["programAuthority"]["status"],
-            "unknown",
+            "confirmed",
+        )
+        self.assertEqual(
+            communication_program["programAuthority"]["programRef"],
+            "program:udg:mae-comunicacion",
+        )
+        self.assertEqual(
+            communication_program["programAuthority"]["admissionState"],
+            "review",
         )
         self.assertEqual(
             communication_program["currentAdmissionStatuses"],
