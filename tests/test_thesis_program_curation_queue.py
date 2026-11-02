@@ -516,6 +516,53 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "humanities-candidate",
         )
 
+    def test_communication_v7_moves_to_scope_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en comunicacion",
+                    "count": 67,
+                    "variants": {
+                        "Maestría en Comunicación": 52,
+                        "MAESTRIA EN COMUNICACION": 15,
+                    },
+                    "providers": {"riudg": 67},
+                    "admissionStatuses": {"quarantine": 67},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Maestría en Comunicación",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2018", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "review",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:mae-comunicacion",
+        )
+        self.assertEqual(
+            item["authority"]["admissionState"],
+            "review",
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
