@@ -516,7 +516,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "humanities-candidate",
         )
 
-    def test_communication_v7_moves_to_scope_review(self):
+    def test_communication_v29_exclude_is_resolved_and_omitted(self):
         observed = {
             "programs": [
                 {
@@ -527,8 +527,8 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                         "MAESTRIA EN COMUNICACION": 15,
                     },
                     "providers": {"riudg": 67},
-                    "admissionStatuses": {"quarantine": 67},
-                    "programRefs": {},
+                    "admissionStatuses": {"review": 67},
+                    "programRefs": {"program:udg:mae-comunicacion": 67},
                 }
             ]
         }
@@ -539,7 +539,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2018", "quality": "valid"},
                     "thesisTypeRaw": "Tesis de Maestría",
-                    "admissionStatus": "review",
+                    "admissionStatus": "exclude",
                 }
             ]
         }
@@ -550,17 +550,10 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             self.registry,
         )
 
-        self.assertEqual(payload["metrics"]["queueItems"], 1)
-        item = payload["items"][0]
-        self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
         self.assertEqual(
-            item["authority"]["id"],
-            "program:udg:mae-comunicacion",
-        )
-        self.assertEqual(
-            item["authority"]["admissionState"],
-            "review",
+            payload["metrics"]["allProgramStates"],
+            {"resolved": 1},
         )
 
     def test_doctorado_educacion_v8_moves_to_scope_review(self):
