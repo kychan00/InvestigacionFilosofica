@@ -1,22 +1,22 @@
 {
   "schemaVersion": "thesis-program-metadata-evidence-confidence-baseline-v1",
-  "policyRevision": "2026-11-02.v3",
+  "policyRevision": "2026-11-02.v4",
   "sourceFullArtifactId": 13099541204,
   "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
   "expectedConfidenceStates": {
-    "conflicted": 22,
+    "conflicted": 32,
     "low-trust": 453,
-    "unassessed": 27101
+    "unassessed": 27091
   },
   "expectedAuthorityApplicability": {
-    "allowed": 27101,
-    "blocked": 475
+    "allowed": 27091,
+    "blocked": 485
   },
   "expectedRules": {
     "riudg-structural-program-metadata-conflicts-v1": {
       "confidenceState": "conflicted",
       "authorityApplicability": "blocked",
-      "matchedWorks": 22
+      "matchedWorks": 32
     },
     "riudg-psychology-legacy-migration-2015-09-09": {
       "confidenceState": "low-trust",
@@ -77,15 +77,117 @@
       },
       "queueState": "metadata-review",
       "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomo": {
+      "blockedWorks": 3,
+      "confidenceStates": {
+        "unassessed": 1378,
+        "conflicted": 3
+      },
+      "authorityApplicability": {
+        "allowed": 1378,
+        "blocked": 3
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomoorientacionfitotecnia": {
+      "blockedWorks": 1,
+      "confidenceStates": {
+        "conflicted": 1
+      },
+      "authorityApplicability": {
+        "blocked": 1
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomo forestal": {
+      "blockedWorks": 1,
+      "confidenceStates": {
+        "unassessed": 17,
+        "conflicted": 1
+      },
+      "authorityApplicability": {
+        "allowed": 17,
+        "blocked": 1
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomo orientacion suelos": {
+      "blockedWorks": 1,
+      "confidenceStates": {
+        "unassessed": 95,
+        "conflicted": 1
+      },
+      "authorityApplicability": {
+        "allowed": 95,
+        "blocked": 1
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomo orientacion fitotecnia": {
+      "blockedWorks": 1,
+      "confidenceStates": {
+        "unassessed": 515,
+        "conflicted": 1
+      },
+      "authorityApplicability": {
+        "allowed": 515,
+        "blocked": 1
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomo orientacion fitotecnista": {
+      "blockedWorks": 1,
+      "confidenceStates": {
+        "unassessed": 30,
+        "conflicted": 1
+      },
+      "authorityApplicability": {
+        "allowed": 30,
+        "blocked": 1
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomo orientacion fitotecnista ganaderia agricola": {
+      "blockedWorks": 1,
+      "confidenceStates": {
+        "conflicted": 1
+      },
+      "authorityApplicability": {
+        "blocked": 1
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
+    },
+    "licenciatura en ingeniero agronomo orientacion fitotecnia ganaderia extension agricola": {
+      "blockedWorks": 1,
+      "confidenceStates": {
+        "unassessed": 1,
+        "conflicted": 1
+      },
+      "authorityApplicability": {
+        "allowed": 1,
+        "blocked": 1
+      },
+      "queueState": "metadata-review",
+      "curationLane": "metadata-confidence-review"
     }
   },
   "invariants": [
-    "program-authority-v25-remains-unchanged",
+    "program-authority-v26-remains-unchanged",
     "metadata-confidence-does-not-create-program-authority",
     "structural-conflict-records-are-blocked-item-level",
     "structural-conflict-rule-outranks-broader-cohort-rules",
     "blocked-records-remain-visible-in-curation-queue",
     "post-migration-psychology-remains-unassessed-not-trusted",
-    "veterinary-structural-conflicts-are-blocked-item-level"
+    "veterinary-structural-conflicts-are-blocked-item-level",
+    "agronomy-structural-conflicts-are-blocked-item-level",
+    "agronomy-audit-does-not-create-program-authority"
   ]
 }

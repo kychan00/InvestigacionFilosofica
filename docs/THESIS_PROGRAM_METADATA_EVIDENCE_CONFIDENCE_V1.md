@@ -1,6 +1,6 @@
 # T2AI — Program Metadata Evidence Confidence Layer V1
 
-> Historical note · policy V3: este documento conserva la arquitectura T2AI/V1. La policy ejecutable vigente es `2026-11-02.v3`; añade protección item-level para 22 source records estructuralmente conflicted. Véase `THESIS_PROGRAM_METADATA_INTEGRITY_VETERINARY_V3.md`.
+> Historical note · policy V4: este documento conserva la arquitectura T2AI/V1. La policy ejecutable vigente es `2026-11-02.v4`; protege item-level 32 source records estructuralmente conflicted. Véanse `THESIS_PROGRAM_METADATA_INTEGRITY_VETERINARY_V3.md` y `THESIS_PROGRAM_METADATA_INTEGRITY_AGRONOMY_V4.md`.
 
 ## Problema arquitectónico
 

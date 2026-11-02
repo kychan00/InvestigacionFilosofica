@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "thesis-agronomy-program-metadata-family-baseline-v1",
+  "familyId": "udg-agronomy-observed-family-v1",
+  "normalizedProgramRegex": "^(?:licenciatura en ingeniero agronom|ingenieria en agronomia)",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "family-audit-does-not-change-admission",
+  "authorityDecision": "hold",
+  "expectedMetrics": {
+    "works": 2493,
+    "normalizedProgramGroups": 64,
+    "providers": {
+      "riudg": 2493
+    },
+    "observedUnits": {
+      "CUCBA": 2326,
+      "CUCSUR": 167
+    },
+    "sourceProgramAgreementWorks": 2493,
+    "sourceProgramDisagreementWorks": 0,
+    "dateQuality": {
+      "valid": 2485,
+      "suspicious": 6,
+      "unknown": 2
+    },
+    "validYearSpan": {
+      "min": 1969,
+      "max": 2020,
+      "observations": 2485
+    },
+    "accessionDays": {
+      "2015-09-09": 2468,
+      "2019-06-13": 20,
+      "2021-10-05": 5
+    },
+    "sourceFieldPresence": {
+      "dc.date.submitted": 2488,
+      "dc.description.abstract": 25,
+      "dc.date.issued": 3
+    },
+    "exactTitleCrossProgramConflictWorks": 18,
+    "structuralConflictWorks": 10,
+    "warningOnlyWorks": 8,
+    "noDetectedConflictWorks": 2475,
+    "structuralConflictPairs": 5,
+    "externalStructuralConflictPairs": 0
+  },
+  "primaryGroup": {
+    "normalizedKey": "licenciatura en ingeniero agronomo",
+    "works": 1381,
+    "sourceProgramAgreementWorks": 1381,
+    "sourceProgramDisagreementWorks": 0,
+    "observedUnits": {
+      "CUCBA": 1225,
+      "CUCSUR": 156
+    },
+    "dateQuality": {
+      "valid": 1375,
+      "suspicious": 4,
+      "unknown": 2
+    },
+    "accessionDays": {
+      "2015-09-09": 1372,
+      "2019-06-13": 9
+    },
+    "sourceFieldPresence": {
+      "dc.date.submitted": 1379,
+      "dc.description.abstract": 9
+    },
+    "exactTitleCrossProgramConflictWorks": 5,
+    "structuralConflictWorks": 3,
+    "warningOnlyWorks": 2,
+    "noDetectedConflictWorks": 1376
+  },
+  "expectedPairs": [
+    {
+      "pairId": "program-conflict:27c453054653ff58a4d3",
+      "providerRecordIds": [
+        "oai:riudg.udg.mx:20.500.12104/22430",
+        "oai:riudg.udg.mx:20.500.12104/22565"
+      ]
+    },
+    {
+      "pairId": "program-conflict:4f2d9ccb915239431756",
+      "providerRecordIds": [
+        "oai:riudg.udg.mx:20.500.12104/34304",
+        "oai:riudg.udg.mx:20.500.12104/73463"
+      ]
+    },
+    {
+      "pairId": "program-conflict:5ba498f603a8f9e6ef96",
+      "providerRecordIds": [
+        "oai:riudg.udg.mx:20.500.12104/34293",
+        "oai:riudg.udg.mx:20.500.12104/73466"
+      ]
+    },
+    {
+      "pairId": "program-conflict:b3d4c601c2a4c00c921a",
+      "providerRecordIds": [
+        "oai:riudg.udg.mx:20.500.12104/23902",
+        "oai:riudg.udg.mx:20.500.12104/34356"
+      ]
+    },
+    {
+      "pairId": "program-conflict:ed427a7a9e080aa40f30",
+      "providerRecordIds": [
+        "oai:riudg.udg.mx:20.500.12104/23366",
+        "oai:riudg.udg.mx:20.500.12104/23825"
+      ]
+    }
+  ],
+  "expectedProtectedProviderRecordIds": [
+    "oai:riudg.udg.mx:20.500.12104/22430",
+    "oai:riudg.udg.mx:20.500.12104/22565",
+    "oai:riudg.udg.mx:20.500.12104/23366",
+    "oai:riudg.udg.mx:20.500.12104/23825",
+    "oai:riudg.udg.mx:20.500.12104/23902",
+    "oai:riudg.udg.mx:20.500.12104/34293",
+    "oai:riudg.udg.mx:20.500.12104/34304",
+    "oai:riudg.udg.mx:20.500.12104/34356",
+    "oai:riudg.udg.mx:20.500.12104/73463",
+    "oai:riudg.udg.mx:20.500.12104/73466"
+  ],
+  "invariants": [
+    "family-regex-is-audit-only",
+    "five-structural-pairs-are-internal-to-observed-agronomy-family",
+    "ten-source-records-are-protected-symmetrically",
+    "family-audit-does-not-create-program-authority",
+    "thesis-topic-does-not-resolve-program-lineage",
+    "program-authority-remains-v26"
+  ]
+}

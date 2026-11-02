@@ -58,10 +58,10 @@ class VeterinaryMetadataConflictProtectionV3Test(unittest.TestCase):
             self.policy,
         )
 
-    def test_policy_revision_is_v3(self):
+    def test_global_policy_revision_is_v4(self):
         self.assertEqual(
             self.policy["policyRevision"],
-            "2026-11-02.v3",
+            "2026-11-02.v4",
         )
 
     def test_new_veterinary_dentistry_pair_is_blocked_symmetrically(self):

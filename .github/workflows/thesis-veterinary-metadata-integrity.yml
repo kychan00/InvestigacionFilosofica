@@ -346,7 +346,7 @@ jobs:
           assert (
               report["programMetadataEvidenceRevision"]
               == baseline["policyRevision"]
-              == "2026-11-02.v3"
+              == "2026-11-02.v4"
           )
           assert (
               report["metrics"]["confidenceStates"]
