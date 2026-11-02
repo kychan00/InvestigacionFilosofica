@@ -1278,9 +1278,43 @@
         "https://cima.cuaad.udg.mx/estructura-curricular",
         "https://mpegpau.cuaad.udg.mx/informacion-general/trayectoria"
       ]
+    },
+    {
+      "id": "program:udg:mae-derecho",
+      "canonicalName": "Maestría en Derecho",
+      "level": "maestria",
+      "disciplineFamily": "derecho-ciencias-juridicas",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH",
+        "CUCIÉNEGA",
+        "CUCSUR",
+        "CUCOSTA",
+        "CUSUR"
+      ],
+      "aliases": [
+        "Maestría en Derecho",
+        "MAESTRIA EN DERECHO"
+      ],
+      "observedCount": 296,
+      "observedThesisYears": {
+        "min": 1999,
+        "max": 2026
+      },
+      "decisionNote": "El full inventory observa 296 tesis con el nombre exacto Maestría en Derecho en CUCSH, CUCiénega, CUCSur, CUCosta y CUSur. El dictamen I/2021/1044 documenta la Maestría en Derecho como programa de la Red Universitaria con sedes en CUCSH, Costa Sur, Ciénega, Norte y Sur; existe además evidencia histórica del mismo nombre en CUCosta clasificada en Ciencias Sociales y Administrativas. El programa vigente es profesionalizante y se orienta al campo del derecho y las ciencias jurídicas, con LGAC en derecho constitucional/administrativo, justicia y derecho penal, corporativo/laboral y civil/familiar. El plan incluye Filosofía Jurídica, derechos humanos, argumentación, epistemología jurídica y cultura de la legalidad, pero esos componentes operan dentro de una formación jurídica profesional y no convierten el programa completo en humanities-only. Se registra como EXCLUDE. La autoridad no afirma una identidad histórica perfecta entre todas las sedes; resuelve el nombre exacto para admisión porque la evidencia disponible converge en la misma familia disciplinaria y el mismo estado de alcance.",
+      "evidence": [
+        "https://www.udg.mx/oferta-academica/maestria-en-derecho-0",
+        "https://www.cucsh.udg.mx/maestrias/maestria-en-derecho",
+        "https://www.cusur.udg.mx/es/maestria-en-derecho",
+        "https://www.cucsur.udg.mx/maestria-en-derecho",
+        "https://cuci.udg.mx/maestrias/derecho/inicio",
+        "https://www.cusur.udg.mx/es/sites/default/files/adjuntos/2021-1215-1044-modificacion-dictamen-md-udg.pdf",
+        "https://cgpe.udg.mx/sites/default/files/prodes_cucosta_ica3.0_0.pdf"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v18",
+  "registryRevision": "2026-11-01.v19",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
