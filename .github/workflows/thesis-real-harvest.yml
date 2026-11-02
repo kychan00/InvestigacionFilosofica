@@ -1359,7 +1359,7 @@ jobs:
           assert report["policyRevision"] == "2026-11-02.v4"
           assert report["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert report["targetScope"] == "humanities-only"
-          assert report["metrics"]["matrixRows"] == 6
+          assert report["metrics"]["matrixRows"] == 7
           assert isinstance(report["rows"], list)
 
           allowed_states = {
