@@ -216,6 +216,9 @@ jobs:
           # V34: Gestión y Desarrollo Cultural REVIEW -> INCLUDE.
           expected_global["include"] += 40
           expected_global["review"] -= 40
+          # V35: Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
+          expected_global["include"] += 5
+          expected_global["review"] -= 5
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -230,17 +233,17 @@ jobs:
           )
           assert (
               queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"] - 2
+              == expected["humanitiesActionQueueItems"] - 3
           )
           assert (
               queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"] - 192
+              == expected["humanitiesActionWorks"] - 197
           )
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
-              "maestria en conservacion del patrimonio edificado"
+              "maestria en investigacion educativa"
           )
-          assert next_action["count"] == 5
+          assert next_action["count"] == 34
           assert queue["metrics"]["workReviewQueueItems"] == 1
           assert queue["metrics"]["workReviewWorks"] == 152
 
