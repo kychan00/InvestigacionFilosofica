@@ -934,6 +934,37 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
 
+    def test_global_politics_transpacific_exclude_is_resolved_and_omitted_from_queue(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "maestria en global politics and transpacific studies",
+                "count": 7,
+                "variants": {"Maestría en Global Politics and Transpacific Studies": 7},
+                "providers": {"riudg": 7},
+                "admissionStatuses": {"quarantine": 7},
+                "programRefs": {},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "programRaw": "Maestría en Global Politics and Transpacific Studies",
+                "academicUnitRaw": "CUCSH",
+                "date": {"value": "2021", "quality": "valid"},
+                "thesisTypeRaw": "Tesis de Maestría",
+                "admissionStatus": "exclude",
+            }]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(payload["metrics"]["allProgramStates"], {"resolved": 1})
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"resolved": 7},
+        )
+        self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
