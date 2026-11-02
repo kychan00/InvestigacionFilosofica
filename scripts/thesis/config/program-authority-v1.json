@@ -1082,9 +1082,36 @@
         "https://ww1.udg.mx/es/oferta-academica/maestria-en-estudios-de-genero",
         "https://cucsh.udg.mx/convocatorias/convocatoria-de-la-maestria-en-estudios-de-genero-generacion-2027-2029"
       ]
+    },
+    {
+      "id": "program:udg:doc-ciencias-sociales",
+      "canonicalName": "Doctorado en Ciencias Sociales",
+      "level": "doctorado",
+      "disciplineFamily": "ciencias-sociales",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Doctorado en Ciencias Sociales",
+        "DOCTORADO EN CIENCIAS SOCIALES"
+      ],
+      "observedCount": 217,
+      "observedThesisYears": {
+        "min": 1995,
+        "max": 2025
+      },
+      "decisionNote": "Programa vigente de CUCSH cuya identidad institucional principal es Ciencias Sociales. La UdeG lo define como formación de investigadores de alto nivel en ciencias sociales, exige preferentemente maestría en una disciplina social y estructura su tronco común en teorías sociales y metodologías de investigación social. Aunque algunas LGAC incluyen cultura, comunicación, subjetividades e historia, esas líneas operan dentro de un doctorado explícitamente de Ciencias Sociales y no convierten el programa completo en Humanidades. Bajo el targetScope humanities-only se registra como EXCLUDE.",
+      "evidence": [
+        "https://www.udg.mx/oferta-academica/posgrados/doctorados/doctorado-en-ciencias-sociales",
+        "https://www.cucsh.udg.mx/doctorados/doctorado-en-ciencias-sociales",
+        "https://www.cucsh.udg.mx/doctorados/doctorado_en_ciencias_sociales",
+        "https://www.cucsh.udg.mx/doctorados/doctorado_en_ciencias_sociales/plan_de_estudios"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v11",
+  "registryRevision": "2026-11-01.v12",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
