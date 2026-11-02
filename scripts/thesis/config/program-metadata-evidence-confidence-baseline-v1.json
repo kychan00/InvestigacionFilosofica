@@ -28,11 +28,13 @@
     "licenciatura en psicologia": {
       "blockedWorks": 460,
       "confidenceStates": {
+        "low-trust": 454,
         "conflicted": 6,
-        "low-trust": 454
+        "unassessed": 25
       },
       "authorityApplicability": {
-        "blocked": 460
+        "blocked": 460,
+        "allowed": 25
       },
       "queueState": "metadata-review",
       "curationLane": "metadata-confidence-review"
@@ -40,9 +42,11 @@
     "licenciatura en medicina": {
       "blockedWorks": 9,
       "confidenceStates": {
+        "unassessed": 1374,
         "conflicted": 9
       },
       "authorityApplicability": {
+        "allowed": 1374,
         "blocked": 9
       },
       "queueState": "metadata-review",
@@ -51,9 +55,11 @@
     "licenciatura en odontologia": {
       "blockedWorks": 2,
       "confidenceStates": {
+        "unassessed": 193,
         "conflicted": 2
       },
       "authorityApplicability": {
+        "allowed": 193,
         "blocked": 2
       },
       "queueState": "metadata-review",
@@ -62,9 +68,11 @@
     "licenciatura en medicina veterinaria zootecnista": {
       "blockedWorks": 1,
       "confidenceStates": {
+        "unassessed": 1339,
         "conflicted": 1
       },
       "authorityApplicability": {
+        "allowed": 1339,
         "blocked": 1
       },
       "queueState": "metadata-review",
