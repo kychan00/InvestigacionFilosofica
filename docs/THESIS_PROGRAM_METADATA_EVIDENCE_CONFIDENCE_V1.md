@@ -1,5 +1,7 @@
 # T2AI — Program Metadata Evidence Confidence Layer V1
 
+> Historical note · policy V3: este documento conserva la arquitectura T2AI/V1. La policy ejecutable vigente es `2026-11-02.v3`; añade protección item-level para 22 source records estructuralmente conflicted. Véase `THESIS_PROGRAM_METADATA_INTEGRITY_VETERINARY_V3.md`.
+
 ## Problema arquitectónico
 
 T2AG demostró que `dc.degree.name` puede contener metadata programático contaminado.
