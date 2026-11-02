@@ -442,6 +442,7 @@ export function buildAuthorityBatchShard({
   const candidateIndex = candidateByAuthorId(candidates);
   const mentions = [];
   const sourceRecords = [];
+  const candidateRefsByMention = {};
   const missingCandidateAuthorIds = new Set();
 
   for (const row of workRows) {
@@ -452,9 +453,25 @@ export function buildAuthorityBatchShard({
       continue;
     }
 
-    mentions.push(authorIndexWorkRowToMention(row, candidate));
+    const mention =
+      authorIndexWorkRowToMention(
+        row,
+        candidate
+      );
+
+    mentions.push(mention);
+
+    candidateRefsByMention[
+      mention.id
+    ] = [
+      candidate.id
+    ];
+
     sourceRecords.push(
-      authorIndexWorkRowToSourceRecord(row, candidate)
+      authorIndexWorkRowToSourceRecord(
+        row,
+        candidate
+      )
     );
   }
 
@@ -466,7 +483,8 @@ export function buildAuthorityBatchShard({
     algorithmVersion,
     datasetRevision,
     buildRevision,
-    goldExpectations
+    goldExpectations,
+    candidateRefsByMention
   });
 
   return {
