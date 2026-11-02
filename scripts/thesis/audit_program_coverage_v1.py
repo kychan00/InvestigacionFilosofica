@@ -64,6 +64,12 @@ def project_work_admission(
         registry,
     )
     program = canonical.resolve_program(work.get("programRaw"), registry)
+    program_metadata_evidence = work.get("programMetadataEvidence") or {
+        "confidenceState": "unassessed",
+        "authorityApplicability": "allowed",
+        "reasonCode": "legacy-snapshot-without-confidence-evidence",
+        "matchedRuleId": None,
+    }
 
     if original_status == "reject-source":
         status = "reject-source"
@@ -74,6 +80,13 @@ def project_work_admission(
     elif institution.get("status") != "confirmed":
         status = "quarantine"
         code = "unresolved-institution"
+    elif (
+        program.get("status") == "confirmed"
+        and program_metadata_evidence.get("authorityApplicability")
+        == "blocked"
+    ):
+        status = "quarantine"
+        code = "program-authority-blocked-by-metadata-confidence"
     elif program.get("status") == "confirmed" and program.get("admissionState") == "include":
         status = "include"
         code = "confirmed-humanities-program"
@@ -97,6 +110,7 @@ def project_work_admission(
         "status": status,
         "explanationCode": code,
         "program": program,
+        "programMetadataEvidence": program_metadata_evidence,
         "institution": institution,
         "institutionRef": institution.get("institutionRef"),
     }
@@ -113,6 +127,8 @@ def reproject_corpus(
     date_quality = Counter()
     program_state_works = Counter()
     program_refs = Counter()
+    metadata_confidence_states = Counter()
+    authority_applicability = Counter()
     blocked = []
     program_dimensions: dict[str, dict[str, Counter[str]]] = defaultdict(
         lambda: {
@@ -127,9 +143,17 @@ def reproject_corpus(
 
         projection = project_work_admission(work, registry)
         projected_admission[projection["status"]] += 1
+        evidence = projection["programMetadataEvidence"]
+        metadata_confidence_states[
+            evidence.get("confidenceState") or "unassessed"
+        ] += 1
+        authority_applicability[
+            evidence.get("authorityApplicability") or "allowed"
+        ] += 1
         work["admissionStatus"] = projection["status"]
         work["admissionExplanationCodes"] = [projection["explanationCode"]]
         work["institutionRef"] = projection["institutionRef"]
+        work["programMetadataEvidence"] = evidence
 
         program = projection["program"]
         if program.get("status") == "confirmed":
@@ -139,7 +163,10 @@ def reproject_corpus(
             if program.get("programRef"):
                 program_refs[program["programRef"]] += 1
 
-            if state in {"include", "review"} and projection["status"] != state:
+            if (
+                state in {"include", "review", "exclude"}
+                and projection["status"] != state
+            ):
                 blocked.append(
                     {
                         "workId": work.get("id"),
@@ -152,6 +179,15 @@ def reproject_corpus(
                         "institutionRaw": work.get("institutionRaw"),
                         "institutionRef": projection["institutionRef"],
                         "institutionStatus": projection["institution"].get("status"),
+                        "programMetadataConfidenceState": evidence.get(
+                            "confidenceState"
+                        ),
+                        "programAuthorityApplicability": evidence.get(
+                            "authorityApplicability"
+                        ),
+                        "programMetadataEvidenceRuleId": evidence.get(
+                            "matchedRuleId"
+                        ),
                         "sourceRecordRefs": list(work.get("sourceRecordRefs") or []),
                         "persistentIdentifiers": list(
                             work.get("persistentIdentifiers") or []
@@ -188,6 +224,14 @@ def reproject_corpus(
         "registryRevision",
         registry.get("schemaVersion"),
     )
+    projected.setdefault(
+        "programMetadataEvidenceRevision",
+        (
+            canonical.load_program_metadata_evidence_policy().get(
+                "policyRevision"
+            )
+        ),
+    )
 
     metrics = {
         "originalAdmission": dict(sorted(original_admission.items())),
@@ -195,6 +239,12 @@ def reproject_corpus(
         "dateQuality": dict(sorted(date_quality.items())),
         "programStateWorks": dict(sorted(program_state_works.items())),
         "programRefWorks": dict(program_refs.most_common()),
+        "programMetadataConfidenceStates": dict(
+            sorted(metadata_confidence_states.items())
+        ),
+        "programAuthorityApplicability": dict(
+            sorted(authority_applicability.items())
+        ),
         "gateBlockers": blocked,
         "gateBlockerCount": len(blocked),
         "programDimensions": program_dimensions,
@@ -377,6 +427,12 @@ def build_audit(
             "projectedAdmission": projection["projectedAdmission"],
             "dateQuality": projection["dateQuality"],
             "programStateWorks": projection["programStateWorks"],
+            "programMetadataConfidenceStates": projection[
+                "programMetadataConfidenceStates"
+            ],
+            "programAuthorityApplicability": projection[
+                "programAuthorityApplicability"
+            ],
             "gateBlockerCount": projection["gateBlockerCount"],
             "authorityCoverage": authority,
             "programQueue": queue.get("metrics"),
@@ -391,6 +447,11 @@ def build_audit(
         "topReviewGroups": top_queue_items(
             queue,
             state="review",
+            limit=max(top, 0),
+        ),
+        "topMetadataReview": top_queue_items(
+            queue,
+            state="metadata-review",
             limit=max(top, 0),
         ),
     }
@@ -418,6 +479,22 @@ def markdown_summary(audit: dict[str, Any]) -> str:
             "- calidad de fecha: "
             + json.dumps(
                 metrics["dateQuality"],
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        ),
+        (
+            "- confianza de metadata programático: "
+            + json.dumps(
+                metrics["programMetadataConfidenceStates"],
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        ),
+        (
+            "- aplicabilidad de autoridad programática: "
+            + json.dumps(
+                metrics["programAuthorityApplicability"],
                 ensure_ascii=False,
                 sort_keys=True,
             )
@@ -472,6 +549,31 @@ def markdown_summary(audit: dict[str, Any]) -> str:
         lines.append(
             f"| {name.replace('|', '\\|')} | "
             f"{row['observedGroups']} | {row['works']} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "## Metadata confidence review",
+            "",
+            "| # | Programa observado | Tesis | Bloqueadas |",
+            "|---:|---|---:|---:|",
+        ]
+    )
+
+    for item in audit.get("topMetadataReview", []):
+        evidence = item.get("programMetadataEvidence") or {}
+        label = next(
+            iter((item.get("variants") or {}).keys()),
+            item.get("normalizedKey") or "—",
+        )
+        lines.append(
+            "| {rank} | {label} | {count} | {blocked} |".format(
+                rank=item.get("rank") or "",
+                label=str(label).replace("|", "\\|"),
+                count=item.get("count") or 0,
+                blocked=evidence.get("blockedWorks") or 0,
+            )
         )
 
     lines.extend(

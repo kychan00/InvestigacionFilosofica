@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "thesis-program-metadata-evidence-confidence-v1",
+  "policyRevision": "2026-11-02.v1",
+  "decisionConstraint": "metadata-confidence-does-not-create-program-authority",
+  "defaultResult": {
+    "confidenceState": "unassessed",
+    "authorityApplicability": "allowed",
+    "reasonCode": "no-metadata-confidence-rule"
+  },
+  "rules": [
+    {
+      "id": "riudg-psychology-legacy-migration-2015-09-09",
+      "priority": 100,
+      "match": {
+        "providers": [
+          "riudg"
+        ],
+        "programKeys": [
+          "licenciatura en psicologia"
+        ],
+        "accessionDays": [
+          "2015-09-09"
+        ],
+        "allFieldsMissing": [
+          "dc.date.issued",
+          "dc.description.abstract"
+        ]
+      },
+      "result": {
+        "confidenceState": "low-trust",
+        "authorityApplicability": "blocked",
+        "reasonCode": "legacy-migration-program-metadata-low-trust"
+      },
+      "evidence": [
+        "docs/THESIS_PROGRAM_METADATA_CONTAMINATION_PSYCHOLOGY_V1.md",
+        "docs/THESIS_PROGRAM_METADATA_PROVENANCE_PSYCHOLOGY_V1.md"
+      ],
+      "note": "Generic matcher over provider/program/accession/field presence. The engine contains no Psychology-specific branch."
+    }
+  ],
+  "invariants": [
+    "title-and-keywords-never-control-program-metadata-confidence",
+    "blocked-confidence-never-applies-program-authority",
+    "unassessed-preserves-existing-authority-behavior",
+    "confidence-policy-never-creates-program-authority"
+  ]
+}

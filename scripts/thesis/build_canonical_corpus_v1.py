@@ -45,6 +45,13 @@ USER_AGENT = (
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = ROOT / "scripts" / "thesis" / "config" / "program-authority-v1.json"
+DEFAULT_PROGRAM_METADATA_EVIDENCE_POLICY = (
+    ROOT
+    / "scripts"
+    / "thesis"
+    / "config"
+    / "program-metadata-evidence-confidence-v1.json"
+)
 DEFAULT_RIUDG_FIXTURE = ROOT / "scripts" / "thesis" / "fixtures" / "riudg-history-dim.xml"
 DEFAULT_UDGVIRTUAL_FIXTURE = ROOT / "scripts" / "thesis" / "fixtures" / "udgvirtual-philosophy.html"
 
@@ -321,6 +328,165 @@ def build_program_index(registry: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return index
 
 
+def load_program_metadata_evidence_policy(
+    path: str | Path = DEFAULT_PROGRAM_METADATA_EVIDENCE_POLICY,
+) -> dict[str, Any]:
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    if (
+        payload.get("schemaVersion")
+        != "thesis-program-metadata-evidence-confidence-v1"
+    ):
+        raise ValueError("Unsupported program metadata evidence policy")
+
+    default = payload.get("defaultResult") or {}
+    allowed_confidence = {"unassessed", "low-trust", "sufficient"}
+    allowed_applicability = {"allowed", "blocked"}
+
+    if default.get("confidenceState") not in allowed_confidence:
+        raise ValueError("Unsupported default metadata confidence state")
+    if default.get("authorityApplicability") not in allowed_applicability:
+        raise ValueError("Unsupported default authority applicability")
+
+    seen_ids: set[str] = set()
+    for rule in payload.get("rules", []):
+        rule_id = rule.get("id")
+        if not rule_id:
+            raise ValueError("Program metadata evidence rule without id")
+        if rule_id in seen_ids:
+            raise ValueError(
+                f"Duplicate program metadata evidence rule id: {rule_id}"
+            )
+        seen_ids.add(rule_id)
+
+        match = rule.get("match") or {}
+        unsupported = set(match) - {
+            "providers",
+            "programKeys",
+            "accessionDays",
+            "allFieldsPresent",
+            "allFieldsMissing",
+        }
+        if unsupported:
+            raise ValueError(
+                "Unsupported program metadata evidence matcher(s): "
+                + ", ".join(sorted(unsupported))
+            )
+
+        result = rule.get("result") or {}
+        if result.get("confidenceState") not in allowed_confidence:
+            raise ValueError(
+                f"Unsupported metadata confidence state for {rule_id}"
+            )
+        if result.get("authorityApplicability") not in allowed_applicability:
+            raise ValueError(
+                f"Unsupported authority applicability for {rule_id}"
+            )
+
+    return payload
+
+
+def _source_field_present(record: dict[str, Any], field: str) -> bool:
+    return bool((record.get("rawFields") or {}).get(field))
+
+
+def _source_accession_day(record: dict[str, Any]) -> str | None:
+    raw = record.get("rawFields") or {}
+    values = (
+        raw.get("dc.date.accessioned")
+        or raw.get("DC.date.accessioned")
+        or []
+    )
+    value = clean_text(first(values))
+    return value[:10] if value and len(value) >= 10 else value
+
+
+def evaluate_program_metadata_evidence(
+    record: dict[str, Any],
+    raw_program: str | None,
+    policy: dict[str, Any],
+) -> dict[str, Any]:
+    provider = clean_text(record.get("provider")) or ""
+    program_key = normalize_key(raw_program)
+    accession_day = _source_accession_day(record)
+
+    rules = sorted(
+        policy.get("rules", []),
+        key=lambda rule: (
+            -int(rule.get("priority") or 0),
+            str(rule.get("id") or ""),
+        ),
+    )
+
+    for rule in rules:
+        match = rule.get("match") or {}
+
+        providers = set(match.get("providers") or [])
+        if providers and provider not in providers:
+            continue
+
+        program_keys = {
+            normalize_key(value)
+            for value in (match.get("programKeys") or [])
+            if normalize_key(value)
+        }
+        if program_keys and program_key not in program_keys:
+            continue
+
+        accession_days = set(match.get("accessionDays") or [])
+        if accession_days and accession_day not in accession_days:
+            continue
+
+        if any(
+            not _source_field_present(record, field)
+            for field in (match.get("allFieldsPresent") or [])
+        ):
+            continue
+
+        if any(
+            _source_field_present(record, field)
+            for field in (match.get("allFieldsMissing") or [])
+        ):
+            continue
+
+        result = rule.get("result") or {}
+        return {
+            "policyRevision": policy.get(
+                "policyRevision",
+                policy.get("schemaVersion"),
+            ),
+            "confidenceState": result.get("confidenceState"),
+            "authorityApplicability": result.get(
+                "authorityApplicability"
+            ),
+            "reasonCode": result.get("reasonCode"),
+            "matchedRuleId": rule.get("id"),
+            "evidence": {
+                "provider": provider or None,
+                "programKey": program_key or None,
+                "accessionDay": accession_day,
+            },
+        }
+
+    default = policy.get("defaultResult") or {}
+    return {
+        "policyRevision": policy.get(
+            "policyRevision",
+            policy.get("schemaVersion"),
+        ),
+        "confidenceState": default.get("confidenceState"),
+        "authorityApplicability": default.get(
+            "authorityApplicability"
+        ),
+        "reasonCode": default.get("reasonCode"),
+        "matchedRuleId": None,
+        "evidence": {
+            "provider": provider or None,
+            "programKey": program_key or None,
+            "accessionDay": accession_day,
+        },
+    }
+
+
 def resolve_program(
     raw_program: str | None,
     registry: dict[str, Any],
@@ -461,9 +627,16 @@ def admission_decision(
     institution: dict[str, Any],
     program: dict[str, Any],
     source_type: dict[str, str] | None = None,
+    program_metadata_evidence: dict[str, Any] | None = None,
     policy_version: str = "humanities-admission-v1",
 ) -> dict[str, Any]:
     source_type = source_type or {"status": "unknown"}
+    program_metadata_evidence = program_metadata_evidence or {
+        "confidenceState": "unassessed",
+        "authorityApplicability": "allowed",
+        "reasonCode": "no-metadata-confidence-evidence",
+        "matchedRuleId": None,
+    }
 
     if source_type.get("status") == "non-thesis":
         status = "reject-source"
@@ -474,6 +647,13 @@ def admission_decision(
     elif institution["status"] != "confirmed":
         status = "quarantine"
         code = "unresolved-institution"
+    elif (
+        program["status"] == "confirmed"
+        and program_metadata_evidence.get("authorityApplicability")
+        == "blocked"
+    ):
+        status = "quarantine"
+        code = "program-authority-blocked-by-metadata-confidence"
     elif program["status"] == "confirmed" and program.get("admissionState") == "include":
         status = "include"
         code = "confirmed-humanities-program"
@@ -500,6 +680,15 @@ def admission_decision(
         "explanationCode": code,
         "programRef": program.get("programRef"),
         "institutionRef": institution.get("institutionRef"),
+        "programMetadataConfidenceState": program_metadata_evidence.get(
+            "confidenceState"
+        ),
+        "programAuthorityApplicability": program_metadata_evidence.get(
+            "authorityApplicability"
+        ),
+        "programMetadataEvidenceRuleId": program_metadata_evidence.get(
+            "matchedRuleId"
+        ),
         "policyVersion": policy_version,
         "decisionMode": "deterministic",
     }
@@ -679,9 +868,14 @@ def canonical_candidate(
     registry: dict[str, Any],
     *,
     reference_year: int | None = None,
+    program_metadata_policy: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     source_ref = record["id"]
     provider = record["provider"]
+    program_metadata_policy = (
+        program_metadata_policy
+        or load_program_metadata_evidence_policy()
+    )
 
     if provider == "riudg":
         title = first(field_values(record, "dc.title"))
@@ -757,6 +951,11 @@ def canonical_candidate(
             )
 
     source_type = classify_source_type(thesis_type)
+    program_metadata_evidence = evaluate_program_metadata_evidence(
+        record,
+        program_raw,
+        program_metadata_policy,
+    )
     program = resolve_program(program_raw, registry)
     institution = resolve_institution(institution_values, registry)
     admission = admission_decision(
@@ -764,6 +963,7 @@ def canonical_candidate(
         institution=institution,
         program=program,
         source_type=source_type,
+        program_metadata_evidence=program_metadata_evidence,
     )
 
     contributions: list[dict[str, Any]] = []
@@ -798,6 +998,7 @@ def canonical_candidate(
         "abstract": abstract,
         "keywords": keywords,
         "program": program,
+        "programMetadataEvidence": program_metadata_evidence,
         "institution": institution,
         "academicUnitRaw": academic_unit_raw,
         "thesisTypeRaw": thesis_type,
@@ -903,9 +1104,19 @@ def build_corpus(
     previous_work_registry: dict[str, str] | None = None,
     reference_year: int | None = None,
     build_revision: str = "thesis-corpus-fixture-v1",
+    program_metadata_policy: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    program_metadata_policy = (
+        program_metadata_policy
+        or load_program_metadata_evidence_policy()
+    )
     candidates = [
-        canonical_candidate(record, registry, reference_year=reference_year)
+        canonical_candidate(
+            record,
+            registry,
+            reference_year=reference_year,
+            program_metadata_policy=program_metadata_policy,
+        )
         for record in source_records
     ]
 
@@ -1050,6 +1261,9 @@ def build_corpus(
                 "keywords": primary["keywords"],
                 "programRef": primary["program"].get("programRef"),
                 "programRaw": primary["program"].get("raw"),
+                "programMetadataEvidence": primary[
+                    "programMetadataEvidence"
+                ],
                 "institutionRef": primary["institution"].get("institutionRef"),
                 "institutionRaw": primary["institution"].get("raw"),
                 "academicUnitRaw": primary["academicUnitRaw"],
@@ -1078,6 +1292,22 @@ def build_corpus(
                 for flag in work.get("metadataQualityFlags", [])
             )
         ),
+        "programMetadataConfidenceStates": dict(
+            Counter(
+                (
+                    work.get("programMetadataEvidence") or {}
+                ).get("confidenceState") or "unassessed"
+                for work in works
+            )
+        ),
+        "programAuthorityApplicability": dict(
+            Counter(
+                (
+                    work.get("programMetadataEvidence") or {}
+                ).get("authorityApplicability") or "allowed"
+                for work in works
+            )
+        ),
     }
 
     payload = {
@@ -1087,6 +1317,10 @@ def build_corpus(
         "institutionAuthorityRevision": registry.get(
             "institutionRevision",
             "institution-authority-v1",
+        ),
+        "programMetadataEvidenceRevision": program_metadata_policy.get(
+            "policyRevision",
+            program_metadata_policy.get("schemaVersion"),
         ),
         "sourceRecords": source_records,
         "programAuthorities": registry.get("programs", []),
@@ -1119,6 +1353,15 @@ def validate_corpus(corpus: dict[str, Any]) -> bool:
         for ref in work.get("sourceRecordRefs", []):
             if ref not in source_id_set:
                 raise ValueError(f"Broken SourceRecord reference: {ref}")
+
+        evidence = work.get("programMetadataEvidence") or {}
+        if (
+            work.get("admissionStatus") in {"include", "review"}
+            and evidence.get("authorityApplicability") == "blocked"
+        ):
+            raise ValueError(
+                "INCLUDE/REVIEW work cannot rely on blocked program metadata"
+            )
 
         if work.get("admissionStatus") in {"include", "review"}:
             if not work.get("programRef"):

@@ -12,6 +12,7 @@ on:
       - "scripts/thesis/audit_outside_scope_closure_v1.py"
       - "scripts/thesis/audit_program_metadata_contamination_v1.py"
       - "scripts/thesis/audit_program_metadata_provenance_v1.py"
+      - "scripts/thesis/audit_program_metadata_evidence_confidence_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
@@ -23,6 +24,7 @@ on:
       - "tests/test_thesis_political_international_closure_audit.py"
       - "tests/test_thesis_program_metadata_contamination_audit.py"
       - "tests/test_thesis_program_metadata_provenance_audit.py"
+      - "tests/test_thesis_program_metadata_evidence_confidence.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -33,6 +35,7 @@ on:
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_CONTAMINATION_PSYCHOLOGY_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_PROVENANCE_PSYCHOLOGY_V1.md"
+      - "docs/THESIS_PROGRAM_METADATA_EVIDENCE_CONFIDENCE_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -81,7 +84,8 @@ jobs:
             scripts/thesis/audit_boundary_closure_v1.py \
             scripts/thesis/audit_outside_scope_closure_v1.py \
             scripts/thesis/audit_program_metadata_contamination_v1.py \
-            scripts/thesis/audit_program_metadata_provenance_v1.py
+            scripts/thesis/audit_program_metadata_provenance_v1.py \
+            scripts/thesis/audit_program_metadata_evidence_confidence_v1.py
 
       - name: Offline unit tests
         run: |
@@ -120,6 +124,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_metadata_provenance_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_evidence_confidence.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -373,6 +381,7 @@ jobs:
           assert isinstance(queue["metrics"]["curationLanes"], dict)
 
           allowed_lanes = {
+              "metadata-confidence-review",
               "scope-review",
               "humanities-candidate",
               "unit-triage",
@@ -382,10 +391,97 @@ jobs:
 
           for item in queue["items"]:
               assert item["decisionConstraint"] == "priority-does-not-change-admission"
-              assert item["queueState"] in {"unresolved", "review"}
+              assert item["queueState"] in {
+                  "unresolved",
+                  "review",
+                  "metadata-review",
+              }
               assert item["curationLane"] in allowed_lanes
 
           print(json.dumps(queue["metrics"], indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build program metadata evidence confidence audit
+        run: |
+          rm -rf artifacts/thesis-program-metadata-confidence
+          python scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --queue artifacts/thesis-program-curation/program-curation-queue.json \
+            --output-dir artifacts/thesis-program-metadata-confidence
+
+      - name: Validate program metadata evidence confidence audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-confidence/"
+                  "program-metadata-confidence-audit.json"
+              ).read_text()
+          )
+
+          assert report["schemaVersion"] == "thesis-program-metadata-evidence-confidence-audit-v1"
+          assert (
+              report["decisionConstraint"]
+              == "metadata-confidence-does-not-create-program-authority"
+          )
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v1"
+          assert report["metrics"]["works"] > 0
+          assert report["metrics"]["violations"] == 0
+          assert report["violations"] == []
+
+          print(json.dumps(report["metrics"], indent=2, ensure_ascii=False))
+          PY
+
+      - name: Validate full program metadata confidence baseline
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'full'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-confidence/"
+                  "program-metadata-confidence-audit.json"
+              ).read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "program-metadata-evidence-confidence-baseline-v1.json"
+              ).read_text()
+          )
+
+          assert (
+              report["programMetadataEvidenceRevision"]
+              == baseline["policyRevision"]
+          )
+
+          by_rule = report["metrics"]["ruleMatches"]
+          queue_rows = {
+              row["normalizedKey"]: row
+              for row in report["metadataReviewQueueItems"]
+          }
+
+          for rule_id, expected in baseline["expectedRules"].items():
+              assert by_rule.get(rule_id, 0) == expected["matchedWorks"]
+              row = queue_rows[expected["programKey"]]
+              assert row["curationLane"] == expected["curationLane"]
+              assert (
+                  row["programMetadataEvidence"]["blockedWorks"]
+                  == expected["matchedWorks"]
+              )
+
+          print(json.dumps({
+              "baseline": "closed",
+              "ruleMatches": by_rule,
+              "metadataReviewQueueItems": report[
+                  "metadataReviewQueueItems"
+              ],
+          }, indent=2, ensure_ascii=False))
           PY
 
       - name: Build program coverage audit
@@ -421,6 +517,12 @@ jobs:
               "projectedAdmission": audit["metrics"]["projectedAdmission"],
               "dateQuality": audit["metrics"]["dateQuality"],
               "gateBlockerCount": audit["metrics"]["gateBlockerCount"],
+              "programMetadataConfidenceStates": audit["metrics"][
+                  "programMetadataConfidenceStates"
+              ],
+              "programAuthorityApplicability": audit["metrics"][
+                  "programAuthorityApplicability"
+              ],
               "programQueue": audit["metrics"]["programQueue"],
           }, indent=2, ensure_ascii=False))
           PY
@@ -615,5 +717,6 @@ jobs:
             artifacts/thesis-political-international-closure/
             artifacts/thesis-program-metadata-contamination/
             artifacts/thesis-program-metadata-provenance/
+            artifacts/thesis-program-metadata-confidence/
           if-no-files-found: error
           retention-days: 14
