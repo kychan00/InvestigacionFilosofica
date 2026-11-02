@@ -1295,6 +1295,59 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_maestria_ciencia_politica_authority_v15_excludes_by_program(self):
+        for raw in (
+            "Maestría en Ciencia Política",
+            "MAESTRIA EN CIENCIA POLITICA",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-ciencia-politica",
+                )
+                self.assertEqual(resolved["admissionState"], "exclude")
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="maestria-ciencia-politica-outside-scope",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Teoría política, ciudadanía y democracia"],
+                "dc.degree.name": ["Maestría en Ciencia Política"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCSH"],
+                "dc.date.issued": ["2023-06-00"],
+                "dc.type": ["Tesis de Maestría"],
+            },
+            raw_payload="maestria-ciencia-politica-outside-scope",
+        )
+        corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "exclude")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:mae-ciencia-politica",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(
+            work["admissionExplanationCodes"],
+            ["excluded-by-source-decision"],
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["explanationCode"],
+            "non-humanities-program",
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["programRef"],
+            "program:udg:mae-ciencia-politica",
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],

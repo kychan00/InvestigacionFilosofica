@@ -726,6 +726,53 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         )
         self.assertEqual(program["currentAdmissionStatuses"], {"exclude": 1})
 
+    def test_ciencia_politica_outside_scope_matches_exclude_authority(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "maestria en ciencia politica",
+                "count": 51,
+                "variants": {"Maestría en Ciencia Política": 51},
+                "providers": {"riudg": 51},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "id": "work:maestria-ciencia-politica",
+                "programRaw": "Maestría en Ciencia Política",
+                "academicUnitRaw": "CUCSH",
+                "date": {"value": "2023", "quality": "valid"},
+                "admissionStatus": "exclude",
+                "institutionRef": "institution:udg",
+            }]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item for item in report["rows"]
+            if item["id"] == "scope:political-international-development"
+        )
+        self.assertEqual(row["boundaryState"], "outside-scope")
+        program = next(
+            item for item in row["programs"]
+            if item["normalizedKey"] == "maestria en ciencia politica"
+        )
+        self.assertEqual(program["programAuthority"]["status"], "confirmed")
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:mae-ciencia-politica",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "exclude",
+        )
+        self.assertEqual(program["currentAdmissionStatuses"], {"exclude": 1})
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [

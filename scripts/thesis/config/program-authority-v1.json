@@ -1164,9 +1164,39 @@
         "https://www.cucsh.udg.mx/maestrias/maestria_en_gesti%C3%B3n_y_desarrollo_social/plan_de_estudios",
         "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Pol%C3%ADticos%20y%20Sociales"
       ]
+    },
+    {
+      "id": "program:udg:mae-ciencia-politica",
+      "canonicalName": "Maestría en Ciencia Política",
+      "level": "maestria",
+      "disciplineFamily": "ciencia-politica-ciencias-sociales",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH",
+        "CUCIÉNEGA"
+      ],
+      "aliases": [
+        "Maestría en Ciencia Política",
+        "MAESTRIA EN CIENCIA POLITICA"
+      ],
+      "observedCount": 51,
+      "observedThesisYears": {
+        "min": 2011,
+        "max": 2025
+      },
+      "decisionNote": "Programa vigente de la Universidad de Guadalajara con presencia documentada en CUCSH y CUCIÉNEGA. La UdeG define su objetivo como generar investigación en el campo de la ciencia política y su estructura formativa se organiza alrededor de metodología, teoría del Estado, regímenes, partidos, poderes, teorías de la democracia, teoría política contemporánea, políticas públicas, comportamiento y comunicación política, política internacional, geopolítica y seguridad. Aunque incorpora cultura política, sociedad civil, ciudadanía, movimientos sociales, derechos humanos y teoría política, esos componentes están integrados dentro de un programa cuya identidad institucional principal es Ciencia Política. Bajo targetScope humanities-only se registra como EXCLUDE.",
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria-en-ciencia-politica",
+        "https://www.cucsh.udg.mx/index.php/maestrias/maestria_en_ciencia_politica/objetivos",
+        "https://www.cucsh.udg.mx/maestrias/maestria_en_ciencia_politica/plan_de_estudios",
+        "https://www.cucsh.udg.mx/maestrias/maestria_en_ciencia_politica/lineas_generacion",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencia-politica",
+        "https://cuci.udg.mx/maestrias/c-politica/plan"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v14",
+  "registryRevision": "2026-11-01.v15",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
