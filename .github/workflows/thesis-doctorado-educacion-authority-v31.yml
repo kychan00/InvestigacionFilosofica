@@ -254,7 +254,9 @@ jobs:
               if row["id"] == "scope:education-research"
           )
           assert education_row["boundaryState"] == "boundary-review"
-          assert education_row["programKeys"] == [
+          assert [
+              p["normalizedKey"] for p in education_row["programs"]
+          ] == [
               "maestria en investigacion educativa",
               "doctorado en cognicion y aprendizaje",
           ]
@@ -268,9 +270,9 @@ jobs:
               education_outside["boundaryState"]
               == expected["educationOutsideBoundaryState"]
           )
-          assert education_outside["programKeys"] == [
-              "doctorado en educacion"
-          ]
+          assert [
+              p["normalizedKey"] for p in education_outside["programs"]
+          ] == ["doctorado en educacion"]
           assert (
               education_outside["observedWorks"]
               == expected["educationOutsideWorks"]
