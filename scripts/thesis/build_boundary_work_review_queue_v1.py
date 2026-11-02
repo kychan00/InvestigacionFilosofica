@@ -174,6 +174,8 @@ def build_queue(
     corpus: dict[str, Any],
     registry: dict[str, Any],
     policy: dict[str, Any],
+    *,
+    reference_year: int = 2026,
 ) -> dict[str, Any]:
     validate_policy(policy)
     authorities = registry_by_id(registry)
@@ -222,7 +224,16 @@ def build_queue(
             abstract = work.get("abstract") or ""
             keywords = work.get("keywords") or []
             contributors = work.get("contributions") or []
-            date = work.get("date") or {}
+            frozen_date = work.get("date") or {}
+            raw_date = frozen_date.get("raw")
+            date = (
+                canonical.date_info(
+                    raw_date,
+                    reference_year=reference_year,
+                )
+                if raw_date is not None
+                else frozen_date
+            )
 
             status = projection.get("status") or "unknown"
             applicability_state = (
@@ -486,13 +497,23 @@ def main() -> int:
         "--output-dir",
         default="artifacts/thesis-boundary-work-review",
     )
+    parser.add_argument(
+        "--reference-year",
+        type=int,
+        default=2026,
+    )
     args = parser.parse_args()
 
     corpus = read_json(Path(args.canonical_corpus))
     registry = canonical.load_program_registry(args.registry)
     policy = read_json(Path(args.policy))
 
-    queue = build_queue(corpus, registry, policy)
+    queue = build_queue(
+        corpus,
+        registry,
+        policy,
+        reference_year=args.reference_year,
+    )
     output = Path(args.output_dir)
     output.mkdir(parents=True, exist_ok=True)
     write_json(output / "boundary-work-review-queue.json", queue)
