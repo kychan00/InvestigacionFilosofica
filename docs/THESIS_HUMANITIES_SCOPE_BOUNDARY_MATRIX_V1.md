@@ -227,9 +227,9 @@ puede considerarse fuera del objetivo `humanities-only`.
 
 ## 7. Comunicación y estudios de la cultura
 
-Estado:
+Estado reconciliado en Scope Policy V3:
 
-`boundary-review`
+`outside-scope`
 
 ### Programa observado
 
@@ -237,32 +237,33 @@ Maestría en Comunicación:
 
 - tesis: **67**;
 - unidad: CUCSH;
-- años válidos: **2002–2021**.
+- años válidos: **2002–2021**;
+- AcademicProgramAuthority V29: **EXCLUDE**.
 
-La UdeG la ubica en:
+La decisión V7 había mantenido el programa en REVIEW porque coexistían
+componentes culturales/humanísticos y de ciencias sociales.
 
-- División de Estudios de la Cultura;
-- Departamento de Estudios de la Comunicación Social.
+La convocatoria oficial 2026 resolvió esa ambigüedad a nivel programático:
+define la Maestría en Comunicación como un posgrado interdisciplinario que
+integra enfoques teóricos y metodológicos de las **ciencias sociales**. Sus
+objetivos institucionales sitúan la investigación en **Ciencias Sociales** y
+**Ciencias de la Comunicación**.
 
-Sus líneas incluyen relaciones entre:
-
-- comunicación;
-- tecnología;
-- sociedad;
-- cultura.
-
-La ubicación junto a programas humanísticos no basta para convertir
-Comunicación en Humanidades.
+Bajo el target estricto `humanities-only`, la evidencia específica del programa
+vence al prior organizacional de la División de Estudios de la Cultura.
 
 Fuentes:
 
+- `https://www.cucsh.udg.mx/sites/default/files/2025-09/CONVOCATORIA%202026%202028%20MAESTR%C3%8DA%20EN%20COMUNICACI%C3%93N_1.pdf`
+- `https://www.cucsh.udg.mx/maestrias/maestria_en_comunicacion/objetivos`
 - `https://www.cucsh.udg.mx/maestrias/maestria-en-comunicacion`
-- `https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20la%20Cultura/estructuradiv`
 
-### Pregunta de gobernanza
+### Política V3
 
-¿El corpus debe incluir Comunicación por su dimensión cultural e interpretativa,
-o mantenerla como disciplina adyacente?
+`boundary-review → outside-scope`
+
+La decisión es por identidad programática. No se usan temas de tesis,
+títulos, abstracts, keywords o embeddings.
 
 ---
 
@@ -569,25 +570,25 @@ hasta una decisión posterior por obra o una política explícita de inclusión.
 
 ## 13. Resumen cuantitativo
 
-### boundary-review · Policy V2
+### boundary-review · Policy V3
 
-- Comunicación: 67;
 - Educación/Cognición: 111;
 - Estudios de Género: 1;
 - Ciudad/Territorio/Sustentabilidad: 152.
 
 Total:
 
-**331 tesis**
+**264 tesis**
 
-### outside-scope · Policy V2
+### outside-scope · Policy V3
 
+- Comunicación: 67;
 - Ciencias Sociales: 277;
 - Política/Relaciones/Desarrollo: 212.
 
 Total:
 
-**489 tesis**
+**556 tesis**
 
 ### Total matriz
 
