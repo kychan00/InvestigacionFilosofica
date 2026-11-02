@@ -15,6 +15,7 @@ on:
       - "scripts/thesis/audit_program_metadata_evidence_confidence_v1.py"
       - "scripts/thesis/audit_program_metadata_integrity_v2.py"
       - "scripts/thesis/build_program_metadata_conflict_registry_v1.py"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
@@ -29,6 +30,7 @@ on:
       - "tests/test_thesis_program_metadata_evidence_confidence.py"
       - "tests/test_thesis_program_metadata_integrity_v2.py"
       - "tests/test_thesis_program_metadata_conflict_registry.py"
+      - "tests/test_thesis_program_metadata_confidence_reprojection.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -43,6 +45,7 @@ on:
       - "docs/THESIS_PROGRAM_AUTHORITY_PSYCHOLOGY_V24.md"
       - "docs/THESIS_PROGRAM_METADATA_INTEGRITY_MEDICINE_V2.md"
       - "docs/THESIS_PROGRAM_METADATA_CONFLICT_REGISTRY_MEDICINE_V1.md"
+      - "docs/THESIS_PROGRAM_METADATA_ITEM_CONFLICT_PROTECTION_V2.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -65,6 +68,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   harvest:
@@ -94,7 +98,8 @@ jobs:
             scripts/thesis/audit_program_metadata_provenance_v1.py \
             scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
             scripts/thesis/audit_program_metadata_integrity_v2.py \
-            scripts/thesis/build_program_metadata_conflict_registry_v1.py
+            scripts/thesis/build_program_metadata_conflict_registry_v1.py \
+            scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py
 
       - name: Offline unit tests
         run: |
@@ -145,6 +150,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_program_metadata_conflict_registry.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_confidence_reprojection.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -737,7 +746,7 @@ jobs:
               report["decisionConstraint"]
               == "metadata-confidence-does-not-create-program-authority"
           )
-          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v1"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v2"
           assert report["metrics"]["works"] > 0
           assert report["metrics"]["violations"] == 0
           assert report["violations"] == []
@@ -771,26 +780,154 @@ jobs:
           )
 
           by_rule = report["metrics"]["ruleMatches"]
+          assert (
+              report["metrics"]["confidenceStates"]
+              == baseline["expectedConfidenceStates"]
+          )
+          assert (
+              report["metrics"]["authorityApplicability"]
+              == baseline["expectedAuthorityApplicability"]
+          )
+
+          for rule_id, expected in baseline["expectedRules"].items():
+              assert by_rule.get(rule_id, 0) == expected["matchedWorks"]
+
           queue_rows = {
               row["normalizedKey"]: row
               for row in report["metadataReviewQueueItems"]
           }
-
-          for rule_id, expected in baseline["expectedRules"].items():
-              assert by_rule.get(rule_id, 0) == expected["matchedWorks"]
-              row = queue_rows[expected["programKey"]]
+          for program_key, expected in (
+              baseline["expectedMetadataReviewPrograms"].items()
+          ):
+              row = queue_rows[program_key]
+              evidence = row["programMetadataEvidence"]
+              assert row["queueState"] == expected["queueState"]
               assert row["curationLane"] == expected["curationLane"]
+              assert evidence["blockedWorks"] == expected["blockedWorks"]
               assert (
-                  row["programMetadataEvidence"]["blockedWorks"]
-                  == expected["matchedWorks"]
+                  evidence["confidenceStates"]
+                  == expected["confidenceStates"]
+              )
+              assert (
+                  evidence["authorityApplicability"]
+                  == expected["authorityApplicability"]
               )
 
           print(json.dumps({
               "baseline": "closed",
+              "confidenceStates": report["metrics"]["confidenceStates"],
+              "authorityApplicability": report["metrics"][
+                  "authorityApplicability"
+              ],
               "ruleMatches": by_rule,
               "metadataReviewQueueItems": report[
                   "metadataReviewQueueItems"
               ],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Download frozen full baseline for confidence reprojection
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-confidence-frozen-full
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-confidence-frozen-full
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject confidence over frozen full baseline
+        if: github.event_name == 'pull_request'
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-confidence-frozen-full/canonical-reprojected.json \
+            --output-report artifacts/thesis-confidence-frozen-full/reprojection-report.json
+
+          python scripts/thesis/build_program_curation_queue_v1.py \
+            --observed-authorities /tmp/thesis-full-baseline/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-confidence-frozen-full/canonical-reprojected.json \
+            --output-dir artifacts/thesis-confidence-frozen-full/queue \
+            --top 30
+
+          python scripts/thesis/audit_program_metadata_evidence_confidence_v1.py \
+            --canonical-corpus artifacts/thesis-confidence-frozen-full/canonical-reprojected.json \
+            --queue artifacts/thesis-confidence-frozen-full/queue/program-curation-queue.json \
+            --output-dir artifacts/thesis-confidence-frozen-full/confidence-audit
+
+      - name: Validate frozen full metadata confidence baseline
+        if: github.event_name == 'pull_request'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-confidence-frozen-full")
+          report = json.loads(
+              (root / "confidence-audit/program-metadata-confidence-audit.json").read_text()
+          )
+          reprojection = json.loads(
+              (root / "reprojection-report.json").read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "program-metadata-evidence-confidence-baseline-v1.json"
+              ).read_text()
+          )
+
+          assert reprojection["metrics"]["works"] == 27576
+          assert reprojection["metrics"]["multiSourceWorks"] == 0
+          assert (
+              report["programMetadataEvidenceRevision"]
+              == baseline["policyRevision"]
+          )
+          assert (
+              report["metrics"]["confidenceStates"]
+              == baseline["expectedConfidenceStates"]
+          )
+          assert (
+              report["metrics"]["authorityApplicability"]
+              == baseline["expectedAuthorityApplicability"]
+          )
+
+          by_rule = report["metrics"]["ruleMatches"]
+          for rule_id, expected in baseline["expectedRules"].items():
+              assert by_rule.get(rule_id, 0) == expected["matchedWorks"]
+
+          queue_rows = {
+              row["normalizedKey"]: row
+              for row in report["metadataReviewQueueItems"]
+          }
+          for program_key, expected in (
+              baseline["expectedMetadataReviewPrograms"].items()
+          ):
+              row = queue_rows[program_key]
+              evidence = row["programMetadataEvidence"]
+              assert row["queueState"] == expected["queueState"]
+              assert row["curationLane"] == expected["curationLane"]
+              assert evidence["blockedWorks"] == expected["blockedWorks"]
+              assert (
+                  evidence["confidenceStates"]
+                  == expected["confidenceStates"]
+              )
+              assert (
+                  evidence["authorityApplicability"]
+                  == expected["authorityApplicability"]
+              )
+
+          assert report["metrics"]["violations"] == 0
+          assert report["violations"] == []
+
+          print(json.dumps({
+              "baseline": "closed",
+              "reprojection": reprojection["metrics"],
+              "confidence": report["metrics"],
+              "metadataReviewQueueItems": report["metadataReviewQueueItems"],
           }, indent=2, ensure_ascii=False))
           PY
 
@@ -1085,5 +1222,6 @@ jobs:
             artifacts/thesis-program-metadata-confidence/
             artifacts/thesis-program-metadata-integrity-medicine/
             artifacts/thesis-program-metadata-conflicts-medicine/
+            artifacts/thesis-confidence-frozen-full/
           if-no-files-found: error
           retention-days: 14
