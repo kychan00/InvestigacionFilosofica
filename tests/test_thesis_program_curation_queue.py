@@ -1391,6 +1391,16 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                     "admissionStatuses": {"quarantine": 19},
                     "programRefs": {},
                 },
+                {
+                    "normalizedKey": "licenciatura en cultura fisica y deportes",
+                    "count": 11,
+                    "variants": {
+                        "Licenciatura en Cultura Física y Deportes": 11,
+                    },
+                    "providers": {"riudg": 11},
+                    "admissionStatuses": {"quarantine": 11},
+                    "programRefs": {},
+                },
             ]
         }
         corpus = {
@@ -1412,6 +1422,13 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                 {
                     "programRaw": "Licenciatura en Ingeniería en Nanotecnología",
                     "academicUnitRaw": "CUTONALA",
+                    "date": {"value": "2024", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Licenciatura en Cultura Física y Deportes",
+                    "academicUnitRaw": "CUCS",
                     "date": {"value": "2024", "quality": "valid"},
                     "thesisTypeRaw": "Tesis",
                     "admissionStatus": "quarantine",
@@ -1440,6 +1457,12 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                 "curationLane"
             ],
             "unit-triage",
+        )
+        self.assertEqual(
+            by_key["licenciatura en cultura fisica y deportes"][
+                "curationLane"
+            ],
+            "humanities-candidate",
         )
         self.assertEqual(
             [
