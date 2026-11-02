@@ -1137,9 +1137,36 @@
         "https://cucsh.udg.mx/maestrias/maestria_en_ciencias_sociales/plan_de_estudios",
         "https://www.cucsh.udg.mx/maestrias/maestria_en_ciencias_sociales/lineas_generacion"
       ]
+    },
+    {
+      "id": "program:udg:mae-gestion-desarrollo-social",
+      "canonicalName": "Maestría en Gestión y Desarrollo Social",
+      "level": "maestria",
+      "disciplineFamily": "gestion-desarrollo-social-ciencias-sociales",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Gestión y Desarrollo Social",
+        "MAESTRIA EN GESTION Y DESARROLLO SOCIAL"
+      ],
+      "observedCount": 106,
+      "observedThesisYears": {
+        "min": 2010,
+        "max": 2025
+      },
+      "decisionNote": "Programa vigente de CUCSH adscrito a la División de Estudios Políticos y Sociales y al Departamento de Desarrollo Social. La convocatoria 2026–2028 lo presenta como formación para analizar, intervenir y proponer soluciones a problemáticas sociales y sus líneas se describen como temas clave de las ciencias sociales: educación en el desarrollo social; actores, transformación y desarrollo social; desarrollo regional y medio ambiente; género y desarrollo social. El plan incorpora políticas públicas, políticas sociales, desarrollo sustentable, autogestión, psicología social y metodología de investigación. Aunque el programa es interdisciplinario y reflexivo, su identidad institucional principal es desarrollo social dentro de Ciencias Sociales. Bajo targetScope humanities-only se registra como EXCLUDE.",
+      "evidence": [
+        "https://www.cucsh.udg.mx/noticias/abre-convocatoria-de-ingreso-la-maestria-en-gestion-y-desarrollo-social-2026-2028",
+        "https://www.cucsh.udg.mx/maestrias/maestria_en_gesti%C3%B3n_y_desarrollo_social",
+        "https://www.cucsh.udg.mx/maestrias/maestria_en_gesti%C3%B3n_y_desarrollo_social/plan_de_estudios",
+        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Pol%C3%ADticos%20y%20Sociales"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v13",
+  "registryRevision": "2026-11-01.v14",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
