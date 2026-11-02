@@ -29,7 +29,6 @@
       "include": 40
     },
     "siblingProgramWorks": 15,
-    "siblingProgramAdmissionState": "include",
     "humanitiesActionQueueItems": 42,
     "humanitiesActionWorks": 646,
     "nextHumanitiesActionKey": "doctorado en ciudad territorio y sustentabilidad",
@@ -40,7 +39,12 @@
       "quarantine": 18964,
       "exclude": 7490,
       "reject-source": 2
-    }
+    },
+    "siblingProgramAdmissionStatuses": {
+      "include": 11,
+      "quarantine": 4
+    },
+    "siblingUnresolvedInstitutionWorks": 4
   },
   "invariants": [
     "gestion-desarrollo-cultural-is-include-by-program-evidence",
