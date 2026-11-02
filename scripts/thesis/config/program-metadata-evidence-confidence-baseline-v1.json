@@ -1,35 +1,35 @@
 {
   "schemaVersion": "thesis-program-metadata-evidence-confidence-baseline-v1",
-  "policyRevision": "2026-11-02.v2",
+  "policyRevision": "2026-11-02.v3",
   "sourceFullArtifactId": 13099541204,
   "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
   "expectedConfidenceStates": {
-    "conflicted": 18,
-    "low-trust": 454,
-    "unassessed": 27104
+    "conflicted": 22,
+    "low-trust": 453,
+    "unassessed": 27101
   },
   "expectedAuthorityApplicability": {
-    "allowed": 27104,
-    "blocked": 472
+    "allowed": 27101,
+    "blocked": 475
   },
   "expectedRules": {
     "riudg-structural-program-metadata-conflicts-v1": {
       "confidenceState": "conflicted",
       "authorityApplicability": "blocked",
-      "matchedWorks": 18
+      "matchedWorks": 22
     },
     "riudg-psychology-legacy-migration-2015-09-09": {
       "confidenceState": "low-trust",
       "authorityApplicability": "blocked",
-      "matchedWorks": 454
+      "matchedWorks": 453
     }
   },
   "expectedMetadataReviewPrograms": {
     "licenciatura en psicologia": {
       "blockedWorks": 460,
       "confidenceStates": {
-        "low-trust": 454,
-        "conflicted": 6,
+        "low-trust": 453,
+        "conflicted": 7,
         "unassessed": 25
       },
       "authorityApplicability": {
@@ -53,38 +53,39 @@
       "curationLane": "metadata-confidence-review"
     },
     "licenciatura en odontologia": {
-      "blockedWorks": 2,
+      "blockedWorks": 3,
       "confidenceStates": {
-        "unassessed": 193,
-        "conflicted": 2
+        "unassessed": 192,
+        "conflicted": 3
       },
       "authorityApplicability": {
-        "allowed": 193,
-        "blocked": 2
+        "allowed": 192,
+        "blocked": 3
       },
       "queueState": "metadata-review",
       "curationLane": "metadata-confidence-review"
     },
     "licenciatura en medicina veterinaria zootecnista": {
-      "blockedWorks": 1,
+      "blockedWorks": 3,
       "confidenceStates": {
-        "unassessed": 1339,
-        "conflicted": 1
+        "unassessed": 1337,
+        "conflicted": 3
       },
       "authorityApplicability": {
-        "allowed": 1339,
-        "blocked": 1
+        "allowed": 1337,
+        "blocked": 3
       },
       "queueState": "metadata-review",
       "curationLane": "metadata-confidence-review"
     }
   },
   "invariants": [
-    "program-authority-v24-remains-unchanged",
+    "program-authority-v25-remains-unchanged",
     "metadata-confidence-does-not-create-program-authority",
     "structural-conflict-records-are-blocked-item-level",
     "structural-conflict-rule-outranks-broader-cohort-rules",
     "blocked-records-remain-visible-in-curation-queue",
-    "post-migration-psychology-remains-unassessed-not-trusted"
+    "post-migration-psychology-remains-unassessed-not-trusted",
+    "veterinary-structural-conflicts-are-blocked-item-level"
   ]
 }
