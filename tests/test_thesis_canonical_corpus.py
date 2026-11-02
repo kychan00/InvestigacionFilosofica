@@ -379,10 +379,10 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             "program:udg:lic-historia-arte",
         )
         self.assertEqual(candidate["program"]["admissionState"], "review")
-        self.assertEqual(candidate["admission"]["status"], "review")
+        self.assertEqual(candidate["admission"]["status"], "include")
         self.assertEqual(
             candidate["admission"]["explanationCode"],
-            "program-review",
+            "confirmed-humanities-program",
         )
 
         corpus = thesis.build_corpus(
@@ -452,7 +452,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "Licenciatura en la Docencia del Inglés": (
                 "program:udg:lic-docencia-ingles-corta-historica",
-                "review",
+                "include",
             ),
             "Licenciatura en Letras": (
                 "program:udg:lic-letras-historica",
@@ -470,7 +470,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 self.assertEqual(resolved["programRef"], program_ref)
                 self.assertEqual(resolved["admissionState"], state)
 
-    def test_short_historical_english_degree_remains_review(self):
+    def test_short_historical_english_degree_is_include_v33(self):
         record = thesis.source_record(
             provider="riudg",
             provider_record_id="short-english-degree",
@@ -532,7 +532,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             (
                 "Licenciatura en la Docencia del Inglés",
-                "review",
+                "include",
             ),
         ]
         records = []
@@ -561,7 +561,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
 
         self.assertEqual(
             corpus["metrics"]["worksByAdmission"],
-            {"include": 2, "review": 1},
+            {"include": 3},
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],
