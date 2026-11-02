@@ -1680,6 +1680,47 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_tecnologias_aprendizaje_authority_v23_reviews_program(self):
+        for raw in (
+            "Maestría en Tecnologías para el Aprendizaje",
+            "MAESTRIA EN TECNOLOGIAS PARA EL APRENDIZAJE",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-tecnologias-aprendizaje",
+                )
+                self.assertEqual(resolved["admissionState"], "review")
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="tecnologias-aprendizaje-boundary",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Teorías del aprendizaje, narrativa y cultura digital en educación"],
+                "dc.degree.name": ["Maestría en Tecnologías para el Aprendizaje"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCEA"],
+                "dc.date.issued": ["2025-06-00"],
+                "dc.type": ["Tesis de Maestría"],
+            },
+            raw_payload="tecnologias-aprendizaje-boundary",
+        )
+        corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:mae-tecnologias-aprendizaje",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
