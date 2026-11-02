@@ -313,6 +313,7 @@ jobs:
 
           assert audit["schemaVersion"] == "thesis-humanities-boundary-closure-audit-v1"
           assert audit["closureState"] == "closed"
+          assert audit["policyRevision"] == "2026-11-01.v2"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
           assert audit["metrics"]["boundaryRows"] == 4
