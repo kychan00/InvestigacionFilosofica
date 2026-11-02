@@ -1002,9 +1002,36 @@
         "https://www.udg.mx/oferta-academica/posgrados/doctorados/doctorado-en-educacion",
         "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad"
       ]
+    },
+    {
+      "id": "program:udg:mae-investigacion-educativa",
+      "canonicalName": "Maestría en Investigación Educativa",
+      "level": "maestria",
+      "disciplineFamily": "investigacion-educativa-ciencias-sociales-humanidades",
+      "admissionState": "review",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Investigación Educativa",
+        "MAESTRIA EN INVESTIGACION EDUCATIVA"
+      ],
+      "observedCount": 34,
+      "observedThesisYears": {
+        "min": 2014,
+        "max": 2023
+      },
+      "decisionNote": "Programa vigente de CUCSH adscrito al Departamento de Estudios en Educación. La ficha institucional de la UdeG lo ubica en el área de Ciencias Sociales y Humanidades y declara como objetivo formar investigadores en educación de manera interdisciplinaria. Sus LGAC combinan historia de la educación y educación/alteridad con procesos educativos, actores, políticas y contextos organizacionales. La identidad programática está confirmada, pero su pertenencia automática a un corpus humanities-only sería más fuerte que la evidencia; se registra como REVIEW.",
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-investigacion-educativa",
+        "https://www.udg.mx/node/79448",
+        "https://www.cucsh.udg.mx/convocatorias/convocatoria-abierta-la-maestria-en-investigacion-educativa-generacion-2026-2028"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v8",
+  "registryRevision": "2026-11-01.v9",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
