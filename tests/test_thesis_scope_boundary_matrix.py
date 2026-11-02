@@ -884,6 +884,56 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
                 "exclude",
             )
 
+    def test_urban_territory_outside_scope_prior_is_overridden_by_review_authority(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "doctorado en ciudad territorio y sustentabilidad",
+                "count": 152,
+                "variants": {"Doctorado en Ciudad, Territorio y Sustentabilidad": 152},
+                "providers": {"riudg": 152},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "id": "work:ciudad-territorio-sustentabilidad",
+                "programRaw": "Doctorado en Ciudad, Territorio y Sustentabilidad",
+                "academicUnitRaw": "CUAAD",
+                "date": {"value": "2021", "quality": "valid"},
+                "admissionStatus": "review",
+                "institutionRef": "institution:udg",
+            }]
+        }
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item for item in report["rows"]
+            if item["id"] == "scope:urban-territory-sustainability"
+        )
+        self.assertEqual(row["boundaryState"], "outside-scope")
+        self.assertEqual(row["observedWorks"], 152)
+        self.assertEqual(len(row["programs"]), 1)
+        program = row["programs"][0]
+        self.assertEqual(
+            program["normalizedKey"],
+            "doctorado en ciudad territorio y sustentabilidad",
+        )
+        self.assertEqual(program["programAuthority"]["status"], "confirmed")
+        self.assertEqual(
+            program["programAuthority"]["programRef"],
+            "program:udg:doc-ciudad-territorio-sustentabilidad",
+        )
+        self.assertEqual(
+            program["programAuthority"]["admissionState"],
+            "review",
+        )
+        self.assertEqual(program["currentAdmissionStatuses"], {"review": 1})
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [
