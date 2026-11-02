@@ -576,7 +576,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "MAESTRIA EN GESTION Y DESARROLLO CULTURAL": (
                 "program:udg:mae-gestion-desarrollo-cultural",
-                "review",
+                "include",
             ),
             "Doctorado en Gestión de la Cultura": (
                 "program:udg:doc-gestion-cultura",
@@ -623,9 +623,9 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             professional["programRef"],
         )
         self.assertEqual(research["admissionState"], "include")
-        self.assertEqual(professional["admissionState"], "review")
+        self.assertEqual(professional["admissionState"], "include")
 
-    def test_cultural_management_review_gate_is_explicit(self):
+    def test_cultural_management_programs_both_include_without_alias_merge(self):
         records = [
             thesis.source_record(
                 provider="riudg",
@@ -665,7 +665,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
 
         self.assertEqual(
             corpus["metrics"]["worksByAdmission"],
-            {"include": 1, "review": 1},
+            {"include": 2},
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],
@@ -682,7 +682,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         self.assertEqual(
             by_program["program:udg:mae-gestion-desarrollo-cultural"],
-            "review",
+            "include",
         )
 
     def test_arts_heritage_family_v5(self):
