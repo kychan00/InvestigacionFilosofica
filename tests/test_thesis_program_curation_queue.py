@@ -965,6 +965,44 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         self.assertEqual(payload["metrics"]["gateIneligibleGroupsOmitted"], 0)
 
+    def test_ciudad_territorio_sustentabilidad_moves_to_scope_review(self):
+        observed = {
+            "programs": [{
+                "normalizedKey": "doctorado en ciudad territorio y sustentabilidad",
+                "count": 152,
+                "variants": {"Doctorado en Ciudad, Territorio y Sustentabilidad": 152},
+                "providers": {"riudg": 152},
+                "admissionStatuses": {"quarantine": 152},
+                "programRefs": {},
+            }]
+        }
+        corpus = {
+            "works": [{
+                "programRaw": "Doctorado en Ciudad, Territorio y Sustentabilidad",
+                "academicUnitRaw": "CUAAD",
+                "date": {"value": "2021", "quality": "valid"},
+                "thesisTypeRaw": "Tesis de Doctorado",
+                "admissionStatus": "review",
+            }]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        self.assertEqual(payload["metrics"]["allProgramStates"], {"review": 1})
+        self.assertEqual(
+            payload["metrics"]["worksByProgramState"],
+            {"review": 152},
+        )
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:doc-ciudad-territorio-sustentabilidad",
+        )
+        self.assertEqual(item["authority"]["admissionState"], "review")
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
