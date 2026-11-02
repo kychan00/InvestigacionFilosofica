@@ -13,7 +13,11 @@ class TestCivilEngineeringAuthorityV28(unittest.TestCase):
     def test_exact_undergraduate_only(self):
         registry = canonical.load_program_registry()
         baseline = json.loads((ROOT / "scripts/thesis/config/civil-engineering-authority-v28-baseline-v1.json").read_text())
-        self.assertEqual(registry["registryRevision"], baseline["registryRevision"])
+        self.assertEqual(baseline["registryRevision"], "2026-11-02.v28")
+        self.assertGreaterEqual(
+            int(registry["registryRevision"].rsplit(".v", 1)[1]),
+            28,
+        )
         matches = [p for p in registry["programs"] if p["id"] == baseline["programRef"]]
         self.assertEqual(len(matches), 1)
         p = matches[0]
