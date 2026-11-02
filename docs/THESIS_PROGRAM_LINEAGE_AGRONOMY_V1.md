@@ -1,5 +1,9 @@
 # T2AR — Agronomy Program Lineage Evidence Matrix V1
 
+## Estado posterior: T2AS
+
+T2AR se cerró como fase no-admisiva. Posteriormente, T2AS creó Program Authority V27 únicamente para los **16 labels / 2,155 works** clasificados aquí como `candidate-v27`. Las afirmaciones posteriores de este documento que indican que V27 todavía no existe describen el estado congelado al cierre de T2AR. Los **48 labels / 338 works** clasificados como HOLD permanecen fuera de V27.
+
 ## Objetivo
 
 T2AQ demostró que el full corpus contiene una familia observada de:
