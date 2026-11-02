@@ -191,6 +191,9 @@ jobs:
           # V33: historical Licenciatura en la Docencia del Inglés REVIEW -> INCLUDE.
           expected_global["include"] += 1
           expected_global["review"] -= 1
+          # V34: Gestión y Desarrollo Cultural REVIEW -> INCLUDE.
+          expected_global["include"] += 40
+          expected_global["review"] -= 40
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
