@@ -1360,5 +1360,84 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(payload["items"][0]["queueState"], "review")
 
 
+    def test_high_frequency_nonhumanities_is_not_a_humanities_action(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "licenciatura en quimica farmacobiologica",
+                    "count": 1085,
+                    "variants": {
+                        "Licenciatura en Química Farmacobiológica": 1085,
+                    },
+                    "providers": {"riudg": 1085},
+                    "admissionStatuses": {"quarantine": 1085},
+                    "programRefs": {},
+                },
+                {
+                    "normalizedKey": "doctorado en historia de las ideas",
+                    "count": 2,
+                    "variants": {"Doctorado en Historia de las Ideas": 2},
+                    "providers": {"riudg": 2},
+                    "admissionStatuses": {"quarantine": 2},
+                    "programRefs": {},
+                },
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Licenciatura en Química Farmacobiológica",
+                    "academicUnitRaw": "CUCEI",
+                    "date": {"value": "2024", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+                {
+                    "programRaw": "Doctorado en Historia de las Ideas",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2024", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis",
+                    "admissionStatus": "quarantine",
+                },
+            ]
+        }
+
+        payload = queue.build_queue(observed, corpus, self.registry)
+        by_key = {
+            item["normalizedKey"]: item
+            for item in payload["items"]
+        }
+
+        self.assertEqual(
+            by_key["licenciatura en quimica farmacobiologica"][
+                "curationLane"
+            ],
+            "high-impact-triage",
+        )
+        self.assertEqual(
+            by_key["doctorado en historia de las ideas"]["curationLane"],
+            "humanities-candidate",
+        )
+        self.assertEqual(
+            [
+                item["normalizedKey"]
+                for item in payload["humanitiesActionItems"]
+            ],
+            ["doctorado en historia de las ideas"],
+        )
+        self.assertEqual(
+            payload["nextHumanitiesAction"]["normalizedKey"],
+            "doctorado en historia de las ideas",
+        )
+        self.assertEqual(
+            payload["metrics"]["deferredHighImpactItems"],
+            1,
+        )
+        self.assertEqual(
+            payload["metrics"]["deferredHighImpactWorks"],
+            1085,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
