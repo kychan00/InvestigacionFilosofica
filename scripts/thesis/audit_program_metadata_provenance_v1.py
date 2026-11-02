@@ -146,12 +146,30 @@ def build_provenance_report(
             }
         )
 
+    metric_keys = (
+        "works",
+        "hasIssuedDate",
+        "hasAbstract",
+        "hasSubmittedDate",
+        "validYearObservations",
+        "preProgramFoundationWorks",
+        "exactTitleCrossProgramConflictWorks",
+        "exactTitleAuthorCrossProgramConflictWorks",
+        "titleDomainWarningWorks",
+        "highConfidenceAnomalyWorks",
+        "warningOnlyWorks",
+        "noDetectedContradictionWorks",
+    )
+
     normalized_cohorts: dict[str, Any] = {}
     for cohort_id, cohort in cohorts.items():
         normalized_cohorts[cohort_id] = {
             "definition": cohort["definition"],
             "provenanceState": cohort["provenanceState"],
-            "metrics": dict(cohort["metrics"]),
+            "metrics": {
+                key: int(cohort["metrics"].get(key, 0))
+                for key in metric_keys
+            },
             "accessionDays": dict(cohort["accessionDays"].most_common()),
         }
 
