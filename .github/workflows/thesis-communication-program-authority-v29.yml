@@ -142,7 +142,8 @@ jobs:
 
           assert baseline["registryRevision"] == "2026-11-02.v29"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 29
-          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert baseline["scopePolicyRevision"] == "2026-11-02.v3"
+          assert int(scope["policyRevision"].rsplit(".v", 1)[1]) >= 3
           assert len(corpus["works"]) == 27576
 
           selected = [
@@ -176,8 +177,12 @@ jobs:
           assert years[-1] == expected["observedYears"]["max"]
 
           expected_global = dict(expected["globalProjectedAdmission"])
+          # V30: one DELL orientation REVIEW -> INCLUDE.
           expected_global["include"] += 1
           expected_global["review"] -= 1
+          # V31: Doctorado en Educación REVIEW -> EXCLUDE.
+          expected_global["review"] -= 73
+          expected_global["exclude"] += 73
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
