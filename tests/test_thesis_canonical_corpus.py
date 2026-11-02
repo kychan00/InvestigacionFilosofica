@@ -1156,9 +1156,21 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             "program:udg:doc-ciencias-sociales",
         )
         self.assertEqual(work["institutionRef"], "institution:udg")
-        self.assertIn(
-            "non-humanities-program",
+        self.assertEqual(
             work["admissionExplanationCodes"],
+            ["excluded-by-source-decision"],
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["explanationCode"],
+            "non-humanities-program",
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["institutionRef"],
+            "institution:udg",
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["programRef"],
+            "program:udg:doc-ciencias-sociales",
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],
