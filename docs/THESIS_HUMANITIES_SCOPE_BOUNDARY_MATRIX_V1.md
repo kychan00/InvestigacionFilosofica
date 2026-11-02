@@ -485,68 +485,117 @@ Una excepción futura necesitaría evidencia programática específica.
 
 ## 12. Ciudad, territorio y sustentabilidad
 
-Estado:
+Estado reconciliado en Scope Policy V2:
 
-`outside-scope`
+`boundary-review`
 
 Doctorado en Ciudad, Territorio y Sustentabilidad:
 
 - tesis: **152**;
 - CUAAD;
-- años válidos: **2000–2021**.
+- años válidos: **2000–2021**;
+- AcademicProgramAuthority V18: **REVIEW**.
 
-El programa está adscrito al CUAAD y sus líneas actuales incluyen:
+La política V1 mantenía esta fila como `outside-scope` por su adscripción al
+CUAAD y su fuerte componente de urbanismo, territorio, movilidad, ordenación
+urbana y sustentabilidad.
+
+La evidencia programática específica de 2026 cambió materialmente esa lectura.
+
+La convocatoria oficial clasifica el Doctorado en:
+
+- Área: **Humanidades y Ciencias de la Conducta**;
+- Campo: **Arquitectura y Urbanismo**;
+- Tema/Disciplina: **Ciudad, Territorio y Sustentabilidad**.
+
+Sus líneas incluyen:
 
 - Teorías de la ciudad y la arquitectura;
 - Territorio, movilidad y espacio público;
 - Hábitat, ordenación territorial-urbana y sustentabilidad.
 
-Su trayectoria institucional se vincula con:
+Dentro de ellas aparecen de manera sustantiva:
 
-- urbanística;
-- medio ambiente;
-- ordenación territorial.
+- pensamiento crítico;
+- historia;
+- cultura;
+- identidades;
+- derechos humanos;
+- relaciones de poder;
+- movimientos y comunidades;
+- desigualdad;
+- vida cotidiana.
+
+A la vez, el programa mantiene un componente estructural de:
+
+- arquitectura;
+- urbanismo;
+- planeación;
+- diseño urbano;
+- movilidad;
+- ordenamiento territorial;
+- ambiente;
+- intervención técnico-territorial.
 
 Fuentes:
 
-- `https://dcts.cuaad.udg.mx/informacion-general`
-- `https://dcts.cuaad.udg.mx/informacion-general/trayectoria`
+- `https://dcts.cuaad.udg.mx/images/dcts/CONVOCATORIAS/Convocatoria%202026.pdf`
+- `https://www.udg.mx/oferta-academica/posgrados/doctorados/doctorado-en-ciudad-territorio-y-sustentabilidad`
+- `https://mpegpau.cuaad.udg.mx/informacion-general/mision--vision`
 - `https://cima.cuaad.udg.mx/estructura-curricular`
+- `https://mpegpau.cuaad.udg.mx/informacion-general/trayectoria`
 
-### Política V1
+### Política V2
 
-Fuera del alcance Humanidades por defecto.
+La fila se mueve de:
 
-Una tesis particular con historia urbana o filosofía de la ciudad no cambia la
-identidad programática.
+`outside-scope → boundary-review`
+
+porque la evidencia institucional específica vence el prior organizacional.
+
+Esto **no** convierte el programa en INCLUDE.
+
+AcademicProgramAuthority V18 permanece:
+
+`REVIEW`
+
+y las 152 tesis continúan en:
+
+`scope-review`
+
+hasta una decisión posterior por obra o una política explícita de inclusión.
 
 ---
 
 ## 13. Resumen cuantitativo
 
-### boundary-review
+### boundary-review · Policy V2
 
 - Comunicación: 67;
 - Educación/Cognición: 111;
-- Estudios de Género: 1.
-
-Total:
-
-**179 tesis**
-
-### outside-scope
-
-- Ciencias Sociales: 277;
-- Política/Relaciones/Desarrollo: 212;
+- Estudios de Género: 1;
 - Ciudad/Territorio/Sustentabilidad: 152.
 
 Total:
 
-**641 tesis**
+**331 tesis**
+
+### outside-scope · Policy V2
+
+- Ciencias Sociales: 277;
+- Política/Relaciones/Desarrollo: 212.
+
+Total:
+
+**489 tesis**
 
 ### Total matriz
 
 **820 tesis**
+
+La reclasificación de 152 tesis no cambia el total de la matriz ni decide
+admisión por sí misma. Reconciliación de scope y decisión de
+AcademicProgramAuthority siguen siendo capas separadas.
 
 ---
 
