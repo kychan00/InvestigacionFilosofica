@@ -10,6 +10,7 @@ on:
       - "scripts/thesis/build_scope_boundary_matrix_v1.py"
       - "scripts/thesis/audit_boundary_closure_v1.py"
       - "scripts/thesis/audit_outside_scope_closure_v1.py"
+      - "scripts/thesis/audit_program_metadata_contamination_v1.py"
       - "scripts/thesis/config/**"
       - "scripts/thesis/fixtures/**"
       - "tests/test_thesis_real_harvest.py"
@@ -19,6 +20,7 @@ on:
       - "tests/test_thesis_boundary_closure_audit.py"
       - "tests/test_thesis_outside_scope_closure_audit.py"
       - "tests/test_thesis_political_international_closure_audit.py"
+      - "tests/test_thesis_program_metadata_contamination_audit.py"
       - "docs/THESIS_HUMANITIES_PROGRAM_COVERAGE_AUDIT_V1.md"
       - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
       - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V1.md"
@@ -27,6 +29,7 @@ on:
       - "docs/THESIS_HUMANITIES_SOCIAL_SCIENCES_OUTSIDE_SCOPE_CLOSURE_V1.md"
       - "docs/THESIS_HUMANITIES_POLITICAL_INTERNATIONAL_OUTSIDE_SCOPE_CLOSURE_V1.md"
       - "docs/THESIS_HUMANITIES_REAL_HARVEST_V1.md"
+      - "docs/THESIS_PROGRAM_METADATA_CONTAMINATION_PSYCHOLOGY_V1.md"
       - ".github/workflows/thesis-real-harvest.yml"
   workflow_dispatch:
     inputs:
@@ -73,7 +76,8 @@ jobs:
             scripts/thesis/audit_program_coverage_v1.py \
             scripts/thesis/build_scope_boundary_matrix_v1.py \
             scripts/thesis/audit_boundary_closure_v1.py \
-            scripts/thesis/audit_outside_scope_closure_v1.py
+            scripts/thesis/audit_outside_scope_closure_v1.py \
+            scripts/thesis/audit_program_metadata_contamination_v1.py
 
       - name: Offline unit tests
         run: |
@@ -104,6 +108,10 @@ jobs:
           python -m unittest discover \
             -s tests \
             -p "test_thesis_political_international_closure_audit.py" \
+            -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_program_metadata_contamination_audit.py" \
             -v
 
       - name: Harvest sample for pull request
@@ -162,6 +170,79 @@ jobs:
               "udgvirtual": ledger["providers"]["udgvirtual"],
               "corpus": ledger["corpus"],
               "programsObserved": len(catalog["programs"]),
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Build Psychology metadata contamination audit
+        run: |
+          rm -rf artifacts/thesis-program-metadata-contamination
+          python scripts/thesis/audit_program_metadata_contamination_v1.py \
+            --canonical-corpus artifacts/thesis-real-harvest/canonical-corpus.json.gz \
+            --source-records artifacts/thesis-real-harvest/source-records.jsonl.gz \
+            --program-key "licenciatura en psicologia" \
+            --foundation-year 1975 \
+            --output-dir artifacts/thesis-program-metadata-contamination
+
+      - name: Validate Psychology metadata contamination audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-program-metadata-contamination")
+          audit = json.loads(
+              (root / "program-metadata-contamination-audit.json").read_text()
+          )
+
+          assert audit["schemaVersion"] == "thesis-program-metadata-contamination-audit-v1"
+          assert audit["decisionConstraint"] == "audit-does-not-change-admission"
+          assert audit["authorityDecision"] == "hold"
+          assert audit["targetProgramKey"] == "licenciatura en psicologia"
+          assert audit["foundationYear"] == 1975
+          assert audit["metrics"]["observedWorks"] >= 0
+          assert (
+              audit["metrics"]["sourceProgramAgreementWorks"]
+              + audit["metrics"]["sourceProgramDisagreementWorks"]
+              == audit["metrics"]["observedWorks"]
+          )
+
+          print(json.dumps({
+              "conclusion": audit["conclusion"],
+              "authorityDecision": audit["authorityDecision"],
+              "metrics": audit["metrics"],
+          }, indent=2, ensure_ascii=False))
+          PY
+
+      - name: Validate full Psychology contamination baseline
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'full'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          audit = json.loads(
+              Path(
+                  "artifacts/thesis-program-metadata-contamination/"
+                  "program-metadata-contamination-audit.json"
+              ).read_text()
+          )
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "psychology-metadata-contamination-baseline-v1.json"
+              ).read_text()
+          )
+
+          assert audit["decisionConstraint"] == baseline["decisionConstraint"]
+          assert audit["authorityDecision"] == baseline["authorityDecision"]
+
+          for key, expected in baseline["expectedMetrics"].items():
+              actual = audit["metrics"][key]
+              assert actual == expected, (key, actual, expected)
+
+          print(json.dumps({
+              "baseline": "closed",
+              "expectedMetrics": baseline["expectedMetrics"],
           }, indent=2, ensure_ascii=False))
           PY
 
@@ -428,5 +509,6 @@ jobs:
             artifacts/thesis-boundary-closure/
             artifacts/thesis-outside-scope-closure/
             artifacts/thesis-political-international-closure/
+            artifacts/thesis-program-metadata-contamination/
           if-no-files-found: error
           retention-days: 14
