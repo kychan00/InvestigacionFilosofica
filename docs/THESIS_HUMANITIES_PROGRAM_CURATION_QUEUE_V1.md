@@ -201,35 +201,54 @@ Humanidades automáticamente.
 
 ### 6.4 high-impact-triage
 
-Cuarto.
+Carril de **auditoría diferida**, no de expansión de alcance.
 
-Programa no resuelto con alta frecuencia pero sin señales anteriores.
+Contiene programas no resueltos con alta frecuencia pero sin señales
+humanísticas ni adscripción a una unidad prioritaria. Su volumen puede ser útil
+para observabilidad del repositorio, pero **no los convierte en candidatos de
+Humanidades**.
 
-Permite reducir grandes bolsas de QUARANTINE mediante decisiones institucionales
-de alto impacto.
+Casos como Ingeniería Civil o Química Farmacobiológica no pueden impulsar la
+siguiente Program Authority sólo por tener cientos o miles de tesis.
 
 ### 6.5 backlog
 
-Último.
+También es un carril de **auditoría diferida**.
 
-Resto de los nombres no resueltos.
+Contiene el resto de los nombres no resueltos sin evidencia suficiente para
+entrar a la cola accionable de Humanidades.
 
 ---
 
-## 7. Orden de carriles
+## 7. Dos vistas de cola
 
-El orden es fijo:
+Desde el guardrail de alcance posterior a T2AV, el artifact conserva dos vistas:
 
-1. scope-review;
-2. humanities-candidate;
-3. unit-triage;
-4. high-impact-triage;
-5. backlog.
+1. `items`: inventario completo de auditoría, incluida metadata review,
+   high-impact y backlog;
+2. `humanitiesActionItems`: única cola autorizada para elegir la siguiente
+   fase de expansión del corpus `humanities-only`.
 
-Dentro de cada carril se usa el score.
+`humanitiesActionItems` sólo admite:
 
-Esto impide que 296 tesis de Derecho oculten dos tesis históricas de
-lengua/literatura.
+1. `scope-review`;
+2. `humanities-candidate` con al menos una señal disciplinaria fuerte.
+
+Las señales fuertes incluyen filosofía, historia, literatura, letras,
+lingüística, antropología, geografía, humanidades, bioética, lenguas,
+hermenéutica, arqueología y etnografía. Señales genéricas como `arte`,
+`cultura`, `cultural` o `patrimonio` siguen ayudando al descubrimiento, pero no
+pueden por sí solas activar una nueva fase; así se evita que casos como
+`Cultura Física y Deportes` entren por coincidencia lexical.
+
+`unit-triage`, `high-impact-triage` y `backlog` permanecen visibles para
+diagnóstico, pero **no pueden ser usados como “siguiente programa”**. Un caso
+de `unit-triage` necesita primero evidencia programática suficiente para subir
+a `scope-review` antes de dirigir una fase.
+
+Esto impide que una carrera grande de CUCEI desplace a programas pequeños pero
+directamente humanísticos, y corrige el error de tratar frecuencia como
+prioridad disciplinaria.
 
 ---
 

@@ -350,6 +350,57 @@ LANE_ORDER = {
     "backlog": 5,
 }
 
+# Only these lanes may drive the next scope-expansion phase for the
+# humanities-only corpus. High-frequency unresolved programs without a
+# humanities or priority-unit signal remain visible for repository audit, but
+# they must never become the next humanities authority merely because they are
+# large.
+HUMANITIES_ACTION_LANES = {
+    "scope-review",
+    "humanities-candidate",
+}
+
+# Generic words such as arte/cultura/patrimonio are useful discovery signals,
+# but are too broad to autonomously drive a humanities-only expansion phase.
+# At least one strong disciplinary signal is required for unresolved lexical
+# candidates; explicit scope-review authorities remain actionable separately.
+STRONG_HUMANITIES_ACTION_SIGNALS = {
+    "humanidades",
+    "filosofia",
+    "bioetica",
+    "historia",
+    "literatura",
+    "literario",
+    "letras",
+    "linguistica",
+    "antropologia",
+    "geografia",
+    "mesoamericano",
+    "mesoamericanos",
+    "lengua",
+    "idiomas",
+    "ingles",
+    "frances",
+    "aleman",
+    "escritura",
+    "hermeneutica",
+    "arqueologia",
+    "etnografia",
+}
+
+
+def is_humanities_action_item(item: dict[str, Any]) -> bool:
+    lane = item.get("curationLane")
+    if lane == "scope-review":
+        return True
+    if lane != "humanities-candidate":
+        return False
+    signals = {
+        signal.get("signal")
+        for signal in (item.get("priority") or {}).get("nameSignals", [])
+    }
+    return bool(signals & STRONG_HUMANITIES_ACTION_SIGNALS)
+
 
 def evidence_needs(
     *,
@@ -528,6 +579,18 @@ def build_queue(
     for rank, item in enumerate(items, start=1):
         item["rank"] = rank
 
+    humanities_action_items = [
+        {**item, "humanitiesRank": rank}
+        for rank, item in enumerate(
+            (
+                item
+                for item in items
+                if is_humanities_action_item(item)
+            ),
+            start=1,
+        )
+    ]
+
     band_counts = Counter(item["priority"]["band"] for item in items)
     queue_state_counts = Counter(item["queueState"] for item in items)
     lane_counts = Counter(item["curationLane"] for item in items)
@@ -555,8 +618,28 @@ def build_queue(
             "worksRepresentedInQueue": sum(item["count"] for item in items),
             "gateIneligibleGroupsOmitted": gate_ineligible_groups,
             "gateIneligibleWorksOmitted": gate_ineligible_works,
+            "humanitiesActionQueueItems": len(humanities_action_items),
+            "humanitiesActionWorks": sum(
+                item["count"] for item in humanities_action_items
+            ),
+            "deferredHighImpactItems": sum(
+                1
+                for item in items
+                if item["curationLane"] == "high-impact-triage"
+            ),
+            "deferredHighImpactWorks": sum(
+                item["count"]
+                for item in items
+                if item["curationLane"] == "high-impact-triage"
+            ),
         },
         "items": items,
+        "humanitiesActionItems": humanities_action_items,
+        "nextHumanitiesAction": (
+            humanities_action_items[0]
+            if humanities_action_items
+            else None
+        ),
     }
 
 
@@ -656,13 +739,24 @@ def markdown_summary(
             )
         ),
         "",
-        f"## Top {min(top, len(queue['items']))}",
+        (
+            "- cola accionable Humanidades: "
+            f"{metrics['humanitiesActionQueueItems']} programas / "
+            f"{metrics['humanitiesActionWorks']} tesis"
+        ),
+        (
+            "- high-impact sin señal humanística (sólo auditoría): "
+            f"{metrics['deferredHighImpactItems']} programas / "
+            f"{metrics['deferredHighImpactWorks']} tesis"
+        ),
+        "",
+        f"## Top Humanidades {min(top, len(queue['humanitiesActionItems']))}",
         "",
         "| # | Carril | Banda | Score | Estado | Programa observado | Tesis | Unidad principal | Años |",
         "|---:|---|:---:|---:|---|---|---:|---|---|",
     ]
 
-    for item in queue["items"][:top]:
+    for item in queue["humanitiesActionItems"][:top]:
         units = list(item["observedUnits"].items())
         unit = (
             f"{units[0][0]} ({units[0][1]})"
@@ -705,6 +799,12 @@ def markdown_summary(
             "Ningún score, señal lexical o unidad académica puede cambiar "
             "INCLUDE/REVIEW/EXCLUDE sin una decisión explícita en "
             "AcademicProgramAuthority.",
+            "",
+            "Para elegir la siguiente fase del corpus `humanities-only`, "
+            "se debe usar exclusivamente `humanitiesActionItems`. Los carriles "
+            "`high-impact-triage` y `backlog` permanecen en `items` sólo como "
+            "auditoría/observabilidad y nunca pueden impulsar una nueva "
+            "Program Authority por frecuencia.",
             "",
         ]
     )
