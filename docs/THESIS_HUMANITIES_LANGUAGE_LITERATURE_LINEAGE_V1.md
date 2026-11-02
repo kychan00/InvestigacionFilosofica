@@ -306,15 +306,21 @@ Sigue REVIEW por contradicción institucional de área.
 
 ### 9.2 Doctorado en Estudios Literarios y Lingüísticos con Orientación en Lingüística Aplicada
 
-Sigue REVIEW.
+**Resuelto posteriormente en T2AX / Program Authority V30.**
 
-El Doctorado base está confirmado, pero todavía falta evidencia suficiente para
-resolver la identidad histórica de la orientación como:
+La evidencia oficial del propio Doctorado demuestra que Lingüística Aplicada
+era una orientación interna del Doctorado en Estudios Literarios y
+Lingüísticos, no una autoridad programática separada.
 
-- alias;
-- versión;
-- predecessor;
-- programa separado.
+La forma observada en RIUdeG se integra como alias exacto de:
+
+`program:udg:doc-estudios-literarios-linguisticos`
+
+y pasa de REVIEW a INCLUDE.
+
+Véase:
+
+`docs/THESIS_DELL_LINGUISTICA_LINEAGE_V30.md`
 
 ### 9.3 Licenciatura en la Docencia del Inglés
 
