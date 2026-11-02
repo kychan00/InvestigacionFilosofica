@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "thesis-civil-engineering-evidence-baseline-v1",
+  "phase": "T2AT",
+  "decisionConstraint": "civil-engineering-audit-does-not-change-admission",
+  "authorityDecision": "hold",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "registryRevisionAtStart": "2026-11-02.v27",
+  "familyId": "udg-civil-engineering-undergraduate-v1",
+  "normalizedProgramRegex": "^licenciatura en ingenieria civil$",
+  "expected": {
+    "fullWorks": 27576,
+    "targetWorks": 1197,
+    "targetGroups": 1,
+    "targetAcademicUnits": {
+      "CUCEI": 1197
+    },
+    "targetProgramKey": "licenciatura en ingenieria civil",
+    "targetAuthorityRef": null,
+    "targetAdmissionState": "quarantine",
+    "adjacentGraduateWorks": 36,
+    "adjacentGraduateGroups": {
+      "maestria en ciencias de la ingenieria civil": 24,
+      "maestria en ingenieria civil": 10,
+      "maestria en ciencias en la ingenieria civil": 1,
+      "maestria en ingenieria civil especialidad estructuras": 1
+    }
+  },
+  "evidenceSources": {
+    "undergraduateOfficial": "https://www.cucei.udg.mx/index.php/oferta-academica/licenciaturas",
+    "graduateOfficial": "https://www.cucei.udg.mx/node/102",
+    "graduateProgram": "https://www.cucei.udg.mx/maestrias/ingenieria-civil/es/acerca-de"
+  },
+  "invariants": [
+    "audit-is-non-admissive",
+    "undergraduate-and-masters-never-merged-by-lexical-similarity",
+    "no-fuzzy-identity-resolution",
+    "do-not-edit-global-program-registry",
+    "no-change-to-metadata-confidence-v4",
+    "no-automatic-exclude-authority",
+    "source-record-conflicts-are-reported-not-overridden"
+  ]
+}
