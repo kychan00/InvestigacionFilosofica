@@ -1489,7 +1489,7 @@
         "LICENCIATURA EN MEDICINA"
       ],
       "observedCount": 1533,
-      "decisionNote": "La evidencia institucional UdeG demuestra que 'Licenciatura en Medicina' y 'Médico Cirujano y Partero' designan la misma línea programática, no un sucesor incierto. CUCS publica actualmente la guía 'LICENCIATURA EN MEDICINA (MÉDICO CIRUJANO Y PARTERO)'; CUSur presenta 'MEDICINA — MÉDICO CIRUJANO Y PARTERO' y describe el programa como 'Esta Licenciatura en Medicina'; la Enciclopedia UdeG documenta estudiantes que cursaron la licenciatura de Medicina y obtuvieron el título de médico cirujano y partero; CUCS declara continuidad histórica de la carrera de Medicina hasta la actualidad. La Guía de Carreras UdeG clasifica Médico Cirujano y Partero en el área Ciencias de la Salud. Bajo targetScope humanities-only se registra como EXCLUDE. El full inventory observa 1,383 obras bajo LICENCIATURA EN MEDICINA y 150 bajo LICENCIATURA EN MÉDICO CIRUJANO Y PARTERO. Program Metadata Evidence Confidence V2 bloquea 9 registros estructuralmente conflicted del primer alias; esos 9 deben permanecer QUARANTINE aun con V25.",
+      "decisionNote": "La evidencia institucional UdeG demuestra que 'Licenciatura en Medicina' y 'Médico Cirujano y Partero' designan la misma línea programática, no un sucesor incierto. CUCS publica actualmente la guía 'LICENCIATURA EN MEDICINA (MÉDICO CIRUJANO Y PARTERO)'; CUSur presenta 'MEDICINA — MÉDICO CIRUJANO Y PARTERO' y describe el programa como 'Esta Licenciatura en Medicina'; la Enciclopedia UdeG documenta estudiantes que cursaron la licenciatura de Medicina y obtuvieron el título de médico cirujano y partero; CUCS declara continuidad histórica de la carrera de Medicina hasta la actualidad. La Guía de Carreras UdeG clasifica Médico Cirujano y Partero en el área Ciencias de la Salud. Bajo targetScope humanities-only se registra como EXCLUDE. El full inventory observa 1,383 obras bajo LICENCIATURA EN MEDICINA y 150 bajo LICENCIATURA EN MÉDICO CIRUJANO Y PARTERO. Program Metadata Evidence Confidence V3 bloquea 9 registros estructuralmente conflicted del primer alias; esos 9 deben permanecer QUARANTINE aun con V25.",
       "evidence": [
         "https://guiadecarreras.udg.mx/index.php/node/206",
         "https://www.cucs.udg.mx/guiasinduccion/index.php",
@@ -1497,9 +1497,42 @@
         "https://www.cusur.udg.mx/es/sites/default/files/adjuntos/triptico_mcp.pdf",
         "https://enciclopedia.udg.mx/biografias/ramos-zuniga-rodrigo"
       ]
+    },
+    {
+      "id": "program:udg:lic-medicina-veterinaria-zootecnia",
+      "canonicalName": "Licenciatura en Medicina Veterinaria y Zootecnia",
+      "level": "licenciatura",
+      "disciplineFamily": "medicina-veterinaria-ciencias-biologico-agropecuarias",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCBA",
+        "CUSUR",
+        "CUALTOS"
+      ],
+      "aliases": [
+        "Licenciatura en Medicina Veterinaria y Zootecnia",
+        "LICENCIATURA EN MEDICINA VETERINARIA Y ZOOTECNIA",
+        "Licenciatura en Medicina Veterinaria Zootecnista",
+        "LICENCIATURA EN MEDICINA VETERINARIA ZOOTECNISTA",
+        "Licenciatura en Médico Veterinario y Zootecnista",
+        "LICENCIATURA EN MÉDICO VETERINARIO Y ZOOTECNISTA",
+        "Médico Veterinario y Zootecnista"
+      ],
+      "observedCount": 1496,
+      "decisionNote": "La Universidad de Guadalajara identifica institucionalmente una misma línea programática de Medicina Veterinaria y Zootecnia. La Guía de Carreras vigente usa 'Licenciatura en Medicina Veterinaria y Zootecnia', la clasifica en Ciencias Biológico Agropecuarias y la ofrece en CUCBA, CUALTOS y CUSUR. CUSur titula su página 'Licenciatura en Médico Veterinario y Zootecnista' y dentro de la misma página denomina al programa 'Licenciatura en Medicina Veterinaria y Zootecnia'; su historia institucional documenta además que Médico Veterinario y Zootecnista se estableció en Ciudad Guzmán en 1980. RIUdeG conserva la variante histórica 'LICENCIATURA EN MEDICINA VETERINARIA ZOOTECNISTA' en CUCBA. Bajo targetScope humanities-only, la clasificación programática oficial en Ciencias Biológico Agropecuarias y sus objetivos de salud animal, salud pública veterinaria y producción animal ubican el programa fuera del alcance, por lo que se registra como EXCLUDE. El full inventory observa 1,496 obras en tres aliases institucionalmente defendibles: 1,340 Medicina Veterinaria Zootecnista, 155 Médico Veterinario y Zootecnista y 1 Medicina Veterinaria y Zootecnia. Program Metadata Evidence Confidence V3 bloquea 3 records estructuralmente conflicted del grupo histórico de 1,340; esos 3 permanecen QUARANTINE aun con V26. La forma 'Licenciatura en Veterinario y Zootecnista' (5 obras, todas CUCS) se excluye deliberadamente de los aliases V26: no existe evidencia institucional suficiente para tratarla como el mismo programa y permanece unresolved/QUARANTINE.",
+      "evidence": [
+        "https://guiadecarreras.udg.mx/index.php/oferta_academica/licenciatura-en-medicina-veterinaria-y-zootecnia",
+        "https://www.cucba.udg.mx/contenido/licenciatura-en-medicina-veterinaria-y-zootecnia-0",
+        "https://www.cusur.udg.mx/es/licenciatura-en-medico-veterinario-y-zootecnista",
+        "https://www.cusur.udg.mx/es/sites/default/files/adjuntos/25_aniversario-cusur_historia.pdf",
+        "https://sie.udg.mx/listados/matricula",
+        "https://www.riudg.udg.mx/handle/20.500.12104/21362",
+        "https://www.riudg.udg.mx/browse?type=author&value=LICENCIATURA+EN+VETERINARIO+Y+ZOOTECNISTA"
+      ]
     }
   ],
-  "registryRevision": "2026-11-02.v25",
+  "registryRevision": "2026-11-02.v26",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
