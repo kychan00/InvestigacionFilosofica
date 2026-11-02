@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "thesis-civil-engineering-authority-v28-baseline-v1",
+  "registryRevision": "2026-11-02.v28",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:ingenieria-civil",
+  "canonicalName": "Ingeniería Civil",
+  "admissionState": "exclude",
+  "sourceFullArtifactId": 13099541204,
+  "sourceEvidenceArtifactId": 13169256251,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "expected": {
+    "works": 1197,
+    "rawGroups": 1,
+    "units": {
+      "CUCEI": 1197
+    },
+    "structuralConflictWorks": 0,
+    "externalStructuralConflictPairs": 0,
+    "graduateWorksNotMatched": 36
+  },
+  "constraints": [
+    "one-exact-normalized-key-only",
+    "graduate-labels-remain-unknown-quarantine",
+    "item-level-metadata-evidence-v4-veto",
+    "humanities-only-exclude-not-discard",
+    "no-topic-or-fuzzy-aliasing"
+  ]
+}

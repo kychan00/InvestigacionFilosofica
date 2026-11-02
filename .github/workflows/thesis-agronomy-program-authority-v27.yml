@@ -314,8 +314,8 @@ jobs:
           )
           expected = baseline["expectedFull"]
 
-          assert report["registryRevision"] == baseline["registryRevision"]
-          assert report["registryRevision"] == "2026-11-02.v27"
+          assert baseline["registryRevision"] == "2026-11-02.v27"
+          assert report["registryRevision"] == "2026-11-02.v28"
           assert (
               report["programMetadataEvidenceRevision"]
               == baseline["programMetadataEvidenceRevision"]
@@ -334,10 +334,12 @@ jobs:
               == expected["projectedAdmissionStatuses"]
           )
           assert report["programRefWorks"] == expected["observedWorks"]
-          assert (
-              report["globalProjectedAdmission"]
-              == expected["globalProjectedAdmission"]
-          )
+          # V27 authority metrics remain frozen; V28 adds one independent
+          # exact civil-engineering undergraduate exclusion cohort.
+          expected_global = dict(expected["globalProjectedAdmission"])
+          expected_global["quarantine"] -= 1197
+          expected_global["exclude"] += 1197
+          assert report["globalProjectedAdmission"] == expected_global
           assert sum(report["globalProjectedAdmission"].values()) == 27576
 
           candidate_keys = {

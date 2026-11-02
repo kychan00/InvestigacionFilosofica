@@ -1,0 +1,109 @@
+name: Thesis civil engineering Authority V28
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/civil-engineering-authority-v28-baseline-v1.json"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "tests/test_thesis_civil_engineering_authority_v28.py"
+      - ".github/workflows/thesis-civil-engineering-authority-v28.yml"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p "test_thesis_civil_engineering_authority_v28.py" -v
+      - name: Download frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/thesis-civil-v28 artifacts/thesis-civil-v28
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-civil-v28.zip
+          unzip -q /tmp/thesis-civil-v28.zip -d /tmp/thesis-civil-v28
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-civil-v28/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-civil-v28/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-civil-v28/canonical-reprojected.json \
+            --output-report artifacts/thesis-civil-v28/confidence-report.json
+      - name: Reproject V28 and assert exact-boundary invariants
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-civil-v28")
+          b = json.loads(Path("scripts/thesis/config/civil-engineering-authority-v28-baseline-v1.json").read_text())
+          corpus = json.loads((root / "canonical-reprojected.json").read_text())
+          projected, projection = coverage.reproject_corpus(
+              corpus, canonical.load_program_registry(), reference_year=2026
+          )
+          target_key = "licenciatura en ingenieria civil"
+          target = [
+              w for w in projected["works"]
+              if canonical.normalize_key(w.get("programRaw")) == target_key
+          ]
+          assert len(target) == b["expected"]["works"]
+          assert all(w.get("academicUnitRaw") == "CUCEI" for w in target)
+          assert all(w.get("programRef") == b["programRef"] for w in target)
+          blocked = [
+              w for w in target
+              if (w.get("programMetadataEvidence") or {}).get("authorityApplicability") == "blocked"
+          ]
+          statuses = Counter(w.get("admissionStatus") for w in target)
+          assert statuses.get("exclude", 0) == len(target) - len(blocked)
+          assert statuses.get("quarantine", 0) == len(blocked)
+          assert not (set(statuses) - {"exclude", "quarantine"})
+
+          graduate_labels = {
+              "maestria en ciencias de la ingenieria civil",
+              "maestria en ingenieria civil",
+              "maestria en ciencias en la ingenieria civil",
+              "maestria en ingenieria civil especialidad estructuras",
+          }
+          graduate = [
+              w for w in projected["works"]
+              if canonical.normalize_key(w.get("programRaw")) in graduate_labels
+          ]
+          assert len(graduate) == 36
+          assert all(w.get("programRef") != b["programRef"] for w in graduate)
+          assert all(w.get("admissionStatus") == "quarantine" for w in graduate)
+
+          metrics = {
+              "registryRevision": b["registryRevision"],
+              "programRef": b["programRef"],
+              "works": len(target),
+              "blocked": len(blocked),
+              "byAdmission": dict(statuses),
+              "graduateHeld": len(graduate),
+              "globalProjectedAdmission": projection["projectedAdmission"],
+          }
+          (root / "v28-reprojection.json").write_text(json.dumps(metrics,indent=2,sort_keys=True)+"\n")
+          print(json.dumps(metrics, indent=2))
+          PY
+      - name: Upload V28 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-civil-engineering-authority-v28
+          path: artifacts/thesis-civil-v28/v28-reprojection.json
+          if-no-files-found: error
+          retention-days: 14

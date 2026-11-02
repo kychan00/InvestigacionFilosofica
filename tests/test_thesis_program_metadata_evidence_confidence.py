@@ -295,7 +295,7 @@ class ThesisProgramMetadataEvidenceConfidenceTest(unittest.TestCase):
         self.assertEqual(resolved["admissionState"], "exclude")
         self.assertEqual(
             self.base_registry["registryRevision"],
-            "2026-11-02.v27",
+            "2026-11-02.v28",
         )
 
     def test_psychology_v24_legacy_low_trust_remains_quarantine(self):
