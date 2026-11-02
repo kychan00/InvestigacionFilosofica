@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-program-metadata-evidence-confidence-v1",
-  "policyRevision": "2026-11-02.v3",
+  "policyRevision": "2026-11-02.v4",
   "decisionConstraint": "metadata-confidence-does-not-create-program-authority",
   "defaultResult": {
     "confidenceState": "unassessed",
@@ -19,6 +19,11 @@
           "oai:riudg.udg.mx:20.500.12104/21606",
           "oai:riudg.udg.mx:20.500.12104/21932",
           "oai:riudg.udg.mx:20.500.12104/21949",
+          "oai:riudg.udg.mx:20.500.12104/22430",
+          "oai:riudg.udg.mx:20.500.12104/22565",
+          "oai:riudg.udg.mx:20.500.12104/23366",
+          "oai:riudg.udg.mx:20.500.12104/23825",
+          "oai:riudg.udg.mx:20.500.12104/23902",
           "oai:riudg.udg.mx:20.500.12104/32360",
           "oai:riudg.udg.mx:20.500.12104/32769",
           "oai:riudg.udg.mx:20.500.12104/33028",
@@ -37,7 +42,12 @@
           "oai:riudg.udg.mx:20.500.12104/33975",
           "oai:riudg.udg.mx:20.500.12104/34005",
           "oai:riudg.udg.mx:20.500.12104/34016",
-          "oai:riudg.udg.mx:20.500.12104/34103"
+          "oai:riudg.udg.mx:20.500.12104/34103",
+          "oai:riudg.udg.mx:20.500.12104/34293",
+          "oai:riudg.udg.mx:20.500.12104/34304",
+          "oai:riudg.udg.mx:20.500.12104/34356",
+          "oai:riudg.udg.mx:20.500.12104/73463",
+          "oai:riudg.udg.mx:20.500.12104/73466"
         ]
       },
       "result": {
@@ -50,9 +60,11 @@
         "docs/THESIS_PROGRAM_METADATA_CONFLICT_REGISTRY_MEDICINE_V1.md",
         "scripts/thesis/config/medicine-program-metadata-conflict-registry-baseline-v1.json",
         "docs/THESIS_PROGRAM_METADATA_INTEGRITY_VETERINARY_V3.md",
-        "scripts/thesis/config/veterinary-program-metadata-conflict-registry-baseline-v1.json"
+        "scripts/thesis/config/veterinary-program-metadata-conflict-registry-baseline-v1.json",
+        "docs/THESIS_PROGRAM_METADATA_INTEGRITY_AGRONOMY_V4.md",
+        "scripts/thesis/config/agronomy-program-metadata-family-baseline-v1.json"
       ],
-      "note": "Generic item-level matcher over stable source providerRecordId values. Both sides of each known structural conflict are blocked symmetrically; the registry now covers Medicine-centered and Veterinary-centered audits without program-specific engine branches."
+      "note": "Generic item-level matcher over stable RIUdeG providerRecordId values. Both sides of every known exact title+author structural program-metadata conflict are blocked symmetrically; current registries cover Medicine, Veterinary and Agronomy audits without program-specific engine branches."
     },
     {
       "id": "riudg-psychology-legacy-migration-2015-09-09",
@@ -91,6 +103,7 @@
     "confidence-policy-never-creates-program-authority",
     "structural-conflict-records-block-authority-symmetrically",
     "item-level-conflict-rules-outrank-broader-cohort-rules",
-    "veterinary-structural-conflicts-extend-item-level-protection-without-blanket-cohort-blocking"
+    "veterinary-structural-conflicts-extend-item-level-protection-without-blanket-cohort-blocking",
+    "agronomy-structural-conflicts-extend-item-level-protection-without-creating-program-authority"
   ]
 }
