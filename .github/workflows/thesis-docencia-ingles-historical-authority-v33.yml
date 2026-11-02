@@ -1,0 +1,270 @@
+name: Thesis Docencia Inglés Historical Authority V33
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/docencia-ingles-historical-authority-v33-baseline-v1.json"
+      - "scripts/thesis/config/program-metadata-evidence-confidence-v1.json"
+      - "scripts/thesis/config/scope-boundary-matrix-v1.json"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "tests/test_thesis_docencia_ingles_historical_authority_v33.py"
+      - "tests/test_thesis_historia_arquitectura_authority_v32.py"
+      - "tests/test_thesis_canonical_corpus.py"
+      - "tests/test_thesis_program_curation_queue.py"
+      - "docs/THESIS_DOCENCIA_INGLES_HISTORICAL_AUTHORITY_V33.md"
+      - ".github/workflows/thesis-docencia-ingles-historical-authority-v33.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_docencia_ingles_historical_authority_v33.py" -v
+          python -m unittest discover -s tests -p "test_thesis_historia_arquitectura_authority_v32.py" -v
+          python -m unittest discover -s tests -p "test_thesis_canonical_corpus.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-docencia-ingles-v33
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-docencia-ingles-v33
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-docencia-ingles-v33/canonical-confidence.json \
+            --output-report artifacts/thesis-docencia-ingles-v33/confidence-report.json
+
+      - name: Reproject Program Authority V33 and Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+
+          root = Path("artifacts/thesis-docencia-ingles-v33")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-full-baseline/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed,
+              projection["programDimensions"],
+          )
+          queue = curation.build_queue(
+              projected_observed,
+              projected,
+              registry,
+          )
+
+          (root / "canonical-v33.json").write_text(
+              json.dumps(projected, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "projection-v33.json").write_text(
+              json.dumps(projection, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "queue-v33.json").write_text(
+              json.dumps(queue, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+
+      - name: Validate V33 full-corpus invariants
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-docencia-ingles-v33")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "docencia-ingles-historical-authority-v33-baseline-v1.json"
+              ).read_text()
+          )
+          registry = canonical.load_program_registry()
+          corpus = json.loads((root / "canonical-v33.json").read_text())
+          projection = json.loads((root / "projection-v33.json").read_text())
+          queue = json.loads((root / "queue-v33.json").read_text())
+          confidence = json.loads((root / "confidence-report.json").read_text())
+          scope = json.loads(
+              Path("scripts/thesis/config/scope-boundary-matrix-v1.json").read_text()
+          )
+          expected = baseline["expected"]
+
+          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert (
+              confidence["policyRevision"]
+              == baseline["programMetadataEvidenceRevision"]
+          )
+          assert len(corpus["works"]) == 27576
+
+          target_authority = next(
+              p for p in registry["programs"]
+              if p["id"] == baseline["programRef"]
+          )
+          successor = next(
+              p for p in registry["programs"]
+              if p["id"] == baseline["successorProgramRef"]
+          )
+          semiescolarized = next(
+              p for p in registry["programs"]
+              if p["id"] == baseline["semiescolarizedProgramRef"]
+          )
+
+          assert target_authority["admissionState"] == "include"
+          assert target_authority["lifecycleState"] == "historical"
+          assert (
+              target_authority["possibleSuccessorRef"]
+              == baseline["successorProgramRef"]
+          )
+          assert successor["admissionState"] == expected["successorAdmissionState"]
+          assert (
+              semiescolarized["admissionState"]
+              == expected["semiescolarizedAdmissionState"]
+          )
+          assert len({
+              target_authority["id"],
+              successor["id"],
+              semiescolarized["id"],
+          }) == 3
+
+          selected = [
+              w
+              for w in corpus["works"]
+              if w.get("programRef") == baseline["programRef"]
+          ]
+          assert len(selected) == expected["works"]
+
+          blocked = [
+              w
+              for w in selected
+              if (w.get("programMetadataEvidence") or {}).get(
+                  "authorityApplicability"
+              ) == "blocked"
+          ]
+          assert len(blocked) == expected["blockedWorks"]
+          assert all(
+              (w.get("programMetadataEvidence") or {}).get(
+                  "authorityApplicability"
+              ) == "allowed"
+              for w in selected
+          )
+          assert Counter(
+              w.get("academicUnitRaw") for w in selected
+          ) == Counter(expected["academicUnits"])
+          assert Counter(
+              w.get("admissionStatus") for w in selected
+          ) == Counter(expected["admissionStatuses"])
+
+          years = sorted(
+              int(str((w.get("date") or {}).get("value"))[:4])
+              for w in selected
+              if (w.get("date") or {}).get("quality") == "valid"
+              and str((w.get("date") or {}).get("value") or "")[:4].isdigit()
+          )
+          assert years[0] == expected["observedYears"]["min"]
+          assert years[-1] == expected["observedYears"]["max"]
+          assert {
+              canonical.normalize_key(w.get("programRaw") or "")
+              for w in selected
+          } == {"licenciatura en la docencia del ingles"}
+
+          assert (
+              projection["projectedAdmission"]
+              == expected["globalProjectedAdmission"]
+          )
+          assert sum(projection["projectedAdmission"].values()) == 27576
+
+          target_key = "licenciatura en la docencia del ingles"
+          assert all(
+              item["normalizedKey"] != target_key
+              for item in queue["items"]
+          )
+          assert all(
+              item["normalizedKey"] != target_key
+              for item in queue["humanitiesActionItems"]
+          )
+          assert (
+              queue["metrics"]["humanitiesActionQueueItems"]
+              == expected["humanitiesActionQueueItems"]
+          )
+          assert (
+              queue["metrics"]["humanitiesActionWorks"]
+              == expected["humanitiesActionWorks"]
+          )
+          next_action = queue["nextHumanitiesAction"]
+          assert next_action["normalizedKey"] == expected["nextHumanitiesActionKey"]
+          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+
+          summary = {
+              "registryRevision": registry["registryRevision"],
+              "scopePolicyRevision": scope["policyRevision"],
+              "programMetadataEvidenceRevision": confidence["policyRevision"],
+              "historicalDocenciaInglesWorks": len(selected),
+              "historicalDocenciaInglesAdmission": dict(
+                  Counter(w.get("admissionStatus") for w in selected)
+              ),
+              "globalProjectedAdmission": projection["projectedAdmission"],
+              "humanitiesActionQueueItems": queue["metrics"][
+                  "humanitiesActionQueueItems"
+              ],
+              "humanitiesActionWorks": queue["metrics"]["humanitiesActionWorks"],
+              "nextHumanitiesAction": next_action,
+          }
+          (root / "v33-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True)
+              + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload V33 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-docencia-ingles-historical-authority-v33
+          path: artifacts/thesis-docencia-ingles-v33/
+          if-no-files-found: error
+          retention-days: 14
