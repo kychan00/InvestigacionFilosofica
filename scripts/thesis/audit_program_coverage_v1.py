@@ -427,6 +427,12 @@ def build_audit(
             "projectedAdmission": projection["projectedAdmission"],
             "dateQuality": projection["dateQuality"],
             "programStateWorks": projection["programStateWorks"],
+            "programMetadataConfidenceStates": projection[
+                "programMetadataConfidenceStates"
+            ],
+            "programAuthorityApplicability": projection[
+                "programAuthorityApplicability"
+            ],
             "gateBlockerCount": projection["gateBlockerCount"],
             "authorityCoverage": authority,
             "programQueue": queue.get("metrics"),
@@ -441,6 +447,11 @@ def build_audit(
         "topReviewGroups": top_queue_items(
             queue,
             state="review",
+            limit=max(top, 0),
+        ),
+        "topMetadataReview": top_queue_items(
+            queue,
+            state="metadata-review",
             limit=max(top, 0),
         ),
     }
@@ -468,6 +479,22 @@ def markdown_summary(audit: dict[str, Any]) -> str:
             "- calidad de fecha: "
             + json.dumps(
                 metrics["dateQuality"],
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        ),
+        (
+            "- confianza de metadata programático: "
+            + json.dumps(
+                metrics["programMetadataConfidenceStates"],
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        ),
+        (
+            "- aplicabilidad de autoridad programática: "
+            + json.dumps(
+                metrics["programAuthorityApplicability"],
                 ensure_ascii=False,
                 sort_keys=True,
             )
@@ -522,6 +549,31 @@ def markdown_summary(audit: dict[str, Any]) -> str:
         lines.append(
             f"| {name.replace('|', '\\|')} | "
             f"{row['observedGroups']} | {row['works']} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "## Metadata confidence review",
+            "",
+            "| # | Programa observado | Tesis | Bloqueadas |",
+            "|---:|---|---:|---:|",
+        ]
+    )
+
+    for item in audit.get("topMetadataReview", []):
+        evidence = item.get("programMetadataEvidence") or {}
+        label = next(
+            iter((item.get("variants") or {}).keys()),
+            item.get("normalizedKey") or "—",
+        )
+        lines.append(
+            "| {rank} | {label} | {count} | {blocked} |".format(
+                rank=item.get("rank") or "",
+                label=str(label).replace("|", "\\|"),
+                count=item.get("count") or 0,
+                blocked=evidence.get("blockedWorks") or 0,
+            )
         )
 
     lines.extend(
