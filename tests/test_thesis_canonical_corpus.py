@@ -1242,6 +1242,59 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
+    def test_gestion_desarrollo_social_authority_v14_excludes_by_program(self):
+        for raw in (
+            "Maestría en Gestión y Desarrollo Social",
+            "MAESTRIA EN GESTION Y DESARROLLO SOCIAL",
+        ):
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-gestion-desarrollo-social",
+                )
+                self.assertEqual(resolved["admissionState"], "exclude")
+
+        record = thesis.source_record(
+            provider="riudg",
+            provider_record_id="gestion-desarrollo-social-outside-scope",
+            source_url=None,
+            raw_fields={
+                "dc.title": ["Educación, género y desarrollo social"],
+                "dc.degree.name": ["Maestría en Gestión y Desarrollo Social"],
+                "dc.degree.grantor": ["Universidad de Guadalajara"],
+                "dc.degree.department": ["CUCSH"],
+                "dc.date.issued": ["2024-06-00"],
+                "dc.type": ["Tesis de Maestría"],
+            },
+            raw_payload="gestion-desarrollo-social-outside-scope",
+        )
+        corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
+        work = corpus["works"][0]
+
+        self.assertEqual(work["admissionStatus"], "exclude")
+        self.assertEqual(
+            work["programRef"],
+            "program:udg:mae-gestion-desarrollo-social",
+        )
+        self.assertEqual(work["institutionRef"], "institution:udg")
+        self.assertEqual(
+            work["admissionExplanationCodes"],
+            ["excluded-by-source-decision"],
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["explanationCode"],
+            "non-humanities-program",
+        )
+        self.assertEqual(
+            corpus["admissionDecisions"][0]["programRef"],
+            "program:udg:mae-gestion-desarrollo-social",
+        )
+        self.assertEqual(
+            corpus["programAuthorityRevision"],
+            self.registry["registryRevision"],
+        )
+
     def test_exact_handle_can_merge_two_sources(self):
         raw_fields_a = {
             "dc.title": ["La experiencia y el lenguaje"],
