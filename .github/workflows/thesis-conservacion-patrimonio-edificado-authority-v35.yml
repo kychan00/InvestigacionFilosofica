@@ -236,6 +236,16 @@ jobs:
               expected["workReviewQueueItems"]
           )
           assert queue["metrics"]["workReviewWorks"] == expected["workReviewWorks"]
+          assert queue["metrics"]["gateIneligibleGroupsOmitted"] >= (
+              expected["externalInstitutionGroupsOmitted"]
+          )
+          assert queue["metrics"]["gateIneligibleWorksOmitted"] >= (
+              expected["externalInstitutionWorksOmitted"]
+          )
+          assert all(
+              item["normalizedKey"] != "doctorado en antropologia social"
+              for item in queue["humanitiesActionItems"]
+          )
 
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == expected["nextHumanitiesActionKey"]
