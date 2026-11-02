@@ -955,7 +955,7 @@
       "canonicalName": "Maestría en Comunicación",
       "level": "maestria",
       "disciplineFamily": "comunicacion-estudios-culturales-sociales",
-      "admissionState": "review",
+      "admissionState": "exclude",
       "lifecycleState": "active",
       "academicUnits": [
         "CUCSH"
@@ -969,12 +969,12 @@
         "min": 2002,
         "max": 2021
       },
-      "decisionNote": "Programa vigente de CUCSH adscrito a la División de Estudios de la Cultura y al Departamento de Estudios de la Comunicación Social. La UdeG lo dirige a egresados de Ciencias Sociales y Humanidades y lo define como formación para investigación y docencia en el campo de la comunicación. Sus líneas combinan tecnología y sociedad, economía y poder político, periodismo, procesos socioculturales y producción simbólica. La evidencia confirma una frontera interdisciplinaria real; se registra como REVIEW, no como INCLUDE ni EXCLUDE.",
+      "decisionNote": "Programa vigente de CUCSH adscrito a la División de Estudios de la Cultura y al Departamento de Estudios de la Comunicación Social. La convocatoria oficial 2026 lo define como un posgrado interdisciplinario que integra enfoques teóricos y metodológicos de las ciencias sociales; sus objetivos institucionales sitúan la investigación en los campos de las Ciencias Sociales y de las Ciencias de la Comunicación. Bajo el target humanities-only, esta identidad disciplinaria programática basta para EXCLUDE. La decisión es por programa, no por tema de tesis ni por adscripción a CUCSH.",
       "evidence": [
+        "https://www.cucsh.udg.mx/sites/default/files/2025-09/CONVOCATORIA%202026%202028%20MAESTR%C3%8DA%20EN%20COMUNICACI%C3%93N_1.pdf",
+        "https://www.cucsh.udg.mx/maestrias/maestria_en_comunicacion/objetivos",
         "https://www.cucsh.udg.mx/maestrias/maestria-en-comunicacion",
-        "https://cucsh.udg.mx/maestrias/maestria_en_comunicacion/lineas_generacion",
-        "https://vreddiehgdl.cucsh.udg.mx/maestrias/maestria_en_comunicacion/plan_de_estudios",
-        "https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20la%20Cultura/estructuradiv"
+        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20de%20la%20Cultura"
       ]
     },
     {
@@ -1592,7 +1592,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v28",
+  "registryRevision": "2026-11-02.v29",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

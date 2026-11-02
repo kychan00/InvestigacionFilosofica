@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "thesis-communication-program-authority-v29-baseline-v1",
+  "registryRevision": "2026-11-02.v29",
+  "scopePolicyRevision": "2026-11-02.v3",
+  "programRef": "program:udg:mae-comunicacion",
+  "canonicalName": "Maestría en Comunicación",
+  "admissionState": "exclude",
+  "sourceFullArtifactId": 13099541204,
+  "sourceScopeGuardArtifactId": 13173261285,
+  "expected": {
+    "works": 67,
+    "blockedWorks": 0,
+    "authorityApplicableWorks": 67,
+    "variants": {
+      "Maestría en Comunicación": 52,
+      "MAESTRIA EN COMUNICACION": 15
+    },
+    "academicUnits": {
+      "CUCSH": 67
+    },
+    "observedYears": {
+      "min": 2002,
+      "max": 2021
+    },
+    "projectedAdmissionStatuses": {
+      "exclude": 67
+    },
+    "globalProjectedAdmission": {
+      "include": 428,
+      "review": 765,
+      "quarantine": 18964,
+      "exclude": 7417,
+      "reject-source": 2
+    },
+    "queuePresenceAfterProjection": false,
+    "scopeBoundaryState": "outside-scope"
+  },
+  "invariants": [
+    "decision-is-program-level-not-topic-level",
+    "all-67-communication-works-resolve-to-v29",
+    "communication-moves-review-to-exclude",
+    "no-humanities-program-is-reclassified-by-this-phase",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-matrix-v3-matches-program-authority"
+  ]
+}

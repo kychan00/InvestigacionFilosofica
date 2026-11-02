@@ -58,7 +58,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         }
         self.assertEqual(
             states["scope:communication-culture"],
-            "boundary-review",
+            "outside-scope",
         )
         self.assertEqual(
             states["scope:education-research"],
@@ -180,8 +180,8 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         self.assertEqual(
             report["metrics"]["worksByBoundaryState"],
             {
-                "boundary-review": 11,
-                "outside-scope": 9,
+                "boundary-review": 9,
+                "outside-scope": 11,
             },
         )
 
@@ -224,14 +224,14 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         )
         self.assertEqual(
             communication_program["programAuthority"]["admissionState"],
-            "review",
+            "exclude",
         )
         self.assertEqual(
             communication_program["currentAdmissionStatuses"],
             {"quarantine": 2},
         )
 
-    def test_communication_boundary_row_matches_program_authority_review(self):
+    def test_communication_outside_scope_matches_exclude_authority(self):
         observed = {
             "programs": [
                 {
@@ -252,7 +252,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
                     "programRaw": "Maestría en Comunicación",
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2018", "quality": "valid"},
-                    "admissionStatus": "review",
+                    "admissionStatus": "exclude",
                     "institutionRef": "institution:udg",
                 }
             ]
@@ -270,7 +270,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             for item in report["rows"]
             if item["id"] == "scope:communication-culture"
         )
-        self.assertEqual(row["boundaryState"], "boundary-review")
+        self.assertEqual(row["boundaryState"], "outside-scope")
         program = next(
             item
             for item in row["programs"]
@@ -286,11 +286,11 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         )
         self.assertEqual(
             program["programAuthority"]["admissionState"],
-            "review",
+            "exclude",
         )
         self.assertEqual(
             program["currentAdmissionStatuses"],
-            {"review": 1},
+            {"exclude": 1},
         )
 
     def test_doctorado_educacion_boundary_row_matches_program_authority_review(self):
@@ -981,7 +981,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
 
         self.assertEqual(
             report["policyRevision"],
-            "2026-11-01.v2",
+            "2026-11-02.v3",
         )
         self.assertEqual(
             report["programAuthorityRevision"],

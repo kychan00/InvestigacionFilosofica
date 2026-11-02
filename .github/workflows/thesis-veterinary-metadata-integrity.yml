@@ -340,7 +340,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v28"
+          assert registry["registryRevision"] == "2026-11-02.v29"
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
           assert (
@@ -585,7 +585,7 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v26"
-          assert report["registryRevision"] == "2026-11-02.v28"
+          assert report["registryRevision"] == "2026-11-02.v29"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
@@ -605,13 +605,13 @@ jobs:
               "exclude": 4004,
               "reject-source": 2,
           }
-          # The V26 baseline stays frozen; active V28 additionally
-          # excludes 1,197 exact-match Civil Engineering works.
+          # The V26 baseline stays frozen; active V29 additionally
+          # applies Civil Engineering V28 and Communication V29.
           assert report["globalProjectedAdmission"] == {
               "include": 428,
-              "review": 832,
+              "review": 765,
               "quarantine": 18964,
-              "exclude": 7350,
+              "exclude": 7417,
               "reject-source": 2,
           }
 
