@@ -350,6 +350,17 @@ LANE_ORDER = {
     "backlog": 5,
 }
 
+# Only these lanes may drive the next scope-expansion phase for the
+# humanities-only corpus. High-frequency unresolved programs without a
+# humanities or priority-unit signal remain visible for repository audit, but
+# they must never become the next humanities authority merely because they are
+# large.
+HUMANITIES_ACTION_LANES = {
+    "scope-review",
+    "humanities-candidate",
+    "unit-triage",
+}
+
 
 def evidence_needs(
     *,
@@ -528,6 +539,18 @@ def build_queue(
     for rank, item in enumerate(items, start=1):
         item["rank"] = rank
 
+    humanities_action_items = [
+        {**item, "humanitiesRank": rank}
+        for rank, item in enumerate(
+            (
+                item
+                for item in items
+                if item["curationLane"] in HUMANITIES_ACTION_LANES
+            ),
+            start=1,
+        )
+    ]
+
     band_counts = Counter(item["priority"]["band"] for item in items)
     queue_state_counts = Counter(item["queueState"] for item in items)
     lane_counts = Counter(item["curationLane"] for item in items)
@@ -555,8 +578,28 @@ def build_queue(
             "worksRepresentedInQueue": sum(item["count"] for item in items),
             "gateIneligibleGroupsOmitted": gate_ineligible_groups,
             "gateIneligibleWorksOmitted": gate_ineligible_works,
+            "humanitiesActionQueueItems": len(humanities_action_items),
+            "humanitiesActionWorks": sum(
+                item["count"] for item in humanities_action_items
+            ),
+            "deferredHighImpactItems": sum(
+                1
+                for item in items
+                if item["curationLane"] == "high-impact-triage"
+            ),
+            "deferredHighImpactWorks": sum(
+                item["count"]
+                for item in items
+                if item["curationLane"] == "high-impact-triage"
+            ),
         },
         "items": items,
+        "humanitiesActionItems": humanities_action_items,
+        "nextHumanitiesAction": (
+            humanities_action_items[0]
+            if humanities_action_items
+            else None
+        ),
     }
 
 
