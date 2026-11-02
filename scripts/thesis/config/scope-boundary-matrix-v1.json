@@ -102,6 +102,22 @@
       "nextQuestion": "¿Maestría en Investigación Educativa y Doctorado en Cognición y Aprendizaje deben permanecer fuera de humanities-only o existe evidencia programática suficiente para tratarlos de otro modo?"
     },
     {
+      "id": "scope:education-doctorado",
+      "label": "Doctorado en Educación",
+      "boundaryState": "outside-scope",
+      "programKeys": [
+        "doctorado en educacion"
+      ],
+      "rationale": "Program Authority V31 resuelve el Doctorado en Educación fuera de humanities-only. La identidad institucional principal del programa es Educación/Ciencias de la Educación; la UdeG lo define por investigación educativa y un acercamiento multidisciplinario que converge Ciencias Sociales y Humanidades. La presencia de componentes humanísticos no convierte al programa completo en una disciplina humanística primaria.",
+      "evidence": [
+        "https://cucsh.udg.mx/doctorados/doctorado-en-educacion",
+        "https://www.cucsh.udg.mx/doctorados/doctorado_en_educacion",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/doctorados/doctorado-en-educacion",
+        "https://www.udg.mx/sites/default/files/2025-06/doctorado_en_educacion_cucsh_snp.pdf"
+      ],
+      "nextQuestion": "Resuelto en Program Authority V31: EXCLUDE bajo humanities-only."
+    },
+    {
       "id": "scope:gender-studies",
       "label": "Estudios de género",
       "boundaryState": "boundary-review",
