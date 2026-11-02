@@ -1222,9 +1222,37 @@
         "https://cucsh.udg.mx/index.php/licenciaturas/Licenciatura%20en%20Relaciones%20Internacionales/perfil_ingreso",
         "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Pol%C3%ADticos%20y%20Sociales"
       ]
+    },
+    {
+      "id": "program:udg:mae-global-politics-transpacific",
+      "canonicalName": "Maestría en Global Politics and Transpacific Studies",
+      "level": "maestria",
+      "disciplineFamily": "global-politics-transpacific-studies-ciencias-sociales",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Global Politics and Transpacific Studies",
+        "MAESTRIA EN GLOBAL POLITICS AND TRANSPACIFIC STUDIES"
+      ],
+      "observedCount": 7,
+      "observedThesisYears": {
+        "min": 2020,
+        "max": 2021
+      },
+      "decisionNote": "Programa vigente de CUCSH orientado al análisis de política global y dinámicas transpacíficas. Su tronco común se articula en teorías de Relaciones Internacionales y Política Global, Economía Política Global, Gobernanza Global, Política y Sociedad, diseño y metodología de investigación; la formación particular incluye política, seguridad y relaciones económicas transpacíficas. Las especializaciones regionales incorporan Historia, Cultura y Sociedad de Norteamérica, China y Japón, así como lenguas, pero esos componentes se subordinan a una estructura principal de política global, relaciones internacionales y estudios transpacíficos. El perfil de ingreso prefiere áreas de Ciencias Sociales y/o Económico-Administrativas. Bajo targetScope humanities-only se registra como EXCLUDE.",
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria-en-global-politics-and-transpacific-studies",
+        "https://cucsh.udg.mx/maestrias/maestria_global_politics_transpacific_studies/plan_de_estudios",
+        "https://globalpolitics.cucsh.udg.mx/plan_estudios",
+        "https://ww1.udg.mx/es/oferta-academica/maestria-en-global-politics-and-transpacific-studies",
+        "https://www.udg.mx/node/84738"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v16",
+  "registryRevision": "2026-11-01.v17",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

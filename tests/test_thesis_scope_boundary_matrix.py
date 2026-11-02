@@ -820,6 +820,70 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         )
         self.assertEqual(program["currentAdmissionStatuses"], {"exclude": 1})
 
+    def test_political_international_development_row_is_fully_resolved_exclude(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "maestria en gestion y desarrollo social",
+                    "count": 106,
+                    "variants": {"Maestría en Gestión y Desarrollo Social": 106},
+                    "providers": {"riudg": 106},
+                },
+                {
+                    "normalizedKey": "maestria en ciencia politica",
+                    "count": 51,
+                    "variants": {"Maestría en Ciencia Política": 51},
+                    "providers": {"riudg": 51},
+                },
+                {
+                    "normalizedKey": "licenciatura en relaciones internacionales",
+                    "count": 48,
+                    "variants": {"Licenciatura en Relaciones Internacionales": 48},
+                    "providers": {"riudg": 48},
+                },
+                {
+                    "normalizedKey": "maestria en global politics and transpacific studies",
+                    "count": 7,
+                    "variants": {"Maestría en Global Politics and Transpacific Studies": 7},
+                    "providers": {"riudg": 7},
+                },
+            ]
+        }
+        corpus = {"works": []}
+
+        report = scope.build_report(
+            observed,
+            corpus,
+            self.registry,
+            self.config,
+        )
+
+        row = next(
+            item for item in report["rows"]
+            if item["id"] == "scope:political-international-development"
+        )
+        self.assertEqual(row["boundaryState"], "outside-scope")
+        self.assertEqual(row["observedWorks"], 212)
+        self.assertEqual(len(row["programs"]), 4)
+
+        expected_refs = {
+            "maestria en gestion y desarrollo social": "program:udg:mae-gestion-desarrollo-social",
+            "maestria en ciencia politica": "program:udg:mae-ciencia-politica",
+            "licenciatura en relaciones internacionales": "program:udg:lic-relaciones-internacionales",
+            "maestria en global politics and transpacific studies": "program:udg:mae-global-politics-transpacific",
+        }
+        for program in row["programs"]:
+            key = program["normalizedKey"]
+            self.assertEqual(program["programAuthority"]["status"], "confirmed")
+            self.assertEqual(
+                program["programAuthority"]["programRef"],
+                expected_refs[key],
+            )
+            self.assertEqual(
+                program["programAuthority"]["admissionState"],
+                "exclude",
+            )
+
     def test_matrix_does_not_mutate_input_corpus_or_registry(self):
         observed = {
             "programs": [
