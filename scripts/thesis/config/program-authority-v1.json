@@ -1109,9 +1109,37 @@
         "https://www.cucsh.udg.mx/doctorados/doctorado_en_ciencias_sociales",
         "https://www.cucsh.udg.mx/doctorados/doctorado_en_ciencias_sociales/plan_de_estudios"
       ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-sociales",
+      "canonicalName": "Maestría en Ciencias Sociales",
+      "level": "maestria",
+      "disciplineFamily": "ciencias-sociales",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCSH"
+      ],
+      "aliases": [
+        "Maestría en Ciencias Sociales",
+        "MAESTRIA EN CIENCIAS SOCIALES"
+      ],
+      "observedCount": 60,
+      "observedThesisYears": {
+        "min": 2011,
+        "max": 2023
+      },
+      "decisionNote": "Programa vigente de CUCSH cuya identidad institucional principal es Ciencias Sociales. La UdeG establece como objetivo formar investigadores aptos teórica y metodológicamente para cubrir demandas de investigación en ciencias sociales y preparar docentes en ese campo; el perfil de ingreso pide interés por conocer la realidad a través de las Ciencias Sociales. El núcleo común incluye Estadística, Introducción a la investigación de las ciencias sociales, Teoría social y análisis cualitativo, mientras las orientaciones —Desarrollo Social y Trabajo, Comunicación y Cultura, Estudios Latinoamericanos y Estudios Sociopolíticos— funcionan como especializaciones dentro de la Maestría en Ciencias Sociales. Bajo targetScope humanities-only se registra como EXCLUDE.",
+      "evidence": [
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria_en_ciencias_sociales",
+        "https://cucsh.udg.mx/maestrias/maestria-en-ciencias-sociales",
+        "https://cucsh.udg.mx/maestrias/maestria_en_ciencias_sociales",
+        "https://cucsh.udg.mx/maestrias/maestria_en_ciencias_sociales/plan_de_estudios",
+        "https://www.cucsh.udg.mx/maestrias/maestria_en_ciencias_sociales/lineas_generacion"
+      ]
     }
   ],
-  "registryRevision": "2026-11-01.v12",
+  "registryRevision": "2026-11-01.v13",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
