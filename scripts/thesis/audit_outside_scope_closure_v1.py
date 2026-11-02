@@ -23,7 +23,7 @@ DEFAULT_SCOPE_CONFIG = scope_boundary.DEFAULT_CONFIG
 DEFAULT_CONTRACT = (
     Path(__file__).resolve().parent
     / "config"
-    / "outside-scope-social-sciences-closure-v2.json"
+    / "outside-scope-social-sciences-closure-v3.json"
 )
 
 
