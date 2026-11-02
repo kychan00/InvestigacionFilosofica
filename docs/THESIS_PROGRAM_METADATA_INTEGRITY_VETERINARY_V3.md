@@ -188,10 +188,36 @@ Los cuatro grupos permanecen visibles en:
 El full inventory contiene además:
 
 - `Licenciatura en Médico Veterinario y Zootecnista`: **155**
+  - CUSUR: 155
+  - source agreement: 155/155
+  - structural conflicts: **0**
+  - title-only warnings: **1**
+  - valid years: 1986–2002
 - `Licenciatura en Veterinario y Zootecnista`: **5**
+  - CUCS: 5
+  - source agreement: 5/5
+  - structural conflicts: **0**
+  - title-only warnings: **0**
+  - valid years: 1987–1994
 - `Licenciatura en Medicina Veterinaria y Zootecnia`: **1**
+  - CUALTOS: 1
+  - source agreement: 1/1
+  - structural conflicts: **0**
+  - title-only warnings: **0**
+  - year: 2021
+  - issued date + abstract presentes
 
-T2AO no las fusiona todavía en Program Authority.
+Aggregate observado de los cuatro labels:
+
+**1,501 works**
+
+Structural conflicts totales:
+
+**3**
+
+Todos están dentro del raw group histórico `Licenciatura en Medicina Veterinaria Zootecnista`.
+
+T2AO no fusiona todavía estos labels en Program Authority.
 
 La investigación institucional para V26 vendrá después de que la integridad item-level quede cerrada.
 
