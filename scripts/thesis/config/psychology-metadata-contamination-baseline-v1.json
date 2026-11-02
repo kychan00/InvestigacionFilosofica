@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "thesis-program-metadata-contamination-baseline-v1",
+  "targetProgramKey": "licenciatura en psicologia",
+  "foundationYear": 1975,
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "audit-does-not-change-admission",
+  "authorityDecision": "hold",
+  "expectedMetrics": {
+    "observedWorks": 485,
+    "sourceProgramAgreementWorks": 485,
+    "sourceProgramDisagreementWorks": 0,
+    "preProgramFoundationWorks": 3,
+    "exactTitleCrossProgramConflictWorks": 46,
+    "exactTitleAuthorCrossProgramConflictWorks": 8,
+    "titleDomainWarningWorks": 44,
+    "highConfidenceAnomalyWorks": 11,
+    "warningOnlyWorks": 66,
+    "noDetectedContradictionWorks": 408,
+    "validYearSpan": {
+      "min": 1929,
+      "max": 2025,
+      "observations": 467
+    },
+    "observedUnits": {
+      "CUCS": 455,
+      "CUVALLES": 11,
+      "CUCIENEGA": 9,
+      "CUSUR": 7,
+      "CUCOSTA": 3
+    }
+  },
+  "notes": [
+    "This baseline freezes the audit over the first successful 27,576-work full inventory.",
+    "Title-domain warnings are anomaly evidence only and do not determine Humanities admission.",
+    "noDetectedContradictionWorks is not a count of confirmed Psychology theses.",
+    "Any future full-harvest drift should reopen metadata-integrity review instead of silently changing this baseline."
+  ]
+}
