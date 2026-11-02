@@ -9,6 +9,7 @@ on:
       - "tests/test_thesis_canonical_corpus.py"
       - "tests/test_thesis_program_metadata_evidence_confidence.py"
       - "tests/test_thesis_medicine_program_authority_v25.py"
+      - "tests/test_thesis_veterinary_program_authority_v26.py"
       - "docs/THESIS_HUMANITIES_CANONICAL_CORPUS_V1.md"
       - "docs/THESIS_PROGRAM_METADATA_EVIDENCE_CONFIDENCE_V1.md"
       - ".github/workflows/thesis-canonical-corpus.yml"
@@ -39,6 +40,7 @@ jobs:
           python -m unittest discover -s tests -p "test_thesis_canonical_corpus.py" -v
           python -m unittest discover -s tests -p "test_thesis_program_metadata_evidence_confidence.py" -v
           python -m unittest discover -s tests -p "test_thesis_medicine_program_authority_v25.py" -v
+          python -m unittest discover -s tests -p "test_thesis_veterinary_program_authority_v26.py" -v
 
       - name: Build deterministic fixture corpus
         run: |
