@@ -826,6 +826,48 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             {"resolved": 1},
         )
 
+    def test_global_politics_transpacific_v17_reprojects_to_exclude(self):
+        observed = {
+            "schemaVersion": "fixture",
+            "programs": [{
+                "normalizedKey": "maestria en global politics and transpacific studies",
+                "count": 1,
+                "variants": {"Maestría en Global Politics and Transpacific Studies": 1},
+                "providers": {"riudg": 1},
+                "admissionStatuses": {"quarantine": 1},
+                "programRefs": {},
+            }],
+        }
+        corpus = {
+            "buildRevision": "fixture",
+            "programAuthorityRevision": "old",
+            "works": [
+                self.work(
+                    work_id="global-politics-transpacific",
+                    program="Maestría en Global Politics and Transpacific Studies",
+                    institution_ref="institution:udg",
+                    admission="quarantine",
+                    raw_date="2021",
+                )
+            ],
+        }
+
+        result = audit.build_audit(
+            observed=observed,
+            corpus=corpus,
+            registry=self.registry,
+            reference_year=2026,
+            top=10,
+        )
+
+        self.assertEqual(result["metrics"]["projectedAdmission"], {"exclude": 1})
+        self.assertEqual(result["metrics"]["programStateWorks"], {"exclude": 1})
+        self.assertEqual(result["metrics"]["programQueue"]["queueItems"], 0)
+        self.assertEqual(
+            result["metrics"]["programQueue"]["allProgramStates"],
+            {"resolved": 1},
+        )
+
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
         observed = {
             "schemaVersion": "fixture",
