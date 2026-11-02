@@ -274,8 +274,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         program = next(
             item
             for item in row["programs"]
-            if item["normalizedKey"]
-            == "maestria en investigacion educativa"
+            if item["normalizedKey"] == "maestria en comunicacion"
         )
         self.assertEqual(
             program["programAuthority"]["status"],
@@ -390,7 +389,12 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             if item["id"] == "scope:education-research"
         )
         self.assertEqual(row["boundaryState"], "boundary-review")
-        program = row["programs"][0]
+        program = next(
+            item
+            for item in row["programs"]
+            if item["normalizedKey"]
+            == "maestria en investigacion educativa"
+        )
         self.assertEqual(
             program["programAuthority"]["status"],
             "confirmed",
