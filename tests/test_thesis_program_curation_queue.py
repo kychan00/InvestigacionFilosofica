@@ -563,6 +563,52 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             "review",
         )
 
+    def test_doctorado_educacion_v8_moves_to_scope_review(self):
+        observed = {
+            "programs": [
+                {
+                    "normalizedKey": "doctorado en educacion",
+                    "count": 73,
+                    "variants": {
+                        "Doctorado en Educación": 73,
+                    },
+                    "providers": {"riudg": 73},
+                    "admissionStatuses": {"quarantine": 73},
+                    "programRefs": {},
+                }
+            ]
+        }
+        corpus = {
+            "works": [
+                {
+                    "programRaw": "Doctorado en Educación",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2020", "quality": "valid"},
+                    "thesisTypeRaw": "Tesis de Doctorado",
+                    "admissionStatus": "review",
+                }
+            ]
+        }
+
+        payload = queue.build_queue(
+            observed,
+            corpus,
+            self.registry,
+        )
+
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
+        item = payload["items"][0]
+        self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(
+            item["authority"]["id"],
+            "program:udg:doc-educacion",
+        )
+        self.assertEqual(
+            item["authority"]["admissionState"],
+            "review",
+        )
+
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {
             "programs": [
