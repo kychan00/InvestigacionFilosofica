@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "thesis-medicine-program-authority-v25-baseline-v1",
+  "registryRevision": "2026-11-02.v25",
+  "programRef": "program:udg:lic-medico-cirujano-partero",
+  "canonicalName": "Licenciatura en Médico Cirujano y Partero",
+  "admissionState": "exclude",
+  "programMetadataEvidenceRevision": "2026-11-02.v2",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "expectedFull": {
+    "observedWorks": 1533,
+    "blockedWorks": 9,
+    "authorityApplicableWorks": 1524,
+    "projectedAdmissionStatuses": {
+      "exclude": 1524,
+      "quarantine": 9
+    },
+    "rawGroups": {
+      "licenciatura en medicina": {
+        "works": 1383,
+        "blockedWorks": 9,
+        "authorityApplicableWorks": 1374,
+        "projectedAdmissionStatuses": {
+          "exclude": 1374,
+          "quarantine": 9
+        },
+        "queueState": "metadata-review",
+        "curationLane": "metadata-confidence-review"
+      },
+      "licenciatura en medico cirujano y partero": {
+        "works": 150,
+        "blockedWorks": 0,
+        "authorityApplicableWorks": 150,
+        "projectedAdmissionStatuses": {
+          "exclude": 150
+        },
+        "expectedQueuePresenceAfterProjection": false
+      }
+    },
+    "currentTitleAuthorStructuralConflicts": {
+      "licenciatura en medicina": 9,
+      "licenciatura en medico cirujano y partero": 0
+    }
+  },
+  "invariants": [
+    "licenciatura-en-medicina-and-medico-cirujano-partero-resolve-to-one-authority",
+    "medicine-authority-is-exclude",
+    "nine-known-structural-conflicts-remain-quarantine",
+    "unblocked-medicine-records-receive-exclude",
+    "medico-cirujano-partero-alias-receives-exclude",
+    "program-authority-does-not-overrule-metadata-confidence"
+  ]
+}

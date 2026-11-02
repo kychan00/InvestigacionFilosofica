@@ -230,7 +230,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             source_url=None,
             raw_fields={
                 "dc.title": ["Tesis CUCS con typo institucional"],
-                "dc.degree.name": ["LICENCIATURA EN MEDICINA"],
+                "dc.degree.name": ["PROGRAMA SINTÉTICO DESCONOCIDO"],
                 "dc.degree.grantor": ["Universidad en Guadalajara"],
                 "dc.degree.department": ["CUCS"],
                 "dc.type": ["Tesis de Licenciatura"],

@@ -1469,9 +1469,37 @@
         "https://www.cuc.udg.mx/psicologia/plan-de-estudios",
         "https://cualtos.udg.mx/index.php/oferta-academica/licenciatura-psicologia"
       ]
+    },
+    {
+      "id": "program:udg:lic-medico-cirujano-partero",
+      "canonicalName": "Licenciatura en Médico Cirujano y Partero",
+      "level": "licenciatura",
+      "disciplineFamily": "medicina-ciencias-salud",
+      "admissionState": "exclude",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUCS"
+      ],
+      "aliases": [
+        "Licenciatura en Médico Cirujano y Partero",
+        "LICENCIATURA EN MÉDICO CIRUJANO Y PARTERO",
+        "Médico Cirujano y Partero",
+        "Carrera de Médico Cirujano y Partero",
+        "Licenciatura en Medicina",
+        "LICENCIATURA EN MEDICINA"
+      ],
+      "observedCount": 1533,
+      "decisionNote": "La evidencia institucional UdeG demuestra que 'Licenciatura en Medicina' y 'Médico Cirujano y Partero' designan la misma línea programática, no un sucesor incierto. CUCS publica actualmente la guía 'LICENCIATURA EN MEDICINA (MÉDICO CIRUJANO Y PARTERO)'; CUSur presenta 'MEDICINA — MÉDICO CIRUJANO Y PARTERO' y describe el programa como 'Esta Licenciatura en Medicina'; la Enciclopedia UdeG documenta estudiantes que cursaron la licenciatura de Medicina y obtuvieron el título de médico cirujano y partero; CUCS declara continuidad histórica de la carrera de Medicina hasta la actualidad. La Guía de Carreras UdeG clasifica Médico Cirujano y Partero en el área Ciencias de la Salud. Bajo targetScope humanities-only se registra como EXCLUDE. El full inventory observa 1,383 obras bajo LICENCIATURA EN MEDICINA y 150 bajo LICENCIATURA EN MÉDICO CIRUJANO Y PARTERO. Program Metadata Evidence Confidence V2 bloquea 9 registros estructuralmente conflicted del primer alias; esos 9 deben permanecer QUARANTINE aun con V25.",
+      "evidence": [
+        "https://guiadecarreras.udg.mx/index.php/node/206",
+        "https://www.cucs.udg.mx/guiasinduccion/index.php",
+        "https://www.cucs.udg.mx/noticias/archivos-de-noticias/rector-general-recibe-placa-que-acredita-carrera-de-medicina",
+        "https://www.cusur.udg.mx/es/sites/default/files/adjuntos/triptico_mcp.pdf",
+        "https://enciclopedia.udg.mx/biografias/ramos-zuniga-rodrigo"
+      ]
     }
   ],
-  "registryRevision": "2026-11-02.v24",
+  "registryRevision": "2026-11-02.v25",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
