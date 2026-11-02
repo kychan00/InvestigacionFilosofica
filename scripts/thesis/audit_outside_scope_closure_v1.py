@@ -359,8 +359,16 @@ def build_audit(
                 }
             )
 
-    actual_rows = len(contract["rows"])
-    actual_keys = len(programs)
+    actual_rows = sum(
+        1
+        for expected_row in contract["rows"]
+        if expected_row["id"] in config_rows
+    )
+    actual_keys = sum(
+        len(config_rows[expected_row["id"]].get("programKeys") or [])
+        for expected_row in contract["rows"]
+        if expected_row["id"] in config_rows
+    )
     actual_states = dict(sorted(admission_states.items()))
 
     if actual_rows != contract["expectedRows"]:
