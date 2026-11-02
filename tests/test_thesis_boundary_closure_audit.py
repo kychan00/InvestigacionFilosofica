@@ -220,6 +220,60 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         )
         self.assertEqual(urban["authorityObservedCount"], 152)
 
+    def test_historical_v1_contract_is_open_under_scope_policy_v2(self):
+        report = self.empty_scope_report()
+        historical = json.loads(
+            (
+                THESIS_DIR
+                / "config"
+                / "boundary-closure-contract-v1.json"
+            ).read_text(encoding="utf-8")
+        )
+
+        audit = closure.build_audit(
+            report,
+            self.registry,
+            self.scope_config,
+            historical,
+        )
+
+        self.assertEqual(audit["closureState"], "open")
+        codes = {item["code"] for item in audit["violations"]}
+        self.assertIn("policy-revision-mismatch", codes)
+        self.assertIn("boundary-row-count-mismatch", codes)
+        self.assertIn("boundary-program-key-count-mismatch", codes)
+        self.assertIn("boundary-observed-works-mismatch", codes)
+        self.assertIn("boundary-admission-state-mismatch", codes)
+
+    def test_moving_urban_row_back_outside_scope_reopens_v2(self):
+        config = copy.deepcopy(self.scope_config)
+        row = next(
+            item
+            for item in config["rows"]
+            if item["id"] == "scope:urban-territory-sustainability"
+        )
+        row["boundaryState"] = "outside-scope"
+
+        report = scope.build_report(
+            {"programs": []},
+            {"works": []},
+            self.registry,
+            config,
+        )
+        audit = closure.build_audit(
+            report,
+            self.registry,
+            config,
+            self.contract,
+        )
+
+        self.assertEqual(audit["closureState"], "open")
+        codes = {item["code"] for item in audit["violations"]}
+        self.assertIn("boundary-row-count-mismatch", codes)
+        self.assertIn("boundary-program-key-count-mismatch", codes)
+        self.assertIn("boundary-observed-works-mismatch", codes)
+        self.assertIn("boundary-admission-state-mismatch", codes)
+
     def test_sample_absence_is_informative_not_a_closure_failure(self):
         report = self.empty_scope_report()
         audit = closure.build_audit(
