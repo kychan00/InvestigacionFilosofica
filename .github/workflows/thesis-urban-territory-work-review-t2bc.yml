@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "scripts/thesis/build_boundary_work_review_queue_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
       - "scripts/thesis/config/boundary-work-review-policy-v1.json"
       - "scripts/thesis/config/urban-territory-work-review-baseline-v1.json"
       - "tests/test_thesis_boundary_work_review_queue.py"
@@ -53,10 +54,50 @@ jobs:
             --output-corpus artifacts/thesis-urban-territory-work-review/canonical-confidence.json \
             --output-report artifacts/thesis-urban-territory-work-review/confidence-report.json
 
+      - name: Reproject current admission and date semantics
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-urban-territory-work-review")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          registry = canonical.load_program_registry()
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          (root / "canonical-current.json").write_text(
+              json.dumps(
+                  projected,
+                  ensure_ascii=False,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n"
+          )
+          (root / "projection-current.json").write_text(
+              json.dumps(
+                  projection,
+                  ensure_ascii=False,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n"
+          )
+          PY
+
       - name: Build boundary work review queue
         run: |
           python scripts/thesis/build_boundary_work_review_queue_v1.py \
-            --canonical-corpus artifacts/thesis-urban-territory-work-review/canonical-confidence.json \
+            --canonical-corpus artifacts/thesis-urban-territory-work-review/canonical-current.json \
             --output-dir artifacts/thesis-urban-territory-work-review/queue
 
       - name: Validate full T2BC contract
