@@ -1,0 +1,341 @@
+name: Thesis Doctorado Educación Authority V31
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/scope-boundary-matrix-v1.json"
+      - "scripts/thesis/config/doctorado-educacion-authority-v31-baseline-v1.json"
+      - "scripts/thesis/config/boundary-closure-contract-v4.json"
+      - "scripts/thesis/config/outside-scope-social-sciences-closure-v3.json"
+      - "scripts/thesis/config/outside-scope-political-international-development-closure-v3.json"
+      - "scripts/thesis/audit_boundary_closure_v1.py"
+      - "scripts/thesis/audit_outside_scope_closure_v1.py"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/build_scope_boundary_matrix_v1.py"
+      - "tests/test_thesis_doctorado_educacion_authority_v31.py"
+      - "tests/test_thesis_scope_boundary_matrix.py"
+      - "tests/test_thesis_boundary_closure_audit.py"
+      - "tests/test_thesis_outside_scope_closure_audit.py"
+      - "tests/test_thesis_political_international_closure_audit.py"
+      - "docs/THESIS_DOCTORADO_EDUCACION_AUTHORITY_V31.md"
+      - "docs/THESIS_HUMANITIES_SCOPE_BOUNDARY_MATRIX_V1.md"
+      - "docs/THESIS_HUMANITIES_BOUNDARY_CLOSURE_AUDIT_V4.md"
+      - ".github/workflows/thesis-doctorado-educacion-authority-v31.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_doctorado_educacion_authority_v31.py" -v
+          python -m unittest discover -s tests -p "test_thesis_scope_boundary_matrix.py" -v
+          python -m unittest discover -s tests -p "test_thesis_boundary_closure_audit.py" -v
+          python -m unittest discover -s tests -p "test_thesis_outside_scope_closure_audit.py" -v
+          python -m unittest discover -s tests -p "test_thesis_political_international_closure_audit.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-education-v31
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-education-v31
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-education-v31/canonical-confidence.json \
+            --output-report artifacts/thesis-education-v31/confidence-report.json
+
+      - name: Reproject Program Authority V31 and Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+
+          root = Path("artifacts/thesis-education-v31")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-full-baseline/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed,
+              projection["programDimensions"],
+          )
+          queue = curation.build_queue(
+              projected_observed,
+              projected,
+              registry,
+          )
+
+          (root / "canonical-v31.json").write_text(
+              json.dumps(projected, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "observed-v31.json").write_text(
+              json.dumps(projected_observed, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "projection-v31.json").write_text(
+              json.dumps(projection, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          (root / "queue-v31.json").write_text(
+              json.dumps(queue, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+
+      - name: Build Scope Boundary Matrix V4
+        run: |
+          python scripts/thesis/build_scope_boundary_matrix_v1.py \
+            --observed-authorities artifacts/thesis-education-v31/observed-v31.json \
+            --canonical-corpus artifacts/thesis-education-v31/canonical-v31.json \
+            --output-dir artifacts/thesis-education-v31/scope
+
+      - name: Build Boundary Closure V4
+        run: |
+          python scripts/thesis/audit_boundary_closure_v1.py \
+            --scope-report artifacts/thesis-education-v31/scope/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v4.json \
+            --output-dir artifacts/thesis-education-v31/boundary
+
+      - name: Build outside-scope closure audits
+        run: |
+          python scripts/thesis/audit_outside_scope_closure_v1.py \
+            --scope-report artifacts/thesis-education-v31/scope/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v3.json \
+            --output-dir artifacts/thesis-education-v31/outside-social
+
+          python scripts/thesis/audit_outside_scope_closure_v1.py \
+            --scope-report artifacts/thesis-education-v31/scope/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v3.json \
+            --output-dir artifacts/thesis-education-v31/outside-political
+
+      - name: Validate V31 full-corpus invariants
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-education-v31")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "doctorado-educacion-authority-v31-baseline-v1.json"
+              ).read_text()
+          )
+          registry = canonical.load_program_registry()
+          corpus = json.loads((root / "canonical-v31.json").read_text())
+          projection = json.loads((root / "projection-v31.json").read_text())
+          queue = json.loads((root / "queue-v31.json").read_text())
+          scope = json.loads(
+              (root / "scope" / "scope-boundary-matrix.json").read_text()
+          )
+          boundary = json.loads(
+              (root / "boundary" / "boundary-closure-audit.json").read_text()
+          )
+          social = json.loads(
+              (
+                  root / "outside-social" / "outside-scope-closure-audit.json"
+              ).read_text()
+          )
+          political = json.loads(
+              (
+                  root / "outside-political" / "outside-scope-closure-audit.json"
+              ).read_text()
+          )
+          expected = baseline["expected"]
+
+          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert len(corpus["works"]) == 27576
+
+          selected = [
+              w
+              for w in corpus["works"]
+              if w.get("programRef") == baseline["programRef"]
+          ]
+          assert len(selected) == expected["works"]
+
+          blocked = [
+              w
+              for w in selected
+              if (w.get("programMetadataEvidence") or {}).get(
+                  "authorityApplicability"
+              ) == "blocked"
+          ]
+          assert len(blocked) == expected["blockedWorks"]
+
+          assert Counter(
+              w.get("academicUnitRaw") for w in selected
+          ) == Counter(expected["academicUnits"])
+          assert Counter(
+              w.get("admissionStatus") for w in selected
+          ) == Counter(expected["admissionStatuses"])
+
+          years = sorted(
+              int(str((w.get("date") or {}).get("value"))[:4])
+              for w in selected
+              if (w.get("date") or {}).get("quality") == "valid"
+              and str((w.get("date") or {}).get("value") or "")[:4].isdigit()
+          )
+          assert years[0] == expected["observedYears"]["min"]
+          assert years[-1] == expected["observedYears"]["max"]
+
+          assert (
+              projection["projectedAdmission"]
+              == expected["globalProjectedAdmission"]
+          )
+          assert sum(projection["projectedAdmission"].values()) == 27576
+
+          education_key = "doctorado en educacion"
+          assert all(
+              item["normalizedKey"] != education_key
+              for item in queue["items"]
+          )
+          assert all(
+              item["normalizedKey"] != education_key
+              for item in queue["humanitiesActionItems"]
+          )
+
+          # Neighbouring education authorities are intentionally untouched.
+          by_id = {p["id"]: p for p in registry["programs"]}
+          assert (
+              by_id["program:udg:mae-investigacion-educativa"]["admissionState"]
+              == "review"
+          )
+          assert (
+              by_id["program:udg:doc-cognicion-aprendizaje"]["admissionState"]
+              == "review"
+          )
+
+          assert scope["metrics"]["matrixRows"] == expected["scopeMatrixRows"]
+
+          education_row = next(
+              row
+              for row in scope["rows"]
+              if row["id"] == "scope:education-research"
+          )
+          assert education_row["boundaryState"] == "boundary-review"
+          assert [
+              p["normalizedKey"] for p in education_row["programs"]
+          ] == [
+              "maestria en investigacion educativa",
+              "doctorado en cognicion y aprendizaje",
+          ]
+
+          education_outside = next(
+              row
+              for row in scope["rows"]
+              if row["id"] == "scope:education-doctorado"
+          )
+          assert (
+              education_outside["boundaryState"]
+              == expected["educationOutsideBoundaryState"]
+          )
+          assert [
+              p["normalizedKey"] for p in education_outside["programs"]
+          ] == ["doctorado en educacion"]
+          assert (
+              education_outside["observedWorks"]
+              == expected["educationOutsideWorks"]
+          )
+
+          assert boundary["closureState"] == "closed"
+          assert boundary["policyRevision"] == baseline["scopePolicyRevision"]
+          assert (
+              boundary["metrics"]["boundaryRows"]
+              == expected["boundaryReviewRows"]
+          )
+          assert (
+              boundary["metrics"]["boundaryProgramKeys"]
+              == expected["boundaryReviewProgramKeys"]
+          )
+          assert (
+              boundary["metrics"]["authorityObservedWorks"]
+              == expected["boundaryReviewWorks"]
+          )
+          assert (
+              boundary["metrics"]["admissionStates"]
+              == expected["boundaryReviewStates"]
+          )
+          assert boundary["metrics"]["violations"] == 0
+
+          assert social["closureState"] == "closed"
+          assert social["closureId"] == "social-sciences-v3"
+          assert social["metrics"]["authorityObservedWorks"] == 277
+          assert social["metrics"]["admissionStates"] == {"exclude": 2}
+
+          assert political["closureState"] == "closed"
+          assert (
+              political["closureId"]
+              == "political-international-development-v3"
+          )
+          assert political["metrics"]["authorityObservedWorks"] == 212
+          assert political["metrics"]["admissionStates"] == {"exclude": 4}
+
+          summary = {
+              "registryRevision": registry["registryRevision"],
+              "scopePolicyRevision": scope["policyRevision"],
+              "educationWorks": len(selected),
+              "educationAdmission": dict(
+                  Counter(w.get("admissionStatus") for w in selected)
+              ),
+              "globalProjectedAdmission": projection["projectedAdmission"],
+              "boundaryReviewWorks": boundary["metrics"][
+                  "authorityObservedWorks"
+              ],
+              "nextHumanitiesAction": queue["nextHumanitiesAction"],
+          }
+          (root / "v31-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True)
+              + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload V31 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-doctorado-educacion-authority-v31
+          path: artifacts/thesis-education-v31/
+          if-no-files-found: error
+          retention-days: 14

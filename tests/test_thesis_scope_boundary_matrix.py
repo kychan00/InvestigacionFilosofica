@@ -65,6 +65,10 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             "boundary-review",
         )
         self.assertEqual(
+            states["scope:education-doctorado"],
+            "outside-scope",
+        )
+        self.assertEqual(
             states["scope:gender-studies"],
             "boundary-review",
         )
@@ -110,9 +114,9 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
                     "providers": {"riudg": 2},
                 },
                 {
-                    "normalizedKey": "doctorado en educacion",
+                    "normalizedKey": "maestria en investigacion educativa",
                     "count": 3,
-                    "variants": {"DOCTORADO EN EDUCACION": 3},
+                    "variants": {"MAESTRIA EN INVESTIGACION EDUCATIVA": 3},
                     "providers": {"riudg": 3},
                 },
                 {
@@ -142,7 +146,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
         for index, (program, count, unit) in enumerate(
             [
                 ("Maestría en Comunicación", 2, "CUCSH"),
-                ("Doctorado en Educación", 3, "CUCSH"),
+                ("Maestría en Investigación Educativa", 3, "CUCSH"),
                 ("Maestría en Ciencias Sociales", 4, "CUCSH"),
                 ("Maestría en Ciencia Política", 5, "CUCSH"),
                 (
@@ -293,61 +297,45 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             {"exclude": 1},
         )
 
-    def test_doctorado_educacion_boundary_row_matches_program_authority_review(self):
-        observed = {
-            "programs": [
-                {
-                    "normalizedKey": "doctorado en educacion",
-                    "count": 73,
-                    "variants": {
-                        "Doctorado en Educación": 73,
-                    },
-                    "providers": {"riudg": 73},
-                }
-            ]
-        }
-        corpus = {
-            "works": [
-                {
-                    "id": "work:doctorado-educacion",
-                    "programRaw": "Doctorado en Educación",
-                    "academicUnitRaw": "CUCSH",
-                    "date": {"value": "2020", "quality": "valid"},
-                    "admissionStatus": "review",
-                    "institutionRef": "institution:udg",
-                }
-            ]
-        }
-
-        report = scope.build_report(
-            observed,
-            corpus,
+    def test_doctorado_educacion_v31_is_resolved_outside_boundary_review(self):
+        resolved = scope.canonical.resolve_program(
+            "Doctorado en Educación",
             self.registry,
-            self.config,
         )
-
-        row = next(
-            item
-            for item in report["rows"]
-            if item["id"] == "scope:education-research"
-        )
-        self.assertEqual(row["boundaryState"], "boundary-review")
-        program = row["programs"][0]
+        self.assertEqual(resolved["status"], "confirmed")
         self.assertEqual(
-            program["programAuthority"]["status"],
-            "confirmed",
-        )
-        self.assertEqual(
-            program["programAuthority"]["programRef"],
+            resolved["programRef"],
             "program:udg:doc-educacion",
         )
-        self.assertEqual(
-            program["programAuthority"]["admissionState"],
-            "review",
+        self.assertEqual(resolved["admissionState"], "exclude")
+
+        boundary_row = next(
+            item
+            for item in self.config["rows"]
+            if item["id"] == "scope:education-research"
+        )
+        self.assertEqual(boundary_row["boundaryState"], "boundary-review")
+        self.assertNotIn(
+            "doctorado en educacion",
+            boundary_row["programKeys"],
         )
         self.assertEqual(
-            program["currentAdmissionStatuses"],
-            {"review": 1},
+            boundary_row["programKeys"],
+            [
+                "maestria en investigacion educativa",
+                "doctorado en cognicion y aprendizaje",
+            ],
+        )
+
+        outside_row = next(
+            item
+            for item in self.config["rows"]
+            if item["id"] == "scope:education-doctorado"
+        )
+        self.assertEqual(outside_row["boundaryState"], "outside-scope")
+        self.assertEqual(
+            outside_row["programKeys"],
+            ["doctorado en educacion"],
         )
 
     def test_maestria_investigacion_educativa_boundary_row_matches_program_authority_review(self):
@@ -981,7 +969,7 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
 
         self.assertEqual(
             report["policyRevision"],
-            "2026-11-02.v3",
+            "2026-11-02.v4",
         )
         self.assertEqual(
             report["programAuthorityRevision"],

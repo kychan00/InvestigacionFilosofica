@@ -60,10 +60,14 @@ class CommunicationProgramAuthorityV29Test(unittest.TestCase):
             {"maestria en comunicacion"},
         )
 
-    def test_scope_matrix_v3_is_outside_scope(self):
+    def test_scope_matrix_v29_decision_survives_later_policy(self):
         self.assertEqual(
-            self.scope["policyRevision"],
             self.baseline["scopePolicyRevision"],
+            "2026-11-02.v3",
+        )
+        self.assertGreaterEqual(
+            int(self.scope["policyRevision"].rsplit(".v", 1)[1]),
+            3,
         )
         row = next(
             row

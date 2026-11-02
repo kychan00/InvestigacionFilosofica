@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "thesis-doctorado-educacion-authority-v31-baseline-v1",
+  "phase": "T2AY",
+  "registryRevision": "2026-11-02.v31",
+  "scopePolicyRevision": "2026-11-02.v4",
+  "programRef": "program:udg:doc-educacion",
+  "canonicalName": "Doctorado en Educación",
+  "admissionState": "exclude",
+  "sourceFullArtifactId": 13099541204,
+  "sourceV30ArtifactId": 13175920117,
+  "expected": {
+    "works": 73,
+    "blockedWorks": 0,
+    "academicUnits": {
+      "CUCSH": 73
+    },
+    "observedYears": {
+      "min": 2005,
+      "max": 2024
+    },
+    "admissionStatuses": {
+      "exclude": 73
+    },
+    "globalProjectedAdmission": {
+      "include": 429,
+      "review": 691,
+      "quarantine": 18964,
+      "exclude": 7490,
+      "reject-source": 2
+    },
+    "boundaryReviewRows": 3,
+    "boundaryReviewProgramKeys": 4,
+    "boundaryReviewWorks": 191,
+    "boundaryReviewStates": {
+      "review": 4
+    },
+    "scopeMatrixRows": 7,
+    "educationOutsideBoundaryState": "outside-scope",
+    "educationOutsideWorks": 73
+  },
+  "invariants": [
+    "decision-is-program-level-not-thesis-topic-level",
+    "doctorado-educacion-resolves-exclude",
+    "maestria-investigacion-educativa-remains-review",
+    "doctorado-cognicion-aprendizaje-remains-review",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-policy-v4-removes-only-doctorado-educacion-from-education-boundary",
+    "prior-authorities-v25-v30-remain-stable"
+  ]
+}

@@ -126,7 +126,8 @@ jobs:
           registry = canonical.load_program_registry()
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v30"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 30
           assert len(corpus["works"]) == 27576
 
           assert not any(
@@ -172,18 +173,22 @@ jobs:
           assert years[0] == expected["observedYears"]["min"]
           assert years[-1] == expected["observedYears"]["max"]
 
-          assert (
-              projection["projectedAdmission"]
-              == expected["globalProjectedAdmission"]
-          )
+          expected_global = dict(expected["globalProjectedAdmission"])
+          expected_global["review"] -= 73
+          expected_global["exclude"] += 73
+          assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           assert all(
               item["normalizedKey"] != baseline["orientationKey"]
               for item in queue["items"]
           )
-          assert queue["nextHumanitiesAction"]["normalizedKey"] == (
+          assert (
               expected["nextHumanitiesActionKey"]
+              == "doctorado en educacion"
+          )
+          assert queue["nextHumanitiesAction"]["normalizedKey"] != (
+              baseline["orientationKey"]
           )
 
           summary = {

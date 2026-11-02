@@ -970,7 +970,7 @@
       "canonicalName": "Doctorado en Educación",
       "level": "doctorado",
       "disciplineFamily": "educacion-ciencias-sociales-humanidades",
-      "admissionState": "review",
+      "admissionState": "exclude",
       "lifecycleState": "active",
       "academicUnits": [
         "CUCSH"
@@ -984,11 +984,12 @@
         "min": 2005,
         "max": 2024
       },
-      "decisionNote": "Programa vigente de CUCSH adscrito al Departamento de Estudios en Educación. La UdeG lo define como formación de investigadores en el campo de las ciencias de la educación y declara explícitamente que su estudio exige un acercamiento multidisciplinario con convergencia de disciplinas de Ciencias Sociales y Humanidades. Sus LGAC combinan comunicación, procesos de enseñanza-aprendizaje, cultura, organizaciones, mercados de trabajo, políticas e inclusión. La identidad programática está confirmada, pero su pertenencia a un corpus humanities-only no puede resolverse en bloque; se registra como REVIEW.",
+      "decisionNote": "Programa vigente de CUCSH cuya identidad institucional principal es Educación / Ciencias de la Educación. La UdeG declara como objetivos formar investigadores en investigación educativa y fomentar investigación en el campo de las ciencias de la educación. La presentación oficial subraya un acercamiento multidisciplinario con convergencia de disciplinas de Ciencias Sociales y Humanidades, y la oferta institucional lo ubica en el área Ciencias Sociales y Humanidades. Bajo el target estricto humanities-only, esa identidad interdisciplinaria centrada en educación no constituye una disciplina humanística programática; por ello V31 resuelve EXCLUDE. La decisión es por programa y no por tema de tesis.",
       "evidence": [
-        "https://www.cucsh.udg.mx/doctorados/doctorado-en-educacion",
-        "https://www.udg.mx/oferta-academica/posgrados/doctorados/doctorado-en-educacion",
-        "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad"
+        "https://cucsh.udg.mx/doctorados/doctorado-en-educacion",
+        "https://www.cucsh.udg.mx/doctorados/doctorado_en_educacion",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/doctorados/doctorado-en-educacion",
+        "https://www.udg.mx/sites/default/files/2025-06/doctorado_en_educacion_cucsh_snp.pdf"
       ]
     },
     {
@@ -1580,7 +1581,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v30",
+  "registryRevision": "2026-11-02.v31",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

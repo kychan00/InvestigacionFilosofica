@@ -701,7 +701,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v30"
+          assert registry["registryRevision"] == "2026-11-02.v31"
 
           authority = next(
               program
@@ -1149,7 +1149,7 @@ jobs:
 
           expected = baseline["expectedFull"]
 
-          assert report["registryRevision"] == "2026-11-02.v30"
+          assert report["registryRevision"] == "2026-11-02.v31"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
@@ -1356,10 +1356,10 @@ jobs:
           report = json.loads((root / "scope-boundary-matrix.json").read_text())
 
           assert report["schemaVersion"] == "thesis-humanities-scope-boundary-report-v1"
-          assert report["policyRevision"] == "2026-11-02.v3"
+          assert report["policyRevision"] == "2026-11-02.v4"
           assert report["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert report["targetScope"] == "humanities-only"
-          assert report["metrics"]["matrixRows"] == 6
+          assert report["metrics"]["matrixRows"] == 7
           assert isinstance(report["rows"], list)
 
           allowed_states = {
@@ -1397,7 +1397,7 @@ jobs:
           rm -rf artifacts/thesis-boundary-closure
           python scripts/thesis/audit_boundary_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/boundary-closure-contract-v3.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v4.json \
             --output-dir artifacts/thesis-boundary-closure
 
       - name: Validate boundary closure audit
@@ -1411,14 +1411,14 @@ jobs:
 
           assert audit["schemaVersion"] == "thesis-humanities-boundary-closure-audit-v1"
           assert audit["closureState"] == "closed"
-          assert audit["policyRevision"] == "2026-11-02.v3"
+          assert audit["policyRevision"] == "2026-11-02.v4"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
           assert audit["metrics"]["boundaryRows"] == 3
-          assert audit["metrics"]["boundaryProgramKeys"] == 5
-          assert audit["metrics"]["confirmedAuthorities"] == 5
-          assert audit["metrics"]["authorityObservedWorks"] == 264
-          assert audit["metrics"]["admissionStates"] == {"review": 5}
+          assert audit["metrics"]["boundaryProgramKeys"] == 4
+          assert audit["metrics"]["confirmedAuthorities"] == 4
+          assert audit["metrics"]["authorityObservedWorks"] == 191
+          assert audit["metrics"]["admissionStates"] == {"review": 4}
           assert audit["metrics"]["violations"] == 0
           assert audit["violations"] == []
 
@@ -1436,7 +1436,7 @@ jobs:
           rm -rf artifacts/thesis-outside-scope-closure
           python scripts/thesis/audit_outside_scope_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v2.json \
+            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v3.json \
             --output-dir artifacts/thesis-outside-scope-closure
 
       - name: Validate social sciences outside-scope closure audit
@@ -1449,7 +1449,7 @@ jobs:
           audit = json.loads((root / "outside-scope-closure-audit.json").read_text())
 
           assert audit["schemaVersion"] == "thesis-humanities-outside-scope-closure-audit-v1"
-          assert audit["closureId"] == "social-sciences-v2"
+          assert audit["closureId"] == "social-sciences-v3"
           assert audit["closureState"] == "closed"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
@@ -1477,7 +1477,7 @@ jobs:
           rm -rf artifacts/thesis-political-international-closure
           python scripts/thesis/audit_outside_scope_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v2.json \
+            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v3.json \
             --output-dir artifacts/thesis-political-international-closure
 
       - name: Validate political international development outside-scope closure audit
@@ -1490,7 +1490,7 @@ jobs:
           audit = json.loads((root / "outside-scope-closure-audit.json").read_text())
 
           assert audit["schemaVersion"] == "thesis-humanities-outside-scope-closure-audit-v1"
-          assert audit["closureId"] == "political-international-development-v2"
+          assert audit["closureId"] == "political-international-development-v3"
           assert audit["closureState"] == "closed"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"

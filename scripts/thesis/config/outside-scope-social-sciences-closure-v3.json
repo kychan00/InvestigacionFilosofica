@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "thesis-humanities-outside-scope-closure-contract-v1",
+  "policyRevision": "2026-11-02.v4",
+  "closureId": "social-sciences-v3",
+  "targetScope": "humanities-only",
+  "boundaryState": "outside-scope",
+  "decisionConstraint": "scope-matrix-does-not-change-admission",
+  "rows": [
+    {
+      "id": "scope:social-sciences",
+      "programs": [
+        {
+          "normalizedKey": "doctorado en ciencias sociales",
+          "programRef": "program:udg:doc-ciencias-sociales",
+          "admissionState": "exclude",
+          "authorityObservedCount": 217
+        },
+        {
+          "normalizedKey": "maestria en ciencias sociales",
+          "programRef": "program:udg:mae-ciencias-sociales",
+          "admissionState": "exclude",
+          "authorityObservedCount": 60
+        }
+      ]
+    }
+  ],
+  "expectedRows": 1,
+  "expectedProgramKeys": 2,
+  "expectedAuthorityObservedWorks": 277,
+  "expectedAdmissionStates": {
+    "exclude": 2
+  },
+  "closureRule": "any-change-reopens-outside-scope-curation"
+}

@@ -556,7 +556,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             {"resolved": 1},
         )
 
-    def test_doctorado_educacion_v8_moves_to_scope_review(self):
+    def test_doctorado_educacion_v31_is_resolved_and_omitted(self):
         observed = {
             "programs": [
                 {
@@ -566,8 +566,8 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                         "Doctorado en Educación": 73,
                     },
                     "providers": {"riudg": 73},
-                    "admissionStatuses": {"quarantine": 73},
-                    "programRefs": {},
+                    "admissionStatuses": {"review": 73},
+                    "programRefs": {"program:udg:doc-educacion": 73},
                 }
             ]
         }
@@ -578,7 +578,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2020", "quality": "valid"},
                     "thesisTypeRaw": "Tesis de Doctorado",
-                    "admissionStatus": "review",
+                    "admissionStatus": "exclude",
                 }
             ]
         }
@@ -589,17 +589,10 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             self.registry,
         )
 
-        self.assertEqual(payload["metrics"]["queueItems"], 1)
-        item = payload["items"][0]
-        self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
         self.assertEqual(
-            item["authority"]["id"],
-            "program:udg:doc-educacion",
-        )
-        self.assertEqual(
-            item["authority"]["admissionState"],
-            "review",
+            payload["metrics"]["allProgramStates"],
+            {"resolved": 1},
         )
 
     def test_maestria_investigacion_educativa_v9_moves_to_scope_review(self):

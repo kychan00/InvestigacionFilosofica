@@ -269,17 +269,29 @@ títulos, abstracts, keywords o embeddings.
 
 ## 8. Educación, investigación educativa y cognición
 
-Estado:
+Estado reconciliado en Scope Policy V4:
 
 `boundary-review`
 
-### Programas observados
+La familia educativa sigue siendo interdisciplinaria, pero **Doctorado en
+Educación ya no forma parte de la frontera abierta**.
+
+### Resuelto en V31
 
 Doctorado en Educación:
 
 - tesis: **73**;
 - CUCSH;
-- años válidos: **2005–2024**.
+- años válidos: **2005–2024**;
+- AcademicProgramAuthority V31: **EXCLUDE**.
+
+La UdeG define su identidad programática alrededor de investigación educativa y
+las ciencias de la educación. Su presentación institucional señala además una
+convergencia de disciplinas de **Ciencias Sociales y Humanidades**. Bajo
+`humanities-only`, esa identidad interdisciplinaria centrada en Educación no
+equivale a una disciplina humanística primaria.
+
+### Programas que permanecen en REVIEW
 
 Maestría en Investigación Educativa:
 
@@ -293,41 +305,32 @@ Doctorado en Cognición y Aprendizaje:
 - CUCSH;
 - año válido observado: **2022**.
 
-Total:
+Subtotal pendiente:
 
-**111 tesis**
-
-La UdeG ubica estos programas en:
-
-- División de Estudios de Estado y Sociedad;
-- Departamento de Estudios en Educación.
-
-El Doctorado en Educación declara explícitamente una convergencia de disciplinas
-de las:
-
-`Ciencias Sociales y Humanidades`
-
-La Maestría en Investigación Educativa trabaja líneas como:
-
-- historia de la educación;
-- procesos educativos;
-- educación y alteridad;
-- políticas y contextos organizacionales.
-
-El Doctorado en Cognición y Aprendizaje utiliza una mirada biopsicosocial y
-multidisciplinaria.
+**38 tesis**
 
 Fuentes:
 
-- `https://www.cucsh.udg.mx/doctorados/doctorado-en-educacion`
+- `https://cucsh.udg.mx/doctorados/doctorado-en-educacion`
+- `https://www.cucsh.udg.mx/doctorados/doctorado_en_educacion`
+- `https://ww1.udg.mx/es/oferta-academica/posgrados/doctorados/doctorado-en-educacion`
+- `https://www.udg.mx/sites/default/files/2025-06/doctorado_en_educacion_cucsh_snp.pdf`
 - `https://www.cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa`
 - `https://www.cucsh.udg.mx/doctorados/doctorado-en-cognicion-y-aprendizaje`
-- `https://www.cucsh.udg.mx/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20de%20Estado%20y%20Sociedad/estructuradiv`
 
-### Pregunta de gobernanza
+### Política V4
 
-¿Humanidades incluye investigación educativa interdisciplinaria o únicamente
-programas cuya identidad primaria sea una disciplina humanística?
+`doctorado en educacion` sale de `scope:education-research` y pasa a una
+fila explícita:
+
+`scope:education-doctorado → outside-scope`
+
+La fila `scope:education-research` conserva:
+
+- `maestria en investigacion educativa`;
+- `doctorado en cognicion y aprendizaje`.
+
+La decisión de V31 no se hereda automáticamente a esos dos programas.
 
 ---
 
@@ -570,25 +573,26 @@ hasta una decisión posterior por obra o una política explícita de inclusión.
 
 ## 13. Resumen cuantitativo
 
-### boundary-review · Policy V3
+### boundary-review · Policy V4
 
-- Educación/Cognición: 111;
+- Investigación Educativa/Cognición: 38;
 - Estudios de Género: 1;
 - Ciudad/Territorio/Sustentabilidad: 152.
 
 Total:
 
-**264 tesis**
+**191 tesis**
 
-### outside-scope · Policy V3
+### outside-scope · Policy V4
 
 - Comunicación: 67;
+- Doctorado en Educación: 73;
 - Ciencias Sociales: 277;
 - Política/Relaciones/Desarrollo: 212.
 
 Total:
 
-**556 tesis**
+**629 tesis**
 
 ### Total matriz
 
