@@ -1,5 +1,7 @@
 # T2AO — Veterinary Program Metadata Integrity + Conflict Protection V3
 
+> Historical note · policy V4: este documento conserva la fase T2AO/V3. T2AQ amplía el mismo matcher estructural a conflictos agronómicos; la policy ejecutable vigente es `2026-11-02.v4`. Los 3 Veterinary conflicts continúan protegidos sin cambio.
+
 ## Objetivo
 
 Antes de crear Program Authority V26 para Medicina Veterinaria, se audita el grupo de mayor impacto que permanece unresolved:
