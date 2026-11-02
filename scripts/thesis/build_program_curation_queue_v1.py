@@ -358,7 +358,6 @@ LANE_ORDER = {
 HUMANITIES_ACTION_LANES = {
     "scope-review",
     "humanities-candidate",
-    "unit-triage",
 }
 
 
