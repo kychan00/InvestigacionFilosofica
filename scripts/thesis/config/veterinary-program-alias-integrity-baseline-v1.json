@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "thesis-veterinary-program-alias-integrity-baseline-v1",
+  "sourceFullArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "decisionConstraint": "metadata-integrity-audit-does-not-change-admission",
+  "groups": {
+    "licenciatura en medicina veterinaria zootecnista": {
+      "observedWorks": 1340,
+      "sourceProgramAgreementWorks": 1340,
+      "sourceProgramDisagreementWorks": 0,
+      "observedUnits": {
+        "CUCBA": 1340
+      },
+      "validYearSpan": {
+        "min": 1970,
+        "max": 2002,
+        "observations": 1325
+      },
+      "accessionDays": {
+        "2015-09-09": 1340
+      },
+      "sourceFieldPresence": {
+        "dc.date.submitted": 1340
+      },
+      "exactTitleCrossProgramConflictWorks": 7,
+      "exactTitleAuthorCrossProgramConflictWorks": 3,
+      "structuralConflictWorks": 3,
+      "warningOnlyWorks": 4,
+      "noDetectedConflictWorks": 1333
+    },
+    "licenciatura en medico veterinario y zootecnista": {
+      "observedWorks": 155,
+      "sourceProgramAgreementWorks": 155,
+      "sourceProgramDisagreementWorks": 0,
+      "observedUnits": {
+        "CUSUR": 155
+      },
+      "validYearSpan": {
+        "min": 1986,
+        "max": 2002,
+        "observations": 152
+      },
+      "accessionDays": {
+        "2015-09-09": 155
+      },
+      "sourceFieldPresence": {
+        "dc.date.submitted": 155
+      },
+      "exactTitleCrossProgramConflictWorks": 1,
+      "exactTitleAuthorCrossProgramConflictWorks": 0,
+      "structuralConflictWorks": 0,
+      "warningOnlyWorks": 1,
+      "noDetectedConflictWorks": 154
+    },
+    "licenciatura en veterinario y zootecnista": {
+      "observedWorks": 5,
+      "sourceProgramAgreementWorks": 5,
+      "sourceProgramDisagreementWorks": 0,
+      "observedUnits": {
+        "CUCS": 5
+      },
+      "validYearSpan": {
+        "min": 1987,
+        "max": 1994,
+        "observations": 5
+      },
+      "accessionDays": {
+        "2015-09-09": 5
+      },
+      "sourceFieldPresence": {
+        "dc.date.submitted": 5
+      },
+      "exactTitleCrossProgramConflictWorks": 0,
+      "exactTitleAuthorCrossProgramConflictWorks": 0,
+      "structuralConflictWorks": 0,
+      "warningOnlyWorks": 0,
+      "noDetectedConflictWorks": 5
+    },
+    "licenciatura en medicina veterinaria y zootecnia": {
+      "observedWorks": 1,
+      "sourceProgramAgreementWorks": 1,
+      "sourceProgramDisagreementWorks": 0,
+      "observedUnits": {
+        "CUALTOS": 1
+      },
+      "validYearSpan": {
+        "min": 2021,
+        "max": 2021,
+        "observations": 1
+      },
+      "accessionDays": {
+        "2023-04-19": 1
+      },
+      "sourceFieldPresence": {
+        "dc.date.issued": 1,
+        "dc.description.abstract": 1
+      },
+      "exactTitleCrossProgramConflictWorks": 0,
+      "exactTitleAuthorCrossProgramConflictWorks": 0,
+      "structuralConflictWorks": 0,
+      "warningOnlyWorks": 0,
+      "noDetectedConflictWorks": 1
+    }
+  },
+  "aggregate": {
+    "observedWorks": 1501,
+    "structuralConflictWorks": 3,
+    "knownBlockedWorksBeforeV26": 3
+  }
+}
