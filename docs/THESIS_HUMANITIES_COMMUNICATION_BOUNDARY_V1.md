@@ -1,6 +1,6 @@
 # Tesis Humanidades UdeG — Communication Boundary Review V1
 
-## Estado
+> **Superseded para decisión de alcance por T2AW / Program Authority V29.**\n> V7 se conserva como antecedente histórico de la etapa REVIEW. La decisión vigente es `EXCLUDE` bajo `humanities-only`; véase `THESIS_HUMANITIES_COMMUNICATION_OUTSIDE_SCOPE_V2.md`.\n\n## Estado
 
 **T2L — AcademicProgramAuthority V7 / Maestría en Comunicación.**
 
