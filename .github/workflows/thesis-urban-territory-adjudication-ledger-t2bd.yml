@@ -1,0 +1,316 @@
+name: Thesis urban territory adjudication ledger T2BD
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/build_boundary_work_review_queue_v1.py"
+      - "scripts/thesis/build_boundary_adjudication_ledger_v1.py"
+      - "scripts/thesis/config/boundary-work-review-policy-v1.json"
+      - "scripts/thesis/config/urban-territory-adjudication-batch-001-v1.json"
+      - "scripts/thesis/config/urban-territory-adjudication-ledger-baseline-v1.json"
+      - "tests/test_thesis_program_curation_queue.py"
+      - "tests/test_thesis_boundary_work_review_queue.py"
+      - "tests/test_thesis_boundary_adjudication_ledger.py"
+      - "docs/THESIS_URBAN_TERRITORY_ADJUDICATION_LEDGER_V1.md"
+      - ".github/workflows/thesis-urban-territory-adjudication-ledger-t2bd.yml"
+      - ".github/workflows/thesis-real-harvest.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_boundary_adjudication_ledger.py" -v
+          python -m unittest discover -s tests -p "test_thesis_boundary_work_review_queue.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Compile builders
+        run: |
+          python -m py_compile scripts/thesis/build_boundary_adjudication_ledger_v1.py
+          python -m py_compile scripts/thesis/build_boundary_work_review_queue_v1.py
+          python -m py_compile scripts/thesis/build_program_curation_queue_v1.py
+
+      - name: Download frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-t2bd artifacts/thesis-urban-territory-adjudication
+          mkdir -p /tmp/thesis-t2bd artifacts/thesis-urban-territory-adjudication
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-t2bd.zip
+          unzip -q /tmp/thesis-t2bd.zip -d /tmp/thesis-t2bd
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-t2bd/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-t2bd/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-urban-territory-adjudication/canonical-confidence.json \
+            --output-report artifacts/thesis-urban-territory-adjudication/confidence-report.json
+
+      - name: Build work review queue
+        run: |
+          python scripts/thesis/build_boundary_work_review_queue_v1.py \
+            --canonical-corpus artifacts/thesis-urban-territory-adjudication/canonical-confidence.json \
+            --reference-year 2026 \
+            --output-dir artifacts/thesis-urban-territory-adjudication/work-review
+
+      - name: Build adjudication ledger batch 001
+        run: |
+          python scripts/thesis/build_boundary_adjudication_ledger_v1.py \
+            --work-review-queue artifacts/thesis-urban-territory-adjudication/work-review/boundary-work-review-queue.json \
+            --batch scripts/thesis/config/urban-territory-adjudication-batch-001-v1.json \
+            --output-dir artifacts/thesis-urban-territory-adjudication/ledger
+
+      - name: Build full program curation queue
+        run: |
+          python scripts/thesis/build_program_curation_queue_v1.py \
+            --observed-authorities /tmp/thesis-t2bd/observed-authorities.json \
+            --canonical-corpus artifacts/thesis-urban-territory-adjudication/canonical-confidence.json \
+            --output-dir artifacts/thesis-urban-territory-adjudication/program-curation \
+            --top 30
+
+      - name: Validate T2BD full contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-urban-territory-adjudication")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "urban-territory-adjudication-ledger-baseline-v1.json"
+              ).read_text()
+          )
+          registry = json.loads(
+              Path(
+                  "scripts/thesis/config/program-authority-v1.json"
+              ).read_text()
+          )
+          scope = json.loads(
+              Path(
+                  "scripts/thesis/config/scope-boundary-matrix-v1.json"
+              ).read_text()
+          )
+          confidence = json.loads(
+              (root / "confidence-report.json").read_text()
+          )
+          work_review = json.loads(
+              (
+                  root
+                  / "work-review/boundary-work-review-queue.json"
+              ).read_text()
+          )
+          ledger = json.loads(
+              (root / "ledger/adjudication-ledger.json").read_text()
+          )
+          curation = json.loads(
+              (
+                  root
+                  / "program-curation/program-curation-queue.json"
+              ).read_text()
+          )
+          expected = baseline["expected"]
+
+          assert (
+              registry["registryRevision"]
+              == baseline["programAuthorityRevision"]
+          )
+          assert (
+              scope["policyRevision"]
+              == baseline["scopePolicyRevision"]
+          )
+          assert (
+              confidence["programMetadataEvidenceRevision"]
+              == baseline["programMetadataEvidenceRevision"]
+          )
+          assert (
+              work_review["policyRevision"]
+              == baseline["workReviewPolicyRevision"]
+          )
+
+          authority = next(
+              p
+              for p in registry["programs"]
+              if p["id"] == baseline["programRef"]
+          )
+          assert authority["admissionState"] == "review"
+          assert authority["observedCount"] == 152
+
+          wr = expected["workReview"]
+          assert work_review["metrics"]["workItems"] == wr["works"]
+          assert (
+              work_review["metrics"]["projectedAdmission"]
+              == wr["projectedAdmission"]
+          )
+          assert (
+              work_review["metrics"]["pendingPrimarySourceReview"]
+              == wr["pendingPrimarySourceReview"]
+          )
+          assert (
+              work_review["metrics"]["automaticAdmissionDecisions"]
+              == wr["automaticAdmissionDecisions"]
+          )
+          assert (
+              work_review["metrics"]["admissionChanges"]
+              == wr["admissionChanges"]
+          )
+
+          pc = expected["programCuration"]
+          metrics = curation["metrics"]
+          assert (
+              metrics["humanitiesActionQueueItems"]
+              == pc["humanitiesActionQueueItems"]
+          )
+          assert (
+              metrics["humanitiesActionWorks"]
+              == pc["humanitiesActionWorks"]
+          )
+          assert (
+              metrics["workReviewQueueItems"]
+              == pc["workReviewQueueItems"]
+          )
+          assert (
+              metrics["workReviewWorks"]
+              == pc["workReviewWorks"]
+          )
+
+          dcts = next(
+              item
+              for item in curation["items"]
+              if item["normalizedKey"]
+              == "doctorado en ciudad territorio y sustentabilidad"
+          )
+          assert dcts["queueState"] == "review"
+          assert dcts["curationLane"] == "work-level-review"
+          assert dcts["count"] == 152
+          assert dcts["workReview"]["policyRevision"] == (
+              baseline["workReviewPolicyRevision"]
+          )
+          assert dcts["workReview"]["programLevelConclusion"] == (
+              "program-level-scope-review-exhausted"
+          )
+          assert dcts["evidenceNeeds"] == [
+              "work-level-primary-source-adjudication",
+              "explicit-human-validation",
+          ]
+          assert all(
+              item["normalizedKey"]
+              != "doctorado en ciudad territorio y sustentabilidad"
+              for item in curation["humanitiesActionItems"]
+          )
+          assert len(curation["workReviewItems"]) == 1
+          assert (
+              curation["workReviewItems"][0]["normalizedKey"]
+              == "doctorado en ciudad territorio y sustentabilidad"
+          )
+
+          next_action = curation["nextHumanitiesAction"]
+          assert (
+              next_action["normalizedKey"]
+              == pc["nextHumanitiesActionKey"]
+          )
+          assert next_action["count"] == pc["nextHumanitiesActionWorks"]
+
+          bl = expected["batchLedger"]
+          assert ledger["batchId"] == baseline["batchId"]
+          assert ledger["programRef"] == baseline["programRef"]
+          assert ledger["metrics"]["batchWorks"] == bl["works"]
+          assert (
+              ledger["metrics"]["primarySourceAccess"]
+              == bl["primarySourceAccess"]
+          )
+          assert (
+              ledger["metrics"]["adjudicationStates"]
+              == bl["adjudicationStates"]
+          )
+          assert (
+              ledger["metrics"]["candidateDecisions"]
+              == bl["candidateDecisions"]
+          )
+          assert (
+              ledger["metrics"]["humanValidation"]
+              == bl["humanValidation"]
+          )
+          assert (
+              ledger["metrics"]["admissionChanges"]
+              == bl["admissionChanges"]
+          )
+          assert all(
+              entry["projectedAdmissionStatus"] == "review"
+              for entry in ledger["entries"]
+          )
+          assert all(
+              entry["primarySourceAccess"] == "restricted"
+              for entry in ledger["entries"]
+          )
+          assert all(
+              entry["candidateDecision"] is None
+              for entry in ledger["entries"]
+          )
+          assert all(
+              entry["humanValidationStatus"] == "required"
+              for entry in ledger["entries"]
+          )
+          assert all(
+              entry["admissionChangeRequested"] is False
+              for entry in ledger["entries"]
+          )
+
+          summary = {
+              "phase": baseline["phase"],
+              "programAuthorityRevision": registry["registryRevision"],
+              "scopePolicyRevision": scope["policyRevision"],
+              "programMetadataEvidenceRevision": confidence[
+                  "programMetadataEvidenceRevision"
+              ],
+              "workReviewPolicyRevision": work_review["policyRevision"],
+              "humanitiesActionQueueItems": metrics[
+                  "humanitiesActionQueueItems"
+              ],
+              "humanitiesActionWorks": metrics[
+                  "humanitiesActionWorks"
+              ],
+              "workReviewQueueItems": metrics[
+                  "workReviewQueueItems"
+              ],
+              "workReviewWorks": metrics["workReviewWorks"],
+              "nextHumanitiesAction": next_action,
+              "batchLedger": ledger["metrics"],
+          }
+          (root / "t2bd-summary.json").write_text(
+              json.dumps(
+                  summary,
+                  ensure_ascii=False,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload T2BD evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-urban-territory-adjudication-ledger-t2bd
+          path: artifacts/thesis-urban-territory-adjudication/
+          if-no-files-found: error
+          retention-days: 14
