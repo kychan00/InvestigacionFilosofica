@@ -271,7 +271,12 @@ class ThesisScopeBoundaryMatrixTest(unittest.TestCase):
             if item["id"] == "scope:communication-culture"
         )
         self.assertEqual(row["boundaryState"], "boundary-review")
-        program = row["programs"][0]
+        program = next(
+            item
+            for item in row["programs"]
+            if item["normalizedKey"]
+            == "maestria en investigacion educativa"
+        )
         self.assertEqual(
             program["programAuthority"]["status"],
             "confirmed",
