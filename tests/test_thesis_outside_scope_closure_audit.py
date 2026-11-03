@@ -39,7 +39,7 @@ class ThesisOutsideScopeClosureAuditTest(unittest.TestCase):
             (
                 THESIS_DIR
                 / "config"
-                / "outside-scope-social-sciences-closure-v3.json"
+                / "outside-scope-social-sciences-closure-v4.json"
             ).read_text(encoding="utf-8")
         )
 
@@ -60,7 +60,7 @@ class ThesisOutsideScopeClosureAuditTest(unittest.TestCase):
             self.contract,
         )
 
-        self.assertEqual(audit["closureId"], "social-sciences-v3")
+        self.assertEqual(audit["closureId"], "social-sciences-v4")
         self.assertEqual(audit["closureState"], "closed")
         self.assertEqual(audit["metrics"]["contractRows"], 1)
         self.assertEqual(audit["metrics"]["contractProgramKeys"], 2)
