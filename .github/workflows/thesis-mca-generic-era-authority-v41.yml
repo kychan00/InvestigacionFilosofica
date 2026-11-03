@@ -225,7 +225,7 @@ jobs:
           assert {
               (w.get("programMetadataEvidence") or {}).get("matchedRuleId")
               for w in blocked
-          } == {baseline["metadataRuleId"]}
+          } == {baseline["blockedEraRuleId"]}
 
           pre2003 = [
               w for w in blocked
@@ -261,7 +261,14 @@ jobs:
           assert confidence["metrics"]["authorityApplicability"] == expected[
               "globalAuthorityApplicability"
           ]
-          assert confidence["metrics"]["ruleMatches"][baseline["metadataRuleId"]] == 7
+          assert (
+              confidence["metrics"]["ruleMatches"][baseline["blockedEraRuleId"]]
+              == expected["blockedWorks"]
+          )
+          assert (
+              confidence["metrics"]["ruleMatches"][baseline["safeEraRuleId"]]
+              == expected["safeEraValidWorks"]
+          )
 
           generic_key = "maestria en ciencias de la arquitectura"
           generic_item = next(
