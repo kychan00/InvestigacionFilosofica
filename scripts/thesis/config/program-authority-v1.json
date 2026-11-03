@@ -731,13 +731,14 @@
         "min": 1998,
         "max": 2021
       },
-      "decisionNote": "T2BK/V41 resuelve la etiqueta genérica Maestría en Ciencias de la Arquitectura bajo un criterio temporal institucional estricto para humanities-only. CUAAD documenta que el programa fue modificado en 1999 con múltiples orientaciones heterogéneas, que en 2003 reabrió ofreciendo sólo Historia de la Arquitectura Mexicana y Conservación del Patrimonio Edificado, y que a partir de 2006 B se suprimieron las demás orientaciones. Las 27 obras genéricas con fecha válida se sitúan entre 2008 y 2021, por lo que pertenecen a una etapa institucional donde las únicas orientaciones posibles son las dos ya resueltas INCLUDE. Siete registros genéricos no permiten esa aplicación: dos son previos a 2003 (1998 y 2001), cuatro carecen de fecha y uno contiene 0000; Metadata Confidence V5 bloquea exactamente esos siete providerRecordId y los mantiene QUARANTINE. Las orientaciones históricas explícitas Arte y Comunicación, Urbanismo y Desarrollo, Edificación Arquitectónica y Teoría y Crítica se separan en autoridades REVIEW propias y no heredan INCLUDE.",
+      "decisionNote": "T2BK/V41 resuelve la etiqueta genérica Maestría en Ciencias de la Arquitectura bajo un criterio temporal institucional estricto para humanities-only. CUAAD documenta que el programa fue modificado en 1999 con múltiples orientaciones heterogéneas, que en 2003 reabrió ofreciendo sólo Historia de la Arquitectura Mexicana y Conservación del Patrimonio Edificado, y que a partir de 2006 B se formalizó esa configuración de dos orientaciones. Program Authority V41 puede ser INCLUDE sólo cuando Metadata Confidence demuestra una fecha emitida válida dentro de la etapa segura 2007–2026; cualquier registro genérico pre-2007, sin fecha, con fecha sospechosa/inválida o fuera de esa ventana queda bloqueado y QUARANTINE. En el corpus V40 esto produce 27 INCLUDE (2008–2021) y 7 QUARANTINE. Las orientaciones históricas explícitas Arte y Comunicación, Urbanismo y Desarrollo, Edificación Arquitectónica y Teoría y Crítica se separan en autoridades REVIEW propias y no heredan INCLUDE.",
       "evidence": [
         "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos",
         "https://cuaad.udg.mx/node/21768",
         "https://cuaad.udg.mx/oferta/maestrias/mca/plan-de-estudios",
         "https://cuaad.udg.mx/index.php/oferta/maestrias/mca/objetivos",
-        "https://cuaad.udg.mx/node/20159"
+        "https://cuaad.udg.mx/node/20159",
+        "https://cuaad.udg.mx/sites/default/files/adjuntos/dictamen_mca.pdf"
       ]
     },
     {
