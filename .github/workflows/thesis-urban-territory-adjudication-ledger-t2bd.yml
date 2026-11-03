@@ -140,7 +140,7 @@ jobs:
           # The active batch follows the current shared work-review policy
           # without changing any DCTS adjudication.
           assert batch["originWorkReviewPolicyRevision"] == "2026-11-02.urban-v1"
-          assert batch["workReviewPolicyRevision"] == "2026-11-03.boundary-v2"
+          assert batch["workReviewPolicyRevision"] == "2026-11-03.boundary-v3"
           assert work_review["policyRevision"] == batch["workReviewPolicyRevision"]
 
           assert registry["registryRevision"] == "2026-11-03.v44"
@@ -162,13 +162,13 @@ jobs:
           assert cognition_authority["observedCount"] == 4
 
           wr = expected["workReview"]
-          assert work_review["metrics"]["programs"] == 2
-          assert work_review["metrics"]["workItems"] == wr["works"] + 4
+          assert work_review["metrics"]["programs"] == 3
+          assert work_review["metrics"]["workItems"] == wr["works"] + 28
           assert work_review["metrics"]["projectedAdmission"] == {
-              "review": wr["works"] + 4
+              "review": wr["works"] + 28
           }
           assert work_review["metrics"]["pendingPrimarySourceReview"] == (
-              wr["pendingPrimarySourceReview"] + 4
+              wr["pendingPrimarySourceReview"] + 28
           )
           assert work_review["metrics"]["automaticAdmissionDecisions"] == 0
           assert work_review["metrics"]["admissionChanges"] == 0
@@ -192,16 +192,16 @@ jobs:
           metrics = curation["metrics"]
           # T2BQ removes one 4-work program from the program-level action lane.
           assert metrics["humanitiesActionQueueItems"] == (
-              pc["humanitiesActionQueueItems"] - 30
+              pc["humanitiesActionQueueItems"] - 31
           )
           assert metrics["humanitiesActionWorks"] == (
-              pc["humanitiesActionWorks"] - 425
+              pc["humanitiesActionWorks"] - 449
           )
           assert metrics["workReviewQueueItems"] == (
-              pc["workReviewQueueItems"] + 1
+              pc["workReviewQueueItems"] + 2
           )
           assert metrics["workReviewWorks"] == (
-              pc["workReviewWorks"] + 4
+              pc["workReviewWorks"] + 28
           )
 
           dcts = next(
@@ -218,7 +218,7 @@ jobs:
               assert item["queueState"] == "review"
               assert item["curationLane"] == "work-level-review"
               assert item["workReview"]["policyRevision"] == (
-                  "2026-11-03.boundary-v2"
+                  "2026-11-03.boundary-v3"
               )
               assert item["workReview"]["programLevelConclusion"] == (
                   "program-level-scope-review-exhausted"
@@ -234,6 +234,7 @@ jobs:
               item["normalizedKey"] not in {
                   "doctorado en ciudad territorio y sustentabilidad",
                   "doctorado en cognicion y aprendizaje",
+                  "doctorado en derechos humanos",
               }
               for item in curation["humanitiesActionItems"]
           )
@@ -242,6 +243,7 @@ jobs:
           } == {
               "doctorado en ciudad territorio y sustentabilidad",
               "doctorado en cognicion y aprendizaje",
+              "doctorado en derechos humanos",
           }
 
           bl = expected["batchLedger"]

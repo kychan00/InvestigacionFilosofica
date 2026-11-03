@@ -299,17 +299,17 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 28
+              expected["humanitiesActionQueueItems"] - 29
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 386
+              expected["humanitiesActionWorks"] - 410
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
-          ] + 1
+          ] + 2
           assert queue["metrics"]["workReviewWorks"] == expected[
               "workReviewWorks"
-          ] + 4
+          ] + 28
 
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == (
