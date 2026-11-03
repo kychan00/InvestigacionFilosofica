@@ -702,7 +702,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v35"
+          assert registry["registryRevision"] == "2026-11-02.v36"
 
           authority = next(
               program
@@ -1150,7 +1150,7 @@ jobs:
 
           expected = baseline["expectedFull"]
 
-          assert report["registryRevision"] == "2026-11-02.v35"
+          assert report["registryRevision"] == "2026-11-02.v36"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
@@ -1357,7 +1357,7 @@ jobs:
           report = json.loads((root / "scope-boundary-matrix.json").read_text())
 
           assert report["schemaVersion"] == "thesis-humanities-scope-boundary-report-v1"
-          assert report["policyRevision"] == "2026-11-02.v4"
+          assert report["policyRevision"] == "2026-11-02.v5"
           assert report["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert report["targetScope"] == "humanities-only"
           assert report["metrics"]["matrixRows"] == 7
@@ -1412,7 +1412,7 @@ jobs:
 
           assert audit["schemaVersion"] == "thesis-humanities-boundary-closure-audit-v1"
           assert audit["closureState"] == "closed"
-          assert audit["policyRevision"] == "2026-11-02.v4"
+          assert audit["policyRevision"] == "2026-11-02.v5"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
           assert audit["metrics"]["boundaryRows"] == 3
