@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-humanities-scope-boundary-matrix-v1",
-  "policyRevision": "2026-11-02.v4",
+  "policyRevision": "2026-11-03.v5",
   "decisionConstraint": "scope-matrix-does-not-change-admission",
   "targetScope": "humanities-only",
   "policyPrinciples": [
@@ -88,18 +88,16 @@
       "label": "Educación, investigación educativa y cognición",
       "boundaryState": "boundary-review",
       "programKeys": [
-        "maestria en investigacion educativa",
         "doctorado en cognicion y aprendizaje"
       ],
-      "rationale": "La familia educativa permanece como frontera interdisciplinaria, pero Doctorado en Educación queda resuelto fuera de alcance en Program Authority V31 por identidad programática centrada en Educación/Ciencias de la Educación y convergencia explícita de Ciencias Sociales y Humanidades. Maestría en Investigación Educativa y Doctorado en Cognición y Aprendizaje continúan en boundary-review y requieren decisiones programáticas propias.",
+      "rationale": "La familia educativa permanece como frontera interdisciplinaria únicamente para Doctorado en Cognición y Aprendizaje. Doctorado en Educación fue resuelto fuera de humanities-only en V31 y Maestría en Investigación Educativa en V36: ambos tienen identidad programática principal en Educación/Investigación Educativa y convergencia de Ciencias Sociales y Humanidades. Cognición y Aprendizaje permanece REVIEW por su mezcla estructural de educación, psicología, neurociencias, cultura y sociedad.",
       "evidence": [
-        "https://cucsh.udg.mx/doctorados/doctorado-en-educacion",
-        "https://www.cucsh.udg.mx/doctorados/doctorado_en_educacion",
-        "https://ww1.udg.mx/es/oferta-academica/posgrados/doctorados/doctorado-en-educacion",
+        "https://cucsh.udg.mx/doctorados/doctorado-en-cognicion-y-aprendizaje",
         "https://cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa",
-        "https://www.cucsh.udg.mx/doctorados/doctorado-en-cognicion-y-aprendizaje"
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-investigacion-educativa",
+        "https://www.udg.mx/node/79448"
       ],
-      "nextQuestion": "¿Maestría en Investigación Educativa y Doctorado en Cognición y Aprendizaje deben permanecer fuera de humanities-only o existe evidencia programática suficiente para tratarlos de otro modo?"
+      "nextQuestion": "¿Doctorado en Cognición y Aprendizaje debe permanecer fuera de humanities-only o existe evidencia programática suficiente para otro tratamiento?"
     },
     {
       "id": "scope:education-doctorado",
@@ -116,6 +114,22 @@
         "https://www.udg.mx/sites/default/files/2025-06/doctorado_en_educacion_cucsh_snp.pdf"
       ],
       "nextQuestion": "Resuelto en Program Authority V31: EXCLUDE bajo humanities-only."
+    },
+    {
+      "id": "scope:education-investigacion-maestria",
+      "label": "Maestría en Investigación Educativa",
+      "boundaryState": "outside-scope",
+      "programKeys": [
+        "maestria en investigacion educativa"
+      ],
+      "rationale": "Program Authority V36 resuelve la Maestría en Investigación Educativa fuera de humanities-only. La identidad institucional principal es Investigación Educativa/Educación: el programa forma investigadores en educación de manera interdisciplinaria y combina teorías sociales y psicopedagógicas, metodología cuantitativa/cualitativa, análisis de datos, sistemas educativos e innovación. Las LGAC Historia de la educación y Educación y alteridad aportan componentes humanísticos, pero no convierten al programa completo en una disciplina humanística primaria.",
+      "evidence": [
+        "https://cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-investigacion-educativa",
+        "https://www.udg.mx/node/79448",
+        "https://www.cucsh.udg.mx/convocatorias/convocatoria-abierta-la-maestria-en-investigacion-educativa-generacion-2026-2028"
+      ],
+      "nextQuestion": "Resuelto en Program Authority V36: EXCLUDE bajo humanities-only."
     },
     {
       "id": "scope:gender-studies",
