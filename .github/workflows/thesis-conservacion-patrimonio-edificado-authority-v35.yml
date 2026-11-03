@@ -235,6 +235,9 @@ jobs:
           expected_global["review"] -= 34
           expected_global["include"] += 27
           expected_global["quarantine"] += 7
+          # V42: historical Didáctica / Artes Visuales REVIEW -> EXCLUDE.
+          expected_global["review"] -= 16
+          expected_global["exclude"] += 16
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -248,10 +251,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 18
+              expected["humanitiesActionQueueItems"] - 22
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 387
+              expected["humanitiesActionWorks"] - 403
           )
           assert queue["metrics"]["workReviewQueueItems"] == (
               expected["workReviewQueueItems"]

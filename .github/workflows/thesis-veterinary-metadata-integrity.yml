@@ -340,7 +340,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v41"
+          assert registry["registryRevision"] == "2026-11-03.v42"
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
           assert baseline["policyRevision"] == "2026-11-02.v4"
@@ -596,7 +596,7 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v26"
-          assert report["registryRevision"] == "2026-11-02.v41"
+          assert report["registryRevision"] == "2026-11-03.v42"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]

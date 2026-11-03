@@ -170,11 +170,11 @@ jobs:
           metrics = curation["metrics"]
           assert (
               metrics["humanitiesActionQueueItems"]
-              == pc["humanitiesActionQueueItems"] - 19
+              == pc["humanitiesActionQueueItems"] - 23
           )
           assert (
               metrics["humanitiesActionWorks"]
-              == pc["humanitiesActionWorks"] - 392
+              == pc["humanitiesActionWorks"] - 408
           )
           assert (
               metrics["workReviewQueueItems"]
