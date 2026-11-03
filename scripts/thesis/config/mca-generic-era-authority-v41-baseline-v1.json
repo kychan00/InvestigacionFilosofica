@@ -8,7 +8,6 @@
   "sourceV40ArtifactId": 13199842462,
   "programRef": "program:udg:mae-ciencias-arquitectura",
   "canonicalName": "Maestría en Ciencias de la Arquitectura",
-  "metadataRuleId": "riudg-mca-generic-orientation-period-unresolved-v1",
   "expected": {
     "genericWorks": 34,
     "genericAdmission": {
@@ -89,15 +88,21 @@
     "genericQueueState": "metadata-review",
     "genericCurationLane": "metadata-confidence-review",
     "nextHumanitiesActionKey": "maestria en arquitectura orientacion arte y comunicacion",
-    "nextHumanitiesActionWorks": 7
+    "nextHumanitiesActionWorks": 7,
+    "safeEraIssuedYearWindow": {
+      "min": 2007,
+      "max": 2026
+    }
   },
   "invariants": [
     "humanities-only-no-generic-mca-inclusion-without-safe-institutional-era",
-    "post-2006b-generic-mca-may-apply-include-because-only-two-included-orientations-remain",
-    "pre-2003-undated-and-0000-generic-mca-records-remain-quarantine",
+    "generic-mca-include-requires-valid-issued-date-in-2007-2026-safe-era",
+    "generic-mca-outside-safe-era-fails-closed-to-quarantine",
     "thesis-title-abstract-keywords-and-semantics-never-resolve-mca-orientation",
     "historical-explicit-orientations-remain-review-and-distinct",
     "scope-policy-v5-remains-unchanged",
     "dcts-work-review-remains-1-program-152-works"
-  ]
+  ],
+  "safeEraRuleId": "mca-generic-post-2006b-safe-era-v1",
+  "blockedEraRuleId": "mca-generic-orientation-period-unresolved-v1"
 }
