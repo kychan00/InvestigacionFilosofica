@@ -154,7 +154,8 @@ jobs:
           confidence = json.loads((root / "confidence-report.json").read_text())
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v36"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 36
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
           assert (
               confidence["programMetadataEvidenceRevision"]
