@@ -210,6 +210,10 @@ jobs:
           # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["review"] -= 35
           expected_global["include"] += 35
+          # V41: generic MCA safe-era records resolve; ambiguous items quarantine.
+          expected_global["review"] -= 34
+          expected_global["include"] += 27
+          expected_global["quarantine"] += 7
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
