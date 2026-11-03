@@ -61,7 +61,7 @@ class DoctoradoEducacionAuthorityV31Test(unittest.TestCase):
             {"doctorado en educacion"},
         )
 
-    def test_other_education_programs_remain_review(self):
+    def test_later_education_decisions_preserve_v31(self):
         states = {
             p["id"]: p["admissionState"]
             for p in self.registry["programs"]
@@ -73,16 +73,17 @@ class DoctoradoEducacionAuthorityV31Test(unittest.TestCase):
         self.assertEqual(
             states,
             {
-                "program:udg:mae-investigacion-educativa": "review",
+                "program:udg:mae-investigacion-educativa": "exclude",
                 "program:udg:doc-cognicion-aprendizaje": "review",
             },
         )
 
-    def test_scope_policy_v4_removes_only_doctorado_educacion(self):
+    def test_v31_scope_baseline_is_preserved_under_scope_v5(self):
         self.assertEqual(
-            self.scope["policyRevision"],
             self.baseline["scopePolicyRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(self.scope["policyRevision"], "2026-11-02.v5")
         row = next(
             row
             for row in self.scope["rows"]
@@ -91,10 +92,7 @@ class DoctoradoEducacionAuthorityV31Test(unittest.TestCase):
         self.assertEqual(row["boundaryState"], "boundary-review")
         self.assertEqual(
             row["programKeys"],
-            [
-                "maestria en investigacion educativa",
-                "doctorado en cognicion y aprendizaje",
-            ],
+            ["doctorado en cognicion y aprendizaje"],
         )
 
     def test_metadata_confidence_stays_v4(self):
