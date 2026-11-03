@@ -130,7 +130,8 @@ jobs:
 
           assert baseline["registryRevision"] == "2026-11-02.v32"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 32
-          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
+          assert scope["policyRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           selected = [
@@ -196,6 +197,9 @@ jobs:
           # V35: Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["include"] += 5
           expected_global["review"] -= 5
+          # V36: Maestría en Investigación Educativa REVIEW -> EXCLUDE.
+          expected_global["review"] -= 34
+          expected_global["exclude"] += 34
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
