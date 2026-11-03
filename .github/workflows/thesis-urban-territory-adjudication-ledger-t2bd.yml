@@ -172,11 +172,11 @@ jobs:
           metrics = curation["metrics"]
           assert (
               metrics["humanitiesActionQueueItems"]
-              == pc["humanitiesActionQueueItems"] - 18
+              == pc["humanitiesActionQueueItems"] - 19
           )
           assert (
               metrics["humanitiesActionWorks"]
-              == pc["humanitiesActionWorks"] - 358
+              == pc["humanitiesActionWorks"] - 392
           )
           assert (
               metrics["workReviewQueueItems"]
@@ -222,9 +222,9 @@ jobs:
               "maestria en conservacion del patrimonio edificado"
           )
           assert next_action["normalizedKey"] == (
-              "maestria en ciencias de la arquitectura"
+              "maestria en arquitectura orientacion arte y comunicacion"
           )
-          assert next_action["count"] == 34
+          assert next_action["count"] == 7
 
           bl = expected["batchLedger"]
           assert ledger["batchId"] == baseline["batchId"]
