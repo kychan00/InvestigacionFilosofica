@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "thesis-historia-arte-authority-v39-baseline-v1",
+  "phase": "T2BI",
+  "registryRevision": "2026-11-02.v39",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:lic-historia-arte",
+  "canonicalName": "Licenciatura en Historia del Arte",
+  "admissionState": "include",
+  "sourceFullArtifactId": 13099541204,
+  "sourceV38ArtifactId": 13198585254,
+  "expected": {
+    "works": 2,
+    "blockedWorks": 0,
+    "unassessedWorks": 2,
+    "allowedWorks": 2,
+    "academicUnits": {
+      "CUTONALA": 2
+    },
+    "validDateWorks": 2,
+    "observedYears": {
+      "min": 2017,
+      "max": 2019
+    },
+    "rawProgramVariants": {
+      "LICENCIATURA EN HISTORIA DEL ARTE": 2
+    },
+    "admissionStatuses": {
+      "include": 2
+    },
+    "globalProjectedAdmission": {
+      "include": 497,
+      "review": 323,
+      "quarantine": 18964,
+      "exclude": 7790,
+      "reject-source": 2
+    },
+    "boundaryReviewRows": 3,
+    "boundaryReviewProgramKeys": 3,
+    "boundaryReviewWorks": 157,
+    "boundaryReviewStates": {
+      "review": 3
+    },
+    "humanitiesActionQueueItems": 33,
+    "humanitiesActionWorks": 171,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "nextHumanitiesActionKey": "maestria en ciencias de la arquitectura orientacion en conservacion del patrimonio edificado",
+    "nextHumanitiesActionWorks": 10
+  },
+  "invariants": [
+    "decision-is-program-level-not-thesis-topic-level",
+    "historia-arte-resolves-include-under-humanities-only",
+    "all-2-historia-arte-works-are-authority-applicable",
+    "cutonala-institutional-definition-explicitly-humanistic",
+    "arts-architecture-design-area-label-does-not-override-humanistic-program-identity",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-policy-v5-remains-unchanged",
+    "boundary-closure-v5-remains-3-programs-157-works",
+    "dcts-work-review-remains-1-program-152-works"
+  ]
+}
