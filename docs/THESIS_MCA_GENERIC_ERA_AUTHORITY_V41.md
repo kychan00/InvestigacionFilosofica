@@ -76,7 +76,7 @@ La aplicación de INCLUDE queda ahora cerrada por una regla temporal general, no
 Sólo una etiqueta genérica MCA con:
 
 - `dc.date.issued` de calidad **valid**;
-- año emitido entre **2007 y 2026**;
+- año canónico entre **2007 y 2026**;
 
 puede aplicar la autoridad INCLUDE. Esta ventana empieza después del cambio con efecto 2006 B y queda deliberadamente acotada a la revisión V41; una cohorte futura posterior a 2026 requerirá una nueva revisión de política.
 
@@ -97,7 +97,7 @@ Esta inferencia es institucional y temporal, no temática.
 Siete obras no cumplen el estándar:
 
 - 2 con fecha válida anterior a 2003;
-- 4 sin fecha emitida;
+- 4 sin fecha institucional canónica;
 - 1 con `0000`.
 
 En esos casos la etiqueta genérica no permite saber si pertenecían a Historia/Conservación o a alguna de las orientaciones históricas heterogéneas.
@@ -105,7 +105,7 @@ En esos casos la etiqueta genérica no permite saber si pertenecían a Historia/
 Metadata Confidence V5 aplica después una regla **fail-closed** a toda etiqueta genérica MCA que no cumpla la ventana segura. Por tanto quedan bloqueados los registros:
 
 - pre-2007;
-- sin `dc.date.issued`;
+- sin fecha canónica (`dc.date.issued`/`dc.date.submitted`);
 - con fecha sospechosa o inválida;
 - con fecha posterior al horizonte congelado de V41.
 
@@ -223,7 +223,7 @@ Boundary Closure debe permanecer:
 
 1. Sólo Humanidades.
 2. No usar contenido temático de tesis para reconstruir orientación.
-3. La MCA genérica sólo puede aplicar INCLUDE con fecha emitida válida entre 2007 y 2026.
+3. La MCA genérica sólo puede aplicar INCLUDE con fecha institucional canónica válida entre 2007 y 2026.
 4. Todo registro genérico fuera de esa ventana falla cerrado a QUARANTINE.
 5. `0000` sigue siendo sentinel/fecha sospechosa.
 6. No propagar INCLUDE a las orientaciones históricas restantes.

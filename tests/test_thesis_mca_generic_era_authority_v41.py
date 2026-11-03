@@ -23,7 +23,7 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def record(self, provider_record_id, issued):
+    def record(self, provider_record_id, issued, submitted=None):
         fields = {
             "dc.title": ["Fixture neutral"],
             "dc.contributor.author": ["Persona, Ejemplo"],
@@ -35,6 +35,8 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
         }
         if issued is not None:
             fields["dc.date.issued"] = [issued]
+        if submitted is not None:
+            fields["dc.date.submitted"] = [submitted]
         return canonical.source_record(
             provider="riudg",
             provider_record_id=provider_record_id,
@@ -132,6 +134,27 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
         self.assertEqual(
             candidate["programMetadataEvidence"]["confidenceState"],
             "unassessed",
+        )
+        self.assertEqual(
+            candidate["programMetadataEvidence"]["authorityApplicability"],
+            "allowed",
+        )
+        self.assertEqual(candidate["admission"]["status"], "include")
+
+    def test_valid_submitted_fallback_in_safe_era_is_include(self):
+        candidate = canonical.canonical_candidate(
+            self.record(
+                "oai:riudg.udg.mx:20.500.12104/submitted-safe",
+                None,
+                submitted="2014-00-00",
+            ),
+            self.registry,
+            reference_year=2026,
+            program_metadata_policy=self.policy,
+        )
+        self.assertEqual(
+            candidate["programMetadataEvidence"]["matchedRuleId"],
+            self.baseline["safeEraRuleId"],
         )
         self.assertEqual(
             candidate["programMetadataEvidence"]["authorityApplicability"],

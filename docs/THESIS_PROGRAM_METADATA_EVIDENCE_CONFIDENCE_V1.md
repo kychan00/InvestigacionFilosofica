@@ -287,7 +287,7 @@ Requiere:
 
 - program key exacto de la MCA genérica;
 - `dc.date.issued` con calidad `valid`;
-- año emitido entre **2007 y 2026**.
+- año canónico entre **2007 y 2026**.
 
 Resultado:
 
@@ -310,7 +310,7 @@ Resultado:
 Así quedan protegidos automáticamente:
 
 - registros históricos pre-2007;
-- registros sin fecha emitida;
+- registros sin fecha institucional canónica;
 - `0000`;
 - fechas sospechosas o inválidas;
 - registros posteriores al horizonte congelado de V5.

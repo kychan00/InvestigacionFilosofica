@@ -89,14 +89,14 @@
     "genericCurationLane": "metadata-confidence-review",
     "nextHumanitiesActionKey": "maestria en arquitectura orientacion arte y comunicacion",
     "nextHumanitiesActionWorks": 7,
-    "safeEraIssuedYearWindow": {
+    "safeEraProgramYearWindow": {
       "min": 2007,
       "max": 2026
     }
   },
   "invariants": [
     "humanities-only-no-generic-mca-inclusion-without-safe-institutional-era",
-    "generic-mca-include-requires-valid-issued-date-in-2007-2026-safe-era",
+    "generic-mca-include-requires-valid-canonical-program-date-in-2007-2026-safe-era",
     "generic-mca-outside-safe-era-fails-closed-to-quarantine",
     "thesis-title-abstract-keywords-and-semantics-never-resolve-mca-orientation",
     "historical-explicit-orientations-remain-review-and-distinct",
