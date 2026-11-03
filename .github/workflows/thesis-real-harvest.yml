@@ -1437,7 +1437,7 @@ jobs:
           rm -rf artifacts/thesis-outside-scope-closure
           python scripts/thesis/audit_outside_scope_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v3.json \
+            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v4.json \
             --output-dir artifacts/thesis-outside-scope-closure
 
       - name: Validate social sciences outside-scope closure audit
@@ -1450,7 +1450,7 @@ jobs:
           audit = json.loads((root / "outside-scope-closure-audit.json").read_text())
 
           assert audit["schemaVersion"] == "thesis-humanities-outside-scope-closure-audit-v1"
-          assert audit["closureId"] == "social-sciences-v3"
+          assert audit["closureId"] == "social-sciences-v4"
           assert audit["closureState"] == "closed"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
@@ -1478,7 +1478,7 @@ jobs:
           rm -rf artifacts/thesis-political-international-closure
           python scripts/thesis/audit_outside_scope_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v3.json \
+            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v4.json \
             --output-dir artifacts/thesis-political-international-closure
 
       - name: Validate political international development outside-scope closure audit
@@ -1491,7 +1491,7 @@ jobs:
           audit = json.loads((root / "outside-scope-closure-audit.json").read_text())
 
           assert audit["schemaVersion"] == "thesis-humanities-outside-scope-closure-audit-v1"
-          assert audit["closureId"] == "political-international-development-v3"
+          assert audit["closureId"] == "political-international-development-v4"
           assert audit["closureState"] == "closed"
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
