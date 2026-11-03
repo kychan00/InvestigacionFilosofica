@@ -73,7 +73,7 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
 
     def test_metadata_confidence_stays_v4(self):
         policy = canonical.load_program_metadata_evidence_policy()
-        self.assertEqual(policy["policyRevision"], "2026-11-02.v4")
+        self.assertEqual(policy["policyRevision"], "2026-11-02.v5")
 
     def test_v32_scope_baseline_is_preserved_under_scope_v5(self):
         scope = json.loads(
@@ -85,7 +85,7 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
         )
         self.assertEqual(
             self.baseline["scopePolicyRevision"],
-            "2026-11-02.v4",
+            "2026-11-02.v5",
         )
         self.assertEqual(scope["policyRevision"], "2026-11-02.v5")
 
