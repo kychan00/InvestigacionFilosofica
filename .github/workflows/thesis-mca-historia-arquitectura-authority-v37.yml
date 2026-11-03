@@ -112,7 +112,8 @@ jobs:
           assert baseline["registryRevision"] == "2026-11-02.v37"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 37
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
-          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"\n          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           selected = [w for w in corpus["works"] if w.get("programRef") == baseline["programRef"]]
