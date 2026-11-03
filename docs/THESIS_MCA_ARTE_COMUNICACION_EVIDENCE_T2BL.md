@@ -37,8 +37,18 @@ si el programa debe admitirse.
 - Primer grupo: **7 obras** de 1998–2004, CUAAD, 7 REVIEW, 0 blocked.
 - Sus dos variantes exactas: `Maestría En Arquitectura; Orientacion Arte Y Comunicacion` (6),
   `Maestría En Arquitectura, Orientacion Arte Y Comunicacion` (1).
-- Los otros registros pertenecen a las demás variantes exactas de la misma autoridad
-  (el workflow T2BL informa la distribución completa y la valida contra el total de 13).
+- Inventario full confirmado: **7 variantes exactas, 5 claves normalizadas**.
+  Las siete variantes y sus frecuencias son:
+  - `Maestría En Arquitectura; Orientacion Arte Y Comunicacion`: 6;
+  - `Maestría En Arquitectura, Orientacion Arte Y Comunicacion`: 1;
+  - `Maestría En Arquitectura; Orientacion En Arte Y Comunicacion`: 1;
+  - `Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación`: 2;
+  - `Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación`: 1;
+  - `Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion`: 1;
+  - `Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación`: 1.
+
+Esta distribución se congela en el baseline y se verifica íntegramente por normalized key
+y variante exacta en el full de 27,576 obras. Ninguna se convierte en INCLUDE.
 
 Los años, conteos y rutas se contrastan contra el **full baseline congelado de 27,576 obras**.
 La auditoría registra únicamente metadata programática agregada; no utiliza texto de las

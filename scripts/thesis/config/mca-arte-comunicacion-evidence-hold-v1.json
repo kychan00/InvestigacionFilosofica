@@ -41,7 +41,23 @@
     "humanitiesActionQueueItems": 22,
     "humanitiesActionWorks": 102,
     "workReviewQueueItems": 1,
-    "workReviewWorks": 152
+    "workReviewWorks": 152,
+    "rawProgramVariants": {
+      "Maestría En Arquitectura, Orientacion Arte Y Comunicacion": 1,
+      "Maestría En Arquitectura; Orientacion Arte Y Comunicacion": 6,
+      "Maestría En Arquitectura; Orientacion En Arte Y Comunicacion": 1,
+      "Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación": 2,
+      "Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación": 1
+    },
+    "normalizedProgramKeys": {
+      "maestria en arquitectura orientacion arte y comunicacion": 7,
+      "maestria en arquitectura orientacion en arte y comunicacion": 1,
+      "maestria en ciencias de la arquitectura con orientacion en arte y comunicacion": 2,
+      "maestria en ciencias de la arquitectura orientacion arte y comunicacion": 1,
+      "maestria en ciencias de la arquitectura orientacion en arte y comunicacion": 2
+    }
   },
   "evidence": {
     "institutional": [

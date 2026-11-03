@@ -51,6 +51,19 @@ class McaArteComunicacionHoldTest(unittest.TestCase):
                     result["programRef"], self.baseline["authorityRef"]
                 )
 
+    def test_frozen_inventory_variants_and_keys(self):
+        expected = self.baseline["expected"]
+        self.assertEqual(sum(expected["rawProgramVariants"].values()), 13)
+        self.assertEqual(sum(expected["normalizedProgramKeys"].values()), 13)
+        observed = {}
+        for raw, count in expected["rawProgramVariants"].items():
+            key = canonical.normalize_key(raw)
+            observed[key] = observed.get(key, 0) + count
+            resolved = canonical.resolve_program(raw, self.registry)
+            self.assertEqual(resolved["programRef"], self.baseline["authorityRef"])
+            self.assertEqual(resolved["admissionState"], "review")
+        self.assertEqual(observed, expected["normalizedProgramKeys"])
+
     def test_frozen_policy_and_scope(self):
         self.assertEqual(
             self.registry["registryRevision"], self.baseline["registryRevision"]

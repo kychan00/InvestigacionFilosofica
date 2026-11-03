@@ -85,6 +85,16 @@ def build_report(
         exact_equal(f"exact authority for {raw}", resolved["programRef"], authority_ref)
         exact_equal(f"review-only for {raw}", resolved["admissionState"], "review")
 
+    exact_equal(
+        "all historical exact raw variants",
+        raw_variants,
+        expected["rawProgramVariants"],
+    )
+    exact_equal(
+        "all historical normalized keys",
+        {k: sum(v.values()) for k, v in sorted(by_key.items())},
+        expected["normalizedProgramKeys"],
+    )
     key = expected["firstQueueNormalizedKey"]
     exact_equal(
         "first historical key variants",
