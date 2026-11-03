@@ -213,7 +213,7 @@ jobs:
               assert item["queueState"] == "review"
               assert item["curationLane"] == "work-level-review"
               assert item["workReview"]["policyRevision"] == (
-                  "2026-11-03.boundary-v3"
+                  "2026-11-03.boundary-v4"
               )
               assert item["workReview"]["programLevelConclusion"] == (
                   "program-level-scope-review-exhausted"
@@ -230,6 +230,7 @@ jobs:
                   "doctorado en ciudad territorio y sustentabilidad",
                   "doctorado en cognicion y aprendizaje",
                   "doctorado en derechos humanos",
+                  "maestria en estudios de genero",
               }
               for item in curation["humanitiesActionItems"]
           )
@@ -239,6 +240,7 @@ jobs:
               "doctorado en ciudad territorio y sustentabilidad",
               "doctorado en cognicion y aprendizaje",
               "doctorado en derechos humanos",
+              "maestria en estudios de genero",
           }
 
           bl = expected["batchLedger"]
