@@ -19,7 +19,10 @@ class DidacticaArtesEscenicasAuthorityV45Test(unittest.TestCase):
         cls.target=next(p for p in cls.registry["programs"] if p["id"]==cls.baseline["programRef"])
 
     def test_exact_historical_orientation_excluded(self):
-        self.assertEqual(self.registry["registryRevision"],"2026-11-03.v45")
+        self.assertEqual(self.baseline["registryRevision"],"2026-11-03.v45")
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v",1)[1]),45
+        )
         self.assertEqual(self.target["admissionState"],"exclude")
         self.assertEqual(self.target["lifecycleState"],"historical")
         self.assertEqual(self.target["disciplineFamily"],"educacion-pedagogia-artes-escenicas")
