@@ -1,0 +1,310 @@
+name: Thesis Historia del Arte Authority V39
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/historia-arte-authority-v39-baseline-v1.json"
+      - "scripts/thesis/config/scope-boundary-matrix-v1.json"
+      - "scripts/thesis/config/boundary-closure-contract-v5.json"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/build_scope_boundary_matrix_v1.py"
+      - "scripts/thesis/audit_boundary_closure_v1.py"
+      - "tests/test_thesis_historia_arte_authority_v39.py"
+      - "tests/test_thesis_canonical_corpus.py"
+      - "tests/test_thesis_program_curation_queue.py"
+      - "tests/test_thesis_tecnologias_aprendizaje_authority_v38.py"
+      - "tests/test_thesis_boundary_closure_audit.py"
+      - "docs/THESIS_HISTORIA_ARTE_AUTHORITY_V39.md"
+      - ".github/workflows/thesis-historia-arte-authority-v39.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_historia_arte_authority_v39.py" -v
+          python -m unittest discover -s tests -p "test_thesis_canonical_corpus.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+          python -m unittest discover -s tests -p "test_thesis_tecnologias_aprendizaje_authority_v38.py" -v
+          python -m unittest discover -s tests -p "test_thesis_boundary_closure_audit.py" -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-historia-arte-v39
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-historia-arte-v39
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject Metadata Confidence V4
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-historia-arte-v39/canonical-confidence.json \
+            --output-report artifacts/thesis-historia-arte-v39/confidence-report.json
+
+      - name: Reproject Program Authority V39 and Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+
+          root = Path("artifacts/thesis-historia-arte-v39")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-full-baseline/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed,
+              projection["programDimensions"],
+          )
+          queue = curation.build_queue(
+              projected_observed,
+              projected,
+              registry,
+          )
+
+          for name, value in (
+              ("canonical-v39.json", projected),
+              ("observed-v39.json", projected_observed),
+              ("projection-v39.json", projection),
+              ("queue-v39.json", queue),
+          ):
+              (root / name).write_text(
+                  json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+              )
+          PY
+
+      - name: Build Scope Boundary Matrix V5
+        run: |
+          python scripts/thesis/build_scope_boundary_matrix_v1.py \
+            --observed-authorities artifacts/thesis-historia-arte-v39/observed-v39.json \
+            --canonical-corpus artifacts/thesis-historia-arte-v39/canonical-v39.json \
+            --output-dir artifacts/thesis-historia-arte-v39/scope
+
+      - name: Build Boundary Closure V5
+        run: |
+          python scripts/thesis/audit_boundary_closure_v1.py \
+            --scope-report artifacts/thesis-historia-arte-v39/scope/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v5.json \
+            --output-dir artifacts/thesis-historia-arte-v39/boundary
+
+      - name: Validate V39 full-corpus invariants
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-historia-arte-v39")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "historia-arte-authority-v39-baseline-v1.json"
+              ).read_text()
+          )
+          registry = canonical.load_program_registry()
+          corpus = json.loads((root / "canonical-v39.json").read_text())
+          projection = json.loads((root / "projection-v39.json").read_text())
+          queue = json.loads((root / "queue-v39.json").read_text())
+          confidence = json.loads((root / "confidence-report.json").read_text())
+          scope = json.loads(
+              (root / "scope" / "scope-boundary-matrix.json").read_text()
+          )
+          boundary = json.loads(
+              (root / "boundary" / "boundary-closure-audit.json").read_text()
+          )
+          expected = baseline["expected"]
+
+          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert (
+              confidence["programMetadataEvidenceRevision"]
+              == baseline["programMetadataEvidenceRevision"]
+          )
+          assert len(corpus["works"]) == 27576
+
+          authority = next(
+              p for p in registry["programs"]
+              if p["id"] == baseline["programRef"]
+          )
+          assert authority["admissionState"] == "include"
+          assert authority["observedCount"] == expected["works"]
+
+          selected = [
+              w for w in corpus["works"]
+              if w.get("programRef") == baseline["programRef"]
+          ]
+          assert len(selected) == expected["works"]
+          assert Counter(
+              w.get("admissionStatus") for w in selected
+          ) == Counter(expected["admissionStatuses"])
+          assert Counter(
+              w.get("academicUnitRaw") for w in selected
+          ) == Counter(expected["academicUnits"])
+          assert Counter(
+              (w.get("programMetadataEvidence") or {}).get("confidenceState")
+              for w in selected
+          ) == Counter({"unassessed": expected["unassessedWorks"]})
+          assert Counter(
+              (w.get("programMetadataEvidence") or {}).get("authorityApplicability")
+              for w in selected
+          ) == Counter({"allowed": expected["allowedWorks"]})
+          assert sum(
+              1 for w in selected
+              if (w.get("programMetadataEvidence") or {}).get(
+                  "authorityApplicability"
+              ) == "blocked"
+          ) == expected["blockedWorks"]
+
+          assert Counter(
+              w.get("programRaw") for w in selected
+          ) == Counter(expected["rawProgramVariants"])
+
+          date_quality = Counter(
+              (w.get("date") or {}).get("quality") for w in selected
+          )
+          assert date_quality["valid"] == expected["validDateWorks"]
+          valid_years = sorted(
+              int(str((w.get("date") or {}).get("value"))[:4])
+              for w in selected
+              if (w.get("date") or {}).get("quality") == "valid"
+          )
+          assert valid_years[0] == expected["observedYears"]["min"]
+          assert valid_years[-1] == expected["observedYears"]["max"]
+
+          assert projection["projectedAdmission"] == expected[
+              "globalProjectedAdmission"
+          ]
+          assert sum(projection["projectedAdmission"].values()) == 27576
+
+          target_key = "licenciatura en historia del arte"
+          assert all(
+              item["normalizedKey"] != target_key
+              for item in queue["items"]
+          )
+          assert all(
+              item["normalizedKey"] != target_key
+              for item in queue["humanitiesActionItems"]
+          )
+          assert queue["metrics"]["humanitiesActionQueueItems"] == expected[
+              "humanitiesActionQueueItems"
+          ]
+          assert queue["metrics"]["humanitiesActionWorks"] == expected[
+              "humanitiesActionWorks"
+          ]
+          assert queue["metrics"]["workReviewQueueItems"] == expected[
+              "workReviewQueueItems"
+          ]
+          assert queue["metrics"]["workReviewWorks"] == expected[
+              "workReviewWorks"
+          ]
+          next_action = queue["nextHumanitiesAction"]
+          assert next_action["normalizedKey"] == expected[
+              "nextHumanitiesActionKey"
+          ]
+          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+
+          assert boundary["closureState"] == "closed"
+          assert boundary["policyRevision"] == baseline["scopePolicyRevision"]
+          assert boundary["metrics"]["boundaryRows"] == expected[
+              "boundaryReviewRows"
+          ]
+          assert boundary["metrics"]["boundaryProgramKeys"] == expected[
+              "boundaryReviewProgramKeys"
+          ]
+          assert boundary["metrics"]["authorityObservedWorks"] == expected[
+              "boundaryReviewWorks"
+          ]
+          assert boundary["metrics"]["admissionStates"] == expected[
+              "boundaryReviewStates"
+          ]
+          assert boundary["metrics"]["violations"] == 0
+
+          mta = next(
+              p for p in registry["programs"]
+              if p["id"] == "program:udg:mae-tecnologias-aprendizaje"
+          )
+          assert mta["admissionState"] == "exclude"
+          assert mta["observedCount"] == 266
+
+          summary = {
+              "registryRevision": registry["registryRevision"],
+              "scopePolicyRevision": scope["policyRevision"],
+              "programMetadataEvidenceRevision": confidence[
+                  "programMetadataEvidenceRevision"
+              ],
+              "historiaArteWorks": len(selected),
+              "historiaArteAdmission": dict(
+                  Counter(w.get("admissionStatus") for w in selected)
+              ),
+              "historiaArteUnits": dict(
+                  Counter(w.get("academicUnitRaw") for w in selected)
+              ),
+              "globalProjectedAdmission": projection["projectedAdmission"],
+              "boundaryReviewWorks": boundary["metrics"][
+                  "authorityObservedWorks"
+              ],
+              "humanitiesActionQueueItems": queue["metrics"][
+                  "humanitiesActionQueueItems"
+              ],
+              "humanitiesActionWorks": queue["metrics"][
+                  "humanitiesActionWorks"
+              ],
+              "workReviewQueueItems": queue["metrics"][
+                  "workReviewQueueItems"
+              ],
+              "workReviewWorks": queue["metrics"]["workReviewWorks"],
+              "nextHumanitiesAction": next_action,
+          }
+          (root / "v39-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload V39 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-historia-arte-authority-v39
+          path: artifacts/thesis-historia-arte-v39/
+          if-no-files-found: error
+          retention-days: 14
