@@ -111,7 +111,8 @@ jobs:
           assert registry["registryRevision"] == baseline["programAuthorityRevision"]
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
           assert confidence["programMetadataEvidenceRevision"] == baseline["programMetadataEvidenceRevision"]
-          assert baseline["workReviewPolicyRevision"] == "2026-11-03.boundary-v2"\n          assert policy["policyRevision"] == "2026-11-03.boundary-v3"
+          assert baseline["workReviewPolicyRevision"] == "2026-11-03.boundary-v2"
+          assert policy["policyRevision"] == "2026-11-03.boundary-v3"
           assert work_review["policyRevision"] == policy["policyRevision"]
 
           counts = dict(Counter(w["admissionStatus"] for w in corpus["works"]))
