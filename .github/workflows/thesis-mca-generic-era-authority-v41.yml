@@ -301,17 +301,17 @@ jobs:
           )
 
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 10
+              expected["humanitiesActionQueueItems"] - 11
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 29
+              expected["humanitiesActionWorks"] - 33
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
-          ]
+          ] + 1
           assert queue["metrics"]["workReviewWorks"] == expected[
               "workReviewWorks"
-          ]
+          ] + 4
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == expected[
               "nextHumanitiesActionKey"

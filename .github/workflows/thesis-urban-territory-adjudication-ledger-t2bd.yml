@@ -85,7 +85,7 @@ jobs:
             --output-dir artifacts/thesis-urban-territory-adjudication/program-curation \
             --top 30
 
-      - name: Validate T2BD full contract
+      - name: Validate T2BD historical ledger under T2BQ policy
         run: |
           python - <<'PY'
           import json
@@ -98,10 +98,14 @@ jobs:
                   "urban-territory-adjudication-ledger-baseline-v1.json"
               ).read_text()
           )
-          registry = json.loads(
+          batch = json.loads(
               Path(
-                  "scripts/thesis/config/program-authority-v1.json"
+                  "scripts/thesis/config/"
+                  "urban-territory-adjudication-batch-001-v1.json"
               ).read_text()
+          )
+          registry = json.loads(
+              Path("scripts/thesis/config/program-authority-v1.json").read_text()
           )
           scope = json.loads(
               Path(
@@ -112,10 +116,7 @@ jobs:
               (root / "confidence-report.json").read_text()
           )
           work_review = json.loads(
-              (
-                  root
-                  / "work-review/boundary-work-review-queue.json"
-              ).read_text()
+              (root / "work-review/boundary-work-review-queue.json").read_text()
           )
           ledger = json.loads(
               (root / "ledger/adjudication-ledger.json").read_text()
@@ -127,106 +128,125 @@ jobs:
               ).read_text()
           )
           expected = baseline["expected"]
+          dcts_ref = baseline["programRef"]
+          cognition_ref = "program:udg:doc-cognicion-aprendizaje"
 
+          # Historical T2BD baseline is retained verbatim.
           assert baseline["programAuthorityRevision"] == "2026-11-02.v34"
-          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 34
           assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
-          assert scope["policyRevision"] == "2026-11-02.v5"
           assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
-          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
+          assert baseline["workReviewPolicyRevision"] == "2026-11-02.urban-v1"
+
+          # The active batch follows the current shared work-review policy
+          # without changing any DCTS adjudication.
+          assert batch["originWorkReviewPolicyRevision"] == "2026-11-02.urban-v1"
+          assert batch["workReviewPolicyRevision"] == "2026-11-03.boundary-v2"
+          assert work_review["policyRevision"] == batch["workReviewPolicyRevision"]
+
+          assert registry["registryRevision"] == "2026-11-03.v44"
+          assert scope["policyRevision"] == "2026-11-02.v5"
           assert (
-              work_review["policyRevision"]
-              == baseline["workReviewPolicyRevision"]
+              confidence["programMetadataEvidenceRevision"]
+              == "2026-11-02.v5"
           )
 
-          authority = next(
-              p
-              for p in registry["programs"]
-              if p["id"] == baseline["programRef"]
+          dcts_authority = next(
+              p for p in registry["programs"] if p["id"] == dcts_ref
           )
-          assert authority["admissionState"] == "review"
-          assert authority["observedCount"] == 152
+          cognition_authority = next(
+              p for p in registry["programs"] if p["id"] == cognition_ref
+          )
+          assert dcts_authority["admissionState"] == "review"
+          assert dcts_authority["observedCount"] == 152
+          assert cognition_authority["admissionState"] == "review"
+          assert cognition_authority["observedCount"] == 4
 
           wr = expected["workReview"]
-          assert work_review["metrics"]["workItems"] == wr["works"]
-          assert (
-              work_review["metrics"]["projectedAdmission"]
-              == wr["projectedAdmission"]
+          assert work_review["metrics"]["programs"] == 2
+          assert work_review["metrics"]["workItems"] == wr["works"] + 4
+          assert work_review["metrics"]["projectedAdmission"] == {
+              "review": wr["works"] + 4
+          }
+          assert work_review["metrics"]["pendingPrimarySourceReview"] == (
+              wr["pendingPrimarySourceReview"] + 4
           )
-          assert (
-              work_review["metrics"]["pendingPrimarySourceReview"]
-              == wr["pendingPrimarySourceReview"]
-          )
-          assert (
-              work_review["metrics"]["automaticAdmissionDecisions"]
-              == wr["automaticAdmissionDecisions"]
-          )
-          assert (
-              work_review["metrics"]["admissionChanges"]
-              == wr["admissionChanges"]
+          assert work_review["metrics"]["automaticAdmissionDecisions"] == 0
+          assert work_review["metrics"]["admissionChanges"] == 0
+
+          dcts_work_items = [
+              item for item in work_review["items"]
+              if item["programRef"] == dcts_ref
+          ]
+          cognition_work_items = [
+              item for item in work_review["items"]
+              if item["programRef"] == cognition_ref
+          ]
+          assert len(dcts_work_items) == 152
+          assert len(cognition_work_items) == 4
+          assert all(
+              item["projectedAdmissionStatus"] == "review"
+              for item in dcts_work_items + cognition_work_items
           )
 
           pc = expected["programCuration"]
           metrics = curation["metrics"]
-          assert (
-              metrics["humanitiesActionQueueItems"]
-              == pc["humanitiesActionQueueItems"] - 29
+          # T2BQ removes one 4-work program from the program-level action lane.
+          assert metrics["humanitiesActionQueueItems"] == (
+              pc["humanitiesActionQueueItems"] - 30
           )
-          assert (
-              metrics["humanitiesActionWorks"]
-              == pc["humanitiesActionWorks"] - 421
+          assert metrics["humanitiesActionWorks"] == (
+              pc["humanitiesActionWorks"] - 425
           )
-          assert (
-              metrics["workReviewQueueItems"]
-              == pc["workReviewQueueItems"]
+          assert metrics["workReviewQueueItems"] == (
+              pc["workReviewQueueItems"] + 1
           )
-          assert (
-              metrics["workReviewWorks"]
-              == pc["workReviewWorks"]
+          assert metrics["workReviewWorks"] == (
+              pc["workReviewWorks"] + 4
           )
 
           dcts = next(
-              item
-              for item in curation["items"]
+              item for item in curation["items"]
               if item["normalizedKey"]
               == "doctorado en ciudad territorio y sustentabilidad"
           )
-          assert dcts["queueState"] == "review"
-          assert dcts["curationLane"] == "work-level-review"
+          cognition = next(
+              item for item in curation["items"]
+              if item["normalizedKey"]
+              == "doctorado en cognicion y aprendizaje"
+          )
+          for item in (dcts, cognition):
+              assert item["queueState"] == "review"
+              assert item["curationLane"] == "work-level-review"
+              assert item["workReview"]["policyRevision"] == (
+                  "2026-11-03.boundary-v2"
+              )
+              assert item["workReview"]["programLevelConclusion"] == (
+                  "program-level-scope-review-exhausted"
+              )
+              assert item["evidenceNeeds"] == [
+                  "work-level-primary-source-adjudication",
+                  "explicit-human-validation",
+              ]
+
           assert dcts["count"] == 152
-          assert dcts["workReview"]["policyRevision"] == (
-              baseline["workReviewPolicyRevision"]
-          )
-          assert dcts["workReview"]["programLevelConclusion"] == (
-              "program-level-scope-review-exhausted"
-          )
-          assert dcts["evidenceNeeds"] == [
-              "work-level-primary-source-adjudication",
-              "explicit-human-validation",
-          ]
+          assert cognition["count"] == 4
           assert all(
-              item["normalizedKey"]
-              != "doctorado en ciudad territorio y sustentabilidad"
+              item["normalizedKey"] not in {
+                  "doctorado en ciudad territorio y sustentabilidad",
+                  "doctorado en cognicion y aprendizaje",
+              }
               for item in curation["humanitiesActionItems"]
           )
-          assert len(curation["workReviewItems"]) == 1
-          assert (
-              curation["workReviewItems"][0]["normalizedKey"]
-              == "doctorado en ciudad territorio y sustentabilidad"
-          )
-
-          next_action = curation["nextHumanitiesAction"]
-          assert pc["nextHumanitiesActionKey"] == (
-              "maestria en conservacion del patrimonio edificado"
-          )
-          assert next_action["normalizedKey"] == (
-              "maestria en arquitectura orientacion arte y comunicacion"
-          )
-          assert next_action["count"] == 7
+          assert {
+              item["normalizedKey"] for item in curation["workReviewItems"]
+          } == {
+              "doctorado en ciudad territorio y sustentabilidad",
+              "doctorado en cognicion y aprendizaje",
+          }
 
           bl = expected["batchLedger"]
           assert ledger["batchId"] == baseline["batchId"]
-          assert ledger["programRef"] == baseline["programRef"]
+          assert ledger["programRef"] == dcts_ref
           assert ledger["metrics"]["batchWorks"] == bl["works"]
           assert (
               ledger["metrics"]["primarySourceAccess"]
@@ -240,14 +260,8 @@ jobs:
               ledger["metrics"]["candidateDecisions"]
               == bl["candidateDecisions"]
           )
-          assert (
-              ledger["metrics"]["humanValidation"]
-              == bl["humanValidation"]
-          )
-          assert (
-              ledger["metrics"]["admissionChanges"]
-              == bl["admissionChanges"]
-          )
+          assert ledger["metrics"]["humanValidation"] == bl["humanValidation"]
+          assert ledger["metrics"]["admissionChanges"] == bl["admissionChanges"]
           assert all(
               entry["projectedAdmissionStatus"] == "review"
               for entry in ledger["entries"]
@@ -270,33 +284,25 @@ jobs:
           )
 
           summary = {
-              "phase": baseline["phase"],
-              "programAuthorityRevision": registry["registryRevision"],
-              "scopePolicyRevision": scope["policyRevision"],
-              "programMetadataEvidenceRevision": confidence[
+              "phase": "T2BD-regression-under-T2BQ",
+              "currentProgramAuthorityRevision": registry["registryRevision"],
+              "currentScopePolicyRevision": scope["policyRevision"],
+              "currentMetadataConfidenceRevision": confidence[
                   "programMetadataEvidenceRevision"
               ],
-              "workReviewPolicyRevision": work_review["policyRevision"],
+              "currentWorkReviewPolicyRevision": work_review["policyRevision"],
+              "dctsWorkReviewWorks": len(dcts_work_items),
+              "cognitionWorkReviewWorks": len(cognition_work_items),
               "humanitiesActionQueueItems": metrics[
                   "humanitiesActionQueueItems"
               ],
-              "humanitiesActionWorks": metrics[
-                  "humanitiesActionWorks"
-              ],
-              "workReviewQueueItems": metrics[
-                  "workReviewQueueItems"
-              ],
+              "humanitiesActionWorks": metrics["humanitiesActionWorks"],
+              "workReviewQueueItems": metrics["workReviewQueueItems"],
               "workReviewWorks": metrics["workReviewWorks"],
-              "nextHumanitiesAction": next_action,
               "batchLedger": ledger["metrics"],
           }
           (root / "t2bd-summary.json").write_text(
-              json.dumps(
-                  summary,
-                  ensure_ascii=False,
-                  indent=2,
-                  sort_keys=True,
-              )
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True)
               + "\n"
           )
           print(json.dumps(summary, ensure_ascii=False, indent=2))
