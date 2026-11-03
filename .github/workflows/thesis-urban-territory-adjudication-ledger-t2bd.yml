@@ -191,11 +191,11 @@ jobs:
           pc = expected["programCuration"]
           metrics = curation["metrics"]
           # T2BD uses its own frozen historical observed-authorities snapshot.
-          # Under current V46 authority that snapshot projects to 8/16, while
-          # the canonical full-corpus T2BT queue is independently 7/15.
+          # V47 resolves the one-work Teoría/Crítica row in that snapshot.
+          # Its queue remains one item/work above canonical full T2BU (6/14).
           # Adjudication semantics and work-review counts remain unchanged.
-          assert metrics["humanitiesActionQueueItems"] == 8
-          assert metrics["humanitiesActionWorks"] == 16
+          assert metrics["humanitiesActionQueueItems"] == 7
+          assert metrics["humanitiesActionWorks"] == 15
           assert metrics["workReviewQueueItems"] == 3
           assert metrics["workReviewWorks"] == 180
 

@@ -247,14 +247,18 @@ jobs:
           ) == Counter(expected["suspiciousDateRaw"])
 
           by_id = {p["id"]: p for p in registry["programs"]}
-          # V43 resolved only historical MCA Urbanismo y Desarrollo.
-          # All other historical siblings remain REVIEW.
+          # Later phases resolve Urbanismo, Edificación and Teoría/Crítica independently.
+          # The frozen V41 sibling set remains an identity contract, not a current-state contract.
           for program_ref, works in expected["siblingReviewAuthorities"].items():
               expected_state = (
-                  "exclude" if program_ref in (
-                      "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
-                      "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
-                  ) else "review"
+                  "include"
+                  if program_ref == "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura"
+                  else (
+                      "exclude" if program_ref in (
+                          "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+                          "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
+                      ) else "review"
+                  )
               )
               assert by_id[program_ref]["admissionState"] == expected_state
               assert by_id[program_ref]["observedCount"] == works

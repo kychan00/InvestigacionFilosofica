@@ -628,9 +628,10 @@ jobs:
           # V44: MCA Edificación Arquitectónica REVIEW -> EXCLUDE (5).
           # V45: Didáctica Artes Escénicas REVIEW -> EXCLUDE (3).
           # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE (27).
+          # V47: MCA Teoría y Crítica de la Arquitectura REVIEW -> INCLUDE (1).
           assert report["globalProjectedAdmission"] == {
-              "include": 559,
-              "review": 195,
+              "include": 560,
+              "review": 194,
               "quarantine": 18971,
               "exclude": 7849,
               "reject-source": 2,
