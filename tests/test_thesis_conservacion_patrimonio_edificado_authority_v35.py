@@ -22,10 +22,14 @@ class ConservacionPatrimonioEdificadoAuthorityV35Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v35(self):
+    def test_v35_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v35",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            35,
         )
 
     def test_historical_conservation_is_exact_include(self):
@@ -70,7 +74,7 @@ class ConservacionPatrimonioEdificadoAuthorityV35Test(unittest.TestCase):
         self.assertEqual(history["admissionState"], "include")
         self.assertEqual(history["observedCount"], 4)
 
-    def test_scope_and_metadata_policies_stay_v4(self):
+    def test_v35_scope_baseline_is_preserved_under_scope_v5(self):
         metadata = canonical.load_program_metadata_evidence_policy()
         scope = json.loads(
             (
@@ -84,9 +88,10 @@ class ConservacionPatrimonioEdificadoAuthorityV35Test(unittest.TestCase):
             self.baseline["programMetadataEvidenceRevision"],
         )
         self.assertEqual(
-            scope["policyRevision"],
             self.baseline["scopePolicyRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(scope["policyRevision"], "2026-11-02.v5")
 
 
 if __name__ == "__main__":
