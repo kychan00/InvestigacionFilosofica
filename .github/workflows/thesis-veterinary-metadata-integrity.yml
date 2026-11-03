@@ -362,7 +362,7 @@ jobs:
           )
           assert (
               report["metrics"]["ruleMatches"].get(
-                  "riudg-mca-generic-orientation-period-unresolved-v1",
+                  "mca-generic-orientation-period-unresolved-v1",
                   0,
               )
               == 7

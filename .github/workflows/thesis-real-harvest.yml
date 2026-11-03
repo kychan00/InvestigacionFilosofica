@@ -824,7 +824,7 @@ jobs:
           )
           assert (
               by_rule.get(
-                  "riudg-mca-generic-orientation-period-unresolved-v1",
+                  "mca-generic-orientation-period-unresolved-v1",
                   0,
               )
               == 7
@@ -942,7 +942,7 @@ jobs:
           by_rule = report["metrics"]["ruleMatches"]
           assert (
               by_rule.get(
-                  "riudg-mca-generic-orientation-period-unresolved-v1",
+                  "mca-generic-orientation-period-unresolved-v1",
                   0,
               )
               == 7
