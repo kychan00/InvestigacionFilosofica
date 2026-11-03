@@ -1,0 +1,78 @@
+name: Thesis Estudios de Género adjudication T2BW
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json"
+      - "scripts/thesis/config/estudios-genero-adjudication-baseline-v1.json"
+      - "tests/test_thesis_estudios_genero_adjudication_t2bw.py"
+      - "docs/THESIS_ESTUDIOS_GENERO_ADJUDICATION_T2BW.md"
+      - ".github/workflows/thesis-estudios-genero-adjudication-t2bw.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Fetch frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/t2bw artifacts/t2bw
+          mkdir -p /tmp/t2bw artifacts/t2bw
+          gh api -H "Accept: application/vnd.github+json"             "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip"             > /tmp/t2bw.zip
+          unzip -q /tmp/t2bw.zip -d /tmp/t2bw
+
+      - name: Reproject current metadata confidence
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py             --canonical-corpus /tmp/t2bw/canonical-corpus.json.gz             --source-records /tmp/t2bw/source-records.jsonl.gz             --output-corpus artifacts/t2bw/confidence.json             --output-report artifacts/t2bw/confidence-report.json
+
+      - name: Discover exact Estudios de Género work
+        run: |
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+
+          root=Path("artifacts/t2bw")
+          corpus=json.loads((root/"confidence.json").read_text())
+          registry=canonical.load_program_registry()
+          projected,_=coverage.reproject_corpus(corpus,registry,reference_year=2026)
+          ref="program:udg:mae-estudios-genero"
+          items=[w for w in projected["works"] if w.get("programRef")==ref]
+          assert len(items)==1, len(items)
+          w=items[0]
+          payload={
+            "workId":w.get("id"),
+            "title":w.get("title"),
+            "programRef":w.get("programRef"),
+            "programRaw":w.get("programRaw"),
+            "academicUnitRaw":w.get("academicUnitRaw"),
+            "date":w.get("date"),
+            "admissionStatus":w.get("admissionStatus"),
+            "programMetadataEvidence":w.get("programMetadataEvidence"),
+            "persistentIdentifiers":w.get("persistentIdentifiers"),
+            "sourceRecordRefs":w.get("sourceRecordRefs"),
+            "contributors":w.get("contributions"),
+          }
+          (root/"target-work.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n")
+          print("T2BW_TARGET="+json.dumps(payload,ensure_ascii=False))
+          PY
+
+      - name: Upload discovery evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-estudios-genero-t2bw-discovery
+          path: artifacts/t2bw/target-work.json
+          retention-days: 14
