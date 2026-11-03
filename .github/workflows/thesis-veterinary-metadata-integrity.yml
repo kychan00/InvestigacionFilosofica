@@ -343,18 +343,29 @@ jobs:
           assert registry["registryRevision"] == "2026-11-02.v41"
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
-          assert (
-              report["programMetadataEvidenceRevision"]
-              == baseline["policyRevision"]
-              == "2026-11-02.v5"
+          assert baseline["policyRevision"] == "2026-11-02.v4"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v5"
+
+          expected_confidence = dict(baseline["expectedConfidenceStates"])
+          expected_confidence["low-trust"] += 7
+          expected_confidence["unassessed"] -= 7
+          expected_applicability = dict(
+              baseline["expectedAuthorityApplicability"]
           )
-          assert (
-              report["metrics"]["confidenceStates"]
-              == baseline["expectedConfidenceStates"]
-          )
+          expected_applicability["blocked"] += 7
+          expected_applicability["allowed"] -= 7
+
+          assert report["metrics"]["confidenceStates"] == expected_confidence
           assert (
               report["metrics"]["authorityApplicability"]
-              == baseline["expectedAuthorityApplicability"]
+              == expected_applicability
+          )
+          assert (
+              report["metrics"]["ruleMatches"].get(
+                  "riudg-mca-generic-orientation-period-unresolved-v1",
+                  0,
+              )
+              == 7
           )
 
           for rule_id, expected in baseline["expectedRules"].items():
