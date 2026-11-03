@@ -94,7 +94,7 @@ class GestionDesarrolloCulturalAuthorityV34Test(unittest.TestCase):
             self.baseline["programMetadataEvidenceRevision"],
         )
 
-    def test_scope_policy_stays_v4(self):
+    def test_v34_scope_baseline_is_preserved_under_scope_v5(self):
         scope = json.loads(
             (
                 ROOT
@@ -103,9 +103,10 @@ class GestionDesarrolloCulturalAuthorityV34Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(
-            scope["policyRevision"],
             self.baseline["scopePolicyRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(scope["policyRevision"], "2026-11-02.v5")
 
 
 if __name__ == "__main__":
