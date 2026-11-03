@@ -18,14 +18,14 @@ class DerechosHumanosWorkReviewTest(unittest.TestCase):
         cls.policy=json.loads((THESIS/"config"/"boundary-work-review-policy-v1.json").read_text())
         cls.ref="program:udg:doc-derechos-humanos"
     def test_authority_unchanged(self):
-        self.assertEqual(self.registry["registryRevision"],"2026-11-03.v44")
+        self.assertEqual(self.registry["registryRevision"],"2026-11-03.v47")
         p=next(p for p in self.registry["programs"] if p["id"]==self.ref)
         self.assertEqual(p["admissionState"],"review")
         self.assertEqual(p["observedCount"],24)
         self.assertEqual(p["observedThesisYears"],{"min":2021,"max":2025})
     def test_non_admissive_policy(self):
         work_review.validate_policy(self.policy)
-        self.assertEqual(self.policy["policyRevision"],"2026-11-03.boundary-v3")
+        self.assertEqual(self.policy["policyRevision"],"2026-11-03.boundary-v4")
         p=next(p for p in self.policy["programs"] if p["programRef"]==self.ref)
         self.assertEqual(p["requiredProgramAdmissionState"],"review")
         self.assertEqual(p["programLevelConclusion"],"program-level-scope-review-exhausted")
