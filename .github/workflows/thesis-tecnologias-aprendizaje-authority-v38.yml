@@ -155,7 +155,8 @@ jobs:
           )
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v38"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 38
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
           assert (
               confidence["programMetadataEvidenceRevision"]
@@ -222,9 +223,11 @@ jobs:
           )
           assert dict(suspicious_raw) == expected["suspiciousDateRaw"]
 
-          assert projection["projectedAdmission"] == expected[
-              "globalProjectedAdmission"
-          ]
+          expected_global = dict(expected["globalProjectedAdmission"])
+          # V39: Licenciatura en Historia del Arte REVIEW -> INCLUDE.
+          expected_global["review"] -= 2
+          expected_global["include"] += 2
+          assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           target_key = "maestria en tecnologias para el aprendizaje"
@@ -236,12 +239,12 @@ jobs:
               item["normalizedKey"] != target_key
               for item in queue["humanitiesActionItems"]
           )
-          assert queue["metrics"]["humanitiesActionQueueItems"] == expected[
-              "humanitiesActionQueueItems"
-          ]
-          assert queue["metrics"]["humanitiesActionWorks"] == expected[
-              "humanitiesActionWorks"
-          ]
+          assert queue["metrics"]["humanitiesActionQueueItems"] == (
+              expected["humanitiesActionQueueItems"] - 1
+          )
+          assert queue["metrics"]["humanitiesActionWorks"] == (
+              expected["humanitiesActionWorks"] - 2
+          )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
           ]
@@ -249,10 +252,11 @@ jobs:
               "workReviewWorks"
           ]
           next_action = queue["nextHumanitiesAction"]
-          assert next_action["normalizedKey"] == expected[
-              "nextHumanitiesActionKey"
-          ]
-          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+          assert expected["nextHumanitiesActionKey"] == "licenciatura en historia del arte"
+          assert next_action["normalizedKey"] == (
+              "maestria en ciencias de la arquitectura orientacion en conservacion del patrimonio edificado"
+          )
+          assert next_action["count"] == 10
 
           assert boundary["closureState"] == "closed"
           assert boundary["policyRevision"] == baseline["scopePolicyRevision"]
