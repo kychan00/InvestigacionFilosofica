@@ -22,10 +22,14 @@ class McaConservacionAuthorityV40Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v40(self):
+    def test_v40_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v40",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            40,
         )
 
     def test_all_exact_conservation_aliases_resolve_to_granular_include(self):
@@ -49,14 +53,14 @@ class McaConservacionAuthorityV40Test(unittest.TestCase):
                 )
                 self.assertEqual(resolved["admissionState"], "include")
 
-    def test_base_mca_remains_review_after_split(self):
+    def test_base_mca_current_authority_is_include_after_v41(self):
         base = next(
             p
             for p in self.registry["programs"]
             if p["id"] == self.baseline["baseProgramRef"]
         )
-        self.assertEqual(base["admissionState"], "review")
-        self.assertEqual(base["observedCount"], 61)
+        self.assertEqual(base["admissionState"], "include")
+        self.assertEqual(base["observedCount"], 34)
         self.assertFalse(
             any(
                 "conserv" in canonical.normalize_key(alias)
@@ -93,9 +97,10 @@ class McaConservacionAuthorityV40Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(
-            metadata["policyRevision"],
             self.baseline["programMetadataEvidenceRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(metadata["policyRevision"], "2026-11-02.v5")
         self.assertEqual(
             scope["policyRevision"],
             self.baseline["scopePolicyRevision"],
