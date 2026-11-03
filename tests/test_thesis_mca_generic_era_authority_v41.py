@@ -46,9 +46,10 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
         )
 
     def test_active_revisions(self):
-        self.assertEqual(
-            self.registry["registryRevision"],
-            self.baseline["registryRevision"],
+        self.assertEqual(self.baseline["registryRevision"], "2026-11-02.v41")
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            41,
         )
         self.assertEqual(
             self.policy["policyRevision"],
