@@ -70,9 +70,55 @@ jobs:
           print("T2BW_TARGET="+json.dumps(payload,ensure_ascii=False))
           PY
 
+      - name: Fetch and inspect official thesis PDF
+        run: |
+          set -euo pipefail
+          PDF="artifacts/t2bw/MCUCSH10741FT.pdf"
+          TXT="artifacts/t2bw/MCUCSH10741FT.txt"
+          URL="https://riudg.udg.mx/bitstream/20.500.12104/112718/1/MCUCSH10741FT.pdf"
+          curl -fL --retry 3 --retry-delay 2 "$URL" -o "$PDF"
+          file "$PDF"
+          test "$(head -c 4 "$PDF")" = "%PDF"
+          sha256sum "$PDF" | tee artifacts/t2bw/pdf-sha256.txt
+          if ! command -v pdftotext >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y poppler-utils
+          fi
+          pdfinfo "$PDF" | tee artifacts/t2bw/pdf-info.txt
+          pdftotext -layout "$PDF" "$TXT"
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          text=Path("artifacts/t2bw/MCUCSH10741FT.txt").read_text(encoding="utf-8",errors="replace")
+          lines=[x.strip() for x in text.splitlines() if x.strip()]
+          headings=[x for x in lines if re.search(r"^(INTRODUCCI[ÓO]N|CONCLUSI|CAP[IÍ]TULO|MARCO|METODOLOG|M[ÉE]TODO|RESULTADOS|REFERENCIAS|BIBLIOGRAF)",x,re.I)]
+          terms=["Bourdieu","Butler","Austin","Foucault","performativ","ideolog","violencia simb","discurso","poder","análisis de contenido","estadística descriptiva","entrevista","encuesta","lingüíst","socioling","glotopol"]
+          counts={term:len(re.findall(re.escape(term),text,re.I)) for term in terms}
+          def contexts(term,limit=2,radius=260):
+              out=[]
+              for m in list(re.finditer(re.escape(term),text,re.I))[:limit]:
+                  a=max(0,m.start()-radius); b=min(len(text),m.end()+radius)
+                  out.append(re.sub(r"\s+"," ",text[a:b]).strip())
+              return out
+          probe={
+            "characters":len(text),
+            "headings":headings[:120],
+            "termCounts":counts,
+            "contexts":{term:contexts(term) for term in terms if counts[term]},
+            "opening":re.sub(r"\s+"," ",text[:2500]).strip(),
+            "ending":re.sub(r"\s+"," ",text[-4000:]).strip(),
+          }
+          Path("artifacts/t2bw/primary-source-probe.json").write_text(json.dumps(probe,ensure_ascii=False,indent=2)+"\n")
+          print("T2BW_PDF_PROBE="+json.dumps(probe,ensure_ascii=False))
+          PY
+
       - name: Upload discovery evidence
         uses: actions/upload-artifact@v4
         with:
           name: thesis-estudios-genero-t2bw-discovery
-          path: artifacts/t2bw/target-work.json
+          path: |
+            artifacts/t2bw/target-work.json
+            artifacts/t2bw/pdf-sha256.txt
+            artifacts/t2bw/pdf-info.txt
+            artifacts/t2bw/primary-source-probe.json
           retention-days: 14
