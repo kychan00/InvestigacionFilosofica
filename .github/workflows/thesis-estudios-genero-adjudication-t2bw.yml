@@ -3,6 +3,7 @@ name: Thesis Estudios de Género adjudication T2BW
 on:
   pull_request:
     paths:
+      - "scripts/thesis/build_boundary_adjudication_ledger_v1.py"
       - "scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json"
       - "scripts/thesis/config/estudios-genero-adjudication-baseline-v1.json"
       - "tests/test_thesis_estudios_genero_adjudication_t2bw.py"
@@ -16,12 +17,17 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_estudios_genero_adjudication_t2bw.py" -v
+          python -m unittest discover -s tests -p "test_thesis_boundary_adjudication_ledger.py" -v
 
       - name: Fetch frozen full corpus
         env:
@@ -36,45 +42,40 @@ jobs:
         run: |
           python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py             --canonical-corpus /tmp/t2bw/canonical-corpus.json.gz             --source-records /tmp/t2bw/source-records.jsonl.gz             --output-corpus artifacts/t2bw/confidence.json             --output-report artifacts/t2bw/confidence-report.json
 
-      - name: Discover exact Estudios de Género work
+      - name: Build current work-review and program-curation surfaces
         run: |
+          python scripts/thesis/build_boundary_work_review_queue_v1.py             --canonical-corpus artifacts/t2bw/confidence.json             --reference-year 2026             --output-dir artifacts/t2bw/work-review
+
           python - <<'PY'
           import json,sys
           from pathlib import Path
           sys.path.insert(0,"scripts/thesis")
           import audit_program_coverage_v1 as coverage
           import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
 
           root=Path("artifacts/t2bw")
           corpus=json.loads((root/"confidence.json").read_text())
+          observed=json.loads(Path("/tmp/t2bw/observed-authorities.json").read_text())
           registry=canonical.load_program_registry()
-          projected,_=coverage.reproject_corpus(corpus,registry,reference_year=2026)
-          ref="program:udg:mae-estudios-genero"
-          items=[w for w in projected["works"] if w.get("programRef")==ref]
-          assert len(items)==1, len(items)
-          w=items[0]
-          payload={
-            "workId":w.get("id"),
-            "title":w.get("title"),
-            "programRef":w.get("programRef"),
-            "programRaw":w.get("programRaw"),
-            "academicUnitRaw":w.get("academicUnitRaw"),
-            "date":w.get("date"),
-            "admissionStatus":w.get("admissionStatus"),
-            "programMetadataEvidence":w.get("programMetadataEvidence"),
-            "persistentIdentifiers":w.get("persistentIdentifiers"),
-            "sourceRecordRefs":w.get("sourceRecordRefs"),
-            "contributors":w.get("contributions"),
-          }
-          (root/"target-work.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n")
-          print("T2BW_TARGET="+json.dumps(payload,ensure_ascii=False))
+          projected,projection=coverage.reproject_corpus(corpus,registry,reference_year=2026)
+          observed_projected=coverage.reproject_observed_authorities(
+              observed,projection["programDimensions"]
+          )
+          queue=curation.build_queue(observed_projected,projected,registry)
+          (root/"projected-corpus.json").write_text(
+              json.dumps(projected,ensure_ascii=False)
+          )
+          (root/"program-curation.json").write_text(
+              json.dumps(queue,ensure_ascii=False)
+          )
           PY
 
       - name: Fetch and inspect official thesis PDF
         run: |
           set -euo pipefail
-          PDF="artifacts/t2bw/MCUCSH10741FT.pdf"
-          TXT="artifacts/t2bw/MCUCSH10741FT.txt"
+          PDF="/tmp/MCUCSH10741FT.pdf"
+          TXT="/tmp/MCUCSH10741FT.txt"
           URL="https://riudg.udg.mx/bitstream/20.500.12104/112718/1/MCUCSH10741FT.pdf"
           curl -fL --retry 3 --retry-delay 2 "$URL" -o "$PDF"
           file "$PDF"
@@ -86,39 +87,179 @@ jobs:
           fi
           pdfinfo "$PDF" | tee artifacts/t2bw/pdf-info.txt
           pdftotext -layout "$PDF" "$TXT"
+
           python - <<'PY'
           import json,re
           from pathlib import Path
-          text=Path("artifacts/t2bw/MCUCSH10741FT.txt").read_text(encoding="utf-8",errors="replace")
-          lines=[x.strip() for x in text.splitlines() if x.strip()]
-          headings=[x for x in lines if re.search(r"^(INTRODUCCI[ÓO]N|CONCLUSI|CAP[IÍ]TULO|MARCO|METODOLOG|M[ÉE]TODO|RESULTADOS|REFERENCIAS|BIBLIOGRAF)",x,re.I)]
-          terms=["Bourdieu","Butler","Austin","Foucault","performativ","ideolog","violencia simb","discurso","poder","análisis de contenido","estadística descriptiva","entrevista","encuesta","lingüíst","socioling","glotopol"]
-          counts={term:len(re.findall(re.escape(term),text,re.I)) for term in terms}
-          def contexts(term,limit=2,radius=260):
-              out=[]
-              for m in list(re.finditer(re.escape(term),text,re.I))[:limit]:
-                  a=max(0,m.start()-radius); b=min(len(text),m.end()+radius)
-                  out.append(re.sub(r"\s+"," ",text[a:b]).strip())
-              return out
-          probe={
-            "characters":len(text),
-            "headings":headings[:120],
-            "termCounts":counts,
-            "contexts":{term:contexts(term) for term in terms if counts[term]},
-            "opening":re.sub(r"\s+"," ",text[:2500]).strip(),
-            "ending":re.sub(r"\s+"," ",text[-4000:]).strip(),
+          baseline=json.loads(
+              Path("scripts/thesis/config/estudios-genero-adjudication-baseline-v1.json").read_text()
+          )
+          text=Path("/tmp/MCUCSH10741FT.txt").read_text(
+              encoding="utf-8",errors="replace"
+          )
+          compact=re.sub(r"\s+"," ",text).lower()
+          required={
+              "department-of-letters":"departamento de letras",
+              "butler":"judith butler",
+              "bourdieu":"pierre bourdieu",
+              "foucault":"michel foucault",
+              "austin":"austin",
+              "gender-language":"lenguaje y su intersección con el género",
+              "performativity":"lenguaje como forma de performar",
+              "symbolic-violence":"violencia simbólica",
+              "discourse-power":"discursos en las relaciones de poder",
+              "content-analysis":"análisis de contenido",
+              "descriptive-statistics":"estadística descriptiva",
+              "interviews":"entrevistas",
+              "surveys":"encuestas",
           }
-          Path("artifacts/t2bw/primary-source-probe.json").write_text(json.dumps(probe,ensure_ascii=False,indent=2)+"\n")
-          print("T2BW_PDF_PROBE="+json.dumps(probe,ensure_ascii=False))
+          missing=[name for name,needle in required.items() if needle not in compact]
+          assert not missing,missing
+          sha=Path("artifacts/t2bw/pdf-sha256.txt").read_text().split()[0]
+          assert sha==baseline["primarySourceSha256"],sha
+          info=Path("artifacts/t2bw/pdf-info.txt").read_text()
+          assert "Pages:           219" in info,info
+          evidence={
+              "primarySourceSha256":sha,
+              "pages":219,
+              "textCharacters":len(text),
+              "requiredFulltextMarkers":required,
+              "allRequiredMarkersObserved":True,
+          }
+          Path("artifacts/t2bw/fulltext-evidence.json").write_text(
+              json.dumps(evidence,ensure_ascii=False,indent=2)+"\n"
+          )
+          print(json.dumps(evidence,ensure_ascii=False,indent=2))
           PY
 
-      - name: Upload discovery evidence
+      - name: Build T2BW adjudication ledger
+        run: |
+          python scripts/thesis/build_boundary_adjudication_ledger_v1.py             --work-review-queue artifacts/t2bw/work-review/boundary-work-review-queue.json             --batch scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json             --output-dir artifacts/t2bw/adjudication
+
+      - name: Validate full T2BW contract
+        run: |
+          python - <<'PY'
+          import json,sys
+          from collections import Counter
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root=Path("artifacts/t2bw")
+          baseline=json.loads(
+              Path("scripts/thesis/config/estudios-genero-adjudication-baseline-v1.json").read_text()
+          )
+          batch=json.loads(
+              Path("scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json").read_text()
+          )
+          registry=canonical.load_program_registry()
+          scope=json.loads(Path("scripts/thesis/config/scope-boundary-matrix-v1.json").read_text())
+          confidence=json.loads((root/"confidence-report.json").read_text())
+          corpus=json.loads((root/"projected-corpus.json").read_text())
+          curation=json.loads((root/"program-curation.json").read_text())
+          work_review=json.loads(
+              (root/"work-review/boundary-work-review-queue.json").read_text()
+          )
+          ledger=json.loads((root/"adjudication/adjudication-ledger.json").read_text())
+          fulltext=json.loads((root/"fulltext-evidence.json").read_text())
+          e=baseline["expected"]
+
+          assert registry["registryRevision"]==baseline["programAuthorityRevision"]
+          assert scope["policyRevision"]==baseline["scopePolicyRevision"]
+          assert confidence["programMetadataEvidenceRevision"]==baseline[
+              "programMetadataEvidenceRevision"
+          ]
+          assert work_review["policyRevision"]==baseline["workReviewPolicyRevision"]
+          assert batch["workReviewPolicyRevision"]==baseline["workReviewPolicyRevision"]
+
+          counts=dict(Counter(w["admissionStatus"] for w in corpus["works"]))
+          assert len(corpus["works"])==27576
+          assert counts==e["globalAdmission"],counts
+
+          selected=[w for w in corpus["works"] if w.get("id")==baseline["workId"]]
+          assert len(selected)==1
+          target=selected[0]
+          assert target["programRef"]==baseline["programRef"]
+          assert target["admissionStatus"]=="review"
+          assert target["academicUnitRaw"]=="CUCSH"
+          assert target["date"]["value"]==e["observedDate"]
+          pme=target["programMetadataEvidence"]
+          assert pme["authorityApplicability"]=="allowed"
+          assert pme["confidenceState"]=="unassessed"
+
+          wr=work_review["metrics"]
+          assert wr["programs"]==e["workReviewQueueItems"]
+          assert wr["workItems"]==e["workReviewWorks"]
+          assert wr["projectedAdmission"]=={"review":e["workReviewWorks"]}
+          assert wr["admissionChanges"]==0
+          assert wr["automaticAdmissionDecisions"]==0
+
+          cm=curation["metrics"]
+          for key in (
+              "humanitiesActionQueueItems","humanitiesActionWorks",
+              "humanitiesReadyQueueItems","humanitiesReadyWorks",
+              "evidenceHoldQueueItems","evidenceHoldWorks",
+              "workReviewQueueItems","workReviewWorks",
+          ):
+              assert cm[key]==e[key],(key,cm[key],e[key])
+          assert curation["nextHumanitiesReadyAction"] is None
+
+          assert ledger["metrics"]==e["ledger"],ledger["metrics"]
+          entry=ledger["entries"][0]
+          assert entry["workId"]==baseline["workId"]
+          assert entry["projectedAdmissionStatus"]=="review"
+          assert entry["adjudicationState"]=="candidate-proposed"
+          assert entry["candidateDecision"]=="include-candidate"
+          assert entry["humanValidationStatus"]=="pending-user-merge"
+          assert entry["admissionChangeRequested"] is False
+          assert entry["primarySourceSha256"]==baseline["primarySourceSha256"]
+          assert entry["primarySourcePages"]==e["primarySourcePages"]
+          assert fulltext["allRequiredMarkersObserved"] is True
+
+          authority=next(
+              p for p in registry["programs"]
+              if p["id"]==baseline["programRef"]
+          )
+          assert authority["admissionState"]=="review"
+          assert authority["observedCount"]==1
+
+          report={
+              "phase":"T2BW",
+              "decision":"include-candidate",
+              "admissionChanged":False,
+              "humanValidationStatus":"pending-user-merge",
+              "programAuthorityRevision":registry["registryRevision"],
+              "workReviewPolicyRevision":work_review["policyRevision"],
+              "workId":baseline["workId"],
+              "primarySourceSha256":fulltext["primarySourceSha256"],
+              "primarySourcePages":fulltext["pages"],
+              "globalAdmission":counts,
+              "programCuration":{k:cm[k] for k in (
+                  "humanitiesActionQueueItems","humanitiesActionWorks",
+                  "humanitiesReadyQueueItems","humanitiesReadyWorks",
+                  "evidenceHoldQueueItems","evidenceHoldWorks",
+                  "workReviewQueueItems","workReviewWorks",
+              )},
+              "ledgerMetrics":ledger["metrics"],
+          }
+          (root/"t2bw-report.json").write_text(
+              json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True)+"\n"
+          )
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Upload T2BW evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: thesis-estudios-genero-t2bw-discovery
+          name: thesis-estudios-genero-adjudication-t2bw
           path: |
-            artifacts/t2bw/target-work.json
+            artifacts/t2bw/t2bw-report.json
+            artifacts/t2bw/fulltext-evidence.json
             artifacts/t2bw/pdf-sha256.txt
             artifacts/t2bw/pdf-info.txt
-            artifacts/t2bw/primary-source-probe.json
+            artifacts/t2bw/adjudication/adjudication-ledger.json
+            artifacts/t2bw/adjudication/adjudication-ledger.csv
+            artifacts/t2bw/adjudication/adjudication-ledger.md
+          if-no-files-found: warn
           retention-days: 14
