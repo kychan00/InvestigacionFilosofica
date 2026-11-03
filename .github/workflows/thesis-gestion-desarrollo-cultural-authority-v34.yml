@@ -136,10 +136,8 @@ jobs:
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 34
           assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
           assert scope["policyRevision"] == "2026-11-02.v5"
-          assert (
-              confidence["programMetadataEvidenceRevision"]
-              == baseline["programMetadataEvidenceRevision"]
-          )
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           target = next(
@@ -240,6 +238,10 @@ jobs:
           # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["review"] -= 35
           expected_global["include"] += 35
+          # V41: generic MCA safe-era records resolve; ambiguous items quarantine.
+          expected_global["review"] -= 34
+          expected_global["include"] += 27
+          expected_global["quarantine"] += 7
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -254,17 +256,17 @@ jobs:
           )
           assert (
               queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"] - 19
+              == expected["humanitiesActionQueueItems"] - 20
           )
           assert (
               queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"] - 510
+              == expected["humanitiesActionWorks"] - 544
           )
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
-              "maestria en ciencias de la arquitectura"
+              "maestria en arquitectura orientacion arte y comunicacion"
           )
-          assert next_action["count"] == 34
+          assert next_action["count"] == 7
           assert queue["metrics"]["workReviewQueueItems"] == 1
           assert queue["metrics"]["workReviewWorks"] == 152
 
