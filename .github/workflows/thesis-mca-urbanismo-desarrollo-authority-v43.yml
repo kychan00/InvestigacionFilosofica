@@ -106,8 +106,11 @@ jobs:
           expected_global["review"]-=5
           expected_global["exclude"]+=5
           # V45: Didáctica de las Artes / Artes Escénicas REVIEW -> EXCLUDE.
-          expected_global["review"]-=3
-          expected_global["exclude"]+=3
+          expected_global["review"] -= 3
+          expected_global["exclude"] += 3
+          # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE.
+          expected_global["review"] -= 27
+          expected_global["exclude"] += 27
           assert overall==expected_global,overall
           target=[w for w in corpus["works"] if w.get("programRef")==baseline["programRef"]]
           assert len(target)==e["works"],len(target)
@@ -143,12 +146,12 @@ jobs:
 
           m=queue["metrics"]
           current={
-              "humanitiesActionQueueItems":8,
-              "humanitiesActionWorks":42,
+              "humanitiesActionQueueItems":7,
+              "humanitiesActionWorks":15,
               "evidenceHoldQueueItems":5,
               "evidenceHoldWorks":13,
-              "humanitiesReadyQueueItems":3,
-              "humanitiesReadyWorks":29,
+              "humanitiesReadyQueueItems":2,
+              "humanitiesReadyWorks":2,
               "workReviewQueueItems":3,
               "workReviewWorks":180,
           }
