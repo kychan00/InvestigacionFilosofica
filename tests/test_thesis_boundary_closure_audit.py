@@ -62,8 +62,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
 
         self.assertEqual(audit["closureState"], "closed")
         self.assertEqual(audit["metrics"]["boundaryRows"], 3)
-        self.assertEqual(audit["metrics"]["boundaryProgramKeys"], 4)
-        self.assertEqual(audit["metrics"]["confirmedAuthorities"], 4)
+        self.assertEqual(audit["metrics"]["boundaryProgramKeys"], 3)
+        self.assertEqual(audit["metrics"]["confirmedAuthorities"], 3)
         self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
         self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
         self.assertEqual(audit["metrics"]["violations"], 0)
@@ -424,7 +424,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         education = next(
             item
             for item in registry["programs"]
-            if item["id"] == "program:udg:mae-investigacion-educativa"
+            if item["id"] == "program:udg:doc-cognicion-aprendizaje"
         )
         education["observedCount"] += 1
 
@@ -442,7 +442,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         )
 
         self.assertEqual(audit["closureState"], "open")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 192)
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 158)
         self.assertIn(
             "boundary-observed-works-mismatch",
             {item["code"] for item in audit["violations"]},
@@ -453,7 +453,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         education = next(
             item
             for item in registry["programs"]
-            if item["id"] == "program:udg:mae-investigacion-educativa"
+            if item["id"] == "program:udg:doc-cognicion-aprendizaje"
         )
         education["admissionState"] = "include"
 
