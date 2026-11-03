@@ -1,0 +1,360 @@
+name: Thesis MCA Generic Era Authority V41
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/program-metadata-evidence-confidence-v1.json"
+      - "scripts/thesis/config/mca-generic-era-authority-v41-baseline-v1.json"
+      - "scripts/thesis/config/scope-boundary-matrix-v1.json"
+      - "scripts/thesis/config/boundary-closure-contract-v5.json"
+      - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
+      - "scripts/thesis/audit_program_coverage_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/build_scope_boundary_matrix_v1.py"
+      - "scripts/thesis/audit_boundary_closure_v1.py"
+      - "tests/test_thesis_mca_generic_era_authority_v41.py"
+      - "tests/test_thesis_canonical_corpus.py"
+      - "tests/test_thesis_program_metadata_evidence_confidence.py"
+      - "tests/test_thesis_program_coverage_audit.py"
+      - "tests/test_thesis_program_curation_queue.py"
+      - "docs/THESIS_MCA_GENERIC_ERA_AUTHORITY_V41.md"
+      - ".github/workflows/thesis-mca-generic-era-authority-v41.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_mca_generic_era_authority_v41.py" -v
+          python -m unittest discover -s tests -p "test_thesis_canonical_corpus.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_metadata_evidence_confidence.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_coverage_audit.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Download frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-full-baseline artifacts/thesis-mca-generic-era-v41
+          mkdir -p /tmp/thesis-full-baseline artifacts/thesis-mca-generic-era-v41
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-full-baseline.zip
+          unzip -q /tmp/thesis-full-baseline.zip -d /tmp/thesis-full-baseline
+
+      - name: Reproject Metadata Confidence V5
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-full-baseline/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-full-baseline/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-mca-generic-era-v41/canonical-confidence.json \
+            --output-report artifacts/thesis-mca-generic-era-v41/confidence-report.json
+
+      - name: Reproject Program Authority V41 and Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+
+          root = Path("artifacts/thesis-mca-generic-era-v41")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-full-baseline/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+
+          projected, projection = coverage.reproject_corpus(
+              corpus,
+              registry,
+              reference_year=2026,
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed,
+              projection["programDimensions"],
+          )
+          queue = curation.build_queue(
+              projected_observed,
+              projected,
+              registry,
+          )
+
+          for name, value in (
+              ("canonical-v41.json", projected),
+              ("observed-v41.json", projected_observed),
+              ("projection-v41.json", projection),
+              ("queue-v41.json", queue),
+          ):
+              (root / name).write_text(
+                  json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+              )
+          PY
+
+      - name: Build Scope Boundary Matrix V5
+        run: |
+          python scripts/thesis/build_scope_boundary_matrix_v1.py \
+            --observed-authorities artifacts/thesis-mca-generic-era-v41/observed-v41.json \
+            --canonical-corpus artifacts/thesis-mca-generic-era-v41/canonical-v41.json \
+            --output-dir artifacts/thesis-mca-generic-era-v41/scope
+
+      - name: Build Boundary Closure V5
+        run: |
+          python scripts/thesis/audit_boundary_closure_v1.py \
+            --scope-report artifacts/thesis-mca-generic-era-v41/scope/scope-boundary-matrix.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v5.json \
+            --output-dir artifacts/thesis-mca-generic-era-v41/boundary
+
+      - name: Validate V41 full-corpus invariants
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root = Path("artifacts/thesis-mca-generic-era-v41")
+          baseline = json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "mca-generic-era-authority-v41-baseline-v1.json"
+              ).read_text()
+          )
+          registry = canonical.load_program_registry()
+          corpus = json.loads((root / "canonical-v41.json").read_text())
+          projection = json.loads((root / "projection-v41.json").read_text())
+          queue = json.loads((root / "queue-v41.json").read_text())
+          confidence = json.loads((root / "confidence-report.json").read_text())
+          scope = json.loads(
+              (root / "scope" / "scope-boundary-matrix.json").read_text()
+          )
+          boundary = json.loads(
+              (root / "boundary" / "boundary-closure-audit.json").read_text()
+          )
+          expected = baseline["expected"]
+
+          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert confidence["programMetadataEvidenceRevision"] == baseline[
+              "programMetadataEvidenceRevision"
+          ]
+          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert len(corpus["works"]) == 27576
+
+          authority = next(
+              p for p in registry["programs"]
+              if p["id"] == baseline["programRef"]
+          )
+          assert authority["admissionState"] == "include"
+          assert authority["observedCount"] == expected["genericWorks"]
+
+          selected = [
+              w for w in corpus["works"]
+              if w.get("programRef") == baseline["programRef"]
+          ]
+          assert len(selected) == expected["genericWorks"]
+          assert Counter(
+              w.get("admissionStatus") for w in selected
+          ) == Counter(expected["genericAdmission"])
+          assert Counter(
+              (w.get("programMetadataEvidence") or {}).get("confidenceState")
+              for w in selected
+          ) == Counter(expected["genericConfidenceStates"])
+          assert Counter(
+              (w.get("programMetadataEvidence") or {}).get("authorityApplicability")
+              for w in selected
+          ) == Counter(expected["genericAuthorityApplicability"])
+          assert Counter(
+              w.get("academicUnitRaw") for w in selected
+          ) == Counter(expected["academicUnits"])
+          assert Counter(
+              w.get("programRaw") for w in selected
+          ) == Counter(expected["rawProgramVariants"])
+
+          quality = Counter(
+              (w.get("date") or {}).get("quality") for w in selected
+          )
+          assert dict(quality) == expected["dateQuality"]
+
+          included = [
+              w for w in selected
+              if w.get("admissionStatus") == "include"
+          ]
+          included_years = sorted(
+              int(str((w.get("date") or {}).get("value"))[:4])
+              for w in included
+          )
+          assert len(included) == expected["safeEraValidWorks"]
+          assert included_years[0] == expected["safeEraObservedYears"]["min"]
+          assert included_years[-1] == expected["safeEraObservedYears"]["max"]
+
+          blocked = [
+              w for w in selected
+              if (w.get("programMetadataEvidence") or {}).get(
+                  "authorityApplicability"
+              ) == "blocked"
+          ]
+          assert len(blocked) == expected["blockedWorks"]
+          blocked_ids = sorted(
+              (w.get("programMetadataEvidence") or {})
+              .get("evidence", {})
+              .get("providerRecordId")
+              for w in blocked
+          )
+          assert blocked_ids == sorted(expected["blockedProviderRecordIds"])
+          assert {
+              (w.get("programMetadataEvidence") or {}).get("matchedRuleId")
+              for w in blocked
+          } == {baseline["metadataRuleId"]}
+
+          pre2003 = [
+              w for w in blocked
+              if (w.get("date") or {}).get("quality") == "valid"
+          ]
+          assert len(pre2003) == expected["pre2003ValidWorks"]
+          assert all(
+              int(str((w.get("date") or {}).get("value"))[:4]) < 2003
+              for w in pre2003
+          )
+          suspicious = [
+              w for w in blocked
+              if (w.get("date") or {}).get("quality") == "suspicious"
+          ]
+          assert len(suspicious) == 1
+          assert Counter(
+              (w.get("date") or {}).get("raw") for w in suspicious
+          ) == Counter(expected["suspiciousDateRaw"])
+
+          by_id = {p["id"]: p for p in registry["programs"]}
+          for program_ref, works in expected["siblingReviewAuthorities"].items():
+              assert by_id[program_ref]["admissionState"] == "review"
+              assert by_id[program_ref]["observedCount"] == works
+
+          assert projection["projectedAdmission"] == expected[
+              "globalProjectedAdmission"
+          ]
+          assert sum(projection["projectedAdmission"].values()) == 27576
+
+          assert confidence["metrics"]["confidenceStates"] == expected[
+              "globalMetadataConfidenceStates"
+          ]
+          assert confidence["metrics"]["authorityApplicability"] == expected[
+              "globalAuthorityApplicability"
+          ]
+          assert confidence["metrics"]["ruleMatches"][baseline["metadataRuleId"]] == 7
+
+          generic_key = "maestria en ciencias de la arquitectura"
+          generic_item = next(
+              item for item in queue["items"]
+              if item["normalizedKey"] == generic_key
+          )
+          assert generic_item["queueState"] == expected["genericQueueState"]
+          assert generic_item["curationLane"] == expected["genericCurationLane"]
+          assert generic_item["programMetadataEvidence"]["blockedWorks"] == 7
+          assert all(
+              item["normalizedKey"] != generic_key
+              for item in queue["humanitiesActionItems"]
+          )
+
+          assert queue["metrics"]["humanitiesActionQueueItems"] == expected[
+              "humanitiesActionQueueItems"
+          ]
+          assert queue["metrics"]["humanitiesActionWorks"] == expected[
+              "humanitiesActionWorks"
+          ]
+          assert queue["metrics"]["workReviewQueueItems"] == expected[
+              "workReviewQueueItems"
+          ]
+          assert queue["metrics"]["workReviewWorks"] == expected[
+              "workReviewWorks"
+          ]
+          next_action = queue["nextHumanitiesAction"]
+          assert next_action["normalizedKey"] == expected[
+              "nextHumanitiesActionKey"
+          ]
+          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+
+          assert boundary["closureState"] == "closed"
+          assert boundary["metrics"]["boundaryRows"] == expected[
+              "boundaryReviewRows"
+          ]
+          assert boundary["metrics"]["boundaryProgramKeys"] == expected[
+              "boundaryReviewProgramKeys"
+          ]
+          assert boundary["metrics"]["authorityObservedWorks"] == expected[
+              "boundaryReviewWorks"
+          ]
+          assert boundary["metrics"]["admissionStates"] == expected[
+              "boundaryReviewStates"
+          ]
+          assert boundary["metrics"]["violations"] == 0
+
+          summary = {
+              "registryRevision": registry["registryRevision"],
+              "scopePolicyRevision": scope["policyRevision"],
+              "programMetadataEvidenceRevision": confidence[
+                  "programMetadataEvidenceRevision"
+              ],
+              "mcaGenericWorks": len(selected),
+              "mcaGenericAdmission": dict(
+                  Counter(w.get("admissionStatus") for w in selected)
+              ),
+              "mcaGenericConfidence": dict(
+                  Counter(
+                      (w.get("programMetadataEvidence") or {}).get("confidenceState")
+                      for w in selected
+                  )
+              ),
+              "globalProjectedAdmission": projection["projectedAdmission"],
+              "globalMetadataConfidenceStates": confidence["metrics"][
+                  "confidenceStates"
+              ],
+              "globalAuthorityApplicability": confidence["metrics"][
+                  "authorityApplicability"
+              ],
+              "humanitiesActionQueueItems": queue["metrics"][
+                  "humanitiesActionQueueItems"
+              ],
+              "humanitiesActionWorks": queue["metrics"][
+                  "humanitiesActionWorks"
+              ],
+              "workReviewQueueItems": queue["metrics"][
+                  "workReviewQueueItems"
+              ],
+              "workReviewWorks": queue["metrics"]["workReviewWorks"],
+              "nextHumanitiesAction": next_action,
+          }
+          (root / "v41-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload V41 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-mca-generic-era-authority-v41
+          path: artifacts/thesis-mca-generic-era-v41/
+          if-no-files-found: error
+          retention-days: 14
