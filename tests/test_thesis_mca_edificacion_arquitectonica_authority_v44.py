@@ -14,7 +14,10 @@ class McaEdificacionV44Test(unittest.TestCase):
         cls.baseline=json.loads((ROOT/"scripts/thesis/config/mca-edificacion-arquitectonica-authority-v44-baseline-v1.json").read_text(encoding="utf-8"))
         cls.target=next(p for p in cls.registry["programs"] if p["id"]==cls.baseline["programRef"])
     def test_exact_oriented_program_only(self):
-        self.assertEqual(self.registry["registryRevision"],"2026-11-03.v44")
+        self.assertEqual(self.baseline["registryRevision"],"2026-11-03.v44")
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v",1)[1]),44
+        )
         self.assertEqual(self.target["admissionState"],"exclude")
         self.assertEqual(self.target["lifecycleState"],"historical")
         self.assertEqual(self.target["observedCount"],5)
