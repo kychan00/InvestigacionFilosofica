@@ -190,19 +190,12 @@ jobs:
 
           pc = expected["programCuration"]
           metrics = curation["metrics"]
-          # T2BQ removes one 4-work program from the program-level action lane.
-          assert metrics["humanitiesActionQueueItems"] == (
-              pc["humanitiesActionQueueItems"] - 31
-          )
-          assert metrics["humanitiesActionWorks"] == (
-              pc["humanitiesActionWorks"] - 449
-          )
-          assert metrics["workReviewQueueItems"] == (
-              pc["workReviewQueueItems"] + 2
-          )
-          assert metrics["workReviewWorks"] == (
-              pc["workReviewWorks"] + 28
-          )
+          # Current program queue after T2BR, V45 and T2BT/V46.
+          # Historical pc remains frozen; adjudication semantics stay unchanged.
+          assert metrics["humanitiesActionQueueItems"] == 7
+          assert metrics["humanitiesActionWorks"] == 15
+          assert metrics["workReviewQueueItems"] == 3
+          assert metrics["workReviewWorks"] == 180
 
           dcts = next(
               item for item in curation["items"]

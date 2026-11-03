@@ -264,14 +264,8 @@ jobs:
               item["normalizedKey"] != target_key
               for item in queue["humanitiesActionItems"]
           )
-          assert (
-              queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"] - 37
-          )
-          assert (
-              queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"] - 698
-          )
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 7
+          assert queue["metrics"]["humanitiesActionWorks"] == 15
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
               "maestria en arquitectura orientacion arte y comunicacion"
