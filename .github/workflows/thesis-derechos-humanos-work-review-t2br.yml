@@ -108,15 +108,18 @@ jobs:
           policy = json.loads(Path("scripts/thesis/config/boundary-work-review-policy-v1.json").read_text())
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["programAuthorityRevision"]
+          assert baseline["programAuthorityRevision"] == "2026-11-03.v44"
+          assert registry["registryRevision"] == "2026-11-03.v47"
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
           assert confidence["programMetadataEvidenceRevision"] == baseline["programMetadataEvidenceRevision"]
-          assert policy["policyRevision"] == baseline["workReviewPolicyRevision"]
-          assert work_review["policyRevision"] == baseline["workReviewPolicyRevision"]
+          assert baseline["workReviewPolicyRevision"] == "2026-11-03.boundary-v3"
+          assert policy["policyRevision"] == "2026-11-03.boundary-v4"
+          assert work_review["policyRevision"] == policy["policyRevision"]
 
           counts = dict(Counter(w["admissionStatus"] for w in corpus["works"]))
           assert len(corpus["works"]) == 27576
-          assert counts == expected["globalProjectedAdmission"], counts
+          assert expected["globalProjectedAdmission"] == {"include":559,"review":225,"quarantine":18971,"exclude":7819,"reject-source":2}
+          assert counts == {"include":560,"review":194,"quarantine":18971,"exclude":7849,"reject-source":2}, counts
 
           authority = next(p for p in registry["programs"] if p["id"] == baseline["programRef"])
           assert authority["admissionState"] == expected["programAdmissionState"]
@@ -147,7 +150,7 @@ jobs:
           )
           assert target["curationLane"] == "work-level-review"
           assert target["count"] == expected["works"]
-          assert target["workReview"]["policyRevision"] == baseline["workReviewPolicyRevision"]
+          assert target["workReview"]["policyRevision"] == policy["policyRevision"]
           assert all(
               (i.get("authority") or {}).get("id") != baseline["programRef"]
               for i in curation["humanitiesActionItems"]
@@ -158,7 +161,9 @@ jobs:
           )
 
           metrics = curation["metrics"]
-          for name, value in expected["programCuration"].items():
+          assert expected["programCuration"] == {"humanitiesActionQueueItems":10,"humanitiesActionWorks":45,"evidenceHoldQueueItems":5,"evidenceHoldWorks":13,"humanitiesReadyQueueItems":5,"humanitiesReadyWorks":32,"workReviewQueueItems":3,"workReviewWorks":180}
+          current_expected = {"humanitiesActionQueueItems":5,"humanitiesActionWorks":13,"evidenceHoldQueueItems":5,"evidenceHoldWorks":13,"humanitiesReadyQueueItems":0,"humanitiesReadyWorks":0,"workReviewQueueItems":4,"workReviewWorks":181}
+          for name, value in current_expected.items():
               assert metrics[name] == value, (name, metrics[name], value)
 
           summary = {

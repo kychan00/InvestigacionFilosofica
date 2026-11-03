@@ -267,15 +267,15 @@ jobs:
               item["normalizedKey"] != target_key
               for item in queue["humanitiesActionItems"]
           )
-          assert queue["metrics"]["humanitiesActionQueueItems"] == 6
-          assert queue["metrics"]["humanitiesActionWorks"] == 14
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 5
+          assert queue["metrics"]["humanitiesActionWorks"] == 13
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
               "maestria en arquitectura orientacion arte y comunicacion"
           )
           assert next_action["count"] == 7
-          assert queue["metrics"]["workReviewQueueItems"] == 3
-          assert queue["metrics"]["workReviewWorks"] == 180
+          assert queue["metrics"]["workReviewQueueItems"] == 4
+          assert queue["metrics"]["workReviewWorks"] == 181
 
           summary = {
               "registryRevision": registry["registryRevision"],

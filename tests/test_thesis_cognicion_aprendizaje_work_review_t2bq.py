@@ -44,7 +44,7 @@ class CognicionAprendizajeWorkReviewT2BQTest(unittest.TestCase):
         )
 
     def test_program_authority_remains_v44_review(self):
-        self.assertEqual(self.registry["registryRevision"], "2026-11-03.v44")
+        self.assertEqual(self.registry["registryRevision"], "2026-11-03.v47")
         authority = next(p for p in self.registry["programs"] if p["id"] == self.ref)
         self.assertEqual(authority["admissionState"], "review")
         self.assertEqual(authority["observedCount"], 4)

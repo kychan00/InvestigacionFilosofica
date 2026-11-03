@@ -266,15 +266,15 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 34
+              expected["humanitiesActionQueueItems"] - 35
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 475
+              expected["humanitiesActionWorks"] - 476
           )
           assert queue["metrics"]["workReviewQueueItems"] == (
-              expected["workReviewQueueItems"] + 2
+              expected["workReviewQueueItems"] + 3
           )
-          assert queue["metrics"]["workReviewWorks"] == expected["workReviewWorks"] + 28
+          assert queue["metrics"]["workReviewWorks"] == expected["workReviewWorks"] + 29
           assert queue["metrics"]["gateIneligibleGroupsOmitted"] >= (
               expected["externalInstitutionGroupsOmitted"]
           )

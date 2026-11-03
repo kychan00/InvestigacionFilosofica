@@ -108,20 +108,20 @@ jobs:
           assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
           assert baseline["workReviewPolicyRevision"] == "2026-11-02.urban-v1"
 
-          assert registry["registryRevision"] == "2026-11-03.v44"
+          assert registry["registryRevision"] == "2026-11-03.v47"
           assert scope["policyRevision"] == "2026-11-02.v5"
           assert (
               confidence["programMetadataEvidenceRevision"]
               == "2026-11-02.v5"
           )
-          assert policy["policyRevision"] == "2026-11-03.boundary-v3"
+          assert policy["policyRevision"] == "2026-11-03.boundary-v4"
           assert queue["policyRevision"] == policy["policyRevision"]
           assert queue["decisionConstraint"] == (
               "boundary-work-review-does-not-change-admission"
           )
           assert {
               item["programRef"] for item in policy["programs"]
-          } == {dcts_ref, cognition_ref, "program:udg:doc-derechos-humanos"}
+          } == {dcts_ref, cognition_ref, "program:udg:doc-derechos-humanos", "program:udg:mae-estudios-genero"}
 
           dcts_authority = next(
               p for p in registry["programs"] if p["id"] == dcts_ref
@@ -137,8 +137,8 @@ jobs:
           # The shared queue now has two REVIEW programs, but the historical
           # DCTS cohort contract remains exact.
           metrics = queue["metrics"]
-          assert metrics["programs"] == 3
-          assert metrics["workItems"] == expected["works"] + 28
+          assert metrics["programs"] == 4
+          assert metrics["workItems"] == expected["works"] + 29
           assert metrics["projectedAdmission"] == {
               "review": expected["works"] + 28
           }
@@ -237,6 +237,7 @@ jobs:
           ]
           assert len(cognition_items) == 4
           assert len([i for i in queue["items"] if i["programRef"] == "program:udg:doc-derechos-humanos"]) == 24
+          assert len([i for i in queue["items"] if i["programRef"] == "program:udg:mae-estudios-genero"]) == 1
           assert all(
               item["projectedAdmissionStatus"] == "review"
               for item in cognition_items
