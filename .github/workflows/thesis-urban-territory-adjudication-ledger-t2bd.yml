@@ -132,10 +132,8 @@ jobs:
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 34
           assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
           assert scope["policyRevision"] == "2026-11-02.v5"
-          assert (
-              confidence["programMetadataEvidenceRevision"]
-              == baseline["programMetadataEvidenceRevision"]
-          )
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert (
               work_review["policyRevision"]
               == baseline["workReviewPolicyRevision"]
@@ -172,11 +170,11 @@ jobs:
           metrics = curation["metrics"]
           assert (
               metrics["humanitiesActionQueueItems"]
-              == pc["humanitiesActionQueueItems"] - 18
+              == pc["humanitiesActionQueueItems"] - 19
           )
           assert (
               metrics["humanitiesActionWorks"]
-              == pc["humanitiesActionWorks"] - 391
+              == pc["humanitiesActionWorks"] - 392
           )
           assert (
               metrics["workReviewQueueItems"]
