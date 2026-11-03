@@ -117,12 +117,14 @@ jobs:
           keys={norm(s) for s in selected["aliases"]}
           variants=dict(Counter(w["programRaw"] for w in target))
           assert len(variants)==e["exactRawVariantCount"],variants
+          assert variants==e["rawProgramVariants"],variants
           assert {norm(v) for v in variants}<=keys,variants
           groups=dict(Counter({
               norm(raw):sum(n for name,n in variants.items() if norm(name)==norm(raw))
               for raw in variants
           }))
           assert len(groups)==e["normalizedProgramGroupCount"],groups
+          assert groups==e["normalizedProgramGroups"],groups
           years=sorted(
               int(str((w.get("date") or {}).get("value"))[:4])
               for w in target if (w.get("date") or {}).get("quality")=="valid"
@@ -154,6 +156,9 @@ jobs:
           ready=queue["nextHumanitiesReadyAction"]
           assert ready is not None
           assert (ready.get("authority") or {}).get("id")!=baseline["programRef"]
+          assert ready["normalizedKey"]==e["nextHumanitiesReadyAction"]["normalizedKey"]
+          assert ready["count"]==e["nextHumanitiesReadyAction"]["works"]
+          assert ready["authority"]["id"]==e["nextHumanitiesReadyAction"]["programRef"]
 
           report={
               "phase":"T2BO","registryRevision":registry["registryRevision"],

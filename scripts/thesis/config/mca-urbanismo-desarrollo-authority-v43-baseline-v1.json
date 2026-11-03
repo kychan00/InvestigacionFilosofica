@@ -53,6 +53,21 @@
     "independence": {
       "name": "Maestría en Urbanismo y Desarrollo",
       "dgpOrientation": "511598"
+    },
+    "rawProgramVariants": {
+      "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo": 6,
+      "Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo": 1
+    },
+    "normalizedProgramGroups": {
+      "maestria en arquitectura orientacion urbanismo y desarrollo": 6,
+      "maestria en arquitectura orientacion en urbanismo y desarrollo": 1,
+      "maestria en ciencias de la arquitectura orientacion urbanismo y desarrollo": 1
+    },
+    "nextHumanitiesReadyAction": {
+      "normalizedKey": "maestria en arquitectura orientacion edificacion arquitectonica",
+      "works": 2,
+      "programRef": "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
     }
   },
   "invariants": [

@@ -69,6 +69,17 @@ con una identidad administrativa y disciplinaria distinta.
 **8 REVIEW → EXCLUDE**, sobre sus alias exactos observados,
 CUAAD, **2000–2006**.
 
+El full congelado verificó **tres variantes textuales y tres claves
+normalizadas**, todos los registros con `authorityApplicability=allowed`:
+
+- `Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo`: **6**;
+- `Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo`: **1**;
+- `Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo`: **1**.
+
+No se incorporan otros nombres de Urbanismo o Arquitectura por semejanza.
+Las frecuencias se prueban en V43 como contrato exacto.
+
+
 Esta decisión no afirma haber recuperado el plan completo original
 I/99/722 con materias y anexos; el fundamento es la especialidad
 identificada directamente por documentos oficiales, la adscripción
@@ -106,3 +117,11 @@ El baseline y las pruebas automatizadas deben demostrar
 `8/8` authority applicability, distribución de alias,
 años, ausencia de interferencias con orientaciones vecinas y
 ausencia de variaciones en las políticas o total de corpus.
+
+## Continuidad
+
+El nuevo `nextHumanitiesReadyAction`, observado tras V43, apunta a la
+**orientación histórica Edificación Arquitectónica** de la MCA:
+`program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica`.
+Primer grupo: **2 tesis**, en REVIEW; autoridad completa: **5**.
+Su decisión necesita una auditoría propia, sin heredar la exclusión de Urbanismo.
