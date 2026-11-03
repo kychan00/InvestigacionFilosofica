@@ -617,7 +617,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         self.assertEqual(resolved["admissionState"], "exclude")
 
-    def test_doctorado_cognicion_aprendizaje_v10_moves_to_scope_review(self):
+    def test_doctorado_cognicion_aprendizaje_t2bq_moves_to_work_level_review(self):
         observed = {
             "programs": [
                 {
@@ -653,7 +653,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(payload["metrics"]["queueItems"], 1)
         item = payload["items"][0]
         self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(item["curationLane"], "work-level-review")
         self.assertEqual(
             item["authority"]["id"],
             "program:udg:doc-cognicion-aprendizaje",

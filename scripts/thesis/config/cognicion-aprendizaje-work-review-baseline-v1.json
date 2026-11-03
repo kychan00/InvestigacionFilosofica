@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "thesis-cognicion-aprendizaje-work-review-baseline-v1",
+  "phase": "T2BQ",
+  "programAuthorityRevision": "2026-11-03.v44",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v2",
+  "programRef": "program:udg:doc-cognicion-aprendizaje",
+  "canonicalName": "Doctorado en Cognición y Aprendizaje",
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 4,
+    "programAdmissionState": "review",
+    "projectedAdmission": {
+      "review": 4
+    },
+    "blockedWorks": 0,
+    "allowedWorks": 4,
+    "unassessedWorks": 4,
+    "academicUnits": {
+      "CUCSH": 4
+    },
+    "handleAvailable": 4,
+    "validDateWorks": 4,
+    "observedValidYears": {
+      "min": 2022,
+      "max": 2022
+    },
+    "pendingPrimarySourceReview": 4,
+    "automaticAdmissionDecisions": 0,
+    "admissionChanges": 0,
+    "globalProjectedAdmission": {
+      "include": 559,
+      "review": 225,
+      "quarantine": 18971,
+      "exclude": 7819,
+      "reject-source": 2
+    },
+    "programCuration": {
+      "humanitiesActionQueueItems": 11,
+      "humanitiesActionWorks": 69,
+      "evidenceHoldQueueItems": 5,
+      "evidenceHoldWorks": 13,
+      "humanitiesReadyQueueItems": 6,
+      "humanitiesReadyWorks": 56,
+      "workReviewQueueItems": 2,
+      "workReviewWorks": 156
+    }
+  },
+  "invariants": [
+    "program-authority-v44-remains-unchanged",
+    "doctorado-cognicion-aprendizaje-remains-review",
+    "scope-policy-v5-remains-unchanged",
+    "metadata-confidence-v5-remains-unchanged",
+    "program-level-binary-decision-is-exhausted",
+    "four-works-move-to-work-level-primary-source-review",
+    "title-abstract-keywords-llm-and-embeddings-are-not-sufficient-for-admission",
+    "queue-routing-does-not-change-admission"
+  ]
+}

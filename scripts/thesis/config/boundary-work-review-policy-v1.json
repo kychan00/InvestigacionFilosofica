@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-boundary-work-review-policy-v1",
-  "policyRevision": "2026-11-02.urban-v1",
+  "policyRevision": "2026-11-03.boundary-v2",
   "targetScope": "humanities-only",
   "decisionConstraint": "boundary-work-review-does-not-change-admission",
   "programs": [
@@ -45,6 +45,48 @@
         "https://inciudades.cuaad.udg.mx/estructura-curricular",
         "https://mpegpau.cuaad.udg.mx/informacion-general/mision--vision",
         "https://dcts.cuaad.udg.mx/images/dcts/CONVOCATORIAS/Convocatoria%202026.pdf"
+      ]
+    },
+    {
+      "programRef": "program:udg:doc-cognicion-aprendizaje",
+      "canonicalName": "Doctorado en Cognición y Aprendizaje",
+      "requiredProgramAdmissionState": "review",
+      "resolutionMode": "work-level-primary-source-adjudication",
+      "programLevelConclusion": "program-level-scope-review-exhausted",
+      "workDecisionStates": [
+        "pending-primary-source-review",
+        "include-candidate",
+        "exclude-candidate",
+        "retain-review"
+      ],
+      "requiredDecisionEvidence": [
+        "official-thesis-fulltext-or-front-matter",
+        "work-specific-institutional-record-when-available",
+        "human-review-of-research-object-method-and-disciplinary-framing"
+      ],
+      "supportingOnlyEvidence": [
+        "title",
+        "abstract",
+        "keywords",
+        "semantic-similarity",
+        "embedding",
+        "language-model-classification"
+      ],
+      "prohibitedAsSoleDecisionBasis": [
+        "title",
+        "abstract",
+        "keywords",
+        "semantic-similarity",
+        "embedding",
+        "language-model-classification",
+        "academic-unit-alone",
+        "program-name-alone"
+      ],
+      "admissionInvariant": "review-until-explicit-work-decision",
+      "evidence": [
+        "https://www.cucsh.udg.mx/doctorados/doctorado-en-cognicion-y-aprendizaje",
+        "https://www.udg.mx/oferta-academica/doctorado-en-cognicion-y-aprendizaje",
+        "https://www.cucsh.udg.mx/sites/default/files/2026-01/convocatoria-2026-2029-version-acualizada-1.pdf"
       ]
     }
   ]
