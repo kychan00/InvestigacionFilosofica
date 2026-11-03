@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "thesis-mca-teoria-critica-authority-v47-baseline-v1",
+  "phase": "T2BU",
+  "registryRevision": "2026-11-03.v47",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "sourceFullArtifactId": 13099541204,
+  "programRef": "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura",
+  "expected": {
+    "works": 1,
+    "priorAdmission": {
+      "review": 1
+    },
+    "projectedAdmission": {
+      "include": 1
+    },
+    "academicUnits": {
+      "CUAAD": 1
+    },
+    "observedYears": {
+      "min": 2001,
+      "max": 2001
+    },
+    "allowedWorks": 1,
+    "blockedWorks": 0,
+    "unassessedWorks": 1,
+    "exactRawVariantCount": 1,
+    "normalizedProgramGroupCount": 1,
+    "rawProgramVariants": {
+      "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura": 1
+    },
+    "normalizedProgramGroups": {
+      "maestria en arquitectura orientacion teoria y critica de la arquitectura": 1
+    },
+    "globalProjectedAdmission": {
+      "include": 560,
+      "review": 194,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 6,
+    "humanitiesActionWorks": 14,
+    "evidenceHoldQueueItems": 5,
+    "evidenceHoldWorks": 13,
+    "humanitiesReadyQueueItems": 1,
+    "humanitiesReadyWorks": 1,
+    "workReviewQueueItems": 3,
+    "workReviewWorks": 180,
+    "neighbors": {
+      "baseMca": {
+        "ref": "program:udg:mae-ciencias-arquitectura",
+        "state": "include",
+        "works": 34
+      },
+      "arteComunicacion": {
+        "ref": "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
+        "state": "review",
+        "works": 13
+      },
+      "urbanismo": {
+        "ref": "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+        "state": "exclude",
+        "works": 8
+      },
+      "edificacion": {
+        "ref": "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica",
+        "state": "exclude",
+        "works": 5
+      },
+      "historia": {
+        "ref": "program:udg:mae-ciencias-arquitectura-historia-arquitectura-mexicana",
+        "state": "include",
+        "works": 16
+      },
+      "conservacion": {
+        "ref": "program:udg:mae-ciencias-arquitectura-conservacion-patrimonio-edificado",
+        "state": "include",
+        "works": 35
+      }
+    }
+  },
+  "invariants": [
+    "teoria-critica-is-a-separate-historical-orientation-not-a-fuzzy-alias-of-generic-mca",
+    "humanities-admission-follows-explicit-theory-history-criticism-program-identity-not-thesis-title",
+    "historical-official-reports-establish-the-orientation-as-a-formal-terminal-area",
+    "current-theories-and-histories-humanities-continuity-is-supporting-not-sole-historical-proof",
+    "generic-mca-and-all-sibling-orientations-retain-their-independent-authority-states",
+    "scope-policy-v5-and-metadata-confidence-v5-unchanged",
+    "dcts-cognition-and-human-rights-work-review-lanes-unchanged"
+  ]
+}

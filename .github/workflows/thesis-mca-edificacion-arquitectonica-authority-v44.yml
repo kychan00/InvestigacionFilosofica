@@ -107,6 +107,9 @@ jobs:
           # T2BT/V46 resolves 27 Educación y Expresión para las Artes works.
           expected_global["review"]-=27
           expected_global["exclude"]+=27
+          # T2BU/V47: MCA Teoría y Crítica de la Arquitectura REVIEW -> INCLUDE.
+          expected_global["review"]-=1
+          expected_global["include"]+=1
           assert overall==expected_global,overall
           sel=[w for w in corpus["works"] if w.get("programRef")==b["programRef"]]
           assert len(sel)==e["works"],len(sel)
@@ -128,20 +131,24 @@ jobs:
           years=sorted(int(str((w.get("date") or {}).get("value"))[:4]) for w in sel if (w.get("date") or {}).get("quality")=="valid")
           assert years and years[0]==e["observedYears"]["min"] and years[-1]==e["observedYears"]["max"]
           for a in variants: assert canonical.resolve_program(a,registry)["programRef"]==b["programRef"]
-          for spec in e["siblings"].values():
+          for name,spec in e["siblings"].items():
               sibling=next(p for p in registry["programs"] if p["id"]==spec["ref"])
-              assert sibling["admissionState"]==spec["state"]
+              expected_state="include" if name=="teoriaCritica" else spec["state"]
+              assert sibling["admissionState"]==expected_state
               items=[w for w in corpus["works"] if w.get("programRef")==spec["ref"]]
               assert len(items)==spec["works"] and sibling["observedCount"]==spec["works"]
-              assert all(w["admissionStatus"]==spec["state"] for w in items)
+              assert all(w["admissionStatus"]==expected_state for w in items)
+          assert e["siblings"]["teoriaCritica"]["state"]=="review"
+          teoria=next(p for p in registry["programs"] if p["id"]==e["siblings"]["teoriaCritica"]["ref"])
+          assert "T2BU/V47" in teoria["decisionNote"]
           m=queue["metrics"]
           current={
-              "humanitiesActionQueueItems":7,
-              "humanitiesActionWorks":15,
+              "humanitiesActionQueueItems":6,
+              "humanitiesActionWorks":14,
               "evidenceHoldQueueItems":5,
               "evidenceHoldWorks":13,
-              "humanitiesReadyQueueItems":2,
-              "humanitiesReadyWorks":2,
+              "humanitiesReadyQueueItems":1,
+              "humanitiesReadyWorks":1,
               "workReviewQueueItems":3,
               "workReviewWorks":180,
           }

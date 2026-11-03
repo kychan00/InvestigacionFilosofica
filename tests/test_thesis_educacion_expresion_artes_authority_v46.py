@@ -12,7 +12,8 @@ class EducacionExpresionArtesV46Test(unittest.TestCase):
   cls.baseline=json.loads((ROOT/"scripts/thesis/config/educacion-expresion-artes-authority-v46-baseline-v1.json").read_text())
   cls.target=next(p for p in cls.registry["programs"] if p["id"]==cls.baseline["programRef"])
  def test_exact_program_excluded(self):
-  self.assertEqual(self.registry["registryRevision"],"2026-11-03.v46")
+  self.assertEqual(self.baseline["registryRevision"],"2026-11-03.v46")
+  self.assertGreaterEqual(int(self.registry["registryRevision"].rsplit(".v",1)[1]),46)
   self.assertEqual(self.target["admissionState"],"exclude")
   self.assertEqual(self.target["lifecycleState"],"active")
   self.assertEqual(self.target["observedCount"],27)

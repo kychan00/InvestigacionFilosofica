@@ -36,10 +36,14 @@ class McaEdificacionV44Test(unittest.TestCase):
             self.assertNotEqual(canonical.resolve_program(raw,self.registry).get("programRef"),self.target["id"])
     def test_siblings_stay_distinct(self):
         siblings=self.baseline["expected"]["siblings"]
-        for spec in siblings.values():
+        for name,spec in siblings.items():
             p=next(p for p in self.registry["programs"] if p["id"]==spec["ref"])
-            self.assertEqual(p["admissionState"],spec["state"])
+            expected_state = "include" if name=="teoriaCritica" else spec["state"]
+            self.assertEqual(p["admissionState"],expected_state)
             self.assertEqual(p["observedCount"],spec["works"])
+        self.assertEqual(siblings["teoriaCritica"]["state"],"review")
+        teoria=next(p for p in self.registry["programs"] if p["id"]==siblings["teoriaCritica"]["ref"])
+        self.assertIn("T2BU/V47",teoria["decisionNote"])
         holds=json.loads((ROOT/"scripts/thesis/config/program-evidence-holds-v1.json").read_text())
         self.assertEqual(len(holds["holds"]),1)
         self.assertEqual(holds["holds"][0]["programRef"],siblings["arteComunicacion"]["ref"])

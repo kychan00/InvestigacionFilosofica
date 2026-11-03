@@ -775,13 +775,19 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             with self.subTest(raw=raw):
                 resolved = thesis.resolve_program(raw, self.registry)
                 self.assertEqual(resolved["programRef"], program_ref)
-                self.assertEqual(
-                    resolved["admissionState"],
-                    "exclude" if program_ref in (
-                        "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
-                        "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
-                    ) else "review",
+                expected_state = (
+                    "include"
+                    if program_ref == "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura"
+                    else (
+                        "exclude"
+                        if program_ref in (
+                            "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+                            "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica",
+                        )
+                        else "review"
+                    )
                 )
+                self.assertEqual(resolved["admissionState"], expected_state)
 
     def test_generic_didactica_de_las_artes_remains_unknown(self):
         resolved = thesis.resolve_program(

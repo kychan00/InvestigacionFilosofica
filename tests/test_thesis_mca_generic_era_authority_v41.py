@@ -163,7 +163,7 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
         )
         self.assertEqual(candidate["admission"]["status"], "include")
 
-    def test_historical_explicit_orientations_are_distinct_review(self):
+    def test_historical_explicit_orientations_remain_distinct_across_later_decisions(self):
         fixtures = {
             "Maestría En Arquitectura; Orientacion Arte Y Comunicacion":
                 "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
@@ -178,13 +178,19 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
             with self.subTest(raw=raw):
                 resolved = canonical.resolve_program(raw, self.registry)
                 self.assertEqual(resolved["programRef"], expected_ref)
-                self.assertEqual(
-                    resolved["admissionState"],
-                    "exclude" if expected_ref in (
-                        "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
-                        "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
-                    ) else "review",
+                expected_state = (
+                    "include"
+                    if expected_ref == "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura"
+                    else (
+                        "exclude"
+                        if expected_ref in (
+                            "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+                            "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica",
+                        )
+                        else "review"
+                    )
                 )
+                self.assertEqual(resolved["admissionState"], expected_state)
 
     def test_scope_policy_stays_v5(self):
         scope = json.loads(

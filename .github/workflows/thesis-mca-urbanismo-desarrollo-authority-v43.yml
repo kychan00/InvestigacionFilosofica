@@ -111,6 +111,9 @@ jobs:
           # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE.
           expected_global["review"] -= 27
           expected_global["exclude"] += 27
+          # V47: MCA Teoría y Crítica de la Arquitectura REVIEW -> INCLUDE.
+          expected_global["review"] -= 1
+          expected_global["include"] += 1
           assert overall==expected_global,overall
           target=[w for w in corpus["works"] if w.get("programRef")==baseline["programRef"]]
           assert len(target)==e["works"],len(target)
@@ -146,12 +149,12 @@ jobs:
 
           m=queue["metrics"]
           current={
-              "humanitiesActionQueueItems":7,
-              "humanitiesActionWorks":15,
+              "humanitiesActionQueueItems":6,
+              "humanitiesActionWorks":14,
               "evidenceHoldQueueItems":5,
               "evidenceHoldWorks":13,
-              "humanitiesReadyQueueItems":2,
-              "humanitiesReadyWorks":2,
+              "humanitiesReadyQueueItems":1,
+              "humanitiesReadyWorks":1,
               "workReviewQueueItems":3,
               "workReviewWorks":180,
           }
@@ -162,11 +165,15 @@ jobs:
           for name in ("siblingArteComunicacion","siblingTeoriaCritica"):
               contract=e[name]
               p=next(p for p in registry["programs"] if p["id"]==contract["programRef"])
-              assert p["admissionState"]==contract["admissionState"]
+              expected_state="include" if name=="siblingTeoriaCritica" else contract["admissionState"]
+              assert p["admissionState"]==expected_state
               assert p["observedCount"]==contract["works"]
               remaining=[w for w in corpus["works"] if w.get("programRef")==p["id"]]
               assert len(remaining)==contract["works"]
-              assert all(w["admissionStatus"]==contract["admissionState"] for w in remaining)
+              assert all(w["admissionStatus"]==expected_state for w in remaining)
+          assert e["siblingTeoriaCritica"]["admissionState"]=="review"
+          teoria=next(p for p in registry["programs"] if p["id"]==e["siblingTeoriaCritica"]["programRef"])
+          assert "T2BU/V47" in teoria["decisionNote"]
           assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
           ready=queue["nextHumanitiesReadyAction"]
           assert ready is not None
