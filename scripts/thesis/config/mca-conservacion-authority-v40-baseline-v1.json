@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "thesis-mca-conservacion-authority-v40-baseline-v1",
+  "phase": "T2BJ",
+  "registryRevision": "2026-11-02.v40",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "sourceFullArtifactId": 13099541204,
+  "sourceV39ArtifactId": 13197239528,
+  "programRef": "program:udg:mae-ciencias-arquitectura-conservacion-patrimonio-edificado",
+  "baseProgramRef": "program:udg:mae-ciencias-arquitectura",
+  "historicalStandaloneRef": "program:udg:mae-conservacion-patrimonio-edificado-historica",
+  "historyOrientationRef": "program:udg:mae-ciencias-arquitectura-historia-arquitectura-mexicana",
+  "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación en Conservación del Patrimonio Edificado",
+  "expected": {
+    "works": 35,
+    "blockedWorks": 0,
+    "unassessedWorks": 35,
+    "allowedWorks": 35,
+    "academicUnits": {
+      "CUAAD": 35
+    },
+    "admissionStatuses": {
+      "include": 35
+    },
+    "dateQuality": {
+      "valid": 31,
+      "suspicious": 1,
+      "unknown": 3
+    },
+    "observedYears": {
+      "min": 1998,
+      "max": 2015
+    },
+    "rawProgramVariants": {
+      "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado": 8,
+      "Maestría En Ciencias De La Arquitectura. Orientación En Conservación Del Patrimonio Edificado": 6,
+      "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado": 5,
+      "Maestría En Ciencias De La Arquitectura Orientación En Conservación De Patrimonio Edificado": 4,
+      "Maestría En Ciencias De La Arquitectura Orientación Conservación Del Patrimonio Edificado": 2,
+      "Maestría En Ciencias De La Arquitectura Orientación En Conservación Del Patrimonio Edificado": 2,
+      "Maestría En Ciencias De La Arquitectura. Orientación: Conservación Del Patrimonio Edificado": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientacion En Conservacion Del Patrimonio Edificado": 1,
+      "Maestría En Ciencias De La Arquitectura Conservación Del Patrimonio Edificado": 1,
+      "Maestría En Ciencias De La Arquitectura Con Orientación A La Conservación Del Patrimonio Edificado": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientación En Conservación Del Patrimonio Edificado": 1,
+      "Maestría En Ciencias De La Arquitectura Y Orientación En Conservación Del Patrimonio Edificado": 1,
+      "Maestría En Ciencias De La Arquitectura, Con Orientación En Conservación De Patrimonio Edificado": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientación A La Conservación Del Patrimonio Edificado": 1
+    },
+    "normalizedProgramGroups": {
+      "maestria en ciencias de la arquitectura orientacion en conservacion del patrimonio edificado": 10,
+      "maestria en ciencias de la arquitectura con orientacion en conservacion del patrimonio edificado": 8,
+      "maestria en ciencias de la arquitectura orientacion conservacion del patrimonio edificado": 3,
+      "maestria en arquitectura conservacion del patrimonio edificado": 5,
+      "maestria en ciencias de la arquitectura orientacion en conservacion de patrimonio edificado": 4,
+      "maestria en ciencias de la arquitectura conservacion del patrimonio edificado": 1,
+      "maestria en ciencias de la arquitectura con orientacion a la conservacion del patrimonio edificado": 1,
+      "maestria en ciencias de la arquitectura con orientacion en conservacion de patrimonio edificado": 1,
+      "maestria en ciencias de la arquitectura orientacion a la conservacion del patrimonio edificado": 1,
+      "maestria en ciencias de la arquitectura y orientacion en conservacion del patrimonio edificado": 1
+    },
+    "baseProgramWorks": 61,
+    "baseProgramAdmission": {
+      "review": 61
+    },
+    "historicalStandaloneWorks": 5,
+    "historyOrientationWorks": 16,
+    "globalProjectedAdmission": {
+      "include": 532,
+      "review": 288,
+      "quarantine": 18964,
+      "exclude": 7790,
+      "reject-source": 2
+    },
+    "boundaryReviewRows": 3,
+    "boundaryReviewProgramKeys": 3,
+    "boundaryReviewWorks": 157,
+    "boundaryReviewStates": {
+      "review": 3
+    },
+    "humanitiesActionQueueItems": 23,
+    "humanitiesActionWorks": 136,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "nextHumanitiesActionKey": "maestria en ciencias de la arquitectura",
+    "nextHumanitiesActionWorks": 34
+  },
+  "invariants": [
+    "decision-is-program-orientation-level-not-thesis-topic-level",
+    "all-explicit-conservation-orientation-aliases-resolve-to-one-granular-authority",
+    "base-mca-remains-review",
+    "historical-standalone-conservation-remains-distinct",
+    "history-orientation-remains-distinct",
+    "scope-policy-v5-remains-unchanged",
+    "metadata-confidence-v4-remains-unchanged",
+    "boundary-closure-v5-remains-3-programs-157-works",
+    "dcts-work-review-remains-1-program-152-works",
+    "0000-date-remains-suspicious-not-historical-evidence"
+  ]
+}
