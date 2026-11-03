@@ -1125,15 +1125,17 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             {"resolved": 21},
         )
 
-    def test_tecnologias_aprendizaje_moves_to_scope_review(self):
+    def test_tecnologias_aprendizaje_v38_is_resolved_exclude(self):
         observed = {
             "programs": [{
                 "normalizedKey": "maestria en tecnologias para el aprendizaje",
                 "count": 266,
                 "variants": {"Maestría en Tecnologías para el Aprendizaje": 266},
                 "providers": {"riudg": 266},
-                "admissionStatuses": {"quarantine": 266},
-                "programRefs": {},
+                "admissionStatuses": {"review": 266},
+                "programRefs": {
+                    "program:udg:mae-tecnologias-aprendizaje": 266
+                },
             }]
         }
         corpus = {
@@ -1142,26 +1144,21 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
                 "academicUnitRaw": "CUCEA",
                 "date": {"value": "2025", "quality": "valid"},
                 "thesisTypeRaw": "Tesis de Maestría",
-                "admissionStatus": "review",
+                "admissionStatus": "exclude",
+                "programRef": "program:udg:mae-tecnologias-aprendizaje",
             }]
         }
 
         payload = queue.build_queue(observed, corpus, self.registry)
 
-        self.assertEqual(payload["metrics"]["queueItems"], 1)
-        self.assertEqual(payload["metrics"]["allProgramStates"], {"review": 1})
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(payload["metrics"]["allProgramStates"], {"resolved": 1})
         self.assertEqual(
             payload["metrics"]["worksByProgramState"],
-            {"review": 266},
+            {"resolved": 266},
         )
-        item = payload["items"][0]
-        self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
-        self.assertEqual(
-            item["authority"]["id"],
-            "program:udg:mae-tecnologias-aprendizaje",
-        )
-        self.assertEqual(item["authority"]["admissionState"], "review")
+        self.assertEqual(payload["humanitiesActionItems"], [])
+        self.assertIsNone(payload["nextHumanitiesAction"])
 
     def test_gate_ineligible_program_group_is_omitted_from_queue(self):
         observed = {

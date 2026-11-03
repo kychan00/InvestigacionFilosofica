@@ -217,7 +217,7 @@ class ThesisOutsideScopeClosureAuditTest(unittest.TestCase):
         self.assertEqual(audit["closureState"], "closed")
         self.assertEqual(audit["metrics"]["authorityObservedWorks"], 277)
 
-    def test_tecnologias_aprendizaje_review_does_not_reopen_social_sciences(self):
+    def test_tecnologias_aprendizaje_v38_exclude_does_not_reopen_social_sciences(self):
         report = self.empty_scope_report()
         audit = closure.build_audit(
             report,
@@ -225,12 +225,12 @@ class ThesisOutsideScopeClosureAuditTest(unittest.TestCase):
             self.scope_config,
             self.contract,
         )
-        reviewed = canonical.resolve_program(
+        resolved = canonical.resolve_program(
             "Maestría en Tecnologías para el Aprendizaje",
             self.registry,
         )
-        self.assertEqual(reviewed["status"], "confirmed")
-        self.assertEqual(reviewed["admissionState"], "review")
+        self.assertEqual(resolved["status"], "confirmed")
+        self.assertEqual(resolved["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
         self.assertEqual(audit["metrics"]["authorityObservedWorks"], 277)
 

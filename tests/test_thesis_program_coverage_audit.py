@@ -1081,7 +1081,7 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             {"resolved": 1},
         )
 
-    def test_tecnologias_aprendizaje_v23_reprojects_to_review(self):
+    def test_tecnologias_aprendizaje_v38_reprojects_to_exclude(self):
         observed = {
             "schemaVersion": "fixture",
             "programs": [{
@@ -1115,13 +1115,14 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             top=10,
         )
 
-        self.assertEqual(result["metrics"]["projectedAdmission"], {"review": 1})
-        self.assertEqual(result["metrics"]["programStateWorks"], {"review": 1})
-        self.assertEqual(result["metrics"]["programQueue"]["queueItems"], 1)
+        self.assertEqual(result["metrics"]["projectedAdmission"], {"exclude": 1})
+        self.assertEqual(result["metrics"]["programStateWorks"], {"exclude": 1})
+        self.assertEqual(result["metrics"]["programQueue"]["queueItems"], 0)
         self.assertEqual(
-            result["topReviewGroups"][0]["normalizedKey"],
-            "maestria en tecnologias para el aprendizaje",
+            result["metrics"]["programQueue"]["allProgramStates"],
+            {"resolved": 1},
         )
+        self.assertEqual(result["topReviewGroups"], [])
 
     def test_build_audit_separates_resolved_programs_from_gate_admission(self):
         observed = {

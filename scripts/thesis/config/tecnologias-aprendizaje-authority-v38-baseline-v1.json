@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "thesis-tecnologias-aprendizaje-authority-v38-baseline-v1",
+  "phase": "T2BH",
+  "registryRevision": "2026-11-02.v38",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:mae-tecnologias-aprendizaje",
+  "canonicalName": "Maestría en Tecnologías para el Aprendizaje",
+  "admissionState": "exclude",
+  "sourceFullArtifactId": 13099541204,
+  "sourceV37ArtifactId": 13194898003,
+  "expected": {
+    "works": 266,
+    "blockedWorks": 0,
+    "unassessedWorks": 266,
+    "allowedWorks": 266,
+    "academicUnits": {
+      "CUCEA": 173,
+      "CUVALLES": 64,
+      "CUCOSTA": 29
+    },
+    "validDateWorks": 260,
+    "suspiciousDateWorks": 4,
+    "unknownDateWorks": 2,
+    "observedYears": {
+      "min": 2004,
+      "max": 2026
+    },
+    "suspiciousDateRaw": {
+      "1969-12-31": 2,
+      "2107-06-14": 1,
+      "2107-12-15": 1
+    },
+    "rawProgramVariants": {
+      "MAESTRIA EN TECNOLOGIAS PARA EL APRENDIZAJE": 146,
+      "MAESTRIA EN TECNOLOGÍAS PARA EL APRENDIZAJE": 13,
+      "Maestría en Tecnologias para el Aprendizaje": 3,
+      "Maestría en Tecnologías para el Aprendizaje": 104
+    },
+    "admissionStatuses": {
+      "exclude": 266
+    },
+    "globalProjectedAdmission": {
+      "include": 495,
+      "review": 325,
+      "quarantine": 18964,
+      "exclude": 7790,
+      "reject-source": 2
+    },
+    "boundaryReviewRows": 3,
+    "boundaryReviewProgramKeys": 3,
+    "boundaryReviewWorks": 157,
+    "boundaryReviewStates": {
+      "review": 3
+    },
+    "humanitiesActionQueueItems": 34,
+    "humanitiesActionWorks": 173,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "nextHumanitiesActionKey": "licenciatura en historia del arte",
+    "nextHumanitiesActionWorks": 2,
+    "siblingEducation": {
+      "program:udg:doc-educacion": {
+        "works": 73,
+        "admissionState": "exclude"
+      },
+      "program:udg:mae-investigacion-educativa": {
+        "works": 34,
+        "admissionState": "exclude"
+      },
+      "program:udg:doc-cognicion-aprendizaje": {
+        "works": 4,
+        "admissionState": "review"
+      }
+    }
+  },
+  "invariants": [
+    "decision-is-program-level-not-thesis-topic-level",
+    "mta-resolves-exclude-under-humanities-only",
+    "all-266-mta-works-are-authority-applicable",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-policy-v5-remains-unchanged",
+    "boundary-closure-v5-remains-3-programs-157-works",
+    "dcts-work-review-remains-1-program-152-works",
+    "1969-and-2107-suspicious-dates-do-not-become-institutional-history",
+    "doctorado-educacion-and-investigacion-educativa-remain-exclude",
+    "doctorado-cognicion-aprendizaje-remains-review"
+  ]
+}
