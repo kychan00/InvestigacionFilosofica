@@ -315,12 +315,9 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v27"
-          assert report["registryRevision"] == "2026-11-02.v40"
-          assert (
-              report["programMetadataEvidenceRevision"]
-              == baseline["programMetadataEvidenceRevision"]
-              == "2026-11-02.v4"
-          )
+          assert report["registryRevision"] == "2026-11-02.v41"
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert report["programRef"] == baseline["programRef"]
           assert report["canonicalName"] == baseline["canonicalName"]
           assert report["observedWorks"] == expected["observedWorks"]
@@ -373,6 +370,10 @@ jobs:
           # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["review"] -= 35
           expected_global["include"] += 35
+          # V41: generic MCA safe-era records resolve; ambiguous items quarantine.
+          expected_global["review"] -= 34
+          expected_global["include"] += 27
+          expected_global["quarantine"] += 7
           assert report["globalProjectedAdmission"] == expected_global
           assert sum(report["globalProjectedAdmission"].values()) == 27576
 
