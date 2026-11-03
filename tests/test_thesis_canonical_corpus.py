@@ -705,7 +705,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "MAESTRIA EN EDUCACION Y EXPRESION PARA LAS ARTES": (
                 "program:udg:mae-educacion-expresion-artes",
-                "review",
+                "exclude",
             ),
             "Maestría En Didáctica De Las Artes Con Orientación En Artes Visuales": (
                 "program:udg:mae-didactica-artes-visuales-historica",
@@ -808,7 +808,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             (
                 "Maestría en Educación y Expresión para las Artes",
-                "review",
+                "exclude",
             ),
         ]
         records = []
@@ -842,7 +842,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
 
         self.assertEqual(
             corpus["metrics"]["worksByAdmission"],
-            {"include": 3, "review": 1},
+            {"include": 3, "exclude": 1},
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],
