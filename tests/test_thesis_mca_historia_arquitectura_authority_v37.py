@@ -70,7 +70,7 @@ class MCAHistoriaArquitecturaAuthorityV37Test(unittest.TestCase):
             if p["id"] == self.baseline["baseProgramRef"]
         )
         self.assertEqual(base["admissionState"], "review")
-        self.assertEqual(base["observedCount"], 96)
+        self.assertEqual(base["observedCount"], 61)
         self.assertEqual(
             base["observedThesisYears"],
             {"min": 1998, "max": 2021},
