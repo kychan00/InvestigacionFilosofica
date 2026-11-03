@@ -45,13 +45,13 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         observed = {
             "programs": [
                 {
-                    "normalizedKey": "licenciatura en historia del arte",
-                    "count": 2,
+                    "normalizedKey": "doctorado en cognicion y aprendizaje",
+                    "count": 4,
                     "variants": {
-                        "LICENCIATURA EN HISTORIA DEL ARTE": 2,
+                        "DOCTORADO EN COGNICION Y APRENDIZAJE": 4,
                     },
-                    "providers": {"riudg": 2},
-                    "admissionStatuses": {"quarantine": 2},
+                    "providers": {"riudg": 4},
+                    "admissionStatuses": {"quarantine": 4},
                     "programRefs": {},
                 }
             ]
@@ -59,25 +59,15 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         corpus = {
             "works": [
                 {
-                    "programRaw": "LICENCIATURA EN HISTORIA DEL ARTE",
-                    "academicUnitRaw": "CUTONALA",
+                    "programRaw": "DOCTORADO EN COGNICION Y APRENDIZAJE",
+                    "academicUnitRaw": "CUCSH",
                     "date": {
-                        "value": "2019",
+                        "value": "2024",
                         "quality": "valid",
                     },
-                    "thesisTypeRaw": "Tesis de Licenciatura",
+                    "thesisTypeRaw": "Tesis de Doctorado",
                     "admissionStatus": "quarantine",
-                },
-                {
-                    "programRaw": "LICENCIATURA EN HISTORIA DEL ARTE",
-                    "academicUnitRaw": "CUTONALA",
-                    "date": {
-                        "value": "2017",
-                        "quality": "valid",
-                    },
-                    "thesisTypeRaw": "Tesis de Licenciatura",
-                    "admissionStatus": "quarantine",
-                },
+                }
             ]
         }
 
@@ -92,12 +82,12 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(item["queueState"], "review")
         self.assertEqual(
             item["authority"]["id"],
-            "program:udg:lic-historia-arte",
+            "program:udg:doc-cognicion-aprendizaje",
         )
         self.assertEqual(item["priority"]["band"], "A")
         self.assertIn("scope-decision", item["evidenceNeeds"])
-        self.assertEqual(item["observedYears"]["min"], 2017)
-        self.assertEqual(item["observedYears"]["max"], 2019)
+        self.assertEqual(item["observedYears"]["min"], 2024)
+        self.assertEqual(item["observedYears"]["max"], 2024)
 
     def test_resolved_include_is_not_in_default_queue(self):
         observed = {
@@ -1305,17 +1295,17 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         observed = {
             "programs": [
                 {
-                    "normalizedKey": "licenciatura en historia del arte",
-                    "count": 2,
-                    "variants": {"Licenciatura en Historia del Arte": 2},
-                    "providers": {"riudg": 2},
-                    "admissionStatuses": {"quarantine": 2},
+                    "normalizedKey": "doctorado en cognicion y aprendizaje",
+                    "count": 4,
+                    "variants": {"Doctorado en Cognición y Aprendizaje": 4},
+                    "providers": {"riudg": 4},
+                    "admissionStatuses": {"quarantine": 4},
                     "programRefs": {},
                 },
                 {
-                    "normalizedKey": "doctorado en ciencias sociales",
+                    "normalizedKey": "programa humanidades sin resolver",
                     "count": 217,
-                    "variants": {"Doctorado en Ciencias Sociales": 217},
+                    "variants": {"Programa Humanidades Sin Resolver": 217},
                     "providers": {"riudg": 217},
                     "admissionStatuses": {"quarantine": 217},
                     "programRefs": {},
@@ -1325,14 +1315,14 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         corpus = {
             "works": [
                 {
-                    "programRaw": "Licenciatura en Historia del Arte",
-                    "academicUnitRaw": "CUTONALA",
-                    "date": {"value": "2019", "quality": "valid"},
+                    "programRaw": "Doctorado en Cognición y Aprendizaje",
+                    "academicUnitRaw": "CUCSH",
+                    "date": {"value": "2024", "quality": "valid"},
                     "thesisTypeRaw": "Tesis",
                     "admissionStatus": "quarantine",
                 },
                 {
-                    "programRaw": "Doctorado en Ciencias Sociales",
+                    "programRaw": "Programa Humanidades Sin Resolver",
                     "academicUnitRaw": "CUCSH",
                     "date": {"value": "2024", "quality": "valid"},
                     "thesisTypeRaw": "Tesis",
@@ -1345,7 +1335,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
 
         self.assertEqual(
             payload["items"][0]["normalizedKey"],
-            "licenciatura en historia del arte",
+            "doctorado en cognicion y aprendizaje",
         )
         self.assertEqual(payload["items"][0]["queueState"], "review")
 

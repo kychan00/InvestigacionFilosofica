@@ -353,10 +353,10 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 self.assertEqual(resolved["programRef"], program_ref)
                 self.assertEqual(resolved["admissionState"], state)
 
-    def test_review_program_is_not_excluded_or_included(self):
+    def test_historia_arte_v39_is_included_by_program_authority(self):
         record = thesis.source_record(
             provider="riudg",
-            provider_record_id="history-art-review",
+            provider_record_id="history-art-v39",
             source_url=None,
             raw_fields={
                 "dc.title": ["Historia del arte y patrimonio"],
@@ -366,7 +366,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 "dc.degree.department": ["CUTONALA"],
                 "dc.type": ["Tesis de Licenciatura"],
             },
-            raw_payload="history-art-review",
+            raw_payload="history-art-v39",
         )
 
         candidate = thesis.canonical_candidate(
@@ -378,20 +378,16 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             candidate["program"]["programRef"],
             "program:udg:lic-historia-arte",
         )
-        self.assertEqual(candidate["program"]["admissionState"], "review")
-        self.assertEqual(candidate["admission"]["status"], "review")
-        self.assertEqual(
-            candidate["admission"]["explanationCode"],
-            "program-review",
-        )
+        self.assertEqual(candidate["program"]["admissionState"], "include")
+        self.assertEqual(candidate["admission"]["status"], "include")
 
         corpus = thesis.build_corpus(
             [record],
             self.registry,
             reference_year=2026,
         )
-        self.assertEqual(corpus["metrics"]["worksByAdmission"], {"review": 1})
-        self.assertEqual(corpus["works"][0]["admissionStatus"], "review")
+        self.assertEqual(corpus["metrics"]["worksByAdmission"], {"include": 1})
+        self.assertEqual(corpus["works"][0]["admissionStatus"], "include")
 
     def test_doctoral_linguistica_orientation_resolves_to_base_v30(self):
         raw = (
