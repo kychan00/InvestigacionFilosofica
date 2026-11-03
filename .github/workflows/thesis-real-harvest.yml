@@ -1360,7 +1360,7 @@ jobs:
           assert report["policyRevision"] == "2026-11-02.v5"
           assert report["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert report["targetScope"] == "humanities-only"
-          assert report["metrics"]["matrixRows"] == 7
+          assert report["metrics"]["matrixRows"] == 8
           assert isinstance(report["rows"], list)
 
           allowed_states = {
@@ -1398,7 +1398,7 @@ jobs:
           rm -rf artifacts/thesis-boundary-closure
           python scripts/thesis/audit_boundary_closure_v1.py \
             --scope-report artifacts/thesis-scope-boundary/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/boundary-closure-contract-v4.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v5.json \
             --output-dir artifacts/thesis-boundary-closure
 
       - name: Validate boundary closure audit
@@ -1416,10 +1416,10 @@ jobs:
           assert audit["decisionConstraint"] == "scope-matrix-does-not-change-admission"
           assert audit["targetScope"] == "humanities-only"
           assert audit["metrics"]["boundaryRows"] == 3
-          assert audit["metrics"]["boundaryProgramKeys"] == 4
-          assert audit["metrics"]["confirmedAuthorities"] == 4
-          assert audit["metrics"]["authorityObservedWorks"] == 191
-          assert audit["metrics"]["admissionStates"] == {"review": 4}
+          assert audit["metrics"]["boundaryProgramKeys"] == 3
+          assert audit["metrics"]["confirmedAuthorities"] == 3
+          assert audit["metrics"]["authorityObservedWorks"] == 157
+          assert audit["metrics"]["admissionStates"] == {"review": 3}
           assert audit["metrics"]["violations"] == 0
           assert audit["violations"] == []
 
