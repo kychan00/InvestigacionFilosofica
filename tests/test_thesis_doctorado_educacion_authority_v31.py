@@ -81,7 +81,7 @@ class DoctoradoEducacionAuthorityV31Test(unittest.TestCase):
     def test_v31_scope_baseline_is_preserved_under_scope_v5(self):
         self.assertEqual(
             self.baseline["scopePolicyRevision"],
-            "2026-11-02.v4",
+            "2026-11-02.v5",
         )
         self.assertEqual(self.scope["policyRevision"], "2026-11-02.v5")
         row = next(
@@ -97,7 +97,7 @@ class DoctoradoEducacionAuthorityV31Test(unittest.TestCase):
 
     def test_metadata_confidence_stays_v4(self):
         policy = canonical.load_program_metadata_evidence_policy()
-        self.assertEqual(policy["policyRevision"], "2026-11-02.v4")
+        self.assertEqual(policy["policyRevision"], "2026-11-02.v5")
 
 
 if __name__ == "__main__":
