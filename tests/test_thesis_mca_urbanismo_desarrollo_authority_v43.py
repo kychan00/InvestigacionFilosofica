@@ -20,7 +20,8 @@ class McaUrbanismoDesarrolloV43Test(unittest.TestCase):
                         if p["id"]==cls.baseline["programRef"])
 
     def test_exact_historical_identity(self):
-        self.assertEqual(self.registry["registryRevision"],"2026-11-03.v43")
+        self.assertEqual(self.baseline["registryRevision"],"2026-11-03.v43")
+        self.assertGreaterEqual(int(self.registry["registryRevision"].rsplit(".v",1)[1]),43)
         self.assertEqual(self.target["admissionState"],"exclude")
         self.assertEqual(self.target["lifecycleState"],"historical")
         self.assertEqual(self.target["observedCount"],8)
@@ -45,7 +46,7 @@ class McaUrbanismoDesarrolloV43Test(unittest.TestCase):
         sibling={
             "program:udg:mae-ciencias-arquitectura-arte-comunicacion":"review",
             "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura":"review",
-            "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica":"review",
+            "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica":"exclude",
         }
         for ref,state in sibling.items():
             entry=next(p for p in self.registry["programs"] if p["id"]==ref)

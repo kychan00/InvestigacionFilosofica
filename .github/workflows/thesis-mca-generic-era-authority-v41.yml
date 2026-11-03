@@ -251,9 +251,10 @@ jobs:
           # All other historical siblings remain REVIEW.
           for program_ref, works in expected["siblingReviewAuthorities"].items():
               expected_state = (
-                  "exclude" if program_ref ==
-                  "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
-                  else "review"
+                  "exclude" if program_ref in (
+                      "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+                      "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
+                  ) else "review"
               )
               assert by_id[program_ref]["admissionState"] == expected_state
               assert by_id[program_ref]["observedCount"] == works
@@ -265,6 +266,9 @@ jobs:
           # V43: MCA Urbanismo y Desarrollo REVIEW -> EXCLUDE (8 works).
           expected_v42["review"] -= 8
           expected_v42["exclude"] += 8
+          # V44: MCA Edificación Arquitectónica REVIEW -> EXCLUDE (5).
+          expected_v42["review"] -= 5
+          expected_v42["exclude"] += 5
           assert projection["projectedAdmission"] == expected_v42
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -297,10 +301,10 @@ jobs:
           )
 
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 7
+              expected["humanitiesActionQueueItems"] - 10
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 24
+              expected["humanitiesActionWorks"] - 29
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"

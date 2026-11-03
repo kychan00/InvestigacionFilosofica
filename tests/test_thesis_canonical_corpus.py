@@ -777,8 +777,9 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 self.assertEqual(resolved["programRef"], program_ref)
                 self.assertEqual(
                     resolved["admissionState"],
-                    "exclude" if program_ref == (
-                        "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
+                    "exclude" if program_ref in (
+                        "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+                        "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
                     ) else "review",
                 )
 

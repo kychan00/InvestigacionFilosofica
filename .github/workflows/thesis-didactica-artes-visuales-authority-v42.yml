@@ -108,6 +108,8 @@ jobs:
           # V43: MCA Urbanismo y Desarrollo REVIEW -> EXCLUDE (8 works).
           expected_global["review"]-=8
           expected_global["exclude"]+=8
+          expected_global["review"]-=5
+          expected_global["exclude"]+=5
           assert overall==expected_global,overall
           selected=[w for w in corpus["works"] if w.get("programRef")==baseline["programRef"]]
           assert len(selected)==e["works"],len(selected)
@@ -147,6 +149,8 @@ jobs:
           ):
               d={"humanitiesActionQueueItems":3,"humanitiesActionWorks":8,
                  "humanitiesReadyQueueItems":3,"humanitiesReadyWorks":8}.get(k,0)
+              d+= {"humanitiesActionQueueItems":3,"humanitiesActionWorks":5,
+                    "humanitiesReadyQueueItems":3,"humanitiesReadyWorks":5}.get(k,0)
               assert q[k]==e[k]-d,(k,q[k],e[k]-d)
           assert all(
               (x.get("authority") or {}).get("id")!=baseline["programRef"]
