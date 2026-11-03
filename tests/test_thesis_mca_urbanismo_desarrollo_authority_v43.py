@@ -45,12 +45,17 @@ class McaUrbanismoDesarrolloV43Test(unittest.TestCase):
     def test_sibling_eras_and_orientations_do_not_inherit(self):
         sibling={
             "program:udg:mae-ciencias-arquitectura-arte-comunicacion":"review",
-            "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura":"review",
+            "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura":"include",
             "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica":"exclude",
         }
         for ref,state in sibling.items():
             entry=next(p for p in self.registry["programs"] if p["id"]==ref)
             self.assertEqual(entry["admissionState"],state)
+        teoria=next(
+            p for p in self.registry["programs"]
+            if p["id"]=="program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura"
+        )
+        self.assertIn("T2BU/V47",teoria["decisionNote"])
         hold=json.loads((ROOT/"scripts/thesis/config/program-evidence-holds-v1.json")
                         .read_text(encoding="utf-8"))
         self.assertEqual(len(hold["holds"]),1)
