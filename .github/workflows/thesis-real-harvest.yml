@@ -702,7 +702,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v40"
+          assert registry["registryRevision"] == "2026-11-02.v41"
 
           authority = next(
               program
@@ -777,7 +777,7 @@ jobs:
               report["decisionConstraint"]
               == "metadata-confidence-does-not-create-program-authority"
           )
-          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert report["metrics"]["works"] > 0
           assert report["metrics"]["violations"] == 0
           assert report["violations"] == []
@@ -805,19 +805,29 @@ jobs:
               ).read_text()
           )
 
-          assert (
-              report["programMetadataEvidenceRevision"]
-              == baseline["policyRevision"]
-          )
+          assert baseline["policyRevision"] == "2026-11-02.v4"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v5"
 
           by_rule = report["metrics"]["ruleMatches"]
-          assert (
-              report["metrics"]["confidenceStates"]
-              == baseline["expectedConfidenceStates"]
+          expected_confidence = dict(baseline["expectedConfidenceStates"])
+          expected_confidence["low-trust"] += 7
+          expected_confidence["unassessed"] -= 7
+          expected_applicability = dict(
+              baseline["expectedAuthorityApplicability"]
           )
+          expected_applicability["blocked"] += 7
+          expected_applicability["allowed"] -= 7
+          assert report["metrics"]["confidenceStates"] == expected_confidence
           assert (
               report["metrics"]["authorityApplicability"]
-              == baseline["expectedAuthorityApplicability"]
+              == expected_applicability
+          )
+          assert (
+              by_rule.get(
+                  "riudg-mca-generic-orientation-period-unresolved-v1",
+                  0,
+              )
+              == 7
           )
 
           for rule_id, expected in baseline["expectedRules"].items():
@@ -913,20 +923,30 @@ jobs:
 
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
-          assert (
-              report["programMetadataEvidenceRevision"]
-              == baseline["policyRevision"]
+          assert baseline["policyRevision"] == "2026-11-02.v4"
+          assert report["programMetadataEvidenceRevision"] == "2026-11-02.v5"
+          expected_confidence = dict(baseline["expectedConfidenceStates"])
+          expected_confidence["low-trust"] += 7
+          expected_confidence["unassessed"] -= 7
+          expected_applicability = dict(
+              baseline["expectedAuthorityApplicability"]
           )
-          assert (
-              report["metrics"]["confidenceStates"]
-              == baseline["expectedConfidenceStates"]
-          )
+          expected_applicability["blocked"] += 7
+          expected_applicability["allowed"] -= 7
+          assert report["metrics"]["confidenceStates"] == expected_confidence
           assert (
               report["metrics"]["authorityApplicability"]
-              == baseline["expectedAuthorityApplicability"]
+              == expected_applicability
           )
 
           by_rule = report["metrics"]["ruleMatches"]
+          assert (
+              by_rule.get(
+                  "riudg-mca-generic-orientation-period-unresolved-v1",
+                  0,
+              )
+              == 7
+          )
           for rule_id, expected in baseline["expectedRules"].items():
               assert by_rule.get(rule_id, 0) == expected["matchedWorks"]
 
@@ -1150,7 +1170,7 @@ jobs:
 
           expected = baseline["expectedFull"]
 
-          assert report["registryRevision"] == "2026-11-02.v40"
+          assert report["registryRevision"] == "2026-11-02.v41"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
