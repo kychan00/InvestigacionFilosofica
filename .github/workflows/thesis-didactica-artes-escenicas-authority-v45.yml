@@ -1,0 +1,177 @@
+name: Thesis Didáctica Artes Escénicas Authority V45
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/didactica-artes-escenicas-authority-v45-baseline-v1.json"
+      - "tests/test_thesis_didactica_artes_escenicas_authority_v45.py"
+      - "docs/THESIS_DIDACTICA_ARTES_ESCENICAS_AUTHORITY_V45.md"
+      - ".github/workflows/thesis-didactica-artes-escenicas-authority-v45.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile and unit tests
+        run: |
+          python -m py_compile scripts/thesis/build_program_curation_queue_v1.py
+          python -m unittest discover -s tests -p "test_thesis_didactica_artes_escenicas_authority_v45.py" -v
+
+      - name: Fetch frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-t2bs-full artifacts/thesis-t2bs
+          mkdir -p /tmp/thesis-t2bs-full artifacts/thesis-t2bs
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-t2bs-full.zip
+          unzip -q /tmp/thesis-t2bs-full.zip -d /tmp/thesis-t2bs-full
+
+      - name: Reproject Metadata Confidence V5
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-t2bs-full/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-t2bs-full/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-t2bs/canonical-confidence.json \
+            --output-report artifacts/thesis-t2bs/confidence-projection.json
+
+      - name: Reproject V45 and Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          root=Path("artifacts/thesis-t2bs")
+          corpus=json.loads((root/"canonical-confidence.json").read_text())
+          observed=json.loads(Path("/tmp/thesis-t2bs-full/observed-authorities.json").read_text())
+          registry=canonical.load_program_registry()
+          projected,projection=coverage.reproject_corpus(corpus,registry,reference_year=2026)
+          projected_observed=coverage.reproject_observed_authorities(observed,projection["programDimensions"])
+          queue=curation.build_queue(projected_observed,projected,registry)
+          (root/"canonical-v45.json").write_text(json.dumps(projected,ensure_ascii=False))
+          (root/"queue-v45.json").write_text(json.dumps(queue,ensure_ascii=False))
+          PY
+
+      - name: Assert V45 full cohort, independent orientation and strict humanities scope
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+
+          root=Path("artifacts/thesis-t2bs")
+          b=json.loads(Path("scripts/thesis/config/didactica-artes-escenicas-authority-v45-baseline-v1.json").read_text())
+          e=b["expected"]
+          registry=canonical.load_program_registry()
+          corpus=json.loads((root/"canonical-v45.json").read_text())
+          queue=json.loads((root/"queue-v45.json").read_text())
+
+          assert registry["registryRevision"]==b["registryRevision"]
+          assert len(corpus["works"])==27576
+          overall=dict(Counter(w["admissionStatus"] for w in corpus["works"]))
+          assert overall==e["globalProjectedAdmission"],overall
+
+          sel=[w for w in corpus["works"] if w.get("programRef")==b["programRef"]]
+          assert len(sel)==e["works"],len(sel)
+          assert dict(Counter(w["admissionStatus"] for w in sel))==e["projectedAdmission"]
+          assert dict(Counter(w["academicUnitRaw"] for w in sel))==e["academicUnits"]
+          applicability=Counter((w.get("programMetadataEvidence") or {}).get("authorityApplicability") for w in sel)
+          confidence=Counter((w.get("programMetadataEvidence") or {}).get("confidenceState") for w in sel)
+          assert applicability["allowed"]==e["allowedWorks"],applicability
+          assert applicability["blocked"]==e["blockedWorks"],applicability
+          assert confidence==Counter({"unassessed":3}),confidence
+
+          norm=canonical.normalize_key
+          target=next(p for p in registry["programs"] if p["id"]==b["programRef"])
+          variants=dict(Counter(w["programRaw"] for w in sel))
+          assert len(variants)==e["exactRawVariantCount"],variants
+          assert variants==e["rawProgramVariants"],variants
+          keys={norm(a) for a in target["aliases"]}
+          assert set(map(norm,variants))<=keys,(variants,keys)
+          groups={k:sum(n for raw,n in variants.items() if norm(raw)==k) for k in set(map(norm,variants))}
+          assert len(groups)==e["normalizedProgramGroupCount"],groups
+          assert groups==e["normalizedProgramGroups"],groups
+
+          years=sorted(int(str((w.get("date") or {}).get("value"))[:4]) for w in sel if (w.get("date") or {}).get("quality")=="valid")
+          assert years and years[0]==e["observedYears"]["min"] and years[-1]==e["observedYears"]["max"]
+          assert all(canonical.resolve_program(w["programRaw"],registry)["admissionState"]=="exclude" for w in sel)
+
+          sibling=e["siblingVisuales"]
+          sv=next(p for p in registry["programs"] if p["id"]==sibling["ref"])
+          assert sv["admissionState"]==sibling["state"]
+          assert sv["observedCount"]==sibling["works"]
+
+          for raw in ("Maestría En Didáctica De Las Artes","Maestría En Didáctica De Las Artes Orientación En Música"):
+              assert canonical.resolve_program(raw,registry).get("programRef")!=b["programRef"]
+
+          m=queue["metrics"]
+          for k in (
+              "humanitiesActionQueueItems","humanitiesActionWorks",
+              "evidenceHoldQueueItems","evidenceHoldWorks",
+              "humanitiesReadyQueueItems","humanitiesReadyWorks",
+              "workReviewQueueItems","workReviewWorks"
+          ):
+              assert m[k]==e[k],(k,m[k],e[k])
+
+          assert all((x.get("authority") or {}).get("id")!=b["programRef"] for x in queue["items"])
+          assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
+          ready=queue["nextHumanitiesReadyAction"]
+          assert ready is not None
+          assert (ready.get("authority") or {}).get("id")!=b["programRef"]
+
+          report={
+              "phase":"T2BS",
+              "registryRevision":registry["registryRevision"],
+              "targetAuthority":b["programRef"],
+              "targetWorks":len(sel),
+              "targetVariants":variants,
+              "normalizedGroups":groups,
+              "applicability":dict(applicability),
+              "confidenceStates":dict(confidence),
+              "projectedAdmission":overall,
+              "queueMetrics":{k:m[k] for k in (
+                  "humanitiesActionQueueItems","humanitiesActionWorks",
+                  "evidenceHoldQueueItems","evidenceHoldWorks",
+                  "humanitiesReadyQueueItems","humanitiesReadyWorks",
+                  "workReviewQueueItems","workReviewWorks"
+              )},
+              "nextHumanitiesReadyAction":ready,
+          }
+          (root/"authority-v45-report.json").write_text(
+              json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8"
+          )
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Upload V45 authority evidence (no raw corpus)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-didactica-artes-escenicas-v45
+          path: artifacts/thesis-t2bs/authority-v45-report.json
+          if-no-files-found: warn
+          retention-days: 14
