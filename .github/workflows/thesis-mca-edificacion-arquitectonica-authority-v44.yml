@@ -107,6 +107,9 @@ jobs:
           # T2BT/V46 resolves 27 Educación y Expresión para las Artes works.
           expected_global["review"]-=27
           expected_global["exclude"]+=27
+          # T2BU/V47: MCA Teoría y Crítica de la Arquitectura REVIEW -> INCLUDE.
+          expected_global["review"]-=1
+          expected_global["include"]+=1
           assert overall==expected_global,overall
           sel=[w for w in corpus["works"] if w.get("programRef")==b["programRef"]]
           assert len(sel)==e["works"],len(sel)
@@ -136,12 +139,12 @@ jobs:
               assert all(w["admissionStatus"]==spec["state"] for w in items)
           m=queue["metrics"]
           current={
-              "humanitiesActionQueueItems":7,
-              "humanitiesActionWorks":15,
+              "humanitiesActionQueueItems":6,
+              "humanitiesActionWorks":14,
               "evidenceHoldQueueItems":5,
               "evidenceHoldWorks":13,
-              "humanitiesReadyQueueItems":2,
-              "humanitiesReadyWorks":2,
+              "humanitiesReadyQueueItems":1,
+              "humanitiesReadyWorks":1,
               "workReviewQueueItems":3,
               "workReviewWorks":180,
           }
