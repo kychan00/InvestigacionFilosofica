@@ -82,13 +82,13 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(payload["metrics"]["queueItems"], 1)
         item = payload["items"][0]
         self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(item["curationLane"], "work-level-review")
         self.assertEqual(
             item["authority"]["id"],
             "program:udg:mae-estudios-genero",
         )
         self.assertEqual(item["priority"]["band"], "A")
-        self.assertIn("scope-decision", item["evidenceNeeds"])
+        self.assertIn("work-level-primary-source-adjudication", item["evidenceNeeds"])
         self.assertEqual(item["observedYears"]["min"], 2026)
         self.assertEqual(item["observedYears"]["max"], 2026)
 
@@ -702,7 +702,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(payload["metrics"]["queueItems"], 1)
         item = payload["items"][0]
         self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(item["curationLane"], "work-level-review")
         self.assertEqual(
             item["authority"]["id"],
             "program:udg:mae-estudios-genero",
