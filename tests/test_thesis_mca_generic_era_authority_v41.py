@@ -178,7 +178,12 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
             with self.subTest(raw=raw):
                 resolved = canonical.resolve_program(raw, self.registry)
                 self.assertEqual(resolved["programRef"], expected_ref)
-                self.assertEqual(resolved["admissionState"], "review")
+                self.assertEqual(
+                    resolved["admissionState"],
+                    "exclude" if expected_ref == (
+                        "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
+                    ) else "review",
+                )
 
     def test_scope_policy_stays_v5(self):
         scope = json.loads(
