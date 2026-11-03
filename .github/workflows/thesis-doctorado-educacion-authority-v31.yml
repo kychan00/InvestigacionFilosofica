@@ -6,7 +6,7 @@ on:
       - "scripts/thesis/config/program-authority-v1.json"
       - "scripts/thesis/config/scope-boundary-matrix-v1.json"
       - "scripts/thesis/config/doctorado-educacion-authority-v31-baseline-v1.json"
-      - "scripts/thesis/config/boundary-closure-contract-v4.json"
+      - "scripts/thesis/config/boundary-closure-contract-v5.json"
       - "scripts/thesis/config/outside-scope-social-sciences-closure-v4.json"
       - "scripts/thesis/config/outside-scope-political-international-development-closure-v4.json"
       - "scripts/thesis/audit_boundary_closure_v1.py"
@@ -128,7 +128,7 @@ jobs:
         run: |
           python scripts/thesis/audit_boundary_closure_v1.py \
             --scope-report artifacts/thesis-education-v31/scope/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/boundary-closure-contract-v4.json \
+            --contract scripts/thesis/config/boundary-closure-contract-v5.json \
             --output-dir artifacts/thesis-education-v31/boundary
 
       - name: Build outside-scope closure audits
@@ -185,7 +185,8 @@ jobs:
 
           assert baseline["registryRevision"] == "2026-11-02.v31"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 31
-          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
+          assert scope["policyRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           selected = [
@@ -232,6 +233,9 @@ jobs:
           # V35: Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["include"] += 5
           expected_global["review"] -= 5
+          # V36: Maestría en Investigación Educativa REVIEW -> EXCLUDE.
+          expected_global["review"] -= 34
+          expected_global["exclude"] += 34
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -245,18 +249,18 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
 
-          # Neighbouring education authorities are intentionally untouched.
+          # V36 resolves MIE; Cognición y Aprendizaje remains boundary REVIEW.
           by_id = {p["id"]: p for p in registry["programs"]}
           assert (
               by_id["program:udg:mae-investigacion-educativa"]["admissionState"]
-              == "review"
+              == "exclude"
           )
           assert (
               by_id["program:udg:doc-cognicion-aprendizaje"]["admissionState"]
               == "review"
           )
 
-          assert scope["metrics"]["matrixRows"] == expected["scopeMatrixRows"]
+          assert scope["metrics"]["matrixRows"] == expected["scopeMatrixRows"] + 1
 
           education_row = next(
               row
@@ -266,10 +270,7 @@ jobs:
           assert education_row["boundaryState"] == "boundary-review"
           assert [
               p["normalizedKey"] for p in education_row["programs"]
-          ] == [
-              "maestria en investigacion educativa",
-              "doctorado en cognicion y aprendizaje",
-          ]
+          ] == ["doctorado en cognicion y aprendizaje"]
 
           education_outside = next(
               row
@@ -289,23 +290,11 @@ jobs:
           )
 
           assert boundary["closureState"] == "closed"
-          assert boundary["policyRevision"] == baseline["scopePolicyRevision"]
-          assert (
-              boundary["metrics"]["boundaryRows"]
-              == expected["boundaryReviewRows"]
-          )
-          assert (
-              boundary["metrics"]["boundaryProgramKeys"]
-              == expected["boundaryReviewProgramKeys"]
-          )
-          assert (
-              boundary["metrics"]["authorityObservedWorks"]
-              == expected["boundaryReviewWorks"]
-          )
-          assert (
-              boundary["metrics"]["admissionStates"]
-              == expected["boundaryReviewStates"]
-          )
+          assert boundary["policyRevision"] == "2026-11-02.v5"
+          assert boundary["metrics"]["boundaryRows"] == 3
+          assert boundary["metrics"]["boundaryProgramKeys"] == 3
+          assert boundary["metrics"]["authorityObservedWorks"] == 157
+          assert boundary["metrics"]["admissionStates"] == {"review": 3}
           assert boundary["metrics"]["violations"] == 0
 
           assert social["closureState"] == "closed"
