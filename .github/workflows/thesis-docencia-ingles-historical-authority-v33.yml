@@ -260,19 +260,19 @@ jobs:
           )
           assert (
               queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"] - 31
+              == expected["humanitiesActionQueueItems"] - 32
           )
           assert (
               queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"] - 613
+              == expected["humanitiesActionWorks"] - 617
           )
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
               "maestria en arquitectura orientacion arte y comunicacion"
           )
           assert next_action["count"] == 7
-          assert queue["metrics"]["workReviewQueueItems"] == 1
-          assert queue["metrics"]["workReviewWorks"] == 152
+          assert queue["metrics"]["workReviewQueueItems"] == 2
+          assert queue["metrics"]["workReviewWorks"] == 156
 
           summary = {
               "registryRevision": registry["registryRevision"],

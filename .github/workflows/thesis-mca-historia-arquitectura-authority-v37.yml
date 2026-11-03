@@ -170,10 +170,10 @@ jobs:
           resolved = set(expected["normalizedProgramGroups"])
           assert all(item["normalizedKey"] not in resolved for item in queue["items"])
           assert all(item["normalizedKey"] not in resolved for item in queue["humanitiesActionItems"])
-          assert queue["metrics"]["humanitiesActionQueueItems"] == 12
-          assert queue["metrics"]["humanitiesActionWorks"] == 73
-          assert queue["metrics"]["workReviewQueueItems"] == 1
-          assert queue["metrics"]["workReviewWorks"] == 152
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 11
+          assert queue["metrics"]["humanitiesActionWorks"] == 69
+          assert queue["metrics"]["workReviewQueueItems"] == 2
+          assert queue["metrics"]["workReviewWorks"] == 156
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
           assert next_action["count"] == 7
