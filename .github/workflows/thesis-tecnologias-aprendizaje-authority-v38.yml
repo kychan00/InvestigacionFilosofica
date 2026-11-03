@@ -263,17 +263,17 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 28
+              expected["humanitiesActionQueueItems"] - 29
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 159
+              expected["humanitiesActionWorks"] - 160
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
-          ] + 2
+          ] + 3
           assert queue["metrics"]["workReviewWorks"] == expected[
               "workReviewWorks"
-          ] + 28
+          ] + 29
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == "licenciatura en historia del arte"
           assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
