@@ -773,8 +773,8 @@
       "id": "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
       "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación Urbanismo y Desarrollo",
       "level": "maestria",
-      "disciplineFamily": "arquitectura-urbanismo",
-      "admissionState": "review",
+      "disciplineFamily": "arquitectura-urbanismo-ordenamiento-territorial",
+      "admissionState": "exclude",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUAAD"
@@ -789,9 +789,13 @@
         "min": 2000,
         "max": 2006
       },
-      "decisionNote": "V41 separa esta orientación histórica explícita de la MCA para evitar que herede el INCLUDE de la etapa 2006 B+ de dos orientaciones. CUAAD documenta Urbanismo y Desarrollo entre las orientaciones aprobadas en 1999 y posteriormente suprimidas. Permanece REVIEW hasta una decisión de scope específica; no se decide por títulos de tesis.",
+      "decisionNote": "T2BO/V43 (scope estricto humanities-only): EXCLUDE la orientación histórica Urbanismo y Desarrollo dentro de la Maestría en Ciencias de la Arquitectura. Es una orientación técnica y aplicada de urbanismo, planeación del espacio y desarrollo urbano/territorial, no una titulación predominantemente humanística. La UdeG documenta su creación bajo MCA el 15-XII-1995 (dictamen 021/20689) y modificación el 3-III-1999 (I/99/722); el Cuarto Informe 1998–1999 la registra como ÁREA TERMINAL de Ciencias de la Arquitectura y presenta las líneas contemporáneas de urbanística/planeamiento, territorio, infraestructura y ordenamiento (contexto del CUAAD, no plan específico de la orientación). Control Escolar conserva esta orientación con clave DGP 511598, separada del programa independiente Maestría en Urbanismo y Desarrollo, registrado como PE distinto en informes PIFI de 2003–2007. Se aplica sólo a los 8 registros etiquetados explícitamente con la orientación MCA en CUAAD (2000–2006), no se heredan decisiones de maestrías independientes ni se fusiona con la MCA genérica o con orientaciones humanísticas de Historia de Arquitectura, Conservación, Teoría y Crítica, o Arte y Comunicación (HOLD T2BL). Temas humanísticos ocasionales de tesis no determinan la identidad del programa completo.",
       "evidence": [
-        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos"
+        "https://cuaad.udg.mx/sites/default/files/adjuntos/dictamen_mca.pdf",
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/4_informe_1998-1999.pdf",
+        "https://escolar.udg.mx/sites/default/files/adjuntos/claves_carrera_de_mstrias_2_0.pdf",
+        "https://cgpe.udg.mx/sites/default/files/1_prodes_cuaad_1.pdf"
       ]
     },
     {
@@ -1750,7 +1754,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-03.v42",
+  "registryRevision": "2026-11-03.v43",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
