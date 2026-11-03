@@ -207,6 +207,9 @@ jobs:
           # V39: Licenciatura en Historia del Arte REVIEW -> INCLUDE.
           expected_global["review"] -= 2
           expected_global["include"] += 2
+          # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
+          expected_global["review"] -= 35
+          expected_global["include"] += 35
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
