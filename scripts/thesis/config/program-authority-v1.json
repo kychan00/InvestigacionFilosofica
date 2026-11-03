@@ -832,8 +832,8 @@
       "id": "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura",
       "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación Teoría y Crítica de la Arquitectura",
       "level": "maestria",
-      "disciplineFamily": "arquitectura-teoria-critica",
-      "admissionState": "review",
+      "disciplineFamily": "historia-teoria-critica-arquitectura-humanidades",
+      "admissionState": "include",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUAAD"
@@ -846,9 +846,14 @@
         "min": 2001,
         "max": 2001
       },
-      "decisionNote": "V41 separa esta orientación histórica explícita de la MCA para evitar que herede el INCLUDE de la etapa 2006 B+ de dos orientaciones. CUAAD documenta Teoría y Crítica de la Arquitectura entre las orientaciones aprobadas en 1999 y posteriormente suprimidas. Permanece REVIEW hasta una decisión de scope específica; no se decide por títulos de tesis.",
+      "decisionNote": "T2BU/V47: INCLUDE bajo humanities-only estricto para la orientación histórica explícita Teoría y Crítica de la Arquitectura. La UdeG documenta la Maestría en Ciencias de la Arquitectura con esta área terminal desde 1995–1999 y la separa institucionalmente de Edificación, Urbanismo, Administración de Procesos y otras orientaciones. La identidad disciplinaria específica es teórico-histórica y crítica: el CUAAD mantiene el Departamento de Teorías e Historias dentro de la División de Artes y Humanidades, y su continuidad académica en teoría de la arquitectura trabaja historiografía, hermenéutica, fenomenología, teoría crítica, estructuralismos/posestructuralismos y filosofía. Esta granularidad es consistente con V32/V37 Historia de la Arquitectura y V40 Conservación: se decide la orientación explícita, no la MCA genérica. La única tesis observada, CUAAD 2001, pasa REVIEW→INCLUDE cuando Metadata Confidence permite autoridad. El título de la tesis se usa sólo para verificación de identidad del registro, no como fundamento de admisión.",
       "evidence": [
-        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos"
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/2_informe_1996-1997.pdf",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/4_informe_1998-1999.pdf",
+        "https://cuaad.udg.mx/inicio/extensiones_telefonicas",
+        "https://cima.cuaad.udg.mx/mpegpau-informacion-general/mpegpau-plan-de-estudios/mpegpau-creditos?catid=16&id=253&view=article",
+        "https://riudg.udg.mx/handle/20.500.12104/46355?mode=full"
       ]
     },
     {
@@ -1765,7 +1770,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-03.v46",
+  "registryRevision": "2026-11-03.v47",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
