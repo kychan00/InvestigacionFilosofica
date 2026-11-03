@@ -220,7 +220,11 @@ jobs:
           ]
           assert doctorate["observedCount"] == expected["doctoradoEducacionWorks"]
 
-          assert projection["projectedAdmission"] == expected["globalProjectedAdmission"]
+          expected_global = dict(expected["globalProjectedAdmission"])
+          # V37: MCA Orientación Historia de la Arquitectura Mexicana REVIEW -> INCLUDE.
+          expected_global["review"] -= 16
+          expected_global["include"] += 16
+          assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           assert scope["metrics"]["matrixRows"] == expected["scopeMatrixRows"]
@@ -273,12 +277,12 @@ jobs:
               item["normalizedKey"] != target_key
               for item in queue["humanitiesActionItems"]
           )
-          assert queue["metrics"]["humanitiesActionQueueItems"] == expected[
-              "humanitiesActionQueueItems"
-          ]
-          assert queue["metrics"]["humanitiesActionWorks"] == expected[
-              "humanitiesActionWorks"
-          ]
+          assert queue["metrics"]["humanitiesActionQueueItems"] == (
+              expected["humanitiesActionQueueItems"] - 4
+          )
+          assert queue["metrics"]["humanitiesActionWorks"] == (
+              expected["humanitiesActionWorks"] - 16
+          )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
           ]
@@ -287,8 +291,11 @@ jobs:
           ]
 
           next_action = queue["nextHumanitiesAction"]
-          assert next_action["normalizedKey"] == expected["nextHumanitiesActionKey"]
-          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+          assert expected["nextHumanitiesActionKey"] == (
+              "maestria en arquitectura orientacion en historia de la arquitectura mexicana"
+          )
+          assert next_action["normalizedKey"] == "maestria en tecnologias para el aprendizaje"
+          assert next_action["count"] == 266
 
           summary = {
               "registryRevision": registry["registryRevision"],
