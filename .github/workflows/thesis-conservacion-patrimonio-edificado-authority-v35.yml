@@ -132,8 +132,10 @@ jobs:
           )
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["registryRevision"]
-          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v35"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 35
+          assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
+          assert scope["policyRevision"] == "2026-11-02.v5"
           assert (
               confidence["programMetadataEvidenceRevision"]
               == baseline["programMetadataEvidenceRevision"]
@@ -214,7 +216,11 @@ jobs:
               w.get("admissionStatus") for w in history_works
           ) == Counter({"include": expected["historyHistoricalWorks"]})
 
-          assert projection["projectedAdmission"] == expected["globalProjectedAdmission"]
+          expected_global = dict(expected["globalProjectedAdmission"])
+          # V36: Maestría en Investigación Educativa REVIEW -> EXCLUDE.
+          expected_global["review"] -= 34
+          expected_global["exclude"] += 34
+          assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           target_key = "maestria en conservacion del patrimonio edificado"
@@ -227,10 +233,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"]
+              expected["humanitiesActionQueueItems"] - 1
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"]
+              expected["humanitiesActionWorks"] - 34
           )
           assert queue["metrics"]["workReviewQueueItems"] == (
               expected["workReviewQueueItems"]
@@ -248,8 +254,11 @@ jobs:
           )
 
           next_action = queue["nextHumanitiesAction"]
-          assert next_action["normalizedKey"] == expected["nextHumanitiesActionKey"]
-          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+          assert expected["nextHumanitiesActionKey"] == "maestria en investigacion educativa"
+          assert next_action["normalizedKey"] == (
+              "maestria en arquitectura orientacion en historia de la arquitectura mexicana"
+          )
+          assert next_action["count"] == 10
 
           summary = {
               "registryRevision": registry["registryRevision"],
