@@ -36,15 +36,22 @@ class DidacticaArtesVisualesAuthorityV42Test(unittest.TestCase):
                 self.assertEqual(resolved["programRef"],self.target["id"])
                 self.assertEqual(resolved["admissionState"],"exclude")
 
-    def test_independent_terminal_areas_not_inherited(self):
+    def test_independent_terminal_areas_are_not_inherited(self):
+        # V42 intentionally left Escénicas REVIEW. T2BS/V45 later resolved it
+        # independently; this regression must preserve that chronology.
+        self.assertEqual(
+            self.baseline["expected"]["siblingEscenicas"]["admission"],
+            "review",
+        )
         esc=next(p for p in self.registry["programs"]
                  if p["id"]=="program:udg:mae-didactica-artes-escenicas-historica")
-        self.assertEqual(esc["admissionState"],"review")
+        self.assertEqual(esc["admissionState"],"exclude")
         self.assertEqual(esc["observedCount"],3)
+        self.assertIn("T2BS/V45",esc["decisionNote"])
         for alias in esc["aliases"]:
             r=canonical.resolve_program(alias,self.registry)
             self.assertEqual(r["programRef"],esc["id"])
-            self.assertEqual(r["admissionState"],"review")
+            self.assertEqual(r["admissionState"],"exclude")
         for raw in ("Maestría En Didáctica De Las Artes",
                     "Maestría En Didácticas De Las Artes",
                     "Maestría En Didáctica De Las Artes Orientación En Música"):
