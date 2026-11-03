@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "thesis-educacion-expresion-artes-authority-v46-baseline-v1",
+  "phase": "T2BT",
+  "registryRevision": "2026-11-03.v46",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "sourceFullArtifactId": 13099541204,
+  "programRef": "program:udg:mae-educacion-expresion-artes",
+  "expected": {
+    "works": 27,
+    "priorAdmission": {
+      "review": 27
+    },
+    "projectedAdmission": {
+      "exclude": 27
+    },
+    "academicUnits": {
+      "CUAAD": 27
+    },
+    "observedYears": {
+      "min": 2018,
+      "max": 2026
+    },
+    "allowedWorks": 27,
+    "blockedWorks": 0,
+    "unassessedWorks": 27,
+    "exactRawVariantCount": 1,
+    "normalizedProgramGroupCount": 1,
+    "rawProgramVariants": {
+      "MAESTRIA EN EDUCACION Y EXPRESION PARA LAS ARTES": 27
+    },
+    "normalizedProgramGroups": {
+      "maestria en educacion y expresion para las artes": 27
+    },
+    "globalProjectedAdmission": {
+      "include": 559,
+      "review": 195,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 7,
+    "humanitiesActionWorks": 15,
+    "evidenceHoldQueueItems": 5,
+    "evidenceHoldWorks": 13,
+    "humanitiesReadyQueueItems": 2,
+    "humanitiesReadyWorks": 2,
+    "workReviewQueueItems": 3,
+    "workReviewWorks": 180
+  },
+  "invariants": [
+    "strict-humanities-only-does-not-admit-applied-art-education-or-professional-art-production-by-cultural-content",
+    "professionalizing-identity-controls-not-thesis-title-or-topic",
+    "education-artistic-and-production-artistic-are-program-LGAC-not-humanities-authority",
+    "critical-analysis-and-research-components-do-not-by-themselves-convert-program-to-humanities",
+    "scope-policy-v5-and-metadata-confidence-v5-unchanged",
+    "dcts-cognition-and-human-rights-work-review-lanes-unchanged"
+  ]
+}
