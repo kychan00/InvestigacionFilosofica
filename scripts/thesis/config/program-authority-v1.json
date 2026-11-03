@@ -725,7 +725,6 @@
         "Maestría En Arquitectura, Orientacion Arte Y Comunicacion",
         "Maestría En Arquitectura, Orientacion Edificacion Arquitectonica",
         "Maestría En Arquitectura; Orientacion En Arte Y Comunicacion",
-        "Maestría En Arquitectura; Orientacion En Historia De La Arquitectura Mexicana",
         "Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo",
         "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
         "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
@@ -733,7 +732,6 @@
         "Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación",
         "Maestría En Ciencias De La Arquitectura, Con Orientación En Conservación De Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
-        "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA CON ORIENTACION EN HISTORIA DE LA ARQUITECTURA MEXICANA",
         "Maestría En Ciencias De La Arquitectura Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura, Orientación A La Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación",
@@ -742,9 +740,6 @@
         "Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación",
         "Maestría En Ciencias De La Arquitectura Orientación En Conservación De Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura Orientación En Conservación Del Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura Orientación En Historia De La Arquitectura Mexicana",
-        "Maestría En Ciencias De La Arquitectura Orientación En: Historia De La Arquitectura Mexicana",
-        "Maestría En Ciencias De La Arquitectura Orientación Historia De La Arquitectura Mexicana",
         "Maestría En Ciencias De La Arquitectura Orientación: Edificación Arquitectónica",
         "Maestría En Ciencias De La Arquitectura Y Orientación En Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion",
@@ -754,17 +749,50 @@
         "Maestría En Ciencias De La Arquitectura. Orientación En Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura. Orientación: Conservación Del Patrimonio Edificado"
       ],
-      "observedCount": 112,
+      "observedCount": 96,
       "observedThesisYears": {
-        "min": 1996,
+        "min": 1998,
         "max": 2021
       },
-      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con múltiples orientaciones; desde la reapertura de 2003 conserva Historia de la Arquitectura Mexicana y Conservación del Patrimonio Edificado. V32 confirma además que Control Escolar mantiene una clave propia para la histórica Maestría en Historia de la Arquitectura Mexicana (261508), cuya autoridad separada queda INCLUDE. Esta autoridad base permanece REVIEW porque agrupa tesis sin orientación explícita y orientaciones heterogéneas de historia, conservación, edificación, urbanismo, arte/comunicación y teoría/crítica; no se hereda el INCLUDE de la autoridad histórica.",
+      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con múltiples orientaciones. V37 separa como autoridad granular la orientación formal Historia de la Arquitectura Mexicana porque CUAAD la mantiene como terminal con programa propio y tronco común, plan especializante específico y LGAC institucional explícita. La autoridad base queda REVIEW con 96 tesis correspondientes a registros sin orientación explícita y a orientaciones heterogéneas de conservación, edificación, urbanismo, arte/comunicación y teoría/crítica. La autoridad histórica Maestría en Historia de la Arquitectura Mexicana permanece separada; la coexistencia de etiquetas históricas y de orientación impide fusionarlas por similitud nominal.",
       "evidence": [
         "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
         "https://cuaad.udg.mx/node/21768",
         "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencias-de-la-arquitectura",
         "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-arquitectura-historia-arquitectura-mexicana",
+      "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación en Historia de la Arquitectura Mexicana",
+      "level": "maestria",
+      "disciplineFamily": "historia-arquitectura",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Arquitectura; Orientacion En Historia De La Arquitectura Mexicana",
+        "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA CON ORIENTACION EN HISTORIA DE LA ARQUITECTURA MEXICANA",
+        "Maestría En Ciencias De La Arquitectura Orientación En Historia De La Arquitectura Mexicana",
+        "Maestría En Ciencias De La Arquitectura Orientación En: Historia De La Arquitectura Mexicana",
+        "Maestría En Ciencias De La Arquitectura Orientación Historia De La Arquitectura Mexicana"
+      ],
+      "observedCount": 16,
+      "observedThesisYears": {
+        "min": 1996,
+        "max": 2019
+      },
+      "decisionNote": "V37 resuelve INCLUDE bajo humanities-only la orientación formal Historia de la Arquitectura Mexicana de la Maestría en Ciencias de la Arquitectura. CUAAD documenta que desde la modificación de 1999 y la reapertura de 2003 Historia de la Arquitectura Mexicana opera como orientación/terminal formal; la presentación vigente señala dos orientaciones, cada una con su propio programa y un tronco común. El plan especializante de Historia incluye arquitectura prehispánica y mexicana de los siglos XVI–XX, tratadistas, análisis de edificios, centros históricos, datación de estilos y arquitectura vernácula. El corpus contiene 16 tesis RIUdeG/CUAAD con la orientación explícita, 16 Metadata Confidence unassessed/allowed y 0 blockers. No se fusiona con la autoridad histórica Maestría en Historia de la Arquitectura Mexicana (4 tesis INCLUDE), porque ambas etiquetas coexisten en el corpus y la autoridad histórica tiene identidad administrativa propia.",
+      "evidence": [
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cuaad.udg.mx/node/21768",
+        "https://cuaad.udg.mx/oferta/maestrias/mca/plan-de-estudios",
+        "https://cuaad.udg.mx/sites/default/files/convocatoria_mca_2026_informacion.pdf",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencias-de-la-arquitectura",
+        "https://riudg.udg.mx/handle/20.500.12104/72956",
+        "https://riudg.udg.mx/handle/20.500.12104/72957"
       ]
     },
     {
@@ -1594,7 +1622,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v36",
+  "registryRevision": "2026-11-02.v37",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
