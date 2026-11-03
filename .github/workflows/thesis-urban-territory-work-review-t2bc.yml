@@ -114,14 +114,14 @@ jobs:
               confidence["programMetadataEvidenceRevision"]
               == "2026-11-02.v5"
           )
-          assert policy["policyRevision"] == "2026-11-03.boundary-v2"
+          assert policy["policyRevision"] == "2026-11-03.boundary-v3"
           assert queue["policyRevision"] == policy["policyRevision"]
           assert queue["decisionConstraint"] == (
               "boundary-work-review-does-not-change-admission"
           )
           assert {
               item["programRef"] for item in policy["programs"]
-          } == {dcts_ref, cognition_ref}
+          } == {dcts_ref, cognition_ref, "program:udg:doc-derechos-humanos"}
 
           dcts_authority = next(
               p for p in registry["programs"] if p["id"] == dcts_ref
@@ -137,13 +137,13 @@ jobs:
           # The shared queue now has two REVIEW programs, but the historical
           # DCTS cohort contract remains exact.
           metrics = queue["metrics"]
-          assert metrics["programs"] == 2
-          assert metrics["workItems"] == expected["works"] + 4
+          assert metrics["programs"] == 3
+          assert metrics["workItems"] == expected["works"] + 28
           assert metrics["projectedAdmission"] == {
-              "review": expected["works"] + 4
+              "review": expected["works"] + 28
           }
           assert metrics["pendingPrimarySourceReview"] == (
-              expected["pendingPrimarySourceReview"] + 4
+              expected["pendingPrimarySourceReview"] + 28
           )
           assert metrics["automaticAdmissionDecisions"] == 0
           assert metrics["admissionChanges"] == 0
@@ -235,7 +235,7 @@ jobs:
               item for item in queue["items"]
               if item["programRef"] == cognition_ref
           ]
-          assert len(cognition_items) == 4
+          assert len(cognition_items) == 4\n          assert len([i for i in queue["items"] if i["programRef"] == "program:udg:doc-derechos-humanos"]) == 24
           assert all(
               item["projectedAdmissionStatus"] == "review"
               for item in cognition_items

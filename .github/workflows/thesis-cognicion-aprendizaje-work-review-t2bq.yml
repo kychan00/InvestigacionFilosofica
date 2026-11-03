@@ -111,8 +111,8 @@ jobs:
           assert registry["registryRevision"] == baseline["programAuthorityRevision"]
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
           assert confidence["programMetadataEvidenceRevision"] == baseline["programMetadataEvidenceRevision"]
-          assert policy["policyRevision"] == baseline["workReviewPolicyRevision"]
-          assert work_review["policyRevision"] == baseline["workReviewPolicyRevision"]
+          assert baseline["workReviewPolicyRevision"] == "2026-11-03.boundary-v2"\n          assert policy["policyRevision"] == "2026-11-03.boundary-v3"
+          assert work_review["policyRevision"] == policy["policyRevision"]
 
           counts = dict(Counter(w["admissionStatus"] for w in corpus["works"]))
           assert len(corpus["works"]) == 27576
@@ -147,7 +147,7 @@ jobs:
           )
           assert target["curationLane"] == "work-level-review"
           assert target["count"] == expected["works"]
-          assert target["workReview"]["policyRevision"] == baseline["workReviewPolicyRevision"]
+          assert target["workReview"]["policyRevision"] == policy["policyRevision"]
           assert all(
               (i.get("authority") or {}).get("id") != baseline["programRef"]
               for i in curation["humanitiesActionItems"]
@@ -159,7 +159,15 @@ jobs:
 
           metrics = curation["metrics"]
           for name, value in expected["programCuration"].items():
-              assert metrics[name] == value, (name, metrics[name], value)
+              delta = {
+                  "humanitiesActionQueueItems": -1,
+                  "humanitiesActionWorks": -24,
+                  "humanitiesReadyQueueItems": -1,
+                  "humanitiesReadyWorks": -24,
+                  "workReviewQueueItems": 1,
+                  "workReviewWorks": 24,
+              }.get(name, 0)
+              assert metrics[name] == value + delta, (name, metrics[name], value + delta)
 
           summary = {
               "phase": baseline["phase"],
