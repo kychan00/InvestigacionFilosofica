@@ -817,6 +817,11 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                         "dc.degree.name": [program],
                         "dc.degree.grantor": ["Universidad de Guadalajara"],
                         "dc.degree.department": ["CUAAD"],
+                        **(
+                            {"dc.date.issued": ["2021"]}
+                            if program == "Maestría en Ciencias de la Arquitectura"
+                            else {}
+                        ),
                         "dc.type": ["Tesis"],
                     },
                     raw_payload=f"arts-family-{index}",
