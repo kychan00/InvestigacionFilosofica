@@ -230,6 +230,7 @@ jobs:
                   "doctorado en ciudad territorio y sustentabilidad",
                   "doctorado en cognicion y aprendizaje",
                   "doctorado en derechos humanos",
+                  "maestria en estudios de genero",
               }
               for item in curation["humanitiesActionItems"]
           )
@@ -239,6 +240,7 @@ jobs:
               "doctorado en ciudad territorio y sustentabilidad",
               "doctorado en cognicion y aprendizaje",
               "doctorado en derechos humanos",
+              "maestria en estudios de genero",
           }
 
           bl = expected["batchLedger"]
