@@ -125,7 +125,7 @@ jobs:
               },
           }
           (p / "evidence-ready-report.json").write_text(
-              json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\\n"
+              json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
           )
           print(json.dumps(report, ensure_ascii=False, indent=2))
           PY
