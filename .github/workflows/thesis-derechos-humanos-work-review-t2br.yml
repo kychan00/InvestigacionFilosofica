@@ -1,0 +1,190 @@
+name: Thesis Derechos Humanos work review T2BR
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/boundary-work-review-policy-v1.json"
+      - "scripts/thesis/config/derechos-humanos-work-review-baseline-v1.json"
+      - "scripts/thesis/build_boundary_work_review_queue_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "tests/test_thesis_derechos_humanos_work_review_t2br.py"
+      - "tests/test_thesis_program_curation_queue.py"
+      - "docs/THESIS_DERECHOS_HUMANOS_WORK_REVIEW_T2BR.md"
+      - ".github/workflows/thesis-derechos-humanos-work-review-t2br.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_derechos_humanos_work_review_t2br.py" -v
+          python -m unittest discover -s tests -p "test_thesis_boundary_work_review_queue.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Compile builders
+        run: |
+          python -m py_compile scripts/thesis/build_boundary_work_review_queue_v1.py
+          python -m py_compile scripts/thesis/build_program_curation_queue_v1.py
+
+      - name: Download frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-t2br artifacts/thesis-derechos-humanos-work-review
+          mkdir -p /tmp/thesis-t2br artifacts/thesis-derechos-humanos-work-review
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-t2br.zip
+          unzip -q /tmp/thesis-t2br.zip -d /tmp/thesis-t2br
+
+      - name: Reproject Metadata Confidence V5
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-t2br/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-t2br/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-derechos-humanos-work-review/canonical-confidence.json \
+            --output-report artifacts/thesis-derechos-humanos-work-review/confidence-report.json
+
+      - name: Reproject V44 and build queues
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          import build_boundary_work_review_queue_v1 as work_review
+
+          root = Path("artifacts/thesis-derechos-humanos-work-review")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(Path("/tmp/thesis-t2br/observed-authorities.json").read_text())
+          registry = canonical.load_program_registry()
+          projected, projection = coverage.reproject_corpus(corpus, registry, reference_year=2026)
+          projected_observed = coverage.reproject_observed_authorities(
+              observed, projection["programDimensions"]
+          )
+          queue = curation.build_queue(projected_observed, projected, registry)
+          policy = json.loads(
+              Path("scripts/thesis/config/boundary-work-review-policy-v1.json").read_text()
+          )
+          work_queue = work_review.build_queue(projected, registry, policy, reference_year=2026)
+          (root / "canonical-v44.json").write_text(json.dumps(projected, ensure_ascii=False))
+          (root / "program-curation-queue.json").write_text(json.dumps(queue, ensure_ascii=False))
+          (root / "work-review-queue.json").write_text(json.dumps(work_queue, ensure_ascii=False))
+          PY
+
+      - name: Validate T2BR full contract
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          root = Path("artifacts/thesis-derechos-humanos-work-review")
+          baseline = json.loads(
+              Path("scripts/thesis/config/derechos-humanos-work-review-baseline-v1.json").read_text()
+          )
+          registry = json.loads(Path("scripts/thesis/config/program-authority-v1.json").read_text())
+          scope = json.loads(Path("scripts/thesis/config/scope-boundary-matrix-v1.json").read_text())
+          confidence = json.loads((root / "confidence-report.json").read_text())
+          corpus = json.loads((root / "canonical-v44.json").read_text())
+          curation = json.loads((root / "program-curation-queue.json").read_text())
+          work_review = json.loads((root / "work-review-queue.json").read_text())
+          policy = json.loads(Path("scripts/thesis/config/boundary-work-review-policy-v1.json").read_text())
+          expected = baseline["expected"]
+
+          assert registry["registryRevision"] == baseline["programAuthorityRevision"]
+          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert confidence["programMetadataEvidenceRevision"] == baseline["programMetadataEvidenceRevision"]
+          assert policy["policyRevision"] == baseline["workReviewPolicyRevision"]
+          assert work_review["policyRevision"] == baseline["workReviewPolicyRevision"]
+
+          counts = dict(Counter(w["admissionStatus"] for w in corpus["works"]))
+          assert len(corpus["works"]) == 27576
+          assert counts == expected["globalProjectedAdmission"], counts
+
+          authority = next(p for p in registry["programs"] if p["id"] == baseline["programRef"])
+          assert authority["admissionState"] == expected["programAdmissionState"]
+          assert authority["observedCount"] == expected["works"]
+
+          target_policy = next(
+              p for p in policy["programs"] if p["programRef"] == baseline["programRef"]
+          )
+          assert target_policy["programLevelConclusion"] == "program-level-scope-review-exhausted"
+          assert target_policy["resolutionMode"] == "work-level-primary-source-adjudication"
+
+          items = [
+              i for i in work_review["items"] if i["programRef"] == baseline["programRef"]
+          ]
+          assert len(items) == expected["works"]
+          assert all(i["projectedAdmissionStatus"] == "review" for i in items)
+          assert all(i["workReviewState"] == "pending-primary-source-review" for i in items)
+          assert all(i["academicUnitRaw"] == "CUTONALA" for i in items)
+          assert all(i["programMetadataEvidence"]["authorityApplicability"] == "allowed" for i in items)
+          assert all(i["programMetadataEvidence"]["confidenceState"] == "unassessed" for i in items)
+          assert all(i["handle"] for i in items)
+          assert {int(str(i["date"]["value"])[:4]) for i in items} == {2021, 2022, 2023, 2024, 2025}
+          assert all(i["date"]["quality"] == "valid" for i in items)
+
+          target = next(
+              i for i in curation["items"]
+              if (i.get("authority") or {}).get("id") == baseline["programRef"]
+          )
+          assert target["curationLane"] == "work-level-review"
+          assert target["count"] == expected["works"]
+          assert target["workReview"]["policyRevision"] == baseline["workReviewPolicyRevision"]
+          assert all(
+              (i.get("authority") or {}).get("id") != baseline["programRef"]
+              for i in curation["humanitiesActionItems"]
+          )
+          assert all(
+              (i.get("authority") or {}).get("id") != baseline["programRef"]
+              for i in curation["humanitiesReadyItems"]
+          )
+
+          metrics = curation["metrics"]
+          for name, value in expected["programCuration"].items():
+              assert metrics[name] == value, (name, metrics[name], value)
+
+          summary = {
+              "phase": baseline["phase"],
+              "decision": "work-level-review-no-admission-change",
+              "programAuthorityRevision": registry["registryRevision"],
+              "workReviewPolicyRevision": work_review["policyRevision"],
+              "programRef": baseline["programRef"],
+              "works": len(items),
+              "globalAdmission": counts,
+              "programCuration": {
+                  k: metrics[k] for k in expected["programCuration"]
+              },
+              "nextHumanitiesReadyAction": curation["nextHumanitiesReadyAction"],
+          }
+          (root / "t2br-summary.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload T2BR evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-derechos-humanos-work-review-t2br
+          path: artifacts/thesis-derechos-humanos-work-review/
+          if-no-files-found: error
+          retention-days: 14
