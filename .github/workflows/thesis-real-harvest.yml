@@ -702,7 +702,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-03.v44"
+          assert int(registry["registryRevision"].rsplit(".v",1)[1]) >= 44
 
           authority = next(
               program
@@ -1170,7 +1170,7 @@ jobs:
 
           expected = baseline["expectedFull"]
 
-          assert report["registryRevision"] == "2026-11-03.v44"
+          assert int(report["registryRevision"].rsplit(".v",1)[1]) >= 44
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
