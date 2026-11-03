@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "thesis-didactica-artes-visuales-authority-v42-baseline-v1",
+  "phase": "T2BN",
+  "registryRevision": "2026-11-03.v42",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "sourceFullArtifactId": 13099541204,
+  "programRef": "program:udg:mae-didactica-artes-visuales-historica",
+  "expected": {
+    "works": 16,
+    "priorAdmission": {
+      "review": 16
+    },
+    "projectedAdmission": {
+      "exclude": 16
+    },
+    "academicUnits": {
+      "CUAAD": 16
+    },
+    "observedYears": {
+      "min": 2003,
+      "max": 2006
+    },
+    "blockedWorks": 0,
+    "allowedWorks": 16,
+    "knownAliases": 5,
+    "globalProjectedAdmission": {
+      "include": 559,
+      "review": 238,
+      "quarantine": 18971,
+      "exclude": 7806,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 18,
+    "humanitiesActionWorks": 86,
+    "evidenceHoldQueueItems": 5,
+    "evidenceHoldWorks": 13,
+    "humanitiesReadyQueueItems": 13,
+    "humanitiesReadyWorks": 73,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "siblingEscenicas": {
+      "ref": "program:udg:mae-didactica-artes-escenicas-historica",
+      "admission": "review",
+      "works": 3
+    }
+  },
+  "invariants": [
+    "strict-humanities-only-excludes-applied-pedagogy-not-art-history",
+    "area-educacion-y-humanidades-is-a-joint-official-area-not-automatic-humanities-include",
+    "separate-dgp-orientation-identities-714513-vs-726502-vs-721506",
+    "no-generic-didactica-de-las-artes-absorption",
+    "no-fuzzy-aliases-or-inference-from-thesis-titles",
+    "scope-v5-metadata-confidence-v5-unchanged",
+    "t2bl-arte-comunicacion-hold-still-review",
+    "dcts-boundary-work-review-untouched"
+  ]
+}
