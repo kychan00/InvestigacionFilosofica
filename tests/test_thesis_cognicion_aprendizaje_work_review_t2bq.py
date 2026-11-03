@@ -126,6 +126,7 @@ class CognicionAprendizajeWorkReviewT2BQTest(unittest.TestCase):
                     "id": "thesis:work:test-cognicion",
                     "title": "Ética y juicio moral",
                     "academicUnitRaw": "CUCSH",
+                    "institutionRaw": "Universidad de Guadalajara",
                     "programRaw": "DOCTORADO EN COGNICION Y APRENDIZAJE",
                     "date": {"value": "2022-08-15", "quality": "valid"},
                     "persistentIdentifiers": [

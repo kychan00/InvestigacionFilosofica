@@ -45,28 +45,30 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         observed = {
             "programs": [
                 {
-                    "normalizedKey": "doctorado en cognicion y aprendizaje",
-                    "count": 4,
+                    "normalizedKey": "maestria en estudios de genero",
+                    "count": 1,
                     "variants": {
-                        "DOCTORADO EN COGNICION Y APRENDIZAJE": 4,
+                        "MAESTRIA EN ESTUDIOS DE GENERO": 1,
                     },
-                    "providers": {"riudg": 4},
-                    "admissionStatuses": {"quarantine": 4},
-                    "programRefs": {},
+                    "providers": {"riudg": 1},
+                    "admissionStatuses": {"review": 1},
+                    "programRefs": {
+                        "program:udg:mae-estudios-genero": 1,
+                    },
                 }
             ]
         }
         corpus = {
             "works": [
                 {
-                    "programRaw": "DOCTORADO EN COGNICION Y APRENDIZAJE",
+                    "programRaw": "MAESTRIA EN ESTUDIOS DE GENERO",
                     "academicUnitRaw": "CUCSH",
                     "date": {
-                        "value": "2024",
+                        "value": "2026",
                         "quality": "valid",
                     },
-                    "thesisTypeRaw": "Tesis de Doctorado",
-                    "admissionStatus": "quarantine",
+                    "thesisTypeRaw": "Tesis de Maestría",
+                    "admissionStatus": "review",
                 }
             ]
         }
@@ -80,14 +82,15 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         self.assertEqual(payload["metrics"]["queueItems"], 1)
         item = payload["items"][0]
         self.assertEqual(item["queueState"], "review")
+        self.assertEqual(item["curationLane"], "scope-review")
         self.assertEqual(
             item["authority"]["id"],
-            "program:udg:doc-cognicion-aprendizaje",
+            "program:udg:mae-estudios-genero",
         )
         self.assertEqual(item["priority"]["band"], "A")
         self.assertIn("scope-decision", item["evidenceNeeds"])
-        self.assertEqual(item["observedYears"]["min"], 2024)
-        self.assertEqual(item["observedYears"]["max"], 2024)
+        self.assertEqual(item["observedYears"]["min"], 2026)
+        self.assertEqual(item["observedYears"]["max"], 2026)
 
     def test_resolved_include_is_not_in_default_queue(self):
         observed = {
