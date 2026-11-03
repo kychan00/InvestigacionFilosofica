@@ -1,0 +1,87 @@
+name: Thesis Estudios de Género Work Review T2BV
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/boundary-work-review-policy-v1.json"
+      - "tests/test_thesis_estudios_genero_work_review_t2bv.py"
+      - "docs/THESIS_ESTUDIOS_GENERO_WORK_REVIEW_T2BV.md"
+      - ".github/workflows/thesis-estudios-genero-work-review-t2bv.yml"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: T2BV unit tests
+        run: python -m unittest discover -s tests -p "test_thesis_estudios_genero_work_review_t2bv.py" -v
+      - name: Fetch frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/t2bv artifacts/t2bv
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/t2bv.zip
+          unzip -q /tmp/t2bv.zip -d /tmp/t2bv
+      - name: Reproject metadata and V47 program authority
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/t2bv/canonical-corpus.json.gz \
+            --source-records /tmp/t2bv/source-records.jsonl.gz \
+            --output-corpus artifacts/t2bv/confidence.json \
+            --output-report artifacts/t2bv/confidence-report.json
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          import build_boundary_work_review_queue_v1 as work
+          root=Path("artifacts/t2bv")
+          corpus=json.loads((root/"confidence.json").read_text())
+          observed=json.loads(Path("/tmp/t2bv/observed-authorities.json").read_text())
+          registry=canonical.load_program_registry()
+          projected,projection=coverage.reproject_corpus(corpus,registry,reference_year=2026)
+          observed_projected=coverage.reproject_observed_authorities(observed,projection["programDimensions"])
+          queue=curation.build_queue(observed_projected,projected,registry)
+          policy=json.loads(Path("scripts/thesis/config/boundary-work-review-policy-v1.json").read_text())
+          review=work.build_queue(projected,registry,policy)
+          from collections import Counter
+          totals=dict(Counter(w["admissionStatus"] for w in projected["works"]))
+          target="program:udg:mae-estudios-genero"
+          selected=[w for w in projected["works"] if w.get("programRef")==target]
+          assert registry["registryRevision"]=="2026-11-03.v47"
+          assert policy["policyRevision"]=="2026-11-03.boundary-v4"
+          assert len(projected["works"])==27576
+          assert totals=={"include":560,"review":194,"quarantine":18971,"exclude":7849,"reject-source":2},totals
+          assert len(selected)==1
+          assert selected[0]["admissionStatus"]=="review"
+          assert selected[0]["academicUnitRaw"]=="CUCSH"
+          assert (selected[0].get("programMetadataEvidence") or {}).get("authorityApplicability")=="allowed"
+          assert (selected[0].get("programMetadataEvidence") or {}).get("confidenceState")=="unassessed"
+          m=queue["metrics"]
+          expected={"humanitiesActionQueueItems":5,"humanitiesActionWorks":13,"humanitiesReadyQueueItems":0,"humanitiesReadyWorks":0,"evidenceHoldQueueItems":5,"evidenceHoldWorks":13,"workReviewQueueItems":4,"workReviewWorks":181}
+          assert {k:m[k] for k in expected}==expected,m
+          assert queue["nextHumanitiesReadyAction"] is None
+          assert review["metrics"]["automaticAdmissionDecisions"]==0
+          assert review["metrics"]["admissionChanges"]==0
+          assert any(x["programRef"]==target for x in policy["programs"])
+          report={"phase":"T2BV","programRevision":registry["registryRevision"],"workReviewRevision":policy["policyRevision"],"globalAdmission":totals,"queueMetrics":{k:m[k] for k in expected},"targetWorks":len(selected),"nextHumanitiesReadyAction":queue["nextHumanitiesReadyAction"],"workReviewMetrics":review["metrics"]}
+          (root/"t2bv-report.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
+          print(json.dumps(report,indent=2,ensure_ascii=False))
+          PY
+      - name: Upload T2BV full evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-estudios-genero-t2bv
+          path: artifacts/t2bv/t2bv-report.json
+          if-no-files-found: warn
+          retention-days: 14
