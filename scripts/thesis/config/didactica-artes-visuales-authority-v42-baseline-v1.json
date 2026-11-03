@@ -43,6 +43,24 @@
       "ref": "program:udg:mae-didactica-artes-escenicas-historica",
       "admission": "review",
       "works": 3
+    },
+    "rawProgramVariants": {
+      "Maestría En Didactica De Las Artes; Orientacion Artes Visuales": 4,
+      "Maestría En Didáctica De Las Artes, Con Orientación En Artes Visuales": 2,
+      "Maestría En Didáctica De Las Artes Con Orientación En Artes Visuales": 5,
+      "Maestría En Didáctica De Las Artes Con Especialidad En Artes Visuales": 1,
+      "Maestría En Didáctica De Las Artes Orientación En Artes Visuales": 4
+    },
+    "normalizedProgramGroups": {
+      "maestria en didactica de las artes con orientacion en artes visuales": 7,
+      "maestria en didactica de las artes orientacion artes visuales": 4,
+      "maestria en didactica de las artes orientacion en artes visuales": 4,
+      "maestria en didactica de las artes con especialidad en artes visuales": 1
+    },
+    "nextHumanitiesReadyAction": {
+      "normalizedKey": "maestria en arquitectura orientacion urbanismo y desarrollo",
+      "works": 6,
+      "programRef": "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
     }
   },
   "invariants": [

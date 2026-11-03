@@ -116,9 +116,22 @@ jobs:
           target=next(p for p in registry["programs"] if p["id"]==baseline["programRef"])
           keys={norm(raw) for raw in target["aliases"]}
           variants=dict(Counter(w["programRaw"] for w in selected))
+          assert variants==e["rawProgramVariants"],variants
           assert set(map(norm,variants))<=keys,(variants,keys)
+          groups=dict(Counter({
+              norm(raw):sum(n for name,n in variants.items() if norm(name)==norm(raw))
+              for raw in variants
+          }))
+          assert groups==e["normalizedProgramGroups"],groups
           assert all(canonical.resolve_program(w["programRaw"],registry)["admissionState"]=="exclude"
                      for w in selected)
+          years=sorted(
+              int(str((item.get("date") or {}).get("value"))[:4])
+              for item in selected
+              if (item.get("date") or {}).get("quality")=="valid"
+          )
+          assert years and years[0]==e["observedYears"]["min"]
+          assert years[-1]==e["observedYears"]["max"]
 
           q=queue["metrics"]
           for k in (
@@ -140,7 +153,11 @@ jobs:
           assert len(remain)==sibling["works"]
           assert all(w["admissionStatus"]=="review" for w in remain)
           assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
-          assert queue["nextHumanitiesReadyAction"] is not None
+          ready=queue["nextHumanitiesReadyAction"]
+          assert ready is not None
+          assert ready["normalizedKey"]==e["nextHumanitiesReadyAction"]["normalizedKey"]
+          assert ready["count"]==e["nextHumanitiesReadyAction"]["works"]
+          assert ready["authority"]["id"]==e["nextHumanitiesReadyAction"]["programRef"]
 
           report={
               "phase":"T2BN","registryRevision":registry["registryRevision"],

@@ -46,6 +46,19 @@ Visuales, con **16 registros CUAAD** entre 2003 y 2006. Ninguno se admite
 por el tema de tesis. La decisión se fundamenta en la identidad curricular
 institucional contemporánea a las obras.
 
+Inventario original observado y congelado en V42 (cinco formas exactas,
+cuatro claves normalizadas):
+
+- `Maestría En Didáctica De Las Artes Con Orientación En Artes Visuales`: **5**;
+- `Maestría En Didactica De Las Artes; Orientacion Artes Visuales`: **4**;
+- `Maestría En Didáctica De Las Artes Orientación En Artes Visuales`: **4**;
+- `Maestría En Didáctica De Las Artes, Con Orientación En Artes Visuales`: **2**;
+- `Maestría En Didáctica De Las Artes Con Especialidad En Artes Visuales`: **1**.
+
+Las dos variantes «Con Orientación» (5+2) comparten normalización,
+pero se conservan ambas etiquetas originales. El primer grupo original
+prioritario suma 7 tesis; la autoridad completa suma 16.
+
 ### Exclusiones del alcance de la decisión
 
 - **Artes Escénicas**: autoridad independiente
@@ -80,3 +93,11 @@ El contrato declarativo se encuentra en
 El workflow T2BN prueba exhaustivamente las 16 obras de la autoridad,
 las variantes exactas, la aplicación de Metadata Confidence V5 y las
 regresiones globales. **No modificar Scope Policy V5 ni Confidence V5.**
+
+## Próxima autoridad (sin admisión automática)
+
+La cola V42 indica como siguiente caso investigable a
+`program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo`,
+orientación histórica **Urbanismo y Desarrollo** de la MCA.
+Primer grupo: **6 tesis**, pendiente REVIEW. No se debe confundir con
+la maestría independiente homónima documentada en los PIFI del CUAAD.
