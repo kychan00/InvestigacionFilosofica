@@ -133,12 +133,12 @@ jobs:
               assert all(w["admissionStatus"]==spec["state"] for w in items)
           m=queue["metrics"]
           current={
-              "humanitiesActionQueueItems":8,
-              "humanitiesActionWorks":42,
+              "humanitiesActionQueueItems":7,
+              "humanitiesActionWorks":15,
               "evidenceHoldQueueItems":5,
               "evidenceHoldWorks":13,
-              "humanitiesReadyQueueItems":3,
-              "humanitiesReadyWorks":29,
+              "humanitiesReadyQueueItems":2,
+              "humanitiesReadyWorks":2,
               "workReviewQueueItems":3,
               "workReviewWorks":180,
           }
