@@ -222,6 +222,9 @@ jobs:
           # V43: historical MCA Urbanismo y Desarrollo REVIEW -> EXCLUDE.
           expected_global["review"] -= 8
           expected_global["exclude"] += 8
+          # V44: historical MCA Edificación Arquitectónica REVIEW -> EXCLUDE.
+          expected_global["review"] -= 5
+          expected_global["exclude"] += 5
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
