@@ -22,10 +22,14 @@ class TecnologiasAprendizajeAuthorityV38Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v38(self):
+    def test_v38_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v38",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            38,
         )
 
     def test_mta_variants_are_exact_exclude(self):
