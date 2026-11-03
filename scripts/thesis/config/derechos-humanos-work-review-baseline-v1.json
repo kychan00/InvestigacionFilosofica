@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "thesis-derechos-humanos-work-review-baseline-v1",
+  "phase": "T2BR",
+  "programAuthorityRevision": "2026-11-03.v44",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v3",
+  "programRef": "program:udg:doc-derechos-humanos",
+  "canonicalName": "Doctorado en Derechos Humanos",
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 24,
+    "programAdmissionState": "review",
+    "projectedAdmission": {
+      "review": 24
+    },
+    "blockedWorks": 0,
+    "allowedWorks": 24,
+    "unassessedWorks": 24,
+    "academicUnits": {
+      "CUTONALA": 24
+    },
+    "validDateWorks": 24,
+    "observedValidYears": {
+      "min": 2021,
+      "max": 2025
+    },
+    "pendingPrimarySourceReview": 24,
+    "automaticAdmissionDecisions": 0,
+    "admissionChanges": 0,
+    "globalProjectedAdmission": {
+      "include": 559,
+      "review": 225,
+      "quarantine": 18971,
+      "exclude": 7819,
+      "reject-source": 2
+    },
+    "programCuration": {
+      "humanitiesActionQueueItems": 10,
+      "humanitiesActionWorks": 45,
+      "evidenceHoldQueueItems": 5,
+      "evidenceHoldWorks": 13,
+      "humanitiesReadyQueueItems": 5,
+      "humanitiesReadyWorks": 32,
+      "workReviewQueueItems": 3,
+      "workReviewWorks": 180
+    }
+  },
+  "invariants": [
+    "V44-remains-unchanged",
+    "scope-V5-remains-unchanged",
+    "metadata-V5-remains-unchanged",
+    "24-review-no-auto-admission",
+    "title-abstract-embeddings-not-sole-admission-basis"
+  ]
+}
