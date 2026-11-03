@@ -71,11 +71,24 @@ La fecha sospechosa es `0000`.
 
 ### Cohorte institucional segura
 
-Las **27 obras** con fecha válida entre 2008 y 2021 pueden aplicar la autoridad INCLUDE porque, para ese periodo, UdeG había suprimido las demás orientaciones y la MCA operaba únicamente con las dos orientaciones ya aceptadas en Humanidades.
+La aplicación de INCLUDE queda ahora cerrada por una regla temporal general, no por una lista de registros conocidos.
+
+Sólo una etiqueta genérica MCA con:
+
+- `dc.date.issued` de calidad **valid**;
+- año emitido entre **2007 y 2026**;
+
+puede aplicar la autoridad INCLUDE. Esta ventana empieza después del cambio con efecto 2006 B y queda deliberadamente acotada a la revisión V41; una cohorte futura posterior a 2026 requerirá una nueva revisión de política.
+
+En el corpus V40, las **27 obras** elegibles tienen fechas válidas entre 2008 y 2021.
 
 Resultado:
 
 `27 REVIEW → INCLUDE`
+
+Rule:
+
+`mca-generic-post-2006b-safe-era-v1`
 
 Esta inferencia es institucional y temporal, no temática.
 
@@ -89,7 +102,14 @@ Siete obras no cumplen el estándar:
 
 En esos casos la etiqueta genérica no permite saber si pertenecían a Historia/Conservación o a alguna de las orientaciones históricas heterogéneas.
 
-Metadata Confidence V5 bloquea exactamente esos siete `providerRecordId`:
+Metadata Confidence V5 aplica después una regla **fail-closed** a toda etiqueta genérica MCA que no cumpla la ventana segura. Por tanto quedan bloqueados los registros:
+
+- pre-2007;
+- sin `dc.date.issued`;
+- con fecha sospechosa o inválida;
+- con fecha posterior al horizonte congelado de V41.
+
+En el corpus actual eso corresponde exactamente a siete `providerRecordId` observados:
 
 - `oai:riudg.udg.mx:20.500.12104/46363`
 - `oai:riudg.udg.mx:20.500.12104/46367`
@@ -99,13 +119,15 @@ Metadata Confidence V5 bloquea exactamente esos siete `providerRecordId`:
 - `oai:riudg.udg.mx:20.500.12104/73107`
 - `oai:riudg.udg.mx:20.500.12104/73110`
 
-Resultado:
+La lista es evidencia del snapshot, **no el mecanismo de bloqueo**. Una cosecha futura que descubra otro registro histórico ambiguo quedará igualmente protegida.
+
+Resultado actual:
 
 `7 REVIEW → QUARANTINE`
 
 Rule:
 
-`riudg-mca-generic-orientation-period-unresolved-v1`
+`mca-generic-orientation-period-unresolved-v1`
 
 Confidence:
 
@@ -201,9 +223,10 @@ Boundary Closure debe permanecer:
 
 1. Sólo Humanidades.
 2. No usar contenido temático de tesis para reconstruir orientación.
-3. No incluir registros genéricos pre-2003 o no fechables.
-4. `0000` sigue siendo sentinel/fecha sospechosa.
-5. No propagar INCLUDE a las orientaciones históricas restantes.
-6. No fuzzy aliases.
-7. No modificar Scope Policy V5.
-8. No alterar DCTS.
+3. La MCA genérica sólo puede aplicar INCLUDE con fecha emitida válida entre 2007 y 2026.
+4. Todo registro genérico fuera de esa ventana falla cerrado a QUARANTINE.
+5. `0000` sigue siendo sentinel/fecha sospechosa.
+6. No propagar INCLUDE a las orientaciones históricas restantes.
+7. No fuzzy aliases.
+8. No modificar Scope Policy V5.
+9. No alterar DCTS.
