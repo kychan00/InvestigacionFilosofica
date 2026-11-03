@@ -165,11 +165,15 @@ jobs:
           for name in ("siblingArteComunicacion","siblingTeoriaCritica"):
               contract=e[name]
               p=next(p for p in registry["programs"] if p["id"]==contract["programRef"])
-              assert p["admissionState"]==contract["admissionState"]
+              expected_state="include" if name=="siblingTeoriaCritica" else contract["admissionState"]
+              assert p["admissionState"]==expected_state
               assert p["observedCount"]==contract["works"]
               remaining=[w for w in corpus["works"] if w.get("programRef")==p["id"]]
               assert len(remaining)==contract["works"]
-              assert all(w["admissionStatus"]==contract["admissionState"] for w in remaining)
+              assert all(w["admissionStatus"]==expected_state for w in remaining)
+          assert e["siblingTeoriaCritica"]["admissionState"]=="review"
+          teoria=next(p for p in registry["programs"] if p["id"]==e["siblingTeoriaCritica"]["programRef"])
+          assert "T2BU/V47" in teoria["decisionNote"]
           assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
           ready=queue["nextHumanitiesReadyAction"]
           assert ready is not None
