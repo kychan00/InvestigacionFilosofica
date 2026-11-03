@@ -171,7 +171,7 @@ jobs:
               for w in corpus["works"]
               if w.get("programRef") == expected["baseProgramRef"]
           ]
-          assert len(base) == expected["baseProgramWorks"] - 16
+          assert len(base) == expected["baseProgramWorks"] - 51
           assert Counter(
               w.get("admissionStatus") for w in base
           ) == Counter({expected["baseProgramAdmissionState"]: len(base)})
