@@ -207,7 +207,7 @@ jobs:
               w for w in corpus["works"]
               if w.get("programRef") == baseline["historyHistoricalRef"]
           ]
-          assert len(base_works) == expected["baseProgramWorks"] - 16
+          assert len(base_works) == expected["baseProgramWorks"] - 51
           assert Counter(
               w.get("admissionStatus") for w in base_works
           ) == Counter({"review": len(base_works)})
@@ -229,6 +229,9 @@ jobs:
           # V39: Licenciatura en Historia del Arte REVIEW -> INCLUDE.
           expected_global["review"] -= 2
           expected_global["include"] += 2
+          # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
+          expected_global["review"] -= 35
+          expected_global["include"] += 35
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -242,10 +245,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 7
+              expected["humanitiesActionQueueItems"] - 17
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 318
+              expected["humanitiesActionWorks"] - 353
           )
           assert queue["metrics"]["workReviewQueueItems"] == (
               expected["workReviewQueueItems"]
@@ -264,10 +267,8 @@ jobs:
 
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == "maestria en investigacion educativa"
-          assert next_action["normalizedKey"] == (
-              "maestria en ciencias de la arquitectura orientacion en conservacion del patrimonio edificado"
-          )
-          assert next_action["count"] == 10
+          assert next_action["normalizedKey"] == "maestria en ciencias de la arquitectura"
+          assert next_action["count"] == 34
 
           summary = {
               "registryRevision": registry["registryRevision"],
