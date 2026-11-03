@@ -234,6 +234,7 @@ jobs:
               item["normalizedKey"] not in {
                   "doctorado en ciudad territorio y sustentabilidad",
                   "doctorado en cognicion y aprendizaje",
+                  "doctorado en derechos humanos",
               }
               for item in curation["humanitiesActionItems"]
           )
@@ -242,6 +243,7 @@ jobs:
           } == {
               "doctorado en ciudad territorio y sustentabilidad",
               "doctorado en cognicion y aprendizaje",
+              "doctorado en derechos humanos",
           }
 
           bl = expected["batchLedger"]
