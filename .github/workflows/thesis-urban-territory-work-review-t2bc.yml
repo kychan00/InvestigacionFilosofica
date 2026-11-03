@@ -140,10 +140,10 @@ jobs:
           assert metrics["programs"] == 4
           assert metrics["workItems"] == expected["works"] + 29
           assert metrics["projectedAdmission"] == {
-              "review": expected["works"] + 28
+              "review": expected["works"] + 29
           }
           assert metrics["pendingPrimarySourceReview"] == (
-              expected["pendingPrimarySourceReview"] + 28
+              expected["pendingPrimarySourceReview"] + 29
           )
           assert metrics["automaticAdmissionDecisions"] == 0
           assert metrics["admissionChanges"] == 0
