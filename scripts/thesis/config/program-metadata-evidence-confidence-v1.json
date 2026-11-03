@@ -67,21 +67,34 @@
       "note": "Generic item-level matcher over stable RIUdeG providerRecordId values. Both sides of every known exact title+author structural program-metadata conflict are blocked symmetrically; current registries cover Medicine, Veterinary and Agronomy audits without program-specific engine branches."
     },
     {
-      "id": "riudg-mca-generic-orientation-period-unresolved-v1",
+      "id": "mca-generic-post-2006b-safe-era-v1",
+      "priority": 190,
+      "match": {
+        "programKeys": [
+          "maestria en ciencias de la arquitectura"
+        ],
+        "issuedYearMin": 2007,
+        "issuedYearMax": 2026,
+        "issuedDateQualities": [
+          "valid"
+        ]
+      },
+      "result": {
+        "confidenceState": "unassessed",
+        "authorityApplicability": "allowed",
+        "reasonCode": "mca-generic-post-2006b-safe-era"
+      },
+      "evidence": [
+        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos",
+        "https://cuaad.udg.mx/sites/default/files/adjuntos/dictamen_mca.pdf",
+        "docs/THESIS_MCA_GENERIC_ERA_AUTHORITY_V41.md"
+      ],
+      "note": "Conservative temporal allow-rule for generic MCA labels. Institutional evidence shows that from 2006 B the program is configured only with Historia de la Arquitectura Mexicana and Conservación del Patrimonio Edificado, both already resolved INCLUDE. A generic record may apply V41 only when dc.date.issued is valid and falls in 2007–2026. This rule does not infer orientation from title, abstract, keywords or semantics."
+    },
+    {
+      "id": "mca-generic-orientation-period-unresolved-v1",
       "priority": 180,
       "match": {
-        "providers": [
-          "riudg"
-        ],
-        "providerRecordIds": [
-          "oai:riudg.udg.mx:20.500.12104/46363",
-          "oai:riudg.udg.mx:20.500.12104/46367",
-          "oai:riudg.udg.mx:20.500.12104/46368",
-          "oai:riudg.udg.mx:20.500.12104/73101",
-          "oai:riudg.udg.mx:20.500.12104/73104",
-          "oai:riudg.udg.mx:20.500.12104/73107",
-          "oai:riudg.udg.mx:20.500.12104/73110"
-        ],
         "programKeys": [
           "maestria en ciencias de la arquitectura"
         ]
@@ -93,9 +106,10 @@
       },
       "evidence": [
         "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos",
+        "https://cuaad.udg.mx/sites/default/files/adjuntos/dictamen_mca.pdf",
         "docs/THESIS_MCA_GENERIC_ERA_AUTHORITY_V41.md"
       ],
-      "note": "Exact RIUdeG item-level protection for generic MCA labels that cannot be safely placed in the post-2006B two-orientation configuration: two valid pre-2003 records, four records without issued date, and one 0000 sentinel/suspicious date. No title, abstract, keyword or semantic evidence is used. Blocking prevents Program Authority V41 INCLUDE from applying where institutional-period evidence is insufficient."
+      "note": "Fail-closed protection for every generic MCA record not proven to belong to the post-2006 B two-orientation configuration. It covers pre-2007, missing, suspicious, invalid and out-of-policy issued dates regardless of providerRecordId, preventing future harvests from admitting ambiguous historical MCA records by name alone."
     },
     {
       "id": "riudg-psychology-legacy-migration-2015-09-09",
@@ -136,6 +150,7 @@
     "item-level-conflict-rules-outrank-broader-cohort-rules",
     "veterinary-structural-conflicts-extend-item-level-protection-without-blanket-cohort-blocking",
     "agronomy-structural-conflicts-extend-item-level-protection-without-creating-program-authority",
-    "mca-generic-pre-2003-or-undated-records-block-authority-without-topic-inference"
+    "mca-generic-only-valid-2007-2026-issued-dates-may-apply-include",
+    "mca-generic-all-other-issued-date-states-fail-closed-without-topic-inference"
   ]
 }
