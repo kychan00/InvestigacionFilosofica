@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "thesis-mca-arte-comunicacion-evidence-hold-v1",
+  "phase": "T2BL",
+  "state": "evidence-hold",
+  "decisionConstraint": "historical-program-identity-is-not-humanities-admission",
+  "authorityRef": "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
+  "registryRevision": "2026-11-02.v41",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "metadataConfidenceRevision": "2026-11-02.v5",
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "corpusWorks": 27576,
+    "totalAuthorityWorks": 13,
+    "authorityAdmissions": {
+      "review": 13
+    },
+    "authorityAcademicUnits": {
+      "CUAAD": 13
+    },
+    "authorityMetadataApplicability": {
+      "allowed": 13
+    },
+    "firstQueueNormalizedKey": "maestria en arquitectura orientacion arte y comunicacion",
+    "firstQueueCount": 7,
+    "firstQueueProgramRef": "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
+    "firstQueueVariants": {
+      "Maestría En Arquitectura; Orientacion Arte Y Comunicacion": 6,
+      "Maestría En Arquitectura, Orientacion Arte Y Comunicacion": 1
+    },
+    "firstQueueYears": {
+      "min": 1998,
+      "max": 2004
+    },
+    "globalAdmission": {
+      "include": 559,
+      "review": 254,
+      "quarantine": 18971,
+      "exclude": 7790,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 22,
+    "humanitiesActionWorks": 102,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "rawProgramVariants": {
+      "Maestría En Arquitectura, Orientacion Arte Y Comunicacion": 1,
+      "Maestría En Arquitectura; Orientacion Arte Y Comunicacion": 6,
+      "Maestría En Arquitectura; Orientacion En Arte Y Comunicacion": 1,
+      "Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación": 2,
+      "Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación": 1
+    },
+    "normalizedProgramKeys": {
+      "maestria en arquitectura orientacion arte y comunicacion": 7,
+      "maestria en arquitectura orientacion en arte y comunicacion": 1,
+      "maestria en ciencias de la arquitectura con orientacion en arte y comunicacion": 2,
+      "maestria en ciencias de la arquitectura orientacion arte y comunicacion": 1,
+      "maestria en ciencias de la arquitectura orientacion en arte y comunicacion": 2
+    }
+  },
+  "evidence": {
+    "institutional": [
+      "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos",
+      "https://cgpe.udg.mx/sites/default/files/adjuntos/4_informe_1998-1999.pdf"
+    ],
+    "nonDecisive": [
+      "https://zincografia.cuaad.udg.mx/index.php/ZC/article/view/129"
+    ],
+    "missing": [
+      "Dictamen I/99/722 con anexos curriculares completos y líneas de formación específicas de Arte y Comunicación",
+      "Mapa de asignaturas o perfil histórico que permita distinguir investigación humanística de diseño, técnica, medios y comunicación aplicada"
+    ]
+  },
+  "invariants": [
+    "formal-1999-orientation-identity-is-confirmed-but-not-sufficient-for-include",
+    "historical-orientation-does-not-inherit-post-2006b-mca-include",
+    "no-admission-from-thesis-titles-abstracts-keywords-or-semantics",
+    "no-deduplication-by-normalized-title-or-author-without-persistent-id",
+    "no-scope-policy-or-metadata-confidence-changes",
+    "mca-historical-sibling-authorities-remain-independent"
+  ]
+}
