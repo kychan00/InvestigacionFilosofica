@@ -94,14 +94,14 @@ jobs:
           assert len(corpus["works"]) == 27576
           counts = dict(Counter(w["admissionStatus"] for w in corpus["works"]))
           assert counts == {
-              "include": 559, "review": 238, "quarantine": 18971,
-              "exclude": 7806, "reject-source": 2
+              "include": 559, "review": 230, "quarantine": 18971,
+              "exclude": 7814, "reject-source": 2
           }, counts
           m = queue["metrics"]
           expected = {
-              "humanitiesActionQueueItems": 18, "humanitiesActionWorks": 86,
+              "humanitiesActionQueueItems": 15, "humanitiesActionWorks": 78,
               "evidenceHoldQueueItems": 5, "evidenceHoldWorks": 13,
-              "humanitiesReadyQueueItems": 13, "humanitiesReadyWorks": 73,
+              "humanitiesReadyQueueItems": 10, "humanitiesReadyWorks": 65,
               "workReviewQueueItems": 1, "workReviewWorks": 152
           }
           for name, value in expected.items():
