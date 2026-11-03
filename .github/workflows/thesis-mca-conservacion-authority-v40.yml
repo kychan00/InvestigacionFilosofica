@@ -273,6 +273,9 @@ jobs:
           # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE.
           expected_global["review"] -= 27
           expected_global["exclude"] += 27
+          # V47: MCA Teoría y Crítica de la Arquitectura REVIEW -> INCLUDE.
+          expected_global["review"] -= 1
+          expected_global["include"] += 1
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -285,8 +288,8 @@ jobs:
               item["normalizedKey"] not in resolved
               for item in queue["humanitiesActionItems"]
           )
-          assert queue["metrics"]["humanitiesActionQueueItems"] == 7
-          assert queue["metrics"]["humanitiesActionWorks"] == 15
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 6
+          assert queue["metrics"]["humanitiesActionWorks"] == 14
           assert queue["metrics"]["workReviewQueueItems"] == 3
           assert queue["metrics"]["workReviewWorks"] == 180
           next_action = queue["nextHumanitiesAction"]
