@@ -718,39 +718,128 @@
       "canonicalName": "Maestría en Ciencias de la Arquitectura",
       "level": "maestria",
       "disciplineFamily": "arquitectura-historia-patrimonio",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "active",
       "academicUnits": [
         "CUAAD"
       ],
       "aliases": [
-        "Maestría en Ciencias de la Arquitectura",
-        "Maestría En Arquitectura; Edificacion Arquitectonica",
-        "Maestría En Arquitectura, Orientacion Arte Y Comunicacion",
-        "Maestría En Arquitectura, Orientacion Edificacion Arquitectonica",
-        "Maestría En Arquitectura; Orientacion En Arte Y Comunicacion",
-        "Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo",
-        "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
-        "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
-        "Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación",
-        "Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación",
-        "Maestría En Ciencias De La Arquitectura Orientacion: Edificacion Arquitectonica",
-        "Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación",
-        "Maestría En Ciencias De La Arquitectura Orientación: Edificación Arquitectónica",
-        "Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion",
-        "Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo"
+        "Maestría en Ciencias de la Arquitectura"
       ],
-      "observedCount": 61,
+      "observedCount": 34,
       "observedThesisYears": {
         "min": 1998,
         "max": 2021
       },
-      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con múltiples orientaciones. V37 separó como autoridad granular Historia de la Arquitectura Mexicana y V40 separa de forma análoga la orientación formal Conservación del Patrimonio Edificado. La autoridad base queda REVIEW con 61 tesis correspondientes a registros sin orientación explícita y a orientaciones heterogéneas restantes de edificación, urbanismo, arte/comunicación y teoría/crítica. No se propaga la admisión de ninguna orientación al programa base ni se fusionan autoridades históricas por similitud nominal.",
+      "decisionNote": "T2BK/V41 resuelve la etiqueta genérica Maestría en Ciencias de la Arquitectura bajo un criterio temporal institucional estricto para humanities-only. CUAAD documenta que el programa fue modificado en 1999 con múltiples orientaciones heterogéneas, que en 2003 reabrió ofreciendo sólo Historia de la Arquitectura Mexicana y Conservación del Patrimonio Edificado, y que a partir de 2006 B se suprimieron las demás orientaciones. Las 27 obras genéricas con fecha válida se sitúan entre 2008 y 2021, por lo que pertenecen a una etapa institucional donde las únicas orientaciones posibles son las dos ya resueltas INCLUDE. Siete registros genéricos no permiten esa aplicación: dos son previos a 2003 (1998 y 2001), cuatro carecen de fecha y uno contiene 0000; Metadata Confidence V5 bloquea exactamente esos siete providerRecordId y los mantiene QUARANTINE. Las orientaciones históricas explícitas Arte y Comunicación, Urbanismo y Desarrollo, Edificación Arquitectónica y Teoría y Crítica se separan en autoridades REVIEW propias y no heredan INCLUDE.",
       "evidence": [
-        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos",
         "https://cuaad.udg.mx/node/21768",
-        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencias-de-la-arquitectura",
-        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+        "https://cuaad.udg.mx/oferta/maestrias/mca/plan-de-estudios",
+        "https://cuaad.udg.mx/index.php/oferta/maestrias/mca/objetivos",
+        "https://cuaad.udg.mx/node/20159"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
+      "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación Arte y Comunicación",
+      "level": "maestria",
+      "disciplineFamily": "arquitectura-arte-comunicacion",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Arquitectura, Orientacion Arte Y Comunicacion",
+        "Maestría En Arquitectura; Orientacion En Arte Y Comunicacion",
+        "Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación",
+        "Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación",
+        "Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación",
+        "Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion"
+      ],
+      "observedCount": 13,
+      "observedThesisYears": {
+        "min": 1998,
+        "max": 2005
+      },
+      "decisionNote": "V41 separa esta orientación histórica explícita de la MCA para evitar que herede el INCLUDE de la etapa 2006 B+ de dos orientaciones. CUAAD documenta Arte y Comunicación entre las orientaciones aprobadas en 1999 y posteriormente suprimidas. Permanece REVIEW hasta una decisión de scope específica; no se decide por títulos de tesis.",
+      "evidence": [
+        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+      "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación Urbanismo y Desarrollo",
+      "level": "maestria",
+      "disciplineFamily": "arquitectura-urbanismo",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo",
+        "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
+        "Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo"
+      ],
+      "observedCount": 8,
+      "observedThesisYears": {
+        "min": 2000,
+        "max": 2006
+      },
+      "decisionNote": "V41 separa esta orientación histórica explícita de la MCA para evitar que herede el INCLUDE de la etapa 2006 B+ de dos orientaciones. CUAAD documenta Urbanismo y Desarrollo entre las orientaciones aprobadas en 1999 y posteriormente suprimidas. Permanece REVIEW hasta una decisión de scope específica; no se decide por títulos de tesis.",
+      "evidence": [
+        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica",
+      "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación Edificación Arquitectónica",
+      "level": "maestria",
+      "disciplineFamily": "arquitectura-edificacion",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Arquitectura; Edificacion Arquitectonica",
+        "Maestría En Arquitectura, Orientacion Edificacion Arquitectonica",
+        "Maestría En Ciencias De La Arquitectura Orientacion: Edificacion Arquitectonica",
+        "Maestría En Ciencias De La Arquitectura Orientación: Edificación Arquitectónica"
+      ],
+      "observedCount": 5,
+      "observedThesisYears": {
+        "min": 1998,
+        "max": 2006
+      },
+      "decisionNote": "V41 separa esta orientación histórica explícita de la MCA para evitar que herede el INCLUDE de la etapa 2006 B+ de dos orientaciones. CUAAD documenta Edificación Arquitectónica entre las orientaciones aprobadas en 1999 y posteriormente suprimidas. Permanece REVIEW hasta una decisión de scope específica; no se decide por títulos de tesis.",
+      "evidence": [
+        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura",
+      "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación Teoría y Crítica de la Arquitectura",
+      "level": "maestria",
+      "disciplineFamily": "arquitectura-teoria-critica",
+      "admissionState": "review",
+      "lifecycleState": "historical",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura"
+      ],
+      "observedCount": 1,
+      "observedThesisYears": {
+        "min": 2001,
+        "max": 2001
+      },
+      "decisionNote": "V41 separa esta orientación histórica explícita de la MCA para evitar que herede el INCLUDE de la etapa 2006 B+ de dos orientaciones. CUAAD documenta Teoría y Crítica de la Arquitectura entre las orientaciones aprobadas en 1999 y posteriormente suprimidas. Permanece REVIEW hasta una decisión de scope específica; no se decide por títulos de tesis.",
+      "evidence": [
+        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos"
       ]
     },
     {
@@ -1657,7 +1746,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v40",
+  "registryRevision": "2026-11-02.v41",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
