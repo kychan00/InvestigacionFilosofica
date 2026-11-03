@@ -181,11 +181,10 @@ jobs:
               if w.get("programRef") == expected["conservationHistoricalRef"]
           ]
           assert len(conservation) == expected["conservationHistoricalWorks"]
+          assert expected["conservationHistoricalAdmissionState"] == "review"
           assert Counter(
               w.get("admissionStatus") for w in conservation
-          ) == Counter({
-              expected["conservationHistoricalAdmissionState"]: len(conservation)
-          })
+          ) == Counter({"include": len(conservation)})
 
           expected_global = dict(expected["globalProjectedAdmission"])
           # V33: historical Licenciatura en la Docencia del Inglés REVIEW -> INCLUDE.
@@ -194,6 +193,9 @@ jobs:
           # V34: Gestión y Desarrollo Cultural REVIEW -> INCLUDE.
           expected_global["include"] += 40
           expected_global["review"] -= 40
+          # V35: Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
+          expected_global["include"] += 5
+          expected_global["review"] -= 5
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 

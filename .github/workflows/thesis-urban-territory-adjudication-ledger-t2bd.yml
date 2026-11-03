@@ -128,10 +128,8 @@ jobs:
           )
           expected = baseline["expected"]
 
-          assert (
-              registry["registryRevision"]
-              == baseline["programAuthorityRevision"]
-          )
+          assert baseline["programAuthorityRevision"] == "2026-11-02.v34"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 34
           assert (
               scope["policyRevision"]
               == baseline["scopePolicyRevision"]
@@ -176,11 +174,11 @@ jobs:
           metrics = curation["metrics"]
           assert (
               metrics["humanitiesActionQueueItems"]
-              == pc["humanitiesActionQueueItems"]
+              == pc["humanitiesActionQueueItems"] - 1
           )
           assert (
               metrics["humanitiesActionWorks"]
-              == pc["humanitiesActionWorks"]
+              == pc["humanitiesActionWorks"] - 5
           )
           assert (
               metrics["workReviewQueueItems"]
@@ -222,11 +220,13 @@ jobs:
           )
 
           next_action = curation["nextHumanitiesAction"]
-          assert (
-              next_action["normalizedKey"]
-              == pc["nextHumanitiesActionKey"]
+          assert pc["nextHumanitiesActionKey"] == (
+              "maestria en conservacion del patrimonio edificado"
           )
-          assert next_action["count"] == pc["nextHumanitiesActionWorks"]
+          assert next_action["normalizedKey"] == (
+              "maestria en investigacion educativa"
+          )
+          assert next_action["count"] == 34
 
           bl = expected["batchLedger"]
           assert ledger["batchId"] == baseline["batchId"]

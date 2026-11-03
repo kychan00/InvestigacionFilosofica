@@ -705,7 +705,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "Maestría En Conservación Del Patrimonio Edificado": (
                 "program:udg:mae-conservacion-patrimonio-edificado-historica",
-                "review",
+                "include",
             ),
             "MAESTRIA EN EDUCACION Y EXPRESION PARA LAS ARTES": (
                 "program:udg:mae-educacion-expresion-artes",

@@ -184,6 +184,9 @@ jobs:
           # V34: Gestión y Desarrollo Cultural REVIEW -> INCLUDE.
           expected_global["review"] -= 40
           expected_global["include"] += 40
+          # V35: Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
+          expected_global["review"] -= 5
+          expected_global["include"] += 5
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 

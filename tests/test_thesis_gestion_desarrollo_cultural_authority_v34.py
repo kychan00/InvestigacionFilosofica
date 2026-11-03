@@ -22,10 +22,14 @@ class GestionDesarrolloCulturalAuthorityV34Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v34(self):
+    def test_v34_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v34",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            34,
         )
 
     def test_exact_program_resolves_to_include(self):
