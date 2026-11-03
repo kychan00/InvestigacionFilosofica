@@ -1,0 +1,100 @@
+name: Thesis MCA Arte y Comunicación Evidence T2BL
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/mca-arte-comunicacion-evidence-hold-v1.json"
+      - "scripts/thesis/audit_mca_arte_comunicacion_evidence_v1.py"
+      - "tests/test_thesis_mca_arte_comunicacion_evidence_hold_v1.py"
+      - "docs/THESIS_MCA_ARTE_COMUNICACION_EVIDENCE_T2BL.md"
+      - ".github/workflows/thesis-mca-arte-comunicacion-evidence-t2bl.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile and unit tests
+        run: |
+          python -m py_compile scripts/thesis/audit_mca_arte_comunicacion_evidence_v1.py
+          python -m unittest discover -s tests -p "test_thesis_mca_arte_comunicacion_evidence_hold_v1.py" -v
+
+      - name: Fetch frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/thesis-t2bl-full
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-t2bl-full.zip
+          unzip -q /tmp/thesis-t2bl-full.zip -d /tmp/thesis-t2bl-full
+
+      - name: Reproject Metadata Confidence V5
+        run: |
+          mkdir -p artifacts/thesis-t2bl
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-t2bl-full/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-t2bl-full/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-t2bl/canonical-confidence.json \
+            --output-report artifacts/thesis-t2bl/confidence-projection.json
+
+      - name: Reproject V41 and queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          root = Path("artifacts/thesis-t2bl")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-t2bl-full/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+          projected, projection = coverage.reproject_corpus(
+              corpus, registry, reference_year=2026
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed, projection["programDimensions"]
+          )
+          queue = curation.build_queue(projected_observed, projected, registry)
+          (root / "canonical-v41.json").write_text(
+              json.dumps(projected, ensure_ascii=False)
+          )
+          (root / "queue-v41.json").write_text(
+              json.dumps(queue, ensure_ascii=False)
+          )
+          PY
+
+      - name: Assert hold and emit scoped audit
+        run: |
+          python scripts/thesis/audit_mca_arte_comunicacion_evidence_v1.py \
+            --corpus artifacts/thesis-t2bl/canonical-v41.json \
+            --queue artifacts/thesis-t2bl/queue-v41.json \
+            --baseline scripts/thesis/config/mca-arte-comunicacion-evidence-hold-v1.json \
+            --output artifacts/thesis-t2bl/evidence-report.json
+
+      - name: Upload scoped audit (no raw corpus)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-mca-arte-comunicacion-t2bl
+          path: artifacts/thesis-t2bl/evidence-report.json
+          if-no-files-found: warn
+          retention-days: 14
