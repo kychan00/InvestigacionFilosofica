@@ -247,8 +247,15 @@ jobs:
           ) == Counter(expected["suspiciousDateRaw"])
 
           by_id = {p["id"]: p for p in registry["programs"]}
+          # V43 resolved only historical MCA Urbanismo y Desarrollo.
+          # All other historical siblings remain REVIEW.
           for program_ref, works in expected["siblingReviewAuthorities"].items():
-              assert by_id[program_ref]["admissionState"] == "review"
+              expected_state = (
+                  "exclude" if program_ref ==
+                  "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
+                  else "review"
+              )
+              assert by_id[program_ref]["admissionState"] == expected_state
               assert by_id[program_ref]["observedCount"] == works
 
           expected_v42 = dict(expected["globalProjectedAdmission"])
