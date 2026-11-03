@@ -226,6 +226,9 @@ jobs:
           # V44: historical MCA Edificación Arquitectónica REVIEW -> EXCLUDE.
           expected_global["review"] -= 5
           expected_global["exclude"] += 5
+          # V45: Didáctica de las Artes / Artes Escénicas REVIEW -> EXCLUDE.
+          expected_global["review"] -= 3
+          expected_global["exclude"] += 3
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -239,10 +242,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 23
+              expected["humanitiesActionQueueItems"] - 25
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 126
+              expected["humanitiesActionWorks"] - 129
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
