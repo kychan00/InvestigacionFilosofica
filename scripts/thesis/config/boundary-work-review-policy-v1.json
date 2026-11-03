@@ -1,6 +1,6 @@
 {
   "schemaVersion": "thesis-boundary-work-review-policy-v1",
-  "policyRevision": "2026-11-03.boundary-v3",
+  "policyRevision": "2026-11-03.boundary-v4",
   "targetScope": "humanities-only",
   "decisionConstraint": "boundary-work-review-does-not-change-admission",
   "programs": [
@@ -130,6 +130,49 @@
         "https://cutonala.udg.mx/sites/default/files/adjuntos/doctorado_en_derechos_humanos.pdf",
         "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH/lineasdegeneracion",
         "https://cutonala.udg.mx/ofertaacademica/doctorados/DDH/mapacurricular"
+      ]
+    },
+    {
+      "programRef": "program:udg:mae-estudios-genero",
+      "canonicalName": "Maestría en Estudios de Género",
+      "requiredProgramAdmissionState": "review",
+      "resolutionMode": "work-level-primary-source-adjudication",
+      "programLevelConclusion": "program-level-scope-review-exhausted",
+      "workDecisionStates": [
+        "pending-primary-source-review",
+        "include-candidate",
+        "exclude-candidate",
+        "retain-review"
+      ],
+      "requiredDecisionEvidence": [
+        "official-thesis-fulltext-or-front-matter",
+        "work-specific-institutional-record-when-available",
+        "human-review-of-research-object-method-and-disciplinary-framing"
+      ],
+      "supportingOnlyEvidence": [
+        "title",
+        "abstract",
+        "keywords",
+        "semantic-similarity",
+        "embedding",
+        "language-model-classification"
+      ],
+      "prohibitedAsSoleDecisionBasis": [
+        "title",
+        "abstract",
+        "keywords",
+        "semantic-similarity",
+        "embedding",
+        "language-model-classification",
+        "academic-unit-alone",
+        "program-name-alone"
+      ],
+      "admissionInvariant": "review-until-explicit-work-decision",
+      "evidence": [
+        "https://www.udg.mx/sites/default/files/2024-01/maestria_en_estudios_de_genero_cucsh_snp.pdf",
+        "https://www.cucsh.udg.mx/maestrias/maestria_estudios_genero/lineas_generacion",
+        "https://www.cucsh.udg.mx/maestrias/maestria_estudios_genero/perfil_egreso",
+        "https://ww1.udg.mx/es/oferta-academica/maestria-en-estudios-de-genero"
       ]
     }
   ]
