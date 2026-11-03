@@ -32,7 +32,7 @@ class TestCivilEngineeringAuthorityV28(unittest.TestCase):
 
     def test_metadata_confidence_policy_unchanged(self):
         policy = canonical.load_program_metadata_evidence_policy()
-        self.assertEqual(policy["policyRevision"], "2026-11-02.v4")
+        self.assertEqual(policy["policyRevision"], "2026-11-02.v5")
 
 
 if __name__ == "__main__":
