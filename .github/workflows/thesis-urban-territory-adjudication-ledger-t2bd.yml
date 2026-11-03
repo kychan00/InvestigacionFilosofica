@@ -190,10 +190,12 @@ jobs:
 
           pc = expected["programCuration"]
           metrics = curation["metrics"]
-          # Current program queue after T2BR, V45 and T2BT/V46.
-          # Historical pc remains frozen; adjudication semantics stay unchanged.
-          assert metrics["humanitiesActionQueueItems"] == 7
-          assert metrics["humanitiesActionWorks"] == 15
+          # T2BD uses its own frozen historical observed-authorities snapshot.
+          # Under current V46 authority that snapshot projects to 8/16, while
+          # the canonical full-corpus T2BT queue is independently 7/15.
+          # Adjudication semantics and work-review counts remain unchanged.
+          assert metrics["humanitiesActionQueueItems"] == 8
+          assert metrics["humanitiesActionWorks"] == 16
           assert metrics["workReviewQueueItems"] == 3
           assert metrics["workReviewWorks"] == 180
 
