@@ -389,6 +389,9 @@ jobs:
           # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE.
           expected_global["review"] -= 27
           expected_global["exclude"] += 27
+          # V47: MCA Teoría y Crítica de la Arquitectura REVIEW -> INCLUDE.
+          expected_global["review"] -= 1
+          expected_global["include"] += 1
           assert report["globalProjectedAdmission"] == expected_global
           assert sum(report["globalProjectedAdmission"].values()) == 27576
 
