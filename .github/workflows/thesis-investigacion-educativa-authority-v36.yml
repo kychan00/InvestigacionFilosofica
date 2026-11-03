@@ -231,6 +231,9 @@ jobs:
           # V39: Licenciatura en Historia del Arte REVIEW -> INCLUDE.
           expected_global["review"] -= 2
           expected_global["include"] += 2
+          # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
+          expected_global["review"] -= 35
+          expected_global["include"] += 35
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -285,10 +288,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 6
+              expected["humanitiesActionQueueItems"] - 16
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 284
+              expected["humanitiesActionWorks"] - 319
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
@@ -301,8 +304,8 @@ jobs:
           assert expected["nextHumanitiesActionKey"] == (
               "maestria en arquitectura orientacion en historia de la arquitectura mexicana"
           )
-          assert next_action["normalizedKey"] == "maestria en ciencias de la arquitectura orientacion en conservacion del patrimonio edificado"
-          assert next_action["count"] == 10
+          assert next_action["normalizedKey"] == "maestria en ciencias de la arquitectura"
+          assert next_action["count"] == 34
 
           summary = {
               "registryRevision": registry["registryRevision"],
