@@ -269,3 +269,29 @@ Sólo entonces podrá decidirse si Program Authority V24 corresponde a:
 - EXCLUDE.
 
 Y cualquiera que sea el resultado, los **460 low-trust** permanecerán bloqueados hasta contar con evidencia programática item-level suficientemente confiable.
+
+
+## Extensión V5 — MCA genérica y periodo institucional
+
+La revisión `2026-11-02.v5` agrega una protección item-level para la etiqueta genérica `Maestría en Ciencias de la Arquitectura`.
+
+La autoridad programática V41 puede resolver INCLUDE únicamente cuando el registro puede situarse en la etapa institucional posterior a la supresión de las orientaciones heterogéneas de la MCA. Siete registros RIUdeG no alcanzan ese estándar: dos son anteriores a 2003, cuatro no tienen fecha emitida y uno contiene `0000`.
+
+La regla:
+
+`riudg-mca-generic-orientation-period-unresolved-v1`
+
+marca exactamente esos siete `providerRecordId` como:
+
+- `confidenceState: low-trust`;
+- `authorityApplicability: blocked`.
+
+El efecto es QUARANTINE aunque Program Authority V41 resuelva la etiqueta genérica como INCLUDE para la cohorte institucional segura.
+
+Esta extensión preserva los principios existentes:
+
+- Metadata Confidence no crea Program Authority;
+- un bloqueo item-level domina la decisión programática;
+- no se usa título, abstract, keywords ni similitud semántica para inferir orientación;
+- las fechas `0000` no son evidencia histórica;
+- los registros bloqueados permanecen visibles para revisión.
