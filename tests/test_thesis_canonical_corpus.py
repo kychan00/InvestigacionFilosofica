@@ -709,7 +709,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "Maestría En Didáctica De Las Artes Con Orientación En Artes Visuales": (
                 "program:udg:mae-didactica-artes-visuales-historica",
-                "review",
+                "exclude",
             ),
             "Maestría En Didáctica De Las Artes Orientación En Artes Escénicas": (
                 "program:udg:mae-didactica-artes-escenicas-historica",

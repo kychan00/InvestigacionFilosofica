@@ -1006,8 +1006,8 @@
       "id": "program:udg:mae-didactica-artes-visuales-historica",
       "canonicalName": "Maestría en Didáctica de las Artes en el Área de Artes Visuales",
       "level": "maestria",
-      "disciplineFamily": "didactica-artes-visuales",
-      "admissionState": "review",
+      "disciplineFamily": "educacion-pedagogia-artes-visuales",
+      "admissionState": "exclude",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUAAD"
@@ -1024,8 +1024,11 @@
         "min": 2003,
         "max": 2006
       },
-      "decisionNote": "Control Escolar documenta una carrera específica Maestría en Didáctica de las Artes en el Área de Artes Visuales (DGP 714513). Se agrupan únicamente las variantes observadas que identifican explícitamente Artes Visuales; el nombre genérico Maestría en Didáctica de las Artes no se absorbe por ser ambiguo entre varias áreas.",
+      "decisionNote": "T2BN/V42: EXCLUDE para el target estricto humanities-only por identidad programática primaria de didáctica y pedagogía aplicada a la enseñanza de artes visuales, no por temas o títulos de tesis. El PIFI/ProDES CUAAD 2003 clasifica el programa matriz Maestría en Didáctica de las Artes en el área combinada EDUCACIÓN Y HUMANIDADES (no equivale a Humanities-only), con curriculum actualizado en 2001, y documenta su CA13 Didáctica y Técnica de las Artes, con LGAC Pedagogía aplicada a las artes (enseñanza-aprendizaje y evaluación) y Experimentación plástica (técnica de la práctica artística). Control Escolar distingue orientaciones Artes Visuales 714513, Artes Escénicas 726502 y Música 721506. Sólo se aplica a los 16 registros con variante exacta explícita en Artes Visuales (2003–2006, CUAAD). La etiqueta genérica Maestría en Didáctica de las Artes, y las orientaciones Escénicas o Música, no heredan esta decisión; tampoco se alteran Maestría en Artes ni Historia del Arte. El programa presenta componentes culturales/estéticos, pero su arquitectura académica institucional principal de didáctica y experimentación técnica no cumple el alcance de Humanidades estrictas.",
       "evidence": [
+        "https://cgpe.udg.mx/sites/default/files/prodes_cuaad_ica3.0_0.pdf",
+        "https://cgpe.udg.mx/sites/default/files/prodescuaad2004.pdf",
+        "https://escolar.udg.mx/sites/default/files/Maestrias.pdf",
         "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
       ]
     },
@@ -1747,7 +1750,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v41",
+  "registryRevision": "2026-11-03.v42",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

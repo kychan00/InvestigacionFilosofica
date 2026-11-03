@@ -64,9 +64,10 @@ class VeterinaryProgramAuthorityV26Test(unittest.TestCase):
         )
 
     def test_registry_revision_is_v27(self):
-        self.assertEqual(
-            self.registry["registryRevision"],
-            "2026-11-02.v41",
+        # The active registry can advance; historical authorities remain testable.
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            42,
         )
 
     def test_historical_cucba_name_resolves_to_v26(self):
