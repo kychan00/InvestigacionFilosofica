@@ -22,10 +22,14 @@ class InvestigacionEducativaAuthorityV36Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
 
-    def test_active_registry_is_v36(self):
+    def test_v36_baseline_remains_valid_under_later_registry(self):
         self.assertEqual(
-            self.registry["registryRevision"],
             self.baseline["registryRevision"],
+            "2026-11-02.v36",
+        )
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v", 1)[1]),
+            36,
         )
 
     def test_maestria_investigacion_educativa_is_exact_exclude(self):

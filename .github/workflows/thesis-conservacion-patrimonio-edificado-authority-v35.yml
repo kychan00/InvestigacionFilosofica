@@ -207,10 +207,10 @@ jobs:
               w for w in corpus["works"]
               if w.get("programRef") == baseline["historyHistoricalRef"]
           ]
-          assert len(base_works) == expected["baseProgramWorks"]
+          assert len(base_works) == expected["baseProgramWorks"] - 16
           assert Counter(
               w.get("admissionStatus") for w in base_works
-          ) == Counter({"review": expected["baseProgramWorks"]})
+          ) == Counter({"review": len(base_works)})
           assert len(history_works) == expected["historyHistoricalWorks"]
           assert Counter(
               w.get("admissionStatus") for w in history_works
@@ -220,6 +220,9 @@ jobs:
           # V36: Maestría en Investigación Educativa REVIEW -> EXCLUDE.
           expected_global["review"] -= 34
           expected_global["exclude"] += 34
+          # V37: MCA Orientación Historia de la Arquitectura Mexicana REVIEW -> INCLUDE.
+          expected_global["review"] -= 16
+          expected_global["include"] += 16
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -233,10 +236,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 1
+              expected["humanitiesActionQueueItems"] - 5
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 34
+              expected["humanitiesActionWorks"] - 50
           )
           assert queue["metrics"]["workReviewQueueItems"] == (
               expected["workReviewQueueItems"]
@@ -256,9 +259,9 @@ jobs:
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == "maestria en investigacion educativa"
           assert next_action["normalizedKey"] == (
-              "maestria en arquitectura orientacion en historia de la arquitectura mexicana"
+              "maestria en tecnologias para el aprendizaje"
           )
-          assert next_action["count"] == 10
+          assert next_action["count"] == 266
 
           summary = {
               "registryRevision": registry["registryRevision"],

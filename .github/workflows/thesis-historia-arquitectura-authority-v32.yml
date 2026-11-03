@@ -171,7 +171,7 @@ jobs:
               for w in corpus["works"]
               if w.get("programRef") == expected["baseProgramRef"]
           ]
-          assert len(base) == expected["baseProgramWorks"]
+          assert len(base) == expected["baseProgramWorks"] - 16
           assert Counter(
               w.get("admissionStatus") for w in base
           ) == Counter({expected["baseProgramAdmissionState"]: len(base)})
@@ -200,6 +200,9 @@ jobs:
           # V36: Maestría en Investigación Educativa REVIEW -> EXCLUDE.
           expected_global["review"] -= 34
           expected_global["exclude"] += 34
+          # V37: MCA Orientación Historia de la Arquitectura Mexicana REVIEW -> INCLUDE.
+          expected_global["review"] -= 16
+          expected_global["include"] += 16
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
