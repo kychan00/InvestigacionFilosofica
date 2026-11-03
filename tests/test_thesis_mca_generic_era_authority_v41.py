@@ -63,30 +63,58 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
                 self.assertEqual(resolved["programRef"], self.baseline["programRef"])
                 self.assertEqual(resolved["admissionState"], "include")
 
-    def test_blocked_legacy_generic_record_stays_quarantine(self):
-        record_id = self.baseline["expected"]["blockedProviderRecordIds"][0]
-        candidate = canonical.canonical_candidate(
-            self.record(record_id, "1998-00-00"),
-            self.registry,
-            reference_year=2026,
-            program_metadata_policy=self.policy,
+    def test_every_generic_record_outside_safe_era_fails_closed(self):
+        unsafe_issued_values = (
+            "1998-00-00",
+            "2001-12-10",
+            "2006-12-10",
+            None,
+            "0000-00-00",
+            "2018-99-99",
+            "2027-01-01",
         )
-        self.assertEqual(candidate["program"]["admissionState"], "include")
-        self.assertEqual(
-            candidate["programMetadataEvidence"]["matchedRuleId"],
-            self.baseline["metadataRuleId"],
-        )
-        self.assertEqual(
-            candidate["programMetadataEvidence"]["authorityApplicability"],
-            "blocked",
-        )
-        self.assertEqual(candidate["admission"]["status"], "quarantine")
-        self.assertEqual(
-            candidate["admission"]["explanationCode"],
-            "program-authority-blocked-by-metadata-confidence",
-        )
+        for index, issued in enumerate(unsafe_issued_values):
+            with self.subTest(issued=issued):
+                candidate = canonical.canonical_candidate(
+                    self.record(
+                        f"oai:riudg.udg.mx:20.500.12104/unsafe-{index}",
+                        issued,
+                    ),
+                    self.registry,
+                    reference_year=2026,
+                    program_metadata_policy=self.policy,
+                )
+                self.assertEqual(candidate["program"]["admissionState"], "include")
+                self.assertEqual(
+                    candidate["programMetadataEvidence"]["matchedRuleId"],
+                    self.baseline["blockedEraRuleId"],
+                )
+                self.assertEqual(
+                    candidate["programMetadataEvidence"]["authorityApplicability"],
+                    "blocked",
+                )
+                self.assertEqual(candidate["admission"]["status"], "quarantine")
+                self.assertEqual(
+                    candidate["admission"]["explanationCode"],
+                    "program-authority-blocked-by-metadata-confidence",
+                )
 
-    def test_unblocked_post_2006_generic_record_is_include(self):
+    def test_known_blocked_provider_ids_remain_quarantine(self):
+        for record_id in self.baseline["expected"]["blockedProviderRecordIds"]:
+            with self.subTest(record_id=record_id):
+                candidate = canonical.canonical_candidate(
+                    self.record(record_id, None),
+                    self.registry,
+                    reference_year=2026,
+                    program_metadata_policy=self.policy,
+                )
+                self.assertEqual(
+                    candidate["programMetadataEvidence"]["matchedRuleId"],
+                    self.baseline["blockedEraRuleId"],
+                )
+                self.assertEqual(candidate["admission"]["status"], "quarantine")
+
+    def test_valid_post_2006_generic_record_is_include(self):
         candidate = canonical.canonical_candidate(
             self.record(
                 "oai:riudg.udg.mx:20.500.12104/999999",
@@ -97,6 +125,10 @@ class McaGenericEraAuthorityV41Test(unittest.TestCase):
             program_metadata_policy=self.policy,
         )
         self.assertEqual(candidate["program"]["admissionState"], "include")
+        self.assertEqual(
+            candidate["programMetadataEvidence"]["matchedRuleId"],
+            self.baseline["safeEraRuleId"],
+        )
         self.assertEqual(
             candidate["programMetadataEvidence"]["confidenceState"],
             "unassessed",
