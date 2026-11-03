@@ -134,7 +134,8 @@ jobs:
 
           assert baseline["registryRevision"] == "2026-11-02.v33"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 33
-          assert scope["policyRevision"] == baseline["scopePolicyRevision"]
+          assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
+          assert scope["policyRevision"] == "2026-11-02.v5"
           assert (
               confidence["programMetadataEvidenceRevision"]
               == baseline["programMetadataEvidenceRevision"]
@@ -219,6 +220,9 @@ jobs:
           # V35: Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["include"] += 5
           expected_global["review"] -= 5
+          # V36: Investigación Educativa REVIEW -> EXCLUDE.
+          expected_global["review"] -= 34
+          expected_global["exclude"] += 34
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -233,17 +237,17 @@ jobs:
           )
           assert (
               queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"] - 3
+              == expected["humanitiesActionQueueItems"] - 4
           )
           assert (
               queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"] - 197
+              == expected["humanitiesActionWorks"] - 231
           )
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
-              "maestria en investigacion educativa"
+              "maestria en arquitectura orientacion en historia de la arquitectura mexicana"
           )
-          assert next_action["count"] == 34
+          assert next_action["count"] == 10
           assert queue["metrics"]["workReviewQueueItems"] == 1
           assert queue["metrics"]["workReviewWorks"] == 152
 
