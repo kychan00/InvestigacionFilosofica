@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "thesis-mca-historia-arquitectura-authority-v37-baseline-v1",
+  "phase": "T2BG",
+  "registryRevision": "2026-11-02.v37",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:mae-ciencias-arquitectura-historia-arquitectura-mexicana",
+  "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación en Historia de la Arquitectura Mexicana",
+  "admissionState": "include",
+  "baseProgramRef": "program:udg:mae-ciencias-arquitectura",
+  "historicalProgramRef": "program:udg:mae-historia-arquitectura-mexicana-historica",
+  "sourceFullArtifactId": 13099541204,
+  "sourceV36ArtifactId": 13192189222,
+  "expected": {
+    "works": 16,
+    "blockedWorks": 0,
+    "unassessedWorks": 16,
+    "allowedWorks": 16,
+    "academicUnits": {
+      "CUAAD": 16
+    },
+    "validDateWorks": 14,
+    "invalidDateWorks": 1,
+    "suspiciousDateWorks": 1,
+    "observedYears": {
+      "min": 1996,
+      "max": 2019
+    },
+    "admissionStatuses": {
+      "include": 16
+    },
+    "normalizedProgramGroups": {
+      "maestria en arquitectura orientacion en historia de la arquitectura mexicana": 10,
+      "maestria en ciencias de la arquitectura orientacion en historia de la arquitectura mexicana": 2,
+      "maestria en ciencias de la arquitectura con orientacion en historia de la arquitectura mexicana": 3,
+      "maestria en ciencias de la arquitectura orientacion historia de la arquitectura mexicana": 1
+    },
+    "baseProgramWorks": 96,
+    "baseProgramAdmissionState": "review",
+    "baseProgramObservedYears": {
+      "min": 1998,
+      "max": 2021
+    },
+    "historicalProgramWorks": 4,
+    "historicalProgramAdmissionState": "include",
+    "globalProjectedAdmission": {
+      "include": 495,
+      "review": 591,
+      "quarantine": 18964,
+      "exclude": 7524,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 35,
+    "humanitiesActionWorks": 439,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "nextHumanitiesActionKey": "maestria en tecnologias para el aprendizaje",
+    "nextHumanitiesActionWorks": 266
+  },
+  "invariants": [
+    "history-orientation-is-a-separate-granular-authority",
+    "history-orientation-is-include",
+    "all-16-explicit-history-orientation-works-resolve-to-v37-authority",
+    "historical-maestria-historia-arquitectura-remains-separate-include",
+    "base-mca-remains-review-without-history-orientation-aliases",
+    "base-mca-does-not-inherit-include",
+    "metadata-confidence-v4-remains-unchanged",
+    "scope-policy-v5-remains-unchanged",
+    "dcts-work-review-remains-1-program-152-works"
+  ]
+}
