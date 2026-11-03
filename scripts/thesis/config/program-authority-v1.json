@@ -802,8 +802,8 @@
       "id": "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica",
       "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación Edificación Arquitectónica",
       "level": "maestria",
-      "disciplineFamily": "arquitectura-edificacion",
-      "admissionState": "review",
+      "disciplineFamily": "arquitectura-edificacion-tecnologia-construccion",
+      "admissionState": "exclude",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUAAD"
@@ -819,9 +819,13 @@
         "min": 1998,
         "max": 2006
       },
-      "decisionNote": "V41 separa esta orientación histórica explícita de la MCA para evitar que herede el INCLUDE de la etapa 2006 B+ de dos orientaciones. CUAAD documenta Edificación Arquitectónica entre las orientaciones aprobadas en 1999 y posteriormente suprimidas. Permanece REVIEW hasta una decisión de scope específica; no se decide por títulos de tesis.",
+      "decisionNote": "T2BP/V44: EXCLUDE bajo targetScope humanities-only. Evidencia programática primaria: UdeG 1996–1997 lista Edificación Arquitectónica como orientación de la Maestría en Ciencias de la Arquitectura (CUAAD), 1998–1999 la sitúa como área terminal; CUAAD confirma su carácter histórico (dictámenes de creación 1995 y reforma I/99/722 de 1999, supresión de orientaciones en 2006 B). Control Escolar le asigna DGP 511595 distinta de Historia de la Arquitectura Mexicana (511596), Teoría y Crítica (511597) y Conservación (511594). ProDES CUAAD 2003 describe la investigación institucional contemporánea de Proyecto Arquitectónico/Administración del Proyecto como gestión y manejo de obra en edificación arquitectónica: contexto disciplinar, NO plan curricular particular probado. Identidad central orientada a construir, proyectar y administrar obra edificada: campo aplicado de tecnología/procesos constructivos, no programa primordialmente de Humanidades. Se reclasifican sólo 5 tesis 1998–2006 cuyos labels originales identifican explícitamente esta orientación MCA, sin absorber Maestría en Edificación Arquitectónica independiente, MCA genérica ni orientaciones de historia, conservación, teoría/crítica, urbanismo ya resueltas o Arte y Comunicación en HOLD; jamás usar títulos de tesis como equivalencia de programas.",
       "evidence": [
-        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos"
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/2_informe_1996-1997.pdf",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/4_informe_1998-1999.pdf",
+        "https://escolar.udg.mx/sites/default/files/adjuntos/claves_carrera_de_mstrias_2_0.pdf",
+        "https://cgpe.udg.mx/sites/default/files/prodes_cuaad_ica3.0_0.pdf"
       ]
     },
     {
@@ -1754,7 +1758,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-03.v43",
+  "registryRevision": "2026-11-03.v44",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

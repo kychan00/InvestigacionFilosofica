@@ -1,0 +1,146 @@
+name: Thesis MCA Edificación Arquitectónica Authority V44
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/mca-edificacion-arquitectonica-authority-v44-baseline-v1.json"
+      - "tests/test_thesis_mca_edificacion_arquitectonica_authority_v44.py"
+      - "docs/THESIS_MCA_EDIFICACION_ARQUITECTONICA_AUTHORITY_V44.md"
+      - ".github/workflows/thesis-mca-edificacion-arquitectonica-authority-v44.yml"
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile and unit tests
+        run: |
+          python -m py_compile scripts/thesis/build_program_curation_queue_v1.py
+          python -m unittest discover -s tests -p "test_thesis_mca_edificacion_arquitectonica_authority_v44.py" -v
+
+      - name: Fetch frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/thesis-t2bp-full
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-t2bp-full.zip
+          unzip -q /tmp/thesis-t2bp-full.zip -d /tmp/thesis-t2bp-full
+
+      - name: Reproject Metadata Confidence V5
+        run: |
+          mkdir -p artifacts/thesis-t2bp
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-t2bp-full/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-t2bp-full/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-t2bp/canonical-confidence.json \
+            --output-report artifacts/thesis-t2bp/confidence-projection.json
+
+      - name: Reproject V44 and Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          root = Path("artifacts/thesis-t2bp")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-t2bp-full/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+          projected, projection = coverage.reproject_corpus(
+              corpus, registry, reference_year=2026
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed, projection["programDimensions"]
+          )
+          queue = curation.build_queue(projected_observed, projected, registry)
+          (root / "canonical-v44.json").write_text(
+              json.dumps(projected, ensure_ascii=False)
+          )
+          (root / "queue-v44.json").write_text(
+              json.dumps(queue, ensure_ascii=False)
+          )
+          PY
+
+      - name: Assert V44 full cohort, strict orientation boundaries and scope
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+          root=Path("artifacts/thesis-t2bp")
+          b=json.loads(Path("scripts/thesis/config/mca-edificacion-arquitectonica-authority-v44-baseline-v1.json").read_text())
+          e=b["expected"]
+          registry=canonical.load_program_registry()
+          corpus=json.loads((root/"canonical-v44.json").read_text())
+          queue=json.loads((root/"queue-v44.json").read_text())
+          assert registry["registryRevision"]==b["registryRevision"]
+          assert len(corpus["works"])==27576
+          overall=dict(Counter(w["admissionStatus"] for w in corpus["works"]))
+          assert overall==e["globalProjectedAdmission"],overall
+          sel=[w for w in corpus["works"] if w.get("programRef")==b["programRef"]]
+          assert len(sel)==e["works"],len(sel)
+          assert dict(Counter(w["admissionStatus"] for w in sel))==e["projectedAdmission"]
+          assert dict(Counter(w["academicUnitRaw"] for w in sel))==e["academicUnits"]
+          applicability=Counter((w.get("programMetadataEvidence") or {}).get("authorityApplicability") for w in sel)
+          assert applicability["allowed"]==e["allowedWorks"],applicability
+          assert applicability["blocked"]==e["blockedWorks"],applicability
+          norm=canonical.normalize_key
+          program=next(p for p in registry["programs"] if p["id"]==b["programRef"])
+          keys={norm(a) for a in program["aliases"]}
+          variants=dict(Counter(w["programRaw"] for w in sel))
+          assert len(variants)==e["exactRawVariantCount"],variants
+          assert {norm(a) for a in variants}<=keys
+          groups=dict(Counter({norm(a):sum(n for k,n in variants.items() if norm(k)==norm(a)) for a in variants}))
+          assert len(groups)==e["normalizedProgramGroupCount"],groups
+          years=sorted(int(str((w.get("date") or {}).get("value"))[:4]) for w in sel if (w.get("date") or {}).get("quality")=="valid")
+          assert years and years[0]==e["observedYears"]["min"] and years[-1]==e["observedYears"]["max"]
+          for a in variants: assert canonical.resolve_program(a,registry)["programRef"]==b["programRef"]
+          for spec in e["siblings"].values():
+              sibling=next(p for p in registry["programs"] if p["id"]==spec["ref"])
+              assert sibling["admissionState"]==spec["state"]
+              items=[w for w in corpus["works"] if w.get("programRef")==spec["ref"]]
+              assert len(items)==spec["works"] and sibling["observedCount"]==spec["works"]
+              assert all(w["admissionStatus"]==spec["state"] for w in items)
+          m=queue["metrics"]
+          for k in ("humanitiesActionQueueItems","humanitiesActionWorks","evidenceHoldQueueItems","evidenceHoldWorks","humanitiesReadyQueueItems","humanitiesReadyWorks","workReviewQueueItems","workReviewWorks"):
+              assert m[k]==e[k],(k,m[k],e[k])
+          assert all((x.get("authority") or {}).get("id")!=b["programRef"] for x in queue["items"])
+          assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
+          ready=queue["nextHumanitiesReadyAction"]
+          assert ready and ready["authority"]["id"]!=b["programRef"]
+          report={"phase":"T2BP","registryRevision":registry["registryRevision"],"targetAuthority":b["programRef"],"targetWorks":len(sel),"targetVariants":variants,"normalizedGroups":groups,"applicability":dict(applicability),"projectedAdmission":overall,"queueMetrics":{k:m[k] for k in e if k in m},"nextHumanitiesReadyAction":ready}
+          (root/"authority-v44-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Upload V44 authority evidence (no raw corpus)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-mca-edificacion-arquitectonica-v44
+          path: artifacts/thesis-t2bp/authority-v44-report.json
+          if-no-files-found: warn
+          retention-days: 14
