@@ -340,7 +340,7 @@ jobs:
               ).read_text()
           )
 
-          assert registry["registryRevision"] == "2026-11-02.v39"
+          assert registry["registryRevision"] == "2026-11-02.v40"
           assert reprojection["metrics"]["works"] == 27576
           assert reprojection["metrics"]["multiSourceWorks"] == 0
           assert (
@@ -585,7 +585,7 @@ jobs:
           expected = baseline["expectedFull"]
 
           assert baseline["registryRevision"] == "2026-11-02.v26"
-          assert report["registryRevision"] == "2026-11-02.v39"
+          assert report["registryRevision"] == "2026-11-02.v40"
           assert report["programRef"] == baseline["programRef"]
           assert report["observedWorks"] == expected["observedWorks"]
           assert report["blockedWorks"] == expected["blockedWorks"]
@@ -611,10 +611,10 @@ jobs:
           # Docencia del Inglés V33, Gestión y Desarrollo Cultural V34,
           # Conservación del Patrimonio Edificado V35, Investigación
           # Educativa V36, MCA Historia de la Arquitectura V37, and
-          # Tecnologías para el Aprendizaje V38, and Historia del Arte V39.
+          # Tecnologías para el Aprendizaje V38, Historia del Arte V39, and MCA Conservación V40.
           assert report["globalProjectedAdmission"] == {
-              "include": 497,
-              "review": 323,
+              "include": 532,
+              "review": 288,
               "quarantine": 18964,
               "exclude": 7790,
               "reject-source": 2,
