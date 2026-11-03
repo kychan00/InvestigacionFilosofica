@@ -82,7 +82,7 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             "unresolved-institution",
         )
 
-    def test_review_program_reprojects_to_review_with_udg_institution(self):
+    def test_current_mca_reprojects_to_include_with_udg_institution(self):
         work = self.work(
             work_id="review",
             program="Maestría en Ciencias de la Arquitectura",
@@ -91,7 +91,7 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
         )
         projected = audit.project_work_admission(work, self.registry)
 
-        self.assertEqual(projected["status"], "review")
+        self.assertEqual(projected["status"], "include")
         self.assertEqual(
             projected["program"]["programRef"],
             "program:udg:mae-ciencias-arquitectura",
@@ -200,10 +200,9 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             metrics["projectedAdmission"],
             {
                 "exclude": 1,
-                "include": 1,
+                "include": 2,
                 "quarantine": 1,
                 "reject-source": 1,
-                "review": 1,
             },
         )
         self.assertEqual(metrics["gateBlockerCount"], 2)
