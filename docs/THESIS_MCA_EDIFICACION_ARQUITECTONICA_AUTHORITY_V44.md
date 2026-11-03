@@ -57,7 +57,22 @@ documentadas directamente por la UdeG.
 **Autoridad exacta**:
 `program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica`.
 **Cinco tesis CUAAD (1998–2006)**: `5 REVIEW → EXCLUDE`
-únicamente para sus cuatro alias textuales explícitos.
+únicamente para cuatro alias del registro de autoridad que cubren cinco\nvariantes crudas observadas (tres claves normalizadas).
+
+**Variantes observadas en el corpus congelado (una tesis cada una):**
+
+- `Maestría En Arquitectura, Orientacion Edificacion Arquitectonica`;
+- `Maestría En Arquitectura; Edificacion Arquitectonica`;
+- `Maestría En Arquitectura; Orientacion Edificacion Arquitectonica`;
+- `Maestría En Ciencias De La Arquitectura Orientacion: Edificacion Arquitectonica`;
+- `Maestría En Ciencias De La Arquitectura Orientación: Edificación Arquitectónica`.
+
+Las cinco etiquetas se reducen a **tres claves normalizadas**:
+dos obras `maestria en arquitectura orientacion edificacion arquitectonica`,
+una `maestria en arquitectura edificacion arquitectonica`, y dos
+`maestria en ciencias de la arquitectura orientacion edificacion arquitectonica`.
+La autoridad conserva cuatro alias declarados; un quinto literal crudo
+se resuelve por puntuación hacia uno de los cuatro, no por fuzzy matching.
 
 **No absorción de homónimos**:
 `Maestría en Edificación Arquitectónica` sin mención a MCA no

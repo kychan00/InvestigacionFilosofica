@@ -23,7 +23,7 @@
     },
     "allowedWorks": 5,
     "blockedWorks": 0,
-    "exactRawVariantCount": 4,
+    "exactRawVariantCount": 5,
     "normalizedProgramGroupCount": 3,
     "globalProjectedAdmission": {
       "include": 559,
@@ -56,6 +56,18 @@
         "state": "review",
         "works": 1
       }
+    },
+    "rawProgramVariants": {
+      "Maestría En Arquitectura, Orientacion Edificacion Arquitectonica": 1,
+      "Maestría En Arquitectura; Edificacion Arquitectonica": 1,
+      "Maestría En Arquitectura; Orientacion Edificacion Arquitectonica": 1,
+      "Maestría En Ciencias De La Arquitectura Orientacion: Edificacion Arquitectonica": 1,
+      "Maestría En Ciencias De La Arquitectura Orientación: Edificación Arquitectónica": 1
+    },
+    "normalizedProgramGroups": {
+      "maestria en arquitectura orientacion edificacion arquitectonica": 2,
+      "maestria en arquitectura edificacion arquitectonica": 1,
+      "maestria en ciencias de la arquitectura orientacion edificacion arquitectonica": 2
     }
   },
   "invariants": [

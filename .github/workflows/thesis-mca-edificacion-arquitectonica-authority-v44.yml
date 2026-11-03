@@ -112,9 +112,11 @@ jobs:
           keys={norm(a) for a in program["aliases"]}
           variants=dict(Counter(w["programRaw"] for w in sel))
           assert len(variants)==e["exactRawVariantCount"],variants
+          assert variants==e["rawProgramVariants"],variants
           assert {norm(a) for a in variants}<=keys
           groups=dict(Counter({norm(a):sum(n for k,n in variants.items() if norm(k)==norm(a)) for a in variants}))
           assert len(groups)==e["normalizedProgramGroupCount"],groups
+          assert groups==e["normalizedProgramGroups"],groups
           years=sorted(int(str((w.get("date") or {}).get("value"))[:4]) for w in sel if (w.get("date") or {}).get("quality")=="valid")
           assert years and years[0]==e["observedYears"]["min"] and years[-1]==e["observedYears"]["max"]
           for a in variants: assert canonical.resolve_program(a,registry)["programRef"]==b["programRef"]
