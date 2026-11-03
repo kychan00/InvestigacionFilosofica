@@ -21,7 +21,10 @@ class DidacticaArtesVisualesAuthorityV42Test(unittest.TestCase):
                         if p["id"]==cls.baseline["programRef"])
 
     def test_exact_identity_excluded(self):
-        self.assertEqual(self.registry["registryRevision"],"2026-11-03.v42")
+        self.assertEqual(self.baseline["registryRevision"],"2026-11-03.v42")
+        self.assertGreaterEqual(
+            int(self.registry["registryRevision"].rsplit(".v",1)[1]),42
+        )
         self.assertEqual(self.target["admissionState"],"exclude")
         self.assertEqual(self.target["lifecycleState"],"historical")
         self.assertEqual(self.target["observedCount"],16)

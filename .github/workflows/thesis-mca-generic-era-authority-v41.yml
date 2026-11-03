@@ -247,14 +247,24 @@ jobs:
           ) == Counter(expected["suspiciousDateRaw"])
 
           by_id = {p["id"]: p for p in registry["programs"]}
+          # V43 resolved only historical MCA Urbanismo y Desarrollo.
+          # All other historical siblings remain REVIEW.
           for program_ref, works in expected["siblingReviewAuthorities"].items():
-              assert by_id[program_ref]["admissionState"] == "review"
+              expected_state = (
+                  "exclude" if program_ref ==
+                  "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
+                  else "review"
+              )
+              assert by_id[program_ref]["admissionState"] == expected_state
               assert by_id[program_ref]["observedCount"] == works
 
           expected_v42 = dict(expected["globalProjectedAdmission"])
           # V42: historical Didáctica Artes Visuales REVIEW -> EXCLUDE.
           expected_v42["review"] -= 16
           expected_v42["exclude"] += 16
+          # V43: MCA Urbanismo y Desarrollo REVIEW -> EXCLUDE (8 works).
+          expected_v42["review"] -= 8
+          expected_v42["exclude"] += 8
           assert projection["projectedAdmission"] == expected_v42
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -287,10 +297,10 @@ jobs:
           )
 
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 4
+              expected["humanitiesActionQueueItems"] - 7
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 16
+              expected["humanitiesActionWorks"] - 24
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"

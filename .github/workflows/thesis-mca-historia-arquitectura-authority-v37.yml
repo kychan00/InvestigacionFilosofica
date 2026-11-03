@@ -158,14 +158,17 @@ jobs:
           # V42: Didáctica de las Artes / Artes Visuales REVIEW -> EXCLUDE.
           expected_global["review"] -= 16
           expected_global["exclude"] += 16
+          # V43: historical MCA Urbanismo y Desarrollo REVIEW -> EXCLUDE.
+          expected_global["review"] -= 8
+          expected_global["exclude"] += 8
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           resolved = set(expected["normalizedProgramGroups"])
           assert all(item["normalizedKey"] not in resolved for item in queue["items"])
           assert all(item["normalizedKey"] not in resolved for item in queue["humanitiesActionItems"])
-          assert queue["metrics"]["humanitiesActionQueueItems"] == 18
-          assert queue["metrics"]["humanitiesActionWorks"] == 86
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 15
+          assert queue["metrics"]["humanitiesActionWorks"] == 78
           assert queue["metrics"]["workReviewQueueItems"] == 1
           assert queue["metrics"]["workReviewWorks"] == 152
           next_action = queue["nextHumanitiesAction"]

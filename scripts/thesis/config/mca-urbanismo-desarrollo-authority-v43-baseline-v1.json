@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "thesis-mca-urbanismo-desarrollo-authority-v43-baseline-v1",
+  "phase": "T2BO",
+  "registryRevision": "2026-11-03.v43",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "sourceFullArtifactId": 13099541204,
+  "programRef": "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+  "expected": {
+    "works": 8,
+    "priorAdmission": {
+      "review": 8
+    },
+    "projectedAdmission": {
+      "exclude": 8
+    },
+    "academicUnits": {
+      "CUAAD": 8
+    },
+    "observedYears": {
+      "min": 2000,
+      "max": 2006
+    },
+    "allowedWorks": 8,
+    "blockedWorks": 0,
+    "exactRawVariantCount": 3,
+    "normalizedProgramGroupCount": 3,
+    "globalProjectedAdmission": {
+      "include": 559,
+      "review": 230,
+      "quarantine": 18971,
+      "exclude": 7814,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 15,
+    "humanitiesActionWorks": 78,
+    "evidenceHoldQueueItems": 5,
+    "evidenceHoldWorks": 13,
+    "humanitiesReadyQueueItems": 10,
+    "humanitiesReadyWorks": 65,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "siblingArteComunicacion": {
+      "programRef": "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
+      "works": 13,
+      "admissionState": "review"
+    },
+    "siblingTeoriaCritica": {
+      "programRef": "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura",
+      "works": 1,
+      "admissionState": "review"
+    },
+    "independence": {
+      "name": "Maestría en Urbanismo y Desarrollo",
+      "dgpOrientation": "511598"
+    },
+    "rawProgramVariants": {
+      "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo": 6,
+      "Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo": 1,
+      "Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo": 1
+    },
+    "normalizedProgramGroups": {
+      "maestria en arquitectura orientacion urbanismo y desarrollo": 6,
+      "maestria en arquitectura orientacion en urbanismo y desarrollo": 1,
+      "maestria en ciencias de la arquitectura orientacion urbanismo y desarrollo": 1
+    },
+    "nextHumanitiesReadyAction": {
+      "normalizedKey": "maestria en arquitectura orientacion edificacion arquitectonica",
+      "works": 2,
+      "programRef": "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
+    }
+  },
+  "invariants": [
+    "historic-MCA-Urbanismo-y-Desarrollo-target-is-distinct-from-standalone-Maestria-en-Urbanismo-y-Desarrollo",
+    "Program-level Urbanism and land-planning identity is outside strict Humanities",
+    "exactly-3-MCA-orientation-source-aliases-no-fuzzy-absorption",
+    "never-propagate-to-generic-MCA-2006-B-or-history-theory-conservation",
+    "no-admission-by-work-title-abstract-or-semantics",
+    "MCA-Arte-y-Comunicacion-review-evidence-HOLD-retained",
+    "Scope-Policy-V5-and-Metadata-Confidence-V5-unchanged",
+    "DCTS-work-level-boundary-kept-separate"
+  ]
+}

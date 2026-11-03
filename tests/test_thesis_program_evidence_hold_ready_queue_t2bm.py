@@ -17,14 +17,14 @@ class EvidenceHoldTest(unittest.TestCase):
             .read_text(encoding="utf-8")
         )
         cls.hold = cls.policy["holds"][0]["programRef"]
-        cls.other = "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
+        cls.other = "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica"
 
     def make_queue(self, policy=None):
         rows = []
         obs = []
         for raw, ref, n in [
             ("Maestría En Arquitectura; Orientacion Arte Y Comunicacion", self.hold, 7),
-            ("Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo", self.other, 1)
+            ("Maestría En Arquitectura, Orientacion Edificacion Arquitectonica", self.other, 1)
         ]:
             rows.extend([{
                 "programRaw": raw, "academicUnitRaw": "CUAAD",

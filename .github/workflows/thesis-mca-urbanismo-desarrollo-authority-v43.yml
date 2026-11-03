@@ -1,0 +1,189 @@
+name: Thesis MCA Urbanismo y Desarrollo Authority V43
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/mca-urbanismo-desarrollo-authority-v43-baseline-v1.json"
+      - "tests/test_thesis_mca_urbanismo_desarrollo_authority_v43.py"
+      - "docs/THESIS_MCA_URBANISMO_DESARROLLO_AUTHORITY_V43.md"
+      - ".github/workflows/thesis-mca-urbanismo-desarrollo-authority-v43.yml"
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile and unit tests
+        run: |
+          python -m py_compile scripts/thesis/build_program_curation_queue_v1.py
+          python -m unittest discover -s tests -p "test_thesis_mca_urbanismo_desarrollo_authority_v43.py" -v
+
+      - name: Fetch frozen full baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/thesis-t2bo-full
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" \
+            > /tmp/thesis-t2bo-full.zip
+          unzip -q /tmp/thesis-t2bo-full.zip -d /tmp/thesis-t2bo-full
+
+      - name: Reproject Metadata Confidence V5
+        run: |
+          mkdir -p artifacts/thesis-t2bo
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/thesis-t2bo-full/canonical-corpus.json.gz \
+            --source-records /tmp/thesis-t2bo-full/source-records.jsonl.gz \
+            --output-corpus artifacts/thesis-t2bo/canonical-confidence.json \
+            --output-report artifacts/thesis-t2bo/confidence-projection.json
+
+      - name: Reproject V43 and Humanities queue
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          root = Path("artifacts/thesis-t2bo")
+          corpus = json.loads((root / "canonical-confidence.json").read_text())
+          observed = json.loads(
+              Path("/tmp/thesis-t2bo-full/observed-authorities.json").read_text()
+          )
+          registry = canonical.load_program_registry()
+          projected, projection = coverage.reproject_corpus(
+              corpus, registry, reference_year=2026
+          )
+          projected_observed = coverage.reproject_observed_authorities(
+              observed, projection["programDimensions"]
+          )
+          queue = curation.build_queue(projected_observed, projected, registry)
+          (root / "canonical-v43.json").write_text(
+              json.dumps(projected, ensure_ascii=False)
+          )
+          (root / "queue-v43.json").write_text(
+              json.dumps(queue, ensure_ascii=False)
+          )
+          PY
+
+      - name: Assert V43 full corpus, strict historical orientation and source boundaries
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+          root=Path("artifacts/thesis-t2bo")
+          sys.path.insert(0,"scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+          baseline=json.loads(Path(
+              "scripts/thesis/config/mca-urbanismo-desarrollo-authority-v43-baseline-v1.json"
+          ).read_text(encoding="utf-8"))
+          e=baseline["expected"]
+          registry=canonical.load_program_registry()
+          corpus=json.loads((root/"canonical-v43.json").read_text(encoding="utf-8"))
+          queue=json.loads((root/"queue-v43.json").read_text(encoding="utf-8"))
+          assert registry["registryRevision"]==baseline["registryRevision"]
+          assert len(corpus["works"])==27576
+          overall=dict(Counter(w["admissionStatus"] for w in corpus["works"]))
+          assert overall==e["globalProjectedAdmission"],overall
+          target=[w for w in corpus["works"] if w.get("programRef")==baseline["programRef"]]
+          assert len(target)==e["works"],len(target)
+          assert dict(Counter(w["admissionStatus"] for w in target))==e["projectedAdmission"]
+          assert dict(Counter(w["academicUnitRaw"] for w in target))==e["academicUnits"]
+          evidence=Counter(
+              (w.get("programMetadataEvidence") or {}).get("authorityApplicability")
+              for w in target
+          )
+          assert evidence["allowed"]==e["allowedWorks"],evidence
+          assert evidence["blocked"]==e["blockedWorks"],evidence
+          selected=next(p for p in registry["programs"] if p["id"]==baseline["programRef"])
+          norm=canonical.normalize_key
+          keys={norm(s) for s in selected["aliases"]}
+          variants=dict(Counter(w["programRaw"] for w in target))
+          assert len(variants)==e["exactRawVariantCount"],variants
+          assert variants==e["rawProgramVariants"],variants
+          assert {norm(v) for v in variants}<=keys,variants
+          groups=dict(Counter({
+              norm(raw):sum(n for name,n in variants.items() if norm(name)==norm(raw))
+              for raw in variants
+          }))
+          assert len(groups)==e["normalizedProgramGroupCount"],groups
+          assert groups==e["normalizedProgramGroups"],groups
+          years=sorted(
+              int(str((w.get("date") or {}).get("value"))[:4])
+              for w in target if (w.get("date") or {}).get("quality")=="valid"
+          )
+          assert years and years[0]==e["observedYears"]["min"]
+          assert years[-1]==e["observedYears"]["max"]
+          for raw in variants:
+              assert canonical.resolve_program(raw,registry)["programRef"]==baseline["programRef"]
+
+          m=queue["metrics"]
+          for name in (
+              "humanitiesActionQueueItems","humanitiesActionWorks",
+              "evidenceHoldQueueItems","evidenceHoldWorks",
+              "humanitiesReadyQueueItems","humanitiesReadyWorks",
+              "workReviewQueueItems","workReviewWorks"
+          ):
+              assert m[name]==e[name],(name,m[name],e[name])
+          assert all((entry.get("authority") or {}).get("id")!=baseline["programRef"]
+                     for entry in queue["items"])
+          for name in ("siblingArteComunicacion","siblingTeoriaCritica"):
+              contract=e[name]
+              p=next(p for p in registry["programs"] if p["id"]==contract["programRef"])
+              assert p["admissionState"]==contract["admissionState"]
+              assert p["observedCount"]==contract["works"]
+              remaining=[w for w in corpus["works"] if w.get("programRef")==p["id"]]
+              assert len(remaining)==contract["works"]
+              assert all(w["admissionStatus"]==contract["admissionState"] for w in remaining)
+          assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
+          ready=queue["nextHumanitiesReadyAction"]
+          assert ready is not None
+          assert (ready.get("authority") or {}).get("id")!=baseline["programRef"]
+          assert ready["normalizedKey"]==e["nextHumanitiesReadyAction"]["normalizedKey"]
+          assert ready["count"]==e["nextHumanitiesReadyAction"]["works"]
+          assert ready["authority"]["id"]==e["nextHumanitiesReadyAction"]["programRef"]
+
+          report={
+              "phase":"T2BO","registryRevision":registry["registryRevision"],
+              "projectedAdmission":overall,"targetAuthority":baseline["programRef"],
+              "targetWorks":len(target),"targetAdmission":dict(Counter(w["admissionStatus"] for w in target)),
+              "targetVariants":variants,"targetNormalizedGroups":groups,
+              "targetApplicability":dict(evidence),"queueMetrics":{k:m[k] for k in (
+                  "humanitiesActionQueueItems","humanitiesActionWorks",
+                  "evidenceHoldQueueItems","evidenceHoldWorks",
+                  "humanitiesReadyQueueItems","humanitiesReadyWorks",
+                  "workReviewQueueItems","workReviewWorks"
+              )},"nextHumanitiesReadyAction":ready
+          }
+          (root/"authority-v43-report.json").write_text(
+              json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True)+"\n",
+              encoding="utf-8"
+          )
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Upload V43 authority evidence (no raw corpus)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-mca-urbanismo-desarrollo-v43
+          path: artifacts/thesis-t2bo/authority-v43-report.json
+          if-no-files-found: warn
+          retention-days: 14

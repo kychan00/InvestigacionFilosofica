@@ -99,11 +99,16 @@ jobs:
           registry=canonical.load_program_registry()
           corpus=json.loads((root/"canonical-v42.json").read_text(encoding="utf-8"))
           queue=json.loads((root/"queue-v42.json").read_text(encoding="utf-8"))
-          assert registry["registryRevision"]==baseline["registryRevision"]
+          assert baseline["registryRevision"]=="2026-11-03.v42"
+          assert int(registry["registryRevision"].rsplit(".v",1)[1]) >= 42
           assert len(corpus["works"])==27576
 
           overall=dict(Counter(w["admissionStatus"] for w in corpus["works"]))
-          assert overall==e["globalProjectedAdmission"],overall
+          expected_global=dict(e["globalProjectedAdmission"])
+          # V43: MCA Urbanismo y Desarrollo REVIEW -> EXCLUDE (8 works).
+          expected_global["review"]-=8
+          expected_global["exclude"]+=8
+          assert overall==expected_global,overall
           selected=[w for w in corpus["works"] if w.get("programRef")==baseline["programRef"]]
           assert len(selected)==e["works"],len(selected)
           assert dict(Counter(w["admissionStatus"] for w in selected))==e["projectedAdmission"]
@@ -140,7 +145,9 @@ jobs:
               "humanitiesReadyQueueItems","humanitiesReadyWorks",
               "workReviewQueueItems","workReviewWorks"
           ):
-              assert q[k]==e[k],(k,q[k],e[k])
+              d={"humanitiesActionQueueItems":3,"humanitiesActionWorks":8,
+                 "humanitiesReadyQueueItems":3,"humanitiesReadyWorks":8}.get(k,0)
+              assert q[k]==e[k]-d,(k,q[k],e[k]-d)
           assert all(
               (x.get("authority") or {}).get("id")!=baseline["programRef"]
               for x in queue["items"]
@@ -155,9 +162,13 @@ jobs:
           assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
           ready=queue["nextHumanitiesReadyAction"]
           assert ready is not None
-          assert ready["normalizedKey"]==e["nextHumanitiesReadyAction"]["normalizedKey"]
-          assert ready["count"]==e["nextHumanitiesReadyAction"]["works"]
-          assert ready["authority"]["id"]==e["nextHumanitiesReadyAction"]["programRef"]
+          # Legacy baseline proves V42 cursor; V43 must have resolved it.
+          assert e["nextHumanitiesReadyAction"]["programRef"] == (
+              "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo"
+          )
+          assert (ready.get("authority") or {}).get("id") != (
+              e["nextHumanitiesReadyAction"]["programRef"]
+          )
 
           report={
               "phase":"T2BN","registryRevision":registry["registryRevision"],
