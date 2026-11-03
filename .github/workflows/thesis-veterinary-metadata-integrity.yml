@@ -627,11 +627,12 @@ jobs:
           # V43: MCA Urbanismo y Desarrollo REVIEW -> EXCLUDE (8).
           # V44: MCA Edificación Arquitectónica REVIEW -> EXCLUDE (5).
           # V45: Didáctica Artes Escénicas REVIEW -> EXCLUDE (3).
+          # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE (27).
           assert report["globalProjectedAdmission"] == {
               "include": 559,
-              "review": 222,
+              "review": 195,
               "quarantine": 18971,
-              "exclude": 7822,
+              "exclude": 7849,
               "reject-source": 2,
           }
 

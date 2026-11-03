@@ -1,0 +1,102 @@
+name: Thesis Educación y Expresión para las Artes Authority V46
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/program-authority-v1.json"
+      - "scripts/thesis/config/educacion-expresion-artes-authority-v46-baseline-v1.json"
+      - "tests/test_thesis_educacion_expresion_artes_authority_v46.py"
+      - "docs/THESIS_EDUCACION_EXPRESION_ARTES_AUTHORITY_V46.md"
+      - ".github/workflows/thesis-educacion-expresion-artes-authority-v46.yml"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with: {python-version: "3.13"}
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p "test_thesis_educacion_expresion_artes_authority_v46.py" -v
+      - name: Fetch frozen full baseline
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          mkdir -p /tmp/t2bt artifacts/t2bt
+          gh api -H "Accept: application/vnd.github+json" "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip" > /tmp/t2bt.zip
+          unzip -q /tmp/t2bt.zip -d /tmp/t2bt
+      - name: Reproject Metadata Confidence V5
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/t2bt/canonical-corpus.json.gz \
+            --source-records /tmp/t2bt/source-records.jsonl.gz \
+            --output-corpus artifacts/t2bt/confidence.json \
+            --output-report artifacts/t2bt/confidence-report.json
+      - name: Reproject V46 and queue
+        run: |
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          root=Path("artifacts/t2bt")
+          corpus=json.loads((root/"confidence.json").read_text())
+          observed=json.loads(Path("/tmp/t2bt/observed-authorities.json").read_text())
+          registry=canonical.load_program_registry()
+          projected,projection=coverage.reproject_corpus(corpus,registry,reference_year=2026)
+          projected_observed=coverage.reproject_observed_authorities(observed,projection["programDimensions"])
+          queue=curation.build_queue(projected_observed,projected,registry)
+          (root/"corpus-v46.json").write_text(json.dumps(projected,ensure_ascii=False))
+          (root/"queue-v46.json").write_text(json.dumps(queue,ensure_ascii=False))
+          PY
+      - name: Assert V46 full contract
+        run: |
+          python - <<'PY'
+          import json,sys
+          from collections import Counter
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+          root=Path("artifacts/t2bt")
+          b=json.loads(Path("scripts/thesis/config/educacion-expresion-artes-authority-v46-baseline-v1.json").read_text())
+          e=b["expected"]; registry=canonical.load_program_registry()
+          corpus=json.loads((root/"corpus-v46.json").read_text()); queue=json.loads((root/"queue-v46.json").read_text())
+          assert registry["registryRevision"]==b["registryRevision"]
+          assert len(corpus["works"])==27576
+          overall=dict(Counter(w["admissionStatus"] for w in corpus["works"]))
+          assert overall==e["globalProjectedAdmission"],overall
+          sel=[w for w in corpus["works"] if w.get("programRef")==b["programRef"]]
+          assert len(sel)==27
+          assert dict(Counter(w["admissionStatus"] for w in sel))=={"exclude":27}
+          assert dict(Counter(w["academicUnitRaw"] for w in sel))=={"CUAAD":27}
+          app=Counter((w.get("programMetadataEvidence") or {}).get("authorityApplicability") for w in sel)
+          conf=Counter((w.get("programMetadataEvidence") or {}).get("confidenceState") for w in sel)
+          assert app==Counter({"allowed":27}),app
+          assert conf==Counter({"unassessed":27}),conf
+          variants=dict(Counter(w["programRaw"] for w in sel))
+          assert variants==e["rawProgramVariants"],variants
+          norm=canonical.normalize_key
+          groups={k:sum(n for raw,n in variants.items() if norm(raw)==k) for k in set(map(norm,variants))}
+          assert groups==e["normalizedProgramGroups"],groups
+          years=sorted(int(str((w.get("date") or {}).get("value"))[:4]) for w in sel if (w.get("date") or {}).get("quality")=="valid")
+          assert years and years[0]==2018 and years[-1]==2026
+          m=queue["metrics"]
+          for k in ("humanitiesActionQueueItems","humanitiesActionWorks","evidenceHoldQueueItems","evidenceHoldWorks","humanitiesReadyQueueItems","humanitiesReadyWorks","workReviewQueueItems","workReviewWorks"):
+           assert m[k]==e[k],(k,m[k],e[k])
+          assert all((x.get("authority") or {}).get("id")!=b["programRef"] for x in queue["items"])
+          ready=queue["nextHumanitiesReadyAction"]; assert ready is not None
+          report={"phase":"T2BT","registryRevision":registry["registryRevision"],"targetAuthority":b["programRef"],"targetWorks":len(sel),"targetVariants":variants,"applicability":dict(app),"confidenceStates":dict(conf),"projectedAdmission":overall,"queueMetrics":{k:m[k] for k in ("humanitiesActionQueueItems","humanitiesActionWorks","evidenceHoldQueueItems","evidenceHoldWorks","humanitiesReadyQueueItems","humanitiesReadyWorks","workReviewQueueItems","workReviewWorks")},"nextHumanitiesReadyAction":ready}
+          (root/"authority-v46-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True)+"\n")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+      - name: Upload V46 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-educacion-expresion-artes-v46
+          path: artifacts/t2bt/authority-v46-report.json
+          if-no-files-found: warn
+          retention-days: 14

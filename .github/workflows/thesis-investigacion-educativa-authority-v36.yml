@@ -248,6 +248,9 @@ jobs:
           # V45: Didáctica de las Artes / Artes Escénicas REVIEW -> EXCLUDE.
           expected_global["review"] -= 3
           expected_global["exclude"] += 3
+          # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE.
+          expected_global["review"] -= 27
+          expected_global["exclude"] += 27
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -302,10 +305,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 31
+              expected["humanitiesActionQueueItems"] - 32
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 413
+              expected["humanitiesActionWorks"] - 440
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"

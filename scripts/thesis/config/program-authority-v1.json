@@ -988,8 +988,8 @@
       "id": "program:udg:mae-educacion-expresion-artes",
       "canonicalName": "Maestría en Educación y Expresión para las Artes",
       "level": "maestria",
-      "disciplineFamily": "educacion-artes",
-      "admissionState": "review",
+      "disciplineFamily": "educacion-y-produccion-artistica-profesionalizante",
+      "admissionState": "exclude",
       "lifecycleState": "active",
       "academicUnits": [
         "CUAAD"
@@ -1003,10 +1003,13 @@
         "min": 2018,
         "max": 2026
       },
-      "decisionNote": "Programa vigente de CUAAD con educación artística, producción artística e investigación; la UdeG lo clasifica administrativamente en Arte, Arquitectura y Diseño. Su cercanía con Humanidades justifica REVIEW, no inclusión automática.",
+      "decisionNote": "T2BT/V46: EXCLUDE para humanities-only estricto. La UdeG define la Maestría en Educación y Expresión para las Artes como programa profesionalizante con dos áreas/LGAC principales: Educación artística y Producción artística. Su objetivo general es innovar la enseñanza de las artes y potenciar la capacidad creativa del artista; el perfil de egreso se orienta a producción, gestión/socialización de bienes culturales, diagnóstico/docencia artística y proyectos aplicados a enseñanza o producción. El plan incluye análisis crítico e investigación, por lo que existe contenido teórico y cultural real, pero la identidad primaria del grado es educación artística y práctica/producción artística profesional, no Historia del Arte, Estética, Filosofía, Teoría cultural o investigación humanística autónoma. La decisión se basa en identidad institucional del programa, no en títulos, abstracts o temas de las 27 tesis. Las 27 obras CUAAD observadas 2018–2026 pasan REVIEW→EXCLUDE cuando Metadata Confidence permite aplicación de autoridad. Scope Policy V5 y Metadata Confidence V5 permanecen sin cambios.",
       "evidence": [
-        "https://ww1.udg.mx/es/node/14999",
+        "https://www.udg.mx/sites/default/files/2025-11/maestria_en_educacion_y_expresion_para_las_artes_cuaad_snp.pdf",
         "https://cuaad.udg.mx/oferta/maestrias/meea/perfil-del-aspirante",
+        "https://cuaad.udg.mx/oferta/maestrias/meea/lineas-de-generacion-y-aplicacion-del-conocimiento",
+        "https://cuaad.udg.mx/index.php/oferta/maestrias/meea/perfil-de-egreso",
+        "https://ww1.udg.mx/es/node/14999",
         "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
       ]
     },
@@ -1762,7 +1765,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-03.v45",
+  "registryRevision": "2026-11-03.v46",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

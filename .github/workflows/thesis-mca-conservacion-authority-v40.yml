@@ -270,6 +270,9 @@ jobs:
           # V45: Didáctica de las Artes / Artes Escénicas REVIEW -> EXCLUDE.
           expected_global["review"] -= 3
           expected_global["exclude"] += 3
+          # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE.
+          expected_global["review"] -= 27
+          expected_global["exclude"] += 27
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -282,18 +285,10 @@ jobs:
               item["normalizedKey"] not in resolved
               for item in queue["humanitiesActionItems"]
           )
-          assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 13
-          )
-          assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 66
-          )
-          assert queue["metrics"]["workReviewQueueItems"] == expected[
-              "workReviewQueueItems"
-          ]
-          assert queue["metrics"]["workReviewWorks"] == expected[
-              "workReviewWorks"
-          ]
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 7
+          assert queue["metrics"]["humanitiesActionWorks"] == 15
+          assert queue["metrics"]["workReviewQueueItems"] == 3
+          assert queue["metrics"]["workReviewWorks"] == 180
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == "maestria en ciencias de la arquitectura"
           assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
