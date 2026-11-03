@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "thesis-humanities-evidence-holds-v1",
+  "policyRevision": "2026-11-03.t2bm.v1",
+  "targetScope": "humanities-only",
+  "decisionConstraint": "hold-is-research-scheduling-only-no-admission-changes",
+  "holds": [
+    {
+      "programRef": "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
+      "evidenceState": "awaiting-curricular-primary-source",
+      "auditDocument": "docs/THESIS_MCA_ARTE_COMUNICACION_EVIDENCE_T2BL.md",
+      "primarySourceNeeded": "Dictamen I/99/722 con anexos, o plan histórico 1995-2003 específico de Arte y Comunicación, que pruebe el núcleo curricular y perfil de egreso.",
+      "reopenTrigger": "official-program-specific-curricular-evidence",
+      "evidence": [
+        "https://cuaad.udg.mx/oferta/maestrias/mca/antecedentes-historicos",
+        "https://cgpe.udg.mx/sites/default/files/adjuntos/4_informe_1998-1999.pdf"
+      ]
+    }
+  ],
+  "invariants": [
+    "original-humanitiesActionItems-and-nextHumanitiesAction-unchanged",
+    "the-hold-never-changes-admissionStatus-or-programAuthority",
+    "nextHumanitiesReadyAction-excludes-only-held-review-authorities",
+    "held-authority-remains-visible-and-counted-in-corpus",
+    "only-exact-programRef-can-be-held",
+    "scope-policy-v5-and-metadata-confidence-v5-unchanged"
+  ]
+}
