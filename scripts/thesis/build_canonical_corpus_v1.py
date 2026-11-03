@@ -364,6 +364,9 @@ def load_program_metadata_evidence_policy(
             "providerRecordIds",
             "programKeys",
             "accessionDays",
+            "issuedYearMin",
+            "issuedYearMax",
+            "issuedDateQualities",
             "allFieldsPresent",
             "allFieldsMissing",
         }
@@ -401,6 +404,16 @@ def _source_accession_day(record: dict[str, Any]) -> str | None:
     return value[:10] if value and len(value) >= 10 else value
 
 
+def _source_issued_date_info(record: dict[str, Any]) -> dict[str, Any]:
+    raw = record.get("rawFields") or {}
+    values = (
+        raw.get("dc.date.issued")
+        or raw.get("DC.date.issued")
+        or []
+    )
+    return date_info(clean_text(first(values)), reference_year=2026)
+
+
 def evaluate_program_metadata_evidence(
     record: dict[str, Any],
     raw_program: str | None,
@@ -410,6 +423,13 @@ def evaluate_program_metadata_evidence(
     provider_record_id = clean_text(record.get("providerRecordId")) or ""
     program_key = normalize_key(raw_program)
     accession_day = _source_accession_day(record)
+    issued_date = _source_issued_date_info(record)
+    issued_year = None
+    if issued_date.get("value"):
+        try:
+            issued_year = int(str(issued_date["value"])[:4])
+        except (TypeError, ValueError):
+            issued_year = None
 
     rules = sorted(
         policy.get("rules", []),
@@ -447,6 +467,25 @@ def evaluate_program_metadata_evidence(
         if accession_days and accession_day not in accession_days:
             continue
 
+        issued_year_min = match.get("issuedYearMin")
+        if issued_year_min is not None and (
+            issued_year is None or issued_year < int(issued_year_min)
+        ):
+            continue
+
+        issued_year_max = match.get("issuedYearMax")
+        if issued_year_max is not None and (
+            issued_year is None or issued_year > int(issued_year_max)
+        ):
+            continue
+
+        issued_date_qualities = set(match.get("issuedDateQualities") or [])
+        if (
+            issued_date_qualities
+            and issued_date.get("quality") not in issued_date_qualities
+        ):
+            continue
+
         if any(
             not _source_field_present(record, field)
             for field in (match.get("allFieldsPresent") or [])
@@ -476,6 +515,8 @@ def evaluate_program_metadata_evidence(
                 "providerRecordId": provider_record_id or None,
                 "programKey": program_key or None,
                 "accessionDay": accession_day,
+                "issuedDate": issued_date,
+                "issuedYear": issued_year,
             },
         }
 
@@ -496,6 +537,8 @@ def evaluate_program_metadata_evidence(
             "providerRecordId": provider_record_id or None,
             "programKey": program_key or None,
             "accessionDay": accession_day,
+            "issuedDate": issued_date,
+            "issuedYear": issued_year,
         },
     }
 
