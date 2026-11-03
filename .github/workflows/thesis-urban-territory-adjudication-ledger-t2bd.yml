@@ -140,7 +140,7 @@ jobs:
           # The active batch follows the current shared work-review policy
           # without changing any DCTS adjudication.
           assert batch["originWorkReviewPolicyRevision"] == "2026-11-02.urban-v1"
-          assert batch["workReviewPolicyRevision"] == "2026-11-03.boundary-v3"
+          assert batch["workReviewPolicyRevision"] == "2026-11-03.boundary-v4"
           assert work_review["policyRevision"] == batch["workReviewPolicyRevision"]
 
           assert int(registry["registryRevision"].rsplit(".v",1)[1]) >= 44
@@ -162,13 +162,13 @@ jobs:
           assert cognition_authority["observedCount"] == 4
 
           wr = expected["workReview"]
-          assert work_review["metrics"]["programs"] == 3
-          assert work_review["metrics"]["workItems"] == wr["works"] + 28
+          assert work_review["metrics"]["programs"] == 4
+          assert work_review["metrics"]["workItems"] == wr["works"] + 29
           assert work_review["metrics"]["projectedAdmission"] == {
-              "review": wr["works"] + 28
+              "review": wr["works"] + 29
           }
           assert work_review["metrics"]["pendingPrimarySourceReview"] == (
-              wr["pendingPrimarySourceReview"] + 28
+              wr["pendingPrimarySourceReview"] + 29
           )
           assert work_review["metrics"]["automaticAdmissionDecisions"] == 0
           assert work_review["metrics"]["admissionChanges"] == 0
@@ -194,10 +194,10 @@ jobs:
           # V47 resolves the one-work Teoría/Crítica row in that snapshot.
           # Its queue remains one item/work above canonical full T2BU (6/14).
           # Adjudication semantics and work-review counts remain unchanged.
-          assert metrics["humanitiesActionQueueItems"] == 7
-          assert metrics["humanitiesActionWorks"] == 15
-          assert metrics["workReviewQueueItems"] == 3
-          assert metrics["workReviewWorks"] == 180
+          assert metrics["humanitiesActionQueueItems"] == 6
+          assert metrics["humanitiesActionWorks"] == 14
+          assert metrics["workReviewQueueItems"] == 4
+          assert metrics["workReviewWorks"] == 181
 
           dcts = next(
               item for item in curation["items"]
