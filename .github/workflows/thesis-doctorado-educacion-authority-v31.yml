@@ -7,8 +7,8 @@ on:
       - "scripts/thesis/config/scope-boundary-matrix-v1.json"
       - "scripts/thesis/config/doctorado-educacion-authority-v31-baseline-v1.json"
       - "scripts/thesis/config/boundary-closure-contract-v4.json"
-      - "scripts/thesis/config/outside-scope-social-sciences-closure-v3.json"
-      - "scripts/thesis/config/outside-scope-political-international-development-closure-v3.json"
+      - "scripts/thesis/config/outside-scope-social-sciences-closure-v4.json"
+      - "scripts/thesis/config/outside-scope-political-international-development-closure-v4.json"
       - "scripts/thesis/audit_boundary_closure_v1.py"
       - "scripts/thesis/audit_outside_scope_closure_v1.py"
       - "scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py"
@@ -135,12 +135,12 @@ jobs:
         run: |
           python scripts/thesis/audit_outside_scope_closure_v1.py \
             --scope-report artifacts/thesis-education-v31/scope/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v3.json \
+            --contract scripts/thesis/config/outside-scope-social-sciences-closure-v4.json \
             --output-dir artifacts/thesis-education-v31/outside-social
 
           python scripts/thesis/audit_outside_scope_closure_v1.py \
             --scope-report artifacts/thesis-education-v31/scope/scope-boundary-matrix.json \
-            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v3.json \
+            --contract scripts/thesis/config/outside-scope-political-international-development-closure-v4.json \
             --output-dir artifacts/thesis-education-v31/outside-political
 
       - name: Validate V31 full-corpus invariants
@@ -309,14 +309,14 @@ jobs:
           assert boundary["metrics"]["violations"] == 0
 
           assert social["closureState"] == "closed"
-          assert social["closureId"] == "social-sciences-v3"
+          assert social["closureId"] == "social-sciences-v4"
           assert social["metrics"]["authorityObservedWorks"] == 277
           assert social["metrics"]["admissionStates"] == {"exclude": 2}
 
           assert political["closureState"] == "closed"
           assert (
               political["closureId"]
-              == "political-international-development-v3"
+              == "political-international-development-v4"
           )
           assert political["metrics"]["authorityObservedWorks"] == 212
           assert political["metrics"]["admissionStates"] == {"exclude": 4}
