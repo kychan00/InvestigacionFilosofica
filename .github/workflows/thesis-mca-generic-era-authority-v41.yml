@@ -154,7 +154,8 @@ jobs:
           )
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v41"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 41
           assert confidence["programMetadataEvidenceRevision"] == baseline[
               "programMetadataEvidenceRevision"
           ]

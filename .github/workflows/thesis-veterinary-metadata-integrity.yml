@@ -623,11 +623,12 @@ jobs:
           # Conservación del Patrimonio Edificado V35, Investigación
           # Educativa V36, MCA Historia de la Arquitectura V37, and
           # Tecnologías para el Aprendizaje V38, Historia del Arte V39, and MCA Conservación V40.
+          # V42 cohort: Didáctica Artes Visuales REVIEW -> EXCLUDE (16).
           assert report["globalProjectedAdmission"] == {
               "include": 559,
-              "review": 254,
+              "review": 238,
               "quarantine": 18971,
-              "exclude": 7790,
+              "exclude": 7806,
               "reject-source": 2,
           }
 

@@ -259,11 +259,11 @@ jobs:
           )
           assert (
               queue["metrics"]["humanitiesActionQueueItems"]
-              == expected["humanitiesActionQueueItems"] - 20
+              == expected["humanitiesActionQueueItems"] - 24
           )
           assert (
               queue["metrics"]["humanitiesActionWorks"]
-              == expected["humanitiesActionWorks"] - 544
+              == expected["humanitiesActionWorks"] - 560
           )
           next_action = queue["nextHumanitiesAction"]
           assert next_action["normalizedKey"] == (
