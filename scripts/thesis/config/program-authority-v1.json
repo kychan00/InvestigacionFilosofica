@@ -441,7 +441,7 @@
       "canonicalName": "Licenciatura en Historia del Arte",
       "level": "licenciatura",
       "disciplineFamily": "historia-arte",
-      "admissionState": "review",
+      "admissionState": "include",
       "lifecycleState": "active",
       "academicUnits": [
         "CUTONALA"
@@ -451,9 +451,14 @@
         "LICENCIATURA EN HISTORIA DEL ARTE"
       ],
       "observedCount": 2,
-      "decisionNote": "CUTonalá la describe como disciplina científica y humanística, pero la Guía de Carreras UdeG la clasifica en Artes, Arquitectura y Diseño; requiere decisión explícita de alcance.",
+      "decisionNote": "CUTonalá define explícitamente la Historia del Arte como disciplina científica y humanística. El objetivo del programa es formar historiadores del arte con capacidad crítica, metodológica y de investigación para el análisis de la producción artística, su historia, recepción, patrimonio y contribución cultural. El plan de estudios incluye Historia del Arte: Objeto y Fundamentos, Filosofía del Arte, Teoría del Arte, Pensadores Contemporáneos de la Teoría del Arte, Estética, historiografía, análisis del discurso, paleografía, técnicas y métodos de investigación del arte y seminarios de tesis. El perfil de egreso enfatiza investigación sobre arte e historia, premisas epistemológicas, patrimonio y difusión cultural; el perfil de ingreso exige interés humanista y en el arte como hecho histórico. Aunque la Guía de Carreras la agrupa administrativamente en Artes, Arquitectura y Diseño, esa clasificación amplia no contradice su identidad disciplinaria humanística. Bajo targetScope humanities-only se resuelve REVIEW → INCLUDE. La decisión es programática y no depende del título, abstract, keywords o tema de las tesis. El full inventory contiene 2 obras de CUTONALA, ambas Metadata Confidence V4 unassessed/allowed y sin blockers, con fechas válidas 2017 y 2019.",
       "evidence": [
+        "https://cutonala.udg.mx/oferta/licenciaturas/historia-del-arte",
         "https://cutonala.udg.mx/index.php/oferta/licenciaturas/historia-del-arte/presentacion",
+        "https://cutonala.udg.mx/oferta/licenciaturas/historia-del-arte/objetivos",
+        "https://cutonala.udg.mx/oferta/licenciaturas/historia-del-arte/perfil-de-egreso",
+        "https://cutonala.udg.mx/oferta/licenciaturas/historia-del-arte/aspirantes",
+        "https://cutonala.udg.mx/oferta/licenciaturas/historia-del-arte/plan-de-estudios",
         "https://guiadecarreras.udg.mx/oferta_academica/licenciatura-en-historia-del-arte"
       ]
     },
@@ -1624,7 +1629,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v38",
+  "registryRevision": "2026-11-02.v39",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
