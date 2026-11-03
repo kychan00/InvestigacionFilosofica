@@ -584,7 +584,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             {"resolved": 1},
         )
 
-    def test_maestria_investigacion_educativa_v9_moves_to_scope_review(self):
+    def test_maestria_investigacion_educativa_v36_is_resolved_and_omitted(self):
         observed = {
             "programs": [
                 {
@@ -617,18 +617,18 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             self.registry,
         )
 
-        self.assertEqual(payload["metrics"]["queueItems"], 1)
-        item = payload["items"][0]
-        self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(payload["metrics"]["queueItems"], 0)
+        self.assertEqual(payload["items"], [])
+        self.assertEqual(payload["humanitiesActionItems"], [])
+        resolved = queue.canonical.resolve_program(
+            "Maestría en Investigación Educativa",
+            self.registry,
+        )
         self.assertEqual(
-            item["authority"]["id"],
+            resolved["programRef"],
             "program:udg:mae-investigacion-educativa",
         )
-        self.assertEqual(
-            item["authority"]["admissionState"],
-            "review",
-        )
+        self.assertEqual(resolved["admissionState"], "exclude")
 
     def test_doctorado_cognicion_aprendizaje_v10_moves_to_scope_review(self):
         observed = {
