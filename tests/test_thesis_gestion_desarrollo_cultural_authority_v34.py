@@ -104,7 +104,7 @@ class GestionDesarrolloCulturalAuthorityV34Test(unittest.TestCase):
         )
         self.assertEqual(
             self.baseline["scopePolicyRevision"],
-            "2026-11-02.v4",
+            "2026-11-02.v5",
         )
         self.assertEqual(scope["policyRevision"], "2026-11-02.v5")
 
