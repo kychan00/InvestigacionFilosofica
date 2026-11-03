@@ -58,7 +58,7 @@ class VeterinaryMetadataConflictProtectionV3Test(unittest.TestCase):
             self.policy,
         )
 
-    def test_global_policy_revision_is_v4(self):
+    def test_active_global_policy_revision_is_v5(self):
         self.assertEqual(
             self.policy["policyRevision"],
             "2026-11-02.v4",
