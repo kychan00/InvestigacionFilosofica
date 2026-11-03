@@ -435,7 +435,7 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
         )
         self.assertEqual(
             result["metrics"]["programStateWorks"],
-            {"resolved": 1},
+            {"exclude": 1},
         )
         self.assertEqual(
             result["metrics"]["programQueue"]["queueItems"],
