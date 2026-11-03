@@ -725,7 +725,6 @@
       ],
       "aliases": [
         "Maestría en Ciencias de la Arquitectura",
-        "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado",
         "Maestría En Arquitectura; Edificacion Arquitectonica",
         "Maestría En Arquitectura, Orientacion Arte Y Comunicacion",
         "Maestría En Arquitectura, Orientacion Edificacion Arquitectonica",
@@ -733,38 +732,67 @@
         "Maestría En Arquitectura, Orientacion En Urbanismo Y Desarrollo",
         "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
         "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
-        "Maestría En Ciencias De La Arquitectura Con Orientación A La Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura Con Orientación En Arte Y Comunicación",
-        "Maestría En Ciencias De La Arquitectura, Con Orientación En Conservación De Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura Conservación Del Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura, Orientación A La Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura, Orientación Arte Y Comunicación",
-        "Maestría En Ciencias De La Arquitectura Orientación Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura Orientacion: Edificacion Arquitectonica",
         "Maestría En Ciencias De La Arquitectura Orientación En Arte Y Comunicación",
-        "Maestría En Ciencias De La Arquitectura Orientación En Conservación De Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura Orientación En Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura Orientación: Edificación Arquitectónica",
-        "Maestría En Ciencias De La Arquitectura Y Orientación En Conservación Del Patrimonio Edificado",
         "Maestría En Ciencias De La Arquitectura, Orientacion En Arte Y Comunicacion",
-        "Maestría En Ciencias De La Arquitectura, Orientacion En Conservacion Del Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura, Orientación En Conservación Del Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo",
-        "Maestría En Ciencias De La Arquitectura. Orientación En Conservación Del Patrimonio Edificado",
-        "Maestría En Ciencias De La Arquitectura. Orientación: Conservación Del Patrimonio Edificado"
+        "Maestría En Ciencias De La Arquitectura, Orientación Urbanismo Y Desarrollo"
       ],
-      "observedCount": 96,
+      "observedCount": 61,
       "observedThesisYears": {
         "min": 1998,
         "max": 2021
       },
-      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con múltiples orientaciones. V37 separa como autoridad granular la orientación formal Historia de la Arquitectura Mexicana porque CUAAD la mantiene como terminal con programa propio y tronco común, plan especializante específico y LGAC institucional explícita. La autoridad base queda REVIEW con 96 tesis correspondientes a registros sin orientación explícita y a orientaciones heterogéneas de conservación, edificación, urbanismo, arte/comunicación y teoría/crítica. La autoridad histórica Maestría en Historia de la Arquitectura Mexicana permanece separada; la coexistencia de etiquetas históricas y de orientación impide fusionarlas por similitud nominal.",
+      "decisionNote": "UdeG documenta que la Maestría en Ciencias de la Arquitectura fue creada en 1995 y modificada en 1999 con múltiples orientaciones. V37 separó como autoridad granular Historia de la Arquitectura Mexicana y V40 separa de forma análoga la orientación formal Conservación del Patrimonio Edificado. La autoridad base queda REVIEW con 61 tesis correspondientes a registros sin orientación explícita y a orientaciones heterogéneas restantes de edificación, urbanismo, arte/comunicación y teoría/crítica. No se propaga la admisión de ninguna orientación al programa base ni se fusionan autoridades históricas por similitud nominal.",
       "evidence": [
         "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
         "https://cuaad.udg.mx/node/21768",
         "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencias-de-la-arquitectura",
         "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+      ]
+    },
+    {
+      "id": "program:udg:mae-ciencias-arquitectura-conservacion-patrimonio-edificado",
+      "canonicalName": "Maestría en Ciencias de la Arquitectura, Orientación en Conservación del Patrimonio Edificado",
+      "level": "maestria",
+      "disciplineFamily": "patrimonio-conservacion",
+      "admissionState": "include",
+      "lifecycleState": "active",
+      "academicUnits": [
+        "CUAAD"
+      ],
+      "aliases": [
+        "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Con Orientación A La Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Con Orientación En Conservación De Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientación A La Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Orientación Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Orientación En Conservación De Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura Y Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientacion En Conservacion Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura, Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura. Orientación En Conservación Del Patrimonio Edificado",
+        "Maestría En Ciencias De La Arquitectura. Orientación: Conservación Del Patrimonio Edificado"
+      ],
+      "observedCount": 35,
+      "observedThesisYears": {
+        "min": 1998,
+        "max": 2015
+      },
+      "decisionNote": "T2BJ/V40 resuelve INCLUDE bajo humanities-only la orientación formal Conservación del Patrimonio Edificado de la Maestría en Ciencias de la Arquitectura. CUAAD documenta que la MCA opera actualmente con dos terminales/orientaciones, cada una con su propio programa y un tronco común; sus antecedentes registran Conservación del Patrimonio Edificado como orientación desde la modificación de 1999, retroactiva a 1995 B, y como una de las dos orientaciones reabiertas desde 2003. La convocatoria 2026-2028 y el plan vigente separan un bloque especializante propio con Arqueología, Historia y Teoría de la Conservación I-II, Metodología de la Conservación, conservación de materiales, restauración de edificios y talleres de conservación/restauración; el perfil de ingreso incluye disciplinas de ciencias sociales y humanidades y el perfil de egreso enfatiza investigación en conservación, restauración patrimonial e historia de la arquitectura. El corpus contiene 35 tesis RIUdeG/CUAAD con variantes exactas que nombran explícitamente Conservación del Patrimonio Edificado, 35 Metadata Confidence unassessed/allowed y 0 blockers. Se mantiene separada de la autoridad histórica standalone Maestría en Conservación del Patrimonio Edificado (5 tesis INCLUDE) y de la autoridad base MCA, que permanece REVIEW; no se usa el contenido temático de las tesis para decidir scope.",
+      "evidence": [
+        "https://cuaad.udg.mx/?q=oferta%2Fposgrados%2Fmaestrias%2Fmca%2Fantecedentes-historicos",
+        "https://cuaad.udg.mx/node/21768",
+        "https://cuaad.udg.mx/oferta/maestrias/mca/plan-de-estudios",
+        "https://cuaad.udg.mx/index.php/oferta/maestrias/mca/perfil-de-ingreso",
+        "https://cuaad.udg.mx/index.php/oferta/maestrias/mca/perfil-de-egreso",
+        "https://cuaad.udg.mx/sites/default/files/convocatoria_mca_2026_informacion.pdf",
+        "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-ciencias-de-la-arquitectura"
       ]
     },
     {
@@ -1629,7 +1657,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v39",
+  "registryRevision": "2026-11-02.v40",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
