@@ -1047,7 +1047,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             {"resolved": 150},
         )
 
-    def test_doctorado_derechos_humanos_moves_to_scope_review(self):
+    def test_doctorado_derechos_humanos_t2br_moves_to_work_level_review(self):
         observed = {
             "programs": [{
                 "normalizedKey": "doctorado en derechos humanos",
@@ -1078,7 +1078,7 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
         )
         item = payload["items"][0]
         self.assertEqual(item["queueState"], "review")
-        self.assertEqual(item["curationLane"], "scope-review")
+        self.assertEqual(item["curationLane"], "work-level-review")
         self.assertEqual(
             item["authority"]["id"],
             "program:udg:doc-derechos-humanos",
