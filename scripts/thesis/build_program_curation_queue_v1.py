@@ -29,6 +29,12 @@ DEFAULT_WORK_REVIEW_POLICY = (
     / "boundary-work-review-policy-v1.json"
 )
 
+DEFAULT_EVIDENCE_HOLD_POLICY = (
+    Path(__file__).resolve().parent
+    / "config"
+    / "program-evidence-holds-v1.json"
+)
+
 HUMANITIES_NAME_SIGNALS: tuple[tuple[str, int], ...] = (
     ("humanidades", 24),
     ("filosofia", 22),
@@ -469,6 +475,7 @@ def build_queue(
     *,
     include_resolved: bool = False,
     work_review_policy: dict[str, Any] | None = None,
+    evidence_hold_policy: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     dimensions = aggregate_work_dimensions(corpus)
     authority_lookup = build_authority_lookup(registry)
@@ -482,6 +489,23 @@ def build_queue(
         and item.get("programLevelConclusion")
         == "program-level-scope-review-exhausted"
     }
+
+    if evidence_hold_policy is None and DEFAULT_EVIDENCE_HOLD_POLICY.exists():
+        evidence_hold_policy = read_json(DEFAULT_EVIDENCE_HOLD_POLICY)
+    evidence_hold_policy = evidence_hold_policy or {"holds": []}
+    if evidence_hold_policy.get("targetScope", "humanities-only") != "humanities-only":
+        raise ValueError("Evidence HOLD cannot change humanities-only scope")
+    registry_by_ref = {p["id"]: p for p in registry.get("programs", [])}
+    hold_by_ref = {}
+    for hold in evidence_hold_policy.get("holds", []):
+        ref = hold.get("programRef")
+        if not ref or ref in hold_by_ref:
+            raise ValueError(f"Missing or duplicate HOLD authority: {ref}")
+        if ref not in registry_by_ref or registry_by_ref[ref]["admissionState"] != "review":
+            raise ValueError(f"Only a known REVIEW authority can be held: {ref}")
+        if not hold.get("auditDocument") or not hold.get("primarySourceNeeded"):
+            raise ValueError(f"Evidence HOLD lacks audit or source requirement: {ref}")
+        hold_by_ref[ref] = hold
 
     items: list[dict[str, Any]] = []
     all_state_counts: Counter[str] = Counter()
@@ -617,6 +641,16 @@ def build_queue(
             "decisionConstraint": (
                 "priority-does-not-change-admission"
             ),
+            "evidenceHold": (
+                {
+                    "programRef": authority["id"],
+                    "evidenceState": hold_by_ref[authority["id"]]["evidenceState"],
+                    "primarySourceNeeded": hold_by_ref[authority["id"]]["primarySourceNeeded"],
+                    "auditDocument": hold_by_ref[authority["id"]]["auditDocument"],
+                }
+                if authority and state == "review" and authority["id"] in hold_by_ref
+                else None
+            ),
         }
         items.append(item)
 
@@ -640,6 +674,17 @@ def build_queue(
                 for item in items
                 if is_humanities_action_item(item)
             ),
+            start=1,
+        )
+    ]
+    held_items = [
+        item for item in humanities_action_items
+        if item.get("evidenceHold") is not None
+    ]
+    ready_items = [
+        {**item, "humanitiesReadyRank": rank}
+        for rank, item in enumerate(
+            (item for item in humanities_action_items if not item.get("evidenceHold")),
             start=1,
         )
     ]
@@ -686,6 +731,10 @@ def build_queue(
             "humanitiesActionWorks": sum(
                 item["count"] for item in humanities_action_items
             ),
+            "evidenceHoldQueueItems": len(held_items),
+            "evidenceHoldWorks": sum(item["count"] for item in held_items),
+            "humanitiesReadyQueueItems": len(ready_items),
+            "humanitiesReadyWorks": sum(item["count"] for item in ready_items),
             "workReviewQueueItems": len(work_review_items),
             "workReviewWorks": sum(
                 item["count"] for item in work_review_items
@@ -704,6 +753,10 @@ def build_queue(
         "items": items,
         "humanitiesActionItems": humanities_action_items,
         "workReviewItems": work_review_items,
+        "evidenceHoldItems": held_items,
+        "humanitiesReadyItems": ready_items,
+        "evidenceHoldPolicyRevision": evidence_hold_policy.get("policyRevision"),
+        "nextHumanitiesReadyAction": ready_items[0] if ready_items else None,
         "nextHumanitiesAction": (
             humanities_action_items[0]
             if humanities_action_items
@@ -824,6 +877,17 @@ def markdown_summary(
             f"{metrics['deferredHighImpactWorks']} tesis"
         ),
         "",
+        (
+            "- HOLD de evidencia (sin cambiar REVIEW): "
+            f"{metrics['evidenceHoldQueueItems']} grupos / "
+            f"{metrics['evidenceHoldWorks']} tesis"
+        ),
+        (
+            "- nuevos casos listos para investigar: "
+            f"{metrics['humanitiesReadyQueueItems']} grupos / "
+            f"{metrics['humanitiesReadyWorks']} tesis"
+        ),
+        "",
         f"## Top Humanidades {min(top, len(queue['humanitiesActionItems']))}",
         "",
         "| # | Carril | Banda | Score | Estado | Programa observado | Tesis | Unidad principal | Años |",
@@ -931,6 +995,14 @@ def main() -> int:
                     "programAuthorityRevision"
                 ],
                 "metrics": queue["metrics"],
+                "nextHumanitiesReadyAction": (
+                    {
+                        "normalizedKey": queue["nextHumanitiesReadyAction"]["normalizedKey"],
+                        "count": queue["nextHumanitiesReadyAction"]["count"],
+                        "authority": queue["nextHumanitiesReadyAction"]["authority"],
+                    }
+                    if queue["nextHumanitiesReadyAction"] else None
+                ),
                 "top": [
                     {
                         "rank": item["rank"],
