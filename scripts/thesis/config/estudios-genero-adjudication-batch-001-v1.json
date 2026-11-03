@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "thesis-boundary-work-adjudication-batch-v1",
+  "batchId": "estudios-genero-001",
+  "phase": "T2BW",
+  "programRef": "program:udg:mae-estudios-genero",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "selectionMethod": "explicit-frozen-work-id-plus-verified-official-fulltext",
+  "decisionConstraint": "batch-does-not-change-admission",
+  "humanValidationRequired": true,
+  "works": [
+    {
+      "workId": "thesis:work:00002062",
+      "handle": "https://hdl.handle.net/20.500.12104/112718",
+      "institutionalRecordUrl": "https://riudg.udg.mx/handle/20.500.12104/112718",
+      "primarySourceUrl": "https://riudg.udg.mx/bitstream/20.500.12104/112718/1/MCUCSH10741FT.pdf",
+      "primarySourceAccess": "available",
+      "accessEvidence": "RIUdeG exposes MCUCSH10741FT.pdf; T2BW CI downloaded and verified the official full text as a 219-page PDF.",
+      "accessVerifiedDate": "2026-11-03",
+      "primarySourceSha256": "8ad834865aa3b34a34dd7cf205b8528d6b7dd6b8a87a1a584d35d84404b2bcd2",
+      "primarySourcePages": 219,
+      "candidateDecision": "include-candidate",
+      "candidateDecisionBasis": "official-thesis-fulltext-reviewed",
+      "candidateDecisionRationale": "The work's research object is language and discourse in the Department of Letters, interpreted through gender theory, performativity, symbolic violence, discourse/power and linguistic ideology. Butler, Bourdieu, Foucault, Austin, Wittig and van Dijk are structural to the theoretical framing. Interviews, surveys and descriptive statistics support the inquiry but do not displace its primarily linguistic, interpretive and critical-humanities object.",
+      "humanValidationStatus": "pending-user-merge"
+    }
+  ],
+  "originWorkReviewPolicyRevision": "2026-11-03.boundary-v4"
+}
