@@ -155,7 +155,8 @@ jobs:
 
           assert target["admissionState"] == "include"
           assert target["possibleSuccessorRef"] == base["id"]
-          assert expected["baseProgramAdmissionState"] == "review"\n          assert base["admissionState"] == "include"
+          assert expected["baseProgramAdmissionState"] == "review"
+          assert base["admissionState"] == "include"
           assert history["admissionState"] == expected["historyHistoricalAdmissionState"]
 
           selected = [
