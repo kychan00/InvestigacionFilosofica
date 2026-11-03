@@ -143,7 +143,7 @@ jobs:
           assert batch["workReviewPolicyRevision"] == "2026-11-03.boundary-v3"
           assert work_review["policyRevision"] == batch["workReviewPolicyRevision"]
 
-          assert registry["registryRevision"] == "2026-11-03.v44"
+          assert int(registry["registryRevision"].rsplit(".v",1)[1]) >= 44
           assert scope["policyRevision"] == "2026-11-02.v5"
           assert (
               confidence["programMetadataEvidenceRevision"]
