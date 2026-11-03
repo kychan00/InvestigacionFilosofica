@@ -1,6 +1,6 @@
 # T2AI — Program Metadata Evidence Confidence Layer V1
 
-> Historical note · policy V4: este documento conserva la arquitectura T2AI/V1. La policy ejecutable vigente es `2026-11-02.v4`; protege item-level 32 source records estructuralmente conflicted. Véanse `THESIS_PROGRAM_METADATA_INTEGRITY_VETERINARY_V3.md` y `THESIS_PROGRAM_METADATA_INTEGRITY_AGRONOMY_V4.md`.
+> Historical note · este documento conserva la arquitectura T2AI/V1. La policy ejecutable vigente es `2026-11-02.v5`: conserva las protecciones V4 de conflictos estructurales y añade el gate temporal fail-closed para la MCA genérica. Véanse `THESIS_PROGRAM_METADATA_INTEGRITY_VETERINARY_V3.md`, `THESIS_PROGRAM_METADATA_INTEGRITY_AGRONOMY_V4.md` y `THESIS_MCA_GENERIC_ERA_AUTHORITY_V41.md`.
 
 ## Problema arquitectónico
 
@@ -269,3 +269,59 @@ Sólo entonces podrá decidirse si Program Authority V24 corresponde a:
 - EXCLUDE.
 
 Y cualquiera que sea el resultado, los **460 low-trust** permanecerán bloqueados hasta contar con evidencia programática item-level suficientemente confiable.
+
+
+## Extensión V5 — MCA genérica y periodo institucional
+
+La revisión `2026-11-02.v5` agrega una protección temporal **fail-closed** para la etiqueta genérica `Maestría en Ciencias de la Arquitectura`.
+
+La autoridad programática V41 sólo puede aplicar INCLUDE cuando el registro demuestra, mediante metadata institucional temporal y no mediante contenido temático, que pertenece a la configuración posterior al cambio con efecto 2006 B.
+
+V5 incorpora dos reglas declarativas:
+
+### 1. Ventana segura
+
+`mca-generic-post-2006b-safe-era-v1`
+
+Requiere:
+
+- program key exacto de la MCA genérica;
+- `dc.date.issued` con calidad `valid`;
+- año canónico entre **2007 y 2026**.
+
+Resultado:
+
+- `confidenceState: unassessed`;
+- `authorityApplicability: allowed`.
+
+La ventana termina en 2026 deliberadamente: V5 no autoriza automáticamente cohortes futuras que todavía no existían al congelar la política.
+
+### 2. Fallback bloqueado
+
+`mca-generic-orientation-period-unresolved-v1`
+
+Coincide con cualquier MCA genérica que no haya satisfecho la regla anterior.
+
+Resultado:
+
+- `confidenceState: low-trust`;
+- `authorityApplicability: blocked`.
+
+Así quedan protegidos automáticamente:
+
+- registros históricos pre-2007;
+- registros sin fecha institucional canónica;
+- `0000`;
+- fechas sospechosas o inválidas;
+- registros posteriores al horizonte congelado de V5.
+
+En el corpus V40 esta regla bloquea exactamente siete obras, pero **los providerRecordId no son el mecanismo de decisión**. Si una cosecha futura descubre otra tesis histórica ambigua con la misma etiqueta genérica, también quedará QUARANTINE sin necesidad de agregar su ID manualmente.
+
+Esta extensión preserva los principios existentes:
+
+- Metadata Confidence no crea Program Authority;
+- un bloqueo item-level domina la decisión programática;
+- no se usa título, abstract, keywords ni similitud semántica para inferir orientación;
+- las fechas `0000` no son evidencia histórica;
+- `unassessed` no significa `trusted`;
+- los registros bloqueados permanecen visibles para revisión.

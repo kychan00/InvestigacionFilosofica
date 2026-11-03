@@ -42,7 +42,7 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
         )
         self.assertEqual(resolved["admissionState"], "include")
 
-    def test_base_mca_remains_review(self):
+    def test_base_mca_baseline_review_is_superseded_by_v41_include(self):
         resolved = canonical.resolve_program(
             "Maestría en Ciencias de la Arquitectura",
             self.registry,
@@ -52,9 +52,10 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
             self.baseline["expected"]["baseProgramRef"],
         )
         self.assertEqual(
-            resolved["admissionState"],
             self.baseline["expected"]["baseProgramAdmissionState"],
+            "review",
         )
+        self.assertEqual(resolved["admissionState"], "include")
 
     def test_v32_conservation_baseline_is_preserved_under_v35(self):
         self.assertEqual(
@@ -71,9 +72,9 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
         )
         self.assertEqual(resolved["admissionState"], "include")
 
-    def test_metadata_confidence_stays_v4(self):
+    def test_active_metadata_confidence_is_v5(self):
         policy = canonical.load_program_metadata_evidence_policy()
-        self.assertEqual(policy["policyRevision"], "2026-11-02.v4")
+        self.assertEqual(policy["policyRevision"], "2026-11-02.v5")
 
     def test_v32_scope_baseline_is_preserved_under_scope_v5(self):
         scope = json.loads(

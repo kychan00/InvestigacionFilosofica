@@ -112,7 +112,8 @@ jobs:
           assert baseline["registryRevision"] == "2026-11-02.v37"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 37
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
-          assert confidence["programMetadataEvidenceRevision"] == baseline["programMetadataEvidenceRevision"]
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           selected = [w for w in corpus["works"] if w.get("programRef") == baseline["programRef"]]
@@ -135,8 +136,8 @@ jobs:
 
           base = [w for w in corpus["works"] if w.get("programRef") == baseline["baseProgramRef"]]
           historical = [w for w in corpus["works"] if w.get("programRef") == baseline["historicalProgramRef"]]
-          assert len(base) == 61
-          assert Counter(w.get("admissionStatus") for w in base) == Counter({"review": 61})
+          assert len(base) == 34
+          assert Counter(w.get("admissionStatus") for w in base) == Counter({"include": 27, "quarantine": 7})
           assert len(historical) == 4
           assert Counter(w.get("admissionStatus") for w in historical) == Counter({"include": 4})
 
@@ -150,19 +151,23 @@ jobs:
           # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["review"] -= 35
           expected_global["include"] += 35
+          # V41: generic MCA safe-era records resolve; ambiguous items quarantine.
+          expected_global["review"] -= 34
+          expected_global["include"] += 27
+          expected_global["quarantine"] += 7
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           resolved = set(expected["normalizedProgramGroups"])
           assert all(item["normalizedKey"] not in resolved for item in queue["items"])
           assert all(item["normalizedKey"] not in resolved for item in queue["humanitiesActionItems"])
-          assert queue["metrics"]["humanitiesActionQueueItems"] == 23
-          assert queue["metrics"]["humanitiesActionWorks"] == 136
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 22
+          assert queue["metrics"]["humanitiesActionWorks"] == 102
           assert queue["metrics"]["workReviewQueueItems"] == 1
           assert queue["metrics"]["workReviewWorks"] == 152
           next_action = queue["nextHumanitiesAction"]
-          assert next_action["normalizedKey"] == "maestria en ciencias de la arquitectura"
-          assert next_action["count"] == 34
+          assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
+          assert next_action["count"] == 7
 
           summary = {
               "registryRevision": registry["registryRevision"],

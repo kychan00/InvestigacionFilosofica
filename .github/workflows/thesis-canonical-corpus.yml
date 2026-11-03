@@ -62,7 +62,7 @@ jobs:
           assert payload["schemaVersion"] == "thesis-canonical-corpus-v1"
           assert payload["metrics"]["works"] == 2
           assert payload["metrics"]["worksByAdmission"] == {"include": 2}
-          assert payload["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert payload["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert payload["metrics"]["programAuthorityApplicability"] == {"allowed": 2}
           assert payload["metrics"]["programMetadataConfidenceStates"] == {"unassessed": 2}
           print(json.dumps(payload["metrics"], indent=2, ensure_ascii=False))

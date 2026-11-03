@@ -136,10 +136,8 @@ jobs:
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 35
           assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
           assert scope["policyRevision"] == "2026-11-02.v5"
-          assert (
-              confidence["programMetadataEvidenceRevision"]
-              == baseline["programMetadataEvidenceRevision"]
-          )
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           target = next(
@@ -157,7 +155,8 @@ jobs:
 
           assert target["admissionState"] == "include"
           assert target["possibleSuccessorRef"] == base["id"]
-          assert base["admissionState"] == expected["baseProgramAdmissionState"]
+          assert expected["baseProgramAdmissionState"] == "review"
+          assert base["admissionState"] == "include"
           assert history["admissionState"] == expected["historyHistoricalAdmissionState"]
 
           selected = [
@@ -207,10 +206,10 @@ jobs:
               w for w in corpus["works"]
               if w.get("programRef") == baseline["historyHistoricalRef"]
           ]
-          assert len(base_works) == expected["baseProgramWorks"] - 51
+          assert len(base_works) == expected["baseProgramWorks"] - 78
           assert Counter(
               w.get("admissionStatus") for w in base_works
-          ) == Counter({"review": len(base_works)})
+          ) == Counter({"include": 27, "quarantine": 7})
           assert len(history_works) == expected["historyHistoricalWorks"]
           assert Counter(
               w.get("admissionStatus") for w in history_works
@@ -232,6 +231,10 @@ jobs:
           # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["review"] -= 35
           expected_global["include"] += 35
+          # V41: generic MCA safe-era records resolve; ambiguous items quarantine.
+          expected_global["review"] -= 34
+          expected_global["include"] += 27
+          expected_global["quarantine"] += 7
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -245,10 +248,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 17
+              expected["humanitiesActionQueueItems"] - 18
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 353
+              expected["humanitiesActionWorks"] - 387
           )
           assert queue["metrics"]["workReviewQueueItems"] == (
               expected["workReviewQueueItems"]
@@ -267,8 +270,8 @@ jobs:
 
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == "maestria en investigacion educativa"
-          assert next_action["normalizedKey"] == "maestria en ciencias de la arquitectura"
-          assert next_action["count"] == 34
+          assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
+          assert next_action["count"] == 7
 
           summary = {
               "registryRevision": registry["registryRevision"],

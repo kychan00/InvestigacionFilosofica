@@ -693,7 +693,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA": (
                 "program:udg:mae-ciencias-arquitectura",
-                "review",
+                "include",
             ),
             "Maestría En Historia De La Arquitectura Mexicana": (
                 "program:udg:mae-historia-arquitectura-mexicana-historica",
@@ -761,18 +761,20 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 )
                 self.assertEqual(resolved["admissionState"], "include")
 
-        base_aliases = [
-            "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
-            "Maestría En Arquitectura; Orientacion Arte Y Comunicacion",
-            "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
-        ]
-        for raw in base_aliases:
+        historical_review_aliases = {
+            "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura":
+                "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura",
+            "Maestría En Arquitectura; Orientacion Arte Y Comunicacion":
+                "program:udg:mae-ciencias-arquitectura-arte-comunicacion",
+            "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo":
+                "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo",
+            "Maestría En Arquitectura; Edificacion Arquitectonica":
+                "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica",
+        }
+        for raw, program_ref in historical_review_aliases.items():
             with self.subTest(raw=raw):
                 resolved = thesis.resolve_program(raw, self.registry)
-                self.assertEqual(
-                    resolved["programRef"],
-                    "program:udg:mae-ciencias-arquitectura",
-                )
+                self.assertEqual(resolved["programRef"], program_ref)
                 self.assertEqual(resolved["admissionState"], "review")
 
     def test_generic_didactica_de_las_artes_remains_unknown(self):
@@ -796,7 +798,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             (
                 "Maestría en Ciencias de la Arquitectura",
-                "review",
+                "include",
             ),
             (
                 "Maestría en Educación y Expresión para las Artes",
@@ -815,6 +817,11 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                         "dc.degree.name": [program],
                         "dc.degree.grantor": ["Universidad de Guadalajara"],
                         "dc.degree.department": ["CUAAD"],
+                        **(
+                            {"dc.date.issued": ["2021"]}
+                            if program == "Maestría en Ciencias de la Arquitectura"
+                            else {}
+                        ),
                         "dc.type": ["Tesis"],
                     },
                     raw_payload=f"arts-family-{index}",
@@ -829,7 +836,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
 
         self.assertEqual(
             corpus["metrics"]["worksByAdmission"],
-            {"include": 2, "review": 2},
+            {"include": 3, "review": 1},
         )
         self.assertEqual(
             corpus["programAuthorityRevision"],

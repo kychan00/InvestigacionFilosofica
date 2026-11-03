@@ -97,9 +97,10 @@ class DocenciaInglesHistoricalAuthorityV33Test(unittest.TestCase):
     def test_metadata_confidence_stays_v4(self):
         policy = canonical.load_program_metadata_evidence_policy()
         self.assertEqual(
-            policy["policyRevision"],
             self.baseline["programMetadataEvidenceRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(policy["policyRevision"], "2026-11-02.v5")
 
     def test_v33_scope_baseline_is_preserved_under_scope_v5(self):
         scope = json.loads(

@@ -153,12 +153,11 @@ jobs:
           )
           expected = baseline["expected"]
 
-          assert registry["registryRevision"] == baseline["registryRevision"]
+          assert baseline["registryRevision"] == "2026-11-02.v40"
+          assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 40
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
-          assert (
-              confidence["programMetadataEvidenceRevision"]
-              == baseline["programMetadataEvidenceRevision"]
-          )
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           authority = next(
@@ -180,8 +179,8 @@ jobs:
 
           assert authority["admissionState"] == "include"
           assert authority["observedCount"] == expected["works"]
-          assert base["admissionState"] == "review"
-          assert base["observedCount"] == expected["baseProgramWorks"]
+          assert base["admissionState"] == "include"
+          assert base["observedCount"] == 34
           assert historical["admissionState"] == "include"
           assert historical["observedCount"] == expected["historicalStandaloneWorks"]
           assert history_orientation["admissionState"] == "include"
@@ -201,14 +200,14 @@ jobs:
           ]
 
           assert len(selected) == expected["works"]
-          assert len(base_works) == expected["baseProgramWorks"]
+          assert len(base_works) == 34
           assert len(historical_works) == expected["historicalStandaloneWorks"]
           assert Counter(
               w.get("admissionStatus") for w in selected
           ) == Counter(expected["admissionStatuses"])
           assert Counter(
               w.get("admissionStatus") for w in base_works
-          ) == Counter(expected["baseProgramAdmission"])
+          ) == Counter({"include": 27, "quarantine": 7})
           assert Counter(
               w.get("academicUnitRaw") for w in selected
           ) == Counter(expected["academicUnits"])
@@ -254,9 +253,12 @@ jobs:
           assert len(suspicious) == 1
           assert (suspicious[0].get("date") or {}).get("value") == "0000"
 
-          assert projection["projectedAdmission"] == expected[
-              "globalProjectedAdmission"
-          ]
+          expected_global = dict(expected["globalProjectedAdmission"])
+          # V41: generic MCA safe-era records resolve; ambiguous items quarantine.
+          expected_global["review"] -= 34
+          expected_global["include"] += 27
+          expected_global["quarantine"] += 7
+          assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
           resolved = set(expected["normalizedProgramGroups"])
@@ -268,12 +270,12 @@ jobs:
               item["normalizedKey"] not in resolved
               for item in queue["humanitiesActionItems"]
           )
-          assert queue["metrics"]["humanitiesActionQueueItems"] == expected[
-              "humanitiesActionQueueItems"
-          ]
-          assert queue["metrics"]["humanitiesActionWorks"] == expected[
-              "humanitiesActionWorks"
-          ]
+          assert queue["metrics"]["humanitiesActionQueueItems"] == (
+              expected["humanitiesActionQueueItems"] - 1
+          )
+          assert queue["metrics"]["humanitiesActionWorks"] == (
+              expected["humanitiesActionWorks"] - 34
+          )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
           ]
@@ -281,10 +283,9 @@ jobs:
               "workReviewWorks"
           ]
           next_action = queue["nextHumanitiesAction"]
-          assert next_action["normalizedKey"] == expected[
-              "nextHumanitiesActionKey"
-          ]
-          assert next_action["count"] == expected["nextHumanitiesActionWorks"]
+          assert expected["nextHumanitiesActionKey"] == "maestria en ciencias de la arquitectura"
+          assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
+          assert next_action["count"] == 7
 
           assert boundary["closureState"] == "closed"
           assert boundary["policyRevision"] == baseline["scopePolicyRevision"]

@@ -158,10 +158,8 @@ jobs:
           assert baseline["registryRevision"] == "2026-11-02.v38"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 38
           assert scope["policyRevision"] == baseline["scopePolicyRevision"]
-          assert (
-              confidence["programMetadataEvidenceRevision"]
-              == baseline["programMetadataEvidenceRevision"]
-          )
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert confidence["programMetadataEvidenceRevision"] == "2026-11-02.v5"
           assert len(corpus["works"]) == 27576
 
           authority = next(
@@ -230,6 +228,10 @@ jobs:
           # V40: MCA Conservación del Patrimonio Edificado REVIEW -> INCLUDE.
           expected_global["review"] -= 35
           expected_global["include"] += 35
+          # V41: generic MCA safe-era records resolve; ambiguous items quarantine.
+          expected_global["review"] -= 34
+          expected_global["include"] += 27
+          expected_global["quarantine"] += 7
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -243,10 +245,10 @@ jobs:
               for item in queue["humanitiesActionItems"]
           )
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 11
+              expected["humanitiesActionQueueItems"] - 12
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 37
+              expected["humanitiesActionWorks"] - 71
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
@@ -256,8 +258,8 @@ jobs:
           ]
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == "licenciatura en historia del arte"
-          assert next_action["normalizedKey"] == "maestria en ciencias de la arquitectura"
-          assert next_action["count"] == 34
+          assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
+          assert next_action["count"] == 7
 
           assert boundary["closureState"] == "closed"
           assert boundary["policyRevision"] == baseline["scopePolicyRevision"]

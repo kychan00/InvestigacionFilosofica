@@ -59,10 +59,10 @@ class AgronomyMetadataConflictProtectionV4Test(unittest.TestCase):
             self.policy,
         )
 
-    def test_policy_revision_is_v4(self):
+    def test_active_policy_revision_is_v5(self):
         self.assertEqual(
             self.policy["policyRevision"],
-            "2026-11-02.v4",
+            "2026-11-02.v5",
         )
 
     def test_all_ten_agronomy_records_are_conflicted_and_blocked(self):

@@ -364,6 +364,9 @@ def load_program_metadata_evidence_policy(
             "providerRecordIds",
             "programKeys",
             "accessionDays",
+            "programDateYearMin",
+            "programDateYearMax",
+            "programDateQualities",
             "allFieldsPresent",
             "allFieldsMissing",
         }
@@ -401,6 +404,18 @@ def _source_accession_day(record: dict[str, Any]) -> str | None:
     return value[:10] if value and len(value) >= 10 else value
 
 
+def _source_program_date_info(record: dict[str, Any]) -> dict[str, Any]:
+    raw = record.get("rawFields") or {}
+    values = (
+        raw.get("dc.date.issued")
+        or raw.get("DC.date.issued")
+        or raw.get("dc.date.submitted")
+        or raw.get("DC.date.submitted")
+        or []
+    )
+    return date_info(clean_text(first(values)), reference_year=2026)
+
+
 def evaluate_program_metadata_evidence(
     record: dict[str, Any],
     raw_program: str | None,
@@ -410,6 +425,13 @@ def evaluate_program_metadata_evidence(
     provider_record_id = clean_text(record.get("providerRecordId")) or ""
     program_key = normalize_key(raw_program)
     accession_day = _source_accession_day(record)
+    program_date = _source_program_date_info(record)
+    program_year = None
+    if program_date.get("value"):
+        try:
+            program_year = int(str(program_date["value"])[:4])
+        except (TypeError, ValueError):
+            program_year = None
 
     rules = sorted(
         policy.get("rules", []),
@@ -447,6 +469,25 @@ def evaluate_program_metadata_evidence(
         if accession_days and accession_day not in accession_days:
             continue
 
+        program_year_min = match.get("programDateYearMin")
+        if program_year_min is not None and (
+            program_year is None or program_year < int(program_year_min)
+        ):
+            continue
+
+        program_year_max = match.get("programDateYearMax")
+        if program_year_max is not None and (
+            program_year is None or program_year > int(program_year_max)
+        ):
+            continue
+
+        program_date_qualities = set(match.get("programDateQualities") or [])
+        if (
+            program_date_qualities
+            and program_date.get("quality") not in program_date_qualities
+        ):
+            continue
+
         if any(
             not _source_field_present(record, field)
             for field in (match.get("allFieldsPresent") or [])
@@ -476,6 +517,8 @@ def evaluate_program_metadata_evidence(
                 "providerRecordId": provider_record_id or None,
                 "programKey": program_key or None,
                 "accessionDay": accession_day,
+                "programDate": program_date,
+                "programYear": program_year,
             },
         }
 
@@ -496,6 +539,8 @@ def evaluate_program_metadata_evidence(
             "providerRecordId": provider_record_id or None,
             "programKey": program_key or None,
             "accessionDay": accession_day,
+            "programDate": program_date,
+            "programYear": program_year,
         },
     }
 

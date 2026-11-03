@@ -43,7 +43,7 @@ class ConservacionPatrimonioEdificadoAuthorityV35Test(unittest.TestCase):
         )
         self.assertEqual(resolved["admissionState"], "include")
 
-    def test_base_mca_remains_review_and_separate(self):
+    def test_base_mca_current_authority_is_include_and_separate(self):
         target = next(
             p
             for p in self.registry["programs"]
@@ -54,7 +54,7 @@ class ConservacionPatrimonioEdificadoAuthorityV35Test(unittest.TestCase):
             for p in self.registry["programs"]
             if p["id"] == self.baseline["baseProgramRef"]
         )
-        self.assertEqual(base["admissionState"], "review")
+        self.assertEqual(base["admissionState"], "include")
         self.assertEqual(target["possibleSuccessorRef"], base["id"])
         self.assertNotEqual(target["id"], base["id"])
         self.assertNotIn(
@@ -84,9 +84,10 @@ class ConservacionPatrimonioEdificadoAuthorityV35Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(
-            metadata["policyRevision"],
             self.baseline["programMetadataEvidenceRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(metadata["policyRevision"], "2026-11-02.v5")
         self.assertEqual(
             self.baseline["scopePolicyRevision"],
             "2026-11-02.v4",

@@ -399,19 +399,16 @@ class ThesisProgramCurationQueueTest(unittest.TestCase):
             self.registry,
         )
 
-        self.assertEqual(payload["metrics"]["queueItems"], 2)
+        self.assertEqual(payload["metrics"]["queueItems"], 1)
 
         by_key = {
             item["normalizedKey"]: item
             for item in payload["items"]
         }
 
-        architecture = by_key["maestria en ciencias de la arquitectura"]
-        self.assertEqual(architecture["queueState"], "review")
-        self.assertEqual(architecture["curationLane"], "scope-review")
-        self.assertEqual(
-            architecture["authority"]["id"],
-            "program:udg:mae-ciencias-arquitectura",
+        self.assertNotIn(
+            "maestria en ciencias de la arquitectura",
+            by_key,
         )
 
         generic_didactica = by_key["maestria en didactica de las artes"]

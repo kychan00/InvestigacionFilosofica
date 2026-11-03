@@ -64,13 +64,13 @@ class MCAHistoriaArquitecturaAuthorityV37Test(unittest.TestCase):
             {"min": 1996, "max": 2019},
         )
 
-    def test_base_mca_remains_review_without_history_aliases(self):
+    def test_base_mca_current_authority_is_include_without_history_aliases(self):
         base = next(
             p for p in self.registry["programs"]
             if p["id"] == self.baseline["baseProgramRef"]
         )
-        self.assertEqual(base["admissionState"], "review")
-        self.assertEqual(base["observedCount"], 61)
+        self.assertEqual(base["admissionState"], "include")
+        self.assertEqual(base["observedCount"], 34)
         self.assertEqual(
             base["observedThesisYears"],
             {"min": 1998, "max": 2021},
@@ -107,9 +107,10 @@ class MCAHistoriaArquitecturaAuthorityV37Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(
-            metadata["policyRevision"],
             self.baseline["programMetadataEvidenceRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(metadata["policyRevision"], "2026-11-02.v5")
         self.assertEqual(
             scope["policyRevision"],
             self.baseline["scopePolicyRevision"],
