@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "thesis-investigacion-educativa-authority-v36-baseline-v1",
+  "phase": "T2BF",
+  "registryRevision": "2026-11-02.v36",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v4",
+  "programRef": "program:udg:mae-investigacion-educativa",
+  "canonicalName": "Maestría en Investigación Educativa",
+  "sourceFullArtifactId": 13099541204,
+  "expected": {
+    "works": 34,
+    "blockedWorks": 0,
+    "unassessedWorks": 34,
+    "allowedWorks": 34,
+    "academicUnits": {
+      "CUCSH": 34
+    },
+    "validDateWorks": 34,
+    "observedYears": {
+      "min": 2014,
+      "max": 2023
+    },
+    "admissionStatuses": {
+      "exclude": 34
+    },
+    "siblingCognicionRef": "program:udg:doc-cognicion-aprendizaje",
+    "siblingCognicionWorks": 4,
+    "siblingCognicionAdmissionState": "review",
+    "doctoradoEducacionRef": "program:udg:doc-educacion",
+    "doctoradoEducacionWorks": 73,
+    "doctoradoEducacionAdmissionState": "exclude",
+    "globalProjectedAdmission": {
+      "include": 479,
+      "review": 607,
+      "quarantine": 18964,
+      "exclude": 7524,
+      "reject-source": 2
+    },
+    "scopeMatrixRows": 8,
+    "educationBoundaryProgramKeys": [
+      "doctorado en cognicion y aprendizaje"
+    ],
+    "educationOutsideWorks": 34,
+    "boundaryReviewRows": 3,
+    "boundaryReviewProgramKeys": 3,
+    "boundaryReviewWorks": 157,
+    "boundaryReviewStates": {
+      "review": 3
+    },
+    "humanitiesActionQueueItems": 39,
+    "humanitiesActionWorks": 455,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "nextHumanitiesActionKey": "maestria en arquitectura orientacion en historia de la arquitectura mexicana",
+    "nextHumanitiesActionWorks": 10
+  },
+  "invariants": [
+    "decision-is-program-level-not-thesis-topic-level",
+    "maestria-investigacion-educativa-resolves-exclude",
+    "doctorado-cognicion-aprendizaje-remains-review",
+    "doctorado-educacion-remains-exclude",
+    "scope-policy-v5-removes-only-maestria-investigacion-educativa-from-education-boundary",
+    "boundary-closure-v5-is-3-programs-157-works",
+    "metadata-confidence-v4-remains-unchanged",
+    "dcts-work-review-remains-1-program-152-works"
+  ]
+}
