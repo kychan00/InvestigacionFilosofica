@@ -748,12 +748,23 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 )
                 self.assertEqual(resolved["admissionState"], "include")
 
-        base_aliases = [
+        conservation_aliases = [
             "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado",
+            "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
+        ]
+        for raw in conservation_aliases:
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-ciencias-arquitectura-conservacion-patrimonio-edificado",
+                )
+                self.assertEqual(resolved["admissionState"], "include")
+
+        base_aliases = [
             "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
             "Maestría En Arquitectura; Orientacion Arte Y Comunicacion",
             "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
-            "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
         ]
         for raw in base_aliases:
             with self.subTest(raw=raw):
