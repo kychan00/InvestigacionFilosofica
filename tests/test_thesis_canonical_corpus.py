@@ -734,18 +734,32 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                     admission_state,
                 )
 
-    def test_architecture_historical_orientations_share_mca_authority(self):
-        aliases = [
+    def test_architecture_orientations_resolve_by_programmatic_granularity(self):
+        history_aliases = [
             "Maestría En Arquitectura; Orientacion En Historia De La Arquitectura Mexicana",
+            "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA CON ORIENTACION EN HISTORIA DE LA ARQUITECTURA MEXICANA",
+            "Maestría En Ciencias De La Arquitectura Con Orientación En Historia De La Arquitectura Mexicana",
+            "Maestría En Ciencias De La Arquitectura Orientación En Historia De La Arquitectura Mexicana",
+            "Maestría En Ciencias De La Arquitectura Orientación En: Historia De La Arquitectura Mexicana",
+            "Maestría En Ciencias De La Arquitectura Orientación Historia De La Arquitectura Mexicana",
+        ]
+        for raw in history_aliases:
+            with self.subTest(raw=raw):
+                resolved = thesis.resolve_program(raw, self.registry)
+                self.assertEqual(
+                    resolved["programRef"],
+                    "program:udg:mae-ciencias-arquitectura-historia-arquitectura-mexicana",
+                )
+                self.assertEqual(resolved["admissionState"], "include")
+
+        base_aliases = [
             "Maestría En Arquitectura; Conservacion Del Patrimonio Edificado",
             "Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura",
             "Maestría En Arquitectura; Orientacion Arte Y Comunicacion",
             "Maestría En Arquitectura; Orientacion Urbanismo Y Desarrollo",
             "Maestría En Ciencias De La Arquitectura Con Orientación En Conservación Del Patrimonio Edificado",
-            "Maestría En Ciencias De La Arquitectura Orientación En Historia De La Arquitectura Mexicana",
         ]
-
-        for raw in aliases:
+        for raw in base_aliases:
             with self.subTest(raw=raw):
                 resolved = thesis.resolve_program(raw, self.registry)
                 self.assertEqual(

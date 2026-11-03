@@ -66,7 +66,7 @@ class VeterinaryProgramAuthorityV26Test(unittest.TestCase):
     def test_registry_revision_is_v27(self):
         self.assertEqual(
             self.registry["registryRevision"],
-            "2026-11-02.v36",
+            "2026-11-02.v37",
         )
 
     def test_historical_cucba_name_resolves_to_v26(self):
