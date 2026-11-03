@@ -22,7 +22,7 @@ DEFAULT_SCOPE_CONFIG = scope_boundary.DEFAULT_CONFIG
 DEFAULT_CONTRACT = (
     Path(__file__).resolve().parent
     / "config"
-    / "boundary-closure-contract-v4.json"
+    / "boundary-closure-contract-v5.json"
 )
 
 

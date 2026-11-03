@@ -130,10 +130,8 @@ jobs:
 
           assert baseline["programAuthorityRevision"] == "2026-11-02.v34"
           assert int(registry["registryRevision"].rsplit(".v", 1)[1]) >= 34
-          assert (
-              scope["policyRevision"]
-              == baseline["scopePolicyRevision"]
-          )
+          assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
+          assert scope["policyRevision"] == "2026-11-02.v5"
           assert (
               confidence["programMetadataEvidenceRevision"]
               == baseline["programMetadataEvidenceRevision"]
@@ -174,11 +172,11 @@ jobs:
           metrics = curation["metrics"]
           assert (
               metrics["humanitiesActionQueueItems"]
-              == pc["humanitiesActionQueueItems"] - 1
+              == pc["humanitiesActionQueueItems"] - 2
           )
           assert (
               metrics["humanitiesActionWorks"]
-              == pc["humanitiesActionWorks"] - 5
+              == pc["humanitiesActionWorks"] - 39
           )
           assert (
               metrics["workReviewQueueItems"]
@@ -224,9 +222,9 @@ jobs:
               "maestria en conservacion del patrimonio edificado"
           )
           assert next_action["normalizedKey"] == (
-              "maestria en investigacion educativa"
+              "maestria en arquitectura orientacion en historia de la arquitectura mexicana"
           )
-          assert next_action["count"] == 34
+          assert next_action["count"] == 10
 
           bl = expected["batchLedger"]
           assert ledger["batchId"] == baseline["batchId"]

@@ -39,7 +39,7 @@ class ThesisPoliticalInternationalClosureAuditTest(unittest.TestCase):
             (
                 THESIS_DIR
                 / "config"
-                / "outside-scope-political-international-development-closure-v3.json"
+                / "outside-scope-political-international-development-closure-v4.json"
             ).read_text(encoding="utf-8")
         )
 
@@ -62,7 +62,7 @@ class ThesisPoliticalInternationalClosureAuditTest(unittest.TestCase):
 
         self.assertEqual(
             audit["closureId"],
-            "political-international-development-v3",
+            "political-international-development-v4",
         )
         self.assertEqual(audit["closureState"], "closed")
         self.assertEqual(audit["metrics"]["contractRows"], 1)

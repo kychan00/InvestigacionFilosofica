@@ -75,7 +75,7 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
         policy = canonical.load_program_metadata_evidence_policy()
         self.assertEqual(policy["policyRevision"], "2026-11-02.v4")
 
-    def test_scope_policy_stays_v4(self):
+    def test_v32_scope_baseline_is_preserved_under_scope_v5(self):
         scope = json.loads(
             (
                 ROOT
@@ -83,7 +83,11 @@ class HistoriaArquitecturaAuthorityV32Test(unittest.TestCase):
                 / "scope-boundary-matrix-v1.json"
             ).read_text(encoding="utf-8")
         )
-        self.assertEqual(scope["policyRevision"], "2026-11-02.v4")
+        self.assertEqual(
+            self.baseline["scopePolicyRevision"],
+            "2026-11-02.v4",
+        )
+        self.assertEqual(scope["policyRevision"], "2026-11-02.v5")
 
 
 if __name__ == "__main__":

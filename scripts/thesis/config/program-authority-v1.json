@@ -1010,7 +1010,7 @@
       "canonicalName": "Maestría en Investigación Educativa",
       "level": "maestria",
       "disciplineFamily": "investigacion-educativa-ciencias-sociales-humanidades",
-      "admissionState": "review",
+      "admissionState": "exclude",
       "lifecycleState": "active",
       "academicUnits": [
         "CUCSH"
@@ -1024,7 +1024,7 @@
         "min": 2014,
         "max": 2023
       },
-      "decisionNote": "Programa vigente de CUCSH adscrito al Departamento de Estudios en Educación. La ficha institucional de la UdeG lo ubica en el área de Ciencias Sociales y Humanidades y declara como objetivo formar investigadores en educación de manera interdisciplinaria. Sus LGAC combinan historia de la educación y educación/alteridad con procesos educativos, actores, políticas y contextos organizacionales. La identidad programática está confirmada, pero su pertenencia automática a un corpus humanities-only sería más fuerte que la evidencia; se registra como REVIEW.",
+      "decisionNote": "T2BF/V36 resuelve EXCLUDE bajo humanities-only. La Maestría en Investigación Educativa es un programa vigente de CUCSH adscrito al Departamento de Estudios en Educación y orientado a formar investigadores en educación de manera interdisciplinaria. La ficha institucional y la convocatoria 2026-2028 mantienen LGAC en Actores, políticas educativas y contextos organizacionales; Educación y alteridad; Historia de la educación; y Procesos educativos. El plan combina teorías educativas sociales, teorías psicopedagógicas, metodología cualitativa y cuantitativa, análisis de datos, talleres de investigación y trabajo de tesis. La presencia de historia, alteridad y perspectivas críticas no convierte al programa completo en una disciplina humanística primaria; se aplica el mismo principio de alcance usado para Doctorado en Educación V31. La decisión es programática y no usa título, abstract, keywords ni clasificación temática de las tesis.",
       "evidence": [
         "https://cucsh.udg.mx/maestrias/maestria-en-investigacion-educativa",
         "https://ww1.udg.mx/es/oferta-academica/posgrados/maestrias/maestria-en-investigacion-educativa",
@@ -1594,7 +1594,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-02.v35",
+  "registryRevision": "2026-11-02.v36",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

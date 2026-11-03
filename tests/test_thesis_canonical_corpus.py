@@ -962,7 +962,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
-    def test_maestria_investigacion_educativa_boundary_authority_v9(self):
+    def test_maestria_investigacion_educativa_authority_v36(self):
         for raw in (
             "Maestría en Investigación Educativa",
             "MAESTRIA EN INVESTIGACION EDUCATIVA",
@@ -975,7 +975,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                 )
                 self.assertEqual(
                     resolved["admissionState"],
-                    "review",
+                    "exclude",
                 )
 
         record = thesis.source_record(
@@ -1000,7 +1000,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         )
         work = corpus["works"][0]
 
-        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(work["admissionStatus"], "exclude")
         self.assertEqual(
             work["programRef"],
             "program:udg:mae-investigacion-educativa",

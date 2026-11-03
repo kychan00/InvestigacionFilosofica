@@ -391,7 +391,7 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
-    def test_maestria_investigacion_educativa_v9_reprojects_to_review(self):
+    def test_maestria_investigacion_educativa_v36_reprojects_to_exclude(self):
         observed = {
             "schemaVersion": "fixture",
             "programs": [
@@ -431,20 +431,17 @@ class ThesisProgramCoverageAuditTest(unittest.TestCase):
 
         self.assertEqual(
             result["metrics"]["projectedAdmission"],
-            {"review": 1},
+            {"exclude": 1},
         )
         self.assertEqual(
             result["metrics"]["programStateWorks"],
-            {"review": 1},
+            {"exclude": 1},
         )
         self.assertEqual(
             result["metrics"]["programQueue"]["queueItems"],
-            1,
+            0,
         )
-        self.assertEqual(
-            result["topReviewGroups"][0]["normalizedKey"],
-            "maestria en investigacion educativa",
-        )
+        self.assertEqual(result["topReviewGroups"], [])
         self.assertEqual(
             result["programAuthorityRevision"],
             self.registry["registryRevision"],
