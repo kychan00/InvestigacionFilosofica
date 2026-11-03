@@ -3,7 +3,7 @@
   "batchId": "urban-territory-001",
   "phase": "T2BD",
   "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
-  "workReviewPolicyRevision": "2026-11-02.urban-v1",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v2",
   "selectionMethod": "explicit-source-access-audited-work-ids",
   "decisionConstraint": "batch-does-not-change-admission",
   "humanValidationRequired": true,
@@ -64,5 +64,6 @@
       "accessEvidence": "RIUdeG item page lists DCUAAD00020.pdf as Restricted Access.",
       "accessVerifiedDate": "2026-11-02"
     }
-  ]
+  ],
+  "originWorkReviewPolicyRevision": "2026-11-02.urban-v1"
 }

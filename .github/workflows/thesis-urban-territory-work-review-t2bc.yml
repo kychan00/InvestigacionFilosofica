@@ -60,16 +60,12 @@ jobs:
             --reference-year 2026 \
             --output-dir artifacts/thesis-urban-territory-work-review/queue
 
-      - name: Validate full T2BC contract
+      - name: Validate full T2BC contract under current shared policy
         run: |
           python - <<'PY'
           import json
-          import sys
           from collections import Counter
           from pathlib import Path
-
-          sys.path.insert(0, "scripts/thesis")
-          import build_canonical_corpus_v1 as canonical
 
           root = Path("artifacts/thesis-urban-territory-work-review")
           queue = json.loads(
@@ -96,151 +92,137 @@ jobs:
           confidence = json.loads(
               (root / "confidence-report.json").read_text()
           )
-          registry = canonical.load_program_registry()
+          registry = json.loads(
+              Path(
+                  "scripts/thesis/config/program-authority-v1.json"
+              ).read_text()
+          )
           expected = baseline["expected"]
+          dcts_ref = baseline["programRef"]
+          cognition_ref = "program:udg:doc-cognicion-aprendizaje"
 
-          assert (
-              registry["registryRevision"]
-              == baseline["programAuthorityRevision"]
-          )
-          assert (
-              scope["policyRevision"]
-              == baseline["scopePolicyRevision"]
-          )
+          # Preserve the historical T2BC baseline while testing it against the
+          # current registries/policies.
+          assert baseline["programAuthorityRevision"] == "2026-11-02.v34"
+          assert baseline["scopePolicyRevision"] == "2026-11-02.v4"
+          assert baseline["programMetadataEvidenceRevision"] == "2026-11-02.v4"
+          assert baseline["workReviewPolicyRevision"] == "2026-11-02.urban-v1"
+
+          assert registry["registryRevision"] == "2026-11-03.v44"
+          assert scope["policyRevision"] == "2026-11-02.v5"
           assert (
               confidence["programMetadataEvidenceRevision"]
-              == baseline["programMetadataEvidenceRevision"]
+              == "2026-11-02.v5"
           )
-          assert (
-              queue["policyRevision"]
-              == baseline["workReviewPolicyRevision"]
-          )
-          assert (
-              policy["policyRevision"]
-              == baseline["workReviewPolicyRevision"]
-          )
+          assert policy["policyRevision"] == "2026-11-03.boundary-v2"
+          assert queue["policyRevision"] == policy["policyRevision"]
           assert queue["decisionConstraint"] == (
               "boundary-work-review-does-not-change-admission"
           )
+          assert {
+              item["programRef"] for item in policy["programs"]
+          } == {dcts_ref, cognition_ref}
 
-          authority = next(
-              p
-              for p in registry["programs"]
-              if p["id"] == baseline["programRef"]
+          dcts_authority = next(
+              p for p in registry["programs"] if p["id"] == dcts_ref
           )
-          assert authority["admissionState"] == expected[
-              "programAdmissionState"
-          ]
-          assert authority["observedCount"] == expected["works"]
+          cognition_authority = next(
+              p for p in registry["programs"] if p["id"] == cognition_ref
+          )
+          assert dcts_authority["admissionState"] == "review"
+          assert dcts_authority["observedCount"] == expected["works"]
+          assert cognition_authority["admissionState"] == "review"
+          assert cognition_authority["observedCount"] == 4
 
+          # The shared queue now has two REVIEW programs, but the historical
+          # DCTS cohort contract remains exact.
           metrics = queue["metrics"]
-          assert metrics["programs"] == 1
-          assert metrics["workItems"] == expected["works"]
-          assert (
-              metrics["projectedAdmission"]
-              == expected["projectedAdmission"]
+          assert metrics["programs"] == 2
+          assert metrics["workItems"] == expected["works"] + 4
+          assert metrics["projectedAdmission"] == {
+              "review": expected["works"] + 4
+          }
+          assert metrics["pendingPrimarySourceReview"] == (
+              expected["pendingPrimarySourceReview"] + 4
           )
-          assert (
-              metrics["programAuthorityApplicability"]
-              == {"allowed": expected["allowedWorks"]}
+          assert metrics["automaticAdmissionDecisions"] == 0
+          assert metrics["admissionChanges"] == 0
+
+          dcts_items = [
+              item for item in queue["items"]
+              if item["programRef"] == dcts_ref
+          ]
+          assert len(dcts_items) == expected["works"]
+          assert Counter(
+              item["projectedAdmissionStatus"] for item in dcts_items
+          ) == Counter(expected["projectedAdmission"])
+          assert Counter(
+              item["programMetadataEvidence"]["authorityApplicability"]
+              for item in dcts_items
+          ) == Counter({"allowed": expected["allowedWorks"]})
+          assert Counter(
+              item["programMetadataEvidence"]["confidenceState"]
+              for item in dcts_items
+          ) == Counter({"unassessed": expected["unassessedWorks"]})
+          assert Counter(
+              item["academicUnitRaw"] for item in dcts_items
+          ) == Counter(expected["academicUnits"])
+
+          abstract_available = sum(
+              item["supportingEvidenceAvailability"]["abstract"]
+              for item in dcts_items
           )
-          assert (
-              metrics["programMetadataConfidenceStates"]
-              == {"unassessed": expected["unassessedWorks"]}
+          keywords_available = sum(
+              item["supportingEvidenceAvailability"]["keywords"]
+              for item in dcts_items
           )
-          assert metrics["academicUnits"] == expected["academicUnits"]
-          assert (
-              metrics["abstractAvailable"]
-              == expected["abstractAvailable"]
+          handles_available = sum(
+              bool(item["handle"]) for item in dcts_items
           )
-          assert metrics["abstractMissing"] == expected["missingAbstract"]
-          assert (
-              metrics["keywordsAvailable"]
-              == expected["keywordsAvailable"]
+          contributors_available = sum(
+              item["supportingEvidenceAvailability"]["contributors"]
+              for item in dcts_items
           )
-          assert (
-              metrics["handleAvailable"]
-              == expected["handleAvailable"]
+          date_quality = Counter(
+              item["date"]["quality"] for item in dcts_items
           )
-          assert (
-              metrics["contributorsAvailable"]
-              == expected["contributorsAvailable"]
-          )
-          assert metrics["dateQuality"] == {
+          assert abstract_available == expected["abstractAvailable"]
+          assert len(dcts_items) - abstract_available == expected["missingAbstract"]
+          assert keywords_available == expected["keywordsAvailable"]
+          assert handles_available == expected["handleAvailable"]
+          assert contributors_available == expected["contributorsAvailable"]
+          assert date_quality == Counter({
               "suspicious": expected["suspiciousDateWorks"],
               "valid": expected["validDateWorks"],
-          }
-          assert (
-              metrics["pendingPrimarySourceReview"]
-              == expected["pendingPrimarySourceReview"]
-          )
-          assert (
-              metrics["automaticAdmissionDecisions"]
-              == expected["automaticAdmissionDecisions"]
-          )
-          assert (
-              metrics["admissionChanges"]
-              == expected["admissionChanges"]
-          )
+          })
 
-          items = queue["items"]
-          assert len(items) == expected["works"]
           assert all(
-              item["programRef"] == baseline["programRef"]
-              for item in items
+              item["workReviewState"] == "pending-primary-source-review"
+              for item in dcts_items
           )
-          assert all(
-              item["projectedAdmissionStatus"] == "review"
-              for item in items
-          )
-          assert all(
-              item["workReviewState"]
-              == "pending-primary-source-review"
-              for item in items
-          )
-          assert all(item["academicUnitRaw"] == "CUAAD" for item in items)
-          assert all(item["handle"] for item in items)
-          assert all(
-              item["programMetadataEvidence"][
-                  "authorityApplicability"
-              ] == "allowed"
-              for item in items
-          )
-
-          # Supporting text is intentionally not copied into the decision queue.
-          assert all("abstract" not in item for item in items)
-          assert all("keywords" not in item for item in items)
+          assert all("abstract" not in item for item in dcts_items)
+          assert all("keywords" not in item for item in dcts_items)
 
           prohibited = {
-              "title",
-              "abstract",
-              "keywords",
-              "semantic-similarity",
-              "embedding",
-              "language-model-classification",
+              "title", "abstract", "keywords", "semantic-similarity",
+              "embedding", "language-model-classification",
           }
           assert all(
-              prohibited.issubset(
-                  set(item["prohibitedAsSoleDecisionBasis"])
-              )
-              for item in items
+              prohibited.issubset(set(item["prohibitedAsSoleDecisionBasis"]))
+              for item in dcts_items
           )
 
           suspicious = [
-              item
-              for item in items
+              item for item in dcts_items
               if item["date"]["quality"] == "suspicious"
           ]
           valid = [
-              item
-              for item in items
+              item for item in dcts_items
               if item["date"]["quality"] == "valid"
           ]
-          assert len(suspicious) == expected["suspiciousDateWorks"]
           assert {
               item["date"]["value"] for item in suspicious
           } == {expected["suspiciousDateValue"]}
-
           valid_years = sorted(
               int(str(item["date"]["value"])[:4])
               for item in valid
@@ -249,36 +231,46 @@ jobs:
           assert valid_years[0] == expected["observedValidYears"]["min"]
           assert valid_years[-1] == expected["observedValidYears"]["max"]
 
+          cognition_items = [
+              item for item in queue["items"]
+              if item["programRef"] == cognition_ref
+          ]
+          assert len(cognition_items) == 4
+          assert all(
+              item["projectedAdmissionStatus"] == "review"
+              for item in cognition_items
+          )
+          assert all(
+              item["workReviewState"] == "pending-primary-source-review"
+              for item in cognition_items
+          )
+
           summary = {
-              "phase": baseline["phase"],
-              "programAuthorityRevision": registry["registryRevision"],
-              "scopePolicyRevision": scope["policyRevision"],
-              "programMetadataEvidenceRevision": confidence[
-                  "programMetadataEvidenceRevision"
-              ],
-              "workReviewPolicyRevision": queue["policyRevision"],
-              "programRef": baseline["programRef"],
-              "works": metrics["workItems"],
-              "projectedAdmission": metrics["projectedAdmission"],
-              "pendingPrimarySourceReview": metrics[
-                  "pendingPrimarySourceReview"
-              ],
-              "automaticAdmissionDecisions": metrics[
-                  "automaticAdmissionDecisions"
-              ],
+              "phase": "T2BC-regression-under-T2BQ",
+              "historicalBaseline": {
+                  "programAuthorityRevision": baseline["programAuthorityRevision"],
+                  "scopePolicyRevision": baseline["scopePolicyRevision"],
+                  "programMetadataEvidenceRevision": baseline[
+                      "programMetadataEvidenceRevision"
+                  ],
+                  "workReviewPolicyRevision": baseline["workReviewPolicyRevision"],
+              },
+              "current": {
+                  "programAuthorityRevision": registry["registryRevision"],
+                  "scopePolicyRevision": scope["policyRevision"],
+                  "programMetadataEvidenceRevision": confidence[
+                      "programMetadataEvidenceRevision"
+                  ],
+                  "workReviewPolicyRevision": queue["policyRevision"],
+                  "workReviewPrograms": metrics["programs"],
+                  "workReviewWorks": metrics["workItems"],
+              },
+              "dctsWorks": len(dcts_items),
+              "cognitionWorks": len(cognition_items),
               "admissionChanges": metrics["admissionChanges"],
-              "abstractAvailable": metrics["abstractAvailable"],
-              "keywordsAvailable": metrics["keywordsAvailable"],
-              "handleAvailable": metrics["handleAvailable"],
-              "dateQuality": metrics["dateQuality"],
           }
           (root / "t2bc-summary.json").write_text(
-              json.dumps(
-                  summary,
-                  ensure_ascii=False,
-                  indent=2,
-                  sort_keys=True,
-              )
+              json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True)
               + "\n"
           )
           print(json.dumps(summary, ensure_ascii=False, indent=2))
