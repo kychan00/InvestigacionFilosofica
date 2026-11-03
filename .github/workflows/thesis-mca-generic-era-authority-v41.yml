@@ -275,6 +275,9 @@ jobs:
           # V46: Educación y Expresión para las Artes REVIEW -> EXCLUDE.
           expected_v42["review"] -= 27
           expected_v42["exclude"] += 27
+          # V47: MCA Teoría y Crítica de la Arquitectura REVIEW -> INCLUDE.
+          expected_v42["review"] -= 1
+          expected_v42["include"] += 1
           assert projection["projectedAdmission"] == expected_v42
           assert sum(projection["projectedAdmission"].values()) == 27576
 
@@ -307,10 +310,10 @@ jobs:
           )
 
           assert queue["metrics"]["humanitiesActionQueueItems"] == (
-              expected["humanitiesActionQueueItems"] - 15
+              expected["humanitiesActionQueueItems"] - 16
           )
           assert queue["metrics"]["humanitiesActionWorks"] == (
-              expected["humanitiesActionWorks"] - 87
+              expected["humanitiesActionWorks"] - 88
           )
           assert queue["metrics"]["workReviewQueueItems"] == expected[
               "workReviewQueueItems"
