@@ -1694,7 +1694,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             self.registry["registryRevision"],
         )
 
-    def test_tecnologias_aprendizaje_authority_v23_reviews_program(self):
+    def test_tecnologias_aprendizaje_authority_v38_excludes_program(self):
         for raw in (
             "Maestría en Tecnologías para el Aprendizaje",
             "MAESTRIA EN TECNOLOGIAS PARA EL APRENDIZAJE",
@@ -1705,7 +1705,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
                     resolved["programRef"],
                     "program:udg:mae-tecnologias-aprendizaje",
                 )
-                self.assertEqual(resolved["admissionState"], "review")
+                self.assertEqual(resolved["admissionState"], "exclude")
 
         record = thesis.source_record(
             provider="riudg",
@@ -1724,7 +1724,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
         corpus = thesis.build_corpus([record], self.registry, reference_year=2026)
         work = corpus["works"][0]
 
-        self.assertEqual(work["admissionStatus"], "review")
+        self.assertEqual(work["admissionStatus"], "exclude")
         self.assertEqual(
             work["programRef"],
             "program:udg:mae-tecnologias-aprendizaje",
