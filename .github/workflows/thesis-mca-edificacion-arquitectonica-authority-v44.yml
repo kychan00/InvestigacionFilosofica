@@ -104,6 +104,9 @@ jobs:
           # T2BS/V45 independently resolves 3 Didáctica Artes Escénicas works.
           expected_global["review"]-=3
           expected_global["exclude"]+=3
+          # T2BT/V46 resolves 27 Educación y Expresión para las Artes works.
+          expected_global["review"]-=27
+          expected_global["exclude"]+=27
           assert overall==expected_global,overall
           sel=[w for w in corpus["works"] if w.get("programRef")==b["programRef"]]
           assert len(sel)==e["works"],len(sel)
