@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "thesis-mca-generic-era-authority-v41-baseline-v1",
+  "phase": "T2BK",
+  "registryRevision": "2026-11-02.v41",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "sourceFullArtifactId": 13099541204,
+  "sourceV40ArtifactId": 13199842462,
+  "programRef": "program:udg:mae-ciencias-arquitectura",
+  "canonicalName": "Maestría en Ciencias de la Arquitectura",
+  "metadataRuleId": "riudg-mca-generic-orientation-period-unresolved-v1",
+  "expected": {
+    "genericWorks": 34,
+    "genericAdmission": {
+      "include": 27,
+      "quarantine": 7
+    },
+    "genericConfidenceStates": {
+      "unassessed": 27,
+      "low-trust": 7
+    },
+    "genericAuthorityApplicability": {
+      "allowed": 27,
+      "blocked": 7
+    },
+    "blockedWorks": 7,
+    "blockedProviderRecordIds": [
+      "oai:riudg.udg.mx:20.500.12104/46363",
+      "oai:riudg.udg.mx:20.500.12104/46367",
+      "oai:riudg.udg.mx:20.500.12104/46368",
+      "oai:riudg.udg.mx:20.500.12104/73101",
+      "oai:riudg.udg.mx:20.500.12104/73104",
+      "oai:riudg.udg.mx:20.500.12104/73107",
+      "oai:riudg.udg.mx:20.500.12104/73110"
+    ],
+    "academicUnits": {
+      "CUAAD": 34
+    },
+    "rawProgramVariants": {
+      "Maestría En Ciencias De La Arquitectura": 22,
+      "MAESTRIA EN CIENCIAS DE LA ARQUITECTURA": 12
+    },
+    "dateQuality": {
+      "valid": 29,
+      "suspicious": 1,
+      "unknown": 4
+    },
+    "safeEraValidWorks": 27,
+    "safeEraObservedYears": {
+      "min": 2008,
+      "max": 2021
+    },
+    "pre2003ValidWorks": 2,
+    "suspiciousDateRaw": {
+      "0000-00-00": 1
+    },
+    "siblingReviewAuthorities": {
+      "program:udg:mae-ciencias-arquitectura-arte-comunicacion": 13,
+      "program:udg:mae-ciencias-arquitectura-urbanismo-desarrollo": 8,
+      "program:udg:mae-ciencias-arquitectura-edificacion-arquitectonica": 5,
+      "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura": 1
+    },
+    "globalProjectedAdmission": {
+      "include": 559,
+      "review": 254,
+      "quarantine": 18971,
+      "exclude": 7790,
+      "reject-source": 2
+    },
+    "globalMetadataConfidenceStates": {
+      "conflicted": 32,
+      "low-trust": 460,
+      "unassessed": 27084
+    },
+    "globalAuthorityApplicability": {
+      "allowed": 27084,
+      "blocked": 492
+    },
+    "boundaryReviewRows": 3,
+    "boundaryReviewProgramKeys": 3,
+    "boundaryReviewWorks": 157,
+    "boundaryReviewStates": {
+      "review": 3
+    },
+    "humanitiesActionQueueItems": 22,
+    "humanitiesActionWorks": 102,
+    "workReviewQueueItems": 1,
+    "workReviewWorks": 152,
+    "genericQueueState": "metadata-review",
+    "genericCurationLane": "metadata-confidence-review",
+    "nextHumanitiesActionKey": "maestria en arquitectura orientacion arte y comunicacion",
+    "nextHumanitiesActionWorks": 7
+  },
+  "invariants": [
+    "humanities-only-no-generic-mca-inclusion-without-safe-institutional-era",
+    "post-2006b-generic-mca-may-apply-include-because-only-two-included-orientations-remain",
+    "pre-2003-undated-and-0000-generic-mca-records-remain-quarantine",
+    "thesis-title-abstract-keywords-and-semantics-never-resolve-mca-orientation",
+    "historical-explicit-orientations-remain-review-and-distinct",
+    "scope-policy-v5-remains-unchanged",
+    "dcts-work-review-remains-1-program-152-works"
+  ]
+}
