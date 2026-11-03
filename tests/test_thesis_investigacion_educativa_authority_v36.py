@@ -100,9 +100,10 @@ class InvestigacionEducativaAuthorityV36Test(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(
-            metadata["policyRevision"],
             self.baseline["programMetadataEvidenceRevision"],
+            "2026-11-02.v4",
         )
+        self.assertEqual(metadata["policyRevision"], "2026-11-02.v5")
         self.assertEqual(
             scope["policyRevision"],
             self.baseline["scopePolicyRevision"],
