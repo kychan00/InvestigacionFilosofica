@@ -110,6 +110,9 @@ jobs:
           expected_global["exclude"]+=8
           expected_global["review"]-=5
           expected_global["exclude"]+=5
+          # V45: Didáctica de las Artes / Artes Escénicas, audited independently.
+          expected_global["review"]-=3
+          expected_global["exclude"]+=3
           assert overall==expected_global,overall
           selected=[w for w in corpus["works"] if w.get("programRef")==baseline["programRef"]]
           assert len(selected)==e["works"],len(selected)
@@ -141,28 +144,31 @@ jobs:
           assert years[-1]==e["observedYears"]["max"]
 
           q=queue["metrics"]
-          for k in (
-              "humanitiesActionQueueItems","humanitiesActionWorks",
-              "evidenceHoldQueueItems","evidenceHoldWorks",
-              "humanitiesReadyQueueItems","humanitiesReadyWorks",
-              "workReviewQueueItems","workReviewWorks"
-          ):
-              d={"humanitiesActionQueueItems":3,"humanitiesActionWorks":8,
-                 "humanitiesReadyQueueItems":3,"humanitiesReadyWorks":8}.get(k,0)
-              d+= {"humanitiesActionQueueItems":3,"humanitiesActionWorks":5,
-                    "humanitiesReadyQueueItems":3,"humanitiesReadyWorks":5}.get(k,0)
-              assert q[k]==e[k]-d,(k,q[k],e[k]-d)
+          latest={
+              "humanitiesActionQueueItems":8,
+              "humanitiesActionWorks":42,
+              "evidenceHoldQueueItems":5,
+              "evidenceHoldWorks":13,
+              "humanitiesReadyQueueItems":3,
+              "humanitiesReadyWorks":29,
+              "workReviewQueueItems":3,
+              "workReviewWorks":180,
+          }
+          for k,value in latest.items():
+              assert q[k]==value,(k,q[k],value)
           assert all(
               (x.get("authority") or {}).get("id")!=baseline["programRef"]
               for x in queue["items"]
           )
           sibling=e["siblingEscenicas"]
+          assert sibling["admission"]=="review"  # historical V42 contract
           s=next(p for p in registry["programs"] if p["id"]==sibling["ref"])
-          assert s["admissionState"]==sibling["admission"]
+          assert s["admissionState"]=="exclude"  # independent T2BS/V45 result
           assert s["observedCount"]==sibling["works"]
+          assert "T2BS/V45" in s["decisionNote"]
           remain=[w for w in corpus["works"] if w.get("programRef")==sibling["ref"]]
           assert len(remain)==sibling["works"]
-          assert all(w["admissionStatus"]=="review" for w in remain)
+          assert all(w["admissionStatus"]=="exclude" for w in remain)
           assert queue["evidenceHoldPolicyRevision"]=="2026-11-03.t2bm.v1"
           ready=queue["nextHumanitiesReadyAction"]
           assert ready is not None

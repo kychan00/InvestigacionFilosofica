@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "thesis-didactica-artes-escenicas-authority-v45-baseline-v1",
+  "phase": "T2BS",
+  "registryRevision": "2026-11-03.v45",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "sourceFullArtifactId": 13099541204,
+  "programRef": "program:udg:mae-didactica-artes-escenicas-historica",
+  "expected": {
+    "works": 3,
+    "priorAdmission": {
+      "review": 3
+    },
+    "projectedAdmission": {
+      "exclude": 3
+    },
+    "academicUnits": {
+      "CUAAD": 3
+    },
+    "observedYears": {
+      "min": 2005,
+      "max": 2006
+    },
+    "allowedWorks": 3,
+    "blockedWorks": 0,
+    "exactRawVariantCount": 2,
+    "normalizedProgramGroupCount": 2,
+    "globalProjectedAdmission": {
+      "include": 559,
+      "review": 222,
+      "quarantine": 18971,
+      "exclude": 7822,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 8,
+    "humanitiesActionWorks": 42,
+    "evidenceHoldQueueItems": 5,
+    "evidenceHoldWorks": 13,
+    "humanitiesReadyQueueItems": 3,
+    "humanitiesReadyWorks": 29,
+    "workReviewQueueItems": 3,
+    "workReviewWorks": 180,
+    "siblingVisuales": {
+      "ref": "program:udg:mae-didactica-artes-visuales-historica",
+      "state": "exclude",
+      "works": 16
+    },
+    "rawProgramVariants": {
+      "Maestría En Didáctica De Las Artes Orientación En Artes Escénicas": 2,
+      "Maestría En Didactica De Las Artes Con Orientación En Artes Escénicas": 1
+    },
+    "normalizedProgramGroups": {
+      "maestria en didactica de las artes orientacion en artes escenicas": 2,
+      "maestria en didactica de las artes con orientacion en artes escenicas": 1
+    }
+  },
+  "invariants": [
+    "strict-humanities-only-does-not-admit-applied-arts-pedagogy-by-performing-arts-theme",
+    "artes-escenicas-dgp-726502-is-independent-from-visuales-714513-and-musica-721506",
+    "v45-is-independent-audit-not-inheritance-from-v42",
+    "generic-didactica-de-las-artes-is-not-absorbed",
+    "music-area-is-not-absorbed",
+    "thesis-title-abstract-and-dance-topic-do-not-control-program-admission",
+    "scope-policy-v5-and-metadata-confidence-v5-unchanged",
+    "t2br-work-review-policy-and-existing-review-lanes-unchanged"
+  ]
+}

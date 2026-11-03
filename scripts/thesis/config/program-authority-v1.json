@@ -1044,8 +1044,8 @@
       "id": "program:udg:mae-didactica-artes-escenicas-historica",
       "canonicalName": "Maestría en Didáctica de las Artes en el Área de Artes Escénicas",
       "level": "maestria",
-      "disciplineFamily": "didactica-artes-escenicas",
-      "admissionState": "review",
+      "disciplineFamily": "educacion-pedagogia-artes-escenicas",
+      "admissionState": "exclude",
       "lifecycleState": "historical",
       "academicUnits": [
         "CUAAD"
@@ -1059,9 +1059,13 @@
         "min": 2005,
         "max": 2006
       },
-      "decisionNote": "Control Escolar documenta una carrera específica Maestría en Didáctica de las Artes en el Área de Artes Escénicas (DGP 726502). Se resuelven sólo variantes que identifican explícitamente Artes Escénicas; el nombre genérico permanece sin resolver.",
+      "decisionNote": "T2BS/V45: EXCLUDE para humanities-only estricto tras auditoría independiente de la orientación histórica Artes Escénicas. Control Escolar identifica una carrera específica Maestría en Didáctica de las Artes en el Área de Artes Escénicas (DGP 726502), separada de Artes Visuales 714513 y Música 721506. El ProDES CUAAD 3.0 (2003), contemporáneo a la cohorte, registra la Maestría en Didáctica de las Artes en el área conjunta EDUCACIÓN Y HUMANIDADES, con currículo actualizado en 2001. El mismo documento registra en CA14 Artes una LGAC Artes Escénicas centrada en teoría y reflexión de la escena dramática (teatro, danza y cine) y una LGAC Pedagogía definida como pedagogía aplicada a las artes y técnicas de enseñanza artística. La orientación contiene contenido humanístico real, pero la identidad primaria del grado sigue siendo didáctica/pedagogía aplicada a la formación artística, no Historia del Arte, Estética, Filosofía, Teoría cultural o investigación humanística autónoma. La decisión no se hereda de V42: se documenta específicamente para Artes Escénicas y se aplica sólo a sus dos aliases explícitos. Las 3 tesis CUAAD 2005–2006 pasan REVIEW→EXCLUDE por identidad programática; títulos, abstracts y temas de danza no controlan la admisión. La Maestría en Didáctica de las Artes genérica y el área de Música permanecen independientes.",
       "evidence": [
-        "https://escolar.udg.mx/sites/default/files/Claves_Carrera_de_Mstrias_2_0.pdf"
+        "https://cgpe.udg.mx/sites/default/files/prodes_cuaad_ica3.0_0.pdf",
+        "https://escolar.udg.mx/sites/default/files/adjuntos/claves_carrera_de_mstrias_2_0.pdf",
+        "https://www.riudg.udg.mx/handle/20.500.12104/72967",
+        "https://riudg.udg.mx/handle/20.500.12104/72968",
+        "https://www.riudg.udg.mx/handle/20.500.12104/72969"
       ]
     },
     {
@@ -1758,7 +1762,7 @@
       ]
     }
   ],
-  "registryRevision": "2026-11-03.v44",
+  "registryRevision": "2026-11-03.v45",
   "inventoryBaseline": {
     "artifactId": 13099541204,
     "canonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",

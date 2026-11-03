@@ -223,6 +223,9 @@ jobs:
           # V44: historical MCA Edificación Arquitectónica REVIEW -> EXCLUDE.
           expected_global["review"] -= 5
           expected_global["exclude"] += 5
+          # V45: Didáctica de las Artes / Artes Escénicas REVIEW -> EXCLUDE.
+          expected_global["review"] -= 3
+          expected_global["exclude"] += 3
           assert projection["projectedAdmission"] == expected_global
           assert sum(projection["projectedAdmission"].values()) == 27576
 

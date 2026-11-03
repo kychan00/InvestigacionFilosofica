@@ -105,6 +105,9 @@ jobs:
           expected_global=dict(e["globalProjectedAdmission"])
           expected_global["review"]-=5
           expected_global["exclude"]+=5
+          # V45: Didáctica de las Artes / Artes Escénicas REVIEW -> EXCLUDE.
+          expected_global["review"]-=3
+          expected_global["exclude"]+=3
           assert overall==expected_global,overall
           target=[w for w in corpus["works"] if w.get("programRef")==baseline["programRef"]]
           assert len(target)==e["works"],len(target)
@@ -139,15 +142,18 @@ jobs:
               assert canonical.resolve_program(raw,registry)["programRef"]==baseline["programRef"]
 
           m=queue["metrics"]
-          for name in (
-              "humanitiesActionQueueItems","humanitiesActionWorks",
-              "evidenceHoldQueueItems","evidenceHoldWorks",
-              "humanitiesReadyQueueItems","humanitiesReadyWorks",
-              "workReviewQueueItems","workReviewWorks"
-          ):
-              delta={"humanitiesActionQueueItems":3,"humanitiesActionWorks":5,
-                     "humanitiesReadyQueueItems":3,"humanitiesReadyWorks":5}.get(name,0)
-              assert m[name]==e[name]-delta,(name,m[name],e[name]-delta)
+          current={
+              "humanitiesActionQueueItems":8,
+              "humanitiesActionWorks":42,
+              "evidenceHoldQueueItems":5,
+              "evidenceHoldWorks":13,
+              "humanitiesReadyQueueItems":3,
+              "humanitiesReadyWorks":29,
+              "workReviewQueueItems":3,
+              "workReviewWorks":180,
+          }
+          for name,value in current.items():
+              assert m[name]==value,(name,m[name],value)
           assert all((entry.get("authority") or {}).get("id")!=baseline["programRef"]
                      for entry in queue["items"])
           for name in ("siblingArteComunicacion","siblingTeoriaCritica"):

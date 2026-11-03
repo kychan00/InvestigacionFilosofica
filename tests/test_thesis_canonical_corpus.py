@@ -713,7 +713,7 @@ class ThesisCanonicalCorpusTest(unittest.TestCase):
             ),
             "Maestría En Didáctica De Las Artes Orientación En Artes Escénicas": (
                 "program:udg:mae-didactica-artes-escenicas-historica",
-                "review",
+                "exclude",
             ),
             "Maestría en Estudios Cinematográficos": (
                 "program:udg:mae-estudios-cinematograficos",
