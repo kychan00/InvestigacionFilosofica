@@ -39,7 +39,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
             (
                 THESIS_DIR
                 / "config"
-                / "boundary-closure-contract-v4.json"
+                / "boundary-closure-contract-v5.json"
             ).read_text(encoding="utf-8")
         )
 
@@ -51,7 +51,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
             config or self.scope_config,
         )
 
-    def test_real_boundary_contract_v4_is_closed_at_191(self):
+    def test_real_boundary_contract_v5_is_closed_at_157(self):
         report = self.empty_scope_report()
         audit = closure.build_audit(
             report,
@@ -64,14 +64,13 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(audit["metrics"]["boundaryRows"], 3)
         self.assertEqual(audit["metrics"]["boundaryProgramKeys"], 4)
         self.assertEqual(audit["metrics"]["confirmedAuthorities"], 4)
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
         self.assertEqual(audit["metrics"]["violations"], 0)
         self.assertEqual(audit["violations"], [])
         self.assertEqual(
             set(audit["metrics"]["sampleUnobservedProgramKeys"]),
             {
-                "maestria en investigacion educativa",
                 "doctorado en cognicion y aprendizaje",
                 "maestria en estudios de genero",
                 "doctorado en ciudad territorio y sustentabilidad",
@@ -94,8 +93,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_social_sciences_outside_scope_closure_does_not_reopen_review_boundary(self):
         report = self.empty_scope_report()
@@ -116,8 +115,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
                 self.assertEqual(excluded["admissionState"], "exclude")
 
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
         self.assertEqual(audit["metrics"]["violations"], 0)
 
     def test_gestion_desarrollo_social_exclude_does_not_reopen_review_boundary(self):
@@ -135,8 +134,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_ciencia_politica_exclude_does_not_reopen_review_boundary(self):
         report = self.empty_scope_report()
@@ -153,8 +152,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_relaciones_internacionales_exclude_does_not_reopen_review_boundary(self):
         report = self.empty_scope_report()
@@ -171,7 +170,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
 
     def test_global_politics_exclude_does_not_reopen_review_boundary(self):
         report = self.empty_scope_report()
@@ -188,9 +187,9 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
 
-    def test_urban_review_authority_is_part_of_boundary_contract_v4(self):
+    def test_urban_review_authority_is_part_of_boundary_contract_v5(self):
         report = self.empty_scope_report()
         audit = closure.build_audit(
             report,
@@ -205,8 +204,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(reviewed["status"], "confirmed")
         self.assertEqual(reviewed["admissionState"], "review")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
         urban = next(
             item
             for item in audit["programs"]
@@ -285,8 +284,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_licenciatura_derecho_exclude_does_not_reopen_boundary_v4(self):
         report = self.empty_scope_report()
@@ -300,8 +299,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_doctorado_derechos_humanos_review_does_not_reopen_boundary_v4(self):
         report = self.empty_scope_report()
@@ -318,8 +317,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(reviewed["status"], "confirmed")
         self.assertEqual(reviewed["admissionState"], "review")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_doctorado_derecho_exclude_does_not_reopen_boundary_v4(self):
         report = self.empty_scope_report()
@@ -333,8 +332,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(excluded["status"], "confirmed")
         self.assertEqual(excluded["admissionState"], "exclude")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_tecnologias_aprendizaje_review_does_not_reopen_boundary_v4(self):
         report = self.empty_scope_report()
@@ -351,8 +350,8 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(reviewed["status"], "confirmed")
         self.assertEqual(reviewed["admissionState"], "review")
         self.assertEqual(audit["closureState"], "closed")
-        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 191)
-        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 4})
+        self.assertEqual(audit["metrics"]["authorityObservedWorks"], 157)
+        self.assertEqual(audit["metrics"]["admissionStates"], {"review": 3})
 
     def test_sample_absence_is_informative_not_a_closure_failure(self):
         report = self.empty_scope_report()
@@ -474,7 +473,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
         self.assertEqual(audit["closureState"], "open")
         self.assertEqual(
             audit["metrics"]["admissionStates"],
-            {"include": 1, "review": 3},
+            {"include": 1, "review": 2},
         )
         self.assertIn(
             "boundary-admission-state-mismatch",
@@ -488,7 +487,7 @@ class ThesisBoundaryClosureAuditTest(unittest.TestCase):
             for row in report["rows"]
             if row["id"] == "scope:education-research"
             for item in row["programs"]
-            if item["normalizedKey"] == "maestria en investigacion educativa"
+            if item["normalizedKey"] == "doctorado en cognicion y aprendizaje"
         )
         program["programAuthority"]["admissionState"] = "include"
 
