@@ -120,3 +120,57 @@ La Biblioteca Central Dr. Manuel Rodríguez Lapuente sigue operando en La Normal
 ## Magnitud académica vigente
 
 El Primer Informe 2026 reporta 20 estudiantes en la Maestría en Estudios Filosóficos y 28 en el Doctorado en Humanidades. El Doctorado exige Seminarios de Tesis y Presentación y Defensa de Tesis; por ello sus tesis filosóficas deben recuperarse desde el universo doctoral de Humanidades, no esperando un catálogo bajo el nombre inexistente `Doctorado en Filosofía`.
+
+
+## Control Escolar: ocho años completos 2018–2025
+
+El artifact final T2CK V2 confirmó los siguientes títulos/grados expedidos por Control Escolar:
+
+| Año | Lic. Filosofía | Maestría Estudios Filosóficos | Doctor/Doctora Humanidades |
+|---:|---:|---:|---:|
+| 2018 | 17 | 4 | 1 |
+| 2019 | 12 | 3 | 1 |
+| 2020 | 23 | 5 | 1 |
+| 2021 | 13 | 3 | 4 |
+| 2022 | 14 | 8 | 3 |
+| 2023 | 30 | 7 | 5 |
+| 2024 | 82 | 8 | 1 |
+| 2025 | 46 | 7 | 6 |
+| **Total** | **237** | **45** | **22** |
+
+Interpretación:
+
+- los **237 títulos de Licenciatura en Filosofía** no equivalen a 237 tesis, porque la licenciatura permite tesis, tesina, réplica, excelencia, examen global, créditos de posgrado y seminario de titulación;
+- los **45 grados de Maestría en Estudios Filosóficos** demuestran de forma independiente que el filtro Drupal con 0 registros es incompleto;
+- los **22 grados Doctor/Doctora en Humanidades** prueban producción doctoral defendida, pero sólo una parte podrá clasificarse como filosófica después de revisar línea, tema, dirección y evidencia obra por obra.
+
+Estos datos son denominadores administrativos de cobertura, no sustituyen la identidad bibliográfica de cada trabajo.
+
+## Evidencia histórica del fondo físico de tesis
+
+Una nota de Gaceta Universitaria del 26 de agosto de 2002 documentó que la Biblioteca Central del CUCSH disponía entonces de **más de 68,000 libros y alrededor de 9,000 tesis**, además de mapas y revistas. La misma nota señalaba que el acervo estaba automatizado mediante ALEPH.
+
+Esta cifra histórica no permite afirmar que los 9,000 ejemplares permanezcan hoy en la misma estantería, pero demuestra que el fondo físico de tesis del CUCSH era varios órdenes de magnitud mayor que los registros actualmente visibles en RIUdeG o en el Drupal de tesis.
+
+La investigación de paradero debe, por tanto, consultar primero OPAC/holdings y la Biblioteca Dr. Manuel Rodríguez Lapuente antes de concluir que un trabajo está perdido.
+
+## Por qué RIUdeG tampoco puede ser el universo total
+
+La Biblioteca Digital UdeG describe la incorporación de materiales de titulación como un proceso en el que las personas egresadas entregan tesis/tesinas y firman una autorización de difusión. Una tesis puede existir y estar titulada, catalogada o físicamente depositada sin haber sido incorporada al repositorio abierto.
+
+Consecuencia metodológica: **ausencia digital nunca se interpreta como ausencia bibliográfica**.
+
+## Modelo de paradero para la siguiente fase
+
+T2CL deberá construir, por referencia, una ficha mínima:
+
+- `program` y `programRef`;
+- autor(es), título, director, año;
+- `identity`: handle / número de sistema / nodo CUCSH / clave bibliográfica exacta;
+- `digitalLocation`: RIUdeG u otra URL institucional, si existe;
+- `physicalLocation`: biblioteca/sede/signatura cuando el OPAC lo confirme;
+- `catalogEvidence`: CUCSH / OPAC / ALEPH / Control Escolar / programa;
+- `whereaboutsStatus`: `digital`, `physical-confirmed`, `both`, `cataloged-location-unresolved`, `administrative-only`;
+- `philosophyStatus`: programa exacto o curaduría temática, sin relabeling.
+
+La meta deja de ser «tener el PDF» y pasa a ser **saber que la tesis existe y dónde puede consultarse**.
