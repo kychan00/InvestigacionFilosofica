@@ -112,11 +112,26 @@ def collapse_inventory(rows:list[dict[str,Any]])->tuple[list[dict[str,Any]],list
     unique.sort(key=lambda r:(year(r.get("year")) or 0,norm(r["title"]),norm(r["author"])))
     return unique,duplicates
 
+def public_director(value:Any)->str|None:
+    text=str(value or "").strip()
+    if not text:
+        return None
+    if re.fullmatch(r"(?:19|20)\\d{2}",text):
+        return None
+    if norm(text) in {"no tiene","tesis","tesina"}:
+        return None
+    return text
+
 def public_record(row:dict[str,Any])->dict[str,Any]:
     url=safe_cucsh_url(row.get("recordUrl"))
     if not url:
         raise ValueError(f"CUCSH record lacks a safe detail URL: {row.get('title')}")
-    director=str(row.get("director") or "").strip()
+    director=public_director(row.get("director"))
+    quality_flags=[]
+    if year(row.get("year")) is None:
+        quality_flags.append("invalid-or-missing-year")
+    if int(row.get("sourceRowCount") or 1)>1:
+        quality_flags.append("duplicate-catalog-row-collapsed")
     return {
         "id":stable_id(row),
         "canonicalWorkId":None,
@@ -149,6 +164,7 @@ def public_record(row:dict[str,Any])->dict[str,Any]:
             "catalogUrls":list(row.get("catalogUrls") or []),
             "coauthorRaw":row.get("coauthor") or "",
             "directorRaw":row.get("director") or "",
+            "dataQualityFlags":quality_flags,
         },
     }
 
@@ -227,6 +243,7 @@ def merge(base:dict[str,Any],report:dict[str,Any])->dict[str,Any]:
         "newPublicReferences":added,
         "programme":PROGRAM,
         "physicalHoldingsClaimed":False,
+        "unknownYearReferences":sum(year(row.get("year")) is None for row in unique),
         "duplicates":duplicates,
     }
     return output
