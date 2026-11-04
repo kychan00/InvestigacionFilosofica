@@ -42,6 +42,12 @@ class T2COTest(unittest.TestCase):
         self.assertEqual([x["id"] for x in decisions], [x["id"] for x in all_rows])
         self.assertEqual(len({x["id"] for x in decisions}), 7)
 
+    def test_no_single_word_fallback(self):
+        queries = mod.strategies(row(1))
+        self.assertTrue(any(code == "WAU" for code, _, _ in queries))
+        self.assertEqual(len(queries), 4)
+        self.assertTrue(all(len(request.split()) >= 2 for code, request, _ in queries if code == "WTI"))
+
     def test_thesis_evidence_required(self):
         self.assertFalse(mod.has_thesis_evidence({"título": "Filosofía"}))
         self.assertTrue(mod.has_thesis_evidence({"base lógica": "Tesis"}))
