@@ -53,6 +53,11 @@ STOP_WORDS = frozenset(
     study analysis research case approach towards through between into
     estudio analisis análisis investigacion investigación caso propuesta
     aproximacion aproximación universidad guadalajara jalisco mexico méxico
+    tesis obtener grado presenta presentada presentado maestro maestra
+    maestria maestría licenciatura doctorado doctorada doctor director directora
+    der die das den dem des ein eine einer einem einen und oder im von für mit
+    zu zum zur auf aus als an bei nach über unter zwischen durch ohne nicht
+    sich ist sind war waren wird werden
     """.split()
 )
 
