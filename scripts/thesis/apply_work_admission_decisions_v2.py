@@ -41,6 +41,20 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
     )
 
 
+def verify_base_release_bytes(path: Path, contract: dict[str, Any]) -> None:
+    """Reject local base-file substitution, even if its admission counts match."""
+    base = contract.get("baseEffectiveRelease") or {}
+    blob = path.read_bytes()
+    if path.suffix == ".gz":
+        if hashlib.sha256(blob).hexdigest() != base.get("gzipSha256"):
+            raise ValueError("Immutable V1 gzip SHA-256 mismatch")
+        raw = gzip.decompress(blob)
+    else:
+        raw = blob
+    if hashlib.sha256(raw).hexdigest() != base.get("jsonSha256"):
+        raise ValueError("Immutable V1 JSON SHA-256 mismatch")
+
+
 def handle_ids(work: dict[str, Any]) -> set[str]:
     result: set[str] = set()
     for entry in work.get("persistentIdentifiers") or []:
@@ -96,6 +110,10 @@ def validate_contract(
         "0a4d24810d90f8e4c748abd0c8f3978afba6561eade46fcbf29f2bda6416b892"
     ):
         raise ValueError("Immutable V1 payload identity mismatch")
+    if release.get("gzipSha256") != (
+        "4e2484482be783bcb004f4a343cfede516806d56d4e56dffa4a6d20cfe3750c3"
+    ):
+        raise ValueError("Immutable V1 gzip identity mismatch")
     if release.get("effectiveAdmissionRevision") != "2026-11-03.t2bx-v1":
         raise ValueError("T2BX legacy revision must remain intact")
     if not isinstance(contract.get("revision"), str) or not contract["revision"]:
@@ -455,6 +473,8 @@ def main() -> None:
     parser.add_argument("--reverse", action="store_true")
     args = parser.parse_args()
     contract = read_json(args.decisions)
+    if not args.reverse:
+        verify_base_release_bytes(args.corpus, contract)
     output, report = apply_decisions_v2(
         read_json(args.corpus),
         contract,
