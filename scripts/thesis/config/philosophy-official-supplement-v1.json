@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "thesis-philosophy-official-supplement-v1",
+  "revision": "2026-11-03.philosophy-v1",
+  "targetScope": "humanities-only",
+  "targetProgramRefs": [
+    "program:udg:lic-filosofia",
+    "program:udg:mae-estudios-filosoficos",
+    "program:udg:mae-filosofia-historica"
+  ],
+  "doctoralPolicy": {
+    "exactDoctorateProgramPresent": false,
+    "observedContainerProgramRef": "program:udg:doc-humanidades",
+    "rule": "Doctorado en Humanidades is not equivalent to Doctorado en Filosofia; doctoral works require explicit work-level institutional evidence before being surfaced as philosophy-specific."
+  },
+  "seedRecords": [
+    {
+      "provider": "udg-official-profile",
+      "providerRecordId": "editorial-udg-author-6427-philosophy-thesis-2004",
+      "recordUrl": "https://editorial.udg.mx/simeh/authors/view/id/6427",
+      "title": "El debate sobre el sufragio femenino en la prensa Tapatía (1946-1955): las construcciones de masculinidad y feminidad",
+      "authors": ["Guillermo Castillo Ramírez"],
+      "year": "2004",
+      "program": "Licenciatura en Filosofía",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de licenciatura",
+      "evidenceKind": "official-udg-author-profile"
+    },
+    {
+      "provider": "cucsh-library",
+      "providerRecordId": "node-8243",
+      "recordUrl": "https://www.biblioteca.cucsh.udg.mx/?q=node%2F8243",
+      "title": "ANÁLISIS DESCRIPTIVO SOBRE A MODIFICACIÓN CURRICULAR A LA LICENCIATURA EN FILOSOFÍA DE LA UNIVERSIDAD DE GUADALAJARA EN 1996 DESDE LA PERSPECTIVA DEL PENSAMIENTO COMPLEJO",
+      "authors": ["GUILLERMO VARGAS CURIEL"],
+      "directors": ["MTRO. JESÚS LÓPEZ SALAS"],
+      "year": "2006",
+      "program": "Licenciatura en Filosofía",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de licenciatura",
+      "evidenceKind": "official-cucsh-library-record"
+    },
+    {
+      "provider": "cucsh-official",
+      "providerRecordId": "mef-thesis-2024-carlos-itzcoatl-enciso-duran",
+      "recordUrl": "https://www.cucsh.udg.mx/noticias/explican-en-fil-estudiantes-de-la-maestria-en-estudios-filosoficos-del-cucsh-trabajos-de",
+      "title": "Entre la moral y lo político. Una reflexión desde el realismo político contemporáneo",
+      "authors": ["Carlos Itzcóatl Enciso Durán"],
+      "year": "2024",
+      "program": "Maestría en Estudios Filosóficos",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de maestría",
+      "evidenceKind": "official-cucsh-thesis-announcement"
+    },
+    {
+      "provider": "cucsh-official",
+      "providerRecordId": "mef-thesis-2024-santiago-juarez-salazar",
+      "recordUrl": "https://www.cucsh.udg.mx/noticias/explican-en-fil-estudiantes-de-la-maestria-en-estudios-filosoficos-del-cucsh-trabajos-de",
+      "title": "Una lectura del epicureísmo desde la teoría crítica",
+      "authors": ["Santiago Juárez Salazar"],
+      "year": "2024",
+      "program": "Maestría en Estudios Filosóficos",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de maestría",
+      "evidenceKind": "official-cucsh-thesis-announcement"
+    }
+  ]
+}

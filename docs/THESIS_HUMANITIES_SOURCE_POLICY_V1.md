@@ -331,3 +331,64 @@ Título parecido por sí solo no fusiona.
   https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv
 
 Consultadas el 1 de noviembre de 2026.
+
+
+---
+
+## Complemento oficial de Filosofía — T2CE
+
+La ampliación de Filosofía usa dos superficies separadas.
+
+### Núcleo programático institucional
+
+La fuente viva primaria es **RIUdeG**. Se recorren las colecciones de tesis
+CUCSH por nivel y sólo se seleccionan registros cuyo campo de programa resuelve
+por Program Authority exacta a Licenciatura en Filosofía, Maestría en Estudios
+Filosóficos o Maestría histórica en Filosofía. Después se exige que el registro
+OAI/DIM del ítem confirme esa misma autoridad.
+
+La interfaz histórica de Biblioteca CUCSH y ALEPH pueden aportar evidencia
+complementaria, pero no son dependencias necesarias de la cosecha viva.
+
+### Vista filosófica interdisciplinaria
+
+La pertenencia a una **vista temática de Filosofía** no equivale a pertenencia
+al programa de Filosofía.
+
+Una tesis de otro programa puede incorporarse a una vista curada cuando:
+
+- su programa real queda intacto;
+- existe evidencia bibliográfica identificable;
+- la filosofía es un componente sustantivo del objeto, método o marco teórico;
+- la decisión es humana y explícita;
+- se documenta la razón de inclusión;
+- la decisión no altera AcademicProgramAuthority ni la admisión canónica del
+  corpus.
+
+Las plataformas académicas externas —por ejemplo PhilPapers, PhilArchive,
+Academia.edu o ResearchGate— son **fuentes de descubrimiento o evidencia
+secundaria**, no autoridad suficiente para reescribir programa, institución o
+admisión. Cuando un candidato pertenece aparentemente a un programa filosófico
+UdeG pero sólo existe evidencia secundaria, permanece REVIEW hasta
+reconciliarlo con RIUdeG, CUCSH u otra fuente institucional.
+
+### Reglas comunes
+
+Toda la fase sigue siendo **reference-only**:
+
+- conserva metadatos, identificadores y páginas de referencia;
+- nunca persiste PDF, bitstream, texto completo ni texto extraído;
+- rechaza URLs públicas con `.pdf`, `/bitstream` o `/download`;
+- no persiste tokens ni URLs de sesión de ALEPH;
+- no usa embeddings o similitud semántica para admisión programática;
+- ante identidad o metadatos contradictorios, falla cerrado.
+
+El **Doctorado en Humanidades** no equivale a “Doctorado en Filosofía”. Una
+vista doctoral filosófica requiere evidencia obra-a-obra y una decisión
+curatorial explícita.
+
+La release pública `thesis-effective-corpus-v1` permanece inmutable. T2CE
+produce una proyección y un índice curado auditables; cualquier publicación
+posterior requiere una release inmutable nueva y verificación de CI, SHA y
+Pages.
+
