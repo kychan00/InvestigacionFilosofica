@@ -30,6 +30,7 @@
     "maxFeatures": 12000,
     "sublinearTf": true,
     "stripAccents": "unicode",
+    "stopWordsRevision": "atlas-stopwords-v1",
     "svdDimensions": 64,
     "normalization": "l2"
   },
