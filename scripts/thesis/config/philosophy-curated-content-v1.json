@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "thesis-philosophy-curated-content-v1",
+  "revision": "2026-11-04.curated-v1",
+  "purpose": "Reference-only Philosophy discovery view spanning exact-program and interdisciplinary philosophical theses without rewriting canonical program metadata.",
+  "rules": {
+    "canonicalAdmissionMutation": false,
+    "preserveActualProgram": true,
+    "requireExplicitHumanCurationForInclude": true,
+    "referenceOnly": true,
+    "forbiddenUrlTokens": [
+      ".pdf",
+      "/bitstream",
+      "/download"
+    ]
+  },
+  "records": [
+    {
+      "id": "philosophy-curated:aleph:000551988",
+      "status": "include",
+      "inclusionBasis": "program-core",
+      "classificationSource": "human-curation",
+      "provider": "udg-aleph",
+      "providerRecordId": "000551988",
+      "alephSystemNumber": "000551988",
+      "recordUrl": "https://wdg.biblio.udg.mx/",
+      "title": "El performance como una herramienta para la reflexión filosófica",
+      "authors": [
+        "Raúl Sánchez Salas"
+      ],
+      "year": "2022",
+      "actualProgram": "Licenciatura en Filosofía",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de Licenciatura",
+      "philosophyEvidence": "La Nota de tesis de ALEPH identifica explícitamente la Licenciatura en Filosofía del CUCSH.",
+      "validationTier": "official-catalog-reviewed"
+    },
+    {
+      "id": "philosophy-curated:aleph:000479311",
+      "status": "include",
+      "inclusionBasis": "program-core",
+      "classificationSource": "human-curation",
+      "provider": "udg-aleph",
+      "providerRecordId": "000479311",
+      "alephSystemNumber": "000479311",
+      "recordUrl": "https://wdg.biblio.udg.mx/",
+      "title": "Referencias epistemológicas en torno al problema del concepto de verdad necesaria",
+      "authors": [
+        "José Antonio Ramírez Velasco"
+      ],
+      "year": "1993",
+      "actualProgram": "Licenciatura en Filosofía",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de Licenciatura",
+      "philosophyEvidence": "La Nota de tesis de ALEPH identifica explícitamente el título de Licenciatura en Filosofía.",
+      "validationTier": "official-catalog-reviewed"
+    },
+    {
+      "id": "philosophy-curated:aleph:000168319",
+      "status": "include",
+      "inclusionBasis": "curated-manual-classification",
+      "classificationSource": "human-curation",
+      "provider": "udg-aleph",
+      "providerRecordId": "000168319",
+      "alephSystemNumber": "000168319",
+      "recordUrl": "https://wdg.biblio.udg.mx/",
+      "title": "El impacto de la migración laboral a Estados Unidos en San Diego Alejandría, Jalisco",
+      "authors": [
+        "Víctor Manuel Espinosa Aguilar"
+      ],
+      "year": "1992",
+      "actualProgram": "Licenciatura (programa no especificado en ALEPH)",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Facultad de Filosofía y Letras",
+      "thesisType": "Tesis de Licenciatura",
+      "philosophyEvidence": "Decisión curatorial manual conservada de forma explícita; el registro ALEPH sólo documenta Licenciatura en la Facultad de Filosofía y Letras y no se reescribe esa evidencia.",
+      "validationTier": "official-catalog-plus-human-curation"
+    },
+    {
+      "id": "philosophy-curated:aleph:000588539",
+      "status": "include",
+      "inclusionBasis": "philosophical-content",
+      "classificationSource": "human-curation",
+      "provider": "udg-aleph",
+      "providerRecordId": "000588539",
+      "alephSystemNumber": "000588539",
+      "recordUrl": "https://wdg.biblio.udg.mx/",
+      "title": "Generación de un producto de creación: Representación pictórica de concepto de eterno retorno en Friedrich Nietzsche. El origen del tiempo.",
+      "authors": [
+        "Alejandro Loera García"
+      ],
+      "year": "2025",
+      "actualProgram": "Maestría en Educación y Expresión para las Artes",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Arte, Arquitectura y Diseño",
+      "thesisType": "Tesis de Maestría",
+      "philosophyEvidence": "Nietzsche y el concepto de eterno retorno forman parte explícita y sustantiva del objeto del trabajo.",
+      "validationTier": "official-catalog-reviewed"
+    },
+    {
+      "id": "philosophy-curated:aleph:000448172",
+      "status": "include",
+      "inclusionBasis": "philosophical-content",
+      "classificationSource": "human-curation",
+      "provider": "udg-aleph",
+      "providerRecordId": "000448172",
+      "alephSystemNumber": "000448172",
+      "recordUrl": "https://wdg.biblio.udg.mx/",
+      "evidenceUrls": [
+        "https://www.researchgate.net/publication/339367697_La_existencia_entre_la_palabra_y_la_melancolia_Analisis_comparativo_de_las_propuestas_narrativas_y_esteticas_entre_Ordet_1955_de_Carl_Theodor_Dreyer_y_Melancholia_2011_de_Lars_Von_Trier_y_su_relacion_"
+      ],
+      "title": "La existencia entre la palabra y la melancolía: análisis comparativo de las propuestas narrativas y estéticas entre Ordet (1955) de Carl Theodor Dreyer y Melancholia (2011) de Lars Von Trier y su relación con la filosofía de Søren Kierkegaard",
+      "authors": [
+        "Mauricio Orozco Rodríguez"
+      ],
+      "year": "2015",
+      "actualProgram": "Maestría en Estudios Cinematográficos",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Arte, Arquitectura y Diseño",
+      "thesisType": "Tesis de Maestría",
+      "philosophyEvidence": "La filosofía de Søren Kierkegaard es marco explícito del análisis de existencia y melancolía.",
+      "validationTier": "official-catalog-reviewed"
+    },
+    {
+      "id": "philosophy-curated:aleph:000393407",
+      "status": "include",
+      "inclusionBasis": "philosophical-content",
+      "classificationSource": "human-curation",
+      "provider": "udg-aleph",
+      "providerRecordId": "000393407",
+      "alephSystemNumber": "000393407",
+      "recordUrl": "https://wdg.biblio.udg.mx/",
+      "title": "Filosofía y TICS. La experiencia de un curso de seminario de filosofía en bachillerato, presencial y con ayuda de la plataforma virtual Moodle, en una institución privada de la Ciudad de Guadalajara",
+      "authors": [
+        "José Luis García Magaña"
+      ],
+      "year": "2012",
+      "actualProgram": "Maestría en Tecnologías para el Aprendizaje",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Económico Administrativas",
+      "thesisType": "Tesis de Maestría",
+      "philosophyEvidence": "La investigación estudia de manera directa la enseñanza de filosofía mediada por TIC; se incluye como intersección Filosofía + tecnología educativa.",
+      "validationTier": "official-catalog-plus-human-curation"
+    },
+    {
+      "id": "philosophy-curated:cucea:israel-romero-2012",
+      "status": "include",
+      "inclusionBasis": "philosophical-content",
+      "classificationSource": "human-curation",
+      "provider": "udg-official-program-page",
+      "providerRecordId": "mreic-israel-alejandro-romero-ramirez-2012",
+      "alephSystemNumber": "000393101",
+      "recordUrl": "https://mrei.cucea.udg.mx/?q=tesis",
+      "title": "Identidad y diferencia: dos problemas que enfrenta la Unión Europea una revisión desde la filosofía de Alain Badiou",
+      "authors": [
+        "Israel Alejandro Romero Ramírez"
+      ],
+      "year": "2012",
+      "actualProgram": "Maestría en Relaciones Económicas Internacionales y Cooperación",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Económico Administrativas",
+      "thesisType": "Tesis de Maestría",
+      "philosophyEvidence": "La filosofía de Alain Badiou es el marco explícito para analizar identidad y diferencia.",
+      "validationTier": "official-program-page"
+    },
+    {
+      "id": "philosophy-curated:philpapers:ESCODL",
+      "status": "include",
+      "inclusionBasis": "philosophical-content",
+      "classificationSource": "human-curation",
+      "provider": "philpapers",
+      "providerRecordId": "ESCODL",
+      "recordUrl": "https://philpapers.org/rec/ESCODL",
+      "evidenceUrls": [
+        "https://www.researchgate.net/publication/368877554_Ontologia_de_la_Teoria_de_la_Relatividad"
+      ],
+      "title": "Ontología de la Teoría de la Relatividad",
+      "authors": [
+        "Salvador Daniel Escobedo"
+      ],
+      "year": "2020",
+      "actualProgram": "Licenciatura en Física",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Exactas e Ingenierías",
+      "thesisType": "Tesis de Licenciatura",
+      "philosophyEvidence": "El trabajo define y prueba una ontología de las teorías mecánicas y aborda de forma explícita espacio, tiempo, movimiento y consistencia ontológica.",
+      "validationTier": "secondary-academic-source-with-udg-thesis-cover"
+    },
+    {
+      "id": "philosophy-curated:philarchive:GALFDL-5",
+      "status": "review",
+      "inclusionBasis": "program-core-candidate",
+      "classificationSource": "secondary-discovery",
+      "provider": "philarchive",
+      "providerRecordId": "GALFDL-5",
+      "recordUrl": "https://philarchive.org/rec/GALFDL-5",
+      "title": "Filosofía de la pseudociencia. Conceptos fundamentales y problemática de una rama emergente de la epistemología",
+      "authors": [
+        "Daniel Galarza Santiago"
+      ],
+      "year": "2025",
+      "actualProgram": "Licenciatura en Filosofía",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de Licenciatura",
+      "philosophyEvidence": "PhilArchive identifica la tesis como UdeG y su portada archivada declara Departamento de Filosofía, Licenciatura en Filosofía y grado de Licenciado en Filosofía; permanece REVIEW hasta reconciliarla con RIUdeG/CUCSH institucional.",
+      "validationTier": "secondary-academic-discovery"
+    },
+    {
+      "id": "philosophy-curated:academia:adriel-hernandez-platon",
+      "status": "review",
+      "inclusionBasis": "program-core-candidate",
+      "classificationSource": "secondary-discovery",
+      "provider": "academia",
+      "providerRecordId": "adriel-hernandez-tesis-maestria-platon-republica",
+      "recordUrl": "https://guadalajara.academia.edu/AdrielManuelHern%C3%A1ndezGuzm%C3%A1n",
+      "title": "¿El Estado que propone Platón en la República es una utopía?",
+      "authors": [
+        "Adriel Manuel Hernández Guzmán"
+      ],
+      "year": null,
+      "actualProgram": "Maestría en Estudios Filosóficos",
+      "institution": "Universidad de Guadalajara",
+      "academicUnit": "Centro Universitario de Ciencias Sociales y Humanidades",
+      "thesisType": "Tesis de Maestría",
+      "philosophyEvidence": "El perfil académico del autor identifica estudios en la Maestría en Estudios Filosóficos y presenta el trabajo como tesis de maestría sobre Platón y la tradición utópica; requiere confirmación institucional.",
+      "validationTier": "secondary-academic-discovery"
+    }
+  ]
+}
