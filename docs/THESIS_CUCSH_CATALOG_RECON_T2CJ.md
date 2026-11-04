@@ -36,7 +36,30 @@ El probe T2CJ V3:
 5. deduplica por título + autor + año + programa;
 6. falla si un filtro devuelve un programa distinto.
 
-El artifact temporal permitirá conocer el universo CUCSH de los tres programas filosóficos antes de reconciliar contra V2/RIUdeG.
+## Hallazgos verificados del catálogo vivo
+
+El run final del PR #174, sobre el head `bc3916689b962fc4691b30a088365d9aefc0f68b`, produjo un artifact metadata-only con:
+
+- **217 referencias** de `Licenciatura en Filosofía`;
+- **22 páginas** efectivamente recorridas para ese programa;
+- **217/217** referencias con URL institucional de detalle;
+- **0 registros** devueltos por el filtro `Maestría en Estudios Filosóficos`;
+- **0 registros** devueltos por el filtro histórico `Maestría En Filosofía`;
+- **0 programa exacto Doctorado en Filosofía** en las opciones de Doctorado.
+
+Los filtros de ambas maestrías sí aparecen como opciones del catálogo, pero actualmente no devuelven filas. T2CJ conserva esta diferencia entre **autoridad/opción expuesta** y **contenido realmente servido**.
+
+La tabla de Licenciatura contiene datos históricos con calidad irregular. En particular, al menos un registro no expone año y otro publica `208` como año. Estos valores no se corrigen por inferencia y deben conservarse como evidencia defectuosa hasta una reconciliación posterior.
+
+## Cruce preliminar contra T2CI/V2
+
+La comparación determinista del inventario CUCSH con los índices públicos generados en T2CI encontró:
+
+- **1 coincidencia exacta por título normalizado + autor + año**: Guillermo Vargas Curiel, ya identificado como `thesis:work:00027577`;
+- **1 candidato adicional por mismo autor + mismo año + mismo programa**, Guillermo Castillo Ramírez (2004), cuyo título difiere por el error textual `femenidad` / `feminidad`; no se fusiona automáticamente;
+- Israel Alejandro Romero Ramírez aparece también en el catálogo de Licenciatura con una tesis distinta de 2009, por lo que compartir autor no implica identidad de obra.
+
+Por tanto, el catálogo CUCSH aporta **más de 200 referencias programáticamente filosóficas que no están hoy representadas por una coincidencia exacta en V2/T2CI**. La cifra exacta de nuevas identidades públicas deberá fijarse en la fase de reconciliación, no en T2CJ.
 
 ## Jerarquía de evidencia
 
@@ -53,10 +76,11 @@ El probe no descarga tesis ni texto completo. Rechaza `.pdf`, `/bitstream` y `/d
 
 ## Siguiente fase
 
-Con el inventario completo se comparará:
+T2CK deberá reconciliar el inventario CUCSH de Filosofía contra:
 
-- CUCSH vs V2;
-- CUCSH vs RIUdeG;
-- CUCSH vs T2CI (18 referencias actuales).
+- Effective Corpus V2;
+- RIUdeG;
+- la vista T2CI ya publicada;
+- los suplementos y decisiones curatoriales existentes.
 
-Las referencias institucionales faltantes podrán pasar a una fase de reconciliación y curaduría antes de cualquier publicación.
+Sólo después de esa reconciliación se podrá ampliar la vista pública de Filosofía con referencias nuevas, conservando programa real, provenance y estado de validación.
