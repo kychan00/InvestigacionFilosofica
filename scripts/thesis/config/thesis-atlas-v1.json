@@ -2,14 +2,16 @@
   "schemaVersion": "thesis-atlas-experiment-contract-v1",
   "revision": "2026-11-03.t5aa-v1",
   "phase": "T5AA",
-  "sourceRelease": "thesis-effective-corpus-v1",
-  "sourceContract": "scripts/thesis/config/effective-corpus-release-t2bz-v1.json",
+  "sourceRelease": "thesis-effective-corpus-v2",
+  "sourceContract": "scripts/thesis/config/effective-corpus-release-t2cg-v2.json",
   "programAuthorityRevision": "2026-11-03.v47",
   "admissionStatus": "include",
-  "expectedNodes": 561,
+  "expectedNodes": 566,
   "topologyInputContract": {
     "version": "normalized-title-v1",
-    "fields": ["title"],
+    "fields": [
+      "title"
+    ],
     "forbiddenFields": [
       "program",
       "programRef",
@@ -24,7 +26,10 @@
   },
   "representation": {
     "method": "tfidf-word-ngram",
-    "ngramRange": [1, 2],
+    "ngramRange": [
+      1,
+      2
+    ],
     "minDf": 2,
     "maxDf": 0.92,
     "maxFeatures": 12000,
@@ -60,5 +65,6 @@
   "publicBasePath": "data/theses/atlas-v1",
   "publicIndexPath": "data/theses/atlas-v1/index.json",
   "publicManifestPath": "data/theses/atlas-v1/manifest.json",
-  "methodStatus": "experimental-not-benchmark-approved"
+  "methodStatus": "experimental-not-benchmark-approved",
+  "sourceMigrationRevision": "2026-11-04.t2cg-v1"
 }
