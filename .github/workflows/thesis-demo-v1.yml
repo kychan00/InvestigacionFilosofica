@@ -13,6 +13,7 @@ on:
       - "scripts/thesis/build_philosophy_public_index_v1.py"
       - "scripts/thesis/config/philosophy-curated-content-v1.json"
       - "scripts/thesis/config/philosophy-official-supplement-v1.json"
+      - "scripts/thesis/config/philosophy-external-corroboration-v1.json"
       - "tests/test_thesis_demo_index_v1.py"
       - "tests/test_thesis_philosophy_public_index_v1.py"
       - "tests/thesis-demo.test.mjs"
@@ -89,6 +90,7 @@ jobs:
             --demo-index artifacts/thesis-demo-v2/index.json \
             --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
             --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --corroboration-config scripts/thesis/config/philosophy-external-corroboration-v1.json \
             --output artifacts/philosophy-public-v1/index.json
 
           python - <<'PY'
@@ -122,7 +124,7 @@ jobs:
           philosophy=json.loads(philosophy_path.read_text(encoding="utf-8"))
 
           assert philosophy["schemaVersion"]=="thesis-philosophy-public-index-v1"
-          assert philosophy["revision"]=="2026-11-04.t2ci-v1"
+          assert philosophy["revision"]=="2026-11-04.t2ct-v1"
           assert philosophy["sourceRelease"]=="thesis-effective-corpus-v2"
           assert philosophy["referenceOnly"] is True
           assert philosophy["canonicalAdmissionMutation"] is False
@@ -136,6 +138,7 @@ jobs:
               "program-core-candidate":2,
           }
           assert philosophy["metrics"]["actualProgramsRepresented"]==10
+          assert philosophy["metrics"]["corroboratedReviewRecords"]==2
           assert len(philosophy["documentedPhilosophyPrograms"])==3
           assert philosophy["doctoralPolicy"]["exactDoctorateProgramPresent"] is False
 
@@ -143,6 +146,10 @@ jobs:
           for row in philosophy["records"]:
               url=(row.get("sourceUrl") or "").lower()
               assert not any(token in url for token in forbidden), url
+              if row.get("externalCorroboration"):
+                  assert row["philosophyStatus"]=="review"
+                  assert row["externalCorroboration"]["identityConfirmed"] is False
+                  assert row["externalCorroboration"]["physicalLocationConfirmed"] is False
 
           assert Path("tesis.html").is_file()
           assert Path("js/thesis-demo.js").is_file()
