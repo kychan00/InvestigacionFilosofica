@@ -25,7 +25,9 @@ nuevas tesis ni holdings: produce evidencia de reconciliación verificable.
    `inputRevision`, métricas y artifact del lote anterior.
 4. Reutilizar una sesión Aleph. Buscar por título `WTI` (N/Y), autor
    `WAU` (Y), y términos distintivos del título `WTI` sólo para descubrir
-   candidatos. No usar `WFM=TESIS`.
+   candidatos. Eliminar búsquedas por **palabra aislada**: la corrida T2CO
+   identificó que Aleph devuelve sistemáticamente la primera página de diez
+   candidatos y provoca un desbordamiento artificial. No usar `WFM=TESIS`.
 5. Abrir cada candidato por SYS (`func=direct`), comprobar título normalizado
    exacto, tokens completos del autor, identidad SYS no contradictoria y
    `Nota de tesis` o `Base lógica: Tesis`.
@@ -65,3 +67,15 @@ Cada lote debe guardar su artifact antes de pasar al siguiente. Si cambia el
   y después crear una nueva versión pública del Índice Maestro.
 - Dar prioridad posterior a Maestría en Estudios Filosóficos y a Doctorado
   en Humanidades / línea Pensamiento, conservando siempre el programa real.
+
+## Auditoría del primer lote T2CO
+
+El primer lote de 8 referencias (run `41909115653`) ejecutó sin errores,
+pero las ocho quedaron `ambiguous` por una interpretación demasiado amplia
+del desbordamiento. La segunda revisión (run `41909595277`) clasificó
+correctamente las ocho como `unresolved`, sin inventar identidades.
+La instrumentación del run `41910040675` demostró que el fallback de una sola
+palabra WTI devolvía diez candidatos en las ocho referencias, mientras
+WTI exacto, WAU completo y WTI de dos términos daban entre cero y siete.
+T2CO elimina la consulta de palabra aislada y vuelve a probar la selección.
+Ninguno de esos runs añadió holdings nuevos.
