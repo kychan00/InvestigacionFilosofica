@@ -2,53 +2,55 @@
 
 ## Objetivo
 
-Evaluar la página institucional:
+Evaluar `http://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis` como fuente adicional de descubrimiento bibliográfico para tesis UdeG, con especial interés en Filosofía.
 
-`http://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis`
+T2CJ no modifica el corpus efectivo, Program Authority ni la vista pública.
 
-como una fuente adicional de descubrimiento bibliográfico para tesis UdeG, con
-especial interés en Filosofía.
+## Hallazgo inicial
 
-T2CJ **no modifica** el corpus efectivo, Program Authority ni la vista pública.
-Primero identifica la estructura navegable y los enlaces de metadatos que la
-Biblioteca CUCSH expone.
+El landing institucional resolvió por HTTP y expuso tres vistas específicas:
+
+- `/vista-tesis-licenciatura`;
+- `/vista-tesis-maestria`;
+- `/vista-tesis-doctorado`.
+
+La variante HTTPS agotó timeout en el primer recon; por eso el probe usa fallback acotado y conserva esta fragilidad como evidencia operativa.
+
+## Recon de estructura
+
+La revisión V2 del probe visita las tres vistas y conserva únicamente:
+
+- formularios y acciones;
+- nombres/IDs de filtros;
+- opciones de `select`;
+- filas tabulares de muestra;
+- señales textuales que contienen Filosofía;
+- enlaces navegables permitidos;
+- hashes y métricas de las páginas.
+
+No persiste HTML bruto.
 
 ## Papel de la fuente
 
-La jerarquía propuesta es:
+Jerarquía propuesta:
 
 1. RIUdeG / handle persistente para identidad y metadatos modernos;
 2. Catálogo de Tesis CUCSH como fuente institucional complementaria;
-3. ALEPH histórico para validación cuando aporta número de sistema/nota de tesis;
+3. ALEPH histórico cuando aporta número de sistema/nota de tesis;
 4. fuentes académicas secundarias sólo para descubrimiento/revisión.
 
-El catálogo CUCSH puede ayudar a descubrir referencias históricas o locales que
-no estén bien expuestas en RIUdeG, pero una coincidencia nunca se deduplica por
-fuzzy matching.
+El catálogo CUCSH puede descubrir referencias históricas o locales que RIUdeG no expone bien. Una coincidencia futura deberá usar identificadores estables o claves bibliográficas exactas; nunca fuzzy matching.
 
-## Recon reference-only
+## Reference-only
 
-El probe T2CJ:
+El probe:
 
-- visita únicamente hosts de Biblioteca CUCSH;
-- sigue redirecciones sólo mientras permanezcan en ese host;
-- conserva únicamente texto de anclas y URLs de navegación;
-- calcula SHA-256 del HTML para trazabilidad, pero **no persiste el HTML**;
+- visita sólo hosts Biblioteca CUCSH;
 - rechaza `.pdf`, `/bitstream` y `/download`;
-- no usa credenciales, cookies ni URLs de sesión;
-- no descarga tesis ni texto completo.
-
-El artifact temporal contiene sólo `catalog-report.json`.
+- no usa credenciales ni cookies;
+- no descarga tesis ni texto completo;
+- sólo sube `catalog-report.json` como artifact temporal.
 
 ## Siguiente decisión
 
-Después de inspeccionar el artifact real se decidirá si el catálogo permite:
-
-- enumerar programas;
-- enumerar registros de tesis;
-- extraer identificadores estables (por ejemplo nodos Drupal);
-- cruzar registros con V2/RIUdeG;
-- ampliar la cobertura de Filosofía mediante evidencia institucional.
-
-No se publicará ninguna nueva referencia por esta fuente sin una fase de
-reconciliación y pruebas posterior.
+El artifact de las vistas de Licenciatura/Maestría/Doctorado determinará si podemos construir un harvester de programas y tesis de Filosofía. Cualquier ampliación pública posterior requerirá reconciliación contra V2/RIUdeG y una fase separada.

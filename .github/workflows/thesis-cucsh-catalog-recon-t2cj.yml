@@ -27,7 +27,7 @@ jobs:
           python -m py_compile scripts/thesis/probe_cucsh_thesis_catalog_v1.py
           python -m unittest tests.test_thesis_cucsh_catalog_recon_v1 -v
 
-      - name: Probe live CUCSH thesis catalog
+      - name: Probe live CUCSH thesis catalog and degree views
         run: |
           rm -rf artifacts/t2cj
           mkdir -p artifacts/t2cj
@@ -44,21 +44,27 @@ jobs:
           path=Path("artifacts/t2cj/catalog-report.json")
           data=json.loads(path.read_text(encoding="utf-8"))
           assert data["schemaVersion"]=="thesis-cucsh-catalog-recon-v1"
+          assert data["revision"]=="2026-11-04.t2cj-v2"
           assert data["referenceOnly"] is True
           assert data["rawHtmlPersisted"] is False
-          assert data["metrics"]["safeLinks"] > 0
-          assert data["htmlBytes"] > 0
+          assert data["metrics"]["landingSafeLinks"] > 0
+          assert data["metrics"]["degreeViews"] == 3
 
           allowed={"biblioteca.cucsh.udg.mx","www.biblioteca.cucsh.udg.mx"}
           forbidden=(".pdf","/bitstream","/download")
-          for row in data["safeLinks"]:
-              assert urlparse(row["url"]).hostname in allowed
-              lower=row["url"].lower()
-              assert not any(token in lower for token in forbidden), lower
+          for page in [data["landing"], *data["degreeViews"]]:
+              assert page["htmlBytes"] > 0
+              for row in page["safeLinks"]:
+                  assert urlparse(row["url"]).hostname in allowed
+                  lower=row["url"].lower()
+                  assert not any(token in lower for token in forbidden), lower
 
           assert list(Path("artifacts/t2cj").rglob("*.html")) == []
           assert list(Path("artifacts/t2cj").rglob("*.pdf")) == []
-          print(json.dumps(data["metrics"], ensure_ascii=False, indent=2, sort_keys=True))
+          print(json.dumps({
+              "metrics": data["metrics"],
+              "philosophySignals": data["philosophySignals"][:20],
+          }, ensure_ascii=False, indent=2, sort_keys=True))
           PY
 
       - uses: actions/upload-artifact@v4

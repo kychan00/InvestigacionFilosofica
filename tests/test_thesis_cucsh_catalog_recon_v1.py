@@ -17,7 +17,16 @@ class CucshCatalogReconV1Test(unittest.TestCase):
     def test_parser_keeps_reference_pages_and_rejects_full_text(self):
         html = """
         <html><head><title>Catálogo de Tesis | Biblioteca CUCSH</title></head><body>
-          <a href="/catalogo-de-tesis/licenciatura-en-filosofia">Licenciatura en Filosofía</a>
+          <form action="/vista-tesis-licenciatura" method="get">
+            <select name="field_programa_value" id="edit-programa">
+              <option value="">Todos</option>
+              <option value="FILOSOFIA">Licenciatura en Filosofía</option>
+            </select>
+          </form>
+          <table>
+            <tr><th>Título</th><th>Autor</th><th>Programa</th></tr>
+            <tr><td>Ética y lenguaje</td><td>Ana Pérez</td><td>Filosofía</td></tr>
+          </table>
           <a href="/?q=node%2F8243">Tesis de Filosofía</a>
           <a href="/files/tesis.pdf">PDF</a>
           <a href="https://evil.example/tesis">Externo</a>
@@ -28,8 +37,11 @@ class CucshCatalogReconV1Test(unittest.TestCase):
             base_url="https://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis",
         )
         self.assertEqual(parsed["pageTitle"], "Catálogo de Tesis | Biblioteca CUCSH")
-        self.assertEqual(len(parsed["safeLinks"]), 2)
-        self.assertEqual(len(parsed["philosophySignalLinks"]), 2)
+        self.assertEqual(len(parsed["safeLinks"]), 1)
+        self.assertEqual(len(parsed["philosophySignalLinks"]), 1)
+        self.assertEqual(len(parsed["philosophySelectOptions"]), 1)
+        self.assertEqual(len(parsed["philosophyTableRows"]), 1)
+        self.assertEqual(parsed["tableRowCount"], 2)
         self.assertEqual(parsed["rejectedAnchorLinks"], 2)
         self.assertTrue(all(".pdf" not in row["url"] for row in parsed["safeLinks"]))
 
