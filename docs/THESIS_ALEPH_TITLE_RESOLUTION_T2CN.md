@@ -99,3 +99,50 @@ Sánchez Salas. Eso no mide adecuadamente la cobertura histórica de Aleph.
 El piloto V2 selecciona primero las tres identidades verificadas de T2CM y después
 hace round-robin por década (1960s–2020s). Así la prueba incluye tesis históricas,
 intermedias y recientes sin convertir la fecha en un criterio de admisión.
+
+
+## Resultado del piloto estratificado
+
+El run sobre 24 referencias produjo:
+
+- 24 intentadas;
+- **5 resueltas**;
+- **5 con holdings físicos confirmados**;
+- 3 resueltas mediante seeds T2CM;
+- **2 descubiertas automáticamente mediante búsqueda Aleph**;
+- 19 sin resolver;
+- 0 ambiguas aceptadas.
+
+### Nuevas identidades descubiertas
+
+**Alejandro Loera García**
+
+- sistema Aleph: `000588539`;
+- biblioteca: **B.C. CUAAD**;
+- colección: `Col. Area de Tesis`;
+- clasificación: `068 MEEPA`;
+- holdings observados: ejemplar impreso y ejemplar con CD.
+
+**Jorge Lara Ramos — “José Gaos y la filosofía de la filosofía” (1973)**
+
+- sistema Aleph: `000479362`;
+- biblioteca: **B.C. CUCSH**;
+- colección: `Col. Alberto Ladrón de Guevara`;
+- clasificación: `196.1 LAT 1973`.
+
+### Qué significa el 19/24 no resuelto
+
+“No resuelto” no equivale a inexistente. En el lote aparecieron varias clases:
+
+- cero resultados tanto por título como por autor;
+- autores presentes en Aleph sólo mediante otras obras;
+- títulos Drupal con errores tipográficos;
+- referencias recientes todavía no visibles en Aleph.
+
+El resolvedor rechazó correctamente candidatos de otros libros/artículos del mismo
+autor. Por ejemplo, no confundió una obra posterior de Iker Javier Pulido Rodríguez
+con su trabajo de titulación de 2014.
+
+La siguiente fase debe ampliar cobertura por lotes y añadir estrategias de
+descubrimiento más tolerantes **sólo para generar candidatos**; la aceptación final
+seguirá exigiendo compatibilidad bibliográfica determinista.

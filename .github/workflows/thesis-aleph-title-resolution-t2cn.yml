@@ -128,7 +128,28 @@ jobs:
           assert data["selectionStrategy"]=="verified-seeds-then-decade-round-robin"
           assert data["metrics"]["attempted"] == 24
           assert data["metrics"]["seedResolved"] == 3
-          assert data["metrics"]["resolved"] <= 24
+          assert data["metrics"]["resolved"] == 5
+          assert data["metrics"]["physicalConfirmed"] == 5
+          assert data["metrics"]["seedResolved"] == 3
+          assert data["metrics"]["searchResolved"] == 2
+          assert data["metrics"]["unresolved"] == 19
+          assert data["metrics"]["ambiguous"] == 0
+
+          by_system={
+              row["systemNumber"]:row
+              for row in data["decisions"]
+              if row["status"]=="resolved"
+          }
+          assert set(by_system)=={
+              "000551988","000479311","000168319","000588539","000479362"
+          }
+          loera=by_system["000588539"]
+          assert {h["sublibrary"] for h in loera["holdings"]}=={"B.C. CUAAD"}
+          assert {h["classification"] for h in loera["holdings"]}=={"068 MEEPA"}
+          lara=by_system["000479362"]
+          assert {h["sublibrary"] for h in lara["holdings"]}=={"B.C. CUCSH"}
+          assert {h["classification"] for h in lara["holdings"]}=={"196.1 LAT 1973"}
+
           assert not list(Path("artifacts/t2cn").rglob("*.pdf"))
 
           raw=Path("artifacts/t2cn/holdings-pilot.json").read_text()
