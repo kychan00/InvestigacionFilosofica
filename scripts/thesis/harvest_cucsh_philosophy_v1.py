@@ -8,9 +8,9 @@ import hashlib
 import io
 import json
 import re
+import subprocess
 import time
 import urllib.parse
-import urllib.request
 from collections import Counter
 from html import unescape
 from html.parser import HTMLParser
@@ -55,23 +55,35 @@ def safe_url(url: str | None) -> bool:
     return value.startswith("https://") and not any(token in value for token in FORBIDDEN)
 
 
-def request_text(url: str, *, retries: int = 4, delay: float = 0.8) -> str:
-    last: Exception | None = None
+def request_text(url: str, *, retries: int = 3, delay: float = 0.8) -> str:
+    """Fetch CUCSH HTML through curl/IPv4; Azure runners can stall on urllib routing."""
+    command = [
+        "curl",
+        "-4",
+        "--fail",
+        "--location",
+        "--silent",
+        "--show-error",
+        "--compressed",
+        "--connect-timeout",
+        "15",
+        "--max-time",
+        "45",
+        "--user-agent",
+        USER_AGENT,
+        "--header",
+        "Accept: text/html,application/xhtml+xml;q=0.9,*/*;q=0.5",
+        url,
+    ]
+    last = ""
     for attempt in range(retries + 1):
-        try:
-            request = urllib.request.Request(
-                url,
-                headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.5"},
-            )
-            with urllib.request.urlopen(request, timeout=45) as response:
-                return response.read().decode("utf-8", "replace")
-        except Exception as exc:  # pragma: no cover - network path
-            last = exc
-            if attempt >= retries:
-                break
+        proc = subprocess.run(command, capture_output=True, text=True, check=False)
+        if proc.returncode == 0 and proc.stdout.strip():
+            return proc.stdout
+        last = (proc.stderr or f"curl exit {proc.returncode}").strip()
+        if attempt < retries:
             time.sleep(delay * (attempt + 1))
     raise RuntimeError(f"CUCSH request failed: {url}: {last}")
-
 
 class ThesisTableParser(HTMLParser):
     def __init__(self) -> None:
