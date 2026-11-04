@@ -194,6 +194,10 @@ export function validatePhilosophyIndex(payload) {
     payload.metrics?.records !== 233 ||
     payload.metrics?.byStatus?.include !== 231 ||
     payload.metrics?.byStatus?.review !== 2 ||
+    payload.metrics?.byRole?.["program-core"] !== 224 ||
+    payload.metrics?.byRole?.["philosophical-content"] !== 6 ||
+    payload.metrics?.byRole?.["curated-manual-classification"] !== 1 ||
+    payload.metrics?.byRole?.["program-core-candidate"] !== 2 ||
     payload.metrics?.actualProgramsRepresented !== 10 ||
     payload.cucshHistoricalInventory?.sourceRows !== 217 ||
     payload.cucshHistoricalInventory?.uniqueBibliographicIdentities !== 216 ||
@@ -237,6 +241,22 @@ export function validatePhilosophyIndex(payload) {
     ids.add(record.id);
     if (record.sourceUrl && !approvedReferenceUrl(record.sourceUrl)) {
       throw new Error("La vista de Filosofía contiene una fuente no aprobada.");
+    }
+    if (record.sourceKind === "official-cucsh-inventory") {
+      const urls = record.cucshCatalog?.catalogUrls || [];
+      if (
+        record.programRef !== "program:udg:lic-filosofia" ||
+        record.philosophyStatus !== "include" ||
+        record.philosophyRole !== "program-core" ||
+        record.physicalLocation != null ||
+        !record.cucshCatalog ||
+        !Number.isInteger(record.cucshCatalog.sourceRowCount) ||
+        record.cucshCatalog.sourceRowCount < 1 ||
+        !Array.isArray(urls) ||
+        !urls.every(approvedInstitutionalUrl)
+      ) {
+        throw new Error("Registro histórico CUCSH fuera del contrato T2CU.");
+      }
     }
     if (record.externalCorroboration) {
       const c = record.externalCorroboration;
