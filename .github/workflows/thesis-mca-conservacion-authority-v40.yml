@@ -288,10 +288,10 @@ jobs:
               item["normalizedKey"] not in resolved
               for item in queue["humanitiesActionItems"]
           )
-          assert queue["metrics"]["humanitiesActionQueueItems"] == 6
-          assert queue["metrics"]["humanitiesActionWorks"] == 14
-          assert queue["metrics"]["workReviewQueueItems"] == 3
-          assert queue["metrics"]["workReviewWorks"] == 180
+          assert queue["metrics"]["humanitiesActionQueueItems"] == 5
+          assert queue["metrics"]["humanitiesActionWorks"] == 13
+          assert queue["metrics"]["workReviewQueueItems"] == 4
+          assert queue["metrics"]["workReviewWorks"] == 181
           next_action = queue["nextHumanitiesAction"]
           assert expected["nextHumanitiesActionKey"] == "maestria en ciencias de la arquitectura"
           assert next_action["normalizedKey"] == "maestria en arquitectura orientacion arte y comunicacion"
