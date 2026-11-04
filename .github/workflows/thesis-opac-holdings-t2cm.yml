@@ -1,0 +1,105 @@
+name: Thesis OPAC holdings recon T2CM
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/probe_udg_opac_endpoints_v1.py"
+      - "tests/test_thesis_udg_opac_endpoints_v1.py"
+      - "docs/THESIS_OPAC_HOLDINGS_RECON_T2CM.md"
+      - ".github/workflows/thesis-opac-holdings-t2cm.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  opac-recon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test endpoint discovery
+        run: |
+          python -m py_compile scripts/thesis/probe_udg_opac_endpoints_v1.py
+          python -m unittest tests.test_thesis_udg_opac_endpoints_v1 -v
+
+      - name: Discover live UdeG OPAC endpoints
+        run: |
+          rm -rf artifacts/t2cm
+          mkdir -p artifacts/t2cm
+          python scripts/thesis/probe_udg_opac_endpoints_v1.py \
+            --output artifacts/t2cm/opac-endpoints.json
+
+      - name: Enforce discovery-only artifact
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          path=Path("artifacts/t2cm/opac-endpoints.json")
+          data=json.loads(path.read_text())
+          assert data["schemaVersion"]=="thesis-opac-endpoint-recon-v1"
+          assert data["revision"]=="2026-11-04.t2cm-v9"
+          assert data["referenceOnly"] is True
+          assert data["rawHtmlPersisted"] is False
+          assert data["metrics"]["seedPages"]==2
+          contract=data["cucshOpacContract"]
+          assert contract["endpoint"]=="http://148.202.248.73/F/?func=find-b-0&local_base=CUCSH"
+          assert contract["httpStatus"]==200
+          assert "CUCSH" in contract["pageTitle"]
+          assert contract["forms"], "Aleph basic-search form was not discovered"
+          assert contract["fieldNames"], "Aleph field names were not discovered"
+          assert data["metrics"]["probeTargets"] <= 3
+          samples=data["sampleSystemLookups"]
+          assert [row["systemNumber"] for row in samples]==[
+              "000551988","000479311","000168319"
+          ]
+          expected={
+              "000551988":("B.C. CU del Norte","Col. Area de Tesis","128.6 SAN 2022","CUN-121261","Disponible"),
+              "000479311":("B.C. Ciénega","Col. Area de Tesis","120 RAM 1993","CIO-094963","Disponible"),
+              "000168319":("B.C. CUCEA","Col. Area de Tesis","ECO 022 ESP","EAC-041745","Disponible"),
+          }
+          for row in samples:
+              assert "/F/" in row["sessionAction"]
+              assert row["sessionAction"] != "http://148.202.248.73/F/"
+              assert [x["localBase"] for x in row["directAttempts"]]==["CUCSH","UDG01"]
+              cucsh=next(x for x in row["directAttempts"] if x["localBase"]=="CUCSH")
+              assert cucsh["record"]["httpStatus"]==200
+              item_links=[
+                  x for x in cucsh["record"].get("relevantLinks",[])
+                  if x.get("func")=="item-global"
+              ]
+              assert item_links, "Known Aleph thesis record exposed no item-global holdings link"
+              assert cucsh["holdings"], "Known Aleph thesis exposed no structured holdings"
+              holding=cucsh["holdings"][0]
+              library,collection,classification,barcode,availability=expected[row["systemNumber"]]
+              assert holding["sublibrary"]==library
+              assert holding["collection"]==collection
+              assert holding["classification"]==classification
+              assert holding["barcode"]==barcode
+              assert holding["availability"]==availability
+
+          for row in data["candidates"]:
+              url=row["url"].lower()
+              assert ".pdf" not in url
+              assert "/bitstream" not in url
+              assert "/download" not in url
+              host=(urlparse(row["url"]).hostname or "").lower()
+              assert host.endswith(".udg.mx") or host.startswith("148.202.")
+
+          assert not list(Path("artifacts/t2cm").rglob("*.html"))
+          assert not list(Path("artifacts/t2cm").rglob("*.pdf"))
+          print(json.dumps(data["metrics"],ensure_ascii=False,indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-opac-endpoint-recon-t2cm
+          path: artifacts/t2cm/opac-endpoints.json
+          if-no-files-found: error
+          retention-days: 14
