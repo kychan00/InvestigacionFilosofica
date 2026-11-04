@@ -45,7 +45,7 @@ class T2COTest(unittest.TestCase):
     def test_no_single_word_fallback(self):
         queries = mod.strategies(row(1))
         self.assertTrue(any(code == "WAU" for code, _, _ in queries))
-        self.assertEqual(len(queries), 4)
+        self.assertEqual(len(queries), 3)
         self.assertTrue(all(len(request.split()) >= 2 for code, request, _ in queries if code == "WTI"))
 
     def test_thesis_evidence_required(self):
