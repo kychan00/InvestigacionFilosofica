@@ -207,7 +207,7 @@ export function validatePhilosophyIndex(payload) {
     payload.documentedPhilosophyPrograms.length !== 3 ||
     payload.doctoralPolicy?.exactDoctorateProgramPresent !== false
   ) {
-    throw new Error("La vista pública de Filosofía no coincide con el contrato T2CI verificado.");
+    throw new Error("La vista pública de Filosofía no coincide con el contrato T2CU verificado.");
   }
   if (payload.documentedPhilosophyPrograms.map(row => row.programRef).join("|") !== expectedPrograms.join("|")) {
     throw new Error("El conjunto de programas de Filosofía cambió sin revisión.");
