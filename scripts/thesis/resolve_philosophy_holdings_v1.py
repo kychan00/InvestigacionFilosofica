@@ -24,7 +24,7 @@ assert spec.loader is not None
 spec.loader.exec_module(opac)
 
 SCHEMA = "thesis-philosophy-holdings-resolution-v1"
-REVISION = "2026-11-04.t2cn-pilot-v1"
+REVISION = "2026-11-04.t2cn-pilot-v2"
 ROLE_WORDS = {
     "autor", "autora", "sustentante", "tesis", "tesista", "presenta",
     "licenciado", "licenciada", "maestro", "maestra", "doctor", "doctora",
@@ -373,7 +373,70 @@ def build_resolution(
         title_core(row.get("title")),
         row.get("id"),
     ))
-    batch = eligible[:limit]
+
+    # A newest-first sample badly over-represents 2014-2015. T2CN instead
+    # prioritizes already verified seeds and then round-robins across decades.
+    selected: list[dict[str, Any]] = []
+    selected_ids: set[str] = set()
+
+    seed_keys = set(seeds)
+    for row in eligible:
+        key = (
+            title_core(row.get("title")),
+            author_tokens((row.get("authors") or [""])[0]),
+        )
+        if key in seed_keys and row["id"] not in selected_ids:
+            selected.append(row)
+            selected_ids.add(row["id"])
+            if len(selected) >= limit:
+                break
+
+    decade_groups: dict[int, list[dict[str, Any]]] = {}
+    no_year: list[dict[str, Any]] = []
+    for row in eligible:
+        if row["id"] in selected_ids:
+            continue
+        year = row.get("year")
+        if isinstance(year, int):
+            decade_groups.setdefault((year // 10) * 10, []).append(row)
+        else:
+            no_year.append(row)
+
+    for rows in decade_groups.values():
+        rows.sort(key=lambda row: (
+            -(row.get("year") or 0),
+            title_core(row.get("title")),
+            row.get("id"),
+        ))
+    no_year.sort(key=lambda row: (title_core(row.get("title")), row.get("id")))
+
+    decades = sorted(decade_groups)
+    index = 0
+    while len(selected) < limit:
+        progressed = False
+        for decade in decades:
+            rows = decade_groups[decade]
+            if index < len(rows):
+                row = rows[index]
+                if row["id"] not in selected_ids:
+                    selected.append(row)
+                    selected_ids.add(row["id"])
+                    progressed = True
+                    if len(selected) >= limit:
+                        break
+        if len(selected) >= limit:
+            break
+        if index < len(no_year):
+            row = no_year[index]
+            if row["id"] not in selected_ids:
+                selected.append(row)
+                selected_ids.add(row["id"])
+                progressed = True
+        if not progressed:
+            break
+        index += 1
+
+    batch = selected[:limit]
 
     opener, action = open_session()
     decisions = []
@@ -407,6 +470,7 @@ def build_resolution(
         "sessionUrlsPersisted": False,
         "inputRevision": whereabouts.get("revision"),
         "limit": limit,
+        "selectionStrategy": "verified-seeds-then-decade-round-robin",
         "metrics": {
             "inputRecords": len(whereabouts["records"]),
             "eligibleRecords": len(eligible),

@@ -120,12 +120,14 @@ jobs:
 
           data=json.loads(Path("artifacts/t2cn/holdings-pilot.json").read_text())
           assert data["schemaVersion"]=="thesis-philosophy-holdings-resolution-v1"
-          assert data["revision"]=="2026-11-04.t2cn-pilot-v1"
+          assert data["revision"]=="2026-11-04.t2cn-pilot-v2"
           assert data["referenceOnly"] is True
           assert data["canonicalAdmissionMutation"] is False
           assert data["sessionUrlsPersisted"] is False
           assert data["metrics"]["inputRecords"] >= 233
+          assert data["selectionStrategy"]=="verified-seeds-then-decade-round-robin"
           assert data["metrics"]["attempted"] == 24
+          assert data["metrics"]["seedResolved"] == 3
           assert data["metrics"]["resolved"] <= 24
           assert not list(Path("artifacts/t2cn").rglob("*.pdf"))
 

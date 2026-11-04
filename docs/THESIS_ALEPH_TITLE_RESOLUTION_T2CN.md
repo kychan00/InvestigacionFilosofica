@@ -89,3 +89,13 @@ Orden de resolución:
 La salida nunca conserva la URL dinámica de sesión Aleph. Sólo persiste número de
 sistema y metadatos de holdings. Los candidatos con errores tipográficos, títulos
 distintos o múltiples coincidencias permanecen sin resolver.
+
+
+## Muestra estratificada — piloto V2
+
+El primer lote de 24 quedó dominado por 2014–2015 y sólo resolvió el seed de Raúl
+Sánchez Salas. Eso no mide adecuadamente la cobertura histórica de Aleph.
+
+El piloto V2 selecciona primero las tres identidades verificadas de T2CM y después
+hace round-robin por década (1960s–2020s). Así la prueba incluye tesis históricas,
+intermedias y recientes sin convertir la fecha en un criterio de admisión.
