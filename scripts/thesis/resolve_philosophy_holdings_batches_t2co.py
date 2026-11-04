@@ -83,10 +83,9 @@ def strategies(row: dict[str, Any]) -> list[tuple[str, str, str]]:
     queries = [("WTI", title, "N"), ("WTI", title, "Y"), ("WAU", author, "Y")]
     if len(terms) >= 2:
         queries.append(("WTI", " ".join(terms[:2]), "N"))
-    if terms:
-        queries.append(("WTI", terms[0], "N"))
-        # Aleph's free-text title search produces candidates independently of
-        # author matching; both fields are still checked in the full record.
+    # Do not query an isolated title word: the live OPAC systematically
+    # fills its first 10-result page, making identity adjudication incomplete.
+    # Distinctive *pairs* are discovery only; the full record still decides.
     return [(code, request, adjacent) for code, request, adjacent in queries if request]
 
 
