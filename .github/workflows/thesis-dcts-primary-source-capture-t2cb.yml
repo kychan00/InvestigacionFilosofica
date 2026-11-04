@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - "scripts/thesis/fetch_riudg_primary_source_v1.py"
+      - "scripts/thesis/stage_reference_only_evidence_v1.py"
+      - "tests/test_thesis_reference_only_evidence.py"
+      - "docs/THESIS_HUMANITIES_SOURCE_POLICY_V1.md"
       - "scripts/thesis/config/urban-territory-adjudication-batch-002-v1.json"
       - "scripts/thesis/config/urban-territory-adjudication-batch-002-reviewed-v1.json"
       - "scripts/thesis/config/urban-territory-adjudication-batch-002-reviewed-baseline-v1.json"
@@ -38,9 +41,12 @@ jobs:
         run: |
           python -m py_compile \
             scripts/thesis/fetch_riudg_primary_source_v1.py \
+            scripts/thesis/stage_reference_only_evidence_v1.py \
             scripts/thesis/build_boundary_work_review_queue_v1.py \
             scripts/thesis/build_boundary_adjudication_ledger_v1.py \
             scripts/thesis/build_effective_corpus_release_manifest_v1.py
+          python -m unittest \
+            tests/test_thesis_reference_only_evidence.py -v
           python -m unittest \
             tests/test_thesis_riudg_primary_source_fetch_t2cb.py -v
           python -m unittest \
@@ -230,16 +236,23 @@ jobs:
           print(json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True))
           PY
 
-      - name: Upload T2CB evidence
+      - name: Stage reference-only evidence and remove temporary PDF/full text
+        id: stage_evidence
         if: always()
+        run: |
+          python scripts/thesis/stage_reference_only_evidence_v1.py \
+            --source artifacts/t2cb \
+            --export artifacts/t2cb-reference-only
+
+      - name: Upload T2CB reference-only evidence
+        if: always() && steps.stage_evidence.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
-          name: thesis-dcts-primary-source-adjudication-t2cb
+          name: thesis-dcts-reference-only-evidence-t2cb
           retention-days: 14
-          if-no-files-found: warn
-          compression-level: 0
+          if-no-files-found: error
           path: |
-            artifacts/t2cb/**
+            artifacts/t2cb-reference-only/**
 
       - name: Enforce complete official capture
         if: steps.capture.outcome != 'success'
