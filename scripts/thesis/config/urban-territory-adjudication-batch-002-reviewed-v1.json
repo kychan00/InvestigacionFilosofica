@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "thesis-boundary-work-adjudication-batch-v1",
+  "batchId": "urban-territory-002-reviewed",
+  "phase": "T2CB",
+  "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "selectionMethod": "explicit-frozen-work-id-plus-verified-official-fulltext",
+  "decisionConstraint": "batch-does-not-change-admission",
+  "humanValidationRequired": true,
+  "sourceCapture": {
+    "workflowRun": 41753014224,
+    "artifactId": 13286768116,
+    "artifactDigest": "sha256:7f92a0d86805154f9e6c9aa9baad7dc0ab63d56410436260853704f7c3e5ea8c"
+  },
+  "works": [
+    {
+      "workId": "thesis:work:00024461",
+      "handle": "https://hdl.handle.net/20.500.12104/84204",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/84204",
+      "primarySourceUrl": "https://www.riudg.udg.mx/bitstream/20.500.12104/84204/1/DCUAAD10072FT.pdf",
+      "primarySourceAccess": "available",
+      "accessEvidence": "T2CB CI captured RIUdeG file DCUAAD10072FT.pdf as a real 366-page PDF and extracted its full text.",
+      "accessVerifiedDate": "2026-11-03",
+      "primarySourceSha256": "b6ae86dfbeec25fc54507e1edb240e155d8f34bbb0c6a46953259064d1c71695",
+      "primarySourcePages": 366,
+      "candidateDecision": "include-candidate",
+      "candidateDecisionBasis": "official-thesis-fulltext-reviewed",
+      "candidateDecisionRationale": "The full thesis is primarily a metatheoretical and philosophy-of-social-science inquiry into explanation in theories of Latin American popular habitat. Its research questions and objectives explicitly analyze logical organization and presuppositional content, especially ontology and epistemology; its theoretical construction is organized around Bungean systemism, Bhaskar's critical realism, Archer's structure-agency theory and mechanistic social explanation. The later urban empirical case validates the previously constructed metatheoretical/explanatory scheme rather than displacing that philosophical-conceptual research object. Under the strict humanities-only target, this work-specific disciplinary framing supports INCLUDE even though the program remains interdisciplinary REVIEW.",
+      "humanValidationStatus": "pending-user-merge"
+    },
+    {
+      "workId": "thesis:work:00024462",
+      "handle": "https://hdl.handle.net/20.500.12104/84205",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/84205",
+      "primarySourceUrl": "https://www.riudg.udg.mx/bitstream/20.500.12104/84205/1/DCUAAD10073FT.pdf",
+      "primarySourceAccess": "available",
+      "accessEvidence": "T2CB CI captured RIUdeG file DCUAAD10073FT.pdf as a real 258-page PDF and extracted its full text.",
+      "accessVerifiedDate": "2026-11-03",
+      "primarySourceSha256": "c3df45c25348fa5929d9c170446a110cdf515df1bded228475bdb3c37aacc527",
+      "primarySourcePages": 258,
+      "candidateDecision": "retain-review",
+      "candidateDecisionBasis": "official-thesis-fulltext-reviewed",
+      "candidateDecisionRationale": "The full thesis contains substantive humanities-facing interpretation of identity, collective imaginaries, appropriation, border culture and public meaning, using qualitative, hermeneutic and phenomenological elements. However, those dimensions are structurally inseparable from an urbanism/public-space research object: spatial configuration of Ciudad Juarez/El Paso, site and photographic analysis, public-space performance variables, accessibility/comfort/uses, surveys, and a final proposal of the border edge as a public-space typology. The full text therefore preserves the same genuine humanities/urbanism boundary seen at program level. Under a strict humanities-only target, the defensible work-specific judgment is to retain REVIEW rather than force INCLUDE or EXCLUDE.",
+      "humanValidationStatus": "pending-user-merge"
+    }
+  ],
+  "originWorkReviewPolicyRevision": "2026-11-03.boundary-v4"
+}

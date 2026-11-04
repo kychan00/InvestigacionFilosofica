@@ -1,0 +1,249 @@
+name: Thesis DCTS primary source adjudication T2CB
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/fetch_riudg_primary_source_v1.py"
+      - "scripts/thesis/config/urban-territory-adjudication-batch-002-v1.json"
+      - "scripts/thesis/config/urban-territory-adjudication-batch-002-reviewed-v1.json"
+      - "scripts/thesis/config/urban-territory-adjudication-batch-002-reviewed-baseline-v1.json"
+      - "tests/test_thesis_riudg_primary_source_fetch_t2cb.py"
+      - "tests/test_thesis_urban_territory_adjudication_t2cb.py"
+      - "docs/THESIS_DCTS_PRIMARY_SOURCE_CAPTURE_T2CB.md"
+      - ".github/workflows/thesis-dcts-primary-source-capture-t2cb.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install PDF tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Compile and unit regressions
+        run: |
+          python -m py_compile \
+            scripts/thesis/fetch_riudg_primary_source_v1.py \
+            scripts/thesis/build_boundary_work_review_queue_v1.py \
+            scripts/thesis/build_boundary_adjudication_ledger_v1.py \
+            scripts/thesis/build_effective_corpus_release_manifest_v1.py
+          python -m unittest \
+            tests/test_thesis_riudg_primary_source_fetch_t2cb.py -v
+          python -m unittest \
+            tests/test_thesis_urban_territory_adjudication_t2cb.py -v
+          python -m unittest \
+            tests/test_thesis_boundary_adjudication_ledger.py -v
+
+      - name: Capture official RIUdeG primary sources
+        id: capture
+        continue-on-error: true
+        run: |
+          rm -rf artifacts/t2cb
+          mkdir -p artifacts/t2cb
+          python scripts/thesis/fetch_riudg_primary_source_v1.py \
+            --batch scripts/thesis/config/urban-territory-adjudication-batch-002-v1.json \
+            --output-dir artifacts/t2cb/capture
+
+      - name: Verify captured PDF identities
+        if: steps.capture.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          capture=json.loads(
+              Path("artifacts/t2cb/capture/capture-summary.json").read_text()
+          )
+          reviewed=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "urban-territory-adjudication-batch-002-reviewed-v1.json"
+              ).read_text()
+          )
+          expected={item["workId"]:item for item in reviewed["works"]}
+          actual={item["workId"]:item for item in capture["captures"]}
+
+          assert capture["captured"] == 2
+          assert capture["unresolved"] == 0
+          assert set(actual) == set(expected)
+
+          for work_id, spec in expected.items():
+              item=actual[work_id]
+              assert item["captureStatus"] == "captured"
+              assert item["sha256"] == spec["primarySourceSha256"], (
+                  work_id,item["sha256"],spec["primarySourceSha256"]
+              )
+              assert item["pages"] == spec["primarySourcePages"], (
+                  work_id,item["pages"],spec["primarySourcePages"]
+              )
+              assert item["finalUrl"] == spec["primarySourceUrl"], (
+                  work_id,item["finalUrl"],spec["primarySourceUrl"]
+              )
+              assert item["textCharacters"] > 100000
+              assert len(item["textSha256"]) == 64
+          PY
+
+      - name: Download immutable effective corpus release
+        if: steps.capture.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/t2cb-release
+          gh release download thesis-effective-corpus-v1 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/t2cb-release
+
+          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --release-dir /tmp/t2cb-release \
+            --root-release-manifest release-manifest.json
+
+      - name: Build current work-review queue
+        if: steps.capture.outcome == 'success'
+        run: |
+          python scripts/thesis/build_boundary_work_review_queue_v1.py \
+            --canonical-corpus /tmp/t2cb-release/effective-corpus.json.gz \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --policy scripts/thesis/config/boundary-work-review-policy-v1.json \
+            --reference-year 2026 \
+            --output-dir artifacts/t2cb/work-review
+
+      - name: Build reviewed batch 002 ledger
+        if: steps.capture.outcome == 'success'
+        run: |
+          python scripts/thesis/build_boundary_adjudication_ledger_v1.py \
+            --work-review-queue artifacts/t2cb/work-review/boundary-work-review-queue.json \
+            --batch scripts/thesis/config/urban-territory-adjudication-batch-002-reviewed-v1.json \
+            --output-dir artifacts/t2cb/ledger
+
+      - name: Validate full T2CB contract
+        if: steps.capture.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import gzip
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          baseline=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "urban-territory-adjudication-batch-002-reviewed-baseline-v1.json"
+              ).read_text()
+          )
+          reviewed=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "urban-territory-adjudication-batch-002-reviewed-v1.json"
+              ).read_text()
+          )
+          with gzip.open(
+              "/tmp/t2cb-release/effective-corpus.json.gz",
+              "rt",
+              encoding="utf-8",
+          ) as stream:
+              corpus=json.load(stream)
+          queue=json.loads(
+              Path(
+                  "artifacts/t2cb/work-review/"
+                  "boundary-work-review-queue.json"
+              ).read_text()
+          )
+          ledger=json.loads(
+              Path("artifacts/t2cb/ledger/adjudication-ledger.json").read_text()
+          )
+          e=baseline["expected"]
+
+          counts=dict(
+              sorted(
+                  Counter(
+                      work["admissionStatus"]
+                      for work in corpus["works"]
+                  ).items()
+              )
+          )
+          assert counts == e["effectiveAdmission"],counts
+          assert len(corpus["works"]) == 27576
+
+          dcts=next(
+              item for item in queue["programs"]
+              if item["programRef"] == baseline["programRef"]
+          )
+          for key,value in e["dcts"].items():
+              assert dcts[key] == value,(key,dcts[key],value)
+          assert dcts["programAdmissionState"] == "review"
+
+          assert ledger["metrics"] == e["ledger"],ledger["metrics"]
+          assert ledger["decisionConstraint"] == "ledger-does-not-change-admission"
+
+          entries={entry["workId"]:entry for entry in ledger["entries"]}
+          assert entries["thesis:work:00024461"]["candidateDecision"] == "include-candidate"
+          assert entries["thesis:work:00024462"]["candidateDecision"] == "retain-review"
+          for entry in entries.values():
+              assert entry["adjudicationState"] == "candidate-proposed"
+              assert entry["humanValidationStatus"] == "pending-user-merge"
+              assert entry["projectedAdmissionStatus"] == "review"
+              assert entry["admissionChangeRequested"] is False
+
+          summary={
+              "phase":"T2CB",
+              "batchId":reviewed["batchId"],
+              "effectiveAdmission":counts,
+              "dcts":{
+                  "works":dcts["works"],
+                  "projectedAdmission":dcts["projectedAdmission"],
+                  "pendingPrimarySourceReview":dcts[
+                      "pendingPrimarySourceReview"
+                  ],
+                  "resolvedByExplicitWorkDecision":dcts[
+                      "resolvedByExplicitWorkDecision"
+                  ],
+              },
+              "candidateDecisions":ledger["metrics"]["candidateDecisions"],
+              "humanValidation":ledger["metrics"]["humanValidation"],
+              "admissionChanges":0,
+          }
+          Path("artifacts/t2cb/t2cb-summary.json").write_text(
+              json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True)
+              + "\n"
+          )
+          print(json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True))
+          PY
+
+      - name: Upload T2CB evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-dcts-primary-source-adjudication-t2cb
+          retention-days: 14
+          if-no-files-found: warn
+          compression-level: 0
+          path: |
+            artifacts/t2cb/**
+
+      - name: Enforce complete official capture
+        if: steps.capture.outcome != 'success'
+        run: |
+          echo "At least one official PDF could not be captured."
+          echo "See the uploaded fetch-attempts evidence; no candidate decision is allowed."
+          exit 1
