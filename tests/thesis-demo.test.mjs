@@ -175,7 +175,7 @@ test("philosophy public index is fail-closed to the T2CI contract", () => {
   }));
   const payload = {
     schemaVersion: "thesis-philosophy-public-index-v1",
-    revision: "2026-11-04.t2ci-v1",
+    revision: "2026-11-04.t2ct-v1",
     sourceRelease: "thesis-effective-corpus-v2",
     referenceOnly: true,
     canonicalAdmissionMutation: false,
@@ -186,10 +186,33 @@ test("philosophy public index is fail-closed to the T2CI contract", () => {
       { programRef: "program:udg:mae-estudios-filosoficos", name: "Maestría en Estudios Filosóficos", records: 3, include: 2, review: 1 },
       { programRef: "program:udg:mae-filosofia-historica", name: "Maestría en Filosofía", records: 2, include: 2, review: 0 },
     ],
-    metrics: { records: 18, byStatus: { include: 16, review: 2 }, actualProgramsRepresented: 10 },
+    metrics: { records: 18, byStatus: { include: 16, review: 2 }, actualProgramsRepresented: 10, corroboratedReviewRecords: 0 },
     records: philosophyRecords,
   };
   assert.equal(validatePhilosophyIndex(payload).records.length, 18);
+  const corroborated = {
+    ...philosophyRecords[16],
+    externalCorroboration: {
+      note: "Corroboración secundaria; identidad aún en revisión.",
+      evidenceUrls: ["https://philarchive.org/rec/GALFDL-5"],
+      identityConfirmed: false,
+      physicalLocationConfirmed: false,
+    },
+  };
+  const withCorroboration = {
+    ...payload,
+    metrics: { ...payload.metrics, corroboratedReviewRecords: 1 },
+    records: [...philosophyRecords.slice(0, 16), corroborated, philosophyRecords[17]],
+  };
+  assert.equal(validatePhilosophyIndex(withCorroboration).records.length, 18);
+  assert.throws(() => validatePhilosophyIndex({
+    ...withCorroboration,
+    records: [
+      ...withCorroboration.records.slice(0, 16),
+      { ...corroborated, externalCorroboration: { ...corroborated.externalCorroboration, physicalLocationConfirmed: true } },
+      withCorroboration.records[17],
+    ],
+  }), /T2CT/);
   assert.throws(() => validatePhilosophyIndex({ ...payload, revision: "other" }), /T2CI/);
   assert.throws(() => validatePhilosophyIndex({
     ...payload,
