@@ -454,7 +454,11 @@ def main() -> int:
     parser.add_argument("--demo-index", required=True, type=Path)
     parser.add_argument("--curated-config", required=True, type=Path)
     parser.add_argument("--supplement-config", required=True, type=Path)
-    parser.add_argument("--corroboration-config", required=True, type=Path)
+    parser.add_argument(
+        "--corroboration-config",
+        type=Path,
+        default=ROOT / "scripts/thesis/config/philosophy-external-corroboration-v1.json",
+    )
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     output = build_index(
