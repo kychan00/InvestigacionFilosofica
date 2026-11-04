@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Harvest reference-only Philosophy thesis metadata from official UdeG sources."""
+"""Harvest reference-only Philosophy thesis metadata from modern RIUdeG collections."""
 from __future__ import annotations
 
 import argparse
@@ -8,7 +8,6 @@ import hashlib
 import io
 import json
 import re
-import subprocess
 import time
 import urllib.parse
 from collections import Counter
@@ -22,18 +21,19 @@ import build_canonical_corpus_v1 as canonical
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = ROOT / "scripts/thesis/config/program-authority-v1.json"
 DEFAULT_SUPPLEMENT = ROOT / "scripts/thesis/config/philosophy-official-supplement-v1.json"
-LIBRARY_BASE = "https://www.biblioteca.cucsh.udg.mx/"
-USER_AGENT = "InvestigacionFilosofica-PhilosophyThesisHarvester/1.0 (+https://github.com/kychan00/InvestigacionFilosofica)"
+RIUDG_BASE = "https://riudg.udg.mx"
 FORBIDDEN = (".pdf", "/bitstream", "/download")
 TARGET_PROGRAM_REFS = (
     "program:udg:lic-filosofia",
     "program:udg:mae-estudios-filosoficos",
     "program:udg:mae-filosofia-historica",
 )
-LIBRARY_VIEWS = (
-    ("licenciatura", "vista-tesis-licenciatura"),
-    ("maestria", "vista-tesis-maestria"),
+RIUDG_COLLECTIONS = (
+    ("licenciatura", "20.500.12104/20979"),
+    ("maestria", "20.500.12104/34966"),
+    ("doctorado", "20.500.12104/20540"),
 )
+PAGE_SIZE = 20
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -56,36 +56,20 @@ def safe_url(url: str | None) -> bool:
 
 
 def request_text(url: str, *, retries: int = 3, delay: float = 0.8) -> str:
-    """Fetch CUCSH HTML through curl/IPv4; Azure runners can stall on urllib routing."""
-    command = [
-        "curl",
-        "-4",
-        "--fail",
-        "--location",
-        "--silent",
-        "--show-error",
-        "--compressed",
-        "--connect-timeout",
-        "15",
-        "--max-time",
-        "45",
-        "--user-agent",
-        USER_AGENT,
-        "--header",
-        "Accept: text/html,application/xhtml+xml;q=0.9,*/*;q=0.5",
-        url,
-    ]
-    last = ""
+    last: Exception | None = None
     for attempt in range(retries + 1):
-        proc = subprocess.run(command, capture_output=True, text=True, check=False)
-        if proc.returncode == 0 and proc.stdout.strip():
-            return proc.stdout
-        last = (proc.stderr or f"curl exit {proc.returncode}").strip()
-        if attempt < retries:
-            time.sleep(delay * (attempt + 1))
-    raise RuntimeError(f"CUCSH request failed: {url}: {last}")
+        try:
+            return canonical.request_text(url, timeout=45)
+        except Exception as exc:  # network retry, fail closed after bounded attempts
+            last = exc
+            if attempt < retries:
+                time.sleep(delay * (attempt + 1))
+    raise RuntimeError(f"RIUdeG request failed: {url}: {last}")
 
-class ThesisTableParser(HTMLParser):
+
+class CollectionTableParser(HTMLParser):
+    """Extract generic HTML table rows while preserving cell links."""
+
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.rows: list[list[dict[str, Any]]] = []
@@ -125,29 +109,52 @@ class ThesisTableParser(HTMLParser):
             self.cell["text"].append(data.strip())
 
 
-def parse_library_table(html_text: str, *, source_url: str, level: str) -> list[dict[str, Any]]:
-    parser = ThesisTableParser()
+def extract_handle(href: str | None) -> str | None:
+    value = urllib.parse.unquote(href or "")
+    match = re.search(r"(20\.500\.12104/\d+)", value)
+    return match.group(1) if match else None
+
+
+def parse_riudg_collection(
+    html_text: str,
+    *,
+    source_url: str,
+    level: str,
+) -> list[dict[str, Any]]:
+    parser = CollectionTableParser()
     parser.feed(html_text)
-    rows = []
+    rows: list[dict[str, Any]] = []
     for cells in parser.rows:
-        if len(cells) < 6:
+        if len(cells) < 8:
             continue
-        title, author, coauthor, director, year, program = [cell["text"] for cell in cells[:6]]
-        if normalize(title) in {"titulo", "title"} or not title or not author or not program:
+        title = cells[0]["text"]
+        authors = cells[1]["text"]
+        program = cells[5]["text"]
+        academic_unit = cells[6]["text"]
+        thesis_type = cells[7]["text"]
+        if normalize(title) in {"title", "titulo"} or not title:
             continue
-        href = next((value for value in cells[0]["hrefs"] if value), None)
-        record_url = urllib.parse.urljoin(source_url, href) if href else source_url
+        href = next(
+            (value for value in cells[0]["hrefs"] if extract_handle(value)),
+            None,
+        )
+        handle = extract_handle(href)
+        if not handle:
+            continue
+        record_url = f"{RIUDG_BASE}/handle/{handle}"
         if not safe_url(record_url):
-            raise ValueError(f"Unsafe CUCSH thesis reference URL: {record_url}")
+            raise ValueError(f"Unsafe RIUdeG item URL: {record_url}")
         rows.append(
             {
                 "level": level,
                 "title": title,
-                "authors": [value for value in (author, coauthor) if value],
-                "directors": [director] if director else [],
-                "year": year or None,
+                "authorsRaw": authors,
                 "program": program,
+                "academicUnit": academic_unit,
+                "thesisType": thesis_type,
+                "handle": handle,
                 "recordUrl": record_url,
+                "collectionUrl": source_url,
             }
         )
     return rows
@@ -229,39 +236,6 @@ def source_record(
     )
 
 
-def library_record_id(url: str, row: dict[str, Any]) -> str:
-    match = re.search(r"(?:q=)?node/(\d+)", urllib.parse.unquote(url), flags=re.IGNORECASE)
-    if match:
-        return f"node-{match.group(1)}"
-    material = "|".join(
-        [
-            row.get("program") or "",
-            row.get("title") or "",
-            ";".join(row.get("authors") or []),
-            str(row.get("year") or ""),
-            url,
-        ]
-    )
-    return "catalog-" + stable_hash(material)[:24]
-
-
-def library_to_source(row: dict[str, Any]) -> dict[str, Any]:
-    return source_record(
-        provider="cucsh-library",
-        provider_record_id=library_record_id(row["recordUrl"], row),
-        record_url=row["recordUrl"],
-        title=row["title"],
-        authors=list(row.get("authors") or []),
-        directors=list(row.get("directors") or []),
-        year=row.get("year"),
-        program=row["program"],
-        institution="Universidad de Guadalajara",
-        academic_unit="Centro Universitario de Ciencias Sociales y Humanidades",
-        thesis_type=f"Tesis de {row['level']}",
-        evidence_kind="official-cucsh-library-record",
-    )
-
-
 def seed_to_source(seed: dict[str, Any]) -> dict[str, Any]:
     return source_record(
         provider=seed["provider"],
@@ -294,96 +268,210 @@ def load_seeds(path: Path, registry: dict[str, Any]) -> list[dict[str, Any]]:
     return output
 
 
-def harvest_library(
+def is_thesis_type(value: str | None) -> bool:
+    key = normalize(value)
+    return key == "thesis" or key.startswith("tesis")
+
+
+def fetch_riudg_record(handle: str, item_url: str) -> dict[str, Any]:
+    identifier = f"oai:riudg.udg.mx:{handle}"
+    record = canonical.fetch_riudg_dim(identifier)
+    record["recordUrl"] = item_url
+    return record
+
+
+def harvest_riudg(
     registry: dict[str, Any],
     *,
-    max_pages_per_view: int | None = None,
-    delay: float = 0.35,
+    max_pages_per_collection: int | None = None,
+    delay: float = 0.15,
 ) -> dict[str, Any]:
     aliases = program_alias_index(registry)
     selected: list[dict[str, Any]] = []
     pages: list[dict[str, Any]] = []
-    seen_ids: set[str] = set()
-    for level, view in LIBRARY_VIEWS:
+    seen_source_ids: set[str] = set()
+    skipped_non_thesis = 0
+
+    for level, collection_handle in RIUDG_COLLECTIONS:
         page = 0
         previous_signature: str | None = None
         while True:
-            if max_pages_per_view is not None and page >= max_pages_per_view:
+            if max_pages_per_collection is not None and page >= max_pages_per_collection:
                 break
-            url = f"{LIBRARY_BASE}?{urllib.parse.urlencode({'q': view, 'page': page})}"
-            rows = parse_library_table(request_text(url), source_url=url, level=level)
+            offset = page * PAGE_SIZE
+            url = f"{RIUDG_BASE}/handle/{collection_handle}?offset={offset}"
+            rows = parse_riudg_collection(
+                request_text(url),
+                source_url=url,
+                level=level,
+            )
             signature = stable_hash(json.dumps(rows, ensure_ascii=False, sort_keys=True))
             if not rows or signature == previous_signature:
-                pages.append({"level": level, "page": page, "url": url, "rows": len(rows), "selected": 0, "stop": True})
+                pages.append(
+                    {
+                        "level": level,
+                        "collectionHandle": collection_handle,
+                        "offset": offset,
+                        "url": url,
+                        "rows": len(rows),
+                        "selected": 0,
+                        "stop": True,
+                    }
+                )
                 break
             previous_signature = signature
             kept = 0
             for row in rows:
-                if aliases.get(normalize(row["program"])) not in TARGET_PROGRAM_REFS:
+                program_ref = aliases.get(normalize(row["program"]))
+                if program_ref not in TARGET_PROGRAM_REFS:
                     continue
-                record = library_to_source(row)
-                if record["id"] in seen_ids:
+                if not is_thesis_type(row["thesisType"]):
+                    skipped_non_thesis += 1
                     continue
-                seen_ids.add(record["id"])
+
+                record = fetch_riudg_record(row["handle"], row["recordUrl"])
+                if not safe_url(record.get("recordUrl")):
+                    raise ValueError(f"Unsafe RIUdeG record URL: {record.get('recordUrl')}")
+                candidate = canonical.canonical_candidate(
+                    record,
+                    registry,
+                    reference_year=2026,
+                )
+                observed_ref = (candidate.get("program") or {}).get("programRef")
+                if observed_ref != program_ref or observed_ref not in TARGET_PROGRAM_REFS:
+                    raise ValueError(
+                        "RIUdeG collection/program metadata mismatch for "
+                        f"{row['handle']}: listing={program_ref} oai={observed_ref}"
+                    )
+                if candidate.get("admission", {}).get("status") != "include":
+                    raise ValueError(
+                        f"Exact Philosophy RIUdeG thesis did not resolve INCLUDE: {row['handle']}"
+                    )
+                if record["id"] in seen_source_ids:
+                    continue
+                seen_source_ids.add(record["id"])
                 selected.append(record)
                 kept += 1
-            pages.append({"level": level, "page": page, "url": url, "rows": len(rows), "selected": kept, "stop": False})
+                if delay:
+                    time.sleep(delay)
+
+            pages.append(
+                {
+                    "level": level,
+                    "collectionHandle": collection_handle,
+                    "offset": offset,
+                    "url": url,
+                    "rows": len(rows),
+                    "selected": kept,
+                    "stop": False,
+                }
+            )
             page += 1
             if delay:
                 time.sleep(delay)
-    return {"records": selected, "pages": pages}
+
+    return {
+        "records": selected,
+        "pages": pages,
+        "skippedNonThesisExactProgramRows": skipped_non_thesis,
+    }
 
 
 def bibliographic_key(record: dict[str, Any]) -> tuple[str, str, str, str]:
     title = canonical.first(canonical.field_values(record, "dc.title")) or ""
     authors = canonical.field_values(record, "dc.contributor.author")
     program = canonical.first(canonical.field_values(record, "dc.degree.name")) or ""
-    year = canonical.first(canonical.field_values(record, "dc.date.issued")) or ""
-    return normalize(title), normalize(authors[0] if authors else ""), normalize(program), str(year)[:4]
+    year = canonical.first(
+        canonical.field_values(record, "dc.date.issued", "dc.date.submitted")
+    ) or ""
+    return (
+        normalize(title),
+        normalize(authors[0] if authors else ""),
+        normalize(program),
+        str(year)[:4],
+    )
 
 
 def merge_records(*groups: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    priority = {
+        "riudg": 0,
+        "cucsh-official": 1,
+        "cucsh-library": 2,
+        "udg-official-profile": 3,
+    }
     by_key: dict[tuple[str, str, str, str], dict[str, Any]] = {}
     for record in [item for group in groups for item in group]:
         key = bibliographic_key(record)
         existing = by_key.get(key)
-        if existing is None or (
-            record["provider"] == "cucsh-library" and existing["provider"] != "cucsh-library"
+        if existing is None or priority.get(record["provider"], 99) < priority.get(
+            existing["provider"], 99
         ):
             by_key[key] = record
-    return sorted(by_key.values(), key=lambda item: (item["provider"], item["providerRecordId"]))
+    return sorted(
+        by_key.values(),
+        key=lambda item: (item["provider"], item["providerRecordId"]),
+    )
 
 
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
 
 
 def write_jsonl_gz(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("wb") as raw:
-        with gzip.GzipFile(fileobj=raw, mode="wb", compresslevel=9, mtime=0, filename="") as compressed:
+        with gzip.GzipFile(
+            fileobj=raw,
+            mode="wb",
+            compresslevel=9,
+            mtime=0,
+            filename="",
+        ) as compressed:
             with io.TextIOWrapper(compressed, encoding="utf-8", newline="") as stream:
                 for row in rows:
-                    stream.write(json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n")
+                    stream.write(
+                        json.dumps(
+                            row,
+                            ensure_ascii=False,
+                            sort_keys=True,
+                            separators=(",", ":"),
+                        )
+                        + "\n"
+                    )
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
     parser.add_argument("--supplement", type=Path, default=DEFAULT_SUPPLEMENT)
-    parser.add_argument("--output-dir", type=Path, default=Path("artifacts/thesis-philosophy-source-v1"))
-    parser.add_argument("--max-pages-per-view", type=int)
-    parser.add_argument("--delay", type=float, default=0.35)
-    parser.add_argument("--skip-library", action="store_true")
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("artifacts/thesis-philosophy-source-v1"),
+    )
+    parser.add_argument("--max-pages-per-collection", type=int)
+    parser.add_argument("--delay", type=float, default=0.15)
+    parser.add_argument("--skip-riudg", action="store_true")
     args = parser.parse_args()
 
     registry = read_json(args.registry)
     supplement = read_json(args.supplement)
     seeds = load_seeds(args.supplement, registry)
-    live = {"records": [], "pages": []}
-    if not args.skip_library:
-        live = harvest_library(registry, max_pages_per_view=args.max_pages_per_view, delay=args.delay)
+    live = {
+        "records": [],
+        "pages": [],
+        "skippedNonThesisExactProgramRows": 0,
+    }
+    if not args.skip_riudg:
+        live = harvest_riudg(
+            registry,
+            max_pages_per_collection=args.max_pages_per_collection,
+            delay=args.delay,
+        )
     records = merge_records(seeds, live["records"])
     report = {
         "schemaVersion": "thesis-philosophy-source-report-v1",
@@ -392,10 +480,13 @@ def main() -> int:
         "exactDoctorateProgramPresent": False,
         "doctoralContext": supplement["doctoralPolicy"],
         "seedRecords": len(seeds),
-        "librarySelectedRecords": len(live["records"]),
+        "riudgSelectedRecords": len(live["records"]),
         "mergedRecords": len(records),
         "providers": dict(Counter(row["provider"] for row in records)),
-        "libraryPages": live["pages"],
+        "riudgPages": live["pages"],
+        "skippedNonThesisExactProgramRows": live[
+            "skippedNonThesisExactProgramRows"
+        ],
         "referenceOnly": True,
     }
     write_jsonl_gz(args.output_dir / "source-records.jsonl.gz", records)
