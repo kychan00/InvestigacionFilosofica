@@ -44,7 +44,7 @@ jobs:
           path=Path("artifacts/t2cm/opac-endpoints.json")
           data=json.loads(path.read_text())
           assert data["schemaVersion"]=="thesis-opac-endpoint-recon-v1"
-          assert data["revision"]=="2026-11-04.t2cm-v5"
+          assert data["revision"]=="2026-11-04.t2cm-v6"
           assert data["referenceOnly"] is True
           assert data["rawHtmlPersisted"] is False
           assert data["metrics"]["seedPages"]==2
@@ -60,11 +60,13 @@ jobs:
               "000551988","000479311","000168319"
           ]
           for row in samples:
-              assert row["search"]["httpStatus"]==200
-              assert "find_code=SYS" in row["searchUrl"]
               assert "/F/" in row["sessionAction"]
               assert row["sessionAction"] != "http://148.202.248.73/F/"
-              assert "filter_request_4=" in row["searchUrl"]
+              assert [x["localBase"] for x in row["directAttempts"]]==["CUCSH","UDG01"]
+              for attempt in row["directAttempts"]:
+                  assert attempt["record"]["httpStatus"]==200
+                  assert "func=direct" in attempt["url"]
+                  assert "doc_number="+row["systemNumber"] in attempt["url"]
 
           for row in data["candidates"]:
               url=row["url"].lower()

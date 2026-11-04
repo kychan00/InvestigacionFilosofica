@@ -83,3 +83,15 @@ Cada consulta fuerza `local_base=CUCSH` y `filter_request_4=TESIS`. El probe con
 La prueba V4 confirmó que enviar parámetros directamente a `/F/` no ejecuta la búsqueda: Aleph devuelve de nuevo la pantalla básica. El formulario genera una acción dinámica `/F/<session-token>`.
 
 T2CM V5 abre el OPAC, conserva la cookie de sesión, toma la acción real del formulario y envía allí la consulta `SYS`. Para búsquedas por número de sistema no se exige el filtro histórico de formato Tesis, ya que el identificador de sistema es único y un registro antiguo podría carecer de ese clasificador.
+
+
+## Acceso directo por número de sistema — V6
+
+La búsqueda `find-b` con sesión siguió mostrando la forma básica. Aleph dispone de una vía más exacta para una identidad conocida: `func=direct&doc_number=<SYS>`.
+
+T2CM V6 abre una sesión y prueba cada número de sistema en dos bases:
+
+- `CUCSH` — catálogo local;
+- `UDG01` — catálogo general de Centros Universitarios.
+
+Luego sigue sólo enlaces institucionales de registro completo/ítems para detectar holdings. Esta vía evita búsqueda textual y conserva el número de sistema como identidad primaria.

@@ -73,6 +73,15 @@ class OpacReconTest(unittest.TestCase):
         self.assertEqual(params["request"],["000551988"])
         self.assertEqual(params["filter_request_4"],[""])
 
+    def test_direct_record_contract(self):
+        action="http://148.202.248.73:80/F/SESSION-123"
+        url=mod.direct_record_url(action,"000551988","UDG01")
+        parsed=__import__("urllib.parse").parse.urlparse(url)
+        params=__import__("urllib.parse").parse.parse_qs(parsed.query)
+        self.assertEqual(params["func"],["direct"])
+        self.assertEqual(params["doc_number"],["000551988"])
+        self.assertEqual(params["local_base"],["UDG01"])
+
     def test_candidate_safety(self):
         self.assertTrue(mod.is_safe_candidate("https://foo.udg.mx/opac"))
         self.assertTrue(mod.is_safe_candidate("http://148.202.1.2:8080/F/"))

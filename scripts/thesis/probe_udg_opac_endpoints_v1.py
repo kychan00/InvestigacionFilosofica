@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v5"
+REVISION = "2026-11-04.t2cm-v6"
 SAMPLE_SYSTEM_NUMBERS = (
     ("Raúl Sánchez Salas", "000551988"),
     ("José Antonio Ramírez Velasco", "000479311"),
@@ -391,7 +391,7 @@ def page_evidence(
     relevant_terms = (
         "número de sistema", "numero de sistema", "biblioteca", "ubicación", "ubicacion",
         "signatura", "colección", "coleccion", "ejemplar", "disponib", "items", "ítems",
-        "autor", "título", "titulo",
+        "autor", "título", "titulo", "resultado", "registro", "documento",
     )
     text = one_line(" ".join(parser.text_parts))
     snippets = []
@@ -457,6 +457,43 @@ def session_search_url(
     return form_action + separator + urllib.parse.urlencode(params)
 
 
+def direct_record_url(action: str, system_number: str, local_base: str) -> str:
+    params = urllib.parse.urlencode({
+        "func": "direct",
+        "doc_number": system_number,
+        "local_base": local_base,
+    })
+    separator = "&" if "?" in action else "?"
+    return action + separator + params
+
+
+def follow_relevant_pages(
+    start: dict[str, Any],
+    opener: urllib.request.OpenerDirector,
+    *,
+    max_pages: int = 6,
+) -> list[dict[str, Any]]:
+    followed = []
+    seen = {start["finalUrl"]}
+    queue = [row["url"] for row in start.get("relevantLinks") or []]
+    while queue and len(followed) < max_pages:
+        url = queue.pop(0)
+        if url in seen:
+            continue
+        seen.add(url)
+        try:
+            evidence = page_evidence(url, opener=opener)
+        except Exception as exc:
+            followed.append({"requestedUrl": url, "error": str(exc)})
+            continue
+        followed.append(evidence)
+        for row in evidence.get("relevantLinks") or []:
+            candidate = row["url"]
+            if candidate not in seen and candidate not in queue:
+                queue.append(candidate)
+    return followed
+
+
 def sample_system_lookup(name: str, system_number: str) -> dict[str, Any]:
     cookie_jar = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
@@ -475,26 +512,17 @@ def sample_system_lookup(name: str, system_number: str) -> dict[str, Any]:
     if not is_safe_candidate(action):
         raise ValueError("Aleph session form action left the UdeG allowlist")
 
-    query_url = session_search_url(action, system_number)
-    search = page_evidence(query_url, opener=opener)
-    followed = []
-    seen = {search["finalUrl"]}
-    queue = [row["url"] for row in search["relevantLinks"]]
-    while queue and len(followed) < 5:
-        url = queue.pop(0)
-        if url in seen:
-            continue
-        seen.add(url)
-        try:
-            evidence = page_evidence(url, opener=opener)
-        except Exception as exc:
-            followed.append({"requestedUrl": url, "error": str(exc)})
-            continue
-        followed.append(evidence)
-        for row in evidence.get("relevantLinks") or []:
-            candidate = row["url"]
-            if candidate not in seen and candidate not in queue:
-                queue.append(candidate)
+    direct_attempts = []
+    for local_base in ("CUCSH", "UDG01"):
+        url = direct_record_url(action, system_number, local_base)
+        evidence = page_evidence(url, opener=opener)
+        direct_attempts.append({
+            "localBase": local_base,
+            "url": url,
+            "record": evidence,
+            "followedPages": follow_relevant_pages(evidence, opener),
+        })
+
     return {
         "name": name,
         "systemNumber": system_number,
@@ -504,9 +532,7 @@ def sample_system_lookup(name: str, system_number: str) -> dict[str, Any]:
             "contentType": landing_ctype,
         },
         "sessionAction": action,
-        "searchUrl": query_url,
-        "search": search,
-        "followedPages": followed,
+        "directAttempts": direct_attempts,
     }
 
 
