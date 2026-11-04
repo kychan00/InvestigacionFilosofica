@@ -80,6 +80,8 @@ La primera revisión curada contiene, entre otros:
   Cooperación;
 - Salvador Daniel Escobedo — ontología de la relatividad — programa real:
   Licenciatura en Física.
+- Beatriz Eugenia Orozco Celis — Paul Ricoeur, conciencia, culpa y perdón en
+  Juan Rulfo — programa real: Maestría en Estudios de Literatura Mexicana.
 
 También conserva decisiones manuales históricas provenientes de ALEPH por su
 número de sistema, sin persistir URLs de sesión.
