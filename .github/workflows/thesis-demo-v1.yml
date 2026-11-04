@@ -84,6 +84,9 @@ jobs:
           assert len({row["id"] for row in rows})==561
           assert all(row["id"].startswith("thesis:work:") for row in rows)
           assert all(len(row["abstractExcerpt"])<=460 for row in rows)
+          assert all(row["degree"] in {"licenciatura","maestria","doctorado"}
+                     for row in rows)
+          assert all(row["program"] and row["programRef"] for row in rows)
           assert all(
               not any(key in row for key in [
                   "pdf","pdfBytes","fullText","rawText",
