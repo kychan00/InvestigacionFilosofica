@@ -104,6 +104,7 @@ class T2CVTests(unittest.TestCase):
         self.assertEqual(out["metrics"]["controlSchoolDegrees2018_2025"],8)
         self.assertEqual(out["metrics"]["knownPublicSeeds"],2)
         self.assertEqual(out["metrics"]["knownPublicSeedsMatchedInCatalog"],1)
-        self.assertEqual(out["metrics"]["philosophyLikeProgramLabels"],2)\n        self.assertEqual(out["metrics"]["philosophyLikeRows"],2)\n
+        self.assertEqual(out["metrics"]["philosophyLikeProgramLabels"],2)
+        self.assertEqual(out["metrics"]["philosophyLikeRows"],2)
 if __name__=="__main__":
     unittest.main()
