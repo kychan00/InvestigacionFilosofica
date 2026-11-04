@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "thesis-effective-corpus-release-contract-v2",
+  "revision": "2026-11-04.t2cg-v1",
+  "phase": "T2CG",
+  "releaseTag": "thesis-effective-corpus-v2",
+  "releaseTitle": "Thesis effective corpus v2 · T2CG",
+  "baseRelease": {
+    "tag": "thesis-effective-corpus-v1",
+    "jsonSha256": "0a4d24810d90f8e4c748abd0c8f3978afba6561eade46fcbf29f2bda6416b892",
+    "gzipSha256": "4e2484482be783bcb004f4a343cfede516806d56d4e56dffa4a6d20cfe3750c3"
+  },
+  "candidate": {
+    "revision": "2026-11-04.t2cf-v1",
+    "contract": "scripts/thesis/config/effective-corpus-v2-candidate-t2cf.json",
+    "approvedPullRequest": 170,
+    "approvedHeadSha": "11a2572070eeeba2672467221c879eca961494aa",
+    "mergeCommitSha": "3f22075bab222d8ac2bec4eaed0c3568a2cdf110",
+    "artifactId": 13335683726,
+    "artifactDigestSha256": "8a5878e8ca504e54ea0d7c0cae9dea88c1454ac2b8f2952be090d150c45ea7ff"
+  },
+  "effectiveCorpusSchemaVersion": "thesis-effective-corpus-v2",
+  "programAuthorityRevision": "2026-11-03.v47",
+  "metadataConfidenceRevision": "2026-11-02.v5",
+  "effectiveAdmissionRevision": "2026-11-04.t2cf-v1",
+  "workAdmissionDecisionRevision": "2026-11-03.t2cc-v2",
+  "philosophyCompletenessRevision": "2026-11-03.philosophy-v1",
+  "effectiveCorpusJsonSha256": "f8792c73471f2a54bb4ec8b38d41f4b366b16caedb4a29286f704e85c8038e13",
+  "effectiveCorpusGzipSha256": "f3a162b8de5fe371898dcf60afbf2b6383b444d56bd5709a3d4634e813255b01",
+  "worksTotal": 27580,
+  "admissionCounts": {
+    "include": 566,
+    "review": 192,
+    "quarantine": 18971,
+    "exclude": 7849,
+    "reject-source": 2
+  },
+  "changedExistingWorkIds": [
+    "thesis:work:00024461"
+  ],
+  "newWorkIds": [
+    "thesis:work:00027577",
+    "thesis:work:00027578",
+    "thesis:work:00027579",
+    "thesis:work:00027580"
+  ],
+  "preservedWorkIds": [
+    "thesis:work:00002062",
+    "thesis:work:00024462"
+  ],
+  "assets": {
+    "corpusGzip": "effective-corpus.json.gz",
+    "corpusJsonSha256": "effective-corpus.json.sha256",
+    "corpusGzipSha256": "effective-corpus.json.gz.sha256",
+    "report": "effective-corpus-report.json",
+    "manifest": "manifest.json"
+  },
+  "publicBasePath": "data/theses/effective-corpus-v2",
+  "publicManifestPath": "data/theses/effective-corpus-v2/manifest.json",
+  "publicCorpusPath": "data/theses/effective-corpus-v2/effective-corpus.json.gz"
+}

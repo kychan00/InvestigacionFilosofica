@@ -390,7 +390,7 @@ function updateSearch() {
   matchCount.textContent = visible.size.toLocaleString("es-MX");
   status.textContent = query.value.trim() || activeCluster
     ? `${visible.size.toLocaleString("es-MX")} tesis visibles · la búsqueda no altera la topología`
-    : "561 tesis · posición basada únicamente en título normalizado";
+    : `${nodes.length.toLocaleString("es-MX")} tesis · posición basada únicamente en título normalizado`;
   requestDraw();
 }
 
@@ -553,7 +553,7 @@ async function loadAtlas() {
 
     matchCount.textContent = nodes.length.toLocaleString("es-MX");
     status.textContent =
-      "561 tesis · posición basada únicamente en título normalizado";
+      `${nodes.length.toLocaleString("es-MX")} tesis · posición basada únicamente en título normalizado`;
     renderRegions();
     requestDraw();
 

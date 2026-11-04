@@ -210,7 +210,7 @@ function render() {
       makePageButton("Siguiente →", page.page + 1, page.page === page.pages),
     );
   }
-  status.textContent = "Índice bibliográfico V1 · búsqueda local, sin rastreo ni PDF almacenados";
+  status.textContent = `Índice bibliográfico ${document.querySelector("#thesis-revision").textContent} · búsqueda local, sin rastreo ni PDF almacenados`;
 }
 
 async function loadData() {
