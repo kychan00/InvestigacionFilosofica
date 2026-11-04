@@ -17,14 +17,14 @@ class EvidenceHoldTest(unittest.TestCase):
             .read_text(encoding="utf-8")
         )
         cls.hold = cls.policy["holds"][0]["programRef"]
-        cls.other = "program:udg:mae-ciencias-arquitectura-teoria-critica-arquitectura"
+        cls.other = "program:udg:test-ready-humanities-review"
 
     def make_queue(self, policy=None):
         rows = []
         obs = []
         for raw, ref, n in [
             ("Maestría En Arquitectura; Orientacion Arte Y Comunicacion", self.hold, 7),
-            ("Maestría En Arquitectura; Orientacion Teoria Y Critica De La Arquitectura", self.other, 1)
+            ("Maestría en Humanidades Aplicadas", self.other, 1)
         ]:
             rows.extend([{
                 "programRaw": raw, "academicUnitRaw": "CUAAD",
@@ -39,8 +39,18 @@ class EvidenceHoldTest(unittest.TestCase):
                 "count": n, "variants": {raw: n}, "providers": {"riudg": n},
                 "admissionStatuses": {"review": n}, "programRefs": {ref: n}
             })
+        registry = json.loads(json.dumps(self.registry))
+        registry["programs"].append({
+            "id": self.other,
+            "canonicalName": "Maestría en Humanidades Aplicadas",
+            "aliases": ["Maestría en Humanidades Aplicadas"],
+            "admissionState": "review",
+            "observedCount": 1,
+            "lifecycleState": "current",
+            "evidence": [],
+        })
         return queue.build_queue(
-            {"programs": obs}, {"works": rows}, self.registry,
+            {"programs": obs}, {"works": rows}, registry,
             work_review_policy={"programs": []},
             evidence_hold_policy=self.policy if policy is None else policy,
         )
