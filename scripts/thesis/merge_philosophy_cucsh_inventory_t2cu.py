@@ -96,10 +96,9 @@ def collapse_inventory(rows:list[dict[str,Any]])->tuple[list[dict[str,Any]],list
         item=json.loads(json.dumps(chosen,ensure_ascii=False))
         urls=[]
         for row in bucket:
-            for field in ("recordUrl","catalogPageUrl"):
-                safe=safe_cucsh_url(row.get(field))
-                if safe and safe not in urls:
-                    urls.append(safe)
+            safe=safe_cucsh_url(row.get("recordUrl"))
+            if safe and safe not in urls:
+                urls.append(safe)
         item["catalogUrls"]=urls
         item["sourceRowCount"]=len(bucket)
         unique.append(item)
