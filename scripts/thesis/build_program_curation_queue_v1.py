@@ -137,6 +137,7 @@ def aggregate_work_dimensions(
                 "admissionStatuses": Counter(),
                 "programMetadataConfidenceStates": Counter(),
                 "programAuthorityApplicability": Counter(),
+                "explicitWorkDecisions": 0,
                 "works": 0,
             },
         )
@@ -167,6 +168,8 @@ def aggregate_work_dimensions(
         item["admissionStatuses"][
             work.get("admissionStatus") or "unknown"
         ] += 1
+        if work.get("workAdmissionDecision"):
+            item["explicitWorkDecisions"] += 1
 
         evidence = work.get("programMetadataEvidence") or {}
         item["programMetadataConfidenceStates"][
@@ -526,6 +529,7 @@ def build_queue(
                 "admissionStatuses": Counter(),
                 "programMetadataConfidenceStates": Counter(),
                 "programAuthorityApplicability": Counter(),
+                "explicitWorkDecisions": 0,
                 "works": 0,
             },
         )
@@ -568,6 +572,18 @@ def build_queue(
             if authority
             else None
         )
+        pending_work_review_works = 0
+        if work_review:
+            if int(extra.get("explicitWorkDecisions") or 0) > 0:
+                pending_work_review_works = int(
+                    extra["admissionStatuses"].get("review", 0)
+                )
+            else:
+                # Preserve historical queue semantics for audit fixtures and
+                # pre-work-decision snapshots: observed row count is the
+                # authoritative pending count until an explicit work decision
+                # exists for that program.
+                pending_work_review_works = int(row.get("count") or 0)
         lane = curation_lane(
             state=state,
             priority=priority,
@@ -628,15 +644,26 @@ def build_queue(
                     "admissionInvariant": work_review.get(
                         "admissionInvariant"
                     ),
+                    "pendingWorks": pending_work_review_works,
+                    "resolvedWorks": max(
+                        0,
+                        int(row.get("count") or 0)
+                        - pending_work_review_works,
+                    ),
                 }
                 if work_review
                 else None
             ),
-            "evidenceNeeds": evidence_needs(
-                state=state,
-                authority=authority,
-                years=years,
-                work_review=work_review is not None,
+            "evidenceNeeds": (
+                ["work-level-adjudication-complete"]
+                if work_review is not None
+                and pending_work_review_works == 0
+                else evidence_needs(
+                    state=state,
+                    authority=authority,
+                    years=years,
+                    work_review=work_review is not None,
+                )
             ),
             "decisionConstraint": (
                 "priority-does-not-change-admission"
@@ -695,9 +722,19 @@ def build_queue(
                 item
                 for item in items
                 if item.get("curationLane") == "work-level-review"
+                and int(
+                    (item.get("workReview") or {}).get("pendingWorks") or 0
+                ) > 0
             ),
             start=1,
         )
+    ]
+
+    work_review_complete_items = [
+        item
+        for item in items
+        if item.get("curationLane") == "work-level-review"
+        and int((item.get("workReview") or {}).get("pendingWorks") or 0) == 0
     ]
 
     band_counts = Counter(item["priority"]["band"] for item in items)
@@ -737,7 +774,13 @@ def build_queue(
             "humanitiesReadyWorks": sum(item["count"] for item in ready_items),
             "workReviewQueueItems": len(work_review_items),
             "workReviewWorks": sum(
-                item["count"] for item in work_review_items
+                int((item.get("workReview") or {}).get("pendingWorks") or 0)
+                for item in work_review_items
+            ),
+            "workReviewCompletedQueueItems": len(work_review_complete_items),
+            "workReviewCompletedWorks": sum(
+                int((item.get("workReview") or {}).get("resolvedWorks") or 0)
+                for item in work_review_complete_items
             ),
             "deferredHighImpactItems": sum(
                 1
@@ -753,6 +796,7 @@ def build_queue(
         "items": items,
         "humanitiesActionItems": humanities_action_items,
         "workReviewItems": work_review_items,
+        "workReviewCompletedItems": work_review_complete_items,
         "evidenceHoldItems": held_items,
         "humanitiesReadyItems": ready_items,
         "evidenceHoldPolicyRevision": evidence_hold_policy.get("policyRevision"),

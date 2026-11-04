@@ -51,7 +51,7 @@ jobs:
             --output-corpus artifacts/thesis-t2bm/canonical-confidence.json \
             --output-report artifacts/thesis-t2bm/confidence-projection.json
 
-      - name: Reproject V41 and queue
+      - name: Reproject V47 and queue
         run: |
           python - <<'PY'
           import json
@@ -74,10 +74,10 @@ jobs:
               observed, projection["programDimensions"]
           )
           queue = curation.build_queue(projected_observed, projected, registry)
-          (root / "canonical-v41.json").write_text(
+          (root / "canonical-v47.json").write_text(
               json.dumps(projected, ensure_ascii=False)
           )
-          (root / "queue-v41.json").write_text(
+          (root / "queue-v47.json").write_text(
               json.dumps(queue, ensure_ascii=False)
           )
           PY
@@ -89,20 +89,20 @@ jobs:
           from collections import Counter
           from pathlib import Path
           p = Path("artifacts/thesis-t2bm")
-          corpus = json.loads((p / "canonical-v41.json").read_text())
-          queue = json.loads((p / "queue-v41.json").read_text())
+          corpus = json.loads((p / "canonical-v47.json").read_text())
+          queue = json.loads((p / "queue-v47.json").read_text())
           assert len(corpus["works"]) == 27576
           counts = dict(Counter(w["admissionStatus"] for w in corpus["works"]))
           assert counts == {
-              "include": 559, "review": 225, "quarantine": 18971,
-              "exclude": 7819, "reject-source": 2
+              "include": 560, "review": 194, "quarantine": 18971,
+              "exclude": 7849, "reject-source": 2
           }, counts
           m = queue["metrics"]
           expected = {
-              "humanitiesActionQueueItems": 12, "humanitiesActionWorks": 73,
+              "humanitiesActionQueueItems": 5, "humanitiesActionWorks": 13,
               "evidenceHoldQueueItems": 5, "evidenceHoldWorks": 13,
-              "humanitiesReadyQueueItems": 7, "humanitiesReadyWorks": 60,
-              "workReviewQueueItems": 1, "workReviewWorks": 152
+              "humanitiesReadyQueueItems": 0, "humanitiesReadyWorks": 0,
+              "workReviewQueueItems": 4, "workReviewWorks": 181
           }
           for name, value in expected.items():
               assert m[name] == value, (name, m[name], value)
@@ -111,18 +111,13 @@ jobs:
           assert {x["authority"]["id"] for x in held} == {ref}
           assert all(x["authority"]["admissionState"] == "review" for x in held)
           ready = queue["nextHumanitiesReadyAction"]
-          assert ready and (ready.get("authority") or {}).get("id") != ref
+          assert ready is None
           assert queue["nextHumanitiesAction"]["authority"]["id"] == ref
           report = {
               "phase": "T2BM", "decision": "research-scheduling-hold-only",
               "globalAdmission": counts,
               "metrics": expected,
-              "nextHumanitiesReadyAction": {
-                  k: ready.get(k) for k in (
-                      "normalizedKey", "count", "authority",
-                      "observedYears", "observedUnits", "evidenceNeeds"
-                  )
-              },
+              "nextHumanitiesReadyAction": None,
           }
           (p / "evidence-ready-report.json").write_text(
               json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n"

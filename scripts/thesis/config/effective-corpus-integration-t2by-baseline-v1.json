@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "thesis-effective-corpus-integration-baseline-v1",
+  "phase": "T2BY",
+  "baseMainSha": "b1d4d646be5772f1e79d6866774ebc49b791b640",
+  "programAuthorityRevision": "2026-11-03.v47",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "metadataConfidenceRevision": "2026-11-02.v5",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "workAdmissionDecisionRevision": "2026-11-03.t2bx-v1",
+  "targetWorkId": "thesis:work:00002062",
+  "targetProgramRef": "program:udg:mae-estudios-genero",
+  "expected": {
+    "totalWorks": 27576,
+    "programProjectedAdmission": {
+      "include": 560,
+      "review": 194,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "effectiveAdmission": {
+      "include": 561,
+      "review": 193,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "changedWorkIds": [
+      "thesis:work:00002062"
+    ],
+    "workReview": {
+      "programs": 4,
+      "workItems": 180,
+      "pendingPrimarySourceReview": 180,
+      "resolvedByExplicitWorkDecision": 1,
+      "projectedAdmission": {
+        "include": 1,
+        "review": 180
+      }
+    },
+    "curation": {
+      "humanitiesActionQueueItems": 5,
+      "humanitiesActionWorks": 13,
+      "humanitiesReadyQueueItems": 0,
+      "humanitiesReadyWorks": 0,
+      "evidenceHoldQueueItems": 5,
+      "evidenceHoldWorks": 13,
+      "workReviewQueueItems": 3,
+      "workReviewWorks": 180,
+      "workReviewCompletedQueueItems": 1,
+      "workReviewCompletedWorks": 1
+    }
+  }
+}
