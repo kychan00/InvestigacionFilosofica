@@ -153,6 +153,23 @@ class ThesisDemoIndexV1Test(unittest.TestCase):
         self.assertIsNone(first["sourceUrl"])
         self.assertIsNone(first["handle"])
 
+    def test_uses_current_pinned_authority_metadata_for_degree(self):
+        corpus, contract = fixture()
+        corpus["programAuthorities"] = []
+        registry = {
+            "registryRevision": "2026-11-03.v47",
+            "programs": [
+                {"id": "program:udg:filosofia",
+                 "canonicalName": "Licenciatura en Filosofía",
+                 "level": "licenciatura"},
+            ],
+        }
+        data = demo.build_index(corpus, contract, registry=registry)
+        self.assertEqual({x["degree"] for x in data["records"]}, {"licenciatura"})
+        registry["registryRevision"] = "outdated"
+        with self.assertRaisesRegex(ValueError, "Demo registry Program Authority"):
+            demo.build_index(corpus, contract, registry=registry)
+
     def test_duplicate_ids_are_rejected(self):
         corpus, contract = fixture()
         corpus["works"][1]["id"] = corpus["works"][0]["id"]
