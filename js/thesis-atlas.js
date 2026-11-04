@@ -553,7 +553,7 @@ async function loadAtlas() {
 
     matchCount.textContent = nodes.length.toLocaleString("es-MX");
     status.textContent =
-      "561 tesis · posición basada únicamente en título normalizado";
+      `${nodes.length.toLocaleString("es-MX")} tesis · posición basada únicamente en título normalizado`;
     renderRegions();
     requestDraw();
 
