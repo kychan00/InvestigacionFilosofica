@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "thesis-effective-corpus-release-contract-v1",
+  "revision": "2026-11-03.t2bz-v1",
+  "phase": "T2BZ",
+  "releaseTag": "thesis-effective-corpus-v1",
+  "releaseTitle": "Thesis effective corpus v1 · T2BZ",
+  "sourceArtifactId": 13099541204,
+  "sourceCanonicalCorpusSha256": "65d9e345cfc7a35100dd0851500d18f42f2ac6f3d31db23c72f309c854f7351f",
+  "t2byEvidenceArtifactId": 13284029006,
+  "t2byEvidenceArchiveSha256": "2ad27acc172a6d52bb2378863e47a7c3d39400c233bdcead9cc9fb78eda0a2e6",
+  "effectiveCorpusSchemaVersion": "thesis-effective-corpus-v1",
+  "programAuthorityRevision": "2026-11-03.v47",
+  "metadataConfidenceRevision": "2026-11-02.v5",
+  "workAdmissionDecisionRevision": "2026-11-03.t2bx-v1",
+  "effectiveCorpusJsonSha256": "0a4d24810d90f8e4c748abd0c8f3978afba6561eade46fcbf29f2bda6416b892",
+  "effectiveCorpusGzipSha256": "4e2484482be783bcb004f4a343cfede516806d56d4e56dffa4a6d20cfe3750c3",
+  "worksTotal": 27576,
+  "admissionCounts": {
+    "include": 561,
+    "review": 193,
+    "quarantine": 18971,
+    "exclude": 7849,
+    "reject-source": 2
+  },
+  "changedWorkIds": [
+    "thesis:work:00002062"
+  ],
+  "assets": {
+    "corpusGzip": "effective-corpus.json.gz",
+    "corpusJsonSha256": "effective-corpus.json.sha256",
+    "corpusGzipSha256": "effective-corpus.json.gz.sha256",
+    "report": "effective-corpus-report.json",
+    "manifest": "manifest.json"
+  },
+  "publicBasePath": "data/theses/effective-corpus-v1",
+  "publicManifestPath": "data/theses/effective-corpus-v1/manifest.json",
+  "publicCorpusPath": "data/theses/effective-corpus-v1/effective-corpus.json.gz"
+}
