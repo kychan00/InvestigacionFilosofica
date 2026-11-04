@@ -380,6 +380,22 @@ jobs:
           }
           assert data["metrics"]["actualProgramsRepresented"]==10
           assert data["metrics"]["corroboratedReviewRecords"]==2
+          assert data["cucshHistoricalInventory"]["sourceRows"]==217
+          assert data["cucshHistoricalInventory"]["uniqueBibliographicIdentities"]==216
+          assert data["cucshHistoricalInventory"]["duplicateSourceRowsCollapsed"]==1
+          assert data["cucshHistoricalInventory"]["duplicateGroups"]==1
+          assert data["cucshHistoricalInventory"]["exactMergesWithT2CT"]==1
+          assert data["cucshHistoricalInventory"]["newPublicReferences"]==215
+          assert data["cucshHistoricalInventory"]["unknownYearReferences"]==2
+          assert data["cucshHistoricalInventory"]["physicalHoldingsClaimed"] is False
+          programs={row["programRef"]:row for row in data["documentedPhilosophyPrograms"]}
+          assert programs["program:udg:lic-filosofia"]=={
+              "programRef":"program:udg:lic-filosofia",
+              "name":"Licenciatura en Filosofía",
+              "records":221,
+              "include":220,
+              "review":1,
+          }
           assert [row["programRef"] for row in data["documentedPhilosophyPrograms"]]==[
               "program:udg:lic-filosofia",
               "program:udg:mae-estudios-filosoficos",
