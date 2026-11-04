@@ -300,6 +300,16 @@ def build_report(
     current_2018_2025=[
         r for r in current if r.get("year") is not None and 2018<=r["year"]<=2025
     ]
+    program_counts=Counter(
+        str(row.get("programRaw") or "").strip()
+        for row in crawl["rows"]
+        if str(row.get("programRaw") or "").strip()
+    )
+    philosophy_like={
+        label:count
+        for label,count in program_counts.items()
+        if "filosof" in norm(label)
+    }
     return {
         "schemaVersion":SCHEMA,
         "revision":REVISION,
@@ -324,7 +334,12 @@ def build_report(
             "controlSchoolDegrees2018_2025":control["total2018_2025"],
             "knownPublicSeeds":len(seeds),
             "knownPublicSeedsMatchedInCatalog":sum(m["catalogMatch"] for m in matches),
+            "distinctProgramLabels":len(program_counts),
+            "philosophyLikeProgramLabels":len(philosophy_like),
+            "philosophyLikeRows":sum(philosophy_like.values()),
         },
+        "programVariants":dict(sorted(program_counts.items(),key=lambda item:(-item[1],norm(item[0])))),
+        "philosophyLikeProgramVariants":dict(sorted(philosophy_like.items(),key=lambda item:(-item[1],norm(item[0])))),
         "controlSchool":control,
         "serverFilteredCatalogue":filters,
         "knownPublicSeeds":matches,
