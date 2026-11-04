@@ -30,7 +30,7 @@ class T2CSTests(unittest.TestCase):
 
     def test_lineage_cannot_be_upgraded_to_exact_identity(self):
         bad=json.loads(json.dumps(self.data))
-        row=next(r for r in bad["records"] if "lineage" in r["corroborationStatus"])
+        row=next(r for r in bad["records"] if any("lineage" in str(v) for v in r["claims"].values()))
         row["claims"]["workExistence"]="corroborated"
         with self.assertRaises(ValueError):
             mod.validate(bad)
