@@ -5,7 +5,7 @@ import {
   pageSlice,
   searchTheses,
   validateIndex,
-} from "../src/core/thesis-demo-search.js";
+} from "../src/core/thesis-demo-search.js?v=20261104-t2ch";
 
 const root = document.querySelector("#thesis-demo");
 const form = document.querySelector("#thesis-search");
@@ -228,6 +228,8 @@ async function loadData() {
     makeSelectOptions(filters.unit, filterOptions(allRecords, "unit"));
     document.querySelector("#thesis-total").textContent =
       data.totalIncluded.toLocaleString("es-MX");
+    document.querySelector("#thesis-canonical-total").textContent =
+      data.totalCanonical.toLocaleString("es-MX");
     document.querySelector("#thesis-revision").textContent = data.sourceRelease;
 
     const params = new URLSearchParams(location.search);

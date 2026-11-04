@@ -8,7 +8,7 @@ function mockAtlas() {
   const clusters = Array.from({ length: 8 }, (_, index) => ({
     id: `cluster:thesis-atlas-v1:${String(index + 1).padStart(3, "0")}`,
     level: "topic",
-    memberCount: index < 7 ? 70 : 71,
+    memberCount: index < 6 ? 71 : 70,
     proposedLabels: [{
       label: [
         "fenomenología · cuerpo",
@@ -33,8 +33,8 @@ function mockAtlas() {
     buildRevision: "2026-11-03.t5aa-v1",
   }));
 
-  const nodes = Array.from({ length: 561 }, (_, index) => {
-    const angle = index / 561 * Math.PI * 16;
+  const nodes = Array.from({ length: 566 }, (_, index) => {
+    const angle = index / 566 * Math.PI * 16;
     const radius = .16 + (index % 41) / 41 * .78;
     const cluster = clusters[index % clusters.length];
     const id = `thesis:work:${String(index).padStart(8, "0")}`;
@@ -63,7 +63,7 @@ function mockAtlas() {
       },
       neighborhood: {
         neighborRefs: Array.from({ length: 8 }, (_, offset) =>
-          `thesis:work:${String((index + offset + 1) % 561).padStart(8, "0")}`
+          `thesis:work:${String((index + offset + 1) % 566).padStart(8, "0")}`
         ),
         similarityValues: Array.from({ length: 8 }, (_, offset) => .92 - offset * .035),
         metric: "cosine",
@@ -90,7 +90,7 @@ function mockAtlas() {
     revision: "2026-11-03.t5aa-v1",
     methodStatus: "experimental-not-benchmark-approved",
     referenceOnly: true,
-    sourceRelease: "thesis-effective-corpus-v1",
+    sourceRelease: "thesis-effective-corpus-v2",
     topologyInputContract: {
       version: "normalized-title-v1",
       fields: ["title"],
@@ -143,7 +143,7 @@ try {
       { waitUntil: "networkidle" },
     );
     await page.waitForFunction(() =>
-      document.querySelector("#atlas-node-count")?.textContent === "561"
+      document.querySelector("#atlas-node-count")?.textContent === "566"
     );
 
     assert.equal(await page.locator("#atlas-cluster-count").innerText(), "8");
@@ -162,7 +162,7 @@ try {
 
     await page.locator("#atlas-query").fill("historia memoria");
     await page.waitForTimeout(80);
-    assert.equal(await page.locator("#atlas-match-count").innerText(), "280");
+    assert.equal(await page.locator("#atlas-match-count").innerText(), "283");
 
     await page.locator("#atlas-overlay").selectOption("degree");
     assert.match(await page.locator("#atlas-overlay-label").innerText(), /grado/);
@@ -174,7 +174,7 @@ try {
     assert.notEqual(afterZoom, beforeZoom);
 
     await page.locator("#atlas-reset-view").click();
-    assert.equal(await page.locator("#atlas-match-count").innerText(), "561");
+    assert.equal(await page.locator("#atlas-match-count").innerText(), "566");
 
     await page.locator('[data-theme-choice="light"]').click();
     assert.equal(await page.locator("html").getAttribute("data-theme"), "light");

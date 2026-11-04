@@ -64,20 +64,34 @@ export function approvedInstitutionalUrl(input) {
   if (!input || typeof input !== "string") return null;
   try {
     const link = new URL(input);
+    const host = link.hostname.toLowerCase();
     const hosts = new Set([
       "hdl.handle.net",
       "riudg.udg.mx",
       "www.riudg.udg.mx",
       "biblioteca.udgvirtual.udg.mx",
+      "editorial.udg.mx",
+      "biblioteca.cucsh.udg.mx",
+      "www.biblioteca.cucsh.udg.mx",
+      "cucsh.udg.mx",
+      "www.cucsh.udg.mx",
     ]);
     if (
       link.protocol !== "https:" ||
-      !hosts.has(link.hostname.toLowerCase()) ||
+      !hosts.has(host) ||
       link.username || link.password ||
-      !link.pathname || link.pathname === "/" ||
+      !["", "443"].includes(link.port) ||
       /\.pdf$|\/bitstreams?\/|\/download\/?$/i.test(link.pathname)
     ) return null;
-    return link.href;
+    if (link.pathname && link.pathname !== "/") return link.href;
+    if (host === "biblioteca.cucsh.udg.mx" || host === "www.biblioteca.cucsh.udg.mx") {
+      const keys = [...link.searchParams.keys()];
+      const values = link.searchParams.getAll("q");
+      if (keys.length === 1 && keys[0] === "q" && values.length === 1 && /^node\/\d+$/i.test(values[0])) {
+        return link.href;
+      }
+    }
+    return null;
   } catch {
     return null;
   }
@@ -87,13 +101,13 @@ export function validateIndex(payload) {
   if (
     !payload ||
     payload.schemaVersion !== "thesis-demo-index-v1" ||
-    payload.sourceRelease !== "thesis-effective-corpus-v1" ||
+    payload.sourceRelease !== "thesis-effective-corpus-v2" ||
     payload.referenceOnly !== true ||
-    payload.totalIncluded !== 561 ||
+    payload.totalIncluded !== 566 ||
     !Array.isArray(payload.records) ||
     payload.records.length !== payload.totalIncluded
   ) {
-    throw new Error("El índice bibliográfico no coincide con la release V1 verificada.");
+    throw new Error("El índice bibliográfico no coincide con la release V2 verificada.");
   }
   const ids = new Set();
   for (const record of payload.records) {
