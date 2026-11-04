@@ -160,6 +160,21 @@ def projected_target_works(
         if canonical.normalize_key(work.get("programRaw")) not in target_keys:
             continue
         projection = coverage.project_work_admission(work, registry)
+        explicit = work.get("workAdmissionDecision") or {}
+        if explicit:
+            if explicit.get("newStatus") != work.get("admissionStatus"):
+                raise ValueError(
+                    f"Work admission decision/status mismatch: {work.get('id')}"
+                )
+            if work.get("admissionStatus") not in {"include", "exclude"}:
+                raise ValueError(
+                    f"Resolved work decision has unsupported status: {work.get('id')}"
+                )
+            projection = {
+                **projection,
+                "status": work["admissionStatus"],
+                "explanationCode": "explicit-work-primary-source-adjudication",
+            }
         program = projection.get("program") or {}
         if program.get("programRef") != program_ref:
             raise ValueError(
@@ -252,10 +267,6 @@ def build_queue(
             dates[date_quality] += 1
 
             global_admission[status] += 1
-            global_applicability[applicability_state] += 1
-            global_confidence[confidence_state] += 1
-            global_units[unit] += 1
-            global_date_quality[date_quality] += 1
 
             has_abstract = bool(str(abstract).strip())
             has_keywords = bool(keywords)
@@ -266,13 +277,18 @@ def build_queue(
             handles_available += int(handle is not None)
             contributors_available += int(has_contributors)
 
-            total_abstract += int(has_abstract)
-            total_keywords += int(has_keywords)
-            total_handles += int(handle is not None)
-            total_contributors += int(has_contributors)
+            if status == "review":
+                global_applicability[applicability_state] += 1
+                global_confidence[confidence_state] += 1
+                global_units[unit] += 1
+                global_date_quality[date_quality] += 1
+                total_abstract += int(has_abstract)
+                total_keywords += int(has_keywords)
+                total_handles += int(handle is not None)
+                total_contributors += int(has_contributors)
 
-            all_items.append(
-                {
+                all_items.append(
+                    {
                     "workId": work.get("id"),
                     "programRef": program_ref,
                     "title": work.get("title"),
@@ -302,10 +318,11 @@ def build_queue(
                     "prohibitedAsSoleDecisionBasis": list(
                         policy_program["prohibitedAsSoleDecisionBasis"]
                     ),
-                    "decisionConstraint": policy["decisionConstraint"],
-                }
-            )
+                        "decisionConstraint": policy["decisionConstraint"],
+                    }
+                )
 
+        pending = int(admission.get("review", 0))
         program_summaries.append(
             {
                 "programRef": program_ref,
@@ -329,7 +346,8 @@ def build_queue(
                 "keywordsAvailable": keywords_available,
                 "handleAvailable": handles_available,
                 "contributorsAvailable": contributors_available,
-                "pendingPrimarySourceReview": len(selected),
+                "pendingPrimarySourceReview": pending,
+                "resolvedByExplicitWorkDecision": len(selected) - pending,
                 "automaticAdmissionDecisions": 0,
                 "admissionChanges": 0,
             }
@@ -371,6 +389,10 @@ def build_queue(
             "handleAvailable": total_handles,
             "contributorsAvailable": total_contributors,
             "pendingPrimarySourceReview": len(all_items),
+            "resolvedByExplicitWorkDecision": sum(
+                int(program["resolvedByExplicitWorkDecision"])
+                for program in program_summaries
+            ),
             "automaticAdmissionDecisions": 0,
             "admissionChanges": 0,
         },
