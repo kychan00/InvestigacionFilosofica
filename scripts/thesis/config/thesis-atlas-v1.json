@@ -29,7 +29,7 @@
     "maxDf": 0.92,
     "maxFeatures": 12000,
     "sublinearTf": true,
-    "stripAccents": "unicode",
+    "stripAccents": null,
     "stopWordsRevision": "atlas-stopwords-v1",
     "svdDimensions": 64,
     "normalization": "l2"
