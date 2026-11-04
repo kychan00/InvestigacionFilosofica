@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "thesis-effective-corpus-v2-candidate-contract-v1",
+  "revision": "2026-11-04.t2cf-v1",
+  "phase": "T2CF",
+  "publicationState": "candidate-not-release",
+  "targetScope": "humanities-only",
+  "baseEffectiveRelease": {
+    "tag": "thesis-effective-corpus-v1",
+    "jsonSha256": "0a4d24810d90f8e4c748abd0c8f3978afba6561eade46fcbf29f2bda6416b892",
+    "gzipSha256": "4e2484482be783bcb004f4a343cfede516806d56d4e56dffa4a6d20cfe3750c3",
+    "works": 27576,
+    "admission": {
+      "include": 561,
+      "review": 193,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    }
+  },
+  "programAuthorityRevision": "2026-11-03.v47",
+  "dcts": {
+    "decisionsConfig": "scripts/thesis/config/work-admission-decisions-v2.json",
+    "decisionRevision": "2026-11-03.t2cc-v2",
+    "activatedWorkId": "thesis:work:00024461",
+    "retainReviewWorkId": "thesis:work:00024462",
+    "preservedApprovedWorkId": "thesis:work:00002062",
+    "expectedDelta": {
+      "include": 1,
+      "review": -1
+    }
+  },
+  "philosophy": {
+    "supplementConfig": "scripts/thesis/config/philosophy-official-supplement-v1.json",
+    "supplementRevision": "2026-11-03.philosophy-v1",
+    "approval": {
+      "pullRequest": 169,
+      "merged": true,
+      "approvedHeadSha": "802775b5c568a7c7f93ec7eca9bef97c0f01a198",
+      "mergeCommitSha": "90a41c625ce4643e0707b95a999f5aeebfe4e4f2"
+    },
+    "expectedSeedRecords": 4,
+    "expectedNewWorks": 4,
+    "expectedProviderRecordIds": [
+      "editorial-udg-author-6427-philosophy-thesis-2004",
+      "node-8243",
+      "mef-thesis-2024-carlos-itzcoatl-enciso-duran",
+      "mef-thesis-2024-santiago-juarez-salazar"
+    ],
+    "targetProgramRefs": [
+      "program:udg:lic-filosofia",
+      "program:udg:mae-estudios-filosoficos",
+      "program:udg:mae-filosofia-historica"
+    ]
+  },
+  "expected": {
+    "works": 27580,
+    "admission": {
+      "include": 566,
+      "review": 192,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "newWorkIds": [
+      "thesis:work:00027577",
+      "thesis:work:00027578",
+      "thesis:work:00027579",
+      "thesis:work:00027580"
+    ],
+    "dctsExistingWorkChanges": [
+      "thesis:work:00024461"
+    ],
+    "baseWorksPreserved": 27576
+  },
+  "invariants": {
+    "referenceOnly": true,
+    "canonicalProgramTruthPreserved": true,
+    "curatedInterdisciplinaryViewNotCanonicalized": true,
+    "immutableV1NotMutated": true,
+    "programAuthorityNotMutated": true,
+    "noReleasePublication": true,
+    "noPagesPublication": true
+  }
+}
