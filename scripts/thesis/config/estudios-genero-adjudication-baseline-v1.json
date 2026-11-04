@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "thesis-estudios-genero-adjudication-baseline-v1",
+  "phase": "T2BW",
+  "programAuthorityRevision": "2026-11-03.v47",
+  "scopePolicyRevision": "2026-11-02.v5",
+  "programMetadataEvidenceRevision": "2026-11-02.v5",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "programRef": "program:udg:mae-estudios-genero",
+  "workId": "thesis:work:00002062",
+  "sourceFullArtifactId": 13099541204,
+  "discoveryRunId": 41741199786,
+  "discoveryArtifactId": 13281830473,
+  "discoveryArtifactSha256": "0623ec52102acf5b8117ea11373f4225a8e5f1e0f16cefb21b4cb29ed3b8b1df",
+  "primarySourceSha256": "8ad834865aa3b34a34dd7cf205b8528d6b7dd6b8a87a1a584d35d84404b2bcd2",
+  "expected": {
+    "works": 1,
+    "currentAdmission": {
+      "review": 1
+    },
+    "academicUnits": {
+      "CUCSH": 1
+    },
+    "observedDate": "2026-03-03",
+    "authorityApplicability": {
+      "allowed": 1
+    },
+    "metadataConfidence": {
+      "unassessed": 1
+    },
+    "primarySourcePages": 219,
+    "globalAdmission": {
+      "include": 560,
+      "review": 194,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "humanitiesActionQueueItems": 5,
+    "humanitiesActionWorks": 13,
+    "humanitiesReadyQueueItems": 0,
+    "humanitiesReadyWorks": 0,
+    "evidenceHoldQueueItems": 5,
+    "evidenceHoldWorks": 13,
+    "workReviewQueueItems": 4,
+    "workReviewWorks": 181,
+    "ledger": {
+      "batchWorks": 1,
+      "primarySourceAccess": {
+        "available": 1
+      },
+      "adjudicationStates": {
+        "candidate-proposed": 1
+      },
+      "candidateDecisions": {
+        "include-candidate": 1
+      },
+      "humanValidation": {
+        "pending-user-merge": 1
+      },
+      "admissionChanges": 0
+    }
+  },
+  "invariants": [
+    "program-authority-remains-review-v47",
+    "candidate-is-work-specific-and-does-not-propagate-to-program",
+    "candidate-is-grounded-in-official-fulltext-not-title-or-abstract-alone",
+    "candidate-does-not-change-admission-before-explicit-human-validation",
+    "manual-user-merge-is-required-before-any-admission-mutation-phase",
+    "scope-v5-and-metadata-confidence-v5-unchanged",
+    "all-existing-work-review-and-hold-lanes-remain-intact"
+  ]
+}

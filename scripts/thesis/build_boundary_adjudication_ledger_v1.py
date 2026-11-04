@@ -67,6 +67,42 @@ def validate_batch(batch: dict[str, Any]) -> bool:
             raise ValueError(
                 f"Institutional record URL is required for {work_id}"
             )
+
+        candidate = item.get("candidateDecision")
+        if candidate is not None:
+            if candidate not in {
+                "include-candidate",
+                "exclude-candidate",
+                "retain-review",
+            }:
+                raise ValueError(
+                    f"Unsupported candidateDecision for {work_id}: {candidate}"
+                )
+            if item.get("primarySourceAccess") != "available":
+                raise ValueError(
+                    f"Candidate decision requires available primary source: {work_id}"
+                )
+            if item.get("candidateDecisionBasis") != (
+                "official-thesis-fulltext-reviewed"
+            ):
+                raise ValueError(
+                    f"Candidate decision requires fulltext basis: {work_id}"
+                )
+            if not item.get("candidateDecisionRationale"):
+                raise ValueError(
+                    f"Candidate decision rationale is required: {work_id}"
+                )
+            if item.get("humanValidationStatus") not in {
+                "required",
+                "pending-user-merge",
+            }:
+                raise ValueError(
+                    f"Candidate decision must await human validation: {work_id}"
+                )
+            if not item.get("primarySourceSha256"):
+                raise ValueError(
+                    f"Candidate decision requires primary source hash: {work_id}"
+                )
     return True
 
 
@@ -115,16 +151,21 @@ def build_ledger(
         access = source["primarySourceAccess"]
         access_states[access] += 1
 
-        if access == "available":
+        candidate_decision = source.get("candidateDecision")
+        if access == "available" and candidate_decision:
+            adjudication_state = "candidate-proposed"
+        elif access == "available":
             adjudication_state = "candidate-evidence-ready"
-            candidate_decision = None
         else:
             adjudication_state = "blocked-primary-source-access"
             candidate_decision = None
 
+        human_validation_status = source.get(
+            "humanValidationStatus", "required"
+        )
         adjudication_states[adjudication_state] += 1
-        candidate_decisions["none"] += 1
-        human_validation["required"] += 1
+        candidate_decisions[candidate_decision or "none"] += 1
+        human_validation[human_validation_status] += 1
 
         entries.append(
             {
@@ -139,7 +180,14 @@ def build_ledger(
                 "projectedAdmissionStatus": "review",
                 "adjudicationState": adjudication_state,
                 "candidateDecision": candidate_decision,
-                "humanValidationStatus": "required",
+                "humanValidationStatus": human_validation_status,
+                "candidateDecisionBasis": source.get("candidateDecisionBasis"),
+                "candidateDecisionRationale": source.get(
+                    "candidateDecisionRationale"
+                ),
+                "primarySourceUrl": source.get("primarySourceUrl"),
+                "primarySourceSha256": source.get("primarySourceSha256"),
+                "primarySourcePages": source.get("primarySourcePages"),
                 "admissionChangeRequested": False,
                 "decisionConstraint": "ledger-does-not-change-admission",
                 "prohibitedDecisionShortcut": (
@@ -216,8 +264,22 @@ def markdown_summary(ledger: dict[str, Any]) -> str:
                 sort_keys=True,
             )
         ),
-        "- decisiones candidatas: 0",
-        "- validaciones humanas completadas: 0",
+        (
+            "- decisiones candidatas: "
+            + json.dumps(
+                metrics["candidateDecisions"],
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        ),
+        (
+            "- validación humana: "
+            + json.dumps(
+                metrics["humanValidation"],
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        ),
         "- cambios de admission: 0",
         "",
         "## Regla",
