@@ -1,0 +1,26 @@
+name: Thesis Aleph author-cluster evidence T2CR
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/summarize_aleph_author_clusters_t2cr.py"
+      - "tests/test_thesis_aleph_author_clusters_t2cr.py"
+      - "docs/THESIS_ALEPH_AUTHOR_CLUSTER_CASEBOOK_T2CR.md"
+      - ".github/workflows/thesis-aleph-author-clusters-t2cr.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  author-clusters:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Validate casebook summarizer without network
+        run: |
+          python -m py_compile scripts/thesis/summarize_aleph_author_clusters_t2cr.py
+          python -m unittest tests.test_thesis_aleph_author_clusters_t2cr -v
