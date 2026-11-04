@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "scripts/thesis/resolve_philosophy_holdings_batches_t2co.py"
+      - "scripts/thesis/probe_udg_opac_endpoints_v1.py"
+      - "tests/test_thesis_udg_opac_endpoints_v1.py"
       - "tests/test_thesis_philosophy_holdings_batches_t2co.py"
       - "docs/THESIS_PHILOSOPHY_ALEPH_BATCH_T2CO.md"
       - ".github/workflows/thesis-philosophy-holdings-t2co.yml"
@@ -38,7 +40,8 @@ jobs:
           python -m py_compile scripts/thesis/resolve_philosophy_holdings_batches_t2co.py
           python -m unittest \
             tests.test_thesis_philosophy_holdings_resolver_v1 \
-            tests.test_thesis_philosophy_holdings_batches_t2co -v
+            tests.test_thesis_philosophy_holdings_batches_t2co \\
+            tests.test_thesis_udg_opac_endpoints_v1 -v
 
       - name: Download and verify Effective Corpus V2
         env:
