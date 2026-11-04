@@ -7,7 +7,7 @@ import {
   searchTheses,
   validateIndex,
   validatePhilosophyIndex,
-} from "../src/core/thesis-demo-search.js?v=20261104-t2ci";
+} from "../src/core/thesis-demo-search.js?v=20261104-t2ct";
 
 const root = document.querySelector("#thesis-demo");
 const form = document.querySelector("#thesis-search");
@@ -138,6 +138,21 @@ function sourceCard(record) {
         element("strong", "", "Nivel de validación"),
         element("p", "td-excerpt", record.validationTier),
       );
+    }
+    if (record.externalCorroboration) {
+      detailBody.append(
+        element("strong", "", "Corroboración adicional"),
+        element("p", "td-excerpt", record.externalCorroboration.note),
+      );
+      for (const [index, url] of (record.externalCorroboration.evidenceUrls || []).entries()) {
+        const safe = approvedReferenceUrl(url);
+        if (!safe) continue;
+        const link = element("a", "td-method-link", `Evidencia adicional ${index + 1} ↗`);
+        link.href = safe;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        detailBody.append(link);
+      }
     }
   }
   if (record.abstractExcerpt) {

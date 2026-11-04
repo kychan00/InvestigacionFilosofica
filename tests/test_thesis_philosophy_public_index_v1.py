@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "scripts/thesis/build_philosophy_public_index_v1.py"
 CURATED = ROOT / "scripts/thesis/config/philosophy-curated-content-v1.json"
 SUPPLEMENT = ROOT / "scripts/thesis/config/philosophy-official-supplement-v1.json"
+CORROBORATION = ROOT / "scripts/thesis/config/philosophy-external-corroboration-v1.json"
 
 spec = importlib.util.spec_from_file_location("philosophy_public", BUILDER)
 builder = importlib.util.module_from_spec(spec)
@@ -56,6 +57,7 @@ class PhilosophyPublicIndexV1Test(unittest.TestCase):
             self.fixture_demo(),
             json.loads(CURATED.read_text(encoding="utf-8")),
             json.loads(SUPPLEMENT.read_text(encoding="utf-8")),
+            json.loads(CORROBORATION.read_text(encoding="utf-8")),
         )
 
     def test_builds_union_without_rewriting_actual_programs(self):
@@ -79,6 +81,29 @@ class PhilosophyPublicIndexV1Test(unittest.TestCase):
         self.assertEqual(len(review), 2)
         self.assertTrue(all(row["philosophyRole"] == "program-core-candidate" for row in review))
         self.assertTrue(all(row["canonicalWorkId"] is None for row in review))
+
+    def test_t2ct_projects_corroboration_only_on_existing_review_records(self):
+        index = self.build()
+        self.assertEqual(index["metrics"]["corroboratedReviewRecords"], 2)
+        rows = [row for row in index["records"] if row.get("externalCorroboration")]
+        self.assertEqual({row["philosophyStatus"] for row in rows}, {"review"})
+        self.assertEqual(len(rows), 2)
+        by_author = {row["authors"][0]: row for row in rows}
+        galarza = by_author["Daniel Galarza Santiago"]["externalCorroboration"]
+        adriel = by_author["Adriel Manuel Hernández Guzmán"]["externalCorroboration"]
+        self.assertFalse(galarza["identityConfirmed"])
+        self.assertFalse(galarza["physicalLocationConfirmed"])
+        self.assertGreaterEqual(len(galarza["evidenceUrls"]), 1)
+        self.assertFalse(adriel["identityConfirmed"])
+        self.assertFalse(adriel["physicalLocationConfirmed"])
+        self.assertEqual(len(adriel["evidenceUrls"]), 1)
+
+    def test_corroboration_does_not_create_new_public_records(self):
+        index = self.build()
+        self.assertEqual(index["metrics"]["records"], 18)
+        titles = {row["title"] for row in index["records"]}
+        self.assertNotIn("El significado del significante \"bueno\" en la obra Ética de la liberación en la edad de la globalización y la exclusión de Enrique Dussel", titles)
+        self.assertNotIn("Alexander von Humboldt: un ensayo sobre la antropología filosófica de lo mexicano", titles)
 
     def test_reference_only_url_guard(self):
         self.assertIsNone(builder.safe_reference_url("https://example.org/thesis.pdf"))

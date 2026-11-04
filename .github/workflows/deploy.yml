@@ -343,6 +343,7 @@ jobs:
             --demo-index _site/data/theses/demo-v1/index.json \
             --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
             --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --corroboration-config scripts/thesis/config/philosophy-external-corroboration-v1.json \
             --output _site/data/theses/philosophy-v1/index.json
 
           python - <<'PY'
@@ -353,7 +354,7 @@ jobs:
           data=json.loads(path.read_text(encoding="utf-8"))
 
           assert data["schemaVersion"]=="thesis-philosophy-public-index-v1"
-          assert data["revision"]=="2026-11-04.t2ci-v1"
+          assert data["revision"]=="2026-11-04.t2ct-v1"
           assert data["sourceRelease"]=="thesis-effective-corpus-v2"
           assert data["referenceOnly"] is True
           assert data["canonicalAdmissionMutation"] is False
@@ -367,6 +368,7 @@ jobs:
               "program-core-candidate":2,
           }
           assert data["metrics"]["actualProgramsRepresented"]==10
+          assert data["metrics"]["corroboratedReviewRecords"]==2
           assert [row["programRef"] for row in data["documentedPhilosophyPrograms"]]==[
               "program:udg:lic-filosofia",
               "program:udg:mae-estudios-filosoficos",
@@ -378,6 +380,10 @@ jobs:
           for row in data["records"]:
               url=(row.get("sourceUrl") or "").lower()
               assert not any(token in url for token in forbidden_url), url
+              if row.get("externalCorroboration"):
+                  assert row["philosophyStatus"]=="review"
+                  assert row["externalCorroboration"]["identityConfirmed"] is False
+                  assert row["externalCorroboration"]["physicalLocationConfirmed"] is False
 
           forbidden_ext={".pdf",".epub",".djvu"}
           root=path.parent

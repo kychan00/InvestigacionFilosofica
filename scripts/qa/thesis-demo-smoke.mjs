@@ -60,7 +60,7 @@ const philosophyRecords = Array.from({ length: 18 }, (_, index) => ({
 
 const philosophyPayload = {
   schemaVersion: "thesis-philosophy-public-index-v1",
-  revision: "2026-11-04.t2ci-v1",
+  revision: "2026-11-04.t2ct-v1",
   sourceRelease: "thesis-effective-corpus-v2",
   referenceOnly: true,
   canonicalAdmissionMutation: false,
@@ -76,6 +76,7 @@ const philosophyPayload = {
     byStatus: { include: 16, review: 2 },
     byRole: { "program-core": 9, "philosophical-content": 6, "curated-manual-classification": 1, "program-core-candidate": 2 },
     actualProgramsRepresented: 10,
+    corroboratedReviewRecords: 0,
   },
   actualProgramsRepresented: ["Licenciatura en Filosofía", "Maestría en Estudios Filosóficos", "Maestría en Filosofía", "Maestría en Tecnologías para el Aprendizaje"],
   records: philosophyRecords,
