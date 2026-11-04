@@ -37,3 +37,36 @@ Las fuentes institucionales describen al OPAC como un catálogo de ubicación de
 materiales físicos. Una búsqueda infructuosa no equivale a inexistencia de tesis.
 La reconstrucción de maestrías y de Doctorado en Humanidades debe continuar con
 Control Escolar, programas, CUCSH y bibliotecas, además de Aleph.
+
+## Verificación viva y diagnóstico posterior
+
+El reensayo del lote 0–7 con el parser reparado (run `41912878150`)
+produjo **8 unresolved, 0 resolved, 0 nuevos holdings**. El defecto se
+reproduce mediante un fixture HTML y quedó corregido, pero no explica
+por sí solo estos casos.
+
+La instrumentación de rechazo del run `41913276683` examinó **17 fichas
+candidatas** entre las ocho referencias. Los 17 candidatos fueron rechazados
+por `title-not-exact`; algunos también por `author-not-exact`.
+Hubo dos referencias con consultas demasiado amplias y varias sin candidatos.
+**Ninguna de las 17 fichas coincidió exactamente en título**, por lo que
+el resultado no autoriza atribuir el rechazo a `Nota de tesis`.
+Los contadores de motivos pueden solaparse y no deben sumarse como fichas únicas.
+
+### Interpretación
+El hallazgo confirmado es un bug de conservación de evidencia, ahora
+cubierto por un test. El hallazgo independiente de reconciliación es que
+los candidatos Aleph de esta muestra no son la misma obra según la clave
+bibliográfica estricta. Deben investigarse errores del catálogo de origen,
+variantes de catalogación, reglas de búsqueda del OPAC y fondos físicos.
+No debe promoverse ninguna identidad por coincidencia temática o autor
+parcial. Las ocho referencias siguen `unresolved`; la situación de las
+otras treinta del lote 9–38 no fue revalidada por este PR.
+
+### Ruta institucional
+El SiUBiUDG declara el OPAC como localizador de materiales físicos; CUCSH
+publicó que el acervo general de la Biblioteca Rodríguez Lapuente no
+formó parte de la primera fase de traslado a Belenes. Debe preservarse
+la vía de consulta directa con la Biblioteca Central en La Normal y
+el departamento/programas de Filosofía. No existe aún respuesta formal
+de personal bibliotecario obtenida en esta fase.
