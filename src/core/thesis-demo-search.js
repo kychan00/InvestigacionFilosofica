@@ -1,7 +1,7 @@
 /** Pure, local-only search for the immutable thesis demo bibliography. */
 export const PAGE_SIZE = 12;
 export const PHILOSOPHY_SCHEMA = "thesis-philosophy-public-index-v1";
-export const PHILOSOPHY_REVISION = "2026-11-04.t2ci-v1";
+export const PHILOSOPHY_REVISION = "2026-11-04.t2ct-v1";
 
 export function normalized(value) {
   return String(value ?? "")
@@ -22,6 +22,7 @@ function textFor(record) {
     record.abstractExcerpt,
     ...(record.keywords || []),
     record.philosophyEvidence,
+    record.externalCorroboration?.note,
     record.sourceLabel,
   ].join(" "));
 }
@@ -223,6 +224,18 @@ export function validatePhilosophyIndex(payload) {
     ids.add(record.id);
     if (record.sourceUrl && !approvedReferenceUrl(record.sourceUrl)) {
       throw new Error("La vista de Filosofía contiene una fuente no aprobada.");
+    }
+    if (record.externalCorroboration) {
+      const c = record.externalCorroboration;
+      if (
+        record.philosophyStatus !== "review" ||
+        c.identityConfirmed !== false ||
+        c.physicalLocationConfirmed !== false ||
+        !Array.isArray(c.evidenceUrls) ||
+        !c.evidenceUrls.every(approvedReferenceUrl)
+      ) {
+        throw new Error("La corroboración externa no respeta el contrato REVIEW de T2CT.");
+      }
     }
   }
   return payload;
