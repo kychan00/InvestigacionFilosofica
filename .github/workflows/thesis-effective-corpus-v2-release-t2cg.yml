@@ -12,7 +12,7 @@ on:
       - "scripts/thesis/build_thesis_atlas_v1.py"
       - "scripts/thesis/config/effective-corpus-release-t2cg-v2.json"
       - "scripts/thesis/config/effective-corpus-v2-candidate-t2cf.json"
-      - "scripts/thesis/config/thesis-atlas-v1.json"
+      - "scripts/thesis/config/thesis-atlas-v1.json"\n      - "scripts/thesis/config/thesis-atlas-t2cg-v2.json"
       - "tests/test_thesis_effective_corpus_release_t2cg.py"
       - "tesis.html"
       - "atlas.html"
@@ -167,7 +167,7 @@ jobs:
             --corpus-gzip artifacts/t2cg-dry/release/effective-corpus.json.gz \
             --release-contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
             --registry scripts/thesis/config/program-authority-v1.json \
-            --atlas-contract scripts/thesis/config/thesis-atlas-v1.json \
+            --atlas-contract scripts/thesis/config/thesis-atlas-t2cg-v2.json \
             --output-dir artifacts/t2cg-dry/atlas-v1
 
           python - <<'PY'
