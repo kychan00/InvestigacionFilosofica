@@ -13,7 +13,8 @@ from typing import Any
 from urllib.parse import urlparse
 
 SCHEMA = "thesis-philosophy-public-index-v1"
-REVISION = "2026-11-04.t2ci-v1"
+REVISION = "2026-11-04.t2ct-v1"
+CORROBORATION_SCHEMA = "thesis-philosophy-external-corroboration-v1"
 SOURCE_RELEASE = "thesis-effective-corpus-v2"
 FORBIDDEN_URL_TOKENS = (".pdf", "/bitstream", "/download")
 ALLOWED_STATUS = {"include", "review"}
@@ -50,6 +51,66 @@ def safe_reference_url(value: str | None) -> str | None:
 def first_author(record: dict[str, Any]) -> str:
     authors = record.get("authors") or []
     return normalized(authors[0] if authors else "")
+
+
+def corroboration_key(record: dict[str, Any]) -> tuple[str, str]:
+    author = record.get("sourceAuthor")
+    if author is None:
+        authors = record.get("authors") or []
+        author = authors[0] if authors else ""
+    return (normalized(record.get("sourceTitle") or record.get("title")), normalized(author))
+
+
+def validate_corroboration_ledger(ledger: dict[str, Any]) -> dict[tuple[str, str], dict[str, Any]]:
+    if ledger.get("schemaVersion") != CORROBORATION_SCHEMA:
+        raise ValueError("Unsupported external corroboration schema")
+    policy = ledger.get("policy") or {}
+    expected = {
+        "referenceOnly": True,
+        "canonicalAdmissionMutation": False,
+        "physicalLocationMutation": False,
+        "automaticIdentityMerge": False,
+        "externalEvidenceAloneMayNotAssertPhysicalHolding": True,
+    }
+    for key, value in expected.items():
+        if policy.get(key) is not value:
+            raise ValueError(f"Unsafe corroboration policy: {key}")
+    by_key: dict[tuple[str, str], dict[str, Any]] = {}
+    for row in ledger.get("records") or []:
+        key = corroboration_key(row)
+        if not all(key) or key in by_key:
+            raise ValueError("Missing or duplicate corroboration identity")
+        if (row.get("claims") or {}).get("physicalLocation") != "unresolved":
+            raise ValueError("External corroboration cannot assert physical holdings")
+        by_key[key] = row
+    return by_key
+
+
+def project_corroboration(public: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
+    if public.get("philosophyStatus") != "review":
+        raise ValueError("T2CT only projects corroboration onto REVIEW records")
+    safe_urls: list[str] = []
+    evidence_kinds: list[str] = []
+    for item in row.get("evidence") or []:
+        url = safe_reference_url(item.get("url"))
+        if url and url not in safe_urls:
+            safe_urls.append(url)
+        kind = str(item.get("evidenceKind") or "").strip()
+        if kind and kind not in evidence_kinds:
+            evidence_kinds.append(kind)
+    claims = dict(row.get("claims") or {})
+    return {
+        "status": row.get("corroborationStatus"),
+        "claims": claims,
+        "evidenceUrls": safe_urls,
+        "evidenceKinds": evidence_kinds,
+        "identityConfirmed": False,
+        "physicalLocationConfirmed": False,
+        "note": (
+            "Fuentes adicionales corroboran aspectos del trabajo, autor o programa; "
+            "la identidad institucional exacta y el paradero físico siguen en revisión."
+        ),
+    }
 
 
 def match_key(record: dict[str, Any]) -> tuple[str, str, str]:
@@ -240,8 +301,9 @@ def supplement_public_record(row: dict[str, Any], program_ref_by_name: dict[str,
     }
 
 
-def build_index(demo: dict[str, Any], curated: dict[str, Any], supplement: dict[str, Any]) -> dict[str, Any]:
+def build_index(demo: dict[str, Any], curated: dict[str, Any], supplement: dict[str, Any], corroboration: dict[str, Any]) -> dict[str, Any]:
     target_refs = validate_inputs(demo, curated, supplement)
+    corroboration_by_key = validate_corroboration_ledger(corroboration)
     target_set = set(target_refs)
     demo_records = list(demo["records"])
     demo_by_key = {match_key(row): row for row in demo_records}
@@ -316,6 +378,14 @@ def build_index(demo: dict[str, Any], curated: dict[str, Any], supplement: dict[
         )
 
     records = list(output_by_key.values())
+    corroborated_review_records = 0
+    for row in records:
+        source = corroboration_by_key.get(corroboration_key(row))
+        if source is None:
+            continue
+        row["externalCorroboration"] = project_corroboration(row, source)
+        corroborated_review_records += 1
+
     ids = [row["id"] for row in records]
     if len(ids) != len(set(ids)):
         raise ValueError("Duplicate Philosophy public record IDs")
@@ -372,6 +442,7 @@ def build_index(demo: dict[str, Any], curated: dict[str, Any], supplement: dict[
             "byStatus": dict(sorted(status_counts.items())),
             "byRole": dict(sorted(role_counts.items())),
             "actualProgramsRepresented": len(actual_programs),
+            "corroboratedReviewRecords": corroborated_review_records,
         },
         "actualProgramsRepresented": actual_programs,
         "records": records,
@@ -383,12 +454,14 @@ def main() -> int:
     parser.add_argument("--demo-index", required=True, type=Path)
     parser.add_argument("--curated-config", required=True, type=Path)
     parser.add_argument("--supplement-config", required=True, type=Path)
+    parser.add_argument("--corroboration-config", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     output = build_index(
         read_json(args.demo_index),
         read_json(args.curated_config),
         read_json(args.supplement_config),
+        read_json(args.corroboration_config),
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     data = json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n"
