@@ -44,10 +44,13 @@ jobs:
         run: |
           python -m py_compile \
             scripts/thesis/build_thesis_demo_index_v1.py \
-            scripts/thesis/build_philosophy_public_index_v1.py
+            scripts/thesis/build_philosophy_public_index_v1.py \
+            scripts/thesis/merge_philosophy_cucsh_inventory_t2cu.py \
+            scripts/thesis/probe_cucsh_thesis_catalog_v1.py
           python -m unittest \
             tests.test_thesis_demo_index_v1 \
-            tests.test_thesis_philosophy_public_index_v1 -v
+            tests.test_thesis_philosophy_public_index_v1 \
+            tests.test_thesis_philosophy_cucsh_public_t2cu -v
           node --test tests/thesis-demo.test.mjs
 
       - name: Full browser-search regression suite
@@ -92,6 +95,14 @@ jobs:
             --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
             --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
             --corroboration-config scripts/thesis/config/philosophy-external-corroboration-v1.json \
+            --output artifacts/philosophy-public-v1/base-index.json
+
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py \
+            --output artifacts/philosophy-public-v1/cucsh-report.json
+
+          python scripts/thesis/merge_philosophy_cucsh_inventory_t2cu.py \
+            --base-index artifacts/philosophy-public-v1/base-index.json \
+            --cucsh-report artifacts/philosophy-public-v1/cucsh-report.json \
             --output artifacts/philosophy-public-v1/index.json
 
           python - <<'PY'
@@ -125,17 +136,17 @@ jobs:
           philosophy=json.loads(philosophy_path.read_text(encoding="utf-8"))
 
           assert philosophy["schemaVersion"]=="thesis-philosophy-public-index-v1"
-          assert philosophy["revision"]=="2026-11-04.t2ct-v1"
+          assert philosophy["revision"]=="2026-11-04.t2cu-v1"
           assert philosophy["sourceRelease"]=="thesis-effective-corpus-v2"
           assert philosophy["referenceOnly"] is True
           assert philosophy["canonicalAdmissionMutation"] is False
           assert philosophy["preserveActualProgram"] is True
-          assert philosophy["metrics"]["records"]==len(philosophy["records"])==18
-          assert philosophy["metrics"]["byStatus"]=={"include":16,"review":2}
+          assert philosophy["metrics"]["records"]==len(philosophy["records"])==233
+          assert philosophy["metrics"]["byStatus"]=={"include":231,"review":2}
           assert philosophy["metrics"]["byRole"]=={
               "curated-manual-classification":1,
               "philosophical-content":6,
-              "program-core":9,
+              "program-core":224,
               "program-core-candidate":2,
           }
           assert philosophy["metrics"]["actualProgramsRepresented"]==10
@@ -169,9 +180,10 @@ jobs:
       - name: Upload reference-only search evidence
         uses: actions/upload-artifact@v4
         with:
-          name: thesis-search-v2-and-philosophy-t2ci
+          name: thesis-search-v2-and-philosophy-t2cu
           path: |
             artifacts/thesis-demo-v2/index.json
             artifacts/philosophy-public-v1/index.json
+            artifacts/philosophy-public-v1/cucsh-report.json
           if-no-files-found: error
           retention-days: 14
