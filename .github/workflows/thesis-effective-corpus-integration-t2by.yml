@@ -1,0 +1,249 @@
+name: Thesis effective corpus integration T2BY
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/build_effective_corpus_v1.py"
+      - "scripts/thesis/build_boundary_work_review_queue_v1.py"
+      - "scripts/thesis/build_program_curation_queue_v1.py"
+      - "scripts/thesis/config/effective-corpus-integration-t2by-baseline-v1.json"
+      - "scripts/thesis/config/work-admission-decisions-v1.json"
+      - "tests/test_thesis_effective_corpus_t2by.py"
+      - "docs/THESIS_EFFECTIVE_CORPUS_INTEGRATION_T2BY.md"
+      - ".github/workflows/thesis-effective-corpus-integration-t2by.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile and unit regressions
+        run: |
+          python -m py_compile             scripts/thesis/build_effective_corpus_v1.py             scripts/thesis/build_boundary_work_review_queue_v1.py             scripts/thesis/build_program_curation_queue_v1.py
+          python -m unittest discover -s tests -p "test_thesis_effective_corpus_t2by.py" -v
+          python -m unittest discover -s tests -p "test_thesis_work_admission_activation_t2bx.py" -v
+          python -m unittest discover -s tests -p "test_thesis_boundary_work_review_queue.py" -v
+          python -m unittest discover -s tests -p "test_thesis_program_curation_queue.py" -v
+
+      - name: Fetch frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/t2by artifacts/t2by
+          mkdir -p /tmp/t2by artifacts/t2by
+          gh api -H "Accept: application/vnd.github+json"             "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip"             > /tmp/t2by.zip
+          unzip -q /tmp/t2by.zip -d /tmp/t2by
+
+      - name: Reproject current metadata confidence
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py             --canonical-corpus /tmp/t2by/canonical-corpus.json.gz             --source-records /tmp/t2by/source-records.jsonl.gz             --output-corpus artifacts/t2by/confidence.json             --output-report artifacts/t2by/confidence-report.json
+
+      - name: Build effective corpus
+        run: |
+          python scripts/thesis/build_effective_corpus_v1.py             --canonical-corpus artifacts/t2by/confidence.json             --registry scripts/thesis/config/program-authority-v1.json             --decisions scripts/thesis/config/work-admission-decisions-v1.json             --candidate scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json             --reference-year 2026             --output-corpus artifacts/t2by/effective-corpus.json             --output-report artifacts/t2by/effective-corpus-report.json
+
+      - name: Build effective work-review queue
+        run: |
+          python scripts/thesis/build_boundary_work_review_queue_v1.py             --canonical-corpus artifacts/t2by/effective-corpus.json             --registry scripts/thesis/config/program-authority-v1.json             --policy scripts/thesis/config/boundary-work-review-policy-v1.json             --reference-year 2026             --output-dir artifacts/t2by/work-review
+
+      - name: Build effective program curation queue
+        run: |
+          python - <<'PY'
+          import json,sys
+          from collections import Counter,defaultdict
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import build_canonical_corpus_v1 as canonical
+          import build_program_curation_queue_v1 as curation
+          import audit_program_coverage_v1 as coverage
+
+          root=Path("artifacts/t2by")
+          corpus=json.loads((root/"effective-corpus.json").read_text())
+          observed=json.loads(Path("/tmp/t2by/observed-authorities.json").read_text())
+          registry=canonical.load_program_registry()
+
+          dims=defaultdict(lambda:{
+              "admissionStatuses":Counter(),
+              "programRefs":Counter(),
+          })
+          for work in corpus["works"]:
+              key=canonical.normalize_key(work.get("programRaw"))
+              if not key:
+                  continue
+              dims[key]["admissionStatuses"][
+                  work.get("admissionStatus") or "unknown"
+              ] += 1
+              if work.get("programRef"):
+                  dims[key]["programRefs"][work["programRef"]] += 1
+
+          observed_effective=coverage.reproject_observed_authorities(
+              observed,dims
+          )
+          queue=curation.build_queue(
+              observed_effective,
+              corpus,
+              registry,
+          )
+          (root/"observed-effective.json").write_text(
+              json.dumps(observed_effective,ensure_ascii=False,indent=2)+"\n"
+          )
+          (root/"program-curation.json").write_text(
+              json.dumps(queue,ensure_ascii=False,indent=2)+"\n"
+          )
+          PY
+
+      - name: Validate full T2BY contract
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from collections import Counter
+          from pathlib import Path
+
+          root=Path("artifacts/t2by")
+          baseline=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "effective-corpus-integration-t2by-baseline-v1.json"
+              ).read_text()
+          )
+          effective=json.loads((root/"effective-corpus.json").read_text())
+          report=json.loads((root/"effective-corpus-report.json").read_text())
+          work_review=json.loads(
+              (root/"work-review/boundary-work-review-queue.json").read_text()
+          )
+          curation=json.loads((root/"program-curation.json").read_text())
+          confidence=json.loads((root/"confidence-report.json").read_text())
+          e=baseline["expected"]
+
+          counts=dict(Counter(w["admissionStatus"] for w in effective["works"]))
+          assert len(effective["works"])==e["totalWorks"]
+          assert counts==e["effectiveAdmission"],counts
+          assert report["programProjectedAdmission"]==e["programProjectedAdmission"]
+          assert report["effectiveAdmission"]==e["effectiveAdmission"]
+          assert report["changedWorkIds"]==e["changedWorkIds"]
+          assert report["admissionDelta"]=={"include":1,"review":-1}
+          assert report["programAuthorityMutated"] is False
+          assert effective["programAuthorityRevision"]==baseline[
+              "programAuthorityRevision"
+          ]
+          assert confidence["programMetadataEvidenceRevision"]==baseline[
+              "metadataConfidenceRevision"
+          ]
+          assert effective["effectiveAdmissionRevision"]==baseline[
+              "workAdmissionDecisionRevision"
+          ]
+
+          target=next(
+              w for w in effective["works"]
+              if w["id"]==baseline["targetWorkId"]
+          )
+          assert target["programRef"]==baseline["targetProgramRef"]
+          assert target["admissionStatus"]=="include"
+          assert target["workAdmissionDecision"]["revision"]==baseline[
+              "workAdmissionDecisionRevision"
+          ]
+
+          wr=work_review["metrics"]
+          for key,value in e["workReview"].items():
+              assert wr[key]==value,(key,wr[key],value)
+          gender=next(
+              p for p in work_review["programs"]
+              if p["programRef"]==baseline["targetProgramRef"]
+          )
+          assert gender["works"]==1
+          assert gender["projectedAdmission"]=={"include":1}
+          assert gender["pendingPrimarySourceReview"]==0
+          assert gender["resolvedByExplicitWorkDecision"]==1
+          assert all(
+              item["workId"]!=baseline["targetWorkId"]
+              for item in work_review["items"]
+          )
+
+          cm=curation["metrics"]
+          for key,value in e["curation"].items():
+              assert cm[key]==value,(key,cm[key],value)
+          assert curation["nextHumanitiesReadyAction"] is None
+          assert {
+              x["normalizedKey"] for x in curation["workReviewItems"]
+          } == {
+              "doctorado en ciudad territorio y sustentabilidad",
+              "doctorado en cognicion y aprendizaje",
+              "doctorado en derechos humanos",
+          }
+          assert len(curation["workReviewCompletedItems"])==1
+          completed=curation["workReviewCompletedItems"][0]
+          assert completed["normalizedKey"]=="maestria en estudios de genero"
+          assert completed["workReview"]["pendingWorks"]==0
+          assert completed["workReview"]["resolvedWorks"]==1
+          assert completed["authority"]["admissionState"]=="review"
+
+          summary={
+              "phase":"T2BY",
+              "effectiveAdmission":counts,
+              "changedWorkIds":report["changedWorkIds"],
+              "programAuthorityRevision":effective["programAuthorityRevision"],
+              "metadataConfidenceRevision":confidence[
+                  "programMetadataEvidenceRevision"
+              ],
+              "workAdmissionDecisionRevision":effective[
+                  "effectiveAdmissionRevision"
+              ],
+              "workReview":{
+                  key:wr[key] for key in e["workReview"]
+              },
+              "curation":{
+                  key:cm[key] for key in e["curation"]
+              },
+              "deploymentStatus":"artifact-only-not-production",
+          }
+          (root/"t2by-summary.json").write_text(
+              json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True)+"\n"
+          )
+          blob=(root/"effective-corpus.json").read_bytes()
+          (root/"effective-corpus.sha256").write_text(
+              hashlib.sha256(blob).hexdigest()+"\n"
+          )
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Compress effective corpus deterministically
+        run: |
+          python - <<'PY'
+          import gzip
+          from pathlib import Path
+          root=Path("artifacts/t2by")
+          blob=(root/"effective-corpus.json").read_bytes()
+          with open(root/"effective-corpus.json.gz","wb") as raw:
+              with gzip.GzipFile(
+                  fileobj=raw,
+                  mode="wb",
+                  filename="",
+                  compresslevel=6,
+                  mtime=0,
+              ) as stream:
+                  stream.write(blob)
+          PY
+
+      - name: Upload effective corpus integration evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-effective-corpus-t2by
+          path: |
+            artifacts/t2by/effective-corpus.json.gz
+            artifacts/t2by/effective-corpus.sha256
+            artifacts/t2by/effective-corpus-report.json
+            artifacts/t2by/t2by-summary.json
+            artifacts/t2by/work-review/boundary-work-review-queue.json
+            artifacts/t2by/program-curation.json
+          retention-days: 14
+          if-no-files-found: warn
