@@ -43,26 +43,32 @@
       }
     },
     "thesesHumanities": {
-      "version": "1",
-      "releaseTag": "thesis-effective-corpus-v1",
-      "corpusRevision": "2026-11-03.t2bz-v1",
-      "effectiveCorpusSchemaVersion": "thesis-effective-corpus-v1",
+      "version": "2",
+      "releaseTag": "thesis-effective-corpus-v2",
+      "corpusRevision": "2026-11-04.t2cg-v1",
+      "effectiveCorpusSchemaVersion": "thesis-effective-corpus-v2",
       "programAuthorityRevision": "2026-11-03.v47",
       "metadataConfidenceRevision": "2026-11-02.v5",
-      "workAdmissionDecisionRevision": "2026-11-03.t2bx-v1",
-      "sourceArtifactId": 13099541204,
-      "effectiveCorpusJsonSha256": "0a4d24810d90f8e4c748abd0c8f3978afba6561eade46fcbf29f2bda6416b892",
-      "effectiveCorpusGzipSha256": "4e2484482be783bcb004f4a343cfede516806d56d4e56dffa4a6d20cfe3750c3",
-      "records": 27576,
+      "effectiveAdmissionRevision": "2026-11-04.t2cf-v1",
+      "workAdmissionDecisionRevision": "2026-11-03.t2cc-v2",
+      "philosophyCompletenessRevision": "2026-11-03.philosophy-v1",
+      "baseRelease": "thesis-effective-corpus-v1",
+      "candidateApprovalPullRequest": 170,
+      "candidateMergeCommitSha": "3f22075bab222d8ac2bec4eaed0c3568a2cdf110",
+      "candidateArtifactId": 13335683726,
+      "candidateArtifactDigestSha256": "8a5878e8ca504e54ea0d7c0cae9dea88c1454ac2b8f2952be090d150c45ea7ff",
+      "effectiveCorpusJsonSha256": "f8792c73471f2a54bb4ec8b38d41f4b366b16caedb4a29286f704e85c8038e13",
+      "effectiveCorpusGzipSha256": "f3a162b8de5fe371898dcf60afbf2b6383b444d56bd5709a3d4634e813255b01",
+      "records": 27580,
       "admissionCounts": {
-        "include": 561,
-        "review": 193,
+        "include": 566,
+        "review": 192,
         "quarantine": 18971,
         "exclude": 7849,
         "reject-source": 2
       },
-      "publicManifest": "data/theses/effective-corpus-v1/manifest.json",
-      "publicCorpus": "data/theses/effective-corpus-v1/effective-corpus.json.gz"
+      "publicManifest": "data/theses/effective-corpus-v2/manifest.json",
+      "publicCorpus": "data/theses/effective-corpus-v2/effective-corpus.json.gz"
     }
   },
   "providers": {
