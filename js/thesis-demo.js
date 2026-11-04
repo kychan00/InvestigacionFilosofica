@@ -139,6 +139,21 @@ function sourceCard(record) {
         element("p", "td-excerpt", record.validationTier),
       );
     }
+    if (record.externalCorroboration) {
+      detailBody.append(
+        element("strong", "", "Corroboración adicional"),
+        element("p", "td-excerpt", record.externalCorroboration.note),
+      );
+      for (const [index, url] of (record.externalCorroboration.evidenceUrls || []).entries()) {
+        const safe = approvedReferenceUrl(url);
+        if (!safe) continue;
+        const link = element("a", "td-method-link", `Evidencia adicional ${index + 1} ↗`);
+        link.href = safe;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        detailBody.append(link);
+      }
+    }
   }
   if (record.abstractExcerpt) {
     detailBody.append(
