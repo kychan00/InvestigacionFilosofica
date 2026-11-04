@@ -22,7 +22,7 @@ TARGET_PROGRAM_REFS = {
     "program:udg:mae-estudios-filosoficos",
     "program:udg:mae-filosofia-historica",
 }
-ALLOWED_PROVIDERS = {"cucsh-library", "cucsh-official", "udg-official-profile"}
+ALLOWED_PROVIDERS = {"riudg", "cucsh-library", "cucsh-official", "udg-official-profile"}
 FORBIDDEN = (".pdf", "/bitstream", "/download")
 
 
