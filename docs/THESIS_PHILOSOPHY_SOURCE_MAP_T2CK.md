@@ -174,3 +174,32 @@ T2CL deberá construir, por referencia, una ficha mínima:
 - `philosophyStatus`: programa exacto o curaduría temática, sin relabeling.
 
 La meta deja de ser «tener el PDF» y pasa a ser **saber que la tesis existe y dónde puede consultarse**.
+
+
+## T2CS — corroboración externa controlada
+
+T2CS añade una capa de **corroboración**, no una nueva autoridad canónica.
+Se usa cuando una referencia institucional CUCSH todavía no tiene identidad
+exacta reconciliada en ALEPH/RIUdeG pero existen fuentes independientes que
+aportan evidencia sobre el trabajo, autor o programa.
+
+Esta capa puede registrar:
+
+- perfiles académicos del propio autor;
+- repositorios académicos secundarios con portada institucional;
+- documentos de organismos que reproducen el CV académico del autor;
+- registros gubernamentales de grado profesional;
+- publicaciones oficiales UdeG derivadas del mismo proyecto.
+
+No puede:
+
+- crear un holding físico;
+- convertir un artículo derivado en la tesis original;
+- reemplazar el programa institucional;
+- corregir silenciosamente errores del catálogo;
+- hacer merge automático por similitud de título o autor.
+
+El ledger reproducible está en
+`scripts/thesis/config/philosophy-external-corroboration-v1.json`.
+La corroboración externa complementa, pero no sustituye, CUCSH, OPAC/ALEPH,
+RIUdeG, Control Escolar ni la confirmación directa de biblioteca.

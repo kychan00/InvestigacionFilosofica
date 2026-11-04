@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "thesis-philosophy-external-corroboration-v1",
+  "revision": "2026-11-04.t2cs-v1",
+  "purpose": "Reference-only corroboration ledger for CUCSH Philosophy works not yet reconciled to an exact Aleph/RIUdeG thesis identity.",
+  "policy": {
+    "referenceOnly": true,
+    "canonicalAdmissionMutation": false,
+    "physicalLocationMutation": false,
+    "automaticIdentityMerge": false,
+    "externalEvidenceMayCorroborateExistence": true,
+    "externalEvidenceAloneMayNotAssertPhysicalHolding": true
+  },
+  "records": [
+    {
+      "sourceTitle": "Filosofía de la pseudociencia. Conceptos fundamentales y problemática de una rama emergente de la epistemología",
+      "sourceAuthor": "Daniel Galarza Santiago",
+      "sourceYear": 2025,
+      "sourceProgram": "Licenciatura en Filosofía",
+      "corroborationStatus": "strong-secondary-with-institutional-cover",
+      "claims": {
+        "workExistence": "corroborated",
+        "titleAuthor": "corroborated",
+        "udgAffiliation": "corroborated",
+        "philosophyProgram": "corroborated",
+        "physicalLocation": "unresolved"
+      },
+      "evidence": [
+        {
+          "provider": "PhilArchive",
+          "url": "https://philarchive.org/rec/GALFDL-5",
+          "evidenceKind": "secondary-academic-record",
+          "supports": ["workExistence", "titleAuthor", "udgAffiliation"],
+          "note": "PhilArchive indexes the work as a 2025 dissertation at the University of Guadalajara."
+        },
+        {
+          "provider": "PhilArchive",
+          "url": "https://philarchive.org/archive/GALFDL-5",
+          "evidenceKind": "archived-author-copy-landing",
+          "supports": ["titleAuthor", "udgAffiliation", "philosophyProgram"],
+          "note": "The archived copy exposes a UdeG/CUCSH title page for the Licenciatura en Filosofía and a supervisor letter. No local PDF copy is retained."
+        }
+      ],
+      "identityPolicy": "Keep REVIEW until exact institutional thesis identity/handle/catalog record is reconciled; existence and program are independently corroborated."
+    },
+    {
+      "sourceTitle": "¿El Estado que propone Platón en la República es una utopía?",
+      "sourceAuthor": "Adriel Manuel Hernández Guzmán",
+      "sourceYear": null,
+      "sourceProgram": "Maestría en Estudios Filosóficos",
+      "corroborationStatus": "author-profile-secondary",
+      "claims": {
+        "workExistence": "corroborated-secondary",
+        "titleAuthor": "corroborated-secondary",
+        "udgAffiliation": "corroborated-secondary",
+        "philosophyProgram": "corroborated-secondary",
+        "physicalLocation": "unresolved"
+      },
+      "evidence": [
+        {
+          "provider": "Academia.edu",
+          "url": "https://guadalajara.academia.edu/AdrielManuelHern%C3%A1ndezGuzm%C3%A1n",
+          "evidenceKind": "author-controlled-academic-profile",
+          "supports": ["workExistence", "titleAuthor", "udgAffiliation", "philosophyProgram"],
+          "note": "The author profile identifies the UdeG Maestría en Estudios Filosóficos and presents this work as a master's thesis."
+        }
+      ],
+      "identityPolicy": "Do not promote from self/author profile alone; seek CUCSH/RIUdeG/Control Escolar work-level corroboration."
+    },
+    {
+      "sourceTitle": "El significado del significante \"bueno\" en la obra Ética de la liberación en la edad de la globalización y la exclusión de Enrique Dussel",
+      "sourceAuthor": "Francisco Guízar Vázquez",
+      "sourceYear": 1999,
+      "sourceProgram": "Licenciatura en Filosofía",
+      "corroborationStatus": "strong-organizational-cv",
+      "claims": {
+        "workExistence": "corroborated",
+        "titleAuthor": "corroborated",
+        "udgAffiliation": "corroborated",
+        "philosophyProgram": "corroborated",
+        "physicalLocation": "unresolved"
+      },
+      "evidence": [
+        {
+          "provider": "International Tropical Timber Organization (ITTO)",
+          "url": "https://www.itto.int/files/itto_project_db_input/3074/project/S-PPD-172-13-R1-I-Mexico.pdf?v=1709377939",
+          "evidenceKind": "organizational-project-cv-reference",
+          "supports": ["workExistence", "titleAuthor", "udgAffiliation", "philosophyProgram"],
+          "note": "The project CV states Licenciatura en Filosofía, Universidad de Guadalajara, 1993–1999, and gives the thesis title. The remote document is referenced only; it is not stored."
+        }
+      ],
+      "identityPolicy": "Treat the CUCSH catalog typo EXLUSIÓN and Jr. suffix as source variants; do not silently rewrite until an institutional work-level record is recovered."
+    },
+    {
+      "sourceTitle": "Alexander von Humboldt: un ensayo sobre la antropología filosófica de lo mexicano",
+      "sourceAuthor": "Ammiel Misraim García Diosdado",
+      "sourceYear": 2015,
+      "sourceProgram": "Licenciatura en Filosofía",
+      "corroborationStatus": "official-derived-work-plus-government-degree",
+      "claims": {
+        "workExistence": "candidate-lineage-corroborated",
+        "titleAuthor": "variant-lineage-corroborated",
+        "udgAffiliation": "corroborated",
+        "philosophyProgram": "degree-corroborated",
+        "physicalLocation": "unresolved"
+      },
+      "evidence": [
+        {
+          "provider": "RIUdeG",
+          "url": "https://hdl.handle.net/20.500.12104/94563",
+          "evidenceKind": "official-udg-derived-article",
+          "supports": ["workExistence", "titleAuthor", "udgAffiliation"],
+          "note": "RIUdeG preserves a 2016 UdeG article by Misraim Diosdado titled 'Alexander von Humboldt: un ensayo sobre la antropología filosófica del mexicano'. It is an article, not the thesis."
+        },
+        {
+          "provider": "Periódico Oficial del Estado de Jalisco",
+          "url": "https://apiperiodico.jalisco.gob.mx/api/sites/periodicooficial.jalisco.gob.mx/files/01-10-17-viii.pdf",
+          "evidenceKind": "government-professional-license-register",
+          "supports": ["philosophyProgram"],
+          "note": "The official registry lists GARCÍA DIOSDADO AMMIEL MISRAIM as LICENCIADO EN FILOSOFIA. This corroborates degree identity, not thesis holdings."
+        }
+      ],
+      "identityPolicy": "Treat 'Ammielmisraim' and 'Ammiel Misraim' as a spacing variant for review; the RIUdeG article suggests work lineage but must not be merged into the thesis."
+    }
+  ]
+}
