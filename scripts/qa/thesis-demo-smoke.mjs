@@ -179,7 +179,7 @@ try {
     assert.equal(await page.locator("#thesis-count").innerText(), "2");
     assert.equal(await page.locator(".td-result-review").count(), 2);
     await page.locator("#thesis-clear").click();
-    assert.equal(await page.locator("#thesis-count").innerText(), "18");
+    assert.equal(await page.locator("#thesis-count").innerText(), "233");
 
     await page.locator(".td-result details summary").first().click();
     assert.equal(await page.locator(".td-result details[open]").count(), 1);
