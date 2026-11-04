@@ -168,7 +168,7 @@ class PhilosophyCompletenessV1Test(unittest.TestCase):
         index = curated.build_index(config)
         self.assertFalse(index["canonicalAdmissionMutation"])
         self.assertTrue(index["referenceOnly"])
-        self.assertEqual(index["metrics"]["byStatus"]["include"], 8)
+        self.assertEqual(index["metrics"]["byStatus"]["include"], 9)
         self.assertEqual(index["metrics"]["byStatus"]["review"], 2)
 
         by_id = {row["id"]: row for row in index["records"]}
@@ -178,6 +178,14 @@ class PhilosophyCompletenessV1Test(unittest.TestCase):
             "Maestría en Tecnologías para el Aprendizaje",
         )
         self.assertEqual(tics["inclusionBasis"], "philosophical-content")
+
+        ricoeur = by_id["philosophy-curated:riudg:20.500.12104/83529"]
+        self.assertEqual(
+            ricoeur["actualProgram"],
+            "Maestría en Estudios de Literatura Mexicana",
+        )
+        self.assertEqual(ricoeur["validationTier"], "official-riudg")
+        self.assertEqual(ricoeur["inclusionBasis"], "philosophical-content")
 
         victor = by_id["philosophy-curated:aleph:000168319"]
         self.assertEqual(victor["status"], "include")
