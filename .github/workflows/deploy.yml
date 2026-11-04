@@ -326,6 +326,30 @@ jobs:
           mkdir -p "${DEST}"
           cp -a /tmp/thesis-effective-corpus/. "${DEST}/"
 
+      - name: Build reference-only UdeG thesis demo index from verified V1
+        run: |
+          python scripts/thesis/build_thesis_demo_index_v1.py \
+            --corpus-gzip /tmp/thesis-effective-corpus/effective-corpus.json.gz \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --output _site/data/theses/demo-v1/index.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          page=Path("_site/tesis.html")
+          data=Path("_site/data/theses/demo-v1/index.json")
+          payload=json.loads(data.read_text(encoding="utf-8"))
+          assert page.is_file()
+          assert payload["schemaVersion"]=="thesis-demo-index-v1"
+          assert payload["totalIncluded"]==len(payload["records"])==561
+          assert payload["sourceRelease"]=="thesis-effective-corpus-v1"
+          assert payload["referenceOnly"] is True
+          assert len({row["id"] for row in payload["records"]})==561
+          assert data.stat().st_size < 2_500_000
+          forbidden={".pdf",".epub",".djvu"}
+          assert not any(p.suffix.lower() in forbidden for p in Path("_site/data/theses/demo-v1").rglob("*") if p.is_file())
+          print("Demo public index verified:",len(payload["records"]),"bibliographic references")
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
