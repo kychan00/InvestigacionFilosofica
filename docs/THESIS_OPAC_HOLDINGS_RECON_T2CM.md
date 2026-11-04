@@ -65,3 +65,14 @@ T2CM V2 extrae el contrato del formulario Aleph de esa página —acción, méto
 ## Optimización V3
 
 El primer recon encontró 113 URLs institucionales, muchas de ellas hojas de estilo, scripts y páginas Drupal sin relación con holdings. T2CM V3 conserva ese inventario como evidencia pero limita las pruebas de conectividad al endpoint CUCSH, la portada Aleph y el catálogo colectivo UDG01. Esto reduce latencia sin cambiar el descubrimiento.
+
+
+## Muestra exacta por número de sistema — V4
+
+El contrato Aleph expone `find_code=SYS`, por lo que T2CM V4 consulta una muestra sin fuzzy matching:
+
+- Raúl Sánchez Salas — `000551988`;
+- José Antonio Ramírez Velasco — `000479311`;
+- Víctor Manuel Espinosa Aguilar — `000168319`.
+
+Cada consulta fuerza `local_base=CUCSH` y `filter_request_4=TESIS`. El probe conserva únicamente metadatos de respuesta, fragmentos relevantes, filas tabulares y enlaces Aleph hacia registro completo/ítems; no persiste HTML.

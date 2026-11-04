@@ -53,6 +53,16 @@ class OpacReconTest(unittest.TestCase):
         self.assertEqual(form["selects"][0]["name"],"find_code")
         self.assertEqual(form["selects"][0]["options"][1]["value"],"WTI")
 
+    def test_aleph_sys_query_contract(self):
+        url=mod.aleph_search_url("SYS","000551988")
+        parsed=__import__("urllib.parse").parse.urlparse(url)
+        params=__import__("urllib.parse").parse.parse_qs(parsed.query, keep_blank_values=True)
+        self.assertEqual(params["func"],["find-b"])
+        self.assertEqual(params["find_code"],["SYS"])
+        self.assertEqual(params["request"],["000551988"])
+        self.assertEqual(params["local_base"],["CUCSH"])
+        self.assertEqual(params["filter_request_4"],["TESIS"])
+
     def test_candidate_safety(self):
         self.assertTrue(mod.is_safe_candidate("https://foo.udg.mx/opac"))
         self.assertTrue(mod.is_safe_candidate("http://148.202.1.2:8080/F/"))

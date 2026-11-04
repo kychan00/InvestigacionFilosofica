@@ -16,7 +16,12 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v3"
+REVISION = "2026-11-04.t2cm-v4"
+SAMPLE_SYSTEM_NUMBERS = (
+    ("Raúl Sánchez Salas", "000551988"),
+    ("José Antonio Ramírez Velasco", "000479311"),
+    ("Víctor Manuel Espinosa Aguilar", "000168319"),
+)
 CUCSH_OPAC = "http://148.202.248.73/F/?func=find-b-0&local_base=CUCSH"
 
 SEEDS = (
@@ -62,6 +67,55 @@ def is_safe_candidate(url: str) -> bool:
     if host.startswith("148.202."):
         return True
     return False
+
+
+class EvidenceParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.current_anchor: dict[str, str] | None = None
+        self.anchors: list[dict[str, str]] = []
+        self.in_row = False
+        self.in_cell = False
+        self.current_row: list[str] = []
+        self.current_cell: list[str] = []
+        self.rows: list[list[str]] = []
+        self.text_parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = {str(k).casefold(): (v or "") for k, v in attrs}
+        name = tag.casefold()
+        if name == "a":
+            self.current_anchor = {"href": values.get("href", ""), "text": ""}
+        elif name == "tr":
+            self.in_row = True
+            self.current_row = []
+        elif name in {"td", "th"} and self.in_row:
+            self.in_cell = True
+            self.current_cell = []
+
+    def handle_endtag(self, tag: str) -> None:
+        name = tag.casefold()
+        if name == "a" and self.current_anchor is not None:
+            self.current_anchor["text"] = one_line(self.current_anchor["text"])
+            self.anchors.append(self.current_anchor)
+            self.current_anchor = None
+        elif name in {"td", "th"} and self.in_cell:
+            self.current_row.append(one_line(" ".join(self.current_cell)))
+            self.current_cell = []
+            self.in_cell = False
+        elif name == "tr" and self.in_row:
+            if any(self.current_row):
+                self.rows.append(self.current_row)
+            self.current_row = []
+            self.in_row = False
+
+    def handle_data(self, data: str) -> None:
+        if data.strip():
+            self.text_parts.append(data.strip())
+            if self.current_anchor is not None:
+                self.current_anchor["text"] += " " + data.strip()
+            if self.in_cell:
+                self.current_cell.append(data.strip())
 
 
 class FormContractParser(HTMLParser):
@@ -289,6 +343,104 @@ def probe_candidate(url: str) -> dict[str, Any]:
         }
 
 
+def aleph_search_url(find_code: str, request: str, *, local_base: str = "CUCSH") -> str:
+    params = [
+        ("func", "find-b"),
+        ("request", request),
+        ("find_code", find_code),
+        ("adjacent", "N"),
+        ("local_base", local_base),
+        ("filter_code_1", "WLN"),
+        ("filter_request_1", ""),
+        ("filter_code_2", "WYR"),
+        ("filter_request_2", ""),
+        ("filter_code_3", "WYR"),
+        ("filter_request_3", ""),
+        ("filter_code_4", "WFM"),
+        ("filter_request_4", "TESIS"),
+    ]
+    return "http://148.202.248.73/F/?" + urllib.parse.urlencode(params)
+
+
+def page_evidence(url: str) -> dict[str, Any]:
+    html, final, ctype, status = fetch(url, timeout=40)
+    parser = EvidenceParser()
+    parser.feed(html)
+    title_match = re.search(r"<title[^>]*>(.*?)</title>", html, re.I | re.S)
+    title = one_line(re.sub(r"<[^>]+>", " ", title_match.group(1))) if title_match else ""
+    relevant_terms = (
+        "número de sistema", "numero de sistema", "biblioteca", "ubicación", "ubicacion",
+        "signatura", "colección", "coleccion", "ejemplar", "disponib", "items", "ítems",
+        "autor", "título", "titulo",
+    )
+    text = one_line(" ".join(parser.text_parts))
+    snippets = []
+    lower = text.casefold()
+    for term in relevant_terms:
+        start = lower.find(term.casefold())
+        if start >= 0:
+            snippet = text[max(0, start - 100): start + 350]
+            snippet = one_line(snippet)
+            if snippet and snippet not in snippets:
+                snippets.append(snippet)
+    links = []
+    for anchor in parser.anchors:
+        href = urllib.parse.urljoin(final, anchor.get("href") or "")
+        if not is_safe_candidate(href):
+            continue
+        haystack = (anchor.get("text","") + " " + href).casefold()
+        if any(token in haystack for token in (
+            "full-set-set", "item-global", "direct", "ejemplar", "item", "hold",
+        )):
+            row = {"text": anchor.get("text") or "", "url": href}
+            if row not in links:
+                links.append(row)
+    rows = [
+        row for row in parser.rows
+        if any(term.casefold() in one_line(" | ".join(row)).casefold() for term in relevant_terms)
+    ]
+    return {
+        "requestedUrl": url,
+        "finalUrl": final,
+        "httpStatus": status,
+        "contentType": ctype,
+        "pageTitle": title,
+        "htmlBytes": len(html.encode("utf-8")),
+        "snippets": snippets[:20],
+        "relevantLinks": links[:30],
+        "relevantRows": rows[:50],
+    }
+
+
+def sample_system_lookup(name: str, system_number: str) -> dict[str, Any]:
+    search = page_evidence(aleph_search_url("SYS", system_number))
+    followed = []
+    seen = {search["finalUrl"]}
+    queue = [row["url"] for row in search["relevantLinks"]]
+    while queue and len(followed) < 4:
+        url = queue.pop(0)
+        if url in seen:
+            continue
+        seen.add(url)
+        try:
+            evidence = page_evidence(url)
+        except Exception as exc:
+            followed.append({"requestedUrl": url, "error": str(exc)})
+            continue
+        followed.append(evidence)
+        for row in evidence.get("relevantLinks") or []:
+            candidate = row["url"]
+            if candidate not in seen and candidate not in queue:
+                queue.append(candidate)
+    return {
+        "name": name,
+        "systemNumber": system_number,
+        "searchUrl": aleph_search_url("SYS", system_number),
+        "search": search,
+        "followedPages": followed,
+    }
+
+
 def inspect_cucsh_opac_contract() -> dict[str, Any]:
     html, final, ctype, status = fetch(CUCSH_OPAC, timeout=40)
     parser = FormContractParser()
@@ -372,6 +524,10 @@ def build_report() -> dict[str, Any]:
         "candidates": list(candidate_map.values()),
         "candidateProbes": probes,
         "cucshOpacContract": inspect_cucsh_opac_contract(),
+        "sampleSystemLookups": [
+            sample_system_lookup(name, system_number)
+            for name, system_number in SAMPLE_SYSTEM_NUMBERS
+        ],
         "metrics": {
             "seedPages": len(pages),
             "candidates": len(candidate_map),
