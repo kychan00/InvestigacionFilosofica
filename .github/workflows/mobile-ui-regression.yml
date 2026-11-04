@@ -5,6 +5,10 @@ on:
     paths:
       - "index.html"
       - "tesis.html"
+      - "atlas.html"
+      - "js/thesis-atlas.js"
+      - "src/core/thesis-atlas.js"
+      - "scripts/qa/thesis-atlas-smoke.mjs"
       - "js/thesis-demo.js"
       - "src/core/thesis-demo-search.js"
       - "scripts/qa/thesis-demo-smoke.mjs"
@@ -136,6 +140,9 @@ jobs:
         run: node scripts/qa/author-federated-coverage-smoke.mjs
       - name: Verify thesis demo on phone, tablet, desktop and both themes
         run: node scripts/qa/thesis-demo-smoke.mjs
+      - name: Verify experimental thesis Atlas on phone, tablet and desktop
+        run: node scripts/qa/thesis-atlas-smoke.mjs
+
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -144,6 +151,7 @@ jobs:
           path: |
             artifacts/mobile-ui/
             artifacts/thesis-demo-ui/
+            artifacts/thesis-atlas-ui/
             artifacts/record-detail/
             artifacts/author-timeline/
             artifacts/theme-contrast/

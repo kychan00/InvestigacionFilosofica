@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "thesis-atlas-experiment-contract-v1",
+  "revision": "2026-11-03.t5aa-v1",
+  "phase": "T5AA",
+  "sourceRelease": "thesis-effective-corpus-v1",
+  "sourceContract": "scripts/thesis/config/effective-corpus-release-t2bz-v1.json",
+  "programAuthorityRevision": "2026-11-03.v47",
+  "admissionStatus": "include",
+  "expectedNodes": 561,
+  "topologyInputContract": {
+    "version": "normalized-title-v1",
+    "fields": ["title"],
+    "forbiddenFields": [
+      "program",
+      "programRef",
+      "degree",
+      "unit",
+      "authors",
+      "directors",
+      "abstract",
+      "abstractExcerpt",
+      "keywords"
+    ]
+  },
+  "representation": {
+    "method": "tfidf-word-ngram",
+    "ngramRange": [1, 2],
+    "minDf": 2,
+    "maxDf": 0.92,
+    "maxFeatures": 12000,
+    "sublinearTf": true,
+    "stripAccents": null,
+    "stopWordsRevision": "atlas-stopwords-v1",
+    "svdDimensions": 64,
+    "normalization": "l2"
+  },
+  "neighborhood": {
+    "metric": "cosine",
+    "k": 8
+  },
+  "projection": {
+    "algorithm": "tsne",
+    "dimensions": 2,
+    "metric": "cosine",
+    "perplexity": 28,
+    "learningRate": "auto",
+    "maxIter": 1500,
+    "init": "pca",
+    "randomState": 1701
+  },
+  "clustering": {
+    "algorithm": "hdbscan",
+    "metric": "euclidean-on-l2-normalized-svd",
+    "minClusterSize": 10,
+    "minSamples": 2,
+    "clusterSelectionMethod": "eom",
+    "labelTerms": 4,
+    "labelStatus": "proposed"
+  },
+  "publicBasePath": "data/theses/atlas-v1",
+  "publicIndexPath": "data/theses/atlas-v1/index.json",
+  "publicManifestPath": "data/theses/atlas-v1/manifest.json",
+  "methodStatus": "experimental-not-benchmark-approved"
+}

@@ -1,0 +1,169 @@
+name: Thesis Atlas experimental V1 · T5AA
+
+on:
+  pull_request:
+    paths:
+      - "atlas.html"
+      - "tesis.html"
+      - "index.html"
+      - "js/thesis-atlas.js"
+      - "js/thesis-demo.js"
+      - "css/thesis-atlas.css"
+      - "src/core/thesis-atlas.js"
+      - "scripts/thesis/build_thesis_atlas_v1.py"
+      - "scripts/thesis/config/thesis-atlas-v1.json"
+      - "scripts/thesis/requirements-atlas-v1.txt"
+      - "tests/test_thesis_atlas_v1.py"
+      - "tests/thesis-atlas.test.mjs"
+      - "docs/THESIS_ATLAS_2D_EXPERIMENT_T5AA.md"
+      - ".github/workflows/thesis-atlas-v1.yml"
+      - ".github/workflows/deploy.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate-atlas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install frozen atlas numeric stack
+        run: python -m pip install -r scripts/thesis/requirements-atlas-v1.txt
+
+      - name: Test atlas scientific boundary and browser contract
+        run: |
+          python -m py_compile scripts/thesis/build_thesis_atlas_v1.py
+          python -m unittest tests/test_thesis_atlas_v1.py -v
+          node --test tests/thesis-atlas.test.mjs
+
+      - name: Run complete application regression suite
+        run: |
+          npm ci
+          npm test
+
+      - name: Download immutable thesis V1 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/thesis-atlas-v1
+          mkdir -p /tmp/thesis-atlas-v1
+          gh release download thesis-effective-corpus-v1 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/thesis-atlas-v1
+
+          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --release-dir /tmp/thesis-atlas-v1 \
+            --root-release-manifest release-manifest.json
+
+      - name: Build actual 561-node atlas from verified release
+        run: |
+          rm -rf artifacts/thesis-atlas-v1
+          python scripts/thesis/build_thesis_atlas_v1.py \
+            --corpus-gzip /tmp/thesis-atlas-v1/effective-corpus.json.gz \
+            --release-contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --atlas-contract scripts/thesis/config/thesis-atlas-v1.json \
+            --output-dir artifacts/thesis-atlas-v1
+
+      - name: Audit public Atlas payload
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          root=Path("artifacts/thesis-atlas-v1")
+          data=json.loads((root/"index.json").read_text(encoding="utf-8"))
+          manifest=json.loads((root/"manifest.json").read_text(encoding="utf-8"))
+          nodes=data["nodes"]
+          ids={node["id"] for node in nodes}
+
+          assert data["schemaVersion"]=="thesis-atlas-index-v1"
+          assert data["sourceRelease"]=="thesis-effective-corpus-v1"
+          assert data["referenceOnly"] is True
+          assert data["methodStatus"]=="experimental-not-benchmark-approved"
+          assert data["topologyInputContract"]["fields"]==["title"]
+          assert len(nodes)==len(ids)==561
+          assert manifest["nodes"]==561
+          assert manifest["pdfCopies"]==0
+          assert len(data["clusters"]) >= 1
+          assert manifest["clusters"]==len(data["clusters"])
+          assert manifest["outliers"] < 561
+          assert 0 <= data["evaluation"]["trustworthinessK8"] <= 1
+          assert 0 <= data["evaluation"]["neighborPreservationK8"] <= 1
+
+          allowed_hosts={
+              "hdl.handle.net",
+              "riudg.udg.mx",
+              "www.riudg.udg.mx",
+              "biblioteca.udgvirtual.udg.mx",
+          }
+          forbidden_keys={
+              "pdf","pdfBytes","fullText","rawText","rawFields",
+              "sourceRecords","documentText","viewerBody",
+          }
+          for node in nodes:
+              assert math.isfinite(node["atlas"]["x"]) and math.isfinite(node["atlas"]["y"])
+              assert abs(node["atlas"]["x"]) <= 1.01 and abs(node["atlas"]["y"]) <= 1.01
+              assert node["topology"]["inputContractVersion"]=="normalized-title-v1"
+              assert node["neighborhood"]["k"]==8
+              refs=node["neighborhood"]["neighborRefs"]
+              assert len(refs)==len(set(refs))==8
+              assert node["id"] not in refs
+              assert all(ref in ids for ref in refs)
+              assert not forbidden_keys.intersection(node.keys())
+              if node["sourceUrl"]:
+                  parsed=urlparse(node["sourceUrl"])
+                  assert parsed.scheme=="https"
+                  assert parsed.hostname in allowed_hosts
+                  assert ".pdf" not in parsed.path.lower()
+                  assert "/bitstream" not in parsed.path.lower()
+
+          raw=(root/"index.json").read_text(encoding="utf-8")
+          assert '"fullText"' not in raw
+          assert '"pdfBytes"' not in raw
+          assert root.joinpath("index.json").stat().st_size < 4_000_000
+
+          print(json.dumps({
+              "nodes":len(nodes),
+              "clusters":len(data["clusters"]),
+              "outliers":data["evaluation"]["outliers"],
+              "trustworthiness_k8":data["evaluation"]["trustworthinessK8"],
+              "neighbor_preservation_k8":data["evaluation"]["neighborPreservationK8"],
+              "same_program_neighbor_rate":data["evaluation"]["sameProgramNeighborRate"],
+              "index_bytes":root.joinpath("index.json").stat().st_size,
+              "topology_fields":data["topologyInputContract"]["fields"],
+              "pdf_copies":0,
+              "benchmark_status":data["evaluation"]["benchmarkStatus"],
+          },indent=2))
+          PY
+
+      - name: Upload reference-only Atlas evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-atlas-v1-reference-only
+          path: |
+            artifacts/thesis-atlas-v1/index.json
+            artifacts/thesis-atlas-v1/manifest.json
+          if-no-files-found: error
+          retention-days: 14

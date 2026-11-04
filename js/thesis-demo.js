@@ -229,6 +229,14 @@ async function loadData() {
     document.querySelector("#thesis-total").textContent =
       data.totalIncluded.toLocaleString("es-MX");
     document.querySelector("#thesis-revision").textContent = data.sourceRelease;
+
+    const params = new URLSearchParams(location.search);
+    const initialQuery = params.get("q");
+    if (initialQuery) {
+      searchInput.value = initialQuery;
+      currentPage = 1;
+    }
+
     render();
   } catch (error) {
     status.textContent = "No fue posible cargar el índice verificado. No mostraremos datos incompletos.";
