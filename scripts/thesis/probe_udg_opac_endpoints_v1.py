@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v6"
+REVISION = "2026-11-04.t2cm-v7"
 SAMPLE_SYSTEM_NUMBERS = (
     ("Raúl Sánchez Salas", "000551988"),
     ("José Antonio Ramírez Velasco", "000479311"),
@@ -494,44 +494,40 @@ def follow_relevant_pages(
     return followed
 
 
-def sample_system_lookup(name: str, system_number: str) -> dict[str, Any]:
-    cookie_jar = http.cookiejar.CookieJar()
-    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
-
-    landing_html, landing_final, landing_ctype, landing_status = fetch_with_opener(
-        opener, CUCSH_OPAC, timeout=40
-    )
-    contract_parser = FormContractParser()
-    contract_parser.feed(landing_html)
-    if not contract_parser.forms:
-        raise ValueError("Aleph session page returned no search form")
-    action = urllib.parse.urljoin(
-        landing_final,
-        contract_parser.forms[0].get("action") or "",
-    )
-    if not is_safe_candidate(action):
+def sample_system_lookup(
+    name: str,
+    system_number: str,
+    *,
+    session_action: str,
+) -> dict[str, Any]:
+    if not is_safe_candidate(session_action):
         raise ValueError("Aleph session form action left the UdeG allowlist")
+    opener = urllib.request.build_opener()
 
     direct_attempts = []
     for local_base in ("CUCSH", "UDG01"):
-        url = direct_record_url(action, system_number, local_base)
-        evidence = page_evidence(url, opener=opener)
-        direct_attempts.append({
-            "localBase": local_base,
-            "url": url,
-            "record": evidence,
-            "followedPages": follow_relevant_pages(evidence, opener),
-        })
+        url = direct_record_url(session_action, system_number, local_base)
+        try:
+            evidence = page_evidence(url, opener=opener)
+            followed = follow_relevant_pages(evidence, opener)
+            direct_attempts.append({
+                "localBase": local_base,
+                "url": url,
+                "record": evidence,
+                "followedPages": followed,
+            })
+        except Exception as exc:
+            direct_attempts.append({
+                "localBase": local_base,
+                "url": url,
+                "error": str(exc),
+                "followedPages": [],
+            })
 
     return {
         "name": name,
         "systemNumber": system_number,
-        "landing": {
-            "finalUrl": landing_final,
-            "httpStatus": landing_status,
-            "contentType": landing_ctype,
-        },
-        "sessionAction": action,
+        "sessionAction": session_action,
         "directAttempts": direct_attempts,
     }
 
@@ -610,6 +606,16 @@ def build_report() -> dict[str, Any]:
     ]
     probe_urls = [url for url in priority_urls if url in candidate_map or url == CUCSH_OPAC]
     probes = [probe_candidate(url) for url in probe_urls]
+    contract = inspect_cucsh_opac_contract()
+    session_actions = [
+        form.get("resolvedAction")
+        for form in contract.get("forms") or []
+        if form.get("resolvedAction")
+    ]
+    if not session_actions:
+        raise ValueError("CUCSH Aleph contract did not expose a session action")
+    session_action = session_actions[0]
+
     return {
         "schemaVersion": SCHEMA,
         "revision": REVISION,
@@ -618,9 +624,13 @@ def build_report() -> dict[str, Any]:
         "seedPages": pages,
         "candidates": list(candidate_map.values()),
         "candidateProbes": probes,
-        "cucshOpacContract": inspect_cucsh_opac_contract(),
+        "cucshOpacContract": contract,
         "sampleSystemLookups": [
-            sample_system_lookup(name, system_number)
+            sample_system_lookup(
+                name,
+                system_number,
+                session_action=session_action,
+            )
             for name, system_number in SAMPLE_SYSTEM_NUMBERS
         ],
         "metrics": {

@@ -95,3 +95,8 @@ T2CM V6 abre una sesión y prueba cada número de sistema en dos bases:
 - `UDG01` — catálogo general de Centros Universitarios.
 
 Luego sigue sólo enlaces institucionales de registro completo/ítems para detectar holdings. Esta vía evita búsqueda textual y conserva el número de sistema como identidad primaria.
+
+
+## Reutilización de sesión — V7
+
+El run V6 reveló que abrir una sesión Aleph independiente por cada identidad puede devolver una página sin formulario después de varias solicitudes consecutivas. V7 reutiliza la única acción de sesión obtenida durante la inspección del contrato y ejecuta las seis pruebas directas (3 números × 2 bases) contra esa sesión. Los fallos individuales se registran como evidencia en lugar de abortar el artifact completo.

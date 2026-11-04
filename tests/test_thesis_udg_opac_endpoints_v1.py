@@ -82,6 +82,11 @@ class OpacReconTest(unittest.TestCase):
         self.assertEqual(params["doc_number"],["000551988"])
         self.assertEqual(params["local_base"],["UDG01"])
 
+    def test_shared_session_action_is_safe(self):
+        action="http://148.202.248.73:80/F/SESSION-123"
+        self.assertTrue(mod.is_safe_candidate(action))
+        self.assertIn("func=direct",mod.direct_record_url(action,"000551988","CUCSH"))
+
     def test_candidate_safety(self):
         self.assertTrue(mod.is_safe_candidate("https://foo.udg.mx/opac"))
         self.assertTrue(mod.is_safe_candidate("http://148.202.1.2:8080/F/"))
