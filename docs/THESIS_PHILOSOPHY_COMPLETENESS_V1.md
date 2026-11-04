@@ -120,9 +120,17 @@ La proyección exige los bytes exactos de `thesis-effective-corpus-v1`:
 - gzip SHA-256:
   `4e2484482be783bcb004f4a343cfede516806d56d4e56dffa4a6d20cfe3750c3`.
 
-Cada referencia del núcleo se compara mediante:
+Cada referencia del núcleo se reconcilia siguiendo la jerarquía de evidencia
+del proyecto:
 
-`título normalizado + primer thesis-author + programRef + año`
+1. **handle persistente compartido**;
+2. si no existe coincidencia por handle, `título normalizado + primer
+   thesis-author + programRef + año`.
+
+RIUdeG contiene registros históricos sin `dc.date.issued` ni
+`dc.date.submitted`. En esos casos no se convierte la fecha de acceso al
+repositorio en una fecha de tesis: el handle permite identidad determinista y la
+fecha permanece desconocida.
 
 - una coincidencia: añade procedencia a la obra existente;
 - cero coincidencias: construye una obra nueva en la proyección;
