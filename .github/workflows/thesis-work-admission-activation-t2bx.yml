@@ -1,0 +1,142 @@
+name: Thesis work admission activation T2BX
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/apply_work_admission_decisions_v1.py"
+      - "scripts/thesis/config/work-admission-decisions-v1.json"
+      - "tests/test_thesis_work_admission_activation_t2bx.py"
+      - "docs/THESIS_ESTUDIOS_GENERO_WORK_ADMISSION_T2BX.md"
+      - ".github/workflows/thesis-work-admission-activation-t2bx.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Unit and existing ledger regression tests
+        run: |
+          python -m unittest discover -s tests -p "test_thesis_work_admission_activation_t2bx.py" -v
+          python -m unittest discover -s tests -p "test_thesis_estudios_genero_adjudication_t2bw.py" -v
+          python -m unittest discover -s tests -p "test_thesis_boundary_adjudication_ledger.py" -v
+
+      - name: Verify source PR 158 was genuinely merged
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "/repos/${GITHUB_REPOSITORY}/pulls/158"             --jq '{merged,merge_commit_sha,head_sha:.head.sha}'             > /tmp/t2bx-pr158.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          approval=json.loads(Path("scripts/thesis/config/work-admission-decisions-v1.json").read_text())["approval"]
+          actual=json.loads(Path("/tmp/t2bx-pr158.json").read_text())
+          assert actual["merged"] is True
+          assert actual["merge_commit_sha"]==approval["mergeCommitSha"]
+          assert actual["head_sha"]==approval["approvedHeadSha"]
+          PY
+
+      - name: Fetch frozen corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/t2bx artifacts/t2bx
+          gh api -H "Accept: application/vnd.github+json"             "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13099541204/zip"             > /tmp/t2bx.zip
+          unzip -q /tmp/t2bx.zip -d /tmp/t2bx
+
+      - name: Reproject current metadata confidence and Program Authority V47
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py             --canonical-corpus /tmp/t2bx/canonical-corpus.json.gz             --source-records /tmp/t2bx/source-records.jsonl.gz             --output-corpus artifacts/t2bx/confidence.json             --output-report artifacts/t2bx/confidence-report.json
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,"scripts/thesis")
+          import audit_program_coverage_v1 as coverage
+          import build_canonical_corpus_v1 as canonical
+          base=Path("artifacts/t2bx")
+          original=json.loads((base/"confidence.json").read_text())
+          registry=canonical.load_program_registry()
+          projected,_=coverage.reproject_corpus(original,registry,reference_year=2026)
+          (base/"program-projected.json").write_text(
+              json.dumps(projected,ensure_ascii=False)
+          )
+          assert registry["registryRevision"]=="2026-11-03.v47"
+          PY
+
+      - name: Activate exact work and verify reversible full corpus
+        run: |
+          python scripts/thesis/apply_work_admission_decisions_v1.py             --corpus artifacts/t2bx/program-projected.json             --registry scripts/thesis/config/program-authority-v1.json             --decisions scripts/thesis/config/work-admission-decisions-v1.json             --candidate scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json             --output-corpus artifacts/t2bx/activated.json             --output-report artifacts/t2bx/activation-report.json
+          python scripts/thesis/apply_work_admission_decisions_v1.py             --corpus artifacts/t2bx/activated.json             --registry scripts/thesis/config/program-authority-v1.json             --decisions scripts/thesis/config/work-admission-decisions-v1.json             --candidate scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json             --output-corpus artifacts/t2bx/reversed.json             --output-report artifacts/t2bx/reversal-report.json             --reverse
+          python - <<'PY'
+          import gzip,hashlib,json
+          from collections import Counter
+          from pathlib import Path
+          root=Path("artifacts/t2bx")
+          prior=json.loads((root/"program-projected.json").read_text())
+          active=json.loads((root/"activated.json").read_text())
+          reverse=json.loads((root/"reversed.json").read_text())
+          report=json.loads((root/"activation-report.json").read_text())
+          assert len(active["works"])==len(prior["works"])==27576
+          assert active["workAdmissionDecisionRevision"]=="2026-11-03.t2bx-v1"
+          assert Counter(w["admissionStatus"] for w in prior["works"])=={
+              "include":560,"review":194,"quarantine":18971,
+              "exclude":7849,"reject-source":2
+          }
+          assert Counter(w["admissionStatus"] for w in active["works"])=={
+              "include":561,"review":193,"quarantine":18971,
+              "exclude":7849,"reject-source":2
+          }
+          assert report["admissionDelta"]=={"include":1,"review":-1}
+          changes=[
+              (before["id"],before["admissionStatus"],after["admissionStatus"])
+              for before,after in zip(prior["works"],active["works"])
+              if before!=after
+          ]
+          assert changes==[("thesis:work:00002062","review","include")],changes
+          assert reverse["works"]==prior["works"]
+          assert active["programAuthorityRevision"]==prior["programAuthorityRevision"]
+          assert active["programMetadataEvidenceRevision"]==prior["programMetadataEvidenceRevision"]
+          assert active["workAdmissionDecisionRevision"]=="2026-11-03.t2bx-v1"
+          work=next(w for w in active["works"] if w["id"]=="thesis:work:00002062")
+          assert work["programRef"]=="program:udg:mae-estudios-genero"
+          assert work["workAdmissionDecision"]["approvalPullRequest"]==158
+          selected={
+              "beforeAdmission":report["beforeAdmission"],
+              "afterAdmission":report["afterAdmission"],
+              "changedWorkIds":[c[0] for c in changes],
+              "reversedExactWorks":reverse["works"]==prior["works"],
+              "sourceCorpusCount":len(prior["works"]),
+              "activatedCorpusCount":len(active["works"]),
+              "scope":"exact-work-only",
+              "authorityMutation":False,
+              "deploymentStatus":"artifact-only-not-production",
+          }
+          (root/"t2bx-summary.json").write_text(json.dumps(selected,indent=2,sort_keys=True)+"\n")
+          blob=(root/"activated.json").read_bytes()
+          (root/"activated-sha256.txt").write_text(hashlib.sha256(blob).hexdigest()+"\n")
+          with open(root/"activated.json.gz","wb") as raw:
+              with gzip.GzipFile(fileobj=raw,mode="wb",filename="",compresslevel=6,mtime=0) as f:
+                  f.write(blob)
+          print(json.dumps(selected,indent=2))
+          PY
+
+      - name: Upload activated snapshot and verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-work-admission-t2bx-activated-corpus
+          path: |
+            artifacts/t2bx/activated.json.gz
+            artifacts/t2bx/activated-sha256.txt
+            artifacts/t2bx/activation-report.json
+            artifacts/t2bx/reversal-report.json
+            artifacts/t2bx/t2bx-summary.json
+          retention-days: 14
+          if-no-files-found: warn
