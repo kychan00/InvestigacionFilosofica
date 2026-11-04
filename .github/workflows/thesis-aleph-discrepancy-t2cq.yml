@@ -1,0 +1,113 @@
+name: Thesis Aleph CUCSH discrepancy review T2CQ
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/audit_philosophy_aleph_discrepancies_t2cq.py"
+      - "tests/test_thesis_aleph_discrepancy_review_t2cq.py"
+      - "docs/THESIS_ALEPH_CUCSH_DISCREPANCIES_T2CQ.md"
+      - ".github/workflows/thesis-aleph-discrepancy-t2cq.yml"
+  workflow_dispatch:
+    inputs:
+      offset:
+        description: "Zero-based queue offset"
+        type: number
+        default: 0
+        required: true
+      limit:
+        description: "Review batch size 1..40"
+        type: number
+        default: 8
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  discrepancy-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Test strict review-only evidence
+        run: |
+          python -m py_compile scripts/thesis/audit_philosophy_aleph_discrepancies_t2cq.py
+          python -m unittest tests.test_thesis_aleph_discrepancy_review_t2cq tests.test_thesis_philosophy_holdings_batches_t2co -v
+      - name: Download and verify Effective Corpus V2
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/t2cq-v2 artifacts/t2cq
+          gh release download thesis-effective-corpus-v2 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/t2cq-v2
+          python scripts/thesis/build_effective_corpus_release_manifest_v2.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --release-dir /tmp/t2cq-v2 \
+            --root-release-manifest release-manifest.json
+
+      - name: Rebuild T2CL master input from V2 and CUCSH
+        run: |
+          python scripts/thesis/build_thesis_demo_index_v1.py \
+            --corpus-gzip /tmp/t2cq-v2/effective-corpus.json.gz \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --output artifacts/t2cq/demo-v2.json
+          python scripts/thesis/build_philosophy_public_index_v1.py \
+            --demo-index artifacts/t2cq/demo-v2.json \
+            --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
+            --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --output artifacts/t2cq/philosophy-t2ci.json
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py \
+            --output artifacts/t2cq/cucsh-catalog.json
+          python scripts/thesis/build_philosophy_whereabouts_index_v1.py \
+            --cucsh-report artifacts/t2cq/cucsh-catalog.json \
+            --philosophy-index artifacts/t2cq/philosophy-t2ci.json \
+            --output artifacts/t2cq/whereabouts-index.json
+
+      - name: Audit first live Aleph discrepancies
+        env:
+          REVIEW_OFFSET: ${{ inputs.offset || '0' }}
+          REVIEW_LIMIT: ${{ github.event_name == 'pull_request' && '8' || inputs.limit || '8' }}
+        run: |
+          python scripts/thesis/audit_philosophy_aleph_discrepancies_t2cq.py \
+            --whereabouts-index artifacts/t2cq/whereabouts-index.json \
+            --seeds scripts/thesis/config/philosophy-aleph-identity-seeds-v1.json \
+            --offset "${REVIEW_OFFSET}" --limit "${REVIEW_LIMIT}" \
+            --output artifacts/t2cq/discrepancy-review.json
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          path=Path("artifacts/t2cq/discrepancy-review.json")
+          raw=path.read_text(encoding='utf-8')
+          data=json.loads(raw)
+          assert data["schemaVersion"]=="thesis-philosophy-aleph-discrepancy-review-v1"
+          assert data["referenceOnly"] is True
+          assert data["automaticIdentityPromotion"] is False
+          assert data["physicalClaimsAdded"] is False
+          assert data["sessionUrlsPersisted"] is False
+          assert data["metrics"]["inputRecords"] >= 233
+          assert data["metrics"]["attempted"] <= 40
+          assert all(r["status"] in {"resolved","unresolved","ambiguous"} for r in data["reviews"])
+          assert all(c["sameWorkConfirmed"] is False and c["physicalLocationConfirmed"] is False for r in data["reviews"] for c in r["reviewCandidates"])
+          assert not re.search(r"/F/[^\\s\\\"\x27]+|(?i:session[-_]?id|cookie|password|bitstream|\\.pdf)", raw)
+          assert not list(Path("artifacts/t2cq").rglob("*.pdf"))
+          print(json.dumps(data["metrics"],ensure_ascii=False,sort_keys=True))
+          PY
+
+      - name: Upload metadata-only discrepancy review
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-aleph-discrepancies-t2cq-${{ github.event_name }}-${{ inputs.offset || '0' }}
+          path: artifacts/t2cq/discrepancy-review.json
+          if-no-files-found: error
+          retention-days: 14
