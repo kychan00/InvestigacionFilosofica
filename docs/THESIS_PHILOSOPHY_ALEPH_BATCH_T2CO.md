@@ -32,9 +32,14 @@ nuevas tesis ni holdings: produce evidencia de reconciliación verificable.
 6. Aceptar sólo si existe **exactamente un registro válido**. Consultar
    `item-global` y registrar metadatos de biblioteca, colección, signatura,
    estatus y disponibilidad cuando estén presentes.
-7. Más de ocho candidatos por consulta, más de ocho en conjunto o varias
-   identidades exactas -> `ambiguous`. Falta de identidad exacta ->
-   `unresolved`. Fallos transitorios no prueban inexistencia.
+7. Más de ocho candidatos por consulta se registra como **desbordamiento de
+   descubrimiento**, no como prueba de múltiples tesis idénticas. Si la unión
+   de candidatos acotados supera ocho, el caso queda `unresolved` sin
+   truncar candidatos. Varias identidades bibliográficas exactas -> `ambiguous`.
+   La falta de una identidad exacta -> `unresolved`. Los errores transitorios
+   no prueban inexistencia. Una identidad exacta validada puede resolverse
+   aunque otra consulta amplia se haya desbordado; esta limitación queda
+   explícita en `attempts` para auditoría posterior.
 
 ## Salida y privacidad
 El JSON `thesis-philosophy-holdings-batch-v1` contiene `offset`, `limit`,
