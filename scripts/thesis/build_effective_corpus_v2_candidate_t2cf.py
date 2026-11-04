@@ -495,8 +495,7 @@ def main() -> int:
 
     write_json(args.output_corpus, candidate)
     write_json(args.output_report, report)
-    canonical_bytes = canonical_json_bytes(candidate)
-    json_sha = hashlib.sha256(canonical_bytes).hexdigest()
+    json_sha = hashlib.sha256(args.output_corpus.read_bytes()).hexdigest()
     gzip_sha = write_deterministic_gzip(args.output_gzip, candidate)
     args.output_json_sha.parent.mkdir(parents=True, exist_ok=True)
     args.output_json_sha.write_text(json_sha + "\n", encoding="utf-8")
