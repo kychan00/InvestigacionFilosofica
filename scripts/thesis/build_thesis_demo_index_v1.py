@@ -118,6 +118,7 @@ def build_index(
     corpus: dict[str, Any],
     contract: dict[str, Any],
     *,
+    registry: dict[str, Any] | None = None,
     enforce_full_release: bool = True,
 ) -> dict[str, Any]:
     works = corpus.get("works") or []
@@ -134,8 +135,16 @@ def build_index(
         if len(works) != contract["worksTotal"] or counts != contract["admissionCounts"]:
             raise ValueError("Immutable V1 admission counts mismatch")
 
+    if registry is not None and registry.get("registryRevision") != (
+        contract["programAuthorityRevision"]
+    ):
+        raise ValueError("Demo registry Program Authority revision mismatch")
+    authorities = (
+        registry.get("programs") if registry is not None
+        else corpus.get("programAuthorities")
+    )
     program_names = {
-        item["id"]: item for item in corpus.get("programAuthorities") or []
+        item["id"]: item for item in authorities or []
         if item.get("id")
     }
     sources = {
@@ -213,11 +222,17 @@ def main() -> None:
         default=Path(__file__).resolve().parent
         / "config/effective-corpus-release-t2bz-v1.json",
     )
+    parser.add_argument(
+        "--registry",
+        type=Path,
+        default=Path(__file__).resolve().parent / "config/program-authority-v1.json",
+    )
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     contract = json.loads(args.contract.read_text(encoding="utf-8"))
     corpus = verified_release(args.corpus_gzip, contract)
-    output = build_index(corpus, contract)
+    registry = json.loads(args.registry.read_text(encoding="utf-8"))
+    output = build_index(corpus, contract, registry=registry)
     if output["totalIncluded"] != 561:
         raise ValueError("Demo V1 must contain exactly 561 approved theses")
     args.output.parent.mkdir(parents=True, exist_ok=True)
