@@ -94,6 +94,15 @@ jobs:
             --output-report artifacts/t2cc/reversal-report.json \
             --reverse
 
+      - name: Reconcile work-review queue against T2CC candidate snapshot
+        run: |
+          python scripts/thesis/build_boundary_work_review_queue_v1.py \
+            --canonical-corpus artifacts/t2cc/activated.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --policy scripts/thesis/config/boundary-work-review-policy-v1.json \
+            --reference-year 2026 \
+            --output-dir artifacts/t2cc/work-review
+
       - name: Assert exact 27576-work delta and deterministic artifact
         run: |
           python - <<'PY'
@@ -111,6 +120,18 @@ jobs:
               Path("scripts/thesis/config/work-admission-decisions-v2.json").read_text()
           )
           expected=decisions["expected"]
+          queue=json.loads(
+              (root/"work-review/boundary-work-review-queue.json").read_text()
+          )
+          metrics=queue["metrics"]
+          assert metrics["workItems"]==179,metrics
+          assert metrics["pendingPrimarySourceReview"]==179,metrics
+          assert metrics["resolvedByExplicitWorkDecision"]==2,metrics
+          dcts_queue=next(p for p in queue["programs"] if p["programRef"]==
+              "program:udg:doc-ciudad-territorio-sustentabilidad")
+          assert dcts_queue["projectedAdmission"]=={"include":1,"review":151}
+          assert dcts_queue["pendingPrimarySourceReview"]==151
+          assert dcts_queue["resolvedByExplicitWorkDecision"]==1
 
           assert len(prior["works"])==len(active["works"])==len(reverse["works"])==27576
           assert dict(Counter(w["admissionStatus"] for w in prior["works"]))==expected["inputAdmission"]
@@ -147,6 +168,8 @@ jobs:
               "preservedApprovedWorkIds":expected["preservedActiveWorkIds"],
               "reversedToV1Exactly":True,
               "programAuthorityMutated":False,
+              "workReviewPending":metrics["pendingPrimarySourceReview"],
+              "workReviewResolved":metrics["resolvedByExplicitWorkDecision"],
               "publicationStatus":"artifact-only-not-production",
           }
           (root/"t2cc-summary.json").write_text(
@@ -171,5 +194,6 @@ jobs:
             artifacts/t2cc/activation-report.json
             artifacts/t2cc/reversal-report.json
             artifacts/t2cc/t2cc-summary.json
+            artifacts/t2cc/work-review/boundary-work-review-queue.json
           retention-days: 14
           if-no-files-found: warn
