@@ -24,7 +24,7 @@ class EvidenceHoldTest(unittest.TestCase):
         obs = []
         for raw, ref, n in [
             ("Maestría En Arquitectura; Orientacion Arte Y Comunicacion", self.hold, 7),
-            ("Maestría en Humanidades Aplicadas", self.other, 1)
+            ("Maestría en Estudios Aplicados", self.other, 1)
         ]:
             rows.extend([{
                 "programRaw": raw, "academicUnitRaw": "CUAAD",
@@ -42,8 +42,8 @@ class EvidenceHoldTest(unittest.TestCase):
         registry = json.loads(json.dumps(self.registry))
         registry["programs"].append({
             "id": self.other,
-            "canonicalName": "Maestría en Humanidades Aplicadas",
-            "aliases": ["Maestría en Humanidades Aplicadas"],
+            "canonicalName": "Maestría en Estudios Aplicados",
+            "aliases": ["Maestría en Estudios Aplicados"],
             "admissionState": "review",
             "observedCount": 1,
             "lifecycleState": "current",
