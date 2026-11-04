@@ -49,3 +49,14 @@ Una vez identificado el endpoint/contrato del OPAC, T2CM V2 probará una muestra
 - José Antonio Ramírez Velasco.
 
 La muestra servirá para definir una consulta determinista antes de ejecutar el inventario de 233 referencias.
+
+
+## Endpoint CUCSH confirmado
+
+El primer artifact T2CM descubrió, desde la página oficial de SiUBiUDG, el endpoint:
+
+`http://148.202.248.73/F/?func=find-b-0&local_base=CUCSH`
+
+La respuesta fue HTTP 200 y el título de página fue `CUCSH - Búsqueda básica`.
+
+T2CM V2 extrae el contrato del formulario Aleph de esa página —acción, método, inputs, selects y opciones— sin enviar todavía una consulta bibliográfica. Este contrato será la base para consultas reproducibles por título/autor/número de sistema.

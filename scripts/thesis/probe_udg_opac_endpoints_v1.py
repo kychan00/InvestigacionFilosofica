@@ -16,7 +16,8 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v1"
+REVISION = "2026-11-04.t2cm-v2"
+CUCSH_OPAC = "http://148.202.248.73/F/?func=find-b-0&local_base=CUCSH"
 
 SEEDS = (
     "https://bibliotecas.udg.mx/catalogos-en-linea",
@@ -61,6 +62,65 @@ def is_safe_candidate(url: str) -> bool:
     if host.startswith("148.202."):
         return True
     return False
+
+
+class FormContractParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.forms: list[dict[str, Any]] = []
+        self.current_form: dict[str, Any] | None = None
+        self.current_select: dict[str, Any] | None = None
+        self.current_option: dict[str, str] | None = None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = {str(k).casefold(): (v or "") for k, v in attrs}
+        name = tag.casefold()
+        if name == "form":
+            self.current_form = {
+                "action": values.get("action", ""),
+                "method": values.get("method", "get").casefold(),
+                "name": values.get("name", ""),
+                "id": values.get("id", ""),
+                "inputs": [],
+                "selects": [],
+            }
+        elif name == "input" and self.current_form is not None:
+            self.current_form["inputs"].append({
+                "name": values.get("name", ""),
+                "type": values.get("type", "text").casefold(),
+                "value": values.get("value", ""),
+            })
+        elif name == "select" and self.current_form is not None:
+            self.current_select = {
+                "name": values.get("name", ""),
+                "id": values.get("id", ""),
+                "options": [],
+            }
+        elif name == "option" and self.current_select is not None:
+            self.current_option = {
+                "value": values.get("value", ""),
+                "text": "",
+                "selected": "selected" in values,
+            }
+
+    def handle_endtag(self, tag: str) -> None:
+        name = tag.casefold()
+        if name == "option" and self.current_option is not None and self.current_select is not None:
+            self.current_option["text"] = one_line(self.current_option["text"])
+            self.current_select["options"].append(self.current_option)
+            self.current_option = None
+        elif name == "select" and self.current_select is not None and self.current_form is not None:
+            self.current_form["selects"].append(self.current_select)
+            self.current_select = None
+        elif name == "form" and self.current_form is not None:
+            self.forms.append(self.current_form)
+            self.current_form = None
+            self.current_select = None
+            self.current_option = None
+
+    def handle_data(self, data: str) -> None:
+        if self.current_option is not None and data.strip():
+            self.current_option["text"] += " " + data.strip()
 
 
 class DiscoveryParser(HTMLParser):
@@ -229,6 +289,45 @@ def probe_candidate(url: str) -> dict[str, Any]:
         }
 
 
+def inspect_cucsh_opac_contract() -> dict[str, Any]:
+    html, final, ctype, status = fetch(CUCSH_OPAC, timeout=40)
+    parser = FormContractParser()
+    parser.feed(html)
+    title_match = re.search(r"<title[^>]*>(.*?)</title>", html, re.I | re.S)
+    title = one_line(re.sub(r"<[^>]+>", " ", title_match.group(1))) if title_match else ""
+    forms = []
+    for form in parser.forms:
+        action = urllib.parse.urljoin(final, form.get("action") or "")
+        safe_action = action if is_safe_candidate(action) else None
+        forms.append({
+            **form,
+            "resolvedAction": safe_action,
+        })
+    names = sorted({
+        row.get("name")
+        for form in forms
+        for row in (form.get("inputs") or []) + (form.get("selects") or [])
+        if row.get("name")
+    })
+    values = sorted({
+        str(row.get("value") or "")
+        for form in forms
+        for row in (form.get("inputs") or [])
+        if row.get("value")
+    })
+    return {
+        "endpoint": CUCSH_OPAC,
+        "finalUrl": final,
+        "httpStatus": status,
+        "contentType": ctype,
+        "pageTitle": title,
+        "htmlBytes": len(html.encode("utf-8")),
+        "forms": forms,
+        "fieldNames": names,
+        "inputValues": values,
+    }
+
+
 def build_report() -> dict[str, Any]:
     pages = []
     candidate_map: dict[str, dict[str, Any]] = {}
@@ -264,6 +363,7 @@ def build_report() -> dict[str, Any]:
         "seedPages": pages,
         "candidates": list(candidate_map.values()),
         "candidateProbes": probes,
+        "cucshOpacContract": inspect_cucsh_opac_contract(),
         "metrics": {
             "seedPages": len(pages),
             "candidates": len(candidate_map),

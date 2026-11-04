@@ -31,6 +31,28 @@ class OpacReconTest(unittest.TestCase):
         self.assertNotIn("https://evil.example/opac",urls)
         self.assertTrue(all(".pdf" not in url for url in urls))
 
+    def test_form_contract_parser(self):
+        html="""
+        <html><body>
+          <form action="/F/" method="get" name="form1">
+            <input type="hidden" name="func" value="find-b"/>
+            <input type="text" name="request" value=""/>
+            <select name="find_code">
+              <option value="WRD">Palabras</option>
+              <option value="WTI" selected>Título</option>
+            </select>
+          </form>
+        </body></html>
+        """
+        parser=mod.FormContractParser()
+        parser.feed(html)
+        self.assertEqual(len(parser.forms),1)
+        form=parser.forms[0]
+        self.assertEqual(form["action"],"/F/")
+        self.assertEqual(form["inputs"][0]["name"],"func")
+        self.assertEqual(form["selects"][0]["name"],"find_code")
+        self.assertEqual(form["selects"][0]["options"][1]["value"],"WTI")
+
     def test_candidate_safety(self):
         self.assertTrue(mod.is_safe_candidate("https://foo.udg.mx/opac"))
         self.assertTrue(mod.is_safe_candidate("http://148.202.1.2:8080/F/"))
