@@ -132,7 +132,16 @@ Después de T2CU:
 - Maestría en Estudios Filosóficos: 3;
 - Maestría histórica en Filosofía: 2;
 - 0 PDFs almacenados;
-- 0 holdings físicos nuevos inferidos.
+- 0 holdings físicos nuevos inferidos;\n- **2 referencias con año no verificable**, mostradas como “Año sin verificar”.
+
+## Anomalías de calidad conservadas
+
+Dos filas del inventario no proporcionan un año válido:
+
+- José María Munro Olmos — *José Vasconcelos. La noción de análisis y de síntesis: aplicaciones y contradicciones*: el campo año está vacío y el valor `2003` aparece desplazado en `director`.
+- María Guadalupe Castañeda Nava — *La educación como necesidad para el hombre*: el catálogo expone `208` como año.
+
+T2CU no convierte `2003` en año ni corrige `208` a otra fecha. En la vista pública ambas quedan con `year=null` / `dateQuality=unknown`. Los valores originales se preservan en la evidencia estructurada de catálogo para revisión futura.
 
 ## Reproducibilidad
 
