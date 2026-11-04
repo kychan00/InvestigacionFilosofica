@@ -105,6 +105,12 @@ jobs:
           assert not re.search(r"/F/[^\\s\\\"']+|(?i:session[-_]?id|cookie|password|bitstream|\\.pdf)",raw)
           assert not list(Path("artifacts/t2co").rglob("*.pdf"))
           print(json.dumps(data["metrics"],sort_keys=True))
+          # Safe diagnostics: only search index and candidate counts, no titles,
+          # URLs, session tokens or query strings.
+          for number,decision in enumerate(data["decisions"]):
+              print("search_diagnostic",number,decision["status"],decision.get("reason",""),
+                    [(a["code"],a["adjacent"],a["status"],a.get("candidateCount"))
+                     for a in decision.get("attempts",[])])
           PY
 
       - name: Upload reference-only evidence
