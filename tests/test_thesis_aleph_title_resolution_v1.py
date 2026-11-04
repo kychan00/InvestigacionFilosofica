@@ -21,7 +21,7 @@ class TitleResolutionTest(unittest.TestCase):
             adjacent="Y",
         )
         import urllib.parse
-        params=urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
+        params=urllib.parse.parse_qs(urllib.parse.urlparse(url).query, keep_blank_values=True)
         self.assertEqual(params["func"],["find-b"])
         self.assertEqual(params["find_code"],["WTI"])
         self.assertEqual(params["request"],["Ética y lenguaje"])
