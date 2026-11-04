@@ -92,7 +92,7 @@ class T2COTest(unittest.TestCase):
         def query(*args, **kwargs):
             return [f"{i:09d}" for i in range(10)]
         result = mod.resolve_one(row(1), opener=None, action="", query=query)
-        self.assertEqual(result["status"], "ambiguous")
+        self.assertEqual(result["status"], "unresolved")
         self.assertEqual(result["reason"], "candidate-overflow")
 
     def test_invalid_limits_rejected(self):
