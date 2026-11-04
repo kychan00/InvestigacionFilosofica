@@ -69,6 +69,11 @@ jobs:
           assert m["allMasterRowsScanned"] >= 2000
           assert m["controlSchoolDegrees2018_2025"] == 45
           assert m["knownPublicSeeds"] == 3
+          assert m["currentProgramUnique"] == 0
+          assert m["historicalProgramUnique"] == 0
+          assert m["knownPublicSeedsMatchedInCatalog"] == 0
+          assert m["philosophyLikeProgramLabels"] == 0
+          assert m["philosophyLikeRows"] == 0
 
           allowed={"biblioteca.cucsh.udg.mx","www.biblioteca.cucsh.udg.mx"}
           forbidden=(".pdf","/bitstream","/download")
