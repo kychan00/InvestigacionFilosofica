@@ -94,6 +94,65 @@ T2CV es **reconocimiento**, no publicación:
 - no fusiona el programa histórico de Maestría en Filosofía con el programa
   actual de Estudios Filosóficos.
 
+
+## Resultado vivo comprobado
+
+El workflow T2CV recorrió **239 páginas** del listado general de maestrías y
+leyó **2,383 filas**. El campo de programa contiene **48 etiquetas distintas**.
+
+Resultado:
+
+- `Maestría en Estudios Filosóficos`: **0 filas**;
+- `Maestría en Filosofía` histórica: **0 filas**;
+- cualquier otra etiqueta cuyo texto normalizado contenga `filosof`: **0**;
+- semillas públicas encontradas en el catálogo: **0 de 3**;
+- grados de Maestría en Estudios Filosóficos registrados por Control Escolar
+  entre 2018 y 2025: **45**.
+
+Esto descarta la hipótesis de que las tesis estuvieran ocultas por un fallo
+del filtro server-side o por una variante ortográfica del nombre del programa.
+Aunque el selector Drupal anuncia ambos programas filosóficos, sus registros
+no forman parte de las 2,383 filas públicas del catálogo general de maestrías.
+
+El resultado **no** significa que no existan tesis. Al contrario: el requisito
+institucional de titulación, los 45 grados de Control Escolar y las tesis
+2024 ya documentadas demuestran producción de tesis que el catálogo no
+representa.
+
+### Comprobación con RIUdeG
+
+Una auditoría separada del corpus real RIUdeG usado por el proyecto
+(27,576 registros fuente) tampoco encontró metadata de
+`Maestría en Estudios Filosóficos`. Sólo aparecen dos registros del programa
+histórico `Maestría en Filosofía`, ya conocidos por el proyecto:
+
+- Víctor Manuel Favila Vega, 2005 — *Qvaestiones qvodlibetales de historiae philosiphia* — handle `20.500.12104/49346`;
+- Adriana Pérez Armendáriz, 2006 — *Examen breve de dos paradojas de la teoría de conjuntos* — handle `20.500.12104/49365`.
+
+Por tanto, repetir búsquedas en el catálogo CUCSH o en el corpus RIUdeG actual
+no es la siguiente estrategia adecuada para recuperar la Maestría en Estudios
+Filosóficos.
+
+## Siguiente ruta institucional
+
+La recuperación debe desplazarse a fuentes que documenten **defensas,
+egresados y tesis del programa**:
+
+1. Coordinación de la Maestría en Estudios Filosóficos y Departamento de
+   Filosofía CUCSH.
+2. Informes anuales, coloquios, exámenes de grado, notas institucionales y
+   publicaciones derivadas.
+3. Control Escolar como ledger de cobertura: 45 grados 2018–2025, sin crear
+   identidades cuando falta título/autor.
+4. Catálogos/archivos físicos de Rodríguez Lapuente y Belenes cuando exista
+   evidencia de depósito.
+5. RIUdeG sólo cuando aparezca un handle de tesis exacto, no por similitud
+   temática con libros o artículos derivados.
+
+T2CV no envía correos ni solicitudes en nombre del usuario. Una fase posterior
+puede preparar un expediente de recuperación institucional con las identidades
+ya conocidas y los huecos por año.
+
 ## Salida
 
 El artifact `philosophy-masters-recovery.json` reportará:
