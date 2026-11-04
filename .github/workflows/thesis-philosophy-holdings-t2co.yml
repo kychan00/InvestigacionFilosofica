@@ -1,0 +1,116 @@
+name: Thesis Philosophy strict Aleph batches T2CO
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/resolve_philosophy_holdings_batches_t2co.py"
+      - "tests/test_thesis_philosophy_holdings_batches_t2co.py"
+      - "docs/THESIS_PHILOSOPHY_ALEPH_BATCH_T2CO.md"
+      - ".github/workflows/thesis-philosophy-holdings-t2co.yml"
+  workflow_dispatch:
+    inputs:
+      offset:
+        description: "Zero-based deterministic queue offset"
+        type: number
+        default: 0
+        required: true
+      limit:
+        description: "Batch size from 1 to 40"
+        type: number
+        default: 30
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  holdings-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test strict resolution and deterministic pagination
+        run: |
+          python -m py_compile scripts/thesis/resolve_philosophy_holdings_batches_t2co.py
+          python -m unittest \
+            tests.test_thesis_philosophy_holdings_resolver_v1 \
+            tests.test_thesis_philosophy_holdings_batches_t2co -v
+
+      - name: Download and verify Effective Corpus V2
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/t2co-v2 artifacts/t2co
+          gh release download thesis-effective-corpus-v2 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/t2co-v2
+          python scripts/thesis/build_effective_corpus_release_manifest_v2.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --release-dir /tmp/t2co-v2 \
+            --root-release-manifest release-manifest.json
+
+      - name: Rebuild T2CL master input from V2 and CUCSH
+        run: |
+          python scripts/thesis/build_thesis_demo_index_v1.py \
+            --corpus-gzip /tmp/t2co-v2/effective-corpus.json.gz \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --output artifacts/t2co/demo-v2.json
+          python scripts/thesis/build_philosophy_public_index_v1.py \
+            --demo-index artifacts/t2co/demo-v2.json \
+            --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
+            --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --output artifacts/t2co/philosophy-t2ci.json
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py \
+            --output artifacts/t2co/cucsh-catalog.json
+          python scripts/thesis/build_philosophy_whereabouts_index_v1.py \
+            --cucsh-report artifacts/t2co/cucsh-catalog.json \
+            --philosophy-index artifacts/t2co/philosophy-t2ci.json \
+            --output artifacts/t2co/whereabouts-index.json
+
+      - name: Resolve live bounded Aleph batch
+        env:
+          T2CO_OFFSET: ${{ inputs.offset || '0' }}
+          T2CO_LIMIT: ${{ github.event_name == 'pull_request' && '8' || inputs.limit || '30' }}
+        run: |
+          python scripts/thesis/resolve_philosophy_holdings_batches_t2co.py \
+            --whereabouts-index artifacts/t2co/whereabouts-index.json \
+            --seeds scripts/thesis/config/philosophy-aleph-identity-seeds-v1.json \
+            --offset "${T2CO_OFFSET}" --limit "${T2CO_LIMIT}" \
+            --output artifacts/t2co/holdings-batch.json
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          path=Path("artifacts/t2co/holdings-batch.json")
+          raw=path.read_text(encoding="utf-8")
+          data=json.loads(raw)
+          assert data["schemaVersion"]=="thesis-philosophy-holdings-batch-v1"
+          assert data["referenceOnly"] is True
+          assert data["canonicalAdmissionMutation"] is False
+          assert data["sessionUrlsPersisted"] is False
+          assert data["rawHtmlPersisted"] is False
+          assert data["metrics"]["inputRecords"] >= 233
+          assert data["metrics"]["attempted"] <= 40
+          assert all(d["status"] in {"resolved","ambiguous","unresolved"} for d in data["decisions"])
+          assert not re.search(r"/F/[^\\s\\\"']+|(?i:session[-_]?id|cookie|password|bitstream|\\.pdf)",raw)
+          assert not list(Path("artifacts/t2co").rglob("*.pdf"))
+          print(json.dumps(data["metrics"],sort_keys=True))
+          PY
+
+      - name: Upload reference-only evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-philosophy-holdings-t2co-${{ github.event_name }}-${{ inputs.offset || '0' }}
+          path: artifacts/t2co/holdings-batch.json
+          if-no-files-found: error
+          retention-days: 14
