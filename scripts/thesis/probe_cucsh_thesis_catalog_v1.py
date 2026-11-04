@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Probe the CUCSH thesis catalog as reference-only institutional metadata."""
+"""Probe and enumerate Philosophy references from the CUCSH thesis catalog."""
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
 import re
+import time
+import unicodedata
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -14,7 +16,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-cucsh-catalog-recon-v1"
-REVISION = "2026-11-04.t2cj-v2"
+REVISION = "2026-11-04.t2cj-v3"
 START_URLS = (
     "https://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis",
     "http://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis",
@@ -30,10 +32,13 @@ ALLOWED_HOSTS = {
 }
 FORBIDDEN = (".pdf", "/bitstream", "/download")
 SIGNAL_TERMS = ("tesis", "filosof", "licenci", "maestr", "doctor", "posgrado")
+MAX_FILTER_PAGES = 120
 
 
 def normalize(value: str | None) -> str:
-    return " ".join(str(value or "").casefold().split())
+    text = unicodedata.normalize("NFD", str(value or ""))
+    text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn")
+    return " ".join(text.casefold().split())
 
 
 def safe_catalog_url(raw: str | None, *, base_url: str) -> str | None:
@@ -199,7 +204,7 @@ def parse_catalog(html: str, *, base_url: str) -> dict[str, Any]:
     }
 
 
-def fetch_once(url: str, *, timeout: int = 45) -> tuple[str, str, int, str]:
+def fetch_once(url: str, *, timeout: int = 35) -> tuple[str, str, int, str]:
     request = urllib.request.Request(
         url,
         headers={
@@ -215,6 +220,14 @@ def fetch_once(url: str, *, timeout: int = 45) -> tuple[str, str, int, str]:
             raise ValueError(f"Unexpected CUCSH catalog content type: {content_type}")
         raw = response.read()
     return raw.decode("utf-8", errors="replace"), final_url, int(status), content_type
+
+
+def alternate_scheme(url: str) -> str:
+    parsed = urllib.parse.urlparse(url)
+    scheme = "http" if parsed.scheme == "https" else "https"
+    return urllib.parse.urlunparse(
+        (scheme, parsed.netloc, parsed.path, parsed.params, parsed.query, "")
+    )
 
 
 def fetch_with_fallback(urls: tuple[str, ...]) -> tuple[str, str, int, str, str, list[dict[str, str]]]:
@@ -246,6 +259,177 @@ def page_report(urls: tuple[str, ...]) -> dict[str, Any]:
     }
 
 
+def philosophy_targets(degree_views: list[dict[str, Any]]) -> list[dict[str, str]]:
+    targets: list[dict[str, str]] = []
+    for view in degree_views:
+        for select in view["selects"]:
+            for option in select["options"]:
+                if option.get("value") in {"", "All"}:
+                    continue
+                if "filosof" not in normalize(option.get("text") + " " + option.get("value")):
+                    continue
+                targets.append({
+                    "degree": view["degree"],
+                    "viewFinalUrl": view["finalUrl"],
+                    "selectName": select["name"],
+                    "selectId": select["id"],
+                    "program": option["text"],
+                    "value": option["value"],
+                })
+    return targets
+
+
+def table_records(parsed: dict[str, Any], *, expected_program: str, page_url: str) -> list[dict[str, Any]]:
+    title_urls: dict[str, str] = {}
+    for link in parsed["safeLinks"]:
+        text_key = normalize(link.get("text"))
+        if not text_key:
+            continue
+        if "content/" in urllib.parse.unquote(link["url"]).casefold():
+            title_urls.setdefault(text_key, link["url"])
+
+    records: list[dict[str, Any]] = []
+    for cells in parsed.get("sampleTableRows", []):
+        pass
+    rows = parsed.get("_allRows") or []
+    for cells in rows:
+        if len(cells) < 6:
+            continue
+        if normalize(cells[0]) in {"titulo", "title"}:
+            continue
+        program = cells[5].strip()
+        if normalize(program) != normalize(expected_program):
+            raise ValueError(
+                f"CUCSH filtered page returned another program: expected={expected_program!r} got={program!r}"
+            )
+        title = cells[0].strip()
+        record_url = title_urls.get(normalize(title))
+        records.append({
+            "title": title,
+            "author": cells[1].strip(),
+            "coauthor": cells[2].strip(),
+            "director": cells[3].strip(),
+            "year": cells[4].strip(),
+            "program": program,
+            "recordUrl": record_url,
+            "catalogPageUrl": page_url,
+        })
+    return records
+
+
+def parse_full_page(html: str, *, base_url: str) -> dict[str, Any]:
+    parsed = parse_catalog(html, base_url=base_url)
+    parser = StructureParser()
+    parser.feed(html)
+    parsed["_allRows"] = parser.rows
+    return parsed
+
+
+def filtered_page_url(target: dict[str, str], page: int) -> str:
+    parsed = urllib.parse.urlparse(target["viewFinalUrl"])
+    q_slug = parsed.path.strip("/")
+    query = urllib.parse.urlencode({
+        "q": q_slug,
+        "combine": "",
+        target["selectName"]: target["value"],
+        "order": "title",
+        "sort": "asc",
+        "page": str(page),
+    })
+    return urllib.parse.urlunparse((parsed.scheme, parsed.netloc, "/", "", query, ""))
+
+
+def crawl_philosophy_target(
+    target: dict[str, str],
+    *,
+    max_pages: int = MAX_FILTER_PAGES,
+    delay: float = 0.05,
+) -> dict[str, Any]:
+    records: list[dict[str, Any]] = []
+    page_evidence: list[dict[str, Any]] = []
+    signatures: set[str] = set()
+
+    for page in range(max_pages):
+        url = filtered_page_url(target, page)
+        html, final_url, status, content_type, requested, failures = fetch_with_fallback(
+            (url, alternate_scheme(url))
+        )
+        parsed = parse_full_page(html, base_url=final_url)
+        current = table_records(
+            parsed,
+            expected_program=target["program"],
+            page_url=final_url,
+        )
+        signature = hashlib.sha256(
+            json.dumps(current, ensure_ascii=False, sort_keys=True).encode("utf-8")
+        ).hexdigest()
+        if not current:
+            page_evidence.append({
+                "page": page,
+                "url": final_url,
+                "rows": 0,
+                "htmlSha256": hashlib.sha256(html.encode("utf-8")).hexdigest(),
+                "stop": "empty",
+                "failuresBeforeSuccess": failures,
+            })
+            break
+        if signature in signatures:
+            page_evidence.append({
+                "page": page,
+                "url": final_url,
+                "rows": len(current),
+                "htmlSha256": hashlib.sha256(html.encode("utf-8")).hexdigest(),
+                "stop": "repeated-page",
+                "failuresBeforeSuccess": failures,
+            })
+            break
+        signatures.add(signature)
+        records.extend(current)
+        page_evidence.append({
+            "page": page,
+            "url": final_url,
+            "rows": len(current),
+            "httpStatus": status,
+            "contentType": content_type,
+            "htmlSha256": hashlib.sha256(html.encode("utf-8")).hexdigest(),
+            "stop": None,
+            "failuresBeforeSuccess": failures,
+        })
+        if delay:
+            time.sleep(delay)
+    else:
+        raise ValueError(f"CUCSH Philosophy pagination exceeded max pages: {target['program']}")
+
+    unique: dict[tuple[str, str, str, str], dict[str, Any]] = {}
+    for row in records:
+        key = (
+            normalize(row["title"]),
+            normalize(row["author"]),
+            row["year"],
+            normalize(row["program"]),
+        )
+        if key in unique:
+            if unique[key].get("recordUrl") != row.get("recordUrl"):
+                raise ValueError(f"Conflicting CUCSH duplicate: {row['title']}")
+            continue
+        unique[key] = row
+    output = sorted(
+        unique.values(),
+        key=lambda row: (normalize(row["title"]), normalize(row["author"]), row["year"]),
+    )
+    return {
+        "degree": target["degree"],
+        "program": target["program"],
+        "filterName": target["selectName"],
+        "filterValue": target["value"],
+        "records": output,
+        "count": len(output),
+        "pagesFetched": sum(1 for row in page_evidence if row["rows"] > 0),
+        "pageEvidence": page_evidence,
+        "recordsWithDetailUrl": sum(bool(row.get("recordUrl")) for row in output),
+    }
+
+
 def fetch_catalog(urls: tuple[str, ...] = START_URLS) -> dict[str, Any]:
     landing = page_report(urls)
     if not landing["safeLinks"]:
@@ -257,19 +441,11 @@ def fetch_catalog(urls: tuple[str, ...] = START_URLS) -> dict[str, Any]:
     degree_views = []
     for degree, path in DEGREE_PATHS:
         target = urllib.parse.urljoin(scheme_host + "/", path.lstrip("/"))
-        alt_scheme = "http" if target.startswith("https://") else "https"
-        parsed_target = urllib.parse.urlparse(target)
-        alternate = urllib.parse.urlunparse((
-            alt_scheme,
-            parsed_target.netloc,
-            parsed_target.path,
-            parsed_target.params,
-            parsed_target.query,
-            "",
-        ))
-        report = page_report((target, alternate))
+        report = page_report((target, alternate_scheme(target)))
         degree_views.append({"degree": degree, **report})
 
+    targets = philosophy_targets(degree_views)
+    inventories = [crawl_philosophy_target(target) for target in targets]
     philosophy_signals = []
     for view in degree_views:
         for option in view["philosophySelectOptions"]:
@@ -291,6 +467,7 @@ def fetch_catalog(urls: tuple[str, ...] = START_URLS) -> dict[str, Any]:
                 **link,
             })
 
+    inventory_records = [row for group in inventories for row in group["records"]]
     return {
         "schemaVersion": SCHEMA,
         "revision": REVISION,
@@ -299,6 +476,8 @@ def fetch_catalog(urls: tuple[str, ...] = START_URLS) -> dict[str, Any]:
         "landing": landing,
         "degreeViews": degree_views,
         "philosophySignals": philosophy_signals,
+        "philosophyTargets": targets,
+        "philosophyInventories": inventories,
         "metrics": {
             "landingSafeLinks": len(landing["safeLinks"]),
             "degreeViews": len(degree_views),
@@ -309,6 +488,12 @@ def fetch_catalog(urls: tuple[str, ...] = START_URLS) -> dict[str, Any]:
                 view["degree"]: len(view["selects"]) for view in degree_views
             },
             "philosophySignals": len(philosophy_signals),
+            "philosophyTargets": len(targets),
+            "philosophyInventoryRecords": len(inventory_records),
+            "philosophyInventoryByProgram": {
+                group["program"]: group["count"] for group in inventories
+            },
+            "philosophyDetailUrls": sum(bool(row.get("recordUrl")) for row in inventory_records),
             "rejectedAnchorLinks": landing["rejectedAnchorLinks"] + sum(
                 view["rejectedAnchorLinks"] for view in degree_views
             ),
@@ -335,7 +520,7 @@ def main() -> int:
         "schemaVersion": report["schemaVersion"],
         "revision": report["revision"],
         "metrics": report["metrics"],
-        "philosophySignals": report["philosophySignals"][:20],
+        "philosophyTargets": report["philosophyTargets"],
         "rawHtmlPersisted": report["rawHtmlPersisted"],
     }, ensure_ascii=False, indent=2, sort_keys=True))
     return 0

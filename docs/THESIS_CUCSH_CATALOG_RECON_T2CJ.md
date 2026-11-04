@@ -1,56 +1,62 @@
-# T2CJ — Recon del Catálogo de Tesis de Biblioteca CUCSH
+# T2CJ — Recon e inventario del Catálogo de Tesis de Biblioteca CUCSH
 
 ## Objetivo
 
-Evaluar `http://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis` como fuente adicional de descubrimiento bibliográfico para tesis UdeG, con especial interés en Filosofía.
+Evaluar y enumerar la cobertura de Filosofía en `http://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis` como fuente institucional complementaria.
 
 T2CJ no modifica el corpus efectivo, Program Authority ni la vista pública.
 
-## Hallazgo inicial
+## Estructura confirmada
 
-El landing institucional resolvió por HTTP y expuso tres vistas específicas:
+El catálogo expone tres vistas Drupal Views:
 
-- `/vista-tesis-licenciatura`;
-- `/vista-tesis-maestria`;
-- `/vista-tesis-doctorado`.
+- `vista-tesis-licenciatura`;
+- `vista-tesis-maestria`;
+- `vista-tesis-doctorado`.
 
-La variante HTTPS agotó timeout en el primer recon; por eso el probe usa fallback acotado y conserva esta fragilidad como evidencia operativa.
+Cada una ofrece un filtro GET por programa y una tabla con:
 
-## Recon de estructura
+- título;
+- autor;
+- coautor;
+- director/asesor;
+- año;
+- programa.
 
-La revisión V2 del probe visita las tres vistas y conserva únicamente:
+La Licenciatura incluye `Licenciatura en Filosofía`. La Maestría incluye tanto `Maestría en Estudios Filosóficos` como la autoridad histórica `Maestría En Filosofía`. Doctorado no expone un programa exacto de Filosofía, coherente con la política vigente.
 
-- formularios y acciones;
-- nombres/IDs de filtros;
-- opciones de `select`;
-- filas tabulares de muestra;
-- señales textuales que contienen Filosofía;
-- enlaces navegables permitidos;
-- hashes y métricas de las páginas.
+## Inventario V3
 
-No persiste HTML bruto.
+El probe T2CJ V3:
 
-## Papel de la fuente
+1. descubre de forma accent-insensitive todas las opciones de programa que contienen Filosofía/Filosóficos;
+2. construye el filtro GET exacto de Drupal;
+3. pagina cada programa con orden estable por título;
+4. conserva sólo metadatos tabulares y, cuando existe, la URL de detalle institucional;
+5. deduplica por título + autor + año + programa;
+6. falla si un filtro devuelve un programa distinto.
 
-Jerarquía propuesta:
+El artifact temporal permitirá conocer el universo CUCSH de los tres programas filosóficos antes de reconciliar contra V2/RIUdeG.
 
-1. RIUdeG / handle persistente para identidad y metadatos modernos;
+## Jerarquía de evidencia
+
+1. RIUdeG / handle persistente;
 2. Catálogo de Tesis CUCSH como fuente institucional complementaria;
 3. ALEPH histórico cuando aporta número de sistema/nota de tesis;
 4. fuentes académicas secundarias sólo para descubrimiento/revisión.
 
-El catálogo CUCSH puede descubrir referencias históricas o locales que RIUdeG no expone bien. Una coincidencia futura deberá usar identificadores estables o claves bibliográficas exactas; nunca fuzzy matching.
+Una referencia CUCSH no se convierte automáticamente en nueva obra pública. La fase siguiente deberá reconciliar por identificador persistente o clave bibliográfica exacta; nunca fuzzy matching.
 
 ## Reference-only
 
-El probe:
+El probe no descarga tesis ni texto completo. Rechaza `.pdf`, `/bitstream` y `/download`; no usa credenciales ni cookies; no persiste HTML bruto.
 
-- visita sólo hosts Biblioteca CUCSH;
-- rechaza `.pdf`, `/bitstream` y `/download`;
-- no usa credenciales ni cookies;
-- no descarga tesis ni texto completo;
-- sólo sube `catalog-report.json` como artifact temporal.
+## Siguiente fase
 
-## Siguiente decisión
+Con el inventario completo se comparará:
 
-El artifact de las vistas de Licenciatura/Maestría/Doctorado determinará si podemos construir un harvester de programas y tesis de Filosofía. Cualquier ampliación pública posterior requerirá reconciliación contra V2/RIUdeG y una fase separada.
+- CUCSH vs V2;
+- CUCSH vs RIUdeG;
+- CUCSH vs T2CI (18 referencias actuales).
+
+Las referencias institucionales faltantes podrán pasar a una fase de reconciliación y curaduría antes de cualquier publicación.
