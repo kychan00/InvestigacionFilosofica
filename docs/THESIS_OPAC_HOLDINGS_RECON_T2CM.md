@@ -115,3 +115,28 @@ El run V7 abrió correctamente los tres registros por número de sistema y Aleph
 Los tres registros exponen enlaces `func=item-global`. Esto demuestra que el paradero físico no debe inferirse del programa académico ni de la base de búsqueda: los ejemplares pueden estar distribuidos en otras bibliotecas de la Red UdeG.
 
 T2CM V8 prioriza esos enlaces de holdings para recuperar detalle de ejemplar antes que las vistas alternativas del registro (MARC/cita/tarjeta).
+
+
+## Contrato estructurado de holdings — V9
+
+T2CM V9 transforma la tabla `item-global` en campos estables:
+
+- `description`;
+- `itemStatus`;
+- `availability`;
+- `dueTime`;
+- `sublibrary`;
+- `collection`;
+- `classification`;
+- `barcode`;
+- `opacNote`.
+
+La muestra viva queda fijada así:
+
+| Sistema | Biblioteca | Colección | Clasificación | Código de barras | Uso / disponibilidad |
+|---|---|---|---|---|---|
+| `000551988` | B.C. CU del Norte | Col. Area de Tesis | `128.6 SAN 2022` | `CUN-121261` | Consulta / Disponible |
+| `000479311` | B.C. Ciénega | Col. Area de Tesis | `120 RAM 1993` | `CIO-094963` | Consulta / Disponible |
+| `000168319` | B.C. CUCEA | Col. Area de Tesis | `ECO 022 ESP` | `EAC-041745` | Interno / Disponible |
+
+Estos son holdings físicos explícitos reportados por Aleph; ya satisfacen el requisito T2CL para `physical-confirmed` en estas tres identidades. No implican que sean los únicos ejemplares existentes.

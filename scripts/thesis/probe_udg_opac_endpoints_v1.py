@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v8"
+REVISION = "2026-11-04.t2cm-v9"
 SAMPLE_SYSTEM_NUMBERS = (
     ("Raúl Sánchez Salas", "000551988"),
     ("José Antonio Ramírez Velasco", "000479311"),
@@ -478,6 +478,43 @@ def direct_record_url(action: str, system_number: str, local_base: str) -> str:
     return action + separator + params
 
 
+def extract_holdings(page: dict[str, Any]) -> list[dict[str, str]]:
+    rows = page.get("relevantRows") or []
+    header_index = None
+    header = []
+    for index, row in enumerate(rows):
+        normalized = [one_line(cell) for cell in row]
+        if "Sub-biblioteca" in normalized and "Colección" in normalized and "Código de Barras" in normalized:
+            header_index = index
+            header = normalized
+            break
+    if header_index is None:
+        return []
+
+    holdings = []
+    for row in rows[header_index + 1:]:
+        values = [one_line(cell) for cell in row]
+        if len(values) < len(header):
+            continue
+        mapping = {header[i]: values[i] for i in range(min(len(header), len(values)))}
+        sublibrary = mapping.get("Sub-biblioteca", "")
+        barcode = mapping.get("Código de Barras", "")
+        if not sublibrary and not barcode:
+            continue
+        holdings.append({
+            "description": mapping.get("Descripción", ""),
+            "itemStatus": mapping.get("Estatus de Item", ""),
+            "availability": mapping.get("Fecha de Vencimiento", ""),
+            "dueTime": mapping.get("Hora de Vencimiento", ""),
+            "sublibrary": sublibrary,
+            "collection": mapping.get("Colección", ""),
+            "classification": mapping.get("Clasificación", ""),
+            "barcode": barcode,
+            "opacNote": mapping.get("Nota OPAC", ""),
+        })
+    return holdings
+
+
 def follow_relevant_pages(
     start: dict[str, Any],
     opener: urllib.request.OpenerDirector,
@@ -521,11 +558,19 @@ def sample_system_lookup(
         try:
             evidence = page_evidence(url, opener=opener)
             followed = follow_relevant_pages(evidence, opener)
+            holdings = []
+            for page in followed:
+                if page.get("error"):
+                    continue
+                for holding in extract_holdings(page):
+                    if holding not in holdings:
+                        holdings.append(holding)
             direct_attempts.append({
                 "localBase": local_base,
                 "url": url,
                 "record": evidence,
                 "followedPages": followed,
+                "holdings": holdings,
             })
         except Exception as exc:
             direct_attempts.append({

@@ -99,6 +99,21 @@ class OpacReconTest(unittest.TestCase):
         # page_evidence owns the link selection; parser itself still records all anchors.
         self.assertEqual(len(parser.anchors),3)
 
+    def test_extract_holdings_contract(self):
+        page={
+            "relevantRows":[
+                ["", "Descripción", "Estatus de Item", "Fecha de Vencimiento", "Hora de Vencimiento", "Sub-biblioteca", "Colección", "Clasificación", "Código de Barras", "Nota OPAC"],
+                ["Detalles", "Ej. 1", "Consulta", "Disponible", "", "B.C. CU del Norte", "Col. Area de Tesis", "128.6 SAN 2022", "CUN-121261", ""],
+            ]
+        }
+        holdings=mod.extract_holdings(page)
+        self.assertEqual(len(holdings),1)
+        self.assertEqual(holdings[0]["sublibrary"],"B.C. CU del Norte")
+        self.assertEqual(holdings[0]["collection"],"Col. Area de Tesis")
+        self.assertEqual(holdings[0]["classification"],"128.6 SAN 2022")
+        self.assertEqual(holdings[0]["barcode"],"CUN-121261")
+        self.assertEqual(holdings[0]["availability"],"Disponible")
+
     def test_candidate_safety(self):
         self.assertTrue(mod.is_safe_candidate("https://foo.udg.mx/opac"))
         self.assertTrue(mod.is_safe_candidate("http://148.202.1.2:8080/F/"))
