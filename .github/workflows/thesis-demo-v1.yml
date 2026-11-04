@@ -11,15 +11,19 @@ on:
       - "scripts/qa/thesis-demo-smoke.mjs"
       - "scripts/thesis/build_thesis_demo_index_v1.py"
       - "scripts/thesis/build_philosophy_public_index_v1.py"
+      - "scripts/thesis/merge_philosophy_cucsh_inventory_t2cu.py"
+      - "scripts/thesis/probe_cucsh_thesis_catalog_v1.py"
       - "scripts/thesis/config/philosophy-curated-content-v1.json"
       - "scripts/thesis/config/philosophy-official-supplement-v1.json"
       - "scripts/thesis/config/philosophy-external-corroboration-v1.json"
       - "tests/test_thesis_demo_index_v1.py"
       - "tests/test_thesis_philosophy_public_index_v1.py"
+      - "tests/test_thesis_philosophy_cucsh_public_t2cu.py"
       - "tests/thesis-demo.test.mjs"
       - "docs/THESIS_DEMO_SEARCH_V1.md"
       - "docs/THESIS_PHILOSOPHY_PUBLIC_VIEW_T2CI.md"
       - "docs/THESIS_PUBLIC_CORROBORATION_T2CT.md"
+      - "docs/THESIS_CUCSH_PUBLIC_INVENTORY_T2CU.md"
       - ".github/workflows/thesis-demo-v1.yml"
       - ".github/workflows/deploy.yml"
 
@@ -151,6 +155,22 @@ jobs:
           }
           assert philosophy["metrics"]["actualProgramsRepresented"]==10
           assert philosophy["metrics"]["corroboratedReviewRecords"]==2
+          assert philosophy["cucshHistoricalInventory"]["sourceRows"]==217
+          assert philosophy["cucshHistoricalInventory"]["uniqueBibliographicIdentities"]==216
+          assert philosophy["cucshHistoricalInventory"]["duplicateSourceRowsCollapsed"]==1
+          assert philosophy["cucshHistoricalInventory"]["duplicateGroups"]==1
+          assert philosophy["cucshHistoricalInventory"]["exactMergesWithT2CT"]==1
+          assert philosophy["cucshHistoricalInventory"]["newPublicReferences"]==215
+          assert philosophy["cucshHistoricalInventory"]["unknownYearReferences"]==2
+          assert philosophy["cucshHistoricalInventory"]["physicalHoldingsClaimed"] is False
+          programs={row["programRef"]:row for row in philosophy["documentedPhilosophyPrograms"]}
+          assert programs["program:udg:lic-filosofia"]=={
+              "programRef":"program:udg:lic-filosofia",
+              "name":"Licenciatura en Filosofía",
+              "records":221,
+              "include":220,
+              "review":1,
+          }
           assert len(philosophy["documentedPhilosophyPrograms"])==3
           assert philosophy["doctoralPolicy"]["exactDoctorateProgramPresent"] is False
 
