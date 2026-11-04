@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "thesis-urban-territory-adjudication-batch-002-baseline-v1",
+  "phase": "T2CA",
+  "effectiveCorpusReleaseTag": "thesis-effective-corpus-v1",
+  "effectiveCorpusRevision": "2026-11-03.t2bz-v1",
+  "programAuthorityRevision": "2026-11-03.v47",
+  "metadataConfidenceRevision": "2026-11-02.v5",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
+  "batchId": "urban-territory-002",
+  "expected": {
+    "effectiveAdmission": {
+      "include": 561,
+      "review": 193,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "workReview": {
+      "programs": 4,
+      "workItems": 180,
+      "pendingPrimarySourceReview": 180,
+      "resolvedByExplicitWorkDecision": 1
+    },
+    "dcts": {
+      "works": 152,
+      "projectedAdmission": {
+        "review": 152
+      },
+      "pendingPrimarySourceReview": 152
+    },
+    "batchLedger": {
+      "works": 2,
+      "primarySourceAccess": {
+        "available": 2
+      },
+      "adjudicationStates": {
+        "candidate-evidence-ready": 2
+      },
+      "candidateDecisions": {
+        "none": 2
+      },
+      "humanValidation": {
+        "required": 2
+      },
+      "admissionChanges": 0
+    }
+  },
+  "invariants": [
+    "dcts-program-authority-remains-review",
+    "all-152-dcts-works-remain-review",
+    "available-primary-source-does-not-imply-candidate-decision",
+    "title-abstract-keywords-and-model-output-remain-supporting-only",
+    "batch-002-does-not-change-admission",
+    "password-protected-84206-is-not-treated-as-review-ready"
+  ]
+}

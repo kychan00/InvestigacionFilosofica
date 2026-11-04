@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "thesis-boundary-work-adjudication-batch-v1",
+  "batchId": "urban-territory-002",
+  "phase": "T2CA",
+  "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "selectionMethod": "explicit-primary-source-view-open-audited-work-ids",
+  "decisionConstraint": "batch-does-not-change-admission",
+  "humanValidationRequired": true,
+  "works": [
+    {
+      "workId": "thesis:work:00024461",
+      "handle": "https://hdl.handle.net/20.500.12104/84204",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/84204",
+      "primarySourceAccess": "available",
+      "primarySourceUrl": "https://www.riudg.udg.mx/visor/pdfjs/viewer.jsp?in=j&pdf=20.500.12104%2F84204%2F1%2FDCUAAD10072FT.pdf",
+      "accessEvidence": "RIUdeG item page exposes DCUAAD10072FT.pdf (3.72 MB) as View/Open without a Restricted Access label; the official PDF viewer opens without a password prompt.",
+      "accessVerifiedDate": "2026-11-03",
+      "humanValidationStatus": "required"
+    },
+    {
+      "workId": "thesis:work:00024462",
+      "handle": "https://hdl.handle.net/20.500.12104/84205",
+      "institutionalRecordUrl": "https://www.riudg.udg.mx/handle/20.500.12104/84205",
+      "primarySourceAccess": "available",
+      "primarySourceUrl": "https://www.riudg.udg.mx/visor/pdfjs/viewer.jsp?in=j&pdf=20.500.12104%2F84205%2F1%2FDCUAAD10073FT.pdf",
+      "accessEvidence": "RIUdeG item page exposes DCUAAD10073FT.pdf (11.87 MB) as View/Open without a Restricted Access label; the official PDF viewer opens without a password prompt.",
+      "accessVerifiedDate": "2026-11-03",
+      "humanValidationStatus": "required"
+    }
+  ],
+  "excludedAccessProbe": {
+    "workId": "thesis:work:00024463",
+    "handle": "https://hdl.handle.net/20.500.12104/84206",
+    "reason": "RIUdeG exposes DCUAAD10074FT.pdf as View/Open, but the official viewer requests a password. It is not treated as review-ready in T2CA."
+  }
+}

@@ -1,0 +1,205 @@
+name: Thesis DCTS adjudication batch 002 T2CA
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/urban-territory-adjudication-batch-002-v1.json"
+      - "scripts/thesis/config/urban-territory-adjudication-batch-002-baseline-v1.json"
+      - "tests/test_thesis_urban_territory_adjudication_batch_002_t2ca.py"
+      - "docs/THESIS_URBAN_TERRITORY_ADJUDICATION_BATCH_002_T2CA.md"
+      - ".github/workflows/thesis-urban-territory-adjudication-batch-002-t2ca.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Unit regressions
+        run: |
+          python -m py_compile \
+            scripts/thesis/build_boundary_work_review_queue_v1.py \
+            scripts/thesis/build_boundary_adjudication_ledger_v1.py \
+            scripts/thesis/build_effective_corpus_release_manifest_v1.py
+          python -m unittest \
+            tests/test_thesis_boundary_adjudication_ledger.py -v
+          python -m unittest \
+            tests/test_thesis_urban_territory_adjudication_batch_002_t2ca.py -v
+
+      - name: Download immutable effective corpus release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/t2ca artifacts/t2ca
+          mkdir -p /tmp/t2ca artifacts/t2ca
+          gh release download thesis-effective-corpus-v1 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/t2ca
+
+          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --release-dir /tmp/t2ca \
+            --root-release-manifest release-manifest.json
+
+      - name: Build current work-review queue
+        run: |
+          python scripts/thesis/build_boundary_work_review_queue_v1.py \
+            --canonical-corpus /tmp/t2ca/effective-corpus.json.gz \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --policy scripts/thesis/config/boundary-work-review-policy-v1.json \
+            --reference-year 2026 \
+            --output-dir artifacts/t2ca/work-review
+
+      - name: Build batch 002 adjudication ledger
+        run: |
+          python scripts/thesis/build_boundary_adjudication_ledger_v1.py \
+            --work-review-queue artifacts/t2ca/work-review/boundary-work-review-queue.json \
+            --batch scripts/thesis/config/urban-territory-adjudication-batch-002-v1.json \
+            --output-dir artifacts/t2ca/ledger
+
+      - name: Validate full T2CA contract
+        run: |
+          python - <<'PY'
+          import gzip
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          baseline=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "urban-territory-adjudication-batch-002-baseline-v1.json"
+              ).read_text()
+          )
+          batch=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "urban-territory-adjudication-batch-002-v1.json"
+              ).read_text()
+          )
+          with gzip.open(
+              "/tmp/t2ca/effective-corpus.json.gz",
+              "rt",
+              encoding="utf-8",
+          ) as stream:
+              corpus=json.load(stream)
+          queue=json.loads(
+              Path(
+                  "artifacts/t2ca/work-review/"
+                  "boundary-work-review-queue.json"
+              ).read_text()
+          )
+          ledger=json.loads(
+              Path("artifacts/t2ca/ledger/adjudication-ledger.json").read_text()
+          )
+          expected=baseline["expected"]
+
+          counts=dict(
+              sorted(
+                  Counter(
+                      w["admissionStatus"]
+                      for w in corpus["works"]
+                  ).items()
+              )
+          )
+          assert counts == expected["effectiveAdmission"], counts
+          assert len(corpus["works"]) == 27576
+
+          qm=queue["metrics"]
+          for key,value in expected["workReview"].items():
+              assert qm[key] == value, (key,qm[key],value)
+
+          dcts=next(
+              p for p in queue["programs"]
+              if p["programRef"] == baseline["programRef"]
+          )
+          for key,value in expected["dcts"].items():
+              assert dcts[key] == value, (key,dcts[key],value)
+          assert dcts["programAdmissionState"] == "review"
+
+          lm=ledger["metrics"]
+          b=expected["batchLedger"]
+          assert lm["batchWorks"] == b["works"]
+          for key in (
+              "primarySourceAccess",
+              "adjudicationStates",
+              "candidateDecisions",
+              "humanValidation",
+          ):
+              assert lm[key] == b[key], (key,lm[key],b[key])
+          assert lm["admissionChanges"] == 0
+
+          expected_ids={w["workId"] for w in batch["works"]}
+          actual_ids={e["workId"] for e in ledger["entries"]}
+          assert actual_ids == expected_ids
+          assert batch["excludedAccessProbe"]["workId"] not in actual_ids
+
+          for entry in ledger["entries"]:
+              assert entry["primarySourceAccess"] == "available"
+              assert entry["adjudicationState"] == "candidate-evidence-ready"
+              assert entry["candidateDecision"] is None
+              assert entry["humanValidationStatus"] == "required"
+              assert entry["projectedAdmissionStatus"] == "review"
+              assert entry["admissionChangeRequested"] is False
+
+          summary={
+              "phase":"T2CA",
+              "batchId":ledger["batchId"],
+              "effectiveAdmission":counts,
+              "workReview":{
+                  "programs":qm["programs"],
+                  "workItems":qm["workItems"],
+                  "pendingPrimarySourceReview":qm[
+                      "pendingPrimarySourceReview"
+                  ],
+                  "resolvedByExplicitWorkDecision":qm[
+                      "resolvedByExplicitWorkDecision"
+                  ],
+              },
+              "dcts":{
+                  "works":dcts["works"],
+                  "projectedAdmission":dcts["projectedAdmission"],
+                  "pendingPrimarySourceReview":dcts[
+                      "pendingPrimarySourceReview"
+                  ],
+              },
+              "batchLedger":lm,
+              "admissionChangeRequested":False,
+          }
+          Path("artifacts/t2ca/t2ca-summary.json").write_text(
+              json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True)
+              + "\n"
+          )
+          print(json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True))
+          PY
+
+      - name: Upload T2CA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-dcts-adjudication-batch-002-t2ca
+          retention-days: 14
+          if-no-files-found: warn
+          path: |
+            artifacts/t2ca/work-review/boundary-work-review-queue.json
+            artifacts/t2ca/ledger/adjudication-ledger.json
+            artifacts/t2ca/ledger/adjudication-ledger.csv
+            artifacts/t2ca/ledger/adjudication-ledger.md
+            artifacts/t2ca/t2ca-summary.json
