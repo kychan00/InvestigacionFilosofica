@@ -34,8 +34,9 @@ jobs:
           mkdir -p artifacts/t2ck
           python scripts/thesis/probe_aleph_open_data_v1.py --output artifacts/t2ck/aleph-open-data-report.json
 
-      - name: Inspect Control Escolar degree statistics 2022-2025
+      - name: Inspect Control Escolar degree statistics 2018-2025
         run: |
+          python -m pip install xlrd==2.0.2
           python -m py_compile scripts/thesis/probe_control_school_degrees_v1.py
           python -m unittest tests.test_thesis_control_school_degrees_v1 -v
           python scripts/thesis/probe_control_school_degrees_v1.py --output artifacts/t2ck/control-school-degree-report.json
@@ -56,7 +57,8 @@ jobs:
           assert degrees["schemaVersion"]=="thesis-control-school-degree-recon-v1"
           assert degrees["referenceOnly"] is True
           assert degrees["rawWorkbooksPersisted"] is False
-          assert len(degrees["files"])==4
+          assert degrees["revision"]=="2026-11-04.t2ck-v2"
+          assert len(degrees["files"])==8
           print(json.dumps({
               "aleph":data["metrics"],
               "degrees":{row["year"]:row["metrics"] for row in degrees["files"]},

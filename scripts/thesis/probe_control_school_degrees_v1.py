@@ -17,13 +17,17 @@ NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 REL_NS = {"r": "http://schemas.openxmlformats.org/package/2006/relationships"}
 OFFICE_REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 SCHEMA = "thesis-control-school-degree-recon-v1"
-REVISION = "2026-11-04.t2ck-v1"
+REVISION = "2026-11-04.t2ck-v2"
 
 FILES = {
     "2025": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/Titulos_Diplomas-y-Grados_2025.xlsx",
     "2024": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/T%C3%ADtulos_Diplomas%20y%20grados_2024.xlsx",
     "2023": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/T%C3%ADtulos_Diplomas%20y%20grados_2023.xlsx",
     "2022": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/Titulos%20Diplomas%20y%20grados%202022.xlsx",
+    "2021": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/Titulos%20Diplomas%20y%20grados%20Expedidos%202021.xls",
+    "2020": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/Titulos%20%20Diplomas%20y%20grados%202020.xls",
+    "2019": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/Titulos%2C%20Diplomas%20y%20grados%20%202019.xls",
+    "2018": "https://www.transparencia.udg.mx/sites/default/files/datos_abiertos/Titulos_Diplomas_y_grados_2018.xls",
 }
 
 
@@ -100,9 +104,39 @@ def fetch(url: str) -> bytes:
     )
     with urllib.request.urlopen(request, timeout=90) as response:
         data = response.read()
-    if not data.startswith(b"PK"):
-        raise ValueError(f"Control Escolar URL is not XLSX: {url}")
+    if not (data.startswith(b"PK") or data.startswith(bytes.fromhex("D0CF11E0A1B11AE1"))):
+        raise ValueError(f"Control Escolar URL is not a supported Excel workbook: {url}")
     return data
+
+
+def xls_rows(data: bytes) -> list[tuple[str, list[list[str]]]]:
+    import xlrd
+
+    book = xlrd.open_workbook(file_contents=data)
+    output = []
+    for sheet in book.sheets():
+        rows = []
+        for row_index in range(sheet.nrows):
+            values = []
+            for value in sheet.row_values(row_index):
+                if isinstance(value, float) and value.is_integer():
+                    values.append(str(int(value)))
+                else:
+                    values.append(str(value).strip())
+            rows.append(values)
+        output.append((sheet.name, rows))
+    return output
+
+
+def workbook_rows(data: bytes) -> list[tuple[str, list[list[str]]]]:
+    if data.startswith(b"PK"):
+        with zipfile.ZipFile(io.BytesIO(data)) as zf:
+            strings = shared_strings(zf)
+            return [
+                (name, parse_sheet(zf, path, strings))
+                for name, path in workbook_sheets(zf)
+            ]
+    return xls_rows(data)
 
 
 def signals(row: list[str]) -> list[str]:
@@ -112,7 +146,11 @@ def signals(row: list[str]) -> list[str]:
         output.append("philosophy")
     if "estudios filosof" in text:
         output.append("philosophy-masters")
-    if "doctorado en humanidades" in text:
+    if (
+        "doctorado en humanidades" in text
+        or "doctor en humanidades" in text
+        or "doctora en humanidades" in text
+    ):
         output.append("humanities-doctorate")
     if "cucsh" in text or "ciencias sociales y humanidades" in text:
         output.append("cucsh")
@@ -120,26 +158,23 @@ def signals(row: list[str]) -> list[str]:
 
 
 def inspect_workbook(year: str, data: bytes) -> dict[str, Any]:
-    with zipfile.ZipFile(io.BytesIO(data)) as zf:
-        strings = shared_strings(zf)
-        sheets = []
-        relevant = []
-        for name, path in workbook_sheets(zf):
-            rows = parse_sheet(zf, path, strings)
-            matches = []
-            for row_number, row in enumerate(rows, start=1):
-                row_signals = signals(row)
-                if row_signals:
-                    match = {"row": row_number, "values": row, "signals": row_signals}
-                    matches.append(match)
-                    relevant.append({"sheet": name, **match})
-            sheets.append({
-                "name": name,
-                "rows": len(rows),
-                "sampleRows": rows[:12],
-                "relevantRows": matches[:500],
-                "relevantCount": len(matches),
-            })
+    sheets = []
+    relevant = []
+    for name, rows in workbook_rows(data):
+        matches = []
+        for row_number, row in enumerate(rows, start=1):
+            row_signals = signals(row)
+            if row_signals:
+                match = {"row": row_number, "values": row, "signals": row_signals}
+                matches.append(match)
+                relevant.append({"sheet": name, **match})
+        sheets.append({
+            "name": name,
+            "rows": len(rows),
+            "sampleRows": rows[:12],
+            "relevantRows": matches[:500],
+            "relevantCount": len(matches),
+        })
     return {
         "year": year,
         "workbookBytes": len(data),

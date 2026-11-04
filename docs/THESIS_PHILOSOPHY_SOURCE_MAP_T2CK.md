@@ -95,3 +95,28 @@ Por tanto, los cero registros que actualmente devuelve el filtro Drupal de Maest
 El Doctorado en Humanidades reserva el último año a Seminarios de Tesis y exige Presentación y Defensa de Tesis. Su línea **Pensamiento** enumera explícitamente filosofía, ética/moral, lógica, valores, argumentación y hermenéutica.
 
 La reconstrucción doctoral deberá partir del universo de tesis del Doctorado en Humanidades y clasificar obra por obra, conservando siempre el programa real `Doctorado en Humanidades`.
+
+
+## Control Escolar: magnitud comprobada 2022–2025
+
+La primera corrida de Control Escolar produjo un resultado decisivo:
+
+- **Licenciatura en Filosofía**: 14 títulos expedidos en 2022, 30 en 2023, 82 en 2024 y 46 en 2025; **172 títulos** en cuatro años. La Licenciatura admite varias modalidades de titulación, por lo que esta cifra no equivale automáticamente a 172 tesis.
+- **Maestría en Estudios Filosóficos**: 8 grados expedidos en 2022, 7 en 2023, 8 en 2024 y 7 en 2025; **30 grados** en cuatro años.
+- El catálogo Drupal de tesis devuelve **0** registros para la Maestría en Estudios Filosóficos durante el mismo periodo histórico, aunque el plan obliga Taller de Tesis I/II y la institución expide grados de la maestría. Esta contradicción prueba un hueco de catalogación, no ausencia de tesis.
+
+El detector doctoral original buscaba el nombre del programa `Doctorado en Humanidades`, pero Control Escolar expresa el título como `Doctor en Humanidades` / `Doctora en Humanidades`. La revisión V2 corrige esa diferencia terminológica.
+
+## Extensión histórica 2018–2025
+
+Transparencia UdeG mantiene los concentrados de Títulos, Diplomas y Grados desde 2018. T2CK V2 incorpora también los XLS legados de 2018–2021, usando lectura temporal en Actions y sin persistir los archivos. El objetivo es construir un denominador de ocho años para Licenciatura en Filosofía, Maestría en Estudios Filosóficos y Doctorado en Humanidades.
+
+## Estado físico actual
+
+El OPAC colectivo del SiUBiUDG se considera fuente de **paradero**, no sólo de existencia bibliográfica: su propia descripción institucional indica que permite localizar físicamente los recursos en las bibliotecas de la Red.
+
+La Biblioteca Central Dr. Manuel Rodríguez Lapuente sigue operando en La Normal. En 2026 CUCSH indicó que el acervo general no se trasladaría en la primera fase hacia Belenes. El informe institucional 2026 reporta 189,438 ejemplares de Acervo General, 3,110 volúmenes de Acervo Histórico y 15,481 volúmenes en la categoría Filosofía y Psicología. Estas cifras no son conteos de tesis, pero confirman que el universo físico a auditar es grande.
+
+## Magnitud académica vigente
+
+El Primer Informe 2026 reporta 20 estudiantes en la Maestría en Estudios Filosóficos y 28 en el Doctorado en Humanidades. El Doctorado exige Seminarios de Tesis y Presentación y Defensa de Tesis; por ello sus tesis filosóficas deben recuperarse desde el universo doctoral de Humanidades, no esperando un catálogo bajo el nombre inexistente `Doctorado en Filosofía`.
