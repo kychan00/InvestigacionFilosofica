@@ -1,0 +1,93 @@
+name: Thesis CUCSH catalog recon T2CJ
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/probe_cucsh_thesis_catalog_v1.py"
+      - "tests/test_thesis_cucsh_catalog_recon_v1.py"
+      - "docs/THESIS_CUCSH_CATALOG_RECON_T2CJ.md"
+      - ".github/workflows/thesis-cucsh-catalog-recon-t2cj.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test reference-only catalog parser
+        run: |
+          python -m py_compile scripts/thesis/probe_cucsh_thesis_catalog_v1.py
+          python -m unittest tests.test_thesis_cucsh_catalog_recon_v1 -v
+
+      - name: Enumerate live CUCSH Philosophy thesis references
+        run: |
+          rm -rf artifacts/t2cj
+          mkdir -p artifacts/t2cj
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py \
+            --output artifacts/t2cj/catalog-report.json
+
+      - name: Enforce metadata-only recon artifact
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          path=Path("artifacts/t2cj/catalog-report.json")
+          data=json.loads(path.read_text(encoding="utf-8"))
+          assert data["schemaVersion"]=="thesis-cucsh-catalog-recon-v1"
+          assert data["revision"]=="2026-11-04.t2cj-v3"
+          assert data["referenceOnly"] is True
+          assert data["rawHtmlPersisted"] is False
+          assert data["metrics"]["landingSafeLinks"] > 0
+          assert data["metrics"]["degreeViews"] == 3
+          assert data["metrics"]["philosophyTargets"] >= 3
+          assert data["metrics"]["philosophyInventoryRecords"] > 0
+
+          programs={row["program"] for row in data["philosophyTargets"]}
+          assert "Licenciatura en Filosofía" in programs
+          assert any("Estudios Filosóficos" in value for value in programs)
+          assert any(value.casefold()=="maestría en filosofía".casefold() for value in programs)
+          assert not any(row["degree"]=="doctorado" for row in data["philosophyTargets"])
+
+          allowed={"biblioteca.cucsh.udg.mx","www.biblioteca.cucsh.udg.mx"}
+          forbidden=(".pdf","/bitstream","/download")
+          for page in [data["landing"], *data["degreeViews"]]:
+              assert page["htmlBytes"] > 0
+              for row in page["safeLinks"]:
+                  assert urlparse(row["url"]).hostname in allowed
+                  lower=row["url"].lower()
+                  assert not any(token in lower for token in forbidden), lower
+
+          for group in data["philosophyInventories"]:
+              assert group["count"]==len(group["records"])
+              for row in group["records"]:
+                  assert row["program"]==group["program"]
+                  for key in ("recordUrl","catalogPageUrl"):
+                      if row.get(key):
+                          assert urlparse(row[key]).hostname in allowed
+                          lower=row[key].lower()
+                          assert not any(token in lower for token in forbidden), lower
+
+          assert list(Path("artifacts/t2cj").rglob("*.html")) == []
+          assert list(Path("artifacts/t2cj").rglob("*.pdf")) == []
+          print(json.dumps({
+              "metrics": data["metrics"],
+              "targets": data["philosophyTargets"],
+          }, ensure_ascii=False, indent=2, sort_keys=True))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-cucsh-catalog-recon-t2cj
+          path: artifacts/t2cj/catalog-report.json
+          if-no-files-found: error
+          retention-days: 14
