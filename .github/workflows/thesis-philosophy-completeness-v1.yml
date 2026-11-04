@@ -1,0 +1,87 @@
+name: Thesis Philosophy Completeness V1
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/thesis/build_canonical_corpus_v1.py'
+      - 'scripts/thesis/harvest_cucsh_philosophy_v1.py'
+      - 'scripts/thesis/build_philosophy_enriched_projection_v1.py'
+      - 'scripts/thesis/config/philosophy-official-supplement-v1.json'
+      - 'tests/test_thesis_philosophy_completeness_v1.py'
+      - 'docs/THESIS_PHILOSOPHY_COMPLETENESS_V1.md'
+      - 'docs/THESIS_HUMANITIES_SOURCE_POLICY_V1.md'
+      - '.github/workflows/thesis-philosophy-completeness-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  philosophy-completeness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Run focused regression tests
+        run: python -m unittest tests.test_thesis_philosophy_completeness_v1 -v
+
+      - name: Download immutable Effective Corpus V1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p artifacts/philosophy-v1/base
+          gh release download thesis-effective-corpus-v1 \
+            --pattern effective-corpus.json.gz \
+            --dir artifacts/philosophy-v1/base
+
+      - name: Harvest all official CUCSH Philosophy catalogue references
+        run: |
+          python scripts/thesis/harvest_cucsh_philosophy_v1.py \
+            --output-dir artifacts/philosophy-v1/source \
+            --delay 0.15
+
+      - name: Build fail-closed Philosophy completeness projection
+        run: |
+          python scripts/thesis/build_philosophy_enriched_projection_v1.py \
+            --base artifacts/philosophy-v1/base/effective-corpus.json.gz \
+            --source-records artifacts/philosophy-v1/source/source-records.jsonl.gz \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --output-corpus artifacts/philosophy-v1/projection/philosophy-enriched-corpus.json.gz \
+            --output-report artifacts/philosophy-v1/projection/report.json
+
+      - name: Enforce reference-only artifact surface
+        run: |
+          if find artifacts/philosophy-v1 -type f \( -iname '*.pdf' -o -iname '*.txt' -o -iname '*.bin' \) | grep -q .; then
+            echo 'Forbidden full-text-like file found in Philosophy artifacts' >&2
+            exit 1
+          fi
+          python - <<'PY'
+          import gzip, json, pathlib
+          root = pathlib.Path('artifacts/philosophy-v1')
+          with gzip.open(root/'source/source-records.jsonl.gz', 'rt', encoding='utf-8') as stream:
+              rows = [json.loads(line) for line in stream if line.strip()]
+          assert rows, 'No Philosophy source records were harvested'
+          for row in rows:
+              url = (row.get('recordUrl') or '').lower()
+              assert '.pdf' not in url and '/bitstream' not in url and '/download' not in url, url
+          report = json.loads((root/'projection/report.json').read_text(encoding='utf-8'))
+          assert report['referenceOnly'] is True
+          assert report['publicationState'] == 'projection-not-release'
+          print(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-philosophy-completeness-v1
+          path: |
+            artifacts/philosophy-v1/source/source-records.jsonl.gz
+            artifacts/philosophy-v1/source/report.json
+            artifacts/philosophy-v1/projection/philosophy-enriched-corpus.json.gz
+            artifacts/philosophy-v1/projection/report.json
+          if-no-files-found: error
+          retention-days: 14
