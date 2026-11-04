@@ -344,7 +344,7 @@ jobs:
             --corpus-gzip /tmp/thesis-effective-corpus/effective-corpus.json.gz \
             --release-contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
             --registry scripts/thesis/config/program-authority-v1.json \
-            --atlas-contract scripts/thesis/config/thesis-atlas-v1.json \
+            --atlas-contract scripts/thesis/config/thesis-atlas-t2cg-v2.json \
             --output-dir _site/data/theses/atlas-v1
 
           python - <<'PY'
