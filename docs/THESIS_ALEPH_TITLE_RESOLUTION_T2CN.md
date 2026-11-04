@@ -70,3 +70,22 @@ registro Aleph conserva el título con `necesari`, mientras la referencia curada
 V4 añade una búsqueda `WAU` por nombre completo. Esta búsqueda no autoriza por sí
 sola una fusión: sólo descubre candidatos. La aceptación futura exige comprobar el
 registro completo y conservar los casos con discrepancias textuales como revisión.
+
+
+## Piloto de reconciliación de holdings
+
+T2CN añade un resolvedor limitado a 24 referencias del Índice Maestro T2CL.
+
+Orden de resolución:
+
+1. identidad Aleph ya verificada por T2CM, cuando exista;
+2. título exacto `WTI`;
+3. autor completo `WAU` con adyacencia;
+4. apertura del registro candidato por número de sistema;
+5. aceptación automática sólo si título y autor coinciden exactamente después de
+   normalización estructural;
+6. extracción de holdings mediante `item-global`.
+
+La salida nunca conserva la URL dinámica de sesión Aleph. Sólo persiste número de
+sistema y metadatos de holdings. Los candidatos con errores tipográficos, títulos
+distintos o múltiples coincidencias permanecen sin resolver.
