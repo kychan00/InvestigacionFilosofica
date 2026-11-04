@@ -34,6 +34,12 @@ jobs:
           mkdir -p artifacts/t2ck
           python scripts/thesis/probe_aleph_open_data_v1.py --output artifacts/t2ck/aleph-open-data-report.json
 
+      - name: Inspect Control Escolar degree statistics 2022-2025
+        run: |
+          python -m py_compile scripts/thesis/probe_control_school_degrees_v1.py
+          python -m unittest tests.test_thesis_control_school_degrees_v1 -v
+          python scripts/thesis/probe_control_school_degrees_v1.py --output artifacts/t2ck/control-school-degree-report.json
+
       - name: Enforce metadata-only artifact
         run: |
           python - <<'PY'
@@ -46,12 +52,22 @@ jobs:
           assert data["workbookBytes"]>0
           assert data["metrics"]["sheets"]>0
           assert not list(Path("artifacts/t2ck").glob("*.xlsx"))
-          print(json.dumps(data["metrics"],ensure_ascii=False,indent=2))
+          degrees=json.loads(Path("artifacts/t2ck/control-school-degree-report.json").read_text())
+          assert degrees["schemaVersion"]=="thesis-control-school-degree-recon-v1"
+          assert degrees["referenceOnly"] is True
+          assert degrees["rawWorkbooksPersisted"] is False
+          assert len(degrees["files"])==4
+          print(json.dumps({
+              "aleph":data["metrics"],
+              "degrees":{row["year"]:row["metrics"] for row in degrees["files"]},
+          },ensure_ascii=False,indent=2))
           PY
 
       - uses: actions/upload-artifact@v4
         with:
           name: thesis-philosophy-source-map-t2ck
-          path: artifacts/t2ck/aleph-open-data-report.json
+          path: |
+            artifacts/t2ck/aleph-open-data-report.json
+            artifacts/t2ck/control-school-degree-report.json
           if-no-files-found: error
           retention-days: 14

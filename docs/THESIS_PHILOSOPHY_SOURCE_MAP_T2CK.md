@@ -64,3 +64,34 @@ T2CK añade un probe reproducible que descarga ese snapshot, inspecciona sus hoj
 3. **Maestría** — reconstruir titulados/títulos desde ALEPH + RIUdeG + programa/Control Escolar.
 4. **Doctorado en Humanidades** — construir una auditoría de tesis de la línea Pensamiento y contenido filosófico.
 5. Reconciliar todo contra T2CI antes de ampliar la vista pública.
+
+
+## Resultado del snapshot ALEPH 2019
+
+El probe leyó correctamente el XLSX oficial de Transparencia UdeG:
+
+- 5 hojas;
+- 1,551,638 filas bibliográficas;
+- la hoja de Centros Universitarios contiene 444,645 filas.
+
+Las métricas lexicales iniciales no deben interpretarse como conteos de tesis: palabras como “síntesis”, “prótesis” o libros metodológicos sobre tesis producen falsos positivos. El snapshot se conserva como **índice bibliográfico histórico para reconciliación por identidad**, no como clasificación de tesis.
+
+Una búsqueda de control sobre el reporte no encontró coincidencias directas para varios trabajos filosóficos que ya están confirmados en CUCSH (por ejemplo Guillermo Vargas Curiel, Guillermo Castillo Ramírez o los dos trabajos recientes de la Maestría). Esto confirma que el snapshot ALEPH de 2019 tampoco es exhaustivo respecto del catálogo local de tesis CUCSH.
+
+## Control Escolar como contador de cobertura
+
+Transparencia UdeG publica concentrados anuales de **Títulos, Diplomas y Grados**. T2CK inspecciona los XLSX 2022–2025 sin conservarlos.
+
+Esta capa no identifica por sí sola el título de la tesis, pero permite construir un denominador de cobertura por programa/año. Para la Maestría y el Doctorado, donde la tesis/defensa es parte obligatoria del plan, una diferencia entre grados expedidos y tesis localizadas constituye un hueco verificable de catalogación.
+
+## Evidencia de que la Maestría está subcatalogada
+
+La página oficial documenta 152 alumnos matriculados en siete cohortes entre 2007 y 2021, Taller de Tesis I/II y dirección de tesis desde tercer semestre. CUCSH reportó 16 titulados de la Maestría en Estudios Filosóficos sólo en 2021 y una eficiencia terminal de 94.1% en 2024.
+
+Por tanto, los cero registros que actualmente devuelve el filtro Drupal de Maestría son un defecto de cobertura/migración y no representan la producción real.
+
+## Doctorado: universo filosófico dentro de Humanidades
+
+El Doctorado en Humanidades reserva el último año a Seminarios de Tesis y exige Presentación y Defensa de Tesis. Su línea **Pensamiento** enumera explícitamente filosofía, ética/moral, lógica, valores, argumentación y hermenéutica.
+
+La reconstrucción doctoral deberá partir del universo de tesis del Doctorado en Humanidades y clasificar obra por obra, conservando siempre el programa real `Doctorado en Humanidades`.
