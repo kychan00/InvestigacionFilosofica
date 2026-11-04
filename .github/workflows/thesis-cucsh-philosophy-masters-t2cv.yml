@@ -87,7 +87,7 @@ jobs:
           assert not list(root.rglob("*.pdf"))
 
           print(json.dumps(m,ensure_ascii=False,indent=2,sort_keys=True))
-          print("CURRENT")
+          print("PHILOSOPHY-LIKE PROGRAM VARIANTS")\n          print(json.dumps(data["philosophyLikeProgramVariants"],ensure_ascii=False,indent=2,sort_keys=True))\n          print("CURRENT")
           for row in data["currentProgramRecords"]:
               print(json.dumps({
                   "title":row["title"],"author":row["author"],"year":row["year"],
