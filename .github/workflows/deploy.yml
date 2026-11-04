@@ -63,11 +63,6 @@ jobs:
           python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
             verify-release \
             --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
-            --release-dir /tmp/t2cg-base \
-            --root-release-manifest /dev/null 2>/dev/null || \
-          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
-            verify-release \
-            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
             --release-dir /tmp/t2cg-base
 
       - name: Recompose exact Effective Corpus V2
