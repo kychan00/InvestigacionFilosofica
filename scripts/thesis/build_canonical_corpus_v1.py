@@ -935,7 +935,7 @@ def canonical_candidate(
         or load_program_metadata_evidence_policy()
     )
 
-    if provider == "riudg":
+    if provider in {"riudg", "cucsh-library", "cucsh-official", "udg-official-profile"}:
         title = first(field_values(record, "dc.title"))
         authors = field_values(record, "dc.contributor.author")
         directors = field_values(record, "dc.contributor.director")
