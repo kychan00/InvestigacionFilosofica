@@ -1,0 +1,67 @@
+name: Thesis DCTS primary source capture T2CB
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/fetch_riudg_primary_source_v1.py"
+      - "scripts/thesis/config/urban-territory-adjudication-batch-002-v1.json"
+      - "tests/test_thesis_riudg_primary_source_fetch_t2cb.py"
+      - "docs/THESIS_DCTS_PRIMARY_SOURCE_CAPTURE_T2CB.md"
+      - ".github/workflows/thesis-dcts-primary-source-capture-t2cb.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install PDF tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Compile and unit regressions
+        run: |
+          python -m py_compile \
+            scripts/thesis/fetch_riudg_primary_source_v1.py
+          python -m unittest \
+            tests/test_thesis_riudg_primary_source_fetch_t2cb.py -v
+
+      - name: Capture official RIUdeG primary sources
+        id: capture
+        continue-on-error: true
+        run: |
+          rm -rf artifacts/t2cb
+          mkdir -p artifacts/t2cb
+          python scripts/thesis/fetch_riudg_primary_source_v1.py \
+            --batch scripts/thesis/config/urban-territory-adjudication-batch-002-v1.json \
+            --output-dir artifacts/t2cb
+
+      - name: Upload capture evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-dcts-primary-source-capture-t2cb
+          retention-days: 14
+          if-no-files-found: warn
+          compression-level: 0
+          path: |
+            artifacts/t2cb/**
+
+      - name: Enforce complete official capture
+        if: steps.capture.outcome != 'success'
+        run: |
+          echo "At least one official PDF could not be captured."
+          echo "See the uploaded fetch-attempts evidence; no admission decision is allowed."
+          exit 1
