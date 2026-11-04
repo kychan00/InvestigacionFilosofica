@@ -196,7 +196,7 @@ test("philosophy public index is fail-closed to the T2CU contract", () => {
       uniqueBibliographicIdentities: 216,
       duplicateSourceRowsCollapsed: 1,
       exactMergesWithT2CT: 1,
-      newPublicReferences: 215,
+      newPublicReferences: 215,\n      unknownYearReferences: 2,
       physicalHoldingsClaimed: false,
     },
     records: philosophyRecords,
