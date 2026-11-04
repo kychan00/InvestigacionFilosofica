@@ -110,7 +110,18 @@ permanecen idénticas. La revisión Program Authority continúa V47
 y la proyección programática se mantiene en 560 INCLUDE / 194 REVIEW.
 
 El workflow vuelve a aplicar la función de forma inversa y exige igualdad
-integral con el objeto JSON de V1. El artefacto conserva un snapshot
+integral con el objeto JSON de V1. Además, al recalcular la cola work-level
+sobre el snapshot candidato exige **179 obras pendientes** y **2 resueltas**
+(de las 181 inicialmente observadas): DCTS pasa a 151 REVIEW + 1 INCLUDE,
+Cognición conserva 4 REVIEW, Derechos Humanos 24 REVIEW y Estudios de Género
+conserva 1 INCLUDE. La cola programática no se reclasifica.
+
+El CLI comprueba de manera independiente los SHA-256 de los **bytes
+comprimidos** y del **JSON descomprimido** de la release V1 antes de aplicar.
+Esto impide introducir otro corpus con los mismos conteos sin preservar los
+bytes publicados.
+
+El artefacto conserva un snapshot
 comprimido, hash SHA-256, reporte de activación, reporte de reversión
 y resumen con sus conteos y provenance.
 
