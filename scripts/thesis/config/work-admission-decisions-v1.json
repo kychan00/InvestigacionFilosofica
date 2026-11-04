@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "thesis-work-admission-decisions-v1",
+  "revision": "2026-11-03.t2bx-v1",
+  "targetScope": "humanities-only",
+  "sourceProgramAuthorityRevision": "2026-11-03.v47",
+  "sourceScopePolicyRevision": "2026-11-02.v5",
+  "sourceMetadataConfidenceRevision": "2026-11-02.v5",
+  "sourceWorkReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "decisionPolicy": "exact-work-only-post-merged-primary-source-human-adjudication",
+  "approval": {
+    "pullRequest": 158,
+    "merged": true,
+    "mergeCommitSha": "71f58709f727d7e7b3b081bc5bc3e89cb75b3ce3",
+    "approvedHeadSha": "eb73b297c6eedd13f70e71fde9d5a763e135e350",
+    "approvalMeaning": "manual-merge-of-evidence-grounded-include-candidate"
+  },
+  "decisions": [
+    {
+      "workId": "thesis:work:00002062",
+      "programRef": "program:udg:mae-estudios-genero",
+      "handle": "20.500.12104/112718",
+      "sourceRecordRef": "source:thesis:riudg:18a3cc69072a0c0c8e7f",
+      "previousAdmissionStatus": "review",
+      "newAdmissionStatus": "include",
+      "candidateBatchId": "estudios-genero-001",
+      "candidateConfig": "scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json",
+      "primarySourceUrl": "https://riudg.udg.mx/bitstream/20.500.12104/112718/1/MCUCSH10741FT.pdf",
+      "primarySourceSha256": "8ad834865aa3b34a34dd7cf205b8528d6b7dd6b8a87a1a584d35d84404b2bcd2",
+      "rationale": "Work-specific humanities classification based on the official 219-page thesis: linguistic, interpretive and critical study of language, gender, performativity, symbolic power and discourse. Survey and interview methods do not determine primary disciplinary identity.",
+      "reversal": {
+        "method": "remove-or-supersede-this-exact-work-decision-in-a-new-reviewed-revision",
+        "restores": "review"
+      },
+      "constraints": [
+        "exact-id-only",
+        "handle-match",
+        "source-record-match",
+        "program-review-preserved",
+        "never-infer-from-title-or-abstract",
+        "no-program-wide-admission",
+        "reversible-decision-record",
+        "other-works-invariant"
+      ]
+    }
+  ]
+}
