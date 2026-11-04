@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Produce a small, reference-only thesis search index from immutable effective V1.
+"""Produce a small, reference-only thesis search index from an immutable effective release.
 
 No thesis PDF, full-text extraction, raw SourceRecord, or non-INCLUDE work
 is exported. The input release is byte-verified before JSON parsing.
@@ -24,6 +24,11 @@ ALLOWED_HOSTS = {
     "riudg.udg.mx",
     "www.riudg.udg.mx",
     "biblioteca.udgvirtual.udg.mx",
+    "editorial.udg.mx",
+    "biblioteca.cucsh.udg.mx",
+    "www.biblioteca.cucsh.udg.mx",
+    "cucsh.udg.mx",
+    "www.cucsh.udg.mx",
 }
 BLOCKED_PATH = re.compile(r"(?:\.pdf(?:$|[?#])|/bitstream(?:s)?/|/download(?:$|[/?#]))", re.I)
 ALLOWED_STATUS = "include"
@@ -42,10 +47,10 @@ def one_line(value: Any, limit: int) -> str:
 def verified_release(path: Path, contract: dict[str, Any]) -> dict[str, Any]:
     blob = path.read_bytes()
     if sha256(blob) != contract["effectiveCorpusGzipSha256"]:
-        raise ValueError("Immutable V1 gzip SHA-256 mismatch")
+        raise ValueError("Immutable release gzip SHA-256 mismatch")
     data = gzip.decompress(blob)
     if sha256(data) != contract["effectiveCorpusJsonSha256"]:
-        raise ValueError("Immutable V1 JSON SHA-256 mismatch")
+        raise ValueError("Immutable release JSON SHA-256 mismatch")
     return json.loads(data)
 
 
@@ -129,11 +134,18 @@ def build_index(
         raise ValueError("Program Authority revision mismatch")
     if corpus.get("programMetadataEvidenceRevision") != contract["metadataConfidenceRevision"]:
         raise ValueError("Metadata confidence revision mismatch")
-    if corpus.get("effectiveAdmissionRevision") != contract["workAdmissionDecisionRevision"]:
-        raise ValueError("Effective admission decision revision mismatch")
+    expected_admission_revision = contract.get(
+        "effectiveAdmissionRevision", contract["workAdmissionDecisionRevision"]
+    )
+    if corpus.get("effectiveAdmissionRevision") != expected_admission_revision:
+        raise ValueError("Effective admission revision mismatch")
+    if "workAdmissionDecisionRevision" in contract and corpus.get(
+        "workAdmissionDecisionRevision", corpus.get("effectiveAdmissionRevision")
+    ) != contract["workAdmissionDecisionRevision"]:
+        raise ValueError("Work admission decision revision mismatch")
     if enforce_full_release:
         if len(works) != contract["worksTotal"] or counts != contract["admissionCounts"]:
-            raise ValueError("Immutable V1 admission counts mismatch")
+            raise ValueError("Immutable release admission counts mismatch")
 
     if registry is not None and registry.get("registryRevision") != (
         contract["programAuthorityRevision"]
@@ -233,8 +245,11 @@ def main() -> None:
     corpus = verified_release(args.corpus_gzip, contract)
     registry = json.loads(args.registry.read_text(encoding="utf-8"))
     output = build_index(corpus, contract, registry=registry)
-    if output["totalIncluded"] != 561:
-        raise ValueError("Demo V1 must contain exactly 561 approved theses")
+    expected_include = int(contract["admissionCounts"]["include"])
+    if output["totalIncluded"] != expected_include:
+        raise ValueError(
+            f"Demo index must contain exactly {expected_include} approved theses"
+        )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     data = json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n"
     if len(data.encode("utf-8")) > 2_500_000:
