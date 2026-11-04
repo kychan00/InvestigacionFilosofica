@@ -1,0 +1,137 @@
+name: Thesis effective corpus release contract T2BZ
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/build_effective_corpus_release_manifest_v1.py"
+      - "scripts/thesis/config/effective-corpus-release-t2bz-v1.json"
+      - "tests/test_thesis_effective_corpus_release_t2bz.py"
+      - "docs/THESIS_EFFECTIVE_CORPUS_RELEASE_T2BZ.md"
+      - "release-manifest.json"
+      - ".github/workflows/deploy.yml"
+      - ".github/workflows/thesis-effective-corpus-release-t2bz.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile and unit regressions
+        run: |
+          python -m py_compile \
+            scripts/thesis/build_effective_corpus_release_manifest_v1.py
+          python -m unittest \
+            tests/test_thesis_effective_corpus_release_t2bz.py -v
+          python -m unittest discover \
+            -s tests \
+            -p "test_thesis_effective_corpus_t2by.py" -v
+
+      - name: Fetch frozen full corpus
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/t2bz artifacts/t2bz
+          mkdir -p /tmp/t2bz artifacts/t2bz
+          ARTIFACT_ID=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          config=json.loads(Path("scripts/thesis/config/effective-corpus-release-t2bz-v1.json").read_text())
+          print(config["sourceArtifactId"])
+          PY
+          )
+          gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/${ARTIFACT_ID}/zip" \
+            > /tmp/t2bz.zip
+          unzip -q /tmp/t2bz.zip -d /tmp/t2bz
+
+      - name: Verify frozen source hash
+        run: |
+          EXPECTED=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          config=json.loads(Path("scripts/thesis/config/effective-corpus-release-t2bz-v1.json").read_text())
+          print(config["sourceCanonicalCorpusSha256"])
+          PY
+          )
+          echo "${EXPECTED}  /tmp/t2bz/canonical-corpus.json.gz" | sha256sum -c -
+
+      - name: Reproject current metadata confidence
+        run: |
+          python scripts/thesis/reproject_program_metadata_confidence_snapshot_v1.py \
+            --canonical-corpus /tmp/t2bz/canonical-corpus.json.gz \
+            --source-records /tmp/t2bz/source-records.jsonl.gz \
+            --output-corpus artifacts/t2bz/confidence.json \
+            --output-report artifacts/t2bz/confidence-report.json
+
+      - name: Build effective corpus
+        run: |
+          python scripts/thesis/build_effective_corpus_v1.py \
+            --canonical-corpus artifacts/t2bz/confidence.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --decisions scripts/thesis/config/work-admission-decisions-v1.json \
+            --candidate scripts/thesis/config/estudios-genero-adjudication-batch-001-v1.json \
+            --reference-year 2026 \
+            --output-corpus artifacts/t2bz/effective-corpus.json \
+            --output-report artifacts/t2bz/effective-corpus-report.json
+
+      - name: Compress corpus deterministically
+        run: |
+          python - <<'PY'
+          import gzip
+          from pathlib import Path
+          root=Path("artifacts/t2bz")
+          with (root/"effective-corpus.json").open("rb") as source, (root/"effective-corpus.json.gz").open("wb") as raw:
+              with gzip.GzipFile(fileobj=raw,mode="wb",filename="",compresslevel=6,mtime=0) as target:
+                  while chunk := source.read(1024*1024):
+                      target.write(chunk)
+          PY
+
+      - name: Build and verify release manifest
+        run: |
+          CREATED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+            build-manifest \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --corpus-json artifacts/t2bz/effective-corpus.json \
+            --corpus-gzip artifacts/t2bz/effective-corpus.json.gz \
+            --report artifacts/t2bz/effective-corpus-report.json \
+            --repository "${GITHUB_REPOSITORY}" \
+            --generated-from-sha "${GITHUB_SHA}" \
+            --workflow-run "${GITHUB_RUN_ID}" \
+            --created-at "${CREATED_AT}" \
+            --output-manifest artifacts/t2bz/manifest.json \
+            --output-json-sha artifacts/t2bz/effective-corpus.json.sha256 \
+            --output-gzip-sha artifacts/t2bz/effective-corpus.json.gz.sha256
+
+          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --release-dir artifacts/t2bz \
+            --root-release-manifest release-manifest.json
+
+      - name: Upload T2BZ validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-effective-corpus-release-t2bz
+          retention-days: 14
+          if-no-files-found: warn
+          path: |
+            artifacts/t2bz/effective-corpus.json.gz
+            artifacts/t2bz/effective-corpus.json.sha256
+            artifacts/t2bz/effective-corpus.json.gz.sha256
+            artifacts/t2bz/effective-corpus-report.json
+            artifacts/t2bz/manifest.json
