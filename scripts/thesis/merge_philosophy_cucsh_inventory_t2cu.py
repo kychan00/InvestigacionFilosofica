@@ -115,7 +115,7 @@ def public_director(value:Any)->str|None:
     text=str(value or "").strip()
     if not text:
         return None
-    if re.fullmatch(r"(?:19|20)\\d{2}",text):
+    if re.fullmatch(r"(?:19|20)\d{2}",text):
         return None
     if norm(text) in {"no tiene","tesis","tesina"}:
         return None
