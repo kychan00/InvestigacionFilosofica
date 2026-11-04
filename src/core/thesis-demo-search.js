@@ -203,7 +203,8 @@ export function validatePhilosophyIndex(payload) {
     payload.cucshHistoricalInventory?.uniqueBibliographicIdentities !== 216 ||
     payload.cucshHistoricalInventory?.duplicateSourceRowsCollapsed !== 1 ||
     payload.cucshHistoricalInventory?.exactMergesWithT2CT !== 1 ||
-    payload.cucshHistoricalInventory?.newPublicReferences !== 215 ||\n    payload.cucshHistoricalInventory?.unknownYearReferences !== 2 ||
+    payload.cucshHistoricalInventory?.newPublicReferences !== 215 ||
+    payload.cucshHistoricalInventory?.unknownYearReferences !== 2 ||
     payload.cucshHistoricalInventory?.physicalHoldingsClaimed !== false ||
     !Array.isArray(payload.records) ||
     payload.records.length !== 233 ||
