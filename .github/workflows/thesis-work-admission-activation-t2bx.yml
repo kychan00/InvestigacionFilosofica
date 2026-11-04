@@ -121,8 +121,9 @@ jobs:
           (root/"t2bx-summary.json").write_text(json.dumps(selected,indent=2,sort_keys=True)+"\n")
           blob=(root/"activated.json").read_bytes()
           (root/"activated-sha256.txt").write_text(hashlib.sha256(blob).hexdigest()+"\n")
-          with gzip.open(root/"activated.json.gz","wb",compresslevel=6,mtime=None) as f:
-              f.write(blob)
+          with open(root/"activated.json.gz","wb") as raw:
+              with gzip.GzipFile(fileobj=raw,mode="wb",filename="",compresslevel=6,mtime=0) as f:
+                  f.write(blob)
           print(json.dumps(selected,indent=2))
           PY
 
