@@ -122,6 +122,26 @@ class T2CUTests(unittest.TestCase):
         self.assertTrue(any("analisis-descriptivo" in u for u in row["evidenceUrls"]))
         self.assertEqual(sum(r["id"]=="existing" for r in out["records"]),1)
 
+    def test_malformed_year_and_shifted_director_remain_unverified(self):
+        bad=report()
+        bad["philosophyInventories"][0]["records"].append({
+            "title":"LA EDUCACIÓN COMO NECESIDAD PARA EL HOMBRE",
+            "author":"MARÍA GUADALUPE CASTAÑEDA NAVA","coauthor":"",
+            "director":"2003","year":"208","program":"Licenciatura en Filosofía",
+            "recordUrl":"http://www.biblioteca.cucsh.udg.mx/?q=content/la-educacion-como-necesidad-para-el-hombre",
+            "catalogPageUrl":"http://www.biblioteca.cucsh.udg.mx/?q=vista-tesis-licenciatura&page=12",
+        })
+        out=mod.merge(base(),bad)
+        row=next(r for r in out["records"] if r["title"]=="LA EDUCACIÓN COMO NECESIDAD PARA EL HOMBRE")
+        self.assertIsNone(row["year"])
+        self.assertEqual(row["dateQuality"],"unknown")
+        self.assertEqual(row["directors"],[])
+        self.assertEqual(row["cucshCatalog"]["directorRaw"],"2003")
+        self.assertIn("invalid-or-missing-year",row["cucshCatalog"]["dataQualityFlags"])
+        self.assertEqual(out["cucshHistoricalInventory"]["unknownYearReferences"],1)
+        self.assertIsNone(mod.public_director("NO TIENE"))
+        self.assertIsNone(mod.public_director("2003"))
+
     def test_legacy_http_is_upgraded_only_for_cucsh(self):
         self.assertEqual(
             mod.safe_cucsh_url("http://www.biblioteca.cucsh.udg.mx/?q=content/x"),
