@@ -339,11 +339,22 @@ jobs:
 
       - name: Build public Philosophy thesis view
         run: |
+          rm -rf /tmp/philosophy-public-t2cu
+          mkdir -p /tmp/philosophy-public-t2cu
+
           python scripts/thesis/build_philosophy_public_index_v1.py \
             --demo-index _site/data/theses/demo-v1/index.json \
             --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
             --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
             --corroboration-config scripts/thesis/config/philosophy-external-corroboration-v1.json \
+            --output /tmp/philosophy-public-t2cu/base-index.json
+
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py \
+            --output /tmp/philosophy-public-t2cu/cucsh-report.json
+
+          python scripts/thesis/merge_philosophy_cucsh_inventory_t2cu.py \
+            --base-index /tmp/philosophy-public-t2cu/base-index.json \
+            --cucsh-report /tmp/philosophy-public-t2cu/cucsh-report.json \
             --output _site/data/theses/philosophy-v1/index.json
 
           python - <<'PY'
@@ -354,17 +365,17 @@ jobs:
           data=json.loads(path.read_text(encoding="utf-8"))
 
           assert data["schemaVersion"]=="thesis-philosophy-public-index-v1"
-          assert data["revision"]=="2026-11-04.t2ct-v1"
+          assert data["revision"]=="2026-11-04.t2cu-v1"
           assert data["sourceRelease"]=="thesis-effective-corpus-v2"
           assert data["referenceOnly"] is True
           assert data["canonicalAdmissionMutation"] is False
           assert data["preserveActualProgram"] is True
-          assert data["metrics"]["records"]==len(data["records"])==18
-          assert data["metrics"]["byStatus"]=={"include":16,"review":2}
+          assert data["metrics"]["records"]==len(data["records"])==233
+          assert data["metrics"]["byStatus"]=={"include":231,"review":2}
           assert data["metrics"]["byRole"]=={
               "curated-manual-classification":1,
               "philosophical-content":6,
-              "program-core":9,
+              "program-core":224,
               "program-core-candidate":2,
           }
           assert data["metrics"]["actualProgramsRepresented"]==10
