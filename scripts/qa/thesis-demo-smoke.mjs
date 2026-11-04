@@ -1,10 +1,10 @@
-/** Browser smoke for new thesis demo (mock 561-record index, no PDF). */
+/** Browser smoke for new thesis demo (mock 566-record index, no PDF). */
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
 import { chromium } from "playwright";
 
 const BASE = process.env.MOBILE_UI_BASE_URL || "http://127.0.0.1:4173/";
-const records = Array.from({ length: 561 }, (_, index) => ({
+const records = Array.from({ length: 566 }, (_, index) => ({
   id: `thesis:work:demo-${String(index).padStart(5, "0")}`,
   title: index % 2
     ? "Historia cultural y humanidades en la Universidad de Guadalajara"
@@ -25,9 +25,9 @@ const records = Array.from({ length: 561 }, (_, index) => ({
 
 const payload = {
   schemaVersion: "thesis-demo-index-v1",
-  sourceRelease: "thesis-effective-corpus-v1",
+  sourceRelease: "thesis-effective-corpus-v2",
   totalIncluded: records.length,
-  totalCanonical: 27576,
+  totalCanonical: 27580,
   referenceOnly: true,
   records,
 };
@@ -56,10 +56,11 @@ try {
     }));
     await page.goto(new URL("tesis.html", BASE).href, { waitUntil: "networkidle" });
     await page.waitForFunction(() =>
-      document.querySelector("#thesis-total")?.textContent === "561"
+      document.querySelector("#thesis-total")?.textContent === "566"
     );
     assert.equal(await page.locator(".td-result").count(), 12);
-    assert.match(await page.locator("#thesis-summary").innerText(), /561/);
+    assert.match(await page.locator("#thesis-summary").innerText(), /566/);
+    assert.equal(await page.locator("#thesis-canonical-total").innerText(), "27,580");
     const initialWidth = await page.evaluate(() => ({
       viewport: window.innerWidth,
       scroll: document.documentElement.scrollWidth,
@@ -68,12 +69,12 @@ try {
       `${name} horizontal overflow: ${JSON.stringify(initialWidth)}`);
 
     await page.locator("#thesis-query").fill("fenomenologia");
-    assert.equal(await page.locator("#thesis-count").innerText(), "281");
+    assert.equal(await page.locator("#thesis-count").innerText(), "283");
     await page.locator("#thesis-query").fill("");
     await page.locator("#thesis-program").selectOption("Maestría en Historia");
-    assert.equal(await page.locator("#thesis-count").innerText(), "280");
+    assert.equal(await page.locator("#thesis-count").innerText(), "283");
     await page.locator("#thesis-clear").click();
-    assert.equal(await page.locator("#thesis-count").innerText(), "561");
+    assert.equal(await page.locator("#thesis-count").innerText(), "566");
     await page.locator(".td-result details summary").first().click();
     assert.equal(await page.locator(".td-result details[open]").count(), 1);
     const href = await page.locator(".td-primary-action[href]").first().getAttribute("href");
