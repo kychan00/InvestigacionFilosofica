@@ -197,6 +197,12 @@ def merge(base:dict[str,Any],report:dict[str,Any])->dict[str,Any]:
                 "catalogUrls":list(source.get("catalogUrls") or []),
                 "coauthorRaw":source.get("coauthor") or "",
                 "directorRaw":source.get("director") or "",
+                "dataQualityFlags":(
+                    ["invalid-or-missing-year"] if year(source.get("year")) is None else []
+                ) + (
+                    ["duplicate-catalog-row-collapsed"]
+                    if int(source.get("sourceRowCount") or 1)>1 else []
+                ),
             }
             continue
         item=public_record(source)
