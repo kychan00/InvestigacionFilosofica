@@ -14,7 +14,7 @@ import re
 from collections import Counter
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 SCHEMA = "thesis-demo-index-v1"
 YEAR = re.compile(r"^(\d{4})(?:-|$)")
@@ -79,7 +79,16 @@ def safe_institutional_url(raw: str | None) -> str | None:
         or parsed.port not in (None, 443)
         or BLOCKED_PATH.search(parsed.path)):
         return None
-    return raw if parsed.path and parsed.path != "/" else None
+    if parsed.path and parsed.path != "/":
+        return raw
+    if host in {"biblioteca.cucsh.udg.mx", "www.biblioteca.cucsh.udg.mx"}:
+        query = parse_qs(parsed.query, keep_blank_values=True)
+        values = query.get("q") or []
+        if set(query) == {"q"} and len(values) == 1 and re.fullmatch(
+            r"node/\d+", values[0], re.I
+        ):
+            return raw
+    return None
 
 
 def official_link(
