@@ -198,6 +198,14 @@ jobs:
         with:
           node-version: 24
 
+      - name: Setup Python for thesis Atlas
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install frozen Atlas numeric stack
+        run: python -m pip install -r scripts/thesis/requirements-atlas-v1.txt
+
       - name: Install dependencies
         run: npm ci
 
@@ -348,6 +356,59 @@ jobs:
           forbidden={".pdf",".epub",".djvu"}
           assert not any(p.suffix.lower() in forbidden for p in Path("_site/data/theses/demo-v1").rglob("*") if p.is_file())
           print("Demo public index verified:",len(payload["records"]),"bibliographic references")
+          PY
+
+      - name: Build experimental 2D thesis Atlas from verified V1
+        run: |
+          rm -rf _site/data/theses/atlas-v1
+          python scripts/thesis/build_thesis_atlas_v1.py \
+            --corpus-gzip /tmp/thesis-effective-corpus/effective-corpus.json.gz \
+            --release-contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --atlas-contract scripts/thesis/config/thesis-atlas-v1.json \
+            --output-dir _site/data/theses/atlas-v1
+
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          root=Path("_site/data/theses/atlas-v1")
+          data=json.loads((root/"index.json").read_text(encoding="utf-8"))
+          manifest=json.loads((root/"manifest.json").read_text(encoding="utf-8"))
+          ids={node["id"] for node in data["nodes"]}
+
+          assert Path("_site/atlas.html").is_file()
+          assert data["schemaVersion"]=="thesis-atlas-index-v1"
+          assert data["sourceRelease"]=="thesis-effective-corpus-v1"
+          assert data["methodStatus"]=="experimental-not-benchmark-approved"
+          assert data["referenceOnly"] is True
+          assert data["topologyInputContract"]["fields"]==["title"]
+          assert len(data["nodes"])==len(ids)==561
+          assert manifest["nodes"]==561
+          assert manifest["pdfCopies"]==0
+          assert manifest["atlasIndexSha256"]
+          assert all(
+              math.isfinite(node["atlas"]["x"]) and
+              math.isfinite(node["atlas"]["y"]) and
+              node["neighborhood"]["k"]==8 and
+              len(node["neighborhood"]["neighborRefs"])==8
+              for node in data["nodes"]
+          )
+
+          forbidden={".pdf",".epub",".djvu"}
+          assert not any(
+              p.suffix.lower() in forbidden
+              for p in root.rglob("*") if p.is_file()
+          )
+          print(
+              "Atlas public payload verified:",
+              len(data["nodes"]),
+              "nodes ·",
+              len(data["clusters"]),
+              "experimental regions · trustworthiness@8",
+              data["evaluation"]["trustworthinessK8"],
+          )
           PY
 
       - name: Configure Pages
