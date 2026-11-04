@@ -12,6 +12,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+ROOT = Path(__file__).resolve().parents[2]
+
 SCHEMA = "thesis-philosophy-public-index-v1"
 REVISION = "2026-11-04.t2ct-v1"
 CORROBORATION_SCHEMA = "thesis-philosophy-external-corroboration-v1"
