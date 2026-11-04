@@ -15,7 +15,7 @@ from typing import Any
 
 SCHEMA = "thesis-philosophy-aleph-author-clusters-v1"
 INPUT_SCHEMA = "thesis-philosophy-aleph-discrepancy-review-v1"
-FORBIDDEN = re.compile(r"/F/[^\\s\\\"']+|(?i:session[-_]?id|cookie|password|bitstream|\\.pdf)")
+FORBIDDEN = re.compile(r"/F/[^\s\"']+|(?i:session[-_]?id|cookie|password|bitstream|\.pdf)")
 
 
 def summarize(review: dict[str, Any]) -> dict[str, Any]:
@@ -48,7 +48,7 @@ def summarize(review: dict[str, Any]) -> dict[str, Any]:
                 or candidate.get("physicalLocationConfirmed") is not False):
                 raise ValueError("Cannot promote unverified candidate evidence")
             sys = str(candidate.get("systemNumber") or "")
-            if not re.fullmatch(r"\\d{9}", sys):
+            if not re.fullmatch(r"\d{9}", sys):
                 raise ValueError("Invalid Aleph system number")
             if sys in unique:
                 raise ValueError("Repeated system number within a source")
