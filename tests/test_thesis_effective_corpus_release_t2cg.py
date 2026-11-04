@@ -109,6 +109,20 @@ class EffectiveCorpusReleaseT2CGTests(unittest.TestCase):
         self.assertEqual(index["totalIncluded"], 1)
         self.assertEqual(index["sourceRelease"], "fixture-v2")
 
+    def test_cucsh_reference_query_is_narrowly_allowlisted(self):
+        stable = "https://www.biblioteca.cucsh.udg.mx/?q=node%2F8243"
+        self.assertEqual(demo.safe_institutional_url(stable), stable)
+        self.assertIsNone(
+            demo.safe_institutional_url(
+                "https://www.biblioteca.cucsh.udg.mx/?session=secret"
+            )
+        )
+        self.assertIsNone(
+            demo.safe_institutional_url(
+                "https://www.biblioteca.cucsh.udg.mx/?q=node%2F8243&x=1"
+            )
+        )
+
     def test_public_consumers_are_migrated_to_566(self):
         atlas = json.loads(ATLAS_CONTRACT.read_text(encoding="utf-8"))
         self.assertEqual(atlas["sourceRelease"], "thesis-effective-corpus-v2")
