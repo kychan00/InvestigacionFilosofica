@@ -99,6 +99,38 @@ class OpacReconTest(unittest.TestCase):
         # page_evidence owns the link selection; parser itself still records all anchors.
         self.assertEqual(len(parser.anchors),3)
 
+    def test_page_evidence_preserves_thesis_identity_rows(self):
+        """A genuine thesis must not lose its Nota de tesis / Base Lógica."""
+        html = """
+        <html><body><table>
+          <tr><td>Número de sistema</td><td>000479362</td></tr>
+          <tr><td>Autor</td><td>Lara Ramos, Jorge</td></tr>
+          <tr><td>Título</td><td>José Gaos y la filosofía de la filosofía</td></tr>
+          <tr><td>Base Lógica</td><td>Tesis</td></tr>
+          <tr><td>Nota de tesis</td><td>Licenciatura en Filosofía, UdeG</td></tr>
+        </table></body></html>
+        """
+        class Response:
+            status = 200
+            headers = {"Content-Type": "text/html; charset=utf-8"}
+            def __enter__(self):
+                return self
+            def __exit__(self, *args):
+                return False
+            def read(self):
+                return html.encode("utf-8")
+            def geturl(self):
+                return "http://148.202.248.73/F/example"
+        class Opener:
+            def open(self, request, timeout=40):
+                return Response()
+        evidence = mod.page_evidence(
+            "http://148.202.248.73/F/example", opener=Opener()
+        )
+        rows = {row[0].casefold(): row[1] for row in evidence["relevantRows"]}
+        self.assertEqual(rows["base lógica"], "Tesis")
+        self.assertIn("Licenciatura", rows["nota de tesis"])
+
     def test_extract_holdings_contract(self):
         page={
             "relevantRows":[

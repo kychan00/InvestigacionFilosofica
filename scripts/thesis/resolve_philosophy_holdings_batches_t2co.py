@@ -12,6 +12,7 @@ import importlib.util
 import json
 import re
 import time
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -135,14 +136,16 @@ def resolve_one(
     matches: list[dict[str, Any]] = []
     rejected = 0
     fetch_errors = 0
+    rejected_reasons: Counter[str] = Counter()
     for number, method in candidates.items():
         try:
             record, holdings = fetch(opener, action, number)
             fields = record["fields"]
-            exact, _ = pilot.exact_bibliographic_match(row, fields)
+            exact, flags = pilot.exact_bibliographic_match(row, fields)
             observed_number = fields.get("número de sistema") or fields.get("numero de sistema")
             if observed_number and observed_number != number:
                 exact = False
+                flags.append("system-number-mismatch")
             if exact and has_thesis_evidence(fields):
                 matches.append({
                     "systemNumber": number,
@@ -152,6 +155,11 @@ def resolve_one(
                 })
             else:
                 rejected += 1
+                if exact:
+                    rejected_reasons["missing-thesis-evidence"] += 1
+                else:
+                    for reason in flags:
+                        rejected_reasons[reason] += 1
         except Exception:
             fetch_errors += 1
     if len(matches) > 1:
@@ -169,7 +177,11 @@ def resolve_one(
             "candidate-fetch-failure" if fetch_errors else
             "no-exact-thesis-identity"
         ),
-        "rejectedCandidates": rejected, "attempts": attempts,
+        "rejectedCandidates": rejected,
+        "candidateRecordsChecked": len(candidates) - fetch_errors,
+        "recordFetchErrors": fetch_errors,
+        "rejectionReasonCounts": dict(sorted(rejected_reasons.items())),
+        "attempts": attempts,
     }
 
 

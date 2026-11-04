@@ -392,6 +392,9 @@ def page_evidence(
         "número de sistema", "numero de sistema", "biblioteca", "ubicación", "ubicacion",
         "signatura", "colección", "coleccion", "ejemplar", "disponib", "items", "ítems",
         "autor", "título", "titulo", "resultado", "registro", "documento",
+        # These are semantic evidence gates for T2CN/T2CO. Without them
+        # the parser silently discards Aleph's thesis confirmation fields.
+        "nota de tesis", "base lógica", "base logica",
     )
     text = one_line(" ".join(parser.text_parts))
     snippets = []

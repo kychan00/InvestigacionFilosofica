@@ -68,6 +68,18 @@ class T2COTest(unittest.TestCase):
         self.assertEqual(result["systemNumber"], "000479362")
         self.assertTrue(result["holdings"])
 
+    def test_missing_thesis_evidence_is_diagnosed_not_accepted(self):
+        def query(*args, **kwargs):
+            return ["000479362"]
+        def fetch(*args, **kwargs):
+            return ({"fields": {
+                "título": "José Gaos y la filosofía de la filosofía",
+                "autor": "Lara Ramos, Jorge",
+            }}, [])
+        result = mod.resolve_one(row(1), opener=None, action="", query=query, fetch=fetch)
+        self.assertEqual(result["status"], "unresolved")
+        self.assertEqual(result["rejectionReasonCounts"], {"missing-thesis-evidence": 1})
+
     def test_typo_remains_unresolved(self):
         source = row(1, title="Feminidad y experiencia")
         source["authors"] = ["Guillermo Castillo Ramírez"]

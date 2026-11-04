@@ -4,8 +4,11 @@ on:
   pull_request:
     paths:
       - "scripts/thesis/resolve_philosophy_holdings_batches_t2co.py"
+      - "scripts/thesis/probe_udg_opac_endpoints_v1.py"
+      - "tests/test_thesis_udg_opac_endpoints_v1.py"
       - "tests/test_thesis_philosophy_holdings_batches_t2co.py"
       - "docs/THESIS_PHILOSOPHY_ALEPH_BATCH_T2CO.md"
+      - "docs/THESIS_ALEPH_EVIDENCE_PARSER_T2CP.md"
       - ".github/workflows/thesis-philosophy-holdings-t2co.yml"
   workflow_dispatch:
     inputs:
@@ -38,7 +41,8 @@ jobs:
           python -m py_compile scripts/thesis/resolve_philosophy_holdings_batches_t2co.py
           python -m unittest \
             tests.test_thesis_philosophy_holdings_resolver_v1 \
-            tests.test_thesis_philosophy_holdings_batches_t2co -v
+            tests.test_thesis_philosophy_holdings_batches_t2co \
+            tests.test_thesis_udg_opac_endpoints_v1 -v
 
       - name: Download and verify Effective Corpus V2
         env:
@@ -110,7 +114,10 @@ jobs:
           for number,decision in enumerate(data["decisions"]):
               print("search_diagnostic",number,decision["status"],decision.get("reason",""),
                     [(a["code"],a["adjacent"],a["status"],a.get("candidateCount"))
-                     for a in decision.get("attempts",[])])
+                     for a in decision.get("attempts",[])],
+                    "candidateRecordsChecked",decision.get("candidateRecordsChecked"),
+                    "recordFetchErrors",decision.get("recordFetchErrors"),
+                    "rejectionReasonCounts",decision.get("rejectionReasonCounts"))
           PY
 
       - name: Upload reference-only evidence
