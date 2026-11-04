@@ -1,0 +1,30 @@
+name: Thesis Philosophy external corroboration T2CS
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/philosophy-external-corroboration-v1.json"
+      - "scripts/thesis/validate_philosophy_external_corroboration_v1.py"
+      - "tests/test_thesis_philosophy_external_corroboration_t2cs.py"
+      - "docs/THESIS_EXTERNAL_CORROBORATION_T2CS.md"
+      - "docs/THESIS_PHILOSOPHY_SOURCE_MAP_T2CK.md"
+      - ".github/workflows/thesis-external-corroboration-t2cs.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-corroboration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Validate evidence ledger and guards
+        run: |
+          python -m py_compile scripts/thesis/validate_philosophy_external_corroboration_v1.py
+          python -m unittest tests.test_thesis_philosophy_external_corroboration_t2cs -v
+          python scripts/thesis/validate_philosophy_external_corroboration_v1.py \
+            --input scripts/thesis/config/philosophy-external-corroboration-v1.json
