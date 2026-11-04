@@ -43,16 +43,17 @@ jobs:
           path=Path("artifacts/t2cn/title-resolution.json")
           data=json.loads(path.read_text())
           assert data["schemaVersion"]=="thesis-aleph-title-resolution-probe-v1"
-          assert data["revision"]=="2026-11-04.t2cn-v3"
+          assert data["revision"]=="2026-11-04.t2cn-v4"
           assert data["referenceOnly"] is True
           assert data["rawHtmlPersisted"] is False
           assert data["metrics"]["knownCases"]==3
           assert data["metrics"]["discoveryCases"]==1
           for case in data["known"]:
-              assert len(case["attempts"])==2
+              assert len(case["attempts"])==4
               for attempt in case["attempts"]:
                   assert attempt["search"]["httpStatus"]==200
-                  assert "find_code=WTI" in attempt["searchUrl"]
+                  assert attempt["findCode"] in {"WTI","WAU"}
+                  assert "find_code="+attempt["findCode"] in attempt["searchUrl"]
           assert not list(Path("artifacts/t2cn").rglob("*.html"))
           assert not list(Path("artifacts/t2cn").rglob("*.pdf"))
           print(json.dumps(data["metrics"],ensure_ascii=False,indent=2))

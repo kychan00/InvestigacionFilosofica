@@ -22,7 +22,7 @@ assert spec.loader is not None
 spec.loader.exec_module(opac)
 
 SCHEMA = "thesis-aleph-title-resolution-probe-v1"
-REVISION = "2026-11-04.t2cn-v3"
+REVISION = "2026-11-04.t2cn-v4"
 
 KNOWN = (
     {
@@ -204,13 +204,14 @@ def run_query(
     opener: urllib.request.OpenerDirector,
     action: str,
     *,
-    title: str,
+    find_code: str,
+    request: str,
     adjacent: str,
 ) -> dict[str, Any]:
     url = search_url(
         action,
-        find_code="WTI",
-        request=title,
+        find_code=find_code,
+        request=request,
         local_base="UDG01",
         adjacent=adjacent,
     )
@@ -234,6 +235,8 @@ def run_query(
                 holdings.append(holding)
 
     return {
+        "findCode": find_code,
+        "request": request,
         "adjacent": adjacent,
         "searchUrl": url,
         "search": page,
@@ -251,8 +254,34 @@ def resolve_case(
     session: dict[str, Any],
 ) -> dict[str, Any]:
     attempts = [
-        run_query(opener, action, title=case["title"], adjacent="N"),
-        run_query(opener, action, title=case["title"], adjacent="Y"),
+        run_query(
+            opener,
+            action,
+            find_code="WTI",
+            request=case["title"],
+            adjacent="N",
+        ),
+        run_query(
+            opener,
+            action,
+            find_code="WTI",
+            request=case["title"],
+            adjacent="Y",
+        ),
+        run_query(
+            opener,
+            action,
+            find_code="WAU",
+            request=case["name"],
+            adjacent="N",
+        ),
+        run_query(
+            opener,
+            action,
+            find_code="WAU",
+            request=case["name"],
+            adjacent="Y",
+        ),
     ]
     return {
         **case,
@@ -310,6 +339,8 @@ def main() -> int:
             "expected": case.get("systemNumber"),
             "attempts": [
                 {
+                    "findCode": attempt["findCode"],
+                    "request": attempt["request"],
                     "adjacent": attempt["adjacent"],
                     "pageTitle": attempt["search"].get("pageTitle"),
                     "systems": attempt["systemNumbers"],

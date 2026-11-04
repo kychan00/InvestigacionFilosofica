@@ -58,3 +58,15 @@ cuyas fichas dicen explícitamente `Base Lógica: Tesis` / `Nota de tesis`.
 
 V3 elimina esa faceta durante el descubrimiento. La condición de tesis se valida en
 el registro completo después de resolver una identidad, nunca mediante el filtro WFM.
+
+
+## Fallback determinista por autor — V4
+
+Sin la faceta WFM, el título exacto resolvió de forma única a Raúl Sánchez Salas y
+Víctor Manuel Espinosa Aguilar. José Antonio Ramírez Velasco no resolvió porque el
+registro Aleph conserva el título con `necesari`, mientras la referencia curada usa
+`necesaria`. Guillermo Vargas Curiel produjo una permutación amplia.
+
+V4 añade una búsqueda `WAU` por nombre completo. Esta búsqueda no autoriza por sí
+sola una fusión: sólo descubre candidatos. La aceptación futura exige comprobar el
+registro completo y conservar los casos con discrepancias textuales como revisión.
