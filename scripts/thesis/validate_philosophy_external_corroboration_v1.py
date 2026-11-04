@@ -78,9 +78,11 @@ def validate(data: dict[str,Any]) -> dict[str,Any]:
             provider_counts[str(item["provider"])]+=1
             evidence_count+=1
         # Lineage evidence is deliberately weaker than exact thesis identity.
-        if "lineage" in str(record.get("corroborationStatus") or ""):
-            if claims["workExistence"]=="corroborated" or claims["titleAuthor"]=="corroborated":
-                raise ValueError("Derived-work lineage cannot be upgraded to exact work identity")
+        lineage = any("lineage" in str(claims[name]) for name in ("workExistence","titleAuthor"))
+        if lineage and (
+            claims["workExistence"]=="corroborated" or claims["titleAuthor"]=="corroborated"
+        ):
+            raise ValueError("Derived-work lineage cannot be upgraded to exact work identity")
     return {
         "records":len(seen),
         "evidenceReferences":evidence_count,
