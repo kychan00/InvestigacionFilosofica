@@ -128,9 +128,11 @@ def resolve_one(
             # dynamic /F/<session> URLs.
             attempts.append({"code": code, "adjacent": adjacent, "status": "error"})
     if len(candidates) > max_candidates:
-        overflow = True
-    if overflow:
-        return {"status": "ambiguous", "reason": "candidate-overflow", "attempts": attempts}
+        # No arbitrary truncation or adjudication against a partial pool.
+        return {
+            "status": "unresolved", "reason": "candidate-pool-too-large",
+            "attempts": attempts,
+        }
     matches: list[dict[str, Any]] = []
     rejected = 0
     fetch_errors = 0
@@ -163,7 +165,11 @@ def resolve_one(
         return {"status": "resolved", **matches[0], "attempts": attempts}
     return {
         "status": "unresolved",
-        "reason": "candidate-fetch-failure" if fetch_errors else "no-exact-thesis-identity",
+        "reason": (
+            "candidate-overflow" if overflow else
+            "candidate-fetch-failure" if fetch_errors else
+            "no-exact-thesis-identity"
+        ),
         "rejectedCandidates": rejected, "attempts": attempts,
     }
 
@@ -215,6 +221,11 @@ def build_batch(
             "ambiguous": sum(row["status"] == "ambiguous" for row in decisions),
             "unresolved": sum(row["status"] == "unresolved" for row in decisions),
             "remaining": max(0, len(eligible) - offset - len(decisions)),
+            "unresolvedOverflow": sum(
+                row["status"] == "unresolved"
+                and row.get("reason") in {"candidate-overflow", "candidate-pool-too-large"}
+                for row in decisions
+            ),
         },
         "decisions": decisions,
     }
