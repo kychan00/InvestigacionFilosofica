@@ -19,6 +19,7 @@ concurrency:
 
 jobs:
   thesis-corpus-release:
+    needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
