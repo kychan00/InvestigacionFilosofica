@@ -113,7 +113,10 @@ jobs:
           for number,decision in enumerate(data["decisions"]):
               print("search_diagnostic",number,decision["status"],decision.get("reason",""),
                     [(a["code"],a["adjacent"],a["status"],a.get("candidateCount"))
-                     for a in decision.get("attempts",[])])
+                     for a in decision.get("attempts",[])],
+                    "candidateRecordsChecked",decision.get("candidateRecordsChecked"),
+                    "recordFetchErrors",decision.get("recordFetchErrors"),
+                    "rejectionReasonCounts",decision.get("rejectionReasonCounts"))
           PY
 
       - name: Upload reference-only evidence
