@@ -34,14 +34,17 @@ El builder `scripts/thesis/build_thesis_demo_index_v1.py`:
 3. descomprime y compara el SHA-256 del JSON;
 4. verifica esquema, revisiones y conteos exactos de V1;
 5. toma solo obras INCLUDE, sin alterar ninguna decisión;
-6. exporta solo metadatos bibliográficos breves: ID, título, autor,
+6. consulta Program Authority V47 (registro exacto fijado por revisión),
+   para mostrar el nombre oficial del programa y su grado actual sin depender
+   de las autoridades históricas incrustadas en el corpus congelado;
+7. exporta solo metadatos bibliográficos breves: ID, título, autor,
    dirección, fecha confiable, programa, grado, unidad, palabras clave,
    **extracto acotado a 460 caracteres del resumen institucional**;
-7. deriva únicamente URLs de handle o páginas institucionales autorizadas;
-8. no exporta PDF, ruta directa al archivo, texto completo, OAI raw XML
+8. deriva únicamente URLs de handle o páginas institucionales autorizadas;
+9. no exporta PDF, ruta directa al archivo, texto completo, OAI raw XML
    ni SourceRecord íntegro;
-9. ordena los resultados y fija un techo de 2.5 MB para el índice;
-10. falla si la cardinalidad, identidad o versión no coincide con la release.
+10. ordena los resultados y fija un techo de 2.5 MB para el índice;
+11. falla si la cardinalidad, identidad o versión no coincide con la release.
 
 El script genera `data/theses/demo-v1/index.json` **durante Pages**;
 no se comitea el índice derivado ni se sobrescribe la release T2BZ.
