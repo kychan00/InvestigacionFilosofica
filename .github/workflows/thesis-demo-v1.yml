@@ -1,0 +1,127 @@
+name: Thesis UdeG public demo V1
+
+on:
+  pull_request:
+    paths:
+      - "tesis.html"
+      - "index.html"
+      - "js/thesis-demo.js"
+      - "css/thesis-demo.css"
+      - "src/core/thesis-demo-search.js"
+      - "scripts/thesis/build_thesis_demo_index_v1.py"
+      - "tests/test_thesis_demo_index_v1.py"
+      - "tests/thesis-demo.test.mjs"
+      - "docs/THESIS_DEMO_SEARCH_V1.md"
+      - ".github/workflows/thesis-demo-v1.yml"
+      - ".github/workflows/deploy.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Test reference-only builder and local search
+        run: |
+          python -m py_compile scripts/thesis/build_thesis_demo_index_v1.py
+          python -m unittest discover -s tests -p 'test_thesis_demo_index_v1.py' -v
+          node --test tests/thesis-demo.test.mjs
+
+      - name: Full browser-search regression suite
+        run: |
+          npm ci
+          npm test
+
+      - name: Download immutable V1 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/thesis-demo-v1
+          gh release download thesis-effective-corpus-v1 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/thesis-demo-v1
+
+          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --release-dir /tmp/thesis-demo-v1 \
+            --root-release-manifest release-manifest.json
+
+      - name: Generate the actual public search index
+        run: |
+          mkdir -p artifacts/thesis-demo-v1
+          python scripts/thesis/build_thesis_demo_index_v1.py \
+            --corpus-gzip /tmp/thesis-demo-v1/effective-corpus.json.gz \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --output artifacts/thesis-demo-v1/index.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          path=Path("artifacts/thesis-demo-v1/index.json")
+          data=json.loads(path.read_text(encoding="utf-8"))
+          rows=data["records"]
+          assert data["schemaVersion"]=="thesis-demo-index-v1"
+          assert data["referenceOnly"] is True
+          assert data["totalIncluded"]==len(rows)==561
+          assert len({row["id"] for row in rows})==561
+          assert all(row["id"].startswith("thesis:work:") for row in rows)
+          assert all(len(row["abstractExcerpt"])<=460 for row in rows)
+          assert all(row["degree"] in {"licenciatura","maestria","doctorado"}
+                     for row in rows)
+          assert all(row["program"] and row["programRef"] for row in rows)
+          assert all(
+              not any(key in row for key in [
+                  "pdf","pdfBytes","fullText","rawText",
+                  "sourceRecords","rawFields",
+              ]) for row in rows
+          )
+          assert all(
+              not row["sourceUrl"] or (
+                  urlparse(row["sourceUrl"]).hostname in {
+                      "hdl.handle.net",
+                      "riudg.udg.mx",
+                      "www.riudg.udg.mx",
+                      "biblioteca.udgvirtual.udg.mx"
+                  }
+                  and ".pdf" not in urlparse(row["sourceUrl"]).path.lower()
+              )
+              for row in rows
+          )
+          assert path.stat().st_size <= 2_500_000
+          assert Path("tesis.html").is_file()
+          assert Path("js/thesis-demo.js").is_file()
+          print(json.dumps({
+              "demo_records":len(rows),
+              "source_linked":sum(bool(row["sourceUrl"]) for row in rows),
+              "index_bytes":path.stat().st_size,
+              "source_release":data["sourceRelease"],
+              "pdf_copies":0,
+              "status":"PR artifact only, not published",
+          },indent=2))
+          PY
+
+      - name: Upload reference-only demo index evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-search-demo-v1-index
+          path: artifacts/thesis-demo-v1/index.json
+          if-no-files-found: error
+          retention-days: 14
