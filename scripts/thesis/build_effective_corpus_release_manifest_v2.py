@@ -35,12 +35,19 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def sha256_gzip_payload(path: Path) -> str:
-    digest = hashlib.sha256()
-    with gzip.open(path, "rb") as stream:
-        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def read_gzip_json(path: Path) -> dict[str, Any]:
+    with gzip.open(path, "rt", encoding="utf-8") as stream:
+        return json.load(stream)
+
+
+def pretty_json_bytes(payload: dict[str, Any]) -> bytes:
+    return (
+        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    ).encode("utf-8")
+
+
+def reconstructed_json_sha256(path: Path) -> str:
+    return hashlib.sha256(pretty_json_bytes(read_gzip_json(path))).hexdigest()
 
 
 def parse_checksum(path: Path) -> str:
@@ -186,9 +193,13 @@ def build_manifest(args: argparse.Namespace) -> None:
 
     json_hash = sha256_file(args.corpus_json)
     gzip_hash = sha256_file(args.corpus_gzip)
-    gzip_payload_hash = sha256_gzip_payload(args.corpus_gzip)
+    reconstructed_json_hash = reconstructed_json_sha256(args.corpus_gzip)
     require_equal("JSON SHA-256", json_hash, contract["effectiveCorpusJsonSha256"])
-    require_equal("gzip payload SHA-256", gzip_payload_hash, contract["effectiveCorpusJsonSha256"])
+    require_equal(
+        "gzip semantic JSON SHA-256",
+        reconstructed_json_hash,
+        contract["effectiveCorpusJsonSha256"],
+    )
     require_equal("gzip SHA-256", gzip_hash, contract["effectiveCorpusGzipSha256"])
 
     manifest = {
@@ -279,7 +290,11 @@ def verify_release(args: argparse.Namespace) -> None:
 
     corpus_asset = root / assets["corpusGzip"]
     require_equal("release gzip hash", sha256_file(corpus_asset), contract["effectiveCorpusGzipSha256"])
-    require_equal("release JSON payload hash", sha256_gzip_payload(corpus_asset), contract["effectiveCorpusJsonSha256"])
+    require_equal(
+        "release semantic JSON hash",
+        reconstructed_json_sha256(corpus_asset),
+        contract["effectiveCorpusJsonSha256"],
+    )
 
     effective = manifest.get("effectiveCorpus") or {}
     require_equal("manifest JSON hash", effective.get("jsonSha256"), contract["effectiveCorpusJsonSha256"])
