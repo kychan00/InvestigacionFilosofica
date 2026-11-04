@@ -60,8 +60,7 @@ jobs:
           python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
             verify-release \
             --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
-            --release-dir /tmp/thesis-demo-v1 \
-            --root-release-manifest release-manifest.json
+            --release-dir /tmp/thesis-demo-v1 
 
       - name: Generate the actual public search index
         run: |
