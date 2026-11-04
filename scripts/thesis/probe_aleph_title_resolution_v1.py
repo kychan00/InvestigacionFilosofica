@@ -22,7 +22,7 @@ assert spec.loader is not None
 spec.loader.exec_module(opac)
 
 SCHEMA = "thesis-aleph-title-resolution-probe-v1"
-REVISION = "2026-11-04.t2cn-v2"
+REVISION = "2026-11-04.t2cn-v3"
 
 KNOWN = (
     {
@@ -71,7 +71,9 @@ def search_url(
         ("filter_code_3", "WYR"),
         ("filter_request_3", ""),
         ("filter_code_4", "WFM"),
-        ("filter_request_4", "TESIS"),
+        # Historical thesis records are not consistently indexed under the
+        # WFM=TESIS search facet. Validate thesis identity on the full record.
+        ("filter_request_4", ""),
     ]
     sep = "&" if "?" in session_action else "?"
     return session_action + sep + urllib.parse.urlencode(params)

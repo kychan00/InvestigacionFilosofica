@@ -48,3 +48,13 @@ El primer run recibió una portada Aleph transitoria sin formulario. V2 abre una
 sesión para todo el probe, la reutiliza entre los cuatro casos y permite hasta cuatro
 intentos acotados para obtener la acción dinámica del formulario. Esto reduce carga
 sobre el OPAC y separa indisponibilidad transitoria de un fallo del contrato de búsqueda.
+
+
+## Faceta Tesis inconsistente — V3
+
+La prueba V2 llegó correctamente al índice `WTI`, pero `WFM=TESIS` produjo cero
+resultados incluso para los tres registros de control que T2CM abrió directamente y
+cuyas fichas dicen explícitamente `Base Lógica: Tesis` / `Nota de tesis`.
+
+V3 elimina esa faceta durante el descubrimiento. La condición de tesis se valida en
+el registro completo después de resolver una identidad, nunca mediante el filtro WFM.

@@ -27,7 +27,7 @@ class TitleResolutionTest(unittest.TestCase):
         self.assertEqual(params["request"],["Ética y lenguaje"])
         self.assertEqual(params["local_base"],["UDG01"])
         self.assertEqual(params["adjacent"],["Y"])
-        self.assertEqual(params["filter_request_4"],["TESIS"])
+        self.assertEqual(params["filter_request_4"],[""])
 
     def test_system_number_extraction(self):
         page={

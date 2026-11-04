@@ -43,7 +43,7 @@ jobs:
           path=Path("artifacts/t2cn/title-resolution.json")
           data=json.loads(path.read_text())
           assert data["schemaVersion"]=="thesis-aleph-title-resolution-probe-v1"
-          assert data["revision"]=="2026-11-04.t2cn-v2"
+          assert data["revision"]=="2026-11-04.t2cn-v3"
           assert data["referenceOnly"] is True
           assert data["rawHtmlPersisted"] is False
           assert data["metrics"]["knownCases"]==3
