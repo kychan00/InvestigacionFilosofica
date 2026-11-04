@@ -8,6 +8,7 @@ on:
       - "tests/test_thesis_udg_opac_endpoints_v1.py"
       - "tests/test_thesis_philosophy_holdings_batches_t2co.py"
       - "docs/THESIS_PHILOSOPHY_ALEPH_BATCH_T2CO.md"
+      - "docs/THESIS_ALEPH_EVIDENCE_PARSER_T2CP.md"
       - ".github/workflows/thesis-philosophy-holdings-t2co.yml"
   workflow_dispatch:
     inputs:
