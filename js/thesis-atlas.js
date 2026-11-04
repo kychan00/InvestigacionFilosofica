@@ -8,7 +8,7 @@ import {
   proposedClusterLabel,
   stableHue,
   validateAtlas,
-} from "../src/core/thesis-atlas.js";
+} from "../src/core/thesis-atlas.js?v=20261104-t2ch";
 
 const canvas = document.querySelector("#atlas-canvas");
 const stage = document.querySelector("#atlas-stage");

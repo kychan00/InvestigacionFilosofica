@@ -1,11 +1,11 @@
 import {
   approvedInstitutionalUrl,
   normalized,
-} from "./thesis-demo-search.js";
+} from "./thesis-demo-search.js?v=20261104-t2ch";
 
 export const ATLAS_SCHEMA = "thesis-atlas-index-v1";
-export const ATLAS_NODES = 561;
-export const ATLAS_SOURCE = "thesis-effective-corpus-v1";
+export const ATLAS_NODES = 566;
+export const ATLAS_SOURCE = "thesis-effective-corpus-v2";
 
 export function validateAtlas(payload) {
   if (

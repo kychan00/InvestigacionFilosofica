@@ -89,27 +89,41 @@ test("source links never target PDF downloads or external hosts", () => {
     approvedInstitutionalUrl("https://hdl.handle.net/20.500.12104/84204"),
     "https://hdl.handle.net/20.500.12104/84204",
   );
+  assert.equal(
+    approvedInstitutionalUrl("https://www.cucsh.udg.mx/node/official-reference"),
+    "https://www.cucsh.udg.mx/node/official-reference",
+  );
+  assert.equal(
+    approvedInstitutionalUrl("https://editorial.udg.mx/gpd-author/guillermo-castillo-ramirez.html"),
+    "https://editorial.udg.mx/gpd-author/guillermo-castillo-ramirez.html",
+  );
+  assert.equal(
+    approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?q=node%2F8243"),
+    "https://www.biblioteca.cucsh.udg.mx/?q=node%2F8243",
+  );
+  assert.equal(approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?session=secret"), null);
+  assert.equal(approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?q=node%2F8243&x=1"), null);
   assert.equal(approvedInstitutionalUrl("https://riudg.udg.mx/bitstreams/123"), null);
   assert.equal(approvedInstitutionalUrl("https://riudg.udg.mx/file.pdf"), null);
   assert.equal(approvedInstitutionalUrl("https://not-udg.example/handle/1"), null);
   assert.equal(approvedInstitutionalUrl("javascript:alert(1)"), null);
 });
 
-test("demo data is fail-closed to a known immutable V1", () => {
+test("demo data is fail-closed to the known immutable V2", () => {
   const base = {
     schemaVersion: "thesis-demo-index-v1",
-    sourceRelease: "thesis-effective-corpus-v1",
+    sourceRelease: "thesis-effective-corpus-v2",
     referenceOnly: true,
-    totalIncluded: 561,
+    totalIncluded: 566,
     records: [
       ...records,
-      ...Array.from({ length: 558 }, (_, index) => ({
+      ...Array.from({ length: 563 }, (_, index) => ({
         ...records[0], id: `thesis:work:demo-${index}`,
       })),
     ],
   };
-  assert.equal(validateIndex(base).records.length, 561);
-  assert.throws(() => validateIndex({ ...base, totalIncluded: 562 }), /índice bibliográfico/);
+  assert.equal(validateIndex(base).records.length, 566);
+  assert.throws(() => validateIndex({ ...base, totalIncluded: 567 }), /índice bibliográfico/);
   assert.throws(() => validateIndex({
     ...base, records: [...base.records.slice(0, -1), records[0]],
   }), /duplicada/);

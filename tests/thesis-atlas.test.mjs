@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   ATLAS_NODES,
+  ATLAS_SOURCE,
   atlasClusterMap,
   atlasNodeMap,
   atlasSearch,
@@ -51,7 +52,7 @@ function payload() {
   }));
   return {
     schemaVersion: "thesis-atlas-index-v1",
-    sourceRelease: "thesis-effective-corpus-v1",
+    sourceRelease: ATLAS_SOURCE,
     referenceOnly: true,
     methodStatus: "experimental-not-benchmark-approved",
     topologyInputContract: {
@@ -64,6 +65,8 @@ function payload() {
 }
 
 test("validates exact reference-only atlas contract", () => {
+  assert.equal(ATLAS_SOURCE, "thesis-effective-corpus-v2");
+  assert.equal(ATLAS_NODES, 566);
   assert.equal(validateAtlas(payload()).nodes.length, ATLAS_NODES);
   const bad = payload();
   bad.topologyInputContract.fields = ["title", "program"];
@@ -78,9 +81,9 @@ test("rejects direct PDF or unknown institutional links", () => {
 
 test("accent-insensitive atlas search can use metadata without changing topology", () => {
   const data = payload();
-  assert.equal(atlasSearch(data.nodes, "fenomenologia").length, 281);
-  assert.equal(atlasSearch(data.nodes, "María filosofía").length, 281);
-  assert.equal(atlasSearch(data.nodes, "historia memoria").length, 280);
+  assert.equal(atlasSearch(data.nodes, "fenomenologia").length, 283);
+  assert.equal(atlasSearch(data.nodes, "María filosofía").length, 283);
+  assert.equal(atlasSearch(data.nodes, "historia memoria").length, 283);
 });
 
 test("neighbor and cluster helpers preserve explicit semantics", () => {
