@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "thesis-urban-territory-adjudication-batch-002-reviewed-baseline-v1",
+  "phase": "T2CB",
+  "effectiveCorpusReleaseTag": "thesis-effective-corpus-v1",
+  "effectiveCorpusRevision": "2026-11-03.t2bz-v1",
+  "programAuthorityRevision": "2026-11-03.v47",
+  "metadataConfidenceRevision": "2026-11-02.v5",
+  "workReviewPolicyRevision": "2026-11-03.boundary-v4",
+  "programRef": "program:udg:doc-ciudad-territorio-sustentabilidad",
+  "batchId": "urban-territory-002-reviewed",
+  "expected": {
+    "effectiveAdmission": {
+      "include": 561,
+      "review": 193,
+      "quarantine": 18971,
+      "exclude": 7849,
+      "reject-source": 2
+    },
+    "dcts": {
+      "works": 152,
+      "projectedAdmission": {
+        "review": 152
+      },
+      "pendingPrimarySourceReview": 152,
+      "resolvedByExplicitWorkDecision": 0
+    },
+    "ledger": {
+      "batchWorks": 2,
+      "primarySourceAccess": {
+        "available": 2
+      },
+      "adjudicationStates": {
+        "candidate-proposed": 2
+      },
+      "candidateDecisions": {
+        "include-candidate": 1,
+        "retain-review": 1
+      },
+      "humanValidation": {
+        "pending-user-merge": 2
+      },
+      "admissionChanges": 0
+    }
+  },
+  "invariants": [
+    "dcts-program-authority-remains-review",
+    "all-152-dcts-works-remain-review-in-t2cb",
+    "candidate-judgments-are-grounded-in-captured-official-fulltext",
+    "one-include-candidate-does-not-imply-program-wide-include",
+    "retain-review-is-an-explicit-work-judgment-not-an-exclude",
+    "manual-merge-is-required-before-any-later-activation-phase",
+    "t2cb-does-not-change-effective-admission-counts"
+  ]
+}
