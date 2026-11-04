@@ -1,7 +1,7 @@
 /** Pure, local-only search for the immutable thesis demo bibliography. */
 export const PAGE_SIZE = 12;
 export const PHILOSOPHY_SCHEMA = "thesis-philosophy-public-index-v1";
-export const PHILOSOPHY_REVISION = "2026-11-04.t2ct-v1";
+export const PHILOSOPHY_REVISION = "2026-11-04.t2cu-v1";
 
 export function normalized(value) {
   return String(value ?? "")
@@ -95,7 +95,14 @@ export function approvedInstitutionalUrl(input) {
     if (host === "biblioteca.cucsh.udg.mx" || host === "www.biblioteca.cucsh.udg.mx") {
       const keys = [...link.searchParams.keys()];
       const values = link.searchParams.getAll("q");
-      if (keys.length === 1 && keys[0] === "q" && values.length === 1 && /^node\/\d+$/i.test(values[0])) {
+      const q = values.length === 1 ? values[0] : "";
+      const safeDetail = /^content\/[\p{L}\p{N}._~-]+$/u.test(q);
+      if (
+        keys.length === 1 &&
+        keys[0] === "q" &&
+        values.length === 1 &&
+        (/^node\/\d+$/i.test(q) || safeDetail)
+      ) {
         return link.href;
       }
     }
@@ -184,17 +191,28 @@ export function validatePhilosophyIndex(payload) {
     payload.referenceOnly !== true ||
     payload.canonicalAdmissionMutation !== false ||
     payload.preserveActualProgram !== true ||
-    payload.metrics?.records !== 18 ||
-    payload.metrics?.byStatus?.include !== 16 ||
+    payload.metrics?.records !== 233 ||
+    payload.metrics?.byStatus?.include !== 231 ||
     payload.metrics?.byStatus?.review !== 2 ||
+    payload.metrics?.byRole?.["program-core"] !== 224 ||
+    payload.metrics?.byRole?.["philosophical-content"] !== 6 ||
+    payload.metrics?.byRole?.["curated-manual-classification"] !== 1 ||
+    payload.metrics?.byRole?.["program-core-candidate"] !== 2 ||
     payload.metrics?.actualProgramsRepresented !== 10 ||
+    payload.cucshHistoricalInventory?.sourceRows !== 217 ||
+    payload.cucshHistoricalInventory?.uniqueBibliographicIdentities !== 216 ||
+    payload.cucshHistoricalInventory?.duplicateSourceRowsCollapsed !== 1 ||
+    payload.cucshHistoricalInventory?.exactMergesWithT2CT !== 1 ||
+    payload.cucshHistoricalInventory?.newPublicReferences !== 215 ||
+    payload.cucshHistoricalInventory?.unknownYearReferences !== 2 ||
+    payload.cucshHistoricalInventory?.physicalHoldingsClaimed !== false ||
     !Array.isArray(payload.records) ||
-    payload.records.length !== 18 ||
+    payload.records.length !== 233 ||
     !Array.isArray(payload.documentedPhilosophyPrograms) ||
     payload.documentedPhilosophyPrograms.length !== 3 ||
     payload.doctoralPolicy?.exactDoctorateProgramPresent !== false
   ) {
-    throw new Error("La vista pública de Filosofía no coincide con el contrato T2CI verificado.");
+    throw new Error("La vista pública de Filosofía no coincide con el contrato T2CU verificado.");
   }
   if (payload.documentedPhilosophyPrograms.map(row => row.programRef).join("|") !== expectedPrograms.join("|")) {
     throw new Error("El conjunto de programas de Filosofía cambió sin revisión.");
@@ -224,6 +242,22 @@ export function validatePhilosophyIndex(payload) {
     ids.add(record.id);
     if (record.sourceUrl && !approvedReferenceUrl(record.sourceUrl)) {
       throw new Error("La vista de Filosofía contiene una fuente no aprobada.");
+    }
+    if (record.sourceKind === "official-cucsh-inventory") {
+      const urls = record.cucshCatalog?.catalogUrls || [];
+      if (
+        record.programRef !== "program:udg:lic-filosofia" ||
+        record.philosophyStatus !== "include" ||
+        record.philosophyRole !== "program-core" ||
+        record.physicalLocation != null ||
+        !record.cucshCatalog ||
+        !Number.isInteger(record.cucshCatalog.sourceRowCount) ||
+        record.cucshCatalog.sourceRowCount < 1 ||
+        !Array.isArray(urls) ||
+        !urls.every(approvedInstitutionalUrl)
+      ) {
+        throw new Error("Registro histórico CUCSH fuera del contrato T2CU.");
+      }
     }
     if (record.externalCorroboration) {
       const c = record.externalCorroboration;

@@ -105,6 +105,10 @@ test("source links never target PDF downloads or external hosts", () => {
   );
   assert.equal(approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?session=secret"), null);
   assert.equal(approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?q=node%2F8243&x=1"), null);
+  assert.equal(
+    approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?q=content%2Falexander-von-humboldt-un-ensayo"),
+    "https://www.biblioteca.cucsh.udg.mx/?q=content%2Falexander-von-humboldt-un-ensayo",
+  );
   assert.equal(approvedInstitutionalUrl("https://riudg.udg.mx/bitstreams/123"), null);
   assert.equal(approvedInstitutionalUrl("https://riudg.udg.mx/file.pdf"), null);
   assert.equal(approvedInstitutionalUrl("https://not-udg.example/handle/1"), null);
@@ -155,43 +159,52 @@ test("philosophy search filters core, crossings and review without mutating prog
   assert.equal(philosophy[1].program, "Maestría en Historia");
 });
 
-test("philosophy public index is fail-closed to the T2CI contract", () => {
-  const philosophyRecords = Array.from({ length: 18 }, (_, index) => ({
+test("philosophy public index is fail-closed to the T2CU contract", () => {
+  const philosophyRecords = Array.from({ length: 233 }, (_, index) => ({
     id: index < 7 ? `thesis:work:ph-${index}` : `philosophy:reference:${index}`,
     title: `Referencia filosófica ${index}`,
     authors: [`Autora ${index}`],
     directors: [],
-    program: index % 2 ? "Licenciatura en Filosofía" : "Maestría en Estudios Filosóficos",
-    degree: index % 2 ? "licenciatura" : "maestria",
+    program: index < 221 ? "Licenciatura en Filosofía" : "Maestría en Estudios Filosóficos",
+    degree: index < 221 ? "licenciatura" : "maestria",
     unit: "CUCSH",
     year: 2020,
     abstractExcerpt: "",
     keywords: [],
     sourceUrl: `https://hdl.handle.net/20.500.12104/${90000 + index}`,
-    philosophyStatus: index >= 16 ? "review" : "include",
-    philosophyRole: index >= 16 ? "program-core-candidate" : "program-core",
+    philosophyStatus: index >= 231 ? "review" : "include",
+    philosophyRole: index >= 231 ? "program-core-candidate" : "program-core",
     philosophyEvidence: "evidencia",
     validationTier: "fixture",
   }));
   const payload = {
     schemaVersion: "thesis-philosophy-public-index-v1",
-    revision: "2026-11-04.t2ct-v1",
+    revision: "2026-11-04.t2cu-v1",
     sourceRelease: "thesis-effective-corpus-v2",
     referenceOnly: true,
     canonicalAdmissionMutation: false,
     preserveActualProgram: true,
     doctoralPolicy: { exactDoctorateProgramPresent: false },
     documentedPhilosophyPrograms: [
-      { programRef: "program:udg:lic-filosofia", name: "Licenciatura en Filosofía", records: 6, include: 5, review: 1 },
+      { programRef: "program:udg:lic-filosofia", name: "Licenciatura en Filosofía", records: 221, include: 220, review: 1 },
       { programRef: "program:udg:mae-estudios-filosoficos", name: "Maestría en Estudios Filosóficos", records: 3, include: 2, review: 1 },
       { programRef: "program:udg:mae-filosofia-historica", name: "Maestría en Filosofía", records: 2, include: 2, review: 0 },
     ],
-    metrics: { records: 18, byStatus: { include: 16, review: 2 }, actualProgramsRepresented: 10, corroboratedReviewRecords: 0 },
+    metrics: { records: 233, byStatus: { include: 231, review: 2 }, byRole: { "program-core": 224, "philosophical-content": 6, "curated-manual-classification": 1, "program-core-candidate": 2 }, actualProgramsRepresented: 10, corroboratedReviewRecords: 0 },
+    cucshHistoricalInventory: {
+      sourceRows: 217,
+      uniqueBibliographicIdentities: 216,
+      duplicateSourceRowsCollapsed: 1,
+      exactMergesWithT2CT: 1,
+      newPublicReferences: 215,
+      unknownYearReferences: 2,
+      physicalHoldingsClaimed: false,
+    },
     records: philosophyRecords,
   };
-  assert.equal(validatePhilosophyIndex(payload).records.length, 18);
+  assert.equal(validatePhilosophyIndex(payload).records.length, 233);
   const corroborated = {
-    ...philosophyRecords[16],
+    ...philosophyRecords[231],
     externalCorroboration: {
       note: "Corroboración secundaria; identidad aún en revisión.",
       evidenceUrls: ["https://philarchive.org/rec/GALFDL-5"],
@@ -202,18 +215,18 @@ test("philosophy public index is fail-closed to the T2CI contract", () => {
   const withCorroboration = {
     ...payload,
     metrics: { ...payload.metrics, corroboratedReviewRecords: 1 },
-    records: [...philosophyRecords.slice(0, 16), corroborated, philosophyRecords[17]],
+    records: [...philosophyRecords.slice(0, 231), corroborated, philosophyRecords[232]],
   };
-  assert.equal(validatePhilosophyIndex(withCorroboration).records.length, 18);
+  assert.equal(validatePhilosophyIndex(withCorroboration).records.length, 233);
   assert.throws(() => validatePhilosophyIndex({
     ...withCorroboration,
     records: [
-      ...withCorroboration.records.slice(0, 16),
+      ...withCorroboration.records.slice(0, 231),
       { ...corroborated, externalCorroboration: { ...corroborated.externalCorroboration, physicalLocationConfirmed: true } },
-      withCorroboration.records[17],
+      withCorroboration.records[232],
     ],
   }), /T2CT/);
-  assert.throws(() => validatePhilosophyIndex({ ...payload, revision: "other" }), /T2CI/);
+  assert.throws(() => validatePhilosophyIndex({ ...payload, revision: "other" }), /T2CU/);
   assert.throws(() => validatePhilosophyIndex({
     ...payload,
     records: [{ ...philosophyRecords[0], sourceUrl: "https://evil.example/x" }, ...philosophyRecords.slice(1)],

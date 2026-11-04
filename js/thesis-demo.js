@@ -7,7 +7,7 @@ import {
   searchTheses,
   validateIndex,
   validatePhilosophyIndex,
-} from "../src/core/thesis-demo-search.js?v=20261104-t2ct";
+} from "../src/core/thesis-demo-search.js?v=20261104-t2cu";
 
 const root = document.querySelector("#thesis-demo");
 const form = document.querySelector("#thesis-search");
@@ -343,10 +343,10 @@ function setScope(scope, { updateUrl = true } = {}) {
   if (philosophy) {
     document.querySelector("#thesis-total").textContent = datasets.philosophy.metrics.records.toLocaleString("es-MX");
     heroTotalLabel.textContent = "Referencias filosóficas";
-    heroLead.textContent = "Explore los programas de Filosofía documentados en UdeG y los cruces filosóficos curados en otros programas. Cada referencia conserva su programa real y su nivel de validación.";
+    heroLead.textContent = "Explore el inventario histórico de Licenciatura en Filosofía de la Biblioteca CUCSH, los programas filosóficos documentados y cruces filosóficos curados. Cada referencia conserva su procedencia y nivel de validación.";
     heroFootnote.textContent = "FILOSOFÍA / NÚCLEO + CRUCES CURADOS";
     document.querySelector("#thesis-revision").textContent = datasets.philosophy.revision;
-    scopeTag.textContent = "FILOSOFÍA · 16 INCLUDE · 2 REVIEW";
+    scopeTag.textContent = `FILOSOFÍA · ${datasets.philosophy.metrics.byStatus.include} INCLUDE · ${datasets.philosophy.metrics.byStatus.review} REVIEW`;
     resultLabel.textContent = "referencias encontradas";
   } else {
     document.querySelector("#thesis-total").textContent = datasets.humanities.totalIncluded.toLocaleString("es-MX");
