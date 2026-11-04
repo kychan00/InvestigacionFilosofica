@@ -76,3 +76,10 @@ El contrato Aleph expone `find_code=SYS`, por lo que T2CM V4 consulta una muestr
 - Víctor Manuel Espinosa Aguilar — `000168319`.
 
 Cada consulta fuerza `local_base=CUCSH` y `filter_request_4=TESIS`. El probe conserva únicamente metadatos de respuesta, fragmentos relevantes, filas tabulares y enlaces Aleph hacia registro completo/ítems; no persiste HTML.
+
+
+## Sesión Aleph — V5
+
+La prueba V4 confirmó que enviar parámetros directamente a `/F/` no ejecuta la búsqueda: Aleph devuelve de nuevo la pantalla básica. El formulario genera una acción dinámica `/F/<session-token>`.
+
+T2CM V5 abre el OPAC, conserva la cookie de sesión, toma la acción real del formulario y envía allí la consulta `SYS`. Para búsquedas por número de sistema no se exige el filtro histórico de formato Tesis, ya que el identificador de sistema es único y un registro antiguo podría carecer de ese clasificador.

@@ -63,6 +63,16 @@ class OpacReconTest(unittest.TestCase):
         self.assertEqual(params["local_base"],["CUCSH"])
         self.assertEqual(params["filter_request_4"],["TESIS"])
 
+    def test_session_search_uses_dynamic_action(self):
+        action="http://148.202.248.73:80/F/SESSION-123"
+        url=mod.session_search_url(action,"000551988")
+        self.assertTrue(url.startswith(action+"?"))
+        parsed=__import__("urllib.parse").parse.urlparse(url)
+        params=__import__("urllib.parse").parse.parse_qs(parsed.query,keep_blank_values=True)
+        self.assertEqual(params["find_code"],["SYS"])
+        self.assertEqual(params["request"],["000551988"])
+        self.assertEqual(params["filter_request_4"],[""])
+
     def test_candidate_safety(self):
         self.assertTrue(mod.is_safe_candidate("https://foo.udg.mx/opac"))
         self.assertTrue(mod.is_safe_candidate("http://148.202.1.2:8080/F/"))

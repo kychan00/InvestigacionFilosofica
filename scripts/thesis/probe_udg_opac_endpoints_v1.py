@@ -11,12 +11,13 @@ import json
 import re
 import urllib.parse
 import urllib.request
+import http.cookiejar
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v4"
+REVISION = "2026-11-04.t2cm-v5"
 SAMPLE_SYSTEM_NUMBERS = (
     ("Raúl Sánchez Salas", "000551988"),
     ("José Antonio Ramírez Velasco", "000479311"),
@@ -221,15 +222,22 @@ class DiscoveryParser(HTMLParser):
             self.script_parts.append(data)
 
 
-def fetch(url: str, timeout: int = 60) -> tuple[str, str, str, int]:
-    request = urllib.request.Request(
+def request_object(url: str) -> urllib.request.Request:
+    return urllib.request.Request(
         url,
         headers={
             "User-Agent": "InvestigacionFilosofica-T2CM/1.0 (+OPAC endpoint discovery)",
             "Accept": "text/html,application/xhtml+xml",
         },
     )
-    with urllib.request.urlopen(request, timeout=timeout) as response:
+
+
+def fetch_with_opener(
+    opener: urllib.request.OpenerDirector,
+    url: str,
+    timeout: int = 60,
+) -> tuple[str, str, str, int]:
+    with opener.open(request_object(url), timeout=timeout) as response:
         raw = response.read()
         final = response.geturl()
         ctype = response.headers.get("Content-Type", "")
@@ -237,6 +245,11 @@ def fetch(url: str, timeout: int = 60) -> tuple[str, str, str, int]:
     if "text/html" not in ctype.casefold() and "application/xhtml+xml" not in ctype.casefold():
         raise ValueError(f"Unexpected content type for {url}: {ctype}")
     return raw.decode("utf-8", errors="replace"), final, ctype, status
+
+
+def fetch(url: str, timeout: int = 60) -> tuple[str, str, str, int]:
+    opener = urllib.request.build_opener()
+    return fetch_with_opener(opener, url, timeout=timeout)
 
 
 def extract_candidates(html: str, *, base_url: str) -> dict[str, Any]:
@@ -362,8 +375,15 @@ def aleph_search_url(find_code: str, request: str, *, local_base: str = "CUCSH")
     return "http://148.202.248.73/F/?" + urllib.parse.urlencode(params)
 
 
-def page_evidence(url: str) -> dict[str, Any]:
-    html, final, ctype, status = fetch(url, timeout=40)
+def page_evidence(
+    url: str,
+    *,
+    opener: urllib.request.OpenerDirector | None = None,
+) -> dict[str, Any]:
+    if opener is None:
+        html, final, ctype, status = fetch(url, timeout=40)
+    else:
+        html, final, ctype, status = fetch_with_opener(opener, url, timeout=40)
     parser = EvidenceParser()
     parser.feed(html)
     title_match = re.search(r"<title[^>]*>(.*?)</title>", html, re.I | re.S)
@@ -412,18 +432,61 @@ def page_evidence(url: str) -> dict[str, Any]:
     }
 
 
+def session_search_url(
+    form_action: str,
+    system_number: str,
+) -> str:
+    params = [
+        ("func", "find-b"),
+        ("request", system_number),
+        ("find_code", "SYS"),
+        ("adjacent", "N"),
+        ("local_base", "CUCSH"),
+        ("filter_code_1", "WLN"),
+        ("filter_request_1", ""),
+        ("filter_code_2", "WYR"),
+        ("filter_request_2", ""),
+        ("filter_code_3", "WYR"),
+        ("filter_request_3", ""),
+        ("filter_code_4", "WFM"),
+        # Exact SYS identity is already unique. Do not require the historical
+        # format classifier to be populated correctly.
+        ("filter_request_4", ""),
+    ]
+    separator = "&" if "?" in form_action else "?"
+    return form_action + separator + urllib.parse.urlencode(params)
+
+
 def sample_system_lookup(name: str, system_number: str) -> dict[str, Any]:
-    search = page_evidence(aleph_search_url("SYS", system_number))
+    cookie_jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
+
+    landing_html, landing_final, landing_ctype, landing_status = fetch_with_opener(
+        opener, CUCSH_OPAC, timeout=40
+    )
+    contract_parser = FormContractParser()
+    contract_parser.feed(landing_html)
+    if not contract_parser.forms:
+        raise ValueError("Aleph session page returned no search form")
+    action = urllib.parse.urljoin(
+        landing_final,
+        contract_parser.forms[0].get("action") or "",
+    )
+    if not is_safe_candidate(action):
+        raise ValueError("Aleph session form action left the UdeG allowlist")
+
+    query_url = session_search_url(action, system_number)
+    search = page_evidence(query_url, opener=opener)
     followed = []
     seen = {search["finalUrl"]}
     queue = [row["url"] for row in search["relevantLinks"]]
-    while queue and len(followed) < 4:
+    while queue and len(followed) < 5:
         url = queue.pop(0)
         if url in seen:
             continue
         seen.add(url)
         try:
-            evidence = page_evidence(url)
+            evidence = page_evidence(url, opener=opener)
         except Exception as exc:
             followed.append({"requestedUrl": url, "error": str(exc)})
             continue
@@ -435,7 +498,13 @@ def sample_system_lookup(name: str, system_number: str) -> dict[str, Any]:
     return {
         "name": name,
         "systemNumber": system_number,
-        "searchUrl": aleph_search_url("SYS", system_number),
+        "landing": {
+            "finalUrl": landing_final,
+            "httpStatus": landing_status,
+            "contentType": landing_ctype,
+        },
+        "sessionAction": action,
+        "searchUrl": query_url,
         "search": search,
         "followedPages": followed,
     }
