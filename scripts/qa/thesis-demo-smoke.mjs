@@ -111,7 +111,7 @@ const philosophyPayload = {
     uniqueBibliographicIdentities: 216,
     duplicateSourceRowsCollapsed: 1,
     exactMergesWithT2CT: 1,
-    newPublicReferences: 215,
+    newPublicReferences: 215,\n    unknownYearReferences: 2,
     physicalHoldingsClaimed: false,
   },
   actualProgramsRepresented: ["Licenciatura en Filosofía", "Maestría en Estudios Filosóficos", "Maestría en Filosofía", "Maestría en Tecnologías para el Aprendizaje"],
