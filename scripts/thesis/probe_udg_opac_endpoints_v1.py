@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v7"
+REVISION = "2026-11-04.t2cm-v8"
 SAMPLE_SYSTEM_NUMBERS = (
     ("Raúl Sánchez Salas", "000551988"),
     ("José Antonio Ramírez Velasco", "000479311"),
@@ -408,13 +408,24 @@ def page_evidence(
         href = urllib.parse.urljoin(final, anchor.get("href") or "")
         if not is_safe_candidate(href):
             continue
-        haystack = (anchor.get("text","") + " " + href).casefold()
-        if any(token in haystack for token in (
-            "full-set-set", "item-global", "direct", "ejemplar", "item", "hold",
-        )):
-            row = {"text": anchor.get("text") or "", "url": href}
+        parsed_href = urllib.parse.urlparse(href)
+        query = urllib.parse.parse_qs(parsed_href.query)
+        func = (query.get("func") or [""])[0]
+        anchor_text = (anchor.get("text") or "").casefold()
+        if (
+            func in {"item-global", "direct", "full-set-set"}
+            or "ejemplar" in anchor_text
+            or "biblioteca" in anchor_text
+        ):
+            row = {"text": anchor.get("text") or "", "url": href, "func": func}
             if row not in links:
                 links.append(row)
+    links.sort(key=lambda row: (
+        0 if row.get("func") == "item-global" else 1,
+        0 if "ejemplar" in row.get("text","").casefold() else 1,
+        row.get("text",""),
+        row["url"],
+    ))
     rows = [
         row for row in parser.rows
         if any(term.casefold() in one_line(" | ".join(row)).casefold() for term in relevant_terms)
@@ -471,7 +482,7 @@ def follow_relevant_pages(
     start: dict[str, Any],
     opener: urllib.request.OpenerDirector,
     *,
-    max_pages: int = 6,
+    max_pages: int = 5,
 ) -> list[dict[str, Any]]:
     followed = []
     seen = {start["finalUrl"]}

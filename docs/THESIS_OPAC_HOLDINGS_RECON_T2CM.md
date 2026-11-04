@@ -100,3 +100,18 @@ Luego sigue sólo enlaces institucionales de registro completo/ítems para detec
 ## Reutilización de sesión — V7
 
 El run V6 reveló que abrir una sesión Aleph independiente por cada identidad puede devolver una página sin formulario después de varias solicitudes consecutivas. V7 reutiliza la única acción de sesión obtenida durante la inspección del contrato y ejecuta las seis pruebas directas (3 números × 2 bases) contra esa sesión. Los fallos individuales se registran como evidencia en lugar de abortar el artifact completo.
+
+
+## Paradero físico confirmado en la muestra
+
+El run V7 abrió correctamente los tres registros por número de sistema y Aleph expuso holdings explícitos:
+
+| Sistema | Autor | Biblioteca reportada por Aleph |
+|---|---|---|
+| `000551988` | Raúl Sánchez Salas | B.C. CU del Norte |
+| `000479311` | José Antonio Ramírez Velasco | B.C. Ciénega |
+| `000168319` | Víctor Manuel Espinosa Aguilar | B.C. CUCEA |
+
+Los tres registros exponen enlaces `func=item-global`. Esto demuestra que el paradero físico no debe inferirse del programa académico ni de la base de búsqueda: los ejemplares pueden estar distribuidos en otras bibliotecas de la Red UdeG.
+
+T2CM V8 prioriza esos enlaces de holdings para recuperar detalle de ejemplar antes que las vistas alternativas del registro (MARC/cita/tarjeta).

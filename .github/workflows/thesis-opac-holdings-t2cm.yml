@@ -44,7 +44,7 @@ jobs:
           path=Path("artifacts/t2cm/opac-endpoints.json")
           data=json.loads(path.read_text())
           assert data["schemaVersion"]=="thesis-opac-endpoint-recon-v1"
-          assert data["revision"]=="2026-11-04.t2cm-v7"
+          assert data["revision"]=="2026-11-04.t2cm-v8"
           assert data["referenceOnly"] is True
           assert data["rawHtmlPersisted"] is False
           assert data["metrics"]["seedPages"]==2
@@ -68,6 +68,11 @@ jobs:
                   assert "doc_number="+row["systemNumber"] in attempt["url"]
                   if "record" in attempt:
                       assert attempt["record"]["httpStatus"]==200
+                      item_links=[
+                          x for x in attempt["record"].get("relevantLinks",[])
+                          if x.get("func")=="item-global"
+                      ]
+                      assert item_links, "Known Aleph thesis record exposed no item-global holdings link"
 
           for row in data["candidates"]:
               url=row["url"].lower()

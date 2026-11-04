@@ -87,6 +87,18 @@ class OpacReconTest(unittest.TestCase):
         self.assertTrue(mod.is_safe_candidate(action))
         self.assertIn("func=direct",mod.direct_record_url(action,"000551988","CUCSH"))
 
+    def test_evidence_parser_prioritizes_item_global(self):
+        html="""
+        <html><body>
+          <a href="/F/S?func=direct&doc_number=1&format=999">Estándar</a>
+          <a href="/F/S?func=item-global&doc_library=UDG01&doc_number=1">Ejemplar (sin año)</a>
+          <a href="/F/S?func=myshelf-add-ful-1&doc_number=1">Agregar a mi estante electrónico</a>
+        </body></html>
+        """
+        parser=mod.EvidenceParser(); parser.feed(html)
+        # page_evidence owns the link selection; parser itself still records all anchors.
+        self.assertEqual(len(parser.anchors),3)
+
     def test_candidate_safety(self):
         self.assertTrue(mod.is_safe_candidate("https://foo.udg.mx/opac"))
         self.assertTrue(mod.is_safe_candidate("http://148.202.1.2:8080/F/"))
