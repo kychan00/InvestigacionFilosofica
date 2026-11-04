@@ -1,0 +1,104 @@
+name: Thesis Philosophy whereabouts index T2CL
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/build_philosophy_whereabouts_index_v1.py"
+      - "tests/test_thesis_philosophy_whereabouts_index_v1.py"
+      - "docs/THESIS_PHILOSOPHY_WHEREABOUTS_T2CL.md"
+      - ".github/workflows/thesis-philosophy-whereabouts-t2cl.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  whereabouts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Test T2CL builder
+        run: |
+          python -m py_compile scripts/thesis/build_philosophy_whereabouts_index_v1.py
+          python -m unittest tests.test_thesis_philosophy_whereabouts_index_v1 -v
+
+      - name: Download verified Effective Corpus V2
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/t2cl-v2 artifacts/t2cl
+          mkdir -p /tmp/t2cl-v2 artifacts/t2cl
+          gh release download thesis-effective-corpus-v2 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/t2cl-v2
+          python scripts/thesis/build_effective_corpus_release_manifest_v2.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --release-dir /tmp/t2cl-v2 \
+            --root-release-manifest release-manifest.json
+
+      - name: Build V2 and T2CI reference inputs
+        run: |
+          python scripts/thesis/build_thesis_demo_index_v1.py \
+            --corpus-gzip /tmp/t2cl-v2/effective-corpus.json.gz \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --output artifacts/t2cl/demo-v2.json
+
+          python scripts/thesis/build_philosophy_public_index_v1.py \
+            --demo-index artifacts/t2cl/demo-v2.json \
+            --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
+            --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --output artifacts/t2cl/philosophy-t2ci.json
+
+      - name: Enumerate live CUCSH Philosophy catalog
+        run: |
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py \
+            --output artifacts/t2cl/cucsh-catalog.json
+
+      - name: Build master whereabouts index
+        run: |
+          python scripts/thesis/build_philosophy_whereabouts_index_v1.py \
+            --cucsh-report artifacts/t2cl/cucsh-catalog.json \
+            --philosophy-index artifacts/t2cl/philosophy-t2ci.json \
+            --output artifacts/t2cl/whereabouts-index.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data=json.loads(Path("artifacts/t2cl/whereabouts-index.json").read_text())
+          assert data["schemaVersion"]=="thesis-philosophy-whereabouts-index-v1"
+          assert data["revision"]=="2026-11-04.t2cl-v1"
+          assert data["referenceOnly"] is True
+          assert data["canonicalAdmissionMutation"] is False
+          assert data["physicalClaimsRequireOpacHoldings"] is True
+          assert data["metrics"]["cucshInventoryRecords"] >= 217
+          assert data["metrics"]["t2ciRecords"] == 18
+          assert data["metrics"]["records"] >= 217
+          assert all(row["physicalLocation"] is None for row in data["records"])
+          assert all(row["whereaboutsStatus"]!="physical-confirmed" for row in data["records"])
+          assert all(row["whereaboutsStatus"]!="both" for row in data["records"])
+          assert not list(Path("artifacts/t2cl").rglob("*.pdf"))
+          print(json.dumps(data["metrics"],ensure_ascii=False,indent=2,sort_keys=True))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-philosophy-whereabouts-t2cl
+          path: artifacts/t2cl/whereabouts-index.json
+          if-no-files-found: error
+          retention-days: 14
