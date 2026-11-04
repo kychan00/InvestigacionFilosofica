@@ -1,0 +1,167 @@
+name: Thesis Aleph title resolution T2CN
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/probe_aleph_title_resolution_v1.py"
+      - "scripts/thesis/resolve_philosophy_holdings_v1.py"
+      - "scripts/thesis/config/philosophy-aleph-identity-seeds-v1.json"
+      - "tests/test_thesis_aleph_title_resolution_v1.py"
+      - "tests/test_thesis_philosophy_holdings_resolver_v1.py"
+      - "docs/THESIS_ALEPH_TITLE_RESOLUTION_T2CN.md"
+      - ".github/workflows/thesis-aleph-title-resolution-t2cn.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  title-resolution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test title-resolution contract
+        run: |
+          python -m py_compile scripts/thesis/probe_aleph_title_resolution_v1.py
+          python -m py_compile scripts/thesis/resolve_philosophy_holdings_v1.py
+          python -m unittest \
+            tests.test_thesis_aleph_title_resolution_v1 \
+            tests.test_thesis_philosophy_holdings_resolver_v1 -v
+
+      - name: Probe exact-title Aleph resolution
+        run: |
+          rm -rf artifacts/t2cn
+          mkdir -p artifacts/t2cn
+          python scripts/thesis/probe_aleph_title_resolution_v1.py \
+            --output artifacts/t2cn/title-resolution.json
+
+      - name: Enforce reference-only evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path=Path("artifacts/t2cn/title-resolution.json")
+          data=json.loads(path.read_text())
+          assert data["schemaVersion"]=="thesis-aleph-title-resolution-probe-v1"
+          assert data["revision"]=="2026-11-04.t2cn-v4"
+          assert data["referenceOnly"] is True
+          assert data["rawHtmlPersisted"] is False
+          assert data["metrics"]["knownCases"]==3
+          assert data["metrics"]["discoveryCases"]==1
+          for case in data["known"]:
+              assert len(case["attempts"])==4
+              for attempt in case["attempts"]:
+                  assert attempt["search"]["httpStatus"]==200
+                  assert attempt["findCode"] in {"WTI","WAU"}
+                  assert "find_code="+attempt["findCode"] in attempt["searchUrl"]
+          assert not list(Path("artifacts/t2cn").rglob("*.html"))
+          assert not list(Path("artifacts/t2cn").rglob("*.pdf"))
+          print(json.dumps(data["metrics"],ensure_ascii=False,indent=2))
+          PY
+
+      - name: Rebuild live T2CL whereabouts input
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/t2cn-v2
+          mkdir -p /tmp/t2cn-v2
+          gh release download thesis-effective-corpus-v2 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/t2cn-v2
+
+          python scripts/thesis/build_effective_corpus_release_manifest_v2.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --release-dir /tmp/t2cn-v2 \
+            --root-release-manifest release-manifest.json
+
+          python scripts/thesis/build_thesis_demo_index_v1.py \
+            --corpus-gzip /tmp/t2cn-v2/effective-corpus.json.gz \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --output artifacts/t2cn/demo-v2.json
+
+          python scripts/thesis/build_philosophy_public_index_v1.py \
+            --demo-index artifacts/t2cn/demo-v2.json \
+            --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
+            --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --output artifacts/t2cn/philosophy-t2ci.json
+
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py \
+            --output artifacts/t2cn/cucsh-catalog.json
+
+          python scripts/thesis/build_philosophy_whereabouts_index_v1.py \
+            --cucsh-report artifacts/t2cn/cucsh-catalog.json \
+            --philosophy-index artifacts/t2cn/philosophy-t2ci.json \
+            --output artifacts/t2cn/whereabouts-index.json
+
+      - name: Resolve bounded live holdings pilot
+        run: |
+          python scripts/thesis/resolve_philosophy_holdings_v1.py \
+            --whereabouts-index artifacts/t2cn/whereabouts-index.json \
+            --seeds scripts/thesis/config/philosophy-aleph-identity-seeds-v1.json \
+            --limit 24 \
+            --output artifacts/t2cn/holdings-pilot.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data=json.loads(Path("artifacts/t2cn/holdings-pilot.json").read_text())
+          assert data["schemaVersion"]=="thesis-philosophy-holdings-resolution-v1"
+          assert data["revision"]=="2026-11-04.t2cn-pilot-v2"
+          assert data["referenceOnly"] is True
+          assert data["canonicalAdmissionMutation"] is False
+          assert data["sessionUrlsPersisted"] is False
+          assert data["metrics"]["inputRecords"] >= 233
+          assert data["selectionStrategy"]=="verified-seeds-then-decade-round-robin"
+          assert data["metrics"]["attempted"] == 24
+          assert data["metrics"]["seedResolved"] == 3
+          assert data["metrics"]["resolved"] == 5
+          assert data["metrics"]["physicalConfirmed"] == 5
+          assert data["metrics"]["seedResolved"] == 3
+          assert data["metrics"]["searchResolved"] == 2
+          assert data["metrics"]["unresolved"] == 19
+          assert data["metrics"]["ambiguous"] == 0
+
+          by_system={
+              row["systemNumber"]:row
+              for row in data["decisions"]
+              if row["status"]=="resolved"
+          }
+          assert set(by_system)=={
+              "000551988","000479311","000168319","000588539","000479362"
+          }
+          loera=by_system["000588539"]
+          assert {h["sublibrary"] for h in loera["holdings"]}=={"B.C. CUAAD"}
+          assert {h["classification"] for h in loera["holdings"]}=={"068 MEEPA"}
+          lara=by_system["000479362"]
+          assert {h["sublibrary"] for h in lara["holdings"]}=={"B.C. CUCSH"}
+          assert {h["classification"] for h in lara["holdings"]}=={"196.1 LAT 1973"}
+
+          assert not list(Path("artifacts/t2cn").rglob("*.pdf"))
+
+          raw=Path("artifacts/t2cn/holdings-pilot.json").read_text()
+          assert "/F/" not in raw, "Aleph session URL leaked into persistent evidence"
+          print(json.dumps(data["metrics"],ensure_ascii=False,indent=2,sort_keys=True))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-aleph-title-resolution-t2cn
+          path: |
+            artifacts/t2cn/title-resolution.json
+            artifacts/t2cn/holdings-pilot.json
+          if-no-files-found: error
+          retention-days: 14
