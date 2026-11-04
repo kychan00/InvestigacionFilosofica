@@ -190,7 +190,7 @@ test("philosophy public index is fail-closed to the T2CU contract", () => {
       { programRef: "program:udg:mae-estudios-filosoficos", name: "Maestría en Estudios Filosóficos", records: 3, include: 2, review: 1 },
       { programRef: "program:udg:mae-filosofia-historica", name: "Maestría en Filosofía", records: 2, include: 2, review: 0 },
     ],
-    metrics: { records: 233, byStatus: { include: 231, review: 2 }, actualProgramsRepresented: 10, corroboratedReviewRecords: 0 },
+    metrics: { records: 233, byStatus: { include: 231, review: 2 }, byRole: { "program-core": 224, "philosophical-content": 6, "curated-manual-classification": 1, "program-core-candidate": 2 }, actualProgramsRepresented: 10, corroboratedReviewRecords: 0 },
     cucshHistoricalInventory: {
       sourceRows: 217,
       uniqueBibliographicIdentities: 216,
