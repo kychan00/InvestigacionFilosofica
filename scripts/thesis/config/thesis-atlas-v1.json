@@ -51,8 +51,8 @@
   "clustering": {
     "algorithm": "hdbscan",
     "metric": "euclidean-on-l2-normalized-svd",
-    "minClusterSize": 12,
-    "minSamples": 5,
+    "minClusterSize": 10,
+    "minSamples": 2,
     "clusterSelectionMethod": "eom",
     "labelTerms": 4,
     "labelStatus": "proposed"
