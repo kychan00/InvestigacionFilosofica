@@ -224,9 +224,39 @@ Los indicadores textuales de rol se conservan como evidencia.
 
 El corpus de descubrimiento se basa primero en metadatos.
 
-No es requisito redistribuir PDFs.
+**Regla obligatoria de solo referencia (precisada el 3 de noviembre de 2026):**
 
-Cada archivo mantiene:
+El proyecto es un catálogo de referencias académicas y enlaces institucionales,
+**no un repositorio espejo de tesis**. Está prohibido conservar, publicar o
+redistribuir copias de tesis en PDF, el texto íntegro extraído o sus sustitutos
+en cualquier superficie del proyecto: Git, releases, GitHub Pages, índices,
+datasets, cachés persistentes y artefactos de GitHub Actions.
+
+La interfaz debe mostrar exclusivamente la referencia bibliográfica,
+metadatos disponibles, procedencia y un enlace a la página de la tesis en el
+repositorio institucional de origen. No ofrecer copias propias ni dirigir a
+un PDF alojado por este proyecto. Los resúmenes institucionales, cuando se
+conserven como metadatos para descubrimiento, no constituyen una licencia para
+reproducir el contenido íntegro de una tesis.
+
+Una auditoría académica que necesite examinar el documento original puede
+consultarlo o descargarlo **únicamente en un espacio temporal aislado durante
+la ejecución**, si la fuente autoriza ese acceso. Una vez verificados el
+documento, su hash, páginas y evidencia disciplinaria, debe eliminarse el
+archivo temporal y el texto íntegro extraído antes de almacenar cualquier
+artefacto. Persistirán solo la URL/handle oficial, identificador de fuente,
+metadatos técnicos mínimos, resumen de revisión y decisiones con procedencia.
+Ningún procedimiento puede convertir un PDF restringido en un archivo local
+publicado o retenido.
+
+Los artefactos de CI deben utilizar una lista explícita de archivos
+bibliográficos y evidencias técnicas permitidas, nunca patrones amplios
+como `artifacts/t2cb/**` sobre una carpeta que contenga documentos completos.
+La ausencia de PDF y textos íntegros debe comprobarse automáticamente antes
+de subir la evidencia. No basta con eliminar los archivos del sitio web:
+**tampoco deben permanecer en los artefactos de Actions**.
+
+Cada archivo de origen mantiene:
 
 - URL de origen;
 - estado de acceso;
