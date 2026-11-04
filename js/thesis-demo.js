@@ -7,7 +7,7 @@ import {
   searchTheses,
   validateIndex,
   validatePhilosophyIndex,
-} from "../src/core/thesis-demo-search.js?v=20261104-t2ci";
+} from "../src/core/thesis-demo-search.js?v=20261104-t2ct";
 
 const root = document.querySelector("#thesis-demo");
 const form = document.querySelector("#thesis-search");
