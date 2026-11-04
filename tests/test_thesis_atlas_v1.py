@@ -117,7 +117,7 @@ def fixture(count: int = 36):
             "svdDimensions": 12,
             "normalization": "l2",
         },
-        "neighborhood": {"metric": "cosine", "k": 4},
+        "neighborhood": {"metric": "cosine", "k": 8},
         "projection": {
             "algorithm": "tsne",
             "dimensions": 2,
@@ -169,7 +169,7 @@ class ThesisAtlasV1Test(unittest.TestCase):
             self.assertTrue(math.isfinite(node["atlas"]["y"]))
             self.assertLessEqual(abs(node["atlas"]["x"]), 1.000001)
             self.assertLessEqual(abs(node["atlas"]["y"]), 1.000001)
-            self.assertEqual(len(node["neighborhood"]["neighborRefs"]), 4)
+            self.assertEqual(len(node["neighborhood"]["neighborRefs"]), 8)
             self.assertNotIn(node["id"], node["neighborhood"]["neighborRefs"])
             serialized = json.dumps(node)
             self.assertNotIn("pdfBytes", serialized)
