@@ -1,0 +1,62 @@
+name: Thesis Aleph author-cluster evidence T2CR
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/summarize_aleph_author_clusters_t2cr.py"
+      - "tests/test_thesis_aleph_author_clusters_t2cr.py"
+      - "docs/THESIS_ALEPH_AUTHOR_CLUSTER_CASEBOOK_T2CR.md"
+      - ".github/workflows/thesis-aleph-author-clusters-t2cr.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  author-clusters:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Validate casebook summarizer without network
+        run: |
+          python -m py_compile scripts/thesis/summarize_aleph_author_clusters_t2cr.py
+          python -m unittest tests.test_thesis_aleph_author_clusters_t2cr -v
+      - name: Download T2CQ reviewed evidence artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p artifacts/t2cr
+          gh run download 41914841293 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --name thesis-aleph-discrepancies-t2cq-pull_request-0 \
+            --dir artifacts/t2cr
+
+      - name: Aggregate real source-thesis clusters
+        run: |
+          python scripts/thesis/summarize_aleph_author_clusters_t2cr.py \
+            --input artifacts/t2cr/discrepancy-review.json \
+            --output artifacts/t2cr/author-clusters.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("artifacts/t2cr/author-clusters.json").read_text())
+          m=d["metrics"]
+          assert d["referenceOnly"] and not d["autoMerged"] and not d["holdingsPromoted"]
+          assert (m["sourceThesesExamined"],m["sameAuthorCandidateHits"],
+                  m["sourceThesesWithSameAuthorCandidates"]) == (8,7,3)
+          assert m["newThesesConfirmed"] == 0
+          assert m["newPhysicalLocationsConfirmed"] == 0
+          print(json.dumps(m,sort_keys=True))
+          PY
+
+      - name: Upload audited source-cluster summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-aleph-author-clusters-t2cr
+          path: artifacts/t2cr/author-clusters.json
+          if-no-files-found: error
+          retention-days: 14
