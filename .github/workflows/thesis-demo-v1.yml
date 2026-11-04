@@ -19,6 +19,7 @@ on:
       - "tests/thesis-demo.test.mjs"
       - "docs/THESIS_DEMO_SEARCH_V1.md"
       - "docs/THESIS_PHILOSOPHY_PUBLIC_VIEW_T2CI.md"
+      - "docs/THESIS_PUBLIC_CORROBORATION_T2CT.md"
       - ".github/workflows/thesis-demo-v1.yml"
       - ".github/workflows/deploy.yml"
 
