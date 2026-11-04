@@ -148,6 +148,21 @@ class PhilosophyCompletenessV1Test(unittest.TestCase):
         self.assertNotIn("philpapers", projection.ALLOWED_PROVIDERS)
         self.assertNotIn("academia", projection.ALLOWED_PROVIDERS)
 
+    def test_persistent_handle_identity_does_not_require_thesis_year(self):
+        handles = projection.persistent_handles(
+            [
+                {
+                    "scheme": "handle",
+                    "normalizedValue": "20.500.12104/34249",
+                },
+                {
+                    "scheme": "doi",
+                    "normalizedValue": "10.0000/example",
+                },
+            ]
+        )
+        self.assertEqual(handles, {"20.500.12104/34249"})
+
     def test_curated_view_preserves_real_program_and_manual_decisions(self):
         config = json.loads(CURATED_CONFIG.read_text(encoding="utf-8"))
         index = curated.build_index(config)
