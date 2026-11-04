@@ -44,7 +44,7 @@ jobs:
           path=Path("artifacts/t2cm/opac-endpoints.json")
           data=json.loads(path.read_text())
           assert data["schemaVersion"]=="thesis-opac-endpoint-recon-v1"
-          assert data["revision"]=="2026-11-04.t2cm-v2"
+          assert data["revision"]=="2026-11-04.t2cm-v3"
           assert data["referenceOnly"] is True
           assert data["rawHtmlPersisted"] is False
           assert data["metrics"]["seedPages"]==2
@@ -54,6 +54,7 @@ jobs:
           assert "CUCSH" in contract["pageTitle"]
           assert contract["forms"], "Aleph basic-search form was not discovered"
           assert contract["fieldNames"], "Aleph field names were not discovered"
+          assert data["metrics"]["probeTargets"] <= 3
 
           for row in data["candidates"]:
               url=row["url"].lower()

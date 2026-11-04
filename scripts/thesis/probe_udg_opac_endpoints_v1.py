@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "thesis-opac-endpoint-recon-v1"
-REVISION = "2026-11-04.t2cm-v2"
+REVISION = "2026-11-04.t2cm-v3"
 CUCSH_OPAC = "http://148.202.248.73/F/?func=find-b-0&local_base=CUCSH"
 
 SEEDS = (
@@ -353,8 +353,16 @@ def build_report() -> dict[str, Any]:
                 if context not in entry["contexts"]:
                     entry["contexts"].append(context)
 
-    # Only probe candidates already discovered on official pages.
-    probes = [probe_candidate(url) for url in sorted(candidate_map)]
+    # Preserve all discovered candidates as evidence, but probe only the OPAC
+    # endpoints needed for the holdings contract. Avoid timing out on unrelated
+    # Drupal assets and historical UdeG links.
+    priority_urls = [
+        CUCSH_OPAC,
+        "http://148.202.248.73/F/",
+        "http://148.202.248.73/F/?func=find-b-0&local_base=UDG01",
+    ]
+    probe_urls = [url for url in priority_urls if url in candidate_map or url == CUCSH_OPAC]
+    probes = [probe_candidate(url) for url in probe_urls]
     return {
         "schemaVersion": SCHEMA,
         "revision": REVISION,
@@ -369,6 +377,7 @@ def build_report() -> dict[str, Any]:
             "candidates": len(candidate_map),
             "probeSuccess": sum(row.get("ok") is True for row in probes),
             "probeFailure": sum(row.get("ok") is False for row in probes),
+            "probeTargets": len(probes),
         },
     }
 

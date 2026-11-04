@@ -60,3 +60,8 @@ El primer artifact T2CM descubrió, desde la página oficial de SiUBiUDG, el end
 La respuesta fue HTTP 200 y el título de página fue `CUCSH - Búsqueda básica`.
 
 T2CM V2 extrae el contrato del formulario Aleph de esa página —acción, método, inputs, selects y opciones— sin enviar todavía una consulta bibliográfica. Este contrato será la base para consultas reproducibles por título/autor/número de sistema.
+
+
+## Optimización V3
+
+El primer recon encontró 113 URLs institucionales, muchas de ellas hojas de estilo, scripts y páginas Drupal sin relación con holdings. T2CM V3 conserva ese inventario como evidencia pero limita las pruebas de conectividad al endpoint CUCSH, la portada Aleph y el catálogo colectivo UDG01. Esto reduce latencia sin cambiar el descubrimiento.
