@@ -108,6 +108,14 @@ def candidate_key(candidate: dict[str, Any]) -> tuple[str, str, str, str]:
     )
 
 
+def persistent_handles(identifiers: list[dict[str, Any]]) -> set[str]:
+    return {
+        str(item.get("normalizedValue") or "")
+        for item in identifiers
+        if item.get("scheme") == "handle" and item.get("normalizedValue")
+    }
+
+
 def validate_reference_record(record: dict[str, Any]) -> None:
     if record.get("provider") not in ALLOWED_PROVIDERS:
         raise ValueError(f"Unapproved supplement provider: {record.get('provider')}")
@@ -157,8 +165,13 @@ def build_projection(
         raise ValueError("Philosophy completeness V1 is pinned to Program Authority V47")
 
     base_index: dict[tuple[str, str, str, str], list[dict[str, Any]]] = {}
+    base_handle_index: dict[str, list[dict[str, Any]]] = {}
     for work in base["works"]:
         base_index.setdefault(work_key(work), []).append(work)
+        for handle in persistent_handles(work.get("persistentIdentifiers") or []):
+            bucket = base_handle_index.setdefault(handle, [])
+            if all(existing.get("id") != work.get("id") for existing in bucket):
+                bucket.append(work)
 
     prepared = []
     for record in records:
@@ -170,9 +183,13 @@ def build_projection(
         if candidate.get("admission", {}).get("status") != "include":
             raise ValueError(f"Supplement did not resolve INCLUDE: {record.get('providerRecordId')}")
         key = candidate_key(candidate)
-        if not all(key):
-            raise ValueError(f"Incomplete exact bibliographic key: {record.get('providerRecordId')}")
-        prepared.append((record, candidate, key))
+        handles = persistent_handles(candidate.get("persistentIdentifiers") or [])
+        if not handles and not all(key):
+            raise ValueError(
+                "Supplement lacks both a persistent handle and a complete exact "
+                f"bibliographic key: {record.get('providerRecordId')}"
+            )
+        prepared.append((record, candidate, key, handles))
 
     output = copy.deepcopy(base)
     source_ids = {row["id"] for row in output["sourceRecords"]}
@@ -180,10 +197,27 @@ def build_projection(
     covered = []
     missing = []
 
-    for record, candidate, key in prepared:
-        matches = base_index.get(key, [])
+    for record, candidate, key, handles in prepared:
+        handle_matches_by_id: dict[str, dict[str, Any]] = {}
+        for handle in handles:
+            for match in base_handle_index.get(handle, []):
+                handle_matches_by_id[match["id"]] = match
+        matches = list(handle_matches_by_id.values())
+        match_mode = "shared-persistent-identifier" if matches else None
+
         if len(matches) > 1:
-            raise ValueError(f"Ambiguous exact Philosophy match: {record.get('providerRecordId')}")
+            raise ValueError(
+                f"Ambiguous persistent-handle Philosophy match: {record.get('providerRecordId')}"
+            )
+
+        if not matches and all(key):
+            matches = base_index.get(key, [])
+            match_mode = "exact-title-author-program-year" if matches else None
+            if len(matches) > 1:
+                raise ValueError(
+                    f"Ambiguous exact Philosophy match: {record.get('providerRecordId')}"
+                )
+
         if not matches:
             missing.append(record)
             continue
@@ -201,7 +235,7 @@ def build_projection(
                 "sourceRecordRefs": [record["id"]],
                 "workRef": target["id"],
                 "status": "confirmed",
-                "explanationCode": "exact-title-author-program-year",
+                "explanationCode": match_mode,
                 "decisionMode": "deterministic-reference-only",
             }
         )
@@ -213,6 +247,7 @@ def build_projection(
                 "workId": target["id"],
                 "title": target["title"],
                 "programRef": target["programRef"],
+                "matchMode": match_mode,
             }
         )
 
