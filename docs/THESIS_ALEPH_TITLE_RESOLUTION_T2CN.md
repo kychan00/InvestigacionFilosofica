@@ -40,3 +40,11 @@ revisión. No habrá fuzzy auto-merge.
 
 Se conservan únicamente metadatos de la respuesta, números de sistema y
 holdings. No se descargan tesis, PDFs, bitstreams ni texto completo.
+
+
+## Robustez de sesión — V2
+
+El primer run recibió una portada Aleph transitoria sin formulario. V2 abre una sola
+sesión para todo el probe, la reutiliza entre los cuatro casos y permite hasta cuatro
+intentos acotados para obtener la acción dinámica del formulario. Esto reduce carga
+sobre el OPAC y separa indisponibilidad transitoria de un fallo del contrato de búsqueda.

@@ -9,6 +9,7 @@ import re
 import urllib.parse
 import urllib.request
 import http.cookiejar
+import time
 from pathlib import Path
 from typing import Any
 
@@ -21,7 +22,7 @@ assert spec.loader is not None
 spec.loader.exec_module(opac)
 
 SCHEMA = "thesis-aleph-title-resolution-probe-v1"
-REVISION = "2026-11-04.t2cn-v1"
+REVISION = "2026-11-04.t2cn-v2"
 
 KNOWN = (
     {
@@ -79,24 +80,47 @@ def search_url(
 def open_session() -> tuple[urllib.request.OpenerDirector, str, dict[str, Any]]:
     jar = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-    html, final, ctype, status = opac.fetch_with_opener(opener, opac.CUCSH_OPAC, timeout=40)
-    parser = opac.FormContractParser()
-    parser.feed(html)
-    actions = [
-        urllib.parse.urljoin(final, form.get("action") or "")
-        for form in parser.forms
-        if form.get("action")
-    ]
-    actions = [value for value in actions if opac.is_safe_candidate(value)]
-    if not actions:
-        raise ValueError("Aleph session did not expose a safe form action")
-    return opener, actions[0], {
-        "finalUrl": final,
-        "httpStatus": status,
-        "contentType": ctype,
-        "formCount": len(parser.forms),
-        "sessionAction": actions[0],
-    }
+    attempts = []
+    for attempt in range(1, 5):
+        try:
+            html, final, ctype, status = opac.fetch_with_opener(
+                opener,
+                opac.CUCSH_OPAC,
+                timeout=40,
+            )
+            parser = opac.FormContractParser()
+            parser.feed(html)
+            actions = [
+                urllib.parse.urljoin(final, form.get("action") or "")
+                for form in parser.forms
+                if form.get("action")
+            ]
+            actions = [value for value in actions if opac.is_safe_candidate(value)]
+            attempts.append({
+                "attempt": attempt,
+                "finalUrl": final,
+                "httpStatus": status,
+                "contentType": ctype,
+                "formCount": len(parser.forms),
+                "safeActions": len(actions),
+            })
+            if actions:
+                return opener, actions[0], {
+                    "finalUrl": final,
+                    "httpStatus": status,
+                    "contentType": ctype,
+                    "formCount": len(parser.forms),
+                    "sessionAction": actions[0],
+                    "attempts": attempts,
+                }
+        except Exception as exc:
+            attempts.append({"attempt": attempt, "error": str(exc)})
+        if attempt < 4:
+            time.sleep(1.0)
+    raise ValueError(
+        "Aleph session did not expose a safe form action: "
+        + json.dumps(attempts, ensure_ascii=False)
+    )
 
 
 def system_numbers_from_page(page: dict[str, Any]) -> list[str]:
@@ -217,8 +241,13 @@ def run_query(
     }
 
 
-def resolve_case(case: dict[str, str]) -> dict[str, Any]:
-    opener, action, session = open_session()
+def resolve_case(
+    case: dict[str, str],
+    *,
+    opener: urllib.request.OpenerDirector,
+    action: str,
+    session: dict[str, Any],
+) -> dict[str, Any]:
     attempts = [
         run_query(opener, action, title=case["title"], adjacent="N"),
         run_query(opener, action, title=case["title"], adjacent="Y"),
@@ -231,8 +260,15 @@ def resolve_case(case: dict[str, str]) -> dict[str, Any]:
 
 
 def build_report() -> dict[str, Any]:
-    known = [resolve_case(case) for case in KNOWN]
-    discovery = [resolve_case(case) for case in DISCOVERY]
+    opener, action, session = open_session()
+    known = [
+        resolve_case(case, opener=opener, action=action, session=session)
+        for case in KNOWN
+    ]
+    discovery = [
+        resolve_case(case, opener=opener, action=action, session=session)
+        for case in DISCOVERY
+    ]
     return {
         "schemaVersion": SCHEMA,
         "revision": REVISION,
