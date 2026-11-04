@@ -1,0 +1,175 @@
+name: Thesis DCTS work admission activation T2CC
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/apply_work_admission_decisions_v2.py"
+      - "scripts/thesis/config/work-admission-decisions-v2.json"
+      - "tests/test_thesis_work_admission_activation_t2cc.py"
+      - "docs/THESIS_DCTS_WORK_ADMISSION_T2CC.md"
+      - ".github/workflows/thesis-dcts-work-admission-t2cc.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compile and run T2BX, T2CB and T2CC regression tests
+        run: |
+          python -m py_compile scripts/thesis/apply_work_admission_decisions_v2.py
+          python -m unittest discover -s tests -p 'test_thesis_work_admission_activation_t2bx.py' -v
+          python -m unittest discover -s tests -p 'test_thesis_work_admission_activation_t2cc.py' -v
+          python -m unittest discover -s tests -p 'test_thesis_urban_territory_adjudication_t2cb.py' -v
+          python -m unittest discover -s tests -p 'test_thesis_effective_corpus_t2by.py' -v
+
+      - name: Verify each human approval in GitHub, independently
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+
+          contract=json.loads(
+              Path("scripts/thesis/config/work-admission-decisions-v2.json").read_text()
+          )
+          for row in contract["decisions"]:
+              expected=row["approval"]
+              actual=json.loads(subprocess.check_output([
+                  "gh","api",
+                  f"/repos/{os.environ['GITHUB_REPOSITORY']}/pulls/{expected['pullRequest']}"
+              ],text=True))
+              assert actual["merged"] is True, row["workId"]
+              assert actual["merge_commit_sha"] == expected["mergeCommitSha"],row["workId"]
+              assert actual["head"]["sha"] == expected["approvedHeadSha"],row["workId"]
+              assert actual["base"]["ref"] == "main",row["workId"]
+              print(row["workId"], "approved by PR",expected["pullRequest"],
+                    "merge SHA",expected["mergeCommitSha"])
+          PY
+
+      - name: Download and verify immutable effective corpus V1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/t2cc-base artifacts/t2cc
+          gh release download thesis-effective-corpus-v1 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pattern "effective-corpus.json.gz" \
+            --pattern "effective-corpus.json.sha256" \
+            --pattern "effective-corpus.json.gz.sha256" \
+            --pattern "effective-corpus-report.json" \
+            --pattern "manifest.json" \
+            --dir /tmp/t2cc-base
+          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+            verify-release \
+            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
+            --release-dir /tmp/t2cc-base \
+            --root-release-manifest release-manifest.json
+
+      - name: Apply single DCTS work-level decision
+        run: |
+          python scripts/thesis/apply_work_admission_decisions_v2.py \
+            --corpus /tmp/t2cc-base/effective-corpus.json.gz \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --decisions scripts/thesis/config/work-admission-decisions-v2.json \
+            --output-corpus artifacts/t2cc/activated.json \
+            --output-report artifacts/t2cc/activation-report.json
+
+      - name: Reverse DCTS decision without altering historical work
+        run: |
+          python scripts/thesis/apply_work_admission_decisions_v2.py \
+            --corpus artifacts/t2cc/activated.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --decisions scripts/thesis/config/work-admission-decisions-v2.json \
+            --output-corpus artifacts/t2cc/reversed.json \
+            --output-report artifacts/t2cc/reversal-report.json \
+            --reverse
+
+      - name: Assert exact 27576-work delta and deterministic artifact
+        run: |
+          python - <<'PY'
+          import gzip,hashlib,json
+          from collections import Counter
+          from pathlib import Path
+
+          root=Path("artifacts/t2cc")
+          with gzip.open("/tmp/t2cc-base/effective-corpus.json.gz","rt",encoding="utf-8") as f:
+              prior=json.load(f)
+          active=json.loads((root/"activated.json").read_text())
+          reverse=json.loads((root/"reversed.json").read_text())
+          report=json.loads((root/"activation-report.json").read_text())
+          decisions=json.loads(
+              Path("scripts/thesis/config/work-admission-decisions-v2.json").read_text()
+          )
+          expected=decisions["expected"]
+
+          assert len(prior["works"])==len(active["works"])==len(reverse["works"])==27576
+          assert dict(Counter(w["admissionStatus"] for w in prior["works"]))==expected["inputAdmission"]
+          assert dict(Counter(w["admissionStatus"] for w in active["works"]))==expected["outputAdmission"]
+          assert report["admissionDelta"]=={"include":1,"review":-1}
+          changed=[
+              source["id"]
+              for source,target in zip(prior["works"],active["works"],strict=True)
+              if source!=target
+          ]
+          assert changed==expected["changedWorkIds"],changed
+          assert reverse==prior,"Rollback must restore the exact V1 JSON object"
+          assert prior["sourceRecords"]==active["sourceRecords"]
+          assert prior["programAuthorityRevision"]==active["programAuthorityRevision"]
+          assert prior["programMetadataEvidenceRevision"]==active["programMetadataEvidenceRevision"]
+
+          indexed={work["id"]:work for work in active["works"]}
+          assert indexed["thesis:work:00024461"]["admissionStatus"]=="include"
+          assert indexed["thesis:work:00024462"]["admissionStatus"]=="review"
+          assert indexed["thesis:work:00002062"]["admissionStatus"]=="include"
+          dcts=indexed["thesis:work:00024461"]
+          assert dcts["workAdmissionDecision"]["approvalPullRequest"]==163
+          assert dcts["workAdmissionDecision"]["approvalMergeSha"]==(
+              "a66d1a14122d68953d75d6cbb6905715b49b785e"
+          )
+
+          summary={
+              "phase":"T2CC",
+              "baseRelease":decisions["baseEffectiveRelease"]["tag"],
+              "sourceWorks":len(prior["works"]),
+              "before":expected["inputAdmission"],
+              "after":expected["outputAdmission"],
+              "changedWorkIds":changed,
+              "preservedApprovedWorkIds":expected["preservedActiveWorkIds"],
+              "reversedToV1Exactly":True,
+              "programAuthorityMutated":False,
+              "publicationStatus":"artifact-only-not-production",
+          }
+          (root/"t2cc-summary.json").write_text(
+              json.dumps(summary,ensure_ascii=False,sort_keys=True,indent=2)+"\n"
+          )
+          blob=(root/"activated.json").read_bytes()
+          (root/"activated.sha256").write_text(hashlib.sha256(blob).hexdigest()+"\n")
+          with open(root/"activated.json.gz","wb") as raw:
+              with gzip.GzipFile(fileobj=raw,mode="wb",filename="",compresslevel=6,mtime=0) as f:
+                  f.write(blob)
+          print(json.dumps(summary,ensure_ascii=False,sort_keys=True,indent=2))
+          PY
+
+      - name: Upload T2CC candidate effective snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-dcts-work-admission-t2cc
+          path: |
+            artifacts/t2cc/activated.json.gz
+            artifacts/t2cc/activated.sha256
+            artifacts/t2cc/activation-report.json
+            artifacts/t2cc/reversal-report.json
+            artifacts/t2cc/t2cc-summary.json
+          retention-days: 14
+          if-no-files-found: warn
