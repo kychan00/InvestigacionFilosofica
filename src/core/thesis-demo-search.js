@@ -1,5 +1,7 @@
 /** Pure, local-only search for the immutable thesis demo bibliography. */
 export const PAGE_SIZE = 12;
+export const PHILOSOPHY_SCHEMA = "thesis-philosophy-public-index-v1";
+export const PHILOSOPHY_REVISION = "2026-11-04.t2ci-v1";
 
 export function normalized(value) {
   return String(value ?? "")
@@ -19,6 +21,8 @@ function textFor(record) {
     record.unit,
     record.abstractExcerpt,
     ...(record.keywords || []),
+    record.philosophyEvidence,
+    record.sourceLabel,
   ].join(" "));
 }
 
@@ -29,6 +33,7 @@ export function searchTheses(records, {
   unit = "",
   fromYear = "",
   toYear = "",
+  philosophyRole = "",
 } = {}) {
   const terms = normalized(query).split(" ").filter(Boolean);
   const from = fromYear === "" ? null : Number(fromYear);
@@ -38,6 +43,8 @@ export function searchTheses(records, {
     if (program && record.program !== program) return false;
     if (degree && record.degree !== degree) return false;
     if (unit && record.unit !== unit) return false;
+    if (philosophyRole === "review" && record.philosophyStatus !== "review") return false;
+    if (philosophyRole && philosophyRole !== "review" && record.philosophyRole !== philosophyRole) return false;
     if (from !== null && (!Number.isFinite(from) || record.year == null || record.year < from)) return false;
     if (to !== null && (!Number.isFinite(to) || record.year == null || record.year > to)) return false;
     const haystack = textFor(record);
@@ -97,6 +104,41 @@ export function approvedInstitutionalUrl(input) {
   }
 }
 
+export function approvedReferenceUrl(input) {
+  const institutional = approvedInstitutionalUrl(input);
+  if (institutional) return institutional;
+  if (!input || typeof input !== "string") return null;
+  try {
+    const link = new URL(input);
+    const host = link.hostname.toLowerCase();
+    const hosts = new Set([
+      "wdg.biblio.udg.mx",
+      "mrei.cucea.udg.mx",
+      "philpapers.org",
+      "www.philpapers.org",
+      "philarchive.org",
+      "www.philarchive.org",
+      "guadalajara.academia.edu",
+    ]);
+    if (
+      link.protocol !== "https:" ||
+      !hosts.has(host) ||
+      link.username || link.password ||
+      !["", "443"].includes(link.port) ||
+      /\.pdf$|\/bitstreams?\/|\/download\/?$/i.test(link.pathname)
+    ) return null;
+    if (link.pathname && link.pathname !== "/") return link.href;
+    if (host === "wdg.biblio.udg.mx") return link.href;
+    if (host === "mrei.cucea.udg.mx") {
+      const values = link.searchParams.getAll("q");
+      if (values.length === 1 && values[0] === "tesis") return link.href;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export function validateIndex(payload) {
   if (
     !payload ||
@@ -121,6 +163,66 @@ export function validateIndex(payload) {
     ids.add(record.id);
     if (record.sourceUrl && !approvedInstitutionalUrl(record.sourceUrl)) {
       throw new Error("El índice contiene un enlace de fuente no institucional.");
+    }
+  }
+  return payload;
+}
+
+
+export function validatePhilosophyIndex(payload) {
+  const expectedPrograms = [
+    "program:udg:lic-filosofia",
+    "program:udg:mae-estudios-filosoficos",
+    "program:udg:mae-filosofia-historica",
+  ];
+  if (
+    !payload ||
+    payload.schemaVersion !== PHILOSOPHY_SCHEMA ||
+    payload.revision !== PHILOSOPHY_REVISION ||
+    payload.sourceRelease !== "thesis-effective-corpus-v2" ||
+    payload.referenceOnly !== true ||
+    payload.canonicalAdmissionMutation !== false ||
+    payload.preserveActualProgram !== true ||
+    payload.metrics?.records !== 18 ||
+    payload.metrics?.byStatus?.include !== 16 ||
+    payload.metrics?.byStatus?.review !== 2 ||
+    payload.metrics?.actualProgramsRepresented !== 10 ||
+    !Array.isArray(payload.records) ||
+    payload.records.length !== 18 ||
+    !Array.isArray(payload.documentedPhilosophyPrograms) ||
+    payload.documentedPhilosophyPrograms.length !== 3 ||
+    payload.doctoralPolicy?.exactDoctorateProgramPresent !== false
+  ) {
+    throw new Error("La vista pública de Filosofía no coincide con el contrato T2CI verificado.");
+  }
+  if (payload.documentedPhilosophyPrograms.map(row => row.programRef).join("|") !== expectedPrograms.join("|")) {
+    throw new Error("El conjunto de programas de Filosofía cambió sin revisión.");
+  }
+  const ids = new Set();
+  const roles = new Set([
+    "program-core",
+    "program-core-candidate",
+    "philosophical-content",
+    "curated-manual-classification",
+  ]);
+  for (const record of payload.records) {
+    if (
+      typeof record.id !== "string" ||
+      ids.has(record.id) ||
+      typeof record.title !== "string" ||
+      !record.title ||
+      !Array.isArray(record.authors) ||
+      !record.authors.length ||
+      !["include", "review"].includes(record.philosophyStatus) ||
+      !roles.has(record.philosophyRole) ||
+      typeof record.program !== "string" ||
+      !record.program
+    ) {
+      throw new Error("Registro filosófico público inválido o duplicado.");
+    }
+    ids.add(record.id);
+    if (record.sourceUrl && !approvedReferenceUrl(record.sourceUrl)) {
+      throw new Error("La vista de Filosofía contiene una fuente no aprobada.");
     }
   }
   return payload;

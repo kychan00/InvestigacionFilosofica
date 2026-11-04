@@ -42,14 +42,14 @@
       <div class="td-hero-content">
         <p class="td-eyebrow"><span class="td-live-dot" aria-hidden="true"></span> ARCHIVO ACADÉMICO / UNIVERSIDAD DE GUADALAJARA</p>
         <h1>Las tesis también<br><em>construyen conocimiento.</em></h1>
-        <p class="td-lead">Explore tesis de Humanidades identificadas y verificadas en el corpus institucional. Cada resultado conserva su procedencia y le conduce al repositorio de origen.</p>
+        <p id="thesis-hero-lead" class="td-lead">Explore tesis de Humanidades identificadas y verificadas en el corpus institucional. Cada resultado conserva su procedencia y le conduce al repositorio de origen.</p>
         <div class="td-hero-stats" aria-label="Estadísticas del demo">
-          <div><strong id="thesis-total">—</strong><span>Tesis admitidas</span></div>
+          <div><strong id="thesis-total">—</strong><span id="thesis-total-label">Tesis admitidas</span></div>
           <div><strong>UdeG</strong><span>Institución de referencia</span></div>
           <div><strong>0 PDF</strong><span>Copias propias alojadas</span></div>
         </div>
       </div>
-      <div class="td-hero-footnote"><span>HUMANIDADES / CORPUS EFECTIVO</span><span>EDICIÓN DE DEMOSTRACIÓN 01</span></div>
+      <div class="td-hero-footnote"><span id="thesis-scope-footnote">HUMANIDADES / CORPUS EFECTIVO</span><span>EDICIÓN DE DEMOSTRACIÓN 01</span></div>
     </header>
 
     <main class="td-main">
@@ -60,6 +60,30 @@
           <p>Busque por título, autor, tema, palabras clave o programa. Los filtros se aplican localmente sobre metadatos institucionales verificados.</p>
         </div>
         <p class="td-release-note">CORPUS FIJADO<br><strong id="thesis-revision">thesis-effective-corpus-v2</strong><br>Solo registros INCLUDE · sin IA generativa</p>
+      </section>
+
+      <section class="td-scope-section" aria-labelledby="thesis-scope-heading">
+        <div>
+          <p class="td-section-label">VISTA</p>
+          <h2 id="thesis-scope-heading">Elija el territorio bibliográfico</h2>
+          <p>Humanidades conserva el corpus efectivo V2. Filosofía reúne el núcleo institucional y los cruces filosóficos curados sin alterar el programa real de cada tesis.</p>
+        </div>
+        <div class="td-scope-switch" role="group" aria-label="Vista de tesis">
+          <button type="button" data-thesis-scope="humanities" class="td-scope-active" aria-pressed="true">Humanidades <strong id="thesis-scope-humanities-count">—</strong></button>
+          <button type="button" data-thesis-scope="philosophy" aria-pressed="false">Filosofía <strong id="thesis-scope-philosophy-count">—</strong></button>
+        </div>
+      </section>
+
+      <section id="philosophy-programs" class="td-philosophy-programs" aria-labelledby="philosophy-programs-title" hidden>
+        <div class="td-philosophy-programs-head">
+          <div>
+            <p class="td-section-label">PROGRAMAS DE FILOSOFÍA</p>
+            <h2 id="philosophy-programs-title">Tres programas documentados, sin inventar equivalencias.</h2>
+          </div>
+          <p>La vista incluye también tesis filosóficas de otros programas. Su programa académico original siempre permanece visible.</p>
+        </div>
+        <div id="philosophy-program-list" class="td-program-grid"></div>
+        <p class="td-doctoral-note"><strong>Doctorado:</strong> no se publica un “Doctorado en Filosofía” porque no existe una autoridad institucional exacta confirmada. Doctorado en Humanidades no se relabela como Filosofía.</p>
       </section>
 
       <section class="td-search-panel" aria-labelledby="thesis-search-label">
@@ -85,6 +109,15 @@
             <label>Año hasta
               <input id="thesis-to-year" type="number" min="1500" max="2026" inputmode="numeric" placeholder="Sin límite">
             </label>
+            <label id="thesis-philosophy-role-wrap" hidden>Relación filosófica
+              <select id="thesis-philosophy-role">
+                <option value="">Todas las referencias</option>
+                <option value="program-core">Programas de Filosofía</option>
+                <option value="philosophical-content">Cruces filosóficos</option>
+                <option value="curated-manual-classification">Curaduría manual</option>
+                <option value="review">En revisión</option>
+              </select>
+            </label>
             <label>Orden
               <select id="thesis-sort">
                 <option value="newest">Más recientes</option>
@@ -104,10 +137,10 @@
         <div class="td-results-heading">
           <div>
             <p class="td-section-label">02 / RESULTADOS</p>
-            <h2 id="thesis-result-heading"><span id="thesis-count">—</span> tesis encontradas</h2>
+            <h2 id="thesis-result-heading"><span id="thesis-count">—</span> <span id="thesis-result-label">tesis encontradas</span></h2>
             <p id="thesis-summary" role="status" aria-live="polite">Cargando referencias…</p>
           </div>
-          <span class="td-scope-tag">HUMANIDADES · INCLUDE</span>
+          <span id="thesis-scope-tag" class="td-scope-tag">HUMANIDADES · INCLUDE</span>
         </div>
         <div id="thesis-results" class="td-results" aria-live="polite"></div>
         <nav id="thesis-pagination" class="td-pagination" aria-label="Paginación de resultados"></nav>
@@ -119,15 +152,16 @@
           <h2 id="thesis-method-title">Una referencia. Una fuente.</h2>
         </div>
         <div>
-          <p>Este primer demo consulta el <strong>corpus efectivo inmutable V2</strong> (566 tesis admitidas), no las <strong id="thesis-canonical-total">—</strong> obras candidatas del corpus completo. Las inclusiones se fundamentan en políticas de Humanidades y autoridades académicas documentadas.</p>
-          <p><strong>El PDF nunca se aloja aquí.</strong> Los enlaces abren la tesis en el repositorio institucional correspondiente. Los extractos de resumen son metadatos, no reproducción del texto completo. Las fechas dudosas no se muestran como fechas verificadas.</p>
+          <p id="thesis-method-humanities">Este primer demo consulta el <strong>corpus efectivo inmutable V2</strong> (566 tesis admitidas), no las <strong id="thesis-canonical-total">—</strong> obras candidatas del corpus completo. Las inclusiones se fundamentan en políticas de Humanidades y autoridades académicas documentadas.</p>
+          <p id="thesis-method-philosophy" hidden>La vista Filosofía combina los programas filosóficos documentados con decisiones curatoriales explícitas sobre cruces filosóficos. Mantiene el programa real de cada tesis y separa los registros <strong>REVIEW</strong> de los incluidos; esta vista no modifica la admisión canónica.</p>
+          <p><strong>El PDF nunca se aloja aquí.</strong> Los enlaces abren la fuente bibliográfica o el repositorio institucional correspondiente. Los extractos de resumen son metadatos, no reproducción del texto completo. Las fechas dudosas no se muestran como fechas verificadas.</p>
           <a href="./" class="td-method-link">Regresar al motor de Investigación Filosófica ↗</a>
         </div>
       </aside>
     </main>
     <footer class="td-footer"><span>Φ · INVESTIGACIÓN FILOSÓFICA</span><span>Archivo de referencias académicas · Universidad de Guadalajara</span></footer>
   </div>
-  <script type="module" src="./js/thesis-demo.js?v=20261104-t2ch"></script>
+  <script type="module" src="./js/thesis-demo.js?v=20261104-t2ci"></script>
   <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
 </body>
 </html>

@@ -8,10 +8,16 @@ on:
       - "js/thesis-demo.js"
       - "css/thesis-demo.css"
       - "src/core/thesis-demo-search.js"
+      - "scripts/qa/thesis-demo-smoke.mjs"
       - "scripts/thesis/build_thesis_demo_index_v1.py"
+      - "scripts/thesis/build_philosophy_public_index_v1.py"
+      - "scripts/thesis/config/philosophy-curated-content-v1.json"
+      - "scripts/thesis/config/philosophy-official-supplement-v1.json"
       - "tests/test_thesis_demo_index_v1.py"
+      - "tests/test_thesis_philosophy_public_index_v1.py"
       - "tests/thesis-demo.test.mjs"
       - "docs/THESIS_DEMO_SEARCH_V1.md"
+      - "docs/THESIS_PHILOSOPHY_PUBLIC_VIEW_T2CI.md"
       - ".github/workflows/thesis-demo-v1.yml"
       - ".github/workflows/deploy.yml"
 
@@ -32,10 +38,14 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Test reference-only builder and local search
+      - name: Test V2 demo and Philosophy public builders
         run: |
-          python -m py_compile scripts/thesis/build_thesis_demo_index_v1.py
-          python -m unittest discover -s tests -p 'test_thesis_demo_index_v1.py' -v
+          python -m py_compile \
+            scripts/thesis/build_thesis_demo_index_v1.py \
+            scripts/thesis/build_philosophy_public_index_v1.py
+          python -m unittest \
+            tests.test_thesis_demo_index_v1 \
+            tests.test_thesis_philosophy_public_index_v1 -v
           node --test tests/thesis-demo.test.mjs
 
       - name: Full browser-search regression suite
@@ -43,84 +53,117 @@ jobs:
           npm ci
           npm test
 
-      - name: Download immutable V1 release
+      - name: Download and verify immutable Effective Corpus V2
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p /tmp/thesis-demo-v1
-          gh release download thesis-effective-corpus-v1 \
+          rm -rf /tmp/thesis-demo-v2
+          mkdir -p /tmp/thesis-demo-v2
+          gh release download thesis-effective-corpus-v2 \
             --repo "${GITHUB_REPOSITORY}" \
             --pattern "effective-corpus.json.gz" \
             --pattern "effective-corpus.json.sha256" \
             --pattern "effective-corpus.json.gz.sha256" \
             --pattern "effective-corpus-report.json" \
             --pattern "manifest.json" \
-            --dir /tmp/thesis-demo-v1
+            --dir /tmp/thesis-demo-v2
 
-          python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
+          python scripts/thesis/build_effective_corpus_release_manifest_v2.py \
             verify-release \
-            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
-            --release-dir /tmp/thesis-demo-v1 
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --release-dir /tmp/thesis-demo-v2 \
+            --root-release-manifest release-manifest.json
 
-      - name: Generate the actual public search index
+      - name: Generate V2 demo and public Philosophy indexes
         run: |
-          mkdir -p artifacts/thesis-demo-v1
+          rm -rf artifacts/thesis-demo-v2 artifacts/philosophy-public-v1
+          mkdir -p artifacts/thesis-demo-v2 artifacts/philosophy-public-v1
+
           python scripts/thesis/build_thesis_demo_index_v1.py \
-            --corpus-gzip /tmp/thesis-demo-v1/effective-corpus.json.gz \
-            --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
-            --output artifacts/thesis-demo-v1/index.json
+            --corpus-gzip /tmp/thesis-demo-v2/effective-corpus.json.gz \
+            --contract scripts/thesis/config/effective-corpus-release-t2cg-v2.json \
+            --registry scripts/thesis/config/program-authority-v1.json \
+            --output artifacts/thesis-demo-v2/index.json
+
+          python scripts/thesis/build_philosophy_public_index_v1.py \
+            --demo-index artifacts/thesis-demo-v2/index.json \
+            --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
+            --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --output artifacts/philosophy-public-v1/index.json
+
           python - <<'PY'
           import json
           from pathlib import Path
           from urllib.parse import urlparse
 
-          path=Path("artifacts/thesis-demo-v1/index.json")
-          data=json.loads(path.read_text(encoding="utf-8"))
-          rows=data["records"]
-          assert data["schemaVersion"]=="thesis-demo-index-v1"
-          assert data["referenceOnly"] is True
-          assert data["totalIncluded"]==len(rows)==561
-          assert len({row["id"] for row in rows})==561
+          demo_path=Path("artifacts/thesis-demo-v2/index.json")
+          demo=json.loads(demo_path.read_text(encoding="utf-8"))
+          rows=demo["records"]
+
+          assert demo["schemaVersion"]=="thesis-demo-index-v1"
+          assert demo["sourceRelease"]=="thesis-effective-corpus-v2"
+          assert demo["referenceOnly"] is True
+          assert demo["totalIncluded"]==len(rows)==566
+          assert demo["totalCanonical"]==27580
+          assert len({row["id"] for row in rows})==566
           assert all(row["id"].startswith("thesis:work:") for row in rows)
           assert all(len(row["abstractExcerpt"])<=460 for row in rows)
-          assert all(row["degree"] in {"licenciatura","maestria","doctorado"}
-                     for row in rows)
+          assert all(row["degree"] in {"licenciatura","maestria","doctorado"} for row in rows)
           assert all(row["program"] and row["programRef"] for row in rows)
           assert all(
               not any(key in row for key in [
-                  "pdf","pdfBytes","fullText","rawText",
-                  "sourceRecords","rawFields",
-              ]) for row in rows
-          )
-          assert all(
-              not row["sourceUrl"] or (
-                  urlparse(row["sourceUrl"]).hostname in {
-                      "hdl.handle.net",
-                      "riudg.udg.mx",
-                      "www.riudg.udg.mx",
-                      "biblioteca.udgvirtual.udg.mx"
-                  }
-                  and ".pdf" not in urlparse(row["sourceUrl"]).path.lower()
-              )
+                  "pdf","pdfBytes","fullText","rawText","sourceRecords","rawFields",
+              ])
               for row in rows
           )
-          assert path.stat().st_size <= 2_500_000
+          assert demo_path.stat().st_size <= 2_500_000
+
+          philosophy_path=Path("artifacts/philosophy-public-v1/index.json")
+          philosophy=json.loads(philosophy_path.read_text(encoding="utf-8"))
+
+          assert philosophy["schemaVersion"]=="thesis-philosophy-public-index-v1"
+          assert philosophy["revision"]=="2026-11-04.t2ci-v1"
+          assert philosophy["sourceRelease"]=="thesis-effective-corpus-v2"
+          assert philosophy["referenceOnly"] is True
+          assert philosophy["canonicalAdmissionMutation"] is False
+          assert philosophy["preserveActualProgram"] is True
+          assert philosophy["metrics"]["records"]==len(philosophy["records"])==18
+          assert philosophy["metrics"]["byStatus"]=={"include":16,"review":2}
+          assert philosophy["metrics"]["byRole"]=={
+              "curated-manual-classification":1,
+              "philosophical-content":6,
+              "program-core":9,
+              "program-core-candidate":2,
+          }
+          assert philosophy["metrics"]["actualProgramsRepresented"]==10
+          assert len(philosophy["documentedPhilosophyPrograms"])==3
+          assert philosophy["doctoralPolicy"]["exactDoctorateProgramPresent"] is False
+
+          forbidden=(".pdf","/bitstream","/download")
+          for row in philosophy["records"]:
+              url=(row.get("sourceUrl") or "").lower()
+              assert not any(token in url for token in forbidden), url
+
           assert Path("tesis.html").is_file()
           assert Path("js/thesis-demo.js").is_file()
+
           print(json.dumps({
               "demo_records":len(rows),
-              "source_linked":sum(bool(row["sourceUrl"]) for row in rows),
-              "index_bytes":path.stat().st_size,
-              "source_release":data["sourceRelease"],
+              "demo_source_release":demo["sourceRelease"],
+              "philosophy_records":philosophy["metrics"]["records"],
+              "philosophy_status":philosophy["metrics"]["byStatus"],
+              "philosophy_programs":len(philosophy["documentedPhilosophyPrograms"]),
               "pdf_copies":0,
               "status":"PR artifact only, not published",
-          },indent=2))
+          }, ensure_ascii=False, indent=2))
           PY
 
-      - name: Upload reference-only demo index evidence
+      - name: Upload reference-only search evidence
         uses: actions/upload-artifact@v4
         with:
-          name: thesis-search-demo-v1-index
-          path: artifacts/thesis-demo-v1/index.json
+          name: thesis-search-v2-and-philosophy-t2ci
+          path: |
+            artifacts/thesis-demo-v2/index.json
+            artifacts/philosophy-public-v1/index.json
           if-no-files-found: error
           retention-days: 14

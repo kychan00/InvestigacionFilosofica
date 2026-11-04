@@ -192,3 +192,64 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+
+/* T2CI Philosophy public view */
+.td-scope-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, .8fr);
+  gap: 28px;
+  align-items: end;
+  margin: 34px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--td-border);
+}
+.td-scope-section h2, .td-philosophy-programs h2 {
+  margin: 0 0 12px;
+  font: 400 clamp(25px, 3vw, 36px)/1.18 Georgia, serif;
+  letter-spacing: -.035em;
+}
+.td-scope-section p:not(.td-section-label), .td-philosophy-programs-head > p {
+  margin: 0; color: var(--td-muted); line-height: 1.6; font-size: 13px;
+}
+.td-scope-switch {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--td-border); background: var(--td-surface);
+}
+.td-scope-switch button {
+  min-height: 68px; border: 0; border-right: 1px solid var(--td-border);
+  background: transparent; color: var(--td-ink); padding: 14px 16px;
+  cursor: pointer; text-align: left; font-size: 12px; font-weight: 700;
+}
+.td-scope-switch button:last-child { border-right: 0; }
+.td-scope-switch button strong { display: block; margin-top: 5px; font-size: 18px; font-weight: 650; }
+.td-scope-switch button:hover { background: var(--td-surface-soft); }
+.td-scope-switch .td-scope-active { background: var(--td-blue); color: #fff; }
+.td-philosophy-programs {
+  margin: 30px 0 0; padding: 30px; border: 1px solid var(--td-border);
+  border-top: 3px solid var(--td-blue); background: var(--td-surface);
+}
+.td-philosophy-programs-head { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: end; }
+.td-program-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+.td-program-card { min-width: 0; padding: 20px; background: var(--td-surface-soft); border: 1px solid var(--td-border); }
+.td-program-kicker { margin: 0 0 10px; color: var(--td-blue); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.td-program-card h3 { margin: 0; min-height: 58px; font: 400 20px/1.25 Georgia, serif; }
+.td-program-count { min-height: 42px; margin: 14px 0; color: var(--td-muted); font-size: 11px; line-height: 1.5; }
+.td-program-action { border: 0; padding: 0; background: transparent; color: var(--td-blue); cursor: pointer; font-size: 12px; font-weight: 700; }
+.td-doctoral-note { margin: 20px 0 0; padding-top: 18px; border-top: 1px solid var(--td-border); color: var(--td-muted); font-size: 12px; line-height: 1.6; }
+.td-result-review { border-left-color: #f1c21b; }
+.td-result-review .td-result-type { color: #8a6d00; }
+html[data-theme="dark"] .td-result-review .td-result-type { color: #fddc69; }
+.td-review-note { margin: 10px 0 14px; padding: 11px 12px; border-left: 3px solid #f1c21b; background: var(--td-surface-soft); color: var(--td-muted); font-size: 11px; line-height: 1.55; }
+[hidden] { display: none !important; }
+@media (max-width: 860px) {
+  .td-scope-section, .td-philosophy-programs-head { grid-template-columns: 1fr; }
+  .td-program-grid { grid-template-columns: 1fr; }
+  .td-program-card h3, .td-program-count { min-height: 0; }
+}
+@media (max-width: 620px) {
+  .td-scope-switch { grid-template-columns: 1fr; }
+  .td-scope-switch button { border-right: 0; border-bottom: 1px solid var(--td-border); }
+  .td-scope-switch button:last-child { border-bottom: 0; }
+  .td-philosophy-programs { padding: 20px; }
+}

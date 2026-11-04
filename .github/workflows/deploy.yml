@@ -337,6 +337,58 @@ jobs:
           print("Demo public index verified:",len(payload["records"]),"bibliographic references")
           PY
 
+      - name: Build public Philosophy thesis view
+        run: |
+          python scripts/thesis/build_philosophy_public_index_v1.py \
+            --demo-index _site/data/theses/demo-v1/index.json \
+            --curated-config scripts/thesis/config/philosophy-curated-content-v1.json \
+            --supplement-config scripts/thesis/config/philosophy-official-supplement-v1.json \
+            --output _site/data/theses/philosophy-v1/index.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path=Path("_site/data/theses/philosophy-v1/index.json")
+          data=json.loads(path.read_text(encoding="utf-8"))
+
+          assert data["schemaVersion"]=="thesis-philosophy-public-index-v1"
+          assert data["revision"]=="2026-11-04.t2ci-v1"
+          assert data["sourceRelease"]=="thesis-effective-corpus-v2"
+          assert data["referenceOnly"] is True
+          assert data["canonicalAdmissionMutation"] is False
+          assert data["preserveActualProgram"] is True
+          assert data["metrics"]["records"]==len(data["records"])==18
+          assert data["metrics"]["byStatus"]=={"include":16,"review":2}
+          assert data["metrics"]["byRole"]=={
+              "curated-manual-classification":1,
+              "philosophical-content":6,
+              "program-core":9,
+              "program-core-candidate":2,
+          }
+          assert data["metrics"]["actualProgramsRepresented"]==10
+          assert [row["programRef"] for row in data["documentedPhilosophyPrograms"]]==[
+              "program:udg:lic-filosofia",
+              "program:udg:mae-estudios-filosoficos",
+              "program:udg:mae-filosofia-historica",
+          ]
+          assert data["doctoralPolicy"]["exactDoctorateProgramPresent"] is False
+
+          forbidden_url=(".pdf","/bitstream","/download")
+          for row in data["records"]:
+              url=(row.get("sourceUrl") or "").lower()
+              assert not any(token in url for token in forbidden_url), url
+
+          forbidden_ext={".pdf",".epub",".djvu"}
+          root=path.parent
+          assert not any(
+              item.suffix.lower() in forbidden_ext
+              for item in root.rglob("*")
+              if item.is_file()
+          )
+          print("Philosophy public view verified:", data["metrics"])
+          PY
+
       - name: Build experimental 2D thesis Atlas from verified V2
         run: |
           rm -rf _site/data/theses/atlas-v1
