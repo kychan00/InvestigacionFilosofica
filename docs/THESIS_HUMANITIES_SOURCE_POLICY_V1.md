@@ -331,3 +331,24 @@ Título parecido por sí solo no fusiona.
   https://www.cucsh.udg.mx/index.php/division_departamentos/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos/estructuradiv
 
 Consultadas el 1 de noviembre de 2026.
+
+
+---
+
+## Complemento oficial de Filosofía — T2CE
+
+La cobertura de RIUdeG/UDGVirtual puede complementarse con referencias de la **Biblioteca Central Dr. Manuel Rodríguez Lapuente del CUCSH** y otras páginas oficiales de UdeG cuando documenten tesis ausentes del harvest congelado.
+
+Este complemento es **reference-only**:
+
+- conserva metadatos bibliográficos y la URL institucional de la ficha;
+- nunca persiste PDF, bitstream, texto completo ni texto extraído;
+- rechaza enlaces públicos con \`.pdf\`, \`/bitstream\` o \`/download\`;
+- selecciona Licenciatura en Filosofía, Maestría en Estudios Filosóficos y Maestría histórica en Filosofía únicamente por Program Authority exacta;
+- no usa título, abstract, keywords, embeddings o similitud semántica para decidir pertenencia programática;
+- reconcilia contra el corpus existente antes de crear una obra nueva;
+- ante identidad bibliográfica ambigua, falla cerrado y exige revisión humana.
+
+El **Doctorado en Humanidades** no equivale a un inexistente “Doctorado en Filosofía”. Aunque el programa reconoce la filosofía entre las disciplinas de investigación, sus obras no se etiquetan automáticamente como filosofía. Una colección doctoral disciplinaria requiere evidencia work-level explícita y reversible.
+
+La release pública \`thesis-effective-corpus-v1\` permanece inmutable. El complemento produce primero una proyección auditable; cualquier publicación posterior requiere una release inmutable nueva y verificación de CI, SHA y Pages.
