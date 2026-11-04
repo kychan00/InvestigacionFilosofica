@@ -1,0 +1,66 @@
+name: Thesis Aleph title resolution T2CN
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/probe_aleph_title_resolution_v1.py"
+      - "tests/test_thesis_aleph_title_resolution_v1.py"
+      - "docs/THESIS_ALEPH_TITLE_RESOLUTION_T2CN.md"
+      - ".github/workflows/thesis-aleph-title-resolution-t2cn.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  title-resolution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test title-resolution contract
+        run: |
+          python -m py_compile scripts/thesis/probe_aleph_title_resolution_v1.py
+          python -m unittest tests.test_thesis_aleph_title_resolution_v1 -v
+
+      - name: Probe exact-title Aleph resolution
+        run: |
+          rm -rf artifacts/t2cn
+          mkdir -p artifacts/t2cn
+          python scripts/thesis/probe_aleph_title_resolution_v1.py \
+            --output artifacts/t2cn/title-resolution.json
+
+      - name: Enforce reference-only evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path=Path("artifacts/t2cn/title-resolution.json")
+          data=json.loads(path.read_text())
+          assert data["schemaVersion"]=="thesis-aleph-title-resolution-probe-v1"
+          assert data["revision"]=="2026-11-04.t2cn-v1"
+          assert data["referenceOnly"] is True
+          assert data["rawHtmlPersisted"] is False
+          assert data["metrics"]["knownCases"]==3
+          assert data["metrics"]["discoveryCases"]==1
+          for case in data["known"]:
+              assert len(case["attempts"])==2
+              for attempt in case["attempts"]:
+                  assert attempt["search"]["httpStatus"]==200
+                  assert "find_code=WTI" in attempt["searchUrl"]
+          assert not list(Path("artifacts/t2cn").rglob("*.html"))
+          assert not list(Path("artifacts/t2cn").rglob("*.pdf"))
+          print(json.dumps(data["metrics"],ensure_ascii=False,indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-aleph-title-resolution-t2cn
+          path: artifacts/t2cn/title-resolution.json
+          if-no-files-found: error
+          retention-days: 14
