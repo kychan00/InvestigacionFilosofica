@@ -1,0 +1,57 @@
+name: Thesis Philosophy source map T2CK
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/probe_aleph_open_data_v1.py"
+      - "scripts/thesis/config/philosophy-thesis-source-map-v1.json"
+      - "tests/test_thesis_aleph_open_data_v1.py"
+      - "docs/THESIS_PHILOSOPHY_SOURCE_MAP_T2CK.md"
+      - ".github/workflows/thesis-philosophy-source-map-t2ck.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test ALEPH open-data parser
+        run: |
+          python -m py_compile scripts/thesis/probe_aleph_open_data_v1.py
+          python -m unittest tests.test_thesis_aleph_open_data_v1 -v
+
+      - name: Inspect public ALEPH open-data snapshot
+        run: |
+          rm -rf artifacts/t2ck
+          mkdir -p artifacts/t2ck
+          python scripts/thesis/probe_aleph_open_data_v1.py --output artifacts/t2ck/aleph-open-data-report.json
+
+      - name: Enforce metadata-only artifact
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path("artifacts/t2ck/aleph-open-data-report.json").read_text())
+          assert data["schemaVersion"]=="thesis-aleph-open-data-recon-v1"
+          assert data["referenceOnly"] is True
+          assert data["rawWorkbookPersisted"] is False
+          assert data["workbookBytes"]>0
+          assert data["metrics"]["sheets"]>0
+          assert not list(Path("artifacts/t2ck").glob("*.xlsx"))
+          print(json.dumps(data["metrics"],ensure_ascii=False,indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-philosophy-source-map-t2ck
+          path: artifacts/t2ck/aleph-open-data-report.json
+          if-no-files-found: error
+          retention-days: 14

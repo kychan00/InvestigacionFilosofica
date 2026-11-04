@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "thesis-philosophy-source-map-v1",
+  "revision": "2026-11-04.t2ck-v1",
+  "principles": {
+    "referenceOnly": true,
+    "physicalAndDigitalEqualForDiscovery": true,
+    "programIdentityAndPhilosophicalContentAreSeparateAxes": true,
+    "noFuzzyAutoMerge": true
+  },
+  "sources": [
+    {
+      "id": "cucsh-thesis-catalog",
+      "name": "Catálogo de Tesis Biblioteca CUCSH",
+      "url": "http://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis",
+      "role": "institutional-program-inventory",
+      "access": "public-web",
+      "physicalCoverage": true,
+      "digitalCoverage": true,
+      "priority": 1,
+      "notes": "T2CJ enumeró 217 referencias de Licenciatura en Filosofía; los filtros de las dos maestrías existen pero actualmente devuelven cero filas."
+    },
+    {
+      "id": "siubi-opac",
+      "name": "OPAC colectivo SiUBiUDG / ALEPH",
+      "url": "https://bibliotecas.udg.mx/catalogos-en-linea",
+      "role": "physical-holdings-locator",
+      "access": "public-or-udg-web",
+      "physicalCoverage": true,
+      "digitalCoverage": false,
+      "priority": 1,
+      "notes": "El SiUBiUDG declara que este catálogo localiza los recursos físicos de todas las bibliotecas de la Red."
+    },
+    {
+      "id": "aleph-open-data",
+      "name": "Datos abiertos: listado de títulos del catálogo ALEPH",
+      "url": "https://transparencia.udg.mx/sites/default/files/datos_abiertos/Listado%20de%20t%C3%ADtulos%20del%20cat%C3%A1logo%20ALEPH.xlsx",
+      "role": "historical-bibliographic-index",
+      "access": "public-xlsx",
+      "physicalCoverage": true,
+      "digitalCoverage": false,
+      "priority": 1,
+      "notes": "Snapshot público del catálogo de la Red de Bibliotecas; T2CK inspecciona su estructura y señales de Filosofía."
+    },
+    {
+      "id": "riudg",
+      "name": "Repositorio Institucional UdeG",
+      "url": "https://riudg.udg.mx/",
+      "role": "persistent-digital-identity",
+      "access": "public-web-oai",
+      "physicalCoverage": false,
+      "digitalCoverage": true,
+      "priority": 1,
+      "notes": "Preferido para handle persistente, metadatos modernos y enlace digital cuando existe."
+    },
+    {
+      "id": "wdg-biblio",
+      "name": "Biblioteca Digital WDG",
+      "url": "https://wdg.biblio.udg.mx/",
+      "role": "federated-digital-discovery",
+      "access": "public-and-udg-authenticated",
+      "physicalCoverage": true,
+      "digitalCoverage": true,
+      "priority": 2,
+      "notes": "Integra catálogo, buscador y colecciones; UdeG reporta tesis y producción institucional además de bases suscritas."
+    },
+    {
+      "id": "cucsh-la-normal-library",
+      "name": "Biblioteca Central Dr. Manuel Rodríguez Lapuente",
+      "url": "https://bibliotecas.udg.mx/Red-de-Bibliotecas/Centros-Universitarios-Tematicos/CUCSH/Biblioteca-Central-Dr-Manuel-RodrIguez-Lapuente",
+      "role": "physical-custody",
+      "access": "in-person-and-catalog",
+      "physicalCoverage": true,
+      "digitalCoverage": false,
+      "priority": 1,
+      "notes": "Sede La Normal. El CUCSH informó en 2026 que el acervo general no fue trasladado en la primera fase de mudanza a Belenes."
+    },
+    {
+      "id": "cucsh-belenes-library",
+      "name": "Biblioteca Central / acervos CUCSH Belenes",
+      "url": "https://www.cucsh.udg.mx/",
+      "role": "physical-custody-and-current-academic-support",
+      "access": "in-person-and-catalog",
+      "physicalCoverage": true,
+      "digitalCoverage": true,
+      "priority": 1,
+      "notes": "Parte de los fondos y acervos departamentales se encuentran en Belenes; la Unidad de Biblioteca y Acervos Documentales administra ambas sedes."
+    },
+    {
+      "id": "program-records",
+      "name": "Departamento de Filosofía / coordinaciones / Control Escolar",
+      "url": "https://www.cucsh.udg.mx/directorio/Divisi%C3%B3n%20de%20Estudios%20Hist%C3%B3ricos%20y%20Humanos",
+      "role": "degree-and-thesis-administrative-evidence",
+      "access": "institutional-contact",
+      "physicalCoverage": true,
+      "digitalCoverage": true,
+      "priority": 1,
+      "notes": "Fuente para listas de titulados, actas, títulos de tesis y evidencia de posgrado cuando los catálogos bibliotecarios no están completos."
+    },
+    {
+      "id": "doctorado-humanidades",
+      "name": "Doctorado en Humanidades CUCSH",
+      "url": "https://cucsh.udg.mx/doctorados/doctorado-en-humanidades",
+      "role": "doctoral-philosophy-content-scope",
+      "access": "public-program-and-institutional-records",
+      "physicalCoverage": true,
+      "digitalCoverage": true,
+      "priority": 1,
+      "notes": "No equivale a Doctorado en Filosofía. La filosofía forma parte explícita de sus disciplinas y de la línea Pensamiento; las tesis deben adjudicarse obra por obra."
+    }
+  ]
+}
