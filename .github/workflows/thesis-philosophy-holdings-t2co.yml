@@ -80,8 +80,8 @@ jobs:
 
       - name: Resolve live bounded Aleph batch
         env:
-          T2CO_OFFSET: ${{ inputs.offset || '0' }}
-          T2CO_LIMIT: ${{ github.event_name == 'pull_request' && '8' || inputs.limit || '30' }}
+          T2CO_OFFSET: ${{ github.event_name == 'pull_request' && '8' || inputs.offset || '0' }}
+          T2CO_LIMIT: ${{ github.event_name == 'pull_request' && '30' || inputs.limit || '30' }}
         run: |
           python scripts/thesis/resolve_philosophy_holdings_batches_t2co.py \
             --whereabouts-index artifacts/t2co/whereabouts-index.json \
