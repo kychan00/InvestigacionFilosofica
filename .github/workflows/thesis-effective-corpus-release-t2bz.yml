@@ -119,8 +119,7 @@ jobs:
           python scripts/thesis/build_effective_corpus_release_manifest_v1.py \
             verify-release \
             --contract scripts/thesis/config/effective-corpus-release-t2bz-v1.json \
-            --release-dir artifacts/t2bz \
-            --root-release-manifest release-manifest.json
+            --release-dir artifacts/t2bz 
 
       - name: Upload T2BZ validation evidence
         if: always()
