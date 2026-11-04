@@ -48,10 +48,21 @@ def verified_release(path: Path, contract: dict[str, Any]) -> dict[str, Any]:
     blob = path.read_bytes()
     if sha256(blob) != contract["effectiveCorpusGzipSha256"]:
         raise ValueError("Immutable release gzip SHA-256 mismatch")
-    data = gzip.decompress(blob)
-    if sha256(data) != contract["effectiveCorpusJsonSha256"]:
+    raw = gzip.decompress(blob)
+    expected = contract["effectiveCorpusJsonSha256"]
+    if sha256(raw) == expected:
+        return json.loads(raw)
+
+    # T2CF/V2 stores a canonical compact JSON payload in gzip while the
+    # separately hashed JSON asset uses the repository's stable pretty form.
+    # Verify semantic identity by reconstructing that exact pretty form.
+    parsed = json.loads(raw)
+    reconstructed = (
+        json.dumps(parsed, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    ).encode("utf-8")
+    if sha256(reconstructed) != expected:
         raise ValueError("Immutable release JSON SHA-256 mismatch")
-    return json.loads(data)
+    return parsed
 
 
 def safe_institutional_url(raw: str | None) -> str | None:
