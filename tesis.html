@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161616">
+  <meta name="description" content="Buscador bibliográfico de tesis de Humanidades de la Universidad de Guadalajara. Referencias y enlaces al repositorio institucional.">
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Tesis UdeG · Investigación Filosófica</title>
+  <link rel="stylesheet" href="./css/thesis-demo.css?v=20261103-1">
+</head>
+<body>
+  <div id="thesis-demo" class="td-page">
+    <header class="td-hero">
+      <nav class="td-nav" aria-label="Navegación principal">
+        <a class="td-brand" href="./">
+          <span class="td-brand-mark" aria-hidden="true">Φ</span>
+          <span>Investigación Filosófica <small>Archivo vivo</small></span>
+        </a>
+        <div class="td-nav-actions">
+          <a class="td-nav-link" href="./">Investigación</a>
+          <a class="td-nav-link td-nav-active" href="./tesis.html" aria-current="page">Tesis UdeG</a>
+          <div class="theme-switch" role="group" aria-label="Apariencia">
+            <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
+            <button type="button" data-theme-choice="dark" aria-label="Activar modo oscuro" aria-pressed="false">Oscuro</button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="td-hero-content">
+        <p class="td-eyebrow"><span class="td-live-dot" aria-hidden="true"></span> ARCHIVO ACADÉMICO / UNIVERSIDAD DE GUADALAJARA</p>
+        <h1>Las tesis también<br><em>construyen conocimiento.</em></h1>
+        <p class="td-lead">Explore tesis de Humanidades identificadas y verificadas en el corpus institucional. Cada resultado conserva su procedencia y le conduce al repositorio de origen.</p>
+        <div class="td-hero-stats" aria-label="Estadísticas del demo">
+          <div><strong id="thesis-total">—</strong><span>Tesis admitidas en V1</span></div>
+          <div><strong>UdeG</strong><span>Institución de referencia</span></div>
+          <div><strong>0 PDF</strong><span>Copias propias alojadas</span></div>
+        </div>
+      </div>
+      <div class="td-hero-footnote"><span>HUMANIDADES / CORPUS EFECTIVO</span><span>EDICIÓN DE DEMOSTRACIÓN 01</span></div>
+    </header>
+
+    <main class="td-main">
+      <section class="td-intro" aria-labelledby="thesis-explore">
+        <div>
+          <p class="td-section-label">01 / EXPLORAR</p>
+          <h2 id="thesis-explore">Descubra una investigación</h2>
+          <p>Busque por título, autor, tema, palabras clave o programa. Los filtros se aplican localmente sobre metadatos institucionales verificados.</p>
+        </div>
+        <p class="td-release-note">CORPUS FIJADO<br><strong id="thesis-revision">thesis-effective-corpus-v1</strong><br>Solo registros INCLUDE · sin IA generativa</p>
+      </section>
+
+      <section class="td-search-panel" aria-labelledby="thesis-search-label">
+        <form id="thesis-search" novalidate>
+          <label id="thesis-search-label" class="td-search-label" for="thesis-query">Búsqueda bibliográfica</label>
+          <div class="td-query-row">
+            <input id="thesis-query" name="q" type="search" autocomplete="off" placeholder="Ej. filosofía, lenguaje, historia, territorio…" aria-describedby="thesis-status">
+            <button class="td-search-button" type="submit">Buscar <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="td-filters">
+            <label>Programa
+              <select id="thesis-program"><option value="">Todos los programas</option></select>
+            </label>
+            <label>Grado
+              <select id="thesis-degree"><option value="">Todos los grados</option></select>
+            </label>
+            <label>Unidad académica
+              <select id="thesis-unit"><option value="">Todas las unidades</option></select>
+            </label>
+            <label>Año desde
+              <input id="thesis-from-year" type="number" min="1500" max="2026" inputmode="numeric" placeholder="Sin límite">
+            </label>
+            <label>Año hasta
+              <input id="thesis-to-year" type="number" min="1500" max="2026" inputmode="numeric" placeholder="Sin límite">
+            </label>
+            <label>Orden
+              <select id="thesis-sort">
+                <option value="newest">Más recientes</option>
+                <option value="oldest">Más antiguas</option>
+                <option value="title">Título (A–Z)</option>
+              </select>
+            </label>
+          </div>
+          <div class="td-filter-actions">
+            <button id="thesis-clear" type="button" class="td-clear">Limpiar filtros</button>
+            <p id="thesis-status" role="status" aria-live="polite">Preparando índice bibliográfico…</p>
+          </div>
+        </form>
+      </section>
+
+      <section class="td-results-section" aria-labelledby="thesis-result-heading">
+        <div class="td-results-heading">
+          <div>
+            <p class="td-section-label">02 / RESULTADOS</p>
+            <h2 id="thesis-result-heading"><span id="thesis-count">—</span> tesis encontradas</h2>
+            <p id="thesis-summary" role="status" aria-live="polite">Cargando referencias…</p>
+          </div>
+          <span class="td-scope-tag">HUMANIDADES · INCLUDE</span>
+        </div>
+        <div id="thesis-results" class="td-results" aria-live="polite"></div>
+        <nav id="thesis-pagination" class="td-pagination" aria-label="Paginación de resultados"></nav>
+      </section>
+
+      <aside class="td-method" aria-labelledby="thesis-method-title">
+        <div>
+          <p class="td-section-label">03 / METODOLOGÍA</p>
+          <h2 id="thesis-method-title">Una referencia. Una fuente.</h2>
+        </div>
+        <div>
+          <p>Este primer demo consulta el <strong>corpus efectivo inmutable V1</strong> (561 tesis admitidas), no las 27,576 obras candidatas del corpus completo. Las inclusiones se fundamentan en políticas de Humanidades y autoridades académicas documentadas.</p>
+          <p><strong>El PDF nunca se aloja aquí.</strong> Los enlaces abren la tesis en el repositorio institucional correspondiente. Los extractos de resumen son metadatos, no reproducción del texto completo. Las fechas dudosas no se muestran como fechas verificadas.</p>
+          <a href="./" class="td-method-link">Regresar al motor de Investigación Filosófica ↗</a>
+        </div>
+      </aside>
+    </main>
+    <footer class="td-footer"><span>Φ · INVESTIGACIÓN FILOSÓFICA</span><span>Archivo de referencias académicas · Universidad de Guadalajara</span></footer>
+  </div>
+  <script type="module" src="./js/thesis-demo.js?v=20261103-1"></script>
+  <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
+</body>
+</html>
