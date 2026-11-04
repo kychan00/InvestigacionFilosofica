@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 THESIS = ROOT / "scripts" / "thesis"
 CONTRACT_PATH = THESIS / "config" / "effective-corpus-release-t2cg-v2.json"
 ROOT_MANIFEST = ROOT / "release-manifest.json"
-ATLAS_CONTRACT = THESIS / "config" / "thesis-atlas-v1.json"
+ATLAS_CONTRACT = THESIS / "config" / "thesis-atlas-t2cg-v2.json"
 DEMO_BUILDER = THESIS / "build_thesis_demo_index_v1.py"
 RELEASE_BUILDER = THESIS / "build_effective_corpus_release_manifest_v2.py"
 
