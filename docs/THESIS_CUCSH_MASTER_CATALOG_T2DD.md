@@ -173,25 +173,148 @@ T2DD:
 - no publica fichas;
 - no interpreta ausencia del catálogo como inexistencia.
 
+## Resultado vivo verificado
+
+El workflow T2DD completó el catálogo público de maestrías:
+
+- workflow run: `42107024412`;
+- head: `a5560406b4412cdd6d863a4b509188466e217f6e`;
+- artifact: `13453091014`;
+- digest:
+  `sha256:6656a33ef6ca227c9cab9fc1710a8dc6021a4df0cd27ff2a7ea0cb26dc9a0c8f`.
+
+Cobertura:
+
+- páginas: **239**;
+- último índice: **238**;
+- filas de tesis de maestría: **2,383**;
+- etiquetas de programa: **48**;
+- etiquetas cuyo texto contiene filosofía/filosóficos: **0**.
+
+### Adriel Manuel Hernández Guzmán
+
+Se buscaron las dos formas conocidas del título.
+
+Resultado:
+
+- título + autor exactos: **0**;
+- sólo título: **0**;
+- sólo autor: **0**;
+- referencia CUCSH confirmada: **no**;
+- holding físico confirmado: **no**.
+
+Estado:
+
+`not-found-in-completed-cucsh-master-catalog`
+
+Este resultado reproduce además el hallazgo independiente de T2CV: Adriel
+estaba entre las semillas públicas contrastadas y ninguna de las tres semillas
+MEF apareció en el catálogo.
+
+### Mario Damián del Muro Silva
+
+Resultado:
+
+- título + autor exactos: **0**;
+- sólo título: **0**;
+- sólo autor: **0**;
+- referencia CUCSH confirmada: **no**;
+- holding físico confirmado: **no**.
+
+Estado:
+
+`not-found-in-completed-cucsh-master-catalog`
+
+## Cierre de fuente
+
+Para las formas bibliográficas conocidas, T2DD agota la vista pública
+`vista-tesis-maestria`.
+
+La ausencia no demuestra inexistencia. El catálogo puede estar incompleto,
+puede no representar acervos históricos, o la tesis puede estar registrada en
+otro sistema o únicamente en un inventario interno.
+
+El baseline quedó congelado en:
+
+`scripts/thesis/config/mef-cucsh-master-catalog-t2dd-baseline.json`
+
+## Paquete de verificación física
+
+T2DD prepara, pero **no envía**, el archivo:
+
+`scripts/thesis/config/mef-physical-verification-request-t2dd.json`
+
+El paquete contiene los dos trabajos y pide únicamente metadata bibliográfica y
+de holding:
+
+- título registrado;
+- forma de autor;
+- programa;
+- año/fecha de defensa;
+- director;
+- número de registro;
+- signatura;
+- inventario/barcode;
+- colección/sede;
+- formato físico;
+- disponibilidad;
+- URL estable si existe;
+- destino de transferencia/archivo si el ejemplar ya no está en la sede.
+
+No solicita PDF ni texto completo.
+
+### Ruta 1 — Biblioteca
+
+SiUBiUDG identifica actualmente como autoridad de acervo a:
+
+**Mtro. Rodolfo Gutiérrez Zermeño**  
+Jefe de la Unidad de Biblioteca y Acervos Documentales  
+Biblioteca Central Dr. Manuel Rodríguez Lapuente.
+
+Fuente institucional:
+
+https://bibliotecas.udg.mx/Red-de-Bibliotecas/Centros-Universitarios-Tematicos/CUCSH/Biblioteca-Central-Dr-Manuel-RodrIguez-Lapuente
+
+### Ruta 2 — Programa
+
+El directorio actual de CUCSH identifica como coordinadora de la Maestría en
+Estudios Filosóficos a:
+
+**Dra. Nalliely Hernández Cornejo**
+
+Fuente institucional:
+
+https://www.cucsh.udg.mx/directorio/division-de-estudios-historicos-y-humanos
+
+La coordinación puede confirmar expediente de egreso/tesis y, en su caso,
+indicar a qué biblioteca o archivo se entregó el ejemplar.
+
+## Precisión sobre Aleph
+
+T2CZ agotó Aleph para las once tesis del lote de direcciones/sinodalías T2CY.
+**Mario y Adriel no pertenecían a ese lote**: ambos aparecieron después, en
+T2DA.
+
+Por ello una futura búsqueda Aleph exacta para Mario y Adriel no sería una
+repetición de T2CZ. Debe considerarse una vía automatizable adicional antes o en
+paralelo con la consulta institucional directa.
+
 ## Archivos
 
 - `scripts/thesis/scan_cucsh_master_catalog_mef_targets_t2dd.py`
+- `scripts/thesis/config/mef-cucsh-master-catalog-t2dd-baseline.json`
+- `scripts/thesis/config/mef-physical-verification-request-t2dd.json`
 - `tests/test_thesis_cucsh_master_catalog_t2dd.py`
 - `.github/workflows/thesis-cucsh-master-catalog-t2dd.yml`
 - este documento.
 
-## Siguiente decisión
+## Siguiente fase
 
-Si aparece una referencia exacta:
+T2DE debe hacer dos cosas sin confundirlas:
 
-1. congelar la ficha;
-2. comprobar detalle institucional;
-3. buscar signatura/inventario/holding;
-4. sólo entonces proyectar ubicación física.
+1. búsqueda exacta de Mario y Adriel en Aleph/UDG01, ya que nunca fueron parte
+   del lote T2CZ;
+2. si esa búsqueda no aporta SYS/holding, utilizar el paquete T2DD para
+   verificación directa con Biblioteca y Coordinación MEF.
 
-Si no aparece:
-
-1. congelar el cierre exhaustivo del catálogo;
-2. generar la solicitud institucional de verificación física;
-3. pasar a archivo de programa / coordinación / biblioteca;
-4. no repetir RIUdeG, Aleph ni el mismo catálogo sin un identificador nuevo.
+No se modifica Effective Corpus V2, Program Authority ni la vista pública.
