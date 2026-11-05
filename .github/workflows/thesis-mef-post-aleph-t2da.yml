@@ -1,0 +1,34 @@
+name: Thesis MEF post-Aleph corroboration T2DA
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/mef-post-aleph-corroboration-t2da.json"
+      - "scripts/thesis/validate_mef_post_aleph_corroboration_t2da.py"
+      - "scripts/thesis/config/mef-supervision-evidence-t2cy.json"
+      - "scripts/thesis/config/mef-aleph-resolution-t2cz-baseline.json"
+      - "tests/test_thesis_mef_post_aleph_t2da.py"
+      - "docs/THESIS_MEF_POST_ALEPH_CORROBORATION_T2DA.md"
+      - ".github/workflows/thesis-mef-post-aleph-t2da.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Validate post-Aleph institutional corroboration
+        run: |
+          python -m py_compile scripts/thesis/validate_mef_post_aleph_corroboration_t2da.py
+          python -m unittest tests.test_thesis_mef_post_aleph_t2da -v
+          python scripts/thesis/validate_mef_post_aleph_corroboration_t2da.py \
+            --input scripts/thesis/config/mef-post-aleph-corroboration-t2da.json \
+            --t2cy scripts/thesis/config/mef-supervision-evidence-t2cy.json \
+            --t2cz scripts/thesis/config/mef-aleph-resolution-t2cz-baseline.json

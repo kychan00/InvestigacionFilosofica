@@ -1,0 +1,344 @@
+{
+  "schemaVersion": "thesis-mef-post-aleph-corroboration-t2da-v1",
+  "revision": "2026-11-05.t2da-v1",
+  "sourcePhases": [
+    "T2CY",
+    "T2CZ"
+  ],
+  "programRef": "program:udg:mae-estudios-filosoficos",
+  "programName": "Maestría en Estudios Filosóficos",
+  "policy": {
+    "referenceOnly": true,
+    "publicProjectionRequested": false,
+    "canonicalAdmissionMutation": false,
+    "programAuthorityMutation": false,
+    "automaticIdentityMerge": false,
+    "institutionalBibliographyCitationDoesNotEqualWorkLevelRecord": true,
+    "masterThesisCitationDoesNotDetermineProgram": true,
+    "sourceContainerHandleCannotBecomeThesisIdentifier": true,
+    "derivedPublicationDoesNotEqualThesis": true,
+    "inCourseThesisExcludedFromCompletedCounts": true,
+    "isbnDiscrepancyMustBePreserved": true
+  },
+  "sourceObject": {
+    "title": "¿Es ese un buen argumento?",
+    "year": 2021,
+    "institutionalContainer": {
+      "provider": "RIUdeG / Universidad de Guadalajara",
+      "url": "https://www.riudg.udg.mx/handle/20.500.12104/112279?locale=es",
+      "handle": "https://hdl.handle.net/20.500.12104/112279",
+      "type": "Libro",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "isbn": "978-607-571-436-3",
+      "filesAssociated": false,
+      "role": "institutional-container-only",
+      "note": "El handle identifica el libro, no ninguna tesis citada dentro de su bibliografía."
+    },
+    "officialEditorialRecord": {
+      "provider": "Editorial CUCSH / Universidad de Guadalajara",
+      "url": "https://sige.cucsh.udg.mx/editorial/publicacion/es-ese-un-buen-argumento",
+      "isbn": "978-607-571-438-7",
+      "role": "official-editorial-record"
+    },
+    "isbnAuthority": {
+      "provider": "Agencia ISBN México / INDAUTOR",
+      "url": "https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=353963",
+      "isbn": "978-607-571-438-7",
+      "role": "isbn-authority"
+    },
+    "publicTextWitness": {
+      "provider": "Academia.edu public copy",
+      "url": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "role": "public-text-witness-not-institutional",
+      "note": "La copia permite inspeccionar la bibliografía del libro; su condición de copia pública no se eleva a fuente institucional."
+    },
+    "isbnDiscrepancy": {
+      "present": true,
+      "riudgValue": "978-607-571-436-3",
+      "officialEditorialValue": "978-607-571-438-7",
+      "isbnAuthorityValue": "978-607-571-438-7",
+      "adjudication": "preserve-source-values-no-silent-correction"
+    }
+  },
+  "t2cyCorroborations": [
+    {
+      "sourceAuthor": "Rómulo Daza y García",
+      "resolvedCanonicalName": "Rómulo Ramírez Daza y García",
+      "authorAuthorityResolved": true,
+      "authorAuthorityEvidence": [
+        {
+          "provider": "CUCSH / Universidad de Guadalajara",
+          "url": "https://www.cucsh.udg.mx/profesor/romulo-ramirez-daza-y-garcia",
+          "kind": "official-udg-authority-profile"
+        }
+      ],
+      "t2cyTitle": "El dios de Aristóteles, necesidad y suficiencia de su planteamiento en Metafísica XII, principalmente a contraluz de las tres Éticas: Una revisión crítica",
+      "bibliographyTitle": "El Dios de Aristóteles: Necesidad y suficiencia de su planteamiento en Metafísica XII principalmente, a contraluz de las tres éticas.",
+      "bibliographyCitationType": "Tesis de maestría",
+      "bibliographyInstitution": "Universidad de Guadalajara",
+      "bibliographyYear": 2009,
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "mefProgramConfirmedByT2CY": true,
+      "titleVariantReview": true,
+      "institutionalBibliographyCorroborated": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "institutional-bibliography-title-variant"
+    },
+    {
+      "sourceAuthor": "Christian Jhovanny Cervantes Barraza",
+      "resolvedCanonicalName": "Christian Jhovanny Cervantes Barraza",
+      "authorAuthorityResolved": false,
+      "t2cyTitle": "Sobre el papel del diagrama en la demostración de teoremas en geometría plana",
+      "bibliographyTitle": "Sobre el papel del diagrama en la demostración de teoremas en geometría plana",
+      "bibliographyCitationType": "Tesis de maestría",
+      "bibliographyInstitution": "Universidad de Guadalajara",
+      "bibliographyYear": 2011,
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "mefProgramConfirmedByT2CY": true,
+      "titleVariantReview": false,
+      "institutionalBibliographyCorroborated": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "institutional-bibliography-corroborated"
+    },
+    {
+      "sourceAuthor": "Mauricio Morales Díaz",
+      "resolvedCanonicalName": "Mauricio Morales Díaz",
+      "authorAuthorityResolved": false,
+      "t2cyTitle": "La distinción entre los fines táctico-militares y los fines estratégico-políticos como determinante de la racionalidad en las decisiones político-militares",
+      "bibliographyTitle": "La distinción entre los fines táctico-militares y los fines estratégico-políticos como determinante de la racionalidad en las decisiones político-militares",
+      "bibliographyCitationType": "Tesis de maestría",
+      "bibliographyInstitution": "Universidad de Guadalajara",
+      "bibliographyYear": 2011,
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "additionalEvidence": [
+        {
+          "provider": "Editorial CUCSH / Universidad de Guadalajara",
+          "url": "https://sige.cucsh.udg.mx/editorial/publicacion/guerra-y-racionalidad-los-fines-de-la-guerra-y-los-fines-de-la-politica",
+          "kind": "official-udg-derived-publication-lineage",
+          "note": "La ficha declara que la investigación publicada fue presentada bajo el título exacto de la tesis."
+        }
+      ],
+      "mefProgramConfirmedByT2CY": true,
+      "titleVariantReview": false,
+      "institutionalBibliographyCorroborated": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "institutional-bibliography-plus-derived-lineage"
+    },
+    {
+      "sourceAuthor": "Joaquín Galindo Castañeda",
+      "resolvedCanonicalName": "Joaquín Galindo Castañeda",
+      "authorAuthorityResolved": false,
+      "t2cyTitle": "Argumentos transcendentales y lógica modal",
+      "bibliographyTitle": "Argumentos transcendentales y lógica modal",
+      "bibliographyCitationType": "Tesis de maestría",
+      "bibliographyInstitution": "Universidad de Guadalajara",
+      "bibliographyYear": 2013,
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "mefProgramConfirmedByT2CY": true,
+      "titleVariantReview": false,
+      "institutionalBibliographyCorroborated": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "institutional-bibliography-corroborated"
+    },
+    {
+      "sourceAuthor": "Íker Javier Pulido Rodríguez",
+      "resolvedCanonicalName": "Íker Javier Pulido Rodríguez",
+      "authorAuthorityResolved": false,
+      "t2cyTitle": "Análisis de la pregunta:¿es la medicina una ciencia?",
+      "bibliographyTitle": "Análisis de la pregunta:¿es la medicina una ciencia?",
+      "bibliographyCitationType": "Tesis de maestría",
+      "bibliographyInstitution": "Universidad de Guadalajara",
+      "bibliographyYear": 2019,
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "additionalEvidence": [
+        {
+          "provider": "Centro Universitario del Norte / UdeG",
+          "url": "https://www.cunorte.udg.mx/es/investigacion/ptc/cjyd/iker-javier-pulido-rodriguez",
+          "kind": "official-udg-program-profile",
+          "note": "Confirma Maestría en Estudios Filosóficos."
+        }
+      ],
+      "mefProgramConfirmedByT2CY": true,
+      "titleVariantReview": false,
+      "institutionalBibliographyCorroborated": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "institutional-bibliography-plus-program-profile"
+    },
+    {
+      "sourceAuthor": "Dalila Ayala Castillo",
+      "resolvedCanonicalName": "Dalila Ayala Castillo",
+      "authorAuthorityResolved": false,
+      "t2cyTitle": "Implicaciones éticas en la definición y diagnóstico de muerte encefálica",
+      "bibliographyTitle": "Implicaciones éticas en la definición y diagnóstico de muerte encefálica",
+      "bibliographyCitationType": "Tesis de maestría",
+      "bibliographyInstitution": "Universidad de Guadalajara",
+      "bibliographyYear": 2019,
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "mefProgramConfirmedByT2CY": true,
+      "titleVariantReview": false,
+      "institutionalBibliographyCorroborated": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "institutional-bibliography-corroborated"
+    }
+  ],
+  "discoveredMasterThesisCitations": [
+    {
+      "author": "Adriel Manuel Hernández Guzmán",
+      "title": "El Estado propuesto por Platón en la República es una utopía",
+      "year": 2011,
+      "citationType": "Tesis de maestría",
+      "institution": "Universidad de Guadalajara",
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "overlapsT2CY": false,
+      "programAdjudication": "mef-author-controlled-corroboration",
+      "programEvidence": [
+        {
+          "provider": "Adriel Manuel Hernández Guzmán / Academia.edu",
+          "url": "https://guadalajara.academia.edu/AdrielManuelHern%C3%A1ndezGuzm%C3%A1n",
+          "kind": "author-controlled-profile",
+          "note": "Declara Licenciatura en Filosofía y Maestría en Estudios Filosóficos por la Universidad de Guadalajara."
+        }
+      ],
+      "mefProgramInstitutionallyConfirmed": false,
+      "mefProgramCandidate": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "decision": "new-master-thesis-mef-candidate-noninstitutional-program"
+    },
+    {
+      "author": "Zariá Casillas Olivares",
+      "title": "Razonamientos y argumentaciones de niñas y niños sobre discriminación por orientación sexual",
+      "year": 2018,
+      "citationType": "Tesis de maestría",
+      "institution": "Universidad de Guadalajara",
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "overlapsT2CY": false,
+      "programAdjudication": "outside-mef-confirmed",
+      "programEvidence": [
+        {
+          "provider": "Universidad de Guadalajara",
+          "url": "https://ww1.udg.mx/es/noticia/homofobia-permea-infantes-por-informacion-erronea-sobre-diversidad-sexual",
+          "kind": "official-udg-news",
+          "note": "Identifica a Zariá Casillas Olivares como maestra en Ciencias Sociales por CUCSH y vincula el mismo título de investigación."
+        },
+        {
+          "provider": "Fernando Leal Carretero",
+          "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+          "kind": "faculty-cv-supervision-list",
+          "note": "Registra el mismo título como Maestría en Ciencias Sociales, UdeG, aprobada el 13 de diciembre de 2018."
+        }
+      ],
+      "mefProgramInstitutionallyConfirmed": false,
+      "mefProgramCandidate": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "decision": "exclude-from-mef-program"
+    },
+    {
+      "author": "Mario Damián Del Muro Silva",
+      "title": "Análisis retórico del discurso político: Figuras a través del Twitter en la elección presidencial 2018 en México",
+      "year": 2019,
+      "citationType": "Tesis de maestría",
+      "institution": "Universidad de Guadalajara",
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "overlapsT2CY": false,
+      "programAdjudication": "mef-institutionally-corroborated",
+      "programEvidence": [
+        {
+          "provider": "Editorial Universidad de Guadalajara",
+          "url": "https://editorial.udg.mx/gpd-101-lecciones-de-vida-que-aprendi-en-la-universidad-9786075818610-69388a5d04fc2.html",
+          "kind": "official-udg-author-biography",
+          "note": "Identifica a Mario Damián del Muro Silva como Maestro en Estudios Filosóficos por la UdeG."
+        }
+      ],
+      "mefProgramInstitutionallyConfirmed": true,
+      "mefProgramCandidate": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "decision": "new-mef-thesis-cross-source-corroborated"
+    },
+    {
+      "author": "Jesús Octavio Campos Ramos",
+      "title": "El presupuesto de la unificación del concepto y del ser en Dios en el argumento ontológico de San Anselmo, según Hegel",
+      "year": 2021,
+      "citationType": "Tesis de maestría",
+      "institution": "Universidad de Guadalajara",
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentacion_y_la_redescripcion",
+      "overlapsT2CY": false,
+      "programAdjudication": "program-unresolved",
+      "programEvidence": [
+        {
+          "provider": "Sincronía / Universidad de Guadalajara",
+          "url": "https://revistasincronia.cucsh.udg.mx/index.php/sincronia/article/view/307",
+          "kind": "official-udg-derived-topic-publication",
+          "note": "Confirma identidad autoral y continuidad temática sobre el argumento ontológico; no identifica el programa de maestría."
+        }
+      ],
+      "mefProgramInstitutionallyConfirmed": false,
+      "mefProgramCandidate": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "decision": "new-master-thesis-program-unresolved"
+    }
+  ],
+  "excludedInCourse": [
+    {
+      "author": "Joel Alejandro Franco Ramírez",
+      "title": "La verdad lógica en P. Maddy y C. Peacock",
+      "citationType": "Tesis de maestría",
+      "institution": "Universidad de Guadalajara",
+      "statusInSource": "en curso",
+      "bibliographyEvidenceUrl": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mecanica_cuantica_entre_la_argumentacion_y_la_redescripcion",
+      "decision": "exclude-not-completed"
+    }
+  ],
+  "externalInstitutionalWorkCorroborations": [
+    {
+      "t2cySourceAuthor": "Marcela Castillo",
+      "resolvedName": "Marcela Castillo Villegas",
+      "provider": "Universidad de Caldas",
+      "url": "https://maestriaartes.artesyhumanidades.ucaldas.edu.co/docente/?id=154",
+      "program": "maestría en estudios filosóficos",
+      "institution": "Universidad De Guadalajara",
+      "sourceWorkTitle": "Forma y contenido de los textos filósóficos",
+      "t2cyWorkTitle": "Forma y contenido de los textos filosóficos",
+      "spellingVariantReview": true,
+      "decision": "external-institutional-degree-work-corroborated",
+      "institutionalWorkIdentityConfirmed": false,
+      "note": "Es una ficha institucional externa que une persona + programa + UdeG + trabajo de grado, pero no aporta identificador work-level UdeG."
+    }
+  ],
+  "coverage": {
+    "t2cyInputRecords": 11,
+    "t2czInstitutionalWorkIdentitiesConfirmed": 0,
+    "t2cyInstitutionalBibliographyOverlaps": 6,
+    "t2cyExactBibliographyTitleMatches": 5,
+    "t2cyTitleVariantReviews": 1,
+    "authorAuthoritiesResolved": 1,
+    "discoveredCompletedMasterThesisCitations": 4,
+    "newMefCandidatesInstitutionalProgramConfirmed": 1,
+    "newMefCandidatesNoninstitutionalProgramCorroboration": 1,
+    "newOutsideMefConfirmed": 1,
+    "newProgramUnresolved": 1,
+    "inCourseMasterThesesExcluded": 1,
+    "externalInstitutionalDegreeWorkCorroborations": 1,
+    "thesisSpecificInstitutionalIdentifiersAdded": 0,
+    "institutionalWorkIdentitiesConfirmed": 0,
+    "physicalHoldingsConfirmed": 0,
+    "publicRecordsAdded": 0
+  }
+}
