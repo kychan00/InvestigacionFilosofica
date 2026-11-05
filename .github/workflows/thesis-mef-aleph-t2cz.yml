@@ -5,6 +5,7 @@ on:
     paths:
       - "scripts/thesis/resolve_mef_aleph_t2cz.py"
       - "scripts/thesis/config/mef-supervision-evidence-t2cy.json"
+      - "scripts/thesis/config/mef-aleph-resolution-t2cz-baseline.json"
       - "scripts/thesis/resolve_philosophy_holdings_v1.py"
       - "scripts/thesis/resolve_philosophy_holdings_batches_t2co.py"
       - "scripts/thesis/probe_udg_opac_endpoints_v1.py"
