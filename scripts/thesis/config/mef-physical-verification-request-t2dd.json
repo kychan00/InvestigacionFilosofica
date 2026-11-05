@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "thesis-mef-physical-verification-request-t2dd-v1",
+  "revision": "2026-11-05.t2dd-v1",
+  "referenceOnly": true,
+  "communicationSent": false,
+  "requestPurpose": "Confirmar existencia y localización física/bibliográfica de dos tesis MEF no recuperadas en RIUdeG/OAI ni en el catálogo público completo de maestrías CUCSH.",
+  "evidenceClosure": {
+    "riudgOai": {
+      "phase": "T2DC",
+      "completed": true,
+      "recordsScanned": 27429,
+      "tombstonesScanned": 2,
+      "completeListSize": 27431,
+      "exactMatches": 0
+    },
+    "cucshMasterCatalogue": {
+      "phase": "T2DD",
+      "completed": true,
+      "pagesFetched": 239,
+      "rowsScanned": 2383,
+      "distinctProgramLabels": 48,
+      "philosophyLikeProgramLabels": 0,
+      "exactMatches": 0,
+      "titleOnlyMatches": 0,
+      "authorOnlyMatches": 0
+    }
+  },
+  "contacts": [
+    {
+      "priority": 1,
+      "role": "library-holdings-authority",
+      "institution": "Biblioteca Central Dr. Manuel Rodríguez Lapuente / CUCSH",
+      "responsible": "Mtro. Rodolfo Gutiérrez Zermeño",
+      "position": "Jefe de la Unidad de Biblioteca y Acervos Documentales",
+      "email": "rodolfog@csh.udg.mx",
+      "phone": "(33) 3819 3300",
+      "extensions": [
+        "23576",
+        "23546"
+      ],
+      "address": "Calle Guanajuato No. 1045, Edificio B, Col. La Normal, C.P. 44260, Guadalajara, Jalisco",
+      "sourceUrl": "https://bibliotecas.udg.mx/Red-de-Bibliotecas/Centros-Universitarios-Tematicos/CUCSH/Biblioteca-Central-Dr-Manuel-RodrIguez-Lapuente"
+    },
+    {
+      "priority": 2,
+      "role": "programme-authority",
+      "institution": "Maestría en Estudios Filosóficos / Departamento de Filosofía / CUCSH",
+      "responsible": "Dra. Nalliely Hernández Cornejo",
+      "position": "Coordinadora",
+      "email": "nalliely.hernandez@academicos.udg.mx",
+      "phone": "(33) 3819 3300",
+      "extensions": [
+        "23380"
+      ],
+      "address": "Campus Belenes, Av. José Parres Arias #150, Módulo D, primer piso, San José del Bajío, Zapopan, Jalisco",
+      "sourceUrl": "https://www.cucsh.udg.mx/directorio/division-de-estudios-historicos-y-humanos"
+    }
+  ],
+  "targets": [
+    {
+      "author": "Adriel Manuel Hernández Guzmán",
+      "year": 2011,
+      "program": "Maestría en Estudios Filosóficos",
+      "titles": [
+        "El Estado propuesto por Platón en la República es una utopía",
+        "¿El Estado que propone Platón en la República es una utopía?"
+      ],
+      "programmeEvidenceStatus": "institutionally-confirmed",
+      "fieldsToConfirm": [
+        "exactRegisteredTitle",
+        "registeredAuthorForm",
+        "degreeProgram",
+        "yearOrDefenseDate",
+        "director",
+        "bibliographicRecordId",
+        "callNumberOrShelfmark",
+        "inventoryOrBarcode",
+        "collectionOrSublibrary",
+        "campusOrPhysicalLocation",
+        "physicalFormat",
+        "availabilityStatus",
+        "stablePublicCatalogUrl",
+        "transferOrArchiveDestination"
+      ]
+    },
+    {
+      "author": "Mario Damián Del Muro Silva",
+      "year": 2019,
+      "program": "Maestría en Estudios Filosóficos",
+      "titles": [
+        "Análisis retórico del discurso político: Figuras a través del Twitter en la elección presidencial 2018 en México"
+      ],
+      "programmeEvidenceStatus": "institutionally-confirmed",
+      "fieldsToConfirm": [
+        "exactRegisteredTitle",
+        "registeredAuthorForm",
+        "degreeProgram",
+        "yearOrDefenseDate",
+        "director",
+        "bibliographicRecordId",
+        "callNumberOrShelfmark",
+        "inventoryOrBarcode",
+        "collectionOrSublibrary",
+        "campusOrPhysicalLocation",
+        "physicalFormat",
+        "availabilityStatus",
+        "stablePublicCatalogUrl",
+        "transferOrArchiveDestination"
+      ]
+    }
+  ],
+  "requestConstraints": {
+    "doNotRequestPdf": true,
+    "doNotRequestFullText": true,
+    "doNotRequestCredentials": true,
+    "physicalOrBibliographicMetadataOnly": true,
+    "catalogueAbsenceDoesNotMeanNonexistence": true
+  },
+  "recommendedContactOrder": [
+    "Biblioteca Central Dr. Manuel Rodríguez Lapuente",
+    "Coordinación de la Maestría en Estudios Filosóficos"
+  ]
+}
