@@ -7,6 +7,8 @@ on:
       - "scripts/thesis/recover_cucsh_philosophy_masters_t2cv.py"
       - "scripts/thesis/probe_cucsh_thesis_catalog_v1.py"
       - "scripts/thesis/config/mef-program-resolution-t2db.json"
+      - "scripts/thesis/config/mef-cucsh-master-catalog-t2dd-baseline.json"
+      - "scripts/thesis/config/mef-physical-verification-request-t2dd.json"
       - "tests/test_thesis_cucsh_master_catalog_t2dd.py"
       - "docs/THESIS_CUCSH_MASTER_CATALOG_T2DD.md"
       - ".github/workflows/thesis-cucsh-master-catalog-t2dd.yml"
@@ -55,6 +57,41 @@ jobs:
           assert data["metrics"]["targets"]==2
           assert data["metrics"]["physicalHoldingsConfirmed"]==0
           assert data["metrics"]["publicRecordsAdded"]==0
+
+          baseline=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "mef-cucsh-master-catalog-t2dd-baseline.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert data["scan"]["pagesFetched"] == baseline["scan"]["pagesFetched"] == 239
+          assert data["scan"]["lastPageIndex"] == baseline["scan"]["lastPageIndex"] == 238
+          assert data["scan"]["rowsScanned"] == baseline["scan"]["rowsScanned"] == 2383
+          assert data["scan"]["distinctProgramLabels"] == baseline["scan"]["distinctProgramLabels"] == 48
+          assert data["scan"]["philosophyLikeProgramLabels"] == baseline["scan"]["philosophyLikeProgramLabels"] == {}
+          assert data["metrics"] == baseline["metrics"]
+          assert all(
+              row["status"] == "not-found-in-completed-cucsh-master-catalog"
+              and not row["exactTitleAuthor"]
+              and not row["titleOnly"]
+              and not row["authorOnly"]
+              and row["physicalHoldingConfirmed"] is False
+              for row in data["results"]
+          )
+
+          packet=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "mef-physical-verification-request-t2dd.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert packet["referenceOnly"] is True
+          assert packet["communicationSent"] is False
+          assert packet["requestConstraints"]["doNotRequestPdf"] is True
+          assert packet["requestConstraints"]["doNotRequestFullText"] is True
+          assert packet["requestConstraints"]["physicalOrBibliographicMetadataOnly"] is True
+          assert len(packet["targets"]) == 2
+          assert len(packet["contacts"]) == 2
 
           print(json.dumps({
               "scan": data["scan"],
