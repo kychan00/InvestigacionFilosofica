@@ -1,0 +1,362 @@
+{
+  "schemaVersion": "thesis-mef-supervision-evidence-t2cy-v1",
+  "revision": "2026-11-05.t2cy-v1",
+  "sourcePhase": "T2CX",
+  "programRef": "program:udg:mae-estudios-filosoficos",
+  "programName": "Maestría en Estudios Filosóficos",
+  "sourceScope": {
+    "provider": "Fernando Leal Carretero",
+    "sourceUrl": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+    "section": "Direcciones de tesis y sinodalías — Tesis concluidas",
+    "extractionRule": "Only entries explicitly marked Maestría en Estudios Filosóficos, Universidad de Guadalajara, and presented/approved. Suspended or in-course theses are excluded."
+  },
+  "policy": {
+    "referenceOnly": true,
+    "publicProjectionRequested": false,
+    "canonicalAdmissionMutation": false,
+    "programAuthorityMutation": false,
+    "automaticIdentityMerge": false,
+    "sourceSupervisionEntryDoesNotConfirmInstitutionalWorkIdentity": true,
+    "exactTitleCandidateDoesNotConfirmPhysicalHolding": true,
+    "suspendedThesesExcluded": true
+  },
+  "records": [
+    {
+      "sourceAuthor": "Rómulo Daza y García",
+      "canonicalName": null,
+      "authorIdentityStatus": "variant-review",
+      "canonicalCandidate": "Rómulo Ramírez Daza y García",
+      "exactTitleCandidate": "El dios de Aristóteles, necesidad y suficiencia de su planteamiento en Metafísica XII, principalmente a contraluz de las tres Éticas: Una revisión crítica",
+      "approvalDate": "2009-06-10",
+      "role": "examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Universidad Panamericana / author profile",
+          "url": "https://up-mx.academia.edu/RomuloRamirezDaza/Books",
+          "kind": "author-controlled-academic-profile",
+          "supports": [
+            "graduateIdentityCandidate"
+          ],
+          "note": "El perfil usa el nombre Rómulo Ramírez Daza y García y declara Máster en Filosofía por la Universidad de Guadalajara. No se auto-fusiona con la forma abreviada del CV de Leal."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "author-variant-review"
+    },
+    {
+      "sourceAuthor": "Norbert Charles Schwartz Hernández",
+      "canonicalName": "Norbert Charles Schwartz Hernández",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "Problemas en el estudio de la conciencia: Una comparación entre la perspectiva de Daniel Dennett y John Searle",
+      "approvalDate": "2009-10-14",
+      "role": "examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Marcela Castillo",
+      "canonicalName": "Marcela Castillo",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": "Marcela Castillo Villegas",
+      "exactTitleCandidate": "Forma y contenido de los textos filosóficos",
+      "approvalDate": "2011-04-15",
+      "role": "director",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Universidad de Caldas",
+          "url": "https://maestriaartes.artesyhumanidades.ucaldas.edu.co/docente/?id=154",
+          "kind": "institutional-academic-profile",
+          "supports": [
+            "graduateIdentityCandidate",
+            "exactThesisTitle",
+            "program"
+          ],
+          "note": "El perfil institucional registra Maestría en Estudios Filosóficos, Universidad de Guadalajara, 2007–2011, y el trabajo de grado 'Forma y contenido de los textos filósóficos'. La variante ortográfica se conserva como corroboración, no como sustitución silenciosa."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Mauricio Morales Díaz",
+      "canonicalName": "Mauricio Morales Díaz",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "La distinción entre los fines táctico-militares y los fines estratégico-políticos como determinante de la racionalidad en las decisiones político-militares",
+      "approvalDate": "2011-05-12",
+      "role": "director-and-examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Editorial CUCSH / Universidad de Guadalajara",
+          "url": "https://sige.cucsh.udg.mx/editorial/publicacion/guerra-y-racionalidad-los-fines-de-la-guerra-y-los-fines-de-la-politica",
+          "kind": "official-udg-derived-publication",
+          "supports": [
+            "exactThesisTitle",
+            "projectLineage"
+          ],
+          "note": "La ficha editorial declara que la investigación fue presentada bajo el mismo título; es evidencia institucional de linaje, no un registro bibliográfico de tesis ni holding."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Christian Jhovanny Cervantes Barraza",
+      "canonicalName": "Christian Jhovanny Cervantes Barraza",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "Sobre el papel del diagrama en la demostración de teoremas en geometría plana",
+      "approvalDate": "2011-07-26",
+      "role": "director-and-examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Bibliografía académica de argumentación",
+          "url": "https://www.academia.edu/71551518/El_debate_entre_Einstein_y_Bohr_sobre_la_completud_de_la_mec%C3%A1nica_cu%C3%A1ntica_entre_la_argumentaci%C3%B3n_y_la_redescripci%C3%B3n",
+          "kind": "academic-bibliography",
+          "supports": [
+            "exactThesisTitle",
+            "graduateIdentityCandidate"
+          ],
+          "note": "La bibliografía cita Cervantes Barraza (2011), el mismo título y 'Tesis de maestría, Universidad de Guadalajara'."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Joaquín Galindo Castañeda",
+      "canonicalName": "Joaquín Galindo Castañeda",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "Argumentos transcendentales y lógica modal",
+      "approvalDate": "2013-07-15",
+      "role": "director",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Instituto de Investigaciones Filosóficas UNAM",
+          "url": "https://www.filosoficas.unam.mx/sitio/joaquin-galindo",
+          "kind": "institutional-academic-profile",
+          "supports": [
+            "graduateIdentityCandidate",
+            "thesisTopic"
+          ],
+          "note": "Este registro ya fue adjudicado en T2CX; T2CY lo conserva como solapamiento y no cuenta una alta nueva."
+        }
+      ],
+      "overlapsT2CX": true,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "t2cx-overlap"
+    },
+    {
+      "sourceAuthor": "Guillermo Ortiz Gaxiola",
+      "canonicalName": "Guillermo Ortiz Gaxiola",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": "Manuel Guillermo Ortiz Gaxiola",
+      "exactTitleCandidate": "Virginia Woolf, el fluir de la conciencia y la teoría de la mente",
+      "approvalDate": "2015-05-27",
+      "role": "director-and-examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Asociación Filosófica de México",
+          "url": "https://www.filosofia.org/bol/reu/afm18.htm",
+          "kind": "academic-congress-program",
+          "supports": [
+            "authorVariantCandidate",
+            "topicLineage"
+          ],
+          "note": "El programa de 2016 registra a Manuel Guillermo Ortiz Gaxiola con una ponencia sobre experiencia poética y teoría de la mente. No autoriza auto-fusión del nombre."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Humberto Isaac Puertos Salinas",
+      "canonicalName": "Humberto Isaac Puertos Salinas",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "Jacques Derrida y la expresión “no hay fuera de texto” como “estrategia de lectura” en la “intervención deconstructiva”",
+      "approvalDate": "2017-05-26",
+      "role": "examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Rolando Isaías Rodríguez Lara",
+      "canonicalName": "Rolando Isaías Rodríguez Lara",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "Análisis pragma-dialéctico del “Protágoras”: La unidad de las virtudes y su tratamiento dentro de la tradición anglosajona",
+      "approvalDate": "2017-05-31",
+      "role": "director-and-examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Fernando Leal Carretero / publication record",
+          "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+          "kind": "faculty-cv-publication-lineage",
+          "supports": [
+            "projectLineage"
+          ],
+          "note": "El mismo CV registra una publicación posterior en colaboración sobre la aplicabilidad de la pragma-dialéctica a los diálogos socráticos de Platón; no se convierte esa publicación en la tesis."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Íker Javier Pulido Rodríguez",
+      "canonicalName": "Íker Javier Pulido Rodríguez",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "Análisis de la pregunta:¿es la medicina una ciencia?",
+      "approvalDate": "2019-03-04",
+      "role": "reader-and-examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "Centro Universitario del Norte UdeG",
+          "url": "https://www.cunorte.udg.mx/es/investigacion/ptc/cjyd/iker-javier-pulido-rodriguez",
+          "kind": "official-udg-academic-profile",
+          "supports": [
+            "graduateIdentityCandidate",
+            "program"
+          ],
+          "note": "Confirma Maestría en Estudios Filosóficos y Licenciatura en Filosofía."
+        },
+        {
+          "provider": "Instituto de Investigaciones Filosóficas UNAM / Atocha Aliseda CV",
+          "url": "https://www.filosoficas.unam.mx/~atocha/resources/Aliseda-CVCompleto.pdf",
+          "kind": "institutional-director-cv",
+          "supports": [
+            "exactThesisTitle",
+            "program",
+            "approvalDate"
+          ],
+          "note": "Registra el tema/título 'Análisis de la Pregunta ¿es la medicina una ciencia?', MEF UdeG, examen 4 de marzo de 2019. La puntuación/capitalización varía respecto del CV de Leal."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    },
+    {
+      "sourceAuthor": "Dalila Ayala Castillo",
+      "canonicalName": "Dalila Ayala Castillo",
+      "authorIdentityStatus": "source-exact",
+      "canonicalCandidate": null,
+      "exactTitleCandidate": "Implicaciones éticas en la definición y diagnóstico de muerte encefálica",
+      "approvalDate": "2019-07-08",
+      "role": "reader-and-examiner",
+      "sourceEvidence": {
+        "provider": "Fernando Leal Carretero",
+        "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+        "kind": "faculty-cv-supervision-list"
+      },
+      "corroboration": [
+        {
+          "provider": "FIL Guadalajara / Universidad de Guadalajara",
+          "url": "https://www.fil.com.mx/prog/resultados.asp?e=2026&f=0&ids=0&idsr=13&r=10",
+          "kind": "official-udg-biographical-note",
+          "supports": [
+            "graduateIdentityCandidate",
+            "topicLineage"
+          ],
+          "note": "La biografía la identifica como Maestra y Licenciada en Filosofía por UdeG y menciona investigación sobre definición y diagnóstico de muerte encefálica."
+        },
+        {
+          "provider": "Revista Latinoamericana de Bioética",
+          "url": "https://revistas.umng.edu.co/index.php/rlbi/article/view/5018",
+          "kind": "academic-derived-publication",
+          "supports": [
+            "topicLineage"
+          ],
+          "note": "Publicación posterior sobre redefinición y diagnóstico de muerte; no se usa como sustituto de la tesis."
+        }
+      ],
+      "overlapsT2CX": false,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-candidate"
+    }
+  ],
+  "coverage": {
+    "completedMefEntriesInSource": 11,
+    "overlapWithT2CX": 1,
+    "newNominalCandidates": 10,
+    "exactTitleCandidates": 11,
+    "authorVariantReview": 1,
+    "institutionalWorkIdentitiesConfirmed": 0,
+    "physicalHoldingsConfirmed": 0,
+    "publicRecordsAdded": 0
+  }
+}
