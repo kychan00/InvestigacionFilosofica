@@ -1,0 +1,30 @@
+name: Thesis MEF graduate evidence T2CW
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/mef-graduate-evidence-ledger-t2cw.json"
+      - "scripts/thesis/validate_mef_graduate_evidence_t2cw.py"
+      - "tests/test_thesis_mef_graduate_evidence_t2cw.py"
+      - "docs/THESIS_MEF_GRADUATE_EVIDENCE_T2CW.md"
+      - ".github/workflows/thesis-mef-graduate-evidence-t2cw.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Validate graduate evidence tiers
+        run: |
+          python -m py_compile scripts/thesis/validate_mef_graduate_evidence_t2cw.py
+          python -m unittest tests.test_thesis_mef_graduate_evidence_t2cw -v
+          python scripts/thesis/validate_mef_graduate_evidence_t2cw.py \
+            --input scripts/thesis/config/mef-graduate-evidence-ledger-t2cw.json
