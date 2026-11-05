@@ -1,0 +1,32 @@
+name: Thesis MEF program resolution T2DB
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/mef-program-resolution-t2db.json"
+      - "scripts/thesis/validate_mef_program_resolution_t2db.py"
+      - "scripts/thesis/config/mef-post-aleph-corroboration-t2da.json"
+      - "tests/test_thesis_mef_program_resolution_t2db.py"
+      - "docs/THESIS_MEF_PROGRAM_RESOLUTION_T2DB.md"
+      - ".github/workflows/thesis-mef-program-resolution-t2db.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Validate MEF programme authority resolution
+        run: |
+          python -m py_compile scripts/thesis/validate_mef_program_resolution_t2db.py
+          python -m unittest tests.test_thesis_mef_program_resolution_t2db -v
+          python scripts/thesis/validate_mef_program_resolution_t2db.py \
+            --input scripts/thesis/config/mef-program-resolution-t2db.json \
+            --t2da scripts/thesis/config/mef-post-aleph-corroboration-t2da.json
