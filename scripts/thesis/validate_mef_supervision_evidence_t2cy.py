@@ -26,6 +26,7 @@ ALLOWED_SUPPORTS = {
     "approvalDate",
     "projectLineage",
     "topicLineage",
+    "thesisTopic",
 }
 FORBIDDEN_URL = re.compile(r"(?i)(?:file:|sandbox:|/bitstream/|/download(?:/|$))")
 
