@@ -159,9 +159,16 @@ def scan(
         exact_total += len(exact)
 
         if len(exact) == 1:
-            status = "cucsh-library-catalog-reference-confirmed"
             selected = exact[0]
-            institutional_refs += 1
+            observed_program = norm(selected.get("programRaw"))
+            expected_program = norm(target["program"])
+            if observed_program == expected_program:
+                status = "cucsh-library-catalog-reference-confirmed"
+                institutional_refs += 1
+            elif observed_program:
+                status = "exact-reference-program-conflict-review"
+            else:
+                status = "exact-reference-program-unresolved"
         elif len(exact) > 1:
             status = "ambiguous-multiple-catalog-references"
             selected = None
@@ -176,6 +183,11 @@ def scan(
             "expectedProgram": target["program"],
             "status": status,
             "selectedCatalogReference": selected,
+            "programConflict": bool(
+                selected
+                and norm(selected.get("programRaw"))
+                and norm(selected.get("programRaw")) != norm(target["program"])
+            ),
             "exactTitleAuthor": exact,
             "titleOnly": found["titleOnly"],
             "authorOnly": found["authorOnly"],
