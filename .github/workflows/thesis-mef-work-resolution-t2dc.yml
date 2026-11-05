@@ -1,0 +1,105 @@
+name: Thesis MEF RIUdeG work resolution T2DC
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/scan_riudg_mef_work_ids_t2dc.py"
+      - "scripts/thesis/config/mef-program-resolution-t2db.json"
+      - "scripts/thesis/config/mef-riudg-oai-work-resolution-t2dc-baseline.json"
+      - "scripts/thesis/harvest_real_corpus_v1.py"
+      - "scripts/thesis/build_canonical_corpus_v1.py"
+      - "tests/test_thesis_mef_work_ids_t2dc.py"
+      - "docs/THESIS_MEF_WORK_RESOLUTION_T2DC.md"
+      - ".github/workflows/thesis-mef-work-resolution-t2dc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan-riudg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test work-level identity guards
+        run: |
+          python -m py_compile scripts/thesis/scan_riudg_mef_work_ids_t2dc.py
+          python -m unittest tests.test_thesis_mef_work_ids_t2dc -v
+
+      - name: Scan complete RIUdeG thesis OAI set
+        run: |
+          mkdir -p artifacts/t2dc
+          python scripts/thesis/scan_riudg_mef_work_ids_t2dc.py \
+            --input scripts/thesis/config/mef-program-resolution-t2db.json \
+            --output artifacts/t2dc/mef-riudg-oai-work-resolution-t2dc.json \
+            --max-pages 500 \
+            --delay 0.15
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+
+          path=Path("artifacts/t2dc/mef-riudg-oai-work-resolution-t2dc.json")
+          raw=path.read_text(encoding="utf-8")
+          data=json.loads(raw)
+
+          assert data["schemaVersion"]=="thesis-mef-riudg-oai-work-resolution-t2dc-v1"
+          assert data["referenceOnly"] is True
+          assert data["downloadsThesisFiles"] is False
+          assert data["rawOaiPayloadPersisted"] is False
+          assert data["negativeResultMeansNonexistence"] is False
+          assert data["metrics"]["targets"]==2
+          assert data["metrics"]["physicalHoldingsConfirmed"]==0
+          assert data["metrics"]["publicRecordsAdded"]==0
+          assert data["scan"]["completed"] is True
+          assert (
+              data["scan"]["recordsScanned"] + data["scan"]["tombstonesScanned"]
+              == data["scan"]["completeListSize"]
+          )
+          baseline=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "mef-riudg-oai-work-resolution-t2dc-baseline.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert data["metrics"]["exactTitleAuthorMatches"] == baseline["metrics"]["exactTitleAuthorMatches"] == 0
+          assert data["metrics"]["stableWorkIdentifiersRecovered"] == baseline["metrics"]["stableWorkIdentifiersRecovered"] == 0
+          assert all(
+              row["status"] == "not-found-in-completed-oai-scan"
+              and not row["exactTitleAuthor"]
+              and not row["titleOnly"]
+              and not row["authorOnly"]
+              for row in data["results"]
+          )
+          assert not re.search(
+              r"(?i)(?:bitstream|/download|\.pdf(?:[?\"']|$)|password|cookie|session[-_]?id)",
+              raw,
+          )
+
+          print(json.dumps({
+              "scan": data["scan"],
+              "metrics": data["metrics"],
+              "results": [
+                  {
+                      "author": row["author"],
+                      "status": row["status"],
+                      "exact": len(row["exactTitleAuthor"]),
+                      "titleOnly": len(row["titleOnly"]),
+                      "authorOnly": len(row["authorOnly"]),
+                  }
+                  for row in data["results"]
+              ],
+          }, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload reference-only work resolution
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-mef-riudg-work-resolution-t2dc
+          path: artifacts/t2dc/mef-riudg-oai-work-resolution-t2dc.json
+          if-no-files-found: error
+          retention-days: 14
