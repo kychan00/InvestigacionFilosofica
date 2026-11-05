@@ -7,7 +7,9 @@ import {createReadStream} from "node:fs";
 import {createHash} from "node:crypto";
 import {dirname, join, resolve} from "node:path";
 import {fileURLToPath} from "node:url";
-import {createInterface} from "node:readline";
+import {
+  readJsonLines
+} from "./read-jsonl-v1.mjs";
 import {
   createAuthorAliasAccumulator,
   groupAggregatedAuthorProfiles
@@ -39,19 +41,6 @@ function parseArgs(argv) {
 
 async function readJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
-}
-
-async function* readJsonLines(path) {
-  const input = createReadStream(path, {encoding: "utf8"});
-  const lines = createInterface({
-    input,
-    crlfDelay: Infinity
-  });
-
-  for await (const line of lines) {
-    if (!line.trim()) continue;
-    yield JSON.parse(line);
-  }
 }
 
 async function sha256File(path) {
