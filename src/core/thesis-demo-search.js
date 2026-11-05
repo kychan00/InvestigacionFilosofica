@@ -96,7 +96,7 @@ export function approvedInstitutionalUrl(input) {
       const keys = [...link.searchParams.keys()];
       const values = link.searchParams.getAll("q");
       const q = values.length === 1 ? values[0] : "";
-      const safeDetail = /^content\/[\p{L}\p{N}._~-]+$/u.test(q);
+      const safeDetail = /^content\/[\p{L}\p{N}\p{M}._~¿¡-]+$/u.test(q);
       if (
         keys.length === 1 &&
         keys[0] === "q" &&

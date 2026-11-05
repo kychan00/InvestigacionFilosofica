@@ -109,6 +109,22 @@ test("source links never target PDF downloads or external hosts", () => {
     approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?q=content%2Falexander-von-humboldt-un-ensayo"),
     "https://www.biblioteca.cucsh.udg.mx/?q=content%2Falexander-von-humboldt-un-ensayo",
   );
+  const cucshQuestionMarkUrls = [
+    "https://www.biblioteca.cucsh.udg.mx/?q=content/la-propuesta-de-paradigma-de-la-complejidad-de-la-realidad-de-munn%C3%A9-%C2%BFuna-revoluci%C3%B3n-kuhniana",
+    "https://www.biblioteca.cucsh.udg.mx/?q=content/%C2%BFes-posible-plantear-una-%C3%A9tica-del-consumo-en-una-sociedad-de-consumidores",
+    "https://www.biblioteca.cucsh.udg.mx/?q=content/%C2%BFes-la-moral-cristiana-una-moral-de-esclavos-o-una-moral-de-se%C3%B1ores",
+    "https://www.biblioteca.cucsh.udg.mx/?q=content/la-globalizaci%C3%B3n-fase-superior-de-la-metaf%C3%ADsica-%C2%BFes-el-psicoan%C3%A1lisis-el-heredero-bastardo-de",
+    "https://www.biblioteca.cucsh.udg.mx/?q=content/el-pensamiento-filis%C3%B3fico-de-vasconcelos-%C2%BFde-s%C3%ADntesis-o-de-crisis",
+    "https://www.biblioteca.cucsh.udg.mx/?q=content/%C2%BFpor-qu%C3%A9-la-dial%C3%A9ctica-antigua-no-da-una-respuesta-adecuada-al-movimiento-social",
+    "https://www.biblioteca.cucsh.udg.mx/?q=content/el-encuentro-religioso-mexico-espa%C3%B1a-%C2%BFuna-clave-antropol%C3%B3gica",
+  ];
+  for (const url of cucshQuestionMarkUrls) {
+    assert.equal(approvedInstitutionalUrl(url), url);
+  }
+  assert.equal(
+    approvedInstitutionalUrl("https://www.biblioteca.cucsh.udg.mx/?q=content%2Ffoo%2Fbar"),
+    null,
+  );
   assert.equal(approvedInstitutionalUrl("https://riudg.udg.mx/bitstreams/123"), null);
   assert.equal(approvedInstitutionalUrl("https://riudg.udg.mx/file.pdf"), null);
   assert.equal(approvedInstitutionalUrl("https://not-udg.example/handle/1"), null);
