@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/thesis/scan_riudg_mef_work_ids_t2dc.py"
 T2DB = ROOT / "scripts/thesis/config/mef-program-resolution-t2db.json"
+BASELINE = ROOT / "scripts/thesis/config/mef-riudg-oai-work-resolution-t2dc-baseline.json"
 
 spec = importlib.util.spec_from_file_location("t2dc", SCRIPT)
 mod = importlib.util.module_from_spec(spec)
@@ -35,6 +36,7 @@ def record(title, author, handle=None, program="Maestría en Estudios Filosófic
 class T2DCTests(unittest.TestCase):
     def setUp(self):
         self.t2db = json.loads(T2DB.read_text(encoding="utf-8"))
+        self.baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
 
     def fake_fetcher(self, pages):
         state = {"index": 0}
@@ -203,6 +205,41 @@ class T2DCTests(unittest.TestCase):
         )
         self.assertEqual(out["metrics"]["physicalHoldingsConfirmed"], 0)
         self.assertTrue(all(row["physicalHoldingConfirmed"] is False for row in out["results"]))
+
+    def test_frozen_live_baseline_is_complete_and_safe(self):
+        mod.validate_output(self.baseline)
+        self.assertEqual(self.baseline["provenance"]["workflowRunId"], 42102127791)
+        self.assertEqual(self.baseline["provenance"]["artifactId"], 13449573845)
+        self.assertTrue(self.baseline["scan"]["completed"])
+        self.assertEqual(self.baseline["scan"]["pagesScanned"], 275)
+        self.assertEqual(self.baseline["scan"]["recordsScanned"], 27429)
+        self.assertEqual(self.baseline["scan"]["tombstonesScanned"], 2)
+        self.assertEqual(self.baseline["scan"]["completeListSize"], 27431)
+        self.assertEqual(
+            self.baseline["scan"]["recordsScanned"]
+            + self.baseline["scan"]["tombstonesScanned"],
+            self.baseline["scan"]["completeListSize"],
+        )
+
+    def test_frozen_live_baseline_has_zero_matches_for_both_targets(self):
+        self.assertEqual(self.baseline["metrics"]["exactTitleAuthorMatches"], 0)
+        self.assertEqual(self.baseline["metrics"]["stableWorkIdentifiersRecovered"], 0)
+        self.assertEqual(
+            self.baseline["metrics"]["institutionalWorkIdentitiesConfirmed"],
+            0,
+        )
+        self.assertTrue(
+            all(
+                row["status"] == "not-found-in-completed-oai-scan"
+                and not row["exactTitleAuthor"]
+                and not row["titleOnly"]
+                and not row["authorOnly"]
+                for row in self.baseline["results"]
+            )
+        )
+        self.assertTrue(
+            self.baseline["interpretation"]["resultDoesNotProveThesisNonexistence"]
+        )
 
 
 if __name__ == "__main__":
