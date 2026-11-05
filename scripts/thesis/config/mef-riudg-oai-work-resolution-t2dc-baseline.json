@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "thesis-mef-riudg-oai-work-resolution-t2dc-v1",
+  "revision": "2026-11-05.t2dc-live-baseline-v1",
+  "provenance": {
+    "workflowRunId": 42102127791,
+    "artifactId": 13449573845,
+    "headSha": "3e83e29e7551e8f811452b4f15ec16a206cf4fbd",
+    "artifactDigest": "sha256:6925f92f45f45cbe70e5b46cfe170c044e61f149540ca02b55485abec8a2c72a"
+  },
+  "referenceOnly": true,
+  "canonicalAdmissionMutation": false,
+  "programAuthorityMutation": false,
+  "publicProjectionMutation": false,
+  "downloadsThesisFiles": false,
+  "rawOaiPayloadPersisted": false,
+  "negativeResultMeansNonexistence": false,
+  "source": {
+    "provider": "RIUdeG",
+    "endpoint": "https://riudg.udg.mx/oai/request",
+    "set": "com_20.500.12104_9",
+    "metadataPrefix": "dim"
+  },
+  "scan": {
+    "completeListSize": 27431,
+    "completed": true,
+    "maxPages": 500,
+    "pagesScanned": 275,
+    "recordsScanned": 27429,
+    "tombstonesScanned": 2
+  },
+  "metrics": {
+    "targets": 2,
+    "exactTitleAuthorMatches": 0,
+    "stableWorkIdentifiersRecovered": 0,
+    "institutionalWorkIdentitiesConfirmed": 0,
+    "physicalHoldingsConfirmed": 0,
+    "publicRecordsAdded": 0
+  },
+  "results": [
+    {
+      "author": "Adriel Manuel Hernández Guzmán",
+      "searchedTitles": [
+        "El Estado propuesto por Platón en la República es una utopía",
+        "¿El Estado que propone Platón en la República es una utopía?"
+      ],
+      "mefProgramInstitutionallyConfirmed": true,
+      "status": "not-found-in-completed-oai-scan",
+      "selectedWork": null,
+      "exactTitleAuthor": [],
+      "titleOnly": [],
+      "authorOnly": [],
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false
+    },
+    {
+      "author": "Mario Damián Del Muro Silva",
+      "searchedTitles": [
+        "Análisis retórico del discurso político: Figuras a través del Twitter en la elección presidencial 2018 en México"
+      ],
+      "mefProgramInstitutionallyConfirmed": true,
+      "status": "not-found-in-completed-oai-scan",
+      "selectedWork": null,
+      "exactTitleAuthor": [],
+      "titleOnly": [],
+      "authorOnly": [],
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false
+    }
+  ],
+  "interpretation": {
+    "fullOaiThesisSetExhaustedForKnownForms": true,
+    "zeroExactMatches": true,
+    "zeroTitleOnlyMatches": true,
+    "zeroAuthorOnlyMatches": true,
+    "resultDoesNotProveThesisNonexistence": true,
+    "nextProviderShouldChange": true
+  }
+}
