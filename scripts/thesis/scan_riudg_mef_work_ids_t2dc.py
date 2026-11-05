@@ -12,6 +12,7 @@ import argparse
 import importlib.util
 import json
 import re
+import time
 import unicodedata
 from pathlib import Path
 from typing import Any, Callable
@@ -121,6 +122,7 @@ def scan(
     *,
     page_fetcher: Callable[..., dict[str, Any]] = harvest.riudg_list_records_page,
     max_pages: int = 500,
+    delay_seconds: float = 0.15,
 ) -> dict[str, Any]:
     if t2db.get("schemaVersion") != "thesis-mef-program-resolution-t2db-v1":
         raise ValueError("Unsupported T2DB input")
@@ -177,6 +179,8 @@ def scan(
         if not token:
             completed = True
             break
+        if delay_seconds:
+            time.sleep(delay_seconds)
 
     results = []
     exact_total = 0
@@ -318,10 +322,13 @@ def main() -> int:
     p.add_argument("--input", required=True, type=Path)
     p.add_argument("--output", required=True, type=Path)
     p.add_argument("--max-pages", type=int, default=500)
+    p.add_argument("--delay", type=float, default=0.15)
     args = p.parse_args()
 
     data = json.loads(args.input.read_text(encoding="utf-8"))
-    result = scan(data, max_pages=args.max_pages)
+    if args.delay < 0 or args.delay > 5:
+        raise ValueError("delay must be between 0 and 5 seconds")
+    result = scan(data, max_pages=args.max_pages, delay_seconds=args.delay)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
         json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
