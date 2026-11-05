@@ -1,0 +1,29 @@
+name: Thesis public V1 release T2DF
+
+on:
+  pull_request:
+    paths:
+      - "tesis.html"
+      - "tests/thesis-public-v1-release.test.mjs"
+      - "docs/THESIS_PUBLIC_V1_RELEASE_T2DF.md"
+      - ".github/workflows/thesis-public-v1-release-t2df.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate public V1 identity and thesis contracts
+        run: |
+          node --test \
+            tests/thesis-public-v1-release.test.mjs \
+            tests/thesis-philosophy-contribute.test.mjs \
+            tests/thesis-demo.test.mjs
