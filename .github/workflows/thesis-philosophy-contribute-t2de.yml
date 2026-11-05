@@ -1,0 +1,29 @@
+name: Thesis Philosophy contribution T2DE
+
+on:
+  pull_request:
+    paths:
+      - "tesis.html"
+      - "js/thesis-demo.js"
+      - "css/thesis-demo.css"
+      - "tests/thesis-philosophy-contribute.test.mjs"
+      - "tests/thesis-demo.test.mjs"
+      - "docs/THESIS_PHILOSOPHY_CONTRIBUTE_T2DE.md"
+      - ".github/workflows/thesis-philosophy-contribute-t2de.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate Philosophy contribution UI
+        run: |
+          node --test tests/thesis-philosophy-contribute.test.mjs tests/thesis-demo.test.mjs
