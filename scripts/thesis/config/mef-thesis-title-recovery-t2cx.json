@@ -1,0 +1,301 @@
+{
+  "schemaVersion": "thesis-mef-title-recovery-t2cx-v1",
+  "revision": "2026-11-05.t2cx-v1",
+  "sourceLedgerRevision": "2026-11-04.t2cw-v1",
+  "programRef": "program:udg:mae-estudios-filosoficos",
+  "programName": "Maestría en Estudios Filosóficos",
+  "policy": {
+    "referenceOnly": true,
+    "publicProjectionRequested": false,
+    "canonicalAdmissionMutation": false,
+    "programAuthorityMutation": false,
+    "automaticIdentityMerge": false,
+    "degreeCountCreatesThesisIdentities": false,
+    "exactTitleDoesNotConfirmInstitutionalWorkIdentity": true,
+    "exactTitleDoesNotConfirmPhysicalHolding": true
+  },
+  "records": [
+    {
+      "name": "Ángel Adrián González Delgado",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": 2010,
+      "thesisTopic": "argumentación moral y dilemas éticos en la práctica médica",
+      "exactThesisTitle": "Acercamiento a la Argumentación de Dilemas Morales en la Práctica Médica",
+      "exactTitleEvidence": [
+        {
+          "provider": "Academia.edu",
+          "url": "https://uan.academia.edu/AngelAdrianGd/CurriculumVitae",
+          "kind": "author-controlled-cv",
+          "supports": [
+            "graduateIdentity",
+            "graduationYear",
+            "exactThesisTitle"
+          ]
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "provider": "Quadripartita Ratio / Departamento de Filosofía UdeG",
+          "url": "https://www.quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/64",
+          "kind": "udg-department-derived-publication",
+          "supports": [
+            "projectLineage"
+          ],
+          "note": "La publicación derivada no sustituye el título exacto de tesis del CV."
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-pending-institutional",
+      "reviewNotes": "Título exacto y año recuperados del CV controlado por el autor. Falta una fuente institucional work-level que identifique formalmente la tesis."
+    },
+    {
+      "name": "Joaquín Galindo Castañeda",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": 2013,
+      "thesisTopic": "Argumentos trascendentales y lógicas modales",
+      "exactThesisTitle": "Argumentos transcendentales y lógica modal",
+      "exactTitleEvidence": [
+        {
+          "provider": "Fernando Leal Carretero",
+          "url": "https://www.academia.edu/108518083/CVU_Fernando_Leal_octubre_2023",
+          "kind": "thesis-director-cv",
+          "supports": [
+            "graduationYear",
+            "exactThesisTitle",
+            "thesisDirector"
+          ],
+          "note": "El director registra la tesis con ese título, dentro de la Maestría en Estudios Filosóficos de la UdeG, presentada y aprobada el 15 de julio de 2013."
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "provider": "Instituto de Investigaciones Filosóficas UNAM",
+          "url": "https://www.filosoficas.unam.mx/sitio/joaquin-galindo",
+          "kind": "institutional-academic-profile",
+          "supports": [
+            "graduateIdentity",
+            "thesisTopic",
+            "thesisDirector"
+          ]
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "exact-title-pending-institutional",
+      "reviewNotes": "La fuente del director permite recuperar el título bibliográfico exacto y la fecha de aprobación. La forma temática de UNAM se conserva como corroboración, no como título. Falta identidad work-level institucional UdeG/OPAC/RIUdeG."
+    },
+    {
+      "name": "Cicerón Muro Cabral",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": null,
+      "thesisTopic": null,
+      "exactThesisTitle": null,
+      "exactTitleEvidence": [],
+      "supportingEvidence": [
+        {
+          "provider": "CUCSH Informe 2024",
+          "url": "https://www.cucsh.udg.mx/sites/default/files/2025-03/Informe%202024%20COMPLETO_compressed_0.pdf",
+          "kind": "official-cucsh-annual-report",
+          "supports": [
+            "graduateIdentity"
+          ]
+        },
+        {
+          "provider": "Academia.edu",
+          "url": "https://ucm.academia.edu/Cicer%C3%B3nMuroCabral",
+          "kind": "author-controlled-profile",
+          "supports": [
+            "graduateIdentity",
+            "thesisExistence"
+          ],
+          "note": "El autor declara que su tesis recibió recomendación de publicación; la página no expone el título."
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "graduate-only",
+      "reviewNotes": "Se confirma que existió tesis de maestría y que fue recomendada para publicación, pero el título exacto no está recuperado."
+    },
+    {
+      "name": "Laura Aritmética Jaime",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": null,
+      "thesisTopic": null,
+      "exactThesisTitle": null,
+      "exactTitleEvidence": [],
+      "supportingEvidence": [
+        {
+          "provider": "Editorial Universidad de Guadalajara",
+          "url": "https://publicaciones.udg.mx/simeh/authors/view/id/7265",
+          "kind": "official-udg-author-profile",
+          "supports": [
+            "graduateIdentity"
+          ]
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "graduate-only",
+      "reviewNotes": "No se recuperó título de tesis. No inferirlo a partir de sus publicaciones o líneas de filosofía política."
+    },
+    {
+      "name": "Dinora Hernández López",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": null,
+      "thesisTopic": null,
+      "exactThesisTitle": null,
+      "exactTitleEvidence": [],
+      "supportingEvidence": [
+        {
+          "provider": "CUCSH",
+          "url": "https://www.cucsh.udg.mx/profesores/dinora-hernandez-lopez",
+          "kind": "official-cucsh-professor-profile",
+          "supports": [
+            "graduateIdentity"
+          ]
+        },
+        {
+          "provider": "CUCSH Informe 2022",
+          "url": "https://www.cucsh.udg.mx/sites/default/files/2023-05/cuarto-informe-dr.-juan-manuel-duran-juarez-rector-del-cucsh.pdf",
+          "kind": "official-cucsh-annual-report",
+          "supports": [
+            "publicationCandidate"
+          ],
+          "note": "El informe lista el libro 'Elementos de filosofía moral negativa: violencia, vulnerabilidad y diferencia' bajo la dependencia Maestría en Estudios Filosóficos. No declara que el libro sea la tesis."
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "graduate-only",
+      "reviewNotes": "Existe una publicación institucional vinculada administrativamente a MEF, pero sin declaración de linaje tesis→libro; no se usa como título de tesis."
+    },
+    {
+      "name": "Uriel Nuño Gutiérrez",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": 2013,
+      "thesisTopic": null,
+      "exactThesisTitle": null,
+      "exactTitleEvidence": [],
+      "supportingEvidence": [
+        {
+          "provider": "Centro Universitario del Norte UdeG",
+          "url": "https://www.cunorte.udg.mx/es/oferta-academica/posgrados/ma/nucleo-academico-basico/uriel-nuno-gutierrez",
+          "kind": "official-udg-academic-profile",
+          "supports": [
+            "graduateIdentity",
+            "graduationYear"
+          ]
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "graduate-only",
+      "reviewNotes": "No se recuperó título de tesis."
+    },
+    {
+      "name": "Sofía Gutiérrez Pérez",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": 2009,
+      "thesisTopic": null,
+      "exactThesisTitle": null,
+      "exactTitleEvidence": [],
+      "supportingEvidence": [
+        {
+          "provider": "Centro Universitario del Sur UdeG",
+          "url": "https://www.cusur.udg.mx/es/node/1408",
+          "kind": "official-udg-academic-profile",
+          "supports": [
+            "graduateIdentity",
+            "graduationYear"
+          ]
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "graduate-only",
+      "reviewNotes": "No se recuperó título de tesis."
+    },
+    {
+      "name": "Dorian Hernández Vázquez",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": null,
+      "thesisTopic": null,
+      "exactThesisTitle": null,
+      "exactTitleEvidence": [],
+      "supportingEvidence": [
+        {
+          "provider": "SEMS UdeG / Vaivén",
+          "url": "https://vaiven.sems.udg.mx/el-ingenio-filosofico/",
+          "kind": "official-udg-biographical-note",
+          "supports": [
+            "graduateIdentity"
+          ]
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "graduate-only",
+      "reviewNotes": "No se recuperó título de tesis."
+    },
+    {
+      "name": "María Alejandra Escobar Velázquez",
+      "graduateIdentityConfirmed": true,
+      "graduationYear": null,
+      "thesisTopic": null,
+      "exactThesisTitle": null,
+      "exactTitleEvidence": [],
+      "supportingEvidence": [
+        {
+          "provider": "Revista de Filosofía / SciELO",
+          "url": "https://www.scielo.org.mx/scielo.php?lng=es&nrm=iso&pid=S2954-46022025000200348&script=sci_arttext_plus&tlng=es",
+          "kind": "academic-author-biography",
+          "supports": [
+            "graduateIdentity"
+          ]
+        }
+      ],
+      "institutionalWorkIdentityConfirmed": false,
+      "catalogIdentifier": null,
+      "handle": null,
+      "alephSystemNumber": null,
+      "physicalHoldingConfirmed": false,
+      "decision": "graduate-only",
+      "reviewNotes": "No se recuperó título de tesis; la evidencia de grado sigue siendo académica externa."
+    }
+  ],
+  "coverage": {
+    "controlSchoolDegrees2018_2025": 45,
+    "knownGraduateIdentities": 9,
+    "exactThesisTitlesRecovered": 2,
+    "thesisTopicsWithoutExactTitle": 0,
+    "graduateOnlyWithoutExactTitle": 7,
+    "institutionalWorkIdentitiesConfirmed": 0,
+    "physicalHoldingsConfirmed": 0,
+    "publicRecordsAdded": 0
+  }
+}

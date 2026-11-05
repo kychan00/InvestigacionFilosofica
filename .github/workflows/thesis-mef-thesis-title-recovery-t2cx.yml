@@ -1,0 +1,30 @@
+name: Thesis MEF title recovery T2CX
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/mef-thesis-title-recovery-t2cx.json"
+      - "scripts/thesis/validate_mef_thesis_title_recovery_t2cx.py"
+      - "tests/test_thesis_mef_thesis_title_recovery_t2cx.py"
+      - "docs/THESIS_MEF_THESIS_TITLE_RECOVERY_T2CX.md"
+      - ".github/workflows/thesis-mef-thesis-title-recovery-t2cx.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Validate thesis-title adjudication
+        run: |
+          python -m py_compile scripts/thesis/validate_mef_thesis_title_recovery_t2cx.py
+          python -m unittest tests.test_thesis_mef_thesis_title_recovery_t2cx -v
+          python scripts/thesis/validate_mef_thesis_title_recovery_t2cx.py \
+            --input scripts/thesis/config/mef-thesis-title-recovery-t2cx.json
