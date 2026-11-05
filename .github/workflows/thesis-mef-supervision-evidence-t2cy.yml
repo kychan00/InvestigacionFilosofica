@@ -1,0 +1,31 @@
+name: Thesis MEF supervision evidence T2CY
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/config/mef-supervision-evidence-t2cy.json"
+      - "scripts/thesis/validate_mef_supervision_evidence_t2cy.py"
+      - "tests/test_thesis_mef_supervision_evidence_t2cy.py"
+      - "docs/THESIS_MEF_SUPERVISION_EVIDENCE_T2CY.md"
+      - ".github/workflows/thesis-mef-supervision-evidence-t2cy.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Validate completed MEF supervision ledger
+        run: |
+          python -m py_compile scripts/thesis/validate_mef_supervision_evidence_t2cy.py
+          python -m unittest tests.test_thesis_mef_supervision_evidence_t2cy -v
+          python scripts/thesis/validate_mef_supervision_evidence_t2cy.py \
+            --input scripts/thesis/config/mef-supervision-evidence-t2cy.json \
+            --t2cx scripts/thesis/config/mef-thesis-title-recovery-t2cx.json
