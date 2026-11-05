@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "thesis-mef-cucsh-master-catalog-resolution-t2dd-v1",
+  "revision": "2026-11-05.t2dd-live-baseline-v1",
+  "provenance": {
+    "workflowRunId": 42107024412,
+    "artifactId": 13453091014,
+    "headSha": "a5560406b4412cdd6d863a4b509188466e217f6e",
+    "artifactDigest": "sha256:6656a33ef6ca227c9cab9fc1710a8dc6021a4df0cd27ff2a7ea0cb26dc9a0c8f"
+  },
+  "referenceOnly": true,
+  "rawHtmlPersisted": false,
+  "downloadsThesisFiles": false,
+  "catalogReferenceDoesNotEqualPhysicalHolding": true,
+  "negativeResultMeansNonexistence": false,
+  "source": {
+    "provider": "Biblioteca Central Dr. Manuel Rodríguez Lapuente / CUCSH",
+    "catalogView": "vista-tesis-maestria",
+    "catalogBaseUrls": [
+      "https://www.biblioteca.cucsh.udg.mx/vista-tesis-maestria",
+      "http://www.biblioteca.cucsh.udg.mx/vista-tesis-maestria"
+    ]
+  },
+  "scan": {
+    "completed": true,
+    "pagesFetched": 239,
+    "lastPageIndex": 238,
+    "rowsScanned": 2383,
+    "distinctProgramLabels": 48,
+    "philosophyLikeProgramLabels": {}
+  },
+  "metrics": {
+    "targets": 2,
+    "exactTitleAuthorMatches": 0,
+    "libraryCatalogReferencesConfirmed": 0,
+    "physicalHoldingsConfirmed": 0,
+    "publicRecordsAdded": 0
+  },
+  "results": [
+    {
+      "author": "Adriel Manuel Hernández Guzmán",
+      "searchedTitles": [
+        "El Estado propuesto por Platón en la República es una utopía",
+        "¿El Estado que propone Platón en la República es una utopía?"
+      ],
+      "expectedYear": 2011,
+      "expectedProgram": "Maestría en Estudios Filosóficos",
+      "status": "not-found-in-completed-cucsh-master-catalog",
+      "selectedCatalogReference": null,
+      "programConflict": false,
+      "exactTitleAuthor": [],
+      "titleOnly": [],
+      "authorOnly": [],
+      "libraryCatalogReferenceConfirmed": false,
+      "physicalHoldingConfirmed": false
+    },
+    {
+      "author": "Mario Damián Del Muro Silva",
+      "searchedTitles": [
+        "Análisis retórico del discurso político: Figuras a través del Twitter en la elección presidencial 2018 en México"
+      ],
+      "expectedYear": 2019,
+      "expectedProgram": "Maestría en Estudios Filosóficos",
+      "status": "not-found-in-completed-cucsh-master-catalog",
+      "selectedCatalogReference": null,
+      "programConflict": false,
+      "exactTitleAuthor": [],
+      "titleOnly": [],
+      "authorOnly": [],
+      "libraryCatalogReferenceConfirmed": false,
+      "physicalHoldingConfirmed": false
+    }
+  ],
+  "interpretation": {
+    "completeMasterCatalogueExhaustedForKnownForms": true,
+    "zeroExactMatches": true,
+    "zeroTitleOnlyMatches": true,
+    "zeroAuthorOnlyMatches": true,
+    "zeroPhilosophyProgramLabels": true,
+    "resultDoesNotProveThesisNonexistence": true,
+    "physicalVerificationRequired": true
+  }
+}
