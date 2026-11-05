@@ -113,9 +113,9 @@ def validate(data:dict[str,Any])->dict[str,Any]:
         "levels":dict(sorted(levels.items())),
         "sourceKinds":dict(sorted(source_kinds.items())),
         "controlSchoolDegrees2018_2025":45,
-        "exactThesisTitlesRecovered":exact,
-        "thesisTopicsWithoutExactTitle":topic,
-        "graduateOnlyWithoutThesisIdentity":graduate_only,
+        "exactThesisTitlesRecovered":exact_count,
+        "thesisTopicsWithoutExactTitle":topic_count,
+        "graduateOnlyWithoutThesisIdentity":graduate_only_count,
         "publicRecordsAdded":0,
         "physicalHoldingsAdded":0,
     }
