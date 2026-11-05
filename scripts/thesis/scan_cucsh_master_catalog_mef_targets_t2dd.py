@@ -257,7 +257,10 @@ def validate_output(data: dict[str, Any]) -> None:
     scan_info = data.get("scan") or {}
     if scan_info.get("completed") is not True:
         raise ValueError("T2DD output must come from a completed catalogue scan")
-    if int(scan_info.get("pagesFetched") or 0) != int(scan_info.get("lastPageIndex") or -1) + 1:
+    pages_fetched = int(scan_info.get("pagesFetched") or 0)
+    last_page_raw = scan_info.get("lastPageIndex")
+    last_page = int(last_page_raw) if last_page_raw is not None else -1
+    if pages_fetched != last_page + 1:
         raise ValueError("T2DD pagination mismatch")
     if int(scan_info.get("rowsScanned") or 0) < 1:
         raise ValueError("T2DD must inspect at least one master-catalogue row")
