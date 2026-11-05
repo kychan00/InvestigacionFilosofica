@@ -122,20 +122,103 @@ consultado con las formas bibliográficas conocidas.
 ## Archivos
 
 - `scripts/thesis/scan_riudg_mef_work_ids_t2dc.py`
+- `scripts/thesis/config/mef-riudg-oai-work-resolution-t2dc-baseline.json`
 - `tests/test_thesis_mef_work_ids_t2dc.py`
 - `.github/workflows/thesis-mef-work-resolution-t2dc.yml`
 - este documento.
 
-## Siguiente decisión
+## Resultado vivo verificado
 
-Si aparece un handle exacto:
+La ejecución exhaustiva terminó correctamente en GitHub Actions:
 
-- congelar la evidencia;
-- inspeccionar metadata de programa y unidad;
-- preparar integración work-level en una fase posterior.
+- workflow run: `42102127791`;
+- head: `3e83e29e7551e8f811452b4f15ec16a206cf4fbd`;
+- artifact: `13449573845`;
+- digest:
+  `sha256:6925f92f45f45cbe70e5b46cfe170c044e61f149540ca02b55485abec8a2c72a`.
 
-Si no aparece:
+El OAI reportó:
 
-- congelar el cierre exhaustivo de RIUdeG;
-- pasar a catálogos institucionales alternos/archivo físico;
-- no repetir búsquedas generales del mismo repositorio.
+- `completeListSize`: **27,431**;
+- páginas recorridas: **275**;
+- registros activos inspeccionados: **27,429**;
+- tombstones: **2**;
+- scan completado: **sí**.
+
+La suma de registros activos y tombstones coincide exactamente con el tamaño
+declarado del set.
+
+### Adriel Manuel Hernández Guzmán
+
+Para las dos formas conocidas del título:
+
+- *El Estado propuesto por Platón en la República es una utopía*;
+- *¿El Estado que propone Platón en la República es una utopía?*;
+
+el set completo produjo:
+
+- coincidencias título + autor: **0**;
+- coincidencias sólo por título: **0**;
+- coincidencias sólo por autor: **0**;
+- handles recuperados: **0**.
+
+Estado:
+
+`not-found-in-completed-oai-scan`
+
+### Mario Damián del Muro Silva
+
+Para:
+
+*Análisis retórico del discurso político: Figuras a través del Twitter en la
+elección presidencial 2018 en México*
+
+el set completo produjo:
+
+- coincidencias título + autor: **0**;
+- coincidencias sólo por título: **0**;
+- coincidencias sólo por autor: **0**;
+- handles recuperados: **0**.
+
+Estado:
+
+`not-found-in-completed-oai-scan`
+
+## Interpretación
+
+T2DC cierra de manera exhaustiva **RIUdeG/OAI para las formas bibliográficas
+conocidas** de Mario y Adriel.
+
+Esto es más fuerte que una búsqueda web negativa: se inspeccionaron todos los
+registros activos que el propio set OAI declaró en ese momento.
+
+Sin embargo, el resultado sigue sin demostrar que las tesis no existan. Puede
+significar, entre otras posibilidades:
+
+- que nunca fueron incorporadas a RIUdeG;
+- que sólo existan en acervo físico;
+- que estén registradas en otro catálogo institucional;
+- que la metadata use una identidad bibliográfica todavía desconocida.
+
+El resultado vivo quedó congelado en:
+
+`scripts/thesis/config/mef-riudg-oai-work-resolution-t2dc-baseline.json`
+
+para no depender del artifact temporal.
+
+## Siguiente fase
+
+T2DD debe **cambiar de proveedor**.
+
+Prioridad:
+
+1. Biblioteca CUCSH / Dr. Manuel Rodríguez Lapuente y catálogos físicos;
+2. archivos o listados del programa de Maestría en Estudios Filosóficos;
+3. Control Escolar únicamente como evidencia de egreso, nunca como identidad de
+   tesis;
+4. bibliografías institucionales que puedan aportar signatura, inventario,
+   número de sistema o registro individual;
+5. no repetir RIUdeG ni Aleph para Mario/Adriel salvo que otra fuente entregue
+   un identificador concreto nuevo.
+
+T2DC no modifica Effective Corpus V2, Program Authority ni la vista pública.
