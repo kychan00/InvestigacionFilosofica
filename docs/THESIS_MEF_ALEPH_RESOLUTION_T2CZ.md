@@ -145,20 +145,103 @@ Se rechazan:
 ## Archivos
 
 - `scripts/thesis/resolve_mef_aleph_t2cz.py`
+- `scripts/thesis/config/mef-aleph-resolution-t2cz-baseline.json`
 - `tests/test_thesis_mef_aleph_t2cz.py`
 - `.github/workflows/thesis-mef-aleph-t2cz.yml`
 - este documento.
 
-## Interpretación prevista
+## Resultado vivo verificado
 
-El workflow del PR ejecuta la consulta viva y publica
-`mef-aleph-resolution-t2cz.json` como artifact. El resultado decide la fase
-siguiente:
+La primera ejecución viva de T2CZ terminó correctamente:
 
-- con SYS + programa confirmado: preparar adjudicación/integración;
-- con SYS exacto pero programa ausente: conservar como
-  `exact-work-program-unresolved`;
-- con candidatos discordantes: revisión humana;
-- sin candidatos: mantener T2CY sin degradar su evidencia.
+- workflow run: `42095008520`;
+- head: `c75757cd7ce28e957a0e5766c1e98b6291e125e5`;
+- artifact: `13445819877`;
+- digest:
+  `sha256:c0333f87885d4fdee12d65e7057a64a42a12748b55cedc52ffb49a44c89578d0`.
 
-Cero resultados en Aleph nunca significa cero tesis.
+Métricas observadas:
+
+- input: **11**;
+- resolved: **0**;
+- ambiguous: **0**;
+- unresolved: **11**;
+- `institutionalWorkIdentitiesConfirmed`: **0**;
+- `physicalHoldingsConfirmed`: **0**;
+- `exactWorkProgramUnresolvedCandidates`: **0**;
+- fichas públicas añadidas: **0**.
+
+Por tanto, la consulta exacta en `UDG01` no recuperó ninguna de estas once
+tesis como ficha Aleph adjudicable.
+
+### Falsos positivos por autor
+
+Sólo dos personas devolvieron registros al ampliar la búsqueda por autor.
+
+#### Mauricio Morales Díaz
+
+Aleph devolvió dos SYS:
+
+- `000361121`;
+- `000539900`.
+
+Ambos corresponden a ediciones/registros de:
+
+**Estudios filosóficos: argumentación, epistemología, ontología, ética**
+
+y exponen:
+
+- `Base Lógica: Libros`;
+- título distinto;
+- sin evidencia de que sean la tesis buscada.
+
+Se conservan únicamente como falsos positivos bibliográficos.
+
+#### Íker Javier Pulido Rodríguez
+
+Aleph devolvió:
+
+- SYS `000594609`;
+- título: **El espíritu de Tenamaxtli: narrativa de vida de Alfonso Íñiguez Pérez**;
+- `Base Lógica: Libros`.
+
+El autor coincide, pero la obra es distinta. No se promueve.
+
+### Nueve casos sin candidato Aleph
+
+Las búsquedas exactas no devolvieron candidatos para:
+
+- Rómulo Daza y García;
+- Norbert Charles Schwartz Hernández;
+- Marcela Castillo;
+- Christian Jhovanny Cervantes Barraza;
+- Joaquín Galindo Castañeda;
+- Guillermo Ortiz Gaxiola;
+- Humberto Isaac Puertos Salinas;
+- Rolando Isaías Rodríguez Lara;
+- Dalila Ayala Castillo.
+
+El resultado vivo seguro quedó congelado en:
+
+`scripts/thesis/config/mef-aleph-resolution-t2cz-baseline.json`
+
+para no depender de un artifact temporal.
+
+## Conclusión metodológica
+
+T2CZ refuerza el hallazgo de T2CV/T2CY: la ausencia en el catálogo consultado no
+equivale a ausencia de tesis. Para estas once identidades, Aleph/UDG01 no aporta
+una ficha institucional adjudicable.
+
+La siguiente fase debe cambiar de proveedor, no insistir ciegamente con más
+variantes del mismo OPAC. Las rutas prioritarias son:
+
+1. RIUdeG y metadatos institucionales por autor/título;
+2. catálogos y publicaciones CUCSH que declaren formalmente origen de tesis;
+3. perfiles/directores institucionales con identificación work-level;
+4. acervos físicos/Biblioteca Rodríguez Lapuente sólo cuando exista una pista
+   nominal o bibliográfica verificable.
+
+Los títulos T2CY conservan íntegramente su fuerza como evidencia de tesis
+concluidas; simplemente no obtuvieron todavía Nivel D institucional mediante
+Aleph.
