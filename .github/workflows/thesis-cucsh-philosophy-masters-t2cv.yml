@@ -1,0 +1,119 @@
+name: Thesis CUCSH Philosophy masters recovery T2CV
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/recover_cucsh_philosophy_masters_t2cv.py"
+      - "scripts/thesis/probe_cucsh_thesis_catalog_v1.py"
+      - "scripts/thesis/probe_control_school_degrees_v1.py"
+      - "tests/test_thesis_cucsh_philosophy_masters_t2cv.py"
+      - "tests/test_thesis_cucsh_catalog_recon_v1.py"
+      - "tests/test_thesis_control_school_degrees_v1.py"
+      - "docs/THESIS_CUCSH_PHILOSOPHY_MASTERS_RECOVERY_T2CV.md"
+      - ".github/workflows/thesis-cucsh-philosophy-masters-t2cv.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test recovery and source parsers
+        run: |
+          python -m pip install xlrd==2.0.2
+          python -m py_compile             scripts/thesis/recover_cucsh_philosophy_masters_t2cv.py             scripts/thesis/probe_cucsh_thesis_catalog_v1.py             scripts/thesis/probe_control_school_degrees_v1.py
+          python -m unittest             tests.test_thesis_cucsh_philosophy_masters_t2cv             tests.test_thesis_cucsh_catalog_recon_v1             tests.test_thesis_control_school_degrees_v1 -v
+
+      - name: Rebuild filtered CUCSH catalogue evidence
+        run: |
+          rm -rf artifacts/t2cv
+          mkdir -p artifacts/t2cv
+          python scripts/thesis/probe_cucsh_thesis_catalog_v1.py             --output artifacts/t2cv/filtered-catalog-report.json
+
+      - name: Rebuild Control Escolar degree coverage
+        run: |
+          python scripts/thesis/probe_control_school_degrees_v1.py             --output artifacts/t2cv/control-school-degree-report.json
+
+      - name: Recover Philosophy masters from all unfiltered master pages
+        run: |
+          python scripts/thesis/recover_cucsh_philosophy_masters_t2cv.py             --filtered-catalog-report artifacts/t2cv/filtered-catalog-report.json             --control-school-report artifacts/t2cv/control-school-degree-report.json             --official-supplement scripts/thesis/config/philosophy-official-supplement-v1.json             --curated-config scripts/thesis/config/philosophy-curated-content-v1.json             --output artifacts/t2cv/philosophy-masters-recovery.json             --delay 0.02
+
+      - name: Enforce reference-only recovery contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          root=Path("artifacts/t2cv")
+          data=json.loads((root/"philosophy-masters-recovery.json").read_text(encoding="utf-8"))
+          m=data["metrics"]
+
+          assert data["schemaVersion"]=="thesis-cucsh-philosophy-masters-recovery-v1"
+          assert data["revision"]=="2026-11-04.t2cv-v1"
+          assert data["referenceOnly"] is True
+          assert data["rawHtmlPersisted"] is False
+          assert data["physicalHoldingsClaimed"] is False
+          assert data["degreeCountsCreateThesisIdentities"] is False
+
+          assert m["catalogPagesFetched"] == m["catalogLastPageIndex"] + 1
+          assert m["catalogPagesFetched"] >= 200
+          assert m["allMasterRowsScanned"] >= 2000
+          assert m["controlSchoolDegrees2018_2025"] == 45
+          assert m["knownPublicSeeds"] == 3
+          assert m["currentProgramUnique"] == 0
+          assert m["historicalProgramUnique"] == 0
+          assert m["knownPublicSeedsMatchedInCatalog"] == 0
+          assert m["philosophyLikeProgramLabels"] == 0
+          assert m["philosophyLikeRows"] == 0
+
+          allowed={"biblioteca.cucsh.udg.mx","www.biblioteca.cucsh.udg.mx"}
+          forbidden=(".pdf","/bitstream","/download")
+          for bucket in ("currentProgramRecords","historicalProgramRecords"):
+              for row in data[bucket]:
+                  assert row["programRef"] in {
+                      "program:udg:mae-estudios-filosoficos",
+                      "program:udg:mae-filosofia-historica",
+                  }
+                  if row.get("recordUrl"):
+                      parsed=urlparse(row["recordUrl"])
+                      assert parsed.hostname in allowed
+                      assert not any(token in row["recordUrl"].lower() for token in forbidden)
+
+          assert not list(root.rglob("*.html"))
+          assert not list(root.rglob("*.pdf"))
+
+          print(json.dumps(m,ensure_ascii=False,indent=2,sort_keys=True))
+          print("PHILOSOPHY-LIKE PROGRAM VARIANTS")
+          print(json.dumps(data["philosophyLikeProgramVariants"],ensure_ascii=False,indent=2,sort_keys=True))
+          print("CURRENT")
+          for row in data["currentProgramRecords"]:
+              print(json.dumps({
+                  "title":row["title"],"author":row["author"],"year":row["year"],
+                  "recordUrl":row.get("recordUrl"),
+              },ensure_ascii=False,sort_keys=True))
+          print("HISTORICAL")
+          for row in data["historicalProgramRecords"]:
+              print(json.dumps({
+                  "title":row["title"],"author":row["author"],"year":row["year"],
+                  "recordUrl":row.get("recordUrl"),
+              },ensure_ascii=False,sort_keys=True))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-cucsh-philosophy-masters-t2cv
+          path: |
+            artifacts/t2cv/philosophy-masters-recovery.json
+            artifacts/t2cv/filtered-catalog-report.json
+            artifacts/t2cv/control-school-degree-report.json
+          if-no-files-found: error
+          retention-days: 14
