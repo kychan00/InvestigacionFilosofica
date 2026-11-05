@@ -21,6 +21,7 @@ const sort = document.querySelector("#thesis-sort");
 const clear = document.querySelector("#thesis-clear");
 const scopeButtons = [...document.querySelectorAll("[data-thesis-scope]")];
 const philosophyPanel = document.querySelector("#philosophy-programs");
+const philosophyContribute = document.querySelector("#philosophy-contribute");
 const philosophyProgramList = document.querySelector("#philosophy-program-list");
 const philosophyRoleWrap = document.querySelector("#thesis-philosophy-role-wrap");
 const philosophyRole = document.querySelector("#thesis-philosophy-role");
@@ -335,6 +336,7 @@ function setScope(scope, { updateUrl = true } = {}) {
     button.classList.toggle("td-scope-active", selected);
   }
   philosophyPanel.hidden = !philosophy;
+  philosophyContribute.hidden = !philosophy;
   philosophyRoleWrap.hidden = !philosophy;
   humanitiesMethod.hidden = philosophy;
   philosophyMethod.hidden = !philosophy;
