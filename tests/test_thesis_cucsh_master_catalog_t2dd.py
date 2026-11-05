@@ -234,8 +234,10 @@ class T2DDTests(unittest.TestCase):
             all(
                 row["sourceUrl"].startswith("https://")
                 and "udg.mx" in row["sourceUrl"]
-                and row["email"].endswith("@csh.udg.mx")
-                or row["email"].endswith("@academicos.udg.mx")
+                and (
+                    row["email"].endswith("@csh.udg.mx")
+                    or row["email"].endswith("@academicos.udg.mx")
+                )
                 for row in contacts
             )
         )
