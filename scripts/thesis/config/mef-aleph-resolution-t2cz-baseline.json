@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "thesis-mef-aleph-resolution-t2cz-v1",
+  "revision": "2026-11-05.t2cz-live-baseline-v1",
+  "referenceOnly": true,
+  "canonicalAdmissionMutation": false,
+  "programAuthorityMutation": false,
+  "publicProjectionMutation": false,
+  "sessionUrlsPersisted": false,
+  "rawHtmlPersisted": false,
+  "sourceRevision": "2026-11-05.t2cy-v1",
+  "provenance": {
+    "workflowRunId": 42095008520,
+    "artifactId": 13445819877,
+    "headSha": "c75757cd7ce28e957a0e5766c1e98b6291e125e5",
+    "artifactDigest": "sha256:c0333f87885d4fdee12d65e7057a64a42a12748b55cedc52ffb49a44c89578d0"
+  },
+  "interpretation": {
+    "zeroAlephHitsDoNotMeanZeroTheses": true,
+    "authorHitsDoNotConfirmSameWork": true,
+    "falsePositiveWorksMustRemainRejected": true
+  },
+  "metrics": {
+    "inputRecords": 11,
+    "resolved": 0,
+    "ambiguous": 0,
+    "unresolved": 11,
+    "institutionalWorkIdentitiesConfirmed": 0,
+    "physicalHoldingsConfirmed": 0,
+    "exactWorkProgramUnresolvedCandidates": 0,
+    "publicRecordsAdded": 0
+  },
+  "results": [
+    {
+      "sourceAuthor": "Rómulo Daza y García",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Norbert Charles Schwartz Hernández",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Marcela Castillo",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Mauricio Morales Díaz",
+      "status": "unresolved",
+      "reason": "no-program-confirmed-institutional-identity",
+      "candidateRecordsChecked": 2,
+      "candidates": [
+        {
+          "systemNumber": "000361121",
+          "observedTitle": "Estudios filosóficos : argumentación, epistemología, ontología, ética",
+          "baseLogica": "Libros",
+          "sameWorkConfirmed": false
+        },
+        {
+          "systemNumber": "000539900",
+          "observedTitle": "Estudios filosóficos : argumentación, epistemología, ontología, ética",
+          "baseLogica": "Libros",
+          "sameWorkConfirmed": false
+        }
+      ]
+    },
+    {
+      "sourceAuthor": "Christian Jhovanny Cervantes Barraza",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Joaquín Galindo Castañeda",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Guillermo Ortiz Gaxiola",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Humberto Isaac Puertos Salinas",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Rolando Isaías Rodríguez Lara",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    },
+    {
+      "sourceAuthor": "Íker Javier Pulido Rodríguez",
+      "status": "unresolved",
+      "reason": "no-program-confirmed-institutional-identity",
+      "candidateRecordsChecked": 1,
+      "candidates": [
+        {
+          "systemNumber": "000594609",
+          "observedTitle": "El espíritu de Tenamaxtli : narrativa de vida de Alfonso Íñiguez Pérez",
+          "baseLogica": "Libros",
+          "sameWorkConfirmed": false
+        }
+      ]
+    },
+    {
+      "sourceAuthor": "Dalila Ayala Castillo",
+      "status": "unresolved",
+      "reason": "no-candidates",
+      "candidateRecordsChecked": 0
+    }
+  ]
+}
