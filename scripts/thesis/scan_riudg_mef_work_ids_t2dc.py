@@ -12,13 +12,17 @@ import argparse
 import importlib.util
 import json
 import re
+import sys
 import time
 import unicodedata
 from pathlib import Path
 from typing import Any, Callable
 
 ROOT = Path(__file__).resolve().parents[2]
-HARVEST_PATH = ROOT / "scripts/thesis/harvest_real_corpus_v1.py"
+THESIS_DIR = ROOT / "scripts/thesis"
+HARVEST_PATH = THESIS_DIR / "harvest_real_corpus_v1.py"
+if str(THESIS_DIR) not in sys.path:
+    sys.path.insert(0, str(THESIS_DIR))
 
 spec = importlib.util.spec_from_file_location("t2dc_harvest", HARVEST_PATH)
 harvest = importlib.util.module_from_spec(spec)
