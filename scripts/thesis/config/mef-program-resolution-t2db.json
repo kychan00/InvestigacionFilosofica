@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "thesis-mef-program-resolution-t2db-v1",
+  "revision": "2026-11-05.t2db-v1",
+  "sourcePhase": "T2DA",
+  "programRef": "program:udg:mae-estudios-filosoficos",
+  "programName": "Maestría en Estudios Filosóficos",
+  "policy": {
+    "referenceOnly": true,
+    "publicProjectionRequested": false,
+    "canonicalAdmissionMutation": false,
+    "programAuthorityMutation": false,
+    "automaticIdentityMerge": false,
+    "institutionalProgramEvidenceDoesNotEqualWorkIdentity": true,
+    "noStableWorkIdentifierMeansNoInstitutionalWorkPromotion": true,
+    "negativeRepositorySearchDoesNotProveAbsence": true,
+    "derivedPublicationDoesNotEqualThesis": true
+  },
+  "repositoryContext": {
+    "provider": "RIUdeG / Universidad de Guadalajara",
+    "thesisCollectionUrl": "https://www.riudg.udg.mx/handle/20.500.12104/9",
+    "observedCollectionSize": 27424,
+    "role": "discovery-context-only",
+    "note": "La colección institucional permite búsqueda y navegación de tesis. No recuperar un handle mediante búsqueda pública no demuestra que la tesis no exista."
+  },
+  "priorityCases": [
+    {
+      "author": "Mario Damián Del Muro Silva",
+      "title": "Análisis retórico del discurso político: Figuras a través del Twitter en la elección presidencial 2018 en México",
+      "year": 2019,
+      "thesisCitation": {
+        "status": "institutional-bibliography-corroborated",
+        "institution": "Universidad de Guadalajara",
+        "citationType": "Tesis de maestría",
+        "sourcePhase": "T2DA"
+      },
+      "programEvidence": [
+        {
+          "provider": "Redes Universitarias / Universidad de Guadalajara",
+          "url": "https://publicaciones.udg.mx/simeh/authors/view/id/9831",
+          "kind": "official-udg-author-profile",
+          "statement": "Maestro en Estudios Filosóficos por la UdeG"
+        },
+        {
+          "provider": "Editorial Universidad de Guadalajara",
+          "url": "https://editorial.udg.mx/gpd-101-lecciones-de-vida-que-aprendi-en-la-universidad-9786075818610-69388a5d04fc2.html",
+          "kind": "official-udg-book-author-biography",
+          "statement": "Maestro en Estudios Filosóficos por la UdeG"
+        }
+      ],
+      "mefProgramInstitutionallyConfirmed": true,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "workLevelSearchOutcome": "no-stable-work-level-identifier-recovered",
+      "decision": "mef-program-confirmed-work-id-unresolved"
+    },
+    {
+      "author": "Adriel Manuel Hernández Guzmán",
+      "title": "El Estado propuesto por Platón en la República es una utopía",
+      "titleVariant": "¿El Estado que propone Platón en la República es una utopía?",
+      "year": 2011,
+      "thesisCitation": {
+        "status": "institutional-bibliography-corroborated",
+        "institution": "Universidad de Guadalajara",
+        "citationType": "Tesis de maestría",
+        "sourcePhase": "T2DA"
+      },
+      "programEvidence": [
+        {
+          "provider": "Redes Universitarias / Universidad de Guadalajara",
+          "url": "https://publicaciones.udg.mx/catalog/product/view/id/3969/s/gpd-rumbo-de-las-humanidades-9786075711027/",
+          "kind": "official-udg-book-author-biography",
+          "statement": "Doctor en Humanidades, Maestro en Estudios filosóficos y Licenciado en Filosofía"
+        }
+      ],
+      "authorControlledSupport": [
+        {
+          "provider": "Adriel Manuel Hernández Guzmán / Academia.edu",
+          "url": "https://guadalajara.academia.edu/AdrielManuelHern%C3%A1ndezGuzm%C3%A1n",
+          "kind": "author-controlled-thesis-profile",
+          "note": "Declara Maestría en Estudios Filosóficos UdeG y expone la tesis como capítulo/tesis de maestría. Se conserva como apoyo, no como base de la promoción institucional de programa."
+        }
+      ],
+      "mefProgramInstitutionallyConfirmed": true,
+      "upgradedFromT2DA": "mef-author-controlled-corroboration",
+      "titleVariantReview": true,
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "workLevelSearchOutcome": "no-stable-work-level-identifier-recovered",
+      "decision": "mef-program-upgraded-institutional-work-id-unresolved"
+    },
+    {
+      "author": "Jesús Octavio Campos Ramos",
+      "title": "El presupuesto de la unificación del concepto y del ser en Dios en el argumento ontológico de San Anselmo, según Hegel",
+      "year": 2021,
+      "thesisCitation": {
+        "status": "institutional-bibliography-corroborated",
+        "institution": "Universidad de Guadalajara",
+        "citationType": "Tesis de maestría",
+        "sourcePhase": "T2DA"
+      },
+      "evidence": [
+        {
+          "provider": "Sincronía / CUCSH Universidad de Guadalajara",
+          "url": "https://revistasincronia.cucsh.udg.mx/index.php/sincronia/article/view/307",
+          "kind": "official-udg-derived-topic-publication",
+          "note": "Confirma identidad autoral y una línea temática directamente relacionada con el argumento ontológico, pero no declara el programa de la maestría."
+        },
+        {
+          "provider": "ORCID",
+          "url": "https://orcid.org/0009-0001-1220-6765",
+          "kind": "author-identifier",
+          "note": "Identificador autoral; no constituye evidencia de programa por sí mismo."
+        }
+      ],
+      "mefProgramInstitutionallyConfirmed": false,
+      "programStatus": "unresolved",
+      "thesisSpecificHandle": null,
+      "alephSystemNumber": null,
+      "institutionalWorkIdentityConfirmed": false,
+      "physicalHoldingConfirmed": false,
+      "workLevelSearchOutcome": "no-stable-work-level-identifier-recovered",
+      "decision": "master-thesis-program-still-unresolved"
+    }
+  ],
+  "titleVariantAdjudications": [
+    {
+      "author": "Adriel Manuel Hernández Guzmán",
+      "bibliographyForm": "El Estado propuesto por Platón en la República es una utopía",
+      "authorControlledForm": "¿El Estado que propone Platón en la República es una utopía?",
+      "sameWorkConfirmed": false,
+      "decision": "preserve-both-forms-until-work-level-source"
+    }
+  ],
+  "workLevelSearchClosure": {
+    "providerFamiliesChecked": [
+      "RIUdeG public indexing",
+      "Universidad de Guadalajara editorial/author profiles",
+      "CUCSH public indexing"
+    ],
+    "exactStableIdentifiersRecovered": 0,
+    "thesisHandlesRecovered": 0,
+    "alephSystemNumbersRecovered": 0,
+    "interpretation": "No stable thesis-level identifier was recovered for Mario, Adriel or Jesús. This is a search outcome, not evidence of nonexistence."
+  },
+  "coverage": {
+    "priorityCases": 3,
+    "mefProgramsInstitutionallyConfirmed": 2,
+    "programsUpgradedFromNoninstitutionalToInstitutional": 1,
+    "programsStillUnresolved": 1,
+    "thesisSpecificInstitutionalIdentifiersAdded": 0,
+    "institutionalWorkIdentitiesConfirmed": 0,
+    "physicalHoldingsConfirmed": 0,
+    "publicRecordsAdded": 0
+  }
+}
