@@ -1,0 +1,75 @@
+name: Thesis MEF Aleph resolution T2CZ
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/resolve_mef_aleph_t2cz.py"
+      - "scripts/thesis/config/mef-supervision-evidence-t2cy.json"
+      - "scripts/thesis/config/mef-aleph-resolution-t2cz-baseline.json"
+      - "scripts/thesis/resolve_philosophy_holdings_v1.py"
+      - "scripts/thesis/resolve_philosophy_holdings_batches_t2co.py"
+      - "scripts/thesis/probe_udg_opac_endpoints_v1.py"
+      - "tests/test_thesis_mef_aleph_t2cz.py"
+      - "docs/THESIS_MEF_ALEPH_RESOLUTION_T2CZ.md"
+      - ".github/workflows/thesis-mef-aleph-t2cz.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resolve-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test strict MEF adjudication
+        run: |
+          python -m py_compile scripts/thesis/resolve_mef_aleph_t2cz.py
+          python -m unittest \
+            tests.test_thesis_mef_aleph_t2cz \
+            tests.test_thesis_philosophy_holdings_resolver_v1 \
+            tests.test_thesis_udg_opac_endpoints_v1 -v
+
+      - name: Resolve eleven T2CY identities against live Aleph
+        run: |
+          mkdir -p artifacts/t2cz
+          python scripts/thesis/resolve_mef_aleph_t2cz.py \
+            --input scripts/thesis/config/mef-supervision-evidence-t2cy.json \
+            --output artifacts/t2cz/mef-aleph-resolution-t2cz.json
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          path=Path("artifacts/t2cz/mef-aleph-resolution-t2cz.json")
+          raw=path.read_text(encoding="utf-8")
+          data=json.loads(raw)
+          assert data["schemaVersion"]=="thesis-mef-aleph-resolution-t2cz-v1"
+          assert data["referenceOnly"] is True
+          assert data["canonicalAdmissionMutation"] is False
+          assert data["programAuthorityMutation"] is False
+          assert data["publicProjectionMutation"] is False
+          assert data["sessionUrlsPersisted"] is False
+          assert data["rawHtmlPersisted"] is False
+          assert data["metrics"]["inputRecords"]==11
+          assert data["metrics"]["publicRecordsAdded"]==0
+          assert not re.search(r"/F/[^\\s\\\"\']+|(?i:session[-_]?id|cookie|password|bitstream|\\.pdf)",raw)
+          assert not list(Path("artifacts/t2cz").rglob("*.pdf"))
+          print(json.dumps(data["metrics"],sort_keys=True))
+          for number,row in enumerate(data["results"]):
+              print("t2cz",number,row["status"],row.get("reason"),
+                    "checked",row.get("candidateRecordsChecked",0),
+                    "attempts",[(a["code"],a["adjacent"],a["status"],a.get("candidateCount"))
+                                for a in row.get("attempts",[])])
+          PY
+
+      - name: Upload reference-only Aleph adjudication
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-mef-aleph-t2cz-${{ github.event_name }}
+          path: artifacts/t2cz/mef-aleph-resolution-t2cz.json
+          if-no-files-found: error
+          retention-days: 14
