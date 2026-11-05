@@ -38,9 +38,9 @@ def validate(data:dict[str,Any])->dict[str,Any]:
 
     names=set()
     levels=Counter()
-    exact=0
-    topic=0
-    graduate_only=0
+    exact_count=0
+    topic_count=0
+    graduate_only_count=0
     source_kinds=Counter()
 
     for row in data.get("records") or []:
@@ -69,15 +69,15 @@ def validate(data:dict[str,Any])->dict[str,Any]:
         if level=="thesis-title-confirmed":
             if not title or status!="exact-from-author-cv":
                 raise ValueError("Exact-title level requires exact thesis title")
-            exact+=1
+            exact_count+=1
         elif level=="thesis-topic-confirmed":
             if title or not topic or status!="not-recovered":
                 raise ValueError("Topic-only level cannot invent an exact title")
-            topic+=1
+            topic_count+=1
         else:
             if title or topic or status!="not-recovered":
                 raise ValueError("Graduate-only record cannot imply thesis identity")
-            graduate_only+=1
+            graduate_only_count+=1
 
         evidence=row.get("evidence") or []
         if not evidence:
@@ -101,9 +101,9 @@ def validate(data:dict[str,Any])->dict[str,Any]:
     expected={
         "controlSchoolDegrees2018_2025":45,
         "knownGraduateIdentities":len(names),
-        "exactThesisTitlesRecovered":exact,
-        "thesisTopicsWithoutExactTitle":topic,
-        "graduateOnlyWithoutThesisIdentity":graduate_only,
+        "exactThesisTitlesRecovered":exact_count,
+        "thesisTopicsWithoutExactTitle":topic_count,
+        "graduateOnlyWithoutThesisIdentity":graduate_only_count,
     }
     if coverage!=expected:
         raise ValueError(f"Coverage ledger mismatch: expected {expected}, got {coverage}")
