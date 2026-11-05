@@ -1,0 +1,119 @@
+name: Thesis CUCSH master catalog T2DD
+
+on:
+  pull_request:
+    paths:
+      - "scripts/thesis/scan_cucsh_master_catalog_mef_targets_t2dd.py"
+      - "scripts/thesis/recover_cucsh_philosophy_masters_t2cv.py"
+      - "scripts/thesis/probe_cucsh_thesis_catalog_v1.py"
+      - "scripts/thesis/config/mef-program-resolution-t2db.json"
+      - "scripts/thesis/config/mef-cucsh-master-catalog-t2dd-baseline.json"
+      - "scripts/thesis/config/mef-physical-verification-request-t2dd.json"
+      - "tests/test_thesis_cucsh_master_catalog_t2dd.py"
+      - "docs/THESIS_CUCSH_MASTER_CATALOG_T2DD.md"
+      - ".github/workflows/thesis-cucsh-master-catalog-t2dd.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan-cucsh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Test CUCSH catalogue guards
+        run: |
+          python -m py_compile scripts/thesis/scan_cucsh_master_catalog_mef_targets_t2dd.py
+          python -m unittest tests.test_thesis_cucsh_master_catalog_t2dd -v
+
+      - name: Scan complete CUCSH master catalogue
+        run: |
+          mkdir -p artifacts/t2dd
+          python scripts/thesis/scan_cucsh_master_catalog_mef_targets_t2dd.py \
+            --input scripts/thesis/config/mef-program-resolution-t2db.json \
+            --output artifacts/t2dd/mef-cucsh-master-catalog-resolution-t2dd.json \
+            --delay 0.03 \
+            --max-pages 320
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path=Path("artifacts/t2dd/mef-cucsh-master-catalog-resolution-t2dd.json")
+          data=json.loads(path.read_text(encoding="utf-8"))
+
+          assert data["schemaVersion"]=="thesis-mef-cucsh-master-catalog-resolution-t2dd-v1"
+          assert data["referenceOnly"] is True
+          assert data["rawHtmlPersisted"] is False
+          assert data["downloadsThesisFiles"] is False
+          assert data["catalogReferenceDoesNotEqualPhysicalHolding"] is True
+          assert data["negativeResultMeansNonexistence"] is False
+          assert data["scan"]["completed"] is True
+          assert data["metrics"]["targets"]==2
+          assert data["metrics"]["physicalHoldingsConfirmed"]==0
+          assert data["metrics"]["publicRecordsAdded"]==0
+
+          baseline=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "mef-cucsh-master-catalog-t2dd-baseline.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert data["scan"]["pagesFetched"] == baseline["scan"]["pagesFetched"] == 239
+          assert data["scan"]["lastPageIndex"] == baseline["scan"]["lastPageIndex"] == 238
+          assert data["scan"]["rowsScanned"] == baseline["scan"]["rowsScanned"] == 2383
+          assert data["scan"]["distinctProgramLabels"] == baseline["scan"]["distinctProgramLabels"] == 48
+          assert data["scan"]["philosophyLikeProgramLabels"] == baseline["scan"]["philosophyLikeProgramLabels"] == {}
+          assert data["metrics"] == baseline["metrics"]
+          assert all(
+              row["status"] == "not-found-in-completed-cucsh-master-catalog"
+              and not row["exactTitleAuthor"]
+              and not row["titleOnly"]
+              and not row["authorOnly"]
+              and row["physicalHoldingConfirmed"] is False
+              for row in data["results"]
+          )
+
+          packet=json.loads(
+              Path(
+                  "scripts/thesis/config/"
+                  "mef-physical-verification-request-t2dd.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert packet["referenceOnly"] is True
+          assert packet["communicationSent"] is False
+          assert packet["requestConstraints"]["doNotRequestPdf"] is True
+          assert packet["requestConstraints"]["doNotRequestFullText"] is True
+          assert packet["requestConstraints"]["physicalOrBibliographicMetadataOnly"] is True
+          assert len(packet["targets"]) == 2
+          assert len(packet["contacts"]) == 2
+
+          print(json.dumps({
+              "scan": data["scan"],
+              "metrics": data["metrics"],
+              "results": [
+                  {
+                      "author": row["author"],
+                      "status": row["status"],
+                      "programConflict": row["programConflict"],
+                      "exact": len(row["exactTitleAuthor"]),
+                      "titleOnly": len(row["titleOnly"]),
+                      "authorOnly": len(row["authorOnly"]),
+                  }
+                  for row in data["results"]
+              ],
+          }, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload reference-only CUCSH catalogue resolution
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-cucsh-master-catalog-t2dd
+          path: artifacts/t2dd/mef-cucsh-master-catalog-resolution-t2dd.json
+          if-no-files-found: error
+          retention-days: 14
