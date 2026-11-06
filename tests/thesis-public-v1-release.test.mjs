@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../tesis.html", import.meta.url), "utf8");
+const thesisJs = readFileSync(new URL("../js/thesis-demo.js", import.meta.url), "utf8");
 
 test("public thesis page declares Version 1.0 in visible release surfaces", () => {
   assert.match(html, /<title>Tesis UdeG · Versión 1\.0 · Investigación Filosófica<\/title>/);
@@ -34,4 +35,10 @@ test("V1 release identity remains reference-only", () => {
   assert.match(html, /0 PDF alojados/);
   assert.match(html, /El PDF nunca se aloja aquí/);
   assert.doesNotMatch(html, /<input[^>]+type="file"/i);
+});
+
+
+test("V1.0.1 cache-bust forces browsers to load the fixed thesis validator", () => {
+  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261105-v101/);
+  assert.match(thesisJs, /thesis-demo-search\.js\?v=20261105-v101/);
 });
