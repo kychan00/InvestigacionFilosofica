@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "research-atlas-product-gate-v1",
+  "revision": "2026-11-07.ra8-v1",
+  "cases": [
+    {
+      "id": "small",
+      "query": "libertad en Kant",
+      "resultCount": 5
+    },
+    {
+      "id": "medium",
+      "query": "estética y aura en Walter Benjamin",
+      "resultCount": 20
+    },
+    {
+      "id": "large",
+      "query": "lógica y ontología en Quine",
+      "resultCount": 50
+    }
+  ],
+  "samplesPerCase": 25,
+  "thresholds": {
+    "coreP95Ms": {
+      "small": 35,
+      "medium": 75,
+      "large": 160
+    },
+    "serializedSnapshotBytes": {
+      "large": 350000
+    },
+    "lexicalEdges": {
+      "largeMax": 36
+    },
+    "browser": {
+      "timeToRenderedAtlasMs": 1800,
+      "minimumStageWidthPx": 250,
+      "maximumHorizontalOverflowPx": 2,
+      "minimumTapTargetPx": 44
+    }
+  }
+}
