@@ -443,6 +443,30 @@ jobs:
           console.log("Editorial UdeG public corpus verified:", data.counts);
           NODE
 
+      - name: Verify public Universidad de Guanajuato philosophy corpus
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import { readFileSync } from "node:fs";
+          import { validateUgtoPhilosophyIndex } from "./src/core/ugto-philosophy-search.js";
+
+          const path = "_site/data/theses/ugto-philosophy-v1/index.json";
+          const payload = JSON.parse(readFileSync(path, "utf8"));
+          const data = validateUgtoPhilosophyIndex(payload);
+
+          assert.equal(data.records.length, 59);
+          assert.equal(data.counts.licenciatura, 14);
+          assert.equal(data.counts.maestria, 35);
+          assert.equal(data.counts.doctorado, 10);
+          assert.equal(data.separateResearchWorks.records, 3);
+          assert.equal(data.separateResearchWorks.countedAsTheses, false);
+          assert.equal(data.referenceOnly, true);
+          assert.equal(data.pdfCopies, 0);
+          assert.ok(readFileSync("_site/tesis.html", "utf8").includes('data-thesis-institution="ugto"'));
+
+          console.log("UG Filosofía public corpus verified:", data.counts);
+          NODE
+
       - name: Build experimental 2D thesis Atlas from verified V2
         run: |
           rm -rf _site/data/theses/atlas-v1

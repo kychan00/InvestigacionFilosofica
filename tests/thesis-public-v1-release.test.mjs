@@ -5,12 +5,14 @@ import { readFileSync } from "node:fs";
 const html = readFileSync(new URL("../tesis.html", import.meta.url), "utf8");
 const thesisJs = readFileSync(new URL("../js/thesis-demo.js", import.meta.url), "utf8");
 
-test("public thesis page declares Version 1.0 in visible release surfaces", () => {
-  assert.match(html, /<title>Tesis UdeG · Versión 1\.0 · Investigación Filosófica<\/title>/);
+test("public thesis page keeps V1 release language while using the national Tesis identity", () => {
+  assert.match(html, /<title>Tesis · Investigación Filosófica<\/title>/);
+  assert.match(html, />Tesis<\/a>/);
+  assert.doesNotMatch(html, />Tesis UdeG<\/a>/);
   assert.match(html, /VERSIÓN PÚBLICA 1\.0 · NOVIEMBRE 2026/);
   assert.match(html, /VERSIÓN PÚBLICA 1\.0<br>/);
   assert.match(html, /Esta primera versión pública consulta el/);
-  assert.match(html, /Tesis UdeG · Versión pública 1\.0 · Noviembre de 2026/);
+  assert.match(html, /Tesis · Archivo universitario en expansión · Noviembre de 2026/);
 });
 
 test("legacy demo language is absent from visible copy", () => {
@@ -38,11 +40,12 @@ test("V1 release identity remains reference-only", () => {
 });
 
 
-test("T2DG cache-bust loads the integrated thesis + Editorial UdeG runtime", () => {
-  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261107-t2dg/);
-  assert.match(html, /\.\/css\/thesis-demo\.css\?v=20261107-t2dg/);
+test("T2DH cache-bust loads the multi-institution thesis runtime", () => {
+  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261107-t2dh/);
+  assert.match(html, /\.\/css\/thesis-demo\.css\?v=20261107-t2dh/);
   assert.match(thesisJs, /thesis-demo-search\.js\?v=20261105-v101/);
   assert.match(thesisJs, /editorial-udg-search\.js\?v=20261107-t2dg/);
+  assert.match(thesisJs, /ugto-philosophy-search\.js\?v=20261107-t2dh/);
 });
 
 test("public page exposes Editorial UdeG as a third bibliographic territory without calling it a thesis corpus", () => {
@@ -53,6 +56,17 @@ test("public page exposes Editorial UdeG as a third bibliographic territory with
   assert.match(html, /24<\/strong><span>categoría oficial Filosofía/);
   assert.match(html, /9<\/strong><span>relación filosófica verificada/);
   assert.match(html, /id="thesis-method-editorial"/);
-  assert.match(thesisJs, /activeScope === "editorial"/);
+  assert.match(thesisJs, /isUdgEditorial\(\)/);
   assert.match(thesisJs, /validateEditorialUdgIndex/);
+});
+
+test("T2DH separates institution from collection and exposes Universidad de Guanajuato", () => {
+  assert.match(html, /INSTITUCIÓN/);
+  assert.match(html, /data-thesis-institution="udg"/);
+  assert.match(html, /data-thesis-institution="ugto"/);
+  assert.match(html, /Universidad de Guanajuato/);
+  assert.match(html, /id="thesis-scope-ugto-philosophy-count"/);
+  assert.match(html, /id="thesis-method-ugto"/);
+  assert.match(thesisJs, /institution=ugto|params\.set\("institution", "ugto"\)/);
+  assert.match(thesisJs, /validateUgtoPhilosophyIndex/);
 });

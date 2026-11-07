@@ -465,3 +465,17 @@ html[data-theme="dark"] .td-result-editorial .td-result-type {
   }
   .td-editorial-stats > div:last-child { border-bottom: 0; }
 }
+
+
+/* T2DH · National thesis architecture: institution → collection */
+.td-institution-switch {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+[data-thesis-institution-scope="ugto"] {
+  grid-column: 1 / -1;
+}
+@media (max-width: 620px) {
+  .td-institution-switch {
+    grid-template-columns: 1fr;
+  }
+}
