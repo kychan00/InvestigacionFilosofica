@@ -371,3 +371,97 @@ html[data-theme="dark"] .td-protest-kicker { color: #fddc69; }
   .td-philosophy-contribute { padding: 20px; }
   .td-protest-note { padding: 20px; }
 }
+
+
+/* T2DG · Editorial UdeG philosophical corpus */
+.td-scope-switch {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.td-editorial-intro {
+  margin: 30px 0 0;
+  padding: 30px;
+  border: 1px solid var(--td-border);
+  border-top: 3px solid var(--td-blue);
+  background: var(--td-surface);
+}
+.td-editorial-intro-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr);
+  gap: 28px;
+  align-items: end;
+}
+.td-editorial-intro h2 {
+  max-width: 820px;
+  margin: 0 0 12px;
+  font: 400 clamp(25px, 3vw, 38px)/1.16 Georgia, serif;
+  letter-spacing: -.035em;
+}
+.td-editorial-intro-copy > p:not(.td-section-label) {
+  margin: 0;
+  color: var(--td-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.td-editorial-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 26px;
+  border: 1px solid var(--td-border);
+  background: var(--td-surface-soft);
+}
+.td-editorial-stats > div {
+  min-width: 0;
+  padding: 18px;
+  border-right: 1px solid var(--td-border);
+}
+.td-editorial-stats > div:last-child { border-right: 0; }
+.td-editorial-stats strong {
+  display: block;
+  font-size: clamp(22px, 2.5vw, 31px);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+.td-editorial-stats span {
+  display: block;
+  margin-top: 7px;
+  color: var(--td-muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+.td-editorial-note {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--td-blue);
+  background: var(--td-surface-soft);
+  color: var(--td-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.td-editorial-note strong { color: var(--td-ink); }
+.td-result-editorial {
+  border-left-color: #8a3ffc;
+}
+.td-result-editorial .td-result-type {
+  color: #6929c4;
+}
+html[data-theme="dark"] .td-result-editorial .td-result-type {
+  color: #d4bbff;
+}
+
+@media (max-width: 860px) {
+  .td-editorial-intro-copy { grid-template-columns: 1fr; }
+  .td-editorial-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .td-editorial-stats > div:nth-child(2) { border-right: 0; }
+  .td-editorial-stats > div:nth-child(-n+2) { border-bottom: 1px solid var(--td-border); }
+}
+@media (max-width: 620px) {
+  .td-scope-switch { grid-template-columns: 1fr; }
+  .td-editorial-intro { padding: 20px; }
+  .td-editorial-stats { grid-template-columns: 1fr; }
+  .td-editorial-stats > div,
+  .td-editorial-stats > div:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--td-border);
+  }
+  .td-editorial-stats > div:last-child { border-bottom: 0; }
+}
