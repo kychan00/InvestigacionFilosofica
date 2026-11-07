@@ -2485,6 +2485,103 @@ new MutationObserver(
 
 
 async function boot() {
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  if (
+    params.get(
+      "benchmark"
+    ) ===
+    "1"
+  ) {
+    const started =
+      performance.now();
+
+    const fixtureResponse =
+      await fetch(
+        "./artifacts/research-atlas-ra8/product-gate-fixture.json",
+        {
+          cache:
+            "no-store"
+        }
+      );
+
+    if (
+      !fixtureResponse.ok
+    ) {
+      throw new Error(
+        "No se pudo cargar el fixture de benchmark RA8."
+      );
+    }
+
+    const fixture =
+      await fixtureResponse
+        .json();
+
+    liveQuery.value =
+      fixture.response
+        ?.query ||
+      "benchmark RA8";
+
+    liveSearchForm
+      .querySelectorAll(
+        "input, select, button"
+      )
+      .forEach(
+        control => {
+          control.disabled =
+            true;
+        }
+      );
+
+    applyLiveUpdate({
+      runId:
+        "benchmark-ra8",
+      phase:
+        "complete",
+      mode:
+        "benchmark",
+      fallback:
+        false,
+      progress:
+        null,
+      response:
+        fixture.response,
+      snapshot:
+        fixture.snapshot,
+      layout:
+        fixture.layout
+    });
+
+    document
+      .documentElement
+      .dataset
+      .raBenchmark =
+        "ready";
+
+    document
+      .documentElement
+      .dataset
+      .raBenchmarkRenderMs =
+        (
+          performance.now() -
+          started
+        )
+          .toFixed(2);
+
+    status.textContent =
+      "RA8 benchmark · Atlas renderizado con fixture local determinista";
+
+    window.setTimeout(
+      fitView,
+      40
+    );
+
+    return;
+  }
+
   const response =
     await fetch(
       "./src/data/philosophy-map.json",
@@ -2509,11 +2606,6 @@ async function boot() {
       onUpdate:
         applyLiveUpdate
     });
-
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
 
   const initialQuery =
     String(
