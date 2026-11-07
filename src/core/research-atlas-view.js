@@ -12,7 +12,7 @@ export const RESEARCH_ATLAS_VIEW_SCHEMA_VERSION =
   "research-atlas-view-v1";
 
 export const RESEARCH_ATLAS_VIEW_REVISION =
-  "2026-11-07.ra7-v1";
+  "2026-11-07.ra11-v1";
 
 
 const DEFAULT_EDGE_TYPES = Object.freeze([
@@ -108,8 +108,8 @@ function nodeSubtitle(node) {
     RESEARCH_ATLAS_NODE_TYPES.AUTHOR_MENTION
   ) {
     return node.resolutionState === "ambiguous"
-      ? "Mención ambigua"
-      : "Mención no resuelta";
+      ? "Autor reportado · identidad ambigua"
+      : "Autor reportado por la fuente";
   }
 
   return "Consulta actual";
@@ -168,7 +168,7 @@ function edgeLabel(edge) {
     "related-work": "Obra relacionada",
     "lexical-neighbor": "Similitud textual · título + abstract",
     "contribution": "Contribución confirmada",
-    "author-mention": "Mención provisional",
+    "author-mention": "Autor reportado por fuente",
     "query-result": "Resultado directo",
     "same-author": "Autor compartido",
     "coauthor": "Coautoría",
@@ -252,9 +252,9 @@ function whyNode(node) {
 
   return [
     node.resolutionState === "ambiguous"
-      ? "Mención de autor ambigua."
-      : "Mención de autor todavía no resuelta.",
-    "No se presenta como persona confirmada."
+      ? "El nombre fue reportado por la fuente, pero corresponde a más de una identidad candidata."
+      : "Nombre de autor reportado por la fuente bibliográfica.",
+    "El Atlas puede mostrarlo sin resolver identidad; no se fusiona con otras personas sólo por coincidencia nominal."
   ];
 }
 
