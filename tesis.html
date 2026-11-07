@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#161616">
-  <meta name="description" content="Tesis UdeG · Versión pública 1.0. Archivo bibliográfico de Humanidades y Filosofía, con un corpus complementario de publicaciones filosóficas de Editorial UdeG.">
+  <meta name="description" content="Tesis · Investigación Filosófica. Archivo bibliográfico en expansión por universidades de México, con procedencia institucional y enlaces de referencia.">
   <script>
     (() => {
       const key = "investigacion-filosofica-theme";
@@ -17,8 +17,8 @@
       document.documentElement.style.colorScheme = preferred;
     })();
   </script>
-  <title>Tesis UdeG · Versión 1.0 · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/thesis-demo.css?v=20261107-t2dg">
+  <title>Tesis · Investigación Filosófica</title>
+  <link rel="stylesheet" href="./css/thesis-demo.css?v=20261107-t2dh">
 </head>
 <body>
   <div id="thesis-demo" class="td-page">
@@ -30,7 +30,7 @@
         </a>
         <div class="td-nav-actions">
           <a class="td-nav-link" href="./">Investigación</a>
-          <a class="td-nav-link td-nav-active" href="./tesis.html" aria-current="page">Tesis UdeG</a>
+          <a class="td-nav-link td-nav-active" href="./tesis.html" aria-current="page">Tesis</a>
           <a class="td-nav-link" href="./atlas.html">Atlas</a>
           <div class="theme-switch" role="group" aria-label="Apariencia">
             <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
@@ -40,12 +40,12 @@
       </nav>
 
       <div class="td-hero-content">
-        <p class="td-eyebrow"><span class="td-live-dot" aria-hidden="true"></span> ARCHIVO ACADÉMICO / UNIVERSIDAD DE GUADALAJARA</p>
+        <p id="thesis-hero-eyebrow" class="td-eyebrow"><span class="td-live-dot" aria-hidden="true"></span> ARCHIVO ACADÉMICO / MÉXICO</p>
         <h1>Las tesis también<br><em>construyen conocimiento.</em></h1>
         <p id="thesis-hero-lead" class="td-lead">Explore tesis de Humanidades identificadas y verificadas en el corpus institucional. Cada resultado conserva su procedencia y le conduce al repositorio de origen.</p>
         <div class="td-hero-stats" aria-label="Estadísticas de la versión pública 1.0">
           <div><strong id="thesis-total">—</strong><span id="thesis-total-label">Tesis admitidas</span></div>
-          <div><strong>UdeG</strong><span>Institución de referencia</span></div>
+          <div><strong id="thesis-institution-code">UdeG</strong><span id="thesis-institution-label">Institución seleccionada</span></div>
           <div><strong>0 PDF</strong><span>Copias propias alojadas</span></div>
         </div>
       </div>
@@ -62,29 +62,42 @@
         <p class="td-release-note">VERSIÓN PÚBLICA 1.0<br><strong id="thesis-revision">thesis-effective-corpus-v2</strong><br>Corpus fijado · trazabilidad por fuente · 0 PDF alojados</p>
       </section>
 
+      <section class="td-scope-section td-institution-section" aria-labelledby="thesis-institution-heading">
+        <div>
+          <p class="td-section-label">INSTITUCIÓN</p>
+          <h2 id="thesis-institution-heading">Explore por universidad</h2>
+          <p>Este archivo crece universidad por universidad. Cada institución conserva sus propias colecciones, reglas de procedencia y fuentes oficiales.</p>
+        </div>
+        <div class="td-scope-switch td-institution-switch" role="group" aria-label="Institución">
+          <button type="button" data-thesis-institution="udg" class="td-scope-active" aria-pressed="true">Universidad de Guadalajara <strong>UdeG</strong></button>
+          <button type="button" data-thesis-institution="ugto" aria-pressed="false">Universidad de Guanajuato <strong>UG</strong></button>
+        </div>
+      </section>
+
       <section class="td-scope-section" aria-labelledby="thesis-scope-heading">
         <div>
-          <p class="td-section-label">VISTA</p>
+          <p class="td-section-label">COLECCIÓN</p>
           <h2 id="thesis-scope-heading">Elija el territorio bibliográfico</h2>
-          <p>Humanidades conserva el corpus efectivo V2. Filosofía reúne el núcleo institucional y los cruces filosóficos curados sin alterar el programa real de cada tesis.</p>
+          <p id="thesis-scope-description">Humanidades conserva el corpus efectivo V2. Filosofía reúne el núcleo institucional y los cruces filosóficos curados sin alterar el programa real de cada tesis.</p>
         </div>
-        <div class="td-scope-switch" role="group" aria-label="Vista de tesis">
-          <button type="button" data-thesis-scope="humanities" class="td-scope-active" aria-pressed="true">Humanidades <strong id="thesis-scope-humanities-count">—</strong></button>
-          <button type="button" data-thesis-scope="philosophy" aria-pressed="false">Filosofía <strong id="thesis-scope-philosophy-count">—</strong></button>
-          <button type="button" data-thesis-scope="editorial" aria-pressed="false">Editorial UdeG <strong id="thesis-scope-editorial-count">—</strong></button>
+        <div class="td-scope-switch" role="group" aria-label="Colección">
+          <button type="button" data-thesis-institution-scope="udg" data-thesis-scope="humanities" class="td-scope-active" aria-pressed="true">Humanidades <strong id="thesis-scope-humanities-count">—</strong></button>
+          <button type="button" data-thesis-institution-scope="udg" data-thesis-scope="philosophy" aria-pressed="false">Filosofía <strong id="thesis-scope-philosophy-count">—</strong></button>
+          <button type="button" data-thesis-institution-scope="udg" data-thesis-scope="editorial" aria-pressed="false">Editorial UdeG <strong id="thesis-scope-editorial-count">—</strong></button>
+          <button type="button" data-thesis-institution-scope="ugto" data-thesis-scope="philosophy" aria-pressed="false" hidden>Filosofía <strong id="thesis-scope-ugto-philosophy-count">—</strong></button>
         </div>
       </section>
 
       <section id="philosophy-programs" class="td-philosophy-programs" aria-labelledby="philosophy-programs-title" hidden>
         <div class="td-philosophy-programs-head">
           <div>
-            <p class="td-section-label">PROGRAMAS DE FILOSOFÍA</p>
+            <p id="philosophy-programs-label" class="td-section-label">PROGRAMAS DE FILOSOFÍA</p>
             <h2 id="philosophy-programs-title">Tres programas documentados, sin inventar equivalencias.</h2>
           </div>
-          <p>La vista incluye también tesis filosóficas de otros programas. Su programa académico original siempre permanece visible.</p>
+          <p id="philosophy-programs-description">La vista incluye también tesis filosóficas de otros programas. Su programa académico original siempre permanece visible.</p>
         </div>
         <div id="philosophy-program-list" class="td-program-grid"></div>
-        <p class="td-doctoral-note"><strong>Doctorado:</strong> no se publica un “Doctorado en Filosofía” porque no existe una autoridad institucional exacta confirmada. Doctorado en Humanidades no se relabela como Filosofía.</p>
+        <p id="philosophy-programs-note" class="td-doctoral-note"><strong>Doctorado:</strong> no se publica un “Doctorado en Filosofía” porque no existe una autoridad institucional exacta confirmada. Doctorado en Humanidades no se relabela como Filosofía.</p>
       </section>
 
       <section id="philosophy-contribute" class="td-philosophy-contribute" aria-labelledby="philosophy-contribute-title" hidden>
@@ -227,14 +240,15 @@
           <p id="thesis-method-humanities">Esta primera versión pública consulta el <strong>corpus efectivo inmutable V2</strong> (566 tesis admitidas), no las <strong id="thesis-canonical-total">—</strong> obras candidatas del corpus completo. Las inclusiones se fundamentan en políticas de Humanidades y autoridades académicas documentadas.</p>
           <p id="thesis-method-philosophy" hidden>La vista Filosofía incorpora el inventario histórico oficial de Licenciatura en Filosofía de la Biblioteca CUCSH y lo deduplica contra las referencias ya verificadas. También conserva los programas filosóficos documentados y cruces curados. Un registro de catálogo prueba una referencia bibliográfica, no un ejemplar físico: los paraderos sólo se consideran confirmados cuando existe evidencia específica de holdings. Las fichas <strong>REVIEW</strong> permanecen separadas y esta vista no modifica la admisión canónica.</p>
           <p id="thesis-method-editorial" hidden>La vista Editorial UdeG es un <strong>corpus bibliográfico complementario</strong> de 33 publicaciones filosóficas verificadas al 7 de noviembre de 2026. Veinticuatro aparecen en la categoría oficial Filosofía y nueve se incorporan porque su propia ficha editorial explicita contenido filosófico sustantivo. Este conjunto no altera el corpus de tesis, no acredita lectura o posesión y conserva sólo enlaces oficiales.</p>
+          <p id="thesis-method-ugto" hidden>La vista Universidad de Guanajuato reúne <strong>59 tesis públicas de Filosofía</strong> visibles en tres colecciones oficiales al 7 de noviembre de 2026: 14 de Licenciatura, 35 de Maestría y 10 de Doctorado. El repositorio mantiene además 3 trabajos de investigación de Licenciatura en una colección separada; se documentan, pero no se cuentan como tesis. Esta cifra describe la cobertura pública recuperada, no el total histórico de titulaciones.</p>
           <p><strong>El PDF nunca se aloja aquí.</strong> Los enlaces abren la fuente bibliográfica o el repositorio institucional correspondiente. Los extractos de resumen son metadatos, no reproducción del texto completo. Las fechas dudosas no se muestran como fechas verificadas.</p>
           <a href="./" class="td-method-link">Regresar al motor de Investigación Filosófica ↗</a>
         </div>
       </aside>
     </main>
-    <footer class="td-footer"><span>Φ · INVESTIGACIÓN FILOSÓFICA</span><span>Tesis UdeG · Versión pública 1.0 · Noviembre de 2026</span></footer>
+    <footer class="td-footer"><span>Φ · INVESTIGACIÓN FILOSÓFICA</span><span>Tesis · Archivo universitario en expansión · Noviembre de 2026</span></footer>
   </div>
-  <script type="module" src="./js/thesis-demo.js?v=20261107-t2dg"></script>
+  <script type="module" src="./js/thesis-demo.js?v=20261107-t2dh"></script>
   <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
 </body>
 </html>
