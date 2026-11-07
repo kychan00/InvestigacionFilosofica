@@ -487,137 +487,21 @@ export class ResearchAtlasLiveSession {
         limit
       );
 
-    try {
-      const [
-        semanticResponse,
-        federatedResponse
-      ] =
-        await Promise.all([
-          this.searchPublicSemanticImpl(
-            text,
-            {
-              limit:
-                safe,
-              signal:
-                state.signal
-            }
-          ),
-          this.searchPhilosophyImpl(
-            text,
-            this.philosophyMap,
-            {
-              signal:
-                state.signal,
-              maxQueries:
-                3,
-              openAlex: {
-                enabled:
-                  false
-              },
-              openAlexPhilosophy: {
-                enabled:
-                  true,
-                rows:
-                  Math.min(
-                    safe,
-                    10
-                  )
-              },
-              cucshFilosofia: {
-                enabled:
-                  true,
-                rows:
-                  Math.min(
-                    safe,
-                    8
-                  )
-              },
-              crossref: {
-                enabled:
-                  true,
-                rows:
-                  Math.min(
-                    safe,
-                    8
-                  )
-              },
-              internetArchive: {
-                enabled:
-                  true,
-                rows:
-                  Math.min(
-                    safe,
-                    8
-                  )
-              }
-            }
-          )
-        ]);
-
-      if (
-        !this.isCurrent(
-          state.runId
-        )
-      ) {
-        throw abortError();
-      }
-
-      const combined =
-        this.combineSemanticImpl(
-          semanticResponse,
-          federatedResponse,
+    const [
+      semanticState,
+      federatedState
+    ] =
+      await Promise.allSettled([
+        this.searchPublicSemanticImpl(
+          text,
           {
-            externalLimit:
-              safe
-          }
-        );
-
-      const enriched =
-        await this.enrichAuthorsImpl(
-          combined,
-          {
+            limit:
+              safe,
             signal:
               state.signal
           }
-        );
-
-      if (
-        !this.isCurrent(
-          state.runId
-        )
-      ) {
-        throw abortError();
-      }
-
-      return this.emit(
-        enriched,
-        {
-          runId:
-            state.runId,
-          phase:
-            "complete",
-          mode:
-            "semantic-service"
-        }
-      );
-    } catch (error) {
-      if (
-        error?.name ===
-        "AbortError"
-      ) {
-        throw error;
-      }
-
-      if (
-        !this.isCurrent(
-          state.runId
-        )
-      ) {
-        throw abortError();
-      }
-
-      const response =
-        await this.searchPhilosophyImpl(
+        ),
+        this.searchPhilosophyImpl(
           text,
           this.philosophyMap,
           {
@@ -635,25 +519,7 @@ export class ResearchAtlasLiveSession {
               rows:
                 Math.min(
                   safe,
-                  12
-                )
-            },
-            crossref: {
-              enabled:
-                true,
-              rows:
-                Math.min(
-                  safe,
                   10
-                )
-            },
-            internetArchive: {
-              enabled:
-                true,
-              rows:
-                Math.min(
-                  safe,
-                  8
                 )
             },
             cucshFilosofia: {
@@ -664,8 +530,89 @@ export class ResearchAtlasLiveSession {
                   safe,
                   8
                 )
+            },
+            crossref: {
+              enabled:
+                true,
+              rows:
+                Math.min(
+                  safe,
+                  8
+                )
+            },
+            internetArchive: {
+              enabled:
+                true,
+              rows:
+                Math.min(
+                  safe,
+                  8
+                )
             }
           }
+        )
+      ]);
+
+    if (
+      !this.isCurrent(
+        state.runId
+      )
+    ) {
+      throw abortError();
+    }
+
+    if (
+      semanticState.status ===
+      "rejected" &&
+      semanticState.reason
+        ?.name ===
+        "AbortError"
+    ) {
+      throw semanticState.reason;
+    }
+
+    if (
+      federatedState.status ===
+      "rejected" &&
+      federatedState.reason
+        ?.name ===
+        "AbortError"
+    ) {
+      throw federatedState.reason;
+    }
+
+    if (
+      federatedState.status !==
+      "fulfilled"
+    ) {
+      throw federatedState.reason;
+    }
+
+    let response;
+    let mode;
+    let fallback =
+      false;
+
+    if (
+      semanticState.status ===
+      "fulfilled"
+    ) {
+      response =
+        this.combineSemanticImpl(
+          semanticState.value,
+          federatedState.value,
+          {
+            externalLimit:
+              safe
+          }
+        );
+
+      mode =
+        "semantic-service";
+    } else {
+      response =
+        structuredClone(
+          federatedState.value
         );
 
       response.errors = [
@@ -678,31 +625,42 @@ export class ResearchAtlasLiveSession {
         ...(response.errors || [])
       ];
 
-      const enriched =
-        await this.enrichAuthorsImpl(
-          response,
-          {
-            signal:
-              state.signal
-          }
-        );
+      mode =
+        "traditional";
 
-      return this.emit(
-        enriched,
+      fallback =
+        true;
+    }
+
+    const enriched =
+      await this.enrichAuthorsImpl(
+        response,
         {
-          runId:
-            state.runId,
-          phase:
-            "complete",
-          mode:
-            "traditional",
-          fallback:
-            true
+          signal:
+            state.signal
         }
       );
-    }
-  }
 
+    if (
+      !this.isCurrent(
+        state.runId
+      )
+    ) {
+      throw abortError();
+    }
+
+    return this.emit(
+      enriched,
+      {
+        runId:
+          state.runId,
+        phase:
+          "complete",
+        mode,
+        fallback
+      }
+    );
+  }
 
   async run(
     query,
