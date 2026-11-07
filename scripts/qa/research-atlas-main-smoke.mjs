@@ -100,6 +100,8 @@ try {
     });
 
     await page.goto(BASE, {waitUntil: "domcontentloaded"});
+    await page.waitForTimeout(250);
+    externalRequests.length = 0;
 
     await page.evaluate(response => {
       document.querySelector("#research-workspace")?.classList.remove("hidden");
@@ -193,6 +195,53 @@ try {
     assert.ok(filteredCount > 0 && filteredCount < geometry.listCount);
 
     await page.locator("#research-atlas-filter").fill("");
+
+    const beforeMainFilter = await page.locator("#research-atlas-list button").count();
+
+    await page.evaluate(() => {
+      window.dispatchEvent(new CustomEvent("research-atlas:filter-results", {
+        detail: {
+          visibleIdentityKeys: [
+            "openalex:w700000",
+            "openalex:w700001",
+            "openalex:w700002",
+            "openalex:w700003",
+            "openalex:w700004"
+          ],
+          visibleCount: 5,
+          totalCount: 20
+        }
+      }));
+    });
+
+    await page.waitForTimeout(30);
+
+    const afterMainFilter = await page.locator("#research-atlas-list button").count();
+
+    assert.ok(
+      afterMainFilter > 0 && afterMainFilter < beforeMainFilter,
+      name + " main filters must reduce Atlas visibility without a new search"
+    );
+
+    assert.match(
+      await page.locator("#research-atlas-sync-status").innerText(),
+      /5 de 20 obras visibles/
+    );
+
+    await page.evaluate(() => {
+      window.dispatchEvent(new CustomEvent("research-atlas:filter-results", {
+        detail: {
+          visibleIdentityKeys: Array.from({length: 20}, (_, index) =>
+            "openalex:w" + String(700000 + index)
+          ),
+          visibleCount: 20,
+          totalCount: 20
+        }
+      }));
+    });
+
+    await page.waitForTimeout(30);
+
     await page.locator("#research-atlas-list button").first().click();
     await page.waitForFunction(() =>
       document.querySelector("#research-atlas-detail")?.textContent?.includes("¿Por qué está aquí?")
