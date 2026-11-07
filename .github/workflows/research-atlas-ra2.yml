@@ -1,0 +1,44 @@
+name: Research Atlas RA2 · graph assembler
+
+on:
+  pull_request:
+    paths:
+      - "src/core/merge-results.js"
+      - "src/core/research-atlas-contract.js"
+      - "src/core/research-atlas-assembler.js"
+      - "tests/research-atlas-contract.test.mjs"
+      - "tests/research-atlas-assembler.test.mjs"
+      - "benchmark/research-atlas/v1/fixtures.json"
+      - "benchmark/research-atlas/v2/search-response-fixtures.json"
+      - "docs/RESEARCH_ATLAS_ARCHITECTURE_V1.md"
+      - "docs/RESEARCH_ATLAS_DATA_CONTRACTS_V1.md"
+      - "docs/RESEARCH_ATLAS_GRAPH_ASSEMBLER_RA2.md"
+      - ".github/workflows/research-atlas-ra2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-assembler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate RA1 and RA2 contracts
+        run: |
+          node --test tests/research-atlas-contract.test.mjs
+          node --test tests/research-atlas-assembler.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
