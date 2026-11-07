@@ -1,0 +1,44 @@
+name: Research Atlas RA4 · related expansion
+
+on:
+  pull_request:
+    paths:
+      - "src/core/related-work-index-format.js"
+      - "src/core/related-works-resolver.js"
+      - "src/core/research-atlas-assembler.js"
+      - "src/core/research-atlas-related.js"
+      - "tests/related-work-index-format.test.mjs"
+      - "tests/related-works-resolver.test.mjs"
+      - "tests/research-atlas-related.test.mjs"
+      - "benchmark/research-atlas/v4/related-work-fixture.json"
+      - "docs/RESEARCH_ATLAS_RELATED_RA4.md"
+      - ".github/workflows/research-atlas-ra4.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-related-expansion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Related Work and RA4
+        run: |
+          node --test tests/related-work-index-format.test.mjs
+          node --test tests/related-works-resolver.test.mjs
+          node --test tests/research-atlas-related.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
