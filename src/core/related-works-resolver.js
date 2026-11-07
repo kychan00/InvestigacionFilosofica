@@ -1,6 +1,7 @@
 import {
   RELATED_WORK_INDEX_SCHEMA_VERSION,
   compactNeighborToRelatedWorkEdge,
+  normalizeRelatedWorkIndexIdentity,
   relationShardPath,
   validateCompactRelatedWorkSeed
 } from "./related-work-index-format.js";
@@ -378,10 +379,9 @@ export class RelatedWorkIndexClient {
     options = {}
   ) {
     const normalized =
-      String(
-        identity ||
-        ""
-      ).trim();
+      normalizeRelatedWorkIndexIdentity(
+        identity
+      );
 
     if (!normalized) {
       throw new TypeError(

@@ -315,7 +315,9 @@ function identityKind(identity) {
 }
 
 
-function workNodeId(identity) {
+export function researchAtlasWorkNodeId(
+  identity
+) {
   return stableId(
     "work",
     identity
@@ -512,7 +514,7 @@ function workNode(
 
   return {
     id:
-      workNodeId(
+      researchAtlasWorkNodeId(
         identity
       ),
     nodeType:
