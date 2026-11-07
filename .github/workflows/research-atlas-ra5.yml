@@ -1,0 +1,44 @@
+name: Research Atlas RA5 · incremental layout
+
+on:
+  pull_request:
+    paths:
+      - "src/core/research-atlas-layout.js"
+      - "tests/research-atlas-layout.test.mjs"
+      - "benchmark/research-atlas/v5/layout-fixture.json"
+      - "docs/RESEARCH_ATLAS_LAYOUT_RA5.md"
+      - "docs/RESEARCH_ATLAS_ARCHITECTURE_V1.md"
+      - ".github/workflows/research-atlas-ra5.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-layout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate RA5 layout
+        run: node --test tests/research-atlas-layout.test.mjs
+
+      - name: Validate RA1 through RA4
+        run: |
+          node --test tests/research-atlas-contract.test.mjs
+          node --test tests/research-atlas-assembler.test.mjs
+          node --test tests/research-atlas-authority.test.mjs
+          node --test tests/research-atlas-related.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
