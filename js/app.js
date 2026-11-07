@@ -231,6 +231,73 @@ let activeEngine = {
 };
 
 
+const RESEARCH_ATLAS_RESPONSE_EVENT =
+  "research-atlas:search-response";
+
+const RESEARCH_ATLAS_RESET_EVENT =
+  "research-atlas:reset";
+
+
+function resetResearchAtlas(
+  query
+) {
+  window.dispatchEvent(
+    new CustomEvent(
+      RESEARCH_ATLAS_RESET_EVENT,
+      {
+        detail: {
+          query:
+            String(
+              query ||
+              ""
+            ).trim()
+        }
+      }
+    )
+  );
+}
+
+
+function publishResearchAtlasResponse(
+  response,
+  phase =
+    "complete"
+) {
+  if (
+    !response ||
+    !Array.isArray(
+      response.results
+    )
+  ) {
+    return;
+  }
+
+  const semantic =
+    response.searchMode ===
+      "semantic" ||
+    response.searchMode ===
+      "semantic-service" ||
+    activeEngine.mode ===
+      "semantic";
+
+  window.dispatchEvent(
+    new CustomEvent(
+      RESEARCH_ATLAS_RESPONSE_EVENT,
+      {
+        detail: {
+          response,
+          phase,
+          searchMode:
+            semantic
+              ? "semantic-service"
+              : "traditional"
+        }
+      }
+    )
+  );
+}
+
+
 function resolveAuthorForQuery(
   query,
   signal
@@ -4166,6 +4233,11 @@ function restoreAuthorSourceSearch() {
   activeEngine =
     source.activeEngine;
 
+  publishResearchAtlasResponse(
+    currentResponse,
+    "complete"
+  );
+
   resetVisibleLimit();
   resetQwen3Experiment();
   renderSearchEngineIndicator();
@@ -6030,6 +6102,11 @@ async function loadMoreResults() {
     currentResults =
       response.results;
 
+    publishResearchAtlasResponse(
+      response,
+      "complete"
+    );
+
     resetQwen3Experiment();
 
     /*
@@ -6176,6 +6253,11 @@ function renderProgressiveSearch(
       response.results
     );
 
+  publishResearchAtlasResponse(
+    response,
+    "partial"
+  );
+
 
   renderInterpretation(
     response
@@ -6296,6 +6378,9 @@ async function runFederatedSearch(
     query;
   resetQwen3Experiment();
   clearAuthorIdentity();
+  resetResearchAtlas(
+    query
+  );
 
 
   button.disabled =
@@ -6472,6 +6557,11 @@ async function runFederatedSearch(
 
     currentResults =
       response.results;
+
+    publishResearchAtlasResponse(
+      response,
+      "complete"
+    );
 
     resetVisibleLimit();
 
@@ -6671,6 +6761,9 @@ async function runSemanticSearch(
     query;
   resetQwen3Experiment();
   clearAuthorIdentity();
+  resetResearchAtlas(
+    query
+  );
 
 
   button.disabled =
@@ -6846,6 +6939,11 @@ async function runSemanticSearch(
 
     currentResults =
       response.results;
+
+    publishResearchAtlasResponse(
+      response,
+      "complete"
+    );
 
     resetVisibleLimit();
 
