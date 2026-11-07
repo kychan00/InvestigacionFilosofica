@@ -168,7 +168,7 @@ try {
     await page.locator("#thesis-clear").click();
     assert.equal(await page.locator("#thesis-count").innerText(), "566");
 
-    await page.locator('[data-thesis-scope="philosophy"]').click();
+    await page.locator('[data-thesis-institution-scope="udg"][data-thesis-scope="philosophy"]').click();
     await page.waitForFunction(() => document.querySelector("#thesis-count")?.textContent === "233");
     assert.equal(await page.locator(".td-program-card").count(), 3);
     assert.match(await page.locator("#thesis-scope-tag").innerText(), /231 INCLUDE · 2 REVIEW/);
@@ -213,6 +213,31 @@ try {
     }));
     assert.ok(editorialWidth.scroll <= editorialWidth.viewport + 2,
       `${name} editorial overflow: ${JSON.stringify(editorialWidth)}`);
+
+    await page.locator('[data-thesis-institution="ugto"]').click();
+    await page.waitForFunction(() => document.querySelector("#thesis-count")?.textContent === "59");
+    assert.equal(await page.locator("#thesis-institution-code").innerText(), "UG");
+    assert.equal(await page.locator("#thesis-total-label").innerText(), "Tesis públicas");
+    assert.match(await page.locator("#thesis-scope-tag").innerText(), /UG · FILOSOFÍA · 59 TESIS/);
+    assert.equal(await page.locator(".td-program-card").count(), 3);
+    assert.equal(await page.locator("#thesis-philosophy-role-wrap").isHidden(), true);
+    assert.equal(await page.locator("#philosophy-contribute").isHidden(), true);
+    assert.match(page.url(), /institution=ugto/);
+    assert.match(page.url(), /scope=philosophy/);
+    await page.locator("#thesis-degree").selectOption("Doctorado");
+    assert.equal(await page.locator("#thesis-count").innerText(), "10");
+    await page.locator("#thesis-clear").click();
+    assert.equal(await page.locator("#thesis-count").innerText(), "59");
+    await page.locator(".td-result details summary").first().click();
+    const ugHref = await page.locator(".td-primary-action[href]").first().getAttribute("href");
+    assert.match(ugHref, /^https:\/\/www\.repositorio\.ugto\.mx\/handle\/20\.500\.12059\/\d+/);
+    assert.doesNotMatch(ugHref, /\.pdf(?:\?|$)|\/bitstream|\/download/i);
+    const ugWidth = await page.evaluate(() => ({
+      viewport: window.innerWidth,
+      scroll: document.documentElement.scrollWidth,
+    }));
+    assert.ok(ugWidth.scroll <= ugWidth.viewport + 2,
+      `${name} UG overflow: ${JSON.stringify(ugWidth)}`);
 
     await page.locator('[data-theme-choice="light"]').click();
     assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
