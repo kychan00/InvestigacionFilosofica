@@ -1,0 +1,93 @@
+name: Research Atlas RA8 · product gate
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/research-atlas/v8/**"
+      - "scripts/research-atlas/run-product-gate.mjs"
+      - "scripts/research-atlas/evaluate-product-gate.mjs"
+      - "scripts/qa/research-atlas-smoke.mjs"
+      - "js/research-atlas.js"
+      - "research-atlas.html"
+      - "css/research-atlas.css"
+      - "src/core/research-atlas-*.js"
+      - "src/sources/openalex-philosophy.js"
+      - "tests/research-atlas-*.test.mjs"
+      - "docs/RESEARCH_ATLAS_PRODUCT_GATE_RA8.md"
+      - ".github/workflows/research-atlas-ra8.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  product-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install application dependencies
+        run: npm ci
+
+      - name: Validate RA8 contract
+        run: node --test tests/research-atlas-product-gate.test.mjs
+
+      - name: Run deterministic core product gate
+        run: node scripts/research-atlas/run-product-gate.mjs
+
+      - name: Validate RA1 through RA7
+        run: |
+          node --test tests/research-atlas-contract.test.mjs
+          node --test tests/research-atlas-assembler.test.mjs
+          node --test tests/research-atlas-authority.test.mjs
+          node --test tests/research-atlas-related.test.mjs
+          node --test tests/research-atlas-layout.test.mjs
+          node --test tests/research-atlas-view.test.mjs
+          node --test tests/research-atlas-lexical.test.mjs
+          node --test tests/research-atlas-live.test.mjs
+          node --test tests/research-atlas-page.test.mjs
+
+      - name: Install browser smoke tooling
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Build local browser dependencies
+        run: npm run build:duckdb
+
+      - name: Serve the site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/research-atlas-ra8-http.log 2>&1 &
+          echo $! > /tmp/research-atlas-ra8-http.pid
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/research-atlas.html > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/research-atlas-ra8-http.log
+          exit 1
+
+      - name: Run phone tablet desktop product gate
+        run: node scripts/qa/research-atlas-smoke.mjs
+
+      - name: Evaluate product verdict
+        run: node scripts/research-atlas/evaluate-product-gate.mjs
+
+      - name: Run complete regression suite
+        run: npm test
+
+      - name: Upload RA8 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra8-product-gate
+          path: artifacts/research-atlas-ra8/
+          if-no-files-found: error
