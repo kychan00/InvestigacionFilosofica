@@ -82,6 +82,11 @@
     rel="stylesheet"
     href="./css/record-folio-polish.css?v=20261101-record-folio-v1"
   >
+
+  <link
+    rel="stylesheet"
+    href="./css/research-atlas-embed.css?v=20261107-ra9-v1"
+  >
 </head>
 
 <body>
@@ -543,15 +548,236 @@
           class="stats hidden"
         ></section>
 
-        <section
-          id="interpretation"
-          class="interpretation hidden"
-        ></section>
+        <div
+          id="research-view-switch"
+          class="research-view-switch hidden"
+          role="tablist"
+          aria-label="Vista de la investigación"
+        >
+          <button
+            type="button"
+            class="research-view-tab is-active"
+            id="research-view-results"
+            role="tab"
+            aria-selected="true"
+            aria-controls="research-results-panel"
+            tabindex="0"
+            data-research-view="results"
+          >
+            Resultados
+          </button>
+
+          <button
+            type="button"
+            class="research-view-tab"
+            id="research-view-atlas"
+            role="tab"
+            aria-selected="false"
+            aria-controls="research-atlas-panel"
+            tabindex="-1"
+            data-research-view="atlas"
+          >
+            Atlas
+            <span
+              id="research-atlas-count"
+              class="research-view-count"
+              aria-hidden="true"
+            ></span>
+          </button>
+
+          <span
+            id="research-atlas-sync-status"
+            class="research-atlas-sync-status"
+            aria-live="polite"
+          ></span>
+        </div>
 
         <section
-          id="results"
-          class="results"
-        ></section>
+          id="research-results-panel"
+          role="tabpanel"
+          aria-labelledby="research-view-results"
+        >
+          <section
+            id="interpretation"
+            class="interpretation hidden"
+          ></section>
+
+          <section
+            id="results"
+            class="results"
+          ></section>
+        </section>
+
+        <section
+          id="research-atlas-panel"
+          class="research-atlas-embed hidden"
+          role="tabpanel"
+          aria-labelledby="research-view-atlas"
+          aria-live="polite"
+        >
+          <header class="research-atlas-embed-head">
+            <div>
+              <span class="research-atlas-kicker">
+                ATLAS DE INVESTIGACIÓN
+              </span>
+              <h2>
+                El territorio de esta búsqueda
+              </h2>
+              <p>
+                Las obras construyen la geometría; los autores se conectan
+                como menciones o autoridades sin alterar la topología.
+              </p>
+            </div>
+
+            <div class="research-atlas-actions">
+              <label>
+                <span class="sr-only">
+                  Filtrar nodos del Atlas
+                </span>
+                <input
+                  id="research-atlas-filter"
+                  type="search"
+                  autocomplete="off"
+                  placeholder="Filtrar obra o autor…"
+                >
+              </label>
+
+              <button
+                id="research-atlas-fit"
+                type="button"
+              >
+                Centrar
+              </button>
+            </div>
+          </header>
+
+          <div
+            class="research-atlas-layer-switches"
+            role="group"
+            aria-label="Relaciones visibles"
+          >
+            <label>
+              <input
+                type="checkbox"
+                data-research-atlas-edge="semantic-neighbor"
+                checked
+              >
+              Semántica
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                data-research-atlas-edge="lexical-neighbor"
+                checked
+              >
+              Lexical
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                data-research-atlas-edge="related-work"
+                checked
+              >
+              Relacionadas
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                data-research-atlas-edge="contribution"
+                checked
+              >
+              Autoría confirmada
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                data-research-atlas-edge="author-mention"
+                checked
+              >
+              Menciones
+            </label>
+          </div>
+
+          <div class="research-atlas-embed-layout">
+            <div
+              id="research-atlas-stage"
+              class="research-atlas-stage"
+            >
+              <canvas
+                id="research-atlas-canvas"
+                role="img"
+                aria-label="Mapa de relaciones de la búsqueda actual"
+              ></canvas>
+
+              <div class="research-atlas-stage-status">
+                <span id="research-atlas-stage-label">
+                  Esperando resultados…
+                </span>
+                <span id="research-atlas-zoom">
+                  100%
+                </span>
+              </div>
+
+              <div
+                id="research-atlas-tooltip"
+                class="research-atlas-tooltip hidden"
+              ></div>
+
+              <div class="research-atlas-zoom-controls">
+                <button
+                  id="research-atlas-zoom-in"
+                  type="button"
+                  aria-label="Acercar Atlas"
+                >
+                  +
+                </button>
+                <button
+                  id="research-atlas-zoom-out"
+                  type="button"
+                  aria-label="Alejar Atlas"
+                >
+                  −
+                </button>
+              </div>
+            </div>
+
+            <aside
+              id="research-atlas-detail"
+              class="research-atlas-detail"
+            >
+              <span class="research-atlas-detail-mark" aria-hidden="true">
+                ◎
+              </span>
+              <strong>
+                Seleccione un nodo
+              </strong>
+              <p>
+                Aquí aparecerá la evidencia de por qué una obra o un autor
+                forma parte del Atlas.
+              </p>
+            </aside>
+          </div>
+
+          <section class="research-atlas-accessible">
+            <div>
+              <span class="research-atlas-kicker">
+                ALTERNATIVA EN LISTA
+              </span>
+              <p>
+                El mapa visual no es la única forma de recorrer el Atlas.
+              </p>
+            </div>
+
+            <div
+              id="research-atlas-list"
+              class="research-atlas-list"
+            ></div>
+          </section>
+        </section>
 
       </div>
 
@@ -633,7 +859,12 @@
 
   <script
     type="module"
-    src="./js/app.js?v=20261101-record-folio-v1"
+    src="./js/research-atlas-embed.js?v=20261107-ra9-v1"
+  ></script>
+
+  <script
+    type="module"
+    src="./js/app.js?v=20261107-ra9-v1"
   ></script>
 
   <script
