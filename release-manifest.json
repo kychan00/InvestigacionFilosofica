@@ -84,6 +84,27 @@
         "repository": "kychan00/philosophia",
         "commit": "a931ad3b7be79227c5aee3035d03b2dcbaf0a81b"
       }
+    },
+    "thesesUgtoPhilosophy": {
+      "version": "1",
+      "revision": "2026-11-07.v1",
+      "institution": "Universidad de Guanajuato",
+      "records": 59,
+      "degreeCounts": {
+        "licenciatura": 14,
+        "maestria": 35,
+        "doctorado": 10
+      },
+      "separateResearchWorks": 3,
+      "researchWorksCountedAsTheses": false,
+      "referenceOnly": true,
+      "pdfCopies": 0,
+      "publicIndex": "data/theses/ugto-philosophy-v1/index.json",
+      "sourceCollections": [
+        "https://www.repositorio.ugto.mx/handle/20.500.12059/4308",
+        "https://www.repositorio.ugto.mx/handle/20.500.12059/4363",
+        "https://www.repositorio.ugto.mx/handle/20.500.12059/4360"
+      ]
     }
   },
   "providers": {
