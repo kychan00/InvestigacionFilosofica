@@ -14,7 +14,7 @@ function normalizeDoi(doi) {
 }
 
 
-function resultKey(result) {
+export function resultIdentityKey(result) {
   const doi =
     normalizeDoi(
       result.doi
@@ -600,7 +600,7 @@ export function mergeResults(
 
   for (const result of results) {
     const key =
-      resultKey(result);
+      resultIdentityKey(result);
 
     if (
       !map.has(key)
