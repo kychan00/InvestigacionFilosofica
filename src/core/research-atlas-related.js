@@ -348,6 +348,12 @@ function expandedWorkNode(
       RESEARCH_ATLAS_NODE_TYPES
         .WORK,
     title,
+    abstract:
+      String(
+        document?.abstract ||
+        ""
+      ).trim() ||
+      null,
     identity: {
       kind:
         identityKind(

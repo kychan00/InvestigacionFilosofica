@@ -117,3 +117,16 @@ test("app actualiza Atlas al cargar más resultados", () => {
   const segment = app.slice(loadMoreIndex, loadMoreIndex + 5000);
   assert.match(segment, /publishResearchAtlasResponse\(\s*response,\s*"complete"\s*\)/);
 });
+
+
+test("RA11 main Atlas uses work-centric layer vocabulary", () => {
+  assert.match(
+    page,
+    /data-research-atlas-edge="lexical-neighbor"[\s\S]*?Texto/
+  );
+
+  assert.match(
+    page,
+    /data-research-atlas-edge="author-mention"[\s\S]*?Autores reportados/
+  );
+});

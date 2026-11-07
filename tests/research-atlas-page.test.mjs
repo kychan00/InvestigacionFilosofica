@@ -205,3 +205,16 @@ test("renderer mantiene filtros, pan, zoom, cancelación y URL compartible", () 
     );
   }
 });
+
+
+test("RA11 experimental Atlas uses work-centric layer vocabulary", () => {
+  assert.match(
+    page,
+    /data-ra-edge-toggle="lexical-neighbor"[\s\S]*?Texto/
+  );
+
+  assert.match(
+    page,
+    /data-ra-edge-toggle="author-mention"[\s\S]*?Autores reportados/
+  );
+});

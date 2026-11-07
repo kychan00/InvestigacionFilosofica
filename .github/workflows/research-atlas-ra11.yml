@@ -1,0 +1,58 @@
+name: Research Atlas RA11 · work-centric topology
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/research-atlas/v11/**"
+      - "src/core/research-atlas-assembler.js"
+      - "src/core/research-atlas-related.js"
+      - "src/core/research-atlas-lexical.js"
+      - "src/core/research-atlas-view.js"
+      - "src/core/research-atlas-work-centric-policy.js"
+      - "js/research-atlas.js"
+      - "js/research-atlas-embed.js"
+      - "index.html"
+      - "research-atlas.html"
+      - "tests/research-atlas-lexical.test.mjs"
+      - "tests/research-atlas-view.test.mjs"
+      - "tests/research-atlas-work-centric-policy.test.mjs"
+      - "tests/research-atlas-product-gate.test.mjs"
+      - "docs/RESEARCH_ATLAS_WORK_CENTRIC_RA11.md"
+      - ".github/workflows/research-atlas-ra11.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  work-centric-topology:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate RA11 work-centric policy
+        run: node --test tests/research-atlas-work-centric-policy.test.mjs
+
+      - name: Validate title abstract topology
+        run: |
+          node --test tests/research-atlas-lexical.test.mjs
+          node --test tests/research-atlas-view.test.mjs
+
+      - name: Validate RA9 main-search integration
+        run: node --test tests/research-atlas-main-integration.test.mjs
+
+      - name: Validate RA10 remains optional enrichment gate
+        run: node --test tests/research-atlas-enrichment-readiness.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test

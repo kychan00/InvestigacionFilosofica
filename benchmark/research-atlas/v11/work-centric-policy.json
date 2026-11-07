@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "research-atlas-work-centric-policy-v1",
+  "revision": "2026-11-07.ra11-v1",
+  "coreTopology": {
+    "entity": "work",
+    "authorityRequired": false,
+    "relatedWorkRequired": false,
+    "titleRequired": true,
+    "abstractPreferred": true,
+    "textualFallback": {
+      "edgeType": "lexical-neighbor",
+      "method": "title-abstract-tfidf-v1",
+      "titleWeight": 2,
+      "abstractWeight": 1
+    },
+    "semanticPriority": {
+      "edgeType": "semantic-neighbor",
+      "preferredModel": "Qwen/Qwen3-Embedding-0.6B",
+      "metric": "cosine",
+      "supersedesTextualFallbackForSamePair": true
+    }
+  },
+  "authors": {
+    "displaySourceReportedNames": true,
+    "identityResolutionRequiredForDisplay": false,
+    "nameEqualityMayMergePeople": false,
+    "authorityRequiredForSameAuthor": true,
+    "authorityRequiredForCoauthorIdentity": true,
+    "authorityIsOptionalEnrichment": true
+  },
+  "interpretation": {
+    "semanticSimilarityMayImplyInfluence": false,
+    "semanticSimilarityMayImplyCitation": false,
+    "semanticSimilarityMayImplySchool": false
+  },
+  "launch": {
+    "requiresAuthorHumanAudit": false,
+    "requiresRelatedWorkFullIndex": false,
+    "requiresWorkTopology": true
+  }
+}

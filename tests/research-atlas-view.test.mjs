@@ -165,7 +165,12 @@ test("AuthorityPerson y AuthorMention conservan estados visuales diferentes", ()
 
   assert.match(
     mention.why.join(" "),
-    /no resuelta/i
+    /reportado por la fuente/i
+  );
+
+  assert.match(
+    mention.why.join(" "),
+    /no se fusiona/i
   );
 });
 
@@ -405,7 +410,7 @@ test("lexical-neighbor conserva un vocabulario visual distinto de semantic-neigh
       "research-atlas-live-v1",
     payload: {
       method:
-        "title-token-jaccard-v1",
+        "title-abstract-tfidf-v1",
       score:
         0.42,
       sharedTokens: [
@@ -457,6 +462,6 @@ test("lexical-neighbor conserva un vocabulario visual distinto de semantic-neigh
 
   assert.equal(
     lexical.label,
-    "Vecindad lexical de títulos"
+    "Similitud textual · título + abstract"
   );
 });
