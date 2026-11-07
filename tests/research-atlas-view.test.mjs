@@ -165,7 +165,12 @@ test("AuthorityPerson y AuthorMention conservan estados visuales diferentes", ()
 
   assert.match(
     mention.why.join(" "),
-    /no resuelta/i
+    /reportado por la fuente/i
+  );
+
+  assert.match(
+    mention.why.join(" "),
+    /no se fusiona/i
   );
 });
 
