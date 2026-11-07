@@ -916,6 +916,20 @@ export async function enrichResultsWithRemoteAuthors(
   options = {}
 ) {
   const results = response?.results || [];
+  const resultLimit =
+    options.resultLimit == null
+      ? Infinity
+      : Math.max(
+          0,
+          Math.min(
+            100,
+            Number(
+              options.resultLimit
+            ) ||
+            0
+          )
+        );
+
   const missing = results
     .map(item => ({
       item,
@@ -924,6 +938,10 @@ export async function enrichResultsWithRemoteAuthors(
     .filter(entry =>
       entry.workId &&
       !(entry.item.authors || []).length
+    )
+    .slice(
+      0,
+      resultLimit
     );
 
   if (!missing.length) {
