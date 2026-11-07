@@ -405,7 +405,7 @@ test("lexical-neighbor conserva un vocabulario visual distinto de semantic-neigh
       "research-atlas-live-v1",
     payload: {
       method:
-        "title-token-jaccard-v1",
+        "title-abstract-tfidf-v1",
       score:
         0.42,
       sharedTokens: [
@@ -457,6 +457,6 @@ test("lexical-neighbor conserva un vocabulario visual distinto de semantic-neigh
 
   assert.equal(
     lexical.label,
-    "Vecindad lexical de títulos"
+    "Similitud textual · título + abstract"
   );
 });
