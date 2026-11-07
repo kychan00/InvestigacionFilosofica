@@ -25,6 +25,15 @@ const renderer =
     "utf8"
   );
 
+const page =
+  await readFile(
+    new URL(
+      "../research-atlas.html",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
 const script =
   await readFile(
     new URL(
@@ -131,5 +140,25 @@ test("core gate usa ResearchAtlasLiveSession y no una implementación paralela",
   assert.match(
     script,
     /lexical-neighbor/
+  );
+});
+
+
+test("RA8 elimina metadata y cache-busting obsoletos de RA6", () => {
+  assert.equal(
+    /Experimento RA6|EXPERIMENTO RA6|ra6-v1/.test(
+      page
+    ),
+    false
+  );
+
+  assert.match(
+    page,
+    /research-atlas\.css\?v=20261107-ra8-v1/
+  );
+
+  assert.match(
+    page,
+    /research-atlas\.js\?v=20261107-ra8-v1/
   );
 });
