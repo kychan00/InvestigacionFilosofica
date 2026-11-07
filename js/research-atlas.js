@@ -1506,9 +1506,12 @@ function renderDetail() {
 
     const item =
       element(
-        "div",
+        "button",
         "ra-relation"
       );
+
+    item.type =
+      "button";
 
     item.append(
       element(
