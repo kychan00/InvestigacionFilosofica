@@ -1,3 +1,6 @@
+export const AUTHOR_INDEX_RUNTIME_REVISION =
+  "author-index-v3";
+
 const INDEX_BASE = new URL(
   "../../data/authors/author-index-v2/",
   import.meta.url
@@ -685,6 +688,83 @@ async function authorWorks(
         matchedQueries: []
       };
     });
+}
+
+
+function normalizedSnapshotAuthorId(
+  value
+) {
+  return String(
+    typeof value === "object"
+      ? value?.id ||
+        value?.openalexId ||
+        value?.openAlexId ||
+        ""
+      : value ||
+        ""
+  )
+    .match(
+      /(?:^|openalex\.org\/|openalex-author:|^A)(?:A)?(\d+)$/i
+    )?.[1] ||
+    null;
+}
+
+
+export async function fetchSnapshotAuthorWorksById(
+  author,
+  options = {}
+) {
+  const authorId =
+    normalizedSnapshotAuthorId(
+      author
+    );
+
+  if (!authorId) {
+    return [];
+  }
+
+  const displayName =
+    String(
+      typeof author === "object"
+        ? author?.name ||
+          author?.displayName ||
+          author?.sourceDisplayName ||
+          "A" + authorId
+        : "A" + authorId
+    ).trim();
+
+  const orcid =
+    typeof author === "object"
+      ? author?.orcid ||
+        author?.o ||
+        null
+      : null;
+
+  const context =
+    createContext(
+      options
+    );
+
+  return authorWorks(
+    context,
+    {
+      id:
+        authorId,
+      o:
+        orcid
+    },
+    displayName,
+    Math.max(
+      1,
+      Math.min(
+        50,
+        Number(
+          options.limit
+        ) ||
+        12
+      )
+    )
+  );
 }
 
 
