@@ -81,7 +81,7 @@ El builder maestro exige exactamente:
 
 ### Metadata SQLite
 
-`e32ad6066434f7fba9cd4df9211c6e45461e34c27bf5d113ccaa581fcf59d0`
+`e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0`
 
 ### Static V4 manifest
 
