@@ -17,7 +17,7 @@ test("Philosophy contribution panel is present and hidden outside Philosophy sco
   );
   assert.match(
     js,
-    /philosophyContribute\.hidden = !philosophy;/,
+    /philosophyContribute\.hidden = !udgPhilosophy;/,
   );
 });
 
