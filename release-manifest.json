@@ -69,6 +69,21 @@
       },
       "publicManifest": "data/theses/effective-corpus-v2/manifest.json",
       "publicCorpus": "data/theses/effective-corpus-v2/effective-corpus.json.gz"
+    },
+    "editorialUdgPhilosophy": {
+      "version": "1",
+      "revision": "2026-11-07.v1",
+      "records": 33,
+      "officialPhilosophyCategory": 24,
+      "verifiedPhilosophicalRelation": 9,
+      "referenceOnly": true,
+      "pdfCopies": 0,
+      "source": "https://editorial.udg.mx/libros.html?cat=144&manufacturer=5606",
+      "publicIndex": "data/editorial/udg-philosophy-v1/index.json",
+      "sourceSnapshot": {
+        "repository": "kychan00/philosophia",
+        "commit": "a931ad3b7be79227c5aee3035d03b2dcbaf0a81b"
+      }
     }
   },
   "providers": {
