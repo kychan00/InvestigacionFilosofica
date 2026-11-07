@@ -3,6 +3,22 @@ import {
 } from "../src/core/research-atlas-live.js";
 
 import {
+  ResearchAtlasAssembler
+} from "../src/core/research-atlas-assembler.js";
+
+import {
+  expandResearchAtlasWithRelatedWorks
+} from "../src/core/research-atlas-related.js";
+
+import {
+  addResearchAtlasLexicalNeighbors
+} from "../src/core/research-atlas-lexical.js";
+
+import {
+  buildResearchAtlasLayout
+} from "../src/core/research-atlas-layout.js";
+
+import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
   selectedResearchAtlasContext
@@ -2484,11 +2500,210 @@ new MutationObserver(
 );
 
 
+async function loadControlledDemo() {
+  const [
+    authorityResponse,
+    relatedResponse
+  ] =
+    await Promise.all([
+      fetch(
+        "./benchmark/research-atlas/v3/authority-fixture.json",
+        {
+          cache:
+            "no-store"
+        }
+      ),
+      fetch(
+        "./benchmark/research-atlas/v4/related-work-fixture.json",
+        {
+          cache:
+            "no-store"
+        }
+      )
+    ]);
+
+  if (
+    !authorityResponse.ok ||
+    !relatedResponse.ok
+  ) {
+    throw new Error(
+      "No se pudieron cargar los fixtures controlados del demo."
+    );
+  }
+
+  const authorityFixture =
+    await authorityResponse.json();
+
+  const relatedFixture =
+    await relatedResponse.json();
+
+  const assembler =
+    new ResearchAtlasAssembler({
+      filters: {},
+      sourceRevisions: {
+        openAlexPhilosophy:
+          "fixture-openalex-ra3",
+        crossref:
+          "fixture-crossref-ra3",
+        authorAuthority:
+          authorityFixture
+            .authorityGraph
+            .buildRevision,
+        authorityWorkMap:
+          authorityFixture
+            .authorityWorkMap
+            .buildRevision,
+        relatedWork:
+          "fixture-related-ra4"
+      },
+      authorityGraph:
+        authorityFixture
+          .authorityGraph,
+      authorityWorkMap:
+        authorityFixture
+          .authorityWorkMap
+    });
+
+  let demoSnapshot =
+    assembler.ingest(
+      authorityFixture
+        .searchResponse
+    );
+
+  demoSnapshot =
+    expandResearchAtlasWithRelatedWorks(
+      demoSnapshot,
+      relatedFixture
+        .relatedResponses,
+      {
+        maxExpandedWorks:
+          8,
+        semanticModelId:
+          "Qwen3-Embedding"
+      }
+    );
+
+  demoSnapshot =
+    addResearchAtlasLexicalNeighbors(
+      demoSnapshot
+    );
+
+  const demoLayout =
+    buildResearchAtlasLayout(
+      demoSnapshot
+    );
+
+  liveQuery.value =
+    authorityFixture
+      .searchResponse
+      .query;
+
+  liveSearchForm
+    .querySelectorAll(
+      "input, select, button"
+    )
+    .forEach(
+      control => {
+        control.disabled =
+          true;
+      }
+    );
+
+  applyLiveUpdate({
+    runId:
+      "controlled-demo-ra10",
+    phase:
+      "complete",
+    mode:
+      "controlled-demo",
+    fallback:
+      false,
+    progress:
+      null,
+    response:
+      authorityFixture
+        .searchResponse,
+    snapshot:
+      demoSnapshot,
+    layout:
+      demoLayout
+  });
+
+  document
+    .documentElement
+    .dataset
+    .raControlledDemo =
+      "ready";
+
+  const note =
+    document.querySelector(
+      ".ra-experimental-note"
+    );
+
+  if (note) {
+    note.classList.add(
+      "is-controlled-demo"
+    );
+
+    note.replaceChildren(
+      element(
+        "strong",
+        "",
+        "Demo controlado · no producción"
+      ),
+      element(
+        "span",
+        "",
+        "Usa fixtures versionados de RA3/RA4. Las personas confirmadas, coautorías y relaciones existen sólo dentro de este conjunto de prueba y no se presentan como autoridad pública."
+      )
+    );
+  }
+
+  const sourceNote =
+    document.querySelector(
+      ".ra-live-source-note"
+    );
+
+  if (sourceNote) {
+    sourceNote.replaceChildren(
+      element(
+        "strong",
+        "",
+        "Datos controlados"
+      ),
+      element(
+        "span",
+        "",
+        "Fixtures RA3 + RA4 · AuthorityPerson, AuthorMention, Qwen3 semantic-neighbor y Related Work · sin proveedores externos"
+      )
+    );
+  }
+
+  status.textContent =
+    "Demo controlado · grafo generado localmente con fixtures RA3/RA4 · cero consultas externas";
+
+  window.setTimeout(
+    fitView,
+    40
+  );
+}
+
+
 async function boot() {
   const params =
     new URLSearchParams(
       window.location.search
     );
+
+  if (
+    params.get(
+      "demo"
+    ) ===
+    "authority-related"
+  ) {
+    await loadControlledDemo();
+    return;
+  }
 
   if (
     params.get(
