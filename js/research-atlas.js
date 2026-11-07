@@ -1,6 +1,6 @@
 import {
-  ResearchAtlasLayoutEngine
-} from "../src/core/research-atlas-layout.js";
+  ResearchAtlasLiveSession
+} from "../src/core/research-atlas-live.js";
 
 import {
   buildResearchAtlasViewModel,
@@ -21,14 +21,29 @@ const context =
     {alpha: true}
   );
 
+const liveSearchForm =
+  document.querySelector("#ra-live-search-form");
+
+const liveQuery =
+  document.querySelector("#ra-live-query");
+
+const liveMode =
+  document.querySelector("#ra-live-mode");
+
+const liveDepth =
+  document.querySelector("#ra-live-depth");
+
+const liveSubmit =
+  document.querySelector("#ra-live-submit");
+
+const liveCancel =
+  document.querySelector("#ra-live-cancel");
+
 const query =
   document.querySelector("#ra-query");
 
 const matchCount =
   document.querySelector("#ra-match-count");
-
-const simulate =
-  document.querySelector("#ra-simulate");
 
 const reset =
   document.querySelector("#ra-reset");
@@ -77,14 +92,7 @@ const edgeToggles =
   ];
 
 
-const layoutEngine =
-  new ResearchAtlasLayoutEngine({
-    maxExistingDisplacement:
-      0.18
-  });
-
-
-let fixture = null;
+let liveSession = null;
 let snapshot = null;
 let layout = null;
 let viewModel = null;
@@ -93,7 +101,7 @@ let selectedId = null;
 let hoveredId = null;
 let drag = null;
 let raf = null;
-let simulated = false;
+let uiRunId = 0;
 
 const view = {
   x: 0,
