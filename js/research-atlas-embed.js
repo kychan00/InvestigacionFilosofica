@@ -534,7 +534,7 @@ function kindLabel(kind) {
     "work-direct": "Obra · resultado directo",
     "work-expanded": "Obra · expansión L1",
     "authority-person": "Autor · autoridad confirmada",
-    "author-mention": "Autor · mención no resuelta",
+    "author-mention": "Autor · reportado por fuente",
     query: "Consulta"
   };
   return labels[kind] || kind;
