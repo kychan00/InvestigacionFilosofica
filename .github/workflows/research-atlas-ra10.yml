@@ -1,0 +1,93 @@
+name: Research Atlas RA10 · Authority runtime and L1
+
+on:
+  pull_request:
+    paths:
+      - "index.html"
+      - "js/research-atlas-embed.js"
+      - "src/core/remote-author-resolution.js"
+      - "src/core/research-atlas-runtime-authority.js"
+      - "src/core/research-atlas-runtime-related.js"
+      - "src/core/research-atlas-runtime-enrichment.js"
+      - "tests/research-atlas-runtime-authority.test.mjs"
+      - "tests/research-atlas-runtime-related.test.mjs"
+      - "tests/research-atlas-runtime-enrichment.test.mjs"
+      - "tests/research-atlas-main-integration.test.mjs"
+      - "scripts/qa/research-atlas-main-smoke.mjs"
+      - "docs/RESEARCH_ATLAS_RUNTIME_AUTHORITY_RA10.md"
+      - ".github/workflows/research-atlas-ra10.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authority-runtime:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install application dependencies
+        run: npm ci
+
+      - name: Validate RA10 Authority runtime
+        run: |
+          node --test tests/research-atlas-runtime-authority.test.mjs
+          node --test tests/research-atlas-runtime-related.test.mjs
+          node --test tests/research-atlas-runtime-enrichment.test.mjs
+          node --test tests/research-atlas-main-integration.test.mjs
+
+      - name: Validate Research Atlas RA1 through RA9
+        run: |
+          node --test tests/research-atlas-contract.test.mjs
+          node --test tests/research-atlas-assembler.test.mjs
+          node --test tests/research-atlas-authority.test.mjs
+          node --test tests/research-atlas-related.test.mjs
+          node --test tests/research-atlas-layout.test.mjs
+          node --test tests/research-atlas-view.test.mjs
+          node --test tests/research-atlas-lexical.test.mjs
+          node --test tests/research-atlas-live.test.mjs
+          node --test tests/research-atlas-page.test.mjs
+          node --test tests/research-atlas-product-gate.test.mjs
+
+      - name: Install browser smoke tooling
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Build local browser dependencies
+        run: npm run build:duckdb
+
+      - name: Serve the site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/research-atlas-ra10-http.log 2>&1 &
+          echo $! > /tmp/research-atlas-ra10-http.pid
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/index.html > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/research-atlas-ra10-http.log
+          exit 1
+
+      - name: Verify Authority Atlas main integration
+        run: node scripts/qa/research-atlas-main-smoke.mjs
+
+      - name: Run complete regression suite
+        run: npm test
+
+      - name: Upload RA10 screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra10-authority-runtime
+          path: artifacts/research-atlas-ra10/
+          if-no-files-found: ignore
