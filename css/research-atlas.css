@@ -876,6 +876,31 @@ input:focus-visible {
 }
 
 @media (max-width: 1000px) {
+  .ra-live-search {
+    grid-template-columns:
+      minmax(0,1fr)
+      minmax(0,1fr)
+      auto
+      auto;
+  }
+
+  .ra-live-query {
+    grid-column: 1 / -1;
+  }
+
+  .ra-live-query input {
+    border-right: 0;
+    border-bottom: 1px solid var(--ra-line);
+  }
+
+  .ra-live-field {
+    min-width: 0;
+  }
+
+  .ra-live-search > button {
+    min-width: 108px;
+  }
+
   .ra-nav {
     grid-template-columns: 1fr auto;
   }
