@@ -8,12 +8,16 @@ on:
       - "css/thesis-demo.css"
       - "src/core/thesis-demo-search.js"
       - "src/core/editorial-udg-search.js"
+      - "src/core/ugto-philosophy-search.js"
       - "data/editorial/udg-philosophy-v1/index.json"
+      - "data/theses/ugto-philosophy-v1/index.json"
       - "tests/thesis-public-v1-release.test.mjs"
       - "tests/thesis-demo.test.mjs"
       - "tests/editorial-udg-public-view.test.mjs"
+      - "tests/ugto-philosophy-public-view.test.mjs"
       - "docs/THESIS_PUBLIC_V1_RELEASE_T2DF.md"
       - "docs/THESIS_EDITORIAL_UDG_PUBLIC_VIEW_T2DG.md"
+      - "docs/THESIS_NATIONAL_UGTO_PUBLIC_VIEW_T2DH.md"
       - "release-manifest.json"
       - ".github/workflows/thesis-public-v1-release-t2df.yml"
 
@@ -34,8 +38,10 @@ jobs:
         run: |
           node --check js/thesis-demo.js
           node --check src/core/editorial-udg-search.js
+          node --check src/core/ugto-philosophy-search.js
           node --test \
             tests/thesis-public-v1-release.test.mjs \
             tests/thesis-philosophy-contribute.test.mjs \
             tests/thesis-demo.test.mjs \
-            tests/editorial-udg-public-view.test.mjs
+            tests/editorial-udg-public-view.test.mjs \
+            tests/ugto-philosophy-public-view.test.mjs
