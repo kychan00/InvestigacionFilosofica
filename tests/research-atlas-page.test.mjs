@@ -21,6 +21,33 @@ const renderer =
     "utf8"
   );
 
+const live =
+  await readFile(
+    new URL(
+      "../src/core/research-atlas-live.js",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
+const searchEngine =
+  await readFile(
+    new URL(
+      "../src/core/search-engine.js",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
+const openAlexPhilosophy =
+  await readFile(
+    new URL(
+      "../src/sources/openalex-philosophy.js",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
 const index =
   await readFile(
     new URL(
@@ -31,7 +58,7 @@ const index =
   );
 
 
-test("RA6 publica una ruta experimental con Canvas y alternativa en lista", () => {
+test("RA7 conserva Canvas y alternativa accesible en lista", () => {
   assert.match(
     page,
     /id="ra-canvas"/
@@ -49,28 +76,85 @@ test("RA6 publica una ruta experimental con Canvas y alternativa en lista", () =
 });
 
 
-test("la página declara explícitamente que todavía no está conectada al buscador público", () => {
+test("RA7 añade búsqueda real federada y semántica en la ruta experimental", () => {
   assert.match(
     page,
-    /Todavía no está conectado\s+al buscador público/i
+    /id="ra-live-search-form"/
+  );
+
+  assert.match(
+    page,
+    /value="federated"/
+  );
+
+  assert.match(
+    page,
+    /value="semantic"/
+  );
+
+  assert.match(
+    renderer,
+    /ResearchAtlasLiveSession/
+  );
+
+  assert.match(
+    renderer,
+    /philosophy-map\.json/
   );
 });
 
 
-test("RA6 no se añade todavía a la navegación principal de index.html", () => {
+test("RA7 sigue aislado de la navegación principal", () => {
   assert.equal(
     index.includes(
       "./research-atlas.html"
     ),
     false
   );
+
+  assert.match(
+    page,
+    /todavía no forma parte del flujo principal de producción/i
+  );
 });
 
 
-test("renderer experimental sólo carga el fixture local y no consulta OpenAlex live", () => {
+test("renderer RA7 ya no carga el fixture RA5", () => {
+  assert.equal(
+    renderer.includes(
+      "benchmark/research-atlas/v5/layout-fixture.json"
+    ),
+    false
+  );
+
+  assert.equal(
+    renderer.includes(
+      "ra-simulate"
+    ),
+    false
+  );
+});
+
+
+test("OpenAlex Philosophy permanece fijado al corpus Hugging Face y la API live sigue bloqueada", () => {
   assert.match(
-    renderer,
-    /benchmark\/research-atlas\/v5\/layout-fixture\.json/
+    openAlexPhilosophy,
+    /CristianPelayo\/openalex-philosophy/
+  );
+
+  assert.match(
+    openAlexPhilosophy,
+    /09c329326ed24ccf986c4b4c47c9794f055516dc/
+  );
+
+  assert.match(
+    searchEngine,
+    /client-side OpenAlex API calls are disabled/
+  );
+
+  assert.match(
+    searchEngine,
+    /enabled:\s*false/
   );
 
   assert.equal(
@@ -81,24 +165,39 @@ test("renderer experimental sólo carga el fixture local y no consulta OpenAlex 
   );
 
   assert.equal(
-    renderer.includes(
-      "huggingface.co/api"
+    live.includes(
+      "api.openalex.org"
     ),
     false
   );
 });
 
 
-test("renderer ofrece simulación incremental, filtros, pan y zoom", () => {
+test("RA7 expone la capa lexical sin llamarla semántica", () => {
+  assert.match(
+    page,
+    /data-ra-edge-toggle="lexical-neighbor"/
+  );
+
+  assert.match(
+    live,
+    /addResearchAtlasLexicalNeighbors/
+  );
+});
+
+
+test("renderer mantiene filtros, pan, zoom, cancelación y URL compartible", () => {
   for (const token of [
-    "ra-simulate",
+    "ra-live-cancel",
     "pointerdown",
     "pointermove",
     "pointerup",
     "wheel",
     "zoomAt",
     "fitView",
-    "filterResearchAtlasViewModel"
+    "filterResearchAtlasViewModel",
+    "history.replaceState",
+    "URLSearchParams"
   ]) {
     assert.ok(
       renderer.includes(token),
