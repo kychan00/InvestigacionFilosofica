@@ -1,0 +1,297 @@
+{
+  "schemaVersion": "research-atlas-search-response-fixtures-v1",
+  "sourceRevisions": {
+    "openAlexPhilosophy": "fixture-openalex-v1",
+    "crossref": "live-fixture",
+    "internetArchive": "live-fixture"
+  },
+  "final": {
+    "query": "libertad en Kant",
+    "parsed": {
+      "original": "libertad en Kant"
+    },
+    "expansions": [
+      {
+        "query": "libertad en Kant",
+        "weight": 1,
+        "type": "original"
+      }
+    ],
+    "results": [
+      {
+        "id": "openalex-W100",
+        "openalexId": "W100",
+        "title": "Freedom and autonomy in Kant",
+        "authors": [
+          {
+            "name": "Author One"
+          }
+        ],
+        "year": 2020,
+        "type": "article",
+        "language": "en",
+        "doi": "10.1000/kant-a",
+        "isbn": [],
+        "journal": "Kant Studies",
+        "publisher": "Example Press",
+        "topics": [
+          {
+            "id": "topic:freedom",
+            "name": "Freedom",
+            "score": 0.9
+          }
+        ],
+        "providers": [
+          "Crossref",
+          "OpenAlex Philosophy"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "Crossref",
+            "sourceId": "10.1000/kant-a",
+            "query": "libertad en Kant"
+          },
+          {
+            "provider": "OpenAlex Philosophy",
+            "sourceId": "W100",
+            "query": "libertad en Kant"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "freedom Kant",
+            "weight": 0.8,
+            "type": "translated"
+          },
+          {
+            "query": "libertad en Kant",
+            "weight": 1,
+            "type": "original"
+          }
+        ],
+        "urls": {
+          "canonical": "https://openalex.org/W100"
+        },
+        "institutionalLinks": []
+      },
+      {
+        "id": "crossref:10.1000/kant-b",
+        "title": "Practical reason and moral freedom",
+        "authors": [
+          {
+            "name": "Author Two"
+          }
+        ],
+        "year": 2018,
+        "type": "journal-article",
+        "language": "en",
+        "doi": "10.1000/kant-b",
+        "isbn": [],
+        "journal": "Ethics Review",
+        "publisher": null,
+        "topics": [],
+        "providers": [
+          "Crossref"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "Crossref",
+            "sourceId": "10.1000/kant-b",
+            "query": "freedom Kant"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "freedom Kant",
+            "weight": 0.8,
+            "type": "translated"
+          }
+        ],
+        "urls": {
+          "canonical": "https://doi.org/10.1000/kant-b"
+        },
+        "institutionalLinks": []
+      },
+      {
+        "id": "ia:kant-c",
+        "title": "Kant and the concept of autonomy",
+        "authors": [
+          {
+            "name": "Author Three"
+          }
+        ],
+        "year": 1999,
+        "type": "book",
+        "language": "en",
+        "doi": null,
+        "isbn": [
+          "9780000000001"
+        ],
+        "journal": null,
+        "publisher": "Archive Press",
+        "topics": [],
+        "providers": [
+          "Internet Archive"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "Internet Archive",
+            "sourceId": "kant-c",
+            "query": "libertad en Kant"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "libertad en Kant",
+            "weight": 1,
+            "type": "original"
+          }
+        ],
+        "urls": {
+          "canonical": "https://archive.org/details/kant-c"
+        },
+        "institutionalLinks": []
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "appearances": 4,
+      "unique": 3,
+      "merged": 1,
+      "providers": {
+        "OpenAlex Philosophy": 1,
+        "Crossref": 2,
+        "Internet Archive": 1
+      }
+    }
+  },
+  "partials": [
+    {
+      "query": "libertad en Kant",
+      "results": [
+        {
+          "id": "crossref:10.1000/kant-b",
+          "title": "Practical reason and moral freedom",
+          "authors": [
+            {
+              "name": "Author Two"
+            }
+          ],
+          "year": 2018,
+          "type": "journal-article",
+          "language": "en",
+          "doi": "10.1000/kant-b",
+          "isbn": [],
+          "providers": [
+            "Crossref"
+          ],
+          "sourceRecords": [
+            {
+              "provider": "Crossref",
+              "sourceId": "10.1000/kant-b",
+              "query": "freedom Kant"
+            }
+          ],
+          "matchedQueries": [
+            {
+              "query": "freedom Kant",
+              "weight": 0.8,
+              "type": "translated"
+            }
+          ],
+          "topics": [],
+          "urls": {},
+          "institutionalLinks": []
+        }
+      ],
+      "errors": [],
+      "progress": {
+        "completedExpansions": 0,
+        "totalExpansions": 2,
+        "provider": "Crossref"
+      }
+    },
+    {
+      "query": "libertad en Kant",
+      "results": [
+        {
+          "id": "openalex-W100",
+          "openalexId": "W100",
+          "title": "Freedom and autonomy in Kant",
+          "authors": [
+            {
+              "name": "Author One"
+            }
+          ],
+          "year": 2020,
+          "type": "article",
+          "language": "en",
+          "doi": "10.1000/kant-a",
+          "isbn": [],
+          "providers": [
+            "OpenAlex Philosophy"
+          ],
+          "sourceRecords": [
+            {
+              "provider": "OpenAlex Philosophy",
+              "sourceId": "W100",
+              "query": "libertad en Kant"
+            }
+          ],
+          "matchedQueries": [
+            {
+              "query": "libertad en Kant",
+              "weight": 1,
+              "type": "original"
+            }
+          ],
+          "topics": [],
+          "urls": {
+            "canonical": "https://openalex.org/W100"
+          },
+          "institutionalLinks": []
+        },
+        {
+          "id": "crossref:10.1000/kant-b",
+          "title": "Practical reason and moral freedom",
+          "authors": [
+            {
+              "name": "Author Two"
+            }
+          ],
+          "year": 2018,
+          "type": "journal-article",
+          "language": "en",
+          "doi": "10.1000/kant-b",
+          "isbn": [],
+          "providers": [
+            "Crossref"
+          ],
+          "sourceRecords": [
+            {
+              "provider": "Crossref",
+              "sourceId": "10.1000/kant-b",
+              "query": "freedom Kant"
+            }
+          ],
+          "matchedQueries": [
+            {
+              "query": "freedom Kant",
+              "weight": 0.8,
+              "type": "translated"
+            }
+          ],
+          "topics": [],
+          "urls": {},
+          "institutionalLinks": []
+        }
+      ],
+      "errors": [],
+      "progress": {
+        "completedExpansions": 0,
+        "totalExpansions": 2,
+        "provider": "OpenAlex Philosophy"
+      }
+    }
+  ]
+}
