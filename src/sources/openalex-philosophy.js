@@ -1,3 +1,9 @@
+export const OPENALEX_PHILOSOPHY_HF_REVISION =
+  "hf:CristianPelayo/openalex-philosophy@" +
+  "09c329326ed24ccf986c4b4c47c9794f055516dc:" +
+  "v3.2/philosophy-corpus-v3-2-search.parquet";
+
+
 const PARQUET_URL =
   "https://huggingface.co/datasets/" +
   "CristianPelayo/openalex-philosophy/" +
