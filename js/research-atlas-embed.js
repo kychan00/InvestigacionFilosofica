@@ -2,6 +2,8 @@
 import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js";
 import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js";
 import { addResearchAtlasLexicalNeighbors } from "../src/core/research-atlas-lexical.js";
+import { expandResearchAtlasWithRelatedWorks } from "../src/core/research-atlas-related.js";
+import { enrichResearchAtlasRuntime } from "../src/core/research-atlas-runtime-enrichment.js";
 import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
@@ -9,7 +11,7 @@ import {
 } from "../src/core/research-atlas-view.js";
 import { OPENALEX_PHILOSOPHY_HF_REVISION } from "../src/sources/openalex-philosophy.js";
 
-export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-07.ra9-v1";
+export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-07.ra10-v1";
 export const RESEARCH_ATLAS_RESPONSE_EVENT = "research-atlas:search-response";
 export const RESEARCH_ATLAS_RESET_EVENT = "research-atlas:reset";
 export const RESEARCH_ATLAS_FILTER_EVENT = "research-atlas:filter-results";
@@ -64,6 +66,8 @@ let selectedId = null;
 let hoveredId = null;
 let drag = null;
 let raf = null;
+let enrichmentController = null;
+let enrichmentRun = 0;
 
 const view = { x: 0, y: 0, zoom: 1 };
 
@@ -72,11 +76,16 @@ function makeAssembler() {
   layoutEngine = new ResearchAtlasLayoutEngine({ maxExistingDisplacement: 0.18 });
 }
 
-function sourceRevisions(response) {
+function sourceRevisions(response, runtime = null) {
   const revisions = {
     openAlexPhilosophy: OPENALEX_PHILOSOPHY_HF_REVISION,
     mainSearchIntegration: RESEARCH_ATLAS_MAIN_REVISION
   };
+
+  if (runtime?.authorIndexRevision) {
+    revisions.authorIndex =
+      runtime.authorIndexRevision;
+  }
   const semanticRevision =
     response?.semantic?.indexBuildId ||
     response?.semantic?.index_build_id ||
@@ -103,6 +112,9 @@ function element(tag, className, text) {
 }
 
 function resetGraph() {
+  enrichmentController?.abort();
+  enrichmentController = null;
+  enrichmentRun += 1;
   makeAssembler();
   snapshot = null;
   layout = null;
@@ -138,16 +150,16 @@ function enabledEdgeTypes() {
     .map(toggle => toggle.dataset.researchAtlasEdge);
 }
 
-function consumeSearchResponse(meta) {
-  const response = meta?.response;
-  if (!response || !Array.isArray(response.results)) return;
-
-  const queryText = String(response.query || "").trim();
-  if (!queryText) return;
-
-  if (currentQuery && currentQuery !== queryText) resetGraph();
-  currentQuery = queryText;
-
+function applyAtlasResponse(
+  response,
+  meta,
+  {
+    authorityGraph =
+      EMPTY_AUTHORITY_GRAPH,
+    relatedResponses = [],
+    runtime = null
+  } = {}
+) {
   const state =
     meta.phase === "partial"
       ? "collecting"
@@ -155,37 +167,304 @@ function consumeSearchResponse(meta) {
         ? "partial"
         : "complete";
 
-  const base = assembler.ingest(response, {
-    searchMode: inferSearchMode(meta, response),
-    state,
-    sourceRevisions: sourceRevisions(response)
-  });
+  let base =
+    assembler.ingest(
+      response,
+      {
+        searchMode:
+          inferSearchMode(
+            meta,
+            response
+          ),
+        state,
+        sourceRevisions:
+          sourceRevisions(
+            response,
+            runtime
+          ),
+        authorityGraph
+      }
+    );
 
-  snapshot = addResearchAtlasLexicalNeighbors(base);
-  layout = layoutEngine.layout(snapshot);
+  if (
+    relatedResponses.length
+  ) {
+    base =
+      expandResearchAtlasWithRelatedWorks(
+        base,
+        relatedResponses,
+        {
+          maxNeighborsPerSeed:
+            3,
+          maxExpandedWorks:
+            12,
+          relatedWorkIndexRevision:
+            runtime
+              ?.authorIndexRevision
+              ? runtime
+                  .authorIndexRevision +
+                ":authority-l1"
+              : null
+        }
+      );
+  }
+
+  snapshot =
+    addResearchAtlasLexicalNeighbors(
+      base
+    );
+
+  layout =
+    layoutEngine.layout(
+      snapshot
+    );
+
   rebuildViewModel();
 
-  switcher.classList.remove("hidden");
-  atlasCount.textContent = String(viewModel.diagnostics.directWorks);
+  switcher
+    .classList
+    .remove(
+      "hidden"
+    );
 
-  if (meta.phase === "partial") {
+  atlasCount.textContent =
+    String(
+      viewModel
+        .diagnostics
+        .directWorks
+    );
+
+  if (
+    runtime
+  ) {
     syncStatus.textContent =
-      String(viewModel.diagnostics.directWorks) + " obras · Atlas actualizándose";
+      String(
+        viewModel
+          .diagnostics
+          .directWorks
+      ) +
+      " obras · " +
+      String(
+        viewModel
+          .diagnostics
+          .authorities
+      ) +
+      " autores confirmados · " +
+      String(
+        viewModel
+          .diagnostics
+          .expandedWorks
+      ) +
+      " obras L1";
+
+    stageLabel.textContent =
+      "Autoridad y L1 verificados desde author-index-v3 · sin inferencia por nombre";
+  } else if (
+    meta.phase ===
+    "partial"
+  ) {
+    syncStatus.textContent =
+      String(
+        viewModel
+          .diagnostics
+          .directWorks
+      ) +
+      " obras · Atlas actualizándose";
+
     stageLabel.textContent =
       "Resultados parciales · la geometría se estabiliza conforme llegan fuentes";
   } else {
     syncStatus.textContent =
-      String(viewModel.diagnostics.directWorks) + " obras · " +
-      String(viewModel.diagnostics.mentions) + " menciones de autor";
+      String(
+        viewModel
+          .diagnostics
+          .directWorks
+      ) +
+      " obras · verificando autoridad…";
+
     stageLabel.textContent =
-      "Mismo SearchResponse que la lista · sin búsqueda adicional";
+      "Mismo SearchResponse que la lista · preparando Authority Graph de sesión";
   }
 
-  if (activeView === "atlas") {
-    requestAnimationFrame(() => {
-      requestDraw();
-      if (view.zoom === 1 && view.x === 0 && view.y === 0) fitView();
-    });
+  if (
+    activeView ===
+    "atlas"
+  ) {
+    requestAnimationFrame(
+      () => {
+        requestDraw();
+
+        if (
+          view.zoom ===
+            1 &&
+          view.x ===
+            0 &&
+          view.y ===
+            0
+        ) {
+          fitView();
+        }
+      }
+    );
+  }
+}
+
+
+async function enrichCompletedResponse(
+  response,
+  meta
+) {
+  enrichmentController
+    ?.abort();
+
+  enrichmentController =
+    new AbortController();
+
+  const controller =
+    enrichmentController;
+
+  const run =
+    ++enrichmentRun;
+
+  try {
+    const runtime =
+      await enrichResearchAtlasRuntime(
+        response,
+        {
+          signal:
+            controller.signal,
+          authorResultLimit:
+            20,
+          maxSeeds:
+            6,
+          maxAuthorsPerSeed:
+            2,
+          worksPerAuthor:
+            8,
+          maxNeighborsPerSeed:
+            3,
+          maxUniqueAuthors:
+            12,
+          concurrency:
+            4
+        }
+      );
+
+    if (
+      controller.signal
+        .aborted ||
+      run !==
+        enrichmentRun ||
+      String(
+        runtime.response
+          ?.query ||
+        ""
+      ).trim() !==
+        currentQuery
+    ) {
+      return;
+    }
+
+    applyAtlasResponse(
+      runtime.response,
+      {
+        ...meta,
+        phase:
+          "complete"
+      },
+      {
+        authorityGraph:
+          runtime
+            .authorityGraph,
+        relatedResponses:
+          runtime
+            .relatedResponses,
+        runtime
+      }
+    );
+  } catch (
+    error
+  ) {
+    if (
+      error?.name ===
+        "AbortError" ||
+      controller.signal
+        .aborted
+    ) {
+      return;
+    }
+
+    console.warn(
+      "Research Atlas Authority/L1 enrichment unavailable; base Atlas preserved.",
+      error
+    );
+
+    if (
+      run ===
+      enrichmentRun
+    ) {
+      syncStatus.textContent =
+        String(
+          viewModel
+            ?.diagnostics
+            ?.directWorks ||
+          0
+        ) +
+        " obras · autoridad no disponible";
+    }
+  }
+}
+
+
+function consumeSearchResponse(meta) {
+  const response =
+    meta?.response;
+
+  if (
+    !response ||
+    !Array.isArray(
+      response.results
+    )
+  ) {
+    return;
+  }
+
+  const queryText =
+    String(
+      response.query ||
+      ""
+    ).trim();
+
+  if (!queryText) {
+    return;
+  }
+
+  if (
+    currentQuery &&
+    currentQuery !==
+      queryText
+  ) {
+    resetGraph();
+  }
+
+  currentQuery =
+    queryText;
+
+  applyAtlasResponse(
+    response,
+    meta
+  );
+
+  if (
+    meta.phase !==
+    "partial"
+  ) {
+    void enrichCompletedResponse(
+      structuredClone(
+        response
+      ),
+      meta
+    );
   }
 }
 
@@ -329,6 +608,52 @@ function recomputeMainVisibility() {
       mainVisibleIdentityKeys.has(node.identity)
     ) {
       visibleIds.add(node.id);
+    }
+  }
+
+  for (const edge of viewModel.edges) {
+    if (edge.type !== "related-work") continue;
+
+    const from =
+      viewModel.nodes.find(
+        node =>
+          node.id ===
+          edge.fromRef
+      );
+
+    const to =
+      viewModel.nodes.find(
+        node =>
+          node.id ===
+          edge.toRef
+      );
+
+    if (
+      from?.kind ===
+        "work-direct" &&
+      visibleIds.has(
+        from.id
+      ) &&
+      to?.kind ===
+        "work-expanded"
+    ) {
+      visibleIds.add(
+        to.id
+      );
+    }
+
+    if (
+      to?.kind ===
+        "work-direct" &&
+      visibleIds.has(
+        to.id
+      ) &&
+      from?.kind ===
+        "work-expanded"
+    ) {
+      visibleIds.add(
+        from.id
+      );
     }
   }
 
