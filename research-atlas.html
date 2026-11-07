@@ -90,16 +90,15 @@
 
         <div class="ra-hero-copy">
           <p>
-            Este prototipo no sustituye la lista de resultados.
-            Visualiza cómo se conectan las obras recuperadas,
-            sus expansiones, autores confirmados y menciones
-            todavía no resueltas.
+            Esta ruta experimental ya consume búsquedas reales
+            del motor de Investigación Filosófica y construye
+            el grafo conforme llegan los proveedores.
           </p>
 
           <p>
-            La proximidad entre obras depende de relaciones
-            semánticas o estructurales; la autoría no deforma
-            la topología.
+            OpenAlex Philosophy sigue siendo el corpus versionado
+            del proyecto en Hugging Face; la API live de OpenAlex
+            permanece deshabilitada.
           </p>
         </div>
       </div>
@@ -136,23 +135,89 @@
               Un grafo que puede crecer sin perder contexto
             </h2>
             <p>
-              Arrastre para recorrer, acerque con la rueda,
-              seleccione un nodo o simule la llegada de una
-              nueva obra.
+              Busque un tema filosófico y observe cómo aparecen
+              resultados, autores como menciones seguras y
+              relaciones lexicales mientras avanza la búsqueda.
             </p>
           </div>
 
           <div class="ra-experimental-note">
-            <strong>Demo controlado</strong>
+            <strong>Integración experimental</strong>
             <span>
-              Usa el fixture RA5. Todavía no está conectado
-              al buscador público.
+              Usa el mismo motor real de búsqueda, pero esta vista
+              todavía no forma parte del flujo principal de producción.
             </span>
           </div>
         </div>
 
         <div class="ra-workspace">
           <div class="ra-map-column">
+
+            <form
+              id="ra-live-search-form"
+              class="ra-live-search"
+              role="search"
+            >
+              <label class="ra-live-query">
+                <span class="sr-only">
+                  Consulta filosófica para el Atlas
+                </span>
+
+                <input
+                  id="ra-live-query"
+                  name="q"
+                  type="search"
+                  autocomplete="off"
+                  placeholder="Ej. libertad en Kant"
+                  required
+                >
+              </label>
+
+              <label class="ra-live-field">
+                <span>Modo</span>
+                <select id="ra-live-mode">
+                  <option value="federated" selected>
+                    Federado
+                  </option>
+                  <option value="semantic">
+                    Semántico
+                  </option>
+                </select>
+              </label>
+
+              <label class="ra-live-field">
+                <span>Profundidad</span>
+                <select id="ra-live-depth">
+                  <option value="8">Rápida</option>
+                  <option value="12" selected>Amplia</option>
+                  <option value="20">Profunda</option>
+                </select>
+              </label>
+
+              <button
+                id="ra-live-submit"
+                type="submit"
+                class="ra-primary-button"
+              >
+                Construir Atlas
+              </button>
+
+              <button
+                id="ra-live-cancel"
+                type="button"
+                class="ra-quiet-button"
+                disabled
+              >
+                Cancelar
+              </button>
+            </form>
+
+            <div class="ra-live-source-note">
+              <strong>OpenAlex Philosophy</strong>
+              <span>
+                CristianPelayo/openalex-philosophy · Hugging Face · sin API live de OpenAlex
+              </span>
+            </div>
 
             <form
               id="ra-controls"
@@ -180,19 +245,11 @@
               </label>
 
               <button
-                id="ra-simulate"
-                type="button"
-                class="ra-primary-button"
-              >
-                Simular nueva obra
-              </button>
-
-              <button
                 id="ra-reset"
                 type="button"
                 class="ra-quiet-button"
               >
-                Reiniciar demo
+                Limpiar Atlas
               </button>
 
               <button
@@ -209,6 +266,12 @@
                 <input type="checkbox" data-ra-edge-toggle="semantic-neighbor" checked>
                 <span class="ra-line-swatch is-semantic"></span>
                 Semántica
+              </label>
+
+              <label>
+                <input type="checkbox" data-ra-edge-toggle="lexical-neighbor" checked>
+                <span class="ra-line-swatch is-lexical"></span>
+                Lexical
               </label>
 
               <label>
@@ -246,7 +309,7 @@
                   role="status"
                   aria-live="polite"
                 >
-                  Cargando fixture experimental…
+                  Escriba una consulta para construir el Atlas…
                 </span>
 
                 <span id="ra-zoom-readout">
