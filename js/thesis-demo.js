@@ -14,6 +14,10 @@ import {
   searchEditorialUdg,
   validateEditorialUdgIndex,
 } from "../src/core/editorial-udg-search.js?v=20261107-t2dg";
+import {
+  approvedUgtoRepositoryUrl,
+  validateUgtoPhilosophyIndex,
+} from "../src/core/ugto-philosophy-search.js?v=20261107-t2dh";
 
 const root = document.querySelector("#thesis-demo");
 const form = document.querySelector("#thesis-search");
@@ -25,10 +29,17 @@ const summary = document.querySelector("#thesis-summary");
 const pagination = document.querySelector("#thesis-pagination");
 const sort = document.querySelector("#thesis-sort");
 const clear = document.querySelector("#thesis-clear");
+const institutionButtons = [...document.querySelectorAll("[data-thesis-institution]")];
 const scopeButtons = [...document.querySelectorAll("[data-thesis-scope]")];
+const scopeDescription = document.querySelector("#thesis-scope-description");
+const heroEyebrow = document.querySelector("#thesis-hero-eyebrow");
+const institutionCode = document.querySelector("#thesis-institution-code");
 const philosophyPanel = document.querySelector("#philosophy-programs");
 const philosophyContribute = document.querySelector("#philosophy-contribute");
 const philosophyProgramList = document.querySelector("#philosophy-program-list");
+const philosophyProgramsLabel = document.querySelector("#philosophy-programs-label");
+const philosophyProgramsDescription = document.querySelector("#philosophy-programs-description");
+const philosophyProgramsNote = document.querySelector("#philosophy-programs-note");
 const editorialPanel = document.querySelector("#editorial-udg-intro");
 const philosophyRoleWrap = document.querySelector("#thesis-philosophy-role-wrap");
 const philosophyRole = document.querySelector("#thesis-philosophy-role");
@@ -44,6 +55,7 @@ const resultLabel = document.querySelector("#thesis-result-label");
 const humanitiesMethod = document.querySelector("#thesis-method-humanities");
 const philosophyMethod = document.querySelector("#thesis-method-philosophy");
 const editorialMethod = document.querySelector("#thesis-method-editorial");
+const ugtoMethod = document.querySelector("#thesis-method-ugto");
 const thesisFilterWraps = [
   document.querySelector("#thesis-program-wrap"),
   document.querySelector("#thesis-degree-wrap"),
@@ -59,7 +71,11 @@ const filters = {
   toYear: document.querySelector("#thesis-to-year"),
 };
 
-const datasets = { humanities: null, philosophy: null, editorial: null };
+const datasets = {
+  udg: { humanities: null, philosophy: null, editorial: null },
+  ugto: { philosophy: null },
+};
+let activeInstitution = "udg";
 let activeScope = "humanities";
 let allRecords = [];
 let currentPage = 1;
@@ -107,6 +123,22 @@ function displayAuthors(record) {
 function philosophyType(record) {
   if (record.philosophyStatus === "review") return "Filosofía · EN REVISIÓN";
   return "Filosofía · " + (ROLE_LABELS[record.philosophyRole] || "Referencia curada");
+}
+
+function activeDataset() {
+  return datasets[activeInstitution]?.[activeScope] || null;
+}
+
+function isUdgPhilosophy() {
+  return activeInstitution === "udg" && activeScope === "philosophy";
+}
+
+function isUgtoPhilosophy() {
+  return activeInstitution === "ugto" && activeScope === "philosophy";
+}
+
+function isUdgEditorial() {
+  return activeInstitution === "udg" && activeScope === "editorial";
 }
 
 function editorialCard(record) {
@@ -189,12 +221,12 @@ function editorialCard(record) {
 }
 
 function sourceCard(record) {
-  if (activeScope === "editorial") return editorialCard(record);
-  const philosophy = activeScope === "philosophy";
+  if (isUdgEditorial()) return editorialCard(record);
+  const udgPhilosophy = isUdgPhilosophy();
   const card = element("article", "td-result" + (record.philosophyStatus === "review" ? " td-result-review" : ""));
   const top = element("div", "td-result-top");
   top.append(
-    element("span", "td-result-type", philosophy ? philosophyType(record) : "Tesis · UdeG"),
+    element("span", "td-result-type", udgPhilosophy ? philosophyType(record) : `Tesis · ${record.institutionAcronym || "UdeG"}`),
     element("span", "td-result-year", record.year ?? "Año sin verificar"),
   );
   card.append(top);
@@ -204,7 +236,7 @@ function sourceCard(record) {
 
   const meta = element("div", "td-result-meta");
   const fields = [
-    [philosophy ? "Programa real" : "Programa", record.program || "Sin programa registrado"],
+    [udgPhilosophy ? "Programa real" : "Programa", record.program || "Sin programa registrado"],
     ["Grado", record.degree || "Sin especificar"],
     ["Unidad académica", record.unit || "No registrada"],
   ];
@@ -219,9 +251,9 @@ function sourceCard(record) {
   card.append(meta);
 
   const detail = element("details", "td-details");
-  const detailSummary = element("summary", "", philosophy ? "Ver evidencia y metadatos" : "Ver metadatos de la tesis");
+  const detailSummary = element("summary", "", udgPhilosophy ? "Ver evidencia y metadatos" : "Ver metadatos de la tesis");
   const detailBody = element("div", "td-details-content");
-  if (philosophy && record.philosophyEvidence) {
+  if (udgPhilosophy && record.philosophyEvidence) {
     detailBody.append(
       element("strong", "", "Por qué aparece en Filosofía"),
       element("p", "td-excerpt", record.philosophyEvidence),
@@ -281,8 +313,10 @@ function sourceCard(record) {
   card.append(detail);
 
   const actions = element("div", "td-actions");
-  const officialUrl = approvedInstitutionalUrl(record.sourceUrl);
-  const referenceUrl = philosophy ? approvedReferenceUrl(record.sourceUrl) : officialUrl;
+  const officialUrl = activeInstitution === "ugto"
+    ? approvedUgtoRepositoryUrl(record.sourceUrl)
+    : approvedInstitutionalUrl(record.sourceUrl);
+  const referenceUrl = udgPhilosophy ? approvedReferenceUrl(record.sourceUrl) : officialUrl;
   if (referenceUrl) {
     const link = element(
       "a",
@@ -305,7 +339,7 @@ function sourceCard(record) {
       displayAuthors(record),
       "(" + (record.year ?? "s. f.") + ").",
       record.title + ".",
-      "Universidad de Guadalajara.",
+      (record.institution || "Universidad de Guadalajara") + ".",
       referenceUrl || "",
     ].filter(Boolean).join(" ");
     try {
@@ -321,7 +355,7 @@ function sourceCard(record) {
 }
 
 function selectedFilters() {
-  if (activeScope === "editorial") {
+  if (isUdgEditorial()) {
     return {
       query: searchInput.value,
       origin: editorialOrigin.value,
@@ -335,13 +369,13 @@ function selectedFilters() {
     unit: filters.unit.value,
     fromYear: filters.fromYear.value,
     toYear: filters.toYear.value,
-    philosophyRole: activeScope === "philosophy" ? philosophyRole.value : "",
+    philosophyRole: isUdgPhilosophy() ? philosophyRole.value : "",
   };
 }
 
 function sortedRecords(records) {
   const ordered = [...records];
-  if (activeScope === "editorial") {
+  if (isUdgEditorial()) {
     ordered.sort((a, b) => a.title.localeCompare(b.title, "es"));
     return ordered;
   }
@@ -397,7 +431,7 @@ function populateFilters() {
   resetSelect(filters.unit, "Todas las unidades");
   resetSelect(editorialFormat, "Todos los formatos");
 
-  if (activeScope === "editorial") {
+  if (isUdgEditorial()) {
     makeSelectOptions(editorialFormat, editorialFilterOptions(allRecords, "formats"));
     return;
   }
