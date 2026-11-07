@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#161616">
-  <meta name="description" content="Tesis UdeG · Versión pública 1.0. Archivo bibliográfico de Humanidades y Filosofía con referencias verificadas, procedencia y enlaces institucionales.">
+  <meta name="description" content="Tesis UdeG · Versión pública 1.0. Archivo bibliográfico de Humanidades y Filosofía, con un corpus complementario de publicaciones filosóficas de Editorial UdeG.">
   <script>
     (() => {
       const key = "investigacion-filosofica-theme";
@@ -18,7 +18,7 @@
     })();
   </script>
   <title>Tesis UdeG · Versión 1.0 · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/thesis-demo.css?v=20261105-t2de">
+  <link rel="stylesheet" href="./css/thesis-demo.css?v=20261107-t2dg">
 </head>
 <body>
   <div id="thesis-demo" class="td-page">
@@ -71,6 +71,7 @@
         <div class="td-scope-switch" role="group" aria-label="Vista de tesis">
           <button type="button" data-thesis-scope="humanities" class="td-scope-active" aria-pressed="true">Humanidades <strong id="thesis-scope-humanities-count">—</strong></button>
           <button type="button" data-thesis-scope="philosophy" aria-pressed="false">Filosofía <strong id="thesis-scope-philosophy-count">—</strong></button>
+          <button type="button" data-thesis-scope="editorial" aria-pressed="false">Editorial UdeG <strong id="thesis-scope-editorial-count">—</strong></button>
         </div>
       </section>
 
@@ -132,6 +133,21 @@
         </aside>
       </section>
 
+      <section id="editorial-udg-intro" class="td-editorial-intro" aria-labelledby="editorial-udg-title" hidden>
+        <div class="td-editorial-intro-copy">
+          <p class="td-section-label">PRODUCCIÓN EDITORIAL / FILOSOFÍA</p>
+          <h2 id="editorial-udg-title">Libros y publicaciones filosóficas de Editorial UdeG.</h2>
+          <p>Este corpus complementa el archivo de tesis con publicaciones de la Editorial Universidad de Guadalajara que tratan explícitamente de filosofía. No son tesis y no se alojan copias de los libros: cada registro conserva únicamente metadatos, criterio de inclusión y enlace a la ficha oficial.</p>
+        </div>
+        <div class="td-editorial-stats" aria-label="Composición del corpus editorial filosófico">
+          <div><strong id="editorial-total">33</strong><span>publicaciones verificadas</span></div>
+          <div><strong>24</strong><span>categoría oficial Filosofía</span></div>
+          <div><strong>9</strong><span>relación filosófica verificada</span></div>
+          <div><strong>0 PDF</strong><span>copias propias alojadas</span></div>
+        </div>
+        <p class="td-editorial-note"><strong>Criterio:</strong> fuera de la categoría oficial sólo se incorporan obras cuya ficha editorial explicita una relación filosófica sustantiva —por ejemplo ética, epistemología, lógica, argumentación, metafísica u ontología—. Humanidades o religión, por sí solas, no bastan.</p>
+      </section>
+
       <section class="td-search-panel" aria-labelledby="thesis-search-label">
         <form id="thesis-search" novalidate>
           <label id="thesis-search-label" class="td-search-label" for="thesis-query">Búsqueda bibliográfica</label>
@@ -140,19 +156,19 @@
             <button class="td-search-button" type="submit">Buscar <span aria-hidden="true">↗</span></button>
           </div>
           <div class="td-filters">
-            <label>Programa
+            <label id="thesis-program-wrap">Programa
               <select id="thesis-program"><option value="">Todos los programas</option></select>
             </label>
-            <label>Grado
+            <label id="thesis-degree-wrap">Grado
               <select id="thesis-degree"><option value="">Todos los grados</option></select>
             </label>
-            <label>Unidad académica
+            <label id="thesis-unit-wrap">Unidad académica
               <select id="thesis-unit"><option value="">Todas las unidades</option></select>
             </label>
-            <label>Año desde
+            <label id="thesis-from-year-wrap">Año desde
               <input id="thesis-from-year" type="number" min="1500" max="2026" inputmode="numeric" placeholder="Sin límite">
             </label>
-            <label>Año hasta
+            <label id="thesis-to-year-wrap">Año hasta
               <input id="thesis-to-year" type="number" min="1500" max="2026" inputmode="numeric" placeholder="Sin límite">
             </label>
             <label id="thesis-philosophy-role-wrap" hidden>Relación filosófica
@@ -164,7 +180,17 @@
                 <option value="review">En revisión</option>
               </select>
             </label>
-            <label>Orden
+            <label id="thesis-editorial-origin-wrap" hidden>Procedencia
+              <select id="thesis-editorial-origin">
+                <option value="">Todo el corpus editorial</option>
+                <option value="official-philosophy-category">Categoría oficial Filosofía</option>
+                <option value="verified-philosophical-relation">Relación filosófica verificada</option>
+              </select>
+            </label>
+            <label id="thesis-editorial-format-wrap" hidden>Formato
+              <select id="thesis-editorial-format"><option value="">Todos los formatos</option></select>
+            </label>
+            <label id="thesis-sort-wrap">Orden
               <select id="thesis-sort">
                 <option value="newest">Más recientes</option>
                 <option value="oldest">Más antiguas</option>
@@ -200,6 +226,7 @@
         <div>
           <p id="thesis-method-humanities">Esta primera versión pública consulta el <strong>corpus efectivo inmutable V2</strong> (566 tesis admitidas), no las <strong id="thesis-canonical-total">—</strong> obras candidatas del corpus completo. Las inclusiones se fundamentan en políticas de Humanidades y autoridades académicas documentadas.</p>
           <p id="thesis-method-philosophy" hidden>La vista Filosofía incorpora el inventario histórico oficial de Licenciatura en Filosofía de la Biblioteca CUCSH y lo deduplica contra las referencias ya verificadas. También conserva los programas filosóficos documentados y cruces curados. Un registro de catálogo prueba una referencia bibliográfica, no un ejemplar físico: los paraderos sólo se consideran confirmados cuando existe evidencia específica de holdings. Las fichas <strong>REVIEW</strong> permanecen separadas y esta vista no modifica la admisión canónica.</p>
+          <p id="thesis-method-editorial" hidden>La vista Editorial UdeG es un <strong>corpus bibliográfico complementario</strong> de 33 publicaciones filosóficas verificadas al 7 de noviembre de 2026. Veinticuatro aparecen en la categoría oficial Filosofía y nueve se incorporan porque su propia ficha editorial explicita contenido filosófico sustantivo. Este conjunto no altera el corpus de tesis, no acredita lectura o posesión y conserva sólo enlaces oficiales.</p>
           <p><strong>El PDF nunca se aloja aquí.</strong> Los enlaces abren la fuente bibliográfica o el repositorio institucional correspondiente. Los extractos de resumen son metadatos, no reproducción del texto completo. Las fechas dudosas no se muestran como fechas verificadas.</p>
           <a href="./" class="td-method-link">Regresar al motor de Investigación Filosófica ↗</a>
         </div>
@@ -207,7 +234,7 @@
     </main>
     <footer class="td-footer"><span>Φ · INVESTIGACIÓN FILOSÓFICA</span><span>Tesis UdeG · Versión pública 1.0 · Noviembre de 2026</span></footer>
   </div>
-  <script type="module" src="./js/thesis-demo.js?v=20261105-v101"></script>
+  <script type="module" src="./js/thesis-demo.js?v=20261107-t2dg"></script>
   <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
 </body>
 </html>
