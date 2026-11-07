@@ -18,6 +18,7 @@ export const RESEARCH_ATLAS_VIEW_REVISION =
 const DEFAULT_EDGE_TYPES = Object.freeze([
   RESEARCH_ATLAS_EDGE_TYPES.SEMANTIC_NEIGHBOR,
   RESEARCH_ATLAS_EDGE_TYPES.RELATED_WORK,
+  RESEARCH_ATLAS_EDGE_TYPES.LEXICAL_NEIGHBOR,
   RESEARCH_ATLAS_EDGE_TYPES.CONTRIBUTION,
   RESEARCH_ATLAS_EDGE_TYPES.AUTHOR_MENTION
 ]);
@@ -139,6 +140,8 @@ function edgeVisualType(edge) {
       return "semantic";
     case RESEARCH_ATLAS_EDGE_TYPES.RELATED_WORK:
       return "related";
+    case RESEARCH_ATLAS_EDGE_TYPES.LEXICAL_NEIGHBOR:
+      return "lexical";
     case RESEARCH_ATLAS_EDGE_TYPES.CONTRIBUTION:
       return "contribution";
     case RESEARCH_ATLAS_EDGE_TYPES.AUTHOR_MENTION:
@@ -165,6 +168,7 @@ function edgeLabel(edge) {
   const labels = {
     "semantic-neighbor": "Vecindad semántica",
     "related-work": "Obra relacionada",
+    "lexical-neighbor": "Vecindad lexical de títulos",
     "contribution": "Contribución confirmada",
     "author-mention": "Mención provisional",
     "query-result": "Resultado directo",
