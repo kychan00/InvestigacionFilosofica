@@ -103,7 +103,7 @@ try {
           ".ra-experimental-note"
         )
         .innerText(),
-      /Demo controlado · no producción/
+      /demo controlado · no producción/i
     );
 
     assert.match(
