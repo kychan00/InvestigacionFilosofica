@@ -402,6 +402,7 @@ export function addResearchAtlasLexicalNeighbors(
 
   let added = 0;
   let skippedSemantic = 0;
+  let skippedExisting = 0;
 
   for (
     const candidate of
@@ -422,6 +423,19 @@ export function addResearchAtlasLexicalNeighbors(
         )
     ) {
       skippedSemantic +=
+        1;
+      continue;
+    }
+
+    if (
+      existing
+        .get(key)
+        ?.has(
+          RESEARCH_ATLAS_EDGE_TYPES
+            .LEXICAL_NEIGHBOR
+        )
+    ) {
+      skippedExisting +=
         1;
       continue;
     }
@@ -518,6 +532,7 @@ export function addResearchAtlasLexicalNeighbors(
           added,
         skippedBecauseSemantic:
           skippedSemantic,
+        skippedExisting,
         directHitsOnly:
           Boolean(
             directHitsOnly
