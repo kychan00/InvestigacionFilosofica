@@ -12,7 +12,7 @@ export const RESEARCH_ATLAS_VIEW_SCHEMA_VERSION =
   "research-atlas-view-v1";
 
 export const RESEARCH_ATLAS_VIEW_REVISION =
-  "2026-11-07.ra6-v1";
+  "2026-11-07.ra7-v1";
 
 
 const DEFAULT_EDGE_TYPES = Object.freeze([
@@ -154,8 +154,6 @@ function edgeVisualType(edge) {
       return "coauthor";
     case RESEARCH_ATLAS_EDGE_TYPES.SHARED_COAUTHOR:
       return "shared-coauthor";
-    case RESEARCH_ATLAS_EDGE_TYPES.LEXICAL_NEIGHBOR:
-      return "lexical";
     case RESEARCH_ATLAS_EDGE_TYPES.CITATION:
       return "citation";
     default:
@@ -175,7 +173,6 @@ function edgeLabel(edge) {
     "same-author": "Autor compartido",
     "coauthor": "Coautoría",
     "shared-coauthor": "Coautor compartido",
-    "lexical-neighbor": "Vecindad lexical",
     "citation": "Citación documentada"
   };
 
