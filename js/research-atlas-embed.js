@@ -12,6 +12,7 @@ import { OPENALEX_PHILOSOPHY_HF_REVISION } from "../src/sources/openalex-philoso
 export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-07.ra9-v1";
 export const RESEARCH_ATLAS_RESPONSE_EVENT = "research-atlas:search-response";
 export const RESEARCH_ATLAS_RESET_EVENT = "research-atlas:reset";
+export const RESEARCH_ATLAS_FILTER_EVENT = "research-atlas:filter-results";
 
 const q = selector => document.querySelector(selector);
 const switcher = q("#research-view-switch");
@@ -54,6 +55,9 @@ let snapshot = null;
 let layout = null;
 let viewModel = null;
 let filterState = null;
+let mainVisibleIdentityKeys = null;
+let mainVisibleNodeIds = null;
+let mainVisibleEdgeIds = null;
 let currentQuery = "";
 let activeView = "results";
 let selectedId = null;
@@ -104,6 +108,9 @@ function resetGraph() {
   layout = null;
   viewModel = null;
   filterState = null;
+  mainVisibleIdentityKeys = null;
+  mainVisibleNodeIds = null;
+  mainVisibleEdgeIds = null;
   selectedId = null;
   hoveredId = null;
   filterInput.value = "";
@@ -188,6 +195,7 @@ function rebuildViewModel() {
     edgeTypes: enabledEdgeTypes()
   });
   filterState = filterResearchAtlasViewModel(viewModel, filterInput.value);
+  recomputeMainVisibility();
   if (selectedId && !viewModel.nodes.some(node => node.id === selectedId)) {
     selectedId = null;
   }
@@ -301,12 +309,55 @@ function selectedContext() {
   return selectedResearchAtlasContext(viewModel, selectedId);
 }
 
+function recomputeMainVisibility() {
+  if (!viewModel || !mainVisibleIdentityKeys) {
+    mainVisibleNodeIds = null;
+    mainVisibleEdgeIds = null;
+    return;
+  }
+
+  const visibleIds = new Set();
+
+  for (const node of viewModel.nodes) {
+    if (node.kind === "query") {
+      visibleIds.add(node.id);
+      continue;
+    }
+
+    if (
+      (node.kind === "work-direct" || node.kind === "work-expanded") &&
+      mainVisibleIdentityKeys.has(node.identity)
+    ) {
+      visibleIds.add(node.id);
+    }
+  }
+
+  for (const edge of viewModel.edges) {
+    if (edge.type !== "contribution" && edge.type !== "author-mention") continue;
+    const fromVisible = visibleIds.has(edge.fromRef);
+    const toVisible = visibleIds.has(edge.toRef);
+    if (fromVisible) visibleIds.add(edge.toRef);
+    if (toVisible) visibleIds.add(edge.fromRef);
+  }
+
+  mainVisibleNodeIds = visibleIds;
+  mainVisibleEdgeIds = new Set(
+    viewModel.edges
+      .filter(edge => visibleIds.has(edge.fromRef) && visibleIds.has(edge.toRef))
+      .map(edge => edge.id)
+  );
+}
+
 function visibleNode(id) {
-  return filterState?.visibleNodeIds?.has(id) ?? true;
+  const textVisible = filterState?.visibleNodeIds?.has(id) ?? true;
+  const mainVisible = mainVisibleNodeIds?.has(id) ?? true;
+  return textVisible && mainVisible;
 }
 
 function visibleEdge(id) {
-  return filterState?.visibleEdgeIds?.has(id) ?? true;
+  const textVisible = filterState?.visibleEdgeIds?.has(id) ?? true;
+  const mainVisible = mainVisibleEdgeIds?.has(id) ?? true;
+  return textVisible && mainVisible;
 }
 
 function draw() {
@@ -736,6 +787,29 @@ window.addEventListener(RESEARCH_ATLAS_RESET_EVENT, event => {
   resetGraph();
   setView("results");
   switcher.classList.add("hidden");
+});
+
+window.addEventListener(RESEARCH_ATLAS_FILTER_EVENT, event => {
+  const keys = Array.isArray(event.detail?.visibleIdentityKeys)
+    ? event.detail.visibleIdentityKeys
+    : null;
+
+  mainVisibleIdentityKeys = keys ? new Set(keys) : null;
+  recomputeMainVisibility();
+
+  if (viewModel) {
+    renderList();
+    renderDetail();
+    requestDraw();
+
+    const visible = Number(event.detail?.visibleCount);
+    const total = Number(event.detail?.totalCount);
+
+    if (Number.isFinite(visible) && Number.isFinite(total) && visible !== total) {
+      syncStatus.textContent =
+        String(visible) + " de " + String(total) + " obras visibles · topología preservada";
+    }
+  }
 });
 
 new MutationObserver(() => {
