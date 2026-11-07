@@ -36,7 +36,7 @@ function makeResponse(count = 20) {
       year: 1990 + index % 30,
       type: "article",
       language: index % 3 === 0 ? "es" : "en",
-      doi: index % 4 === 0 ? "10.5555/ra9." + String(index) : null,
+      doi: null,
       isbn: [],
       topics: [],
       providers: ["OpenAlex Philosophy"],
