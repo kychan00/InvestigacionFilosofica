@@ -1,0 +1,145 @@
+name: Research Atlas RA10 · publish Author Authority to Hugging Face
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish-authority:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install application dependencies
+        run: npm ci
+
+      - name: Require completed human judgments
+        run: |
+          test -s benchmark/author-authority/human-audit-v1/judgments.jsonl || {
+            echo "::error::Author Authority publication is blocked until the 100-pair human audit judgments are versioned."
+            exit 1
+          }
+
+      - name: Read pinned author-index release
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const config = JSON.parse(
+            fs.readFileSync(
+              "benchmark/author-authority/v1/config.json",
+              "utf8"
+            )
+          );
+          const lines = [
+            ["AUTHORITY_RELEASE_TAG", config.release.tag],
+            ["AUTHORITY_RELEASE_ASSET", config.release.asset],
+            ["AUTHORITY_RELEASE_SHA256", config.release.sha256]
+          ];
+          fs.appendFileSync(
+            process.env.GITHUB_ENV,
+            lines.map(([key, value]) => `${key}=${value}\n`).join("")
+          );
+          NODE
+
+      - name: Download pinned author-index release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p             artifacts/ra10-authority/download             artifacts/ra10-authority/input
+
+          gh release download "$AUTHORITY_RELEASE_TAG"             --repo "$GITHUB_REPOSITORY"             --pattern "$AUTHORITY_RELEASE_ASSET"             --dir artifacts/ra10-authority/download
+
+      - name: Verify author-index release checksum
+        working-directory: artifacts/ra10-authority/download
+        run: |
+          printf '%s  %s\n'             "$AUTHORITY_RELEASE_SHA256"             "$AUTHORITY_RELEASE_ASSET"             | sha256sum -c -
+
+      - name: Extract author-index release
+        run: |
+          tar             -xzf "artifacts/ra10-authority/download/$AUTHORITY_RELEASE_ASSET"             -C artifacts/ra10-authority/input
+
+          test -f             artifacts/ra10-authority/input/author-index-v2/manifest.json
+
+      - name: Rebuild frozen human-audit packet
+        run: |
+          npm run benchmark:authority:audit:build --             --input artifacts/ra10-authority/input/author-index-v2             --output artifacts/ra10-authority/human-audit-packet
+
+      - name: Evaluate human audit
+        run: |
+          npm run benchmark:authority:audit:analyze --             --packet artifacts/ra10-authority/human-audit-packet             --judgments benchmark/author-authority/human-audit-v1/judgments.jsonl             --output artifacts/ra10-authority/human-audit-report.json             --gold artifacts/ra10-authority/human-gold-v1.jsonl
+
+      - name: Build Author Authority shards
+        run: |
+          npm run build:authority-batch --             --input artifacts/ra10-authority/input/author-index-v2             --output artifacts/ra10-authority/author-authority-v1             --build-revision "$GITHUB_SHA"
+
+      - name: Validate publication payload
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const root = "artifacts/ra10-authority/author-authority-v1";
+          const manifest = JSON.parse(fs.readFileSync(root + "/manifest.json", "utf8"));
+          const registry = JSON.parse(fs.readFileSync(root + "/registry.json", "utf8"));
+          const audit = JSON.parse(fs.readFileSync("artifacts/ra10-authority/human-audit-report.json", "utf8"));
+
+          if (audit.metrics?.gate?.passed !== true) {
+            throw new Error("Human Authority gate is not green");
+          }
+          if (audit.metrics?.falseMergeCount !== 0) {
+            throw new Error("Author Authority publication forbids human false merges");
+          }
+          if (manifest.schemaVersion !== "author-authority-batch-manifest-v1") {
+            throw new Error("Unexpected Author Authority manifest schema");
+          }
+          if (!Number.isInteger(manifest.shardCount) || manifest.shardCount < 1) {
+            throw new Error("Invalid Authority shard count");
+          }
+          if ((manifest.files?.shards || []).length !== manifest.shardCount) {
+            throw new Error("Authority shard inventory is incomplete");
+          }
+          if (registry.schemaVersion !== "author-authority-registry-v1") {
+            throw new Error("Unexpected Authority registry schema");
+          }
+
+          console.log(JSON.stringify({
+            gatePassed: audit.metrics.gate.passed,
+            falseMergeCount: audit.metrics.falseMergeCount,
+            authorities: manifest.counts?.authorities,
+            mentions: manifest.counts?.mentions,
+            shards: manifest.shardCount
+          }, null, 2));
+          NODE
+
+      - name: Install Hugging Face publisher
+        run: python -m pip install --upgrade huggingface_hub
+
+      - name: Publish immutable Authority payload to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python scripts/research-atlas/publish_enrichment_to_hf.py             --input artifacts/ra10-authority/author-authority-v1             --repo CristianPelayo/openalex-philosophy             --target-prefix "research-atlas/author-authority/v1/$GITHUB_SHA"             --output artifacts/ra10-authority/hf-publication.json
+
+      - name: Upload publication evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra10-authority-publication
+          path: |
+            artifacts/ra10-authority/human-audit-report.json
+            artifacts/ra10-authority/human-gold-v1.jsonl
+            artifacts/ra10-authority/author-authority-v1/manifest.json
+            artifacts/ra10-authority/author-authority-v1/registry.json
+            artifacts/ra10-authority/hf-publication.json
+          if-no-files-found: warn
