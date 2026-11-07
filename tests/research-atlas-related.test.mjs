@@ -320,11 +320,20 @@ test("related-work conserva relación compuesta sin colapsarla a semántica", ()
         "openalex:w300"
     );
 
+  const seed =
+    snapshot.nodes.find(
+      node =>
+        node.identity?.key ===
+        "openalex:w100"
+    );
+
   const related =
     snapshot.edges.find(
       edge =>
         edge.type ===
           "related-work" &&
+        edge.fromRef ===
+          seed.id &&
         edge.toRef ===
           target.id
     );
