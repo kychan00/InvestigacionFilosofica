@@ -1574,3 +1574,21 @@ La lista conserva precisión.
 El Atlas revela estructura.
 
 Ambas deben derivar de la misma evidencia.
+
+
+---
+
+## Aclaración de procedencia · OpenAlex Philosophy
+
+Para el Research Atlas, **OpenAlex Philosophy** designa la capa filosófica operativa mantenida por el proyecto en Hugging Face:
+
+`CristianPelayo/openalex-philosophy`
+
+El dataset deriva de OpenAlex, pero el runtime del Atlas no debe reinterpretar ese nombre como permiso para sustituir el corpus versionado por consultas live a OpenAlex.
+
+Regla:
+
+- la revisión concreta del corpus Hugging Face debe conservarse en `sourceRevisions` cuando participe en una sesión;
+- Qwen3, browser-static y Related Work deben declarar la revisión compatible que consumen;
+- una fuente live futura se tratará como proveedor/enriquecimiento distinto y con procedencia explícita;
+- ningún cambio de fuente puede ocurrir silenciosamente bajo la misma etiqueta de procedencia.
