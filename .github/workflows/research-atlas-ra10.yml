@@ -73,7 +73,7 @@ jobs:
       - name: Dry-run publisher against deterministic Authority fixture
         run: |
           npm run build:authority-batch-fixture
-          python scripts/research-atlas/publish_enrichment_to_hf.py             --input artifacts/author-authority-batch-fixture-v1/output             --target-prefix research-atlas/author-authority/v1/dry-run             --output artifacts/research-atlas-ra10/hf-publication-dry-run.json             --dry-run
+          python scripts/research-atlas/publish_enrichment_to_hf.py             --input artifacts/author-authority-batch-fixture-v1/site/author-authority-v1             --target-prefix research-atlas/author-authority/v1/dry-run             --output artifacts/research-atlas-ra10/hf-publication-dry-run.json             --dry-run
 
       - name: Run RA9 integration contract
         run: node --test tests/research-atlas-main-integration.test.mjs
