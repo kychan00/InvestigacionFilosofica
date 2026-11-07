@@ -117,3 +117,79 @@ test("app actualiza Atlas al cargar más resultados", () => {
   const segment = app.slice(loadMoreIndex, loadMoreIndex + 5000);
   assert.match(segment, /publishResearchAtlasResponse\(\s*response,\s*"complete"\s*\)/);
 });
+
+
+test("RA10 enriquece sólo al completar SearchResponse", () => {
+  assert.match(
+    embed,
+    /enrichResearchAtlasRuntime/
+  );
+
+  assert.match(
+    embed,
+    /expandResearchAtlasWithRelatedWorks/
+  );
+
+  assert.match(
+    embed,
+    /if \(\s*meta\.phase !==\s*"partial"\s*\) \{\s*void enrichCompletedResponse/
+  );
+});
+
+
+test("RA10 mantiene red fuera del renderer de búsqueda", () => {
+  for (const forbidden of [
+    "searchPhilosophy",
+    "searchPublicSemantic",
+    "searchMorePhilosophy",
+    "ResearchAtlasLiveSession",
+    "api.openalex.org"
+  ]) {
+    assert.equal(
+      embed.includes(forbidden),
+      false,
+      forbidden
+    );
+  }
+});
+
+
+test("RA10 propaga L1 sólo desde semillas visibles bajo filtros principales", () => {
+  assert.match(
+    embed,
+    /edge\.type !== "related-work"/
+  );
+
+  assert.match(
+    embed,
+    /work-expanded/
+  );
+
+  const filterListener =
+    embed.slice(
+      embed.indexOf(
+        "window.addEventListener(RESEARCH_ATLAS_FILTER_EVENT"
+      ),
+      embed.indexOf(
+        "new MutationObserver",
+        embed.indexOf(
+          "window.addEventListener(RESEARCH_ATLAS_FILTER_EVENT"
+        )
+      )
+    );
+
+  assert.equal(
+    filterListener.includes(
+      "layoutEngine.layout"
+    ),
+    false
+  );
+});
+
+
+test("RA10 refresca cache-busting del Atlas embebido", () => {
+  assert.match(
+    page,
+    /research-atlas-embed\.js\?v=20261107-ra10-v1/
+  );
+});
