@@ -166,7 +166,7 @@ function edgeLabel(edge) {
   const labels = {
     "semantic-neighbor": "Vecindad semántica",
     "related-work": "Obra relacionada",
-    "lexical-neighbor": "Vecindad lexical de títulos",
+    "lexical-neighbor": "Similitud textual · título + abstract",
     "contribution": "Contribución confirmada",
     "author-mention": "Mención provisional",
     "query-result": "Resultado directo",
