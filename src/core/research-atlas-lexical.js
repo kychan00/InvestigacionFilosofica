@@ -12,10 +12,14 @@ import {
 
 
 export const RESEARCH_ATLAS_LEXICAL_REVISION =
-  "2026-11-07.ra7-lexical-v1";
+  "2026-11-07.ra11-textual-v1";
 
 export const RESEARCH_ATLAS_LEXICAL_METHOD =
-  "title-token-jaccard-v1";
+  "title-abstract-tfidf-v1";
+
+
+const TITLE_WEIGHT = 2;
+const ABSTRACT_WEIGHT = 1;
 
 
 const STOPWORDS =
@@ -25,7 +29,8 @@ const STOPWORDS =
     "sobre","para","por","con","del","las","los","una","uno","unos","unas",
     "que","como","entre","desde","hacia","tras","ante","sin","sus","una",
     "estudio","study","analysis","analisis","approach","introduction",
-    "introduccion","perspective","perspectiva"
+    "introduccion","perspective","perspectiva","paper","article","work",
+    "examines","examine","explores","explore","argues","argue"
   ]);
 
 
@@ -71,70 +76,248 @@ function stableId(
 }
 
 
-function titleTokens(
-  value
-) {
-  return [
-    ...new Set(
-      normalizeText(
-        value
-      )
-        .split(/\s+/)
-        .map(token =>
-          token.trim()
-        )
-        .filter(
-          token =>
-            token.length >=
-              3 &&
-            !STOPWORDS.has(
-              token
-            ) &&
-            !/^\d+$/.test(
-              token
-            )
-        )
+function tokens(value) {
+  return normalizeText(
+    value
+  )
+    .split(/\s+/)
+    .map(token =>
+      token.trim()
     )
-  ].sort();
-}
-
-
-function lexicalSimilarity(
-  left,
-  right
-) {
-  const leftSet =
-    new Set(left);
-
-  const rightSet =
-    new Set(right);
-
-  const shared =
-    left.filter(
+    .filter(
       token =>
-        rightSet.has(
+        token.length >=
+          3 &&
+        !STOPWORDS.has(
+          token
+        ) &&
+        !/^\d+$/.test(
           token
         )
     );
+}
 
-  const union =
-    new Set([
-      ...left,
-      ...right
-    ]);
 
-  const score =
-    union.size
-      ? shared.length /
-        union.size
-      : 0;
+function weightedTermCounts(
+  node
+) {
+  const counts =
+    new Map();
+
+  const add =
+    (
+      values,
+      fieldWeight
+    ) => {
+      for (
+        const token of
+        values
+      ) {
+        counts.set(
+          token,
+          (
+            counts.get(
+              token
+            ) ||
+            0
+          ) +
+          fieldWeight
+        );
+      }
+    };
+
+  add(
+    tokens(
+      node.title
+    ),
+    TITLE_WEIGHT
+  );
+
+  add(
+    tokens(
+      node.abstract
+    ),
+    ABSTRACT_WEIGHT
+  );
+
+  return counts;
+}
+
+
+function documentFrequency(
+  countsById
+) {
+  const frequency =
+    new Map();
+
+  for (
+    const counts of
+    countsById.values()
+  ) {
+    for (
+      const term of
+      counts.keys()
+    ) {
+      frequency.set(
+        term,
+        (
+          frequency.get(
+            term
+          ) ||
+          0
+        ) +
+          1
+      );
+    }
+  }
+
+  return frequency;
+}
+
+
+function tfidfVector(
+  counts,
+  frequency,
+  documentCount
+) {
+  const vector =
+    new Map();
+
+  let squared =
+    0;
+
+  for (
+    const [
+      term,
+      weightedCount
+    ] of
+    counts
+  ) {
+    const tf =
+      1 +
+      Math.log(
+        Math.max(
+          1,
+          weightedCount
+        )
+      );
+
+    const df =
+      frequency.get(
+        term
+      ) ||
+      0;
+
+    const idf =
+      Math.log(
+        (
+          documentCount +
+          1
+        ) /
+        (
+          df +
+          1
+        )
+      ) +
+      1;
+
+    const weight =
+      tf *
+      idf;
+
+    vector.set(
+      term,
+      weight
+    );
+
+    squared +=
+      weight *
+      weight;
+  }
 
   return {
-    score,
+    weights:
+      vector,
+    norm:
+      Math.sqrt(
+        squared
+      )
+  };
+}
+
+
+function cosine(
+  left,
+  right
+) {
+  if (
+    !left.norm ||
+    !right.norm
+  ) {
+    return {
+      score:
+        0,
+      sharedTokens: []
+    };
+  }
+
+  const [
+    smaller,
+    larger
+  ] =
+    left.weights.size <=
+      right.weights.size
+      ? [
+          left.weights,
+          right.weights
+        ]
+      : [
+          right.weights,
+          left.weights
+        ];
+
+  let dot =
+    0;
+
+  const shared = [];
+
+  for (
+    const [
+      term,
+      weight
+    ] of
+    smaller
+  ) {
+    const other =
+      larger.get(
+        term
+      );
+
+    if (
+      other ===
+      undefined
+    ) {
+      continue;
+    }
+
+    dot +=
+      weight *
+      other;
+
+    shared.push(
+      term
+    );
+  }
+
+  return {
+    score:
+      dot /
+      (
+        left.norm *
+        right.norm
+      ),
     sharedTokens:
-      [...shared].sort(),
-    unionSize:
-      union.size
+      shared.sort()
   };
 }
 
@@ -146,24 +329,13 @@ function eligiblePair(
     minimumSharedTokens
   }
 ) {
-  if (
-    similarity
-      .sharedTokens
-      .length >=
-      minimumSharedTokens &&
-    similarity.score >=
-      minimumScore
-  ) {
-    return true;
-  }
-
   return (
+    similarity.score >=
+      minimumScore &&
     similarity
       .sharedTokens
       .length >=
-      1 &&
-    similarity.score >=
-      0.34
+      minimumSharedTokens
   );
 }
 
@@ -216,12 +388,39 @@ function existingPairTypes(
 }
 
 
+function textCoverage(
+  node
+) {
+  const abstract =
+    String(
+      node.abstract ||
+      ""
+    ).trim();
+
+  return {
+    hasTitle:
+      Boolean(
+        String(
+          node.title ||
+          ""
+        ).trim()
+      ),
+    hasAbstract:
+      Boolean(
+        abstract
+      ),
+    abstractCharacters:
+      abstract.length
+  };
+}
+
+
 export function addResearchAtlasLexicalNeighbors(
   snapshot,
   {
     topK = 3,
     maximumEdges = 36,
-    minimumScore = 0.12,
+    minimumScore = 0.18,
     minimumSharedTokens = 2,
     directHitsOnly = true
   } = {}
@@ -251,13 +450,34 @@ export function addResearchAtlasLexicalNeighbors(
           )
       );
 
-  const tokens =
+  const countsById =
     new Map(
       works.map(
         node => [
           node.id,
-          titleTokens(
-            node.title
+          weightedTermCounts(
+            node
+          )
+        ]
+      )
+    );
+
+  const frequency =
+    documentFrequency(
+      countsById
+    );
+
+  const vectors =
+    new Map(
+      works.map(
+        node => [
+          node.id,
+          tfidfVector(
+            countsById.get(
+              node.id
+            ),
+            frequency,
+            works.length
           )
         ]
       )
@@ -285,11 +505,11 @@ export function addResearchAtlasLexicalNeighbors(
         works[right];
 
       const similarity =
-        lexicalSimilarity(
-          tokens.get(
+        cosine(
+          vectors.get(
             a.id
           ),
-          tokens.get(
+          vectors.get(
             b.id
           )
         );
@@ -311,6 +531,14 @@ export function addResearchAtlasLexicalNeighbors(
           a.id,
         toRef:
           b.id,
+        leftCoverage:
+          textCoverage(
+            a
+          ),
+        rightCoverage:
+          textCoverage(
+            b
+          ),
         ...similarity
       });
     }
@@ -403,6 +631,8 @@ export function addResearchAtlasLexicalNeighbors(
   let added = 0;
   let skippedSemantic = 0;
   let skippedExisting = 0;
+  let abstractBackedEdges = 0;
+  let titleOnlyEdges = 0;
 
   for (
     const candidate of
@@ -440,6 +670,22 @@ export function addResearchAtlasLexicalNeighbors(
       continue;
     }
 
+    const abstractBacked =
+      candidate
+        .leftCoverage
+        .hasAbstract &&
+      candidate
+        .rightCoverage
+        .hasAbstract;
+
+    if (abstractBacked) {
+      abstractBackedEdges +=
+        1;
+    } else {
+      titleOnlyEdges +=
+        1;
+    }
+
     const evidenceId =
       stableId(
         "evidence:lexical-neighbor",
@@ -458,7 +704,7 @@ export function addResearchAtlasLexicalNeighbors(
         RESEARCH_ATLAS_EVIDENCE_CLASSES
           .DERIVED,
       source:
-        "research-atlas-live-v1",
+        "research-atlas-work-text-v1",
       payload: {
         method:
           RESEARCH_ATLAS_LEXICAL_METHOD,
@@ -468,10 +714,17 @@ export function addResearchAtlasLexicalNeighbors(
           candidate.score,
         sharedTokens:
           candidate.sharedTokens,
-        unionSize:
-          candidate.unionSize,
         representation:
-          "normalized-title-tokens"
+          "weighted-tfidf-title-abstract",
+        titleWeight:
+          TITLE_WEIGHT,
+        abstractWeight:
+          ABSTRACT_WEIGHT,
+        leftTextCoverage:
+          candidate.leftCoverage,
+        rightTextCoverage:
+          candidate.rightCoverage,
+        abstractBacked
       }
     });
 
@@ -498,8 +751,17 @@ export function addResearchAtlasLexicalNeighbors(
       ]
     });
 
-    added += 1;
+    added +=
+      1;
   }
+
+  const worksWithAbstract =
+    works.filter(
+      node =>
+        textCoverage(
+          node
+        ).hasAbstract
+    ).length;
 
   const enriched = {
     ...structuredClone(
@@ -526,10 +788,17 @@ export function addResearchAtlasLexicalNeighbors(
           RESEARCH_ATLAS_LEXICAL_REVISION,
         method:
           RESEARCH_ATLAS_LEXICAL_METHOD,
+        representation:
+          "weighted-tfidf-title-abstract",
+        workCount:
+          works.length,
+        worksWithAbstract,
         candidatePairs:
           candidates.length,
         edgesAdded:
           added,
+        abstractBackedEdges,
+        titleOnlyEdges,
         skippedBecauseSemantic:
           skippedSemantic,
         skippedExisting,
