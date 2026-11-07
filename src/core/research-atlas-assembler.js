@@ -7,6 +7,10 @@ import {
 } from "./merge-results.js";
 
 import {
+  enrichResearchAtlasWithAuthority
+} from "./research-atlas-authority.js";
+
+import {
   RESEARCH_ATLAS_SCHEMA_VERSION,
   RESEARCH_ATLAS_NODE_TYPES,
   RESEARCH_ATLAS_EDGE_TYPES,
@@ -1016,16 +1020,40 @@ export class ResearchAtlasAssembler {
   ) {
     this.graphRevision += 1;
 
-    this.currentSnapshot =
+    const effectiveContext = {
+      ...this.context,
+      ...context,
+      graphRevision:
+        this.graphRevision
+    };
+
+    const baseSnapshot =
       buildResearchAtlasSnapshot(
         searchResponse,
-        {
-          ...this.context,
-          ...context,
-          graphRevision:
-            this.graphRevision
-        }
+        effectiveContext
       );
+
+    this.currentSnapshot =
+      effectiveContext
+        .authorityGraph
+        ? enrichResearchAtlasWithAuthority(
+            baseSnapshot,
+            searchResponse,
+            {
+              authorityGraph:
+                effectiveContext
+                  .authorityGraph,
+              authorityWorkMap:
+                effectiveContext
+                  .authorityWorkMap ||
+                null,
+              authorityWorkMapRevision:
+                effectiveContext
+                  .authorityWorkMapRevision ||
+                null
+            }
+          )
+        : baseSnapshot;
 
     return structuredClone(
       this.currentSnapshot

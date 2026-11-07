@@ -1,0 +1,296 @@
+{
+  "schemaVersion": "research-atlas-authority-fixture-v1",
+  "authorityGraph": {
+    "schemaVersion": "author-authority-graph-v1",
+    "buildRevision": "authority-fixture-ra3",
+    "datasetRevision": "dataset-fixture-ra3",
+    "authorities": [
+      {
+        "id": "authority:ana",
+        "canonicalName": "Ana Pérez",
+        "resolutionState": "confirmed",
+        "externalIdentifiers": [
+          {
+            "scheme": "openalex-author",
+            "normalizedValue": "123"
+          },
+          {
+            "scheme": "orcid",
+            "normalizedValue": "0000-0001-1111-1111"
+          }
+        ],
+        "names": [
+          {
+            "value": "Ana Pérez",
+            "type": "canonical"
+          }
+        ],
+        "affiliations": [],
+        "lastEvaluatedInRevision": "authority-fixture-ra3"
+      },
+      {
+        "id": "authority:beatriz",
+        "canonicalName": "Beatriz López",
+        "resolutionState": "confirmed",
+        "externalIdentifiers": [
+          {
+            "scheme": "openalex-author",
+            "normalizedValue": "456"
+          }
+        ],
+        "names": [
+          {
+            "value": "Beatriz López",
+            "type": "canonical"
+          }
+        ],
+        "affiliations": [],
+        "lastEvaluatedInRevision": "authority-fixture-ra3"
+      },
+      {
+        "id": "authority:carlos",
+        "canonicalName": "Carlos Mora",
+        "resolutionState": "confirmed",
+        "externalIdentifiers": [
+          {
+            "scheme": "openalex-author",
+            "normalizedValue": "789"
+          }
+        ],
+        "names": [
+          {
+            "value": "Carlos Mora",
+            "type": "canonical"
+          }
+        ],
+        "affiliations": [],
+        "lastEvaluatedInRevision": "authority-fixture-ra3"
+      },
+      {
+        "id": "authority:diana",
+        "canonicalName": "Diana Ruiz",
+        "resolutionState": "confirmed",
+        "externalIdentifiers": [
+          {
+            "scheme": "orcid",
+            "normalizedValue": "0000-0002-2222-2222"
+          }
+        ],
+        "names": [
+          {
+            "value": "Diana Ruiz",
+            "type": "canonical"
+          }
+        ],
+        "affiliations": [],
+        "lastEvaluatedInRevision": "authority-fixture-ra3"
+      }
+    ],
+    "mentions": [],
+    "sourceRecords": [],
+    "mentionAuthorityLinks": [],
+    "identifierRegistry": {
+      "openalex-author:123": "authority:ana",
+      "orcid:0000-0001-1111-1111": "authority:ana",
+      "openalex-author:456": "authority:beatriz",
+      "openalex-author:789": "authority:carlos",
+      "orcid:0000-0002-2222-2222": "authority:diana"
+    },
+    "candidateRegistry": {},
+    "decisionLedger": {
+      "decisions": []
+    },
+    "buildMetrics": {}
+  },
+  "authorityWorkMap": {
+    "buildRevision": "authority-work-map-fixture-ra3",
+    "rows": [
+      {
+        "w": "openalex:W100",
+        "n": 2,
+        "u": 0,
+        "a": [
+          {
+            "r": "authority:ana",
+            "p": [
+              "first"
+            ],
+            "i": [
+              "123"
+            ],
+            "c": true
+          },
+          {
+            "r": "authority:beatriz",
+            "p": [
+              "last"
+            ],
+            "i": [
+              "456"
+            ],
+            "c": false
+          }
+        ]
+      },
+      {
+        "w": "openalex:W200",
+        "n": 3,
+        "u": 1,
+        "a": [
+          {
+            "r": "authority:ana",
+            "p": [
+              "first"
+            ],
+            "i": [
+              "123"
+            ],
+            "c": true
+          },
+          {
+            "r": "authority:carlos",
+            "p": [
+              "middle"
+            ],
+            "i": [
+              "789"
+            ],
+            "c": false
+          }
+        ]
+      }
+    ]
+  },
+  "searchResponse": {
+    "query": "autonomía y libertad",
+    "results": [
+      {
+        "id": "https://openalex.org/W100",
+        "openalexId": "W100",
+        "title": "Autonomy and freedom",
+        "authors": [
+          {
+            "id": "https://openalex.org/A123",
+            "name": "Ana Pérez"
+          }
+        ],
+        "year": 2021,
+        "type": "article",
+        "language": "en",
+        "doi": null,
+        "isbn": [],
+        "journal": "Journal A",
+        "publisher": null,
+        "topics": [],
+        "providers": [
+          "OpenAlex Philosophy"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "OpenAlex Philosophy",
+            "sourceId": "https://openalex.org/W100",
+            "query": "autonomía y libertad"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "autonomía y libertad",
+            "weight": 1,
+            "type": "original"
+          }
+        ],
+        "urls": {
+          "canonical": "https://openalex.org/W100"
+        },
+        "institutionalLinks": []
+      },
+      {
+        "id": "https://openalex.org/W200",
+        "openalexId": "W200",
+        "title": "Freedom and practical reason",
+        "authors": [],
+        "year": 2020,
+        "type": "article",
+        "language": "en",
+        "doi": null,
+        "isbn": [],
+        "journal": "Journal B",
+        "publisher": null,
+        "topics": [],
+        "providers": [
+          "OpenAlex Philosophy"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "OpenAlex Philosophy",
+            "sourceId": "https://openalex.org/W200",
+            "query": "autonomía y libertad"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "autonomía y libertad",
+            "weight": 1,
+            "type": "original"
+          }
+        ],
+        "urls": {
+          "canonical": "https://openalex.org/W200"
+        },
+        "institutionalLinks": []
+      },
+      {
+        "id": "crossref:10.1000/ra3",
+        "title": "Moral agency after Kant",
+        "authors": [
+          {
+            "id": "https://orcid.org/0000-0002-2222-2222",
+            "name": "Diana Ruiz"
+          },
+          {
+            "name": "José Martínez"
+          }
+        ],
+        "year": 2019,
+        "type": "journal-article",
+        "language": "en",
+        "doi": "10.1000/ra3",
+        "isbn": [],
+        "journal": "Ethics C",
+        "publisher": null,
+        "topics": [],
+        "providers": [
+          "Crossref"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "Crossref",
+            "sourceId": "10.1000/ra3",
+            "query": "autonomía y libertad"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "autonomía y libertad",
+            "weight": 1,
+            "type": "original"
+          }
+        ],
+        "urls": {
+          "canonical": "https://doi.org/10.1000/ra3"
+        },
+        "institutionalLinks": []
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "appearances": 3,
+      "unique": 3,
+      "merged": 0,
+      "providers": {
+        "OpenAlex Philosophy": 2,
+        "Crossref": 1
+      }
+    }
+  }
+}
