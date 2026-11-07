@@ -1,0 +1,44 @@
+name: Research Atlas RA6 · experimental renderer
+
+on:
+  pull_request:
+    paths:
+      - "research-atlas.html"
+      - "css/research-atlas.css"
+      - "js/research-atlas.js"
+      - "src/core/research-atlas-view.js"
+      - "tests/research-atlas-view.test.mjs"
+      - "tests/research-atlas-page.test.mjs"
+      - "docs/RESEARCH_ATLAS_RENDERER_RA6.md"
+      - ".github/workflows/research-atlas-ra6.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-renderer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate RA6 view model and experimental page
+        run: |
+          node --test tests/research-atlas-view.test.mjs
+          node --test tests/research-atlas-page.test.mjs
+
+      - name: Validate RA5 layout
+        run: node --test tests/research-atlas-layout.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test

@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101214">
+  <meta
+    name="description"
+    content="Renderer experimental RA6 del Atlas de Investigación: obras, relaciones semánticas, autores y procedencia en un mapa incremental."
+  >
+
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+
+  <title>Atlas de Investigación · Experimento RA6</title>
+
+  <link
+    rel="stylesheet"
+    href="./css/research-atlas.css?v=20261107-ra6-v1"
+  >
+</head>
+
+<body>
+  <div class="ra-page">
+
+    <header class="ra-header">
+      <nav class="ra-nav" aria-label="Navegación principal">
+        <a class="ra-brand" href="./">
+          <span class="ra-brand-mark" aria-hidden="true">Φ</span>
+          <span>
+            Investigación Filosófica
+            <small>Archivo vivo</small>
+          </span>
+        </a>
+
+        <div class="ra-nav-links">
+          <a href="./">Investigación</a>
+          <a href="./tesis.html">Tesis</a>
+          <a href="./atlas.html">Atlas de tesis</a>
+          <a href="./research-atlas.html" class="is-active" aria-current="page">
+            Atlas de investigación
+          </a>
+        </div>
+
+        <div class="theme-switch" role="group" aria-label="Apariencia">
+          <button
+            type="button"
+            data-theme-choice="light"
+            aria-label="Activar modo claro"
+            aria-pressed="false"
+          >
+            Claro
+          </button>
+          <button
+            type="button"
+            data-theme-choice="dark"
+            aria-label="Activar modo oscuro"
+            aria-pressed="false"
+          >
+            Oscuro
+          </button>
+        </div>
+      </nav>
+
+      <div class="ra-hero">
+        <div>
+          <p class="ra-eyebrow">
+            <span></span>
+            RESEARCH ATLAS / EXPERIMENTO RA6
+          </p>
+
+          <h1>
+            La búsqueda como
+            <br>
+            <em>territorio vivo.</em>
+          </h1>
+        </div>
+
+        <div class="ra-hero-copy">
+          <p>
+            Este prototipo no sustituye la lista de resultados.
+            Visualiza cómo se conectan las obras recuperadas,
+            sus expansiones, autores confirmados y menciones
+            todavía no resueltas.
+          </p>
+
+          <p>
+            La proximidad entre obras depende de relaciones
+            semánticas o estructurales; la autoría no deforma
+            la topología.
+          </p>
+        </div>
+      </div>
+
+      <div class="ra-header-stats" aria-label="Estado del experimento">
+        <div>
+          <strong id="ra-node-count">—</strong>
+          <span>nodos visibles</span>
+        </div>
+        <div>
+          <strong id="ra-direct-count">—</strong>
+          <span>obras directas</span>
+        </div>
+        <div>
+          <strong id="ra-expanded-count">—</strong>
+          <span>obras expandidas</span>
+        </div>
+        <div>
+          <strong id="ra-edge-count">—</strong>
+          <span>relaciones visibles</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="ra-explorer"
+        aria-labelledby="ra-title"
+      >
+        <div class="ra-explorer-head">
+          <div>
+            <p class="ra-section-label">01 / EXPLORAR</p>
+            <h2 id="ra-title">
+              Un grafo que puede crecer sin perder contexto
+            </h2>
+            <p>
+              Arrastre para recorrer, acerque con la rueda,
+              seleccione un nodo o simule la llegada de una
+              nueva obra.
+            </p>
+          </div>
+
+          <div class="ra-experimental-note">
+            <strong>Demo controlado</strong>
+            <span>
+              Usa el fixture RA5. Todavía no está conectado
+              al buscador público.
+            </span>
+          </div>
+        </div>
+
+        <div class="ra-workspace">
+          <div class="ra-map-column">
+
+            <form
+              id="ra-controls"
+              class="ra-controls"
+              role="search"
+            >
+              <label class="ra-search">
+                <span class="sr-only">
+                  Filtrar nodos del Atlas
+                </span>
+
+                <input
+                  id="ra-query"
+                  type="search"
+                  autocomplete="off"
+                  placeholder="Buscar obra, autor o proveedor…"
+                >
+
+                <span
+                  id="ra-match-count"
+                  class="ra-match-count"
+                >
+                  —
+                </span>
+              </label>
+
+              <button
+                id="ra-simulate"
+                type="button"
+                class="ra-primary-button"
+              >
+                Simular nueva obra
+              </button>
+
+              <button
+                id="ra-reset"
+                type="button"
+                class="ra-quiet-button"
+              >
+                Reiniciar demo
+              </button>
+
+              <button
+                id="ra-fit"
+                type="button"
+                class="ra-quiet-button"
+              >
+                Centrar mapa
+              </button>
+            </form>
+
+            <div class="ra-layers" role="group" aria-label="Relaciones visibles">
+              <label>
+                <input type="checkbox" data-ra-edge-toggle="semantic-neighbor" checked>
+                <span class="ra-line-swatch is-semantic"></span>
+                Semántica
+              </label>
+
+              <label>
+                <input type="checkbox" data-ra-edge-toggle="related-work" checked>
+                <span class="ra-line-swatch is-related"></span>
+                Relacionadas
+              </label>
+
+              <label>
+                <input type="checkbox" data-ra-edge-toggle="contribution" checked>
+                <span class="ra-line-swatch is-contribution"></span>
+                Autoría confirmada
+              </label>
+
+              <label>
+                <input type="checkbox" data-ra-edge-toggle="author-mention" checked>
+                <span class="ra-line-swatch is-provisional"></span>
+                Mención provisional
+              </label>
+            </div>
+
+            <div
+              id="ra-stage"
+              class="ra-stage"
+            >
+              <canvas
+                id="ra-canvas"
+                role="img"
+                aria-label="Mapa experimental del Atlas de Investigación"
+              ></canvas>
+
+              <div class="ra-map-topline">
+                <span
+                  id="ra-status"
+                  role="status"
+                  aria-live="polite"
+                >
+                  Cargando fixture experimental…
+                </span>
+
+                <span id="ra-zoom-readout">
+                  100%
+                </span>
+              </div>
+
+              <div
+                id="ra-tooltip"
+                class="ra-tooltip"
+                hidden
+              ></div>
+
+              <div class="ra-map-controls" aria-label="Controles del mapa">
+                <button
+                  id="ra-zoom-in"
+                  type="button"
+                  aria-label="Acercar"
+                >
+                  +
+                </button>
+
+                <button
+                  id="ra-zoom-out"
+                  type="button"
+                  aria-label="Alejar"
+                >
+                  −
+                </button>
+              </div>
+
+              <div class="ra-map-legend">
+                <span>
+                  <i class="ra-node-key is-direct"></i>
+                  hit directo
+                </span>
+
+                <span>
+                  <i class="ra-node-key is-expanded"></i>
+                  expansión L1
+                </span>
+
+                <span>
+                  <i class="ra-node-key is-author"></i>
+                  autor confirmado
+                </span>
+
+                <span>
+                  <i class="ra-node-key is-mention"></i>
+                  mención no resuelta
+                </span>
+              </div>
+            </div>
+
+            <div class="ra-accessible-list">
+              <div>
+                <p class="ra-section-label">
+                  ALTERNATIVA EN LISTA
+                </p>
+                <p>
+                  El Canvas no es la única forma de acceder al contenido.
+                </p>
+              </div>
+
+              <div
+                id="ra-node-list"
+                class="ra-node-list"
+              ></div>
+            </div>
+          </div>
+
+          <aside
+            id="ra-detail"
+            class="ra-detail"
+            aria-live="polite"
+          >
+            <div class="ra-detail-empty">
+              <span class="ra-detail-glyph" aria-hidden="true">◎</span>
+              <p class="ra-section-label">SELECCIONE UN NODO</p>
+              <h2>
+                Pregunte por qué está aquí.
+              </h2>
+              <p>
+                La ficha distingue evidencia factual,
+                relaciones derivadas y menciones provisionales.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        class="ra-method"
+        aria-labelledby="ra-method-title"
+      >
+        <div class="ra-method-title">
+          <p class="ra-section-label">
+            02 / CÓMO LEERLO
+          </p>
+
+          <h2 id="ra-method-title">
+            El mapa muestra relaciones; no fabrica historia intelectual.
+          </h2>
+        </div>
+
+        <div class="ra-method-grid">
+          <article>
+            <span>01</span>
+            <h3>Hits directos</h3>
+            <p>
+              Llegan desde la búsqueda. Su ranking no determina
+              su coordenada.
+            </p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>Expansión L1</h3>
+            <p>
+              Obras relacionadas aparecen como descubrimientos,
+              nunca como resultados directos disfrazados.
+            </p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>Semántica</h3>
+            <p>
+              Las vecindades semánticas usan evidencia derivada
+              y una revisión explícita del modelo.
+            </p>
+          </article>
+
+          <article>
+            <span>04</span>
+            <h3>Autoridad</h3>
+            <p>
+              Los autores confirmados son satélites de sus obras;
+              no empujan la topología.
+            </p>
+          </article>
+
+          <article>
+            <span>05</span>
+            <h3>Hugging Face</h3>
+            <p>
+              OpenAlex Philosophy corresponde al corpus versionado
+              del proyecto en CristianPelayo/openalex-philosophy.
+            </p>
+          </article>
+
+          <article>
+            <span>06</span>
+            <h3>Incrementalidad</h3>
+            <p>
+              Cuando llega una nueva obra, las posiciones anteriores
+              se conservan y sólo se ajustan dentro de un límite.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ra-footer">
+      <span>Φ · INVESTIGACIÓN FILOSÓFICA</span>
+      <span>Research Atlas · experimento RA6</span>
+    </footer>
+  </div>
+
+  <script
+    type="module"
+    src="./js/research-atlas.js?v=20261107-ra6-v1"
+  ></script>
+
+  <script
+    type="module"
+    src="./js/theme.js?v=20261031-day-night-v2"
+  ></script>
+</body>
+</html>
