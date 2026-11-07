@@ -1,0 +1,769 @@
+{
+  "schemaVersion": "research-atlas-fixtures-v1",
+  "description": "Synthetic mutation fixtures for ResearchAtlasSnapshot V1.",
+  "baseSnapshot": {
+    "schemaVersion": "research-atlas-snapshot-v1",
+    "session": {
+      "id": "session:freedom-kant",
+      "rawQuery": "libertad en Kant",
+      "normalizedQuery": "libertad en kant",
+      "queryNodeRef": "query:freedom-kant",
+      "searchMode": "traditional",
+      "state": "complete",
+      "filters": {},
+      "sourceRevisions": {
+        "openAlexPhilosophy": "fixture-openalex-v1",
+        "crossref": "live-fixture",
+        "relatedWorkIndex": "fixture-related-v1",
+        "authorAuthority": "fixture-authority-v1"
+      }
+    },
+    "nodes": [
+      {
+        "id": "query:freedom-kant",
+        "nodeType": "query",
+        "rawQuery": "libertad en Kant",
+        "normalizedQuery": "libertad en kant"
+      },
+      {
+        "id": "work:a",
+        "nodeType": "work",
+        "title": "Freedom and autonomy in Kant",
+        "identity": {
+          "kind": "doi",
+          "key": "doi:10.1000/a"
+        },
+        "discovery": {
+          "directHit": true,
+          "origins": [
+            "direct-search"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy",
+          "Crossref"
+        ]
+      },
+      {
+        "id": "work:b",
+        "nodeType": "work",
+        "title": "Practical reason and moral freedom",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w200"
+        },
+        "discovery": {
+          "directHit": true,
+          "origins": [
+            "direct-search"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "work:c",
+        "nodeType": "work",
+        "title": "Autonomy after Kant",
+        "identity": {
+          "kind": "doi",
+          "key": "doi:10.1000/c"
+        },
+        "discovery": {
+          "directHit": false,
+          "origins": [
+            "related-work-expansion"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "person:p1",
+        "nodeType": "authority-person",
+        "authorityRef": "person:authority-1",
+        "displayName": "Author One",
+        "resolutionState": "confirmed"
+      },
+      {
+        "id": "person:p2",
+        "nodeType": "authority-person",
+        "authorityRef": "person:authority-2",
+        "displayName": "Author Two",
+        "resolutionState": "confirmed"
+      },
+      {
+        "id": "person:p3",
+        "nodeType": "authority-person",
+        "authorityRef": "person:authority-3",
+        "displayName": "Author Three",
+        "resolutionState": "confirmed"
+      },
+      {
+        "id": "mention:m1",
+        "nodeType": "author-mention",
+        "mentionRef": "mention:source-b:2",
+        "rawName": "J. Unknown",
+        "resolutionState": "unresolved",
+        "sourceRecordRefs": [
+          "source:work-b"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:q:a",
+        "class": "factual",
+        "source": "search-engine",
+        "payload": {
+          "provider": "OpenAlex Philosophy",
+          "searchPosition": 1,
+          "matchedQuery": "libertad en Kant"
+        }
+      },
+      {
+        "id": "ev:q:b",
+        "class": "factual",
+        "source": "search-engine",
+        "payload": {
+          "provider": "OpenAlex Philosophy",
+          "searchPosition": 2,
+          "matchedQuery": "libertad en Kant"
+        }
+      },
+      {
+        "id": "ev:contrib:p1:a",
+        "class": "factual",
+        "source": "authority-graph",
+        "payload": {
+          "role": "author",
+          "authorityRef": "person:authority-1",
+          "sourceRecordRefs": [
+            "source:work-a"
+          ]
+        }
+      },
+      {
+        "id": "ev:contrib:p2:a",
+        "class": "factual",
+        "source": "authority-graph",
+        "payload": {
+          "role": "coauthor",
+          "authorityRef": "person:authority-2",
+          "sourceRecordRefs": [
+            "source:work-a"
+          ]
+        }
+      },
+      {
+        "id": "ev:contrib:p1:b",
+        "class": "factual",
+        "source": "authority-graph",
+        "payload": {
+          "role": "author",
+          "authorityRef": "person:authority-1",
+          "sourceRecordRefs": [
+            "source:work-b"
+          ]
+        }
+      },
+      {
+        "id": "ev:contrib:p3:b",
+        "class": "factual",
+        "source": "authority-graph",
+        "payload": {
+          "role": "coauthor",
+          "authorityRef": "person:authority-3",
+          "sourceRecordRefs": [
+            "source:work-b"
+          ]
+        }
+      },
+      {
+        "id": "ev:mention:b",
+        "class": "provisional",
+        "source": "source-record",
+        "payload": {
+          "sourceRecordRefs": [
+            "source:work-b"
+          ],
+          "rawRole": "author"
+        }
+      },
+      {
+        "id": "ev:sem:a:b",
+        "class": "derived",
+        "source": "semantic-index",
+        "payload": {
+          "modelId": "Qwen3-Embedding",
+          "modelRevision": "fixture-qwen-v1",
+          "metric": "cosine",
+          "score": 0.91
+        }
+      },
+      {
+        "id": "ev:lex:a:c",
+        "class": "derived",
+        "source": "lexical-index",
+        "payload": {
+          "method": "normalized-title-overlap-v1",
+          "score": 0.67
+        }
+      },
+      {
+        "id": "ev:same-author:a:b",
+        "class": "derived",
+        "source": "authority-graph",
+        "payload": {
+          "authorityRefs": [
+            "person:authority-1"
+          ]
+        }
+      },
+      {
+        "id": "ev:coauthor:p1:p2",
+        "class": "derived",
+        "source": "authority-graph",
+        "payload": {
+          "supportWorkRefs": [
+            "work:a"
+          ]
+        }
+      },
+      {
+        "id": "ev:coauthor:p1:p3",
+        "class": "derived",
+        "source": "authority-graph",
+        "payload": {
+          "supportWorkRefs": [
+            "work:b"
+          ]
+        }
+      },
+      {
+        "id": "ev:shared:p2:p3",
+        "class": "derived",
+        "source": "authority-graph",
+        "payload": {
+          "sharedAuthorityRefs": [
+            "person:authority-1"
+          ],
+          "supportWorkRefs": [
+            "work:a",
+            "work:b"
+          ]
+        }
+      },
+      {
+        "id": "ev:related:a:c",
+        "class": "derived",
+        "source": "related-work-index",
+        "payload": {
+          "relationEdgeRef": "rw:a:c",
+          "indexRevision": "fixture-related-v1"
+        }
+      },
+      {
+        "id": "ev:citation:b:c",
+        "class": "factual",
+        "source": "verified-reference-table",
+        "payload": {
+          "explicitBibliographicEdge": true,
+          "sourceRecordRefs": [
+            "source:work-b:references"
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge:q:a",
+        "type": "query-result",
+        "fromRef": "query:freedom-kant",
+        "toRef": "work:a",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:q:a"
+        ]
+      },
+      {
+        "id": "edge:q:b",
+        "type": "query-result",
+        "fromRef": "query:freedom-kant",
+        "toRef": "work:b",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:q:b"
+        ]
+      },
+      {
+        "id": "edge:p1:a",
+        "type": "contribution",
+        "fromRef": "person:p1",
+        "toRef": "work:a",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:contrib:p1:a"
+        ]
+      },
+      {
+        "id": "edge:p2:a",
+        "type": "contribution",
+        "fromRef": "person:p2",
+        "toRef": "work:a",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:contrib:p2:a"
+        ]
+      },
+      {
+        "id": "edge:p1:b",
+        "type": "contribution",
+        "fromRef": "person:p1",
+        "toRef": "work:b",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:contrib:p1:b"
+        ]
+      },
+      {
+        "id": "edge:p3:b",
+        "type": "contribution",
+        "fromRef": "person:p3",
+        "toRef": "work:b",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:contrib:p3:b"
+        ]
+      },
+      {
+        "id": "edge:m1:b",
+        "type": "author-mention",
+        "fromRef": "mention:m1",
+        "toRef": "work:b",
+        "status": "provisional",
+        "evidenceRefs": [
+          "ev:mention:b"
+        ]
+      },
+      {
+        "id": "edge:sem:a:b",
+        "type": "semantic-neighbor",
+        "fromRef": "work:a",
+        "toRef": "work:b",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:sem:a:b"
+        ]
+      },
+      {
+        "id": "edge:lex:a:c",
+        "type": "lexical-neighbor",
+        "fromRef": "work:a",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:lex:a:c"
+        ]
+      },
+      {
+        "id": "edge:same:a:b",
+        "type": "same-author",
+        "fromRef": "work:a",
+        "toRef": "work:b",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:same-author:a:b"
+        ]
+      },
+      {
+        "id": "edge:co:p1:p2",
+        "type": "coauthor",
+        "fromRef": "person:p1",
+        "toRef": "person:p2",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:coauthor:p1:p2"
+        ]
+      },
+      {
+        "id": "edge:co:p1:p3",
+        "type": "coauthor",
+        "fromRef": "person:p1",
+        "toRef": "person:p3",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:coauthor:p1:p3"
+        ]
+      },
+      {
+        "id": "edge:shared:p2:p3",
+        "type": "shared-coauthor",
+        "fromRef": "person:p2",
+        "toRef": "person:p3",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:shared:p2:p3"
+        ]
+      },
+      {
+        "id": "edge:related:a:c",
+        "type": "related-work",
+        "fromRef": "work:a",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:related:a:c"
+        ]
+      },
+      {
+        "id": "edge:citation:b:c",
+        "type": "citation",
+        "fromRef": "work:b",
+        "toRef": "work:c",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:citation:b:c"
+        ]
+      }
+    ],
+    "diagnostics": {
+      "directHits": 2,
+      "expandedWorks": 1,
+      "authorityPersons": 3,
+      "unresolvedMentions": 1
+    }
+  },
+  "cases": [
+    {
+      "id": "RA01",
+      "label": "snapshot base válido",
+      "mutations": [],
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RA02",
+      "label": "identidad de obra duplicada",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "nodes.2.identity.key",
+          "value": "doi:10.1000/a"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "snapshot:duplicate-work-identity:doi:10.1000/a"
+        ]
+      }
+    },
+    {
+      "id": "RA03",
+      "label": "browser semantic sin opt-in",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "session.searchMode",
+          "value": "browser-semantic"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "session:browser-semantic-requires-explicit-opt-in"
+        ]
+      }
+    },
+    {
+      "id": "RA04",
+      "label": "sesión contiene token",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "session.filters.token",
+          "value": "secret"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "session:forbidden-sensitive-key:session.filters.token"
+        ]
+      }
+    },
+    {
+      "id": "RA05",
+      "label": "obra expandida presentada como query result",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "edges.1.toRef",
+          "value": "work:c"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:q:b:query-result:target-must-be-direct-hit"
+        ]
+      }
+    },
+    {
+      "id": "RA06",
+      "label": "hit directo sin query-result",
+      "mutations": [
+        {
+          "op": "remove-array-index",
+          "path": "edges",
+          "index": 1
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "snapshot:direct-hit-without-query-result:work:b"
+        ]
+      }
+    },
+    {
+      "id": "RA07",
+      "label": "mención no resuelta convertida en persona sin autoridad",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "nodes.7.nodeType",
+          "value": "authority-person"
+        },
+        {
+          "op": "set",
+          "path": "nodes.7.displayName",
+          "value": "J. Unknown"
+        },
+        {
+          "op": "set",
+          "path": "nodes.7.resolutionState",
+          "value": "confirmed"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "mention:m1:person:authority-ref-required"
+        ]
+      }
+    },
+    {
+      "id": "RA08",
+      "label": "contribution desde mención",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "edges.2.fromRef",
+          "value": "mention:m1"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:p1:a:edge:endpoint-types-invalid:contribution:author-mention->work"
+        ]
+      }
+    },
+    {
+      "id": "RA09",
+      "label": "author mention confirmada",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "edges.6.status",
+          "value": "confirmed"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:m1:b:author-mention:must-remain-provisional"
+        ]
+      }
+    },
+    {
+      "id": "RA10",
+      "label": "semantic neighbor sin model revision",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "evidence.7.payload.modelRevision"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:sem:a:b:semantic-neighbor:model-evidence-required"
+        ]
+      }
+    },
+    {
+      "id": "RA11",
+      "label": "same author sin authority refs",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "evidence.9.payload.authorityRefs",
+          "value": []
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:same:a:b:same-author:authority-refs-required"
+        ]
+      }
+    },
+    {
+      "id": "RA12",
+      "label": "coauthor sin obras de soporte",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "evidence.10.payload.supportWorkRefs",
+          "value": []
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:co:p1:p2:coauthor:support-work-refs-required"
+        ]
+      }
+    },
+    {
+      "id": "RA13",
+      "label": "citation basada en evidencia semántica",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "evidence.14.class",
+          "value": "derived"
+        },
+        {
+          "op": "set",
+          "path": "evidence.14.payload.explicitBibliographicEdge",
+          "value": false
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:citation:b:c:citation:explicit-bibliographic-evidence-required"
+        ]
+      }
+    },
+    {
+      "id": "RA14",
+      "label": "influence no existe en V1",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "edges.7.type",
+          "value": "influence"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:sem:a:b:edge:type-invalid:influence"
+        ]
+      }
+    },
+    {
+      "id": "RA15",
+      "label": "dangling node",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "edges.8.toRef",
+          "value": "work:missing"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:lex:a:c:edge:dangling-node-ref"
+        ]
+      }
+    },
+    {
+      "id": "RA16",
+      "label": "dangling evidence",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "edges.9.evidenceRefs.0",
+          "value": "ev:missing"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:same:a:b:edge:dangling-evidence-ref"
+        ]
+      }
+    },
+    {
+      "id": "RA17",
+      "label": "self edge",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "edges.7.toRef",
+          "value": "work:a"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "edge:sem:a:b:edge:self-relation-forbidden"
+        ]
+      }
+    },
+    {
+      "id": "RA18",
+      "label": "authority person duplicada",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "nodes.6.authorityRef",
+          "value": "person:authority-2"
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "snapshot:duplicate-authority-ref:person:authority-2"
+        ]
+      }
+    },
+    {
+      "id": "RA19",
+      "label": "diagnóstico falso",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "diagnostics.directHits",
+          "value": 99
+        }
+      ],
+      "expected": {
+        "valid": false,
+        "errorIncludes": [
+          "snapshot:diagnostic-mismatch:directHits"
+        ]
+      }
+    }
+  ]
+}
