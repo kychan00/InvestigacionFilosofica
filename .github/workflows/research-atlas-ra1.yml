@@ -1,0 +1,38 @@
+name: Research Atlas RA1 · contracts
+
+on:
+  pull_request:
+    paths:
+      - "src/core/research-atlas-contract.js"
+      - "tests/research-atlas-contract.test.mjs"
+      - "benchmark/research-atlas/v1/fixtures.json"
+      - "docs/RESEARCH_ATLAS_ARCHITECTURE_V1.md"
+      - "docs/RESEARCH_ATLAS_DATA_CONTRACTS_V1.md"
+      - "docs/RESEARCH_ATLAS_FIXTURES_V1.md"
+      - ".github/workflows/research-atlas-ra1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Research Atlas contract
+        run: node --test tests/research-atlas-contract.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
