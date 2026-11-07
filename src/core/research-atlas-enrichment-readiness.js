@@ -552,6 +552,24 @@ export function evaluateResearchAtlasEnrichmentReadiness(
       config
     );
 
+  const authorityPrepublicationBlockers =
+    authority.filter(
+      blocker =>
+        blocker !==
+          "authority-artifact-not-published" &&
+        blocker !==
+          "authority-publication-not-pinned"
+    );
+
+  const relatedPrepublicationBlockers =
+    related.filter(
+      blocker =>
+        blocker !==
+          "related-work-artifact-not-published" &&
+        blocker !==
+          "related-work-publication-not-pinned"
+    );
+
   return {
     schemaVersion:
       "research-atlas-enrichment-readiness-report-v1",
@@ -565,6 +583,12 @@ export function evaluateResearchAtlasEnrichmentReadiness(
       related.length ===
         0,
     authorAuthority: {
+      prepublicationReady:
+        authorityPrepublicationBlockers
+          .length ===
+        0,
+      prepublicationBlockers:
+        authorityPrepublicationBlockers,
       ready:
         authority.length ===
         0,
@@ -572,6 +596,12 @@ export function evaluateResearchAtlasEnrichmentReadiness(
         authority
     },
     relatedWork: {
+      prepublicationReady:
+        relatedPrepublicationBlockers
+          .length ===
+        0,
+      prepublicationBlockers:
+        relatedPrepublicationBlockers,
       ready:
         related.length ===
         0,
