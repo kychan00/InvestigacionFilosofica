@@ -32,6 +32,8 @@ jobs:
 
       - name: Validate public V1 identity and thesis contracts
         run: |
+          node --check js/thesis-demo.js
+          node --check src/core/editorial-udg-search.js
           node --test \
             tests/thesis-public-v1-release.test.mjs \
             tests/thesis-philosophy-contribute.test.mjs \
