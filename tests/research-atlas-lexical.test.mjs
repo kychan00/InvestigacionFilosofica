@@ -19,11 +19,13 @@ import {
 function result({
   id,
   title,
+  abstract = null,
   year = 2020
 }) {
   return {
     id,
     title,
+    abstract,
     authors: [],
     year,
     type: "article",
@@ -103,7 +105,7 @@ function baseSnapshot() {
 }
 
 
-test("RA7 crea lexical-neighbor sólo cuando títulos comparten señal suficiente", () => {
+test("RA11 crea similitud textual estable cuando las obras comparten señal suficiente", () => {
   const snapshot =
     addResearchAtlasLexicalNeighbors(
       baseSnapshot()
@@ -301,5 +303,159 @@ test("orden de WorkNodes no altera las relaciones lexicales", () => {
         edge.type ===
         "lexical-neighbor"
     )
+  );
+});
+
+
+test("RA11 conecta títulos distintos cuando los abstracts comparten suficiente señal", () => {
+  const snapshot =
+    buildResearchAtlasSnapshot(
+      {
+        query:
+          "embodiment and art",
+        results: [
+          result({
+            id:
+              "openalex-W410",
+            title:
+              "Aesthetics of the image",
+            abstract:
+              "Embodied experience, memory and perception shape modern artistic practice and aesthetic judgment."
+          }),
+          result({
+            id:
+              "openalex-W420",
+            title:
+              "Technology and political form",
+            abstract:
+              "Modern artistic practice is shaped by embodied experience, memory, perception and aesthetic judgment."
+          }),
+          result({
+            id:
+              "openalex-W430",
+            title:
+              "Modal logic and necessity",
+            abstract:
+              "Possible worlds semantics concerns necessity, possibility and modal inference."
+          })
+        ],
+        errors: [],
+        stats: {
+          appearances: 3,
+          unique: 3,
+          merged: 0,
+          providers: {
+            "OpenAlex Philosophy": 3
+          }
+        }
+      },
+      {
+        sourceRevisions: {
+          openAlexPhilosophy:
+            "fixture"
+        }
+      }
+    );
+
+  const enriched =
+    addResearchAtlasLexicalNeighbors(
+      snapshot
+    );
+
+  const edge =
+    enriched.edges.find(
+      item =>
+        item.type ===
+        "lexical-neighbor"
+    );
+
+  assert.ok(edge);
+
+  const evidence =
+    enriched.evidence.find(
+      item =>
+        item.id ===
+        edge.evidenceRefs[0]
+    );
+
+  assert.equal(
+    evidence.payload.method,
+    "title-abstract-tfidf-v1"
+  );
+
+  assert.equal(
+    evidence.payload.representation,
+    "weighted-tfidf-title-abstract"
+  );
+
+  assert.equal(
+    evidence.payload.abstractBacked,
+    true
+  );
+
+  assert.ok(
+    evidence.payload.sharedTokens.includes(
+      "memory"
+    )
+  );
+
+  assert.ok(
+    evidence.payload.sharedTokens.includes(
+      "perception"
+    )
+  );
+
+  assert.equal(
+    enriched.diagnostics.lexical.worksWithAbstract,
+    3
+  );
+
+  assert.ok(
+    enriched.diagnostics.lexical.abstractBackedEdges >=
+      1
+  );
+});
+
+
+test("RA11 declara explícitamente cuando el fallback sólo pudo usar títulos", () => {
+  const enriched =
+    addResearchAtlasLexicalNeighbors(
+      baseSnapshot()
+    );
+
+  const edge =
+    enriched.edges.find(
+      item =>
+        item.type ===
+        "lexical-neighbor"
+    );
+
+  assert.ok(edge);
+
+  const evidence =
+    enriched.evidence.find(
+      item =>
+        item.id ===
+        edge.evidenceRefs[0]
+    );
+
+  assert.equal(
+    evidence.payload.abstractBacked,
+    false
+  );
+
+  assert.equal(
+    evidence.payload.leftTextCoverage.hasAbstract,
+    false
+  );
+
+  assert.equal(
+    evidence.payload.rightTextCoverage.hasAbstract,
+    false
+  );
+
+  assert.ok(
+    enriched.diagnostics.lexical.titleOnlyEdges >=
+      1
   );
 });
