@@ -6,6 +6,48 @@ import {
 export const RELATED_WORK_INDEX_SCHEMA_VERSION =
   "related-work-index-v1";
 
+export function normalizeRelatedWorkIndexIdentity(
+  identity
+) {
+  const value =
+    String(
+      identity || ""
+    ).trim();
+
+  if (!value) {
+    return "";
+  }
+
+  const doi =
+    value.match(
+      /^doi:(.+)$/i
+    );
+
+  if (doi) {
+    return (
+      "doi:" +
+      doi[1]
+        .trim()
+        .toLowerCase()
+    );
+  }
+
+  const openAlex =
+    value.match(
+      /^openalex:W?(\d+)$/i
+    );
+
+  if (openAlex) {
+    return (
+      "openalex:W" +
+      openAlex[1]
+    );
+  }
+
+  return value;
+}
+
+
 
 export function compactNeighborToRelatedWorkEdge(
   seed,
@@ -467,7 +509,9 @@ export async function relationShardNumber(
   }
 
   const text =
-    String(identity || "");
+    normalizeRelatedWorkIndexIdentity(
+      identity
+    );
 
   if (!text) {
     throw new TypeError(
