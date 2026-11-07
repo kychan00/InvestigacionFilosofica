@@ -1,0 +1,635 @@
+{
+  "schemaVersion": "research-atlas-layout-fixture-v1",
+  "initialSnapshot": {
+    "schemaVersion": "research-atlas-snapshot-v1",
+    "session": {
+      "id": "session:ra5-layout",
+      "rawQuery": "libertad y autonomía",
+      "normalizedQuery": "libertad y autonomia",
+      "queryNodeRef": "query:ra5",
+      "searchMode": "traditional",
+      "state": "complete",
+      "filters": {},
+      "sourceRevisions": {
+        "openAlexPhilosophy": "hf:CristianPelayo/openalex-philosophy:fixture-ra5",
+        "relatedWorkIndex": "related-work-index-builder-v1c"
+      },
+      "graphRevision": 1
+    },
+    "nodes": [
+      {
+        "id": "query:ra5",
+        "nodeType": "query",
+        "rawQuery": "libertad y autonomía",
+        "normalizedQuery": "libertad y autonomia"
+      },
+      {
+        "id": "work:a",
+        "nodeType": "work",
+        "title": "Freedom and autonomy",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w100"
+        },
+        "discovery": {
+          "directHit": true,
+          "origins": [
+            "direct-search"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "work:b",
+        "nodeType": "work",
+        "title": "Practical reason",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w200"
+        },
+        "discovery": {
+          "directHit": true,
+          "origins": [
+            "direct-search"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "work:c",
+        "nodeType": "work",
+        "title": "Autonomy after Kant",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w300"
+        },
+        "discovery": {
+          "directHit": false,
+          "origins": [
+            "related-work-expansion"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "person:p1",
+        "nodeType": "authority-person",
+        "authorityRef": "authority:p1",
+        "displayName": "Author One",
+        "resolutionState": "confirmed"
+      },
+      {
+        "id": "mention:m1",
+        "nodeType": "author-mention",
+        "mentionRef": "mention:m1",
+        "rawName": "J. Unknown",
+        "resolutionState": "unresolved",
+        "sourceRecordRefs": [
+          "source:work-b"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:q:a",
+        "class": "factual",
+        "source": "search-response",
+        "payload": {
+          "provider": "OpenAlex Philosophy",
+          "searchPosition": 1,
+          "matchedQuery": "libertad y autonomía"
+        }
+      },
+      {
+        "id": "ev:q:b",
+        "class": "factual",
+        "source": "search-response",
+        "payload": {
+          "provider": "OpenAlex Philosophy",
+          "searchPosition": 2,
+          "matchedQuery": "libertad y autonomía"
+        }
+      },
+      {
+        "id": "ev:sem:a:b",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "modelId": "Qwen3-Embedding",
+          "modelRevision": "qwen3-browser-static-v4-fixture",
+          "metric": "cosine",
+          "score": 0.91
+        }
+      },
+      {
+        "id": "ev:sem:a:c",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "modelId": "Qwen3-Embedding",
+          "modelRevision": "qwen3-browser-static-v4-fixture",
+          "metric": "cosine",
+          "score": 0.84
+        }
+      },
+      {
+        "id": "ev:related:a:c",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "relationEdgeRef": "rw:a:c",
+          "indexRevision": "related-work-index-builder-v1c",
+          "relationTypes": [
+            "semantic-affinity",
+            "shared-topic"
+          ],
+          "signals": {
+            "semantic": 0.84,
+            "topic": 1
+          }
+        }
+      },
+      {
+        "id": "ev:authority-only:b:c",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "relationEdgeRef": "rw:b:c:authority",
+          "indexRevision": "related-work-index-builder-v1c",
+          "relationTypes": [
+            "same-author"
+          ],
+          "signals": {
+            "author": 1
+          }
+        }
+      },
+      {
+        "id": "ev:contribution:p1:a",
+        "class": "factual",
+        "source": "author-authority-graph-v1",
+        "payload": {
+          "role": "author",
+          "authorityRef": "authority:p1",
+          "sourceRecordRefs": [
+            "source:work-a"
+          ]
+        }
+      },
+      {
+        "id": "ev:mention:m1:b",
+        "class": "provisional",
+        "source": "author-authority-resolution",
+        "payload": {
+          "sourceRecordRefs": [
+            "source:work-b"
+          ],
+          "rawRole": "author"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge:q:a",
+        "type": "query-result",
+        "fromRef": "query:ra5",
+        "toRef": "work:a",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:q:a"
+        ]
+      },
+      {
+        "id": "edge:q:b",
+        "type": "query-result",
+        "fromRef": "query:ra5",
+        "toRef": "work:b",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:q:b"
+        ]
+      },
+      {
+        "id": "edge:sem:a:b",
+        "type": "semantic-neighbor",
+        "fromRef": "work:a",
+        "toRef": "work:b",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:sem:a:b"
+        ]
+      },
+      {
+        "id": "edge:sem:a:c",
+        "type": "semantic-neighbor",
+        "fromRef": "work:a",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:sem:a:c"
+        ]
+      },
+      {
+        "id": "edge:related:a:c",
+        "type": "related-work",
+        "fromRef": "work:a",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:related:a:c"
+        ]
+      },
+      {
+        "id": "edge:authority-only:b:c",
+        "type": "related-work",
+        "fromRef": "work:b",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:authority-only:b:c"
+        ]
+      },
+      {
+        "id": "edge:p1:a",
+        "type": "contribution",
+        "fromRef": "person:p1",
+        "toRef": "work:a",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:contribution:p1:a"
+        ]
+      },
+      {
+        "id": "edge:m1:b",
+        "type": "author-mention",
+        "fromRef": "mention:m1",
+        "toRef": "work:b",
+        "status": "provisional",
+        "evidenceRefs": [
+          "ev:mention:m1:b"
+        ]
+      }
+    ],
+    "diagnostics": {
+      "directHits": 2,
+      "expandedWorks": 1,
+      "authorityPersons": 1,
+      "unresolvedMentions": 1
+    }
+  },
+  "expandedSnapshot": {
+    "schemaVersion": "research-atlas-snapshot-v1",
+    "session": {
+      "id": "session:ra5-layout",
+      "rawQuery": "libertad y autonomía",
+      "normalizedQuery": "libertad y autonomia",
+      "queryNodeRef": "query:ra5",
+      "searchMode": "traditional",
+      "state": "complete",
+      "filters": {},
+      "sourceRevisions": {
+        "openAlexPhilosophy": "hf:CristianPelayo/openalex-philosophy:fixture-ra5",
+        "relatedWorkIndex": "related-work-index-builder-v1c"
+      },
+      "graphRevision": 2
+    },
+    "nodes": [
+      {
+        "id": "query:ra5",
+        "nodeType": "query",
+        "rawQuery": "libertad y autonomía",
+        "normalizedQuery": "libertad y autonomia"
+      },
+      {
+        "id": "work:a",
+        "nodeType": "work",
+        "title": "Freedom and autonomy",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w100"
+        },
+        "discovery": {
+          "directHit": true,
+          "origins": [
+            "direct-search"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "work:b",
+        "nodeType": "work",
+        "title": "Practical reason",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w200"
+        },
+        "discovery": {
+          "directHit": true,
+          "origins": [
+            "direct-search"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "work:c",
+        "nodeType": "work",
+        "title": "Autonomy after Kant",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w300"
+        },
+        "discovery": {
+          "directHit": false,
+          "origins": [
+            "related-work-expansion"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      },
+      {
+        "id": "person:p1",
+        "nodeType": "authority-person",
+        "authorityRef": "authority:p1",
+        "displayName": "Author One",
+        "resolutionState": "confirmed"
+      },
+      {
+        "id": "mention:m1",
+        "nodeType": "author-mention",
+        "mentionRef": "mention:m1",
+        "rawName": "J. Unknown",
+        "resolutionState": "unresolved",
+        "sourceRecordRefs": [
+          "source:work-b"
+        ]
+      },
+      {
+        "id": "work:d",
+        "nodeType": "work",
+        "title": "Freedom and normativity",
+        "identity": {
+          "kind": "openalex",
+          "key": "openalex:w400"
+        },
+        "discovery": {
+          "directHit": false,
+          "origins": [
+            "related-work-expansion"
+          ]
+        },
+        "providers": [
+          "OpenAlex Philosophy"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:q:a",
+        "class": "factual",
+        "source": "search-response",
+        "payload": {
+          "provider": "OpenAlex Philosophy",
+          "searchPosition": 1,
+          "matchedQuery": "libertad y autonomía"
+        }
+      },
+      {
+        "id": "ev:q:b",
+        "class": "factual",
+        "source": "search-response",
+        "payload": {
+          "provider": "OpenAlex Philosophy",
+          "searchPosition": 2,
+          "matchedQuery": "libertad y autonomía"
+        }
+      },
+      {
+        "id": "ev:sem:a:b",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "modelId": "Qwen3-Embedding",
+          "modelRevision": "qwen3-browser-static-v4-fixture",
+          "metric": "cosine",
+          "score": 0.91
+        }
+      },
+      {
+        "id": "ev:sem:a:c",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "modelId": "Qwen3-Embedding",
+          "modelRevision": "qwen3-browser-static-v4-fixture",
+          "metric": "cosine",
+          "score": 0.84
+        }
+      },
+      {
+        "id": "ev:related:a:c",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "relationEdgeRef": "rw:a:c",
+          "indexRevision": "related-work-index-builder-v1c",
+          "relationTypes": [
+            "semantic-affinity",
+            "shared-topic"
+          ],
+          "signals": {
+            "semantic": 0.84,
+            "topic": 1
+          }
+        }
+      },
+      {
+        "id": "ev:authority-only:b:c",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "relationEdgeRef": "rw:b:c:authority",
+          "indexRevision": "related-work-index-builder-v1c",
+          "relationTypes": [
+            "same-author"
+          ],
+          "signals": {
+            "author": 1
+          }
+        }
+      },
+      {
+        "id": "ev:contribution:p1:a",
+        "class": "factual",
+        "source": "author-authority-graph-v1",
+        "payload": {
+          "role": "author",
+          "authorityRef": "authority:p1",
+          "sourceRecordRefs": [
+            "source:work-a"
+          ]
+        }
+      },
+      {
+        "id": "ev:mention:m1:b",
+        "class": "provisional",
+        "source": "author-authority-resolution",
+        "payload": {
+          "sourceRecordRefs": [
+            "source:work-b"
+          ],
+          "rawRole": "author"
+        }
+      },
+      {
+        "id": "ev:sem:b:d",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "modelId": "Qwen3-Embedding",
+          "modelRevision": "qwen3-browser-static-v4-fixture",
+          "metric": "cosine",
+          "score": 0.89
+        }
+      },
+      {
+        "id": "ev:related:b:d",
+        "class": "derived",
+        "source": "related-work-index-v1",
+        "payload": {
+          "relationEdgeRef": "rw:b:d",
+          "indexRevision": "related-work-index-builder-v1c",
+          "relationTypes": [
+            "semantic-affinity",
+            "shared-topic"
+          ],
+          "signals": {
+            "semantic": 0.89,
+            "topic": 1
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge:q:a",
+        "type": "query-result",
+        "fromRef": "query:ra5",
+        "toRef": "work:a",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:q:a"
+        ]
+      },
+      {
+        "id": "edge:q:b",
+        "type": "query-result",
+        "fromRef": "query:ra5",
+        "toRef": "work:b",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:q:b"
+        ]
+      },
+      {
+        "id": "edge:sem:a:b",
+        "type": "semantic-neighbor",
+        "fromRef": "work:a",
+        "toRef": "work:b",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:sem:a:b"
+        ]
+      },
+      {
+        "id": "edge:sem:a:c",
+        "type": "semantic-neighbor",
+        "fromRef": "work:a",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:sem:a:c"
+        ]
+      },
+      {
+        "id": "edge:related:a:c",
+        "type": "related-work",
+        "fromRef": "work:a",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:related:a:c"
+        ]
+      },
+      {
+        "id": "edge:authority-only:b:c",
+        "type": "related-work",
+        "fromRef": "work:b",
+        "toRef": "work:c",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:authority-only:b:c"
+        ]
+      },
+      {
+        "id": "edge:p1:a",
+        "type": "contribution",
+        "fromRef": "person:p1",
+        "toRef": "work:a",
+        "status": "confirmed",
+        "evidenceRefs": [
+          "ev:contribution:p1:a"
+        ]
+      },
+      {
+        "id": "edge:m1:b",
+        "type": "author-mention",
+        "fromRef": "mention:m1",
+        "toRef": "work:b",
+        "status": "provisional",
+        "evidenceRefs": [
+          "ev:mention:m1:b"
+        ]
+      },
+      {
+        "id": "edge:sem:b:d",
+        "type": "semantic-neighbor",
+        "fromRef": "work:b",
+        "toRef": "work:d",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:sem:b:d"
+        ]
+      },
+      {
+        "id": "edge:related:b:d",
+        "type": "related-work",
+        "fromRef": "work:b",
+        "toRef": "work:d",
+        "status": "derived",
+        "evidenceRefs": [
+          "ev:related:b:d"
+        ]
+      }
+    ],
+    "diagnostics": {
+      "directHits": 2,
+      "expandedWorks": 2,
+      "authorityPersons": 1,
+      "unresolvedMentions": 1
+    }
+  }
+}
