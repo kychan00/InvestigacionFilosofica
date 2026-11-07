@@ -2487,34 +2487,59 @@ new MutationObserver(
 async function boot() {
   const response =
     await fetch(
-      "./benchmark/research-atlas/v5/layout-fixture.json",
+      "./src/data/philosophy-map.json",
       {
         cache:
-          "no-store"
+          "force-cache"
       }
     );
 
   if (!response.ok) {
     throw new Error(
-      "No se pudo cargar el fixture RA5."
+      "No se pudo cargar philosophy-map.json."
     );
   }
 
-  fixture =
+  const philosophyMap =
     await response.json();
 
-  applySnapshot(
-    fixture.initialSnapshot,
-    {
-      preserveLayout:
-        false
-    }
-  );
+  liveSession =
+    new ResearchAtlasLiveSession({
+      philosophyMap,
+      onUpdate:
+        applyLiveUpdate
+    });
 
-  window.setTimeout(
-    fitView,
-    40
-  );
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const initialQuery =
+    String(
+      params.get("q") ||
+      ""
+    ).trim();
+
+  const initialMode =
+    params.get("mode") ===
+      "semantic"
+      ? "semantic"
+      : "federated";
+
+  liveMode.value =
+    initialMode;
+
+  if (initialQuery) {
+    liveQuery.value =
+      initialQuery;
+
+    await runLiveSearch();
+    return;
+  }
+
+  status.textContent =
+    "Listo · escriba una consulta para construir el Atlas con resultados reales.";
 }
 
 
@@ -2525,13 +2550,13 @@ boot().catch(
     );
 
     status.textContent =
-      "No fue posible cargar el experimento RA6.";
+      "No fue posible inicializar el Atlas de Investigación.";
 
     detail.innerHTML =
       '<div class="ra-detail-empty">' +
-      '<p class="ra-section-label">ERROR DE CARGA</p>' +
-      '<h2>El renderer no recibió un snapshot válido.</h2>' +
-      '<p>Revise el fixture y los contratos RA1–RA5.</p>' +
+      '<p class="ra-section-label">ERROR DE INICIALIZACIÓN</p>' +
+      '<h2>El Atlas no pudo cargar su contexto de búsqueda.</h2>' +
+      '<p>La página principal de Investigación Filosófica no se ve afectada.</p>' +
       '</div>';
   }
 );
