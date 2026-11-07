@@ -20,7 +20,19 @@ function makeResponse(count = 20) {
     return {
       id,
       title: families[index % families.length] + " " + String(index + 1),
-      authors: [{name: "Atlas Author " + String(index % 7 + 1)}],
+      authors: [{
+        id:
+          "https://openalex.org/A" +
+          String(
+            800000 +
+            index % 7
+          ),
+        name:
+          "Atlas Author " +
+          String(
+            index % 7 + 1
+          )
+      }],
       year: 1990 + index % 30,
       type: "article",
       language: index % 3 === 0 ? "es" : "en",
@@ -84,9 +96,11 @@ try {
 
     const page = await context.newPage();
     const externalRequests = [];
+    const allRequests = [];
 
     page.on("request", request => {
       const url = request.url();
+      allRequests.push(url);
       if (!url.startsWith(BASE)) externalRequests.push(url);
     });
 
@@ -121,6 +135,17 @@ try {
       document.querySelector("#research-atlas-count")?.textContent === "20"
     );
 
+    await page.waitForFunction(() =>
+      /autores confirmados/.test(
+        document.querySelector("#research-atlas-sync-status")?.textContent || ""
+      )
+    );
+
+    assert.match(
+      await page.locator("#research-atlas-sync-status").innerText(),
+      /7 autores confirmados/
+    );
+
     assert.equal(
       await page.locator("#research-view-results").getAttribute("aria-selected"),
       "true"
@@ -131,6 +156,7 @@ try {
     );
 
     const beforeToggleRequests = externalRequests.length;
+    allRequests.length = 0;
 
     await page.locator("#research-view-atlas").click();
     await page.waitForTimeout(80);
@@ -152,6 +178,12 @@ try {
       externalRequests.length,
       beforeToggleRequests,
       "opening Atlas must not create additional external network requests"
+    );
+
+    assert.equal(
+      allRequests.length,
+      0,
+      "opening Atlas must not create additional network requests after enrichment settled"
     );
 
     const geometry = await page.evaluate(() => {
@@ -269,13 +301,13 @@ try {
     await page.evaluate(() => document.body.classList.remove("author-view"));
 
     await page.screenshot({
-      path: "artifacts/research-atlas-ra9/" + name + ".png",
+      path: "artifacts/research-atlas-ra10/" + name + ".png",
       fullPage: true,
       animations: "disabled"
     });
 
     await context.close();
-    process.stdout.write("RA9 main Atlas PASS: " + name + "\n");
+    process.stdout.write("RA10 Authority Atlas PASS: " + name + "\n");
   }
 } finally {
   await browser.close();
