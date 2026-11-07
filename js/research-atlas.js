@@ -1,6 +1,6 @@
 import {
-  ResearchAtlasLayoutEngine
-} from "../src/core/research-atlas-layout.js";
+  ResearchAtlasLiveSession
+} from "../src/core/research-atlas-live.js";
 
 import {
   buildResearchAtlasViewModel,
@@ -21,14 +21,29 @@ const context =
     {alpha: true}
   );
 
+const liveSearchForm =
+  document.querySelector("#ra-live-search-form");
+
+const liveQuery =
+  document.querySelector("#ra-live-query");
+
+const liveMode =
+  document.querySelector("#ra-live-mode");
+
+const liveDepth =
+  document.querySelector("#ra-live-depth");
+
+const liveSubmit =
+  document.querySelector("#ra-live-submit");
+
+const liveCancel =
+  document.querySelector("#ra-live-cancel");
+
 const query =
   document.querySelector("#ra-query");
 
 const matchCount =
   document.querySelector("#ra-match-count");
-
-const simulate =
-  document.querySelector("#ra-simulate");
 
 const reset =
   document.querySelector("#ra-reset");
@@ -77,14 +92,7 @@ const edgeToggles =
   ];
 
 
-const layoutEngine =
-  new ResearchAtlasLayoutEngine({
-    maxExistingDisplacement:
-      0.18
-  });
-
-
-let fixture = null;
+let liveSession = null;
 let snapshot = null;
 let layout = null;
 let viewModel = null;
@@ -93,7 +101,7 @@ let selectedId = null;
 let hoveredId = null;
 let drag = null;
 let raf = null;
-let simulated = false;
+let uiRunId = 0;
 
 const view = {
   x: 0,
@@ -375,33 +383,18 @@ function updateStats() {
         "es-MX"
       );
 
-  const phase =
-    simulated
-      ? "snapshot expandido"
-      : "snapshot inicial";
-
-  status.textContent =
+  if (
     query.value.trim()
-      ? (
-          filterState
-            .visibleNodeIds
-            .size
-            .toLocaleString(
-              "es-MX"
-            ) +
-          " nodos visibles · el filtro no altera la topología"
-        )
-      : (
-          phase +
-          " · " +
-          viewModel
-            .diagnostics
-            .nodes
-            .toLocaleString(
-              "es-MX"
-            ) +
-          " nodos"
-        );
+  ) {
+    status.textContent =
+      filterState
+        .visibleNodeIds
+        .size
+        .toLocaleString(
+          "es-MX"
+        ) +
+      " nodos visibles · el filtro no altera la topología";
+  }
 }
 
 
@@ -499,6 +492,19 @@ function edgeStyle(
           0.38,
       width: 1.6,
       dash: []
+    };
+  }
+
+  if (
+    edge.visualType ===
+    "lexical"
+  ) {
+    return {
+      color:
+        colors.cyan,
+      alpha: 0.48,
+      width: 1.05,
+      dash: [2, 4]
     };
   }
 
@@ -1695,6 +1701,10 @@ function selectNode(
 
 
 function fitView() {
+  if (!viewModel) {
+    return;
+  }
+
   const visible =
     viewModel.nodes.filter(
       node =>
@@ -1873,36 +1883,335 @@ function zoomAt(
 }
 
 
-function applySnapshot(
-  nextSnapshot,
-  {
-    preserveLayout =
-      true
-  } = {}
+function applyLiveUpdate(
+  event
 ) {
+  const hadView =
+    Boolean(
+      viewModel
+    );
+
   snapshot =
     structuredClone(
-      nextSnapshot
+      event.snapshot
     );
 
   layout =
-    layoutEngine.layout(
-      snapshot,
-      preserveLayout
-        ? {}
-        : {
-            previousLayout:
-              null
-          }
+    structuredClone(
+      event.layout
     );
 
+  if (
+    selectedId &&
+    !snapshot.nodes.some(
+      node =>
+        node.id ===
+        selectedId
+    )
+  ) {
+    selectedId =
+      null;
+  }
+
   rebuildViewModel();
+
+  const count =
+    event.response
+      ?.stats
+      ?.unique ??
+    viewModel
+      .diagnostics
+      .directWorks;
+
+  const provider =
+    event.progress
+      ?.provider;
+
+  if (
+    event.phase ===
+    "partial"
+  ) {
+    status.textContent =
+      count
+        .toLocaleString(
+          "es-MX"
+        ) +
+      " resultados canónicos" +
+      (
+        provider
+          ? " · llegó " +
+            provider
+          : ""
+      ) +
+      " · Atlas actualizándose";
+  } else if (
+    event.fallback
+  ) {
+    status.textContent =
+      count
+        .toLocaleString(
+          "es-MX"
+        ) +
+      " resultados · servicio semántico no disponible, respaldo federado";
+  } else {
+    status.textContent =
+      count
+        .toLocaleString(
+          "es-MX"
+        ) +
+      " resultados · Atlas construido";
+  }
+
+  if (!hadView) {
+    window.setTimeout(
+      fitView,
+      40
+    );
+  }
 }
+
+
+function clearAtlas() {
+  liveSession
+    ?.cancel();
+
+  uiRunId +=
+    1;
+
+  snapshot =
+    null;
+
+  layout =
+    null;
+
+  viewModel =
+    null;
+
+  filterState =
+    null;
+
+  selectedId =
+    null;
+
+  hoveredId =
+    null;
+
+  query.value =
+    "";
+
+  nodeList
+    .replaceChildren();
+
+  nodeCount.textContent =
+    "—";
+
+  directCount.textContent =
+    "—";
+
+  expandedCount.textContent =
+    "—";
+
+  edgeCount.textContent =
+    "—";
+
+  matchCount.textContent =
+    "—";
+
+  status.textContent =
+    "Escriba una consulta para construir el Atlas…";
+
+  detail.innerHTML =
+    '<div class="ra-detail-empty">' +
+    '<span class="ra-detail-glyph" aria-hidden="true">◎</span>' +
+    '<p class="ra-section-label">SELECCIONE UN NODO</p>' +
+    '<h2>Pregunte por qué está aquí.</h2>' +
+    '<p>La ficha distingue evidencia factual, relaciones derivadas y menciones provisionales.</p>' +
+    '</div>';
+
+  const metrics =
+    canvasMetrics();
+
+  context.setTransform(
+    metrics.dpr,
+    0,
+    0,
+    metrics.dpr,
+    0,
+    0
+  );
+
+  context.clearRect(
+    0,
+    0,
+    metrics.width,
+    metrics.height
+  );
+
+  view.x =
+    0;
+
+  view.y =
+    0;
+
+  view.zoom =
+    1;
+
+  liveCancel.disabled =
+    true;
+
+  liveSubmit.disabled =
+    false;
+}
+
+
+async function runLiveSearch() {
+  const text =
+    liveQuery.value
+      .trim();
+
+  if (
+    !text ||
+    !liveSession
+  ) {
+    return;
+  }
+
+  const run =
+    ++uiRunId;
+
+  selectedId =
+    null;
+
+  hoveredId =
+    null;
+
+  query.value =
+    "";
+
+  liveSubmit.disabled =
+    true;
+
+  liveCancel.disabled =
+    false;
+
+  status.textContent =
+    liveMode.value ===
+      "semantic"
+      ? "Consultando servicio semántico y fuentes académicas…"
+      : "Buscando en fuentes académicas…";
+
+  const url =
+    new URL(
+      window.location.href
+    );
+
+  url.searchParams.set(
+    "q",
+    text
+  );
+
+  url.searchParams.set(
+    "mode",
+    liveMode.value
+  );
+
+  history.replaceState(
+    null,
+    "",
+    url
+  );
+
+  try {
+    await liveSession.run(
+      text,
+      {
+        mode:
+          liveMode.value,
+        depth:
+          Number(
+            liveDepth.value
+          ),
+        limit:
+          Number(
+            liveDepth.value
+          )
+      }
+    );
+  } catch (error) {
+    if (
+      error?.name !==
+      "AbortError" &&
+      run ===
+        uiRunId
+    ) {
+      console.error(
+        error
+      );
+
+      status.textContent =
+        "No fue posible completar esta búsqueda.";
+
+      detail.innerHTML =
+        '<div class="ra-detail-empty">' +
+        '<p class="ra-section-label">BÚSQUEDA INCOMPLETA</p>' +
+        '<h2>El Atlas no pudo construir esta sesión.</h2>' +
+        '<p>La búsqueda principal no se modifica; puede intentar otra consulta.</p>' +
+        '</div>';
+    }
+  } finally {
+    if (
+      run ===
+      uiRunId
+    ) {
+      liveSubmit.disabled =
+        false;
+
+      liveCancel.disabled =
+        true;
+    }
+  }
+}
+
+
+liveSearchForm.addEventListener(
+  "submit",
+  event => {
+    event.preventDefault();
+    void runLiveSearch();
+  }
+);
+
+
+liveCancel.addEventListener(
+  "click",
+  () => {
+    liveSession
+      ?.cancel();
+
+    uiRunId +=
+      1;
+
+    liveSubmit.disabled =
+      false;
+
+    liveCancel.disabled =
+      true;
+
+    status.textContent =
+      viewModel
+        ? "Búsqueda cancelada · se conserva el último snapshot recibido"
+        : "Búsqueda cancelada";
+  }
+);
 
 
 query.addEventListener(
   "input",
   () => {
+    if (!viewModel) {
+      return;
+    }
+
     filterState =
       filterResearchAtlasViewModel(
         viewModel,
@@ -1922,79 +2231,18 @@ for (
 ) {
   toggle.addEventListener(
     "change",
-    rebuildViewModel
+    () => {
+      if (viewModel) {
+        rebuildViewModel();
+      }
+    }
   );
 }
 
 
-simulate.addEventListener(
-  "click",
-  () => {
-    if (simulated) {
-      return;
-    }
-
-    simulated =
-      true;
-
-    applySnapshot(
-      fixture.expandedSnapshot,
-      {
-        preserveLayout:
-          true
-      }
-    );
-
-    simulate.disabled =
-      true;
-
-    simulate.textContent =
-      "Nueva obra integrada";
-
-    status.textContent =
-      "Nueva obra integrada · posiciones previas preservadas dentro del límite RA5";
-
-    window.setTimeout(
-      fitView,
-      60
-    );
-  }
-);
-
-
 reset.addEventListener(
   "click",
-  () => {
-    simulated =
-      false;
-
-    selectedId =
-      null;
-
-    hoveredId =
-      null;
-
-    query.value =
-      "";
-
-    layoutEngine.reset();
-
-    applySnapshot(
-      fixture.initialSnapshot,
-      {
-        preserveLayout:
-          false
-      }
-    );
-
-    simulate.disabled =
-      false;
-
-    simulate.textContent =
-      "Simular nueva obra";
-
-    fitView();
-  }
+  clearAtlas
 );
 
 
@@ -2239,34 +2487,59 @@ new MutationObserver(
 async function boot() {
   const response =
     await fetch(
-      "./benchmark/research-atlas/v5/layout-fixture.json",
+      "./src/data/philosophy-map.json",
       {
         cache:
-          "no-store"
+          "force-cache"
       }
     );
 
   if (!response.ok) {
     throw new Error(
-      "No se pudo cargar el fixture RA5."
+      "No se pudo cargar philosophy-map.json."
     );
   }
 
-  fixture =
+  const philosophyMap =
     await response.json();
 
-  applySnapshot(
-    fixture.initialSnapshot,
-    {
-      preserveLayout:
-        false
-    }
-  );
+  liveSession =
+    new ResearchAtlasLiveSession({
+      philosophyMap,
+      onUpdate:
+        applyLiveUpdate
+    });
 
-  window.setTimeout(
-    fitView,
-    40
-  );
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const initialQuery =
+    String(
+      params.get("q") ||
+      ""
+    ).trim();
+
+  const initialMode =
+    params.get("mode") ===
+      "semantic"
+      ? "semantic"
+      : "federated";
+
+  liveMode.value =
+    initialMode;
+
+  if (initialQuery) {
+    liveQuery.value =
+      initialQuery;
+
+    await runLiveSearch();
+    return;
+  }
+
+  status.textContent =
+    "Listo · escriba una consulta para construir el Atlas con resultados reales.";
 }
 
 
@@ -2277,13 +2550,13 @@ boot().catch(
     );
 
     status.textContent =
-      "No fue posible cargar el experimento RA6.";
+      "No fue posible inicializar el Atlas de Investigación.";
 
     detail.innerHTML =
       '<div class="ra-detail-empty">' +
-      '<p class="ra-section-label">ERROR DE CARGA</p>' +
-      '<h2>El renderer no recibió un snapshot válido.</h2>' +
-      '<p>Revise el fixture y los contratos RA1–RA5.</p>' +
+      '<p class="ra-section-label">ERROR DE INICIALIZACIÓN</p>' +
+      '<h2>El Atlas no pudo cargar su contexto de búsqueda.</h2>' +
+      '<p>La página principal de Investigación Filosófica no se ve afectada.</p>' +
       '</div>';
   }
 );

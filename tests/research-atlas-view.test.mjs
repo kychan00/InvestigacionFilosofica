@@ -388,3 +388,75 @@ test("snapshot expandido agrega una obra L1 sin cambiar el vocabulario visual", 
     2
   );
 });
+
+
+test("lexical-neighbor conserva un vocabulario visual distinto de semantic-neighbor", () => {
+  const snapshot =
+    structuredClone(
+      fixture.initialSnapshot
+    );
+
+  snapshot.evidence.push({
+    id:
+      "ev:lexical:b:c",
+    class:
+      "derived",
+    source:
+      "research-atlas-live-v1",
+    payload: {
+      method:
+        "title-token-jaccard-v1",
+      score:
+        0.42,
+      sharedTokens: [
+        "freedom"
+      ]
+    }
+  });
+
+  snapshot.edges.push({
+    id:
+      "edge:lexical:b:c",
+    type:
+      "lexical-neighbor",
+    fromRef:
+      "work:b",
+    toRef:
+      "work:c",
+    status:
+      "derived",
+    evidenceRefs: [
+      "ev:lexical:b:c"
+    ]
+  });
+
+  const layout =
+    buildResearchAtlasLayout(
+      snapshot
+    );
+
+  const view =
+    buildResearchAtlasViewModel(
+      snapshot,
+      layout
+    );
+
+  const lexical =
+    view.edges.find(
+      edge =>
+        edge.type ===
+        "lexical-neighbor"
+    );
+
+  assert.ok(lexical);
+
+  assert.equal(
+    lexical.visualType,
+    "lexical"
+  );
+
+  assert.equal(
+    lexical.label,
+    "Vecindad lexical de títulos"
+  );
+});

@@ -1,0 +1,56 @@
+name: Research Atlas RA7 · live search
+
+on:
+  pull_request:
+    paths:
+      - "research-atlas.html"
+      - "css/research-atlas.css"
+      - "js/research-atlas.js"
+      - "src/core/research-atlas-live.js"
+      - "src/core/research-atlas-lexical.js"
+      - "src/core/research-atlas-view.js"
+      - "src/sources/openalex-philosophy.js"
+      - "tests/research-atlas-live.test.mjs"
+      - "tests/research-atlas-lexical.test.mjs"
+      - "tests/research-atlas-page.test.mjs"
+      - "tests/research-atlas-view.test.mjs"
+      - "docs/RESEARCH_ATLAS_LIVE_RA7.md"
+      - ".github/workflows/research-atlas-ra7.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-live-atlas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate RA7 live integration
+        run: |
+          node --test tests/research-atlas-lexical.test.mjs
+          node --test tests/research-atlas-live.test.mjs
+          node --test tests/research-atlas-page.test.mjs
+          node --test tests/research-atlas-view.test.mjs
+
+      - name: Validate RA1 through RA6
+        run: |
+          node --test tests/research-atlas-contract.test.mjs
+          node --test tests/research-atlas-assembler.test.mjs
+          node --test tests/research-atlas-authority.test.mjs
+          node --test tests/research-atlas-related.test.mjs
+          node --test tests/research-atlas-layout.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
