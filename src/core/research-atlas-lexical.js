@@ -78,7 +78,10 @@ function stableId(
 
 function tokens(value) {
   return normalizeText(
-    value
+    String(
+      value ||
+      ""
+    )
   )
     .split(/\s+/)
     .map(token =>
