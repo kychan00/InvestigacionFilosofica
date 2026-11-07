@@ -92,6 +92,25 @@ test("modo autor fuerza regreso a Resultados", () => {
   );
 });
 
+test("filtros principales publican identidades canónicas sin reconstruir topología", () => {
+  assert.match(app, /resultIdentityKey/);
+  assert.match(app, /research-atlas:filter-results/);
+  assert.match(app, /publishResearchAtlasFilter\(\)/);
+  assert.match(embed, /mainVisibleIdentityKeys/);
+  assert.match(embed, /topología preservada/);
+
+  const filterListener = embed.slice(
+    embed.indexOf("window.addEventListener(RESEARCH_ATLAS_FILTER_EVENT"),
+    embed.indexOf("new MutationObserver", embed.indexOf("window.addEventListener(RESEARCH_ATLAS_FILTER_EVENT"))
+  );
+
+  assert.equal(
+    filterListener.includes("layoutEngine.layout"),
+    false,
+    "changing main filters must not recalculate Atlas geometry"
+  );
+});
+
 test("app actualiza Atlas al cargar más resultados", () => {
   const loadMoreIndex = app.indexOf("async function loadMoreResults");
   assert.ok(loadMoreIndex >= 0);
