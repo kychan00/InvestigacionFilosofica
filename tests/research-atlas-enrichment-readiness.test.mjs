@@ -22,6 +22,24 @@ const config =
     )
   );
 
+const publishWorkflow =
+  await readFile(
+    new URL(
+      "../.github/workflows/research-atlas-authority-publish-v1.yml",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
+const publisher =
+  await readFile(
+    new URL(
+      "../scripts/research-atlas/publish_enrichment_to_hf.py",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
 
 test("RA10 readiness config is valid but intentionally blocked today", () => {
   const validation =
@@ -252,5 +270,46 @@ test("published artifacts without immutable revision or checksums are invalid", 
   assert.match(
     validation.errors.join("\n"),
     /revision|manifestSha256|registrySha256/
+  );
+});
+
+
+test("Authority publication workflow requires human judgments before upload", () => {
+  assert.match(
+    publishWorkflow,
+    /benchmark\/author-authority\/human-audit-v1\/judgments\.jsonl/
+  );
+
+  assert.match(
+    publishWorkflow,
+    /falseMergeCount/
+  );
+
+  assert.match(
+    publishWorkflow,
+    /CristianPelayo\/openalex-philosophy/
+  );
+
+  assert.match(
+    publishWorkflow,
+    /secrets\.HF_TOKEN/
+  );
+});
+
+
+test("Hugging Face publisher defaults to the user's philosophy dataset and only accepts research-atlas paths", () => {
+  assert.match(
+    publisher,
+    /CristianPelayo\/openalex-philosophy/
+  );
+
+  assert.match(
+    publisher,
+    /research-atlas\//
+  );
+
+  assert.match(
+    publisher,
+    /commitOid/
   );
 });
