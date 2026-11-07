@@ -1308,7 +1308,7 @@ function kindLabel(kind) {
     "authority-person":
       "AUTOR / CONFIRMADO",
     "author-mention":
-      "AUTOR / MENCIÓN PROVISIONAL",
+      "AUTOR / REPORTADO POR FUENTE",
     "query":
       "CONSULTA"
   };
