@@ -1,0 +1,371 @@
+{
+  "schemaVersion": "research-atlas-related-fixture-v1",
+  "searchResponse": {
+    "query": "libertad y autonomía",
+    "results": [
+      {
+        "id": "https://openalex.org/W100",
+        "openalexId": "W100",
+        "title": "Freedom and autonomy",
+        "authors": [],
+        "year": 2020,
+        "type": "article",
+        "language": "en",
+        "doi": null,
+        "isbn": [],
+        "topics": [],
+        "providers": [
+          "OpenAlex Philosophy"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "OpenAlex Philosophy",
+            "sourceId": "https://openalex.org/W100",
+            "query": "libertad y autonomía"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "libertad y autonomía",
+            "weight": 1,
+            "type": "original"
+          }
+        ],
+        "urls": {
+          "canonical": "https://openalex.org/W100"
+        },
+        "institutionalLinks": []
+      },
+      {
+        "id": "https://openalex.org/W200",
+        "openalexId": "W200",
+        "title": "Practical freedom",
+        "authors": [],
+        "year": 2021,
+        "type": "article",
+        "language": "en",
+        "doi": null,
+        "isbn": [],
+        "topics": [],
+        "providers": [
+          "OpenAlex Philosophy"
+        ],
+        "sourceRecords": [
+          {
+            "provider": "OpenAlex Philosophy",
+            "sourceId": "https://openalex.org/W200",
+            "query": "libertad y autonomía"
+          }
+        ],
+        "matchedQueries": [
+          {
+            "query": "libertad y autonomía",
+            "weight": 1,
+            "type": "original"
+          }
+        ],
+        "urls": {
+          "canonical": "https://openalex.org/W200"
+        },
+        "institutionalLinks": []
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "appearances": 2,
+      "unique": 2,
+      "merged": 0,
+      "providers": {
+        "OpenAlex Philosophy": 2
+      }
+    }
+  },
+  "relatedResponses": [
+    {
+      "schemaVersion": "related-work-response-v1",
+      "seed": {
+        "identity": "openalex:W100"
+      },
+      "coverage": {
+        "indexed": true,
+        "partial": true,
+        "reason": "candidate-index-v1a"
+      },
+      "provenance": {
+        "indexSchema": "related-work-index-v1",
+        "generatorVersion": "related-work-index-builder-v1c",
+        "source": {
+          "semantic_revision": "qwen3-browser-static-v4-fixture"
+        }
+      },
+      "edges": [
+        {
+          "schemaVersion": "related-work-v1",
+          "id": "rw:100:300",
+          "seed": {
+            "identity": "openalex:W100"
+          },
+          "target": {
+            "identity": "openalex:W300"
+          },
+          "relationTypes": [
+            "semantic-affinity",
+            "shared-topic"
+          ],
+          "signals": {
+            "semantic": 0.93,
+            "topic": 1
+          },
+          "evidence": [
+            {
+              "id": "semantic:100:300",
+              "class": "semantic",
+              "strength": "strong",
+              "source": "qwen3-browser-static-v4",
+              "semanticScore": 0.93,
+              "observedVectorId": 300
+            }
+          ],
+          "reasons": [
+            {
+              "code": "semantic-affinity",
+              "relationType": "semantic-affinity",
+              "evidenceRefs": [
+                "semantic:100:300"
+              ]
+            }
+          ],
+          "identity": {
+            "sameIntellectualWork": false
+          }
+        },
+        {
+          "schemaVersion": "related-work-v1",
+          "id": "rw:100:200",
+          "seed": {
+            "identity": "openalex:W100"
+          },
+          "target": {
+            "identity": "openalex:W200"
+          },
+          "relationTypes": [
+            "semantic-affinity"
+          ],
+          "signals": {
+            "semantic": 0.88
+          },
+          "evidence": [
+            {
+              "id": "semantic:100:200",
+              "class": "semantic",
+              "strength": "strong",
+              "source": "qwen3-browser-static-v4",
+              "semanticScore": 0.88,
+              "observedVectorId": 200
+            }
+          ],
+          "reasons": [
+            {
+              "code": "semantic-affinity",
+              "relationType": "semantic-affinity",
+              "evidenceRefs": [
+                "semantic:100:200"
+              ]
+            }
+          ],
+          "identity": {
+            "sameIntellectualWork": false
+          }
+        },
+        {
+          "schemaVersion": "related-work-v1",
+          "id": "rw:100:400",
+          "seed": {
+            "identity": "openalex:W100"
+          },
+          "target": {
+            "identity": "openalex:W400"
+          },
+          "relationTypes": [
+            "same-author"
+          ],
+          "signals": {
+            "author": 1
+          },
+          "evidence": [
+            {
+              "id": "author:100:400",
+              "class": "bibliographic",
+              "strength": "strong",
+              "source": "author-authority-graph-v1",
+              "structuredIdentity": true,
+              "authorityRefs": [
+                "authority:fixture"
+              ]
+            }
+          ],
+          "reasons": [
+            {
+              "code": "same-author",
+              "relationType": "same-author",
+              "evidenceRefs": [
+                "author:100:400"
+              ]
+            }
+          ],
+          "identity": {
+            "sameIntellectualWork": false
+          }
+        },
+        {
+          "schemaVersion": "related-work-v1",
+          "id": "rw:100:500",
+          "seed": {
+            "identity": "openalex:W100"
+          },
+          "target": {
+            "identity": "openalex:W500"
+          },
+          "relationTypes": [
+            "semantic-affinity"
+          ],
+          "signals": {
+            "semantic": 0.82
+          },
+          "evidence": [
+            {
+              "id": "semantic:100:500",
+              "class": "semantic",
+              "strength": "strong",
+              "source": "qwen3-browser-static-v4",
+              "semanticScore": 0.82,
+              "observedVectorId": 500
+            }
+          ],
+          "reasons": [],
+          "identity": {
+            "sameIntellectualWork": false
+          }
+        }
+      ],
+      "items": [
+        {
+          "edge": {
+            "id": "rw:100:300"
+          },
+          "document": {
+            "vector_id": 300,
+            "id": "openalex-W300",
+            "title": "Autonomy after Kant",
+            "authors": [
+              "Author Three"
+            ],
+            "year": 2022,
+            "source": "OpenAlex Philosophy"
+          }
+        },
+        {
+          "edge": {
+            "id": "rw:100:200"
+          },
+          "document": {
+            "vector_id": 200,
+            "id": "openalex-W200",
+            "title": "Practical freedom",
+            "authors": [],
+            "year": 2021,
+            "source": "OpenAlex Philosophy"
+          }
+        },
+        {
+          "edge": {
+            "id": "rw:100:400"
+          },
+          "document": {
+            "vector_id": 400,
+            "id": "openalex-W400",
+            "title": "Another work by the same author",
+            "authors": [
+              "Author Four"
+            ],
+            "year": 2018,
+            "source": "OpenAlex Philosophy"
+          }
+        },
+        {
+          "edge": {
+            "id": "rw:100:500"
+          },
+          "document": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": "related-work-response-v1",
+      "seed": {
+        "identity": "openalex:W200"
+      },
+      "coverage": {
+        "indexed": true,
+        "partial": true,
+        "reason": "candidate-index-v1a"
+      },
+      "provenance": {
+        "indexSchema": "related-work-index-v1",
+        "generatorVersion": "related-work-index-builder-v1c",
+        "source": {
+          "semantic_revision": "qwen3-browser-static-v4-fixture"
+        }
+      },
+      "edges": [
+        {
+          "schemaVersion": "related-work-v1",
+          "id": "rw:200:300",
+          "seed": {
+            "identity": "openalex:W200"
+          },
+          "target": {
+            "identity": "openalex:W300"
+          },
+          "relationTypes": [
+            "semantic-affinity"
+          ],
+          "signals": {
+            "semantic": 0.87
+          },
+          "evidence": [
+            {
+              "id": "semantic:200:300",
+              "class": "semantic",
+              "strength": "strong",
+              "source": "qwen3-browser-static-v4",
+              "semanticScore": 0.87,
+              "observedVectorId": 300
+            }
+          ],
+          "reasons": [],
+          "identity": {
+            "sameIntellectualWork": false
+          }
+        }
+      ],
+      "items": [
+        {
+          "edge": {
+            "id": "rw:200:300"
+          },
+          "document": {
+            "vector_id": 300,
+            "id": "openalex-W300",
+            "title": "Autonomy after Kant",
+            "authors": [
+              "Author Three"
+            ],
+            "year": 2022,
+            "source": "OpenAlex Philosophy"
+          }
+        }
+      ]
+    }
+  ]
+}
