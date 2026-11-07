@@ -433,11 +433,11 @@
 
           <article>
             <span>02</span>
-            <h3>Vecindad lexical</h3>
+            <h3>Similitud textual</h3>
             <p>
-              Mientras Related Work no tenga publicación remota estable,
-              RA7 conecta títulos por coincidencia lexical explícita.
-              Esa relación nunca se presenta como semántica.
+              La topología base compara título + abstract mediante TF‑IDF
+              ponderado. Si falta abstract, la evidencia declara que la
+              relación se construyó sólo con título.
             </p>
           </article>
 
@@ -453,11 +453,12 @@
 
           <article>
             <span>04</span>
-            <h3>Autoridad</h3>
+            <h3>Autores</h3>
             <p>
-              RA7 conserva autores como menciones no resueltas hasta
-              cargar un Author Authority Graph publicado. Nunca confirma
-              personas sólo por el nombre.
+              Los nombres reportados por las fuentes pueden mostrarse sin
+              resolver identidad. Author Authority es un enriquecimiento
+              opcional y sólo se exige para fusionar personas o afirmar
+              autor compartido.
             </p>
           </article>
 
