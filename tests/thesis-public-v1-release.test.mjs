@@ -38,7 +38,21 @@ test("V1 release identity remains reference-only", () => {
 });
 
 
-test("V1.0.1 cache-bust forces browsers to load the fixed thesis validator", () => {
-  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261105-v101/);
+test("T2DG cache-bust loads the integrated thesis + Editorial UdeG runtime", () => {
+  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261107-t2dg/);
+  assert.match(html, /\.\/css\/thesis-demo\.css\?v=20261107-t2dg/);
   assert.match(thesisJs, /thesis-demo-search\.js\?v=20261105-v101/);
+  assert.match(thesisJs, /editorial-udg-search\.js\?v=20261107-t2dg/);
+});
+
+test("public page exposes Editorial UdeG as a third bibliographic territory without calling it a thesis corpus", () => {
+  assert.match(html, /data-thesis-scope="editorial"/);
+  assert.match(html, /Editorial UdeG <strong id="thesis-scope-editorial-count">—<\/strong>/);
+  assert.match(html, /Libros y publicaciones filosóficas de Editorial UdeG/);
+  assert.match(html, /No son tesis/);
+  assert.match(html, /24<\/strong><span>categoría oficial Filosofía/);
+  assert.match(html, /9<\/strong><span>relación filosófica verificada/);
+  assert.match(html, /id="thesis-method-editorial"/);
+  assert.match(thesisJs, /activeScope === "editorial"/);
+  assert.match(thesisJs, /validateEditorialUdgIndex/);
 });

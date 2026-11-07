@@ -422,6 +422,27 @@ jobs:
           print("Philosophy public view verified:", data["metrics"])
           PY
 
+      - name: Verify public Editorial UdeG philosophy corpus
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import { readFileSync } from "node:fs";
+          import { validateEditorialUdgIndex } from "./src/core/editorial-udg-search.js";
+
+          const path = "_site/data/editorial/udg-philosophy-v1/index.json";
+          const payload = JSON.parse(readFileSync(path, "utf8"));
+          const data = validateEditorialUdgIndex(payload);
+
+          assert.equal(data.records.length, 33);
+          assert.equal(data.counts.officialPhilosophyCategory, 24);
+          assert.equal(data.counts.verifiedPhilosophicalRelation, 9);
+          assert.equal(data.referenceOnly, true);
+          assert.equal(data.pdfCopies, 0);
+          assert.ok(readFileSync("_site/tesis.html", "utf8").includes('data-thesis-scope="editorial"'));
+
+          console.log("Editorial UdeG public corpus verified:", data.counts);
+          NODE
+
       - name: Build experimental 2D thesis Atlas from verified V2
         run: |
           rm -rf _site/data/theses/atlas-v1

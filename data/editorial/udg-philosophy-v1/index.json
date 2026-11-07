@@ -1,0 +1,577 @@
+{
+  "schemaVersion": "editorial-udg-philosophy-index-v1",
+  "revision": "2026-11-07.v1",
+  "capturedAt": "2026-11-07",
+  "institution": "Universidad de Guadalajara",
+  "publisher": "Editorial Universidad de Guadalajara",
+  "referenceOnly": true,
+  "pdfCopies": 0,
+  "sourceUrl": "https://editorial.udg.mx/libros.html?cat=144&manufacturer=5606",
+  "sourceSnapshot": {
+    "repository": "kychan00/philosophia",
+    "commit": "a931ad3b7be79227c5aee3035d03b2dcbaf0a81b"
+  },
+  "counts": {
+    "records": 33,
+    "officialPhilosophyCategory": 24,
+    "verifiedPhilosophicalRelation": 9
+  },
+  "inclusionPolicy": {
+    "officialCategory": "Se incluyen todos los títulos que Editorial UdeG clasifica en su categoría oficial Filosofía.",
+    "verifiedRelation": "Fuera del filtro oficial sólo se incluyen títulos cuya ficha editorial explicita contenido filosófico sustantivo.",
+    "excludedByDefault": [
+      "religión",
+      "humanidades generales",
+      "literatura",
+      "psicología"
+    ]
+  },
+  "records": [
+    {
+      "id": "editorial-udg:neuroartes",
+      "title": "Neuroartes",
+      "authors": [
+        "Luc Delannoy"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-neuroartes-9786075817132-68ffcf64b8e93.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 1
+    },
+    {
+      "id": "editorial-udg:argumentacion-y-desacuerdo",
+      "title": "Argumentación y desacuerdo",
+      "authors": [
+        "Mario Gensollen Mendoza"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-argumentacion-y-desacuerdo-9786075716510-63d7ed0d1a395.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 2
+    },
+    {
+      "id": "editorial-udg:produccion-de-conocimientos-en-tiempos-de-crisis",
+      "title": "Producción de conocimientos en tiempos de crisis",
+      "authors": [
+        "Sarah Corona Berkin y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-produccion-de-conocimientos-en-tiempos-de-crisis-9786075716671-637e7f5c519dc.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 3
+    },
+    {
+      "id": "editorial-udg:la-amistad-argumentada",
+      "title": "La amistad argumentada",
+      "authors": [
+        "Rómulo Ramírez-Daza y García"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-la-amistad-argumentada-9786075713021.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 4
+    },
+    {
+      "id": "editorial-udg:discurso-preliminar-de-la-enciclopedia",
+      "title": "Discurso preliminar de la enciclopedia",
+      "authors": [
+        "Jean le Rond D'Alembert y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-discurso-preliminar-de-la-enciclopedia.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 5
+    },
+    {
+      "id": "editorial-udg:principios-del-conocimiento-humano",
+      "title": "Principios del conocimiento humano",
+      "authors": [
+        "George Berkeley y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-principios-del-conocimiento-humano.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 6
+    },
+    {
+      "id": "editorial-udg:identidad-y-filosofia-de-vida",
+      "title": "Identidad y filosofía de vida",
+      "authors": [
+        "Diana Violeta Heredia Loza y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-identidad-y-filosofia-de-vida.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 7
+    },
+    {
+      "id": "editorial-udg:los-valores-de-los-jaliscienses-1997-2017",
+      "title": "Los valores de los jaliscienses, 1997-2017",
+      "authors": [
+        "Marco Antonio Cortés Guardado"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-los-valores-de-los-jaliscienses-1997-2017.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 8
+    },
+    {
+      "id": "editorial-udg:de-la-felicidad-y-otras-cuestiones-publicas",
+      "title": "De la felicidad y otras cuestiones públicas",
+      "authors": [
+        "Fernando Leal Carretero"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-de-la-felicidad-y-otras-cuestiones-publicas.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 9
+    },
+    {
+      "id": "editorial-udg:tao-te-ching",
+      "title": "Tao Te Ching",
+      "authors": [
+        "Lao Tsé y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-tao-te-ching.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 10
+    },
+    {
+      "id": "editorial-udg:escritos-esenciales",
+      "title": "Escritos esenciales",
+      "authors": [
+        "Pierre Teilhard de Chardin y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-escritos-escenciales.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 11
+    },
+    {
+      "id": "editorial-udg:reflexion-etica",
+      "title": "Reflexión ética",
+      "authors": [
+        "Leonardo García Lozano y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-reflexion-etica.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 12
+    },
+    {
+      "id": "editorial-udg:reflexiones-y-trascendencia-de-la-formacion-filosofico-metodologica-y-epistemologica-en-el-desempeno-de-los-profesionales-de-la-salud",
+      "title": "Reflexiones y trascendencia de la formación filosófico-metodológica y epistemológica en el desempeño de los profesionales de la salud",
+      "authors": [
+        "Blanca Miriam Torres Mendoza y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-reflexiones-y-trascendencia-de-la-formacion-filosofico-metodologica-y-epistemologica-en-el-desempeno-de-los-profesionales-de-la-salud.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 13
+    },
+    {
+      "id": "editorial-udg:ensayos-completos",
+      "title": "Ensayos completos",
+      "authors": [
+        "Michel de Montaigne y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-ensayos-completos.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 14
+    },
+    {
+      "id": "editorial-udg:la-rebelion-de-las-masas",
+      "title": "La rebelión de las masas",
+      "authors": [
+        "José Ortega y Gasset y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-la-rebelion-de-las-masas.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 15
+    },
+    {
+      "id": "editorial-udg:filosofia-mexicana-en-sus-hombres-y-en-sus-textos",
+      "title": "Filosofía mexicana. En sus hombres y en sus textos",
+      "authors": [
+        "Antonio Ibargüengoitia y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/libros/calificadores-de-edad-de-interes-e-intereses-especiales/relativo-a-grupos-o-culturas-concretos/relativo-a-minorias-y-grupos-etnicos/relativo-a-los-hispanoamericanos-latinoamericanos-en-ee-uu/gpd-filosofia-mexicana-en-sus-hombres-y-en-sus-textos.htm",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 16
+    },
+    {
+      "id": "editorial-udg:pensamientos",
+      "title": "Pensamientos",
+      "authors": [
+        "Blaise Pascal y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-pensamientos.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 17
+    },
+    {
+      "id": "editorial-udg:del-espiritu-de-las-leyes",
+      "title": "Del espíritu de las leyes",
+      "authors": [
+        "Montesquieu y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-del-espiritu-de-las-leyes.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 18
+    },
+    {
+      "id": "editorial-udg:ensayo-sobre-el-gobierno-civil",
+      "title": "Ensayo sobre el gobierno civil",
+      "authors": [
+        "John Locke y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-ensayo-sobre-el-gobierno-civil.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 19
+    },
+    {
+      "id": "editorial-udg:el-contrato-social",
+      "title": "El contrato social",
+      "authors": [
+        "Jean-Jacques Rousseau y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-el-contrato-social.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 20
+    },
+    {
+      "id": "editorial-udg:leviatan",
+      "title": "Leviatán",
+      "authors": [
+        "Thomas Hobbes y otros"
+      ],
+      "formats": [
+        "eBook gratuito"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-leviatan.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 21
+    },
+    {
+      "id": "editorial-udg:argumentacion-y-pragma-dialectica",
+      "title": "Argumentación y pragma-dialéctica",
+      "authors": [
+        "Fernando Leal Carretero y otros"
+      ],
+      "formats": [
+        "eBook"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-argumentacion-y-pragma-dialectica.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 22
+    },
+    {
+      "id": "editorial-udg:entre-lo-uno-y-lo-multiple",
+      "title": "Entre lo uno y lo múltiple",
+      "authors": [
+        "René Kaës y otros"
+      ],
+      "formats": [
+        "Impreso"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-entre-lo-uno-y-lo-multiple-grupo-y-psicoanalisis.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 23
+    },
+    {
+      "id": "editorial-udg:introduccion-al-pensamiento-complejo-de-edgar-morin",
+      "title": "Introducción al pensamiento complejo de Edgar Morin",
+      "authors": [
+        "Emilio Roger Ciurana"
+      ],
+      "formats": [
+        "Impreso"
+      ],
+      "origin": "official-philosophy-category",
+      "criterion": "Clasificada por Editorial UdeG dentro del filtro oficial «Filosofía».",
+      "sourceUrl": "https://editorial.udg.mx/gpd-introduccion-al-pensamiento-complejo-de-edgar-morin.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 24
+    },
+    {
+      "id": "editorial-udg:problemas-eticos-contemporaneos",
+      "title": "Problemas éticos contemporáneos",
+      "authors": [
+        "Ma. de los Ángeles Cristina Villalobos Martínez y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "Ética contemporánea; la ficha oficial desarrolla autonomía, dilemas, argumentación y reflexión ética.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-problemas-eticos-contemporaneos-9786076461129-6ada67d525b44.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 25
+    },
+    {
+      "id": "editorial-udg:analisis-filosofico",
+      "title": "Análisis filosófico",
+      "authors": [
+        "Dorian Hernández Vázquez y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "La ficha oficial usa como palabras clave filosofía, problemas metafísicos, ontológicos y epistemológicos.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-analisis-filosofico-9786075819754-6a0378c3d45a0.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 26
+    },
+    {
+      "id": "editorial-udg:conocimiento-y-ciencia",
+      "title": "Conocimiento y ciencia",
+      "authors": [
+        "Diana Violeta Heredia Loza y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "La ficha oficial aborda el problema del conocimiento, producción de saberes, ciencia y ética de la investigación.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-conocimiento-y-ciencia-9786075815770-6851d3d8350dd.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 27
+    },
+    {
+      "id": "editorial-udg:introduccion-a-la-teoria-de-la-argumentacion",
+      "title": "Introducción a la teoría de la argumentación",
+      "authors": [
+        "Fernando Miguel Leal Carretero y otros"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "Teoría de la argumentación, lógica y mapeo de argumentos; obra coordinada desde un cuerpo académico de retórica, lógica y argumentación.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-introduccion-a-la-teoria-de-la-argumentacion.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 28
+    },
+    {
+      "id": "editorial-udg:las-culturas-de-la-argumentacion",
+      "title": "Las culturas de la argumentación",
+      "authors": [
+        "Juan Carlos Pereda Failache"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "Estudio teórico de las prácticas de argumentar y del intercambio de razones.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-las-culturas-de-la-argumentacion-9786075716770-63d45e9477d9a.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 29
+    },
+    {
+      "id": "editorial-udg:la-pragma-dialectica-como-teoria-de-la-argumentacion",
+      "title": "La pragma-dialéctica como teoría de la argumentación",
+      "authors": [
+        "Frans H. van Eemeren"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "Teoría de la argumentación, falacias, evaluación crítica y deliberación.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-la-pragma-dialectica-como-teoria-de-la-argumentacion.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 30
+    },
+    {
+      "id": "editorial-udg:en-buena-logica",
+      "title": "En buena lógica",
+      "authors": [
+        "Humberto Marraud González"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "Introducción a la teoría de la argumentación con secciones analítica y crítica.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-en-buena-logica-15448e510b3b1258cff6171077321344.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 31
+    },
+    {
+      "id": "editorial-udg:argumentando-se-entiende-la-gente",
+      "title": "Argumentando se entiende la gente",
+      "authors": [
+        "Michael A. Gilbert"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "Razonamiento, premisas, conclusiones y reglas de argumentación.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-argumentando-se-entiende-la-gente.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 32
+    },
+    {
+      "id": "editorial-udg:de-la-metodologia-a-la-argumentacion-en-ciencias-sociales",
+      "title": "De la metodología a la argumentación en ciencias sociales",
+      "authors": [
+        "Fernando Miguel Leal Carretero"
+      ],
+      "formats": [
+        "Impreso",
+        "eBook"
+      ],
+      "origin": "verified-philosophical-relation",
+      "criterion": "La descripción oficial define su metodología como reflexión lógica y epistemológica en sentido filosófico.",
+      "sourceUrl": "https://editorial.udg.mx/gpd-de-la-metodologia-a-la-argumentacion-en-ciencias-sociales.html",
+      "sourceLabel": "Editorial Universidad de Guadalajara",
+      "publisher": "Editorial Universidad de Guadalajara",
+      "ordinal": 33
+    }
+  ]
+}

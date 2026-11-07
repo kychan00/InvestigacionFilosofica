@@ -187,6 +187,33 @@ try {
     assert.match(href, /^https:\/\/hdl\.handle\.net\//);
     assert.doesNotMatch(href, /\.pdf(?:\?|$)/i);
 
+    await page.locator('[data-thesis-scope="editorial"]').click();
+    await page.waitForFunction(() => document.querySelector("#thesis-count")?.textContent === "33");
+    assert.equal(await page.locator("#thesis-total-label").innerText(), "Obras filosóficas");
+    assert.match(await page.locator("#thesis-scope-tag").innerText(), /24 OFICIALES · 9 VERIFICADAS/);
+    assert.equal(await page.locator(".td-result-editorial").count(), 12);
+    assert.equal(await page.locator("#editorial-udg-intro").isVisible(), true);
+    assert.equal(await page.locator("#thesis-program-wrap").isHidden(), true);
+    assert.equal(await page.locator("#thesis-editorial-origin-wrap").isVisible(), true);
+    await page.locator("#thesis-editorial-origin").selectOption("verified-philosophical-relation");
+    assert.equal(await page.locator("#thesis-count").innerText(), "9");
+    await page.locator("#thesis-clear").click();
+    assert.equal(await page.locator("#thesis-count").innerText(), "33");
+    await page.locator("#thesis-query").fill("berkeley");
+    assert.equal(await page.locator("#thesis-count").innerText(), "1");
+    assert.equal(await page.locator(".td-result-title").innerText(), "Principios del conocimiento humano");
+    await page.locator("#thesis-clear").click();
+    await page.locator(".td-result details summary").first().click();
+    const editorialHref = await page.locator(".td-primary-action[href]").first().getAttribute("href");
+    assert.match(editorialHref, /^https:\/\/editorial\.udg\.mx\//);
+    assert.doesNotMatch(editorialHref, /\.pdf(?:\?|$)/i);
+    const editorialWidth = await page.evaluate(() => ({
+      viewport: window.innerWidth,
+      scroll: document.documentElement.scrollWidth,
+    }));
+    assert.ok(editorialWidth.scroll <= editorialWidth.viewport + 2,
+      `${name} editorial overflow: ${JSON.stringify(editorialWidth)}`);
+
     await page.locator('[data-theme-choice="light"]').click();
     assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
     await page.screenshot({ path: `artifacts/thesis-demo-ui/${name}-light.png`, fullPage: true });
