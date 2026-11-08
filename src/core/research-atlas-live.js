@@ -32,7 +32,7 @@ import {
 
 
 export const RESEARCH_ATLAS_LIVE_REVISION =
-  "2026-11-07.ra7-v1";
+  "2026-11-07.ra11-v1";
 
 
 function emptyAuthorityGraph() {
