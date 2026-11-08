@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from hashlib import sha256
 import json
 from pathlib import Path
 import sys
@@ -66,7 +65,7 @@ def prefetch(manifest: dict, root: Path, workers: int, attempts: int, sample_pag
         "schemaVersion": "research-atlas-ra12b2-prefetch-report-v1",
         "status": "verified",
         "mode": "sample" if sample_pages is not None else "full-sources",
-        "sourceManifestSha256": sha256(b"").hexdigest(),  # overwritten by caller
+        "sourceManifestSha256": None,  # populated from verified pinned manifest in main()
         "assetsVerified": len(records),
         "assetsFetched": len(downloaded),
         "assetBytesVerified": sum(item["bytes"] for item in records),
