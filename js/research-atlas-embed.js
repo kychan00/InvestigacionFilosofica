@@ -161,7 +161,7 @@ function consumeSearchResponse(meta) {
     sourceRevisions: sourceRevisions(response)
   });
 
-  snapshot = addResearchAtlasLexicalNeighbors(base);
+  snapshot = addResearchAtlasDocumentSimilarity(base);
   layout = layoutEngine.layout(snapshot);
   rebuildViewModel();
 
