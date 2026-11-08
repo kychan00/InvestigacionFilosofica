@@ -1,7 +1,7 @@
 
 import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js";
 import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js";
-import { addResearchAtlasLexicalNeighbors } from "../src/core/research-atlas-lexical.js";
+import { addResearchAtlasDocumentSimilarity } from "../src/core/research-atlas-document-similarity.js";
 import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
