@@ -34,7 +34,8 @@
       "baseUrl": null,
       "manifestSha256": null,
       "registrySha256": null
-    }
+    },
+    "requiredForBaseAtlas": false
   },
   "relatedWork": {
     "source": {
@@ -60,6 +61,8 @@
       "revision": null,
       "baseUrl": null,
       "manifestSha256": null
-    }
-  }
+    },
+    "requiredForBaseAtlas": false
+  },
+  "supersededForBaseTopologyBy": "2026-11-07.ra11-v1"
 }
