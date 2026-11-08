@@ -84,7 +84,7 @@ function normalizedTokens(
     .map(token =>
       token
         .replace(
-          /[^a-z0-9_-]/g,
+          /[^\p{L}\p{N}_-]/gu,
           ""
         )
         .trim()
