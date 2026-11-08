@@ -457,6 +457,6 @@ test("lexical-neighbor conserva un vocabulario visual distinto de semantic-neigh
 
   assert.equal(
     lexical.label,
-    "Vecindad lexical de títulos"
+    "Similitud título + abstract"
   );
 });
