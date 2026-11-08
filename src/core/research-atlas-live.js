@@ -23,8 +23,8 @@ import {
 } from "./research-atlas-layout.js";
 
 import {
-  addResearchAtlasLexicalNeighbors
-} from "./research-atlas-lexical.js";
+  addResearchAtlasDocumentSimilarity
+} from "./research-atlas-document-similarity.js";
 
 import {
   OPENALEX_PHILOSOPHY_HF_REVISION
@@ -282,7 +282,7 @@ export class ResearchAtlasLiveSession {
       );
 
     const snapshot =
-      addResearchAtlasLexicalNeighbors(
+      addResearchAtlasDocumentSimilarity(
         base
       );
 
