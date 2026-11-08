@@ -525,6 +525,10 @@ function workNode(
         result?.title
       ) ||
       "Untitled work",
+    abstract:
+      normalizedString(
+        result?.abstract
+      ),
     identity: {
       kind:
         identityKind(
