@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "research-atlas-ra12c2-digest-tree-policy-v1",
+  "phase": "RA12-C2",
+  "state": "offline-build-candidate-not-published",
+  "source": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "manifestSha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "expectedFullShardCount": 256,
+    "expectedFullVectorPayloadBytes": 462666752,
+    "expectedDocumentCount": 451823,
+    "expectedVectorDimensions": 1024,
+    "expectedQuantization": "int8",
+    "sourceHashVerification": "sha256-validate-each-full-shard-before-individual-digests"
+  },
+  "digestTree": {
+    "algorithm": "SHA-256",
+    "digestBytes": 32,
+    "tileVectors": 64,
+    "estimatedRawDigestBytes": 14458336,
+    "clusterIndexCount": 256,
+    "rootManifestFile": "hash-manifest.json",
+    "clusterIndexPath": "indexes/cluster-NNN.json",
+    "digestArrayPath": "digests/cluster-NNN.sha256.bin",
+    "tileRangeFormula": "start = floor(ordinal/64)*64*32; end = min(cluster.count, (floor(ordinal/64)+1)*64)*32 -1",
+    "proofChain": [
+      "root manifest expected SHA256 pinned from published audit",
+      "cluster index bytes SHA256 equals root manifest cluster index SHA",
+      "requested 32*64-byte digest tile SHA256 equals cluster index tile sha",
+      "vector digest located at 32*(ordinal%64) equals SHA256 of 1024-byte vector slice",
+      "1024-byte vector slice from pinned V4 requires exact HTTP 206 and Content-Range"
+    ],
+    "missingRootShaBehavior": "block semantic enrichment; retain RA11",
+    "coldBrowserRangeGate": "not yet executed for derivative artifact",
+    "authIntegrityStatus": "offline source verified only; cannot infer deployed availability"
+  },
+  "benchmark": {
+    "cohortSizes": [
+      5,
+      20,
+      50
+    ],
+    "scenarios": [
+      "clustered",
+      "dispersed"
+    ],
+    "sample": "real V4 physical vector positions, deterministic simulation; not real federated SearchResponse",
+    "coldRequestFormula": "one root manifest + each distinct cluster-index + each distinct digest tile + every vector",
+    "warmPayloadEstimate": "1024 bytes per needed vector, assuming all digest indexes and hashes cached",
+    "excludedFromModeledBytes": [
+      "HTTP headers",
+      "redirects",
+      "TLS overhead",
+      "browser cache behavior",
+      "retries",
+      "wallclock latencies",
+      "network bandwidth"
+    ],
+    "realSearchResponseCoverageKnown": false,
+    "p50p95Measured": false
+  },
+  "limits": {
+    "maxSourceDownloadBytes": 462666752,
+    "maxSourceFetchConcurrency": 10,
+    "noWeights": true,
+    "noFaiss": true,
+    "noProductionChange": true,
+    "noHfPublication": true,
+    "semanticNeighborEnabled": false,
+    "notAWorkIdentityAuthority": true
+  }
+}
