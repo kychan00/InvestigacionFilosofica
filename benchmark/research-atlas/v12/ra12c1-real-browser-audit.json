@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "research-atlas-ra12c1-real-browser-evidence-v1",
+  "phase": "RA12-C1",
+  "verdict": "http-range-browser-pass-sampled",
+  "observedFrom": {
+    "repository": "kychan00/InvestigacionFilosofica",
+    "pullRequest": 220,
+    "testedCommit": "45ed2fe7df4aed4b231425dbefb169100af48873",
+    "workflowRunId": 42453117759,
+    "workflowJobId": 128646358135,
+    "workflowUrl": "https://github.com/kychan00/InvestigacionFilosofica/actions/runs/42453117759",
+    "artifactId": 13606980344,
+    "artifactName": "research-atlas-ra12c1-range-browser-evidence",
+    "artifactZipSha256": "f79a311b3ca391345f605b428196cff9fb8303b764a32d10ea9eb29bc1f24780",
+    "artifactZipBytes": 2013,
+    "artifactRetentionDays": 30
+  },
+  "source": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "manifestSha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "selectedClusterIds": [
+      220,
+      208
+    ],
+    "verifiedFullShardCount": 2,
+    "verifiedSourceBytes": 517120,
+    "fullShardSha256MatchedManifest": true
+  },
+  "browser": {
+    "origin": "https://kychan00.github.io",
+    "engine": "Chromium (Playwright)",
+    "partialContentStatus": 206,
+    "contentRangeExactAndExposed": true,
+    "successfulSliceCount": 6,
+    "rejectedSliceCount": 0,
+    "bytesAccepted": 6144,
+    "perSliceSha256MatchesVerifiedReference": true,
+    "quantizedDocumentCosineParityPairs": 3,
+    "absoluteTolerance": 1e-12,
+    "capabilityGate": "pass",
+    "errors": []
+  },
+  "qa": {
+    "nineFocusedNodeTests": "pass",
+    "fullNpmTest": "pass",
+    "productGateAtObservation": "in_progress",
+    "productionEnabled": false,
+    "additionalSearch": false
+  },
+  "limitations": {
+    "fullCorpusRangeCoverageProven": false,
+    "federatedSearchResponseJoinCoverageMeasured": false,
+    "completeSliceHashManifestPublished": false,
+    "lookupHfCommitOidConfirmed": false,
+    "browserCachedNetworkTransferBytesMeasured": false,
+    "semanticNeighborEnabled": false,
+    "reportIsSampledTransportEvidenceNotDeploymentApproval": true
+  }
+}
