@@ -173,7 +173,7 @@ test("OpenAlex Philosophy permanece fijado al corpus Hugging Face y la API live 
 });
 
 
-test("RA7 expone la capa lexical sin llamarla semántica", () => {
+test("RA11 expone la capa título + abstract sin llamarla semántica Qwen3", () => {
   assert.match(
     page,
     /data-ra-edge-toggle="lexical-neighbor"/
@@ -181,7 +181,7 @@ test("RA7 expone la capa lexical sin llamarla semántica", () => {
 
   assert.match(
     live,
-    /addResearchAtlasLexicalNeighbors/
+    /addResearchAtlasDocumentSimilarity/
   );
 });
 
