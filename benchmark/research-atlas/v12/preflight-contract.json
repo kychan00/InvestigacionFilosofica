@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "research-atlas-qwen-document-vector-preflight-v1",
+  "phase": "RA12-A",
+  "revision": "2026-11-07.ra12a-v1",
+  "state": "documentation-only",
+  "base": {
+    "repository": "kychan00/InvestigacionFilosofica",
+    "baseCommit": "4c581bd7ef8c84fb385c1900efb00be2b85eeace",
+    "lastMergedPhase": "RA11",
+    "lastMergedPr": 215
+  },
+  "source": {
+    "repository": "CristianPelayo/openalex-philosophy",
+    "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "prefix": "semantic-retrieval/v3.3/browser-static-v4/20261010-v4",
+    "manifestSha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "referenceModel": "Qwen/Qwen3-Embedding-0.6B",
+    "referenceModelRevision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "sourceFaissSha256": "31b82528a42bf416c86a77822d732b8d56381e2c1b0046df821c93e64dab6f68",
+    "sourceMetadataSqliteSha256": "e32ad6066434f7fba9cd4df9211c1d6e45461e34c27bf5d113ccaa581fcf59d0"
+  },
+  "shape": {
+    "documentCount": 451823,
+    "vectorIdMin": 0,
+    "vectorIdMax": 451822,
+    "dimension": 1024,
+    "dtype": "int8",
+    "normalization": "l2",
+    "quantizationScale": 127,
+    "clusterCount": 256,
+    "metadataPageSize": 512,
+    "metadataPageCount": 883,
+    "clusterIdsByteCount": 1807292,
+    "vectorBytes": 462666752,
+    "maxClusterVectorBytes": 6627328,
+    "compressedMetadataBytes": 164097919
+  },
+  "identity": {
+    "primaryJoinKey": "openalex_id",
+    "secondaryMetadataKey": "id",
+    "externalCanonicalFormat": "W<decimal>",
+    "sourceCandidates": [
+      "openalexId",
+      "openalex_id",
+      "OpenAlex canonical URL",
+      "sourceRecords with OpenAlex provider"
+    ],
+    "joinOutputFields": [
+      "openalexWorkId",
+      "vectorId",
+      "cluster",
+      "ordinal",
+      "datasetRevision"
+    ],
+    "neverJoinBy": [
+      "title",
+      "abstract",
+      "author name",
+      "DOI alone",
+      "searchPosition",
+      "provider rank"
+    ],
+    "conflictBehavior": "fail-closed",
+    "lookupPublished": false
+  },
+  "extraction": {
+    "preferredTransport": "verify HTTP Range 206 + Content-Range + CORS on pinned asset before considering activation",
+    "requiredSliceBytes": 1024,
+    "endByteInclusive": true,
+    "rejectWholeFile200": true,
+    "sliceIntegrity": "not established by full-shard checksum alone",
+    "fallbackIfTransportFails": "RA11 document similarity; evaluate verified small tiles only in subsequent phase",
+    "productionEnabled": false
+  },
+  "atlas": {
+    "consumesOnlyExistingSearchResponse": true,
+    "primaryEntity": "work",
+    "semanticEdge": "semantic-neighbor",
+    "evidenceFields": [
+      "modelId",
+      "modelRevision",
+      "metric",
+      "score",
+      "datasetRevision",
+      "vectorIds",
+      "manifestSha256"
+    ],
+    "titleAbstractFallback": "title-abstract-tfidf-cosine-v1",
+    "topK": 3,
+    "maximumEdges": 36,
+    "humanAuthorAuditRequired": false,
+    "additionalSearchOnTabToggle": false,
+    "modelDownloadAllowed": false,
+    "runtimeEnabled": false
+  },
+  "gates": {
+    "metadataSamplingVerified": false,
+    "workIdCoverageMeasured": false,
+    "lookupBuilt": false,
+    "lookupPublished": false,
+    "vectorTransportBrowserVerified": false,
+    "sliceIntegrityVerified": false,
+    "cosineParityMeasured": false,
+    "productGatePassed": false,
+    "browserSmokePassed": false
+  }
+}
