@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "research-atlas-ra12b3-lookup-release-candidate-v1",
+  "phase": "RA12-B3",
+  "status": "candidate-not-published",
+  "source": {
+    "repository": "kychan00/InvestigacionFilosofica",
+    "artifactRunId": 42439871082,
+    "artifactJobId": 128606591062,
+    "artifactId": 13600754669,
+    "artifactName": "research-atlas-ra12b2-real-v4-evidence",
+    "archiveSha256": "8671489af3ac9b587c0efa47d59d07da7f16d7f7c5b4f72a44f9b0306c9cba01",
+    "archiveBytes": 6019233,
+    "verifiedHeadSha": "2647a848ce094e1614de28c13c2f1a4b03ba8e62"
+  },
+  "corpus": {
+    "repository": "CristianPelayo/openalex-philosophy",
+    "repoType": "dataset",
+    "sourceRevision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "sourceManifestSha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "sourceCount": 451823,
+    "eligibleWorkIds": 451823,
+    "ambiguousIds": 0,
+    "partitionCount": 256,
+    "partitionBytes": 5965263
+  },
+  "release": {
+    "targetPrefix": "research-atlas/qwen3-document-lookup/v1/ra12b2-run42439871082",
+    "confirmationPhrase": "PUBLICAR_RA12B3_LOOKUP",
+    "publicationRequiresManualDispatch": true,
+    "publicationEnabledByPullRequest": false,
+    "runtimeEnabled": false,
+    "published": false,
+    "containsVectors": false,
+    "containsModelWeights": false
+  }
+}
