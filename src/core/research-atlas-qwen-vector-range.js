@@ -72,7 +72,7 @@ export async function fetchVerifiedVectorRange({
     QWEN3_V4_REVISION + "/semantic-retrieval/v3.3/browser-static-v4/20261010-v4/clusters/";
   const clusterName = typeof url === "string" && url.startsWith(pinnedClusterBase)
     ? url.slice(pinnedClusterBase.length) : "";
-  const exactClusterFile = /^cluster-(\\d{3})\\.vectors\\.i8$/.exec(clusterName);
+  const exactClusterFile = /^cluster-(\d{3})\.vectors\.i8$/.exec(clusterName);
   if (!exactClusterFile || Number(exactClusterFile[1]) > 255 ||
       !range || range.bytes !== QWEN3_V4_DIMENSION ||
       range.end !== range.start + QWEN3_V4_DIMENSION - 1 ||
