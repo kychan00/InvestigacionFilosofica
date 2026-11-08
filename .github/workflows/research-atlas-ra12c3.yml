@@ -1,0 +1,148 @@
+name: Research Atlas RA12-C3 · authenticated digest release and browser gate
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/research-atlas/v12/ra12c3-digest-publication-candidate.json"
+      - "scripts/research-atlas/prepare_ra12_digest_publication.py"
+      - "scripts/research-atlas/publish_ra12_digest_to_hf.py"
+      - "src/core/research-atlas-qwen-digest-proof.js"
+      - "scripts/qa/research-atlas-digest-chain-smoke.mjs"
+      - "tests/research-atlas-qwen-digest-proof.test.mjs"
+      - "tests/test_ra12_digest_publication.py"
+      - "docs/RESEARCH_ATLAS_QWEN3_DIGEST_PUBLICATION_RA12C3.md"
+      - ".github/workflows/research-atlas-ra12c3.yml"
+  workflow_dispatch:
+    inputs:
+      confirm_publish:
+        description: "Publicación real HF: escriba exactamente PUBLICAR_RA12C3_DIGESTS"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  verified-release-and-optional-browser-probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Require direct human confirmation before any HF upload
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          CONFIRM: ${{ inputs.confirm_publish }}
+        run: |
+          if [ "$CONFIRM" != "PUBLICAR_RA12C3_DIGESTS" ]; then
+            echo "::error::HF publication requires exact manual confirmation"
+            exit 1
+          fi
+
+      - name: Test archive, cryptographic proof chain and fail-closed behavior
+        run: |
+          python -m py_compile scripts/research-atlas/prepare_ra12_digest_publication.py
+          python -m py_compile scripts/research-atlas/publish_ra12_digest_to_hf.py
+          python -m unittest discover -s tests -p 'test_ra12_digest_publication.py' -v
+          node --test tests/research-atlas-qwen-digest-proof.test.mjs
+
+      - name: Retrieve and SHA-verify exact RA12-C2 real GitHub Actions artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p artifacts/research-atlas-ra12c3
+          curl --fail --location --silent --show-error --retry 3 --retry-delay 2 \
+            --max-time 180 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/kychan00/InvestigacionFilosofica/actions/artifacts/13623491225/zip" \
+            -o "$RUNNER_TEMP/ra12c2-digest-tree.zip"
+          echo "88472853e93caa3bacdd635757143095a7aeeac2c096f51143859169837022c7  $RUNNER_TEMP/ra12c2-digest-tree.zip" | sha256sum -c -
+
+      - name: Revalidate all 451823 digest records and prepare minimum HF release
+        run: |
+          python scripts/research-atlas/prepare_ra12_digest_publication.py \
+            --archive "$RUNNER_TEMP/ra12c2-digest-tree.zip" \
+            --config benchmark/research-atlas/v12/ra12c3-digest-publication-candidate.json \
+            --output "$RUNNER_TEMP/ra12c3-verified-release" \
+            > artifacts/research-atlas-ra12c3/preflight.json
+          cp "$RUNNER_TEMP/ra12c3-verified-release/release-provenance.json" \
+            artifacts/research-atlas-ra12c3/provenance.json
+          cat artifacts/research-atlas-ra12c3/preflight.json
+
+      - name: Run existing product/regression tests without enabling runtime
+        run: |
+          npm ci
+          npm test
+
+      - name: Record PR proof of readiness without publishing to HF
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          preflight=json.loads(Path("artifacts/research-atlas-ra12c3/preflight.json").read_text())
+          assert preflight["status"]=="verified-unpublished"
+          assert preflight["vectors"]==451823
+          assert preflight["fileCount"]==514
+          assert preflight["publishedToHf"] is False
+          assert preflight["runtimeEnabled"] is False
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as out:
+              out.write("## RA12-C3 real-source preflight\n\n")
+              out.write("- Pinned RA12-C2 ZIP SHA: PASS\n")
+              out.write("- Validated digest roots / indices / tiles: PASS\n")
+              out.write(f"- Verified documents: {preflight['vectors']}\n")
+              out.write(f"- Prepared release files: {preflight['fileCount']}\n")
+              out.write("- PR automatically publishes to HF: NO\n")
+              out.write("- Browser Range/CORS for derivative files: NOT TESTED until manual HF publication\n")
+              out.write("- Semantic Atlas runtime: UNCHANGED\n")
+          PY
+
+      - name: Install HF client only for explicit manually confirmed publication
+        if: github.event_name == 'workflow_dispatch'
+        run: python -m pip install "huggingface_hub>=0.34,<2"
+
+      - name: Publish immutable digest tree to HF and compare all remote SHA values
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          CONFIRM: ${{ inputs.confirm_publish }}
+        run: |
+          python scripts/research-atlas/publish_ra12_digest_to_hf.py \
+            --config benchmark/research-atlas/v12/ra12c3-digest-publication-candidate.json \
+            --release "$RUNNER_TEMP/ra12c3-verified-release" \
+            --confirm "$CONFIRM" \
+            --report artifacts/research-atlas-ra12c3/hf-publication.json
+          cat artifacts/research-atlas-ra12c3/hf-publication.json
+
+      - name: Install Chromium only to test published digest arrays in real Pages origin
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Verify real browser root-index-tile-vector chain using pinned HF commit
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          node scripts/qa/research-atlas-digest-chain-smoke.mjs \
+            --publication artifacts/research-atlas-ra12c3/hf-publication.json \
+            --output artifacts/research-atlas-ra12c3/browser-proof.json
+          cat artifacts/research-atlas-ra12c3/browser-proof.json
+
+      - name: Preserve preflight, HF OID and browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12c3-digest-publication-evidence
+          path: artifacts/research-atlas-ra12c3/
+          if-no-files-found: warn
+          retention-days: 30
