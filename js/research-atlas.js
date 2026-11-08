@@ -11,8 +11,8 @@ import {
 } from "../src/core/research-atlas-related.js";
 
 import {
-  addResearchAtlasLexicalNeighbors
-} from "../src/core/research-atlas-lexical.js";
+  addResearchAtlasDocumentSimilarity
+} from "../src/core/research-atlas-document-similarity.js";
 
 import {
   buildResearchAtlasLayout
@@ -2584,7 +2584,7 @@ async function loadControlledDemo() {
     );
 
   demoSnapshot =
-    addResearchAtlasLexicalNeighbors(
+    addResearchAtlasDocumentSimilarity(
       demoSnapshot
     );
 
