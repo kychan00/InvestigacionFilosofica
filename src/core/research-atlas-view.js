@@ -12,7 +12,7 @@ export const RESEARCH_ATLAS_VIEW_SCHEMA_VERSION =
   "research-atlas-view-v1";
 
 export const RESEARCH_ATLAS_VIEW_REVISION =
-  "2026-11-07.ra7-v1";
+  "2026-11-07.ra11-v1";
 
 
 const DEFAULT_EDGE_TYPES = Object.freeze([
@@ -166,7 +166,7 @@ function edgeLabel(edge) {
   const labels = {
     "semantic-neighbor": "Vecindad semántica",
     "related-work": "Obra relacionada",
-    "lexical-neighbor": "Vecindad lexical de títulos",
+    "lexical-neighbor": "Similitud título + abstract",
     "contribution": "Contribución confirmada",
     "author-mention": "Mención provisional",
     "query-result": "Resultado directo",

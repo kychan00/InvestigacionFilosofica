@@ -1,7 +1,7 @@
 
 import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js";
 import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js";
-import { addResearchAtlasLexicalNeighbors } from "../src/core/research-atlas-lexical.js";
+import { addResearchAtlasDocumentSimilarity } from "../src/core/research-atlas-document-similarity.js";
 import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
@@ -9,7 +9,7 @@ import {
 } from "../src/core/research-atlas-view.js";
 import { OPENALEX_PHILOSOPHY_HF_REVISION } from "../src/sources/openalex-philosophy.js";
 
-export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-07.ra9-v1";
+export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-07.ra11-v1";
 export const RESEARCH_ATLAS_RESPONSE_EVENT = "research-atlas:search-response";
 export const RESEARCH_ATLAS_RESET_EVENT = "research-atlas:reset";
 export const RESEARCH_ATLAS_FILTER_EVENT = "research-atlas:filter-results";
@@ -161,7 +161,7 @@ function consumeSearchResponse(meta) {
     sourceRevisions: sourceRevisions(response)
   });
 
-  snapshot = addResearchAtlasLexicalNeighbors(base);
+  snapshot = addResearchAtlasDocumentSimilarity(base);
   layout = layoutEngine.layout(snapshot);
   rebuildViewModel();
 
@@ -174,9 +174,20 @@ function consumeSearchResponse(meta) {
     stageLabel.textContent =
       "Resultados parciales · la geometría se estabiliza conforme llegan fuentes";
   } else {
+    const similarity =
+      snapshot.diagnostics
+        ?.documentSimilarity;
+
     syncStatus.textContent =
-      String(viewModel.diagnostics.directWorks) + " obras · " +
-      String(viewModel.diagnostics.mentions) + " menciones de autor";
+      String(
+        viewModel.diagnostics.directWorks
+      ) +
+      " obras · " +
+      String(
+        similarity?.worksWithAbstract ??
+        0
+      ) +
+      " con abstract · autores como capa secundaria";
     stageLabel.textContent =
       "Mismo SearchResponse que la lista · sin búsqueda adicional";
   }

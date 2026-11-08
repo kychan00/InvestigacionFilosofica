@@ -1,5 +1,7 @@
 # RA10 — Enrichment Readiness y publicación condicionada
 
+> **Nota RA11:** este gate aplica únicamente a enriquecimientos fuertes de identidad y Related Work. Desde RA11, Author Authority y Related Work **no bloquean la topología base** del Atlas, que se construye obra↔obra con similitud de título + abstract.
+
 ## Estado
 
 **Fase RA10 — gate previo a activar Author Authority y Related Work masivos en el Atlas principal.**

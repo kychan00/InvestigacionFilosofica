@@ -4,6 +4,8 @@
 
 **Fase RA0 — arquitectura y reglas solamente.**
 
+> **Enmienda RA11 · 2026-11-07:** la topología base queda formalmente definida como **work-first**. Author Authority y Related Work son enriquecimientos opcionales y no bloquean la existencia del Atlas. La relación base obra↔obra usa similitud reproducible de título + abstract, con fallback explícito a título cuando no existe abstract. Esta enmienda no modifica la regla original de que los autores no deben deformar la geometría primaria.
+
 Este documento define la arquitectura objetivo de un **Atlas de Investigación dinámico, incremental y trazable** para la búsqueda principal de Investigación Filosófica.
 
 RA0 no cambia todavía:

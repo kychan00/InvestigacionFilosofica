@@ -1,5 +1,8 @@
 # RA9 — Integración del Atlas en la búsqueda principal
 
+> **Nota RA11:** la capa base `lexical-neighbor` conserva el edge type por compatibilidad, pero ahora representa similitud de título + abstract mediante TF-IDF cosine. Authority y Related Work no son requisitos para la topología base.
+
+
 ## Estado
 
 **Fase RA9 — Resultados ⇄ Atlas en `index.html`.**

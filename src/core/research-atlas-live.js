@@ -23,8 +23,8 @@ import {
 } from "./research-atlas-layout.js";
 
 import {
-  addResearchAtlasLexicalNeighbors
-} from "./research-atlas-lexical.js";
+  addResearchAtlasDocumentSimilarity
+} from "./research-atlas-document-similarity.js";
 
 import {
   OPENALEX_PHILOSOPHY_HF_REVISION
@@ -32,7 +32,7 @@ import {
 
 
 export const RESEARCH_ATLAS_LIVE_REVISION =
-  "2026-11-07.ra7-v1";
+  "2026-11-07.ra11-v1";
 
 
 function emptyAuthorityGraph() {
@@ -282,7 +282,7 @@ export class ResearchAtlasLiveSession {
       );
 
     const snapshot =
-      addResearchAtlasLexicalNeighbors(
+      addResearchAtlasDocumentSimilarity(
         base
       );
 

@@ -66,11 +66,11 @@ test("renderer embebido no importa ni llama motores de búsqueda", () => {
   }
 });
 
-test("renderer embebido reutiliza assembler, lexical, layout y view model oficiales", () => {
+test("renderer embebido reutiliza assembler, similitud documental, layout y view model oficiales", () => {
   for (const required of [
     "ResearchAtlasAssembler",
     "ResearchAtlasLayoutEngine",
-    "addResearchAtlasLexicalNeighbors",
+    "addResearchAtlasDocumentSimilarity",
     "buildResearchAtlasViewModel",
     "filterResearchAtlasViewModel",
     "selectedResearchAtlasContext",
