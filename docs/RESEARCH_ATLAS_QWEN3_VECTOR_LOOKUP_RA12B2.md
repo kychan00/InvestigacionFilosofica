@@ -80,3 +80,28 @@ python3 scripts/research-atlas/validate_ra12_vector_lookup.py \
 - [ ] diseñar RA12-D de integración progresiva y fallback RA11.
 
 Hasta entonces, la experiencia pública permanece **RA11 — título + abstract, con fallback title-only**.
+
+
+## Evidencia real cerrada — CI #42439565411
+
+La ejecución real de RA12-B2 **terminó con éxito**, tanto en el gate de fuente real como en el product gate de RA8. El registro máquina legible está en `benchmark/research-atlas/v12/real-v4-lookup-audit.json`.
+
+| Indicador | Resultado observado |
+| --- | ---: |
+| Filas de metadatos V4 inspeccionadas | **451,823** |
+| Filas con `openalex_id` explícito y válido | **451,823** |
+| IDs únicos OpenAlex elegibles | **451,823** |
+| IDs ambiguos o duplicados excluidos | **0** |
+| Páginas de metadata reales validadas | **883** |
+| Arrays de IDs por cluster validados | **256** |
+| Total de archivos fuente verificados | **1,139** |
+| Bytes verificados de assets fuente | **165,905,211** |
+| Particiones de lookup | **256** |
+| Bytes comprimidos de particiones | **5,965,263** |
+| Validador independiente | **PASS** |
+| Segundo build contra las mismas fuentes | **Byte-idéntico** |
+| Product gate del PR | **PASS** |
+
+**Proveniencia:** workflow run `42439565411`, job `128605679813`, head SHA `0e3dc921b8cbdd4211d721e2734bc283f69d633f`, artifact de Actions `13600629442`. ZIP del artifact SHA-256 `111773887cea3ba67494ab6c4a74186c971872da3fdcaf745b612c0b6efd24a1`. El archivo de GitHub Actions se conserva temporalmente durante 30 días; el manifiesto de evidencia del repositorio conserva los hechos auditados, **no todos los bytes de lookup**.
+
+**Interpretación estricta:** el 100 % corresponde a los **451,823 metadatos del propio corpus V4**, NO al 100 % de todas las obras que el buscador federado pudiera recuperar. El lookup sigue **sin publicarse en Hugging Face**, los vectores documentales aún no se sirven en forma puntual al Atlas y no existen aristas Qwen3 RA12-C/D activadas. La cobertura por consulta y la integridad de slices de vector siguen pendientes.
