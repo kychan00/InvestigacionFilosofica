@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "research-atlas-ra12c1-vector-range-experiment-v1",
+  "phase": "RA12-C1",
+  "status": "isolated-probe-not-runtime",
+  "revision": "2026-11-07.ra12c1-v1",
+  "source": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "sha256Manifest": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "noModelDownload": true,
+    "noFaissDownload": true,
+    "selectedClusters": 2,
+    "ordinalSamplesPerCluster": 3,
+    "maxWholeShardReferenceBytes": 2000000
+  },
+  "browser": {
+    "actualOrigin": "https://kychan00.github.io",
+    "requireHttpStatus": 206,
+    "requireExposedContentRange": true,
+    "requireExactRangeTotal": true,
+    "requireUnencodedBytes": true,
+    "bodyByteLimit": 1024,
+    "requireSliceSha256FromVerifiedWholeShard": true,
+    "individualFetchTimeoutMs": 15000,
+    "maximumProbeRequests": 6,
+    "maxSuccessfulBytes": 6144,
+    "failClosedOnHttp200": true,
+    "noSecondSearch": true,
+    "noRuntimeIntegration": true
+  },
+  "cosine": {
+    "input": "signed-int8-document-vectors",
+    "dimension": 1024,
+    "metric": "renormalized-document-document-cosine",
+    "parityPairs": 3,
+    "maxAbsoluteError": 1e-12
+  },
+  "decisions": {
+    "gatePass": "six real browser slices each 206 + exposed precise Content-Range + SHA256 equal verified full-shard derived slice hash + three cosine comparisons",
+    "gateBlocked": "network/CORS failure, HTTP 200, unexposed Content-Range, short read, timeout => no deployment, RA11 fallback",
+    "integrityFailure": "sha256 mismatch => critical investigation, do not deploy",
+    "alternative": "RA12-C2 versioned fixed-size tiles with SHA256 each if Range unsupported",
+    "productionEnabled": false,
+    "hfLookupPublicationRequiredForDeployment": true,
+    "federatedSearchResponseCoverageRequiredForDeployment": true
+  }
+}

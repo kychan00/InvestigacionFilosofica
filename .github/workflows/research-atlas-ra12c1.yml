@@ -1,0 +1,105 @@
+name: Research Atlas RA12-C1 · real V4 vector Range browser audit
+
+on:
+  pull_request:
+    paths:
+      - "src/core/research-atlas-qwen-vector-range.js"
+      - "scripts/research-atlas/probe_ra12_v4_vector_source.py"
+      - "scripts/qa/research-atlas-vector-range-smoke.mjs"
+      - "tests/research-atlas-qwen-vector-range.test.mjs"
+      - "benchmark/research-atlas/v12/ra12c1-transport-policy.json"
+      - "docs/RESEARCH_ATLAS_QWEN3_RANGE_RA12C1.md"
+      - ".github/workflows/research-atlas-ra12c1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isolated-browser-range-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 28
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install application dependencies
+        run: npm ci
+
+      - name: Verify Range, SHA and document cosine contracts
+        run: |
+          python -m py_compile scripts/research-atlas/probe_ra12_v4_vector_source.py
+          node --test tests/research-atlas-qwen-vector-range.test.mjs
+
+      - name: Fetch two minimal genuine HF vector shards and SHA-verify full source
+        run: |
+          mkdir -p artifacts/research-atlas-ra12c1
+          python scripts/research-atlas/probe_ra12_v4_vector_source.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --output artifacts/research-atlas-ra12c1/reference.json
+
+      - name: Install Chromium for isolated real-origin probe
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Probe bytes=1024 from the actual GitHub Pages origin in Chromium
+        run: |
+          node scripts/qa/research-atlas-vector-range-smoke.mjs \
+            --reference artifacts/research-atlas-ra12c1/reference.json \
+            --output artifacts/research-atlas-ra12c1/browser-report.json
+
+      - name: Evaluate capability without conflating safe fallback with Range support
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path("artifacts/research-atlas-ra12c1")
+          ref=json.loads((root/"reference.json").read_text())
+          browser=json.loads((root/"browser-report.json").read_text())
+          assert ref["wholeShardsSha256Verified"] is True
+          assert ref["sliceCount"] == 6
+          assert ref["wholeShardsTotalBytes"] <= 2_000_000
+          assert browser["modelDownloaded"] is False
+          assert browser["atlasRuntimeChanged"] is False
+          assert browser["browserGate"] in ("pass","blocked")
+          if browser["browserGate"]=="pass":
+              assert browser["attemptedInRealChromium"] is True
+              assert browser["bytesAccepted"] == 6144
+              assert len(browser["cosine"]) == 3
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as f:
+              f.write("## RA12-C1 — genuine HF vector Range transport\n\n")
+              f.write(f"- Pinned complete shards SHA-verified: {len(ref['selectedClusters'])}\n")
+              f.write(f"- Source whole-shard bytes: {ref['wholeShardsTotalBytes']}\n")
+              f.write(f"- 1024-byte slice checks: {ref['sliceCount']}\n")
+              f.write(f"- Real Pages-origin Chromium attempted: {browser['attemptedInRealChromium']}\n")
+              f.write(f"- **HTTP Range capability gate: {browser['browserGate'].upper()}**\n")
+              f.write(f"- Verified slice bytes accepted: {browser['bytesAccepted']}\n")
+              f.write(f"- Quantized cosine parity pairs: {len(browser['cosine'])}\n")
+              f.write("- A BLOCKED result is a successful safe rejection, NOT a passing transport capability.\n")
+              f.write("- No new feature enabled; Atlas remains RA11 fallback.\n")
+          print(json.dumps({"capability":browser["browserGate"],
+                            "verifiedSlices":sum(x["state"]=="verified" for x in browser["slices"]),
+                            "blockedReasons":sorted({x["reason"] for x in browser["slices"] if x["reason"]})}))
+          PY
+
+      - name: Run full non-regression suite
+        run: npm test
+
+      - name: Preserve source proof and browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12c1-range-browser-evidence
+          path: artifacts/research-atlas-ra12c1/
+          if-no-files-found: warn
+          retention-days: 30
