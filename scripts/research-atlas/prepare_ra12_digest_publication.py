@@ -83,7 +83,7 @@ def prepare(archive: Path, config: dict, output: Path, fixture=False) -> dict:
                 "Pinned digest root SHA mismatch")
         manifest = parse_json(manifest_bytes, root_path)
         require(manifest.get("schemaVersion") == "research-atlas-ra12c2-vector-digest-tree-v1"
-                and manifest.get("status") == "generated-unpublished"
+                and manifest.get("status") == ("generated-unpublished-fixture" if fixture else "generated-unpublished")
                 and manifest.get("productionEnabled") is False
                 and manifest.get("publishedToHf") is False,
                 "Digest tree is not an unpublished real-source build")
