@@ -1,0 +1,134 @@
+name: Research Atlas RA12-C2 · full V4 vector SHA256 digest-tree audit
+
+on:
+  pull_request:
+    paths:
+      - "scripts/research-atlas/build_ra12_vector_hash_tiles.py"
+      - "scripts/research-atlas/validate_ra12_vector_hash_tiles.py"
+      - "scripts/research-atlas/prefetch_ra12_v4_vectors.py"
+      - "tests/test_ra12_vector_hash_tiles.py"
+      - "benchmark/research-atlas/v12/ra12c2-digest-contract.json"
+      - "docs/RESEARCH_ATLAS_QWEN3_DIGEST_TREE_RA12C2.md"
+      - ".github/workflows/research-atlas-ra12c2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-real-v4-vector-integrity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Validate builder and independent checker with synthetic fixture
+        run: |
+          python -m py_compile scripts/research-atlas/build_ra12_vector_hash_tiles.py
+          python -m py_compile scripts/research-atlas/validate_ra12_vector_hash_tiles.py
+          python -m py_compile scripts/research-atlas/prefetch_ra12_v4_vectors.py
+          python -m unittest discover -s tests -p 'test_ra12_vector_hash_tiles.py' -v
+
+      - name: Prefetch and SHA-verify every pinned V4 int8 vector shard (offline build input)
+        run: |
+          mkdir -p artifacts/research-atlas-ra12c2
+          python scripts/research-atlas/prefetch_ra12_v4_vectors.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --source-root "$RUNNER_TEMP/ra12c2-vector-sources" \
+            --workers 8 --retries 4 \
+            --report artifacts/research-atlas-ra12c2/source-prefetch.json
+
+      - name: Generate SHA256 digest tiles and model costs for 5, 20, 50 real V4 vector locations
+        run: |
+          python scripts/research-atlas/build_ra12_vector_hash_tiles.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --source-root "$RUNNER_TEMP/ra12c2-vector-sources" \
+            --output artifacts/research-atlas-ra12c2/tree \
+            --workers 8 \
+            > artifacts/research-atlas-ra12c2/build-summary.json
+          cat artifacts/research-atlas-ra12c2/build-summary.json
+
+      - name: Independently rehash all 451823 individual source vectors
+        run: |
+          python scripts/research-atlas/validate_ra12_vector_hash_tiles.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --source-root "$RUNNER_TEMP/ra12c2-vector-sources" \
+            --tree artifacts/research-atlas-ra12c2/tree \
+            --report artifacts/research-atlas-ra12c2/independent-audit.json
+          cat artifacts/research-atlas-ra12c2/independent-audit.json
+
+      - name: Rebuild and verify deterministic byte-for-byte output
+        run: |
+          python scripts/research-atlas/build_ra12_vector_hash_tiles.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --source-root "$RUNNER_TEMP/ra12c2-vector-sources" \
+            --output "$RUNNER_TEMP/ra12c2-tree-rebuilt" \
+            --workers 4 >/dev/null
+          diff -rq artifacts/research-atlas-ra12c2/tree "$RUNNER_TEMP/ra12c2-tree-rebuilt"
+
+      - name: Report actual digest coverage and explicitly modeled payload budgets
+        run: |
+          python - <<'PY'
+          import json, os, hashlib
+          from pathlib import Path
+          root = Path("artifacts/research-atlas-ra12c2")
+          manifest_path = root / "tree/hash-manifest.json"
+          manifest = json.loads(manifest_path.read_text())
+          audit = json.loads((root/"independent-audit.json").read_text())
+          model = json.loads((root/"tree/budget-model.json").read_text())
+          assert audit["status"] == "pass"
+          assert audit["eachVectorDigestRecomputedFromSource"] is True
+          assert audit["hashManifestSha256"] == hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+          assert manifest["documentCount"] == 451823
+          assert manifest["clusterCount"] == 256
+          assert manifest["digestsBytes"] == 451823 * 32
+          assert manifest["productionEnabled"] is False
+          assert manifest["publishedToHf"] is False
+          assert len(model["scenarios"]) == 6
+          assert model["status"] == "modeled-not-measured"
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as out:
+              out.write("## RA12-C2 — real complete V4 vector digest tree\n\n")
+              out.write(f"- Verified real vectors: {audit['verifiedVectorCount']:,}\n")
+              out.write(f"- SHA-256 digest bytes: {manifest['digestsBytes']:,}\n")
+              out.write(f"- Number of authenticated digest tiles: {manifest['tileCount']:,}\n")
+              out.write(f"- Cluster index bytes: {manifest['clusterIndexBytes']:,}\n")
+              out.write(f"- SHA-256 of root manifest: {audit['hashManifestSha256']}\n")
+              out.write("- Independent full rehash: PASS\n")
+              out.write("- Deterministic repeat: byte-identical\n")
+              out.write("- Real SearchResponse benchmark: NOT DONE\n")
+              out.write("- Browser transfer and HF publication: NOT DONE\n\n")
+              out.write("| Cohort (actual V4 positions, NOT search results) | Requests modeled | Cold payload B | Warm payload B |\n")
+              out.write("| --- | ---: | ---: | ---: |\n")
+              for s in model["scenarios"]:
+                  out.write(f"| {s['cohort']} | {s['coldHttpRequestsModeled']} | {s['modeledColdPayloadBytes']} | {s['modeledWarmPayloadBytes']} |\n")
+          print(json.dumps({
+              "vectorCount": audit["verifiedVectorCount"],
+              "hashManifestSha256":audit["hashManifestSha256"],
+              "digestTiles": manifest["tileCount"],
+              "budgetScenarios":[{k:s[k] for k in ("cohort","coldHttpRequestsModeled","modeledColdPayloadBytes","modeledWarmPayloadBytes")} for s in model["scenarios"]]
+          }))
+          PY
+
+      - name: Preserve Research Atlas regression contracts
+        run: |
+          npm ci
+          npm test
+
+      - name: Upload full SHA digest tree and audit evidence (CI only, no HF publication)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12c2-full-v4-digest-tree
+          path: artifacts/research-atlas-ra12c2/
+          if-no-files-found: warn
+          retention-days: 30
