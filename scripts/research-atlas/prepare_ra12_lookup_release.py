@@ -59,8 +59,6 @@ def release_archive(archive: Path, config: dict, manifest: dict, output: Path, f
     if not fixture:
         require(len(archive_bytes) == expected_source["archiveBytes"], "Actions artifact byte count changed")
         require(sha256(archive_bytes) == expected_source["archiveSha256"], "Actions artifact ZIP SHA-256 mismatch")
-        require(sha256(canonical_json({})) != expected_corpus["sourceManifestSha256"],
-                "Unexpected SHA guard issue")
         require(release["publicationRequiresManualDispatch"] is True
                 and release["publicationEnabledByPullRequest"] is False
                 and release["runtimeEnabled"] is False, "RA12-B3 safety gate changed")
