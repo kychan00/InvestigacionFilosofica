@@ -196,7 +196,7 @@ def release_archive(archive: Path, config: dict, manifest: dict, output: Path, f
                 "schemaVersion": "research-atlas-ra12b3-release-archive-v1",
                 "status": "verified-candidate-not-published",
                 "sourceArchiveSha256": sha256(archive_bytes),
-                "files": [entry.name for entry in sorted(staging.rglob("*")) if entry.is_file()]
+                "files": [entry.relative_to(staging).as_posix() for entry in sorted(staging.rglob("*")) if entry.is_file()]
             }
             staging.rename(output)
             return inventory
