@@ -18,12 +18,12 @@ from build_ra12_vector_lookup import (
 )
 
 
-def verify_lookup(source_manifest: dict, artifact_root: Path, lookup_dir: Path) -> dict:
+def verify_lookup(source_manifest: dict, artifact_root: Path, lookup_dir: Path, synthetic_fixture: bool = False) -> dict:
     path = lookup_dir / "lookup-manifest.json"
     result = json.loads(path.read_text(encoding="utf-8"))
     if result.get("schemaVersion") != "research-atlas-qwen-document-lookup-v1":
         raise LookupError("Unexpected lookup schema")
-    if result.get("status") != "generated-unpublished" or result.get("productionEnabled") is not False:
+    if result.get("status") != ("generated-unpublished-synthetic" if synthetic_fixture else "generated-unpublished") or result.get("productionEnabled") is not False:
         raise LookupError("Lookup is not a non-production real build")
     if result.get("source", {}).get("revision") != "5a4a195085de54bf607a6c4397092ffb32716dcc":
         raise LookupError("Source revision changed")
@@ -107,13 +107,14 @@ def main() -> int:
     parser.add_argument("--artifact-root", required=True, type=Path)
     parser.add_argument("--lookup", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
+    parser.add_argument("--synthetic-fixture", action="store_true", help="Test-only: allow reduced synthetic manifest")
     args = parser.parse_args()
     try:
-        manifest, digest = read_manifest(args.manifest, False)
+        manifest, digest = read_manifest(args.manifest, args.synthetic_fixture)
         lookup_manifest = json.loads((args.lookup / "lookup-manifest.json").read_text(encoding="utf-8"))
         if lookup_manifest.get("source", {}).get("manifestSha256") != digest:
             raise LookupError("Source manifest SHA lineage mismatch")
-        result = verify_lookup(manifest, args.artifact_root, args.lookup)
+        result = verify_lookup(manifest, args.artifact_root, args.lookup, args.synthetic_fixture)
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(result, sort_keys=True, indent=2) + "\n", encoding="utf-8")
         print(json.dumps(result, sort_keys=True))
