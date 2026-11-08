@@ -81,7 +81,9 @@ test("RA12-C1: invalid source and missing per-slice hash fail before fetching",a
   const a=await fetchVerifiedVectorRange({...defaults,expectedSliceSha256:undefined,fetchImpl});
   const b=await fetchVerifiedVectorRange({...defaults,url:"https://untrusted.example/cluster.bin",fetchImpl});
   const c=await fetchVerifiedVectorRange({...defaults,range:{...range,bytes:3072},fetchImpl});
-  assert.deepEqual([a.reason,b.reason,c.reason],["invalid-contract","invalid-contract","invalid-contract"]);
+  const d=await fetchVerifiedVectorRange({...defaults,url:url.replace("cluster-000.vectors.i8","cluster-000.ids.u32"),fetchImpl});
+  const e=await fetchVerifiedVectorRange({...defaults,url:url.replace("cluster-000.vectors.i8","cluster-999.vectors.i8"),fetchImpl});
+  assert.deepEqual([a.reason,b.reason,c.reason,d.reason,e.reason],Array(5).fill("invalid-contract"));
   assert.equal(requested,0);
 });
 
