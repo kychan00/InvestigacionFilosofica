@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "research-atlas-ra12b2-real-corpus-evidence-v1",
+  "phase": "RA12-B2",
+  "outcome": "ci-verified-unpublished",
+  "observedFrom": {
+    "repository": "kychan00/InvestigacionFilosofica",
+    "pr": 218,
+    "runId": 42439565411,
+    "jobId": 128605679813,
+    "checkedHeadSha": "0e3dc921b8cbdd4211d721e2734bc283f69d633f",
+    "checkName": "real-v4-lookup-evidence",
+    "checkConclusion": "success",
+    "artifactId": 13600629442,
+    "artifactName": "research-atlas-ra12b2-real-v4-evidence",
+    "artifactArchiveSha256": "111773887cea3ba67494ab6c4a74186c971872da3fdcaf745b612c0b6efd24a1",
+    "artifactSizeBytes": 6019233,
+    "artifactRetentionDays": 30,
+    "artifactUrl": "https://github.com/kychan00/InvestigacionFilosofica/actions/runs/42439565411/artifacts/13600629442"
+  },
+  "pinnedSource": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "manifestSha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "documentCount": 451823,
+    "metadataPageCount": 883,
+    "clusterIdFileCount": 256
+  },
+  "sample": {
+    "verifiedMetadataPages": 3,
+    "sampledRecords": 1536,
+    "explicitOpenAlexIdRows": 1536,
+    "otherIdRows": 0
+  },
+  "fullAssetAudit": {
+    "verifiedFiles": 1139,
+    "verifiedSourceBytes": 165905211,
+    "additionalFilesFetchedAfterSample": 1136,
+    "additionalBytesFetchedExpected": 165130995,
+    "contentHashVerified": true
+  },
+  "fullLookup": {
+    "sourceRecords": 451823,
+    "explicitOpenAlexIdRows": 451823,
+    "idAliasOnlyRows": 0,
+    "noOpenAlexIdRows": 0,
+    "invalidExplicitRows": 0,
+    "conflictingFieldsRows": 0,
+    "duplicateWorkIdRecords": 0,
+    "eligibleUniqueWorkIds": 451823,
+    "ambiguousWorkIdsExcluded": 0,
+    "compression": "gzip-jsonl",
+    "partitionCount": 256,
+    "compressedPartitionBytes": 5965263,
+    "independentValidation": "pass",
+    "reproducibleSecondBuild": "byte-identical",
+    "producerStatus": "generated-unpublished"
+  },
+  "limitations": {
+    "percentageOfV4CorpusMapped": 100,
+    "coverageOfRealFederatedSearchResponsesMeasured": false,
+    "vectorsTransportVerified": false,
+    "publishedToHuggingFace": false,
+    "productionAtlasEnabled": false,
+    "nonOpenAlexSourceCoverageClaim": false
+  }
+}
