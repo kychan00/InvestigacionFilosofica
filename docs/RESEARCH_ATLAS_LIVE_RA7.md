@@ -1,5 +1,8 @@
 # RA7 — Integración experimental con búsqueda real
 
+> **Nota RA11:** el fallback lexical de título descrito aquí fue sustituido por `title-abstract-tfidf-cosine-v1`, con fallback a título cuando falta abstract. El resto de la integración live permanece vigente.
+
+
 ## Estado
 
 **Fase RA7 — SearchResponse real → Research Atlas en tiempo real.**
