@@ -1,0 +1,120 @@
+name: Research Atlas RA12-B2 · real Qwen3 V4 lookup audit
+
+on:
+  pull_request:
+    paths:
+      - "scripts/research-atlas/build_ra12_vector_lookup.py"
+      - "scripts/research-atlas/prefetch_ra12_v4_assets.py"
+      - "scripts/research-atlas/validate_ra12_vector_lookup.py"
+      - "tests/research-atlas-vector-lookup-audit.test.mjs"
+      - "docs/RESEARCH_ATLAS_QWEN3_VECTOR_LOOKUP_RA12B2.md"
+      - ".github/workflows/research-atlas-ra12b2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-v4-lookup-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Verify Python syntax and synthetic unit tests
+        run: |
+          python -m py_compile scripts/research-atlas/build_ra12_vector_lookup.py
+          python -m py_compile scripts/research-atlas/prefetch_ra12_v4_assets.py
+          python -m py_compile scripts/research-atlas/validate_ra12_vector_lookup.py
+          node --test tests/research-atlas-vector-lookup-builder.test.mjs
+          node --test tests/research-atlas-vector-lookup-audit.test.mjs
+
+      - name: Validate pinned source manifest and 3 genuine HF metadata pages
+        run: |
+          mkdir -p artifacts/research-atlas-ra12b2
+          python scripts/research-atlas/prefetch_ra12_v4_assets.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/qwen-v4" \
+            --workers 3 \
+            --sample-pages 3 \
+            --report artifacts/research-atlas-ra12b2/sample-prefetch.json
+          python scripts/research-atlas/build_ra12_vector_lookup.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/qwen-v4" \
+            --sample-pages 3 > artifacts/research-atlas-ra12b2/sample-coverage.json
+          cat artifacts/research-atlas-ra12b2/sample-coverage.json
+
+      - name: Download and SHA-verify full pinned source metadata and ID files
+        run: |
+          python scripts/research-atlas/prefetch_ra12_v4_assets.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/qwen-v4" \
+            --workers 8 \
+            --attempts 5 \
+            --report artifacts/research-atlas-ra12b2/full-prefetch.json
+
+      - name: Generate real unpublished OpenAlex vector lookup offline
+        run: |
+          python scripts/research-atlas/build_ra12_vector_lookup.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/qwen-v4" \
+            --output "$RUNNER_TEMP/ra12b2-lookup"
+          cp "$RUNNER_TEMP/ra12b2-lookup/lookup-manifest.json" artifacts/research-atlas-ra12b2/lookup-manifest.json
+
+      - name: Independently validate every lookup partition and source join
+        run: |
+          python scripts/research-atlas/validate_ra12_vector_lookup.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/qwen-v4" \
+            --lookup "$RUNNER_TEMP/ra12b2-lookup" \
+            --report artifacts/research-atlas-ra12b2/validation.json
+          cat artifacts/research-atlas-ra12b2/validation.json
+
+      - name: Verify byte-for-byte deterministic rebuild
+        run: |
+          python scripts/research-atlas/build_ra12_vector_lookup.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/qwen-v4" \
+            --output "$RUNNER_TEMP/ra12b2-lookup-rebuilt" >/dev/null
+          diff -rq "$RUNNER_TEMP/ra12b2-lookup" "$RUNNER_TEMP/ra12b2-lookup-rebuilt"
+
+      - name: Record real audit summary and package lookup
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          folder = Path("artifacts/research-atlas-ra12b2")
+          sample = json.loads((folder / "sample-coverage.json").read_text())
+          manifest = json.loads((folder / "lookup-manifest.json").read_text())
+          validation = json.loads((folder / "validation.json").read_text())
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as out:
+              out.write("## RA12-B2 — real HF evidence (unpublished)\n\n")
+              out.write(f"- Sample: {sample['sampledRecords']} records / {sample['sampledPages']} genuine HF pages\n")
+              out.write(f"- Corpus inspected: {manifest['coverage']['documents']}\n")
+              out.write(f"- Unique OpenAlex IDs: {manifest['lookup']['entryCount']}\n")
+              out.write(f"- Ambiguous IDs excluded: {manifest['lookup']['ambiguousWorkIdsExcluded']}\n")
+              out.write(f"- Lookup partitions: {len(manifest['lookup']['partitions'])}\n")
+              out.write(f"- Independent validation: {validation['status']}\n")
+              out.write("- Repeated full build: byte-identical\n")
+              out.write("- HF publication: NOT performed; Atlas runtime: UNCHANGED\n")
+          PY
+          mkdir -p artifacts/research-atlas-ra12b2/lookup
+          cp "$RUNNER_TEMP"/ra12b2-lookup/lookup/* artifacts/research-atlas-ra12b2/lookup/
+
+      - name: Upload audit evidence and real lookup — CI artifact only, not HF publication
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12b2-real-v4-evidence
+          path: artifacts/research-atlas-ra12b2/
+          if-no-files-found: warn
+          retention-days: 30
