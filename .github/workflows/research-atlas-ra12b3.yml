@@ -1,0 +1,115 @@
+name: Research Atlas RA12-B3 · immutable Qwen3 lookup publication
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/research-atlas/v12/lookup-publication-candidate.json"
+      - "scripts/research-atlas/prepare_ra12_lookup_release.py"
+      - "scripts/research-atlas/publish_ra12_lookup_to_hf.py"
+      - "tests/test_ra12_lookup_release.py"
+      - "docs/RESEARCH_ATLAS_QWEN3_LOOKUP_PUBLICATION_RA12B3.md"
+      - ".github/workflows/research-atlas-ra12b3.yml"
+  workflow_dispatch:
+    inputs:
+      confirm_publish:
+        description: "Para publicar en HF, escriba exactamente PUBLICAR_RA12B3_LOOKUP"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate-and-optional-publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Require explicit confirmation on manual dispatch
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          CONFIRM: ${{ inputs.confirm_publish }}
+        run: |
+          if [ "$CONFIRM" != "PUBLICAR_RA12B3_LOOKUP" ]; then
+            echo "::error::RA12-B3 publication requires exact manual confirmation"
+            exit 1
+          fi
+
+      - name: Verify publisher and release test fixtures
+        run: |
+          python -m py_compile scripts/research-atlas/prepare_ra12_lookup_release.py
+          python -m py_compile scripts/research-atlas/publish_ra12_lookup_to_hf.py
+          python -m unittest discover -s tests -p 'test_ra12_lookup_release.py' -v
+
+      - name: Fetch pinned real RA12-B2 Actions artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p artifacts/research-atlas-ra12b3
+          curl --fail --location --silent --show-error --retry 3 --retry-delay 2 \
+            --max-time 120 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/kychan00/InvestigacionFilosofica/actions/artifacts/13600754669/zip" \
+            -o "$RUNNER_TEMP/ra12b2-real-lookup.zip"
+          echo "8671489af3ac9b587c0efa47d59d07da7f16d7f7c5b4f72a44f9b0306c9cba01  $RUNNER_TEMP/ra12b2-real-lookup.zip" | sha256sum -c -
+
+      - name: Verify 451823 lookup records and prepare minimal release
+        run: |
+          python scripts/research-atlas/prepare_ra12_lookup_release.py \
+            --archive "$RUNNER_TEMP/ra12b2-real-lookup.zip" \
+            --config benchmark/research-atlas/v12/lookup-publication-candidate.json \
+            --v4-manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --output "$RUNNER_TEMP/ra12b3-verified-release" \
+            > artifacts/research-atlas-ra12b3/preflight.json
+          cat artifacts/research-atlas-ra12b3/preflight.json
+          cp "$RUNNER_TEMP/ra12b3-verified-release/release-provenance.json" \
+            artifacts/research-atlas-ra12b3/release-provenance.json
+
+      - name: Summarize preflight (always read-only for PR)
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          out = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          manifest = json.loads(Path(os.environ["RUNNER_TEMP"], "ra12b3-verified-release", "lookup-manifest.json").read_text())
+          with out.open("a") as f:
+              f.write("## RA12-B3 — HF lookup publication candidate\n")
+              f.write(f"- OpenAlex Work IDs verified: {manifest['lookup']['entryCount']}\n")
+              f.write(f"- Lookup partitions: {len(manifest['lookup']['partitions'])}\n")
+              f.write("- V4 model weights / vectors: NOT packaged\n")
+              f.write("- PR event: verification only; no HF writes\n")
+              f.write("- Workflow dispatch: HF publication requires exact user confirmation\n")
+          PY
+
+      - name: Install pinned-range HF API client for manual publication
+        if: github.event_name == 'workflow_dispatch'
+        run: python -m pip install "huggingface_hub>=0.34,<2"
+
+      - name: Publish immutable HF lookup, then verify every remote file against SHA
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          CONFIRM: ${{ inputs.confirm_publish }}
+        run: |
+          python scripts/research-atlas/publish_ra12_lookup_to_hf.py \
+            --config benchmark/research-atlas/v12/lookup-publication-candidate.json \
+            --release "$RUNNER_TEMP/ra12b3-verified-release" \
+            --confirm "$CONFIRM" \
+            --report artifacts/research-atlas-ra12b3/hf-publication.json
+          cat artifacts/research-atlas-ra12b3/hf-publication.json
+
+      - name: Preserve preflight and publication evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12b3-lookup-release-evidence
+          path: artifacts/research-atlas-ra12b3/
+          if-no-files-found: warn
+          retention-days: 30
