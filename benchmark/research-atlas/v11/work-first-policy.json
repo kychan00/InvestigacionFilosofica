@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "research-atlas-work-first-policy-v1",
+  "revision": "2026-11-07.ra11-v1",
+  "topology": {
+    "primaryEntity": "work",
+    "edgeType": "lexical-neighbor",
+    "method": "title-abstract-tfidf-cosine-v1",
+    "metric": "tfidf-cosine",
+    "titleRequired": true,
+    "abstractOptional": true,
+    "abstractFallback": "title-only",
+    "titleWeight": 2,
+    "abstractWeight": 1,
+    "topK": 3,
+    "maximumEdges": 36,
+    "humanAuditRequired": false,
+    "authorAuthorityRequired": false,
+    "relatedWorkRequired": false
+  },
+  "optionalEnrichments": {
+    "qwenSemantic": {
+      "edgeType": "semantic-neighbor",
+      "requiredForBaseAtlas": false,
+      "claim": "semantic proximity when model evidence is present"
+    },
+    "authorAuthority": {
+      "requiredForBaseAtlas": false,
+      "claim": "confirmed person identity only when authority evidence is present"
+    },
+    "relatedWork": {
+      "requiredForBaseAtlas": false,
+      "claim": "typed bibliographic or semantic expansion only when indexed evidence is present"
+    }
+  },
+  "epistemicBoundary": {
+    "allowedFromDocumentSimilarity": [
+      "textual proximity",
+      "shared vocabulary",
+      "nearby works in the query-scoped territory"
+    ],
+    "forbiddenFromDocumentSimilarityAlone": [
+      "influence",
+      "response",
+      "citation",
+      "school",
+      "controversy",
+      "same author"
+    ]
+  }
+}
