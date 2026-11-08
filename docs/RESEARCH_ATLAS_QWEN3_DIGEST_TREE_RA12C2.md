@@ -96,3 +96,40 @@ Se distinguen estas magnitudes para que un estimado pequeño no se interprete co
 6. Preservar RA11 como fallback, mantener WorkNodes e identidad originales, y no exigir una auditoría de personas/autoría para la similitud documental.
 
 Hasta completar esos gates, **no habrá Atlas Qwen3 en producción**. Los 451,823 digests sólo permiten probar procedencia de bytes, no influencia, citas, relaciones causales ni identidad de autores.
+
+
+## Resultados reales de auditoría, workflow #42495042876
+
+La **primera ejecución real** de esta fase aprobó todos los gates offline: SHA del corpus original, generación completa, rehash independiente de cada vector, reconstrucción idéntica y `npm test`.
+
+| Indicador | Observado |
+| --- | ---: |
+| Archivos int8 originales verificados por SHA | **256 / 256** |
+| Bytes originales descargados y verificados | **462,666,752** |
+| Vectores individuales rehasheados | **451,823** |
+| Bytes de SHA-256 individuales | **14,458,336** |
+| Índices de cluster | **256** |
+| Bytes de índices | **1,281,101** |
+| Tiles de hasta 64 hashes | **7,186** |
+| Rebuild byte-idéntico | **Sí** |
+| Validador independiente | **PASS** |
+| Raíz de manifiesto SHA-256 | `38067b5876de5f53abe5c7431b8618464d3fe711058a70fdde700fce7c50d961` |
+
+**Linaje:** GitHub Actions run `42495042876`, job `128775474223`, HEAD probado `78da5df1d79788dfc7bbd88a607e2983011aaf7e`. Artifact temporal `13622903057`, ZIP SHA-256 `d9306811c3857a035869bf698aa09022b4a033c5f9662fc1006bf3589baa026a`, tamaño ZIP **14,413,416 bytes**. La ficha de evidencia permanente está en `benchmark/research-atlas/v12/ra12c2-real-v4-digest-audit.json`, pero **los digest arrays completos permanecen como artifact temporal**, no publicados aún en HF.
+
+### Costos de carga modelados (no tráfico observado)
+
+Los seis casos usan **posiciones de vectores reales existentes** en V4, agrupadas o dispersas matemáticamente. No son resultados de una búsqueda federada.
+
+| Escenario | Solicitudes modeladas (frío) | Payload frío | Payload caliente |
+| --- | ---: | ---: | ---: |
+| 5, agrupadas | 8 | 106,663 B | 5,120 B |
+| 20, agrupadas | 23 | 122,023 B | 20,480 B |
+| 50, agrupadas | 53 | 152,743 B | 51,200 B |
+| 5, dispersas | 16 | 125,290 B | 5,120 B |
+| 20, dispersas | 61 | 249,760 B | 20,480 B |
+| 50, dispersas | 151 | 500,929 B | 51,200 B |
+
+El costo frío supone un root manifest cargado, un índice por cluster único, un tile por combinación distinta cluster-tile y 1 KB por vector; el cálculo **no incluye HTTP/2, cabeceras, reintentos, latencia de CDN, caché real, redirecciones o costos TLS**. El caliente supone todos los índices y digests ya cacheados. Son predicciones de payload, no mediciones de velocidad ni de calidad semántica.
+
+El árbol está criptográficamente verificado en CI; **esto no prueba que el browser ya pueda recuperar digest tiles derivados**, ni que el OID de RA12-B3 esté publicado, ni que haya cobertura de 100 % del SearchResponse federado. Por tanto RA11 permanece en producción.
