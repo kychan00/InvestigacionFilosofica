@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "research-atlas-ra12c2-full-v4-digest-evidence-v1",
+  "phase": "RA12-C2",
+  "outcome": "ci-full-source-sha-and-individual-digests-verified-unpublished",
+  "repository": "kychan00/InvestigacionFilosofica",
+  "source": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "manifestSha256": "0f8af3920c385e33b84debc9220fc644f4d7194145605fc09cd9e6aa44525cfa",
+    "vectorFilesShaVerified": 256,
+    "totalOriginalVectorBytesVerified": 462666752
+  },
+  "evidence": {
+    "pr": 221,
+    "runId": 42495042876,
+    "jobId": 128775474223,
+    "testedCommitSha": "78da5df1d79788dfc7bbd88a607e2983011aaf7e",
+    "artifactId": 13622903057,
+    "artifactName": "research-atlas-ra12c2-full-v4-digest-tree",
+    "artifactZipSha256": "d9306811c3857a035869bf698aa09022b4a033c5f9662fc1006bf3589baa026a",
+    "artifactZipBytes": 14413416,
+    "artifactUrl": "https://github.com/kychan00/InvestigacionFilosofica/actions/runs/42495042876/artifacts/13622903057",
+    "artifactExpiresAfterDays": 30
+  },
+  "digestTree": {
+    "dimension": 1024,
+    "digestAlgorithm": "sha256",
+    "vectorsVerified": 451823,
+    "digestBytesPerVector": 32,
+    "totalDigestBytes": 14458336,
+    "clusterIndexes": 256,
+    "indexBytes": 1281101,
+    "digestsPerTile": 64,
+    "totalTiles": 7186,
+    "rootManifestSha256": "38067b5876de5f53abe5c7431b8618464d3fe711058a70fdde700fce7c50d961",
+    "independentEveryVectorRehash": "pass",
+    "repeatBuildByteIdentical": true,
+    "productionEnabled": false,
+    "publishedToHf": false
+  },
+  "costModel": {
+    "mode": "physical-real-v4-locations-deterministically-simulated; not live SearchResponses",
+    "networkTransportMeasured": false,
+    "scenarios": [
+      {
+        "cohort": "clustered-5",
+        "coldRequests": 8,
+        "coldPayloadBytes": 106663,
+        "warmPayloadBytes": 5120
+      },
+      {
+        "cohort": "clustered-20",
+        "coldRequests": 23,
+        "coldPayloadBytes": 122023,
+        "warmPayloadBytes": 20480
+      },
+      {
+        "cohort": "clustered-50",
+        "coldRequests": 53,
+        "coldPayloadBytes": 152743,
+        "warmPayloadBytes": 51200
+      },
+      {
+        "cohort": "dispersed-5",
+        "coldRequests": 16,
+        "coldPayloadBytes": 125290,
+        "warmPayloadBytes": 5120
+      },
+      {
+        "cohort": "dispersed-20",
+        "coldRequests": 61,
+        "coldPayloadBytes": 249760,
+        "warmPayloadBytes": 20480
+      },
+      {
+        "cohort": "dispersed-50",
+        "coldRequests": 151,
+        "coldPayloadBytes": 500929,
+        "warmPayloadBytes": 51200
+      }
+    ]
+  },
+  "limitations": {
+    "digestRootPublishedToHf": false,
+    "digestArrayBrowserRangeVerified": false,
+    "lookupHfCommitOidIndependentlyConfirmed": false,
+    "realFederatedSearchResponseCoverageMeasured": false,
+    "httpOverheadOrLatencyMeasured": false,
+    "semanticNeighborsInProduction": false,
+    "authorIdentityInferences": false
+  }
+}
