@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261109-work-cluster-v2";
+} from "../src/core/search-engine.js?v=20261109-global-work-dedup-v3";
 
 import {
   explainResult
@@ -21,7 +21,7 @@ import {
 
 import {
   resultIdentityKey
-} from "../src/core/merge-results.js?v=20261109-work-cluster-v2";
+} from "../src/core/merge-results.js?v=20261109-global-work-dedup-v3";
 
 import {
   parseQuery
@@ -39,7 +39,7 @@ import {
   resolveRemoteAuthor,
   resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
-} from "../src/core/remote-author-resolution.js?v=20261029-author-reliability-v1";
+} from "../src/core/remote-author-resolution.js?v=20261109-global-work-dedup-v3";
 
 import {
   summarizeAuthorCorpus
@@ -2553,11 +2553,12 @@ function renderWorkAggregate(
       appearances.length
     );
 
-  if (
-    appearanceCount <= 1 &&
-    sourceLinks.length <= 1 &&
-    titleVariants.length <= 1
-  ) {
+  const isRealAggregate =
+    appearanceCount > 1 ||
+    titleVariants.length > 1 ||
+    (item.providers || []).length > 1;
+
+  if (!isRealAggregate) {
     return "";
   }
 

@@ -431,6 +431,7 @@ function titleVariantsOf(
   return uniqueStrings([
     result.title,
     ...(result.titleVariants || []),
+    ...(result.alternativeTitles || []),
     ...(
       result.workAppearances ||
       []
@@ -627,6 +628,13 @@ function appearanceCandidates(
     result.urls?.openAccess ||
     result.urls?.canonical ||
     result.urls?.doi ||
+    (
+      result.doi
+        ? `https://doi.org/${normalizeDoi(
+            result.doi
+          )}`
+        : null
+    ) ||
     result.url ||
     null;
 
@@ -678,6 +686,7 @@ function mergeWorkAppearances(
     const key = [
       appearance.provider || "",
       appearance.sourceId || "",
+      appearance.doi || "",
       appearance.url || "",
       normalizedTitle(
         appearance.title
@@ -939,9 +948,17 @@ function sameWork(
           )
       );
 
+    /*
+     * Sin autoría disponible exigimos mismo año,
+     * pero no cuatro palabras. Ese umbral dejaba
+     * pasar duplicados exactos como "A Hegel
+     * Dictionary" o "7. Die Hegel-Kritik".
+     * Los títulos genéricos ya están excluidos por
+     * exactDistinctiveTitle.
+     */
     return (
       sharedYear &&
-      distinctiveTokenCount >= 4
+      distinctiveTokenCount >= 2
     );
   }
 

@@ -855,3 +855,136 @@ test(
     );
   }
 );
+
+
+test(
+  "fusiona títulos exactos cortos sin autor cuando comparten año",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "crossref:10.1000/dictionary-a",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1992,
+          doi: "10.1000/dictionary-a",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "crossref:10.1000/dictionary-b",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1992,
+          doi: "10.1000/dictionary-b",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      1
+    );
+    assert.equal(
+      merged[0].workAppearanceCount,
+      2
+    );
+  }
+);
+
+
+test(
+  "no fusiona un título corto sin autor si cambia el año",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "crossref:10.1000/dictionary-a",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1992,
+          doi: "10.1000/dictionary-a",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "crossref:10.1000/dictionary-b",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1993,
+          doi: "10.1000/dictionary-b",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      2
+    );
+  }
+);
+
+
+test(
+  "conserva títulos alternativos curados dentro del agregado",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "curated:dinora-book",
+          title:
+            "Dinora Hernández y colaboradores: Teoría crítica, planteamientos, desplazamientos, tensiones",
+          alternativeTitles: [
+            "Teoría crítica. Planteamientos, desplazamientos, tensiones"
+          ],
+          authors: [
+            { name: "Dinora Hernández López" }
+          ],
+          year: 2023,
+          doi: null,
+          isbn: [],
+          providers: [
+            "Bibliografía verificada"
+          ],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      1
+    );
+
+    assert.ok(
+      merged[0].titleVariants.includes(
+        "Teoría crítica. Planteamientos, desplazamientos, tensiones"
+      )
+    );
+  }
+);

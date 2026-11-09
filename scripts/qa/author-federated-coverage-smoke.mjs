@@ -83,8 +83,39 @@ try{
     }));
     throw new Error("Federated profile failed "+JSON.stringify({theme,state,errors,requests}));
   }
+  /*
+   * La cobertura federada debe evaluarse contra todo el archivo ya
+   * recuperado, no sólo contra la primera ventana visual del perfil.
+   */
+  for(let pageIndex=0;pageIndex<20;pageIndex+=1){
+    const loadMore=page.locator("#load-more");
+    if(await loadMore.count()===0)break;
+    await loadMore.click();
+    await page.waitForTimeout(20);
+  }
+
   const titles=await page.locator(".author-work-grid .result-card h2").allTextContents();
   const joined=titles.join("\n").toLowerCase();
+  const pageText=await page.locator("#results").textContent();
+
+  const normalizeCoverageText=value=>
+    String(value||"")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g,"")
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}\s-]/gu," ")
+      .replace(/\s+/g," ")
+      .trim();
+
+  const searchableText=
+    normalizeCoverageText(pageText);
+
+  /*
+   * Una obra puede tener varias variantes bibliográficas de título
+   * dentro de una sola tarjeta. La cobertura debe comprobar que la
+   * variante siga disponible en el agregado, no exigir una tarjeta
+   * independiente por cada manifestación ni una puntuación concreta.
+   */
   for(const expected of [
     "después del #metoo",
     "feminicidio: elementos",
@@ -94,11 +125,16 @@ try{
     "theodor w. adorno: resistencia",
     "teoría crítica. planteamientos"
   ]) {
-    assert.ok(joined.includes(expected),"Missing verified Dinora work: "+expected);
+    const normalizedExpected=
+      normalizeCoverageText(expected);
+
+    assert.ok(
+      searchableText.includes(normalizedExpected),
+      "Missing verified Dinora work: "+expected
+    );
   }
   assert.ok(!joined.includes("gracias, dinora"));
   assert.ok(!joined.includes("1900"));
-  const pageText=await page.locator("#results").textContent();
   assert.match(pageText,/Dinora Hernández López/);
   assert.match(pageText,/0000-0001-7335-1790|Bibliografía verificada/);
   assert.match(pageText,/2026/);

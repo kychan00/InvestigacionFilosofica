@@ -1351,12 +1351,24 @@ test(
       exclusive.searchMode,
       "author-only"
     );
-    assert.deepEqual(
-      exclusive.results,
-      [authorWork]
+    assert.equal(
+      exclusive.results.length,
+      1
+    );
+    assert.equal(
+      exclusive.results[0].title,
+      "Obra del autor"
     );
     assert.equal(
       exclusive.stats.unique,
+      1
+    );
+    assert.equal(
+      exclusive.stats.appearances,
+      2
+    );
+    assert.equal(
+      exclusive.stats.merged,
       1
     );
     assert.deepEqual(
@@ -1535,3 +1547,131 @@ test("el perfil puede recuperar todas las obras de su shard y no sólo las prime
   assert.equal(full.works.length,125);
   assert.equal(new Set(full.works.map(work => work.id)).size,125);
 });
+
+
+test(
+  "fusiona ediciones OpenAlex distintas al enriquecer un autor",
+  () => {
+    const resolution = {
+      status: "resolved",
+      works: [
+        {
+          id: "https://openalex.org/W100",
+          openalexId: "W100",
+          title:
+            "Hegel's Preface to the Phenomenology of Spirit",
+          year: 2021,
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          providers: [
+            "OpenAlex Philosophy"
+          ],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          isbn: [],
+          institutionalLinks: [],
+          urls: {
+            canonical:
+              "https://openalex.org/W100"
+          }
+        },
+        {
+          id: "https://openalex.org/W200",
+          openalexId: "W200",
+          title:
+            "Hegel's Preface to the Phenomenology of Spirit",
+          year: 2005,
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          providers: [
+            "OpenAlex Philosophy"
+          ],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          isbn: [],
+          institutionalLinks: [],
+          urls: {
+            canonical:
+              "https://openalex.org/W200"
+          }
+        }
+      ]
+    };
+
+    const augmented =
+      augmentWithAuthorResolution(
+        {
+          results: [],
+          stats: {
+            unique: 0,
+            appearances: 0,
+            merged: 0,
+            providers: {}
+          }
+        },
+        resolution
+      );
+
+    assert.equal(
+      augmented.results.length,
+      1
+    );
+    assert.deepEqual(
+      augmented.results[0].years,
+      [2005, 2021]
+    );
+    assert.equal(
+      augmented.results[0].workAppearanceCount,
+      2
+    );
+    assert.equal(
+      augmented.stats.appearances,
+      2
+    );
+    assert.equal(
+      augmented.stats.unique,
+      1
+    );
+    assert.equal(
+      augmented.stats.merged,
+      1
+    );
+    assert.ok(
+      augmented.results[0]
+        .identityAliases.includes(
+          "openalex:w100"
+        )
+    );
+    assert.ok(
+      augmented.results[0]
+        .identityAliases.includes(
+          "openalex:w200"
+        )
+    );
+
+    const repeated =
+      augmentWithAuthorResolution(
+        augmented,
+        resolution
+      );
+
+    assert.equal(
+      repeated.stats.appearances,
+      2
+    );
+    assert.equal(
+      repeated.results.length,
+      1
+    );
+  }
+);
