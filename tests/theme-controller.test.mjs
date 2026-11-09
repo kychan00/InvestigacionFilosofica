@@ -148,8 +148,8 @@ test("las etiquetas dejan de heredar grises ilegibles y la cronología consume t
   assert.match(css,/--theme-label:\s*#f4f4f4/);
   assert.match(css,/html\[data-theme\] \.search-filter-grid label/);
   assert.match(css,/color: var\(--theme-label\) !important/);
-  assert.match(timelineCss,/--tl-ink:\s*var\(--profile-ink/);
-  assert.match(timelineCss,/--tl-surface:\s*var\(--profile-panel/);
+  assert.match(timelineCss,/--tl-ink:\s*var\(--theme-text/);
+  assert.match(timelineCss,/--tl-surface:\s*var\(--theme-surface/);
   assert.match(authorCss,/html\[data-theme="dark"\][\s\S]*--profile-ink:\s*#f4f4f4/);
   assert.match(css,/\.theme-switch \.theme-icon/);
 });
