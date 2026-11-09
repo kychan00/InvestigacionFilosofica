@@ -1,7 +1,6 @@
 import { SITE_VISITOR_COUNTER_CONFIG } from "./site-visitor-counter-config.js";
 
 const STORAGE_KEY = "investigacion-filosofica-visitor-v1";
-const EVENT_NAME = "investigacionfilosofica:thesis-click";
 let fallbackVisitorId = null;
 
 function randomUuid() {
@@ -100,9 +99,162 @@ async function logThesisClick(detail = {}) {
   }
 }
 
-window.addEventListener(
-  EVENT_NAME,
-  event => {
-    void logThesisClick(event.detail);
-  },
-);
+function activeThesisInstitution() {
+  return document
+    .querySelector('[data-thesis-institution][aria-pressed="true"]')
+    ?.dataset?.thesisInstitution || null;
+}
+
+function activeThesisScope() {
+  return document
+    .querySelector('[data-thesis-scope][aria-pressed="true"]:not([hidden])')
+    ?.dataset?.thesisScope || null;
+}
+
+function thesisIdFromCard(card) {
+  const ids = [...card.querySelectorAll(".td-source-id")]
+    .map(node => node.textContent?.trim() || "");
+
+  const canonical = ids.find(text => text.startsWith("ID canónico V2:"));
+  const fallback = ids.find(text => text.startsWith("ID:"));
+  const raw = canonical || fallback || "";
+
+  return raw.includes(":")
+    ? raw.slice(raw.indexOf(":") + 1).trim()
+    : null;
+}
+
+function bindThesisSearchClicks() {
+  const root = document.querySelector("#thesis-demo");
+
+  if (!root) {
+    return;
+  }
+
+  root.addEventListener(
+    "click",
+    event => {
+      const link = event.target?.closest?.(
+        "#thesis-results .td-result a.td-primary-action"
+      );
+
+      if (!link) {
+        return;
+      }
+
+      const card = link.closest(".td-result");
+
+      if (!card || card.classList.contains("td-result-editorial")) {
+        return;
+      }
+
+      const title = card
+        .querySelector(".td-result-title")
+        ?.textContent?.trim();
+
+      if (!title) {
+        return;
+      }
+
+      void logThesisClick({
+        thesisId: thesisIdFromCard(card),
+        title,
+        discoverySource: "search",
+        interactionSource: "search-result",
+        queryText:
+          document.querySelector("#thesis-query")
+            ?.value?.trim() || null,
+        institution: activeThesisInstitution(),
+        scope: activeThesisScope(),
+      });
+    },
+    true,
+  );
+}
+
+function atlasDetailSnapshot() {
+  const detail = document.querySelector("#atlas-detail");
+  const title = detail
+    ?.querySelector(".ta-detail-title")
+    ?.textContent?.trim();
+
+  if (!title) {
+    return null;
+  }
+
+  let thesisId = null;
+
+  for (const box of detail.querySelectorAll(".ta-detail-meta > div")) {
+    const label = box.querySelector("span")?.textContent?.trim();
+    const value = box.querySelector("strong")?.textContent?.trim();
+
+    if (label === "ID" && value) {
+      thesisId = value.startsWith("#")
+        ? `thesis:work:${value.slice(1)}`
+        : value;
+      break;
+    }
+  }
+
+  return {
+    thesisId,
+    title,
+  };
+}
+
+function bindAtlasClicks() {
+  const canvas = document.querySelector("#atlas-canvas");
+  const detail = document.querySelector("#atlas-detail");
+
+  if (!canvas || !detail) {
+    return;
+  }
+
+  let pendingSource = null;
+
+  function recordAfterSelection(source) {
+    window.setTimeout(() => {
+      const thesis = atlasDetailSnapshot();
+
+      if (!thesis) {
+        return;
+      }
+
+      void logThesisClick({
+        ...thesis,
+        discoverySource: "atlas",
+        interactionSource: source,
+        queryText:
+          document.querySelector("#atlas-query")
+            ?.value?.trim() || null,
+        institution: "udg",
+        scope: "humanities",
+      });
+    }, 0);
+  }
+
+  canvas.addEventListener(
+    "pointerup",
+    () => {
+      pendingSource = "atlas-node";
+      recordAfterSelection(pendingSource);
+    },
+    true,
+  );
+
+  document.addEventListener(
+    "click",
+    event => {
+      if (!event.target?.closest?.("#atlas-detail .ta-neighbor")) {
+        return;
+      }
+
+      pendingSource = "atlas-neighbor";
+      recordAfterSelection(pendingSource);
+    },
+    true,
+  );
+}
+
+bindThesisSearchClicks();
+bindAtlasClicks();
