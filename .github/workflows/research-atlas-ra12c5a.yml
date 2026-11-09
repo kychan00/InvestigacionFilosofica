@@ -1,0 +1,162 @@
+name: Research Atlas RA12-C5-A · DOI to OpenAlex identity enrichment
+
+on:
+  pull_request:
+    paths:
+      - "scripts/research-atlas/resolve_ra12c5a_openalex_doi_authority.py"
+      - "tests/test_ra12c5a_doi_openalex_authority.py"
+      - "benchmark/research-atlas/v12/ra12c5a-doi-authority-contract.json"
+      - "benchmark/research-atlas/v12/ra12c5a-real-doi-authority-evidence.json"
+      - "docs/RESEARCH_ATLAS_QWEN3_DOI_AUTHORITY_RA12C5A.md"
+      - ".github/workflows/research-atlas-ra12c5a.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-doi-openalex-authority:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Test DOI authority contract
+        run: |
+          python -m py_compile scripts/research-atlas/resolve_ra12c5a_openalex_doi_authority.py
+          python -m unittest discover -s tests -p 'test_ra12c5a_doi_openalex_authority.py' -v
+
+      - name: Fetch and SHA-verify pinned V4 metadata + cluster IDs
+        run: |
+          mkdir -p artifacts/research-atlas-ra12c5a
+          python scripts/research-atlas/prefetch_ra12_v4_assets.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/ra12c5a-v4-source" \
+            --workers 8 --attempts 4 \
+            --report artifacts/research-atlas-ra12c5a/source-prefetch.json
+
+      - name: Build frozen V4 exact OpenAlex alias index
+        run: |
+          python scripts/research-atlas/build_ra12_semantic_alias_index.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/ra12c5a-v4-source" \
+            --output artifacts/research-atlas-ra12c5a/v4-alias-index \
+            > artifacts/research-atlas-ra12c5a/v4-alias-summary.json
+          cat artifacts/research-atlas-ra12c5a/v4-alias-summary.json
+
+      - name: Install app, build DuckDB browser bundle, and Chromium
+        run: |
+          npm ci
+          npm run build:duckdb
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Serve current PR tree locally
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > "$RUNNER_TEMP/ra12c5a-http.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/ra12c5a-http.pid"
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/ra12c5a-http.log"
+          exit 1
+
+      - name: Capture six real federated SearchResponses
+        run: |
+          node scripts/qa/research-atlas-ra12c4-live-search.mjs \
+            --queries benchmark/research-atlas/v12/ra12c4-live-query-set.json \
+            --base-url http://127.0.0.1:4173/ \
+            --output artifacts/research-atlas-ra12c5a/live-search.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path("artifacts/research-atlas-ra12c5a/live-search.json").read_text())
+          errors=sum(len(run.get("errors") or []) for run in data["runs"])
+          print([(r["id"],r["resultCount"],len(r["errors"]),r["durationMs"]) for r in data["runs"]])
+          if errors:
+              raise SystemExit(f"Provider errors make DOI authority evidence invalid: {errors}")
+          PY
+
+      - name: Resolve exact DOI authority through OpenAlex and remeasure V4 coverage
+        run: |
+          python scripts/research-atlas/resolve_ra12c5a_openalex_doi_authority.py \
+            --capture artifacts/research-atlas-ra12c5a/live-search.json \
+            --alias-root artifacts/research-atlas-ra12c5a/v4-alias-index \
+            --query-set benchmark/research-atlas/v12/ra12c4-live-query-set.json \
+            --output-dir artifacts/research-atlas-ra12c5a/doi-authority \
+            > artifacts/research-atlas-ra12c5a/doi-authority-summary.json
+          cat artifacts/research-atlas-ra12c5a/doi-authority-summary.json
+
+      - name: Assert exact-only identity semantics
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          root=Path("artifacts/research-atlas-ra12c5a")
+          report=json.loads((root/"doi-authority/authority-report.json").read_text())
+          assert report["schemaVersion"] == "research-atlas-ra12c5a-doi-openalex-authority-v1"
+          assert report["source"]["exactDoiEchoRequired"] is True
+          assert report["source"]["fuzzyTitleYearIdentity"] is False
+          assert report["source"]["liveOpenAlexClientRuntimeEnabled"] is False
+          assert report["productionEnabled"] is False
+          assert report["embeddingsGenerated"] is False
+          assert report["publishedToHf"] is False
+          assert report["input"]["queryCount"] == 6
+          assert report["input"]["doiCandidateCount"] > 0
+          assert not report["authority"]["anomalies"]
+          ignored=report["authority"]["ignoredFilterOverreturns"]
+          assert all(item.get("reason") == "unrequested-doi-overreturn" for item in ignored)
+
+          states=report["authority"]["counts"]
+          total=sum(states.values())
+          assert total == report["input"]["doiCandidateCount"]
+          for n in ("5","20","50"):
+              c=report["coverage"]["cutoffs"][n]
+              assert c["observedResults"] > 0
+              assert 0 <= c["baseV4CoverageBeforeDoiAuthority"] <= 1
+              assert 0 <= c["baseV4CoverageAfterDoiAuthority"] <= 1
+              assert c["baseV4CoverageAfterDoiAuthority"] >= c["baseV4CoverageBeforeDoiAuthority"]
+
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as out:
+              out.write("## RA12-C5-A — DOI → OpenAlex → V4 identity enrichment\n\n")
+              out.write(f"- Unique DOI candidates: {report['input']['doiCandidateCount']}\n")
+              out.write(f"- OpenAlex requests: {len(report['requests'])}\n")
+              out.write(f"- Ignored OpenAlex DOI over-returns: {len(ignored)}\n")
+              for state,count in sorted(states.items()):
+                  out.write(f"- {state}: {count}\n")
+              for n in ("5","20","50"):
+                  c=report["coverage"]["cutoffs"][n]
+                  out.write(
+                    f"- Top {n}: V4 before {c['baseV4CoverageBeforeDoiAuthority']:.1%}; "
+                    f"after exact DOI authority {c['baseV4CoverageAfterDoiAuthority']:.1%}; "
+                    f"recovered aliases {c['baseAliasEnriched']}\n"
+                  )
+              out.write(
+                f"- Unique overlay identities after enrichment: "
+                f"{report['coverage']['uniqueOverlayIdentitiesAfterEnrichment']}\n"
+              )
+              out.write("- No fuzzy matching, embeddings, HF publication, or production runtime changes.\n")
+          PY
+
+      - name: Run full regression suite
+        run: npm test
+
+      - name: Preserve raw OpenAlex responses, authority index and coverage evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12c5a-doi-openalex-authority
+          path: artifacts/research-atlas-ra12c5a/
+          if-no-files-found: warn
+          retention-days: 30
