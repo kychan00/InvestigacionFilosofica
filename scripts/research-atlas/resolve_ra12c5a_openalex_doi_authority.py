@@ -176,10 +176,13 @@ def fetch_json(url: str, timeout: int = 45, attempts: int = 4) -> tuple[dict, by
     raise AuthorityError(f"OpenAlex request failed: {last_error}")
 
 
-def normalize_response(payload: dict, requested: set[str]) -> tuple[dict[str, list[dict]], list[dict]]:
+def normalize_response(
+    payload: dict, requested: set[str]
+) -> tuple[dict[str, list[dict]], list[dict], list[dict]]:
     if not isinstance(payload, dict) or not isinstance(payload.get("results"), list):
         raise AuthorityError("OpenAlex response missing results list")
     mapping: dict[str, list[dict]] = defaultdict(list)
+    ignored_overreturns: list[dict] = []
     anomalies: list[dict] = []
     for result in payload["results"]:
         if not isinstance(result, dict):
@@ -187,9 +190,18 @@ def normalize_response(payload: dict, requested: set[str]) -> tuple[dict[str, li
             continue
         doi = normalize_doi(result.get("doi"))
         work_id = canonical_work_id(result.get("id"))
-        if not doi or doi not in requested:
+        if not doi:
             anomalies.append({
-                "reason": "unrequested-or-invalid-doi",
+                "reason": "invalid-or-missing-doi",
+                "doi": result.get("doi"),
+                "id": result.get("id"),
+            })
+            continue
+        if doi not in requested:
+            # A live OpenAlex batch can over-return a nearby DOI. This is not
+            # accepted as identity evidence; record and ignore it fail-closed.
+            ignored_overreturns.append({
+                "reason": "unrequested-doi-overreturn",
                 "doi": doi,
                 "id": result.get("id"),
             })
@@ -213,7 +225,7 @@ def normalize_response(payload: dict, requested: set[str]) -> tuple[dict[str, li
         for item in mapping[doi]:
             unique[item["workId"]] = item
         mapping[doi] = [unique[key] for key in sorted(unique)]
-    return dict(mapping), anomalies
+    return dict(mapping), ignored_overreturns, anomalies
 
 
 def v4_location(alias_root: Path, work_id: str, cache: dict[int, dict]) -> dict | None:
@@ -390,6 +402,7 @@ def main() -> int:
         raw_dir.mkdir()
         openalex_mapping: dict[str, list[dict]] = {}
         requests = []
+        ignored_overreturns = []
         anomalies = []
 
         for batch_number, start in enumerate(range(0, len(dois), args.batch_size), start=1):
@@ -398,9 +411,10 @@ def main() -> int:
             payload, raw, headers = fetch_json(url)
             raw_path = raw_dir / f"batch-{batch_number:03d}.json"
             raw_path.write_bytes(raw)
-            normalized, batch_anomalies = normalize_response(payload, set(batch))
+            normalized, batch_overreturns, batch_anomalies = normalize_response(payload, set(batch))
             for doi, values in normalized.items():
                 openalex_mapping.setdefault(doi, []).extend(values)
+            ignored_overreturns.extend(batch_overreturns)
             anomalies.extend(batch_anomalies)
             requests.append({
                 "batch": batch_number,
@@ -456,6 +470,7 @@ def main() -> int:
                     for provider, states in sorted(providers.items())
                 },
                 "records": records,
+                "ignoredFilterOverreturns": ignored_overreturns,
                 "anomalies": anomalies,
             },
             "requests": requests,
@@ -474,6 +489,7 @@ def main() -> int:
             "states": dict(sorted(counts.items())),
             "coverage": coverage,
             "requests": len(requests),
+            "ignoredFilterOverreturns": len(ignored_overreturns),
             "anomalies": len(anomalies),
         }, sort_keys=True))
         return 0
