@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "research-atlas-ra12c5a-real-doi-authority-evidence-v1",
+  "phase": "RA12-C5-A",
+  "status": "live-six-query-exact-doi-authority-success",
+  "testedHeadSha": "6d82f88590d6fcd6b8350e44fcb2c6065371926b",
+  "github": {
+    "workflowRunId": 42557600823,
+    "jobId": 128966699640,
+    "artifactId": 13647812474,
+    "artifactName": "research-atlas-ra12c5a-doi-openalex-authority",
+    "artifactZipBytes": 7494937,
+    "artifactZipSha256": "d50a9e4b02bec9aabe15adf9f94c03dae72ece27fec2ac20e37e0838c51006fc"
+  },
+  "search": {
+    "queries": 6,
+    "providerErrors": 0,
+    "resultCounts": {
+      "kant-freedom-es": 176,
+      "quine-ontology-es": 66,
+      "fear-phenomenology-es": 49,
+      "lukacs-tech-es": 48,
+      "hume-causality-es": 130,
+      "stoic-virtue-es": 62
+    }
+  },
+  "doiAuthority": {
+    "uniqueDoiCandidates": 184,
+    "openAlexRequests": 2,
+    "ignoredExactGuardOverreturns": 1,
+    "trueIdentityAnomalies": 0,
+    "states": {
+      "v4-existing-by-doi": 4,
+      "openalex-outside-v4": 143,
+      "openalex-unmatched": 37
+    },
+    "providerStates": {
+      "Crossref": {
+        "v4-existing-by-doi": 3,
+        "openalex-outside-v4": 120,
+        "openalex-unmatched": 4
+      },
+      "CUCSH Filosofía": {
+        "v4-existing-by-doi": 1,
+        "openalex-outside-v4": 23,
+        "openalex-unmatched": 33
+      }
+    }
+  },
+  "recovered": [
+    {
+      "doi": "10.1515/9783110782509-009",
+      "openalexWorkId": "W4388864320",
+      "provider": "Crossref",
+      "vectorId": 436957,
+      "cluster": 27,
+      "ordinal": 1660
+    },
+    {
+      "doi": "10.32870/qr.v1i1.63",
+      "openalexWorkId": "W2908224364",
+      "provider": "CUCSH Filosofía",
+      "vectorId": 33868,
+      "cluster": 164,
+      "ordinal": 97
+    },
+    {
+      "doi": "10.35494/as.vi6.78",
+      "openalexWorkId": "W7140975779",
+      "provider": "Crossref",
+      "vectorId": 17083,
+      "cluster": 95,
+      "ordinal": 57
+    },
+    {
+      "doi": "10.4324/9781315252629-8",
+      "openalexWorkId": "W2301126092",
+      "provider": "Crossref",
+      "vectorId": 48846,
+      "cluster": 118,
+      "ordinal": 260
+    }
+  ],
+  "coverage": {
+    "top5": {
+      "observed": 30,
+      "baseDirect": 2,
+      "recoveredByDoi": 1,
+      "overlayAfter": 27,
+      "before": 0.06666666666666667,
+      "after": 0.1,
+      "gainAbsolute": 0.03333333333333334
+    },
+    "top20": {
+      "observed": 120,
+      "baseDirect": 7,
+      "recoveredByDoi": 1,
+      "overlayAfter": 112,
+      "before": 0.058333333333333334,
+      "after": 0.06666666666666667,
+      "gainAbsolute": 0.008333333333333331
+    },
+    "top50": {
+      "observed": 297,
+      "baseDirect": 85,
+      "recoveredByDoi": 4,
+      "overlayAfter": 208,
+      "before": 0.28619528619528617,
+      "after": 0.2996632996632997,
+      "gainAbsolute": 0.013468013468013518
+    }
+  },
+  "overlay": {
+    "uniqueIdentitiesAfterDoiEnrichment": 208,
+    "embeddingsGenerated": false,
+    "publishedToHf": false
+  },
+  "guardrailObservation": {
+    "ignoredOpenAlexFilterOverreturn": {
+      "requestedBatchDidNotInclude": "10.12795/ambitos.2019.i42.10",
+      "returnedWorkId": "W2913688032",
+      "action": "ignored because exact requested DOI echo is mandatory"
+    }
+  },
+  "methodology": {
+    "exactDoiOnly": true,
+    "fuzzyTitleYearIdentity": false,
+    "openAlexClientRuntimeEnabled": false,
+    "v4Mutation": false,
+    "productionEnabled": false
+  }
+}
