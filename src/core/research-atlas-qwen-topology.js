@@ -23,6 +23,8 @@ import {
 export const RA12D3_REVISION =
   "2026-11-09.ra12-d3-v1";
 
+export const RA12D3_MAXIMUM_EDGES = 200;
+
 export const RA12D3_MODEL_ID =
   "Qwen/Qwen3-Embedding-0.6B";
 
