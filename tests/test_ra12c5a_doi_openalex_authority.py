@@ -33,9 +33,10 @@ def build_alias_root(root: Path, rows: dict[str, tuple[int, int, int]]) -> Path:
         grouped[prefix].append([alias, work_id, vector_id, cluster, ordinal])
     for prefix in range(256):
         path = aliases / f"part-{prefix:03d}.jsonl.gz"
-        with gzip.GzipFile(filename="", mode="wb", fileobj=path.open("wb"), mtime=0) as z:
-            for row in sorted(grouped[prefix], key=lambda value: value[0]):
-                z.write((json.dumps(row, separators=(",", ":")) + "\n").encode("utf-8"))
+        with path.open("wb") as raw:
+            with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0) as z:
+                for row in sorted(grouped[prefix], key=lambda value: value[0]):
+                    z.write((json.dumps(row, separators=(",", ":")) + "\n").encode("utf-8"))
     return root
 
 
@@ -58,10 +59,13 @@ class AuthorityTests(unittest.TestCase):
                 {"id": "not-a-work", "doi": "https://doi.org/10.2000/B", "title": "B"},
             ]
         }
-        mapping, anomalies = normalize_response(payload, {"10.1000/a", "10.2000/b"})
+        mapping, ignored, anomalies = normalize_response(payload, {"10.1000/a", "10.2000/b"})
         self.assertEqual(mapping["10.1000/a"][0]["workId"], "W1")
         self.assertNotIn("10.2000/b", mapping)
-        self.assertEqual(len(anomalies), 2)
+        self.assertEqual(len(ignored), 1)
+        self.assertEqual(ignored[0]["reason"], "unrequested-doi-overreturn")
+        self.assertEqual(len(anomalies), 1)
+        self.assertEqual(anomalies[0]["reason"], "invalid-openalex-work-id")
 
     def test_collects_crossref_doi_once_with_provenance(self):
         capture = {
