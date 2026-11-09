@@ -8,7 +8,7 @@ test("tesis.html incluye el diálogo accesible de perfiles de persona", async ()
   assert.match(html, /role="dialog"/);
   assert.match(html, /aria-modal="true"/);
   assert.match(html, /id="thesis-person-content"/);
-  assert.match(html, /thesis-people\.css\?v=20261109-people-v1/);
+  assert.match(html, /thesis-people\.css\?v=20261109-people-v2/);
 });
 
 test("la vista de tesis enlaza autoría y dirección a fichas individuales", async () => {
@@ -27,4 +27,15 @@ test("el perfil conserva una salida al archivo general de autor", async () => {
   assert.match(source, /function researchAuthorUrl\(/);
   assert.match(source, /"Abrir archivo completo de autor ↗"/);
   assert.match(source, /url\.searchParams\.set\("view", "author"\)/);
+});
+
+
+test("la ficha de persona es un modal flotante centrado y no un panel lateral", async () => {
+  const css = await readFile(new URL("../css/thesis-people.css", import.meta.url), "utf8");
+  assert.match(css, /place-items:\s*center/);
+  assert.match(css, /width:\s*min\(880px,/);
+  assert.match(css, /max-height:\s*min\(82dvh,\s*820px\)/);
+  assert.match(css, /border-radius:\s*18px/);
+  assert.doesNotMatch(css, /justify-self:\s*end/);
+  assert.doesNotMatch(css, /height:\s*100%;[\s\S]{0,180}border-left:/);
 });
