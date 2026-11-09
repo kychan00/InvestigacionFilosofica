@@ -18,6 +18,15 @@ import {
   approvedUgtoRepositoryUrl,
   validateUgtoPhilosophyIndex,
 } from "../src/core/ugto-philosophy-search.js?v=20261107-t2dh";
+import {
+  buildThesisPeopleIndex,
+  splitThesisPeople,
+  thesisPersonArchiveBiography,
+  thesisPersonProfile,
+} from "../src/core/thesis-people.js?v=20261109-people-v1";
+import {
+  resolveRemoteAuthor,
+} from "../src/core/remote-author-resolution.js?v=20261029-author-reliability-v1";
 
 const root = document.querySelector("#thesis-demo");
 const form = document.querySelector("#thesis-search");
@@ -71,6 +80,10 @@ const filters = {
   toYear: document.querySelector("#thesis-to-year"),
 };
 
+const personModal = document.querySelector("#thesis-person-modal");
+const personContent = document.querySelector("#thesis-person-content");
+const personCloseControls = [...document.querySelectorAll("[data-thesis-person-close]")];
+
 const datasets = {
   udg: { humanities: null, philosophy: null, editorial: null },
   ugto: { philosophy: null },
@@ -80,6 +93,11 @@ let activeScope = "humanities";
 let allRecords = [];
 let currentPage = 1;
 let loaded = false;
+let thesisPeopleIndex = new Map();
+let activePersonController = null;
+let activePersonKey = "";
+let personReturnFocus = null;
+const personResolutionCache = new Map();
 
 const ROLE_LABELS = {
   "program-core": "Programa de Filosofía",
@@ -117,7 +135,303 @@ function makeSelectOptions(select, values) {
 }
 
 function displayAuthors(record) {
-  return record.authors.length ? record.authors.join(" · ") : "Autor no registrado";
+  const names = splitThesisPeople(record?.authors);
+  return names.length ? names.join(" · ") : "Autor no registrado";
+}
+
+function personHref(name) {
+  const url = new URL(location.href);
+  url.searchParams.set("person", name);
+  return url.toString();
+}
+
+function researchAuthorUrl(name, identity = {}) {
+  const url = new URL("./", location.href);
+  url.searchParams.set("view", "author");
+  url.searchParams.set("author", name);
+  if (identity?.id) url.searchParams.set("authorId", String(identity.id).replace(/^A/i, ""));
+  if (identity?.orcid) url.searchParams.set("authorOrcid", String(identity.orcid).replace(/^https?:\/\/orcid\.org\//i, ""));
+  url.hash = "results";
+  return url.toString();
+}
+
+function appendPersonLinks(parent, value, role = "person") {
+  const names = splitThesisPeople(value);
+  if (!names.length) {
+    parent.append(document.createTextNode(role === "director" ? "Dirección no registrada" : "Autor no registrado"));
+    return;
+  }
+
+  const list = element("span", "td-person-link-list");
+  names.forEach((name, index) => {
+    if (index) list.append(element("span", "td-person-separator", "·"));
+    const link = element("a", "td-person-link", name);
+    link.href = personHref(name);
+    link.dataset.thesisPerson = name;
+    link.dataset.thesisPersonRole = role;
+    link.setAttribute("aria-label", `Abrir perfil de ${name}`);
+    list.append(link);
+  });
+  parent.append(list);
+}
+
+function personMonogram(name) {
+  const parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return "Φ";
+  return [parts[0], parts.at(-1)]
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase())
+    .join("")
+    .slice(0, 2);
+}
+
+function thesisProfileWorkUrl(work) {
+  if (work?.institutionAcronym === "UG") return approvedUgtoRepositoryUrl(work.sourceUrl);
+  return approvedReferenceUrl(work?.sourceUrl) || approvedInstitutionalUrl(work?.sourceUrl);
+}
+
+function appendProfileWorks(parent, works, emptyText) {
+  if (!works.length) {
+    parent.append(element("p", "td-person-section-intro", emptyText));
+    return;
+  }
+
+  const list = element("div", "td-person-work-list");
+  for (const work of works) {
+    const row = element("article", "td-person-work");
+    const main = element("div", "td-person-work-main");
+    main.append(element("p", "td-person-work-title", work.title || "Tesis sin título"));
+    const meta = [
+      work.year,
+      work.program,
+      work.institutionAcronym || work.institution,
+    ].filter(Boolean).join(" · ");
+    if (meta) main.append(element("p", "td-person-work-meta", meta));
+    row.append(main);
+
+    const url = thesisProfileWorkUrl(work);
+    if (url) {
+      const link = element("a", "td-person-work-link", "Abrir ficha ↗");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      row.append(link);
+    }
+    list.append(row);
+  }
+  parent.append(list);
+}
+
+function externalWorkTitle(work) {
+  return String(work?.title || "").trim() || "Obra sin título";
+}
+
+function renderPersonProfile(profile, resolution = null, phase = "ready") {
+  if (!personContent || !profile) return;
+  personContent.replaceChildren();
+
+  const hero = element("header", "td-person-hero");
+  hero.append(element("div", "td-person-monogram", personMonogram(profile.name)));
+  const identity = element("div", "");
+  identity.append(
+    element("p", "td-person-kicker", "PERSONA / ARCHIVO DE TESIS"),
+    element("h2", "", profile.name),
+    element("p", "td-person-archive-bio", thesisPersonArchiveBiography(profile)),
+  );
+  identity.querySelector("h2").id = "thesis-person-title";
+  hero.append(identity);
+  personContent.append(hero);
+
+  const metrics = element("div", "td-person-metrics");
+  const metricValues = [
+    [profile.authored.length, "tesis como autoría"],
+    [profile.directed.length, "tesis en dirección"],
+    [profile.yearFrom && profile.yearTo
+      ? (profile.yearFrom === profile.yearTo ? profile.yearFrom : `${profile.yearFrom}–${profile.yearTo}`)
+      : "—", "periodo documentado"],
+  ];
+  for (const [value, label] of metricValues) {
+    const box = element("div", "td-person-metric");
+    box.append(element("strong", "", value), element("span", "", label));
+    metrics.append(box);
+  }
+  personContent.append(metrics);
+
+  if (resolution?.status === "resolved") {
+    const author = resolution.author || {};
+    const strongIdentity = Boolean(author.orcid || author.wikidataId);
+    const bioSection = element("section", "td-person-section");
+    bioSection.append(element("p", "td-person-kicker", strongIdentity ? "IDENTIDAD BIBLIOGRÁFICA ENLAZADA" : "COINCIDENCIA BIBLIOGRÁFICA"));
+    bioSection.append(element("h3", "", author.biography ? "Biografía documentada" : "Perfil académico externo"));
+
+    if (author.biography) {
+      bioSection.append(element("p", "td-person-external-bio", author.biography));
+    } else {
+      bioSection.append(element(
+        "p",
+        "td-person-section-intro",
+        strongIdentity
+          ? "La identidad bibliográfica cuenta con un identificador externo, pero la fuente consultada no ofrece una semblanza biográfica breve."
+          : "Se localizaron obras académicas bajo este nombre, pero no hay un identificador externo suficiente para presentar una biografía personal como verificada.",
+      ));
+    }
+
+    bioSection.append(element(
+      "p",
+      "td-person-evidence",
+      strongIdentity
+        ? "La relación externa se apoya en identificadores bibliográficos disponibles. La actividad de tesis mostrada abajo procede exclusivamente de este archivo."
+        : "Precaución de identidad: las obras externas coinciden por nombre y no se mezclan con la evidencia de tesis como si fueran una misma identidad confirmada.",
+    ));
+
+    const links = element("div", "td-person-external-links");
+    const archiveLink = element("a", "", "Abrir archivo completo de autor ↗");
+    archiveLink.href = researchAuthorUrl(profile.name, author);
+    archiveLink.target = "_blank";
+    archiveLink.rel = "noopener noreferrer";
+    links.append(archiveLink);
+    if (author.wikipediaUrl) {
+      const wiki = element("a", "", "Wikipedia ↗");
+      wiki.href = author.wikipediaUrl;
+      wiki.target = "_blank";
+      wiki.rel = "noopener noreferrer";
+      links.append(wiki);
+    }
+    if (author.orcid) {
+      const orcid = element("a", "", "ORCID ↗");
+      orcid.href = String(author.orcid).startsWith("http") ? author.orcid : `https://orcid.org/${author.orcid}`;
+      orcid.target = "_blank";
+      orcid.rel = "noopener noreferrer";
+      links.append(orcid);
+    }
+    bioSection.append(links);
+    personContent.append(bioSection);
+
+    if ((resolution.works || []).length) {
+      const worksSection = element("section", "td-person-section");
+      worksSection.append(
+        element("p", "td-person-kicker", "PRODUCCIÓN ACADÉMICA RELACIONADA"),
+        element("h3", "", "Otras obras localizadas"),
+        element(
+          "p",
+          "td-person-section-intro",
+          strongIdentity
+            ? "Selección del archivo bibliográfico de Investigación Filosófica."
+            : "Selección por coincidencia nominal. Revise la identidad antes de atribuir cada obra a esta persona.",
+        ),
+      );
+      const externalList = element("div", "td-person-work-list");
+      for (const work of resolution.works.slice(0, 8)) {
+        const row = element("article", "td-person-work");
+        const main = element("div", "td-person-work-main");
+        main.append(element("p", "td-person-work-title", externalWorkTitle(work)));
+        const meta = [work.year, work.type, ...(work.providers || []).slice(0, 2)].filter(Boolean).join(" · ");
+        if (meta) main.append(element("p", "td-person-work-meta", meta));
+        row.append(main);
+        externalList.append(row);
+      }
+      worksSection.append(externalList);
+      personContent.append(worksSection);
+    }
+  } else if (phase === "loading") {
+    personContent.append(element(
+      "p",
+      "td-person-loading",
+      "Buscando una identidad bibliográfica externa para complementar esta ficha sin mezclar homónimos automáticamente…",
+    ));
+  } else if (resolution?.status === "ambiguous") {
+    personContent.append(element(
+      "p",
+      "td-person-loading",
+      "Existen varias identidades bibliográficas compatibles con este nombre. No se eligió ninguna automáticamente; la evidencia de tesis permanece separada y segura.",
+    ));
+  } else {
+    personContent.append(element(
+      "p",
+      "td-person-loading",
+      "No se encontró una biografía externa inequívoca. La ficha conserva únicamente la información documentada por los registros de tesis.",
+    ));
+  }
+
+  const authoredSection = element("section", "td-person-section");
+  authoredSection.append(
+    element("p", "td-person-kicker", "AUTORÍA DE TESIS"),
+    element("h3", "", "Tesis presentadas"),
+  );
+  appendProfileWorks(authoredSection, profile.authored, "No hay tesis registradas como autoría bajo este nombre.");
+  personContent.append(authoredSection);
+
+  const directedSection = element("section", "td-person-section");
+  directedSection.append(
+    element("p", "td-person-kicker", "DIRECCIÓN ACADÉMICA"),
+    element("h3", "", "Tesis que ayudó a dirigir"),
+  );
+  appendProfileWorks(directedSection, profile.directed, "No hay tesis registradas bajo este nombre en el campo de dirección.");
+  personContent.append(directedSection);
+}
+
+async function resolvePersonProfile(profile) {
+  const cacheKey = profile.key;
+  if (personResolutionCache.has(cacheKey)) return personResolutionCache.get(cacheKey);
+
+  activePersonController?.abort();
+  activePersonController = new AbortController();
+  const promise = resolveRemoteAuthor(profile.name, {
+    includeProfile: true,
+    limit: 12,
+    signal: activePersonController.signal,
+  }).catch(error => {
+    if (activePersonController?.signal.aborted || error?.name === "AbortError") throw error;
+    return { status: "unavailable", error: String(error?.message || error), works: [] };
+  });
+  personResolutionCache.set(cacheKey, promise);
+  return promise;
+}
+
+async function openPersonProfile(name, { updateUrl = true } = {}) {
+  const profile = thesisPersonProfile(thesisPeopleIndex, name);
+  if (!profile || !personModal) return;
+
+  activePersonKey = profile.key;
+  personReturnFocus = document.activeElement;
+  personModal.hidden = false;
+  document.body.classList.add("td-person-open");
+  renderPersonProfile(profile, null, "loading");
+  personModal.querySelector(".td-person-close")?.focus();
+
+  if (updateUrl) {
+    const url = new URL(location.href);
+    url.searchParams.set("person", profile.name);
+    history.pushState(null, "", url);
+  }
+
+  try {
+    const resolution = await resolvePersonProfile(profile);
+    if (activePersonKey === profile.key && !personModal.hidden) {
+      renderPersonProfile(profile, resolution, "ready");
+    }
+  } catch (error) {
+    if (error?.name !== "AbortError" && activePersonKey === profile.key) {
+      renderPersonProfile(profile, { status: "unavailable", works: [] }, "ready");
+    }
+  }
+}
+
+function closePersonProfile({ updateUrl = true, restoreFocus = true } = {}) {
+  if (!personModal || personModal.hidden) return;
+  activePersonController?.abort();
+  activePersonController = null;
+  activePersonKey = "";
+  personModal.hidden = true;
+  document.body.classList.remove("td-person-open");
+
+  if (updateUrl) {
+    const url = new URL(location.href);
+    url.searchParams.delete("person");
+    history.pushState(null, "", url);
+  }
+  if (restoreFocus && personReturnFocus?.focus) personReturnFocus.focus();
+  personReturnFocus = null;
 }
 
 function philosophyType(record) {
@@ -232,7 +546,9 @@ function sourceCard(record) {
   card.append(top);
 
   appendText(card, "h3", "td-result-title", record.title);
-  appendText(card, "p", "td-result-authors", displayAuthors(record));
+  const authorLine = element("p", "td-result-authors");
+  appendPersonLinks(authorLine, record.authors, "author");
+  card.append(authorLine);
 
   const meta = element("div", "td-result-meta");
   const fields = [
@@ -298,11 +614,13 @@ function sourceCard(record) {
     for (const term of record.keywords) keywords.append(element("span", "td-tag", term));
     detailBody.append(element("strong", "", "Palabras clave"), keywords);
   }
-  if (record.directors.length) {
-    detailBody.append(
-      element("strong", "", "Dirección"),
-      element("p", "td-excerpt", record.directors.join(" · ")),
-    );
+  if (splitThesisPeople(record.directors).length) {
+    const direction = element("div", "td-person-direction");
+    direction.append(element("strong", "", "Dirección"));
+    const directionPeople = element("p", "td-excerpt");
+    appendPersonLinks(directionPeople, record.directors, "director");
+    direction.append(directionPeople);
+    detailBody.append(direction);
   }
   detailBody.append(element("p", "td-source-id", "ID: " + record.id));
   if (record.canonicalWorkId && record.canonicalWorkId !== record.id) {
@@ -660,6 +978,26 @@ async function loadData() {
     datasets.udg.philosophy = validatePhilosophyIndex(await philosophyResponse.json());
     datasets.udg.editorial = validateEditorialUdgIndex(await editorialResponse.json());
     datasets.ugto.philosophy = validateUgtoPhilosophyIndex(await ugtoResponse.json());
+    thesisPeopleIndex = buildThesisPeopleIndex([
+      {
+        records: datasets.udg.humanities.records,
+        institution: "Universidad de Guadalajara",
+        institutionAcronym: "UdeG",
+        scope: "humanities",
+      },
+      {
+        records: datasets.udg.philosophy.records,
+        institution: "Universidad de Guadalajara",
+        institutionAcronym: "UdeG",
+        scope: "philosophy",
+      },
+      {
+        records: datasets.ugto.philosophy.records,
+        institution: "Universidad de Guanajuato",
+        institutionAcronym: "UG",
+        scope: "philosophy",
+      },
+    ]);
     loaded = true;
 
     document.querySelector("#thesis-canonical-total").textContent = datasets.udg.humanities.totalCanonical.toLocaleString("es-MX");
@@ -684,6 +1022,11 @@ async function loadData() {
       searchInput.value = initialQuery;
       currentPage = 1;
       render();
+    }
+
+    const initialPerson = params.get("person");
+    if (initialPerson) {
+      queueMicrotask(() => openPersonProfile(initialPerson, { updateUrl: false }));
     }
   } catch (error) {
     console.error(error);
@@ -721,6 +1064,33 @@ clear.addEventListener("click", () => {
   currentPage = 1;
   render();
   searchInput.focus();
+});
+
+document.addEventListener("click", event => {
+  const link = event.target?.closest?.("[data-thesis-person]");
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  openPersonProfile(link.dataset.thesisPerson);
+});
+
+for (const control of personCloseControls) {
+  control.addEventListener("click", () => closePersonProfile());
+}
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && personModal && !personModal.hidden) {
+    closePersonProfile();
+  }
+});
+
+window.addEventListener("popstate", () => {
+  if (!loaded) return;
+  const requested = new URLSearchParams(location.search).get("person");
+  if (requested) {
+    openPersonProfile(requested, { updateUrl: false });
+  } else {
+    closePersonProfile({ updateUrl: false, restoreFocus: false });
+  }
 });
 
 loadData();
