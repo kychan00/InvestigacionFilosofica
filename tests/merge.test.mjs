@@ -2,7 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
-  mergeResults
+  mergeResults,
+  resultIdentityKey
 } from "../src/core/merge-results.js";
 
 
