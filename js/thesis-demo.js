@@ -375,13 +375,17 @@ async function resolvePersonProfile(profile) {
   if (personResolutionCache.has(cacheKey)) return personResolutionCache.get(cacheKey);
 
   activePersonController?.abort();
-  activePersonController = new AbortController();
+  const controller = new AbortController();
+  activePersonController = controller;
   const promise = resolveRemoteAuthor(profile.name, {
     includeProfile: true,
     limit: 12,
-    signal: activePersonController.signal,
+    signal: controller.signal,
   }).catch(error => {
-    if (activePersonController?.signal.aborted || error?.name === "AbortError") throw error;
+    if (controller.signal.aborted || error?.name === "AbortError") {
+      personResolutionCache.delete(cacheKey);
+      throw error;
+    }
     return { status: "unavailable", error: String(error?.message || error), works: [] };
   });
   personResolutionCache.set(cacheKey, promise);
