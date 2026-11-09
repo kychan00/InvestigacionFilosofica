@@ -1,0 +1,41 @@
+name: QA RA12-D3 · production smoke
+
+on:
+  pull_request:
+    paths:
+      - "scripts/qa/research-atlas-ra12d3-production-smoke.mjs"
+      - ".github/workflows/qa-ra12d3-production-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  production-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Verify deployed RA12-D3 end to end
+        run: |
+          node scripts/qa/research-atlas-ra12d3-production-smoke.mjs \
+            > ra12d3-production-smoke.json
+          cat ra12d3-production-smoke.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ra12d3-production-smoke
+          path: ra12d3-production-smoke.json
+          if-no-files-found: warn
+          retention-days: 7
