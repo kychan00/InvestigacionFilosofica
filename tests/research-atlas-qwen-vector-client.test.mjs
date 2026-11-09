@@ -406,3 +406,33 @@ test("RA12-D2 refuses overlay location/identity disagreement", async () => {
   assert.equal(out.state, "blocked");
   assert.equal(out.reason, "overlay-resolution-identity-mismatch");
 });
+
+
+test("RA12-D3 cancellation is propagated before semantic transport starts", async () => {
+  const fx = await fixture();
+  const client = new ResearchAtlasQwenVectorClient({
+    pins: fx.pins,
+    locator: fx.locator,
+    fetchImpl: fx.fetchImpl,
+    cryptoImpl
+  });
+
+  const controller = new AbortController();
+  controller.abort();
+
+  await assert.rejects(
+    () =>
+      client.resolveAndFetch(
+        { kind: "v4" },
+        { signal: controller.signal }
+      ),
+    error =>
+      error?.name === "AbortError"
+  );
+
+  assert.equal(
+    [...fx.calls.values()]
+      .reduce((left, right) => left + right, 0),
+    0
+  );
+});

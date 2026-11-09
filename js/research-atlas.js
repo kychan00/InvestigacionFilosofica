@@ -1970,12 +1970,43 @@ function applyLiveUpdate(
         ) +
       " resultados · servicio semántico no disponible, respaldo federado";
   } else {
+    const qwen =
+      event.snapshot
+        ?.diagnostics
+        ?.qwenSemantic;
+
     status.textContent =
-      count
-        .toLocaleString(
-          "es-MX"
-        ) +
-      " resultados · Atlas construido";
+      qwen
+        ? (
+            count
+              .toLocaleString(
+                "es-MX"
+              ) +
+            " resultados · Atlas Qwen · " +
+            Number(
+              qwen.semanticEdgesAdded ||
+              0
+            )
+              .toLocaleString(
+                "es-MX"
+              ) +
+            " conexiones semánticas · " +
+            Number(
+              qwen.vectorsVerified ||
+              0
+            )
+              .toLocaleString(
+                "es-MX"
+              ) +
+            " obras con vector"
+          )
+        : (
+            count
+              .toLocaleString(
+                "es-MX"
+              ) +
+            " resultados · Atlas construido"
+          );
   }
 
   if (!hadView) {
@@ -2818,6 +2849,8 @@ async function boot() {
   liveSession =
     new ResearchAtlasLiveSession({
       philosophyMap,
+      enableQwenTopology:
+        true,
       onUpdate:
         applyLiveUpdate
     });

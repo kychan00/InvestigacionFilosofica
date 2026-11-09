@@ -27,12 +27,21 @@ import {
 } from "./research-atlas-document-similarity.js";
 
 import {
+  addResearchAtlasQwenSemanticTopology,
+  RA12D3_REVISION
+} from "./research-atlas-qwen-topology.js";
+
+import {
+  ResearchAtlasQwenVectorClient
+} from "./research-atlas-qwen-vector-client.js";
+
+import {
   OPENALEX_PHILOSOPHY_HF_REVISION
 } from "../sources/openalex-philosophy.js";
 
 
 export const RESEARCH_ATLAS_LIVE_REVISION =
-  "2026-11-07.ra11-v1";
+  "2026-11-09.ra12d3-v1";
 
 
 function emptyAuthorityGraph() {
@@ -131,6 +140,12 @@ export class ResearchAtlasLiveSession {
       combineSemanticWithFederated,
     enrichAuthorsImpl =
       enrichResultsWithRemoteAuthors,
+    enableQwenTopology =
+      false,
+    qwenTopologyImpl =
+      addResearchAtlasQwenSemanticTopology,
+    qwenVectorClient =
+      null,
     onUpdate =
       null
   } = {}) {
@@ -154,6 +169,21 @@ export class ResearchAtlasLiveSession {
 
     this.enrichAuthorsImpl =
       enrichAuthorsImpl;
+
+    this.enableQwenTopology =
+      enableQwenTopology ===
+        true;
+
+    this.qwenTopologyImpl =
+      qwenTopologyImpl;
+
+    this.qwenVectorClient =
+      this.enableQwenTopology
+        ? (
+            qwenVectorClient ||
+            new ResearchAtlasQwenVectorClient()
+          )
+        : null;
 
     this.onUpdate =
       typeof onUpdate ===
@@ -325,6 +355,124 @@ export class ResearchAtlasLiveSession {
   }
 
 
+  async emitFinal(
+    response,
+    {
+      runId,
+      phase,
+      mode,
+      progress =
+        null,
+      fallback =
+        false
+    }
+  ) {
+    if (
+      !this.isCurrent(
+        runId
+      )
+    ) {
+      return null;
+    }
+
+    if (
+      !this.enableQwenTopology
+    ) {
+      return this.emit(
+        response,
+        {
+          runId,
+          phase,
+          mode,
+          progress,
+          fallback
+        }
+      );
+    }
+
+    const base =
+      this.assembler.ingest(
+        response,
+        {
+          searchMode:
+            mode,
+          state:
+            response
+              .errors
+              ?.length
+              ? "partial"
+              : "complete",
+          sourceRevisions: {
+            ...sourceRevisions(
+              response,
+              mode
+            ),
+            qwenTopology:
+              RA12D3_REVISION
+          }
+        }
+      );
+
+    const snapshot =
+      await this.qwenTopologyImpl(
+        base,
+        response,
+        {
+          vectorClient:
+            this.qwenVectorClient,
+          signal:
+            this.controller
+              ?.signal
+        }
+      );
+
+    if (
+      !this.isCurrent(
+        runId
+      )
+    ) {
+      throw abortError();
+    }
+
+    const layout =
+      this.layoutEngine.layout(
+        snapshot
+      );
+
+    const event = {
+      runId,
+      phase,
+      mode,
+      fallback,
+      progress,
+      response:
+        structuredClone(
+          response
+        ),
+      snapshot:
+        structuredClone(
+          snapshot
+        ),
+      layout:
+        structuredClone(
+          layout
+        )
+    };
+
+    this.last =
+      event;
+
+    this.onUpdate
+      ?.(
+        structuredClone(
+          event
+        )
+      );
+
+    return event;
+  }
+
+
   async runFederated(
     query,
     {
@@ -448,7 +596,7 @@ export class ResearchAtlasLiveSession {
       throw abortError();
     }
 
-    return this.emit(
+    return this.emitFinal(
       enriched,
       {
         runId:
@@ -649,7 +797,7 @@ export class ResearchAtlasLiveSession {
       throw abortError();
     }
 
-    return this.emit(
+    return this.emitFinal(
       enriched,
       {
         runId:

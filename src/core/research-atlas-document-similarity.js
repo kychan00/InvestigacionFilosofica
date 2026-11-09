@@ -451,7 +451,8 @@ export function addResearchAtlasDocumentSimilarity(
     minimumSharedTerms = 2,
     titleWeight = 2,
     abstractWeight = 1,
-    directHitsOnly = true
+    directHitsOnly = true,
+    pairFilter = null
   } = {}
 ) {
   assertResearchAtlasSnapshot(
@@ -547,6 +548,17 @@ export function addResearchAtlasDocumentSimilarity(
         records[
           right
         ];
+
+      if (
+        typeof pairFilter ===
+          "function" &&
+        !pairFilter(
+          a.node,
+          b.node
+        )
+      ) {
+        continue;
+      }
 
       const similarity =
         cosine(
@@ -864,7 +876,10 @@ export function addResearchAtlasDocumentSimilarity(
         directHitsOnly:
           Boolean(
             directHitsOnly
-          )
+          ),
+        pairFilterApplied:
+          typeof pairFilter ===
+            "function"
       }
     }
   };

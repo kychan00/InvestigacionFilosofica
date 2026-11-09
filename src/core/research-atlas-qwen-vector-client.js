@@ -49,6 +49,12 @@ function requirePin(condition, detail) {
   if (!condition) throw new TypeError("Invalid RA12-D2 pins: " + detail);
 }
 
+function throwIfAborted(signal) {
+  if (signal?.aborted) {
+    throw new DOMException("Search aborted", "AbortError");
+  }
+}
+
 function immutableBase(dataset, oid, prefix) {
   requirePin(typeof dataset === "string" && dataset.length > 0, "dataset");
   requirePin(VALID_OID.test(oid || ""), "oid");
@@ -123,16 +129,19 @@ async function fetchVerifiedWhole({
   expectedBytes = null,
   maximum,
   fetchImpl,
-  cryptoImpl
+  cryptoImpl,
+  signal = null
 }) {
   if (!VALID_SHA.test(expectedSha || "") || !Number.isSafeInteger(maximum) || maximum < 1) {
     throw new Error("invalid-whole-file-contract");
   }
+  throwIfAborted(signal);
   const response = await fetchImpl(url, {
     method: "GET",
     mode: "cors",
     credentials: "omit",
-    cache: "no-store"
+    cache: "no-store",
+    signal
   });
   if (response.status !== 200) {
     await response.body?.cancel().catch(() => {});
@@ -162,7 +171,8 @@ async function fetchVerifiedRange({
   expectedSha,
   maximum,
   fetchImpl,
-  cryptoImpl
+  cryptoImpl,
+  signal = null
 }) {
   if (
     !Number.isSafeInteger(start) || start < 0 ||
@@ -174,13 +184,15 @@ async function fetchVerifiedRange({
   ) {
     throw new Error("invalid-range-contract");
   }
+  throwIfAborted(signal);
   const end = start + bytes - 1;
   const response = await fetchImpl(url, {
     method: "GET",
     mode: "cors",
     credentials: "omit",
     cache: "no-store",
-    headers: { Range: "bytes=" + start + "-" + end }
+    headers: { Range: "bytes=" + start + "-" + end },
+    signal
   });
   if (response.status !== 206) {
     await response.body?.cancel().catch(() => {});
@@ -271,7 +283,8 @@ export class ResearchAtlasQwenVectorClient {
     return immutableBase(this.pins.dataset, this.pins.overlay.oid, this.pins.overlay.prefix);
   }
 
-  async v4Root() {
+  async v4Root(signal = null) {
+    throwIfAborted(signal);
     if (!this.v4RootPromise) {
       this.v4RootPromise = (async () => {
         const bytes = await fetchVerifiedWhole({
@@ -279,7 +292,8 @@ export class ResearchAtlasQwenVectorClient {
           expectedSha: this.pins.v4.rootSha256,
           maximum: 750000,
           fetchImpl: this.fetchImpl,
-          cryptoImpl: this.cryptoImpl
+          cryptoImpl: this.cryptoImpl,
+          signal
         });
         const manifest = JSON.parse(new TextDecoder().decode(bytes));
         if (
@@ -305,12 +319,13 @@ export class ResearchAtlasQwenVectorClient {
     return this.v4RootPromise;
   }
 
-  async v4Cluster(cluster) {
+  async v4Cluster(cluster, signal = null) {
+    throwIfAborted(signal);
     if (!Number.isSafeInteger(cluster) || cluster < 0 || cluster >= this.pins.v4.clusters) {
       throw new Error("invalid-v4-cluster");
     }
     return cachedTask(this.v4ClusterPromises, cluster, async () => {
-      const root = await this.v4Root();
+      const root = await this.v4Root(signal);
       const entry = root.clusters[cluster];
       const clusterName = String(cluster).padStart(3, "0");
       if (
@@ -329,7 +344,8 @@ export class ResearchAtlasQwenVectorClient {
         expectedSha: entry.index.sha256,
         maximum: 250000,
         fetchImpl: this.fetchImpl,
-        cryptoImpl: this.cryptoImpl
+        cryptoImpl: this.cryptoImpl,
+        signal
       });
       const index = JSON.parse(new TextDecoder().decode(indexBytes));
       if (
@@ -348,8 +364,9 @@ export class ResearchAtlasQwenVectorClient {
     });
   }
 
-  async v4VectorSha(cluster, ordinal) {
-    const { entry, index } = await this.v4Cluster(cluster);
+  async v4VectorSha(cluster, ordinal, signal = null) {
+    throwIfAborted(signal);
+    const { entry, index } = await this.v4Cluster(cluster, signal);
     if (!Number.isSafeInteger(ordinal) || ordinal < 0 || ordinal >= entry.count) {
       throw new Error("invalid-v4-ordinal");
     }
@@ -379,7 +396,8 @@ export class ResearchAtlasQwenVectorClient {
         expectedSha: tile.sha256,
         maximum: 2048,
         fetchImpl: this.fetchImpl,
-        cryptoImpl: this.cryptoImpl
+        cryptoImpl: this.cryptoImpl,
+        signal
       })
     );
 
@@ -389,10 +407,11 @@ export class ResearchAtlasQwenVectorClient {
     return { entry, index, vectorSha256, tileIndex };
   }
 
-  async fetchV4Vector(cluster, ordinal) {
+  async fetchV4Vector(cluster, ordinal, { signal = null } = {}) {
+    throwIfAborted(signal);
     const key = cluster + ":" + ordinal;
     const result = await cachedTask(this.v4VectorPromises, key, async () => {
-      const { entry, index, vectorSha256, tileIndex } = await this.v4VectorSha(cluster, ordinal);
+      const { entry, index, vectorSha256, tileIndex } = await this.v4VectorSha(cluster, ordinal, signal);
       const clusterName = String(cluster).padStart(3, "0");
       const bytes = await fetchVerifiedRange({
         url: this.v4VectorBase() + "/cluster-" + clusterName + ".vectors.i8",
@@ -402,7 +421,8 @@ export class ResearchAtlasQwenVectorClient {
         expectedSha: vectorSha256,
         maximum: this.pins.v4.dimension,
         fetchImpl: this.fetchImpl,
-        cryptoImpl: this.cryptoImpl
+        cryptoImpl: this.cryptoImpl,
+        signal
       });
       return {
         state: "verified",
@@ -423,7 +443,8 @@ export class ResearchAtlasQwenVectorClient {
     return cloneVerified(result);
   }
 
-  async overlayContext() {
+  async overlayContext(signal = null) {
+    throwIfAborted(signal);
     if (!this.overlayContextPromise) {
       this.overlayContextPromise = (async () => {
         const base = this.overlayBase();
@@ -433,7 +454,8 @@ export class ResearchAtlasQwenVectorClient {
           expectedBytes: this.pins.overlay.manifestBytes,
           maximum: 10000,
           fetchImpl: this.fetchImpl,
-          cryptoImpl: this.cryptoImpl
+          cryptoImpl: this.cryptoImpl,
+          signal
         });
         const manifest = JSON.parse(new TextDecoder().decode(manifestBytes));
         if (
@@ -458,7 +480,8 @@ export class ResearchAtlasQwenVectorClient {
             expectedBytes: this.pins.overlay.indexBytes,
             maximum: 50000,
             fetchImpl: this.fetchImpl,
-            cryptoImpl: this.cryptoImpl
+            cryptoImpl: this.cryptoImpl,
+            signal
           }),
           fetchVerifiedWhole({
             url: base + "/vector-digests.sha256.bin",
@@ -466,7 +489,8 @@ export class ResearchAtlasQwenVectorClient {
             expectedBytes: this.pins.overlay.digestsBytes,
             maximum: 10000,
             fetchImpl: this.fetchImpl,
-            cryptoImpl: this.cryptoImpl
+            cryptoImpl: this.cryptoImpl,
+            signal
           }),
           fetchVerifiedWhole({
             url: base + "/identity-lookup.json",
@@ -474,7 +498,8 @@ export class ResearchAtlasQwenVectorClient {
             expectedBytes: this.pins.overlay.lookupBytes,
             maximum: 150000,
             fetchImpl: this.fetchImpl,
-            cryptoImpl: this.cryptoImpl
+            cryptoImpl: this.cryptoImpl,
+            signal
           })
         ]);
         if (indexBytes.byteLength !== this.pins.overlay.indexBytes) {
@@ -521,12 +546,13 @@ export class ResearchAtlasQwenVectorClient {
     return this.overlayContextPromise;
   }
 
-  async fetchOverlayVector(ordinal) {
+  async fetchOverlayVector(ordinal, { signal = null } = {}) {
+    throwIfAborted(signal);
     if (!Number.isSafeInteger(ordinal) || ordinal < 0 || ordinal >= this.pins.overlay.documents) {
       throw new Error("invalid-overlay-ordinal");
     }
     const result = await cachedTask(this.overlayVectorPromises, ordinal, async () => {
-      const context = await this.overlayContext();
+      const context = await this.overlayContext(signal);
       const row = context.lookup.records[ordinal];
       const digest = digestHex(
         context.digestBytes.subarray(ordinal * 32, (ordinal + 1) * 32)
@@ -539,7 +565,8 @@ export class ResearchAtlasQwenVectorClient {
         expectedSha: digest,
         maximum: this.pins.overlay.dimension,
         fetchImpl: this.fetchImpl,
-        cryptoImpl: this.cryptoImpl
+        cryptoImpl: this.cryptoImpl,
+        signal
       });
       return {
         state: "verified",
@@ -557,7 +584,8 @@ export class ResearchAtlasQwenVectorClient {
     return cloneVerified(result);
   }
 
-  async fetchResolution(resolution) {
+  async fetchResolution(resolution, { signal = null } = {}) {
+    throwIfAborted(signal);
     if (!resolution || typeof resolution !== "object") {
       return { state: "unavailable", reason: "invalid-resolution" };
     }
@@ -575,14 +603,18 @@ export class ResearchAtlasQwenVectorClient {
       ) {
         return await this.fetchV4Vector(
           resolution.location.cluster,
-          resolution.location.ordinal
+          resolution.location.ordinal,
+          { signal }
         );
       }
       if (
         resolution.state === "overlay" &&
         resolution.location?.source === "overlay"
       ) {
-        const vector = await this.fetchOverlayVector(resolution.location.ordinal);
+        const vector = await this.fetchOverlayVector(
+          resolution.location.ordinal,
+          { signal }
+        );
         if (
           resolution.location.identity &&
           vector.identity !== resolution.location.identity
@@ -593,6 +625,9 @@ export class ResearchAtlasQwenVectorClient {
       }
       return { state: "unavailable", reason: "unsupported-resolution-state" };
     } catch (error) {
+      if (error?.name === "AbortError") {
+        throw error;
+      }
       return {
         state: "blocked",
         reason: error instanceof Error ? error.message : "vector-fetch-failed"
@@ -600,9 +635,17 @@ export class ResearchAtlasQwenVectorClient {
     }
   }
 
-  async resolveAndFetch(result) {
-    const resolution = await this.locator.resolve(result);
-    const vector = await this.fetchResolution(resolution);
+  async resolveAndFetch(result, { signal = null } = {}) {
+    throwIfAborted(signal);
+    const resolution = await this.locator.resolve(
+      result,
+      { signal }
+    );
+    throwIfAborted(signal);
+    const vector = await this.fetchResolution(
+      resolution,
+      { signal }
+    );
     return { resolution, vector };
   }
 

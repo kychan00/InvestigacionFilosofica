@@ -496,3 +496,116 @@ test("caída semántica degrada a federado y queda explícita como fallback", as
     /respaldo|federad/i
   );
 });
+
+
+test("RA12-D3 live final snapshot activates Qwen topology only when explicitly enabled", async () => {
+  const final = response([
+    result({
+      id: "openalex-W100",
+      title: "Freedom and autonomy in Kant"
+    }),
+    result({
+      id: "openalex-W200",
+      title: "Moral freedom and autonomy after Kant"
+    })
+  ]);
+
+  const vector = multiplier => {
+    const bytes = new Int8Array(1024);
+    for (let index = 0; index < bytes.length; index += 1) {
+      bytes[index] = ((index * multiplier) % 101) - 50;
+    }
+    return bytes;
+  };
+
+  const qwenVectorClient = {
+    async resolveAndFetch(item) {
+      const multiplier =
+        item.id.includes("W100")
+          ? 3
+          : 5;
+
+      return {
+        resolution: {
+          state: "base-direct",
+          location: {
+            source: "v4",
+            cluster: multiplier,
+            ordinal: multiplier
+          }
+        },
+        vector: {
+          state: "verified",
+          source: "v4",
+          bytes: vector(multiplier),
+          vectorSha256:
+            String(multiplier)
+              .repeat(64)
+              .slice(0, 64),
+          proof: "fixture-proof",
+          cluster: multiplier,
+          ordinal: multiplier
+        }
+      };
+    }
+  };
+
+  const updates = [];
+
+  const session =
+    new ResearchAtlasLiveSession({
+      philosophyMap,
+      enableQwenTopology: true,
+      qwenVectorClient,
+      searchPhilosophyImpl:
+        async () => final,
+      enrichAuthorsImpl:
+        async value => value,
+      onUpdate:
+        update => updates.push(update)
+    });
+
+  const completed =
+    await session.runFederated(
+      "freedom and autonomy"
+    );
+
+  assert.equal(
+    completed.snapshot.edges
+      .filter(edge =>
+        edge.type === "semantic-neighbor"
+      ).length,
+    1
+  );
+
+  assert.equal(
+    completed.snapshot.edges
+      .filter(edge =>
+        edge.type === "lexical-neighbor"
+      ).length,
+    0
+  );
+
+  assert.equal(
+    completed.snapshot.session
+      .sourceRevisions
+      .qwenTopology,
+    "2026-11-09.ra12-d3-v1"
+  );
+
+  assert.equal(
+    completed.snapshot.diagnostics
+      .qwenSemantic
+      .vectorsVerified,
+    2
+  );
+
+  assert.equal(
+    completed.snapshot.diagnostics
+      .documentSimilarity
+      .pairFilterApplied,
+    true
+  );
+
+  assert.equal(updates.length, 1);
+});
