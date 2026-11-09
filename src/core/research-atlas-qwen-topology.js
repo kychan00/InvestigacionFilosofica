@@ -210,7 +210,7 @@ export async function addResearchAtlasQwenSemanticTopology(
   }
   if (
     !Number.isInteger(topK) || topK < 1 || topK > 10 ||
-    !Number.isInteger(maximumEdges) || maximumEdges < 1 || maximumEdges > 200 ||
+    !Number.isInteger(maximumEdges) || maximumEdges < 1 || maximumEdges > RA12D3_MAXIMUM_EDGES ||
     !Number.isFinite(minimumScore) || minimumScore < -1 || minimumScore > 1
   ) {
     throw new RangeError("Invalid RA12-D3 topology limits");
