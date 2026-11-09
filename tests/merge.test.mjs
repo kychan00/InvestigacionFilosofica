@@ -945,3 +945,46 @@ test(
     );
   }
 );
+
+
+test(
+  "conserva títulos alternativos curados dentro del agregado",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "curated:dinora-book",
+          title:
+            "Teoría crítica, planteamientos, desplazamientos, tensiones",
+          alternativeTitles: [
+            "Teoría crítica. Planteamientos, desplazamientos, tensiones"
+          ],
+          authors: [
+            { name: "Dinora Hernández López" }
+          ],
+          year: 2023,
+          doi: null,
+          isbn: [],
+          providers: [
+            "Bibliografía verificada"
+          ],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      1
+    );
+
+    assert.ok(
+      merged[0].titleVariants.includes(
+        "Teoría crítica. Planteamientos, desplazamientos, tensiones"
+      )
+    );
+  }
+);
