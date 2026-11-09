@@ -91,6 +91,32 @@ try {
 
     const page = await context.newPage();
     const externalRequests = [];
+    const pageErrors = [];
+    const consoleErrors = [];
+    const failedRequests = [];
+
+    page.on("pageerror", error => {
+      pageErrors.push(error.message);
+    });
+
+    page.on("console", message => {
+      if (
+        message.type() === "error" ||
+        message.type() === "warning"
+      ) {
+        consoleErrors.push(
+          message.type() + ": " + message.text()
+        );
+      }
+    });
+
+    page.on("requestfailed", request => {
+      failedRequests.push({
+        url: request.url(),
+        failure:
+          request.failure()?.errorText || "unknown"
+      });
+    });
 
     page.on("request", request => {
       const url = request.url();
@@ -149,18 +175,62 @@ try {
 
     await page.locator("#research-view-atlas").click();
 
-    await page.waitForFunction(() =>
-      document
-        .querySelector("#research-atlas-stage")
-        ?.classList
-        .contains("is-react-flow") &&
-      document.querySelectorAll(
-        "#research-atlas-flow .react-flow__node"
-      ).length >= 20
-    , null, {
-      timeout: 30000,
-      polling: 100
-    });
+    try {
+      await page.waitForFunction(() =>
+        document
+          .querySelector("#research-atlas-stage")
+          ?.classList
+          .contains("is-react-flow") &&
+        document.querySelectorAll(
+          "#research-atlas-flow .react-flow__node"
+        ).length >= 20
+      , null, {
+        timeout: 30000,
+        polling: 100
+      });
+    } catch (error) {
+      const diagnostics =
+        await page.evaluate(() => ({
+          stageClass:
+            document
+              .querySelector("#research-atlas-stage")
+              ?.className || null,
+          flowClass:
+            document
+              .querySelector("#research-atlas-flow")
+              ?.className || null,
+          flowChildren:
+            document
+              .querySelector("#research-atlas-flow")
+              ?.children
+              ?.length || 0,
+          flowText:
+            document
+              .querySelector("#research-atlas-flow")
+              ?.textContent
+              ?.slice(0, 500) || "",
+          atlasStatus:
+            document
+              .querySelector("#research-atlas-sync-status")
+              ?.textContent || "",
+          stageLabel:
+            document
+              .querySelector("#research-atlas-stage-label")
+              ?.textContent || ""
+        }));
+
+      throw new Error(
+        "React Flow did not mount: " +
+        JSON.stringify({
+          name,
+          diagnostics,
+          pageErrors,
+          consoleErrors,
+          failedRequests,
+          externalRequests
+        })
+      );
+    }
 
     assert.equal(
       await page.locator("#research-view-atlas").getAttribute("aria-selected"),
