@@ -650,3 +650,208 @@ test(
     );
   }
 );
+
+
+test(
+  "agrupa la misma obra aunque sus ediciones tengan DOI distintos",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "crossref:10.1000/hegel-2005",
+          title:
+            "Hegel's Preface to the Phenomenology of Spirit",
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          year: 2005,
+          doi:
+            "10.1000/hegel-2005",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [
+            {
+              provider: "Crossref",
+              sourceId:
+                "10.1000/hegel-2005",
+              query: "hegel"
+            }
+          ],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "crossref:10.1000/hegel-2021",
+          title:
+            "Hegel's Preface to the Phenomenology of Spirit",
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          year: 2021,
+          doi:
+            "10.1000/hegel-2021",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [
+            {
+              provider: "Crossref",
+              sourceId:
+                "10.1000/hegel-2021",
+              query: "hegel"
+            }
+          ],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      1
+    );
+
+    assert.deepEqual(
+      merged[0].years,
+      [2005, 2021]
+    );
+
+    assert.equal(
+      merged[0].workAppearanceCount,
+      2
+    );
+
+    assert.ok(
+      merged[0].sourceLinks.some(
+        link =>
+          link.url ===
+          "https://doi.org/10.1000/hegel-2005"
+      )
+    );
+
+    assert.ok(
+      merged[0].sourceLinks.some(
+        link =>
+          link.url ===
+          "https://doi.org/10.1000/hegel-2021"
+      )
+    );
+
+    assert.ok(
+      merged[0].identityAliases.includes(
+        "doi:10.1000/hegel-2021"
+      )
+    );
+  }
+);
+
+
+test(
+  "DOI distintos siguen bloqueando una fusión por mera similitud de título",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "crossref:10.1000/right-a",
+          title:
+            "Hegel's Philosophy of Right: Introduction and Commentary",
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          year: 2001,
+          doi: "10.1000/right-a",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "crossref:10.1000/right-b",
+          title:
+            "Hegel's Philosophy of Right: Translation and Commentary",
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          year: 2002,
+          doi: "10.1000/right-b",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      2
+    );
+  }
+);
+
+
+test(
+  "no colapsa títulos genéricos aunque coincidan autor y DOI distintos",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "crossref:10.1000/intro-a",
+          title: "Introduction",
+          authors: [
+            { name: "Author One" }
+          ],
+          year: 2000,
+          doi: "10.1000/intro-a",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "crossref:10.1000/intro-b",
+          title: "Introduction",
+          authors: [
+            { name: "Author One" }
+          ],
+          year: 2005,
+          doi: "10.1000/intro-b",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      2
+    );
+  }
+);
