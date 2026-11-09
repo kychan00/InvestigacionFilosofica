@@ -39,9 +39,17 @@
     "controlsPerCluster": "maximum 4",
     "sourceVectors": "frozen V4 int8 shards with manifest SHA verification",
     "minimumCosineEach": 0.995,
-    "minimumMeanCosine": 0.998,
+    "minimumMeanCosine": 0.997,
     "quantizedByteAgreement": "reported but not a hard gate",
-    "failClosed": true
+    "failClosed": true,
+    "referenceRepresentation": "frozen V4 int8 dequantized+renormalized, not original float32",
+    "quantizationExpectation": {
+      "dimension": 1024,
+      "scale": 127,
+      "rmsErrorNormApprox": 0.0727370418,
+      "expectedCosineApprox": 0.997365112
+    },
+    "thresholdRevisionNote": "Initial 0.998 mean gate was corrected before a passing build after observing it compared fresh float32 embeddings to an int8-quantized reference; 0.997 is below the analytically expected ~0.997365 quantization cosine while the per-control minimum remains 0.995."
   },
   "publishableArtifact": {
     "stores": [
