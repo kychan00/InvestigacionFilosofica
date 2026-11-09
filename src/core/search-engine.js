@@ -8,7 +8,7 @@ import {
 
 import {
   mergeResults
-} from "./merge-results.js?v=20261109-work-cluster-v2";
+} from "./merge-results.js?v=20261109-global-work-dedup-v3";
 
 import {
   rankResults
