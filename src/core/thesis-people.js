@@ -100,7 +100,8 @@ function publicWork(record, context = {}) {
     title: String(record?.title || "").trim(),
     authors: splitThesisPeople(record?.authors),
     directors: splitThesisPeople(record?.directors),
-    year: Number.isFinite(Number(record?.year)) ? Number(record.year) : null,
+    year: record?.year !== null && record?.year !== undefined && record?.year !== "" &&
+      Number.isFinite(Number(record.year)) ? Number(record.year) : null,
     program: String(record?.program || "").trim(),
     degree: String(record?.degree || "").trim(),
     unit: String(record?.unit || "").trim(),
@@ -200,12 +201,12 @@ export function thesisPersonArchiveBiography(profile) {
   const roles = [];
   if (profile.authored.length) {
     roles.push(
-      `${profile.authored.length} ${profile.authored.length === 1 ? "tesis como autoría" : "tesis como autoría"}`
+      `${profile.authored.length} ${profile.authored.length === 1 ? "tesis presentada" : "tesis presentadas"}`
     );
   }
   if (profile.directed.length) {
     roles.push(
-      `${profile.directed.length} ${profile.directed.length === 1 ? "tesis en dirección académica" : "tesis en dirección académica"}`
+      `${profile.directed.length} ${profile.directed.length === 1 ? "tesis en cuya dirección participó" : "tesis en cuya dirección participó"}`
     );
   }
 
