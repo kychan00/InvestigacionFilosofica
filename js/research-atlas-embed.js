@@ -331,7 +331,9 @@ function resultMatchesFocusAuthor(result) {
 
       if (
         focus.matchMode ===
-          "result-author-query"
+          "result-author-query" ||
+        focus.matchMode ===
+          "parsed-philosopher"
       ) {
         return containsAuthorQuery(
           rawName,
@@ -346,12 +348,37 @@ function resultMatchesFocusAuthor(result) {
 
 function rebuildResultContext(response) {
   currentResponse = response;
-  currentResultsByIdentity = new Map(
-    (response?.results || []).map(result => [
-      resultIdentityKey(result),
-      result
-    ])
-  );
+
+  currentResultsByIdentity =
+    new Map();
+
+  for (
+    const result of
+    response?.results || []
+  ) {
+    const identities =
+      new Set([
+        resultIdentityKey(
+          result
+        ),
+        ...(result.identityAliases || [])
+      ]);
+
+    for (
+      const identity of
+      identities
+    ) {
+      if (!identity) {
+        continue;
+      }
+
+      currentResultsByIdentity.set(
+        identity,
+        result
+      );
+    }
+  }
+
   focusAuthors = resolvedFocusAuthors(response);
 
   if (authorKey) {

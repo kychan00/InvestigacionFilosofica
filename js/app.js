@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261030-crossref-work-hygiene-v2";
+} from "../src/core/search-engine.js?v=20261109-work-dedup-v1";
 
 import {
   explainResult
@@ -21,7 +21,7 @@ import {
 
 import {
   resultIdentityKey
-} from "../src/core/merge-results.js";
+} from "../src/core/merge-results.js?v=20261109-work-dedup-v1";
 
 import {
   parseQuery
@@ -1404,6 +1404,28 @@ function recordMetadataCards(
   }
 
 
+  if (
+    Number(
+      item.workAppearanceCount
+    ) > 1
+  ) {
+    add(
+      "Apariciones reunidas",
+      item.workAppearanceCount
+    );
+  }
+
+
+  if (
+    item.years?.length > 1
+  ) {
+    add(
+      "Años registrados",
+      item.years.join(" · ")
+    );
+  }
+
+
   return cards.join("");
 }
 
@@ -1609,6 +1631,77 @@ function renderRecordDetails(
         rel="noopener noreferrer"
       >
         Registro original
+      </a>
+    `);
+  }
+
+
+  const existingAccessUrls =
+    new Set(
+      [
+        item.urls?.openAccess,
+        item.urls?.canonical,
+        item.doi
+          ? `https://doi.org/${item.doi}`
+          : item.urls?.doi
+      ]
+        .filter(Boolean)
+        .map(
+          url =>
+            String(url)
+              .trim()
+              .toLowerCase()
+        )
+    );
+
+
+  for (
+    const link of
+    item.sourceLinks || []
+  ) {
+    if (!link?.url) {
+      continue;
+    }
+
+    const normalizedUrl =
+      String(link.url)
+        .trim()
+        .toLowerCase();
+
+    if (
+      existingAccessUrls.has(
+        normalizedUrl
+      )
+    ) {
+      continue;
+    }
+
+    existingAccessUrls.add(
+      normalizedUrl
+    );
+
+    const label = [
+      link.provider ||
+        (
+          link.kind === "doi"
+            ? "DOI"
+            : "Fuente"
+        ),
+      link.year || null
+    ]
+      .filter(Boolean)
+      .join(" · ");
+
+    accessLinks.push(`
+      <a
+        class="cinematic-action"
+        href="${escapeHtml(
+          link.url
+        )}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ${escapeHtml(label)}
       </a>
     `);
   }
@@ -2440,6 +2533,223 @@ function closeUdegPopup() {
 }
 
 
+function renderWorkAggregate(
+  item
+) {
+  const appearances =
+    item.workAppearances || [];
+
+  const sourceLinks =
+    item.sourceLinks || [];
+
+  const titleVariants =
+    item.titleVariants || [];
+
+  const appearanceCount =
+    Math.max(
+      Number(
+        item.workAppearanceCount
+      ) || 0,
+      appearances.length
+    );
+
+  if (
+    appearanceCount <= 1 &&
+    sourceLinks.length <= 1 &&
+    titleVariants.length <= 1
+  ) {
+    return "";
+  }
+
+  const usedUrls =
+    new Set();
+
+  const rows =
+    appearances
+      .map(
+        appearance => {
+          const link =
+            appearance.url ||
+            sourceLinks.find(
+              candidate =>
+                (
+                  !appearance.provider ||
+                  candidate.provider ===
+                    appearance.provider
+                ) &&
+                candidate.url
+            )?.url ||
+            null;
+
+          if (link) {
+            usedUrls.add(
+              String(link)
+                .trim()
+                .toLowerCase()
+            );
+          }
+
+          const title =
+            appearance.title ||
+            item.title ||
+            "Sin título";
+
+          const provider =
+            appearance.provider ||
+            "Fuente";
+
+          return `
+            <li class="work-appearance-item">
+              <div class="work-appearance-copy">
+                <span class="work-appearance-provider">
+                  ${escapeHtml(
+                    provider
+                  )}
+                </span>
+
+                <strong>
+                  ${escapeHtml(
+                    title
+                  )}
+                </strong>
+
+                ${appearance.year
+                  ? `
+                      <span class="work-appearance-year">
+                        ${escapeHtml(
+                          appearance.year
+                        )}
+                      </span>
+                    `
+                  : ""}
+              </div>
+
+              ${link
+                ? `
+                    <a
+                      href="${escapeHtml(
+                        link
+                      )}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Abrir fuente
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  `
+                : ""}
+            </li>
+          `;
+        }
+      )
+      .join("");
+
+  const extraLinks =
+    sourceLinks
+      .filter(
+        link =>
+          link?.url &&
+          !usedUrls.has(
+            String(link.url)
+              .trim()
+              .toLowerCase()
+          )
+      )
+      .map(
+        link => `
+          <a
+            class="work-extra-link"
+            href="${escapeHtml(
+              link.url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${escapeHtml(
+              link.provider ||
+              (
+                link.kind === "doi"
+                  ? "DOI"
+                  : "Enlace adicional"
+              )
+            )}
+            ${link.year
+              ? ` · ${escapeHtml(
+                  link.year
+                )}`
+              : ""}
+            <span aria-hidden="true">↗</span>
+          </a>
+        `
+      )
+      .join("");
+
+  const variantTitles =
+    titleVariants.length > 1
+      ? `
+          <div class="work-title-variants">
+            <span>
+              Títulos registrados
+            </span>
+
+            <div>
+              ${titleVariants
+                .map(
+                  title => `
+                    <span>
+                      ${escapeHtml(
+                        title
+                      )}
+                    </span>
+                  `
+                )
+                .join("")}
+            </div>
+          </div>
+        `
+      : "";
+
+  return `
+    <details class="work-aggregate">
+      <summary>
+        <span>
+          <strong>
+            ${appearanceCount || 1}
+          </strong>
+          ${appearanceCount === 1
+            ? "registro reunido"
+            : "registros / ediciones reunidos"}
+        </span>
+
+        <span>
+          Ver títulos y enlaces
+        </span>
+      </summary>
+
+      <div class="work-aggregate-body">
+        ${variantTitles}
+
+        ${rows
+          ? `
+              <ul class="work-appearance-list">
+                ${rows}
+              </ul>
+            `
+          : ""}
+
+        ${extraLinks
+          ? `
+              <div class="work-extra-links">
+                ${extraLinks}
+              </div>
+            `
+          : ""}
+      </div>
+    </details>
+  `;
+}
+
+
 function renderResult(
   item,
   index
@@ -2692,7 +3002,25 @@ function renderResult(
               : ""
           }
 
+          ${
+            Number(
+              item.workAppearanceCount
+            ) > 1
+              ? `
+                <span class="provider work-aggregate-pill">
+                  ${item.workAppearanceCount}
+                  apariciones reunidas
+                </span>
+              `
+              : ""
+          }
+
         </div>
+
+
+        ${renderWorkAggregate(
+          item
+        )}
 
 
         <div class="result-links">
