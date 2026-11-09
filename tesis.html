@@ -19,6 +19,7 @@
   </script>
   <title>Tesis · Investigación Filosófica</title>
   <link rel="stylesheet" href="./css/thesis-demo.css?v=20261107-t2dh">
+  <link rel="stylesheet" href="./css/thesis-people.css?v=20261109-people-v1">
 </head>
 <body>
   <div id="thesis-demo" class="td-page">
@@ -248,7 +249,17 @@
     </main>
     <footer class="td-footer"><span>Φ · INVESTIGACIÓN FILOSÓFICA</span><span>Tesis · Archivo universitario en expansión · Noviembre de 2026</span></footer>
   </div>
-  <script type="module" src="./js/thesis-private-analytics.js?v=20261108-v1"></script>\n  <script type="module" src="./js/thesis-demo.js?v=20261107-t2dh"></script>
+  <div id="thesis-person-modal" class="td-person-modal" hidden>
+    <div class="td-person-backdrop" data-thesis-person-close aria-hidden="true"></div>
+    <section class="td-person-sheet" role="dialog" aria-modal="true" aria-labelledby="thesis-person-title">
+      <div class="td-person-sheet-head">
+        <button type="button" class="td-person-close" data-thesis-person-close aria-label="Cerrar perfil de persona">Cerrar</button>
+      </div>
+      <div id="thesis-person-content" class="td-person-content"></div>
+    </section>
+  </div>
+
+  <script type="module" src="./js/thesis-private-analytics.js?v=20261108-v1"></script>\n  <script type="module" src="./js/thesis-demo.js?v=20261109-people-v1"></script>
   <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
 </body>
 </html>

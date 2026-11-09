@@ -1,0 +1,30 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { readFile } from "node:fs/promises";
+
+test("tesis.html incluye el diálogo accesible de perfiles de persona", async () => {
+  const html = await readFile(new URL("../tesis.html", import.meta.url), "utf8");
+  assert.match(html, /id="thesis-person-modal"/);
+  assert.match(html, /role="dialog"/);
+  assert.match(html, /aria-modal="true"/);
+  assert.match(html, /id="thesis-person-content"/);
+  assert.match(html, /thesis-people\.css\?v=20261109-people-v1/);
+});
+
+test("la vista de tesis enlaza autoría y dirección a fichas individuales", async () => {
+  const source = await readFile(new URL("../js/thesis-demo.js", import.meta.url), "utf8");
+  assert.match(source, /function appendPersonLinks\(/);
+  assert.match(source, /dataset\.thesisPerson = name/);
+  assert.match(source, /appendPersonLinks\(authorLine, record\.authors, "author"\)/);
+  assert.match(source, /appendPersonLinks\(directionPeople, record\.directors, "director"\)/);
+  assert.match(source, /buildThesisPeopleIndex\(\[/);
+  assert.match(source, /resolveRemoteAuthor\(profile\.name/);
+  assert.match(source, /"Tesis que ayudó a dirigir"/);
+});
+
+test("el perfil conserva una salida al archivo general de autor", async () => {
+  const source = await readFile(new URL("../js/thesis-demo.js", import.meta.url), "utf8");
+  assert.match(source, /function researchAuthorUrl\(/);
+  assert.match(source, /"Abrir archivo completo de autor ↗"/);
+  assert.match(source, /url\.searchParams\.set\("view", "author"\)/);
+});
