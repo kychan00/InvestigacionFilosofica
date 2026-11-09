@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "research-atlas-ra12c5c-overlay-publication-candidate-v1",
+  "phase": "RA12-C5-C",
+  "state": "candidate-unpublished",
+  "source": {
+    "repository": "kychan00/InvestigacionFilosofica",
+    "runId": 42560032286,
+    "jobId": 128974206664,
+    "artifactId": 13649068736,
+    "artifactName": "research-atlas-ra12c5b-qwen-overlay-candidate",
+    "artifactZipSha256": "9138b16de3e5367a9553a6af4a39f2e73ead808c337dc198b73e62cb6828199f",
+    "artifactZipBytes": 225092,
+    "testedHeadSha": "b6af32d5af33f392064835fba846aec3e74e8617",
+    "overlayManifestSha256": "e76848f2876370b9682d8b906b8704371a331cd0ff2cae4a9fe0bb11a4216166"
+  },
+  "expected": {
+    "documentCount": 207,
+    "dimension": 1024,
+    "vectorBytes": 211968,
+    "digestBytes": 6624,
+    "indexBytes": 19314,
+    "metadataBytes": 26673,
+    "uniqueVectorSha256": 204,
+    "duplicateVectorSha256": 3,
+    "publicationFileCount": 9,
+    "artifacts": {
+      "vectors": "88596081fb50f6dd4a47cbca24b711982a4beca3ed991555588b71ddc4abe89f",
+      "digests": "1c9a1bb51ef6162d96468f9b990a62a9fae31370140d5d705c1aeefda4f5d491",
+      "index": "8e2d1dc520c3c8f4d8bc85ec402ae6ec900e6cd3220a90f710debd3987c3bc90",
+      "metadata": "93ad389844a400f25091e53d7d8ad0d3cf9726f9450e7e61184b5631ce2eacb9"
+    }
+  },
+  "v4DigestProof": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "commitOid": "1a4e16c65a3285182d2cea875aea015e9435b105",
+    "rootSha256": "38067b5876de5f53abe5c7431b8618464d3fe711058a70fdde700fce7c50d961",
+    "sourceRevision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "targetPrefix": "research-atlas/qwen3-document-digests/v1/ra12c2-run42495212950",
+    "sourceWorkflowRunId": 42507210683,
+    "sourcePublicationArtifactId": 13646659125
+  },
+  "publication": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "repoType": "dataset",
+    "targetPrefix": "research-atlas/qwen3-semantic-overlay/v1/ra12c5b-run42560032286",
+    "confirmationPhrase": "PUBLICAR_RA12C5C_OVERLAY",
+    "manualDispatchOnly": true,
+    "pullRequestNeverPublishes": true,
+    "runtimeEnabled": false,
+    "semanticNeighborEnabled": false,
+    "published": false
+  }
+}
