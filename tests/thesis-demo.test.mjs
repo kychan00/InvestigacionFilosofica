@@ -4,6 +4,7 @@ import {
   approvedInstitutionalUrl,
   approvedReferenceUrl,
   cucshCatalogSearchUrl,
+  udgAlephCatalogUrl,
   filterOptions,
   normalized,
   pageSlice,
@@ -85,6 +86,40 @@ test("pagination handles pages and empty results", () => {
   assert.equal(pageSlice(records, -10, 2).page, 1);
   assert.equal(pageSlice([], 20, 2).pages, 1);
   assert.deepEqual(filterOptions(records, "degree"), ["licenciatura", "maestria"]);
+});
+
+test("UdeG ALEPH references use stable catalog searches instead of the portal homepage", () => {
+  const exact = udgAlephCatalogUrl({
+    title: "El performance como una herramienta para la reflexión filosófica",
+    provider: "udg-aleph",
+    providerRecordId: "000551988",
+    alephSystemNumber: "000551988",
+    sourceUrl: "https://wdg.biblio.udg.mx/",
+  });
+  assert.ok(exact);
+  const parsed = new URL(exact);
+  assert.equal(parsed.protocol, "http:");
+  assert.equal(parsed.hostname, "148.202.248.73");
+  assert.equal(parsed.pathname, "/F/");
+  assert.equal(parsed.searchParams.get("func"), "find-b");
+  assert.equal(parsed.searchParams.get("request"), "000551988");
+  assert.equal(parsed.searchParams.get("find_code"), "SYS");
+  assert.equal(parsed.searchParams.get("local_base"), "UDG01");
+  assert.doesNotMatch(exact, /\/F\/[A-Z0-9]+-/i);
+
+  const fallback = udgAlephCatalogUrl({
+    title: "Una tesis sin número de sistema",
+    provider: "udg-aleph",
+    sourceUrl: "https://wdg.biblio.udg.mx/",
+  });
+  const fallbackParsed = new URL(fallback);
+  assert.equal(fallbackParsed.searchParams.get("request"), "Una tesis sin número de sistema");
+  assert.equal(fallbackParsed.searchParams.get("find_code"), "WTI");
+
+  assert.equal(udgAlephCatalogUrl({
+    title: "Otra tesis",
+    sourceUrl: "https://riudg.udg.mx/handle/20.500.12104/1",
+  }), null);
 });
 
 test("legacy CUCSH detail links become reproducible Drupal catalog searches", () => {
