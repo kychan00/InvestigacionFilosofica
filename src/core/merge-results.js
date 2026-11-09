@@ -42,6 +42,28 @@ const WORK_TITLE_STOPWORDS =
   ]);
 
 
+const GENERIC_WORK_TITLES =
+  new Set([
+    "introduction",
+    "introduccion",
+    "preface",
+    "prefacio",
+    "foreword",
+    "prologue",
+    "prologo",
+    "editorial",
+    "review",
+    "resena",
+    "conclusion",
+    "chapter",
+    "capitulo",
+    "index",
+    "indice",
+    "bibliography",
+    "bibliografia"
+  ]);
+
+
 function normalizedTitle(
   value
 ) {
@@ -66,6 +88,17 @@ function comparableTitle(
       " "
     )
     .trim();
+}
+
+
+function genericWorkTitle(
+  value
+) {
+  return GENERIC_WORK_TITLES.has(
+    comparableTitle(
+      value
+    )
+  );
 }
 
 
@@ -761,14 +794,11 @@ function sameWork(
   left,
   right
 ) {
-  if (
+  const distinctDoi =
     conflictingStrongIds(
       left,
       right
-    )
-  ) {
-    return false;
-  }
+    );
 
   const leftTitles =
     titleVariantsOf(
@@ -800,6 +830,7 @@ function sameWork(
 
   let bestTitleScore = 0;
   let exactTitle = false;
+  let exactDistinctiveTitle = false;
   let distinctiveTokenCount = 0;
 
   for (
@@ -835,6 +866,14 @@ function sameWork(
           rightNormalized
       ) {
         exactTitle = true;
+
+        if (
+          !genericWorkTitle(
+            leftTitle
+          )
+        ) {
+          exactDistinctiveTitle = true;
+        }
       }
 
       const score =
@@ -875,6 +914,7 @@ function sameWork(
 
   if (
     exactTitle &&
+    exactDistinctiveTitle &&
     authorScore !== null
   ) {
     return true;
@@ -882,6 +922,7 @@ function sameWork(
 
   if (
     exactTitle &&
+    exactDistinctiveTitle &&
     authorScore === null
   ) {
     const leftYears =
@@ -902,6 +943,19 @@ function sameWork(
       sharedYear &&
       distinctiveTokenCount >= 4
     );
+  }
+
+  /*
+   * Un DOI identifica una manifestación o edición
+   * concreta, no necesariamente la obra intelectual.
+   *
+   * Si dos registros tienen DOI distintos pero el
+   * título distintivo coincide exactamente, ya fueron
+   * aceptados arriba como la misma obra. Para variantes
+   * de título seguimos siendo conservadores.
+   */
+  if (distinctDoi) {
+    return false;
   }
 
   if (

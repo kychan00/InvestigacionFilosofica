@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261109-work-dedup-v1";
+} from "../src/core/search-engine.js?v=20261109-work-cluster-v2";
 
 import {
   explainResult
@@ -21,7 +21,7 @@ import {
 
 import {
   resultIdentityKey
-} from "../src/core/merge-results.js?v=20261109-work-dedup-v1";
+} from "../src/core/merge-results.js?v=20261109-work-cluster-v2";
 
 import {
   parseQuery
@@ -2568,8 +2568,14 @@ function renderWorkAggregate(
     appearances
       .map(
         appearance => {
+          const appearanceDoiUrl =
+            appearance.doi
+              ? `https://doi.org/${appearance.doi}`
+              : null;
+
           const link =
             appearance.url ||
+            appearanceDoiUrl ||
             sourceLinks.find(
               candidate =>
                 (
