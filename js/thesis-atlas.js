@@ -276,9 +276,33 @@ function clusterFor(node) {
   return clusterById.get(node.atlas?.clusterRefs?.[0]);
 }
 
-function selectNode(id, { center = false } = {}) {
+function selectNode(
+  id,
+  {
+    center = false,
+    analyticsSource = null,
+  } = {},
+) {
   const node = nodeById.get(id);
   if (!node) return;
+
+  if (analyticsSource) {
+    window.dispatchEvent(new CustomEvent(
+      "investigacionfilosofica:thesis-click",
+      {
+        detail: {
+          thesisId: node.id,
+          title: node.title,
+          discoverySource: "atlas",
+          interactionSource: analyticsSource,
+          queryText: query.value.trim() || null,
+          institution: "udg",
+          scope: "humanities",
+        },
+      },
+    ));
+  }
+
   selectedId = id;
   if (center) {
     view.x = node.atlas.x;
@@ -338,7 +362,13 @@ function renderDetail(node) {
       element("span", "ta-neighbor-title", entry.node.title),
       element("span", "ta-neighbor-score", entry.similarity.toFixed(3)),
     );
-    button.addEventListener("click", () => selectNode(entry.node.id, { center: true }));
+    button.addEventListener("click", () => selectNode(
+      entry.node.id,
+      {
+        center: true,
+        analyticsSource: "atlas-neighbor",
+      },
+    ));
     list.append(button);
   }
   neighborSection.append(list);
@@ -495,7 +525,14 @@ canvas.addEventListener("pointerup", event => {
   canvas.classList.remove("is-dragging");
   if (!moved) {
     const node = hitTest(event.clientX, event.clientY);
-    if (node) selectNode(node.id);
+    if (node) {
+      selectNode(
+        node.id,
+        {
+          analyticsSource: "atlas-node",
+        },
+      );
+    }
   }
 });
 
