@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "research-atlas-ra12c5a-doi-authority-contract-v1",
+  "phase": "RA12-C5-A",
+  "goal": "Recover exact DOI-bearing federated results that already correspond to frozen Qwen V4 OpenAlex works before generating any overlay embedding.",
+  "v4": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "documentCount": 451823,
+    "immutable": true,
+    "mutationAllowed": false
+  },
+  "authoritySource": {
+    "provider": "OpenAlex API",
+    "endpoint": "https://api.openalex.org/works",
+    "identityInput": "normalized DOI",
+    "requestMode": "doi filter OR batches",
+    "maximumDoiValuesPerRequest": 100,
+    "exactDoiEchoRequired": true,
+    "uniqueOpenAlexWorkRequired": true
+  },
+  "resolutionStates": [
+    "v4-existing-by-doi",
+    "openalex-outside-v4",
+    "openalex-unmatched",
+    "openalex-ambiguous"
+  ],
+  "identityPolicy": {
+    "titleYearFuzzyMatching": false,
+    "authorNameFuzzyMatching": false,
+    "providerLocalIdCrossProviderGuessing": false,
+    "doiNormalization": "lowercase DOI without doi.org or doi: prefix",
+    "ambiguousMappingsFailClosed": true
+  },
+  "runtime": {
+    "clientSideOpenAlexApiEnabled": false,
+    "browserRuntimeChanged": false,
+    "searchResponseChanged": false,
+    "rankingChanged": false,
+    "ra11FallbackChanged": false
+  },
+  "output": {
+    "rawOpenAlexResponsesPreservedInCiArtifact": true,
+    "responseSha256Recorded": true,
+    "doiAuthorityIndex": "256 gzip JSONL hash partitions",
+    "indexRow": "[doi,state,openalexWorkId,vectorId,cluster,ordinal]",
+    "productionEnabled": false,
+    "publishedToHf": false,
+    "embeddingsGenerated": false
+  },
+  "next": {
+    "ifRecovered": "reuse authenticated V4 document vector; no new embedding",
+    "ifOutsideV4": "remain overlay candidate for RA12-C5-B",
+    "ifUnmatched": "remain overlay candidate; preserve original provider authority",
+    "ifAmbiguous": "fail closed and do not assign semantic identity"
+  }
+}
