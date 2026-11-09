@@ -467,7 +467,7 @@ test("React Flow usa año en X y geometría semántica en Y", () => {
 test("React Flow preserva selección, filtros y controles externos", () => {
   assert.match(
     embed,
-    /flowRenderer\.update\(\s*flowPayload\(\)\s*\)/
+    /renderer\.update\(\s*flowPayload\(\)\s*\)/
   );
   assert.match(
     embed,
