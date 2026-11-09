@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261030-crossref-work-hygiene-v2";
+} from "../src/core/search-engine.js?v=20261109-work-dedup-v1";
 
 import {
   explainResult
@@ -21,7 +21,7 @@ import {
 
 import {
   resultIdentityKey
-} from "../src/core/merge-results.js";
+} from "../src/core/merge-results.js?v=20261109-work-dedup-v1";
 
 import {
   parseQuery
