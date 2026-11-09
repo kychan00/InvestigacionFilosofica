@@ -119,17 +119,120 @@ function element(tag, className, text) {
 
 
 function normalizeAuthorName(value) {
-  return String(value || "")
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLocaleLowerCase("und")
-    .replace(/[^\p{L}\p{N}]+/gu, " ")
+  const normalized =
+    String(value || "")
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase("und")
+      .replace(/[^\p{L}\p{N}]+/gu, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  return normalized
+    .replace(
+      /^(?:(?:dr|dra|doctor|doctora|prof|profesor|profesora|lic|licenciado|licenciada|mtro|mtra|maestro|maestra)\s+)+/u,
+      ""
+    )
     .trim();
 }
 
 function authorId(value) {
   return String(value || "")
     .match(/(?:openalex\.org\/A|^A?)(\d+)$/i)?.[1] || null;
+}
+
+
+function authorTokens(value) {
+  return normalizeAuthorName(value)
+    .split(" ")
+    .filter(Boolean);
+}
+
+function looksLikeGenericAuthorQuery(value) {
+  const source = String(value || "").trim();
+
+  if (
+    source.length < 3 ||
+    source.length > 100 ||
+    /[?!:;=]/.test(source) ||
+    !/^[\p{L}\p{M}\s,.'’-]+$/u.test(source)
+  ) {
+    return false;
+  }
+
+  const tokens = authorTokens(source);
+
+  return (
+    tokens.length >= 2 &&
+    tokens.length <= 6
+  );
+}
+
+function containsAuthorQuery(authorName, queryName) {
+  const author = authorTokens(authorName);
+  const query = authorTokens(queryName);
+
+  if (!query.length || !author.length) {
+    return false;
+  }
+
+  const authorSet = new Set(author);
+
+  return query.every(token =>
+    authorSet.has(token)
+  );
+}
+
+function resultAuthorFallback(response) {
+  const query =
+    String(response?.query || "").trim();
+
+  if (!looksLikeGenericAuthorQuery(query)) {
+    return [];
+  }
+
+  let matchedResults = 0;
+  let exactMatches = 0;
+
+  for (const result of response?.results || []) {
+    const matched = (result.authors || []).some(author => {
+      const name =
+        author?.name || author;
+
+      if (!containsAuthorQuery(name, query)) {
+        return false;
+      }
+
+      if (
+        normalizeAuthorName(name) ===
+        normalizeAuthorName(query)
+      ) {
+        exactMatches += 1;
+      }
+
+      return true;
+    });
+
+    if (matched) {
+      matchedResults += 1;
+    }
+  }
+
+  if (!matchedResults) {
+    return [];
+  }
+
+  return [{
+    displayName: query,
+    names: new Set([
+      normalizeAuthorName(query)
+    ]),
+    ids: new Set(),
+    matchMode:
+      "result-author-query",
+    matchedResults,
+    exactMatches
+  }];
 }
 
 function resolvedFocusAuthors(response) {
@@ -175,28 +278,67 @@ function resolvedFocusAuthors(response) {
     return descriptors;
   }
 
-  return (response?.parsed?.philosophers || [])
-    .map(item => ({
-      displayName: item.name,
-      names: new Set([normalizeAuthorName(item.name)].filter(Boolean)),
-      ids: new Set()
-    }))
-    .filter(item => item.names.size);
+  const philosophers =
+    (response?.parsed?.philosophers || [])
+      .map(item => ({
+        displayName: item.name,
+        names: new Set(
+          [normalizeAuthorName(item.name)]
+            .filter(Boolean)
+        ),
+        ids: new Set(),
+        matchMode:
+          "parsed-philosopher"
+      }))
+      .filter(item => item.names.size);
+
+  if (philosophers.length) {
+    return philosophers;
+  }
+
+  return resultAuthorFallback(response);
 }
 
 function resultMatchesFocusAuthor(result) {
-  if (!focusAuthors.length || !result) return false;
+  if (!focusAuthors.length || !result) {
+    return false;
+  }
 
   return (result.authors || []).some(author => {
-    const name = normalizeAuthorName(author?.name || author);
-    const id = authorId(author?.id);
+    const rawName =
+      author?.name || author;
+    const name =
+      normalizeAuthorName(rawName);
+    const id =
+      authorId(author?.id);
 
-    return focusAuthors.some(focus =>
-      Boolean(
-        (id && focus.ids.has(id)) ||
-        (name && focus.names.has(name))
-      )
-    );
+    return focusAuthors.some(focus => {
+      if (
+        id &&
+        focus.ids.has(id)
+      ) {
+        return true;
+      }
+
+      if (
+        name &&
+        focus.names.has(name)
+      ) {
+        return true;
+      }
+
+      if (
+        focus.matchMode ===
+          "result-author-query"
+      ) {
+        return containsAuthorQuery(
+          rawName,
+          focus.displayName
+        );
+      }
+
+      return false;
+    });
   });
 }
 
@@ -216,7 +358,8 @@ function rebuildResultContext(response) {
     if (label) {
       label.textContent =
         focusAuthors.length === 1
-          ? "Obra de " + focusAuthors[0].displayName
+          ? "Obra de " +
+            focusAuthors[0].displayName
           : "Obra de autor buscado";
     }
   }
