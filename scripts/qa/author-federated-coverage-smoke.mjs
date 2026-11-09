@@ -83,6 +83,17 @@ try{
     }));
     throw new Error("Federated profile failed "+JSON.stringify({theme,state,errors,requests}));
   }
+  /*
+   * La cobertura federada debe evaluarse contra todo el archivo ya
+   * recuperado, no sólo contra la primera ventana visual del perfil.
+   */
+  for(let pageIndex=0;pageIndex<20;pageIndex+=1){
+    const loadMore=page.locator("#load-more");
+    if(await loadMore.count()===0)break;
+    await loadMore.click();
+    await page.waitForTimeout(20);
+  }
+
   const titles=await page.locator(".author-work-grid .result-card h2").allTextContents();
   const joined=titles.join("\n").toLowerCase();
   const pageText=await page.locator("#results").textContent();
