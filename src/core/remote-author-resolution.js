@@ -1,3 +1,8 @@
+import {
+  mergeResults
+} from "./merge-results.js?v=20261109-global-work-dedup-v3";
+
+
 const INDEX_BASE = new URL(
   "../../data/authors/author-index-v2/",
   import.meta.url
@@ -1592,11 +1597,26 @@ export function augmentWithAuthorResolution(
       ? authorResolution.works || []
       : [];
 
-  const existingKeys = new Set(
-    (response.results || []).map(
-      resultKey
-    )
-  );
+  const existingKeys =
+    new Set();
+
+  for (
+    const item of
+    response.results || []
+  ) {
+    existingKeys.add(
+      resultKey(item)
+    );
+
+    for (
+      const alias of
+      item.identityAliases || []
+    ) {
+      existingKeys.add(
+        String(alias)
+      );
+    }
+  }
 
   const authorAdditions = works.filter(
     item => !existingKeys.has(
@@ -1604,22 +1624,18 @@ export function augmentWithAuthorResolution(
     )
   );
 
-  const seen = new Set();
-  const results = [];
-
-  for (const item of [
-    ...works,
-    ...(response.results || [])
-  ]) {
-    const key = resultKey(item);
-
-    if (seen.has(key)) {
-      continue;
-    }
-
-    seen.add(key);
-    results.push(item);
-  }
+  /*
+   * La resolución de autor no puede crear una
+   * segunda vía de identidad. Primero ponemos las
+   * obras directas para conservar su prioridad y
+   * después pasamos TODO por el mismo agregador de
+   * obra usado por la búsqueda federada.
+   */
+  const results =
+    mergeResults([
+      ...works,
+      ...(response.results || [])
+    ]);
 
   const providerCounts = {};
 
@@ -1638,8 +1654,29 @@ export function augmentWithAuthorResolution(
       ...(response.stats || {}),
       unique: results.length,
       appearances:
-        (response.stats?.appearances || 0) +
+        (
+          response.stats?.appearances ??
+          (response.results || []).length
+        ) +
         authorAdditions.length,
+      merged:
+        Math.max(
+          0,
+          (
+            (
+              response.stats?.appearances ??
+              (response.results || []).length
+            ) +
+            authorAdditions.length
+          ) -
+          results.length
+        ),
+      multiProvider:
+        results.filter(
+          item =>
+            (item.providers || [])
+              .length > 1
+        ).length,
       providers: providerCounts
     }
   };
@@ -1657,22 +1694,13 @@ export function buildExclusiveAuthorResponse(
     return response;
   }
 
-  const seen = new Set();
-  const results = [];
+  const rawWorks =
+    authorResolution.works || [];
 
-  for (
-    const item of
-    authorResolution.works || []
-  ) {
-    const key = resultKey(item);
-
-    if (seen.has(key)) {
-      continue;
-    }
-
-    seen.add(key);
-    results.push(item);
-  }
+  const results =
+    mergeResults(
+      rawWorks
+    );
 
   const providerCounts = {};
 
@@ -1698,9 +1726,19 @@ export function buildExclusiveAuthorResponse(
     errors: [],
     stats: {
       unique: results.length,
-      appearances: results.length,
-      merged: 0,
-      multiProvider: 0,
+      appearances: rawWorks.length,
+      merged:
+        Math.max(
+          0,
+          rawWorks.length -
+          results.length
+        ),
+      multiProvider:
+        results.filter(
+          item =>
+            (item.providers || [])
+              .length > 1
+        ).length,
       providers: providerCounts
     }
   };
