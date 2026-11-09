@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "research-atlas-ra12c4-overlay-contract-v1",
+  "phase": "RA12-C4",
+  "goal": "Measure real federated Qwen coverage and define a source-agnostic semantic overlay without mutating the frozen OpenAlex V4 corpus.",
+  "baseCorpus": {
+    "dataset": "CristianPelayo/openalex-philosophy",
+    "v4Revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "documentCount": 451823,
+    "frozen": true,
+    "meaning": "verified historical semantic base; never append arbitrary external records into this namespace"
+  },
+  "identityResolutionOrder": [
+    "exact OpenAlex Work ID -> V4",
+    "exact DOI/Crossref DOI alias -> V4",
+    "otherwise stable external identity -> overlay candidate",
+    "otherwise unresolved; never fuzzy-merge by title/year"
+  ],
+  "overlay": {
+    "separateNamespace": "research-atlas/qwen3-semantic-overlay/v1",
+    "sources": [
+      "Crossref",
+      "CUCSH Filosofía",
+      "Internet Archive",
+      "future academic sources"
+    ],
+    "storagePrinciple": "store provenance + stable identifiers + embedding/vector artifacts; store title/abstract only when redistribution is allowed",
+    "embeddingModel": "Qwen/Qwen3-Embedding-0.6B",
+    "embeddingModelRevision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "dimension": 1024,
+    "normalization": "l2",
+    "browserVectorFormat": "signed int8 scale 127, compatible with V4 cosine",
+    "documentTextSchema": "title + '\\n\\n' + abstract when abstract exists; title otherwise",
+    "baseMutation": false,
+    "automaticPublication": false,
+    "embeddingInThisPhase": false
+  },
+  "runtime": {
+    "graphConsumesSearchResponse": true,
+    "vectorLookupIsIndependentOfProvider": true,
+    "sourceResultsRemainOwnedByOriginalProvider": true,
+    "semanticEdgeRequiresTwoAuthenticatedCompatibleVectors": true,
+    "fallback": "RA11 title+abstract lexical cosine",
+    "switchingAtlasTabTriggersNewSearch": false
+  },
+  "benchmark": {
+    "queriesFile": "benchmark/research-atlas/v12/ra12c4-live-query-set.json",
+    "cutoffs": [
+      5,
+      20,
+      50
+    ],
+    "liveProviders": [
+      "OpenAlex Philosophy",
+      "Crossref",
+      "CUCSH Filosofía",
+      "Internet Archive"
+    ],
+    "measurements": [
+      "base-direct",
+      "base-alias",
+      "overlay-candidate",
+      "unresolved",
+      "provider breakdown",
+      "whole federated search p50/p95"
+    ],
+    "notYetMeasured": [
+      "overlay embedding latency",
+      "overlay publication latency",
+      "vector proof p50/p95 for all covered results",
+      "mobile cache behavior"
+    ]
+  },
+  "safety": {
+    "noFullTextRedistributionByDefault": true,
+    "noCopyrightAssumption": true,
+    "noFuzzyBibliographicIdentity": true,
+    "noAuthorIdentityInference": true,
+    "noProductionEnablement": true
+  }
+}
