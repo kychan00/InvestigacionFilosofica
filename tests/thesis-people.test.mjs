@@ -78,7 +78,7 @@ test("agrupa autoría y dirección sin duplicar la misma tesis entre vistas", ()
   ]);
 
   const dalila = thesisPersonProfile(index, "Dalila Ayala Castillo");
-  const mayorga = thesisPersonProfile(index, "Alberto Cuauhtémoc Mayorga Madrigal");
+  const mayorga = thesisPersonProfile(index, "Alberto Cuauthémoc Mayorga Madrigal");
   const nava = thesisPersonProfile(index, "José María Nava Preciado");
 
   assert.equal(dalila.authored.length, 1);
