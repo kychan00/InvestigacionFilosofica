@@ -5107,7 +5107,7 @@ async function openExclusiveAuthorByName(
             authorArchiveNotice =
               phase === "started"
                 ? (resolution.author?.id
-                  ? "Consultando Hugging Face y fuentes bibliográficas…"
+                  ? "Consultando el corpus filosófico y fuentes bibliográficas…"
                   : "Integrando bibliografía verificada y ampliando en Crossref, Internet Archive y catálogos institucionales…")
                 : `Consulta de ${source}: ${works.length} obras verificadas`;
 
@@ -5136,7 +5136,7 @@ async function openExclusiveAuthorByName(
         authorArchiveNotice = deep.errors.length
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
-            ? "Se consultó el índice filosófico de Hugging Face; pueden faltar obras fuera del corpus"
+            ? "Se consultó el corpus filosófico disponible; pueden faltar obras fuera de la colección"
             : "Bibliografía verificada integrada; los catálogos automáticos pueden seguir siendo parciales";
 
         showExclusiveAuthorWorks({
@@ -5545,7 +5545,7 @@ function renderAuthorResolution(
         }
 
         <span>
-          Corpus OpenAlex Philosophy en Hugging Face
+          Corpus filosófico del proyecto
         </span>
       </div>
     </section>
@@ -6074,7 +6074,7 @@ function renderAuthorPage(
           <h3>Colaboradores identificados</h3>
           <div class="author-coauthor-list">${collaboratorCards}</div>
         ` : ""}
-        <p>Se cuentan únicamente las publicaciones recuperadas. Los coautores proceden del índice de autorías de Hugging Face o de metadatos bibliográficos verificados.</p>
+        <p>Se cuentan únicamente las publicaciones recuperadas. Los coautores proceden del índice de autorías del corpus filosófico o de metadatos bibliográficos verificados.</p>
       </section>
 
       <section class="author-page-taxonomy" aria-label="Idiomas y tipos documentales">
@@ -6636,7 +6636,7 @@ async function loadMoreResults() {
     );
 
     status.textContent =
-      `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · conectando Atlas Qwen…`;
+      `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · conectando el Atlas semántico…`;
 
     const topology =
       await topologyReady;
@@ -6652,7 +6652,7 @@ async function loadMoreResults() {
         qwen
           ? (
               `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · ` +
-              `${qwen.semanticEdgesAdded} conexiones Qwen · ` +
+              `${qwen.semanticEdgesAdded} conexiones semánticas · ` +
               `${qwen.vectorsVerified} obras con vector`
             )
           : (
