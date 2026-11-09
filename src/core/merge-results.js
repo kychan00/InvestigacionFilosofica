@@ -939,9 +939,17 @@ function sameWork(
           )
       );
 
+    /*
+     * Sin autoría disponible exigimos mismo año,
+     * pero no cuatro palabras. Ese umbral dejaba
+     * pasar duplicados exactos como "A Hegel
+     * Dictionary" o "7. Die Hegel-Kritik".
+     * Los títulos genéricos ya están excluidos por
+     * exactDistinctiveTitle.
+     */
     return (
       sharedYear &&
-      distinctiveTokenCount >= 4
+      distinctiveTokenCount >= 2
     );
   }
 
