@@ -66,11 +66,6 @@ import {
 } from "../src/core/semantic-federation.js";
 
 import {
-  logAuthorEvent,
-  logSearchQuery
-} from "./private-analytics.js?v=20261108-v1";
-
-import {
   isQwen3BrowserQ8OptIn,
   rerankTopKByQwen3BrowserQ8,
   selectQwen3BrowserQ8Candidates
@@ -4465,19 +4460,6 @@ async function openExclusiveAuthorByName(
   if (!name) {
     return;
   }
-
-  void logAuthorEvent(
-    {
-      name,
-      id: identity.id || null,
-      orcid: identity.orcid || null
-    },
-    {
-      eventType: "searched",
-      source: "author-view"
-    }
-  );
-
   rememberAuthorSourceSearch();
 
   currentController?.abort();
@@ -5157,19 +5139,6 @@ function bindAuthorResolutionActions() {
           if (!candidate) {
             return;
           }
-
-          void logAuthorEvent(
-            {
-              name: candidate.n,
-              id: candidate.id,
-              orcid: candidate.o || null
-            },
-            {
-              eventType: "clicked",
-              source: "author-candidate"
-            }
-          );
-
           document
             .querySelectorAll(
               ".author-candidate"
@@ -5326,13 +5295,7 @@ function clearAuthorIdentity() {
 
 document.addEventListener(
   "click",
-  event => {
-    const analyticsLink = event.target
-      ?.closest?.(
-        "a.author-work-link, a.author-coauthor-link"
-      );
-
-    if (analyticsLink) {
+  event => {    if (analyticsLink) {
       try {
         const authorUrl = new URL(
           analyticsLink.href,
@@ -7225,14 +7188,6 @@ form.addEventListener(
     ) {
       return;
     }
-
-    void logSearchQuery(
-      query,
-      {
-        mode: selectedSearchMode
-      }
-    );
-
     researchWorkspace
       ?.classList
       .remove(
