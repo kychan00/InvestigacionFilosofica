@@ -1,0 +1,201 @@
+name: Research Atlas RA12-C5-B · federated Qwen semantic overlay build
+
+on:
+  pull_request:
+    paths:
+      - "scripts/qa/research-atlas-ra12c4-live-search.mjs"
+      - "scripts/research-atlas/prepare_ra12c5b_overlay_seed.py"
+      - "scripts/research-atlas/build_ra12c5b_qwen_overlay.py"
+      - "scripts/research-atlas/validate_ra12c5b_overlay.py"
+      - "tests/test_ra12c5b_overlay.py"
+      - "benchmark/research-atlas/v12/ra12c5b-overlay-contract.json"
+      - "benchmark/research-atlas/v12/ra12c5b-real-overlay-evidence.json"
+      - "docs/RESEARCH_ATLAS_QWEN3_OVERLAY_RA12C5B.md"
+      - ".github/workflows/research-atlas-ra12c5b.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-real-federated-overlay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    env:
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Test seed, historical text and compatibility contracts
+        run: |
+          python -m pip install "numpy>=1.26,<3"
+          python -m py_compile scripts/research-atlas/prepare_ra12c5b_overlay_seed.py
+          python -m py_compile scripts/research-atlas/build_ra12c5b_qwen_overlay.py
+          python -m py_compile scripts/research-atlas/validate_ra12c5b_overlay.py
+          python -m unittest discover -s tests -p 'test_ra12c5b_overlay.py' -v
+          python -m unittest discover -s tests -p 'test_ra12c5a_doi_openalex_authority.py' -v
+
+      - name: Fetch SHA-verified V4 metadata and cluster IDs
+        run: |
+          mkdir -p artifacts/research-atlas-ra12c5b
+          python scripts/research-atlas/prefetch_ra12_v4_assets.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/ra12c5b-v4-source" \
+            --workers 8 --attempts 4 \
+            --report "$RUNNER_TEMP/v4-source-prefetch.json"
+
+      - name: Build exact frozen V4 OpenAlex alias index
+        run: |
+          python scripts/research-atlas/build_ra12_semantic_alias_index.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/ra12c5b-v4-source" \
+            --output "$RUNNER_TEMP/ra12c5b-v4-alias" \
+            > "$RUNNER_TEMP/v4-alias-summary.json"
+
+      - name: Install application and real-browser dependencies
+        run: |
+          npm ci
+          npm run build:duckdb
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Serve branch locally and capture six live federated SearchResponses
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > "$RUNNER_TEMP/ra12c5b-http.log" 2>&1 &
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && break
+            sleep 1
+          done
+          node scripts/qa/research-atlas-ra12c4-live-search.mjs \
+            --queries benchmark/research-atlas/v12/ra12c4-live-query-set.json \
+            --base-url http://127.0.0.1:4173/ \
+            --output "$RUNNER_TEMP/live-search.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          data=json.loads((Path(os.environ["RUNNER_TEMP"])/"live-search.json").read_text())
+          errors=sum(len(run.get("errors") or []) for run in data["runs"])
+          if errors:
+              raise SystemExit(f"Provider errors invalidate overlay seed: {errors}")
+          print([(r["id"],r["resultCount"],r["durationMs"]) for r in data["runs"]])
+          PY
+
+      - name: Reconcile DOI identities through C5-A authority
+        run: |
+          python scripts/research-atlas/resolve_ra12c5a_openalex_doi_authority.py \
+            --capture "$RUNNER_TEMP/live-search.json" \
+            --alias-root "$RUNNER_TEMP/ra12c5b-v4-alias" \
+            --query-set benchmark/research-atlas/v12/ra12c4-live-query-set.json \
+            --output-dir "$RUNNER_TEMP/c5a-authority" \
+            > "$RUNNER_TEMP/c5a-summary.json"
+          cp "$RUNNER_TEMP/c5a-authority/authority-report.json" \
+            artifacts/research-atlas-ra12c5b/doi-authority-report.json
+
+      - name: Prepare deduplicated external overlay seed without publishable abstracts
+        run: |
+          python scripts/research-atlas/prepare_ra12c5b_overlay_seed.py \
+            --capture "$RUNNER_TEMP/live-search.json" \
+            --authority-report "$RUNNER_TEMP/c5a-authority/authority-report.json" \
+            --alias-root "$RUNNER_TEMP/ra12c5b-v4-alias" \
+            --private-output "$RUNNER_TEMP/overlay-private.jsonl" \
+            --artifact-output artifacts/research-atlas-ra12c5b/seed \
+            > artifacts/research-atlas-ra12c5b/seed-summary.json
+          cat artifacts/research-atlas-ra12c5b/seed-summary.json
+
+      - name: Cache pinned Qwen model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface/hub
+          key: qwen3-embedding-0.6b-97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3-linux-cpu-v1
+
+      - name: Install pinned-contract embedding runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            "numpy>=1.26,<3" \
+            "torch>=2.4,<3" \
+            "transformers>=4.51,<5" \
+            "sentence-transformers>=5,<6"
+
+      - name: Embed real external candidates and require frozen V4 compatibility
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python scripts/research-atlas/build_ra12c5b_qwen_overlay.py \
+            --candidates "$RUNNER_TEMP/overlay-private.jsonl" \
+            --seed-metadata artifacts/research-atlas-ra12c5b/seed/overlay-metadata.jsonl.gz \
+            --v4-manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --v4-source-root "$RUNNER_TEMP/ra12c5b-v4-source" \
+            --output artifacts/research-atlas-ra12c5b/overlay \
+            --device cpu --batch-size 2 \
+            > artifacts/research-atlas-ra12c5b/build-summary.json
+          cat artifacts/research-atlas-ra12c5b/build-summary.json
+
+      - name: Independently validate every overlay vector and publishable metadata row
+        run: |
+          python scripts/research-atlas/validate_ra12c5b_overlay.py \
+            --overlay artifacts/research-atlas-ra12c5b/overlay \
+            --candidates "$RUNNER_TEMP/overlay-private.jsonl" \
+            --report artifacts/research-atlas-ra12c5b/independent-audit.json
+          cat artifacts/research-atlas-ra12c5b/independent-audit.json
+
+      - name: Assert product boundaries and summarize real result
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path("artifacts/research-atlas-ra12c5b")
+          seed=json.loads((root/"seed/seed-report.json").read_text())
+          manifest=json.loads((root/"overlay/manifest.json").read_text())
+          audit=json.loads((root/"independent-audit.json").read_text())
+          assert 50 <= seed["candidateCount"] <= 500
+          assert manifest["documentCount"] == seed["candidateCount"] == audit["documents"]
+          assert manifest["artifacts"]["vectors"]["bytes"] == manifest["documentCount"]*1024
+          assert manifest["artifacts"]["digests"]["bytes"] == manifest["documentCount"]*32
+          assert manifest["v4Compatibility"]["passed"] is True
+          assert audit["status"]=="pass"
+          assert audit["publishableAbstractBodies"]==0
+          assert manifest["productionEnabled"] is False
+          assert manifest["publishedToHf"] is False
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as out:
+              out.write("## RA12-C5-B — first real federated Qwen overlay\n\n")
+              out.write(f"- External identities embedded: **{manifest['documentCount']}**\n")
+              out.write(f"- Text tiers: {seed['textTiers']}\n")
+              out.write(f"- Identity states: {seed['identityStates']}\n")
+              out.write(f"- Vector payload: {manifest['artifacts']['vectors']['bytes']:,} bytes\n")
+              out.write(f"- V4 compatibility minimum cosine: **{manifest['v4Compatibility']['minimumCosine']:.6f}**\n")
+              out.write(f"- V4 compatibility mean cosine: **{manifest['v4Compatibility']['meanCosine']:.6f}**\n")
+              out.write(f"- Unique vector SHA256: {audit['uniqueVectorSha256']}/{audit['documents']}\n")
+              out.write("- Publishable abstract/full-text bodies: **0**\n")
+              out.write("- HF publication: **NO**\n")
+              out.write("- Production semantic edges: **NO**\n")
+          PY
+
+      - name: Run full regression suite
+        run: npm test
+
+      - name: Preserve overlay vectors and evidence, never private source text
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12c5b-qwen-overlay-candidate
+          path: |
+            artifacts/research-atlas-ra12c5b/seed/
+            artifacts/research-atlas-ra12c5b/seed-summary.json
+            artifacts/research-atlas-ra12c5b/doi-authority-report.json
+            artifacts/research-atlas-ra12c5b/overlay/
+            artifacts/research-atlas-ra12c5b/build-summary.json
+            artifacts/research-atlas-ra12c5b/independent-audit.json
+          if-no-files-found: warn
+          retention-days: 30

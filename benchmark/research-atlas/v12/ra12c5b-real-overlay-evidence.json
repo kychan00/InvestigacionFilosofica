@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "research-atlas-ra12c5b-real-overlay-evidence-v1",
+  "phase": "RA12-C5-B",
+  "status": "real-federated-overlay-built-unpublished",
+  "testedHeadSha": "b6af32d5af33f392064835fba846aec3e74e8617",
+  "github": {
+    "workflowRunId": 42560032286,
+    "workflowJobId": 128974206664,
+    "artifactId": 13649068736,
+    "artifactName": "research-atlas-ra12c5b-qwen-overlay-candidate",
+    "artifactZipBytes": 225092,
+    "artifactZipSha256": "9138b16de3e5367a9553a6af4a39f2e73ead808c337dc198b73e62cb6828199f"
+  },
+  "source": {
+    "baseV4Documents": 451823,
+    "v4Revision": "5a4a195085de54bf607a6c4397092ffb32716dcc",
+    "qwenModel": "Qwen/Qwen3-Embedding-0.6B",
+    "qwenRevision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "documentTextContract": "semantic-retrieval-v3.3-document-text-v1",
+    "historicalContractSource": "PR #4 head 4ad76042be6be6ff5358045fa0dd850216898cdf",
+    "dimension": 1024,
+    "normalization": "L2",
+    "quantization": "signed int8 scale 127"
+  },
+  "seed": {
+    "candidateCount": 207,
+    "excluded": {
+      "baseDirect": 86,
+      "baseV4ByDoi": 4
+    },
+    "identityStates": {
+      "openAlexOutsideV4": 143,
+      "doiSourceAuthority": 37,
+      "providerAuthority": 27
+    },
+    "textTiers": {
+      "titleAndAbstract": 125,
+      "titleAndMetadata": 68,
+      "titleOnly": 14
+    }
+  },
+  "compatibility": {
+    "controlCount": 8,
+    "controlClusters": [
+      41,
+      208
+    ],
+    "requiredMinimumCosine": 0.995,
+    "requiredMeanCosine": 0.997,
+    "observedMinimumCosine": 0.9973011612892151,
+    "observedMeanCosine": 0.9973758459091187,
+    "observedMaximumCosine": 0.9974628686904907,
+    "expectedFloatVsInt8CosineApprox": 0.9973651120348836,
+    "quantizedByteAgreementMinimum": 1,
+    "quantizedByteAgreementMean": 1,
+    "passed": true,
+    "note": "The first proposed mean gate 0.998 was corrected before a passing build because the reference is already int8-quantized; the observed cosine is at the analytical quantization ceiling."
+  },
+  "overlay": {
+    "documents": 207,
+    "vectorBytes": 211968,
+    "digestBytes": 6624,
+    "metadataBytes": 26673,
+    "manifestSha256": "e76848f2876370b9682d8b906b8704371a331cd0ff2cae4a9fe0bb11a4216166",
+    "vectorsSha256": "88596081fb50f6dd4a47cbca24b711982a4beca3ed991555588b71ddc4abe89f",
+    "digestsSha256": "1c9a1bb51ef6162d96468f9b990a62a9fae31370140d5d705c1aeefda4f5d491",
+    "vectorIndexSha256": "8e2d1dc520c3c8f4d8bc85ec402ae6ec900e6cd3220a90f710debd3987c3bc90",
+    "metadataSha256": "93ad389844a400f25091e53d7d8ad0d3cf9726f9450e7e61184b5631ce2eacb9",
+    "compatibilityAuditSha256": "2b8d3c38a66eef92e9c42329552c3a95636bb20e92841651a3c5bb77564fe8e2",
+    "saturatedComponents": 0,
+    "publishedToHf": false,
+    "productionEnabled": false
+  },
+  "independentAudit": {
+    "status": "pass",
+    "uniqueIdentities": 207,
+    "uniqueVectorSha256": 204,
+    "duplicateVectorSha256": 3,
+    "publishableAbstractBodies": 0
+  },
+  "duplicateVectorGroups": [
+    {
+      "identities": [
+        "doi:10.12804/th9789587843309",
+        "openalex:W2979496811"
+      ],
+      "textSha256": "e4e1b0b5badd5289f8d90c49f5fe8b144c1c7e918747b15cfe22b35a5179558f",
+      "exactTextShaMatch": true,
+      "identityMergePerformed": false
+    },
+    {
+      "identities": [
+        "openalex:W2325635106",
+        "openalex:W2620381083"
+      ],
+      "textSha256": "293d4ff45fb89a48a1b59a6c643f4d2019c5e8f8451e6d914104d9fb12999562",
+      "exactTextShaMatch": true,
+      "identityMergePerformed": false
+    },
+    {
+      "identities": [
+        "openalex:W4239003752",
+        "openalex:W4241576600"
+      ],
+      "textSha256": "6504b34614878158f36d409b28940ae17673dfa5624e2e4c0e12851f4425d484",
+      "exactTextShaMatch": true,
+      "identityMergePerformed": false
+    }
+  ],
+  "privacyAndRights": {
+    "abstractBodyInPublishableMetadata": false,
+    "documentTextInPublishableMetadata": false,
+    "fullTextStored": false,
+    "pdfStored": false,
+    "privateEmbeddingInputUploadedAsArtifact": false
+  },
+  "nextGate": "RA12-C5-C: immutable HF publication of the exact overlay artifact, browser Pages-origin Range/SHA proof, then source-agnostic V4+overlay resolver integration without enabling semantic edges prematurely."
+}
