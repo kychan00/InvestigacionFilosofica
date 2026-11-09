@@ -86,13 +86,24 @@ try{
   const titles=await page.locator(".author-work-grid .result-card h2").allTextContents();
   const joined=titles.join("\n").toLowerCase();
   const pageText=await page.locator("#results").textContent();
-  const searchableText=pageText.toLowerCase();
+
+  const normalizeCoverageText=value=>
+    String(value||"")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g,"")
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}\s-]/gu," ")
+      .replace(/\s+/g," ")
+      .trim();
+
+  const searchableText=
+    normalizeCoverageText(pageText);
 
   /*
    * Una obra puede tener varias variantes bibliográficas de título
    * dentro de una sola tarjeta. La cobertura debe comprobar que la
    * variante siga disponible en el agregado, no exigir una tarjeta
-   * independiente por cada manifestación.
+   * independiente por cada manifestación ni una puntuación concreta.
    */
   for(const expected of [
     "después del #metoo",
@@ -103,7 +114,13 @@ try{
     "theodor w. adorno: resistencia",
     "teoría crítica. planteamientos"
   ]) {
-    assert.ok(searchableText.includes(expected),"Missing verified Dinora work: "+expected);
+    const normalizedExpected=
+      normalizeCoverageText(expected);
+
+    assert.ok(
+      searchableText.includes(normalizedExpected),
+      "Missing verified Dinora work: "+expected
+    );
   }
   assert.ok(!joined.includes("gracias, dinora"));
   assert.ok(!joined.includes("1900"));
