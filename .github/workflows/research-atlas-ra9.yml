@@ -10,6 +10,7 @@ on:
       - "tests/research-atlas-main-integration.test.mjs"
       - "scripts/qa/research-atlas-main-smoke.mjs"
       - "scripts/qa/research-atlas-main-hegel-smoke.mjs"
+      - "scripts/qa/research-atlas-main-dinora-smoke.mjs"
       - "docs/RESEARCH_ATLAS_MAIN_INTEGRATION_RA9.md"
       - ".github/workflows/research-atlas-ra9.yml"
   workflow_dispatch:
@@ -75,6 +76,9 @@ jobs:
 
       - name: Verify real Hegel Qwen author focus and links
         run: node scripts/qa/research-atlas-main-hegel-smoke.mjs
+
+      - name: Verify generic Dinora author focus from result authors
+        run: node scripts/qa/research-atlas-main-dinora-smoke.mjs
 
       - name: Run complete regression suite
         run: npm test

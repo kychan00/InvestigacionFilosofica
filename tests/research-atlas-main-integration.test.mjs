@@ -236,3 +236,25 @@ test("RA12-D4 actualiza copy y cache bust del Atlas embebido", () => {
     /research-atlas-embed\.css\?v=20261109-ra12d3-main-v1/
   );
 });
+
+
+test("Atlas principal infiere autor buscado desde authors[] cuando authorResolution no existe", () => {
+  assert.match(embed, /resultAuthorFallback/);
+  assert.match(embed, /looksLikeGenericAuthorQuery/);
+  assert.match(embed, /containsAuthorQuery/);
+  assert.match(embed, /matchMode:\s*"result-author-query"/);
+  assert.match(embed, /matchedResults/);
+  assert.match(embed, /exactMatches/);
+});
+
+test("fallback visual de autor no sustituye la identidad resuelta", () => {
+  const resolvedIndex = embed.indexOf("if (descriptors.length)");
+  const fallbackIndex = embed.indexOf("return resultAuthorFallback(response)");
+
+  assert.ok(resolvedIndex >= 0);
+  assert.ok(fallbackIndex > resolvedIndex);
+  assert.match(
+    embed,
+    /id\s*&&\s*focus\.ids\.has\(id\)/
+  );
+});
