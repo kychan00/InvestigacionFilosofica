@@ -325,12 +325,12 @@ def parse_full_page(html: str, *, base_url: str) -> dict[str, Any]:
     return parsed
 
 
-def filtered_page_url(target: dict[str, str], page: int) -> str:
+def filtered_page_url(target: dict[str, str], page: int, *, combine: str = "") -> str:
     parsed = urllib.parse.urlparse(target["viewFinalUrl"])
     q_slug = parsed.path.strip("/")
     query = urllib.parse.urlencode({
         "q": q_slug,
-        "combine": "",
+        "combine": combine,
         target["selectName"]: target["value"],
         "order": "title",
         "sort": "asc",
