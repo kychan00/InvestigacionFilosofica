@@ -855,3 +855,93 @@ test(
     );
   }
 );
+
+
+test(
+  "fusiona títulos exactos cortos sin autor cuando comparten año",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "crossref:10.1000/dictionary-a",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1992,
+          doi: "10.1000/dictionary-a",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "crossref:10.1000/dictionary-b",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1992,
+          doi: "10.1000/dictionary-b",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      1
+    );
+    assert.equal(
+      merged[0].workAppearanceCount,
+      2
+    );
+  }
+);
+
+
+test(
+  "no fusiona un título corto sin autor si cambia el año",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "crossref:10.1000/dictionary-a",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1992,
+          doi: "10.1000/dictionary-a",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "crossref:10.1000/dictionary-b",
+          title: "A Hegel Dictionary",
+          authors: [],
+          year: 1993,
+          doi: "10.1000/dictionary-b",
+          isbn: [],
+          providers: ["Crossref"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      2
+    );
+  }
+);
