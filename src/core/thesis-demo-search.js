@@ -68,6 +68,40 @@ export function filterOptions(records, field) {
     .sort((a, b) => String(a).localeCompare(String(b), "es"));
 }
 
+export function udgAlephCatalogUrl(record) {
+  const provider = String(record?.provider || "").trim().toLowerCase();
+  let sourceHost = "";
+  if (record?.sourceUrl) {
+    try {
+      sourceHost = new URL(record.sourceUrl).hostname.toLowerCase();
+    } catch {}
+  }
+  const isAleph = provider === "udg-aleph" || sourceHost === "wdg.biblio.udg.mx";
+  if (!isAleph) return null;
+
+  const systemNumber = String(record?.alephSystemNumber || record?.providerRecordId || "").trim();
+  const hasExactSystem = /^\d{9}$/.test(systemNumber);
+  const title = String(record?.title || "").trim();
+  if (!hasExactSystem && !title) return null;
+
+  // Stable ALEPH entry point: do not persist the transient /F/<session-id>/ path.
+  const url = new URL("http://148.202.248.73/F/");
+  url.searchParams.set("func", "find-b");
+  url.searchParams.set("request", hasExactSystem ? systemNumber : title);
+  url.searchParams.set("find_code", hasExactSystem ? "SYS" : "WTI");
+  url.searchParams.set("adjacent", "N");
+  url.searchParams.set("local_base", "UDG01");
+  url.searchParams.set("filter_code_1", "WLN");
+  url.searchParams.set("filter_request_1", "");
+  url.searchParams.set("filter_code_2", "WYR");
+  url.searchParams.set("filter_request_2", "");
+  url.searchParams.set("filter_code_3", "WYR");
+  url.searchParams.set("filter_request_3", "");
+  url.searchParams.set("filter_code_4", "WFM");
+  url.searchParams.set("filter_request_4", "");
+  return url.href;
+}
+
 export function cucshCatalogSearchUrl(record) {
   if (!record?.title || !record?.program || !record?.sourceUrl) return null;
 

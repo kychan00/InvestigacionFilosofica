@@ -3,12 +3,13 @@ import {
   approvedInstitutionalUrl,
   approvedReferenceUrl,
   cucshCatalogSearchUrl,
+  udgAlephCatalogUrl,
   filterOptions,
   pageSlice,
   searchTheses,
   validateIndex,
   validatePhilosophyIndex,
-} from "../src/core/thesis-demo-search.js?v=20261109-cucsh-search-v1";
+} from "../src/core/thesis-demo-search.js?v=20261109-aleph-links-v1";
 import {
   approvedEditorialUdgUrl,
   editorialFilterOptions,
@@ -189,6 +190,8 @@ function personMonogram(name) {
 function thesisProfileWorkUrl(work) {
   const catalogSearch = cucshCatalogSearchUrl(work);
   if (catalogSearch) return catalogSearch;
+  const alephSearch = udgAlephCatalogUrl(work);
+  if (alephSearch) return alephSearch;
   if (work?.institutionAcronym === "UG") return approvedUgtoRepositoryUrl(work.sourceUrl);
   return approvedReferenceUrl(work?.sourceUrl) || approvedInstitutionalUrl(work?.sourceUrl);
 }
@@ -639,23 +642,31 @@ function sourceCard(record) {
 
   const actions = element("div", "td-actions");
   const catalogSearchUrl = activeInstitution === "udg" ? cucshCatalogSearchUrl(record) : null;
+  const alephSearchUrl = activeInstitution === "udg" ? udgAlephCatalogUrl(record) : null;
   const officialUrl = activeInstitution === "ugto"
     ? approvedUgtoRepositoryUrl(record.sourceUrl)
     : approvedInstitutionalUrl(record.sourceUrl);
-  const referenceUrl = catalogSearchUrl || (udgPhilosophy ? approvedReferenceUrl(record.sourceUrl) : officialUrl);
+  const referenceUrl = catalogSearchUrl || alephSearchUrl || (udgPhilosophy ? approvedReferenceUrl(record.sourceUrl) : officialUrl);
   if (referenceUrl) {
+    const hasExactAlephId = /^\d{9}$/.test(String(record.alephSystemNumber || record.providerRecordId || ""));
     const linkLabel = catalogSearchUrl
       ? "Buscar esta referencia en catálogo CUCSH ↗"
-      : officialUrl
-        ? "Consultar en repositorio institucional ↗"
-        : `Consultar ${record.sourceLabel || "fuente de referencia"} ↗`;
+      : alephSearchUrl
+        ? (hasExactAlephId ? "Abrir ficha en Catálogo UdeG ↗" : "Buscar en Catálogo UdeG ↗")
+        : officialUrl
+          ? "Consultar en repositorio institucional ↗"
+          : `Consultar ${record.sourceLabel || "fuente de referencia"} ↗`;
     const link = element("a", "td-primary-action", linkLabel);
     link.href = referenceUrl;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.setAttribute(
       "aria-label",
-      catalogSearchUrl ? "Buscar esta referencia en el catálogo CUCSH" : "Abrir la fuente bibliográfica de esta tesis",
+      catalogSearchUrl
+        ? "Buscar esta referencia en el catálogo CUCSH"
+        : alephSearchUrl
+          ? "Abrir esta referencia en el Catálogo UdeG"
+          : "Abrir la fuente bibliográfica de esta tesis",
     );
     actions.append(link);
   } else {

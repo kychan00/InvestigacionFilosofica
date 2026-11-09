@@ -75,6 +75,10 @@ class PhilosophyPublicIndexV1Test(unittest.TestCase):
         ricoeur = next(row for row in index["records"] if "Paul Ricoeur" in row["title"])
         self.assertEqual(ricoeur["canonicalWorkId"], "thesis:work:00000008")
         self.assertEqual(ricoeur["program"], "Maestría en Estudios de Literatura Mexicana")
+        performance = by_title["El performance como una herramienta para la reflexión filosófica"]
+        self.assertEqual(performance["provider"], "udg-aleph")
+        self.assertEqual(performance["providerRecordId"], "000551988")
+        self.assertEqual(performance["alephSystemNumber"], "000551988")
 
     def test_review_is_visible_but_not_promoted(self):
         review = [row for row in self.build()["records"] if row["philosophyStatus"] == "review"]
