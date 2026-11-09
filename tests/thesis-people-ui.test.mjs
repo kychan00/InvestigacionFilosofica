@@ -14,7 +14,7 @@ test("tesis.html incluye el diálogo accesible de perfiles de persona", async ()
 test("la vista de tesis enlaza autoría y dirección a fichas individuales", async () => {
   const source = await readFile(new URL("../js/thesis-demo.js", import.meta.url), "utf8");
   assert.match(source, /function appendPersonLinks\(/);
-  assert.match(source, /dataset\\.thesisPerson = name/);
+  assert.match(source, /dataset\.thesisPerson = name/);
   assert.match(source, /appendPersonLinks\(authorLine, record\.authors, "author"\)/);
   assert.match(source, /appendPersonLinks\(directionPeople, record\.directors, "director"\)/);
   assert.match(source, /buildThesisPeopleIndex\(\[/);
