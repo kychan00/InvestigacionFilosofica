@@ -191,3 +191,96 @@ Ese umbral mezclaba dos representaciones distintas: el embedding nuevo es float3
 Por ello el umbral medio se corrigió prospectivamente a **0.997** antes de aceptar ningún overlay. El mínimo individual permanece en **0.995**. La igualdad byte a byte sigue registrándose como diagnóstico y no se convirtió retroactivamente en un gate.
 
 Esta corrección no relaja una falla semántica: documenta que 0.998 era incompatible con el techo esperado de comparar float32 contra una referencia int8.
+
+
+## Resultado real — primer overlay federado construido
+
+La ejecución válida de C5-B fue el workflow `42560032286`, job `128974206664`, sobre el commit `b6af32d5af33f392064835fba846aec3e74e8617`.
+
+Después de repetir la búsqueda federada, reconciliar DOI mediante C5-A y excluir obras ya presentes en V4, quedaron **207 identidades externas únicas** para embedding:
+
+| Tipo de identidad | Documentos |
+| --- | ---: |
+| OpenAlex real fuera de V4 | **143** |
+| DOI bajo autoridad de fuente | **37** |
+| Identidad estable del proveedor | **27** |
+
+El texto usado por Qwen se distribuyó así:
+
+| Materia textual | Documentos |
+| --- | ---: |
+| título + abstract | **125** |
+| título + metadata adicional | **68** |
+| sólo título | **14** |
+
+El metadata publicable conserva hashes, identidad y procedencia, pero **0 cuerpos de abstract**, `documentText`, texto completo o PDF.
+
+### Compatibilidad con el espacio V4
+
+Antes del overlay se re-embebieron ocho documentos V4 genuinos. Los controles terminaron distribuidos en los clusters **41 y 208**, cuatro por cluster.
+
+| Medida | Resultado |
+| --- | ---: |
+| Coseno mínimo float nuevo ↔ V4 int8 | **0.9973011613** |
+| Coseno medio | **0.9973758459** |
+| Coseno máximo | **0.9974628687** |
+| Coseno esperado por cuantización 1024D/int8 | ≈ **0.9973651120** |
+| Acuerdo de bytes tras cuantizar otra vez | **100 % en los 8 controles** |
+
+El acuerdo int8 de 100 % es especialmente fuerte: una vez aplicado el mismo contrato L2 + escala 127, los ocho controles reprodujeron exactamente los bytes almacenados en V4.
+
+El primer gate medio propuesto de 0.998 falló con una media 0.997376. Antes de aceptar ningún overlay se corrigió a 0.997 porque el comparador usaba un embedding float nuevo frente a una referencia que ya había sufrido cuantización int8. El valor observado coincide prácticamente con el límite analítico esperado de esa cuantización.
+
+### Artefacto Qwen generado
+
+| Artefacto | Resultado |
+| --- | ---: |
+| Documentos | **207** |
+| Vectores int8 | **211,968 bytes** |
+| Digests SHA-256 | **6,624 bytes** |
+| Metadata comprimida | **26,673 bytes** |
+| Componentes saturados a ±127 | **0** |
+| SHA-256 del manifest | `e76848f2876370b9682d8b906b8704371a331cd0ff2cae4a9fe0bb11a4216166` |
+
+Hashes principales:
+
+- vectores: `88596081fb50f6dd4a47cbca24b711982a4beca3ed991555588b71ddc4abe89f`
+- digests: `1c9a1bb51ef6162d96468f9b990a62a9fae31370140d5d705c1aeefda4f5d491`
+- índice: `8e2d1dc520c3c8f4d8bc85ec402ae6ec900e6cd3220a90f710debd3987c3bc90`
+- metadata: `93ad389844a400f25091e53d7d8ad0d3cf9726f9450e7e61184b5631ce2eacb9`
+
+### Tres vectores repetidos no son colisiones de hash
+
+El auditor encontró **204 SHA de vector distintos para 207 identidades**. Se inspeccionaron los tres grupos repetidos y en todos los casos las identidades distintas habían producido **exactamente el mismo hash del texto de entrada**:
+
+1. `doi:10.12804/th9789587843309` y `openalex:W2979496811`.
+2. `openalex:W2325635106` y `openalex:W2620381083`.
+3. `openalex:W4239003752` y `openalex:W4241576600`.
+
+Por tanto, no se trata de una colisión SHA ni de una falla del modelo: **texto idéntico → vector idéntico** bajo un modelo determinista.
+
+C5-B deliberadamente **no fusiona esas identidades**. Que dos registros tengan el mismo texto embebido no es autoridad bibliográfica suficiente para declarar que representan la misma obra.
+
+### Evidencia preservada
+
+- Workflow: `42560032286`
+- Job: `128974206664`
+- Artifact: `13649068736`
+- ZIP: **225,092 bytes**
+- SHA-256 ZIP: `9138b16de3e5367a9553a6af4a39f2e73ead808c337dc198b73e62cb6828199f`
+- Registro permanente: `benchmark/research-atlas/v12/ra12c5b-real-overlay-evidence.json`
+
+El overlay sigue en estado **built-unpublished**: todavía no está en Hugging Face y no participa en el Atlas público.
+
+## Siguiente gate: RA12-C5-C
+
+C5-C debe fijar exactamente este artifact, publicarlo en un namespace inmutable de Hugging Face y comprobar desde el origen real de GitHub Pages:
+
+1. identidad del SearchResponse → ordinal del overlay;
+2. manifest y metadata por SHA;
+3. Range 206 de los 1,024 bytes del vector;
+4. SHA individual del vector;
+5. coseno V4 ↔ overlay y overlay ↔ overlay en el navegador;
+6. fallback RA11 ante cualquier falla.
+
+Sólo después de esa prueba se puede plantear conectar el resolvedor combinado al Atlas. La publicación por sí sola **no habilitará** nuevas aristas semánticas.
