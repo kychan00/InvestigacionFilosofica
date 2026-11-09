@@ -927,3 +927,53 @@ html[data-theme] #record-modal :is(
     padding-right: 96px;
   }
 }
+
+
+/* Federated work aggregation */
+
+.work-aggregate {
+  border-color:
+    var(--theme-line);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--theme-surface-2) 55%,
+      transparent
+    );
+}
+
+.work-aggregate > summary,
+.work-aggregate > summary > span:nth-child(2),
+.work-title-variants > span,
+.work-appearance-provider,
+.work-appearance-year {
+  color:
+    var(--theme-text-soft);
+}
+
+.work-aggregate > summary strong,
+.work-appearance-copy strong,
+.work-appearance-item > a,
+.work-extra-link {
+  color:
+    var(--theme-text);
+}
+
+.work-aggregate-body,
+.work-appearance-item,
+.work-extra-links {
+  border-color:
+    var(--theme-line);
+}
+
+.work-title-variants > div > span {
+  border-color:
+    var(--theme-line);
+
+  background:
+    var(--theme-surface-2);
+
+  color:
+    var(--theme-text);
+}
