@@ -1,0 +1,150 @@
+name: Research Atlas RA12-C5-C · immutable overlay publication and browser proof
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/research-atlas/v12/ra12c5c-overlay-publication-candidate.json"
+      - "scripts/research-atlas/prepare_ra12c5c_overlay_publication.py"
+      - "scripts/research-atlas/publish_ra12c5c_overlay_to_hf.py"
+      - "src/core/research-atlas-qwen-overlay-proof.js"
+      - "scripts/qa/research-atlas-ra12c5c-overlay-browser-smoke.mjs"
+      - "tests/test_ra12c5c_overlay_publication.py"
+      - "tests/research-atlas-qwen-overlay-proof.test.mjs"
+      - "docs/RESEARCH_ATLAS_QWEN3_OVERLAY_PUBLICATION_RA12C5C.md"
+      - ".github/workflows/research-atlas-ra12c5c.yml"
+  workflow_dispatch:
+    inputs:
+      confirm_publish:
+        description: "Publicación real HF: escriba exactamente PUBLICAR_RA12C5C_OVERLAY"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  exact-artifact-release-and-browser-proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Require explicit human authorization before any HF write
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          CONFIRM: ${{ inputs.confirm_publish }}
+        run: |
+          if [ "$CONFIRM" != "PUBLICAR_RA12C5C_OVERLAY" ]; then
+            echo "::error::RA12-C5-C publication requires exact manual confirmation"
+            exit 1
+          fi
+
+      - name: Test archive preflight, overlay proof and fail-closed behavior
+        run: |
+          python -m py_compile scripts/research-atlas/prepare_ra12c5c_overlay_publication.py
+          python -m py_compile scripts/research-atlas/publish_ra12c5c_overlay_to_hf.py
+          python -m unittest discover -s tests -p 'test_ra12c5c_overlay_publication.py' -v
+          node --test tests/research-atlas-qwen-overlay-proof.test.mjs
+
+      - name: Retrieve exact original C5-B artifact and require pinned ZIP SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p artifacts/research-atlas-ra12c5c
+          curl --fail --location --silent --show-error --retry 3 --retry-delay 2 \
+            --max-time 120 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/kychan00/InvestigacionFilosofica/actions/artifacts/13649068736/zip" \
+            -o "$RUNNER_TEMP/ra12c5b-original-overlay.zip"
+          test "$(stat -c%s "$RUNNER_TEMP/ra12c5b-original-overlay.zip")" = "225092"
+          echo "9138b16de3e5367a9553a6af4a39f2e73ead808c337dc198b73e62cb6828199f  $RUNNER_TEMP/ra12c5b-original-overlay.zip" | sha256sum -c -
+
+      - name: Revalidate every vector digest and stage immutable overlay release
+        run: |
+          python scripts/research-atlas/prepare_ra12c5c_overlay_publication.py \
+            --archive "$RUNNER_TEMP/ra12c5b-original-overlay.zip" \
+            --config benchmark/research-atlas/v12/ra12c5c-overlay-publication-candidate.json \
+            --output "$RUNNER_TEMP/ra12c5c-verified-release" \
+            > artifacts/research-atlas-ra12c5c/preflight.json
+          cp "$RUNNER_TEMP/ra12c5c-verified-release/release-provenance.json" artifacts/research-atlas-ra12c5c/provenance.json
+          cp "$RUNNER_TEMP/ra12c5c-verified-release/browser-reference.json" artifacts/research-atlas-ra12c5c/browser-reference.json
+          cat artifacts/research-atlas-ra12c5c/preflight.json
+
+      - name: Run full product regression without enabling semantic runtime
+        run: |
+          npm ci
+          npm test
+
+      - name: Assert PR remains read-only and preserves RA11 fallback
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=json.loads(Path("artifacts/research-atlas-ra12c5c/preflight.json").read_text())
+          assert p["status"]=="verified-unpublished"
+          assert p["documents"]==207 and p["uniqueVectorSha256"]==204 and p["duplicateVectorSha256"]==3
+          assert p["sourceArchiveSha256"]=="9138b16de3e5367a9553a6af4a39f2e73ead808c337dc198b73e62cb6828199f"
+          assert p["overlayManifestSha256"]=="e76848f2876370b9682d8b906b8704371a331cd0ff2cae4a9fe0bb11a4216166"
+          assert p["publishedToHf"] is False and p["runtimeEnabled"] is False and p["semanticNeighborEnabled"] is False
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as out:
+              out.write("## RA12-C5-C exact overlay publication preflight\n\n")
+              out.write("- Original C5-B artifact #13649068736 ZIP SHA: **PASS**\n")
+              out.write("- 207 per-vector digests revalidated: **PASS**\n")
+              out.write("- Publishable abstract/documentText bodies: **0**\n")
+              out.write("- PR writes to Hugging Face: **NO**\n")
+              out.write("- semantic-neighbor enabled: **NO**\n")
+              out.write("- RA11 fallback: **PRESERVED**\n")
+              out.write("- Manual dispatch after merge performs immutable HF publish + live Pages browser proof.\n")
+          PY
+
+      - name: Install HF client only for explicit manual publication
+        if: github.event_name == 'workflow_dispatch'
+        run: python -m pip install "huggingface_hub>=0.34,<2"
+
+      - name: Publish exact release under immutable HF commit and verify every remote SHA
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          CONFIRM: ${{ inputs.confirm_publish }}
+        run: |
+          python scripts/research-atlas/publish_ra12c5c_overlay_to_hf.py \
+            --config benchmark/research-atlas/v12/ra12c5c-overlay-publication-candidate.json \
+            --release "$RUNNER_TEMP/ra12c5c-verified-release" \
+            --confirm "$CONFIRM" \
+            --report artifacts/research-atlas-ra12c5c/hf-publication.json
+          cat artifacts/research-atlas-ra12c5c/hf-publication.json
+
+      - name: Install Chromium only for live-origin publication proof
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Verify manifest, lookup, Range 206, SHA and V4-overlay cosine from real Pages origin
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          node scripts/qa/research-atlas-ra12c5c-overlay-browser-smoke.mjs \
+            --publication artifacts/research-atlas-ra12c5c/hf-publication.json \
+            --reference "$RUNNER_TEMP/ra12c5c-verified-release/browser-reference.json" \
+            --output artifacts/research-atlas-ra12c5c/browser-proof.json
+          cat artifacts/research-atlas-ra12c5c/browser-proof.json
+
+      - name: Preserve preflight, immutable HF OID and live browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12c5c-overlay-publication-evidence
+          path: artifacts/research-atlas-ra12c5c/
+          if-no-files-found: warn
+          retention-days: 30
