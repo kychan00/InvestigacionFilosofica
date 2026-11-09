@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "research-atlas-ra12c4-real-federated-coverage-evidence-v1",
+  "phase": "RA12-C4",
+  "status": "corrected-live-four-provider-measurement",
+  "source": {
+    "testedHeadSha": "2b5d7c28eebf6a3cfaeda38b17b0b239d4fdfd16",
+    "workflowRunId": 42556275169,
+    "workflowJobId": 128962576576,
+    "artifactId": 13647139355,
+    "artifactName": "research-atlas-ra12c4-live-federated-coverage",
+    "artifactZipSha256": "fa5adb2e3e0a32cc87d3861627b46fbe77e472a8d28b0bcdf29898083be39e18",
+    "artifactZipBytes": 7622627,
+    "querySet": "benchmark/research-atlas/v12/ra12c4-live-query-set.json",
+    "providerErrors": 0
+  },
+  "aliasIndex": {
+    "v4Documents": 451823,
+    "resolvedAliases": 451823,
+    "compressedBytes": 7249221,
+    "ambiguousAliasesExcluded": 0,
+    "rawAliasKinds": {
+      "openalex": 451823
+    },
+    "observedDoiAliases": 0,
+    "observedCrossrefAliases": 0,
+    "interpretation": "Frozen V4 metadata schema includes DOI/Crossref fields, but this build yielded no usable DOI/Crossref aliases; exact DOI→V4 enrichment must be a separate future authority layer."
+  },
+  "aggregateCoverage": {
+    "top5": {
+      "observedResults": 30,
+      "baseDirect": 2,
+      "baseAlias": 0,
+      "overlayCandidate": 28,
+      "unresolved": 0,
+      "baseV4Coverage": 0.06666666666666667,
+      "eventualQwenCoverageIfOverlayEmbedded": 1
+    },
+    "top20": {
+      "observedResults": 120,
+      "baseDirect": 5,
+      "baseAlias": 0,
+      "overlayCandidate": 115,
+      "unresolved": 0,
+      "baseV4Coverage": 0.041666666666666664,
+      "eventualQwenCoverageIfOverlayEmbedded": 1
+    },
+    "top50": {
+      "observedResults": 297,
+      "baseDirect": 85,
+      "baseAlias": 0,
+      "overlayCandidate": 212,
+      "unresolved": 0,
+      "baseV4Coverage": 0.28619528619528617,
+      "eventualQwenCoverageIfOverlayEmbedded": 1
+    }
+  },
+  "providerBreakdown": {
+    "OpenAlex Philosophy": {
+      "results": 85,
+      "baseDirect": 85,
+      "baseAlias": 0,
+      "overlayCandidate": 0,
+      "unresolved": 0
+    },
+    "Crossref": {
+      "results": 127,
+      "baseDirect": 0,
+      "baseAlias": 0,
+      "overlayCandidate": 127,
+      "unresolved": 0
+    },
+    "CUCSH Filosofía": {
+      "results": 57,
+      "baseDirect": 0,
+      "baseAlias": 0,
+      "overlayCandidate": 57,
+      "unresolved": 0
+    },
+    "Internet Archive": {
+      "results": 28,
+      "baseDirect": 0,
+      "baseAlias": 0,
+      "overlayCandidate": 28,
+      "unresolved": 0
+    }
+  },
+  "liveQueries": [
+    {
+      "id": "kant-freedom-es",
+      "resultCount": 174,
+      "capturedTop": 50,
+      "durationMs": 9363,
+      "errors": 0
+    },
+    {
+      "id": "quine-ontology-es",
+      "resultCount": 66,
+      "capturedTop": 50,
+      "durationMs": 1855,
+      "errors": 0
+    },
+    {
+      "id": "fear-phenomenology-es",
+      "resultCount": 49,
+      "capturedTop": 49,
+      "durationMs": 1226,
+      "errors": 0
+    },
+    {
+      "id": "lukacs-tech-es",
+      "resultCount": 48,
+      "capturedTop": 48,
+      "durationMs": 1603,
+      "errors": 0
+    },
+    {
+      "id": "hume-causality-es",
+      "resultCount": 130,
+      "capturedTop": 50,
+      "durationMs": 4528,
+      "errors": 0
+    },
+    {
+      "id": "stoic-virtue-es",
+      "resultCount": 62,
+      "capturedTop": 50,
+      "durationMs": 1602,
+      "errors": 0
+    }
+  ],
+  "searchLatencyMs": {
+    "p50": 1729,
+    "p95": 9363,
+    "min": 1226,
+    "max": 9363,
+    "scope": "whole federated search in CI Chromium; not Qwen vector-proof latency"
+  },
+  "overlayQueue": {
+    "uniqueCandidatesObserved": 212,
+    "embeddingsGenerated": false,
+    "published": false
+  },
+  "methodology": {
+    "providers": [
+      "OpenAlex Philosophy",
+      "Crossref",
+      "CUCSH Filosofía",
+      "Internet Archive"
+    ],
+    "openAlexLiveApi": false,
+    "exactIdentityOnly": true,
+    "fuzzyTitleYearIdentity": false,
+    "cutoffs": [
+      5,
+      20,
+      50
+    ],
+    "queries": 6,
+    "note": "Coverage percentages are a six-query live snapshot, not a global estimate for all possible searches."
+  },
+  "invalidPriorRun": {
+    "workflowRunId": 42555964579,
+    "reason": "OpenAlex Philosophy failed because vendor/duckdb browser bundle had not been built; its 0% V4 coverage result is explicitly superseded by this corrected run."
+  },
+  "productionEnabled": false
+}

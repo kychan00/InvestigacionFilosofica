@@ -1,0 +1,144 @@
+name: Research Atlas RA12-C4 · live federated Qwen coverage and overlay audit
+
+on:
+  pull_request:
+    paths:
+      - "src/core/research-atlas-semantic-coverage.js"
+      - "scripts/research-atlas/build_ra12_semantic_alias_index.py"
+      - "scripts/research-atlas/analyze_ra12c4_live_coverage.py"
+      - "scripts/qa/research-atlas-ra12c4-live-search.mjs"
+      - "tests/research-atlas-semantic-coverage.test.mjs"
+      - "tests/test_ra12_semantic_alias_index.py"
+      - "tests/test_ra12c4_live_coverage.py"
+      - "benchmark/research-atlas/v12/ra12c4-live-query-set.json"
+      - "benchmark/research-atlas/v12/ra12c4-overlay-contract.json"
+      - "docs/RESEARCH_ATLAS_QWEN3_FEDERATED_OVERLAY_RA12C4.md"
+      - ".github/workflows/research-atlas-ra12c4.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-federated-semantic-coverage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Test exact identity and overlay contracts
+        run: |
+          python -m py_compile scripts/research-atlas/build_ra12_semantic_alias_index.py
+          python -m py_compile scripts/research-atlas/analyze_ra12c4_live_coverage.py
+          python -m unittest discover -s tests -p 'test_ra12_semantic_alias_index.py' -v
+          python -m unittest discover -s tests -p 'test_ra12c4_live_coverage.py' -v
+          node --test tests/research-atlas-semantic-coverage.test.mjs
+
+      - name: Fetch and SHA-verify pinned V4 metadata + cluster IDs (no vectors/model)
+        run: |
+          mkdir -p artifacts/research-atlas-ra12c4
+          python scripts/research-atlas/prefetch_ra12_v4_assets.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/ra12c4-v4-source" \
+            --workers 8 --attempts 4 \
+            --report artifacts/research-atlas-ra12c4/source-prefetch.json
+
+      - name: Build exact OpenAlex/DOI/Crossref alias index for all 451823 V4 documents
+        run: |
+          python scripts/research-atlas/build_ra12_semantic_alias_index.py \
+            --manifest benchmark/semantic-retrieval/browser-static-v4/artifact-manifest.json \
+            --artifact-root "$RUNNER_TEMP/ra12c4-v4-source" \
+            --output artifacts/research-atlas-ra12c4/alias-index \
+            > artifacts/research-atlas-ra12c4/alias-build-summary.json
+          cat artifacts/research-atlas-ra12c4/alias-build-summary.json
+
+      - name: Install app, build DuckDB browser bundle, and Chromium benchmark dependencies
+        run: |
+          npm ci
+          npm run build:duckdb
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Serve current PR tree locally
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > "$RUNNER_TEMP/ra12c4-http.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/ra12c4-http.pid"
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/ra12c4-http.log"
+          exit 1
+
+      - name: Capture six real federated SearchResponses in Chromium
+        run: |
+          node scripts/qa/research-atlas-ra12c4-live-search.mjs \
+            --queries benchmark/research-atlas/v12/ra12c4-live-query-set.json \
+            --base-url http://127.0.0.1:4173/ \
+            --output artifacts/research-atlas-ra12c4/live-search.json
+          cat artifacts/research-atlas-ra12c4/live-search.json | python -c 'import json,sys; d=json.load(sys.stdin); print([(r["id"],r["resultCount"],len(r["errors"]),r["durationMs"]) for r in d["runs"]])'
+
+      - name: Measure top-5/20/50 exact V4 coverage and external overlay candidates
+        run: |
+          python scripts/research-atlas/analyze_ra12c4_live_coverage.py \
+            --capture artifacts/research-atlas-ra12c4/live-search.json \
+            --alias-root artifacts/research-atlas-ra12c4/alias-index \
+            --query-set benchmark/research-atlas/v12/ra12c4-live-query-set.json \
+            --output artifacts/research-atlas-ra12c4/coverage.json \
+            --overlay-output artifacts/research-atlas-ra12c4/overlay-candidates.json \
+            > artifacts/research-atlas-ra12c4/coverage-summary.json
+          cat artifacts/research-atlas-ra12c4/coverage-summary.json
+
+      - name: Assert evidence semantics and summarize without inventing 100% coverage
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path("artifacts/research-atlas-ra12c4")
+          alias=json.loads((root/"alias-index/alias-manifest.json").read_text())
+          coverage=json.loads((root/"coverage.json").read_text())
+          assert alias["source"]["documentCount"] == 451823
+          assert alias["productionEnabled"] is False
+          assert coverage["queryCount"] == 6
+          assert coverage["productionEnabled"] is False
+          assert coverage["methodology"]["fuzzyTitleYearIdentity"] is False
+          assert coverage["overlayQueue"]["embeddingGenerated"] is False
+          for n in ("5","20","50"):
+              c=coverage["cutoffs"][n]
+              assert c["observedResults"] > 0
+              assert 0 <= c["baseV4Coverage"] <= 1
+              assert c["eventualQwenCoverageIfOverlayEmbedded"] >= c["baseV4Coverage"]
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a") as out:
+              out.write("## RA12-C4 — real federated Qwen coverage\n\n")
+              out.write(f"- V4 documents scanned for aliases: {alias['source']['documentCount']:,}\n")
+              out.write(f"- Exact resolved aliases: {alias['index']['entryCount']:,}\n")
+              out.write(f"- Ambiguous aliases excluded: {alias['identity']['ambiguousAliasesExcluded']:,}\n")
+              out.write(f"- Alias index compressed bytes: {alias['index']['compressedBytes']:,}\n")
+              for n in ("5","20","50"):
+                  c=coverage["cutoffs"][n]
+                  out.write(f"- Top {n}: base V4 {c['baseV4Coverage']:.1%}; with future overlay {c['eventualQwenCoverageIfOverlayEmbedded']:.1%}; observed {c['observedResults']}\n")
+              out.write(f"- Unique overlay candidates observed: {coverage['overlayQueue']['candidateCount']}\n")
+              out.write(f"- Whole-search CI Chromium latency p50/p95: {coverage['searchLatencyMs']['p50']}/{coverage['searchLatencyMs']['p95']} ms\n")
+              out.write("- No overlay embeddings generated; no HF publication; no production semantic edges.\n")
+          PY
+
+      - name: Run full regression suite
+        run: npm test
+
+      - name: Preserve live snapshot, alias index and overlay queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-atlas-ra12c4-live-federated-coverage
+          path: artifacts/research-atlas-ra12c4/
+          if-no-files-found: warn
+          retention-days: 30

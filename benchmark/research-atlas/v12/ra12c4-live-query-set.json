@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "research-atlas-ra12c4-live-query-set-v1",
+  "purpose": "measure real federated SearchResponse joinability to Qwen V4 without changing production",
+  "queries": [
+    {
+      "id": "kant-freedom-es",
+      "query": "libertad en Kant"
+    },
+    {
+      "id": "quine-ontology-es",
+      "query": "lógica y ontología en Quine"
+    },
+    {
+      "id": "fear-phenomenology-es",
+      "query": "fenomenología del miedo"
+    },
+    {
+      "id": "lukacs-tech-es",
+      "query": "cosificación y tecnología en Lukács"
+    },
+    {
+      "id": "hume-causality-es",
+      "query": "causalidad en Hume"
+    },
+    {
+      "id": "stoic-virtue-es",
+      "query": "ética estoica y virtud"
+    }
+  ],
+  "cutoffs": [
+    5,
+    20,
+    50
+  ],
+  "federation": {
+    "maxQueries": 3,
+    "rowsPerProvider": 20,
+    "providers": [
+      "OpenAlex Philosophy",
+      "CUCSH Filosofía",
+      "Crossref",
+      "Internet Archive"
+    ],
+    "openAlexLiveApi": false
+  },
+  "notes": [
+    "Queries are fixed before observing coverage.",
+    "One federated search per query; cutoffs are prefixes of the same ranked SearchResponse.",
+    "External APIs may change over time; reports must record run timestamp and errors.",
+    "No semantic overlay embeddings are generated in this phase."
+  ]
+}
