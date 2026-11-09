@@ -331,7 +331,9 @@ function resultMatchesFocusAuthor(result) {
 
       if (
         focus.matchMode ===
-          "result-author-query"
+          "result-author-query" ||
+        focus.matchMode ===
+          "parsed-philosopher"
       ) {
         return containsAuthorQuery(
           rawName,
