@@ -124,3 +124,16 @@ test("la semblanza del archivo declara sus límites y las relaciones documentada
   assert.match(biography, /2015 y 2020/);
   assert.match(biography, /no pretende sustituir una biografía personal verificada/);
 });
+
+
+test("separa roles explícitos DTOR y CO-DIRECTOR aunque no exista conjunción", () => {
+  assert.deepEqual(
+    splitThesisPeople("DTOR. DR. PABLO CASILLAS HERRERA CO-DIRECTOR MTRO. JOSÉ ALEJANDRO GONZÁLEZ CONTRERAS"),
+    ["PABLO CASILLAS HERRERA", "JOSÉ ALEJANDRO GONZÁLEZ CONTRERAS"],
+  );
+
+  assert.deepEqual(
+    splitThesisPeople("DIRECTORA ANA PÉREZ CODIRECTOR LUIS GÓMEZ"),
+    ["ANA PÉREZ", "LUIS GÓMEZ"],
+  );
+});
