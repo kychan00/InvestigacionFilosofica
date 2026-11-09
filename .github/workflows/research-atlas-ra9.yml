@@ -16,6 +16,7 @@ on:
       - "scripts/qa/research-atlas-main-dinora-smoke.mjs"
       - "scripts/qa/research-atlas-main-load-more-smoke.mjs"
       - "docs/RESEARCH_ATLAS_MAIN_INTEGRATION_RA9.md"
+      - "docs/RESEARCH_ATLAS_REACT_FLOW_TEMPORAL.md"
       - ".github/workflows/research-atlas-ra9.yml"
   workflow_dispatch:
 
