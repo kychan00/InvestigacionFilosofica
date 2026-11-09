@@ -1,0 +1,43 @@
+name: QA Dinora generic author · production
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/qa-dinora-generic-author-production.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  production-dinora:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      RESEARCH_ATLAS_BASE_URL: https://kychan00.github.io/InvestigacionFilosofica/
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Verify Dinora in deployed main Atlas
+        run: |
+          mkdir -p artifacts/production
+          node scripts/qa/research-atlas-main-dinora-smoke.mjs \
+            > artifacts/production/dinora-main-atlas.json
+          cat artifacts/production/dinora-main-atlas.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-dinora-main-atlas
+          path: artifacts/production/
+          if-no-files-found: warn
+          retention-days: 7
