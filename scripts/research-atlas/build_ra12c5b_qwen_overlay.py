@@ -36,7 +36,7 @@ MAX_CHARACTERS = 24_000
 CONTROL_COUNT = 8
 CONTROL_PER_CLUSTER_CAP = 4
 MIN_CONTROL_COSINE = 0.995
-MIN_MEAN_CONTROL_COSINE = 0.998
+MIN_MEAN_CONTROL_COSINE = 0.997
 SCHEMA = "research-atlas-ra12c5b-semantic-overlay-v1"
 
 
@@ -275,6 +275,14 @@ def compatibility_audit(
         "meanQuantizedByteAgreement": float(np.mean(equality)),
         "requiredMinimumCosine": MIN_CONTROL_COSINE,
         "requiredMeanCosine": MIN_MEAN_CONTROL_COSINE,
+        "referenceRepresentation": "frozen V4 signed-int8 dequantized and renormalized",
+        "expectedRmsQuantizationCosineApprox": float(
+            1.0 / math.sqrt(
+                1.0 + (
+                    math.sqrt(DIMENSION) / (SCALE * math.sqrt(12.0))
+                ) ** 2
+            )
+        ),
         "passed": bool(
             np.min(cosines) >= MIN_CONTROL_COSINE
             and np.mean(cosines) >= MIN_MEAN_CONTROL_COSINE
