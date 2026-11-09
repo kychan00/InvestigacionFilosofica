@@ -1597,11 +1597,26 @@ export function augmentWithAuthorResolution(
       ? authorResolution.works || []
       : [];
 
-  const existingKeys = new Set(
-    (response.results || []).map(
-      resultKey
-    )
-  );
+  const existingKeys =
+    new Set();
+
+  for (
+    const item of
+    response.results || []
+  ) {
+    existingKeys.add(
+      resultKey(item)
+    );
+
+    for (
+      const alias of
+      item.identityAliases || []
+    ) {
+      existingKeys.add(
+        String(alias)
+      );
+    }
+  }
 
   const authorAdditions = works.filter(
     item => !existingKeys.has(
@@ -1632,7 +1647,10 @@ export function augmentWithAuthorResolution(
   }
 
   const appearances =
-    (response.stats?.appearances || 0) +
+    (
+      response.stats?.appearances ??
+      (response.results || []).length
+    ) +
     authorAdditions.length;
 
   return {
