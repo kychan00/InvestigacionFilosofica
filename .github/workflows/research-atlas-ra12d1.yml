@@ -1,0 +1,58 @@
+name: Research Atlas RA12-D1 · immutable semantic locator
+
+on:
+  pull_request:
+    paths:
+      - "src/core/research-atlas-qwen-resolution.js"
+      - "tests/research-atlas-qwen-resolution.test.mjs"
+      - "scripts/qa/research-atlas-ra12d1-resolver-smoke.mjs"
+      - "docs/RESEARCH_ATLAS_QWEN_RESOLVER_RA12D1.md"
+      - ".github/workflows/research-atlas-ra12d1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  immutable-semantic-locator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run deterministic resolver tests
+        run: node --test tests/research-atlas-qwen-resolution.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
+
+      - name: Resolve real immutable B3 and C5-C identities
+        run: node scripts/qa/research-atlas-ra12d1-resolver-smoke.mjs > ra12d1-smoke.json
+
+      - name: Assert D1 remains location-only
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('ra12d1-smoke.json', 'utf8'));
+          if (
+            report.status !== 'pass' ||
+            report.liveOpenAlexQueried ||
+            report.vectorsDownloaded ||
+            report.semanticNeighborEnabled
+          ) process.exit(1);
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-atlas-ra12d1-semantic-locator-evidence
+          path: ra12d1-smoke.json
+          if-no-files-found: warn
+          retention-days: 30
