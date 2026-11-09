@@ -226,10 +226,10 @@ test("RA12-D4 ofrece autor, ficha y acceso a la obra desde el Atlas principal", 
   );
 });
 
-test("RA12-D4 actualiza copy y cache bust del Atlas embebido", () => {
+test("RA12-D4 actualiza copy público y cache bust del Atlas embebido", () => {
   assert.match(
     page,
-    /Qwen3 conecta las obras por proximidad semántica/
+    /Las obras se conectan por cercanía de significado/
   );
   assert.match(
     page,
@@ -357,10 +357,10 @@ test("expanded load-more topology uses the D3 engine edge ceiling", () => {
   );
 });
 
-test("Atlas stage reports persistent Qwen connection counts after each final snapshot", () => {
+test("Atlas stage reports persistent semantic connection counts after each final snapshot", () => {
   assert.match(
     embed,
-    /Qwen3 ·/
+    /Semántica ·/
   );
   assert.match(
     embed,

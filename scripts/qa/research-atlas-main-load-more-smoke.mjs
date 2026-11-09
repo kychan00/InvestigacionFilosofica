@@ -13,7 +13,7 @@ await mkdir("artifacts/research-atlas-ra9", {recursive: true});
 function parseAtlasStatus(value) {
   const text = String(value || "");
   const match = text.match(
-    /(\d+) obras · (\d+) conexiones Qwen · (\d+) con vector/
+    /(\d+) obras · (\d+) conexiones semánticas · (\d+) con vector/
   );
   return match
     ? {
@@ -104,7 +104,7 @@ try {
         ?.trim() ||
       "";
 
-    return /conexiones Qwen/.test(text);
+    return /conexiones semánticas/.test(text);
   }, null, {
     timeout: 180000,
     polling: 500
@@ -120,7 +120,7 @@ try {
 
   assert.ok(
     initial,
-    "initial Hegel search should expose Qwen topology"
+    "initial Hegel search should expose semantic topology"
   );
 
   const loads = [];
@@ -203,8 +203,8 @@ try {
 
     assert.match(
       ready.stageLabel || "",
-      /Qwen3 · \d+ conexiones · \d+ obras con vector · lote \d+/,
-      "the visible Atlas stage must keep showing Qwen counts"
+      /Semántica · \d+ conexiones · \d+ obras con vector · lote \d+/,
+      "the visible Atlas stage must keep showing semantic counts"
     );
 
     assert.doesNotMatch(
@@ -253,13 +253,13 @@ try {
 
   assert.match(
     finalStatus,
-    /conexiones Qwen/,
-    "main status must finish on Qwen after repeated load-more"
+    /conexiones semánticas/,
+    "main status must finish on semantic topology after repeated load-more"
   );
 
   assert.match(
     finalStageLabel,
-    /Qwen3 · \d+ conexiones · \d+ obras con vector · lote \d+/,
+    /Semántica · \d+ conexiones · \d+ obras con vector · lote \d+/,
     "Atlas must expose persistent connection counts after repeated load-more"
   );
 

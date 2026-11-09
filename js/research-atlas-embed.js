@@ -558,8 +558,8 @@ async function consumeSearchResponse(meta) {
 
     stageLabel.textContent =
       expandedTopology
-        ? "Lote ampliado · Qwen3 está incorporando las nuevas obras al territorio"
-        : "Qwen3 está construyendo las conexiones semánticas";
+        ? "Lote ampliado · incorporando las nuevas obras al territorio semántico"
+        : "Construyendo conexiones por cercanía de significado";
 
     try {
       snapshot = await addResearchAtlasQwenSemanticTopology(
@@ -610,7 +610,7 @@ async function consumeSearchResponse(meta) {
           String(viewModel.diagnostics.directWorks) +
           " obras · " +
           String(qwen.semanticEdgesAdded || 0) +
-          " conexiones Qwen · " +
+          " conexiones semánticas · " +
           String(qwen.vectorsVerified || 0) +
           " con vector"
         )
@@ -626,7 +626,7 @@ async function consumeSearchResponse(meta) {
 
     stageLabel.textContent = qwen
       ? (
-          "Qwen3 · " +
+          "Semántica · " +
           String(qwen.semanticEdgesAdded || 0) +
           " conexiones · " +
           String(qwen.vectorsVerified || 0) +

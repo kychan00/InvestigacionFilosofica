@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161616">
+  <meta
+    name="description"
+    content="Acerca de Investigación Filosófica: cómo se integran las fuentes, las relaciones semánticas, los atlas, las tesis y las herramientas que sostienen el proyecto."
+  >
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Acerca de · Investigación Filosófica</title>
+  <link rel="stylesheet" href="./css/about.css?v=20261109-v1">
+</head>
+<body>
+  <div class="about-page">
+    <header class="about-header">
+      <nav class="about-nav" aria-label="Navegación principal">
+        <a class="about-brand" href="./">
+          <span class="about-brand-mark" aria-hidden="true">Φ</span>
+          <span>
+            Investigación Filosófica
+            <small>Archivo vivo</small>
+          </span>
+        </a>
+
+        <div class="about-nav-links">
+          <a href="./">Investigación</a>
+          <a href="./tesis.html">Tesis</a>
+          <a href="./atlas.html">Atlas</a>
+          <a href="./acerca.html" class="is-active" aria-current="page">Acerca de</a>
+        </div>
+
+        <div class="theme-switch" role="group" aria-label="Apariencia">
+          <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
+          <button type="button" data-theme-choice="dark" aria-label="Activar modo oscuro" aria-pressed="false">Oscuro</button>
+        </div>
+      </nav>
+
+      <div class="about-hero">
+        <p class="about-eyebrow"><span></span> PROYECTO / MÉTODO / FUENTES</p>
+        <h1>
+          Cómo se construye un
+          <em>archivo vivo de filosofía.</em>
+        </h1>
+        <div class="about-hero-copy">
+          <p>
+            Investigación Filosófica reúne obras dispersas en distintas fuentes académicas
+            y las presenta como un territorio que puede buscarse, recorrerse y relacionarse.
+          </p>
+          <p>
+            La intención no es reemplazar la lectura filosófica, sino ayudar a encontrar
+            conexiones que normalmente quedan ocultas entre catálogos, autores, tesis y artículos.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-principles" aria-label="Principios del proyecto">
+        <div><strong>01</strong><span>La pregunta guía la búsqueda</span></div>
+        <div><strong>02</strong><span>La procedencia siempre importa</span></div>
+        <div><strong>03</strong><span>Las relaciones son pistas, no veredictos</span></div>
+        <div><strong>04</strong><span>El investigador conserva el juicio</span></div>
+      </div>
+    </header>
+
+    <main class="about-main">
+      <section class="about-intro" aria-labelledby="about-title">
+        <div>
+          <p class="section-label">ACERCA DEL PROYECTO</p>
+          <h2 id="about-title">Una misma investigación, muchas puertas de entrada.</h2>
+        </div>
+        <p>
+          Un artículo puede aparecer en un índice internacional, una revista universitaria,
+          un repositorio institucional o un archivo digital. El proyecto intenta reunir esas
+          huellas sin borrar de dónde viene cada una.
+        </p>
+      </section>
+
+      <section class="about-flow" aria-label="Cómo funciona Investigación Filosófica">
+        <article>
+          <span class="step-number">01</span>
+          <div>
+            <p class="step-kicker">LA CONSULTA</p>
+            <h3>Todo comienza con una pregunta.</h3>
+            <p>
+              El buscador toma palabras, autores, obras o problemas filosóficos y prepara
+              distintas maneras de encontrarlos. No exige que el investigador conozca de
+              antemano en qué catálogo está lo que busca.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span class="step-number">02</span>
+          <div>
+            <p class="step-kicker">LAS FUENTES</p>
+            <h3>El proyecto consulta colecciones distintas.</h3>
+            <p>
+              La búsqueda general combina fuentes como OpenAlex Philosophy, Crossref,
+              Biblioteca UdeG e Internet Archive. El archivo de tesis se apoya además
+              en repositorios y catálogos institucionales de cada universidad incorporada.
+            </p>
+            <div class="source-strip" aria-label="Fuentes principales">
+              <span>OpenAlex Philosophy</span>
+              <span>Crossref</span>
+              <span>Biblioteca UdeG</span>
+              <span>Internet Archive</span>
+              <span>Repositorios universitarios</span>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <span class="step-number">03</span>
+          <div>
+            <p class="step-kicker">UNIFICACIÓN</p>
+            <h3>Una obra no debería convertirse en cinco resultados.</h3>
+            <p>
+              Cuando distintas fuentes describen el mismo trabajo, el sistema intenta
+              reconocer que se trata de una sola obra y reúne sus señales: título, autoría,
+              fecha, identificadores y procedencia. La ficha conserva los enlaces a las
+              fuentes originales para que la información pueda verificarse.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span class="step-number">04</span>
+          <div>
+            <p class="step-kicker">RELACIONES</p>
+            <h3>Después de encontrar obras, buscamos vecindades.</h3>
+            <p>
+              El proyecto compara títulos y resúmenes, observa relaciones bibliográficas
+              disponibles y también estima cercanía de significado. Esas señales sirven
+              para sugerir qué textos podrían leerse juntos, aunque pertenezcan a años,
+              autores o fuentes diferentes.
+            </p>
+            <p class="plain-note">
+              Una relación cercana no significa que dos autores estén de acuerdo.
+              Significa solamente que existe suficiente proximidad para que valga la pena mirar.
+            </p>
+          </div>
+        </article>
+
+        <article class="qwen-card">
+          <span class="step-number">05</span>
+          <div>
+            <p class="step-kicker">QWEN</p>
+            <h3>Una herramienta para comparar significado.</h3>
+            <p>
+              En algunas partes del proyecto se usa Qwen3 como apoyo para leer comparativamente
+              grandes cantidades de texto. Su tarea es sencilla de explicar: ayuda a estimar
+              cuándo una consulta y una obra hablan de cosas parecidas, aunque no usen exactamente
+              las mismas palabras.
+            </p>
+            <p>
+              Qwen no decide qué tesis es correcta, qué filósofo tiene razón ni qué debe concluir
+              una investigación. Se usa para ordenar y conectar materiales; la interpretación
+              sigue perteneciendo al investigador.
+            </p>
+            <div class="qwen-explainer" aria-label="Papel de Qwen en el proyecto">
+              <span>consulta</span>
+              <b>→</b>
+              <span>comparación de significado</span>
+              <b>→</b>
+              <span>obras cercanas</span>
+              <b>→</b>
+              <span>lectura humana</span>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <span class="step-number">06</span>
+          <div>
+            <p class="step-kicker">CORPUS ESTABLE</p>
+            <h3>Hugging Face funciona como una biblioteca de trabajo.</h3>
+            <p>
+              La colección OpenAlex Philosophy utilizada por el proyecto se conserva también
+              en una versión preparada y versionada en Hugging Face. Eso permite trabajar con
+              una base filosófica estable y saber qué colección se estaba usando en un momento dado.
+            </p>
+            <p class="plain-note">
+              Hugging Face no sustituye a las fuentes académicas originales: es un lugar donde
+              el proyecto conserva una copia de trabajo organizada para la búsqueda.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span class="step-number">07</span>
+          <div>
+            <p class="step-kicker">ATLAS</p>
+            <h3>La búsqueda se convierte en territorio.</h3>
+            <p>
+              Los atlas muestran obras y autores como nodos. Las líneas no son adornos:
+              representan distintas razones por las que dos elementos están relacionados.
+              Cuando llegan más resultados, el territorio puede ampliarse y reorganizarse.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span class="step-number">08</span>
+          <div>
+            <p class="step-kicker">AUTORES</p>
+            <h3>Un nombre necesita contexto.</h3>
+            <p>
+              El proyecto intenta distinguir personas, reunir sus obras y mostrar colaboraciones,
+              direcciones de tesis y otras relaciones documentadas. Cuando la identidad no puede
+              confirmarse con suficiente evidencia, se evita presentarla como un hecho.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="about-theses">
+        <div>
+          <p class="section-label">EL ARCHIVO DE TESIS</p>
+          <h2>Las tesis son conocimiento, pero también memoria institucional.</h2>
+        </div>
+        <div class="about-theses-grid">
+          <p>
+            La sección de tesis crece universidad por universidad. Su prioridad es conservar
+            título, autoría, dirección, programa, año, institución y procedencia con la mayor
+            fidelidad posible, incluso cuando los registros originales son incompletos.
+          </p>
+          <p>
+            Investigación Filosófica no pretende apropiarse de esos documentos: enlaza a los
+            repositorios o catálogos de origen y distingue con claridad lo confirmado, lo que
+            requiere revisión y lo que todavía no debe publicarse como certeza.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-limits" aria-labelledby="limits-title">
+        <div>
+          <p class="section-label">LÍMITES / RESPONSABILIDAD</p>
+          <h2 id="limits-title">El mapa ayuda a orientarse. No piensa por usted.</h2>
+        </div>
+        <div class="limits-grid">
+          <article>
+            <strong>Similitud ≠ verdad</strong>
+            <p>Que dos textos estén cerca no demuestra una tesis filosófica ni establece influencia.</p>
+          </article>
+          <article>
+            <strong>Metadatos ≠ obra completa</strong>
+            <p>Un título o resumen permite descubrir relaciones, pero nunca reemplaza la lectura del texto.</p>
+          </article>
+          <article>
+            <strong>Automatización ≠ autoridad</strong>
+            <p>Las herramientas ayudan a ordenar información; las afirmaciones importantes deben poder rastrearse a una fuente.</p>
+          </article>
+          <article>
+            <strong>Archivo vivo ≠ archivo terminado</strong>
+            <p>Las colecciones cambian, aparecen nuevos registros y algunas identidades requieren corrección o revisión humana.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-publication">
+        <div>
+          <p class="section-label">TRANSPARENCIA</p>
+          <h2>Un proyecto independiente y verificable.</h2>
+        </div>
+        <div>
+          <p>
+            Investigación Filosófica es un proyecto independiente. No es un sitio oficial de la
+            Universidad de Guadalajara ni de las demás instituciones cuyos registros consulta.
+          </p>
+          <p>
+            El código del proyecto se publica en GitHub para que su estructura y evolución puedan
+            revisarse. Cuando una ficha procede de una fuente externa, el objetivo es conservar
+            visible esa procedencia y conducir al registro original.
+          </p>
+          <a
+            class="about-link"
+            href="https://github.com/kychan00/InvestigacionFilosofica"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver el proyecto en GitHub ↗
+          </a>
+        </div>
+      </section>
+
+      <section class="about-cta">
+        <p class="section-label">VOLVER A INVESTIGAR</p>
+        <h2>La explicación termina aquí. La pregunta empieza allá.</h2>
+        <a href="./">Abrir Investigación Filosófica →</a>
+      </section>
+    </main>
+
+    <footer class="about-footer">
+      <span>Investigación Filosófica · Archivo vivo</span>
+      <span>Proyecto independiente · 2026</span>
+    </footer>
+  </div>
+
+  <script type="module" src="./js/theme.js"></script>
+</body>
+</html>

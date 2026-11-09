@@ -1982,7 +1982,7 @@ function applyLiveUpdate(
               .toLocaleString(
                 "es-MX"
               ) +
-            " resultados · Atlas Qwen · " +
+            " resultados · Atlas semántico · " +
             Number(
               qwen.semanticEdgesAdded ||
               0
@@ -2705,7 +2705,7 @@ async function loadControlledDemo() {
       element(
         "span",
         "",
-        "Fixtures RA3 + RA4 · AuthorityPerson, AuthorMention, Qwen3 semantic-neighbor y Related Work · sin proveedores externos"
+        "Datos de prueba locales · autoría, menciones, relaciones semánticas y obras relacionadas · sin proveedores externos"
       )
     );
   }

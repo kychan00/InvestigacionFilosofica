@@ -248,6 +248,6 @@ test("demo page exposes explicit controlled-demo link and warning", async () => 
 
   assert.match(
     script,
-    /Fixtures RA3 \+ RA4/
+    /Datos de prueba locales/
   );
 });

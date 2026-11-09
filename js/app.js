@@ -915,19 +915,19 @@ function renderSemanticExplanation(
 
           <ul>
             <li>
-              Qwen3-Embedding comparó el sentido de la consulta con el contenido normalizado del documento.
+              El motor semántico comparó el sentido de la consulta con el contenido normalizado del documento.
             </li>
 
             <li>
-              El índice FAISS devolvió este documento entre los vecinos semánticos más próximos.
+              El resultado quedó entre las obras con mayor cercanía de significado.
             </li>
 
             <li>
-              Score coseno normalizado: ${escapeHtml(score)}. No es una probabilidad ni un juicio humano de relevancia.
+              Índice de similitud normalizado: ${escapeHtml(score)}. No es una probabilidad ni un juicio humano de relevancia.
             </li>
 
             <li>
-              No se aplicó reranker ni modelo generativo.
+              Esta señal sólo ayuda a ordenar y relacionar obras; no sustituye la lectura del investigador.
             </li>
           </ul>
         </div>
@@ -1361,7 +1361,7 @@ function recordMetadataCards(
 
   if (archiveSource) {
     add(
-      "Identificador IA",
+      "Identificador de Internet Archive",
       archiveSource.sourceId
     );
 
@@ -3798,7 +3798,7 @@ async function runQwen3Rerank() {
   });
 
   qwen3Progress.textContent =
-    "Preparando Qwen3 q8 en WebGPU…";
+    "Preparando el reordenamiento semántico local…";
 
 
   try {
@@ -3810,7 +3810,7 @@ async function runQwen3Rerank() {
       controller.signal.aborted
     ) {
       throw new DOMException(
-        "Qwen3 cancelado",
+        "Reordenamiento cancelado",
         "AbortError"
       );
     }
@@ -3875,22 +3875,22 @@ async function runQwen3Rerank() {
     );
 
     qwen3Progress.textContent =
-      "Top 20 reordenado con Qwen3 q8/WebGPU. Puedes volver a “Relevancia” para ver el orden normal.";
+      "Top 20 reordenado por cercanía semántica. Puedes volver a “Relevancia” para ver el orden normal.";
 
     status.textContent =
-      `${responseAtStart.stats.unique} resultados únicos · orden Qwen3 experimental`;
+      `${responseAtStart.stats.unique} resultados únicos · orden semántico experimental`;
   } catch (error) {
     if (
       error.name ===
       "AbortError"
     ) {
       qwen3Progress.textContent =
-        "Qwen3 cancelado; se conservó exactamente el orden normal.";
+        "Reordenamiento cancelado; se conservó exactamente el orden normal.";
     } else {
       console.error(error);
 
       qwen3Progress.textContent =
-        `Qwen3 no se aplicó: ${error.message}. Se conservó exactamente el orden normal.`;
+        `El reordenamiento semántico no se aplicó: ${error.message}. Se conservó exactamente el orden normal.`;
     }
   } finally {
     if (
@@ -5108,7 +5108,7 @@ async function openExclusiveAuthorByName(
             authorArchiveNotice =
               phase === "started"
                 ? (resolution.author?.id
-                  ? "Consultando Hugging Face y fuentes bibliográficas…"
+                  ? "Consultando el corpus filosófico y fuentes bibliográficas…"
                   : "Integrando bibliografía verificada y ampliando en Crossref, Internet Archive y catálogos institucionales…")
                 : `Consulta de ${source}: ${works.length} obras verificadas`;
 
@@ -5137,7 +5137,7 @@ async function openExclusiveAuthorByName(
         authorArchiveNotice = deep.errors.length
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
-            ? "Se consultó el índice filosófico de Hugging Face; pueden faltar obras fuera del corpus"
+            ? "Se consultó el corpus filosófico disponible; pueden faltar obras fuera de la colección"
             : "Bibliografía verificada integrada; los catálogos automáticos pueden seguir siendo parciales";
 
         showExclusiveAuthorWorks({
@@ -5546,7 +5546,7 @@ function renderAuthorResolution(
         }
 
         <span>
-          Corpus OpenAlex Philosophy en Hugging Face
+          Corpus filosófico del proyecto
         </span>
       </div>
     </section>
@@ -6075,7 +6075,7 @@ function renderAuthorPage(
           <h3>Colaboradores identificados</h3>
           <div class="author-coauthor-list">${collaboratorCards}</div>
         ` : ""}
-        <p>Se cuentan únicamente las publicaciones recuperadas. Los coautores proceden del índice de autorías de Hugging Face o de metadatos bibliográficos verificados.</p>
+        <p>Se cuentan únicamente las publicaciones recuperadas. Los coautores proceden del índice de autorías del corpus filosófico o de metadatos bibliográficos verificados.</p>
       </section>
 
       <section class="author-page-taxonomy" aria-label="Idiomas y tipos documentales">
@@ -6637,7 +6637,7 @@ async function loadMoreResults() {
     );
 
     status.textContent =
-      `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · conectando Atlas Qwen…`;
+      `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · conectando el Atlas semántico…`;
 
     const topology =
       await topologyReady;
@@ -6653,7 +6653,7 @@ async function loadMoreResults() {
         qwen
           ? (
               `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · ` +
-              `${qwen.semanticEdgesAdded} conexiones Qwen · ` +
+              `${qwen.semanticEdgesAdded} conexiones semánticas · ` +
               `${qwen.vectorsVerified} obras con vector`
             )
           : (
