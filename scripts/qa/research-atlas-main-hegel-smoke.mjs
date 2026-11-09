@@ -56,6 +56,19 @@ try {
 
   await page.locator("#research-view-atlas").click();
 
+  await page.waitForFunction(() =>
+    document
+      .querySelector("#research-atlas-stage")
+      ?.classList
+      .contains("is-react-flow") &&
+    document.querySelectorAll(
+      "#research-atlas-flow .research-atlas-rf-node"
+    ).length > 0
+  , null, {
+    timeout: 30000,
+    polling: 100
+  });
+
   const authorKey = page.locator("#research-atlas-author-key");
   await assert.doesNotReject(async () => {
     await authorKey.waitFor({state: "visible", timeout: 15000});
@@ -82,7 +95,27 @@ try {
     "Hegel search should mark at least one work as authored by Hegel"
   );
 
-  await focusButtons.first().click();
+  const visualFocusNodes =
+    page.locator(
+      "#research-atlas-flow .research-atlas-rf-node.is-focus-author"
+    );
+
+  const visualFocusCount =
+    await visualFocusNodes.count();
+
+  assert.ok(
+    visualFocusCount >= 1,
+    "React Flow should render Hegel works with the magenta focus-author glow"
+  );
+
+  assert.ok(
+    await page.locator(
+      "#research-atlas-flow .research-atlas-rf-panel"
+    ).count() >= 1,
+    "React Flow should expose the temporal-plane legend"
+  );
+
+  await visualFocusNodes.first().click();
 
   const detail = page.locator("#research-atlas-detail");
   await detail.locator(".research-atlas-author-link").first()
@@ -140,6 +173,8 @@ try {
     syncText,
     authorLabel,
     focusCount,
+    visualFocusCount,
+    temporalPlane: true,
     authorHref,
     recordModalOpened: true
   }, null, 2) + "\n");
