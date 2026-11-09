@@ -39,3 +39,11 @@ test("la ficha de persona es un modal flotante centrado y no un panel lateral", 
   assert.doesNotMatch(css, /justify-self:\s*end/);
   assert.doesNotMatch(css, /height:\s*100%;[\s\S]{0,180}border-left:/);
 });
+
+
+test("los enlaces históricos CUCSH usan búsqueda del catálogo también dentro del perfil", async () => {
+  const source = await readFile(new URL("../js/thesis-demo.js", import.meta.url), "utf8");
+  assert.match(source, /const catalogSearch = cucshCatalogSearchUrl\(work\)/);
+  assert.match(source, /const catalogSearchUrl = activeInstitution === "udg" \? cucshCatalogSearchUrl\(record\) : null/);
+  assert.match(source, /"Buscar esta referencia en catálogo CUCSH ↗"/);
+});
