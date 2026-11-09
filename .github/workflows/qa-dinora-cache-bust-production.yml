@@ -27,17 +27,22 @@ jobs:
           curl -fsS https://kychan00.github.io/InvestigacionFilosofica/ > /tmp/prod-index.html
           grep -F 'research-atlas-embed.js?v=20261109-generic-author-v2' /tmp/prod-index.html
 
-      - name: Install Playwright
+      - name: Install isolated Playwright
         run: |
+          rm -rf /tmp/atlas-pw
+          mkdir -p /tmp/atlas-pw
+          cp scripts/qa/research-atlas-main-dinora-smoke.mjs /tmp/atlas-pw/smoke.mjs
+          cd /tmp/atlas-pw
+          npm init -y
           npm install --no-save --package-lock=false playwright@1.56.1
           npx playwright install --with-deps chromium
 
       - name: Verify Dinora in a cold production browser
         run: |
           mkdir -p artifacts/production
-          node scripts/qa/research-atlas-main-dinora-smoke.mjs \
-            > artifacts/production/dinora-cache-bust.json
-          cat artifacts/production/dinora-cache-bust.json
+          cd /tmp/atlas-pw
+          node smoke.mjs > "$GITHUB_WORKSPACE/artifacts/production/dinora-cache-bust.json"
+          cat "$GITHUB_WORKSPACE/artifacts/production/dinora-cache-bust.json"
 
       - uses: actions/upload-artifact@v4
         if: always()
