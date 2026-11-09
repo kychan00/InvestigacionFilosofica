@@ -33,6 +33,7 @@ const syncStatus = q("#research-atlas-sync-status");
 const filterInput = q("#research-atlas-filter");
 const fitButton = q("#research-atlas-fit");
 const canvas = q("#research-atlas-canvas");
+const flowMount = q("#research-atlas-flow");
 const stage = q("#research-atlas-stage");
 const stageLabel = q("#research-atlas-stage-label");
 const zoomReadout = q("#research-atlas-zoom");
@@ -74,6 +75,9 @@ let selectedId = null;
 let hoveredId = null;
 let drag = null;
 let raf = null;
+let flowRenderer = null;
+let flowRendererPromise = null;
+let flowRendererFailed = false;
 let topologyGeneration = 0;
 let topologyController = null;
 let currentResponse = null;
@@ -83,6 +87,185 @@ let focusAuthors = [];
 const qwenVectorClient = new ResearchAtlasQwenVectorClient();
 
 const view = { x: 0, y: 0, zoom: 1 };
+
+function visibleNodeIdsForFlow() {
+  if (!viewModel) return [];
+
+  return viewModel.nodes
+    .filter(node => visibleNode(node.id))
+    .map(node => node.id);
+}
+
+function visibleEdgeIdsForFlow() {
+  if (!viewModel) return [];
+
+  return viewModel.edges
+    .filter(edge => visibleEdge(edge.id))
+    .map(edge => edge.id);
+}
+
+function flowPayload() {
+  return {
+    viewModel,
+    selectedId,
+    visibleNodeIds:
+      visibleNodeIdsForFlow(),
+    visibleEdgeIds:
+      visibleEdgeIdsForFlow()
+  };
+}
+
+async function ensureFlowRenderer() {
+  if (flowRenderer) {
+    return flowRenderer;
+  }
+
+  if (
+    flowRendererFailed ||
+    !flowMount
+  ) {
+    return null;
+  }
+
+  if (flowRendererPromise) {
+    return flowRendererPromise;
+  }
+
+  flowRendererPromise =
+    import(
+      "./research-atlas-flow.js?v=20261109-react-flow-temporal-v1"
+    )
+      .then(module => {
+        flowRenderer =
+          module.createResearchAtlasFlowRenderer({
+            element:
+              flowMount,
+            onSelect:
+              nodeId =>
+                selectNode(
+                  nodeId
+                ),
+            onHover:
+              (
+                nodeId,
+                clientX,
+                clientY
+              ) => {
+                const node =
+                  viewModel
+                    ?.nodes
+                    ?.find(
+                      item =>
+                        item.id ===
+                        nodeId
+                    );
+
+                if (!node) {
+                  return;
+                }
+
+                setTooltip(
+                  node,
+                  {
+                    clientX,
+                    clientY
+                  }
+                );
+              },
+            onHoverLeave:
+              () => {
+                hoveredId = null;
+                tooltip.classList.add(
+                  "hidden"
+                );
+              },
+            onViewport:
+              viewport => {
+                const zoom =
+                  Number(
+                    viewport?.zoom
+                  );
+
+                if (
+                  Number.isFinite(
+                    zoom
+                  )
+                ) {
+                  zoomReadout.textContent =
+                    String(
+                      Math.round(
+                        zoom *
+                        100
+                      )
+                    ) +
+                    "%";
+                }
+              }
+          });
+
+        flowMount.classList.remove(
+          "hidden"
+        );
+
+        stage.classList.add(
+          "is-react-flow"
+        );
+
+        return flowRenderer;
+      })
+      .catch(error => {
+        flowRendererFailed = true;
+
+        console.warn(
+          "React Flow no disponible; se conserva el renderer canvas del Atlas.",
+          error
+        );
+
+        flowMount.classList.add(
+          "hidden"
+        );
+
+        stage.classList.remove(
+          "is-react-flow"
+        );
+
+        return null;
+      });
+
+  return flowRendererPromise;
+}
+
+async function syncFlow({
+  fit = false
+} = {}) {
+  if (
+    activeView !==
+      "atlas" ||
+    !viewModel
+  ) {
+    return;
+  }
+
+  const renderer =
+    await ensureFlowRenderer();
+
+  if (!renderer) {
+    requestDraw();
+    return;
+  }
+
+  renderer.update(
+    flowPayload()
+  );
+
+  if (fit) {
+    requestAnimationFrame(
+      () => {
+        void renderer.fitView();
+      }
+    );
+  }
+}
 
 function makeAssembler() {
   assembler = new ResearchAtlasAssembler({ authorityGraph: EMPTY_AUTHORITY_GRAPH });
@@ -460,6 +643,7 @@ function resetGraph() {
   currentResultsByIdentity = new Map();
   focusAuthors = [];
   authorKey?.classList.add("hidden");
+  flowRenderer?.clear();
   makeAssembler();
   snapshot = null;
   layout = null;
@@ -708,6 +892,7 @@ function rebuildViewModel() {
   renderList();
   renderDetail();
   requestDraw();
+  void syncFlow();
 }
 
 function setView(nextView, options = {}) {
@@ -728,7 +913,9 @@ function setView(nextView, options = {}) {
 
   if (atlasActive) {
     requestDraw();
-    requestAnimationFrame(fitView);
+    void syncFlow({
+      fit: true
+    });
   }
 }
 
@@ -804,7 +991,15 @@ function edgeStyle(edge, colors) {
 }
 
 function requestDraw() {
-  if (!context || activeView !== "atlas" || !viewModel || raf) return;
+  if (
+    flowRenderer ||
+    !context ||
+    activeView !== "atlas" ||
+    !viewModel ||
+    raf
+  ) {
+    return;
+  }
   raf = requestAnimationFrame(() => {
     raf = null;
     draw();
@@ -1003,6 +1198,11 @@ function hitTest(clientX, clientY) {
 
 function fitView() {
   if (!viewModel || activeView !== "atlas") return;
+
+  if (flowRenderer) {
+    void flowRenderer.fitView();
+    return;
+  }
   const nodes = viewModel.nodes.filter(node => visibleNode(node.id));
   if (!nodes.length) return;
 
@@ -1035,6 +1235,13 @@ function fitView() {
 
 function zoomAt(factor, clientX = null, clientY = null) {
   if (activeView !== "atlas") return;
+
+  if (flowRenderer) {
+    void flowRenderer.zoomBy(
+      factor
+    );
+    return;
+  }
   const metrics = canvasMetrics();
   const rect = canvas.getBoundingClientRect();
   const x = clientX === null ? metrics.width / 2 : clientX - rect.left;
@@ -1247,14 +1454,29 @@ function selectNode(nodeId, options = {}) {
   if (!node) return;
 
   selectedId = nodeId;
-  if (options.center) {
+
+  if (
+    options.center &&
+    !flowRenderer
+  ) {
     view.x = node.x;
     view.y = node.y;
     view.zoom = Math.max(2, view.zoom);
   }
+
   renderList();
   renderDetail();
   requestDraw();
+  void syncFlow();
+
+  if (
+    options.center &&
+    flowRenderer
+  ) {
+    void flowRenderer.centerNode(
+      nodeId
+    );
+  }
 }
 
 function setTooltip(node, event) {
@@ -1297,6 +1519,7 @@ filterInput.addEventListener("input", () => {
   filterState = filterResearchAtlasViewModel(viewModel, filterInput.value);
   renderList();
   requestDraw();
+  void syncFlow();
 });
 
 for (const toggle of edgeToggles) toggle.addEventListener("change", rebuildViewModel);
@@ -1419,6 +1642,7 @@ window.addEventListener(RESEARCH_ATLAS_FILTER_EVENT, event => {
     renderList();
     renderDetail();
     requestDraw();
+    void syncFlow();
 
     const visible = Number(event.detail?.visibleCount);
     const total = Number(event.detail?.totalCount);
@@ -1437,12 +1661,18 @@ new MutationObserver(() => {
   attributeFilter: ["class"]
 });
 
-new MutationObserver(requestDraw).observe(document.documentElement, {
+new MutationObserver(() => {
+  requestDraw();
+  void syncFlow();
+}).observe(document.documentElement, {
   attributes: true,
   attributeFilter: ["data-theme"]
 });
 
-window.addEventListener("resize", requestDraw);
+window.addEventListener("resize", () => {
+  requestDraw();
+  void syncFlow();
+});
 
 makeAssembler();
 renderEmptyDetail();
