@@ -627,6 +627,13 @@ function appearanceCandidates(
     result.urls?.openAccess ||
     result.urls?.canonical ||
     result.urls?.doi ||
+    (
+      result.doi
+        ? `https://doi.org/${normalizeDoi(
+            result.doi
+          )}`
+        : null
+    ) ||
     result.url ||
     null;
 
@@ -678,6 +685,7 @@ function mergeWorkAppearances(
     const key = [
       appearance.provider || "",
       appearance.sourceId || "",
+      appearance.doi || "",
       appearance.url || "",
       normalizedTitle(
         appearance.title
