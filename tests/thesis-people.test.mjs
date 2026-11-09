@@ -120,7 +120,7 @@ test("la semblanza del archivo declara sus límites y las relaciones documentada
   assert.equal(profile.directed.length, 2);
   assert.equal(profile.yearFrom, 2015);
   assert.equal(profile.yearTo, 2020);
-  assert.match(biography, /2 tesis en dirección académica/);
+  assert.match(biography, /2 tesis en cuya dirección participó/);
   assert.match(biography, /2015 y 2020/);
   assert.match(biography, /no pretende sustituir una biografía personal verificada/);
 });
