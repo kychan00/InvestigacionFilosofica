@@ -55,17 +55,21 @@ begin
     return;
   end if;
 
-  insert into private.page_visits (
-    visit_id,
-    visitor_id,
-    entry_path
-  )
-  values (
-    p_visit_id,
-    p_visitor_id,
-    v_path
-  )
-  on conflict (visit_id) do nothing;
+  begin
+    insert into private.page_visits (
+      visit_id,
+      visitor_id,
+      entry_path
+    )
+    values (
+      p_visit_id,
+      p_visitor_id,
+      v_path
+    );
+  exception
+    when unique_violation then
+      null;
+  end;
 end;
 $$;
 
