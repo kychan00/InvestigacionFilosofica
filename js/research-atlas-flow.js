@@ -1092,7 +1092,13 @@ function AtlasFlow({
       zoomOnPinch: true,
       zoomOnDoubleClick: false,
       preventScrolling: true,
-      onlyRenderVisibleElements: true,
+      onlyRenderVisibleElements: false,
+      fitView: true,
+      fitViewOptions: {
+        padding: 0.16,
+        minZoom: 0.08,
+        maxZoom: 1.35
+      },
       nodeOrigin:
         [0.5, 0.5],
       onInit:
