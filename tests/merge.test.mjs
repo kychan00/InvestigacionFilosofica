@@ -955,7 +955,7 @@ test(
         {
           id: "curated:dinora-book",
           title:
-            "Teoría crítica, planteamientos, desplazamientos, tensiones",
+            "Dinora Hernández y colaboradores: Teoría crítica, planteamientos, desplazamientos, tensiones",
           alternativeTitles: [
             "Teoría crítica. Planteamientos, desplazamientos, tensiones"
           ],
