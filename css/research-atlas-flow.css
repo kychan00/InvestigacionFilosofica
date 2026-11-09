@@ -288,8 +288,7 @@
 }
 
 .research-atlas-rf-node:hover .research-atlas-rf-caption,
-.research-atlas-rf-node.is-selected .research-atlas-rf-caption,
-.research-atlas-rf-node.is-focus-author .research-atlas-rf-caption {
+.research-atlas-rf-node.is-selected .research-atlas-rf-caption {
   display: grid;
   gap: 3px;
 }
