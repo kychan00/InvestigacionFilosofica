@@ -23,6 +23,8 @@ import {
 export const RA12D3_REVISION =
   "2026-11-09.ra12-d3-v1";
 
+export const RA12D3_MAXIMUM_EDGES = 200;
+
 export const RA12D3_MODEL_ID =
   "Qwen/Qwen3-Embedding-0.6B";
 
@@ -210,7 +212,7 @@ export async function addResearchAtlasQwenSemanticTopology(
   }
   if (
     !Number.isInteger(topK) || topK < 1 || topK > 10 ||
-    !Number.isInteger(maximumEdges) || maximumEdges < 1 || maximumEdges > 200 ||
+    !Number.isInteger(maximumEdges) || maximumEdges < 1 || maximumEdges > RA12D3_MAXIMUM_EDGES ||
     !Number.isFinite(minimumScore) || minimumScore < -1 || minimumScore > 1
   ) {
     throw new RangeError("Invalid RA12-D3 topology limits");

@@ -4,7 +4,8 @@ import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js"
 import { addResearchAtlasDocumentSimilarity } from "../src/core/research-atlas-document-similarity.js";
 import {
   addResearchAtlasQwenSemanticTopology,
-  RA12D3_REVISION
+  RA12D3_REVISION,
+  RA12D3_MAXIMUM_EDGES
 } from "../src/core/research-atlas-qwen-topology.js";
 import { ResearchAtlasQwenVectorClient } from "../src/core/research-atlas-qwen-vector-client.js";
 import { resultIdentityKey } from "../src/core/merge-results.js";
@@ -511,7 +512,7 @@ async function consumeSearchResponse(meta) {
     const maximumEdges =
       expandedTopology
         ? Math.min(
-            240,
+            RA12D3_MAXIMUM_EDGES,
             Math.max(
               36,
               Math.ceil(
@@ -593,9 +594,24 @@ async function consumeSearchResponse(meta) {
           " con abstract · respaldo textual"
         );
 
+    const batch =
+      Number(response?.pagination?.batch || 1);
+
     stageLabel.textContent = qwen
-      ? "Mismo SearchResponse · Qwen3 representa y conecta las obras · RA11 sólo como respaldo"
-      : "Mismo SearchResponse que la lista · sin búsqueda adicional";
+      ? (
+          "Qwen3 · " +
+          String(qwen.semanticEdgesAdded || 0) +
+          " conexiones · " +
+          String(qwen.vectorsVerified || 0) +
+          " obras con vector · lote " +
+          String(batch)
+        )
+      : (
+          "Respaldo RA11 · " +
+          String(lexical?.edgesAdded || 0) +
+          " conexiones · lote " +
+          String(batch)
+        );
   }
 
   if (

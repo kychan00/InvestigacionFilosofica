@@ -6,6 +6,8 @@ const BASE =
   process.env.RESEARCH_ATLAS_BASE_URL ||
   "http://127.0.0.1:4173/";
 
+const LOAD_MORE_CLICKS = 3;
+
 await mkdir("artifacts/research-atlas-ra9", {recursive: true});
 
 function parseAtlasStatus(value) {
@@ -35,9 +37,16 @@ try {
 
   const page = await context.newPage();
   const pageErrors = [];
+  const consoleWarnings = [];
 
   page.on("pageerror", error => {
     pageErrors.push(error.message);
+  });
+
+  page.on("console", message => {
+    if (message.type() === "warning") {
+      consoleWarnings.push(message.text());
+    }
   });
 
   await page.addInitScript(() => {
@@ -65,6 +74,12 @@ try {
           syncStatus:
             document
               .querySelector("#research-atlas-sync-status")
+              ?.textContent
+              ?.trim() ||
+            "",
+          stageLabel:
+            document
+              .querySelector("#research-atlas-stage-label")
               ?.textContent
               ?.trim() ||
             ""
@@ -108,94 +123,158 @@ try {
     "initial Hegel search should expose Qwen topology"
   );
 
-  const loadMore =
-    page.locator(".fetch-more").first();
+  const loads = [];
+  let previousVectors = initial.vectors;
+  let previousEdges = initial.semanticEdges;
 
-  await loadMore.waitFor({
-    state: "visible",
-    timeout: 15000
-  });
+  for (let clickIndex = 0; clickIndex < LOAD_MORE_CLICKS; clickIndex += 1) {
+    const loadMore =
+      page.locator(".fetch-more").first();
 
-  await loadMore.click();
+    await loadMore.waitFor({
+      state: "visible",
+      timeout: 15000
+    });
 
-  await page.waitForFunction(() => {
-    return (
-      window.__atlasTopologyReady || []
-    ).some(item =>
-      item?.detail?.reason === "load-more"
+    const beforeCount =
+      await page.evaluate(() =>
+        (window.__atlasTopologyReady || []).length
+      );
+
+    await loadMore.click();
+
+    await page.waitForFunction(
+      ({beforeCount}) =>
+        (window.__atlasTopologyReady || []).length > beforeCount,
+      {beforeCount},
+      {
+        timeout: 240000,
+        polling: 500
+      }
     );
-  }, null, {
-    timeout: 240000,
-    polling: 500
-  });
 
-  const ready =
-    await page.evaluate(() =>
-      (window.__atlasTopologyReady || [])
-        .find(item =>
-          item?.detail?.reason === "load-more"
+    const ready =
+      await page.evaluate(() =>
+        (window.__atlasTopologyReady || []).at(-1)
+      );
+
+    assert.equal(
+      ready?.detail?.reason,
+      "load-more",
+      "every expanded batch must report load-more topology completion"
+    );
+
+    assert.ok(
+      ready?.detail?.qwen,
+      "every repeated load-more must finish with Qwen diagnostics"
+    );
+
+    assert.equal(
+      ready.buttonAtReady?.disabled,
+      true,
+      "Cargar más must remain disabled until topology-ready"
+    );
+
+    assert.match(
+      ready.buttonAtReady?.text || "",
+      /Conectando semánticamente/,
+      "button must show semantic connection phase when D3 finishes"
+    );
+
+    assert.ok(
+      ready.detail.qwen.maximumEdges > 36,
+      "expanded load-more topology should raise the original 36-edge budget"
+    );
+
+    assert.ok(
+      ready.detail.qwen.maximumEdges <= 200,
+      "expanded topology must respect the D3 engine ceiling"
+    );
+
+    assert.ok(
+      ready.detail.qwen.vectorsVerified >= previousVectors,
+      "verified-vector coverage must not regress after repeated load-more"
+    );
+
+    assert.ok(
+      ready.detail.qwen.semanticEdgesAdded >= previousEdges,
+      "semantic-edge coverage must not regress after repeated load-more"
+    );
+
+    assert.match(
+      ready.stageLabel || "",
+      /Qwen3 · \d+ conexiones · \d+ obras con vector · lote \d+/,
+      "the visible Atlas stage must keep showing Qwen counts"
+    );
+
+    assert.doesNotMatch(
+      ready.stageLabel || "",
+      /Respaldo RA11/,
+      "repeated load-more must not silently fall back after crossing the edge ceiling"
+    );
+
+    previousVectors =
+      ready.detail.qwen.vectorsVerified;
+
+    previousEdges =
+      ready.detail.qwen.semanticEdgesAdded;
+
+    loads.push({
+      click: clickIndex + 1,
+      ...ready.detail,
+      buttonAtReady: ready.buttonAtReady,
+      stageLabel: ready.stageLabel
+    });
+
+    await page.waitForFunction(() => {
+      const button =
+        document.querySelector(".fetch-more");
+
+      return (
+        !button ||
+        (
+          !button.disabled &&
+          /Cargar más resultados/.test(
+            button.textContent || ""
+          )
         )
-    );
-
-  assert.ok(
-    ready?.detail?.qwen,
-    "load-more must finish with Qwen diagnostics"
-  );
-
-  assert.equal(
-    ready.buttonAtReady?.disabled,
-    true,
-    "Cargar más must remain disabled until topology-ready"
-  );
-
-  assert.match(
-    ready.buttonAtReady?.text || "",
-    /Conectando semánticamente/,
-    "button must show semantic connection phase when D3 finishes"
-  );
-
-  assert.ok(
-    ready.detail.qwen.maximumEdges > 36,
-    "expanded load-more topology should raise the original 36-edge budget"
-  );
-
-  assert.ok(
-    ready.detail.qwen.vectorsVerified >=
-      initial.vectors,
-    "expanded topology must preserve or increase verified-vector coverage"
-  );
-
-  await page.waitForFunction(() => {
-    const button =
-      document.querySelector(".fetch-more");
-
-    return (
-      !button ||
-      (
-        !button.disabled &&
-        /Cargar más resultados/.test(
-          button.textContent || ""
-        )
-      )
-    );
-  }, null, {
-    timeout: 15000,
-    polling: 200
-  });
+      );
+    }, null, {
+      timeout: 15000,
+      polling: 200
+    });
+  }
 
   const finalStatus =
     await page.locator("#status").innerText();
 
+  const finalStageLabel =
+    await page.locator("#research-atlas-stage-label").innerText();
+
   assert.match(
     finalStatus,
-    /conexiones Qwen|Atlas actualizado con respaldo textual/,
-    "main status must not report load-more complete before Atlas completion"
+    /conexiones Qwen/,
+    "main status must finish on Qwen after repeated load-more"
+  );
+
+  assert.match(
+    finalStageLabel,
+    /Qwen3 · \d+ conexiones · \d+ obras con vector · lote \d+/,
+    "Atlas must expose persistent connection counts after repeated load-more"
+  );
+
+  assert.equal(
+    consoleWarnings.some(value =>
+      value.includes("Atlas Qwen no disponible")
+    ),
+    false,
+    "repeated load-more must not trigger the Qwen fallback warning"
   );
 
   assert.deepEqual(
     pageErrors,
     [],
-    "load-more semantic topology should not throw page errors"
+    "repeated load-more semantic topology should not throw page errors"
   );
 
   await page.screenshot({
@@ -208,9 +287,10 @@ try {
     status: "pass",
     query: "Hegel",
     initial,
-    topologyReady: ready.detail,
-    buttonAtReady: ready.buttonAtReady,
-    finalStatus
+    loads,
+    finalStatus,
+    finalStageLabel,
+    consoleWarnings
   }, null, 2) + "\n");
 
   await context.close();

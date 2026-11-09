@@ -233,7 +233,7 @@ test("RA12-D4 actualiza copy y cache bust del Atlas embebido", () => {
   );
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-load-more-topology-v3/
+    /research-atlas-embed\.js\?v=20261109-load-more-cap-v4/
   );
   assert.match(
     page,
@@ -300,7 +300,7 @@ test("Cargar más espera a que D3 termine la topología semántica ampliada", ()
   );
   assert.match(
     embed,
-    /Math\.min\(\s*240/
+    /Math\.min\(\s*RA12D3_MAXIMUM_EDGES/
   );
   assert.match(
     embed,
@@ -333,10 +333,45 @@ test("load-more topology reuses the existing cached Qwen vector client", () => {
 test("load-more topology cache-busts both app and embedded Atlas assets", () => {
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-load-more-topology-v3/
+    /research-atlas-embed\.js\?v=20261109-load-more-cap-v4/
   );
   assert.match(
     page,
     /app\.js\?v=20261109-load-more-topology-v2/
+  );
+});
+
+
+test("expanded load-more topology uses the D3 engine edge ceiling", () => {
+  assert.match(
+    embed,
+    /RA12D3_MAXIMUM_EDGES/
+  );
+  assert.match(
+    embed,
+    /Math\.min\(\s*RA12D3_MAXIMUM_EDGES/
+  );
+  assert.equal(
+    embed.includes("Math.min(\n            240"),
+    false
+  );
+});
+
+test("Atlas stage reports persistent Qwen connection counts after each final snapshot", () => {
+  assert.match(
+    embed,
+    /Qwen3 ·/
+  );
+  assert.match(
+    embed,
+    /semanticEdgesAdded/
+  );
+  assert.match(
+    embed,
+    /obras con vector · lote/
+  );
+  assert.match(
+    embed,
+    /Respaldo RA11 ·/
   );
 });
