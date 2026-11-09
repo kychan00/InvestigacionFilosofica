@@ -513,3 +513,50 @@ test(
     );
   }
 );
+
+
+test(
+  "reconoce Tomo III y (III) como el mismo volumen",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id: "catalog:tomo-iii",
+          title:
+            "El pensamiento alemán Tomo III",
+          authors: [
+            { name: "Eusebi Colomer" }
+          ],
+          year: 1978,
+          providers: ["Catálogo A"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          isbn: [],
+          institutionalLinks: [],
+          urls: {}
+        },
+        {
+          id: "catalog:roman-iii",
+          title:
+            "El pensamiento alemán (III)",
+          authors: [
+            { name: "Eusebi Colomer" }
+          ],
+          year: 1991,
+          providers: ["Catálogo B"],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          isbn: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      1
+    );
+  }
+);
