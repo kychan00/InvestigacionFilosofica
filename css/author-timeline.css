@@ -27,7 +27,7 @@ body.author-view .author-page #author-timeline-root {
   --tl-surface: var(--theme-surface, var(--profile-panel, #ffffff));
   --tl-card: var(--theme-surface, var(--profile-card, #ffffff));
   --tl-soft: var(--theme-surface-2, var(--profile-muted-panel, #f4f4f4));
-  --tl-blue-soft: color-mix(in srgb, var(--tl-blue) 9%, var(--tl-surface));
+  --tl-blue-soft: #edf5ff;
   --tl-shadow: color-mix(in srgb, var(--tl-ink) 9%, transparent);
   min-width: 0;
   margin: 28px 0;
@@ -51,6 +51,15 @@ body.author-view .author-page #author-timeline-root {
 .author-timeline *::before,
 .author-timeline *::after {
   box-sizing: border-box;
+}
+
+
+html[data-theme="light"] .author-page #author-timeline-root {
+  --tl-blue-soft: #edf5ff;
+}
+
+html[data-theme="dark"] .author-page #author-timeline-root {
+  --tl-blue-soft: #001d6c;
 }
 
 .author-timeline-heading {
@@ -267,7 +276,7 @@ body.author-view .author-page #author-timeline-root {
   padding: 52px 12px 14px;
   border: 0;
   border-radius: 15px;
-  background: color-mix(in srgb, var(--tl-surface) 94%, var(--tl-soft));
+  background: var(--tl-surface);
   color: var(--tl-ink);
   cursor: pointer;
   text-align: center;
@@ -520,7 +529,7 @@ body.author-view .author-page #author-timeline-root {
   padding: 4px 7px;
   border: 1px solid color-mix(in srgb, var(--tl-line) 78%, transparent);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--tl-soft) 72%, var(--tl-card));
+  background: var(--tl-soft);
   color: var(--tl-muted);
   font-family: var(--pg-mono);
   font-size: 11px;
