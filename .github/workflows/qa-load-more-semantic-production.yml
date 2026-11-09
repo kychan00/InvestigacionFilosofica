@@ -1,0 +1,54 @@
+name: QA load-more semantic · production
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/qa-load-more-semantic-production.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  production-load-more:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      RESEARCH_ATLAS_BASE_URL: https://kychan00.github.io/InvestigacionFilosofica/
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Verify production cache keys
+        run: |
+          curl -fsS https://kychan00.github.io/InvestigacionFilosofica/ > /tmp/prod-index.html
+          grep -F 'research-atlas-embed.js?v=20261109-load-more-topology-v3' /tmp/prod-index.html
+          grep -F 'app.js?v=20261109-load-more-topology-v2' /tmp/prod-index.html
+
+      - name: Install isolated Playwright
+        run: |
+          rm -rf /tmp/atlas-pw
+          mkdir -p /tmp/atlas-pw
+          cp scripts/qa/research-atlas-main-load-more-smoke.mjs /tmp/atlas-pw/smoke.mjs
+          cd /tmp/atlas-pw
+          npm init -y
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Verify production load-more semantic completion
+        run: |
+          mkdir -p artifacts/production
+          cd /tmp/atlas-pw
+          node smoke.mjs > "$GITHUB_WORKSPACE/artifacts/production/load-more-semantic.json"
+          cat "$GITHUB_WORKSPACE/artifacts/production/load-more-semantic.json"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-load-more-semantic
+          path: artifacts/production/
+          if-no-files-found: warn
+          retention-days: 7
