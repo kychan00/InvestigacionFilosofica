@@ -39,7 +39,7 @@ test(
 
     assert.match(
       html,
-      /theme\.css\?v=20261031-day-night-v5/u
+      /theme\.css\?v=20261109-work-aggregate-v1/u
     );
 
     assert.match(
