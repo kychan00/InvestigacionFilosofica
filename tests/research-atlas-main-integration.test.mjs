@@ -229,7 +229,7 @@ test("RA12-D4 actualiza copy y cache bust del Atlas embebido", () => {
   );
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-ra12d3-main-v1/
+    /research-atlas-embed\.js\?v=20261109-generic-author-v2/
   );
   assert.match(
     page,
