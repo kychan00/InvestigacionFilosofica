@@ -2568,8 +2568,14 @@ function renderWorkAggregate(
     appearances
       .map(
         appearance => {
+          const appearanceDoiUrl =
+            appearance.doi
+              ? `https://doi.org/${appearance.doi}`
+              : null;
+
           const link =
             appearance.url ||
+            appearanceDoiUrl ||
             sourceLinks.find(
               candidate =>
                 (
