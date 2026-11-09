@@ -61,8 +61,8 @@ jobs:
           if (!/enableQwenTopology\s*:\s*true/.test(source)) {
             throw new Error("Live page does not explicitly enable Qwen topology");
           }
-          if (!source.includes("Atlas Qwen")) {
-            throw new Error("Live page does not expose Qwen topology status");
+          if (!source.includes("Atlas semántico")) {
+            throw new Error("Live page does not expose semantic topology status");
           }
           NODE
 
