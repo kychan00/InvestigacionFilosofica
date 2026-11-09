@@ -2,6 +2,7 @@
 // RA12-C4 — capture real federated SearchResponses in a browser against current source adapters.
 // No semantic graph mutation, no overlay embedding, no production write.
 import fs from "node:fs/promises";
+import path from "node:path";
 import { chromium } from "playwright";
 
 const args=process.argv.slice(2);
@@ -83,7 +84,7 @@ try{
   await browser.close();
 }
 report.completedAt=new Date().toISOString();
-await fs.mkdir(new URL(".", "file://"+output).pathname,{recursive:true}).catch(()=>{});
+await fs.mkdir(path.dirname(output),{recursive:true});
 await fs.writeFile(output,JSON.stringify(report,null,2)+"\n");
 console.log(JSON.stringify({
   queries:report.runs.length,
