@@ -678,6 +678,21 @@ function initializeAggregate(
       result
     );
 
+  const rawIdentity =
+    resultIdentityKey(
+      result
+    );
+
+  copy.identityKey =
+    copy.identityKey ||
+    rawIdentity;
+
+  copy.identityAliases =
+    uniqueStrings([
+      ...(copy.identityAliases || []),
+      rawIdentity
+    ]);
+
   copy.titleVariants =
     titleVariantsOf(
       copy
@@ -903,6 +918,14 @@ function sameWork(
 
 
 export function resultIdentityKey(result) {
+  if (
+    result?.identityKey
+  ) {
+    return String(
+      result.identityKey
+    );
+  }
+
   const doi =
     normalizeDoi(
       result.doi
@@ -1376,6 +1399,14 @@ function mergeOne(
    * enlaces permanecen preservadas dentro
    * del agregado.
    */
+  existing.identityAliases =
+    uniqueStrings([
+      ...(existing.identityAliases || []),
+      existing.identityKey,
+      ...(incoming.identityAliases || []),
+      incoming.identityKey
+    ]);
+
   existing.titleVariants =
     uniqueStrings([
       ...(existing.titleVariants || []),
