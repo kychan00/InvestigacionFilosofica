@@ -259,6 +259,11 @@ def curated_public_record(
         "curatedRecordId": row["id"],
         "provider": row["provider"],
         "providerRecordId": row["providerRecordId"],
+        "alephSystemNumber": row.get("alephSystemNumber") or (
+            row["providerRecordId"]
+            if row.get("provider") == "udg-aleph" and str(row.get("providerRecordId") or "").isdigit()
+            else None
+        ),
         "referenceUrl": record_url,
         "evidenceUrls": evidence_urls,
     })
