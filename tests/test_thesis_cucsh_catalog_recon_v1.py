@@ -78,8 +78,16 @@ class CucshCatalogReconV1Test(unittest.TestCase):
             "program": "Licenciatura en Filosofía",
             "value": "Licenciatura en Filosofía",
         }
-        url = catalog.filtered_page_url(target, 3)
+        url = catalog.filtered_page_url(
+            target,
+            3,
+            combine="EL CONCEPTO DE AMOR EN SAN AGUSTIN",
+        )
+        self.assertIn("q=vista-tesis-licenciatura", url)
+        self.assertIn("combine=EL+CONCEPTO+DE+AMOR+EN+SAN+AGUSTIN", url)
         self.assertIn("field_licenciatura_value=Licenciatura+en+Filosof%C3%ADa", url)
+        self.assertIn("order=title", url)
+        self.assertIn("sort=asc", url)
         self.assertIn("page=3", url)
 
     def test_safe_url_is_host_bounded_and_fragment_free(self):
