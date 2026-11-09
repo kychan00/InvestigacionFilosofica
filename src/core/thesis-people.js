@@ -1,5 +1,17 @@
 const HONORIFIC_PATTERN = String.raw`(?:DR(?:A)?|DOCTOR(?:A)?|MTRO|MTRA|MAESTRO|MAESTRA|LIC(?:ENCIAD[OA])?|PROF(?:ESOR|ESORA)?|PH\.?D)`;
 
+const DIRECTOR_ROLE_PATTERN = String.raw`(?:CO(?:\\s|-)*DIR(?:ECTOR(?:A)?)?|CO(?:\\s|-)*DTOR(?:A)?|DIR(?:ECTOR(?:A)?)?|DTOR(?:A)?)(?:\\s+DE\\s+TESIS)?`;
+
+const LEADING_DIRECTOR_ROLES = new RegExp(
+  `^(?:(?:${DIRECTOR_ROLE_PATTERN})\\\\.?\\\\s*(?::|-)?\\\\s*)+`,
+  "iu",
+);
+
+const DIRECTOR_ROLE_BOUNDARY = new RegExp(
+  `\\\\s+(?=(?:${DIRECTOR_ROLE_PATTERN})\\\\.?\\\\s*(?::|-)?\\\\s*(?:(?:${HONORIFIC_PATTERN})\\\\.?\\\\s+)?)`,
+  "giu",
+);
+
 const LEADING_HONORIFICS = new RegExp(
   `^(?:(?:${HONORIFIC_PATTERN})\\.?\\s+)+`,
   "iu",
@@ -18,7 +30,9 @@ const TITLED_SLASH = new RegExp(
 export function cleanThesisPersonName(value) {
   return String(value || "")
     .replace(/^[\s,;|]+|[\s,;|]+$/g, "")
+    .replace(LEADING_DIRECTOR_ROLES, "")
     .replace(LEADING_HONORIFICS, "")
+    .replace(LEADING_DIRECTOR_ROLES, "")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -50,6 +64,7 @@ export function splitThesisPeople(value) {
 
     const explicit = raw
       .replace(TITLED_SLASH, "\n")
+      .replace(DIRECTOR_ROLE_BOUNDARY, "\n")
       .split(/\s*(?:;|\r?\n|\u2022|\|)\s*/u)
       .filter(Boolean);
 
