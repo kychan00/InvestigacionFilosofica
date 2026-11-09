@@ -18,15 +18,15 @@ body.author-view .author-page #author-timeline-root {
 }
 
 .author-page #author-timeline-root {
-  --tl-ink: var(--profile-ink, #161616);
-  --tl-subtle: var(--profile-subtle, #393939);
-  --tl-muted: var(--profile-muted, #525252);
+  --tl-ink: var(--theme-text, var(--profile-ink, #161616));
+  --tl-subtle: var(--theme-text, var(--profile-subtle, #393939));
+  --tl-muted: var(--theme-text-soft, var(--profile-muted, #525252));
   --tl-blue: var(--profile-action, #0f62fe);
   --tl-blue-label: var(--profile-blue-label, #0043ce);
-  --tl-line: var(--profile-outline, #c6c6c6);
-  --tl-surface: var(--profile-panel, #ffffff);
-  --tl-card: var(--profile-card, #ffffff);
-  --tl-soft: var(--profile-muted-panel, #f4f4f4);
+  --tl-line: var(--theme-line, var(--profile-outline, #c6c6c6));
+  --tl-surface: var(--theme-surface, var(--profile-panel, #ffffff));
+  --tl-card: var(--theme-surface, var(--profile-card, #ffffff));
+  --tl-soft: var(--theme-surface-2, var(--profile-muted-panel, #f4f4f4));
   --tl-blue-soft: color-mix(in srgb, var(--tl-blue) 9%, var(--tl-surface));
   --tl-shadow: color-mix(in srgb, var(--tl-ink) 9%, transparent);
   min-width: 0;
@@ -267,8 +267,8 @@ body.author-view .author-page #author-timeline-root {
   padding: 52px 12px 14px;
   border: 0;
   border-radius: 15px;
-  background: transparent;
-  color: var(--tl-muted);
+  background: color-mix(in srgb, var(--tl-surface) 94%, var(--tl-soft));
+  color: var(--tl-ink);
   cursor: pointer;
   text-align: center;
   scroll-snap-align: center;
@@ -523,7 +523,7 @@ body.author-view .author-page #author-timeline-root {
   background: color-mix(in srgb, var(--tl-soft) 72%, var(--tl-card));
   color: var(--tl-muted);
   font-family: var(--pg-mono);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: .06em;
   line-height: 1.2;
