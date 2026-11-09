@@ -102,7 +102,7 @@ Después se compara el embedding nuevo con el vector int8 V4 autenticado.
 Gates preregistrados:
 
 - coseno mínimo por control: **0.995**
-- coseno medio mínimo: **0.998**
+- coseno medio mínimo: **0.997**
 
 La igualdad byte a byte tras cuantización también se registra, pero no es un gate duro porque pequeñas diferencias numéricas entre Apple MPS y CPU pueden mover componentes cercanos a un umbral de redondeo.
 
@@ -180,3 +180,14 @@ SearchResponse identity
 ```
 
 Sólo después se diseña la activación progresiva del Atlas semántico.
+
+
+## Corrección del gate de paridad antes del primer build válido
+
+El primer intento que llegó a comparar embeddings reales produjo coseno mínimo **0.997301** y media **0.997376**, pero falló porque el contrato inicial había fijado media ≥0.998.
+
+Ese umbral mezclaba dos representaciones distintas: el embedding nuevo es float32 L2, mientras la referencia disponible en V4 ya fue cuantizada a int8 con escala 127 y después reconstruida para calcular coseno. Para un vector unitario de 1,024 dimensiones con cuantización uniforme de paso 1/127, el error RMS aproximado es **0.072737** y el coseno esperado frente al vector cuantizado es aproximadamente **0.997365**.
+
+Por ello el umbral medio se corrigió prospectivamente a **0.997** antes de aceptar ningún overlay. El mínimo individual permanece en **0.995**. La igualdad byte a byte sigue registrándose como diagnóstico y no se convirtió retroactivamente en un gate.
+
+Esta corrección no relaja una falla semántica: documenta que 0.998 era incompatible con el techo esperado de comparar float32 contra una referencia int8.
