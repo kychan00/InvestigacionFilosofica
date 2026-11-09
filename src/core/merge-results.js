@@ -51,6 +51,24 @@ function normalizedTitle(
 }
 
 
+function comparableTitle(
+  value
+) {
+  return normalizedTitle(
+    value
+  )
+    .replace(
+      /\b(tomo|volumen|volume|vol|parte|part|book|libro|band)\s+(?=([0-9]+|[ivxlcdm]+)\b)/gi,
+      ""
+    )
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .trim();
+}
+
+
 function authorTokens(
   author
 ) {
@@ -300,12 +318,12 @@ function titleSimilarity(
   authors = []
 ) {
   const left =
-    normalizedTitle(
+    comparableTitle(
       leftTitle
     );
 
   const right =
-    normalizedTitle(
+    comparableTitle(
       rightTitle
     );
 
@@ -787,12 +805,12 @@ function sameWork(
       }
 
       const leftNormalized =
-        normalizedTitle(
+        comparableTitle(
           leftTitle
         );
 
       const rightNormalized =
-        normalizedTitle(
+        comparableTitle(
           rightTitle
         );
 
@@ -1395,12 +1413,11 @@ function mergeOne(
   existing.workAppearances =
     mergeWorkAppearances(
       existing.workAppearances || [],
-      [
-        ...(incoming.workAppearances || []),
-        ...appearanceCandidates(
-          incoming
-        )
-      ]
+      incoming.workAppearances?.length
+        ? incoming.workAppearances
+        : appearanceCandidates(
+            incoming
+          )
     );
 
   existing.workAppearanceCount =
