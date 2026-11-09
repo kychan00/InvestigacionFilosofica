@@ -47,3 +47,12 @@ test("los enlaces históricos CUCSH usan búsqueda del catálogo también dentro
   assert.match(source, /const catalogSearchUrl = activeInstitution === "udg" \? cucshCatalogSearchUrl\(record\) : null/);
   assert.match(source, /"Buscar esta referencia en catálogo CUCSH ↗"/);
 });
+
+
+test("las obras ALEPH dentro del perfil usan el deep-link estable del Catálogo UdeG", async () => {
+  const source = await readFile(new URL("../js/thesis-demo.js", import.meta.url), "utf8");
+  const people = await readFile(new URL("../src/core/thesis-people.js", import.meta.url), "utf8");
+  assert.match(source, /const alephSearch = udgAlephCatalogUrl\(work\)/);
+  assert.match(source, /const alephSearchUrl = activeInstitution === "udg" \? udgAlephCatalogUrl\(record\) : null/);
+  assert.match(people, /alephSystemNumber: record\?\.alephSystemNumber \|\| null/);
+});
