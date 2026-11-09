@@ -1166,7 +1166,7 @@ function AtlasFlow({
       Panel,
       {
         position:
-          "bottom-left",
+          "top-left",
         className:
           "research-atlas-rf-panel"
       },
