@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "research-atlas-ra12c5b-overlay-contract-v1",
+  "phase": "RA12-C5-B",
+  "purpose": "Build the first external-source Qwen document overlay after exact V4 identity reconciliation, without mutating the frozen 451823-document base.",
+  "historicalDocumentText": {
+    "canonicalSource": "PR #4 semantic_retrieval/documents.py@4ad76042be6be6ff5358045fa0dd850216898cdf",
+    "maxCharacters": 24000,
+    "fieldsInOrder": [
+      "Title",
+      "Abstract",
+      "Authors",
+      "Topics",
+      "Keywords"
+    ],
+    "fieldFormat": "<Label>:\\n<normalized value>",
+    "separator": "\\n\\n",
+    "omitMissingFields": true
+  },
+  "embedding": {
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "dimension": 1024,
+    "documentInstruction": null,
+    "sentenceTransformersPaddingSide": "left",
+    "normalization": "L2 float32",
+    "quantization": "round(clip(vector,-1,1)*127) signed int8"
+  },
+  "identity": {
+    "excludeExactV4OpenAlex": true,
+    "excludeC5ARecoveredDoi": true,
+    "openAlexOutsideV4PrimaryIdentity": "openalex:W...",
+    "unmatchedDoiPrimaryIdentity": "doi:...",
+    "noDoiFallback": "provider:<provider>:<sourceId>",
+    "fuzzyTitleYearMerge": false,
+    "authorNameIdentityMerge": false
+  },
+  "compatibilityGate": {
+    "source": "8 genuine V4 documents from SHA-verified clusters 220 and 208",
+    "controlsPerCluster": 4,
+    "sourceVectors": "frozen V4 int8 shards with manifest SHA verification",
+    "minimumCosineEach": 0.995,
+    "minimumMeanCosine": 0.998,
+    "quantizedByteAgreement": "reported but not a hard gate",
+    "failClosed": true
+  },
+  "publishableArtifact": {
+    "stores": [
+      "identity",
+      "title",
+      "year",
+      "doi",
+      "OpenAlex WorkID when authoritative",
+      "providers",
+      "source IDs",
+      "URLs",
+      "text SHA256",
+      "vector int8",
+      "vector SHA256",
+      "model/revision"
+    ],
+    "excludes": [
+      "abstract body",
+      "documentText",
+      "full text",
+      "PDF"
+    ],
+    "rawCandidateText": "CI temporary storage only; never uploaded as artifact",
+    "publicationInThisPhase": false
+  },
+  "product": {
+    "searchResponseChanged": false,
+    "rankingChanged": false,
+    "atlasRuntimeChanged": false,
+    "semanticNeighborEnabled": false,
+    "ra11FallbackPreserved": true,
+    "v4Mutated": false
+  }
+}
