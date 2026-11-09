@@ -6,7 +6,10 @@ on:
       - "index.html"
       - "js/app.js"
       - "js/research-atlas-embed.js"
+      - "js/research-atlas-flow.js"
       - "css/research-atlas-embed.css"
+      - "css/research-atlas-flow.css"
+      - "src/core/research-atlas-view.js"
       - "tests/research-atlas-main-integration.test.mjs"
       - "scripts/qa/research-atlas-main-smoke.mjs"
       - "scripts/qa/research-atlas-main-hegel-smoke.mjs"
@@ -36,7 +39,10 @@ jobs:
         run: npm ci
 
       - name: Validate RA9 integration contract
-        run: node --test tests/research-atlas-main-integration.test.mjs
+        run: |
+          node --check js/research-atlas-flow.js
+          node --check js/research-atlas-embed.js
+          node --test tests/research-atlas-main-integration.test.mjs
 
       - name: Validate Research Atlas RA1 through RA8
         run: |
