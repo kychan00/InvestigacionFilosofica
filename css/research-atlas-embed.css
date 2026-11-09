@@ -483,3 +483,117 @@ body.author-view .research-atlas-embed {
     grid-template-columns: 1fr;
   }
 }
+
+
+.research-atlas-author-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  margin-left: auto;
+  padding: 0 12px;
+  background: var(--pg-white, #ffffff);
+  color: var(--pg-text, #393939);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.research-atlas-author-key.hidden {
+  display: none;
+}
+
+.research-atlas-author-key i {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ee5396;
+  box-shadow: 0 0 0 3px rgba(238, 83, 150, .16);
+}
+
+.research-atlas-node-authors {
+  margin-top: 18px;
+}
+
+.research-atlas-node-authors h3 {
+  margin: 0 0 9px;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.research-atlas-author-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.research-atlas-author-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 9px;
+  border: 1px solid var(--pg-line, #c6c6c6);
+  background: var(--pg-white, #ffffff);
+  color: var(--pg-blue, #0f62fe);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.research-atlas-author-link:hover,
+.research-atlas-author-link:focus-visible {
+  border-color: currentColor;
+  text-decoration: underline;
+}
+
+.research-atlas-node-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: 14px;
+  background: var(--pg-line, #c6c6c6);
+  border: 1px solid var(--pg-line, #c6c6c6);
+}
+
+.research-atlas-node-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  flex: 1 1 90px;
+  border: 0;
+  padding: 8px 10px;
+  background: var(--pg-white, #ffffff);
+  color: var(--pg-black, #161616);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.research-atlas-node-action.primary {
+  background: var(--pg-blue, #0f62fe);
+  color: #ffffff;
+}
+
+.research-atlas-node-action:hover,
+.research-atlas-node-action:focus-visible {
+  text-decoration: underline;
+}
+
+.research-atlas-list button:has(strong) {
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  .research-atlas-author-key {
+    flex: 1 1 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .research-atlas-node-action {
+    flex-basis: 100%;
+  }
+}
