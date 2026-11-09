@@ -244,6 +244,9 @@ const RESEARCH_ATLAS_RESET_EVENT =
 const RESEARCH_ATLAS_FILTER_EVENT =
   "research-atlas:filter-results";
 
+const RESEARCH_ATLAS_OPEN_RECORD_EVENT =
+  "research-atlas:open-record";
+
 
 function resetResearchAtlas(
   query
@@ -4076,6 +4079,38 @@ function fetchMoreButton(
     </div>
   `;
 }
+
+window.addEventListener(
+  RESEARCH_ATLAS_OPEN_RECORD_EVENT,
+  event => {
+    const identity =
+      String(
+        event.detail?.identity ||
+        ""
+      );
+
+    if (!identity) {
+      return;
+    }
+
+    const item =
+      (currentResponse?.results || [])
+        .find(result =>
+          resultIdentityKey(result) ===
+          identity
+        ) ||
+      currentResults
+        .find(result =>
+          resultIdentityKey(result) ===
+          identity
+        );
+
+    if (item) {
+      openRecord(item);
+    }
+  }
+);
+
 
 function bindResultActions() {
   document

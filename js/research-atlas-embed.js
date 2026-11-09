@@ -3,16 +3,23 @@ import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js"
 import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js";
 import { addResearchAtlasDocumentSimilarity } from "../src/core/research-atlas-document-similarity.js";
 import {
+  addResearchAtlasQwenSemanticTopology,
+  RA12D3_REVISION
+} from "../src/core/research-atlas-qwen-topology.js";
+import { ResearchAtlasQwenVectorClient } from "../src/core/research-atlas-qwen-vector-client.js";
+import { resultIdentityKey } from "../src/core/merge-results.js";
+import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
   selectedResearchAtlasContext
 } from "../src/core/research-atlas-view.js";
 import { OPENALEX_PHILOSOPHY_HF_REVISION } from "../src/sources/openalex-philosophy.js";
 
-export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-07.ra11-v1";
+export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-09.ra12d3-main-v1";
 export const RESEARCH_ATLAS_RESPONSE_EVENT = "research-atlas:search-response";
 export const RESEARCH_ATLAS_RESET_EVENT = "research-atlas:reset";
 export const RESEARCH_ATLAS_FILTER_EVENT = "research-atlas:filter-results";
+export const RESEARCH_ATLAS_OPEN_RECORD_EVENT = "research-atlas:open-record";
 
 const q = selector => document.querySelector(selector);
 const switcher = q("#research-view-switch");
@@ -33,6 +40,7 @@ const tooltip = q("#research-atlas-tooltip");
 const detail = q("#research-atlas-detail");
 const list = q("#research-atlas-list");
 const edgeToggles = [...document.querySelectorAll("[data-research-atlas-edge]")];
+const authorKey = q("#research-atlas-author-key");
 const context = canvas?.getContext("2d", { alpha: true }) || null;
 
 const EMPTY_AUTHORITY_GRAPH = Object.freeze({
@@ -64,6 +72,13 @@ let selectedId = null;
 let hoveredId = null;
 let drag = null;
 let raf = null;
+let topologyGeneration = 0;
+let topologyController = null;
+let currentResponse = null;
+let currentResultsByIdentity = new Map();
+let focusAuthors = [];
+
+const qwenVectorClient = new ResearchAtlasQwenVectorClient();
 
 const view = { x: 0, y: 0, zoom: 1 };
 
@@ -102,7 +117,177 @@ function element(tag, className, text) {
   return node;
 }
 
+
+function normalizeAuthorName(value) {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("und")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
+
+function authorId(value) {
+  return String(value || "")
+    .match(/(?:openalex\.org\/A|^A?)(\d+)$/i)?.[1] || null;
+}
+
+function resolvedFocusAuthors(response) {
+  const resolution = response?.authorResolution;
+  const resolved =
+    resolution?.status === "multiple"
+      ? (resolution.identities || []).filter(item => item?.status === "resolved")
+      : resolution?.status === "resolved"
+        ? [resolution]
+        : [];
+
+  const descriptors = resolved.map(item => {
+    const author = item.author || {};
+    const names = [
+      author.displayName,
+      author.sourceDisplayName,
+      ...(author.aliases || []),
+      item.canonicalName,
+      item.input
+    ]
+      .map(normalizeAuthorName)
+      .filter(Boolean);
+
+    const ids = [
+      author.id,
+      ...(author.linkedAuthorIds || [])
+    ]
+      .map(authorId)
+      .filter(Boolean);
+
+    return {
+      displayName:
+        author.displayName ||
+        item.canonicalName ||
+        item.input ||
+        "Autor",
+      names: new Set(names),
+      ids: new Set(ids)
+    };
+  });
+
+  if (descriptors.length) {
+    return descriptors;
+  }
+
+  return (response?.parsed?.philosophers || [])
+    .map(item => ({
+      displayName: item.name,
+      names: new Set([normalizeAuthorName(item.name)].filter(Boolean)),
+      ids: new Set()
+    }))
+    .filter(item => item.names.size);
+}
+
+function resultMatchesFocusAuthor(result) {
+  if (!focusAuthors.length || !result) return false;
+
+  return (result.authors || []).some(author => {
+    const name = normalizeAuthorName(author?.name || author);
+    const id = authorId(author?.id);
+
+    return focusAuthors.some(focus =>
+      Boolean(
+        (id && focus.ids.has(id)) ||
+        (name && focus.names.has(name))
+      )
+    );
+  });
+}
+
+function rebuildResultContext(response) {
+  currentResponse = response;
+  currentResultsByIdentity = new Map(
+    (response?.results || []).map(result => [
+      resultIdentityKey(result),
+      result
+    ])
+  );
+  focusAuthors = resolvedFocusAuthors(response);
+
+  if (authorKey) {
+    authorKey.classList.toggle("hidden", !focusAuthors.length);
+    const label = authorKey.querySelector("[data-author-key-label]");
+    if (label) {
+      label.textContent =
+        focusAuthors.length === 1
+          ? "Obra de " + focusAuthors[0].displayName
+          : "Obra de autor buscado";
+    }
+  }
+}
+
+function currentResultForNode(node) {
+  if (!node?.identity) return null;
+  return currentResultsByIdentity.get(node.identity) || null;
+}
+
+function workUrl(result) {
+  return (
+    result?.urls?.openAccess ||
+    result?.urls?.doi ||
+    result?.urls?.canonical ||
+    result?.urls?.landing ||
+    result?.url ||
+    null
+  );
+}
+
+function authorHref(author) {
+  const name = String(author?.name || author || "").trim();
+  if (!name) return null;
+
+  const url = new URL(window.location.href);
+  url.searchParams.set("view", "author");
+  url.searchParams.set("author", name);
+
+  const id = authorId(author?.id);
+  if (id) {
+    url.searchParams.set("authorId", id);
+  } else {
+    url.searchParams.delete("authorId");
+  }
+
+  const orcid = String(author?.orcid || "").replace(/^https?:\/\/orcid\.org\//i, "");
+  if (/^\d{4}-\d{4}-\d{4}-[\dX]{4}$/i.test(orcid)) {
+    url.searchParams.set("authorOrcid", orcid);
+  } else {
+    url.searchParams.delete("authorOrcid");
+  }
+
+  url.hash = "results";
+  return url.toString();
+}
+
+function decorateViewModelNodes() {
+  if (!viewModel) return;
+
+  for (const node of viewModel.nodes) {
+    if (node.kind !== "work-direct" && node.kind !== "work-expanded") {
+      node.focusAuthorWork = false;
+      continue;
+    }
+
+    node.focusAuthorWork =
+      resultMatchesFocusAuthor(
+        currentResultForNode(node)
+      );
+  }
+}
+
 function resetGraph() {
+  topologyGeneration += 1;
+  topologyController?.abort();
+  topologyController = null;
+  currentResponse = null;
+  currentResultsByIdentity = new Map();
+  focusAuthors = [];
+  authorKey?.classList.add("hidden");
   makeAssembler();
   snapshot = null;
   layout = null;
@@ -138,7 +323,7 @@ function enabledEdgeTypes() {
     .map(toggle => toggle.dataset.researchAtlasEdge);
 }
 
-function consumeSearchResponse(meta) {
+async function consumeSearchResponse(meta) {
   const response = meta?.response;
   if (!response || !Array.isArray(response.results)) return;
 
@@ -147,6 +332,12 @@ function consumeSearchResponse(meta) {
 
   if (currentQuery && currentQuery !== queryText) resetGraph();
   currentQuery = queryText;
+  rebuildResultContext(response);
+
+  topologyGeneration += 1;
+  const generation = topologyGeneration;
+  topologyController?.abort();
+  topologyController = null;
 
   const state =
     meta.phase === "partial"
@@ -155,41 +346,83 @@ function consumeSearchResponse(meta) {
         ? "partial"
         : "complete";
 
+  const finalPhase = meta.phase !== "partial";
+  const revisions = sourceRevisions(response);
+  if (finalPhase) revisions.qwenTopology = RA12D3_REVISION;
+
   const base = assembler.ingest(response, {
     searchMode: inferSearchMode(meta, response),
     state,
-    sourceRevisions: sourceRevisions(response)
+    sourceRevisions: revisions
   });
 
-  snapshot = addResearchAtlasDocumentSimilarity(base);
+  if (!finalPhase) {
+    snapshot = addResearchAtlasDocumentSimilarity(base);
+  } else {
+    topologyController = new AbortController();
+
+    try {
+      snapshot = await addResearchAtlasQwenSemanticTopology(
+        base,
+        response,
+        {
+          vectorClient: qwenVectorClient,
+          signal: topologyController.signal
+        }
+      );
+    } catch (error) {
+      if (
+        topologyController.signal.aborted ||
+        generation !== topologyGeneration ||
+        error?.name === "AbortError"
+      ) {
+        return;
+      }
+
+      console.warn(
+        "Atlas Qwen no disponible; usando RA11 como respaldo.",
+        error
+      );
+      snapshot = addResearchAtlasDocumentSimilarity(base);
+    }
+  }
+
+  if (generation !== topologyGeneration) return;
+
   layout = layoutEngine.layout(snapshot);
   rebuildViewModel();
 
   switcher.classList.remove("hidden");
   atlasCount.textContent = String(viewModel.diagnostics.directWorks);
 
-  if (meta.phase === "partial") {
+  if (!finalPhase) {
     syncStatus.textContent =
       String(viewModel.diagnostics.directWorks) + " obras · Atlas actualizándose";
     stageLabel.textContent =
       "Resultados parciales · la geometría se estabiliza conforme llegan fuentes";
   } else {
-    const similarity =
-      snapshot.diagnostics
-        ?.documentSimilarity;
+    const qwen = snapshot.diagnostics?.qwenSemantic;
+    const lexical = snapshot.diagnostics?.documentSimilarity;
 
-    syncStatus.textContent =
-      String(
-        viewModel.diagnostics.directWorks
-      ) +
-      " obras · " +
-      String(
-        similarity?.worksWithAbstract ??
-        0
-      ) +
-      " con abstract · autores como capa secundaria";
-    stageLabel.textContent =
-      "Mismo SearchResponse que la lista · sin búsqueda adicional";
+    syncStatus.textContent = qwen
+      ? (
+          String(viewModel.diagnostics.directWorks) +
+          " obras · " +
+          String(qwen.semanticEdgesAdded || 0) +
+          " conexiones Qwen · " +
+          String(qwen.vectorsVerified || 0) +
+          " con vector"
+        )
+      : (
+          String(viewModel.diagnostics.directWorks) +
+          " obras · " +
+          String(lexical?.worksWithAbstract ?? 0) +
+          " con abstract · respaldo textual"
+        );
+
+    stageLabel.textContent = qwen
+      ? "Mismo SearchResponse · Qwen3 representa y conecta las obras · RA11 sólo como respaldo"
+      : "Mismo SearchResponse que la lista · sin búsqueda adicional";
   }
 
   if (activeView === "atlas") {
@@ -205,6 +438,7 @@ function rebuildViewModel() {
   viewModel = buildResearchAtlasViewModel(snapshot, layout, {
     edgeTypes: enabledEdgeTypes()
   });
+  decorateViewModelNodes();
   filterState = filterResearchAtlasViewModel(viewModel, filterInput.value);
   recomputeMainVisibility();
   if (selectedId && !viewModel.nodes.some(node => node.id === selectedId)) {
@@ -265,6 +499,7 @@ function palette() {
     green: "#42be65",
     purple: "#8a3ffc",
     yellow: "#f1c21b",
+    focusAuthor: "#ee5396",
     muted: cssColor("--pg-muted", "#6f6f6f")
   };
 }
@@ -429,16 +664,29 @@ function draw() {
       const radius = selected ? 8 : hovered ? 6.5 : connected ? 5.5 : 4.4;
       context.beginPath();
       context.arc(screen.x, screen.y, radius, 0, Math.PI * 2);
-      context.fillStyle = colors.blue;
+      context.fillStyle = node.focusAuthorWork
+        ? colors.focusAuthor
+        : colors.blue;
       context.fill();
+
+      if (node.focusAuthorWork) {
+        context.beginPath();
+        context.arc(screen.x, screen.y, radius + 3.2, 0, Math.PI * 2);
+        context.strokeStyle = colors.focusAuthor;
+        context.globalAlpha *= 0.45;
+        context.lineWidth = 1.25;
+        context.stroke();
+      }
     } else if (node.kind === "work-expanded") {
       const radius = selected ? 8 : hovered ? 6.5 : 4.8;
       context.beginPath();
       context.arc(screen.x, screen.y, radius, 0, Math.PI * 2);
       context.fillStyle = colors.white;
       context.fill();
-      context.strokeStyle = colors.cyan;
-      context.lineWidth = 2;
+      context.strokeStyle = node.focusAuthorWork
+        ? colors.focusAuthor
+        : colors.cyan;
+      context.lineWidth = node.focusAuthorWork ? 2.6 : 2;
       context.stroke();
     } else if (node.kind === "authority-person") {
       const size = selected ? 8 : 6;
@@ -572,6 +820,7 @@ function renderDetail() {
   }
 
   const node = current.node;
+  const result = currentResultForNode(node);
   const fragment = document.createDocumentFragment();
   fragment.append(
     element("span", "research-atlas-kicker", kindLabel(node.kind)),
@@ -592,6 +841,85 @@ function renderDetail() {
   );
   meta.append(identity, relationCount);
   fragment.append(meta);
+
+  if (
+    node.kind === "work-direct" ||
+    node.kind === "work-expanded"
+  ) {
+    const authors = (result?.authors || [])
+      .filter(author => Boolean(author?.name || author));
+
+    if (authors.length) {
+      const authorSection = element("section", "research-atlas-node-authors");
+      authorSection.append(element("h3", "", "Autores"));
+      const authorLinks = element("div", "research-atlas-author-links");
+
+      for (const author of authors) {
+        const href = authorHref(author);
+        if (!href) continue;
+        const link = element(
+          "a",
+          "research-atlas-author-link",
+          author?.name || author
+        );
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        authorLinks.append(link);
+      }
+
+      authorSection.append(authorLinks);
+      fragment.append(authorSection);
+    }
+
+    const actions = element("div", "research-atlas-node-actions");
+
+    if (result) {
+      const ficha = element("button", "research-atlas-node-action primary", "Ver ficha");
+      ficha.type = "button";
+      ficha.dataset.researchAtlasOpenRecord = node.identity;
+      actions.append(ficha);
+    }
+
+    const external = workUrl(result);
+    if (external) {
+      const open = element("a", "research-atlas-node-action", "Abrir obra");
+      open.href = external;
+      open.target = "_blank";
+      open.rel = "noopener noreferrer";
+      actions.append(open);
+    }
+
+    if (result?.doi) {
+      const doi = element("a", "research-atlas-node-action", "DOI");
+      doi.href = "https://doi.org/" + result.doi;
+      doi.target = "_blank";
+      doi.rel = "noopener noreferrer";
+      actions.append(doi);
+    }
+
+    if (actions.children.length) {
+      fragment.append(actions);
+    }
+  } else if (
+    node.kind === "authority-person" ||
+    node.kind === "author-mention"
+  ) {
+    const href = authorHref(node.label);
+    if (href) {
+      const actions = element("div", "research-atlas-node-actions");
+      const openAuthor = element(
+        "a",
+        "research-atlas-node-action primary",
+        "Abrir autor"
+      );
+      openAuthor.href = href;
+      openAuthor.target = "_blank";
+      openAuthor.rel = "noopener noreferrer";
+      actions.append(openAuthor);
+      fragment.append(actions);
+    }
+  }
 
   const why = element("section", "research-atlas-why");
   why.append(element("h3", "", "¿Por qué está aquí?"));
@@ -642,7 +970,9 @@ function renderList() {
     button.dataset.researchAtlasSelect = node.id;
     if (node.id === selectedId) button.setAttribute("aria-current", "true");
     const subtitle =
-      kindLabel(node.kind) + (node.subtitle ? " · " + node.subtitle : "");
+      kindLabel(node.kind) +
+      (node.focusAuthorWork ? " · obra del autor buscado" : "") +
+      (node.subtitle ? " · " + node.subtitle : "");
     button.append(
       element("strong", "", node.label),
       element("span", "", subtitle)
@@ -784,13 +1114,29 @@ canvas.addEventListener("pointerleave", () => {
 });
 
 atlasPanel.addEventListener("click", event => {
+  const record = event.target.closest("[data-research-atlas-open-record]");
+  if (record) {
+    window.dispatchEvent(
+      new CustomEvent(
+        RESEARCH_ATLAS_OPEN_RECORD_EVENT,
+        {
+          detail: {
+            identity:
+              record.dataset.researchAtlasOpenRecord
+          }
+        }
+      )
+    );
+    return;
+  }
+
   const target = event.target.closest("[data-research-atlas-select]");
   if (!target) return;
   selectNode(target.dataset.researchAtlasSelect, { center: true });
 });
 
 window.addEventListener(RESEARCH_ATLAS_RESPONSE_EVENT, event => {
-  consumeSearchResponse(event.detail);
+  void consumeSearchResponse(event.detail);
 });
 
 window.addEventListener(RESEARCH_ATLAS_RESET_EVENT, event => {

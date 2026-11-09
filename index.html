@@ -85,7 +85,7 @@
 
   <link
     rel="stylesheet"
-    href="./css/research-atlas-embed.css?v=20261107-ra11-v1"
+    href="./css/research-atlas-embed.css?v=20261109-ra12d3-main-v1"
   >
   <link
     rel="stylesheet"
@@ -639,8 +639,8 @@
                 El territorio de esta búsqueda
               </h2>
               <p>
-                Las obras construyen la geometría; los autores se conectan
-                como menciones o autoridades sin alterar la topología.
+                Qwen3 conecta las obras por proximidad semántica sobre el mismo
+                SearchResponse; RA11 queda como respaldo cuando falta vector.
               </p>
             </div>
 
@@ -715,6 +715,16 @@
               >
               Menciones
             </label>
+
+            <span
+              id="research-atlas-author-key"
+              class="research-atlas-author-key hidden"
+            >
+              <i aria-hidden="true"></i>
+              <span data-author-key-label>
+                Obra del autor buscado
+              </span>
+            </span>
           </div>
 
           <div class="research-atlas-embed-layout">
@@ -874,12 +884,12 @@
 
   <script
     type="module"
-    src="./js/research-atlas-embed.js?v=20261107-ra11-v1"
+    src="./js/research-atlas-embed.js?v=20261109-ra12d3-main-v1"
   ></script>
 
   <script
     type="module"
-    src="./js/app.js?v=20261108-private-analytics-v3"
+    src="./js/app.js?v=20261109-atlas-links-v1"
   ></script>
 
   <script
