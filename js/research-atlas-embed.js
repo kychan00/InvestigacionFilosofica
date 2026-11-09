@@ -8,7 +8,7 @@ import {
   RA12D3_MAXIMUM_EDGES
 } from "../src/core/research-atlas-qwen-topology.js";
 import { ResearchAtlasQwenVectorClient } from "../src/core/research-atlas-qwen-vector-client.js";
-import { resultIdentityKey } from "../src/core/merge-results.js";
+import { resultIdentityKey } from "../src/core/merge-results.js?v=20261109-work-cluster-v2";
 import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
