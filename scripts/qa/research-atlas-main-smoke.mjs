@@ -382,12 +382,45 @@ try {
 
     await page.waitForTimeout(30);
 
-    const firstFlowNode =
+    const flowNodes =
       page.locator(
         "#research-atlas-flow .react-flow__node"
-      ).first();
+      );
 
-    await firstFlowNode.click();
+    const clickableIndex =
+      await flowNodes.evaluateAll(nodes => {
+        const headerBottom =
+          document
+            .querySelector(".research-atlas-embed-head")
+            ?.getBoundingClientRect()
+            ?.bottom || 0;
+
+        return nodes.findIndex(node => {
+          const rect =
+            node.getBoundingClientRect();
+
+          return (
+            rect.width > 0 &&
+            rect.height > 0 &&
+            rect.top >
+              headerBottom + 8 &&
+            rect.bottom <
+              innerHeight - 8 &&
+            rect.left > 8 &&
+            rect.right <
+              innerWidth - 8
+          );
+        });
+      });
+
+    assert.ok(
+      clickableIndex >= 0,
+      name + " must expose at least one directly clickable React Flow node"
+    );
+
+    await flowNodes
+      .nth(clickableIndex)
+      .click();
 
     await page.waitForFunction(() =>
       !document
