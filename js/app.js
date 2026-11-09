@@ -45,7 +45,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261031-timeline-v1";
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261109-editorial-timeline-v2";
 
 import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-curated-bibliography-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
