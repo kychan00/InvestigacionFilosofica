@@ -20,6 +20,7 @@ export const RESEARCH_ATLAS_RESPONSE_EVENT = "research-atlas:search-response";
 export const RESEARCH_ATLAS_RESET_EVENT = "research-atlas:reset";
 export const RESEARCH_ATLAS_FILTER_EVENT = "research-atlas:filter-results";
 export const RESEARCH_ATLAS_OPEN_RECORD_EVENT = "research-atlas:open-record";
+export const RESEARCH_ATLAS_TOPOLOGY_READY_EVENT = "research-atlas:topology-ready";
 
 const q = selector => document.querySelector(selector);
 const switcher = q("#research-view-switch");
@@ -504,13 +505,42 @@ async function consumeSearchResponse(meta) {
   } else {
     topologyController = new AbortController();
 
+    const expandedTopology =
+      meta?.reason === "load-more";
+
+    const maximumEdges =
+      expandedTopology
+        ? Math.min(
+            240,
+            Math.max(
+              36,
+              Math.ceil(
+                response.results.length *
+                1.5
+              )
+            )
+          )
+        : 36;
+
+    syncStatus.textContent =
+      String(
+        response.results.length
+      ) +
+      " obras · conectando semánticamente…";
+
+    stageLabel.textContent =
+      expandedTopology
+        ? "Lote ampliado · Qwen3 está incorporando las nuevas obras al territorio"
+        : "Qwen3 está construyendo las conexiones semánticas";
+
     try {
       snapshot = await addResearchAtlasQwenSemanticTopology(
         base,
         response,
         {
           vectorClient: qwenVectorClient,
-          signal: topologyController.signal
+          signal: topologyController.signal,
+          maximumEdges
         }
       );
     } catch (error) {
@@ -566,6 +596,51 @@ async function consumeSearchResponse(meta) {
     stageLabel.textContent = qwen
       ? "Mismo SearchResponse · Qwen3 representa y conecta las obras · RA11 sólo como respaldo"
       : "Mismo SearchResponse que la lista · sin búsqueda adicional";
+  }
+
+  if (
+    finalPhase &&
+    meta?.requestId
+  ) {
+    const qwen =
+      snapshot.diagnostics
+        ?.qwenSemantic ||
+      null;
+
+    window.dispatchEvent(
+      new CustomEvent(
+        RESEARCH_ATLAS_TOPOLOGY_READY_EVENT,
+        {
+          detail: {
+            requestId:
+              meta.requestId,
+            reason:
+              meta.reason || null,
+            directWorks:
+              viewModel.diagnostics
+                .directWorks,
+            qwen: qwen
+              ? {
+                  semanticEdgesAdded:
+                    qwen.semanticEdgesAdded,
+                  vectorsVerified:
+                    qwen.vectorsVerified,
+                  v4Vectors:
+                    qwen.v4Vectors,
+                  overlayVectors:
+                    qwen.overlayVectors,
+                  evaluatedPairs:
+                    qwen.evaluatedPairs,
+                  maximumEdges:
+                    qwen.maximumEdges,
+                  topK:
+                    qwen.topK
+                }
+              : null
+          }
+        }
+      )
+    );
   }
 
   if (activeView === "atlas") {

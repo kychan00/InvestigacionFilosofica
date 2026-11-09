@@ -114,8 +114,12 @@ test("filtros principales publican identidades canónicas sin reconstruir topolo
 test("app actualiza Atlas al cargar más resultados", () => {
   const loadMoreIndex = app.indexOf("async function loadMoreResults");
   assert.ok(loadMoreIndex >= 0);
-  const segment = app.slice(loadMoreIndex, loadMoreIndex + 5000);
-  assert.match(segment, /publishResearchAtlasResponse\(\s*response,\s*"complete"\s*\)/);
+  const segment = app.slice(loadMoreIndex, loadMoreIndex + 9000);
+
+  assert.match(
+    segment,
+    /publishResearchAtlasResponse\([\s\S]*?response,[\s\S]*?"complete",[\s\S]*?requestId:[\s\S]*?topologyRequestId,[\s\S]*?reason:[\s\S]*?"load-more"[\s\S]*?\)/
+  );
 });
 
 
@@ -229,7 +233,7 @@ test("RA12-D4 actualiza copy y cache bust del Atlas embebido", () => {
   );
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-generic-author-v2/
+    /research-atlas-embed\.js\?v=20261109-load-more-topology-v3/
   );
   assert.match(
     page,
@@ -256,5 +260,83 @@ test("fallback visual de autor no sustituye la identidad resuelta", () => {
   assert.match(
     embed,
     /id\s*&&\s*focus\.ids\.has\(id\)/
+  );
+});
+
+
+test("Cargar más espera a que D3 termine la topología semántica ampliada", () => {
+  assert.match(
+    app,
+    /RESEARCH_ATLAS_TOPOLOGY_READY_EVENT/
+  );
+  assert.match(
+    app,
+    /waitForResearchAtlasTopology/
+  );
+  assert.match(
+    app,
+    /reason:\s*"load-more"/
+  );
+  assert.match(
+    app,
+    /"Conectando semánticamente…"/
+  );
+  assert.match(
+    app,
+    /await\s+topologyReady/
+  );
+
+  assert.match(
+    embed,
+    /RESEARCH_ATLAS_TOPOLOGY_READY_EVENT/
+  );
+  assert.match(
+    embed,
+    /meta\?\.reason\s*===\s*"load-more"/
+  );
+  assert.match(
+    embed,
+    /maximumEdges\s*=/
+  );
+  assert.match(
+    embed,
+    /Math\.min\(\s*240/
+  );
+  assert.match(
+    embed,
+    /semanticEdgesAdded/
+  );
+  assert.match(
+    embed,
+    /vectorsVerified/
+  );
+});
+
+test("load-more topology reuses the existing cached Qwen vector client", () => {
+  assert.match(
+    embed,
+    /const qwenVectorClient = new ResearchAtlasQwenVectorClient\(\)/
+  );
+
+  const clients =
+    embed.match(
+      /new ResearchAtlasQwenVectorClient\(\)/g
+    ) || [];
+
+  assert.equal(
+    clients.length,
+    1,
+    "the embedded Atlas must keep a single cached vector client across load-more updates"
+  );
+});
+
+test("load-more topology cache-busts both app and embedded Atlas assets", () => {
+  assert.match(
+    page,
+    /research-atlas-embed\.js\?v=20261109-load-more-topology-v3/
+  );
+  assert.match(
+    page,
+    /app\.js\?v=20261109-load-more-topology-v2/
   );
 });
