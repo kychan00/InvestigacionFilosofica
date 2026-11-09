@@ -1,0 +1,48 @@
+name: QA Dinora cache-bust · production
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/qa-dinora-cache-bust-production.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  production-dinora:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      RESEARCH_ATLAS_BASE_URL: https://kychan00.github.io/InvestigacionFilosofica/
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Verify production HTML uses fresh embed cache key
+        run: |
+          curl -fsS https://kychan00.github.io/InvestigacionFilosofica/ > /tmp/prod-index.html
+          grep -F 'research-atlas-embed.js?v=20261109-generic-author-v2' /tmp/prod-index.html
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Verify Dinora in a cold production browser
+        run: |
+          mkdir -p artifacts/production
+          node scripts/qa/research-atlas-main-dinora-smoke.mjs \
+            > artifacts/production/dinora-cache-bust.json
+          cat artifacts/production/dinora-cache-bust.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-dinora-cache-bust
+          path: artifacts/production/
+          if-no-files-found: warn
+          retention-days: 7
