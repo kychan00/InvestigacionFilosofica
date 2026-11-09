@@ -915,19 +915,19 @@ function renderSemanticExplanation(
 
           <ul>
             <li>
-              Qwen3-Embedding comparó el sentido de la consulta con el contenido normalizado del documento.
+              El motor semántico comparó el sentido de la consulta con el contenido normalizado del documento.
             </li>
 
             <li>
-              El índice FAISS devolvió este documento entre los vecinos semánticos más próximos.
+              El resultado quedó entre las obras con mayor cercanía de significado.
             </li>
 
             <li>
-              Score coseno normalizado: ${escapeHtml(score)}. No es una probabilidad ni un juicio humano de relevancia.
+              Índice de similitud normalizado: ${escapeHtml(score)}. No es una probabilidad ni un juicio humano de relevancia.
             </li>
 
             <li>
-              No se aplicó reranker ni modelo generativo.
+              Esta señal sólo ayuda a ordenar y relacionar obras; no sustituye la lectura del investigador.
             </li>
           </ul>
         </div>
@@ -1361,7 +1361,7 @@ function recordMetadataCards(
 
   if (archiveSource) {
     add(
-      "Identificador IA",
+      "Identificador de Internet Archive",
       archiveSource.sourceId
     );
 
@@ -3797,7 +3797,7 @@ async function runQwen3Rerank() {
   });
 
   qwen3Progress.textContent =
-    "Preparando Qwen3 q8 en WebGPU…";
+    "Preparando el reordenamiento semántico local…";
 
 
   try {
@@ -3809,7 +3809,7 @@ async function runQwen3Rerank() {
       controller.signal.aborted
     ) {
       throw new DOMException(
-        "Qwen3 cancelado",
+        "Reordenamiento cancelado",
         "AbortError"
       );
     }
@@ -3874,22 +3874,22 @@ async function runQwen3Rerank() {
     );
 
     qwen3Progress.textContent =
-      "Top 20 reordenado con Qwen3 q8/WebGPU. Puedes volver a “Relevancia” para ver el orden normal.";
+      "Top 20 reordenado por cercanía semántica. Puedes volver a “Relevancia” para ver el orden normal.";
 
     status.textContent =
-      `${responseAtStart.stats.unique} resultados únicos · orden Qwen3 experimental`;
+      `${responseAtStart.stats.unique} resultados únicos · orden semántico experimental`;
   } catch (error) {
     if (
       error.name ===
       "AbortError"
     ) {
       qwen3Progress.textContent =
-        "Qwen3 cancelado; se conservó exactamente el orden normal.";
+        "Reordenamiento cancelado; se conservó exactamente el orden normal.";
     } else {
       console.error(error);
 
       qwen3Progress.textContent =
-        `Qwen3 no se aplicó: ${error.message}. Se conservó exactamente el orden normal.`;
+        `El reordenamiento semántico no se aplicó: ${error.message}. Se conservó exactamente el orden normal.`;
     }
   } finally {
     if (
