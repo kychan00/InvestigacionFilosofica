@@ -152,7 +152,7 @@ try {
       window.dispatchEvent(new CustomEvent("research-atlas:search-response", {
         detail: {
           response,
-          phase: "complete",
+          phase: "partial",
           searchMode: "traditional"
         }
       }));
