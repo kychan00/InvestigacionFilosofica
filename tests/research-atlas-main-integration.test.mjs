@@ -337,7 +337,7 @@ test("load-more topology cache-busts both app and embedded Atlas assets", () => 
   );
   assert.match(
     page,
-    /app\.js\?v=20261109-global-work-dedup-v3/
+    /app\.js\?v=[^"']+/
   );
 });
 

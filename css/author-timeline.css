@@ -18,16 +18,16 @@ body.author-view .author-page #author-timeline-root {
 }
 
 .author-page #author-timeline-root {
-  --tl-ink: var(--profile-ink, #161616);
-  --tl-subtle: var(--profile-subtle, #393939);
-  --tl-muted: var(--profile-muted, #525252);
+  --tl-ink: var(--theme-text, var(--profile-ink, #161616));
+  --tl-subtle: var(--theme-text, var(--profile-subtle, #393939));
+  --tl-muted: var(--theme-text-soft, var(--profile-muted, #525252));
   --tl-blue: var(--profile-action, #0f62fe);
   --tl-blue-label: var(--profile-blue-label, #0043ce);
-  --tl-line: var(--profile-outline, #c6c6c6);
-  --tl-surface: var(--profile-panel, #ffffff);
-  --tl-card: var(--profile-card, #ffffff);
-  --tl-soft: var(--profile-muted-panel, #f4f4f4);
-  --tl-blue-soft: color-mix(in srgb, var(--tl-blue) 9%, var(--tl-surface));
+  --tl-line: var(--theme-line, var(--profile-outline, #c6c6c6));
+  --tl-surface: var(--theme-surface, var(--profile-panel, #ffffff));
+  --tl-card: var(--theme-surface, var(--profile-card, #ffffff));
+  --tl-soft: var(--theme-surface-2, var(--profile-muted-panel, #f4f4f4));
+  --tl-blue-soft: #edf5ff;
   --tl-shadow: color-mix(in srgb, var(--tl-ink) 9%, transparent);
   min-width: 0;
   margin: 28px 0;
@@ -51,6 +51,15 @@ body.author-view .author-page #author-timeline-root {
 .author-timeline *::before,
 .author-timeline *::after {
   box-sizing: border-box;
+}
+
+
+html[data-theme="light"] .author-page #author-timeline-root {
+  --tl-blue-soft: #edf5ff;
+}
+
+html[data-theme="dark"] .author-page #author-timeline-root {
+  --tl-blue-soft: #001d6c;
 }
 
 .author-timeline-heading {
@@ -267,8 +276,8 @@ body.author-view .author-page #author-timeline-root {
   padding: 52px 12px 14px;
   border: 0;
   border-radius: 15px;
-  background: transparent;
-  color: var(--tl-muted);
+  background: var(--tl-surface);
+  color: var(--tl-ink);
   cursor: pointer;
   text-align: center;
   scroll-snap-align: center;
@@ -520,10 +529,10 @@ body.author-view .author-page #author-timeline-root {
   padding: 4px 7px;
   border: 1px solid color-mix(in srgb, var(--tl-line) 78%, transparent);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--tl-soft) 72%, var(--tl-card));
+  background: var(--tl-soft);
   color: var(--tl-muted);
   font-family: var(--pg-mono);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: .06em;
   line-height: 1.2;

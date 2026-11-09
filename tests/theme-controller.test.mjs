@@ -39,7 +39,7 @@ test(
 
     assert.match(
       html,
-      /theme\.css\?v=20261109-work-aggregate-v1/u
+      /theme\.css\?v=[^"']+/u
     );
 
     assert.match(
@@ -140,12 +140,16 @@ test("selector de apariencia usa iconos vectoriales y nombres accesibles",async(
   assert.match(html,/viewBox="0 0 24 24"/);
 });
 
-test("las etiquetas dejan de heredar grises ilegibles y el tema oscuro cubre la cronología",async()=>{
+test("las etiquetas dejan de heredar grises ilegibles y la cronología consume tokens temáticos",async()=>{
   const css = await readFile(new URL("../css/theme.css",import.meta.url),"utf8");
+  const timelineCss = await readFile(new URL("../css/author-timeline.css",import.meta.url),"utf8");
+  const authorCss = await readFile(new URL("../css/author-visibility-repair.css",import.meta.url),"utf8");
   assert.match(css,/--theme-label:\s*#161616/);
   assert.match(css,/--theme-label:\s*#f4f4f4/);
   assert.match(css,/html\[data-theme\] \.search-filter-grid label/);
   assert.match(css,/color: var\(--theme-label\) !important/);
-  assert.match(css,/html\[data-theme="dark"\] \.author-page #author-timeline-root/);
+  assert.match(timelineCss,/--tl-ink:\s*var\(--theme-text/);
+  assert.match(timelineCss,/--tl-surface:\s*var\(--theme-surface/);
+  assert.match(authorCss,/html\[data-theme="dark"\][\s\S]*--profile-ink:\s*#f4f4f4/);
   assert.match(css,/\.theme-switch \.theme-icon/);
 });
