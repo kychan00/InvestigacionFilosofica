@@ -68,6 +68,45 @@ export function filterOptions(records, field) {
     .sort((a, b) => String(a).localeCompare(String(b), "es"));
 }
 
+export function cucshCatalogSearchUrl(record) {
+  if (!record?.title || !record?.program || !record?.sourceUrl) return null;
+
+  let source;
+  try {
+    source = new URL(record.sourceUrl);
+  } catch {
+    return null;
+  }
+
+  const host = source.hostname.toLowerCase();
+  if (!["biblioteca.cucsh.udg.mx", "www.biblioteca.cucsh.udg.mx"].includes(host)) return null;
+  if (!["http:", "https:"].includes(source.protocol) || source.username || source.password) return null;
+
+  const sourceQuery = source.searchParams.get("q") || "";
+  if (!/^content\//i.test(sourceQuery)) return null;
+
+  const degreeKey = normalized(record.degree || record.program);
+  const config = degreeKey.includes("licenciatura")
+    ? { view: "licenciatura", filter: "field_licenciatura_value" }
+    : degreeKey.includes("maestria")
+      ? { view: "maestria", filter: "field_maestria_value" }
+      : degreeKey.includes("doctorado")
+        ? { view: "doctorado", filter: "field_doctorado_value" }
+        : null;
+  if (!config) return null;
+
+  // CUCSH's legacy Drupal catalogue is currently served reliably over HTTP.
+  // This is a top-level navigation URL, never an embedded resource.
+  const url = new URL("http://www.biblioteca.cucsh.udg.mx/");
+  url.searchParams.set("q", `vista-tesis-${config.view}`);
+  url.searchParams.set("combine", String(record.title).trim());
+  url.searchParams.set(config.filter, String(record.program).trim());
+  url.searchParams.set("order", "title");
+  url.searchParams.set("sort", "asc");
+  url.searchParams.set("page", "0");
+  return url.href;
+}
+
 export function approvedInstitutionalUrl(input) {
   if (!input || typeof input !== "string") return null;
   try {
