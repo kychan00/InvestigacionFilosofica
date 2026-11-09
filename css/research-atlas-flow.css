@@ -1,0 +1,483 @@
+.research-atlas-flow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity .22s ease;
+}
+
+.research-atlas-flow.hidden {
+  display: none;
+}
+
+.research-atlas-stage.is-react-flow canvas {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.research-atlas-react-flow {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 50% 46%,
+      rgba(15, 98, 254, .08),
+      transparent 44%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.24),
+      rgba(255,255,255,0)
+    ),
+    var(--pg-gray-10, #f4f4f4);
+}
+
+.research-atlas-rf-background {
+  opacity: .28;
+}
+
+.research-atlas-rf-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.research-atlas-rf-year-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 98, 254, .17),
+      rgba(15, 98, 254, .05) 55%,
+      rgba(15, 98, 254, .13)
+    );
+  transform: translateX(-.5px);
+}
+
+.research-atlas-rf-year-line span {
+  position: absolute;
+  top: 56px;
+  left: 8px;
+  padding: 4px 6px;
+  border: 1px solid rgba(15, 98, 254, .12);
+  background: color-mix(
+    in srgb,
+    var(--pg-white, #ffffff) 72%,
+    transparent
+  );
+  backdrop-filter: blur(10px) saturate(1.15);
+  -webkit-backdrop-filter: blur(10px) saturate(1.15);
+  color: var(--pg-muted, #6f6f6f);
+  font-size: 9px;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+
+.research-atlas-rf-semantic-zero {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(138, 63, 252, .22) 12%,
+      rgba(138, 63, 252, .22) 88%,
+      transparent
+    );
+}
+
+.research-atlas-rf-axis-y,
+.research-atlas-rf-axis-x {
+  position: absolute;
+  z-index: 1;
+  color: var(--pg-muted, #6f6f6f);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.research-atlas-rf-axis-y {
+  top: 50%;
+  left: 8px;
+  transform:
+    translateY(-50%)
+    rotate(-90deg)
+    translateX(-50%);
+  transform-origin: left center;
+}
+
+.research-atlas-rf-axis-x {
+  right: 16px;
+  bottom: 16px;
+}
+
+.react-flow__node {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.research-atlas-rf-node {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  outline: none;
+  transition:
+    filter .18s ease,
+    transform .18s ease;
+}
+
+.research-atlas-rf-node:hover,
+.research-atlas-rf-node.is-selected {
+  transform: scale(1.12);
+  filter: brightness(1.08);
+}
+
+.research-atlas-rf-core {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: inherit;
+  background: #0f62fe;
+  border: 1px solid rgba(255,255,255,.86);
+  box-shadow:
+    0 0 5px rgba(15, 98, 254, .82),
+    0 0 12px rgba(15, 98, 254, .55),
+    0 0 24px rgba(15, 98, 254, .28);
+}
+
+.research-atlas-rf-halo {
+  position: absolute;
+  inset: 2px;
+  z-index: 1;
+  border-radius: inherit;
+  background: rgba(15, 98, 254, .14);
+  filter: blur(4px);
+  opacity: .78;
+  transform: scale(1.45);
+}
+
+.research-atlas-rf-node.is-work-expanded .research-atlas-rf-core {
+  background:
+    color-mix(
+      in srgb,
+      var(--pg-white, #ffffff) 86%,
+      #33b1ff 14%
+    );
+  border: 2px solid #33b1ff;
+  box-shadow:
+    0 0 5px rgba(51, 177, 255, .78),
+    0 0 14px rgba(51, 177, 255, .38);
+}
+
+.research-atlas-rf-node.is-work-expanded .research-atlas-rf-halo {
+  background: rgba(51, 177, 255, .13);
+}
+
+.research-atlas-rf-node.is-focus-author .research-atlas-rf-core {
+  width: 12px;
+  height: 12px;
+  background: #ee5396;
+  border: 2px solid rgba(255,255,255,.92);
+  box-shadow:
+    0 0 6px rgba(238, 83, 150, .96),
+    0 0 16px rgba(238, 83, 150, .64),
+    0 0 30px rgba(238, 83, 150, .38);
+}
+
+.research-atlas-rf-node.is-focus-author .research-atlas-rf-halo {
+  inset: -1px;
+  background: rgba(238, 83, 150, .22);
+  filter: blur(5px);
+  transform: scale(1.62);
+}
+
+.research-atlas-rf-node.is-authority-person {
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+
+.research-atlas-rf-node.is-authority-person:hover,
+.research-atlas-rf-node.is-authority-person.is-selected {
+  transform:
+    rotate(45deg)
+    scale(1.14);
+}
+
+.research-atlas-rf-node.is-authority-person .research-atlas-rf-core {
+  border-radius: 2px;
+  background: #42be65;
+  box-shadow:
+    0 0 6px rgba(66, 190, 101, .75),
+    0 0 16px rgba(66, 190, 101, .38);
+}
+
+.research-atlas-rf-node.is-authority-person .research-atlas-rf-caption {
+  transform:
+    translate(-50%, 5px)
+    rotate(-45deg);
+}
+
+.research-atlas-rf-node.is-author-mention .research-atlas-rf-core {
+  background:
+    var(--pg-gray-10, #f4f4f4);
+  border: 2px dashed #f1c21b;
+  box-shadow:
+    0 0 8px rgba(241, 194, 27, .35);
+}
+
+.research-atlas-rf-node.is-query .research-atlas-rf-core {
+  width: 13px;
+  height: 13px;
+  background: transparent;
+  border: 2px solid var(--pg-muted, #6f6f6f);
+  box-shadow:
+    0 0 0 4px rgba(111,111,111,.08);
+}
+
+.research-atlas-rf-node.is-selected .research-atlas-rf-halo {
+  opacity: 1;
+  transform: scale(2);
+}
+
+.research-atlas-rf-caption {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  z-index: 8;
+  display: none;
+  width: max-content;
+  max-width: 220px;
+  margin-top: 7px;
+  padding: 7px 9px;
+  border: 1px solid rgba(15, 98, 254, .16);
+  background:
+    color-mix(
+      in srgb,
+      var(--pg-white, #ffffff) 78%,
+      transparent
+    );
+  backdrop-filter:
+    blur(14px)
+    saturate(1.25);
+  -webkit-backdrop-filter:
+    blur(14px)
+    saturate(1.25);
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.12);
+  color: var(--pg-black, #161616);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.research-atlas-rf-node:hover .research-atlas-rf-caption,
+.research-atlas-rf-node.is-selected .research-atlas-rf-caption,
+.research-atlas-rf-node.is-focus-author .research-atlas-rf-caption {
+  display: grid;
+  gap: 3px;
+}
+
+.research-atlas-rf-caption strong {
+  overflow: hidden;
+  max-width: 200px;
+  font-size: 10px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.research-atlas-rf-caption small {
+  color: var(--pg-muted, #6f6f6f);
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.research-atlas-rf-handle {
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 1px !important;
+  min-height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.react-flow__edge-path {
+  transition:
+    opacity .18s ease,
+    stroke-width .18s ease;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 8 5;
+  animation-duration: 1.45s;
+}
+
+.research-atlas-rf-panel {
+  display: grid;
+  gap: 2px;
+  min-width: 150px;
+  padding: 9px 11px !important;
+  border: 1px solid rgba(15, 98, 254, .13);
+  background:
+    color-mix(
+      in srgb,
+      var(--pg-white, #ffffff) 74%,
+      transparent
+    ) !important;
+  backdrop-filter:
+    blur(16px)
+    saturate(1.22);
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(1.22);
+  box-shadow:
+    0 12px 36px rgba(0,0,0,.1);
+  color: var(--pg-black, #161616);
+}
+
+.research-atlas-rf-panel strong {
+  color: #0f62fe;
+  font-size: 8px;
+  letter-spacing: .11em;
+}
+
+.research-atlas-rf-panel span {
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.research-atlas-rf-panel small {
+  color: var(--pg-muted, #6f6f6f);
+  font-size: 8px;
+}
+
+.react-flow__attribution {
+  border: 1px solid rgba(127,127,127,.12) !important;
+  background:
+    color-mix(
+      in srgb,
+      var(--pg-white, #ffffff) 68%,
+      transparent
+    ) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: .72;
+}
+
+.research-atlas-stage.is-react-flow .research-atlas-stage-status {
+  z-index: 6;
+  top: 12px;
+  right: 12px;
+  left: 12px;
+  width: auto;
+  padding: 8px 10px;
+  border: 1px solid rgba(15, 98, 254, .12);
+  background:
+    color-mix(
+      in srgb,
+      var(--pg-white, #ffffff) 70%,
+      transparent
+    );
+  backdrop-filter:
+    blur(16px)
+    saturate(1.22);
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(1.22);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.research-atlas-stage.is-react-flow .research-atlas-zoom-controls {
+  z-index: 7;
+  overflow: hidden;
+  border-color: rgba(15, 98, 254, .16);
+  background: rgba(15, 98, 254, .14);
+  box-shadow:
+    0 12px 32px rgba(0,0,0,.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.research-atlas-stage.is-react-flow .research-atlas-zoom-controls button {
+  background:
+    color-mix(
+      in srgb,
+      var(--pg-black, #161616) 88%,
+      transparent
+    );
+}
+
+.research-atlas-stage.is-react-flow .research-atlas-tooltip {
+  z-index: 9;
+  background:
+    color-mix(
+      in srgb,
+      var(--pg-white, #ffffff) 78%,
+      transparent
+    );
+  backdrop-filter:
+    blur(18px)
+    saturate(1.24);
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(1.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-atlas-rf-node,
+  .react-flow__edge-path {
+    transition: none;
+  }
+
+  .react-flow__edge.animated .react-flow__edge-path {
+    animation: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .research-atlas-rf-year-line span {
+    top: 64px;
+    font-size: 8px;
+  }
+
+  .research-atlas-rf-panel {
+    max-width: 180px;
+    margin: 0 0 8px 8px !important;
+  }
+
+  .research-atlas-rf-panel small {
+    display: none;
+  }
+
+  .research-atlas-rf-caption {
+    max-width: 170px;
+  }
+
+  .research-atlas-rf-caption strong {
+    max-width: 150px;
+  }
+
+  .research-atlas-rf-axis-y {
+    display: none;
+  }
+}
