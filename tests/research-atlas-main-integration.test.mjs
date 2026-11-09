@@ -300,7 +300,7 @@ test("Cargar más espera a que D3 termine la topología semántica ampliada", ()
   );
   assert.match(
     embed,
-    /Math\.min\(\s*240/
+    /Math\.min\(\s*RA12D3_MAXIMUM_EDGES/
   );
   assert.match(
     embed,
