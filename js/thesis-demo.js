@@ -2,12 +2,13 @@ import {
   PAGE_SIZE,
   approvedInstitutionalUrl,
   approvedReferenceUrl,
+  cucshCatalogSearchUrl,
   filterOptions,
   pageSlice,
   searchTheses,
   validateIndex,
   validatePhilosophyIndex,
-} from "../src/core/thesis-demo-search.js?v=20261105-v101";
+} from "../src/core/thesis-demo-search.js?v=20261109-cucsh-search-v1";
 import {
   approvedEditorialUdgUrl,
   editorialFilterOptions,
@@ -186,6 +187,8 @@ function personMonogram(name) {
 }
 
 function thesisProfileWorkUrl(work) {
+  const catalogSearch = cucshCatalogSearchUrl(work);
+  if (catalogSearch) return catalogSearch;
   if (work?.institutionAcronym === "UG") return approvedUgtoRepositoryUrl(work.sourceUrl);
   return approvedReferenceUrl(work?.sourceUrl) || approvedInstitutionalUrl(work?.sourceUrl);
 }
@@ -635,20 +638,25 @@ function sourceCard(record) {
   card.append(detail);
 
   const actions = element("div", "td-actions");
+  const catalogSearchUrl = activeInstitution === "udg" ? cucshCatalogSearchUrl(record) : null;
   const officialUrl = activeInstitution === "ugto"
     ? approvedUgtoRepositoryUrl(record.sourceUrl)
     : approvedInstitutionalUrl(record.sourceUrl);
-  const referenceUrl = udgPhilosophy ? approvedReferenceUrl(record.sourceUrl) : officialUrl;
+  const referenceUrl = catalogSearchUrl || (udgPhilosophy ? approvedReferenceUrl(record.sourceUrl) : officialUrl);
   if (referenceUrl) {
-    const link = element(
-      "a",
-      "td-primary-action",
-      officialUrl ? "Consultar en repositorio institucional ↗" : `Consultar ${record.sourceLabel || "fuente de referencia"} ↗`,
-    );
+    const linkLabel = catalogSearchUrl
+      ? "Buscar esta referencia en catálogo CUCSH ↗"
+      : officialUrl
+        ? "Consultar en repositorio institucional ↗"
+        : `Consultar ${record.sourceLabel || "fuente de referencia"} ↗`;
+    const link = element("a", "td-primary-action", linkLabel);
     link.href = referenceUrl;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.setAttribute("aria-label", "Abrir la fuente bibliográfica de esta tesis");
+    link.setAttribute(
+      "aria-label",
+      catalogSearchUrl ? "Buscar esta referencia en el catálogo CUCSH" : "Abrir la fuente bibliográfica de esta tesis",
+    );
     actions.append(link);
   } else {
     actions.append(element("span", "td-no-link", "Enlace de referencia no verificado"));
