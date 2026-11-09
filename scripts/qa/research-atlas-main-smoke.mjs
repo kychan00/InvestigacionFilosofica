@@ -382,45 +382,80 @@ try {
 
     await page.waitForTimeout(30);
 
-    const flowNodes =
-      page.locator(
-        "#research-atlas-flow .react-flow__node"
-      );
+    await page
+      .locator("#research-atlas-stage")
+      .scrollIntoViewIfNeeded();
 
-    const clickableIndex =
-      await flowNodes.evaluateAll(nodes => {
-        const headerBottom =
+    const clickablePoint =
+      await page.evaluate(() => {
+        const stage =
           document
-            .querySelector(".research-atlas-embed-head")
-            ?.getBoundingClientRect()
-            ?.bottom || 0;
+            .querySelector("#research-atlas-stage")
+            ?.getBoundingClientRect();
 
-        return nodes.findIndex(node => {
+        if (!stage) {
+          return null;
+        }
+
+        for (
+          const node of
+          document.querySelectorAll(
+            "#research-atlas-flow .react-flow__node"
+          )
+        ) {
           const rect =
             node.getBoundingClientRect();
 
-          return (
-            rect.width > 0 &&
-            rect.height > 0 &&
-            rect.top >
-              headerBottom + 8 &&
-            rect.bottom <
-              innerHeight - 8 &&
-            rect.left > 8 &&
-            rect.right <
-              innerWidth - 8
-          );
-        });
+          const x =
+            rect.left +
+            rect.width / 2;
+
+          const y =
+            rect.top +
+            rect.height / 2;
+
+          if (
+            x <= stage.left + 8 ||
+            x >= stage.right - 8 ||
+            y <= stage.top + 56 ||
+            y >= stage.bottom - 8
+          ) {
+            continue;
+          }
+
+          const top =
+            document.elementFromPoint(
+              x,
+              y
+            );
+
+          if (
+            top === node ||
+            node.contains(top)
+          ) {
+            return {
+              x,
+              y,
+              id:
+                node.getAttribute(
+                  "data-id"
+                )
+            };
+          }
+        }
+
+        return null;
       });
 
     assert.ok(
-      clickableIndex >= 0,
-      name + " must expose at least one directly clickable React Flow node"
+      clickablePoint,
+      name + " must expose at least one pointer-accessible React Flow node"
     );
 
-    await flowNodes
-      .nth(clickableIndex)
-      .click();
+    await page.mouse.click(
+      clickablePoint.x,
+      clickablePoint.y
+    );
 
     await page.waitForFunction(() =>
       !document
