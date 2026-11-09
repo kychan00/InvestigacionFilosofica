@@ -1,0 +1,119 @@
+name: Research Atlas RA12-D3 · live Qwen semantic topology
+
+on:
+  pull_request:
+    paths:
+      - "src/core/research-atlas-qwen-topology.js"
+      - "src/core/research-atlas-qwen-vector-client.js"
+      - "src/core/research-atlas-document-similarity.js"
+      - "src/core/research-atlas-live.js"
+      - "js/research-atlas.js"
+      - "tests/research-atlas-qwen-topology.test.mjs"
+      - "tests/research-atlas-qwen-vector-client.test.mjs"
+      - "tests/research-atlas-live.test.mjs"
+      - "scripts/qa/research-atlas-ra12d3-topology-smoke.mjs"
+      - "scripts/qa/research-atlas-ra12d3-browser-smoke.mjs"
+      - "docs/RESEARCH_ATLAS_QWEN_LIVE_TOPOLOGY_RA12D3.md"
+      - ".github/workflows/research-atlas-ra12d3.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-qwen-topology:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run D3 topology and transport tests
+        run: |
+          node --test tests/research-atlas-qwen-topology.test.mjs
+          node --test tests/research-atlas-qwen-vector-client.test.mjs
+          node --test tests/research-atlas-document-similarity.test.mjs
+          node --test tests/research-atlas-live.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
+
+      - name: Prove real V4 overlay semantic edge and RA11 fallback in Node
+        run: |
+          mkdir -p artifacts/research-atlas-ra12d3
+          node scripts/qa/research-atlas-ra12d3-topology-smoke.mjs \
+            > artifacts/research-atlas-ra12d3/node-smoke.json
+          cat artifacts/research-atlas-ra12d3/node-smoke.json
+
+      - name: Assert production page explicitly enables Qwen topology
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+          const source = fs.readFileSync("js/research-atlas.js", "utf8");
+          if (!/enableQwenTopology\s*:\s*true/.test(source)) {
+            throw new Error("Live page does not explicitly enable Qwen topology");
+          }
+          if (!source.includes("Atlas Qwen")) {
+            throw new Error("Live page does not expose Qwen topology status");
+          }
+          NODE
+
+      - name: Install Chromium smoke tooling
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Serve PR tree
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/research-atlas-ra12d3-http.log 2>&1 &
+          echo $! > /tmp/research-atlas-ra12d3-http.pid
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/research-atlas-ra12d3-http.log
+          exit 1
+
+      - name: Prove live session semantic edge view and CORS in Chromium
+        run: |
+          node scripts/qa/research-atlas-ra12d3-browser-smoke.mjs \
+            > artifacts/research-atlas-ra12d3/browser-smoke.json
+          cat artifacts/research-atlas-ra12d3/browser-smoke.json
+
+      - name: Assert D3 preserves search and evidence boundaries
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+          for (const name of ["node-smoke.json", "browser-smoke.json"]) {
+            const report = JSON.parse(
+              fs.readFileSync("artifacts/research-atlas-ra12d3/" + name, "utf8")
+            );
+            if (
+              report.status !== "pass" ||
+              report.liveOpenAlexQueried ||
+              report.rankingChanged ||
+              report.searchResponseChanged
+            ) {
+              console.error("Unsafe D3 report", name, report);
+              process.exit(1);
+            }
+          }
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-atlas-ra12d3-live-qwen-evidence
+          path: artifacts/research-atlas-ra12d3/
+          if-no-files-found: error
+          retention-days: 30
