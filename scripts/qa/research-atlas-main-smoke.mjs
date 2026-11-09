@@ -464,11 +464,37 @@ try {
         ?.includes("Seleccione un nodo")
     );
 
-    const beforeZoom = await page.locator("#research-atlas-zoom").innerText();
-    await page.locator("#research-atlas-zoom-in").click();
-    await page.waitForTimeout(30);
-    const afterZoom = await page.locator("#research-atlas-zoom").innerText();
-    assert.notEqual(afterZoom, beforeZoom);
+    const beforeZoom =
+      await page
+        .locator("#research-atlas-zoom")
+        .innerText();
+
+    await page
+      .locator("#research-atlas-zoom-in")
+      .click();
+
+    await page.waitForFunction(
+      before =>
+        document
+          .querySelector("#research-atlas-zoom")
+          ?.textContent
+          ?.trim() !== before,
+      beforeZoom,
+      {
+        timeout: 3000,
+        polling: 50
+      }
+    );
+
+    const afterZoom =
+      await page
+        .locator("#research-atlas-zoom")
+        .innerText();
+
+    assert.notEqual(
+      afterZoom,
+      beforeZoom
+    );
 
     await page.locator("#research-view-results").click();
     assert.equal(
