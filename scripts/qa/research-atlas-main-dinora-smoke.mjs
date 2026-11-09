@@ -37,7 +37,7 @@ try {
         ?.textContent?.trim() || "";
 
     return (
-      /conexiones Qwen/.test(text) ||
+      /conexiones semánticas/.test(text) ||
       /respaldo textual/.test(text)
     );
   }, null, {
@@ -50,8 +50,8 @@ try {
 
   assert.match(
     syncText,
-    /conexiones Qwen/,
-    "Dinora search must finish with the embedded Qwen topology"
+    /conexiones semánticas/,
+    "Dinora search must finish with the embedded semantic topology"
   );
 
   await page.locator("#research-view-atlas").click();
