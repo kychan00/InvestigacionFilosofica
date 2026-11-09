@@ -1,4 +1,4 @@
-const HONORIFIC_PATTERN = String.raw`(?:DR(?:A)?|DOCTOR(?:A)?|MTRO|MTRA|MAESTRO|MAESTRA|LIC(?:ENCIAD[OA])?|PROF(?:ESOR|ESORA)?|PH\\.?D)`;
+const HONORIFIC_PATTERN = String.raw`(?:DR(?:A)?|DOCTOR(?:A)?|MTRO|MTRA|MAESTRO|MAESTRA|LIC(?:ENCIAD[OA])?|PROF(?:ESOR|ESORA)?|PH\.?D)`;
 
 const LEADING_HONORIFICS = new RegExp(
   `^(?:(?:${HONORIFIC_PATTERN})\\.?\\s+)+`,
@@ -17,19 +17,19 @@ const TITLED_SLASH = new RegExp(
 
 export function cleanThesisPersonName(value) {
   return String(value || "")
-    .replace(/^[\\s,;|]+|[\\s,;|]+$/g, "")
+    .replace(/^[\s,;|]+|[\s,;|]+$/g, "")
     .replace(LEADING_HONORIFICS, "")
-    .replace(/\\s+/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
 export function thesisPersonKey(value) {
   return cleanThesisPersonName(value)
     .normalize("NFKD")
-    .replace(/\\p{M}/gu, "")
+    .replace(/\p{M}/gu, "")
     .toLocaleLowerCase("und")
-    .replace(/[^\\p{L}\\p{N}]+/gu, " ")
-    .replace(/\\s+/g, " ")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
@@ -50,7 +50,7 @@ export function splitThesisPeople(value) {
 
     const explicit = raw
       .replace(TITLED_SLASH, "\n")
-      .split(/\\s*(?:;|\\r?\\n|\\u2022|\\|)\\s*/u)
+      .split(/\s*(?:;|\r?\n|\u2022|\|)\s*/u)
       .filter(Boolean);
 
     for (const segment of explicit) {
@@ -74,10 +74,10 @@ export function splitThesisPeople(value) {
 function normalizedText(value) {
   return String(value || "")
     .normalize("NFKD")
-    .replace(/\\p{M}/gu, "")
+    .replace(/\p{M}/gu, "")
     .toLocaleLowerCase("und")
-    .replace(/[^\\p{L}\\p{N}]+/gu, " ")
-    .replace(/\\s+/g, " ")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
