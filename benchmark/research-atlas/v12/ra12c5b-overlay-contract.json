@@ -35,8 +35,8 @@
     "authorNameIdentityMerge": false
   },
   "compatibilityGate": {
-    "source": "8 genuine V4 documents from SHA-verified clusters 220 and 208",
-    "controlsPerCluster": 4,
+    "source": "8 genuine V4 documents chosen deterministically from the smallest SHA-verified clusters that contain title+abstract controls under the legacy sparse-metadata contract",
+    "controlsPerCluster": "maximum 4",
     "sourceVectors": "frozen V4 int8 shards with manifest SHA verification",
     "minimumCosineEach": 0.995,
     "minimumMeanCosine": 0.998,
