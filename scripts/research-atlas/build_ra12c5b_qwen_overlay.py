@@ -33,8 +33,8 @@ MODEL_REVISION = "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"
 DIMENSION = 1024
 SCALE = 127
 MAX_CHARACTERS = 24_000
-CONTROL_CLUSTERS = (220, 208)
-CONTROL_PER_CLUSTER = 4
+CONTROL_COUNT = 8
+CONTROL_PER_CLUSTER_CAP = 4
 MIN_CONTROL_COSINE = 0.995
 MIN_MEAN_CONTROL_COSINE = 0.998
 SCHEMA = "research-atlas-ra12c5b-semantic-overlay-v1"
@@ -141,39 +141,52 @@ def load_candidates(path: Path) -> list[dict]:
 
 def choose_controls(manifest: dict, source_root: Path) -> list[dict]:
     cluster_for, ordinal_for = build_locations(manifest, source_root, False)
-    wanted = set(CONTROL_CLUSTERS)
-    selected: dict[int, list[dict]] = {cluster: [] for cluster in CONTROL_CLUSTERS}
+    cluster_order = sorted(
+        range(len(manifest["clusters"])),
+        key=lambda cluster: (
+            manifest["clusters"][cluster]["vectors"]["bytes"],
+            cluster,
+        ),
+    )
+    eligible: dict[int, list[dict]] = {cluster: [] for cluster in cluster_order}
 
     for row in get_metadata_rows(manifest, source_root, False):
         vector_id = int(row["vector_id"])
         cluster = int(cluster_for[vector_id])
-        if cluster not in wanted or len(selected[cluster]) >= CONTROL_PER_CLUSTER:
+        if len(eligible[cluster]) >= CONTROL_PER_CLUSTER_CAP:
             continue
-        candidate_text = historical_document_text(row, require_legacy_sparse_metadata=True)
+        candidate_text = historical_document_text(
+            row, require_legacy_sparse_metadata=True
+        )
         if not candidate_text or not text(row.get("abstract")) or not text(row.get("title")):
             continue
-        selected[cluster].append({
+        eligible[cluster].append({
             "vectorId": vector_id,
             "cluster": cluster,
             "ordinal": int(ordinal_for[vector_id]),
             "workId": row.get("openalex_id") or row.get("id"),
             "text": candidate_text,
-            "textSha256": hashlib.sha256(candidate_text.encode("utf-8")).hexdigest(),
+            "textSha256": hashlib.sha256(
+                candidate_text.encode("utf-8")
+            ).hexdigest(),
         })
-        if all(len(selected[c]) >= CONTROL_PER_CLUSTER for c in CONTROL_CLUSTERS):
-            break
 
-    controls = [item for cluster in CONTROL_CLUSTERS for item in selected[cluster]]
-    if len(controls) != len(CONTROL_CLUSTERS) * CONTROL_PER_CLUSTER:
+    controls = []
+    for cluster in cluster_order:
+        controls.extend(eligible[cluster])
+        if len(controls) >= CONTROL_COUNT:
+            controls = controls[:CONTROL_COUNT]
+            break
+    if len(controls) != CONTROL_COUNT:
         raise OverlayBuildError(
-            f"Could not select {len(CONTROL_CLUSTERS) * CONTROL_PER_CLUSTER} V4 controls"
+            f"Could not select {CONTROL_COUNT} V4 controls; found {len(controls)}"
         )
     return controls
 
 
 def source_control_vectors(manifest: dict, source_root: Path, controls: list[dict]) -> np.ndarray:
     by_cluster: dict[int, bytes] = {}
-    for cluster in CONTROL_CLUSTERS:
+    for cluster in sorted({item["cluster"] for item in controls}):
         record = manifest["clusters"][cluster]
         checked = verified_file(source_root, record["vectors"], fetch_missing=True)
         by_cluster[cluster] = checked.read_bytes()
@@ -254,7 +267,7 @@ def compatibility_audit(
     audit = {
         "schemaVersion": "research-atlas-ra12c5b-v4-compatibility-audit-v1",
         "controlCount": len(cases),
-        "controlClusters": list(CONTROL_CLUSTERS),
+        "controlClusters": sorted({item["cluster"] for item in controls}),
         "minimumCosine": float(np.min(cosines)),
         "meanCosine": float(np.mean(cosines)),
         "maximumCosine": float(np.max(cosines)),
