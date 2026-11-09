@@ -41,9 +41,9 @@ test("V1 release identity remains reference-only", () => {
 
 
 test("T2DH cache-bust loads the multi-institution thesis runtime", () => {
-  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261109-people-v2/);
+  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261109-cucsh-links-v1/);
   assert.match(html, /\.\/css\/thesis-demo\.css\?v=20261107-t2dh/);
-  assert.match(thesisJs, /thesis-demo-search\.js\?v=20261105-v101/);
+  assert.match(thesisJs, /thesis-demo-search\.js\?v=20261109-cucsh-search-v1/);
   assert.match(thesisJs, /editorial-udg-search\.js\?v=20261107-t2dg/);
   assert.match(thesisJs, /ugto-philosophy-search\.js\?v=20261107-t2dh/);
 });
