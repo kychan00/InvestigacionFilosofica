@@ -674,12 +674,17 @@ function initializeAggregate(
       )
     );
 
+  const preservedAppearances =
+    copy.workAppearances || [];
+
   copy.workAppearances =
     mergeWorkAppearances(
-      copy.workAppearances || [],
-      appearanceCandidates(
-        copy
-      )
+      preservedAppearances,
+      preservedAppearances.length
+        ? []
+        : appearanceCandidates(
+            copy
+          )
     );
 
   copy.workAppearanceCount =
@@ -1597,9 +1602,7 @@ export function mergeResults(
       item.workAppearances =
         mergeWorkAppearances(
           item.workAppearances || [],
-          appearanceCandidates(
-            item
-          )
+          []
         );
 
       item.workAppearanceCount =
