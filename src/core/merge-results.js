@@ -231,7 +231,9 @@ function volumeMarkers(
     text.matchAll(explicit)
   ) {
     markers.push(
-      `${match[1]}:${match[2]}`
+      String(
+        match[2]
+      )
         .toLowerCase()
     );
   }
@@ -249,7 +251,9 @@ function volumeMarkers(
     parenthetical
   ) {
     markers.push(
-      `roman:${match[1]}`
+      String(
+        match[1]
+      )
         .toLowerCase()
     );
   }
