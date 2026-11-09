@@ -66,6 +66,11 @@ import {
 } from "../src/core/semantic-federation.js";
 
 import {
+  logAuthorEvent,
+  logSearchQuery
+} from "./private-analytics.js?v=20261108-v1";
+
+import {
   isQwen3BrowserQ8OptIn,
   rerankTopKByQwen3BrowserQ8,
   selectQwen3BrowserQ8Candidates
@@ -4461,6 +4466,18 @@ async function openExclusiveAuthorByName(
     return;
   }
 
+  void logAuthorEvent(
+    {
+      name,
+      id: identity.id || null,
+      orcid: identity.orcid || null
+    },
+    {
+      eventType: "searched",
+      source: "author-view"
+    }
+  );
+
   rememberAuthorSourceSearch();
 
   currentController?.abort();
@@ -5141,6 +5158,18 @@ function bindAuthorResolutionActions() {
             return;
           }
 
+          void logAuthorEvent(
+            {
+              name: candidate.n,
+              id: candidate.id,
+              orcid: candidate.o || null
+            },
+            {
+              eventType: "clicked",
+              source: "author-candidate"
+            }
+          );
+
           document
             .querySelectorAll(
               ".author-candidate"
@@ -5298,6 +5327,39 @@ function clearAuthorIdentity() {
 document.addEventListener(
   "click",
   event => {
+    const analyticsLink = event.target
+      ?.closest?.(
+        "a.author-work-link, a.author-coauthor-link"
+      );
+
+    if (analyticsLink) {
+      try {
+        const authorUrl = new URL(
+          analyticsLink.href,
+          window.location.href
+        );
+
+        void logAuthorEvent(
+          {
+            name:
+              authorUrl.searchParams.get("author") ||
+              analyticsLink.textContent?.trim(),
+            id:
+              authorUrl.searchParams.get("authorId"),
+            orcid:
+              authorUrl.searchParams.get("authorOrcid")
+          },
+          {
+            eventType: "clicked",
+            source:
+              analyticsLink.classList.contains("author-coauthor-link")
+                ? "coauthor-link"
+                : "author-link"
+          }
+        );
+      } catch {}
+    }
+
     const link = event.target
       ?.closest?.(
         "a.author-work-link"
@@ -7163,6 +7225,13 @@ form.addEventListener(
     ) {
       return;
     }
+
+    void logSearchQuery(
+      query,
+      {
+        mode: selectedSearchMode
+      }
+    );
 
     researchWorkspace
       ?.classList
