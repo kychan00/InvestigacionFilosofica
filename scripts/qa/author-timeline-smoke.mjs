@@ -96,7 +96,7 @@ try {
       animations:"disabled"
     });
 
-    await page.getByRole("button", {name:/Mostrar más nodos/}).click();
+    await page.getByRole("button", {name:/Mostrar más obras/}).click();
     assert.equal(await page.locator(".author-timeline-work").count(), 76,
       "Expand all nodes in the selected year");
     await page.locator(".author-timeline-work").first().click();
