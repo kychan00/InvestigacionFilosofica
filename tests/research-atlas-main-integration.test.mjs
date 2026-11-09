@@ -114,8 +114,12 @@ test("filtros principales publican identidades canónicas sin reconstruir topolo
 test("app actualiza Atlas al cargar más resultados", () => {
   const loadMoreIndex = app.indexOf("async function loadMoreResults");
   assert.ok(loadMoreIndex >= 0);
-  const segment = app.slice(loadMoreIndex, loadMoreIndex + 5000);
-  assert.match(segment, /publishResearchAtlasResponse\(\s*response,\s*"complete"\s*\)/);
+  const segment = app.slice(loadMoreIndex, loadMoreIndex + 9000);
+
+  assert.match(
+    segment,
+    /publishResearchAtlasResponse\([\s\S]*?response,[\s\S]*?"complete",[\s\S]*?requestId:[\s\S]*?topologyRequestId,[\s\S]*?reason:[\s\S]*?"load-more"[\s\S]*?\)/
+  );
 });
 
 
