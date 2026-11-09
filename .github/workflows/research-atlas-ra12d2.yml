@@ -1,0 +1,98 @@
+name: Research Atlas RA12-D2 · cached authenticated Qwen vectors
+
+on:
+  pull_request:
+    paths:
+      - "src/core/research-atlas-qwen-vector-client.js"
+      - "tests/research-atlas-qwen-vector-client.test.mjs"
+      - "scripts/qa/research-atlas-ra12d2-vector-cache-smoke.mjs"
+      - "scripts/qa/research-atlas-ra12d2-browser-smoke.mjs"
+      - "docs/RESEARCH_ATLAS_QWEN_VECTOR_CLIENT_RA12D2.md"
+      - ".github/workflows/research-atlas-ra12d2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cached-authenticated-vectors:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run deterministic D2 fail-closed tests
+        run: node --test tests/research-atlas-qwen-vector-client.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
+
+      - name: Prove real B3 C3 C5-C transport and cache in Node
+        run: |
+          mkdir -p artifacts/research-atlas-ra12d2
+          node scripts/qa/research-atlas-ra12d2-vector-cache-smoke.mjs \
+            > artifacts/research-atlas-ra12d2/node-smoke.json
+          cat artifacts/research-atlas-ra12d2/node-smoke.json
+
+      - name: Install Chromium smoke tooling
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Serve PR tree for browser module test
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/research-atlas-ra12d2-http.log 2>&1 &
+          echo $! > /tmp/research-atlas-ra12d2-http.pid
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/research-atlas-ra12d2-http.log
+          exit 1
+
+      - name: Prove CORS Range SHA and cache in Chromium
+        run: |
+          node scripts/qa/research-atlas-ra12d2-browser-smoke.mjs \
+            > artifacts/research-atlas-ra12d2/browser-smoke.json
+          cat artifacts/research-atlas-ra12d2/browser-smoke.json
+
+      - name: Assert D2 did not activate semantic runtime
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+          for (const name of ["node-smoke.json", "browser-smoke.json"]) {
+            const report = JSON.parse(
+              fs.readFileSync("artifacts/research-atlas-ra12d2/" + name, "utf8")
+            );
+            if (
+              report.status !== "pass" ||
+              report.modelDownloaded ||
+              report.liveOpenAlexQueried ||
+              report.searchResponseChanged ||
+              report.rankingChanged ||
+              report.semanticNeighborEnabled ||
+              report.atlasRuntimeEnabled
+            ) {
+              console.error("Unsafe D2 report", name, report);
+              process.exit(1);
+            }
+          }
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-atlas-ra12d2-cached-vector-evidence
+          path: artifacts/research-atlas-ra12d2/
+          if-no-files-found: error
+          retention-days: 30
