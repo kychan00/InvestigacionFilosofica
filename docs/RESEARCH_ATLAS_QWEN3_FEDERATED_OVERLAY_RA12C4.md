@@ -221,3 +221,66 @@ Si los resultados muestran candidatos externos útiles, la siguiente fase debe s
 8. integrar V4 + overlay en el resolvedor del Atlas con RA11 como fallback.
 
 La regla conceptual es sencilla: **las fuentes encuentran obras; Qwen representa obras; el Atlas relaciona las obras**. Ninguna de esas tres capas debe sustituir a las otras.
+
+
+## Resultado real corregido — workflow 42556275169
+
+La primera ejecución de RA12-C4 fue descartada como medición de cobertura porque el benchmark local no había compilado el bundle DuckDB que utiliza `OpenAlex Philosophy`. El pipeline fue corregido para ejecutar `npm run build:duckdb` antes de Chromium. La ejecución **42556275169**, sobre `2b5d7c28eebf6a3cfaeda38b17b0b239d4fdfd16`, completó las seis consultas con **cero errores de proveedor** y reemplaza por completo aquella primera medición.
+
+### Cobertura observada en los SearchResponses reales
+
+| Corte agregado (6 consultas) | Resultados observados | Ya en V4 | Candidatos overlay | No resueltos | Cobertura V4 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Top 5 | 30 | 2 | 28 | 0 | **6.7 %** |
+| Top 20 | 120 | 5 | 115 | 0 | **4.2 %** |
+| Top 50* | 297 | 85 | 212 | 0 | **28.6 %** |
+
+\* Dos consultas devolvieron 49 y 48 resultados, por eso el corte agregado top 50 contiene 297 y no 300.
+
+Todos los resultados que no resolvieron contra V4 en esta muestra sí tenían identidad estable y texto suficiente bajo el contrato actual; por eso la métrica potencial `eventualQwenCoverageIfOverlayEmbedded` es 100 % en los tres cortes. **Eso no significa que Qwen ya cubra 100 %**: los 212 candidatos externos todavía no tienen embedding de overlay.
+
+### Desglose de los 297 resultados capturados
+
+| Fuente | Resultados | V4 directo | V4 por alias | Candidato overlay |
+| --- | ---: | ---: | ---: | ---: |
+| OpenAlex Philosophy | 85 | 85 | 0 | 0 |
+| Crossref | 127 | 0 | 0 | 127 |
+| CUCSH Filosofía | 57 | 0 | 0 | 57 |
+| Internet Archive | 28 | 0 | 0 | 28 |
+
+Este resultado no prueba que ninguna obra de Crossref/CUCSH/Internet Archive exista también en OpenAlex. Revela una limitación de **identidad disponible**: el V4 congelado produjo 451,823 aliases `openalex:W…`, pero **cero DOI/Crossref aliases utilizables**. El schema V4 tiene campos `doi` y `crossref_id`, pero en el corpus congelado no aportaron valores normalizables al índice.
+
+Por ello, antes de embeder automáticamente los 127 Crossref observados, conviene construir una capa separada de autoridad **DOI ↔ OpenAlex WorkID**. Esa capa puede recuperar obras que ya tengan vector V4 y evitar duplicarlas en el overlay. Debe ser versionada y auditable; no debe reescribir el V4 ni inferir identidad por título/año.
+
+### Latencia observada del buscador, no de Qwen
+
+Las seis búsquedas federadas completas en Chromium CI midieron:
+
+- p50: **1,729 ms**
+- p95: **9,363 ms**
+- mínimo: **1,226 ms**
+- máximo: **9,363 ms**
+
+Estos tiempos incluyen las fuentes federadas y sus expansiones. No miden todavía la recuperación/verificación de todos los vectores ni el embedding del overlay.
+
+### Evidencia
+
+- Workflow: `42556275169`
+- Job: `128962576576`
+- Artifact: `13647139355`
+- ZIP artifact: **7,622,627 bytes**
+- SHA-256 ZIP: `fa5adb2e3e0a32cc87d3861627b46fbe77e472a8d28b0bcdf29898083be39e18`
+- Registro persistente: `benchmark/research-atlas/v12/ra12c4-real-federated-coverage.json`
+- Candidatos overlay únicos observados: **212**
+- Embeddings overlay generados: **0**
+- Producción modificada: **no**
+
+## Consecuencia para RA12-C5
+
+RA12-C5 debe dividirse en dos pasos:
+
+**C5-A — Identity Enrichment:** crear un índice versionado DOI/Crossref → OpenAlex WorkID, con una fuente verificable, para reutilizar todos los vectores V4 que podamos antes de generar nada nuevo.
+
+**C5-B — Overlay Builder:** sólo después, tomar los candidatos que sigan siendo realmente externos, aplicar Qwen con la misma revisión/contrato de texto y publicarlos en el namespace separado del overlay.
+
+Esa secuencia es más barata y epistemológicamente más limpia que «meter todo a Hugging Face». Primero resolvemos si la obra ya existe; sólo después la representamos como nueva.
