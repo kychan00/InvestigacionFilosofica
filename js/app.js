@@ -5295,34 +5295,7 @@ function clearAuthorIdentity() {
 
 document.addEventListener(
   "click",
-  event => {    if (analyticsLink) {
-      try {
-        const authorUrl = new URL(
-          analyticsLink.href,
-          window.location.href
-        );
-
-        void logAuthorEvent(
-          {
-            name:
-              authorUrl.searchParams.get("author") ||
-              analyticsLink.textContent?.trim(),
-            id:
-              authorUrl.searchParams.get("authorId"),
-            orcid:
-              authorUrl.searchParams.get("authorOrcid")
-          },
-          {
-            eventType: "clicked",
-            source:
-              analyticsLink.classList.contains("author-coauthor-link")
-                ? "coauthor-link"
-                : "author-link"
-          }
-        );
-      } catch {}
-    }
-
+  event => {
     const link = event.target
       ?.closest?.(
         "a.author-work-link"
