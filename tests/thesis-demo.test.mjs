@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   approvedInstitutionalUrl,
   approvedReferenceUrl,
+  cucshCatalogSearchUrl,
   filterOptions,
   normalized,
   pageSlice,
@@ -84,6 +85,33 @@ test("pagination handles pages and empty results", () => {
   assert.equal(pageSlice(records, -10, 2).page, 1);
   assert.equal(pageSlice([], 20, 2).pages, 1);
   assert.deepEqual(filterOptions(records, "degree"), ["licenciatura", "maestria"]);
+});
+
+test("legacy CUCSH detail links become reproducible Drupal catalog searches", () => {
+  const url = cucshCatalogSearchUrl({
+    title: "EL CONCEPTO DE AMOR EN SAN AGUSTIN",
+    program: "Licenciatura en Filosofía",
+    degree: "licenciatura",
+    sourceUrl: "https://www.biblioteca.cucsh.udg.mx/?q=content/el-concepto-de-amor-en-san-agustin",
+  });
+  assert.ok(url);
+  const parsed = new URL(url);
+  assert.equal(parsed.protocol, "http:");
+  assert.equal(parsed.hostname, "www.biblioteca.cucsh.udg.mx");
+  assert.equal(parsed.searchParams.get("q"), "vista-tesis-licenciatura");
+  assert.equal(parsed.searchParams.get("combine"), "EL CONCEPTO DE AMOR EN SAN AGUSTIN");
+  assert.equal(parsed.searchParams.get("field_licenciatura_value"), "Licenciatura en Filosofía");
+  assert.equal(parsed.searchParams.get("order"), "title");
+  assert.equal(parsed.searchParams.get("sort"), "asc");
+  assert.equal(parsed.searchParams.get("page"), "0");
+  assert.doesNotMatch(url, /content%2F|content\//i);
+
+  assert.equal(cucshCatalogSearchUrl({
+    title: "Otra tesis",
+    program: "Licenciatura en Filosofía",
+    degree: "licenciatura",
+    sourceUrl: "https://riudg.udg.mx/handle/20.500.12104/1",
+  }), null);
 });
 
 test("source links never target PDF downloads or external hosts", () => {
