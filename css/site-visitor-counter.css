@@ -1,0 +1,37 @@
+.site-visitor-counter {
+  margin: 1rem 0 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+
+.site-visitor-counter[hidden] {
+  display: none;
+}
+
+.site-visitor-counter-label,
+.site-visitor-counter-note {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.68;
+}
+
+.site-visitor-counter-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px) {
+  .site-visitor-counter {
+    flex-wrap: wrap;
+  }
+
+  .site-visitor-counter-note {
+    width: 100%;
+  }
+}
