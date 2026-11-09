@@ -6246,3 +6246,398 @@ body.author-view .workspace-main {
       left;
   }
 }
+
+
+/* =========================================================
+   FEDERATED WORK AGGREGATION
+   One card = one work; catalog appearances stay inspectable.
+   ========================================================= */
+
+.work-aggregate {
+  margin:
+    12px 0 2px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    10px;
+
+  overflow:
+    hidden;
+
+  background:
+    rgba(255,255,255,.32);
+}
+
+.work-aggregate > summary {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    14px;
+
+  padding:
+    10px 12px;
+
+  cursor:
+    pointer;
+
+  list-style:
+    none;
+
+  color:
+    #57534e;
+
+  font-size:
+    11px;
+
+  font-weight:
+    650;
+}
+
+.work-aggregate > summary::-webkit-details-marker {
+  display:
+    none;
+}
+
+.work-aggregate > summary::after {
+  content:
+    "+";
+
+  flex:
+    none;
+
+  font-size:
+    15px;
+
+  line-height:
+    1;
+}
+
+.work-aggregate[open] > summary::after {
+  content:
+    "−";
+}
+
+.work-aggregate > summary > span:first-child {
+  display:
+    inline-flex;
+
+  align-items:
+    baseline;
+
+  gap:
+    5px;
+}
+
+.work-aggregate > summary strong {
+  color:
+    var(--ink);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    16px;
+
+  font-weight:
+    400;
+}
+
+.work-aggregate > summary > span:nth-child(2) {
+  margin-left:
+    auto;
+
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    .02em;
+}
+
+.work-aggregate-body {
+  display:
+    grid;
+
+  gap:
+    12px;
+
+  padding:
+    12px;
+
+  border-top:
+    1px solid
+    var(--line);
+}
+
+.work-title-variants {
+  display:
+    grid;
+
+  gap:
+    7px;
+}
+
+.work-title-variants > span {
+  color:
+    var(--muted);
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    .06em;
+
+  text-transform:
+    uppercase;
+}
+
+.work-title-variants > div {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    6px;
+}
+
+.work-title-variants > div > span {
+  padding:
+    5px 7px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    7px;
+
+  background:
+    rgba(255,255,255,.52);
+
+  color:
+    #4f4a45;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.35;
+}
+
+.work-appearance-list {
+  display:
+    grid;
+
+  gap:
+    0;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  list-style:
+    none;
+}
+
+.work-appearance-item {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  align-items:
+    center;
+
+  gap:
+    14px;
+
+  padding:
+    10px 0;
+
+  border-top:
+    1px solid
+    var(--line);
+}
+
+.work-appearance-item:first-child {
+  border-top:
+    0;
+}
+
+.work-appearance-copy {
+  display:
+    grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  align-items:
+    baseline;
+
+  gap:
+    8px;
+
+  min-width:
+    0;
+}
+
+.work-appearance-provider {
+  color:
+    var(--muted);
+
+  font-size:
+    9px;
+
+  font-weight:
+    750;
+
+  letter-spacing:
+    .04em;
+
+  text-transform:
+    uppercase;
+}
+
+.work-appearance-copy strong {
+  min-width:
+    0;
+
+  overflow-wrap:
+    anywhere;
+
+  color:
+    var(--ink);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    12px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.35;
+}
+
+.work-appearance-year {
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
+}
+
+.work-appearance-item > a,
+.work-extra-link {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    5px;
+
+  color:
+    #383532;
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+}
+
+.work-appearance-item > a:hover,
+.work-extra-link:hover {
+  text-decoration:
+    underline;
+}
+
+.work-extra-links {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+  padding-top:
+    9px;
+
+  border-top:
+    1px solid
+    var(--line);
+}
+
+.work-aggregate-pill {
+  font-weight:
+    700;
+}
+
+@media (
+  max-width: 720px
+) {
+  .work-aggregate > summary {
+    align-items:
+      flex-start;
+
+    flex-wrap:
+      wrap;
+  }
+
+  .work-aggregate > summary > span:nth-child(2) {
+    margin-left:
+      0;
+  }
+
+  .work-appearance-item {
+    grid-template-columns:
+      1fr;
+  }
+
+  .work-appearance-copy {
+    grid-template-columns:
+      1fr;
+  }
+
+  .work-appearance-provider,
+  .work-appearance-year {
+    display:
+      block;
+  }
+}
