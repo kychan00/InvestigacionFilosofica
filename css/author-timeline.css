@@ -437,7 +437,7 @@ body.author-view .author-page #author-timeline-root {
 .author-timeline-work {
   position: relative;
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) auto 28px;
+  grid-template-columns: 34px minmax(0, 1fr) 28px;
   align-items: center;
   gap: 12px;
   width: 100%;
@@ -645,9 +645,6 @@ body.author-view .author-page #author-timeline-root {
     gap: 10px;
   }
 
-  .author-timeline-work-type {
-    grid-column: 2;
-  }
 
   .author-timeline-work-copy {
     gap: 6px;
