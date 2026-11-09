@@ -327,22 +327,6 @@ function sourceCard(record) {
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.setAttribute("aria-label", "Abrir la fuente bibliográfica de esta tesis");
-    link.addEventListener("click", () => {
-      window.dispatchEvent(new CustomEvent(
-        "investigacionfilosofica:thesis-click",
-        {
-          detail: {
-            thesisId: record.canonicalWorkId || record.id || null,
-            title: record.title,
-            discoverySource: "search",
-            interactionSource: "search-result",
-            queryText: searchInput.value.trim() || null,
-            institution: activeInstitution,
-            scope: activeScope,
-          },
-        },
-      ));
-    });
     actions.append(link);
   } else {
     actions.append(element("span", "td-no-link", "Enlace de referencia no verificado"));
