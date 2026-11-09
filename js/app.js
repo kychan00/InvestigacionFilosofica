@@ -247,6 +247,11 @@ const RESEARCH_ATLAS_FILTER_EVENT =
 const RESEARCH_ATLAS_OPEN_RECORD_EVENT =
   "research-atlas:open-record";
 
+const RESEARCH_ATLAS_TOPOLOGY_READY_EVENT =
+  "research-atlas:topology-ready";
+
+let researchAtlasRequestSequence = 0;
+
 
 function resetResearchAtlas(
   query
@@ -271,7 +276,11 @@ function resetResearchAtlas(
 function publishResearchAtlasResponse(
   response,
   phase =
-    "complete"
+    "complete",
+  {
+    requestId = null,
+    reason = null
+  } = {}
 ) {
   if (
     !response ||
@@ -279,7 +288,7 @@ function publishResearchAtlasResponse(
       response.results
     )
   ) {
-    return;
+    return null;
   }
 
   const semantic =
@@ -297,6 +306,8 @@ function publishResearchAtlasResponse(
         detail: {
           response,
           phase,
+          requestId,
+          reason,
           searchMode:
             semantic
               ? "semantic-service"
@@ -305,6 +316,86 @@ function publishResearchAtlasResponse(
       }
     )
   );
+
+  return requestId;
+}
+
+function nextResearchAtlasRequestId(
+  reason = "update"
+) {
+  researchAtlasRequestSequence += 1;
+
+  return [
+    reason,
+    Date.now(),
+    researchAtlasRequestSequence
+  ].join(":");
+}
+
+function waitForResearchAtlasTopology(
+  requestId,
+  {
+    timeoutMs = 120000
+  } = {}
+) {
+  return new Promise(resolve => {
+    let settled = false;
+
+    const finish = value => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timeout);
+      window.removeEventListener(
+        RESEARCH_ATLAS_TOPOLOGY_READY_EVENT,
+        onReady
+      );
+      resolve(value);
+    };
+
+    const onReady = event => {
+      if (
+        event.detail?.requestId !==
+        requestId
+      ) {
+        return;
+      }
+
+      finish({
+        status: "ready",
+        ...event.detail
+      });
+    };
+
+    const timeout =
+      window.setTimeout(
+        () => {
+          finish({
+            status: "timeout",
+            requestId
+          });
+        },
+        timeoutMs
+      );
+
+    window.addEventListener(
+      RESEARCH_ATLAS_TOPOLOGY_READY_EVENT,
+      onReady
+    );
+  });
+}
+
+function setFetchMoreButtonsState(
+  label,
+  disabled = true
+) {
+  document
+    .querySelectorAll(
+      ".fetch-more"
+    )
+    .forEach(button => {
+      button.disabled = disabled;
+      button.textContent = label;
+    });
 }
 
 
@@ -6106,28 +6197,14 @@ async function loadMoreResults() {
     return;
   }
 
-
-  const buttons =
-    document.querySelectorAll(
-      ".fetch-more"
-    );
-
-
   qwen3Controller?.abort();
 
-
-  buttons.forEach(
-    button => {
-      button.disabled = true;
-      button.textContent =
-        "Buscando más…";
-    }
+  setFetchMoreButtonsState(
+    "Buscando más…"
   );
-
 
   status.textContent =
     "Buscando más literatura…";
-
 
   try {
     const depth =
@@ -6163,13 +6240,11 @@ async function loadMoreResults() {
         }
       );
 
-
     response =
       augmentWithAuthorResolution(
         response,
         currentResponse.authorResolution
       );
-
 
     currentResponse =
       response;
@@ -6177,35 +6252,84 @@ async function loadMoreResults() {
     currentResults =
       response.results;
 
+    const topologyRequestId =
+      nextResearchAtlasRequestId(
+        "load-more"
+      );
+
+    const topologyReady =
+      waitForResearchAtlasTopology(
+        topologyRequestId
+      );
+
     publishResearchAtlasResponse(
       response,
-      "complete"
+      "complete",
+      {
+        requestId:
+          topologyRequestId,
+        reason:
+          "load-more"
+      }
     );
 
     resetQwen3Experiment();
 
     /*
-     * Al cargar nuevas páginas mostramos
-     * de inmediato más registros.
+     * Renderizamos de inmediato el lote nuevo,
+     * pero mantenemos "Cargar más" bloqueado
+     * hasta que D3 termine la topología.
      */
-    visibleLimit += 20;
-
-
     renderStats(
       response
     );
 
-
-    /*
-     * Conservamos los controles.
-     * applyFilters utilizará ahora el
-     * conjunto ampliado.
-     */
     applyFilters();
 
+    visibleLimit =
+      Math.min(
+        currentFilteredResults.length,
+        Math.max(
+          visibleLimit,
+          40
+        )
+      );
+
+    renderFilteredResults();
+
+    setFetchMoreButtonsState(
+      "Conectando semánticamente…"
+    );
 
     status.textContent =
-      `${response.stats.unique} resultados únicos · lote ${response.pagination.batch}`;
+      `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · conectando Atlas Qwen…`;
+
+    const topology =
+      await topologyReady;
+
+    if (
+      topology.status ===
+        "ready"
+    ) {
+      const qwen =
+        topology.qwen;
+
+      status.textContent =
+        qwen
+          ? (
+              `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · ` +
+              `${qwen.semanticEdgesAdded} conexiones Qwen · ` +
+              `${qwen.vectorsVerified} obras con vector`
+            )
+          : (
+              `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · ` +
+              "Atlas actualizado con respaldo textual"
+            );
+    } else {
+      status.textContent =
+        `${response.stats.unique} resultados únicos · lote ${response.pagination.batch} · ` +
+        "el Atlas semántico continúa actualizándose";
+    }
 
   } catch (error) {
     if (
@@ -6215,24 +6339,16 @@ async function loadMoreResults() {
       return;
     }
 
-
     console.error(error);
 
     status.textContent =
       `No se pudieron cargar más resultados: ${error.message}`;
 
   } finally {
-    document
-      .querySelectorAll(
-        ".fetch-more"
-      )
-      .forEach(
-        button => {
-          button.disabled = false;
-          button.textContent =
-            "Cargar más resultados";
-        }
-      );
+    setFetchMoreButtonsState(
+      "Cargar más resultados",
+      false
+    );
   }
 }
 
