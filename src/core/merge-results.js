@@ -431,6 +431,7 @@ function titleVariantsOf(
   return uniqueStrings([
     result.title,
     ...(result.titleVariants || []),
+    ...(result.alternativeTitles || []),
     ...(
       result.workAppearances ||
       []
