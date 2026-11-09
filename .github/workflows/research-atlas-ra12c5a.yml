@@ -115,6 +115,8 @@ jobs:
           assert report["input"]["queryCount"] == 6
           assert report["input"]["doiCandidateCount"] > 0
           assert not report["authority"]["anomalies"]
+          ignored=report["authority"]["ignoredFilterOverreturns"]
+          assert all(item.get("reason") == "unrequested-doi-overreturn" for item in ignored)
 
           states=report["authority"]["counts"]
           total=sum(states.values())
@@ -130,6 +132,7 @@ jobs:
               out.write("## RA12-C5-A — DOI → OpenAlex → V4 identity enrichment\n\n")
               out.write(f"- Unique DOI candidates: {report['input']['doiCandidateCount']}\n")
               out.write(f"- OpenAlex requests: {len(report['requests'])}\n")
+              out.write(f"- Ignored OpenAlex DOI over-returns: {len(ignored)}\n")
               for state,count in sorted(states.items()):
                   out.write(f"- {state}: {count}\n")
               for n in ("5","20","50"):
