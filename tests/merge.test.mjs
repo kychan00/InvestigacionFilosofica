@@ -560,3 +560,92 @@ test(
     );
   }
 );
+
+
+test(
+  "conserva identidad primaria estable y alias al federar OpenAlex y Crossref",
+  () => {
+    const merged =
+      mergeResults([
+        {
+          id:
+            "https://openalex.org/W123456",
+          title:
+            "Fenomenología del espíritu",
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          year: 1807,
+          doi: null,
+          isbn: [],
+          providers: [
+            "OpenAlex Philosophy"
+          ],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {
+            canonical:
+              "https://openalex.org/W123456"
+          }
+        },
+        {
+          id:
+            "crossref:10.1234/hegel",
+          title:
+            "Fenomenología del espíritu",
+          authors: [
+            {
+              name:
+                "Georg Wilhelm Friedrich Hegel"
+            }
+          ],
+          year: 1807,
+          doi:
+            "10.1234/hegel",
+          isbn: [],
+          providers: [
+            "Crossref"
+          ],
+          sourceRecords: [],
+          matchedQueries: [],
+          topics: [],
+          institutionalLinks: [],
+          urls: {}
+        }
+      ]);
+
+    assert.equal(
+      merged.length,
+      1
+    );
+
+    assert.equal(
+      merged[0].identityKey,
+      "openalex:w123456"
+    );
+
+    assert.equal(
+      resultIdentityKey(
+        merged[0]
+      ),
+      "openalex:w123456"
+    );
+
+    assert.ok(
+      merged[0].identityAliases.includes(
+        "openalex:w123456"
+      )
+    );
+
+    assert.ok(
+      merged[0].identityAliases.includes(
+        "doi:10.1234/hegel"
+      )
+    );
+  }
+);
