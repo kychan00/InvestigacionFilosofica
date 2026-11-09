@@ -23,7 +23,7 @@ import {
   splitThesisPeople,
   thesisPersonArchiveBiography,
   thesisPersonProfile,
-} from "../src/core/thesis-people.js?v=20261109-people-v1";
+} from "../src/core/thesis-people.js?v=20261109-people-v2";
 import {
   resolveRemoteAuthor,
 } from "../src/core/remote-author-resolution.js?v=20261029-author-reliability-v1";
