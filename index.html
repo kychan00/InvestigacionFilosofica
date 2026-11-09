@@ -87,6 +87,10 @@
     rel="stylesheet"
     href="./css/research-atlas-embed.css?v=20261107-ra11-v1"
   >
+  <link
+    rel="stylesheet"
+    href="./css/site-visitor-counter.css?v=20261108-v1"
+  >
 </head>
 
 <body>
@@ -527,6 +531,17 @@
         <span>Biblioteca UdeG</span>
       </div>
 
+      <p
+        class="site-visitor-counter"
+        data-site-visitor-counter
+        hidden
+        aria-live="polite"
+      >
+        <span class="site-visitor-counter-label">Visitantes únicos</span>
+        <strong class="site-visitor-counter-value" data-site-visitor-count>—</strong>
+        <span class="site-visitor-counter-note">desde noviembre de 2026</span>
+      </p>
+
     </section>
 
 
@@ -870,6 +885,11 @@
   <script
     type="module"
     src="./js/theme.js?v=20261031-day-night-v2"
+  ></script>
+
+  <script
+    type="module"
+    src="./js/site-visitor-counter.js?v=20261108-v1"
   ></script>
 
 </body>
