@@ -61,9 +61,10 @@ jobs:
             > artifacts/research-atlas-ra12c4/alias-build-summary.json
           cat artifacts/research-atlas-ra12c4/alias-build-summary.json
 
-      - name: Install app and Chromium benchmark dependencies
+      - name: Install app, build DuckDB browser bundle, and Chromium benchmark dependencies
         run: |
           npm ci
+          npm run build:duckdb
           npm install --no-save --package-lock=false playwright@1.56.1
           npx playwright install --with-deps chromium
 
