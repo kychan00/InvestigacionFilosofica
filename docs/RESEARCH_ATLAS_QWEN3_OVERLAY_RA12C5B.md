@@ -88,7 +88,7 @@ Cuando la misma identidad aparece varias veces, se conserva el texto más inform
 
 No basta con usar “el mismo modelo”.
 
-Antes de embeder candidatos externos, C5-B selecciona **8 documentos V4 genuinos** de los clusters 220 y 208. Los dos shards completos se descargan desde la revisión V4 fijada y se validan por SHA-256 contra el manifest original.
+Antes de embeder candidatos externos, C5-B selecciona **8 documentos V4 genuinos** de forma determinística entre los clusters más pequeños que contengan controles válidos (título + abstract y metadata compatible con el V3.3 histórico), con máximo cuatro controles por cluster. Sólo los shards realmente seleccionados se descargan desde la revisión V4 fijada y se validan por SHA-256 contra el manifest original.
 
 Los ocho documentos de control:
 
