@@ -22,7 +22,10 @@ except ModuleNotFoundError:
 
 
 
-LEGACY_HOST = "sincronia.cucsh.udg.mx"
+LEGACY_HOSTS = {
+    "sincronia.cucsh.udg.mx",
+    "fuentes.csh.udg.mx",
+}
 
 WHITESPACE_RE = re.compile(
     r"\s+"
@@ -156,7 +159,7 @@ def normalize_url(
             "https",
         }
         or parsed.netloc.casefold()
-        != LEGACY_HOST
+        not in LEGACY_HOSTS
     ):
         return None
 
@@ -169,7 +172,7 @@ def normalize_url(
     return urllib.parse.urlunparse(
         (
             parsed.scheme,
-            LEGACY_HOST,
+            parsed.netloc.casefold(),
             path,
             "",
             parsed.query,
