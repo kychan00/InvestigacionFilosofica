@@ -65,7 +65,7 @@ const result =
       true,
 
     legalComments:
-      "none",
+      "eof",
 
     write:
       false,
