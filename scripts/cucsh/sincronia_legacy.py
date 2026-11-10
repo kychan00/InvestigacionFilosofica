@@ -157,7 +157,7 @@ def normalize_url(
 
     return urllib.parse.urlunparse(
         (
-            "https",
+            parsed.scheme,
             LEGACY_HOST,
             path,
             "",
