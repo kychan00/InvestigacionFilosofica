@@ -103,10 +103,28 @@
     rel="stylesheet"
     href="./css/site-visitor-counter.css?v=20261108-v1"
   >
-  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261109-v1">
+  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261109-v2">
 </head>
 
 <body>
+  <div class="site-mobile-toolbar">
+    <a class="site-mobile-toolbar-brand" href="./" aria-label="Ir a Investigación Filosófica">
+      <span class="site-mobile-toolbar-mark" aria-hidden="true">Φ</span>
+      <span class="site-mobile-toolbar-name">Investigación Filosófica</span>
+    </a>
+    <button
+      type="button"
+      class="site-menu-toggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="site-mobile-menu"
+    >
+      <span class="site-menu-toggle-lines" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </span>
+    </button>
+  </div>
+
 
   <main class="app">
 
@@ -935,6 +953,6 @@
     src="./js/private-analytics-listener.js?v=20261108-v3"
   ></script>
 
-  <script type="module" src="./js/mobile-site-menu.js?v=20261109-v1"></script>
+  <script type="module" src="./js/mobile-site-menu.js?v=20261109-v2"></script>
 </body>
 </html>
