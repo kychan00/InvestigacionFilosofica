@@ -17,7 +17,7 @@ const result = await build({
   target: ["chrome131"],
   minify: true,
   lineLimit: 120,
-  legalComments: "none",
+  legalComments: "eof",
   write: false,
   metafile: true,
   logLevel: "silent"
