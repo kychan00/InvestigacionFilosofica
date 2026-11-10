@@ -134,6 +134,9 @@ if (nav) {
     "Menú principal"
   );
 
+  drawer.inert =
+    true;
+
   drawer.innerHTML =
     `
       <div class="site-menu-drawer-head">
@@ -409,6 +412,9 @@ if (nav) {
       "false"
     );
 
+    drawer.inert =
+      false;
+
     toggle.setAttribute(
       "aria-expanded",
       "true"
@@ -445,6 +451,9 @@ if (nav) {
       "aria-hidden",
       "true"
     );
+
+    drawer.inert =
+      true;
 
     toggle.setAttribute(
       "aria-expanded",
