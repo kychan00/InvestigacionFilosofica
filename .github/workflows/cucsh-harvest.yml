@@ -107,11 +107,14 @@ jobs:
         run: |
           python3 -m py_compile \
             scripts/cucsh/harvest.py \
+            scripts/cucsh/sincronia_legacy.py \
             scripts/cucsh/validate_update.py \
-            tests/test_cucsh_sincronia.py
+            tests/test_cucsh_sincronia.py \
+            tests/test_cucsh_sincronia_legacy.py
 
           python3 -m unittest \
-            tests/test_cucsh_sincronia.py
+            tests/test_cucsh_sincronia.py \
+            tests/test_cucsh_sincronia_legacy.py
 
 
       - name: Run test suite
