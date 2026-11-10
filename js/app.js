@@ -1509,10 +1509,10 @@ function renderRecordDetails(
 
 
   const archiveDescriptionDetail =
-    archiveDescription.length > 900
+    archiveDescription.length > 320
       ? `${archiveDescription.slice(
           0,
-          897
+          317
         )}…`
       : archiveDescription;
 
@@ -1547,9 +1547,10 @@ function renderRecordDetails(
           </div>
 
           <p class="cinematic-note">
-            Texto descriptivo proporcionado por Internet Archive o por
-            quien aportó el registro. No se trata como abstract
-            académico ni participa en el análisis semántico.
+            Extracto descriptivo proporcionado por Internet Archive o por
+            quien aportó el registro. Se usa como señal auxiliar de
+            relevancia y contexto léxico, pero no como abstract académico.
+            Consulte el registro original para leer la descripción completa.
           </p>
 
         </section>
