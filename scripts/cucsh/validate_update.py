@@ -277,7 +277,7 @@ def validate_snapshot(
                 or not (
                     1 <=
                     issue_number <=
-                    51
+                    84
                 )
             ):
                 fail(
