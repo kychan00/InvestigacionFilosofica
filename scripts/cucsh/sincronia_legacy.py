@@ -6,6 +6,7 @@ import hashlib
 import html
 import json
 import re
+import time
 import urllib.parse
 import urllib.request
 
@@ -26,6 +27,7 @@ except ModuleNotFoundError:
 LEGACY_HOSTS = {
     "sincronia.cucsh.udg.mx",
     "fuentes.csh.udg.mx",
+    "csh.udg.mx",
     "www.cucsh.udg.mx",
     "cucsh.udg.mx",
 }
@@ -94,15 +96,56 @@ EARLY_ISSUE_STEMS = {
 }
 
 
+def early_issue_filename_variants(
+    filename,
+):
+    stem = filename.rsplit(
+        ".",
+        1,
+    )[0]
+
+    stems = [
+        stem,
+        (
+            stem[:1].upper()
+            + stem[1:]
+        ),
+    ]
+
+    variants = []
+
+    for candidate_stem in stems:
+        for extension in (
+            "htm",
+            "html",
+        ):
+            candidate = (
+                f"{candidate_stem}."
+                f"{extension}"
+            )
+
+            if candidate not in variants:
+                variants.append(
+                    candidate
+                )
+
+    return variants
+
+
 EARLY_ISSUE_BASES = [
     (
         "http://fuentes.csh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
     (
+        "http://csh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
         "http://www.cucsh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
+    "http://sincronia.cucsh.udg.mx/",
 ]
 
 
@@ -163,28 +206,55 @@ def clean_text(
 def request_bytes(
     url,
     timeout=35,
+    attempts=3,
 ):
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent":
-                (
-                    "InvestigacionFilosofica/"
-                    "SincroniaLegacyHarvester-0.1"
-                ),
-            "Accept":
-                (
-                    "text/html,application/xhtml+xml,"
-                    "application/pdf;q=0.8,*/*;q=0.5"
-                ),
-        },
-    )
+    last_error = None
 
-    with urllib.request.urlopen(
-        request,
-        timeout=timeout,
-    ) as response:
-        return response.read()
+    for attempt in range(
+        1,
+        attempts + 1,
+    ):
+        request = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent":
+                    (
+                        "Mozilla/5.0 "
+                        "(X11; Linux x86_64) "
+                        "AppleWebKit/537.36 "
+                        "(KHTML, like Gecko) "
+                        "Chrome/154.0 Safari/537.36 "
+                        "InvestigacionFilosofica/"
+                        "SincroniaLegacyHarvester-0.2"
+                    ),
+                "Accept":
+                    (
+                        "text/html,application/xhtml+xml,"
+                        "application/pdf;q=0.8,*/*;q=0.5"
+                    ),
+                "Accept-Language":
+                    "es-MX,es;q=0.9,en;q=0.7",
+            },
+        )
+
+        try:
+            with urllib.request.urlopen(
+                request,
+                timeout=timeout,
+            ) as response:
+                return response.read()
+
+        except Exception as exc:
+            last_error = exc
+
+            if attempt >= attempts:
+                break
+
+            time.sleep(
+                0.6 * attempt
+            )
+
+    raise last_error
 
 
 def normalize_url(
@@ -1193,14 +1263,26 @@ def build_legacy_record(
 
 def wayback_snapshot_url(
     url,
+    timestamp=None,
 ):
+    params = {
+        "url":
+            url,
+    }
+
+    if timestamp:
+        params[
+            "timestamp"
+        ] = str(
+            timestamp
+        )
+
     api_url = (
         "https://archive.org/"
         "wayback/available?"
-        + urllib.parse.urlencode({
-            "url":
-                url,
-        })
+        + urllib.parse.urlencode(
+            params
+        )
     )
 
     data = request_bytes(
@@ -1260,6 +1342,7 @@ def request_legacy_bytes(
     url,
     prefer_wayback=False,
     allow_live_fallback=True,
+    wayback_timestamp=None,
 ):
     errors = []
 
@@ -1284,7 +1367,10 @@ def request_legacy_bytes(
     try:
         snapshot_url = (
             wayback_snapshot_url(
-                url
+                url,
+                timestamp=(
+                    wayback_timestamp
+                ),
             )
         )
 
@@ -1344,26 +1430,37 @@ def fetch_direct_early_issue(
     used_wayback = False
 
     for base_url in EARLY_ISSUE_BASES:
-        candidate = urllib.parse.urljoin(
-            base_url,
-            filename,
-        )
-
-        try:
-            (
-                issue_data,
-                used_wayback,
-            ) = request_legacy_bytes(
-                candidate,
-                prefer_wayback=True,
-                allow_live_fallback=False,
+        for candidate_filename in (
+            early_issue_filename_variants(
+                filename
+            )
+        ):
+            candidate = urllib.parse.urljoin(
+                base_url,
+                candidate_filename,
             )
 
-            issue_url = candidate
-            break
+            try:
+                (
+                    issue_data,
+                    used_wayback,
+                ) = request_legacy_bytes(
+                    candidate,
+                    prefer_wayback=True,
+                    allow_live_fallback=False,
+                    wayback_timestamp=(
+                        f"{fallback_year}1231"
+                    ),
+                )
 
-        except Exception:
-            continue
+                issue_url = candidate
+                break
+
+            except Exception:
+                continue
+
+        if issue_data is not None:
+            break
 
     if (
         issue_data is None
@@ -1439,7 +1536,7 @@ def harvest_direct_early_issues(
     issues = []
 
     with ThreadPoolExecutor(
-        max_workers=8,
+        max_workers=4,
     ) as executor:
         futures = {
             executor.submit(
