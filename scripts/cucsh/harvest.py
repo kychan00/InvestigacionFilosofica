@@ -115,7 +115,7 @@ SOURCES = [
                 "num_anteriores.html"
             ),
         ],
-        "legacyMaxIssue": 51,
+        "legacyMaxIssue": 84,
     },
 ]
 
@@ -1525,6 +1525,57 @@ def parse_oai_record(
     }
 
 
+def sincronia_title_key(
+    value,
+):
+    normalized = (
+        clean_text(value)
+        or ""
+    ).casefold()
+
+    normalized = re.sub(
+        r"[^a-z0-9áéíóúüñ]+",
+        " ",
+        normalized,
+        flags=re.UNICODE,
+    )
+
+    return WHITESPACE_RE.sub(
+        " ",
+        normalized,
+    ).strip()
+
+
+def sincronia_issue_title_key(
+    record,
+):
+    issue_number = (
+        record.get(
+            "issueNumber"
+        )
+    )
+
+    title = sincronia_title_key(
+        record.get(
+            "title"
+        )
+    )
+
+    if (
+        not isinstance(
+            issue_number,
+            int,
+        )
+        or not title
+    ):
+        return None
+
+    return (
+        issue_number,
+        title,
+    )
+
+
 def harvest_source(
     source,
 ):
@@ -1783,6 +1834,18 @@ def harvest_source(
             if record.get("id")
         }
 
+        existing_issue_titles = {
+            key
+            for record in active_records
+            if (
+                key := (
+                    sincronia_issue_title_key(
+                        record
+                    )
+                )
+            )
+        }
+
         legacy_added = 0
 
         for record in legacy_records:
@@ -1795,6 +1858,12 @@ def harvest_source(
                 )
             )
 
+            issue_title_key = (
+                sincronia_issue_title_key(
+                    record
+                )
+            )
+
             if (
                 record.get("id")
                 in existing_ids
@@ -1802,6 +1871,11 @@ def harvest_source(
                     canonical
                     and canonical
                     in existing_urls
+                )
+                or (
+                    issue_title_key
+                    and issue_title_key
+                    in existing_issue_titles
                 )
             ):
                 continue
@@ -1817,6 +1891,11 @@ def harvest_source(
             if canonical:
                 existing_urls.add(
                     canonical
+                )
+
+            if issue_title_key:
+                existing_issue_titles.add(
+                    issue_title_key
                 )
 
             legacy_added += 1
