@@ -149,6 +149,41 @@ class SincroniaLegacyTest(
             ),
         )
 
+    def test_early_filename_variants_cover_historical_url_shapes(
+        self,
+    ):
+        variants = (
+            legacy.early_issue_filename_variants(
+                "spring99.htm"
+            )
+        )
+
+        self.assertIn(
+            "spring99.htm",
+            variants,
+        )
+
+        self.assertIn(
+            "spring99.html",
+            variants,
+        )
+
+        self.assertIn(
+            "Spring99.htm",
+            variants,
+        )
+
+        self.assertIn(
+            "Spring99.html",
+            variants,
+        )
+
+        self.assertIn(
+            "csh.udg.mx",
+            legacy.LEGACY_HOSTS,
+        )
+
+
     def test_historical_merge_deduplicates_same_issue_and_title(
         self,
     ):
