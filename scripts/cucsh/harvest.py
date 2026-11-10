@@ -17,6 +17,15 @@ from html.parser import HTMLParser
 from collections import Counter
 from pathlib import Path
 
+try:
+    from scripts.cucsh.sincronia_legacy import (
+        harvest_legacy_records,
+    )
+except ModuleNotFoundError:
+    from sincronia_legacy import (
+        harvest_legacy_records,
+    )
+
 
 OAI = "http://www.openarchives.org/OAI/2.0/"
 DC = "http://purl.org/dc/elements/1.1/"
@@ -76,6 +85,17 @@ SOURCES = [
             "index.php/sincronia/issue/archive"
         ),
         "enrichIssueMetadata": True,
+        "legacyArchives": [
+            (
+                "https://sincronia.cucsh.udg.mx/"
+                "num_anteriores.html"
+            ),
+            (
+                "http://sincronia.cucsh.udg.mx/"
+                "num_anteriores.html"
+            ),
+        ],
+        "legacyMaxIssue": 51,
     },
 ]
 
@@ -1655,6 +1675,93 @@ def harvest_source(
 
         time.sleep(
             0.25
+        )
+
+    legacy_archives = (
+        source.get(
+            "legacyArchives"
+        )
+        or []
+    )
+
+    if legacy_archives:
+        legacy_records = (
+            harvest_legacy_records(
+                legacy_archives,
+                max_issue=source.get(
+                    "legacyMaxIssue",
+                    51,
+                ),
+            )
+        )
+
+        existing_urls = {
+            record.get(
+                "urls",
+                {},
+            ).get(
+                "canonical"
+            )
+            for record in active_records
+            if record.get(
+                "urls",
+                {},
+            ).get(
+                "canonical"
+            )
+        }
+
+        existing_ids = {
+            record.get("id")
+            for record in active_records
+            if record.get("id")
+        }
+
+        legacy_added = 0
+
+        for record in legacy_records:
+            canonical = (
+                record.get(
+                    "urls",
+                    {},
+                ).get(
+                    "canonical"
+                )
+            )
+
+            if (
+                record.get("id")
+                in existing_ids
+                or (
+                    canonical
+                    and canonical
+                    in existing_urls
+                )
+            ):
+                continue
+
+            active_records.append(
+                record
+            )
+
+            existing_ids.add(
+                record.get("id")
+            )
+
+            if canonical:
+                existing_urls.add(
+                    canonical
+                )
+
+            legacy_added += 1
+
+        print(
+            (
+                "legacy-total="
+                f"{len(legacy_records)} "
+                "legacy-added="
+                f"{legacy_added}"
+            )
         )
 
     return (
