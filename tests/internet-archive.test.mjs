@@ -446,7 +446,7 @@ test(
 
 
 test(
-  "descripción externa no participa en el preranking",
+  "descripción externa participa débilmente en el preranking sin convertirse en abstract",
   async () => {
     const originalFetch =
       globalThis.fetch;
@@ -501,9 +501,9 @@ test(
         );
 
 
-      assert.equal(
+      assert.ok(
         results[0].sourceRecords[0]
-          .retrievalScore,
+          .retrievalScore >
         0
       );
 
