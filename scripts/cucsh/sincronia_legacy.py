@@ -102,7 +102,6 @@ EARLY_ISSUE_BASES = [
         "http://www.cucsh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
-    "http://sincronia.cucsh.udg.mx/",
 ]
 
 
@@ -1259,6 +1258,7 @@ def wayback_snapshot_url(
 def request_legacy_bytes(
     url,
     prefer_wayback=False,
+    allow_live_fallback=True,
 ):
     errors = []
 
@@ -1291,7 +1291,7 @@ def request_legacy_bytes(
             return (
                 request_bytes(
                     snapshot_url,
-                    timeout=15,
+                    timeout=10,
                 ),
                 True,
             )
@@ -1304,7 +1304,10 @@ def request_legacy_bytes(
             )
         )
 
-    if prefer_wayback:
+    if (
+        prefer_wayback
+        and allow_live_fallback
+    ):
         try:
             return (
                 request_bytes(
@@ -1361,6 +1364,7 @@ def harvest_direct_early_issues(
                 ) = request_legacy_bytes(
                     candidate,
                     prefer_wayback=True,
+                    allow_live_fallback=False,
                 )
 
                 issue_url = candidate
