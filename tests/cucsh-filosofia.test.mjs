@@ -65,19 +65,59 @@ test(
     );
 
 
-    assert.deepEqual(
-      [
-        ...new Set(
-          records.map(
-            record =>
-              record.journal
-          )
+    const journals =
+      new Set(
+        records.map(
+          record =>
+            record.journal
         )
-      ].sort(),
-      [
-        "Protrepsis",
+      );
+
+
+    assert.ok(
+      journals.has(
+        "Protrepsis"
+      )
+    );
+
+
+    assert.ok(
+      journals.has(
         "Quadripartita Ratio"
-      ]
+      )
+    );
+
+
+    assert.equal(
+      [...journals].every(
+        journal =>
+          [
+            "Protrepsis",
+            "Quadripartita Ratio",
+            "Sincronía"
+          ].includes(
+            journal
+          )
+      ),
+      true
+    );
+
+
+    const sincronia =
+      records.filter(
+        record =>
+          record.journal ===
+          "Sincronía"
+      );
+
+
+    assert.equal(
+      sincronia.every(
+        record =>
+          record.section ===
+          "FILOSOFÍA"
+      ),
+      true
     );
   }
 );
