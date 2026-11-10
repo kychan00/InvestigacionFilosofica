@@ -172,6 +172,12 @@ EDITORIAL_TITLE_RE = re.compile(
 )
 
 
+SINCRONIA_NON_ARTICLE_TITLE_RE = re.compile(
+    r"^(?:cintillo\s+legal|editorial)$",
+    re.IGNORECASE,
+)
+
+
 TEMPERIE_RE = re.compile(
     r"temperie.*"
     r"secci[oó]n\s+literaria\s+"
@@ -1190,13 +1196,31 @@ def parse_oai_record(
     if not title:
         return None
 
-    excluded = exclusion_reason(
-        title,
-        metadata.get(
-            "description",
-            [],
-        ),
-    )
+    if (
+        source.get("id")
+        == "sincronia"
+        and SINCRONIA_NON_ARTICLE_TITLE_RE
+        .fullmatch(
+            clean_text(title)
+            or ""
+        )
+    ):
+        excluded = (
+            "sincronia-non-article-front-matter"
+        )
+    elif (
+        source.get("id")
+        == "sincronia"
+    ):
+        excluded = None
+    else:
+        excluded = exclusion_reason(
+            title,
+            metadata.get(
+                "description",
+                [],
+            ),
+        )
 
     if excluded:
         return {
