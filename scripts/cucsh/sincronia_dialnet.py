@@ -8,6 +8,7 @@ import re
 import urllib.parse
 import urllib.request
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 
 
@@ -546,8 +547,52 @@ def build_record(
     }
 
 
+def fetch_issue_payload(
+    issue_url,
+    max_issue,
+):
+    try:
+        issue_data = request_bytes(
+            issue_url,
+            timeout=12,
+        )
+
+    except Exception:
+        return None
+
+    issue = issue_identity(
+        issue_data
+    )
+
+    if not issue:
+        return None
+
+    number = issue[
+        "number"
+    ]
+
+    if (
+        number < 1
+        or number > max_issue
+    ):
+        return None
+
+    articles = issue_articles(
+        issue_data,
+        issue_url,
+    )
+
+    if not articles:
+        return None
+
+    return (
+        issue,
+        articles,
+    )
+
+
 def harvest_dialnet_records(
-    max_issue=51,
+    max_issue=84,
 ):
     data = request_bytes(
         JOURNAL_URL,
@@ -568,46 +613,54 @@ def harvest_dialnet_records(
             )
         )
 
+    payloads = []
+
+    with ThreadPoolExecutor(
+        max_workers=8,
+    ) as executor:
+        futures = {
+            executor.submit(
+                fetch_issue_payload,
+                issue_url,
+                max_issue,
+            ):
+                issue_url
+            for issue_url in issue_urls
+        }
+
+        for future in as_completed(
+            futures
+        ):
+            try:
+                payload = future.result()
+
+            except Exception:
+                payload = None
+
+            if payload:
+                payloads.append(
+                    payload
+                )
+
+    payloads.sort(
+        key=lambda item: (
+            item[0][
+                "number"
+            ],
+            item[0][
+                "year"
+            ],
+        )
+    )
+
     records = []
     seen_codes = set()
     covered_issues = set()
 
-    for issue_url in issue_urls:
-        try:
-            issue_data = (
-                request_bytes(
-                    issue_url,
-                    timeout=12,
-                )
-            )
-
-        except Exception:
-            continue
-
-        issue = issue_identity(
-            issue_data
-        )
-
-        if not issue:
-            continue
-
+    for issue, articles in payloads:
         number = issue[
             "number"
         ]
-
-        if (
-            number < 1
-            or number > max_issue
-        ):
-            continue
-
-        articles = issue_articles(
-            issue_data,
-            issue_url,
-        )
-
-        if not articles:
-            continue
 
         covered_issues.add(
             number
