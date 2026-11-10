@@ -342,6 +342,17 @@ def main():
     )
 
 
+    if not any(
+        record.get("journal")
+        == "Sincronía"
+        for record in after
+    ):
+        fail(
+            "AFTER: Sincronía is missing "
+            "from the harvested corpus"
+        )
+
+
     before_by_id = {
         record_key(record):
             record
