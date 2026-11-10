@@ -229,6 +229,21 @@ class SincroniaIssueMetadataTest(
         )
 
 
+    def test_legacy_range_stops_before_modern_ojs_archive(
+        self,
+    ):
+        source = next(
+            source
+            for source in MODULE.SOURCES
+            if source["id"] == "sincronia"
+        )
+
+        self.assertEqual(
+            source["legacyMaxIssue"],
+            51,
+        )
+
+
     def test_article_id_is_stable(
         self,
     ):
