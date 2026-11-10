@@ -446,6 +446,89 @@ test(
 
 
 test(
+  "descripción externa no participa en el preranking",
+  async () => {
+    const originalFetch =
+      globalThis.fetch;
+
+
+    globalThis.fetch =
+      async () => ({
+        ok: true,
+        status: 200,
+
+        headers: {
+          get() {
+            return null;
+          }
+        },
+
+        async json() {
+          return {
+            response: {
+              docs: [
+                {
+                  identifier:
+                    "description-only",
+
+                  title:
+                    "Unrelated record",
+
+                  creator:
+                    "Another Author",
+
+                  subject:
+                    "Unrelated subject",
+
+                  description:
+                    "Kant Critique Pure Reason philosophy"
+                }
+              ]
+            }
+          };
+        }
+      });
+
+
+    try {
+      const results =
+        await searchInternetArchive(
+          "Kant Critique Pure Reason philosophy",
+          {
+            rows: 1,
+            retries: 0
+          }
+        );
+
+
+      assert.equal(
+        results[0].sourceRecords[0]
+          .retrievalScore,
+        0
+      );
+
+
+      assert.equal(
+        results[0].sourceRecords[0]
+          .externalDescription,
+        "Kant Critique Pure Reason philosophy"
+      );
+
+
+      assert.equal(
+        results[0].abstract,
+        null
+      );
+
+    } finally {
+      globalThis.fetch =
+        originalFetch;
+    }
+  }
+);
+
+
+test(
   "obra primaria de Kant supera comentario",
   async () => {
     const originalFetch =
