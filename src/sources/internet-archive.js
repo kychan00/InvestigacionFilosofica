@@ -714,6 +714,7 @@ export function buildInternetArchiveSearchUrl(
     "year",
     "language",
     "subject",
+    "description",
     "publisher",
     "isbn",
     "collection",
@@ -772,6 +773,12 @@ export function normalizeInternetArchiveItem(
         item.title
       )
     ) || "";
+
+
+  const externalDescription =
+    cleanText(
+      item.description
+    );
 
 
   const publisher =
@@ -836,12 +843,13 @@ export function normalizeInternetArchiveItem(
     publisher,
 
     /*
-     * Internet Archive `description` is deliberately not requested
-     * or exposed as an abstract. It is uploader/source-dependent text,
-     * not a consistently licensed academic abstract.
+     * Internet Archive `description` is source/uploader-dependent text.
+     * It is intentionally NOT promoted to the federated academic
+     * `abstract` field and it does not participate in retrieval scoring.
      *
-     * Keep the federated record bibliographic and link back to the
-     * canonical Archive.org item for source-specific content.
+     * The description is preserved only inside the Internet Archive
+     * provenance record so the UI can present it explicitly as external,
+     * source-specific descriptive content.
      */
     abstract:
       null,
@@ -896,6 +904,8 @@ export function normalizeInternetArchiveItem(
         queryType:
           context.queryType ||
           null,
+
+        externalDescription,
 
         downloads:
           Number.isFinite(
