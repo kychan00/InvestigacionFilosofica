@@ -94,32 +94,15 @@ EARLY_ISSUE_STEMS = {
 
 
 EARLY_ISSUE_BASES = [
-    "https://sincronia.cucsh.udg.mx/",
-    "http://sincronia.cucsh.udg.mx/",
-    (
-        "https://fuentes.csh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
     (
         "http://fuentes.csh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
-    (
-        "https://www.cucsh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
     (
         "http://www.cucsh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
-    (
-        "https://cucsh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
-    (
-        "http://cucsh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
+    "http://sincronia.cucsh.udg.mx/",
 ]
 
 
@@ -1284,7 +1267,7 @@ def request_legacy_bytes(
             return (
                 request_bytes(
                     url,
-                    timeout=10,
+                    timeout=4,
                 ),
                 False,
             )
@@ -1308,7 +1291,7 @@ def request_legacy_bytes(
             return (
                 request_bytes(
                     snapshot_url,
-                    timeout=45,
+                    timeout=15,
                 ),
                 True,
             )
@@ -1326,7 +1309,7 @@ def request_legacy_bytes(
             return (
                 request_bytes(
                     url,
-                    timeout=10,
+                    timeout=4,
                 ),
                 False,
             )
@@ -1376,7 +1359,8 @@ def harvest_direct_early_issues(
                     issue_data,
                     used_wayback,
                 ) = request_legacy_bytes(
-                    candidate
+                    candidate,
+                    prefer_wayback=True,
                 )
 
                 issue_url = candidate
