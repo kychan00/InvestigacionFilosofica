@@ -116,6 +116,93 @@ class SincroniaLegacyTest(
             ),
         )
 
+    def test_early_issue_filename_map_covers_missing_dialnet_years(
+        self,
+    ):
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                1
+            ],
+            (
+                "winter97.htm",
+                1996,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                18
+            ],
+            (
+                "spring01.htm",
+                2001,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                21
+            ],
+            (
+                "winter02.htm",
+                2001,
+            ),
+        )
+
+    def test_historical_merge_deduplicates_same_issue_and_title(
+        self,
+    ):
+        direct = {
+            "id":
+                "legacy-a",
+
+            "title":
+                "Un artículo histórico",
+
+            "issueNumber":
+                18,
+
+            "urls": {
+                "canonical":
+                    (
+                        "http://sincronia.cucsh.udg.mx/"
+                        "historico.htm"
+                    ),
+            },
+        }
+
+        dialnet = {
+            "id":
+                "dialnet-b",
+
+            "title":
+                "Un artículo histórico",
+
+            "issueNumber":
+                18,
+
+            "urls": {
+                "canonical":
+                    (
+                        "https://dialnet.unirioja.es/"
+                        "servlet/articulo?codigo=1"
+                    ),
+            },
+        }
+
+        merged = (
+            legacy.merge_historical_records(
+                [direct],
+                [dialnet],
+            )
+        )
+
+        self.assertEqual(
+            len(merged),
+            1,
+        )
+
+
     def test_navigation_is_not_an_article(
         self,
     ):
