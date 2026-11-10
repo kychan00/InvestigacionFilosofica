@@ -100,6 +100,13 @@ test(
     );
 
 
+    assert.equal(
+      item.sourceRecords[0]
+        .externalDescription,
+      "A classic work & study."
+    );
+
+
     assert.deepEqual(
       item.isbn,
       [
@@ -211,7 +218,7 @@ test(
         .includes(
           "description"
         ),
-      false
+      true
     );
   }
 );
