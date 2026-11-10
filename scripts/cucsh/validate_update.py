@@ -12,9 +12,15 @@ from pathlib import Path
 
 PROVIDER = "CUCSH Filosofía"
 
-ALLOWED_JOURNALS = {
+REQUIRED_JOURNALS = {
     "Protrepsis",
     "Quadripartita Ratio",
+}
+
+
+ALLOWED_JOURNALS = {
+    *REQUIRED_JOURNALS,
+    "Sincronía",
 }
 
 
@@ -183,14 +189,26 @@ def validate_snapshot(
     }
 
 
-    if (
-        journals
-        != ALLOWED_JOURNALS
+    if not journals.issubset(
+        ALLOWED_JOURNALS
     ):
         fail(
             f"{label}: "
             "unexpected journals: "
             f"{sorted(journals)}"
+        )
+
+
+    missing_required = (
+        REQUIRED_JOURNALS
+        - journals
+    )
+
+    if missing_required:
+        fail(
+            f"{label}: "
+            "missing required journals: "
+            f"{sorted(missing_required)}"
         )
 
 
