@@ -3,6 +3,10 @@ name: Update CUCSH Filosofía
 on:
   workflow_dispatch:
 
+  push:
+    branches:
+      - feature/cucsh-sincronia
+
   schedule:
     - cron: "17 12 3 * *"
 
