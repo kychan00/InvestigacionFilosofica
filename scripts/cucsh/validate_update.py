@@ -220,7 +220,6 @@ def validate_snapshot(
 
         for field in (
             "title",
-            "authors",
             "year",
             "journal",
         ):
@@ -231,6 +230,60 @@ def validate_snapshot(
                     f"{label}: "
                     f"missing {field} "
                     f"in {key}"
+                )
+
+
+        if (
+            not record.get(
+                "authors"
+            )
+            and not record.get(
+                "legacyOriginal"
+            )
+        ):
+            fail(
+                f"{label}: "
+                "missing authors "
+                f"in {key}"
+            )
+
+
+        if record.get(
+            "legacyOriginal"
+        ):
+            if (
+                record.get(
+                    "journal"
+                )
+                != "Sincronía"
+            ):
+                fail(
+                    f"{label}: "
+                    "legacy record outside "
+                    f"Sincronía: {key}"
+                )
+
+            issue_number = (
+                record.get(
+                    "issueNumber"
+                )
+            )
+
+            if (
+                not isinstance(
+                    issue_number,
+                    int,
+                )
+                or not (
+                    1 <=
+                    issue_number <=
+                    51
+                )
+            ):
+                fail(
+                    f"{label}: "
+                    "invalid legacy "
+                    f"issue number in {key}"
                 )
 
 
