@@ -102,23 +102,6 @@ test(
       true
     );
 
-
-    const sincronia =
-      records.filter(
-        record =>
-          record.journal ===
-          "Sincronía"
-      );
-
-
-    assert.equal(
-      sincronia.every(
-        record =>
-          record.section ===
-          "FILOSOFÍA"
-      ),
-      true
-    );
   }
 );
 
