@@ -12,6 +12,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+import unicodedata
+
+from html.parser import HTMLParser
 
 from collections import Counter
 from pathlib import Path
@@ -60,6 +63,21 @@ SOURCES = [
                 "index.php/prot/oai"
             ),
         ],
+    },
+    {
+        "id": "sincronia",
+        "journal": "Sincronía",
+        "endpoints": [
+            (
+                "https://revistasincronia.cucsh.udg.mx/"
+                "index.php/sincronia/oai"
+            ),
+        ],
+        "section": "FILOSOFÍA",
+        "issueArchive": (
+            "https://revistasincronia.cucsh.udg.mx/"
+            "index.php/sincronia/issue/archive"
+        ),
     },
 ]
 
@@ -531,6 +549,329 @@ def relation_urls(
             output.append(clean)
 
     return output
+
+
+ARTICLE_VIEW_RE = re.compile(
+    r"/article/view/(\\d+)",
+    re.IGNORECASE,
+)
+
+
+ISSUE_VIEW_RE = re.compile(
+    r"/issue/view/(\\d+)",
+    re.IGNORECASE,
+)
+
+
+def normalize_section_label(
+    value,
+):
+    clean = (
+        clean_text(value)
+        or ""
+    )
+
+    clean = unicodedata.normalize(
+        "NFKD",
+        clean,
+    )
+
+    clean = "".join(
+        character
+        for character in clean
+        if not unicodedata.combining(
+            character
+        )
+    )
+
+    return WHITESPACE_RE.sub(
+        " ",
+        clean.casefold(),
+    ).strip()
+
+
+def article_id_from_url(
+    value,
+):
+    clean = (
+        clean_text(value)
+        or ""
+    )
+
+    match = ARTICLE_VIEW_RE.search(
+        clean
+    )
+
+    return (
+        match.group(1)
+        if match
+        else None
+    )
+
+
+class IssueArchiveParser(
+    HTMLParser,
+):
+    def __init__(
+        self,
+        base_url,
+    ):
+        super().__init__(
+            convert_charrefs=True
+        )
+
+        self.base_url = base_url
+        self.issue_urls = []
+        self._seen = set()
+
+    def handle_starttag(
+        self,
+        tag,
+        attrs,
+    ):
+        if tag.casefold() != "a":
+            return
+
+        href = dict(attrs).get(
+            "href"
+        )
+
+        if not href:
+            return
+
+        url = urllib.parse.urljoin(
+            self.base_url,
+            href,
+        )
+
+        if not ISSUE_VIEW_RE.search(
+            url
+        ):
+            return
+
+        if url in self._seen:
+            return
+
+        self._seen.add(url)
+        self.issue_urls.append(url)
+
+
+class IssueSectionParser(
+    HTMLParser,
+):
+    def __init__(
+        self,
+        base_url,
+        target_section,
+    ):
+        super().__init__(
+            convert_charrefs=True
+        )
+
+        self.base_url = base_url
+        self.target_section = (
+            normalize_section_label(
+                target_section
+            )
+        )
+
+        self.current_section = None
+        self.article_ids = set()
+        self._in_h2 = False
+        self._h2_parts = []
+
+    def handle_starttag(
+        self,
+        tag,
+        attrs,
+    ):
+        tag = tag.casefold()
+
+        if tag == "h2":
+            self._in_h2 = True
+            self._h2_parts = []
+            return
+
+        if (
+            tag != "a"
+            or self.current_section
+            != self.target_section
+        ):
+            return
+
+        href = dict(attrs).get(
+            "href"
+        )
+
+        if not href:
+            return
+
+        url = urllib.parse.urljoin(
+            self.base_url,
+            href,
+        )
+
+        article_id = (
+            article_id_from_url(
+                url
+            )
+        )
+
+        if article_id:
+            self.article_ids.add(
+                article_id
+            )
+
+    def handle_data(
+        self,
+        data,
+    ):
+        if self._in_h2:
+            self._h2_parts.append(
+                data
+            )
+
+    def handle_endtag(
+        self,
+        tag,
+    ):
+        if (
+            tag.casefold() != "h2"
+            or not self._in_h2
+        ):
+            return
+
+        self.current_section = (
+            normalize_section_label(
+                " ".join(
+                    self._h2_parts
+                )
+            )
+        )
+
+        self._in_h2 = False
+        self._h2_parts = []
+
+
+def harvest_section_article_ids(
+    source,
+):
+    archive_url = source.get(
+        "issueArchive"
+    )
+
+    section = source.get(
+        "section"
+    )
+
+    if not archive_url or not section:
+        return None
+
+    issue_urls = []
+    seen_issues = set()
+
+    for page in range(
+        1,
+        51,
+    ):
+        page_url = (
+            archive_url
+            if page == 1
+            else (
+                archive_url.rstrip("/")
+                + f"/{page}"
+            )
+        )
+
+        data = request_bytes(
+            page_url,
+            timeout=30,
+        )
+
+        parser = IssueArchiveParser(
+            page_url
+        )
+
+        parser.feed(
+            data.decode(
+                "utf-8",
+                errors="replace",
+            )
+        )
+
+        new_urls = [
+            url
+            for url in parser.issue_urls
+            if url not in seen_issues
+        ]
+
+        if not new_urls:
+            break
+
+        for url in new_urls:
+            seen_issues.add(url)
+            issue_urls.append(url)
+
+        time.sleep(
+            0.10
+        )
+
+    if not issue_urls:
+        raise RuntimeError(
+            (
+                "No issue URLs found for "
+                f"{source['journal']}"
+            )
+        )
+
+    article_ids = set()
+
+    for index, issue_url in enumerate(
+        issue_urls,
+        start=1,
+    ):
+        data = request_bytes(
+            issue_url,
+            timeout=30,
+        )
+
+        parser = IssueSectionParser(
+            issue_url,
+            section,
+        )
+
+        parser.feed(
+            data.decode(
+                "utf-8",
+                errors="replace",
+            )
+        )
+
+        article_ids.update(
+            parser.article_ids
+        )
+
+        print(
+            f"section-scan={index}/"
+            f"{len(issue_urls)} "
+            f"section={section} "
+            f"articles={len(article_ids)}"
+        )
+
+        time.sleep(
+            0.10
+        )
+
+    if not article_ids:
+        raise RuntimeError(
+            (
+                "No articles found in section "
+                f"{section!r} for "
+                f"{source['journal']}"
+            )
+        )
+
+    return article_ids
 
 
 def description_candidates(
@@ -1088,6 +1429,14 @@ def harvest_source(
             error,
         )
 
+    section_article_ids = (
+        harvest_section_article_ids(
+            source
+        )
+        if source.get("section")
+        else None
+    )
+
     token = None
     page = 0
     active_records = []
@@ -1179,6 +1528,31 @@ def harvest_source(
                 ] += 1
 
                 continue
+
+            if section_article_ids is not None:
+                article_id = article_id_from_url(
+                    record.get(
+                        "urls",
+                        {},
+                    ).get(
+                        "canonical"
+                    )
+                )
+
+                if (
+                    not article_id
+                    or article_id
+                    not in section_article_ids
+                ):
+                    excluded_reasons[
+                        "outside-target-section"
+                    ] += 1
+
+                    continue
+
+                record["section"] = (
+                    source["section"]
+                )
 
             active_records.append(
                 record
