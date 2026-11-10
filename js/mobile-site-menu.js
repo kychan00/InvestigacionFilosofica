@@ -12,26 +12,10 @@ const menuItems = [
   ["08", "Licencia MIT", "Código abierto y procedencia", "./acerca.html#licencia"]
 ];
 
-const toolbar = document.createElement("div");
-toolbar.className = "site-mobile-toolbar";
-toolbar.innerHTML = `
-  <a class="site-mobile-toolbar-brand" href="./" aria-label="Ir a Investigación Filosófica">
-    <span class="site-mobile-toolbar-mark" aria-hidden="true">Φ</span>
-    <span class="site-mobile-toolbar-name">Investigación Filosófica</span>
-  </a>
-
-  <button
-    type="button"
-    class="site-menu-toggle"
-    aria-label="Abrir menú"
-    aria-expanded="false"
-    aria-controls="site-mobile-menu"
-  >
-    <span class="site-menu-toggle-lines" aria-hidden="true">
-      <i></i><i></i><i></i>
-    </span>
-  </button>
-`;
+const toolbar =
+  document.querySelector(
+    ".site-mobile-toolbar"
+  );
 
 const backdrop = document.createElement("button");
 backdrop.type = "button";
@@ -87,11 +71,13 @@ drawer.innerHTML = `
   </div>
 `;
 
-document.body.prepend(toolbar);
 document.body.append(backdrop, drawer);
-document.body.classList.add("has-site-mobile-toolbar");
 
-const toggle = toolbar.querySelector(".site-menu-toggle");
+if (toolbar) {
+  document.body.classList.add("has-site-mobile-toolbar");
+}
+
+const toggle = toolbar?.querySelector(".site-menu-toggle");
 const closeButton = drawer.querySelector(".site-menu-close");
 const links = [...drawer.querySelectorAll(".site-menu-link")];
 const themeButtons = [...drawer.querySelectorAll("[data-site-theme]")];
@@ -184,8 +170,8 @@ function openMenu() {
   drawer.setAttribute("aria-hidden", "false");
   drawer.inert = false;
 
-  toggle.setAttribute("aria-expanded", "true");
-  toggle.setAttribute("aria-label", "Cerrar menú");
+  toggle?.setAttribute("aria-expanded", "true");
+  toggle?.setAttribute("aria-label", "Cerrar menú");
 
   requestAnimationFrame(() => closeButton?.focus());
 }
@@ -198,15 +184,15 @@ function closeMenu({ restoreFocus = true } = {}) {
   drawer.setAttribute("aria-hidden", "true");
   drawer.inert = true;
 
-  toggle.setAttribute("aria-expanded", "false");
-  toggle.setAttribute("aria-label", "Abrir menú");
+  toggle?.setAttribute("aria-expanded", "false");
+  toggle?.setAttribute("aria-label", "Abrir menú");
 
   if (restoreFocus && previousFocus instanceof HTMLElement) {
     previousFocus.focus();
   }
 }
 
-toggle.addEventListener("click", () => {
+toggle?.addEventListener("click", () => {
   drawer.classList.contains("is-open") ? closeMenu() : openMenu();
 });
 
