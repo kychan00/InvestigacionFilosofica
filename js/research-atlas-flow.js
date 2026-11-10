@@ -819,6 +819,9 @@ function temporalize(
             [0.5, 0.5],
           draggable: false,
           selectable: true,
+          selected:
+            node.id ===
+            selectedId,
           focusable: true,
           connectable: false,
           zIndex:
