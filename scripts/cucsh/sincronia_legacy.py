@@ -1612,77 +1612,17 @@ def fetch_first_available(
     )
 
 
-def harvest_legacy_records(
+def harvest_archive_index_records(
     archive_urls,
-    max_issue=51,
+    max_issue,
 ):
-    try:
-        (
-            archive_url,
-            data,
-            archive_from_wayback,
-        ) = fetch_first_available(
-            archive_urls
-        )
-
-    except Exception as original_error:
-        (
-            direct_records,
-            direct_issues,
-        ) = harvest_direct_early_issues(
-            max_issue=min(
-                max_issue,
-                21,
-            )
-        )
-
-        try:
-            (
-                dialnet_records,
-                dialnet_issues,
-            ) = harvest_dialnet_records(
-                max_issue=max_issue
-            )
-
-        except Exception as dialnet_error:
-            if not direct_records:
-                raise RuntimeError(
-                    (
-                        "Sincronía historical recovery "
-                        "failed in original archive, "
-                        "Wayback direct issues and "
-                        "Dialnet. "
-                        f"original={original_error!r}; "
-                        f"dialnet={dialnet_error!r}"
-                    )
-                ) from dialnet_error
-
-            dialnet_records = []
-            dialnet_issues = []
-
-        combined = merge_historical_records(
-            direct_records,
-            dialnet_records,
-        )
-
-        covered_issues = sorted(
-            set(
-                direct_issues
-            )
-            | set(
-                dialnet_issues
-            )
-        )
-
-        print(
-            (
-                "legacy-fallback=direct+dialnet "
-                f"issues={covered_issues} "
-                f"records={len(combined)}"
-            )
-        )
-
-        return combined
+    (
+        archive_url,
+        data,
+        archive_from_wayback,
+    ) = fetch_first_available(
+        archive_urls
+    )
 
     links = collect_links(
         data,
@@ -1731,6 +1671,7 @@ def harvest_legacy_records(
                     prefer_wayback=(
                         archive_from_wayback
                     ),
+                    allow_live_fallback=False,
                 )
             )
 
@@ -1784,7 +1725,7 @@ def harvest_legacy_records(
             )
         ]
 
-        if len(issue_links) < 1:
+        if not issue_links:
             continue
 
         seen_issue_urls.add(
@@ -1814,21 +1755,13 @@ def harvest_legacy_records(
                 issue_links,
         })
 
-    if not issue_rows:
-        raise RuntimeError(
-            (
-                "Sincronía legacy archive "
-                "did not yield issues 1-51"
-            )
-        )
+    records = []
+    seen_article_urls = set()
 
     issue_urls = {
         issue["url"]
         for issue in issue_rows
     }
-
-    records = []
-    seen_article_urls = set()
 
     for issue in sorted(
         issue_rows,
@@ -1837,6 +1770,8 @@ def harvest_legacy_records(
             item["year"],
         ),
     ):
+        issue_added = 0
+
         for link in issue["links"]:
             if not plausible_article_link(
                 link,
@@ -1872,21 +1807,153 @@ def harvest_legacy_records(
                 record
             )
 
+            issue_added += 1
+
+        if issue_added:
+            print(
+                (
+                    "legacy-index-issue="
+                    f"{issue['number']} "
+                    f"year={issue['year']} "
+                    f"articles={issue_added}"
+                )
+            )
+
+    return records
+
+
+def record_issue_numbers(
+    records,
+):
+    return {
+        record.get(
+            "issueNumber"
+        )
+        for record in records or []
+        if isinstance(
+            record.get(
+                "issueNumber"
+            ),
+            int,
+        )
+    }
+
+
+def harvest_legacy_records(
+    archive_urls,
+    max_issue=84,
+):
+    (
+        direct_records,
+        direct_issues,
+    ) = harvest_direct_early_issues(
+        max_issue=min(
+            max_issue,
+            21,
+        )
+    )
+
+    try:
+        (
+            dialnet_records,
+            dialnet_issues,
+        ) = harvest_dialnet_records(
+            max_issue=max_issue
+        )
+
+    except Exception as exc:
         print(
             (
-                "legacy-issue="
-                f"{issue['number']} "
-                f"year={issue['year']} "
-                f"records={len(records)}"
+                "WARNING: Dialnet historical "
+                f"fallback failed: {exc!r}"
             )
         )
 
-    if not records:
+        dialnet_records = []
+        dialnet_issues = []
+
+    combined = merge_historical_records(
+        direct_records,
+        dialnet_records,
+    )
+
+    expected_issues = set(
+        range(
+            1,
+            max_issue + 1,
+        )
+    )
+
+    covered_issues = (
+        record_issue_numbers(
+            combined
+        )
+    )
+
+    missing_issues = sorted(
+        expected_issues
+        - covered_issues
+    )
+
+    print(
+        (
+            "legacy-primary=direct+dialnet "
+            f"issues={sorted(covered_issues)} "
+            f"records={len(combined)} "
+            f"missing={missing_issues}"
+        )
+    )
+
+    if missing_issues:
+        try:
+            index_records = (
+                harvest_archive_index_records(
+                    archive_urls,
+                    max_issue,
+                )
+            )
+
+        except Exception as exc:
+            print(
+                (
+                    "WARNING: historical index "
+                    f"fallback failed: {exc!r}"
+                )
+            )
+
+            index_records = []
+
+        combined = merge_historical_records(
+            combined,
+            index_records,
+        )
+
+        covered_issues = (
+            record_issue_numbers(
+                combined
+            )
+        )
+
+        missing_issues = sorted(
+            expected_issues
+            - covered_issues
+        )
+
+        print(
+            (
+                "legacy-after-index "
+                f"issues={sorted(covered_issues)} "
+                f"records={len(combined)} "
+                f"missing={missing_issues}"
+            )
+        )
+
+    if not combined:
         raise RuntimeError(
             (
-                "Sincronía legacy archive "
+                "Sincronía historical recovery "
                 "did not yield article records"
             )
         )
 
-    return records
+    return combined
