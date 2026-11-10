@@ -96,6 +96,19 @@ EARLY_ISSUE_STEMS = {
 }
 
 
+EARLY_ISSUE_NUMBER_BY_STEM = {
+    filename.rsplit(
+        ".",
+        1,
+    )[0].casefold():
+        issue_number
+    for issue_number, (
+        filename,
+        _year,
+    ) in EARLY_ISSUE_FILENAMES.items()
+}
+
+
 def early_issue_filename_variants(
     filename,
 ):
@@ -1845,6 +1858,16 @@ def harvest_archive_index_records(
             issue_data
         )
 
+        stem = file_stem(
+            url
+        )
+
+        early_issue_number = (
+            EARLY_ISSUE_NUMBER_BY_STEM.get(
+                stem
+            )
+        )
+
         fallback_number = (
             infer_issue_number(
                 candidate.get(
@@ -1854,11 +1877,15 @@ def harvest_archive_index_records(
             )
         )
 
+        # El índice histórico contiene también
+        # enlaces a artículos. Sólo tratamos como
+        # ejemplar una URL estacional conocida o
+        # un enlace que ya se identifica como
+        # número de revista. Esto evita inferir un
+        # número a partir del cuerpo de un artículo.
         issue_number = (
-            infer_issue_number_from_page(
-                parser,
-                fallback_number,
-            )
+            early_issue_number
+            or fallback_number
         )
 
         if (
