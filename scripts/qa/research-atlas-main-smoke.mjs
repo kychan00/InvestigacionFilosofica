@@ -63,6 +63,13 @@ function makeResponse(count = 20) {
   };
 }
 
+function allowedAtlasLibrary(url) {
+  return (
+    url.startsWith("https://esm.sh/") ||
+    url.startsWith("https://cdn.jsdelivr.net/")
+  );
+}
+
 await mkdir("artifacts/research-atlas-ra9", {recursive: true});
 const browser = await chromium.launch({
   headless: true,
@@ -84,15 +91,49 @@ try {
 
     const page = await context.newPage();
     const externalRequests = [];
+    const pageErrors = [];
+    const consoleErrors = [];
+    const failedRequests = [];
+
+    page.on("pageerror", error => {
+      pageErrors.push(error.message);
+    });
+
+    page.on("console", message => {
+      if (
+        message.type() === "error" ||
+        message.type() === "warning"
+      ) {
+        consoleErrors.push(
+          message.type() + ": " + message.text()
+        );
+      }
+    });
+
+    page.on("requestfailed", request => {
+      failedRequests.push({
+        url: request.url(),
+        failure:
+          request.failure()?.errorText || "unknown"
+      });
+    });
 
     page.on("request", request => {
       const url = request.url();
-      if (!url.startsWith(BASE)) externalRequests.push(url);
+      if (
+        !url.startsWith(BASE) &&
+        !allowedAtlasLibrary(url)
+      ) {
+        externalRequests.push(url);
+      }
     });
 
     await page.route("**/*", route => {
       const url = route.request().url();
-      if (url.startsWith(BASE)) {
+      if (
+        url.startsWith(BASE) ||
+        allowedAtlasLibrary(url)
+      ) {
         route.continue();
       } else {
         route.abort();
@@ -111,7 +152,7 @@ try {
       window.dispatchEvent(new CustomEvent("research-atlas:search-response", {
         detail: {
           response,
-          phase: "complete",
+          phase: "partial",
           searchMode: "traditional"
         }
       }));
@@ -133,7 +174,63 @@ try {
     const beforeToggleRequests = externalRequests.length;
 
     await page.locator("#research-view-atlas").click();
-    await page.waitForTimeout(80);
+
+    try {
+      await page.waitForFunction(() =>
+        document
+          .querySelector("#research-atlas-stage")
+          ?.classList
+          .contains("is-react-flow") &&
+        document.querySelectorAll(
+          "#research-atlas-flow .react-flow__node"
+        ).length >= 20
+      , null, {
+        timeout: 30000,
+        polling: 100
+      });
+    } catch (error) {
+      const diagnostics =
+        await page.evaluate(() => ({
+          stageClass:
+            document
+              .querySelector("#research-atlas-stage")
+              ?.className || null,
+          flowClass:
+            document
+              .querySelector("#research-atlas-flow")
+              ?.className || null,
+          flowChildren:
+            document
+              .querySelector("#research-atlas-flow")
+              ?.children
+              ?.length || 0,
+          flowText:
+            document
+              .querySelector("#research-atlas-flow")
+              ?.textContent
+              ?.slice(0, 500) || "",
+          atlasStatus:
+            document
+              .querySelector("#research-atlas-sync-status")
+              ?.textContent || "",
+          stageLabel:
+            document
+              .querySelector("#research-atlas-stage-label")
+              ?.textContent || ""
+        }));
+
+      throw new Error(
+        "React Flow did not mount: " +
+        JSON.stringify({
+          name,
+          diagnostics,
+          pageErrors,
+          consoleErrors,
+          failedRequests,
+          externalRequests
+        })
+      );
+    }
 
     assert.equal(
       await page.locator("#research-view-atlas").getAttribute("aria-selected"),
@@ -171,6 +268,23 @@ try {
         panel: rect("#research-atlas-panel"),
         stage: rect("#research-atlas-stage"),
         canvas: rect("#research-atlas-canvas"),
+        flow: rect("#research-atlas-flow"),
+        flowNodes:
+          document.querySelectorAll(
+            "#research-atlas-flow .react-flow__node"
+          ).length,
+        yearLines:
+          [...document.querySelectorAll(
+            "#research-atlas-flow .research-atlas-rf-year-line"
+          )]
+            .map(line => ({
+              label:
+                line.querySelector("span")
+                  ?.textContent
+                  ?.trim() || "",
+              left:
+                line.getBoundingClientRect().left
+            })),
         listCount: document.querySelectorAll("#research-atlas-list button").length
       };
     });
@@ -179,7 +293,7 @@ try {
       geometry.scrollWidth <= geometry.viewport + 2,
       name + " horizontal overflow: " + JSON.stringify(geometry)
     );
-    for (const key of ["switcher", "panel", "stage", "canvas"]) {
+    for (const key of ["switcher", "panel", "stage", "canvas", "flow"]) {
       assert.ok(
         geometry[key].left >= -2 &&
         geometry[key].right <= geometry.viewport + 2,
@@ -188,6 +302,32 @@ try {
     }
     assert.ok(geometry.stage.width >= 250);
     assert.ok(geometry.listCount >= 20);
+    assert.ok(
+      geometry.flowNodes >= 20,
+      name + " React Flow must render the Atlas nodes"
+    );
+
+    const numericYearLines =
+      geometry.yearLines
+        .filter(item => /^\d{4}$/.test(item.label))
+        .map(item => ({
+          year: Number(item.label),
+          left: item.left
+        }))
+        .sort((a, b) => a.year - b.year);
+
+    assert.ok(
+      numericYearLines.length >= 3,
+      name + " temporal plane must expose multiple year guides"
+    );
+
+    for (let index = 1; index < numericYearLines.length; index += 1) {
+      assert.ok(
+        numericYearLines[index].left >
+          numericYearLines[index - 1].left,
+        name + " later years must appear to the right on the X axis"
+      );
+    }
 
     await page.locator("#research-atlas-filter").fill("Quine");
     await page.waitForTimeout(30);
@@ -242,16 +382,119 @@ try {
 
     await page.waitForTimeout(30);
 
-    await page.locator("#research-atlas-list button").first().click();
-    await page.waitForFunction(() =>
-      document.querySelector("#research-atlas-detail")?.textContent?.includes("¿Por qué está aquí?")
+    await page
+      .locator("#research-atlas-stage")
+      .scrollIntoViewIfNeeded();
+
+    const clickablePoint =
+      await page.evaluate(() => {
+        const stage =
+          document
+            .querySelector("#research-atlas-stage")
+            ?.getBoundingClientRect();
+
+        if (!stage) {
+          return null;
+        }
+
+        for (
+          const node of
+          document.querySelectorAll(
+            "#research-atlas-flow .react-flow__node"
+          )
+        ) {
+          const rect =
+            node.getBoundingClientRect();
+
+          const x =
+            rect.left +
+            rect.width / 2;
+
+          const y =
+            rect.top +
+            rect.height / 2;
+
+          if (
+            x <= stage.left + 8 ||
+            x >= stage.right - 8 ||
+            y <= stage.top + 56 ||
+            y >= stage.bottom - 8
+          ) {
+            continue;
+          }
+
+          const top =
+            document.elementFromPoint(
+              x,
+              y
+            );
+
+          if (
+            top === node ||
+            node.contains(top)
+          ) {
+            return {
+              x,
+              y,
+              id:
+                node.getAttribute(
+                  "data-id"
+                )
+            };
+          }
+        }
+
+        return null;
+      });
+
+    assert.ok(
+      clickablePoint,
+      name + " must expose at least one pointer-accessible React Flow node"
     );
 
-    const beforeZoom = await page.locator("#research-atlas-zoom").innerText();
-    await page.locator("#research-atlas-zoom-in").click();
-    await page.waitForTimeout(30);
-    const afterZoom = await page.locator("#research-atlas-zoom").innerText();
-    assert.notEqual(afterZoom, beforeZoom);
+    await page.mouse.click(
+      clickablePoint.x,
+      clickablePoint.y
+    );
+
+    await page.waitForFunction(() =>
+      !document
+        .querySelector("#research-atlas-detail")
+        ?.textContent
+        ?.includes("Seleccione un nodo")
+    );
+
+    const beforeZoom =
+      await page
+        .locator("#research-atlas-zoom")
+        .innerText();
+
+    await page
+      .locator("#research-atlas-zoom-in")
+      .click();
+
+    await page.waitForFunction(
+      before =>
+        document
+          .querySelector("#research-atlas-zoom")
+          ?.textContent
+          ?.trim() !== before,
+      beforeZoom,
+      {
+        timeout: 3000,
+        polling: 50
+      }
+    );
+
+    const afterZoom =
+      await page
+        .locator("#research-atlas-zoom")
+        .innerText();
+
+    assert.notEqual(
+      afterZoom,
+      beforeZoom
+    );
 
     await page.locator("#research-view-results").click();
     assert.equal(

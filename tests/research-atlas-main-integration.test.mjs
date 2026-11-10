@@ -17,6 +17,21 @@ const page = await readFile(
   "utf8"
 );
 
+const flow = await readFile(
+  new URL("../js/research-atlas-flow.js", import.meta.url),
+  "utf8"
+);
+
+const flowCss = await readFile(
+  new URL("../css/research-atlas-flow.css", import.meta.url),
+  "utf8"
+);
+
+const view = await readFile(
+  new URL("../src/core/research-atlas-view.js", import.meta.url),
+  "utf8"
+);
+
 test("RA9 integra Resultados y Atlas como tabs accesibles", () => {
   assert.match(page, /id="research-view-switch"/);
   assert.match(page, /data-research-view="results"/);
@@ -233,7 +248,7 @@ test("RA12-D4 actualiza copy público y cache bust del Atlas embebido", () => {
   );
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-global-work-dedup-v3/
+    /research-atlas-embed\.js\?v=20261109-react-flow-temporal-v1/
   );
   assert.match(
     page,
@@ -333,7 +348,7 @@ test("load-more topology reuses the existing cached Qwen vector client", () => {
 test("load-more topology cache-busts both app and embedded Atlas assets", () => {
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-global-work-dedup-v3/
+    /research-atlas-embed\.js\?v=20261109-react-flow-temporal-v1/
   );
   assert.match(
     page,
@@ -373,5 +388,128 @@ test("Atlas stage reports persistent semantic connection counts after each final
   assert.match(
     embed,
     /Respaldo RA11 ·/
+  );
+});
+
+
+test("Atlas temporal monta React Flow sin reemplazar el pipeline de búsqueda", () => {
+  assert.match(
+    page,
+    /id="research-atlas-flow"/
+  );
+  assert.match(
+    page,
+    /@xyflow\/react@12\.12\.1/
+  );
+  assert.match(
+    page,
+    /react@19\.3\.1/
+  );
+  assert.match(
+    page,
+    /research-atlas-flow\.css\?v=20261109-react-flow-temporal-v1/
+  );
+  assert.match(
+    embed,
+    /research-atlas-flow\.js\?v=20261109-react-flow-temporal-v1/
+  );
+  assert.match(
+    embed,
+    /React Flow no disponible; se conserva el renderer canvas/
+  );
+
+  for (const forbidden of [
+    "searchPhilosophy",
+    "searchPublicSemantic",
+    "combineSemanticWithFederated",
+    "searchMorePhilosophy",
+    "api.openalex.org"
+  ]) {
+    assert.equal(
+      flow.includes(forbidden),
+      false,
+      "React Flow renderer must remain visualization-only: " + forbidden
+    );
+  }
+});
+
+test("React Flow usa año en X y geometría semántica en Y", () => {
+  assert.match(
+    view,
+    /year:[\s\S]*Number\.isFinite\(Number\(node\.year\)\)/
+  );
+  assert.match(
+    flow,
+    /year\s*-\s*minimumYear/
+  );
+  assert.match(
+    flow,
+    /Number\(\s*node\.y\s*\)\s*-\s*semanticMidpoint/
+  );
+  assert.match(
+    flow,
+    /formatYear/
+  );
+  assert.match(
+    flow,
+    /"s\. f\."/
+  );
+  assert.match(
+    flow,
+    /PLANO TEMPORAL/
+  );
+  assert.match(
+    flow,
+    /X = año · Y = estructura semántica Qwen\/Atlas/
+  );
+});
+
+test("React Flow preserva selección, filtros y controles externos", () => {
+  assert.match(
+    embed,
+    /renderer\.update\(\s*flowPayload\(\)\s*\)/
+  );
+  assert.match(
+    embed,
+    /flowRenderer\.fitView\(\)/
+  );
+  assert.match(
+    embed,
+    /flowRenderer\.zoomBy/
+  );
+  assert.match(
+    embed,
+    /flowRenderer\.centerNode/
+  );
+  assert.match(
+    embed,
+    /visibleNodeIdsForFlow/
+  );
+  assert.match(
+    embed,
+    /visibleEdgeIdsForFlow/
+  );
+});
+
+test("glow y blur del Atlas React Flow son semánticamente diferenciados", () => {
+  assert.match(
+    flowCss,
+    /\.research-atlas-rf-node\.is-focus-author/
+  );
+  assert.match(
+    flowCss,
+    /#ee5396/
+  );
+  assert.match(
+    flowCss,
+    /box-shadow:[\s\S]*rgba\(15, 98, 254/
+  );
+  assert.match(
+    flowCss,
+    /backdrop-filter:[\s\S]*blur\(16px\)/
+  );
+  assert.match(
+    flowCss,
+    /\.research-atlas-rf-year-line/
   );
 });

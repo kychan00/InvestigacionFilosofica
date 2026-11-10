@@ -12,7 +12,7 @@ export const RESEARCH_ATLAS_VIEW_SCHEMA_VERSION =
   "research-atlas-view-v1";
 
 export const RESEARCH_ATLAS_VIEW_REVISION =
-  "2026-11-07.ra11-v1";
+  "2026-11-09.react-flow-temporal-v1";
 
 
 const DEFAULT_EDGE_TYPES = Object.freeze([
@@ -298,6 +298,12 @@ export function buildResearchAtlasViewModel(
           kind: nodeKind(node),
           label: nodeLabel(node),
           subtitle: nodeSubtitle(node),
+          year:
+            node.nodeType ===
+              RESEARCH_ATLAS_NODE_TYPES.WORK &&
+            Number.isFinite(Number(node.year))
+              ? Number(node.year)
+              : null,
           x: coordinates.x,
           y: coordinates.y,
           pinned: coordinates.pinned === true,

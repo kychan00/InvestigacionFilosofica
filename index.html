@@ -88,6 +88,17 @@
     rel="stylesheet"
     href="./css/research-atlas-embed.css?v=20261109-ra12d3-main-v1"
   >
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@xyflow/react@12.12.1/dist/style.css"
+    crossorigin="anonymous"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/research-atlas-flow.css?v=20261109-react-flow-temporal-v1"
+  >
   <link
     rel="stylesheet"
     href="./css/site-visitor-counter.css?v=20261108-v1"
@@ -737,6 +748,12 @@
               id="research-atlas-stage"
               class="research-atlas-stage"
             >
+              <div
+                id="research-atlas-flow"
+                class="research-atlas-flow hidden"
+                aria-label="Atlas temporal y semántico de la búsqueda actual"
+              ></div>
+
               <canvas
                 id="research-atlas-canvas"
                 role="img"
@@ -881,7 +898,12 @@
   <script type="importmap">
   {
     "imports": {
-      "franc-min": "https://esm.sh/franc-min@6.2.0?bundle"
+      "franc-min": "https://esm.sh/franc-min@6.2.0?bundle",
+      "react": "https://esm.sh/react@19.3.1",
+      "react/jsx-runtime": "https://esm.sh/react@19.3.1/jsx-runtime",
+      "react-dom": "https://esm.sh/react-dom@19.3.1?external=react",
+      "react-dom/client": "https://esm.sh/react-dom@19.3.1/client?external=react",
+      "@xyflow/react": "https://esm.sh/@xyflow/react@12.12.1?external=react,react-dom"
     }
   }
   </script>
@@ -889,7 +911,7 @@
 
   <script
     type="module"
-    src="./js/research-atlas-embed.js?v=20261109-global-work-dedup-v3"
+    src="./js/research-atlas-embed.js?v=20261109-react-flow-temporal-v1"
   ></script>
 
   <script
