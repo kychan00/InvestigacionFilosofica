@@ -47,6 +47,24 @@ Abstracts are different: their copyright remains with the relevant publisher
 or author. Any Crossref-derived abstract text must therefore retain the rights
 that apply to that content.
 
+### Internet Archive
+
+The Internet Archive integration is a live bibliographic search connector. It
+queries `archive.org/advancedsearch.php` for limited metadata such as
+identifier, title, creator, date/year, language, subject, publisher, ISBN,
+collection, download count, and media type.
+
+The connector deliberately does **not** request the Internet Archive
+`description` field and does not map it to the project's `abstract` field.
+Descriptions are source/uploader-dependent text and are not treated as
+uniformly licensed academic abstracts.
+
+The connector also does not copy or store Internet Archive PDFs, OCR, EPUB
+files, or other item files. The interface links back to each canonical
+`archive.org/details/...` item. Copyright and reuse conditions for the
+underlying works remain item-specific and are not changed by this project's
+MIT License.
+
 ### CUCSH journals
 
 The local CUCSH corpus includes metadata and abstracts harvested from journals
