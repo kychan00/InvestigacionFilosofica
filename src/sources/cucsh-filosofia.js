@@ -703,14 +703,6 @@ export function normalizeCucshRecord(
           record.journal ||
           null,
 
-        section:
-          record.section ||
-          null,
-
-        issueTitle:
-          record.issueTitle ||
-          null,
-
         oaiDatestamp:
           record.oaiDatestamp ||
           null,
