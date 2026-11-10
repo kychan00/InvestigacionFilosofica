@@ -406,6 +406,45 @@ def main():
         )
 
 
+    sincronia_issue_numbers = {
+        record.get(
+            "issueNumber"
+        )
+        for record in after
+        if (
+            record.get(
+                "journal"
+            )
+            == "Sincronía"
+            and isinstance(
+                record.get(
+                    "issueNumber"
+                ),
+                int,
+            )
+        )
+    }
+
+    expected_sincronia_issues = set(
+        range(
+            1,
+            91,
+        )
+    )
+
+    missing_sincronia_issues = sorted(
+        expected_sincronia_issues
+        - sincronia_issue_numbers
+    )
+
+    if missing_sincronia_issues:
+        fail(
+            "AFTER: incomplete Sincronía "
+            "issue coverage; missing "
+            f"{missing_sincronia_issues}"
+        )
+
+
     before_by_id = {
         record_key(record):
             record
