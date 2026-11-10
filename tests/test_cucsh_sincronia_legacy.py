@@ -184,6 +184,31 @@ class SincroniaLegacyTest(
         )
 
 
+    def test_early_issue_stems_keep_authoritative_numbers(
+        self,
+    ):
+        self.assertEqual(
+            legacy.EARLY_ISSUE_NUMBER_BY_STEM[
+                "winter98"
+            ],
+            5,
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_NUMBER_BY_STEM[
+                "spring99"
+            ],
+            10,
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_NUMBER_BY_STEM[
+                "fall00"
+            ],
+            16,
+        )
+
+
     def test_historical_merge_deduplicates_same_issue_and_title(
         self,
     ):
