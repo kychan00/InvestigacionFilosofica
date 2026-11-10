@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
+      - name: Checkout requested ref
         uses: actions/checkout@v6
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
 
@@ -161,11 +161,11 @@ jobs:
 
           git push \
             origin \
-            HEAD:main
+            "HEAD:${{ github.ref_name }}"
 
 
       - name: Deploy updated snapshot
-        if: steps.snapshot.outputs.changed == 'true'
+        if: steps.snapshot.outputs.changed == 'true' && github.ref_name == 'main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
