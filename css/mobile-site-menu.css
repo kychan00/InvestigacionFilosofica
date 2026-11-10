@@ -11,7 +11,7 @@
     --site-mobile-toolbar-height: 58px;
   }
 
-  body.has-site-mobile-toolbar {
+  body {
     padding-top:
       calc(
         var(--site-mobile-toolbar-height)
@@ -355,12 +355,13 @@
     background: rgba(255,255,255,.72);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .site-menu-toggle-lines i,
-    .site-menu-backdrop,
-    .site-menu-drawer {
-      transition: none;
-    }
+}
+
+@media (max-width: 820px) and (prefers-reduced-motion: reduce) {
+  .site-menu-toggle-lines i,
+  .site-menu-backdrop,
+  .site-menu-drawer {
+    transition: none;
   }
 }
 
