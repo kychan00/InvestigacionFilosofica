@@ -87,26 +87,7 @@ SOURCES = [
         "enrichIssueMetadata": True,
         "legacyArchives": [
             (
-                "https://sincronia.cucsh.udg.mx/"
-                "num_anteriores.html"
-            ),
-            (
                 "http://sincronia.cucsh.udg.mx/"
-                "num_anteriores.html"
-            ),
-            (
-                "https://fuentes.csh.udg.mx/"
-                "CUCSH/Sincronia/"
-                "num_anteriores.html"
-            ),
-            (
-                "http://fuentes.csh.udg.mx/"
-                "CUCSH/Sincronia/"
-                "num_anteriores.html"
-            ),
-            (
-                "https://www.cucsh.udg.mx/"
-                "CUCSH/Sincronia/"
                 "num_anteriores.html"
             ),
             (
