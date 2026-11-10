@@ -711,6 +711,15 @@ export function normalizeCucshRecord(
           record.issueTitle ||
           null,
 
+        issueNumber:
+          record.issueNumber ??
+          null,
+
+        legacyOriginal:
+          Boolean(
+            record.legacyOriginal
+          ),
+
         oaiDatestamp:
           record.oaiDatestamp ||
           null,
