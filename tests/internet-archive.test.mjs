@@ -96,7 +96,7 @@ test(
 
     assert.equal(
       item.abstract,
-      "A classic work & study."
+      null
     );
 
 
@@ -191,14 +191,27 @@ test(
     );
 
 
-    assert.ok(
+    const requestedFields =
       url.searchParams
         .getAll(
           "fl[]"
-        )
+        );
+
+
+    assert.ok(
+      requestedFields
         .includes(
           "identifier"
         )
+    );
+
+
+    assert.equal(
+      requestedFields
+        .includes(
+          "description"
+        ),
+      false
     );
   }
 );
