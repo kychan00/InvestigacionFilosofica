@@ -433,12 +433,6 @@ function archiveRetrievalScore(
     );
 
 
-  const description =
-    normalizeSearchText(
-      item.abstract
-    );
-
-
   let score = 0;
   let matched = 0;
 
@@ -476,16 +470,6 @@ function archiveRetrievalScore(
       )
     ) {
       score += 3;
-      tokenMatched = true;
-    }
-
-
-    if (
-      description.includes(
-        token
-      )
-    ) {
-      score += 1;
       tokenMatched = true;
     }
 
@@ -730,7 +714,6 @@ export function buildInternetArchiveSearchUrl(
     "year",
     "language",
     "subject",
-    "description",
     "publisher",
     "isbn",
     "collection",
@@ -789,12 +772,6 @@ export function normalizeInternetArchiveItem(
         item.title
       )
     ) || "";
-
-
-  const description =
-    cleanText(
-      item.description
-    );
 
 
   const publisher =
@@ -858,8 +835,16 @@ export function normalizeInternetArchiveItem(
 
     publisher,
 
+    /*
+     * Internet Archive `description` is deliberately not requested
+     * or exposed as an abstract. It is uploader/source-dependent text,
+     * not a consistently licensed academic abstract.
+     *
+     * Keep the federated record bibliographic and link back to the
+     * canonical Archive.org item for source-specific content.
+     */
     abstract:
-      description,
+      null,
 
     citedBy:
       null,
