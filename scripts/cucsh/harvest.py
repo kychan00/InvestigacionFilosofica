@@ -104,6 +104,16 @@ SOURCES = [
                 "CUCSH/Sincronia/"
                 "num_anteriores.html"
             ),
+            (
+                "https://www.cucsh.udg.mx/"
+                "CUCSH/Sincronia/"
+                "num_anteriores.html"
+            ),
+            (
+                "http://www.cucsh.udg.mx/"
+                "CUCSH/Sincronia/"
+                "num_anteriores.html"
+            ),
         ],
         "legacyMaxIssue": 51,
     },
