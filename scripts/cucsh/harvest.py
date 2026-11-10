@@ -193,7 +193,7 @@ EDITORIAL_TITLE_RE = re.compile(
 
 
 SINCRONIA_NON_ARTICLE_TITLE_RE = re.compile(
-    r"^(?:cintillo\s+legal|editorial)$",
+    r"^cintillo\s+legal(?:\s+del.*)?$",
     re.IGNORECASE,
 )
 
