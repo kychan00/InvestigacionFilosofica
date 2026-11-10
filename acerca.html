@@ -22,7 +22,7 @@
     })();
   </script>
   <title>Acerca de · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/about.css?v=20261109-v1">
+  <link rel="stylesheet" href="./css/about.css?v=20261109-v3">
 </head>
 <body>
   <div class="about-page">
@@ -52,20 +52,43 @@
       <div class="about-hero">
         <p class="about-eyebrow"><span></span> PROYECTO / MÉTODO / FUENTES</p>
         <h1>
-          Cómo se construye un
-          <em>archivo vivo de filosofía.</em>
+          No es sólo un buscador.
+          <em>Es infraestructura para investigar filosofía.</em>
         </h1>
         <div class="about-hero-copy">
           <p>
-            Investigación Filosófica reúne obras dispersas en distintas fuentes académicas
-            y las presenta como un territorio que puede buscarse, recorrerse y relacionarse.
+            Investigación Filosófica reúne cientos de miles de registros, fuentes académicas,
+            tesis, autores y relaciones en una sola experiencia de investigación.
           </p>
           <p>
-            La intención no es reemplazar la lectura filosófica, sino ayudar a encontrar
-            conexiones que normalmente quedan ocultas entre catálogos, autores, tesis y artículos.
+            La búsqueda no termina en una lista: se convierte en fichas verificables, conexiones,
+            líneas temporales y atlas que crecen conforme aparecen nuevas obras.
           </p>
         </div>
       </div>
+
+      <section class="about-signal-board" aria-label="Dimensión actual del proyecto">
+        <div class="signal-stat">
+          <span>Corpus de búsqueda</span>
+          <strong>451,823</strong>
+          <small>registros de OpenAlex Philosophy</small>
+        </div>
+        <div class="signal-stat">
+          <span>Corpus completo</span>
+          <strong>822,445</strong>
+          <small>registros filosóficos versionados</small>
+        </div>
+        <div class="signal-stat">
+          <span>Archivo de tesis</span>
+          <strong>27,580</strong>
+          <small>registros en el corpus efectivo V2</small>
+        </div>
+        <div class="signal-stat signal-stat-accent">
+          <span>Licencia del código</span>
+          <strong>MIT</strong>
+          <small>abierto, auditable y reutilizable</small>
+        </div>
+      </section>
 
       <div class="about-principles" aria-label="Principios del proyecto">
         <div><strong>01</strong><span>La pregunta guía la búsqueda</span></div>
@@ -86,6 +109,205 @@
           un repositorio institucional o un archivo digital. El proyecto intenta reunir esas
           huellas sin borrar de dónde viene cada una.
         </p>
+      </section>
+
+      <section class="about-metrics" aria-labelledby="metrics-title">
+        <div class="showcase-heading">
+          <div>
+            <p class="section-label">EL PROYECTO EN CIFRAS</p>
+            <h2 id="metrics-title">Una infraestructura que ya tiene escala.</h2>
+          </div>
+          <p>
+            Las cifras se toman del manifiesto de liberación del proyecto. No son números
+            decorativos: describen el material que hoy sostiene búsquedas, fichas, atlas y tesis.
+          </p>
+        </div>
+
+        <div class="metric-grid">
+          <article>
+            <span class="metric-index">01</span>
+            <strong>451,823</strong>
+            <h3>Registros buscables</h3>
+            <p>La colección OpenAlex Philosophy preparada para la búsqueda cotidiana.</p>
+          </article>
+          <article>
+            <span class="metric-index">02</span>
+            <strong>822,445</strong>
+            <h3>Registros en corpus completo</h3>
+            <p>La colección filosófica amplia conservada de forma versionada.</p>
+          </article>
+          <article>
+            <span class="metric-index">03</span>
+            <strong>27,580</strong>
+            <h3>Tesis y registros universitarios</h3>
+            <p>El corpus efectivo V2 que alimenta la investigación y el Atlas de tesis.</p>
+          </article>
+          <article>
+            <span class="metric-index">04</span>
+            <strong>391</strong>
+            <h3>Artículos CUCSH Filosofía</h3>
+            <p>Protrepsis y Quadripartita Ratio reunidas con procedencia explícita.</p>
+          </article>
+          <article>
+            <span class="metric-index">05</span>
+            <strong>59</strong>
+            <h3>Tesis de Filosofía UGTO</h3>
+            <p>Licenciatura, maestría y doctorado enlazados a su repositorio institucional.</p>
+          </article>
+          <article>
+            <span class="metric-index">06</span>
+            <strong>33</strong>
+            <h3>Obras Editorial UdeG</h3>
+            <p>Registros filosóficos de referencia integrados sin apropiarse de los textos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-engine" aria-labelledby="engine-title">
+        <div class="showcase-heading">
+          <div>
+            <p class="section-label">EL MOTOR</p>
+            <h2 id="engine-title">De fuentes dispersas a un territorio investigable.</h2>
+          </div>
+          <p>
+            Cada resultado conserva procedencia, puede reunirse con otras apariciones de la misma
+            obra y termina formando parte de una topología que el investigador puede recorrer.
+          </p>
+        </div>
+
+        <figure class="engine-figure">
+          <div class="engine-legend" aria-hidden="true">
+            <span><i class="legend-source"></i> fuentes</span>
+            <span><i class="legend-work"></i> obras</span>
+            <span><i class="legend-relation"></i> relaciones</span>
+          </div>
+
+          <svg class="engine-map" viewBox="0 0 1100 520" role="img" aria-labelledby="engine-map-title engine-map-desc">
+            <title id="engine-map-title">Arquitectura visual de Investigación Filosófica</title>
+            <desc id="engine-map-desc">OpenAlex, Crossref, Internet Archive y fuentes universitarias convergen en el motor de investigación; de ahí salen obras, autores, tesis y relaciones hacia el Atlas.</desc>
+
+            <defs>
+              <filter id="nodeGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="7" result="blur"></feGaussianBlur>
+                <feMerge>
+                  <feMergeNode in="blur"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+              </filter>
+              <linearGradient id="flowGradient" x1="0" x2="1">
+                <stop offset="0%" stop-color="#4589ff" stop-opacity=".18"></stop>
+                <stop offset="50%" stop-color="#78a9ff" stop-opacity=".95"></stop>
+                <stop offset="100%" stop-color="#a6c8ff" stop-opacity=".24"></stop>
+              </linearGradient>
+            </defs>
+
+            <g class="engine-lines">
+              <path d="M170 105 C330 105 330 255 485 255"></path>
+              <path d="M170 205 C330 205 350 255 485 255"></path>
+              <path d="M170 305 C330 305 350 255 485 255"></path>
+              <path d="M170 405 C330 405 330 255 485 255"></path>
+              <path d="M615 255 C735 255 740 105 900 105"></path>
+              <path d="M615 255 C735 255 765 205 900 205"></path>
+              <path d="M615 255 C735 255 765 305 900 305"></path>
+              <path d="M615 255 C735 255 740 405 900 405"></path>
+              <path class="engine-line-secondary" d="M900 105 C980 155 980 255 900 305"></path>
+              <path class="engine-line-secondary" d="M900 205 C1010 255 1010 350 900 405"></path>
+            </g>
+
+            <g class="source-node" transform="translate(92 82)">
+              <circle r="22"></circle><text y="5">OA</text>
+              <text class="node-label" x="36" y="5">OpenAlex</text>
+            </g>
+            <g class="source-node" transform="translate(92 182)">
+              <circle r="22"></circle><text y="5">CR</text>
+              <text class="node-label" x="36" y="5">Crossref</text>
+            </g>
+            <g class="source-node" transform="translate(92 282)">
+              <circle r="22"></circle><text y="5">IA</text>
+              <text class="node-label" x="36" y="5">Internet Archive</text>
+            </g>
+            <g class="source-node" transform="translate(92 382)">
+              <circle r="22"></circle><text y="5">U</text>
+              <text class="node-label" x="36" y="5">Universidades</text>
+            </g>
+
+            <g class="core-node" transform="translate(550 255)" filter="url(#nodeGlow)">
+              <circle r="64"></circle>
+              <text y="-8">Φ</text>
+              <text class="core-label" y="24">MOTOR</text>
+            </g>
+
+            <g class="work-node" transform="translate(930 82)">
+              <circle r="25"></circle><text y="5">O</text>
+              <text class="node-label node-label-left" x="-38" y="5">Obras</text>
+            </g>
+            <g class="work-node" transform="translate(930 182)">
+              <circle r="25"></circle><text y="5">A</text>
+              <text class="node-label node-label-left" x="-38" y="5">Autores</text>
+            </g>
+            <g class="work-node" transform="translate(930 282)">
+              <circle r="25"></circle><text y="5">T</text>
+              <text class="node-label node-label-left" x="-38" y="5">Tesis</text>
+            </g>
+            <g class="work-node atlas-node" transform="translate(930 382)">
+              <circle r="29"></circle><text y="5">◎</text>
+              <text class="node-label node-label-left" x="-42" y="5">Atlas</text>
+            </g>
+          </svg>
+
+          <figcaption>
+            El grafo no sustituye a la bibliografía: hace visible la estructura que aparece cuando
+            varias fuentes describen un mismo territorio intelectual.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="about-capabilities" aria-labelledby="capabilities-title">
+        <div class="showcase-heading">
+          <div>
+            <p class="section-label">QUÉ HACE DISTINTO AL PROYECTO</p>
+            <h2 id="capabilities-title">No sólo encuentra. Organiza, conecta y deja rastro.</h2>
+          </div>
+        </div>
+
+        <div class="capability-grid">
+          <article>
+            <span class="capability-symbol">∑</span>
+            <p class="step-kicker">BÚSQUEDA FEDERADA</p>
+            <h3>Varias fuentes, una consulta.</h3>
+            <p>El investigador no necesita adivinar qué catálogo contiene la obra que busca.</p>
+          </article>
+          <article>
+            <span class="capability-symbol">≡</span>
+            <p class="step-kicker">IDENTIDAD DE OBRA</p>
+            <h3>Menos duplicados, más contexto.</h3>
+            <p>Las apariciones compatibles de una misma obra pueden reunirse sin borrar su procedencia.</p>
+          </article>
+          <article>
+            <span class="capability-symbol">≈</span>
+            <p class="step-kicker">SEMÁNTICA</p>
+            <h3>El significado también cuenta.</h3>
+            <p>Qwen y las señales léxicas ayudan a encontrar cercanía aunque las palabras exactas cambien.</p>
+          </article>
+          <article>
+            <span class="capability-symbol">◎</span>
+            <p class="step-kicker">ATLAS VIVO</p>
+            <h3>La lista se vuelve territorio.</h3>
+            <p>Obras y autores aparecen como nodos; nuevas cargas amplían y reorganizan el mapa.</p>
+          </article>
+          <article>
+            <span class="capability-symbol">↯</span>
+            <p class="step-kicker">TRAZABILIDAD</p>
+            <h3>Cada pista puede rastrearse.</h3>
+            <p>Las fichas conservan proveedor, enlaces originales y evidencia detrás de relaciones derivadas.</p>
+          </article>
+          <article>
+            <span class="capability-symbol">⌂</span>
+            <p class="step-kicker">MEMORIA UNIVERSITARIA</p>
+            <h3>Las tesis también importan.</h3>
+            <p>El proyecto convierte catálogos dispersos en un archivo navegable de producción académica.</p>
+          </article>
+        </div>
       </section>
 
       <section class="about-flow" aria-label="Cómo funciona Investigación Filosófica">
@@ -296,6 +518,75 @@
         </div>
       </section>
 
+      <section class="about-license" id="licencia" aria-labelledby="license-title">
+        <div class="license-mark" aria-hidden="true">
+          <span>OPEN SOURCE</span>
+
+          <div class="mit-license-badge">
+            <div class="mit-license-glyph">
+              <span class="mit-letter">M</span>
+              <span class="mit-letter">I</span>
+              <span class="mit-letter">T</span>
+            </div>
+            <div class="mit-license-caption">License</div>
+          </div>
+
+          <strong>MIT</strong>
+          <small>2026</small>
+        </div>
+
+        <div class="license-copy">
+          <p class="section-label">LICENCIA / PROCEDENCIA</p>
+          <h2 id="license-title">El código es abierto. Las fuentes conservan sus propios derechos.</h2>
+
+          <div class="license-inline-meta" aria-label="Resumen de licencia">
+            <span class="license-inline-pill">MIT License</span>
+            <span class="license-inline-pill license-inline-pill-soft">Open source</span>
+          </div>
+
+          <p class="license-lead">
+            El software original de Investigación Filosófica se publica bajo la Licencia MIT.
+            Eso permite usar, estudiar, modificar y redistribuir el código con las condiciones
+            de esa licencia. El proyecto no pretende relicenciar textos, tesis, abstracts,
+            datasets, imágenes o componentes de terceros que no le pertenecen.
+          </p>
+
+          <div class="license-grid">
+            <article>
+              <span>01</span>
+              <strong>Código propio</strong>
+              <p>MIT · abierto, auditable y reutilizable.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>Contenido académico</strong>
+              <p>Conserva los derechos y condiciones de su fuente original.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>Dependencias</strong>
+              <p>Mantienen licencias MIT, Apache-2.0, BSD y otras licencias upstream.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <strong>Activos documentados</strong>
+              <p>La Escuela de Atenas se registra aparte como imagen de dominio público.</p>
+            </article>
+          </div>
+
+          <div class="license-actions">
+            <a class="about-link" href="https://github.com/kychan00/InvestigacionFilosofica/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Leer licencia MIT ↗</a>
+            <a class="about-link about-link-secondary" href="https://github.com/kychan00/InvestigacionFilosofica/blob/main/LICENSING.md" target="_blank" rel="noopener noreferrer">Ver alcance jurídico ↗</a>
+            <a class="about-link about-link-secondary" href="https://github.com/kychan00/InvestigacionFilosofica/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener noreferrer">Dependencias y avisos ↗</a>
+            <a class="about-link about-link-secondary" href="https://github.com/kychan00/InvestigacionFilosofica/blob/main/ASSETS.md" target="_blank" rel="noopener noreferrer">Procedencia de activos ↗</a>
+          </div>
+
+          <p class="license-copyright">
+            Código original © 2026 Cristian Alejandro Rodríguez Pelayo · Licencia MIT
+          </p>
+        </div>
+      </section>
+
       <section class="about-cta">
         <p class="section-label">VOLVER A INVESTIGAR</p>
         <h2>La explicación termina aquí. La pregunta empieza allá.</h2>
@@ -305,7 +596,7 @@
 
     <footer class="about-footer">
       <span>Investigación Filosófica · Archivo vivo</span>
-      <span>Proyecto independiente · 2026</span>
+      <span>Código MIT · Proyecto independiente · 2026</span>
     </footer>
   </div>
 
