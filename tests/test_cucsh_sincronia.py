@@ -126,6 +126,11 @@ class SincroniaIssueMetadataTest(
         )
 
         self.assertEqual(
+            parser.issue_number,
+            90,
+        )
+
+        self.assertEqual(
             parser.articles[
                 "1001"
             ]["section"],
