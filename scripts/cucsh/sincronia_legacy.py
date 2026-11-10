@@ -1584,7 +1584,9 @@ def fetch_first_available(
         try:
             data, used_wayback = (
                 request_legacy_bytes(
-                    url
+                    url,
+                    prefer_wayback=True,
+                    allow_live_fallback=False,
                 )
             )
 
