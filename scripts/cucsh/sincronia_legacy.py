@@ -980,12 +980,15 @@ def build_legacy_record(
 
     parser = DocumentParser()
 
-    if is_html_url(
-        url
+    if (
+        is_html_url(
+            url
+        )
+        and not prefer_wayback
     ):
         data, _ = request_legacy_bytes(
             url,
-            prefer_wayback=prefer_wayback,
+            prefer_wayback=False,
         )
 
         parser = parse_html(
