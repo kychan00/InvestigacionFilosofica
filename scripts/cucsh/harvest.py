@@ -552,13 +552,13 @@ def relation_urls(
 
 
 ARTICLE_VIEW_RE = re.compile(
-    r"/article/view/(\\d+)",
+    r"/article/view/(\d+)",
     re.IGNORECASE,
 )
 
 
 ISSUE_VIEW_RE = re.compile(
-    r"/issue/view/(\\d+)",
+    r"/issue/view/(\d+)",
     re.IGNORECASE,
 )
 
@@ -794,7 +794,7 @@ class IssueSectionParser(
         self._h2_parts = []
 
 
-def harvest_section_article_ids(
+def harvest_section_articles(
     source,
 ):
     archive_url = source.get(
@@ -865,7 +865,7 @@ def harvest_section_article_ids(
             )
         )
 
-    article_ids = set()
+    articles = {}
 
     for index, issue_url in enumerate(
         issue_urls,
