@@ -25,6 +25,9 @@ The project's root MIT License is therefore not the source of permission to
 reuse this image. The image is included on the basis of its documented
 public-domain status.
 
-The local file may be resized, recompressed, cropped, or otherwise technically
-adapted for the website without changing the public-domain status of the
-underlying source image.
+The underlying artwork is unquestionably public domain. Wikimedia Commons also
+marks the faithful digital reproduction with Public Domain Mark 1.0 and states
+that it is free of known copyright restrictions. Commons notes, however, that
+some jurisdictions may treat faithful reproductions of public-domain artworks
+differently. This provenance record therefore preserves the exact Commons
+rights statement instead of treating the image as MIT-licensed project code.
