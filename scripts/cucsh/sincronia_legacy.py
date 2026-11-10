@@ -9,6 +9,7 @@ import re
 import urllib.parse
 import urllib.request
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 
 try:
@@ -1333,96 +1334,155 @@ def request_legacy_bytes(
     )
 
 
+def fetch_direct_early_issue(
+    issue_number,
+    filename,
+    fallback_year,
+):
+    issue_data = None
+    issue_url = None
+    used_wayback = False
+
+    for base_url in EARLY_ISSUE_BASES:
+        candidate = urllib.parse.urljoin(
+            base_url,
+            filename,
+        )
+
+        try:
+            (
+                issue_data,
+                used_wayback,
+            ) = request_legacy_bytes(
+                candidate,
+                prefer_wayback=True,
+                allow_live_fallback=False,
+            )
+
+            issue_url = candidate
+            break
+
+        except Exception:
+            continue
+
+    if (
+        issue_data is None
+        or issue_url is None
+    ):
+        return None
+
+    parser = parse_html(
+        issue_data
+    )
+
+    links = [
+        link
+        for link in collect_links(
+            issue_data,
+            issue_url,
+        )
+        if plausible_article_link(
+            link,
+            set(),
+        )
+    ]
+
+    if not links:
+        return None
+
+    return {
+        "url":
+            issue_url,
+
+        "number":
+            issue_number,
+
+        "year":
+            fallback_year,
+
+        "title":
+            (
+                parser.title
+                or (
+                    f"Sincronía Núm. "
+                    f"{issue_number}"
+                )
+            ),
+
+        "links":
+            links,
+
+        "usedWayback":
+            used_wayback,
+    }
+
+
 def harvest_direct_early_issues(
     max_issue=21,
 ):
+    work = [
+        (
+            issue_number,
+            filename,
+            fallback_year,
+        )
+        for issue_number, (
+            filename,
+            fallback_year,
+        ) in (
+            EARLY_ISSUE_FILENAMES
+            .items()
+        )
+        if issue_number <= max_issue
+    ]
+
+    issues = []
+
+    with ThreadPoolExecutor(
+        max_workers=8,
+    ) as executor:
+        futures = {
+            executor.submit(
+                fetch_direct_early_issue,
+                issue_number,
+                filename,
+                fallback_year,
+            ):
+                issue_number
+            for (
+                issue_number,
+                filename,
+                fallback_year,
+            ) in work
+        }
+
+        for future in as_completed(
+            futures
+        ):
+            try:
+                issue = future.result()
+
+            except Exception:
+                issue = None
+
+            if issue:
+                issues.append(
+                    issue
+                )
+
+    issues.sort(
+        key=lambda item:
+            item["number"]
+    )
+
     records = []
     covered_issues = set()
     seen_article_urls = set()
 
-    for issue_number, (
-        filename,
-        fallback_year,
-    ) in EARLY_ISSUE_FILENAMES.items():
-        if issue_number > max_issue:
-            continue
-
-        issue_data = None
-        issue_url = None
-        used_wayback = False
-
-        for base_url in EARLY_ISSUE_BASES:
-            candidate = urllib.parse.urljoin(
-                base_url,
-                filename,
-            )
-
-            try:
-                (
-                    issue_data,
-                    used_wayback,
-                ) = request_legacy_bytes(
-                    candidate,
-                    prefer_wayback=True,
-                    allow_live_fallback=False,
-                )
-
-                issue_url = candidate
-                break
-
-            except Exception:
-                continue
-
-        if (
-            issue_data is None
-            or issue_url is None
-        ):
-            continue
-
-        parser = parse_html(
-            issue_data
-        )
-
-        year = fallback_year
-
-        links = [
-            link
-            for link in collect_links(
-                issue_data,
-                issue_url,
-            )
-            if plausible_article_link(
-                link,
-                set(),
-            )
-        ]
-
-        issue = {
-            "url":
-                issue_url,
-
-            "number":
-                issue_number,
-
-            "year":
-                year,
-
-            "title":
-                (
-                    parser.title
-                    or (
-                        f"Sincronía Núm. "
-                        f"{issue_number}"
-                    )
-                ),
-
-            "links":
-                links,
-        }
-
+    for issue in issues:
         issue_added = 0
 
-        for link in links:
+        for link in issue["links"]:
             url = link["url"]
 
             if url in seen_article_urls:
@@ -1433,7 +1493,9 @@ def harvest_direct_early_issues(
                     link,
                     issue,
                     prefer_wayback=(
-                        used_wayback
+                        issue[
+                            "usedWayback"
+                        ]
                     ),
                 )
 
@@ -1455,14 +1517,14 @@ def harvest_direct_early_issues(
 
         if issue_added:
             covered_issues.add(
-                issue_number
+                issue["number"]
             )
 
             print(
                 (
                     "legacy-direct-issue="
-                    f"{issue_number} "
-                    f"year={year} "
+                    f"{issue['number']} "
+                    f"year={issue['year']} "
                     f"articles={issue_added}"
                 )
             )
