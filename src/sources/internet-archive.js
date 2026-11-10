@@ -433,6 +433,19 @@ function archiveRetrievalScore(
     );
 
 
+  const externalDescription =
+    normalizeSearchText(
+      (item.sourceRecords || [])
+        .find(
+          source =>
+            source.provider ===
+              "Internet Archive"
+        )
+        ?.externalDescription ||
+        ""
+    );
+
+
   let score = 0;
   let matched = 0;
 
@@ -470,6 +483,23 @@ function archiveRetrievalScore(
       )
     ) {
       score += 3;
+      tokenMatched = true;
+    }
+
+
+    /*
+     * Internet Archive `description` is public item metadata and is
+     * useful for retrieval, but it is not an academic abstract.
+     * Restore its original weak contribution: one point per matched
+     * query token, versus six for title, five for author and three
+     * for subjects.
+     */
+    if (
+      externalDescription.includes(
+        token
+      )
+    ) {
+      score += 1;
       tokenMatched = true;
     }
 
