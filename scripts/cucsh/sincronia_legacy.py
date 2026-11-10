@@ -1287,7 +1287,8 @@ def wayback_snapshot_url(
 
     data = request_bytes(
         api_url,
-        timeout=25,
+        timeout=8,
+        attempts=1,
     )
 
     payload = json.loads(
@@ -1352,6 +1353,7 @@ def request_legacy_bytes(
                 request_bytes(
                     url,
                     timeout=4,
+                    attempts=1,
                 ),
                 False,
             )
@@ -1378,7 +1380,8 @@ def request_legacy_bytes(
             return (
                 request_bytes(
                     snapshot_url,
-                    timeout=10,
+                    timeout=12,
+                    attempts=2,
                 ),
                 True,
             )
@@ -1400,6 +1403,7 @@ def request_legacy_bytes(
                 request_bytes(
                     url,
                     timeout=4,
+                    attempts=1,
                 ),
                 False,
             )
@@ -2008,7 +2012,7 @@ def harvest_legacy_records(
     ) = harvest_direct_early_issues(
         max_issue=min(
             max_issue,
-            21,
+            18,
         )
     )
 
