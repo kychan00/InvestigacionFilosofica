@@ -12,10 +12,10 @@ import {
 
 
 export const RESEARCH_ATLAS_DOCUMENT_SIMILARITY_REVISION =
-  "2026-11-07.ra11-document-v1";
+  "2026-11-09.ra11-external-context-v2";
 
 export const RESEARCH_ATLAS_DOCUMENT_SIMILARITY_METHOD =
-  "title-abstract-tfidf-cosine-v1";
+  "title-abstract-external-context-tfidf-cosine-v2";
 
 
 const STOPWORDS =
@@ -107,7 +107,8 @@ function weightedTerms(
   node,
   {
     titleWeight,
-    abstractWeight
+    abstractWeight,
+    externalContextWeight
   }
 ) {
   const title =
@@ -126,6 +127,20 @@ function weightedTerms(
       ? normalizedTokens(
           abstractText
         )
+      : [];
+
+
+  const externalContext =
+    Array.isArray(
+      node.externalContextTerms
+    )
+      ? node.externalContextTerms
+          .map(
+            token =>
+              String(token || "")
+                .trim()
+          )
+          .filter(Boolean)
       : [];
 
   const counts =
@@ -168,6 +183,17 @@ function weightedTerms(
     );
   }
 
+
+  for (
+    const token of
+    externalContext
+  ) {
+    add(
+      token,
+      externalContextWeight
+    );
+  }
+
   return {
     counts,
     fieldsUsed: [
@@ -176,6 +202,13 @@ function weightedTerms(
         abstractText
           ? [
               "abstract"
+            ]
+          : []
+      ),
+      ...(
+        externalContext.length
+          ? [
+              "external-context"
             ]
           : []
       )
@@ -451,6 +484,7 @@ export function addResearchAtlasDocumentSimilarity(
     minimumSharedTerms = 2,
     titleWeight = 2,
     abstractWeight = 1,
+    externalContextWeight = 0.35,
     directHitsOnly = true,
     pairFilter = null
   } = {}
@@ -492,7 +526,8 @@ export function addResearchAtlasDocumentSimilarity(
             node,
             {
               titleWeight,
-              abstractWeight
+              abstractWeight,
+              externalContextWeight
             }
           )
       })
@@ -782,6 +817,7 @@ export function addResearchAtlasDocumentSimilarity(
         },
         titleWeight,
         abstractWeight,
+        externalContextWeight,
         corpusSize
       }
     });
@@ -823,6 +859,26 @@ export function addResearchAtlasDocumentSimilarity(
           )
     ).length;
 
+  const worksWithExternalContext =
+    records.filter(
+      record =>
+        record.terms
+          .fieldsUsed
+          .includes(
+            "external-context"
+          )
+    ).length;
+
+
+  const titleOnlyWorks =
+    records.filter(
+      record =>
+        record.terms
+          .fieldsUsed
+          .length === 1
+    ).length;
+
+
   const enriched = {
     ...structuredClone(
       snapshot
@@ -857,9 +913,8 @@ export function addResearchAtlasDocumentSimilarity(
         corpusWorks:
           records.length,
         worksWithAbstract,
-        titleOnlyWorks:
-          records.length -
-          worksWithAbstract,
+        worksWithExternalContext,
+        titleOnlyWorks,
         candidatePairs:
           candidates.length,
         edgesAdded:
@@ -873,6 +928,7 @@ export function addResearchAtlasDocumentSimilarity(
         minimumSharedTerms,
         titleWeight,
         abstractWeight,
+        externalContextWeight,
         directHitsOnly:
           Boolean(
             directHitsOnly
