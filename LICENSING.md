@@ -54,18 +54,23 @@ queries `archive.org/advancedsearch.php` for limited metadata such as
 identifier, title, creator, date/year, language, subject, publisher, ISBN,
 collection, download count, and media type.
 
-The connector may retrieve the Internet Archive `description` field for
-user-facing source context. That text remains isolated in the Internet Archive
-provenance record as `externalDescription`: it is **not** mapped to the
-project's academic `abstract` field, is not used for retrieval scoring,
-semantic embeddings, reranking, or other corpus analysis, and is presented in
-the interface with explicit Internet Archive attribution.
-
-The interface uses a short description preview in search results and a bounded
-source-description view in the record detail, together with a link to the
-canonical Internet Archive item. Descriptions are source/uploader-dependent
-text and are not treated as uniformly licensed academic abstracts or as
+The connector may retrieve the Internet Archive `description` field as
+source-specific descriptive metadata. That text remains isolated in the
+Internet Archive provenance record as `externalDescription`: it is **not**
+mapped to the project's academic `abstract` field and is not treated as
 MIT-licensed project content.
+
+The description may be used transiently as a **weak retrieval signal** for the
+Internet Archive provider. In the Research Atlas, the full description is not
+copied into WorkNodes. Instead, the browser derives a limited set of normalized
+context terms and gives those terms a lower lexical weight than a title or a
+real academic abstract. The raw description is not promoted into semantic
+embeddings or a persistent full-text corpus by this integration.
+
+The interface displays only a brief, explicitly attributed extract and links
+to the canonical Internet Archive item for the full description. Descriptions
+are source/uploader-dependent text and are not treated as uniformly licensed
+academic abstracts.
 
 The connector does not copy or store Internet Archive PDFs, OCR, EPUB files,
 or other item files. Copyright and reuse conditions for the underlying works
