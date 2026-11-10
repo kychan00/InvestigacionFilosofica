@@ -56,6 +56,45 @@ GENERIC_LINK_TEXT = {
     "continuar",
 }
 
+EARLY_ISSUE_FILENAMES = {
+    1: ("winter97.htm", 1996),
+    2: ("spring97.htm", 1997),
+    3: ("summer97.htm", 1997),
+    4: ("fall97.htm", 1997),
+    5: ("winter98.htm", 1998),
+    6: ("spring98.htm", 1998),
+    7: ("summer98.htm", 1998),
+    8: ("fall98.htm", 1998),
+    9: ("winter99.htm", 1999),
+    10: ("spring99.htm", 1999),
+    11: ("summer99.htm", 1999),
+    12: ("fall99.htm", 1999),
+    13: ("winter00.htm", 2000),
+    14: ("spring00.htm", 2000),
+    15: ("summer00.htm", 2000),
+    16: ("fall00.htm", 2000),
+    17: ("winter01.htm", 2000),
+    18: ("spring01.htm", 2001),
+    19: ("summer01.htm", 2001),
+    20: ("fall01.htm", 2001),
+    21: ("winter02.htm", 2001),
+}
+
+
+EARLY_ISSUE_BASES = [
+    "https://sincronia.cucsh.udg.mx/",
+    "http://sincronia.cucsh.udg.mx/",
+    (
+        "https://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+]
+
+
 NAVIGATION_NAMES = {
     "index",
     "indice",
@@ -1279,6 +1318,252 @@ def request_legacy_bytes(
     )
 
 
+def harvest_direct_early_issues(
+    max_issue=21,
+):
+    records = []
+    covered_issues = set()
+    seen_article_urls = set()
+
+    for issue_number, (
+        filename,
+        fallback_year,
+    ) in EARLY_ISSUE_FILENAMES.items():
+        if issue_number > max_issue:
+            continue
+
+        issue_data = None
+        issue_url = None
+        used_wayback = False
+
+        for base_url in EARLY_ISSUE_BASES:
+            candidate = urllib.parse.urljoin(
+                base_url,
+                filename,
+            )
+
+            try:
+                (
+                    issue_data,
+                    used_wayback,
+                ) = request_legacy_bytes(
+                    candidate
+                )
+
+                issue_url = candidate
+                break
+
+            except Exception:
+                continue
+
+        if (
+            issue_data is None
+            or issue_url is None
+        ):
+            continue
+
+        parser = parse_html(
+            issue_data
+        )
+
+        year = (
+            infer_year(
+                parser,
+                issue_url,
+            )
+            or fallback_year
+        )
+
+        links = [
+            link
+            for link in collect_links(
+                issue_data,
+                issue_url,
+            )
+            if plausible_article_link(
+                link,
+                set(),
+            )
+        ]
+
+        issue = {
+            "url":
+                issue_url,
+
+            "number":
+                issue_number,
+
+            "year":
+                year,
+
+            "title":
+                (
+                    parser.title
+                    or (
+                        f"Sincronía Núm. "
+                        f"{issue_number}"
+                    )
+                ),
+
+            "links":
+                links,
+        }
+
+        issue_added = 0
+
+        for link in links:
+            url = link["url"]
+
+            if url in seen_article_urls:
+                continue
+
+            try:
+                record = build_legacy_record(
+                    link,
+                    issue,
+                    prefer_wayback=(
+                        used_wayback
+                    ),
+                )
+
+            except Exception:
+                continue
+
+            if not record:
+                continue
+
+            seen_article_urls.add(
+                url
+            )
+
+            records.append(
+                record
+            )
+
+            issue_added += 1
+
+        if issue_added:
+            covered_issues.add(
+                issue_number
+            )
+
+            print(
+                (
+                    "legacy-direct-issue="
+                    f"{issue_number} "
+                    f"year={year} "
+                    f"articles={issue_added}"
+                )
+            )
+
+    return (
+        records,
+        sorted(
+            covered_issues
+        ),
+    )
+
+
+def historical_record_key(
+    record,
+):
+    title = (
+        clean_text(
+            record.get(
+                "title"
+            )
+        )
+        or ""
+    ).casefold()
+
+    title = re.sub(
+        r"[^a-z0-9áéíóúüñ]+",
+        " ",
+        title,
+        flags=re.UNICODE,
+    )
+
+    title = WHITESPACE_RE.sub(
+        " ",
+        title,
+    ).strip()
+
+    return (
+        record.get(
+            "issueNumber"
+        ),
+        title,
+    )
+
+
+def merge_historical_records(
+    *groups,
+):
+    output = []
+    seen_ids = set()
+    seen_urls = set()
+    seen_keys = set()
+
+    for group in groups:
+        for record in group or []:
+            record_id = (
+                record.get("id")
+            )
+
+            canonical = (
+                record.get(
+                    "urls",
+                    {},
+                ).get(
+                    "canonical"
+                )
+            )
+
+            key = historical_record_key(
+                record
+            )
+
+            if (
+                record_id
+                and record_id in seen_ids
+            ):
+                continue
+
+            if (
+                canonical
+                and canonical in seen_urls
+            ):
+                continue
+
+            if (
+                key[0]
+                and key[1]
+                and key in seen_keys
+            ):
+                continue
+
+            output.append(
+                record
+            )
+
+            if record_id:
+                seen_ids.add(
+                    record_id
+                )
+
+            if canonical:
+                seen_urls.add(
+                    canonical
+                )
+
+            if key[0] and key[1]:
+                seen_keys.add(
+                    key
+                )
+
+    return output
+
+
 def fetch_first_available(
     urls,
 ):
@@ -1328,34 +1613,63 @@ def harvest_legacy_records(
         )
 
     except Exception as original_error:
+        (
+            direct_records,
+            direct_issues,
+        ) = harvest_direct_early_issues(
+            max_issue=min(
+                max_issue,
+                21,
+            )
+        )
+
         try:
             (
                 dialnet_records,
-                covered_issues,
+                dialnet_issues,
             ) = harvest_dialnet_records(
                 max_issue=max_issue
             )
 
         except Exception as dialnet_error:
-            raise RuntimeError(
-                (
-                    "Sincronía historical recovery "
-                    "failed in original archive, "
-                    "Wayback and Dialnet. "
-                    f"original={original_error!r}; "
-                    f"dialnet={dialnet_error!r}"
-                )
-            ) from dialnet_error
+            if not direct_records:
+                raise RuntimeError(
+                    (
+                        "Sincronía historical recovery "
+                        "failed in original archive, "
+                        "Wayback direct issues and "
+                        "Dialnet. "
+                        f"original={original_error!r}; "
+                        f"dialnet={dialnet_error!r}"
+                    )
+                ) from dialnet_error
 
-        print(
-            (
-                "legacy-fallback=dialnet "
-                f"issues={covered_issues} "
-                f"records={len(dialnet_records)}"
+            dialnet_records = []
+            dialnet_issues = []
+
+        combined = merge_historical_records(
+            direct_records,
+            dialnet_records,
+        )
+
+        covered_issues = sorted(
+            set(
+                direct_issues
+            )
+            | set(
+                dialnet_issues
             )
         )
 
-        return dialnet_records
+        print(
+            (
+                "legacy-fallback=direct+dialnet "
+                f"issues={covered_issues} "
+                f"records={len(combined)}"
+            )
+        )
+
+        return combined
 
     links = collect_links(
         data,
