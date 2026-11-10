@@ -677,6 +677,10 @@ class IssueSectionParser(
 
         self.current_section = None
         self.article_ids = set()
+        self.issue_title = None
+        self.issue_year = None
+        self._in_h1 = False
+        self._h1_parts = []
         self._in_h2 = False
         self._h2_parts = []
 
@@ -686,6 +690,11 @@ class IssueSectionParser(
         attrs,
     ):
         tag = tag.casefold()
+
+        if tag == "h1":
+            self._in_h1 = True
+            self._h1_parts = []
+            return
 
         if tag == "h2":
             self._in_h2 = True
@@ -726,6 +735,11 @@ class IssueSectionParser(
         self,
         data,
     ):
+        if self._in_h1:
+            self._h1_parts.append(
+                data
+            )
+
         if self._in_h2:
             self._h2_parts.append(
                 data
@@ -735,8 +749,35 @@ class IssueSectionParser(
         self,
         tag,
     ):
+        tag = tag.casefold()
+
         if (
-            tag.casefold() != "h2"
+            tag == "h1"
+            and self._in_h1
+        ):
+            self.issue_title = clean_text(
+                " ".join(
+                    self._h1_parts
+                )
+            )
+
+            year_match = re.search(
+                r"\b(19|20)\d{2}\b",
+                self.issue_title or "",
+            )
+
+            self.issue_year = (
+                int(year_match.group(0))
+                if year_match
+                else None
+            )
+
+            self._in_h1 = False
+            self._h1_parts = []
+            return
+
+        if (
+            tag != "h2"
             or not self._in_h2
         ):
             return
@@ -847,22 +888,27 @@ def harvest_section_article_ids(
             )
         )
 
-        article_ids.update(
-            parser.article_ids
-        )
+        for article_id in parser.article_ids:
+            articles[article_id] = {
+                "issueTitle":
+                    parser.issue_title,
+
+                "year":
+                    parser.issue_year,
+            }
 
         print(
             f"section-scan={index}/"
             f"{len(issue_urls)} "
             f"section={section} "
-            f"articles={len(article_ids)}"
+            f"articles={len(articles)}"
         )
 
         time.sleep(
             0.10
         )
 
-    if not article_ids:
+    if not articles:
         raise RuntimeError(
             (
                 "No articles found in section "
@@ -871,7 +917,7 @@ def harvest_section_article_ids(
             )
         )
 
-    return article_ids
+    return articles
 
 
 def description_candidates(
@@ -1429,8 +1475,8 @@ def harvest_source(
             error,
         )
 
-    section_article_ids = (
-        harvest_section_article_ids(
+    section_articles = (
+        harvest_section_articles(
             source
         )
         if source.get("section")
@@ -1529,7 +1575,7 @@ def harvest_source(
 
                 continue
 
-            if section_article_ids is not None:
+            if section_articles is not None:
                 article_id = article_id_from_url(
                     record.get(
                         "urls",
@@ -1542,7 +1588,7 @@ def harvest_source(
                 if (
                     not article_id
                     or article_id
-                    not in section_article_ids
+                    not in section_articles
                 ):
                     excluded_reasons[
                         "outside-target-section"
@@ -1552,6 +1598,29 @@ def harvest_source(
 
                 record["section"] = (
                     source["section"]
+                )
+
+                issue_metadata = (
+                    section_articles[
+                        article_id
+                    ]
+                )
+
+                issue_year = (
+                    issue_metadata.get(
+                        "year"
+                    )
+                )
+
+                if issue_year:
+                    record["year"] = (
+                        issue_year
+                    )
+
+                record["issueTitle"] = (
+                    issue_metadata.get(
+                        "issueTitle"
+                    )
                 )
 
             active_records.append(
