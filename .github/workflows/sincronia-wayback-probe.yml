@@ -1,0 +1,90 @@
+name: Probe Sincronía Wayback
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/workflows/sincronia-wayback-probe.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Probe Wayback availability and raw snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TARGET="http://sincronia.cucsh.udg.mx/num_anteriores.html"
+          API="https://archive.org/wayback/available?url=$TARGET"
+
+          echo "===== AVAILABILITY ====="
+          curl --fail --location --max-time 30 \
+            --user-agent "InvestigacionFilosofica/SincroniaWaybackProbe-0.1" \
+            "$API" \
+            -o /tmp/available.json
+
+          cat /tmp/available.json
+
+          SNAPSHOT="$(
+            python3 - <<'PY'
+import json
+from pathlib import Path
+
+data = json.loads(
+    Path("/tmp/available.json").read_text()
+)
+print(
+    data.get("archived_snapshots", {})
+        .get("closest", {})
+        .get("url", "")
+)
+PY
+          )"
+
+          if [ -z "$SNAPSHOT" ]; then
+            echo "No snapshot URL returned."
+            exit 1
+          fi
+
+          SNAPSHOT="${SNAPSHOT/http:\/\//https://}"
+          RAW="$(
+            python3 - "$SNAPSHOT" <<'PY'
+import re
+import sys
+
+url = sys.argv[1]
+print(
+    re.sub(
+        r"/web/(\d{14})/",
+        r"/web/\1id_/",
+        url,
+        count=1,
+    )
+)
+PY
+          )"
+
+          echo
+          echo "===== RAW SNAPSHOT ====="
+          echo "$RAW"
+
+          curl --fail --location --max-time 45 \
+            --user-agent "InvestigacionFilosofica/SincroniaWaybackProbe-0.1" \
+            "$RAW" \
+            -o /tmp/legacy.html
+
+          echo
+          echo "===== SIZE ====="
+          wc -c /tmp/legacy.html
+
+          echo
+          echo "===== LINKS ====="
+          grep -Eoi 'href=["'"'"''][^"'"'"'']+["'"'"'']' /tmp/legacy.html \
+            | head -n 250 \
+            || true
