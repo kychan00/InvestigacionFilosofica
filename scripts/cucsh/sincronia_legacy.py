@@ -4,11 +4,22 @@ from __future__ import annotations
 
 import hashlib
 import html
+import json
 import re
 import urllib.parse
 import urllib.request
 
 from html.parser import HTMLParser
+
+try:
+    from scripts.cucsh.sincronia_dialnet import (
+        harvest_dialnet_records,
+    )
+except ModuleNotFoundError:
+    from sincronia_dialnet import (
+        harvest_dialnet_records,
+    )
+
 
 
 LEGACY_HOST = "sincronia.cucsh.udg.mx"
@@ -963,6 +974,7 @@ def stable_id(
 def build_legacy_record(
     article_link,
     issue,
+    prefer_wayback=False,
 ):
     url = article_link["url"]
 
@@ -971,9 +983,9 @@ def build_legacy_record(
     if is_html_url(
         url
     ):
-        data = request_bytes(
+        data, _ = request_legacy_bytes(
             url,
-            timeout=35,
+            prefer_wayback=prefer_wayback,
         )
 
         parser = parse_html(
@@ -1122,6 +1134,145 @@ def build_legacy_record(
     }
 
 
+def wayback_snapshot_url(
+    url,
+):
+    api_url = (
+        "https://archive.org/"
+        "wayback/available?"
+        + urllib.parse.urlencode({
+            "url":
+                url,
+        })
+    )
+
+    data = request_bytes(
+        api_url,
+        timeout=25,
+    )
+
+    payload = json.loads(
+        data.decode(
+            "utf-8",
+            errors="replace",
+        )
+    )
+
+    closest = (
+        payload.get(
+            "archived_snapshots",
+            {},
+        ).get(
+            "closest",
+            {},
+        )
+    )
+
+    if not closest.get(
+        "available"
+    ):
+        return None
+
+    snapshot_url = (
+        closest.get(
+            "url"
+        )
+    )
+
+    if not snapshot_url:
+        return None
+
+    snapshot_url = re.sub(
+        r"^http://",
+        "https://",
+        snapshot_url,
+        flags=re.IGNORECASE,
+    )
+
+    snapshot_url = re.sub(
+        r"/web/(\d{14})/",
+        r"/web/\1id_/",
+        snapshot_url,
+        count=1,
+    )
+
+    return snapshot_url
+
+
+def request_legacy_bytes(
+    url,
+    prefer_wayback=False,
+):
+    errors = []
+
+    if not prefer_wayback:
+        try:
+            return (
+                request_bytes(
+                    url,
+                    timeout=10,
+                ),
+                False,
+            )
+
+        except Exception as exc:
+            errors.append(
+                (
+                    "live",
+                    repr(exc),
+                )
+            )
+
+    try:
+        snapshot_url = (
+            wayback_snapshot_url(
+                url
+            )
+        )
+
+        if snapshot_url:
+            return (
+                request_bytes(
+                    snapshot_url,
+                    timeout=45,
+                ),
+                True,
+            )
+
+    except Exception as exc:
+        errors.append(
+            (
+                "wayback",
+                repr(exc),
+            )
+        )
+
+    if prefer_wayback:
+        try:
+            return (
+                request_bytes(
+                    url,
+                    timeout=10,
+                ),
+                False,
+            )
+
+        except Exception as exc:
+            errors.append(
+                (
+                    "live-fallback",
+                    repr(exc),
+                )
+            )
+
+    raise RuntimeError(
+        (
+            "legacy URL unavailable: "
+            f"{url} -> {errors}"
+        )
+    )
+
+
 def fetch_first_available(
     urls,
 ):
@@ -1129,11 +1280,16 @@ def fetch_first_available(
 
     for url in urls:
         try:
+            data, used_wayback = (
+                request_legacy_bytes(
+                    url
+                )
+            )
+
             return (
                 url,
-                request_bytes(
-                    url
-                ),
+                data,
+                used_wayback,
             )
 
         except Exception as exc:
@@ -1156,11 +1312,44 @@ def harvest_legacy_records(
     archive_urls,
     max_issue=51,
 ):
-    archive_url, data = (
-        fetch_first_available(
+    try:
+        (
+            archive_url,
+            data,
+            archive_from_wayback,
+        ) = fetch_first_available(
             archive_urls
         )
-    )
+
+    except Exception as original_error:
+        try:
+            (
+                dialnet_records,
+                covered_issues,
+            ) = harvest_dialnet_records(
+                max_issue=max_issue
+            )
+
+        except Exception as dialnet_error:
+            raise RuntimeError(
+                (
+                    "Sincronía historical recovery "
+                    "failed in original archive, "
+                    "Wayback and Dialnet. "
+                    f"original={original_error!r}; "
+                    f"dialnet={dialnet_error!r}"
+                )
+            ) from dialnet_error
+
+        print(
+            (
+                "legacy-fallback=dialnet "
+                f"issues={covered_issues} "
+                f"records={len(dialnet_records)}"
+            )
+        )
+
+        return dialnet_records
 
     links = collect_links(
         data,
@@ -1203,9 +1392,13 @@ def harvest_legacy_records(
             continue
 
         try:
-            issue_data = request_bytes(
-                url,
-                timeout=35,
+            issue_data, _ = (
+                request_legacy_bytes(
+                    url,
+                    prefer_wayback=(
+                        archive_from_wayback
+                    ),
+                )
             )
 
         except Exception:
@@ -1327,6 +1520,9 @@ def harvest_legacy_records(
                 record = build_legacy_record(
                     link,
                     issue,
+                    prefer_wayback=(
+                        archive_from_wayback
+                    ),
                 )
 
             except Exception:
