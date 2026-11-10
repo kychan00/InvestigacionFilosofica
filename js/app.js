@@ -1485,6 +1485,78 @@ function renderRecordDetails(
       .join(" · ");
 
 
+  const archiveSource =
+    (item.sourceRecords || [])
+      .find(
+        source =>
+          source.provider ===
+            "Internet Archive" &&
+          source.externalDescription
+      );
+
+
+  const archiveDescription =
+    archiveSource?.externalDescription
+      ? String(
+          archiveSource.externalDescription
+        )
+          .replace(
+            /\s+/g,
+            " "
+          )
+          .trim()
+      : "";
+
+
+  const archiveDescriptionDetail =
+    archiveDescription.length > 900
+      ? `${archiveDescription.slice(
+          0,
+          897
+        )}…`
+      : archiveDescription;
+
+
+  const archiveDescriptionSection =
+    archiveDescriptionDetail
+      ? `
+        <section class="cinematic-section">
+
+          <div class="cinematic-section-heading">
+
+            <span class="section-number">
+              IA
+            </span>
+
+            <div>
+              <span class="section-eyebrow">
+                Fuente externa
+              </span>
+
+              <h3>
+                Descripción en Internet Archive
+              </h3>
+            </div>
+
+          </div>
+
+          <div class="cinematic-abstract">
+            ${escapeHtml(
+              archiveDescriptionDetail
+            )}
+          </div>
+
+          <p class="cinematic-note">
+            Texto descriptivo proporcionado por Internet Archive o por
+            quien aportó el registro. No se trata como abstract
+            académico ni participa en el análisis semántico.
+          </p>
+
+        </section>
+      `
+      : "";
+
+
   const score =
     Math.max(
       0,
@@ -1996,6 +2068,9 @@ function renderRecordDetails(
               `
               : ""
           }
+
+
+          ${archiveDescriptionSection}
 
 
           ${
@@ -2846,6 +2921,37 @@ function renderResult(
       : abstract;
 
 
+  const archiveDescription =
+    (item.sourceRecords || [])
+      .find(
+        source =>
+          source.provider ===
+            "Internet Archive" &&
+          source.externalDescription
+      )
+      ?.externalDescription;
+
+
+  const archiveDescriptionText =
+    String(
+      archiveDescription || ""
+    )
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+
+  const archiveDescriptionPreview =
+    archiveDescriptionText.length > 230
+      ? `${archiveDescriptionText.slice(
+          0,
+          227
+        )}…`
+      : archiveDescriptionText;
+
+
   const score =
     Math.max(
       0,
@@ -2948,7 +3054,21 @@ function renderResult(
                 )}
               </p>
             `
-            : ""
+            : archiveDescriptionPreview
+              ? `
+                <div class="result-external-description">
+                  <span class="result-external-description-label">
+                    Descripción · Internet Archive
+                  </span>
+
+                  <p class="result-abstract">
+                    ${escapeHtml(
+                      archiveDescriptionPreview
+                    )}
+                  </p>
+                </div>
+              `
+              : ""
         }
 
 
