@@ -25,6 +25,8 @@ except ModuleNotFoundError:
 LEGACY_HOSTS = {
     "sincronia.cucsh.udg.mx",
     "fuentes.csh.udg.mx",
+    "www.cucsh.udg.mx",
+    "cucsh.udg.mx",
 }
 
 WHITESPACE_RE = re.compile(
@@ -90,6 +92,22 @@ EARLY_ISSUE_BASES = [
     ),
     (
         "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
+        "https://www.cucsh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
+        "http://www.cucsh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
+        "https://cucsh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
+        "http://cucsh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
 ]
