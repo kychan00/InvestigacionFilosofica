@@ -13,6 +13,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
+from html.parser import HTMLParser
 from collections import Counter
 from pathlib import Path
 
@@ -70,6 +71,11 @@ SOURCES = [
                 "index.php/sincronia/oai"
             ),
         ],
+        "issueArchive": (
+            "https://revistasincronia.cucsh.udg.mx/"
+            "index.php/sincronia/issue/archive"
+        ),
+        "enrichIssueMetadata": True,
     },
 ]
 
@@ -541,6 +547,358 @@ def relation_urls(
             output.append(clean)
 
     return output
+
+
+ARTICLE_VIEW_RE = re.compile(
+    r"/article/view/(\d+)",
+    re.IGNORECASE,
+)
+
+
+ISSUE_VIEW_RE = re.compile(
+    r"/issue/view/(\d+)",
+    re.IGNORECASE,
+)
+
+
+def article_id_from_url(
+    value,
+):
+    clean = (
+        clean_text(value)
+        or ""
+    )
+
+    match = ARTICLE_VIEW_RE.search(
+        clean
+    )
+
+    return (
+        match.group(1)
+        if match
+        else None
+    )
+
+
+class SincroniaArchiveParser(
+    HTMLParser,
+):
+    def __init__(
+        self,
+        base_url,
+    ):
+        super().__init__(
+            convert_charrefs=True
+        )
+
+        self.base_url = base_url
+        self.issue_urls = []
+        self._seen = set()
+
+    def handle_starttag(
+        self,
+        tag,
+        attrs,
+    ):
+        if tag.casefold() != "a":
+            return
+
+        href = dict(attrs).get(
+            "href"
+        )
+
+        if not href:
+            return
+
+        url = urllib.parse.urljoin(
+            self.base_url,
+            href,
+        )
+
+        if not ISSUE_VIEW_RE.search(
+            url
+        ):
+            return
+
+        if url in self._seen:
+            return
+
+        self._seen.add(url)
+        self.issue_urls.append(url)
+
+
+class SincroniaIssueParser(
+    HTMLParser,
+):
+    def __init__(
+        self,
+        base_url,
+    ):
+        super().__init__(
+            convert_charrefs=True
+        )
+
+        self.base_url = base_url
+        self.issue_title = None
+        self.issue_year = None
+        self.current_section = None
+        self.articles = {}
+
+        self._in_h1 = False
+        self._h1_parts = []
+
+        self._in_h2 = False
+        self._h2_parts = []
+
+    def handle_starttag(
+        self,
+        tag,
+        attrs,
+    ):
+        tag = tag.casefold()
+
+        if tag == "h1":
+            self._in_h1 = True
+            self._h1_parts = []
+            return
+
+        if tag == "h2":
+            self._in_h2 = True
+            self._h2_parts = []
+            return
+
+        if tag != "a":
+            return
+
+        href = dict(attrs).get(
+            "href"
+        )
+
+        if not href:
+            return
+
+        url = urllib.parse.urljoin(
+            self.base_url,
+            href,
+        )
+
+        article_id = article_id_from_url(
+            url
+        )
+
+        if not article_id:
+            return
+
+        self.articles.setdefault(
+            article_id,
+            {
+                "issueTitle":
+                    self.issue_title,
+
+                "year":
+                    self.issue_year,
+
+                "section":
+                    self.current_section,
+            },
+        )
+
+    def handle_data(
+        self,
+        data,
+    ):
+        if self._in_h1:
+            self._h1_parts.append(
+                data
+            )
+
+        if self._in_h2:
+            self._h2_parts.append(
+                data
+            )
+
+    def handle_endtag(
+        self,
+        tag,
+    ):
+        tag = tag.casefold()
+
+        if (
+            tag == "h1"
+            and self._in_h1
+        ):
+            self.issue_title = clean_text(
+                " ".join(
+                    self._h1_parts
+                )
+            )
+
+            year_match = re.search(
+                r"\b(19|20)\d{2}\b",
+                self.issue_title or "",
+            )
+
+            self.issue_year = (
+                int(year_match.group(0))
+                if year_match
+                else None
+            )
+
+            self._in_h1 = False
+            self._h1_parts = []
+            return
+
+        if (
+            tag == "h2"
+            and self._in_h2
+        ):
+            self.current_section = (
+                clean_text(
+                    " ".join(
+                        self._h2_parts
+                    )
+                )
+            )
+
+            self._in_h2 = False
+            self._h2_parts = []
+
+
+def harvest_issue_metadata(
+    source,
+):
+    if not source.get(
+        "enrichIssueMetadata"
+    ):
+        return {}
+
+    archive_url = source.get(
+        "issueArchive"
+    )
+
+    if not archive_url:
+        return {}
+
+    issue_urls = []
+    seen = set()
+
+    for page in range(
+        1,
+        25,
+    ):
+        page_url = (
+            archive_url
+            if page == 1
+            else (
+                archive_url.rstrip("/")
+                + f"/{page}"
+            )
+        )
+
+        data = request_bytes(
+            page_url,
+            timeout=30,
+        )
+
+        parser = SincroniaArchiveParser(
+            page_url
+        )
+
+        parser.feed(
+            data.decode(
+                "utf-8",
+                errors="replace",
+            )
+        )
+
+        new_urls = [
+            url
+            for url in parser.issue_urls
+            if url not in seen
+        ]
+
+        if not new_urls:
+            break
+
+        for url in new_urls:
+            seen.add(url)
+            issue_urls.append(url)
+
+        time.sleep(
+            0.10
+        )
+
+    if not issue_urls:
+        raise RuntimeError(
+            "Sincronía issue archive is empty"
+        )
+
+    metadata = {}
+
+    for index, issue_url in enumerate(
+        issue_urls,
+        start=1,
+    ):
+        data = request_bytes(
+            issue_url,
+            timeout=30,
+        )
+
+        parser = SincroniaIssueParser(
+            issue_url
+        )
+
+        parser.feed(
+            data.decode(
+                "utf-8",
+                errors="replace",
+            )
+        )
+
+        for article_id, values in (
+            parser.articles.items()
+        ):
+            enriched = dict(
+                values
+            )
+
+            if not enriched.get(
+                "issueTitle"
+            ):
+                enriched[
+                    "issueTitle"
+                ] = parser.issue_title
+
+            if not enriched.get(
+                "year"
+            ):
+                enriched[
+                    "year"
+                ] = parser.issue_year
+
+            metadata[
+                article_id
+            ] = enriched
+
+        print(
+            f"issue-scan={index}/"
+            f"{len(issue_urls)} "
+            f"articles={len(metadata)}"
+        )
+
+        time.sleep(
+            0.10
+        )
+
+    if not metadata:
+        raise RuntimeError(
+            (
+                "Sincronía issue metadata "
+                "could not be resolved"
+            )
+        )
+
+    return metadata
 
 
 def description_candidates(
@@ -1098,6 +1456,12 @@ def harvest_source(
             error,
         )
 
+    issue_metadata = (
+        harvest_issue_metadata(
+            source
+        )
+    )
+
     token = None
     page = 0
     active_records = []
@@ -1189,6 +1553,50 @@ def harvest_source(
                 ] += 1
 
                 continue
+
+            if issue_metadata:
+                article_id = (
+                    article_id_from_url(
+                        record.get(
+                            "urls",
+                            {},
+                        ).get(
+                            "canonical"
+                        )
+                    )
+                )
+
+                values = (
+                    issue_metadata.get(
+                        article_id
+                    )
+                    if article_id
+                    else None
+                )
+
+                if values:
+                    issue_year = (
+                        values.get(
+                            "year"
+                        )
+                    )
+
+                    if issue_year:
+                        record["year"] = (
+                            issue_year
+                        )
+
+                    record["issueTitle"] = (
+                        values.get(
+                            "issueTitle"
+                        )
+                    )
+
+                    record["section"] = (
+                        values.get(
+                            "section"
+                        )
+                    )
 
             active_records.append(
                 record
