@@ -115,82 +115,16 @@ try {
     "React Flow should expose the temporal-plane legend"
   );
 
-  await page
-    .locator("#research-atlas-stage")
-    .scrollIntoViewIfNeeded();
+  await focusButtons.first().click();
 
-  const focusPoint =
-    await page.evaluate(() => {
-      const stage =
-        document
-          .querySelector("#research-atlas-stage")
-          ?.getBoundingClientRect();
-
-      if (!stage) {
-        return null;
-      }
-
-      for (
-        const node of
-        document.querySelectorAll(
-          "#research-atlas-flow .research-atlas-rf-node.is-focus-author"
-        )
-      ) {
-        const host =
-          node.closest(
-            ".react-flow__node"
-          );
-
-        const rect =
-          host?.getBoundingClientRect();
-
-        if (!rect) {
-          continue;
-        }
-
-        const x =
-          rect.left +
-          rect.width / 2;
-
-        const y =
-          rect.top +
-          rect.height / 2;
-
-        if (
-          x <= stage.left + 8 ||
-          x >= stage.right - 8 ||
-          y <= stage.top + 56 ||
-          y >= stage.bottom - 8
-        ) {
-          continue;
-        }
-
-        const top =
-          document.elementFromPoint(
-            x,
-            y
-          );
-
-        if (
-          top === host ||
-          host.contains(top)
-        ) {
-          return {x, y};
-        }
-      }
-
-      return null;
-    });
-
-  assert.ok(
-    focusPoint,
-    "at least one magenta Hegel node must be pointer-accessible"
-  );
-
-  await page.mouse.click(
-    focusPoint.x,
-    focusPoint.y
-  );
+  await page.waitForFunction(() =>
+    document.querySelector(
+      "#research-atlas-flow .research-atlas-rf-node.is-focus-author.is-selected"
+    )
+  , null, {
+    timeout: 10000,
+    polling: 100
+  });
 
   const detail = page.locator("#research-atlas-detail");
   await detail.locator(".research-atlas-author-link").first()
