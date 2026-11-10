@@ -23,8 +23,10 @@ third-party material. In particular:
 - `data/**`, `src/data/**`, and `benchmark/**` may contain bibliographic
   metadata, abstracts, excerpts, evaluations, derived records, or other
   source-dependent material. They are not blanket-licensed under MIT.
-- `assets/hero-school-athens.jpg` is excluded from the MIT grant until its
-  exact digital-image provenance and reuse terms are documented.
+- `assets/hero-school-athens.jpg` is a public-domain image asset, documented
+  separately in [ASSETS.md](./ASSETS.md). It does not need the MIT License
+  because its source file is already identified as free of known copyright
+  restrictions.
 - Content fetched from external services at runtime is not part of the
   project's MIT-licensed software merely because the interface displays it.
 - Names, logos, trademarks, and institutional marks of third parties are not
@@ -57,6 +59,19 @@ intellectual-property rights and permits redistribution of published content
 subject to its own conditions, including attribution and no modification.
 Those terms are more specific than the MIT License and remain controlling for
 the journal content.
+
+### Public-domain image assets
+
+`assets/hero-school-athens.jpg` is derived from Wikimedia Commons file
+`La scuola di Atene.jpg`, a faithful photographic reproduction of Raphael's
+*The School of Athens*. Wikimedia Commons identifies both the underlying
+two-dimensional work and the faithful photographic reproduction as public
+domain and applies the Public Domain Mark 1.0 to the file.
+
+Source:
+https://commons.wikimedia.org/wiki/File:La_scuola_di_Atene.jpg
+
+See [ASSETS.md](./ASSETS.md) for the asset record.
 
 ### University theses and editorial catalogs
 
