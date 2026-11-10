@@ -1383,13 +1383,7 @@ def harvest_direct_early_issues(
             issue_data
         )
 
-        year = (
-            infer_year(
-                parser,
-                issue_url,
-            )
-            or fallback_year
-        )
+        year = fallback_year
 
         links = [
             link
