@@ -213,7 +213,13 @@ EDITORIAL_TITLE_RE = re.compile(
 
 
 SINCRONIA_NON_ARTICLE_TITLE_RE = re.compile(
-    r"^cintillo\s+legal(?:\s+del.*)?$",
+    (
+        r"^(?:"
+        r"cintillo\s+legal(?:\s+del.*)?"
+        r"|"
+        r"n[uú]mero(?:\s+\d+)?\s+completo"
+        r")$"
+    ),
     re.IGNORECASE,
 )
 
