@@ -1,0 +1,44 @@
+name: Probe Sincronía legacy archive
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/workflows/sincronia-legacy-probe.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Probe legacy archive
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          URL="https://sincronia.cucsh.udg.mx/num_anteriores.html"
+
+          curl \
+            --fail \
+            --location \
+            --retry 2 \
+            --retry-delay 2 \
+            --max-time 45 \
+            --user-agent "InvestigacionFilosofica/SincroniaLegacyProbe-0.1" \
+            "$URL" \
+            -o /tmp/sincronia-legacy.html
+
+          echo "===== SIZE ====="
+          wc -c /tmp/sincronia-legacy.html
+
+          echo "===== TITLE / TEXT HEAD ====="
+          sed -n '1,220p' /tmp/sincronia-legacy.html
+
+          echo "===== LINKS ====="
+          grep -Eoi 'href=["'\'''][^"'\''']+["'\''']' /tmp/sincronia-legacy.html \
+            | head -n 400 \
+            || true
