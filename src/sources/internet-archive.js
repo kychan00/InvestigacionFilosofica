@@ -433,9 +433,16 @@ function archiveRetrievalScore(
     );
 
 
-  const description =
+  const externalDescription =
     normalizeSearchText(
-      item.abstract
+      (item.sourceRecords || [])
+        .find(
+          source =>
+            source.provider ===
+              "Internet Archive"
+        )
+        ?.externalDescription ||
+        ""
     );
 
 
@@ -480,8 +487,15 @@ function archiveRetrievalScore(
     }
 
 
+    /*
+     * Internet Archive `description` is public item metadata and is
+     * useful for retrieval, but it is not an academic abstract.
+     * Restore its original weak contribution: one point per matched
+     * query token, versus six for title, five for author and three
+     * for subjects.
+     */
     if (
-      description.includes(
+      externalDescription.includes(
         token
       )
     ) {
@@ -791,7 +805,7 @@ export function normalizeInternetArchiveItem(
     ) || "";
 
 
-  const description =
+  const externalDescription =
     cleanText(
       item.description
     );
@@ -858,8 +872,17 @@ export function normalizeInternetArchiveItem(
 
     publisher,
 
+    /*
+     * Internet Archive `description` is source/uploader-dependent text.
+     * It is intentionally NOT promoted to the federated academic
+     * `abstract` field and it does not participate in retrieval scoring.
+     *
+     * The description is preserved only inside the Internet Archive
+     * provenance record so the UI can present it explicitly as external,
+     * source-specific descriptive content.
+     */
     abstract:
-      description,
+      null,
 
     citedBy:
       null,
@@ -911,6 +934,8 @@ export function normalizeInternetArchiveItem(
         queryType:
           context.queryType ||
           null,
+
+        externalDescription,
 
         downloads:
           Number.isFinite(

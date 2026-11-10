@@ -23,7 +23,7 @@ import {
 
 
 export const RESEARCH_ATLAS_ASSEMBLER_REVISION =
-  "2026-11-07.ra2-v1";
+  "2026-11-09.ra2-external-context-v2";
 
 
 function isPlainObject(value) {
@@ -140,6 +140,90 @@ function canonicalStrings(values = []) {
     .map(([, original]) =>
       original
     );
+}
+
+
+const EXTERNAL_CONTEXT_STOPWORDS =
+  new Set([
+    "the", "and", "for", "with", "from", "that", "this",
+    "are", "was", "were", "has", "have", "into", "about",
+    "de", "del", "la", "las", "el", "los", "una", "uno",
+    "por", "para", "con", "que", "como", "sobre", "sus",
+    "des", "les", "une", "dans", "pour", "avec", "von",
+    "der", "die", "das", "und", "mit", "ein", "eine"
+  ]);
+
+
+function externalContextTerms(
+  result
+) {
+  const counts =
+    new Map();
+
+
+  const descriptions =
+    (result?.sourceRecords || [])
+      .filter(
+        source =>
+          source?.provider ===
+            "Internet Archive" &&
+          source?.externalDescription
+      )
+      .map(
+        source =>
+          String(
+            source.externalDescription
+          )
+      );
+
+
+  for (
+    const description of
+    descriptions
+  ) {
+    const tokens =
+      description
+        .normalize("NFD")
+        .replace(
+          /[\u0300-\u036f]/g,
+          ""
+        )
+        .toLowerCase()
+        .replace(
+          /[^a-z0-9]+/g,
+          " "
+        )
+        .trim()
+        .split(/\s+/)
+        .filter(
+          token =>
+            token.length >= 3 &&
+            !/^\d+$/.test(token) &&
+            !EXTERNAL_CONTEXT_STOPWORDS
+              .has(token)
+        );
+
+
+    for (const token of tokens) {
+      counts.set(
+        token,
+        (counts.get(token) || 0) + 1
+      );
+    }
+  }
+
+
+  return [...counts.entries()]
+    .sort(
+      ([leftToken, leftCount],
+       [rightToken, rightCount]) =>
+        rightCount - leftCount ||
+        leftToken.localeCompare(
+          rightToken
+        )
+    )
+    .slice(0, 64)
+    .map(([token]) => token);
 }
 
 
@@ -528,6 +612,10 @@ function workNode(
     abstract:
       normalizedString(
         result?.abstract
+      ),
+    externalContextTerms:
+      externalContextTerms(
+        result
       ),
     identity: {
       kind:

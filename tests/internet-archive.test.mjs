@@ -96,6 +96,13 @@ test(
 
     assert.equal(
       item.abstract,
+      null
+    );
+
+
+    assert.equal(
+      item.sourceRecords[0]
+        .externalDescription,
       "A classic work & study."
     );
 
@@ -191,14 +198,27 @@ test(
     );
 
 
-    assert.ok(
+    const requestedFields =
       url.searchParams
         .getAll(
           "fl[]"
-        )
+        );
+
+
+    assert.ok(
+      requestedFields
         .includes(
           "identifier"
         )
+    );
+
+
+    assert.equal(
+      requestedFields
+        .includes(
+          "description"
+        ),
+      true
     );
   }
 );
@@ -415,6 +435,89 @@ test(
           .sourceRecords[0]
           .retrievalScore >
         0
+      );
+
+    } finally {
+      globalThis.fetch =
+        originalFetch;
+    }
+  }
+);
+
+
+test(
+  "descripción externa participa débilmente en el preranking sin convertirse en abstract",
+  async () => {
+    const originalFetch =
+      globalThis.fetch;
+
+
+    globalThis.fetch =
+      async () => ({
+        ok: true,
+        status: 200,
+
+        headers: {
+          get() {
+            return null;
+          }
+        },
+
+        async json() {
+          return {
+            response: {
+              docs: [
+                {
+                  identifier:
+                    "description-only",
+
+                  title:
+                    "Unrelated record",
+
+                  creator:
+                    "Another Author",
+
+                  subject:
+                    "Unrelated subject",
+
+                  description:
+                    "Kant Critique Pure Reason philosophy"
+                }
+              ]
+            }
+          };
+        }
+      });
+
+
+    try {
+      const results =
+        await searchInternetArchive(
+          "Kant Critique Pure Reason philosophy",
+          {
+            rows: 1,
+            retries: 0
+          }
+        );
+
+
+      assert.ok(
+        results[0].sourceRecords[0]
+          .retrievalScore >
+        0
+      );
+
+
+      assert.equal(
+        results[0].sourceRecords[0]
+          .externalDescription,
+        "Kant Critique Pure Reason philosophy"
+      );
+
+
+      assert.equal(
+        results[0].abstract,
+        null
       );
 
     } finally {

@@ -23,8 +23,10 @@ third-party material. In particular:
 - `data/**`, `src/data/**`, and `benchmark/**` may contain bibliographic
   metadata, abstracts, excerpts, evaluations, derived records, or other
   source-dependent material. They are not blanket-licensed under MIT.
-- `assets/hero-school-athens.jpg` is excluded from the MIT grant until its
-  exact digital-image provenance and reuse terms are documented.
+- `assets/hero-school-athens.jpg` is a public-domain image asset, documented
+  separately in [ASSETS.md](./ASSETS.md). It does not need the MIT License
+  because its source file is already identified as free of known copyright
+  restrictions.
 - Content fetched from external services at runtime is not part of the
   project's MIT-licensed software merely because the interface displays it.
 - Names, logos, trademarks, and institutional marks of third parties are not
@@ -45,6 +47,35 @@ Abstracts are different: their copyright remains with the relevant publisher
 or author. Any Crossref-derived abstract text must therefore retain the rights
 that apply to that content.
 
+### Internet Archive
+
+The Internet Archive integration is a live bibliographic search connector. It
+queries `archive.org/advancedsearch.php` for limited metadata such as
+identifier, title, creator, date/year, language, subject, publisher, ISBN,
+collection, download count, and media type.
+
+The connector may retrieve the Internet Archive `description` field as
+source-specific descriptive metadata. That text remains isolated in the
+Internet Archive provenance record as `externalDescription`: it is **not**
+mapped to the project's academic `abstract` field and is not treated as
+MIT-licensed project content.
+
+The description may be used transiently as a **weak retrieval signal** for the
+Internet Archive provider. In the Research Atlas, the full description is not
+copied into WorkNodes. Instead, the browser derives a limited set of normalized
+context terms and gives those terms a lower lexical weight than a title or a
+real academic abstract. The raw description is not promoted into semantic
+embeddings or a persistent full-text corpus by this integration.
+
+The interface displays only a brief, explicitly attributed extract and links
+to the canonical Internet Archive item for the full description. Descriptions
+are source/uploader-dependent text and are not treated as uniformly licensed
+academic abstracts.
+
+The connector does not copy or store Internet Archive PDFs, OCR, EPUB files,
+or other item files. Copyright and reuse conditions for the underlying works
+remain item-specific and are not changed by this project's MIT License.
+
 ### CUCSH journals
 
 The local CUCSH corpus includes metadata and abstracts harvested from journals
@@ -57,6 +88,19 @@ intellectual-property rights and permits redistribution of published content
 subject to its own conditions, including attribution and no modification.
 Those terms are more specific than the MIT License and remain controlling for
 the journal content.
+
+### Public-domain image assets
+
+`assets/hero-school-athens.jpg` is derived from Wikimedia Commons file
+`La scuola di Atene.jpg`, a faithful photographic reproduction of Raphael's
+*The School of Athens*. Wikimedia Commons identifies both the underlying
+two-dimensional work and the faithful photographic reproduction as public
+domain and applies the Public Domain Mark 1.0 to the file.
+
+Source:
+https://commons.wikimedia.org/wiki/File:La_scuola_di_Atene.jpg
+
+See [ASSETS.md](./ASSETS.md) for the asset record.
 
 ### University theses and editorial catalogs
 
