@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import html
 import re
+import time
 import urllib.parse
 import urllib.request
 
@@ -69,28 +70,55 @@ def clean_text(
 def request_bytes(
     url,
     timeout=12,
+    attempts=4,
 ):
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent":
-                (
-                    "InvestigacionFilosofica/"
-                    "SincroniaDialnetHarvester-0.1"
-                ),
-            "Accept":
-                (
-                    "text/html,application/xhtml+xml,"
-                    "*/*;q=0.5"
-                ),
-        },
-    )
+    last_error = None
 
-    with urllib.request.urlopen(
-        request,
-        timeout=timeout,
-    ) as response:
-        return response.read()
+    for attempt in range(
+        1,
+        attempts + 1,
+    ):
+        request = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent":
+                    (
+                        "Mozilla/5.0 "
+                        "(X11; Linux x86_64) "
+                        "AppleWebKit/537.36 "
+                        "(KHTML, like Gecko) "
+                        "Chrome/154.0 Safari/537.36 "
+                        "InvestigacionFilosofica/"
+                        "SincroniaDialnetHarvester-0.2"
+                    ),
+                "Accept":
+                    (
+                        "text/html,application/xhtml+xml,"
+                        "application/xml;q=0.9,*/*;q=0.8"
+                    ),
+                "Accept-Language":
+                    "es-MX,es;q=0.9,en;q=0.7",
+            },
+        )
+
+        try:
+            with urllib.request.urlopen(
+                request,
+                timeout=timeout,
+            ) as response:
+                return response.read()
+
+        except Exception as exc:
+            last_error = exc
+
+            if attempt >= attempts:
+                break
+
+            time.sleep(
+                0.8 * attempt
+            )
+
+    raise last_error
 
 
 class LinkCollector(
