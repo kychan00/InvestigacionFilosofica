@@ -644,7 +644,7 @@ def harvest_dialnet_records(
     payloads = []
 
     with ThreadPoolExecutor(
-        max_workers=8,
+        max_workers=4,
     ) as executor:
         futures = {
             executor.submit(
