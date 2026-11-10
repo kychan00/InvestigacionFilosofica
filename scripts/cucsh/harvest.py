@@ -613,6 +613,12 @@ ISSUE_VIEW_RE = re.compile(
 )
 
 
+SINCRONIA_ISSUE_NUMBER_RE = re.compile(
+    r"(?:n[uú]m\.?|n[uú]mero)\s*(\d{1,3})",
+    re.IGNORECASE,
+)
+
+
 def article_id_from_url(
     value,
 ):
@@ -693,6 +699,7 @@ class SincroniaIssueParser(
         self.base_url = base_url
         self.issue_title = None
         self.issue_year = None
+        self.issue_number = None
         self.current_section = None
         self.articles = {}
 
@@ -750,6 +757,9 @@ class SincroniaIssueParser(
                 "year":
                     self.issue_year,
 
+                "issueNumber":
+                    self.issue_number,
+
                 "section":
                     self.current_section,
             },
@@ -793,6 +803,23 @@ class SincroniaIssueParser(
             self.issue_year = (
                 int(year_match.group(0))
                 if year_match
+                else None
+            )
+
+            issue_number_match = (
+                SINCRONIA_ISSUE_NUMBER_RE
+                .search(
+                    self.issue_title
+                    or ""
+                )
+            )
+
+            self.issue_number = (
+                int(
+                    issue_number_match
+                    .group(1)
+                )
+                if issue_number_match
                 else None
             )
 
@@ -927,6 +954,13 @@ def harvest_issue_metadata(
                 enriched[
                     "year"
                 ] = parser.issue_year
+
+            if not enriched.get(
+                "issueNumber"
+            ):
+                enriched[
+                    "issueNumber"
+                ] = parser.issue_number
 
             metadata[
                 article_id
@@ -1659,6 +1693,12 @@ def harvest_source(
                     record["issueTitle"] = (
                         values.get(
                             "issueTitle"
+                        )
+                    )
+
+                    record["issueNumber"] = (
+                        values.get(
+                            "issueNumber"
                         )
                     )
 
