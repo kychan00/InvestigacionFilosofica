@@ -146,6 +146,84 @@ class SincroniaIssueMetadataTest(
             "MISCELÁNEA",
         )
 
+    def test_sincronia_does_not_apply_other_journal_topic_filters(
+        self,
+    ):
+        xml = (
+            """
+            <record
+              xmlns="http://www.openarchives.org/OAI/2.0/"
+            >
+              <header>
+                <identifier>
+                  oai:sincronia:999
+                </identifier>
+                <datestamp>
+                  2026-01-01
+                </datestamp>
+              </header>
+              <metadata>
+                <dc
+                  xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/"
+                  xmlns:dct="http://purl.org/dc/elements/1.1/"
+                >
+                  <dct:title>
+                    Literatura y memoria cultural
+                  </dct:title>
+                  <dct:creator>
+                    María Ejemplo
+                  </dct:creator>
+                  <dct:date>
+                    2020
+                  </dct:date>
+                  <dct:description>
+                    Temperie sección literaria no arbitrada.
+                    Este texto conserva contenido suficiente
+                    para representar un artículo de letras
+                    dentro de la revista Sincronía.
+                  </dct:description>
+                  <dct:identifier>
+                    https://revistasincronia.cucsh.udg.mx/
+                    index.php/sincronia/article/view/999
+                  </dct:identifier>
+                </dc>
+              </metadata>
+            </record>
+            """
+        )
+
+        import xml.etree.ElementTree as ET
+
+        record = MODULE.parse_oai_record(
+            ET.fromstring(
+                xml
+            ),
+            {
+                "id":
+                    "sincronia",
+
+                "journal":
+                    "Sincronía",
+            },
+        )
+
+        self.assertIsNotNone(
+            record
+        )
+
+        self.assertFalse(
+            record.get(
+                "_excluded",
+                False,
+            )
+        )
+
+        self.assertEqual(
+            record["journal"],
+            "Sincronía",
+        )
+
+
     def test_article_id_is_stable(
         self,
     ):
