@@ -1,0 +1,164 @@
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import importlib.util
+import unittest
+
+from pathlib import Path
+
+
+ROOT = (
+    Path(__file__)
+    .resolve()
+    .parents[1]
+)
+
+HARVEST_PATH = (
+    ROOT
+    / "scripts"
+    / "cucsh"
+    / "harvest.py"
+)
+
+SPEC = (
+    importlib.util
+    .spec_from_file_location(
+        "cucsh_harvest",
+        HARVEST_PATH,
+    )
+)
+
+MODULE = (
+    importlib.util
+    .module_from_spec(
+        SPEC
+    )
+)
+
+SPEC.loader.exec_module(
+    MODULE
+)
+
+
+class SincroniaIssueMetadataTest(
+    unittest.TestCase,
+):
+    def test_archive_discovers_issue_urls(
+        self,
+    ):
+        parser = (
+            MODULE.SincroniaArchiveParser(
+                (
+                    "https://revistasincronia.cucsh.udg.mx/"
+                    "index.php/sincronia/issue/archive"
+                )
+            )
+        )
+
+        parser.feed(
+            """
+            <a href="/index.php/sincronia/issue/view/90">
+              Vol. 30 Núm. 90
+            </a>
+            <a href="/index.php/sincronia/issue/view/89">
+              Vol. 30 Núm. 89
+            </a>
+            <a href="/index.php/sincronia/issue/view/90">
+              duplicado
+            </a>
+            """
+        )
+
+        self.assertEqual(
+            len(parser.issue_urls),
+            2,
+        )
+
+    def test_issue_keeps_every_editorial_section(
+        self,
+    ):
+        parser = (
+            MODULE.SincroniaIssueParser(
+                (
+                    "https://revistasincronia.cucsh.udg.mx/"
+                    "index.php/sincronia/issue/view/90"
+                )
+            )
+        )
+
+        parser.feed(
+            """
+            <h1>
+              Vol. 30 Núm. 90 (2026):
+              Julio-Diciembre 2026
+            </h1>
+
+            <h2>FILOSOFÍA</h2>
+            <a href="/index.php/sincronia/article/view/1001">
+              Artículo filosófico
+            </a>
+
+            <h2>LETRAS</h2>
+            <a href="/index.php/sincronia/article/view/1002">
+              Artículo literario
+            </a>
+
+            <h2>MISCELÁNEA</h2>
+            <a href="/index.php/sincronia/article/view/1003">
+              Artículo misceláneo
+            </a>
+            """
+        )
+
+        self.assertEqual(
+            set(parser.articles),
+            {
+                "1001",
+                "1002",
+                "1003",
+            },
+        )
+
+        self.assertEqual(
+            parser.issue_year,
+            2026,
+        )
+
+        self.assertEqual(
+            parser.articles[
+                "1001"
+            ]["section"],
+            "FILOSOFÍA",
+        )
+
+        self.assertEqual(
+            parser.articles[
+                "1002"
+            ]["section"],
+            "LETRAS",
+        )
+
+        self.assertEqual(
+            parser.articles[
+                "1003"
+            ]["section"],
+            "MISCELÁNEA",
+        )
+
+    def test_article_id_is_stable(
+        self,
+    ):
+        self.assertEqual(
+            MODULE.article_id_from_url(
+                (
+                    "https://revistasincronia.cucsh.udg.mx/"
+                    "index.php/sincronia/article/view/763"
+                )
+            ),
+            "763",
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
