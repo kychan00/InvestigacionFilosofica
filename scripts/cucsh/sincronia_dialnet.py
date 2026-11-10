@@ -67,7 +67,7 @@ def clean_text(
 
 def request_bytes(
     url,
-    timeout=35,
+    timeout=12,
 ):
     request = urllib.request.Request(
         url,
@@ -551,7 +551,7 @@ def harvest_dialnet_records(
 ):
     data = request_bytes(
         JOURNAL_URL,
-        timeout=35,
+        timeout=12,
     )
 
     issue_urls = (
@@ -577,7 +577,7 @@ def harvest_dialnet_records(
             issue_data = (
                 request_bytes(
                     issue_url,
-                    timeout=35,
+                    timeout=12,
                 )
             )
 
