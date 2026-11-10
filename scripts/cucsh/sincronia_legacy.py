@@ -83,6 +83,16 @@ EARLY_ISSUE_FILENAMES = {
 }
 
 
+EARLY_ISSUE_STEMS = {
+    filename.rsplit(
+        ".",
+        1,
+    )[0].casefold()
+    for filename, _year
+    in EARLY_ISSUE_FILENAMES.values()
+}
+
+
 EARLY_ISSUE_BASES = [
     "https://sincronia.cucsh.udg.mx/",
     "http://sincronia.cucsh.udg.mx/",
@@ -699,6 +709,7 @@ def plausible_article_link(
         or stem.startswith(
             "index"
         )
+        or stem in EARLY_ISSUE_STEMS
     ):
         return False
 
