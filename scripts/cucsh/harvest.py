@@ -96,7 +96,7 @@ SOURCES = [
                 "num_anteriores.html"
             ),
         ],
-        "legacyMaxIssue": 84,
+        "legacyMaxIssue": 51,
     },
 ]
 
