@@ -2159,18 +2159,10 @@ def harvest_legacy_records(
     archive_urls,
     max_issue=84,
 ):
-    (
-        direct_records,
-        direct_issues,
-    ) = harvest_direct_early_issues(
-        max_issue=min(
-            max_issue,
-            max(
-                EARLY_ISSUE_FILENAMES
-            ),
-        )
-    )
-
+    # Dialnet conserva una secuencia bibliográfica
+    # muy estable desde el núm. 17. Lo consultamos
+    # primero porque evita decenas de búsquedas
+    # Wayback sobre URLs históricas muertas.
     try:
         (
             dialnet_records,
@@ -2190,9 +2182,24 @@ def harvest_legacy_records(
         dialnet_records = []
         dialnet_issues = []
 
-    combined = merge_historical_records(
+    # Los números 1-16 no están catalogados en
+    # Dialnet y el 18 tampoco aparece en su índice.
+    # La plataforma original sigue siendo la fuente
+    # necesaria para ese tramo temprano; limitar
+    # aquí la búsqueda mantiene el harvest acotado.
+    (
         direct_records,
+        direct_issues,
+    ) = harvest_direct_early_issues(
+        max_issue=min(
+            max_issue,
+            18,
+        )
+    )
+
+    combined = merge_historical_records(
         dialnet_records,
+        direct_records,
     )
 
     expected_issues = set(
@@ -2215,7 +2222,7 @@ def harvest_legacy_records(
 
     print(
         (
-            "legacy-primary=direct+dialnet "
+            "legacy-primary=dialnet+direct-early "
             f"issues={sorted(covered_issues)} "
             f"records={len(combined)} "
             f"missing={missing_issues}"
