@@ -146,6 +146,118 @@ EARLY_ISSUE_FILENAMES = (
 )
 
 
+# Exact historical issue entrypoints recovered from Sincronía's own
+# archived "num_anteriores.html". These override the generic seasonal
+# filename model, which was wrong for several early issues.
+HISTORICAL_ISSUE_URLS = {
+    1: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter96.html"
+    ),
+    2: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/spring.html"
+    ),
+    3: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/sum97.htm"
+    ),
+    4: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/fall97.htm"
+    ),
+    5: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/winter97.htm"
+    ),
+    6: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/Spring98.html"
+    ),
+    7: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/summer98.htm"
+    ),
+    8: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/dante/dindex.html"
+    ),
+    9: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/winter98.html"
+    ),
+    10: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/Spring99.html"
+    ),
+    11: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/summer99.htm"
+    ),
+    12: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/fall99.htm"
+    ),
+    13: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/winter00.htm"
+    ),
+    14: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/spring00.htm"
+    ),
+    15: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/summer00.htm"
+    ),
+    16: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/otono00.htm"
+    ),
+    17: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter01.htm"
+    ),
+    18: (
+        "http://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/spring01.htm"
+    ),
+    51: (
+        "http://sincronia.cucsh.udg.mx/"
+        "summer09.htm"
+    ),
+}
+
+HISTORICAL_ISSUE_FILENAMES = {
+    issue_number: (
+        urllib.parse.urlparse(
+            url
+        ).path.rsplit(
+            "/",
+            1,
+        )[-1]
+    )
+    for issue_number, url
+    in HISTORICAL_ISSUE_URLS.items()
+}
+
+for issue_number, filename in (
+    HISTORICAL_ISSUE_FILENAMES.items()
+):
+    if issue_number in EARLY_ISSUE_FILENAMES:
+        _guessed_filename, publication_year = (
+            EARLY_ISSUE_FILENAMES[
+                issue_number
+            ]
+        )
+        EARLY_ISSUE_FILENAMES[
+            issue_number
+        ] = (
+            filename,
+            publication_year,
+        )
+
+
 EARLY_ISSUE_STEMS = {
     filename.rsplit(
         ".",
@@ -1634,6 +1746,67 @@ def fetch_direct_early_issue(
         if bases is not None
         else EARLY_ISSUE_BASES
     )
+
+    exact_url = (
+        HISTORICAL_ISSUE_URLS.get(
+            issue_number
+        )
+    )
+
+    if exact_url:
+        try:
+            (
+                data,
+                resolved_url,
+                used_wayback,
+            ) = request_legacy_bytes(
+                exact_url,
+                prefer_wayback=True,
+                allow_live_fallback=True,
+                wayback_timestamp=(
+                    f"{fallback_year}1231"
+                ),
+            )
+
+            parser = parse_html(
+                data,
+                resolved_url,
+            )
+
+            links = candidate_article_links(
+                parser,
+                issue_url=resolved_url,
+                exclude_urls={
+                    exact_url,
+                    resolved_url,
+                },
+            )
+
+            if len(links) >= 2:
+                return {
+                    "url":
+                        exact_url,
+                    "resolvedUrl":
+                        resolved_url,
+                    "number":
+                        issue_number,
+                    "year":
+                        fallback_year,
+                    "title":
+                        (
+                            f"Sincronía Núm. "
+                            f"{issue_number}"
+                        ),
+                    "links":
+                        links,
+                    "usedWayback":
+                        used_wayback,
+                    "historicalExactUrl":
+                        True,
+                }
+
+        except Exception:
+            pass
     issue_data = None
     issue_url = None
     used_wayback = False
