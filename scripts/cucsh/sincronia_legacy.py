@@ -1281,13 +1281,15 @@ def build_legacy_record(
     article_link,
     issue,
     prefer_wayback=False,
+    fetch_article_metadata=True,
 ):
     url = article_link["url"]
 
     parser = DocumentParser()
 
     if (
-        is_html_url(
+        fetch_article_metadata
+        and is_html_url(
             url
         )
         and not prefer_wayback
@@ -1741,6 +1743,7 @@ def harvest_direct_early_issues(
     max_issue=21,
     target_issues=None,
     bases=None,
+    enrich_articles=False,
 ):
     target_issues = (
         set(target_issues)
@@ -1831,6 +1834,9 @@ def harvest_direct_early_issues(
                         issue[
                             "usedWayback"
                         ]
+                    ),
+                    fetch_article_metadata=(
+                        enrich_articles
                     ),
                 )
 
