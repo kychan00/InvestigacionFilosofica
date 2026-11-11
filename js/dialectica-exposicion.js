@@ -598,17 +598,24 @@ const presentationExit = document.querySelector("[data-presentation-exit]");
 const presentationPrev = document.querySelector("[data-present-prev]");
 const presentationNext = document.querySelector("[data-present-next]");
 const presentationStatus = document.querySelector("[data-present-status]");
-let presentationIndex = 0;
+let presentationIndex = 0;\nlet presentationNavigationLockUntil = 0;
 
 function syncPresentationStatus() {
   const scene = presentationScenes[presentationIndex];
   if (!scene || !presentationStatus) return;
   presentationStatus.textContent =
     `${String(presentationIndex + 1).padStart(2, "0")} / ${String(presentationScenes.length).padStart(2, "0")} · ${scene.label}`;
+
+  if (page?.classList.contains("is-presenting")) {
+    document.dispatchEvent(new CustomEvent("dialectica:presentation-chapter", {
+      detail: { index: presentationIndex, id: scene.id, label: scene.label }
+    }));
+  }
 }
 
 function goPresentation(index) {
   presentationIndex = Math.min(presentationScenes.length - 1, Math.max(0, index));
+  presentationNavigationLockUntil = performance.now() + 1100;
   syncPresentationStatus();
   document.getElementById(presentationScenes[presentationIndex].id)?.scrollIntoView({
     behavior: reducedMotion.matches ? "auto" : "smooth",
@@ -640,6 +647,15 @@ presentationExit?.addEventListener("click", () => setPresentationMode(false));
 presentationPrev?.addEventListener("click", () => goPresentation(presentationIndex - 1));
 presentationNext?.addEventListener("click", () => goPresentation(presentationIndex + 1));
 
+document.addEventListener("dialectica:presentation-cinematic-chapter", (event) => {
+  const id = event.detail?.id;
+  const index = presentationScenes.findIndex((scene) => scene.id === id);
+  if (index < 0 || index === presentationIndex) return;
+  presentationNavigationLockUntil = performance.now() + 1100;
+  presentationIndex = index;
+  syncPresentationStatus();
+});
+
 document.addEventListener("keydown", (event) => {
   if (page?.classList.contains("is-drawer-open")) {
     if (event.key === "Escape") {
@@ -666,6 +682,7 @@ document.addEventListener("keydown", (event) => {
 const presentationObserver = new IntersectionObserver(
   (entries) => {
     if (!page?.classList.contains("is-presenting")) return;
+    if (performance.now() < presentationNavigationLockUntil) return;
     const visible = entries
       .filter((entry) => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
