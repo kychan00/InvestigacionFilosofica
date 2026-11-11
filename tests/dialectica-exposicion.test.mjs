@@ -31,7 +31,7 @@ test("la página incluye escenas SVG accesibles y controles interactivos", () =>
 test("la fuente académica queda declarada y la conclusión evita reducir dialéctica a una fórmula", () => {
   assert.match(html, /Luis Enrique Ortiz Gutiérrez/);
   assert.match(html, /NO REDUCIR A/);
-  assert.match(html, /posición\\s*→\\s*crítica\\s*→\\s*examen\\s*→\\s*revisión/);
+  assert.match(html, /posición → crítica → examen → revisión/);
 });
 
 test("el diseño contempla tema oscuro, móvil, movimiento reducido e impresión", () => {
