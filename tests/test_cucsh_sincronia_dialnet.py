@@ -54,6 +54,68 @@ class SincroniaDialnetTest(
             ],
         )
 
+    def test_targeted_issue_discovery_filters_known_numbers(
+        self,
+    ):
+        data = b"""
+        <html><body>
+          <a href="/ejemplar/547854">17</a>
+          <a href="/ejemplar/547094">19</a>
+          <a href="/ejemplar/251120">51</a>
+        </body></html>
+        """
+
+        self.assertEqual(
+            dialnet.journal_issue_urls(
+                data,
+                max_issue=51,
+                target_issues={
+                    19,
+                    51,
+                },
+            ),
+            [
+                (
+                    "https://dialnet.unirioja.es/"
+                    "ejemplar/547094"
+                ),
+                (
+                    "https://dialnet.unirioja.es/"
+                    "ejemplar/251120"
+                ),
+            ],
+        )
+
+    def test_known_issue_map_covers_catalogued_legacy_range(
+        self,
+    ):
+        self.assertEqual(
+            dialnet.KNOWN_ISSUE_URLS[17],
+            (
+                "https://dialnet.unirioja.es/"
+                "ejemplar/547854"
+            ),
+        )
+        self.assertNotIn(
+            18,
+            dialnet.KNOWN_ISSUE_URLS,
+        )
+        self.assertEqual(
+            dialnet.KNOWN_ISSUE_URLS[33],
+            (
+                "https://dialnet.unirioja.es/"
+                "ejemplar/119796"
+            ),
+        )
+        self.assertEqual(
+            dialnet.KNOWN_ISSUE_URLS[51],
+            (
+                "https://dialnet.unirioja.es/"
+                "ejemplar/251120"
+            ),
+        )
+
+
     def test_issue_identity(
         self,
     ):
