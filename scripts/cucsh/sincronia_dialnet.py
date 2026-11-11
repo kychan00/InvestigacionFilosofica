@@ -24,14 +24,14 @@ ISSUE_URL_RE = re.compile(
 )
 
 ARTICLE_URL_RE = re.compile(
-    r"/servlet/articulo\?[^#]*"
-    r"(?:^|[?&])?codigo=(\d+)",
+    r"/servlet/articulo\?[^#]*?"
+    r"codigo=(\d+)",
     re.IGNORECASE,
 )
 
 AUTHOR_URL_RE = re.compile(
-    r"/servlet/autor\?[^#]*"
-    r"(?:^|[?&])?codigo=(\d+)",
+    r"/servlet/autor\?[^#]*?"
+    r"codigo=(\d+)",
     re.IGNORECASE,
 )
 
