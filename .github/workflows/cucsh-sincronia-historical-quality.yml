@@ -1,0 +1,43 @@
+name: Sincronía · historical metadata quality audit
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - "scripts/cucsh/audit_sincronia_historical.py"
+      - "tests/test_cucsh_sincronia_historical_audit.py"
+      - ".github/workflows/cucsh-sincronia-historical-quality.yml"
+      - "src/data/cucsh-filosofia.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-historical-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Verify audit rules
+        run: python3 -m unittest tests.test_cucsh_sincronia_historical_audit
+      - name: Produce issue-by-issue evidence and review queue
+        run: |
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-historical-quality.json
+      - name: Upload historical quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-historical-quality-${{ github.run_id }}
+          path: /tmp/sincronia-historical-quality.json
+          retention-days: 30
