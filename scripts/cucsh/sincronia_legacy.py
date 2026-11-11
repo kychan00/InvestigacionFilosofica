@@ -1570,22 +1570,22 @@ def fetch_direct_early_issue(
                 candidate_filename,
             )
 
+            parsed_candidate = (
+                urllib.parse.urlparse(
+                    candidate
+                )
+            )
+
+            live_host = (
+                parsed_candidate.netloc
+                .casefold()
+                == "sincronia.cucsh.udg.mx"
+            )
+
             try:
                 (
                     issue_data,
                     used_wayback,
-                parsed_candidate = (
-                    urllib.parse.urlparse(
-                        candidate
-                    )
-                )
-
-                live_host = (
-                    parsed_candidate.netloc
-                    .casefold()
-                    == "sincronia.cucsh.udg.mx"
-                )
-
                 ) = request_legacy_bytes(
                     candidate,
                     prefer_wayback=(
