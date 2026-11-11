@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: sincronia-discovery-probe
+  group: sincronia-discovery-probe-v2
   cancel-in-progress: false
 
 jobs:
