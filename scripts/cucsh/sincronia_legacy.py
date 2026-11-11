@@ -2021,9 +2021,22 @@ def harvest_archive_index_records(
         ):
             continue
 
-        year = infer_year(
-            parser,
-            url,
+        authoritative_year = None
+
+        if early_issue_number:
+            authoritative_year = (
+                EARLY_ISSUE_FILENAMES.get(
+                    early_issue_number,
+                    (None, None),
+                )[1]
+            )
+
+        year = (
+            authoritative_year
+            or infer_year(
+                parser,
+                url,
+            )
         )
 
         if not year:
