@@ -229,6 +229,46 @@ class SincroniaIssueMetadataTest(
         )
 
 
+    def test_authorship_declarations_are_not_journal_articles(
+        self,
+    ):
+        import xml.etree.ElementTree as ET
+
+        for title, article_id in (
+            ("DECLARACIÓN DE COAUTORÍA", "371"),
+            ("DECLARACIÓN DE AUTORÍA INDIVIDUAL", "372"),
+        ):
+            document = (
+                '<record xmlns="http://www.openarchives.org/OAI/2.0/">'
+                '<header><identifier>oai:sincronia:' + article_id
+                + '</identifier></header><metadata><dc '
+                'xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" '
+                'xmlns:dct="http://purl.org/dc/elements/1.1/">'
+                '<dct:title>' + title + '</dct:title>'
+                '<dct:identifier>'
+                'https://revistasincronia.cucsh.udg.mx/'
+                'index.php/sincronia/article/view/' + article_id
+                + '</dct:identifier></dc></metadata></record>'
+            )
+            record = MODULE.parse_oai_record(
+                ET.fromstring(document),
+                {"id": "sincronia", "journal": "Sincronía"},
+            )
+            self.assertTrue(record["_excluded"])
+            self.assertEqual(
+                record["reason"],
+                "sincronia-non-article-front-matter",
+            )
+            self.assertTrue(
+                record["canonical"].endswith("/" + article_id)
+            )
+
+        self.assertIsNone(
+            MODULE.SINCRONIA_NON_ARTICLE_TITLE_RE.fullmatch(
+                "Reflexiones filosóficas sobre la coautoría"
+            )
+        )
+
     def test_legacy_range_stops_before_modern_ojs_archive(
         self,
     ):

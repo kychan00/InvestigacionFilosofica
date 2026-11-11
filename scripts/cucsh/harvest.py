@@ -199,6 +199,8 @@ SINCRONIA_NON_ARTICLE_TITLE_RE = re.compile(
         r"cintillo\s+legal(?:\s+del.*)?"
         r"|"
         r"n[uú]mero(?:\s+\d+)?\s+completo"
+        r"|"
+        r"declaraci[oó]n\s+de\s+(?:coautor[ií]a|autor[ií]a\s+individual)"
         r")$"
     ),
     re.IGNORECASE,
