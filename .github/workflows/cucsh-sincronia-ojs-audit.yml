@@ -1,0 +1,83 @@
+name: Sincronía OJS 52-90 · live coverage audit
+
+# Opt-in audit: never run this expensive network check for every edit.
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-ojs-audit.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-ojs-live-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Compare OJS issue table-of-contents against complete OAI pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -u - <<'PY' 2>&1 | tee /tmp/sincronia-ojs-audit.log
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          from scripts.cucsh.harvest import SOURCES, harvest_source
+
+          source = next(src for src in SOURCES if src["id"] == "sincronia")
+          modern_source = dict(source, legacyArchives=[])
+          records, deleted, excluded = harvest_source(modern_source)
+
+          issue_counts = Counter(
+              row.get("issueNumber") for row in records
+              if isinstance(row.get("issueNumber"), int)
+          )
+          required = set(range(52, 91))
+          missing = sorted(required - set(issue_counts))
+          report = {
+              "source": "OJS archive and OAI-PMH",
+              "issuesExpected": [52, 90],
+              "issuesFound": sorted(issue_counts),
+              "issuesMissing": missing,
+              "records": len(records),
+              "recordsByIssue": {
+                  str(n): count for n, count in sorted(issue_counts.items())
+              },
+              "deleted": deleted,
+              "excluded": excluded,
+              "commit": "${{ github.sha }}",
+          }
+          Path("/tmp/sincronia-ojs-audit.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2),
+              encoding="utf-8",
+          )
+          print("SINCRONIA_OJS_AUDIT", json.dumps(report, ensure_ascii=False))
+          if missing:
+              raise SystemExit(
+                  "OJS/OAI issue-number coverage incomplete: " + str(missing)
+              )
+          PY
+
+      - name: Upload independent audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-ojs-audit-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-ojs-audit.log
+            /tmp/sincronia-ojs-audit.json
+          if-no-files-found: warn
+          retention-days: 14
