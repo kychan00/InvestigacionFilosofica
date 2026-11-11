@@ -25,8 +25,8 @@
     name="description"
     content="Exposición visual e interactiva sobre la dialéctica como método de investigación: Sócrates y Platón, Aristóteles, Kant, Hegel, Marx y pragmadialéctica."
   >
-  <link rel="stylesheet" href="./css/dialectica-exposicion.css?v=20261111-fase2">\n  <link rel="stylesheet" href="./css/dialectica-presentacion.css?v=20261111-fase3">
-  <script src="./js/dialectica-exposicion.js?v=20261111-fase2" defer></script>\n  <script src="./js/dialectica-presentacion.js?v=20261111-fase3" defer></script>
+  <link rel="stylesheet" href="./css/dialectica-exposicion.css?v=20261111-fase2">\n  <link rel="stylesheet" href="./css/dialectica-presentacion.css?v=20261111-fase3">\n  <link rel="stylesheet" href="./css/dialectica-profundidad.css?v=20261111-fase4">
+  <script src="./js/dialectica-exposicion.js?v=20261111-fase2" defer></script>\n  <script src="./js/dialectica-presentacion.js?v=20261111-fase3" defer></script>\n  <script src="./js/dialectica-profundidad.js?v=20261111-fase4" defer></script>
 </head>
 
 <body>
@@ -623,7 +623,206 @@
       </article>
     </section>
 
-    <section class="dx-manifesto" aria-label="Punto de transición" data-reveal>
+    <section class="dx-depth" id="ramas" data-depth-section data-depth-current="estoicos">
+  <header class="dx-depth-head">
+    <div>
+      <p>02B / RAMAS OPCIONALES</p>
+      <h2>Lo que el recorrido corto <em>deja fuera</em></h2>
+    </div>
+    <div>
+      <p>
+        Esta capa no interrumpe la exposición principal. Ábrala sólo si necesita explicar
+        cómo la dialéctica pasó por la lógica estoica, la disputatio medieval, el rechazo cartesiano
+        y el regreso contemporáneo al lenguaje y la argumentación.
+      </p>
+      <button type="button" class="dx-depth-toggle" data-depth-toggle aria-expanded="true">
+        Mostrar / ocultar profundización <span>−</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="dx-depth-body" data-depth-body>
+    <div class="dx-depth-rail" role="group" aria-label="Ramas históricas opcionales">
+      <button type="button" class="is-active" data-depth-target="estoicos" aria-pressed="true">
+        <span>01</span><strong>Estoicos</strong><small>signos e inferencia</small>
+      </button>
+      <button type="button" data-depth-target="medieval" aria-pressed="false">
+        <span>02</span><strong>Edad Media</strong><small>disputatio</small>
+      </button>
+      <button type="button" data-depth-target="descartes" aria-pressed="false">
+        <span>03</span><strong>Descartes</strong><small>certeza individual</small>
+      </button>
+      <button type="button" data-depth-target="lenguaje" aria-pressed="false">
+        <span>04</span><strong>Giro lingüístico</strong><small>uso y contexto</small>
+      </button>
+      <button type="button" data-depth-target="argumentacion" aria-pressed="false">
+        <span>05</span><strong>Argumentación</strong><small>reglas de controversia</small>
+      </button>
+    </div>
+
+    <div class="dx-depth-stage">
+      <div class="dx-depth-visual">
+        <svg viewBox="0 0 820 590" role="img" aria-label="Mapa visual de ramas históricas de la dialéctica">
+          <path class="dx-depth-map-line" d="M85 74H735"/>
+
+          <g class="dx-depth-map-node is-active" data-depth-map-node="estoicos" tabindex="0" role="button" aria-label="Estoicos">
+            <circle cx="85" cy="74" r="28"/><text x="85" y="78" text-anchor="middle">01</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="medieval" tabindex="0" role="button" aria-label="Edad Media">
+            <circle cx="247" cy="74" r="28"/><text x="247" y="78" text-anchor="middle">02</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="descartes" tabindex="0" role="button" aria-label="Descartes">
+            <circle cx="410" cy="74" r="28"/><text x="410" y="78" text-anchor="middle">03</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="lenguaje" tabindex="0" role="button" aria-label="Giro lingüístico">
+            <circle cx="573" cy="74" r="28"/><text x="573" y="78" text-anchor="middle">04</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="argumentacion" tabindex="0" role="button" aria-label="Argumentación contemporánea">
+            <circle cx="735" cy="74" r="28"/><text x="735" y="78" text-anchor="middle">05</text>
+          </g>
+
+          <g class="dx-depth-scene is-active" data-depth-scene="estoicos" aria-hidden="false">
+            <path class="dx-depth-fill" d="M75 455c72-86 136-92 199-23 64 69 135 56 201-8 68-66 149-50 270 42v86H75Z"/>
+            <circle class="dx-depth-accent-fill" cx="662" cy="192" r="44"/>
+            <g transform="translate(182 205)">
+              <rect class="dx-depth-fill" x="0" y="0" width="185" height="96" rx="18"/>
+              <path class="dx-depth-drawing" d="M22 29h138M22 49h112M22 69h126"/>
+              <path class="dx-depth-accent" d="M185 48h82"/>
+              <path class="dx-depth-accent" d="m255 37 14 11-14 11"/>
+            </g>
+            <g transform="translate(490 218)">
+              <circle class="dx-depth-fill" cx="0" cy="0" r="44"/>
+              <text class="dx-depth-label" x="0" y="5" text-anchor="middle">SIGNO</text>
+              <path class="dx-depth-accent" d="M-34 55-92 118M34 55l92 63M-92 118h184"/>
+              <text class="dx-depth-small" x="-122" y="142">significado</text>
+              <text class="dx-depth-small" x="83" y="142">referencia</text>
+            </g>
+            <text class="dx-depth-label" x="182" y="350">dialéctica → relaciones semánticas e inferenciales</text>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="medieval" aria-hidden="true">
+            <path class="dx-depth-fill" d="M112 474V242c0-91 75-165 167-165h262c92 0 167 74 167 165v232Z"/>
+            <path class="dx-depth-drawing" d="M220 474V253M600 474V253M410 474V174"/>
+            <g transform="translate(238 326)">
+              <rect class="dx-depth-fill" x="-64" y="0" width="128" height="90"/>
+              <circle class="dx-depth-fill" cx="0" cy="-49" r="26"/>
+              <text class="dx-depth-label" x="0" y="50" text-anchor="middle">PRO</text>
+            </g>
+            <g transform="translate(582 326)">
+              <rect class="dx-depth-fill" x="-64" y="0" width="128" height="90"/>
+              <circle class="dx-depth-fill" cx="0" cy="-49" r="26"/>
+              <text class="dx-depth-label" x="0" y="50" text-anchor="middle">CONTRA</text>
+            </g>
+            <g transform="translate(410 236)">
+              <circle class="dx-depth-accent-fill" cx="0" cy="0" r="32"/>
+              <path class="dx-depth-drawing" d="M0 34v72M0 56l-42 31M0 56l42 31"/>
+            </g>
+            <path class="dx-depth-accent" d="M287 300C326 265 350 259 377 260M533 300c-39-35-63-41-90-40"/>
+            <text class="dx-depth-label" x="410" y="455" text-anchor="middle">quaestio → pro / contra → determinatio</text>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="descartes" aria-hidden="true">
+            <path class="dx-depth-fill" d="M88 468h644v84H88Z"/>
+            <path class="dx-depth-drawing" d="M190 390h248v78H190ZM232 390v-58h165v58"/>
+            <g transform="translate(306 252)">
+              <circle class="dx-depth-fill" cx="0" cy="0" r="31"/>
+              <path class="dx-depth-drawing" d="M0 33v90M0 55l-52 39M0 56l53 28M0 123l-34 58M0 123l39 58"/>
+            </g>
+            <g transform="translate(565 250)">
+              <circle class="dx-depth-drawing" cx="0" cy="0" r="84"/>
+              <path class="dx-depth-drawing" d="M-84 0H84M0-84V84M-58-58 58 58M58-58-58 58"/>
+              <path class="dx-depth-accent" d="M-43 36 0-8l38 38"/>
+              <text class="dx-depth-small" x="0" y="112" text-anchor="middle">método / certeza</text>
+            </g>
+            <g transform="translate(126 178)">
+              <path class="dx-depth-drawing" d="M0 0h120v76H0Z"/>
+              <path class="dx-depth-accent" d="M-8-8 128 84M128-8-8 84"/>
+              <text class="dx-depth-small" x="60" y="104" text-anchor="middle">discusión escolar</text>
+            </g>
+            <text class="dx-depth-label" x="306" y="502" text-anchor="middle">el sujeto intenta bastarse a sí mismo</text>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="lenguaje" aria-hidden="true">
+            <g transform="translate(110 168)">
+              <path class="dx-depth-fill" d="M0 0h250a22 22 0 0 1 22 22v82a22 22 0 0 1-22 22H112l-35 32 8-32H0a22 22 0 0 1-22-22V22A22 22 0 0 1 0 0Z"/>
+              <text class="dx-depth-label" x="28" y="50">“p y q”</text>
+              <text class="dx-depth-small" x="28" y="82">misma conjunción formal</text>
+            </g>
+            <g transform="translate(450 278)">
+              <path class="dx-depth-fill" d="M0 0h250a22 22 0 0 1 22 22v82a22 22 0 0 1-22 22H92l8 32-35-32H0a22 22 0 0 1-22-22V22A22 22 0 0 1 0 0Z"/>
+              <text class="dx-depth-label" x="28" y="50">“p pero q”</text>
+              <text class="dx-depth-small" x="28" y="82">otro efecto pragmático</text>
+            </g>
+            <path class="dx-depth-accent" d="M377 210c52 5 80 31 99 69"/>
+            <path class="dx-depth-accent" d="m467 267 10 13-16 3"/>
+            <g transform="translate(204 410)">
+              <rect class="dx-depth-fill" x="0" y="0" width="390" height="90" rx="18"/>
+              <text class="dx-depth-label" x="195" y="38" text-anchor="middle">significado = uso + contexto</text>
+              <text class="dx-depth-small" x="195" y="63" text-anchor="middle">Wittgenstein · Austin/Searle · Grice</text>
+            </g>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="argumentacion" aria-hidden="true">
+            <path class="dx-depth-fill" d="M90 452c118-102 212-117 320-37 101 75 194 70 320-29v166H90Z"/>
+            <g transform="translate(132 192)">
+              <rect class="dx-depth-fill" x="0" y="0" width="160" height="78" rx="14"/>
+              <text class="dx-depth-label" x="80" y="34" text-anchor="middle">RAZONES</text>
+              <text class="dx-depth-small" x="80" y="56" text-anchor="middle">datos / garantía</text>
+            </g>
+            <path class="dx-depth-accent" d="M292 231h154"/>
+            <path class="dx-depth-accent" d="m433 220 14 11-14 11"/>
+            <g transform="translate(447 192)">
+              <rect class="dx-depth-accent-fill" x="0" y="0" width="160" height="78" rx="14"/>
+              <text class="dx-depth-label" x="80" y="34" text-anchor="middle">TESIS</text>
+              <text class="dx-depth-small" x="80" y="56" text-anchor="middle">defendible / refutable</text>
+            </g>
+            <g transform="translate(650 356)">
+              <circle class="dx-depth-fill" cx="0" cy="0" r="24"/><circle class="dx-depth-fill" cx="-56" cy="18" r="20"/><circle class="dx-depth-fill" cx="56" cy="18" r="20"/>
+              <text class="dx-depth-small" x="0" y="72" text-anchor="middle">audiencia / crítico</text>
+            </g>
+            <g transform="translate(138 350)">
+              <rect class="dx-depth-fill" x="0" y="0" width="380" height="105" rx="16"/>
+              <text class="dx-depth-label" x="22" y="31">LÓGICA · ¿se sigue?</text>
+              <text class="dx-depth-label" x="22" y="59">RETÓRICA · ¿cómo logra adhesión?</text>
+              <text class="dx-depth-label" x="22" y="87">DIALÉCTICA · ¿resiste la oposición?</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <aside class="dx-depth-copy" aria-live="polite">
+        <span data-depth-index>01 / 05</span>
+        <small data-depth-period>ANTIGÜEDAD HELENÍSTICA</small>
+        <h3 data-depth-title>Estoicos · del diálogo a la lógica de signos</h3>
+        <p data-depth-thesis>
+          La dialéctica se acerca a lo que hoy llamaríamos lógica: relaciones entre expresiones,
+          significados e inferencias.
+        </p>
+
+        <div class="dx-depth-oral">
+          <span>IDEA ORAL</span>
+          <strong data-depth-oral>
+            Aquí conviene decir: la dialéctica deja de ser sólo una conversación y empieza a funcionar como teoría del lenguaje y del razonamiento.
+          </strong>
+        </div>
+
+        <div class="dx-depth-board">
+          <span>EN EL PIZARRÓN</span>
+          <strong data-depth-board>signo → significado → inferencia</strong>
+        </div>
+
+        <div class="dx-depth-tags" data-depth-tags>
+          <span>dialéctica + retórica</span><span>semántica</span><span>inferencia</span>
+        </div>
+
+        <div class="dx-depth-nav">
+          <button type="button" data-depth-prev>← anterior</button>
+          <button type="button" data-depth-next>siguiente →</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>\n\n    <section class="dx-manifesto" aria-label="Punto de transición" data-reveal>
       <div>
         <span>GIRO CONTEMPORÁNEO</span>
         <p>
@@ -785,7 +984,7 @@
 
     <footer class="dx-footer">
       <a href="./">← Volver a Investigación Filosófica</a>
-      <span>Fase 3 · modo exposición cinematográfico</span>
+      <span>Fase 4 · ramas históricas opcionales</span>
       <button type="button" data-scroll-target="inicio">Volver arriba ↑</button>
     </footer>
 
