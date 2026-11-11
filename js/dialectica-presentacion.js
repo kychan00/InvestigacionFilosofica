@@ -113,7 +113,7 @@
   help.setAttribute('aria-hidden', 'true');
   help.innerHTML = `
     <strong>ATAJOS DEL MODO EXPOSICIÓN</strong>
-    <p>← → capítulo · 1–7 salto directo · N notas · P puntero · H ayuda · Esc salir</p>
+    <p>← → capítulo · 1–7 salto directo · L lentes · N notas · P puntero · H ayuda · Esc salir</p>
   `;
 
   const pointer = document.createElement('div');
