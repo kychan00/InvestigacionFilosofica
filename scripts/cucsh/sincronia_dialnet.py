@@ -24,18 +24,20 @@ ISSUE_URL_RE = re.compile(
 )
 
 ARTICLE_URL_RE = re.compile(
-    r"/servlet/articulo\?codigo=(\d+)$",
+    r"/servlet/articulo\?[^#]*"
+    r"(?:^|[?&])?codigo=(\d+)",
     re.IGNORECASE,
 )
 
 AUTHOR_URL_RE = re.compile(
-    r"/servlet/autor\?codigo=(\d+)",
+    r"/servlet/autor\?[^#]*"
+    r"(?:^|[?&])?codigo=(\d+)",
     re.IGNORECASE,
 )
 
 ISSUE_HEADER_RE = re.compile(
     r"Año\s+(\d{4})\s*,\s*"
-    r"Número\s+(\d+)",
+    r"(?:Número|N[º°o]\.?)\s*(\d+)",
     re.IGNORECASE,
 )
 
@@ -585,15 +587,33 @@ def fetch_issue_payload(
             timeout=12,
         )
 
-    except Exception:
-        return None
+    except Exception as exc:
+        return {
+            "error":
+                (
+                    "fetch:"
+                    + repr(exc)
+                ),
+
+            "url":
+                issue_url,
+        }
 
     issue = issue_identity(
         issue_data
     )
 
     if not issue:
-        return None
+        return {
+            "error":
+                "identity",
+
+            "url":
+                issue_url,
+
+            "bytes":
+                len(issue_data),
+        }
 
     number = issue[
         "number"
@@ -611,7 +631,19 @@ def fetch_issue_payload(
     )
 
     if not articles:
-        return None
+        return {
+            "error":
+                "articles",
+
+            "url":
+                issue_url,
+
+            "issue":
+                issue,
+
+            "bytes":
+                len(issue_data),
+        }
 
     return (
         issue,
@@ -633,6 +665,14 @@ def harvest_dialnet_records(
         )
     )
 
+    print(
+        (
+            "dialnet-journal "
+            f"bytes={len(data)} "
+            f"issues={len(issue_urls)}"
+        )
+    )
+
     if not issue_urls:
         raise RuntimeError(
             (
@@ -642,6 +682,7 @@ def harvest_dialnet_records(
         )
 
     payloads = []
+    failures = []
 
     with ThreadPoolExecutor(
         max_workers=4,
@@ -665,7 +706,17 @@ def harvest_dialnet_records(
             except Exception:
                 payload = None
 
-            if payload:
+            if isinstance(
+                payload,
+                dict,
+            ) and payload.get(
+                "error"
+            ):
+                failures.append(
+                    payload
+                )
+
+            elif payload:
                 payloads.append(
                     payload
                 )
@@ -680,6 +731,25 @@ def harvest_dialnet_records(
             ],
         )
     )
+
+    if failures:
+        print(
+            (
+                "dialnet-failures="
+                f"{len(failures)}"
+            )
+        )
+
+        for failure in failures[:8]:
+            print(
+                (
+                    "  dialnet-failure "
+                    f"url={failure.get('url')} "
+                    f"error={failure.get('error')} "
+                    f"bytes={failure.get('bytes')} "
+                    f"issue={failure.get('issue')}"
+                )
+            )
 
     records = []
     seen_codes = set()
