@@ -221,6 +221,16 @@ class SincroniaLegacyTest(
         )
 
         self.assertIn(
+            "spring1999.htm",
+            variants,
+        )
+
+        self.assertIn(
+            "Spring1999.html",
+            variants,
+        )
+
+        self.assertIn(
             "csh.udg.mx",
             legacy.LEGACY_HOSTS,
         )
