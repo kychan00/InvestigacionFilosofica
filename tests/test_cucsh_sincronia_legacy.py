@@ -118,7 +118,7 @@ class SincroniaLegacyTest(
             ),
         )
 
-    def test_early_issue_filename_map_covers_missing_dialnet_years(
+    def test_early_issue_filename_map_uses_archived_exact_entrypoints(
         self,
     ):
         self.assertEqual(
@@ -126,7 +126,7 @@ class SincroniaLegacyTest(
                 1
             ],
             (
-                "winter97.htm",
+                "winter96.html",
                 1996,
             ),
         )
@@ -136,17 +136,48 @@ class SincroniaLegacyTest(
                 5
             ],
             (
-                "winter98.htm",
+                "winter97.htm",
                 1998,
             ),
         )
 
         self.assertEqual(
             legacy.EARLY_ISSUE_FILENAMES[
+                2
+            ],
+            (
+                "spring.html",
+                1997,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                3
+            ],
+            (
+                "sum97.htm",
+                1997,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                8
+            ],
+            (
+                "dindex.html",
+                1998,
+            ),
+        )
+
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
                 9
             ],
             (
-                "winter99.htm",
+                "winter98.html",
                 1999,
             ),
         )
@@ -158,6 +189,24 @@ class SincroniaLegacyTest(
             (
                 "winter00.htm",
                 2000,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                16
+            ],
+            (
+                "otono00.htm",
+                2000,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.HISTORICAL_ISSUE_URLS[8],
+            (
+                "http://fuentes.csh.udg.mx/"
+                "CUCSH/Sincronia/dante/dindex.html"
             ),
         )
 
