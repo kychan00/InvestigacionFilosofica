@@ -276,6 +276,20 @@ class SincroniaLegacyTest(
         )
 
 
+    def test_direct_issue_variants_stay_bounded(
+        self,
+    ):
+        self.assertEqual(
+            legacy.direct_issue_filename_variants(
+                "winter98.htm"
+            ),
+            [
+                "winter98.htm",
+                "winter98.html",
+            ],
+        )
+
+
     def test_early_issue_stems_keep_authoritative_numbers(
         self,
     ):
