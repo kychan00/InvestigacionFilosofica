@@ -1,0 +1,47 @@
+name: Sincronía · early 3-6-8 original-source audit
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-early-audit.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-early-source-audit
+  cancel-in-progress: true
+
+jobs:
+  inspect-originals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Test targeted comparator before network access
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_early_audit
+      - name: Compare original archived indexes and inspect authorship gaps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -u -m scripts.cucsh.audit_sincronia_early \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-early-audit.json \
+            2>&1 | tee /tmp/sincronia-early-audit.log
+      - name: Upload review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-early-audit-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-early-audit.json
+            /tmp/sincronia-early-audit.log
+          retention-days: 30
+          if-no-files-found: warn
