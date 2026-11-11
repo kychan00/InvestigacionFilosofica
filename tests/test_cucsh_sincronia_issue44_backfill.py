@@ -41,6 +41,27 @@ class SincroniaIssue44BackfillTest(unittest.TestCase):
         self.assertEqual(report2["added"], 0)
         self.assertEqual(after, second)
 
+    def test_preserves_distinct_same_title_in_other_issue_for_review(self):
+        repeated = {
+            "id": "original:issue39:other",
+            "journal": "Sincronía",
+            "issueNumber": 39,
+            "title": issue44_additions()[1]["title"],
+            "year": 2006,
+            "urls": {"canonical": "https://old.example.net/issue39"},
+        }
+        before = {"records": [original(1), original(2), repeated]}
+        after, report = backfill_snapshot(before)
+        self.assertEqual(report["added"], 8)
+        self.assertEqual(report["after"], 10)
+        self.assertEqual(len(report["crossIssueTitleMatches"]), 1)
+        self.assertEqual(
+            report["crossIssueTitleMatches"][0]["alsoPresent"][0]["issue"],
+            39,
+        )
+        self.assertIn(repeated, after["records"])
+
+
     def test_rejects_conflicting_existing_dialnet_id(self):
         prior = issue44_additions()[0].copy()
         prior["issueNumber"] = 43

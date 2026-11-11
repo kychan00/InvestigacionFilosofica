@@ -89,6 +89,31 @@ def backfill_snapshot(snapshot):
         if row.get("journal") == "Sincronía"
     }
 
+    # A repeated title in a different issue is not the same as a
+    # duplicate article ID: reprints and independent appearances exist.
+    # Preserve both records and produce an explicit human-review trail.
+    cross_issue_title_matches = []
+    for row in additions:
+        matches = [
+            {
+                "id": item.get("id"),
+                "issue": item.get("issueNumber"),
+                "sourceId": item.get("sourceId"),
+            }
+            for item in records
+            if item.get("journal") == "Sincronía"
+            and item.get("issueNumber") != ISSUE_NUMBER
+            and normalized_title(item.get("title")) ==
+            normalized_title(row.get("title"))
+        ]
+        if matches:
+            cross_issue_title_matches.append({
+                "dialnetId": row["sourceId"],
+                "title": row["title"],
+                "alsoPresent": matches,
+                "status": "human_review_no_deletion",
+            })
+
     absent = []
     for row in additions:
         identifier = row["id"]
@@ -106,14 +131,8 @@ def backfill_snapshot(snapshot):
             raise ValueError(f"Duplicate canonical URL for {identifier}")
         if (ISSUE_NUMBER, normalized_title(row["title"])) in keys:
             raise ValueError(f"Duplicate issue-44 title: {row['title']}")
-        # Same title in another issue may be a true reprint or a wrong
-        # assignment; require review before adding one automatically.
-        if any(
-            normalized_title(item.get("title")) == normalized_title(row["title"])
-            and item.get("journal") == "Sincronía"
-            for item in records
-        ):
-            raise ValueError(f"Title found in another Sincronía issue: {row['title']}")
+        # Cross-issue title matches are recorded, never overwritten.
+        # Distinct Dialnet IDs and canonical URLs remain mandatory.
         absent.append(row)
 
     if absent and (len(previously_in_issue) != 2 or len(absent) != 8):
@@ -145,6 +164,7 @@ def backfill_snapshot(snapshot):
         "after": len(final_issue),
         "articleIdsAdded": [row["sourceId"] for row in absent],
         "preservedOriginalCount": len(records),
+        "crossIssueTitleMatches": cross_issue_title_matches,
     }
     return output, report
 
