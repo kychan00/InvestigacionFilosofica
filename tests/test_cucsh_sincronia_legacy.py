@@ -288,6 +288,20 @@ class SincroniaLegacyTest(
             [
                 "winter98.htm",
                 "winter98.html",
+                "invierno98.htm",
+                "invierno98.html",
+            ],
+        )
+
+        self.assertEqual(
+            legacy.direct_issue_filename_variants(
+                "fall05.htm"
+            ),
+            [
+                "fall05.htm",
+                "fall05.html",
+                "otono05.htm",
+                "otono05.html",
             ],
         )
 
