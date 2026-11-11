@@ -242,6 +242,36 @@ class SincroniaLegacyTest(
 
         self.assertEqual(
             legacy.EARLY_ISSUE_FILENAMES[
+                26
+            ],
+            (
+                "prim03.htm",
+                2003,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                36
+            ],
+            (
+                "otono05.htm",
+                2005,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                48
+            ],
+            (
+                "fall2008.htm",
+                2008,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
                 51
             ],
             (
