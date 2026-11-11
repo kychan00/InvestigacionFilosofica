@@ -560,6 +560,65 @@ class SincroniaLegacyTest(
         )
 
 
+    def test_exact_archived_issue_entrypoint_is_parsed_directly(
+        self,
+    ):
+        data = b"""
+        <html>
+          <head>
+            <title>Sincronia numero 2</title>
+          </head>
+          <body>
+            <a href="ensayo-a.htm">
+              Primer ensayo historico
+            </a>
+            <a href="ensayo-b.htm">
+              Segundo ensayo historico
+            </a>
+          </body>
+        </html>
+        """
+
+        with patch.object(
+            legacy,
+            "request_legacy_bytes",
+            return_value=(
+                data,
+                True,
+            ),
+        ) as request_page:
+            issue = (
+                legacy.fetch_direct_early_issue(
+                    2,
+                    "spring.html",
+                    1997,
+                    bases=[],
+                )
+            )
+
+        self.assertIsNotNone(
+            issue
+        )
+        self.assertEqual(
+            issue["number"],
+            2,
+        )
+        self.assertTrue(
+            issue["historicalExactUrl"]
+        )
+        self.assertTrue(
+            issue["usedWayback"]
+        )
+        self.assertEqual(
+            len(issue["links"]),
+            2,
+        )
+        self.assertEqual(
+            request_page.call_args.args[0],
+            legacy.HISTORICAL_ISSUE_URLS[2],
+        )
+
+
     def test_toc_record_does_not_require_article_page_fetch(
         self,
     ):
