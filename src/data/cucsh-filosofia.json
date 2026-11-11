@@ -18536,7 +18536,12 @@
       "titleVariants": [
         "Barroco: Present Day His-Story"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Vera Britto",
+          "sourceName": "Vera Britto"
+        }
+      ],
       "date": "1996",
       "year": 1996,
       "type": "journal-article",
@@ -18561,6 +18566,13 @@
         "canonical": "http://sincronia.cucsh.udg.mx/barroco.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "original-article-author-meta",
+        "sourceUrl": "http://sincronia.cucsh.udg.mx/barroco.htm",
+        "auditRunId": 43035275585,
+        "verifiedAuthor": "Vera Britto",
+        "fieldOrContext": "author"
       }
     },
     {
@@ -20285,7 +20297,12 @@
       "titleVariants": [
         "La envidia como cultura: el caso mexicano"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Lilia Granillo Vázquez ,",
+          "sourceName": "Lilia Granillo Vázquez ,"
+        }
+      ],
       "date": "1998",
       "year": 1998,
       "type": "journal-article",
@@ -20310,6 +20327,13 @@
         "canonical": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/granillo.html",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "original-article-adjacent-byline",
+        "sourceUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/granillo.html",
+        "auditRunId": 43035275585,
+        "verifiedAuthor": "Lilia Granillo Vázquez ,",
+        "fieldOrContext": "Universidad Autónoma Metropolitana-Azcapotzalco"
       }
     },
     {
@@ -37128,9 +37152,9 @@
       "sourceId": "legacy:9ccedebb1160dbd4eaeb",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "S�tira menipea y teor�a carnavalesca en la obra de Juan Rulfo",
+      "title": "Sátira menipea y teoría carnavalesca en la obra de Juan Rulfo",
       "titleVariants": [
-        "S�tira menipea y teor�a carnavalesca en la obra de Juan Rulfo"
+        "Sátira menipea y teoría carnavalesca en la obra de Juan Rulfo"
       ],
       "authors": [],
       "date": "2008",
@@ -37157,6 +37181,13 @@
         "canonical": "http://sincronia.cucsh.udg.mx/yoonfall08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyTitleEncodingEvidence": {
+        "kind": "original-article-title",
+        "sourceUrl": "http://sincronia.cucsh.udg.mx/yoonfall08.htm",
+        "auditRunId": 43035275585,
+        "previousTitle": "S�tira menipea y teor�a carnavalesca en la obra de Juan Rulfo",
+        "score": 0.9672
       }
     },
     {
