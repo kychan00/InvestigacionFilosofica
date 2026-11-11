@@ -208,18 +208,12 @@ def verified_issue_payload(issue_number):
                 ),
             "title":
                 row["title"],
-            "authors": [
-                {
-                    "name":
-                        author,
-                    "url":
-                        None,
-                }
-                for author in row.get(
+            "authors": list(
+                row.get(
                     "authors",
                     []
                 )
-            ],
+            ),
         })
 
     return (
