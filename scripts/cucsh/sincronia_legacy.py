@@ -1662,7 +1662,14 @@ def fetch_direct_early_issue(
 
 def harvest_direct_early_issues(
     max_issue=21,
+    target_issues=None,
 ):
+    target_issues = (
+        set(target_issues)
+        if target_issues is not None
+        else None
+    )
+
     work = [
         (
             issue_number,
@@ -1676,7 +1683,13 @@ def harvest_direct_early_issues(
             EARLY_ISSUE_FILENAMES
             .items()
         )
-        if issue_number <= max_issue
+        if (
+            issue_number <= max_issue
+            and (
+                target_issues is None
+                or issue_number in target_issues
+            )
+        )
     ]
 
     issues = []
@@ -2269,6 +2282,60 @@ def harvest_legacy_records(
             f"missing={missing_issues}"
         )
     )
+
+    # Dialnet can rate-limit or reset historical issue requests even
+    # when the original seasonal Sincronía page still exists in the
+    # live host or Wayback. Retry only the unresolved issue numbers
+    # against the authoritative seasonal filename map. This keeps the
+    # fallback bounded instead of probing every legacy issue on every
+    # harvest.
+    direct_recovery_targets = {
+        issue_number
+        for issue_number in missing_issues
+        if issue_number <= min(
+            max_issue,
+            max(EARLY_ISSUE_FILENAMES),
+        )
+    }
+
+    if direct_recovery_targets:
+        (
+            targeted_direct_records,
+            targeted_direct_issues,
+        ) = harvest_direct_early_issues(
+            max_issue=min(
+                max_issue,
+                max(EARLY_ISSUE_FILENAMES),
+            ),
+            target_issues=direct_recovery_targets,
+        )
+
+        combined = merge_historical_records(
+            combined,
+            targeted_direct_records,
+        )
+
+        covered_issues = (
+            record_issue_numbers(
+                combined
+            )
+        )
+
+        missing_issues = sorted(
+            expected_issues
+            - covered_issues
+        )
+
+        print(
+            (
+                "legacy-targeted-direct "
+                f"attempted={sorted(direct_recovery_targets)} "
+                f"recovered={targeted_direct_issues} "
+                f"issues={sorted(covered_issues)} "
+                f"records={len(combined)} "
+                f"missing={missing_issues}"
+            )
+        )
 
     if missing_issues:
         try:
