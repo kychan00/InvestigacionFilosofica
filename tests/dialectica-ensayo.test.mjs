@@ -48,3 +48,18 @@ test('dialectica.html carga los recursos versionados de fase 6', () => {
   assert.match(html, /dialectica-ensayo\.css\?v=20261111-fase6/);
   assert.match(html, /dialectica-ensayo\.js\?v=20261111-fase6/);
 });
+
+
+test('QA final conserva overlays separados y activación nativa', () => {
+  assert.match(css, /bottom: 88px/);
+  assert.match(css, /dxr-rehearsal-on \.dxp-presenter-note/);
+  assert.match(js, /target instanceof HTMLButtonElement/);
+  assert.match(js, /target instanceof HTMLAnchorElement/);
+});
+
+test('QA final deja la profundización cerrada y distingue paráfrasis', () => {
+  assert.match(html, /data-depth-toggle aria-expanded="false"/);
+  assert.match(html, /dx-depth-body is-collapsed/);
+  assert.match(html, /SÍNTESIS PARA EXPONER · NO CITA TEXTUAL/);
+  assert.match(html, /SÍNTESIS DE CIERRE · NO CITA TEXTUAL/);
+});
