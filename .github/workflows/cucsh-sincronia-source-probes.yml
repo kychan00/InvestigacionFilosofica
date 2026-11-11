@@ -84,7 +84,7 @@ jobs:
           from collections import Counter
           from scripts.cucsh.sincronia_dialnet import harvest_dialnet_records
 
-          targets={17,*range(19,34),*range(46,52)}
+          targets={17,*range(19,52)}
           records,issues=harvest_dialnet_records(
               max_issue=51,
               target_issues=targets,
