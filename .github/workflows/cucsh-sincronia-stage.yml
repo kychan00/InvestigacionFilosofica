@@ -1,0 +1,103 @@
+name: Sincronía · stage validated candidate on feature branch
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-stage.txt"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: sincronia-stage-candidate
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Download already validated candidate from run 42972531480
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "${{ github.ref_name }}" = "feature/cucsh-sincronia"
+          mkdir -p /tmp/sincronia-candidate
+          gh run download 42972531480 \
+            --repo "${{ github.repository }}" \
+            --name sincronia-candidate-42972531480 \
+            --dir /tmp/sincronia-candidate
+          test -s /tmp/sincronia-candidate/cucsh-sincronia-candidate.json
+
+      - name: Validate original candidate again before staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before src/data/cucsh-filosofia.json \
+            --after /tmp/sincronia-candidate/cucsh-sincronia-candidate.json
+          cp /tmp/sincronia-candidate/cucsh-sincronia-candidate.json \
+            src/data/cucsh-filosofia.json
+          python3 -m json.tool src/data/cucsh-filosofia.json >/dev/null
+
+      - name: Run application tests with new 1-90 journal corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm test
+          node --input-type=module - <<'JS'
+          import assert from "node:assert/strict";
+          import { readFileSync } from "node:fs";
+          import { searchCucshRecords } from "./src/sources/cucsh-filosofia.js";
+
+          const dataset=JSON.parse(readFileSync("src/data/cucsh-filosofia.json","utf8"));
+          const sincronia=dataset.records.filter(row=>row.journal==="Sincronía");
+          assert.equal(sincronia.length,1444);
+          assert.equal(dataset.records.length,1835);
+          assert.equal(new Set(sincronia.map(row=>row.issueNumber)).size,90);
+          const cases=[
+            "Filosofía de la Enseñanza",
+            "Técnica y política en Oppenheimer"
+          ];
+          for(const query of cases){
+            const results=searchCucshRecords(dataset.records,query,{rows:40});
+            assert.ok(results.some(row=>row.journal==="Sincronía"),"Sincronía not searchable for: "+query);
+            console.log("SINCRONIA_SEARCH_OK",query,results.length);
+          }
+          JS
+
+      - name: Commit candidate only to feature/cucsh-sincronia
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          test "$(git diff --cached --name-only)" = "src/data/cucsh-filosofia.json"
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to stage"
+            exit 0
+          fi
+          git commit -m "Stage Sincronía 1-90 corpus candidate on feature branch"
+          git push origin HEAD:feature/cucsh-sincronia
