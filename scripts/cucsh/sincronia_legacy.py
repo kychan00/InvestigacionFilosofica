@@ -265,10 +265,66 @@ def direct_issue_filename_variants(
         1,
     )[0]
 
-    return [
-        f"{stem}.htm",
-        f"{stem}.html",
+    stems = [
+        stem,
     ]
+
+    seasonal_match = re.fullmatch(
+        (
+            r"(winter|spring|summer|fall)"
+            r"(\d{2})"
+        ),
+        stem,
+        re.IGNORECASE,
+    )
+
+    if seasonal_match:
+        season = (
+            seasonal_match
+            .group(1)
+            .casefold()
+        )
+        short_year = (
+            seasonal_match
+            .group(2)
+        )
+
+        spanish_season = {
+            "winter":
+                "invierno",
+            "spring":
+                "primavera",
+            "summer":
+                "verano",
+            "fall":
+                "otono",
+        }[season]
+
+        stems.append(
+            (
+                spanish_season
+                + short_year
+            )
+        )
+
+    output = []
+
+    for candidate_stem in stems:
+        for extension in (
+            "htm",
+            "html",
+        ):
+            candidate = (
+                f"{candidate_stem}."
+                f"{extension}"
+            )
+
+            if candidate not in output:
+                output.append(
+                    candidate
+                )
+
+    return output
 
 
 NAVIGATION_NAMES = {
