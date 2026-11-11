@@ -2342,65 +2342,10 @@ def harvest_legacy_records(
         )
     )
 
-    # Phase 2: Redalyc preserves a compact, stable 2005-2007 block
-    # (issues 34-45). Use it before Dialnet so those issues do not
-    # consume Dialnet requests at all.
-    redalyc_targets = (
-        expected_issues
-        & REDALYC_SUPPORTED_ISSUES
-    )
-
-    if redalyc_targets:
-        try:
-            (
-                redalyc_records,
-                redalyc_issues,
-            ) = harvest_redalyc_records(
-                redalyc_targets
-            )
-
-        except Exception as exc:
-            print(
-                (
-                    "WARNING: Redalyc historical "
-                    f"fallback failed: {exc!r}"
-                )
-            )
-
-            redalyc_records = []
-            redalyc_issues = []
-
-        combined = merge_historical_records(
-            combined,
-            redalyc_records,
-        )
-
-        covered_issues = (
-            record_issue_numbers(
-                combined
-            )
-        )
-
-        missing_issues = sorted(
-            expected_issues
-            - covered_issues
-        )
-
-        print(
-            (
-                "legacy-after-redalyc "
-                f"attempted={sorted(redalyc_targets)} "
-                f"recovered={redalyc_issues} "
-                f"issues={sorted(covered_issues)} "
-                f"records={len(combined)} "
-                f"missing={missing_issues}"
-            )
-        )
-
-    # Phase 3: ask Dialnet only for unresolved issues that Dialnet
-    # actually catalogs. Exact exemplar IDs are pinned in
-    # sincronia_dialnet.py, avoiding a journal-index crawl and
-    # dramatically reducing 503/rate-limit pressure.
+    # Phase 2: Dialnet has stable exemplar identifiers for every
+    # catalogued historical issue (17 and 19-51). Ask only for the
+    # unresolved issue numbers. This avoids the previous broad crawl
+    # that caused 503s and connection resets.
     dialnet_targets = set(
         missing_issues
     )
@@ -2455,9 +2400,65 @@ def harvest_legacy_records(
             )
         )
 
-    # Phase 4: if a targeted Dialnet request still failed, retry only
-    # those unresolved issue numbers against the original seasonal
-    # filename map (including English and Spanish season aliases).
+    # Phase 3: Redalyc preserves issues 34-45 and is valuable as a
+    # second independent source, but its article pages are slower to
+    # probe. Use it only for unresolved issues in that preserved block.
+    redalyc_targets = (
+        set(missing_issues)
+        & REDALYC_SUPPORTED_ISSUES
+    )
+
+    if redalyc_targets:
+        try:
+            (
+                redalyc_records,
+                redalyc_issues,
+            ) = harvest_redalyc_records(
+                redalyc_targets
+            )
+
+        except Exception as exc:
+            print(
+                (
+                    "WARNING: Redalyc historical "
+                    f"fallback failed: {exc!r}"
+                )
+            )
+
+            redalyc_records = []
+            redalyc_issues = []
+
+        combined = merge_historical_records(
+            combined,
+            redalyc_records,
+        )
+
+        covered_issues = (
+            record_issue_numbers(
+                combined
+            )
+        )
+
+        missing_issues = sorted(
+            expected_issues
+            - covered_issues
+        )
+
+        print(
+            (
+                "legacy-after-redalyc "
+                f"attempted={sorted(redalyc_targets)} "
+                f"recovered={redalyc_issues} "
+                f"issues={sorted(covered_issues)} "
+                f"records={len(combined)} "
+                f"missing={missing_issues}"
+            )
+        )
+
+    # Phase 4: retry only unresolved issue numbers against the
+    # original seasonal filename map, including English and Spanish
+    # season aliases. This also gives issue 51 a second route when
+    # Dialnet transiently returns 503.
     direct_recovery_targets = {
         issue_number
         for issue_number in missing_issues
