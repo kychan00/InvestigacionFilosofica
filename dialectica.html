@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1c2d22">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred =
+        saved === "light" || saved === "dark"
+          ? saved
+          : matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Dialéctica · Exposición visual | Investigación Filosófica</title>
+  <meta
+    name="description"
+    content="Exposición visual e interactiva sobre la dialéctica como método de investigación: Sócrates y Platón, Aristóteles, Kant, Hegel, Marx y pragmadialéctica."
+  >
+  <link rel="stylesheet" href="./css/dialectica-exposicion.css?v=20261111-fase2">
+  <link rel="stylesheet" href="./css/dialectica-presentacion.css?v=20261111-fase3">
+  <link rel="stylesheet" href="./css/dialectica-profundidad.css?v=20261111-fase4">
+  <link rel="stylesheet" href="./css/dialectica-lentes.css?v=20261111-fase5">
+  <link rel="stylesheet" href="./css/dialectica-ensayo.css?v=20261111-fase6">
+  <script src="./js/dialectica-exposicion.js?v=20261111-fase2" defer></script>
+  <script src="./js/dialectica-presentacion.js?v=20261111-fase3" defer></script>
+  <script src="./js/dialectica-profundidad.js?v=20261111-fase4" defer></script>
+  <script src="./js/dialectica-lentes.js?v=20261111-fase5" defer></script>
+  <script src="./js/dialectica-ensayo.js?v=20261111-fase6" defer></script>
+</head>
+
+<body>
+  <main class="dx-page" id="inicio">
+    <div class="dx-grain" aria-hidden="true"></div>
+
+    <header class="dx-nav-shell">
+      <nav class="dx-nav" aria-label="Navegación de la exposición">
+        <a class="dx-brand" href="./">
+          <span class="dx-brand-mark">Φ</span>
+          <span class="dx-brand-copy">
+            <strong>Investigación Filosófica</strong>
+            <small>Exposición visual · Dialéctica</small>
+          </span>
+        </a>
+
+        <div class="dx-nav-links" aria-label="Secciones">
+          <button type="button" data-scroll-target="nucleo">Núcleo</button>
+          <button type="button" data-scroll-target="recorrido">Recorrido</button>
+          <button type="button" data-scroll-target="actualidad">Actualidad</button>
+          <button type="button" data-scroll-target="cierre">Cierre</button>
+        </div>
+
+        <div class="dx-nav-actions">
+          <button
+            type="button"
+            class="dx-theme-button dx-nav-lenses-toggle"
+            data-lenses-toggle
+            aria-expanded="false"
+            aria-pressed="false"
+            title="Abrir lentes transversales"
+          >
+            <span class="dx-theme-label" data-lenses-toggle-label>Lentes</span>
+            <span class="dx-lenses-shortcut" aria-hidden="true">L</span>
+          </button>
+          <button
+            type="button"
+            class="dx-theme-button"
+            data-theme-toggle
+            aria-label="Cambiar apariencia"
+            title="Cambiar apariencia"
+          >
+            <span aria-hidden="true">◐</span>
+            <span class="dx-theme-label">Tema</span>
+          </button>
+          <button
+            type="button"
+            class="dx-present-button"
+            data-presentation-toggle
+            aria-pressed="false"
+          >
+            Exponer <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <section class="dx-hero" aria-labelledby="dx-title">
+      <div class="dx-hero-copy">
+        <p class="dx-kicker">MÉTODO · OPOSICIÓN · EXAMEN · REVISIÓN</p>
+        <h1 id="dx-title">
+          <span>La</span>
+          <strong>Dialéctica</strong>
+        </h1>
+        <p class="dx-hero-deck">
+          No es una fórmula fija. Es una historia de distintas maneras de
+          <em>investigar mediante la oposición.</em>
+        </p>
+
+        <div class="dx-hero-actions">
+          <button type="button" class="dx-button dx-button-primary" data-scroll-target="nucleo">
+            Empezar exposición <span aria-hidden="true">→</span>
+          </button>
+          <button type="button" class="dx-button dx-button-paper" data-scroll-target="recorrido">
+            Ver recorrido histórico <span aria-hidden="true">↓</span>
+          </button>
+        </div>
+
+        <div class="dx-hero-index" aria-label="Cinco momentos principales">
+          <span>01</span><i></i><span>05</span>
+          <b>preguntar · discutir · limitar · transformar · resolver</b>
+        </div>
+      </div>
+
+      <figure class="dx-hero-stage" aria-label="Dos interlocutores confrontan una idea y la convierten en investigación">
+        <svg viewBox="0 0 820 660" role="img" aria-labelledby="dx-hero-svg-title dx-hero-svg-desc">
+          <title id="dx-hero-svg-title">Escena de diálogo dialéctico</title>
+          <desc id="dx-hero-svg-desc">Dos figuras dialogan frente a montañas. Sus ideas opuestas convergen en un camino de examen y revisión.</desc>
+          <defs>
+            <linearGradient id="dxSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="var(--dx-sky-a)"/>
+              <stop offset="1" stop-color="var(--dx-sky-b)"/>
+            </linearGradient>
+            <marker id="dxArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+            </marker>
+          </defs>
+
+          <rect class="dx-svg-sky" x="0" y="0" width="820" height="660" rx="38" fill="url(#dxSky)"/>
+          <circle class="dx-svg-sun" cx="645" cy="120" r="72"/>
+          <path class="dx-svg-cloud" d="M78 145c24-40 82-37 99 2 26-17 65 0 66 33H56c0-22 9-31 22-35Z"/>
+          <path class="dx-svg-mountain dx-svg-mountain-back" d="M0 415 115 290l82 89 110-163 95 140 89-90 148 149 72-67 109 91v221H0Z"/>
+          <path class="dx-svg-mountain dx-svg-mountain-front" d="M0 485 142 356l91 83 83-98 120 126 86-75 104 103 83-62 111 83v144H0Z"/>
+          <path class="dx-svg-road" d="M383 660c-24-98 15-169 58-224 26-34 25-70 17-102" />
+
+          <g class="dx-person dx-person-left" transform="translate(168 330)">
+            <circle cx="0" cy="0" r="35"/>
+            <path d="M0 38v118M0 77l-52 46M0 78l52 38M0 156l-44 82M0 156l49 82"/>
+            <path class="dx-person-cloak" d="M-36 44Q0 22 38 45l28 122H-63Z"/>
+          </g>
+
+          <g class="dx-person dx-person-right" transform="translate(625 343)">
+            <circle cx="0" cy="0" r="35"/>
+            <path d="M0 38v118M0 77l-50 39M0 78l54 49M0 156l-46 82M0 156l50 82"/>
+            <path class="dx-person-cloak" d="M-38 44Q0 20 39 45l26 122H-65Z"/>
+          </g>
+
+          <g class="dx-bubble dx-bubble-left" tabindex="0" role="button" data-hero-bubble="position">
+            <path d="M78 215h222c18 0 32 14 32 32v76c0 18-14 32-32 32H181l-37 38 8-38H78c-18 0-32-14-32-32v-76c0-18 14-32 32-32Z"/>
+            <text x="89" y="258">“Yo sostengo…”</text>
+            <text x="89" y="291" class="dx-svg-small">posición</text>
+          </g>
+
+          <g class="dx-bubble dx-bubble-right" tabindex="0" role="button" data-hero-bubble="opposition">
+            <path d="M522 205h220c18 0 32 14 32 32v76c0 18-14 32-32 32h-72l8 39-39-39H522c-18 0-32-14-32-32v-76c0-18 14-32 32-32Z"/>
+            <text x="550" y="250">“¿Y si no?”</text>
+            <text x="550" y="283" class="dx-svg-small">oposición</text>
+          </g>
+
+          <g class="dx-hero-process">
+            <path d="M312 392C360 356 392 356 433 384" marker-end="url(#dxArrow)"/>
+            <path d="M526 392C488 356 464 355 433 384" marker-end="url(#dxArrow)"/>
+            <circle cx="432" cy="405" r="54"/>
+            <text x="432" y="400" text-anchor="middle">EXAMEN</text>
+            <text x="432" y="422" text-anchor="middle" class="dx-svg-small">crítico</text>
+            <path d="M432 460v68" marker-end="url(#dxArrow)"/>
+            <rect x="351" y="535" width="162" height="54" rx="27"/>
+            <text x="432" y="569" text-anchor="middle">REVISIÓN</text>
+          </g>
+        </svg>
+
+        <figcaption>
+          <span>IDEA CENTRAL</span>
+          La oposición deja de ser un obstáculo y se vuelve una herramienta para investigar.
+        </figcaption>
+      </figure>
+
+      <div class="dx-torn-edge" aria-hidden="true"></div>
+    </section>
+
+    <section class="dx-thesis-strip" aria-label="Tesis de la exposición">
+      <p>
+        <span>NO REDUCIR A</span>
+        “tesis → antítesis → síntesis”
+      </p>
+      <strong aria-hidden="true">≠</strong>
+      <p>
+        <span>ENTENDER COMO</span>
+        “posición → crítica → examen → revisión”
+      </p>
+    </section>
+
+    <section class="dx-section dx-core" id="nucleo" data-scene="nucleo">
+      <header class="dx-section-heading" data-reveal>
+        <div>
+          <p>01 / EL NÚCLEO</p>
+          <h2>¿Qué hace <em>dialéctico</em> a un método?</h2>
+        </div>
+        <p>
+          Antes del recorrido histórico, conviene fijar una estructura mínima:
+          aparece una posición, encuentra resistencia y debe justificarse.
+        </p>
+      </header>
+
+      <div class="dx-core-grid">
+        <article class="dx-core-card dx-paper-card" data-reveal>
+          <span class="dx-card-number">A</span>
+          <div class="dx-icon-stage" aria-hidden="true">
+            <svg viewBox="0 0 240 170">
+              <circle cx="62" cy="58" r="23"/>
+              <path d="M62 82v55M62 100l-31 25M62 100l31 25M62 137l-27 30M62 137l27 30"/>
+              <circle cx="178" cy="58" r="23"/>
+              <path d="M178 82v55M178 100l-31 25M178 100l31 25M178 137l-27 30M178 137l27 30"/>
+              <path class="dx-svg-accent" d="M93 75h50" />
+              <path class="dx-svg-accent" d="m133 67 10 8-10 8" />
+            </svg>
+          </div>
+          <p class="dx-label">MÉTODO DIALÉCTICO</p>
+          <h3>La oposición ocurre entre posiciones.</h3>
+          <p>
+            Preguntas, objeciones y contraargumentos ponen a prueba lo que afirmamos.
+          </p>
+        </article>
+
+        <article class="dx-core-card dx-ink-card" data-reveal>
+          <span class="dx-card-number">B</span>
+          <div class="dx-icon-stage" aria-hidden="true">
+            <svg viewBox="0 0 240 170">
+              <path d="M12 126 72 72l44 35 41-58 71 77v40H12Z"/>
+              <circle class="dx-svg-sun-small" cx="184" cy="43" r="21"/>
+              <path class="dx-svg-accent" d="M51 130c40-42 78-31 104-4 18 19 35 19 59 3"/>
+              <path class="dx-svg-accent" d="m202 121 12 8-12 9"/>
+            </svg>
+          </div>
+          <p class="dx-label">PROCESO DIALÉCTICO</p>
+          <h3>La oposición se atribuye a la realidad.</h3>
+          <p>
+            En Hegel y Marx la tensión deja de ser solamente discursiva y pasa a explicar transformación histórica o real.
+          </p>
+        </article>
+      </div>
+
+      <blockquote class="dx-pullquote" data-reveal>
+        <small>SÍNTESIS PARA EXPONER · NO CITA TEXTUAL</small>
+        <p>
+          La pregunta central no es solamente <em>qué postura es correcta</em>,
+          sino <strong>qué le ocurre a una postura cuando otra la obliga a justificarse.</strong>
+        </p>
+      </blockquote>
+
+      <section class="dx-engine" aria-labelledby="dx-engine-title" data-reveal>
+        <header>
+          <div>
+            <p>EL MOTOR DIALÉCTICO</p>
+            <h3 id="dx-engine-title">Toque cada momento para explicarlo</h3>
+          </div>
+          <span class="dx-engine-hint">clic / teclado</span>
+        </header>
+
+        <div class="dx-engine-layout">
+          <div class="dx-engine-map" data-engine-map="position">
+            <svg viewBox="0 0 940 420" role="img" aria-label="Diagrama interactivo del motor dialéctico">
+              <defs>
+                <marker id="dxEngineArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                  <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <path class="dx-engine-path" d="M220 205H345" marker-end="url(#dxEngineArrow)"/>
+              <path class="dx-engine-path" d="M570 205H695" marker-end="url(#dxEngineArrow)"/>
+              <path class="dx-engine-loop" d="M785 288C706 382 240 380 150 286" marker-end="url(#dxEngineArrow)"/>
+
+              <g class="dx-engine-node is-active" data-engine-node="position" tabindex="0" role="button">
+                <circle cx="135" cy="205" r="88"/>
+                <text x="135" y="192" text-anchor="middle">01</text>
+                <text x="135" y="221" text-anchor="middle">POSICIÓN</text>
+              </g>
+              <g class="dx-engine-node" data-engine-node="opposition" tabindex="0" role="button">
+                <rect x="355" y="117" width="205" height="176" rx="38"/>
+                <text x="457" y="192" text-anchor="middle">02</text>
+                <text x="457" y="221" text-anchor="middle">OPOSICIÓN</text>
+              </g>
+              <g class="dx-engine-node" data-engine-node="examination" tabindex="0" role="button">
+                <path d="M722 117h148l47 88-47 88H722l-47-88Z"/>
+                <text x="796" y="192" text-anchor="middle">03</text>
+                <text x="796" y="221" text-anchor="middle">EXAMEN</text>
+              </g>
+              <g class="dx-engine-revision" data-engine-node="revision" tabindex="0" role="button">
+                <rect x="350" y="330" width="220" height="62" rx="31"/>
+                <text x="460" y="369" text-anchor="middle">04 / REVISIÓN</text>
+              </g>
+            </svg>
+          </div>
+
+          <aside class="dx-engine-panel" aria-live="polite">
+            <span data-engine-index>01 / 04</span>
+            <h4 data-engine-title>Posición</h4>
+            <p data-engine-copy>
+              Alguien afirma algo: propone una definición, una hipótesis o una tesis. La investigación necesita algo suficientemente claro como para poder ser cuestionado.
+            </p>
+            <strong data-engine-question>Pregunta para decir en voz alta: “¿Qué estoy sosteniendo exactamente?”</strong>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+    <section class="dx-lenses-entry" id="lentes" data-lenses-section>
+  <div class="dx-lenses-entry-card">
+    <div>
+      <span>CAPA TRANSVERSAL / OPCIONAL</span>
+      <h2>Dos problemas atraviesan toda la historia.</h2>
+      <p>
+        Abra esta capa cuando quiera explicar por qué las distintas formas de dialéctica
+        cambian de vocabulario y de método sin perder del todo el problema de la oposición.
+      </p>
+    </div>
+    <button type="button" class="dx-lenses-toggle" data-lenses-toggle aria-expanded="false" aria-pressed="false">
+      <span data-lenses-toggle-label>Lentes</span>
+      <span class="dx-lenses-shortcut">L</span>
+    </button>
+  </div>
+
+  <div class="dx-lenses-layer" data-lenses-layer aria-hidden="true">
+    <header class="dx-lenses-heading">
+      <div>
+        <span>LOS DOS PROBLEMAS FUNDAMENTALES</span>
+        <h2>¿Qué significa? ¿Y por qué se sigue?</h2>
+      </div>
+      <p>
+        El artículo organiza buena parte de la historia de la dialéctica alrededor de dos problemas persistentes:
+        el semántico y el inferencial.
+      </p>
+    </header>
+
+    <div class="dx-lens-layout">
+      <div class="dx-lens-cards">
+        <button type="button" class="dx-lens-card" data-lens="semantic" aria-pressed="true">
+          <svg viewBox="0 0 250 150" aria-hidden="true">
+            <path d="M30 30h80v50H30zM140 30h80v50h-80zM70 80v35M180 80v35M70 115h110"/>
+            <path class="dx-lens-accent" d="M109 55h30m-9-9 9 9-9 9"/>
+          </svg>
+          <div>
+            <span>01 / SEMÁNTICO</span>
+            <strong>¿Qué estamos diciendo?</strong>
+            <small>Conceptos, definiciones, lenguaje y realidad.</small>
+          </div>
+        </button>
+
+        <button type="button" class="dx-lens-card" data-lens="inferential" aria-pressed="false">
+          <svg viewBox="0 0 250 150" aria-hidden="true">
+            <circle cx="45" cy="75" r="24"/>
+            <circle cx="125" cy="75" r="24"/>
+            <circle cx="205" cy="75" r="24"/>
+            <path d="M69 75h31m49 0h31"/>
+            <path class="dx-lens-accent" d="m91 66 10 9-10 9m80-18 10 9-10 9"/>
+          </svg>
+          <div>
+            <span>02 / INFERENCIAL</span>
+            <strong>¿Por qué se sigue?</strong>
+            <small>Necesidad, plausibilidad, contexto y reglas.</small>
+          </div>
+        </button>
+      </div>
+
+      <aside class="dx-lens-panel" aria-live="polite">
+        <span data-lens-index>01 / 02</span>
+        <h3 data-lens-title>Problema semántico</h3>
+        <p data-lens-copy></p>
+        <strong data-lens-question></strong>
+      </aside>
+    </div>
+
+    <section class="dx-insight-wall" aria-labelledby="dx-insight-title">
+      <header>
+        <h3 id="dx-insight-title">Síntesis para exponer</h3>
+        <p>
+          Estas tarjetas son paráfrasis pedagógicas del recorrido del artículo.
+          <strong>No son citas textuales.</strong>
+        </p>
+      </header>
+
+      <div class="dx-insight-grid">
+        <button class="dx-insight-card" type="button" data-insight="epistemology" aria-pressed="true">
+          <span>PARÁFRASIS · NO CITA TEXTUAL</span>
+          <blockquote>“La dialéctica cambia cuando cambia nuestra idea de conocimiento.”</blockquote>
+        </button>
+
+        <button class="dx-insight-card" type="button" data-insight="science" aria-pressed="false">
+          <span>PARÁFRASIS · NO CITA TEXTUAL</span>
+          <blockquote>“Criticar una hipótesis también puede ser investigar.”</blockquote>
+        </button>
+
+        <button class="dx-insight-card" type="button" data-insight="levels" aria-pressed="false">
+          <span>SÍNTESIS OPERATIVA</span>
+          <blockquote>“Significado, inferencia, persuasión y controversia no son la misma pregunta.”</blockquote>
+        </button>
+      </div>
+
+      <div class="dx-insight-panel" aria-live="polite">
+        <span>AMPLIACIÓN</span>
+        <h4 data-insight-title>Dialéctica y epistemología</h4>
+        <p data-insight-copy></p>
+      </div>
+    </section>
+  </div>
+</section>
+
+    <section class="dx-section dx-history" id="recorrido" data-scene="recorrido">
+      <header class="dx-section-heading" data-reveal>
+        <div>
+          <p>02 / RECORRIDO</p>
+          <h2>La dialéctica <em>cambia de oficio</em> a través de la historia</h2>
+        </div>
+        <p>
+          Use la línea del tiempo como índice de la exposición. Cada estación cambia la pregunta:
+          ¿cómo investigamos?, ¿qué podemos demostrar?, ¿dónde están los límites?, ¿qué transforma la realidad?
+        </p>
+      </header>
+
+      <div class="dx-timeline" role="tablist" aria-label="Recorrido histórico de la dialéctica" data-reveal>
+        <button role="tab" aria-selected="true" data-timeline-target="socrates">
+          <span>01</span>
+          <strong>Sócrates / Platón</strong>
+          <small>Preguntar</small>
+        </button>
+        <button role="tab" aria-selected="false" data-timeline-target="aristoteles">
+          <span>02</span>
+          <strong>Aristóteles</strong>
+          <small>Discutir lo plausible</small>
+        </button>
+        <button role="tab" aria-selected="false" data-timeline-target="kant">
+          <span>03</span>
+          <strong>Kant</strong>
+          <small>Encontrar el límite</small>
+        </button>
+        <button role="tab" aria-selected="false" data-timeline-target="hegel-marx">
+          <span>04</span>
+          <strong>Hegel / Marx</strong>
+          <small>Transformación</small>
+        </button>
+        <button role="tab" aria-selected="false" data-timeline-target="actualidad">
+          <span>05</span>
+          <strong>Actualidad</strong>
+          <small>Resolver desacuerdos</small>
+        </button>
+      </div>
+
+      <article class="dx-era dx-era-socrates" id="socrates" data-era="socrates" data-reveal>
+        <div class="dx-era-copy">
+          <p class="dx-era-index">01 / PREGUNTAR</p>
+          <h3>Sócrates y Platón</h3>
+          <p class="dx-era-thesis">
+            La investigación comienza cuando una respuesta deja de parecer obvia.
+          </p>
+          <ol class="dx-step-list">
+            <li><span>1</span><p><strong>Pregunta:</strong> ¿qué es X?</p></li>
+            <li><span>2</span><p><strong>Respuesta:</strong> una definición provisional.</p></li>
+            <li><span>3</span><p><strong>Objeción:</strong> se buscan consecuencias o contraejemplos.</p></li>
+            <li><span>4</span><p><strong>Corrección:</strong> reconocer la ignorancia abre una nueva búsqueda.</p></li>
+          </ol>
+          <button type="button" class="dx-idea-button" data-idea-open="socrates">
+            Idea para explicar <span>+</span>
+          </button>
+        </div>
+
+        <figure class="dx-era-scene dx-socratic-scene is-step-question" data-socratic-scene data-socratic-step="question">
+          <svg viewBox="0 0 720 500" role="img" aria-label="Ágora socrática interactiva: pregunta, respuesta, objeción y revisión">
+            <rect class="dx-svg-ground" x="0" y="0" width="720" height="500" rx="26"/>
+            <circle class="dx-svg-sun" cx="586" cy="86" r="50"/>
+            <path class="dx-svg-hill" d="M0 328c98-72 164-42 234 1 81 49 151 36 226-15 91-62 174-63 260 9v177H0Z"/>
+            <g class="dx-temple" transform="translate(72 92)">
+              <path d="M0 76 104 0l104 76Z"/>
+              <rect x="18" y="76" width="172" height="18"/>
+              <path d="M35 94v105M74 94v105M114 94v105M153 94v105"/>
+              <rect x="18" y="199" width="172" height="16"/>
+            </g>
+
+            <circle class="dx-speaker-halo dx-speaker-halo-socrates" cx="318" cy="248" r="51"/>
+            <circle class="dx-speaker-halo dx-speaker-halo-interlocutor" cx="525" cy="258" r="51"/>
+
+            <g class="dx-person dx-socratic-person dx-socratic-person-a" transform="translate(318 248)">
+              <circle cx="0" cy="0" r="29"/>
+              <path d="M0 31v94M0 63l-48 28M0 62l45 20M0 125l-34 62M0 125l38 62"/>
+            </g>
+            <g class="dx-person dx-socratic-person dx-socratic-person-b" transform="translate(525 258)">
+              <circle cx="0" cy="0" r="29"/>
+              <path d="M0 31v94M0 63l-45 26M0 62l43 31M0 125l-34 62M0 125l38 62"/>
+            </g>
+
+            <g class="dx-socratic-bubble" tabindex="0" role="button" data-socratic-bubble aria-label="Avanzar diálogo socrático">
+              <path d="M227 124h286c16 0 29 13 29 29v94c0 16-13 29-29 29H389l-33 31 8-31H227c-16 0-29-13-29-29v-94c0-16 13-29 29-29Z"/>
+              <text class="dx-socratic-speaker" x="223" y="160" data-socratic-speaker>SÓCRATES</text>
+              <text class="dx-socratic-line" x="223" y="198" data-socratic-line>¿Qué es X?</text>
+              <text class="dx-socratic-note dx-svg-small" x="223" y="232" data-socratic-note>1 · formular la pregunta</text>
+            </g>
+
+            <path class="dx-hand-line dx-dialogue-current" d="M420 354c27-29 52-31 78-8"/>
+            <path class="dx-hand-line dx-dialogue-current" d="m486 337 13 9-13 8"/>
+          </svg>
+
+          <div class="dx-scene-hud dx-socratic-hud" aria-live="polite">
+            <button type="button" data-socratic-prev aria-label="Paso socrático anterior">←</button>
+            <div>
+              <span data-socratic-index>01 / 04</span>
+              <strong data-socratic-title>Pregunta</strong>
+              <small data-socratic-caption>La investigación comienza haciendo explícito qué se quiere definir.</small>
+            </div>
+            <button type="button" data-socratic-next aria-label="Siguiente paso socrático">→</button>
+          </div>
+
+          <figcaption>
+            <span>ESCENA / ÁGORA INTERACTIVA</span>
+            Toque el globo o use las flechas: la pregunta pasa por respuesta, objeción y revisión.
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="dx-era dx-era-aristoteles" id="aristoteles" data-era="aristoteles" data-reveal>
+        <figure class="dx-era-scene dx-era-scene-left">
+          <svg viewBox="0 0 720 500" role="img" aria-label="Dos caminos: demostración y dialéctica">
+            <rect class="dx-svg-ground" x="0" y="0" width="720" height="500" rx="26"/>
+            <circle class="dx-svg-sun" cx="105" cy="88" r="48"/>
+            <path class="dx-svg-hill" d="M0 313c94-71 184-65 260-9 69 51 147 60 219 18 86-50 163-45 241 22v156H0Z"/>
+            <path class="dx-road-a" d="M344 500c-14-87-7-146 8-199 12-44 15-85 4-129"/>
+            <path class="dx-road-b" d="M350 500c57-68 101-108 147-144 48-38 76-79 91-125"/>
+            <g class="dx-signpost" transform="translate(352 240)">
+              <path d="M0 0v133"/>
+              <path d="M0 23h-166l-31-23 31-23H0Z"/>
+              <path d="M0 76h167l31-23-31-23H0Z"/>
+              <text x="-154" y="8">DEMOSTRACIÓN</text>
+              <text x="28" y="62">DIALÉCTICA</text>
+            </g>
+            <g class="dx-person" transform="translate(340 369)">
+              <circle cx="0" cy="0" r="24"/>
+              <path d="M0 26v72M0 51l-30 23M0 51l30 23M0 98l-24 44M0 98l27 44"/>
+            </g>
+          </svg>
+          <figcaption>
+            <span>ESCENA / BIFURCACIÓN</span>
+            La demostración busca necesidad; la dialéctica entra donde hay posiciones plausibles que todavía deben confrontarse.
+          </figcaption>
+        </figure>
+
+        <div class="dx-era-copy">
+          <p class="dx-era-index">02 / DISCUTIR LO PLAUSIBLE</p>
+          <h3>Aristóteles</h3>
+          <p class="dx-era-thesis">
+            No todo problema filosófico puede resolverse como una demostración matemática.
+          </p>
+          <div class="dx-compare">
+            <div>
+              <span>DEMOSTRACIÓN</span>
+              <strong>premisas verdaderas → conclusión necesaria</strong>
+            </div>
+            <div>
+              <span>DIALÉCTICA</span>
+              <strong>tesis plausibles ↔ razones ↔ objeciones</strong>
+            </div>
+          </div>
+          <p>
+            La pregunta deja de ser “¿puedo probarlo con necesidad?” y pasa a ser
+            <strong>“¿qué posición resiste mejor el examen racional?”</strong>
+          </p>
+          <button type="button" class="dx-idea-button" data-idea-open="aristoteles">
+            Idea para explicar <span>+</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="dx-era dx-era-kant" id="kant" data-era="kant" data-reveal>
+        <div class="dx-era-copy">
+          <p class="dx-era-index">03 / ENCONTRAR EL LÍMITE</p>
+          <h3>Kant</h3>
+          <p class="dx-era-thesis">
+            La razón puede construir argumentos enfrentados y, aun así, no tener derecho a decidir entre ellos.
+          </p>
+          <div class="dx-antimony">
+            <button type="button" data-antimony="libertad">
+              <span>TESIS</span>
+              <strong>Libertad</strong>
+            </button>
+            <i>↔</i>
+            <button type="button" data-antimony="determinismo">
+              <span>ANTÍTESIS</span>
+              <strong>Determinismo</strong>
+            </button>
+          </div>
+          <p class="dx-callout">
+            La contradicción aquí no obliga a una síntesis: puede revelar que la razón está intentando ir más allá de la experiencia.
+          </p>
+          <button type="button" class="dx-idea-button" data-idea-open="kant">
+            Idea para explicar <span>+</span>
+          </button>
+        </div>
+
+        <figure class="dx-era-scene dx-kant-scene" data-kant-scene data-kant-state="idle">
+          <svg viewBox="0 0 720 500" role="img" aria-label="Dos senderos kantianos interactivos suben una montaña y llegan al límite de la experiencia">
+            <defs>
+              <linearGradient id="dxFog" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="var(--dx-fog)" stop-opacity="0"/>
+                <stop offset="1" stop-color="var(--dx-fog)" stop-opacity=".94"/>
+              </linearGradient>
+            </defs>
+            <rect class="dx-svg-ground" x="0" y="0" width="720" height="500" rx="26"/>
+            <circle class="dx-svg-sun" cx="590" cy="85" r="45"/>
+            <path class="dx-svg-mountain-single" d="M48 420 340 87l102 117 55-57 174 273Z"/>
+
+            <path class="dx-road-a dx-kant-path" data-kant-path="libertad" tabindex="0" role="button"
+              aria-label="Recorrer tesis de libertad"
+              d="M204 500c27-95 75-148 127-202 29-30 43-66 31-102"/>
+            <path class="dx-road-b dx-kant-path" data-kant-path="determinismo" tabindex="0" role="button"
+              aria-label="Recorrer antítesis de determinismo"
+              d="M511 500c-16-92-56-141-107-188-34-31-44-67-37-112"/>
+
+            <circle class="dx-kant-walker dx-kant-walker-a" cx="204" cy="474" r="12"/>
+            <circle class="dx-kant-walker dx-kant-walker-b" cx="511" cy="474" r="12"/>
+
+            <rect class="dx-kant-fog" x="0" y="80" width="720" height="210" fill="url(#dxFog)"/>
+            <g class="dx-limit-sign" transform="translate(360 250)">
+              <path d="M0-55v110"/>
+              <rect x="-102" y="-74" width="204" height="48" rx="5"/>
+              <text x="0" y="-43" text-anchor="middle">LÍMITE DE LA EXPERIENCIA</text>
+            </g>
+            <text class="dx-path-label" x="154" y="424">TESIS · libertad</text>
+            <text class="dx-path-label" x="454" y="424">ANTÍTESIS · determinismo</text>
+
+            <g class="dx-kant-antinomia">
+              <circle cx="360" cy="182" r="62"/>
+              <text x="360" y="177" text-anchor="middle">ANTINOMIA</text>
+              <text class="dx-svg-small" x="360" y="202" text-anchor="middle">la razón encuentra su límite</text>
+            </g>
+          </svg>
+
+          <div class="dx-scene-hud dx-kant-hud" aria-live="polite">
+            <button type="button" data-kant-control="libertad">A · recorrer tesis</button>
+            <div>
+              <span data-kant-index>00 / 03</span>
+              <strong data-kant-title>Elija un sendero</strong>
+              <small data-kant-caption>Las dos rutas pueden argumentarse; el problema aparece cuando ambas pretenden decidir más allá de la experiencia.</small>
+            </div>
+            <button type="button" data-kant-control="determinismo">B · recorrer antítesis</button>
+            <button type="button" class="dx-kant-limit-button" data-kant-control="limit">Revelar antinomia ↑</button>
+          </div>
+
+          <figcaption>
+            <span>ESCENA / MONTAÑA INTERACTIVA</span>
+            Recorra primero cada sendero y después revele el límite: aquí la contradicción funciona como diagnóstico.
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="dx-era dx-era-hegel" id="hegel-marx" data-era="hegel-marx" data-reveal>
+        <figure class="dx-era-scene dx-era-scene-left dx-transformation-scene" data-transformation-scene data-transformation-step="determination">
+          <svg viewBox="0 0 720 500" role="img" aria-label="Paisaje histórico transformable: determinación, oposición, superación y giro materialista">
+            <rect class="dx-svg-ground" x="0" y="0" width="720" height="500" rx="26"/>
+            <circle class="dx-svg-sun dx-history-sun" cx="122" cy="87" r="48"/>
+            <path class="dx-city" d="M0 300h92v-84h54v84h61v-121h59v121h42v-67h66v67h73v-103h52v103h64v-70h55v70h92v200H0Z"/>
+            <path class="dx-river" d="M0 397c133-42 239-26 348 19 111 45 222 39 372-20v104H0Z"/>
+            <path class="dx-bridge" d="M156 380c87-104 314-108 405 0M160 380h397"/>
+
+            <g class="dx-person dx-person-mini dx-history-group-a" transform="translate(248 338)">
+              <circle cx="0" cy="0" r="15"/>
+              <path d="M0 16v46M0 28l-20 17M0 28l20 17M0 62l-16 30M0 62l18 30"/>
+            </g>
+            <g class="dx-person dx-person-mini dx-history-group-b" transform="translate(474 338)">
+              <circle cx="0" cy="0" r="15"/>
+              <path d="M0 16v46M0 28l-20 17M0 28l20 17M0 62l-16 30M0 62l18 30"/>
+            </g>
+
+            <g class="dx-history-conflict">
+              <path class="dx-conflict-arrow" d="M282 321h156"/>
+              <path class="dx-conflict-arrow" d="m426 311 13 10-13 10"/>
+              <path class="dx-conflict-arrow" d="M438 347H282"/>
+              <path class="dx-conflict-arrow" d="m294 337-13 10 13 10"/>
+            </g>
+
+            <path class="dx-spiral" d="M340 87c93-56 192 32 139 106-36 51-113 23-100-24 11-40 67-29 66 3-1 23-30 28-42 11"/>
+
+            <g class="dx-history-label dx-history-label-hegel">
+              <rect x="276" y="61" width="166" height="46" rx="23"/>
+              <text x="359" y="90" text-anchor="middle">NUEVA FORMA</text>
+            </g>
+            <g class="dx-history-label dx-history-label-marx">
+              <rect x="224" y="410" width="272" height="48" rx="24"/>
+              <text x="360" y="440" text-anchor="middle">CONDICIONES MATERIALES</text>
+            </g>
+          </svg>
+
+          <div class="dx-scene-hud dx-transformation-hud" aria-live="polite">
+            <button type="button" data-transformation-prev aria-label="Paso histórico anterior">←</button>
+            <div>
+              <span data-transformation-index>01 / 04</span>
+              <strong data-transformation-title>Determinación</strong>
+              <small data-transformation-caption>Partimos de una forma que parece estable antes de mostrar la tensión que contiene.</small>
+            </div>
+            <button type="button" data-transformation-next aria-label="Siguiente paso histórico">→</button>
+          </div>
+
+          <div class="dx-transformation-steps" role="group" aria-label="Fases de transformación dialéctica">
+            <button type="button" class="is-active" data-transformation-control="determination"><span>01</span> determinación</button>
+            <button type="button" data-transformation-control="opposition"><span>02</span> oposición</button>
+            <button type="button" data-transformation-control="sublation"><span>03</span> superación</button>
+            <button type="button" data-transformation-control="material"><span>04</span> giro material</button>
+          </div>
+
+          <figcaption>
+            <span>ESCENA / HISTORIA TRANSFORMABLE</span>
+            Avance paso a paso: la forma se tensiona, cambia y finalmente se relee desde condiciones materiales y antagonismos.
+          </figcaption>
+        </figure>
+
+        <div class="dx-era-copy">
+          <p class="dx-era-index">04 / TRANSFORMACIÓN</p>
+          <h3>Hegel → Marx</h3>
+          <p class="dx-era-thesis">
+            Aquí ocurre el giro más fuerte: la contradicción pasa de la discusión al desarrollo de lo real.
+          </p>
+          <div class="dx-hegel-marx-flow">
+            <div>
+              <span>HEGEL</span>
+              <strong>determinación → oposición → superación → nueva forma</strong>
+            </div>
+            <b>↓ inversión materialista</b>
+            <div>
+              <span>MARX</span>
+              <strong>condiciones materiales → antagonismo → conflicto → transformación histórica</strong>
+            </div>
+          </div>
+          <p>
+            Para Marx, la investigación debe comenzar por individuos concretos, trabajo,
+            producción y relaciones sociales; no por una Idea separada de la vida material.
+          </p>
+          <button type="button" class="dx-idea-button" data-idea-open="hegel-marx">
+            Idea para explicar <span>+</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section class="dx-depth" id="ramas" data-depth-section data-depth-current="estoicos">
+  <header class="dx-depth-head">
+    <div>
+      <p>02B / RAMAS OPCIONALES</p>
+      <h2>Lo que el recorrido corto <em>deja fuera</em></h2>
+    </div>
+    <div>
+      <p>
+        Esta capa no interrumpe la exposición principal. Ábrala sólo si necesita explicar
+        cómo la dialéctica pasó por la lógica estoica, la disputatio medieval, el rechazo cartesiano
+        y el regreso contemporáneo al lenguaje y la argumentación.
+      </p>
+      <button type="button" class="dx-depth-toggle" data-depth-toggle aria-expanded="false">
+        Mostrar / ocultar profundización <span>+</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="dx-depth-body is-collapsed" data-depth-body>
+    <div class="dx-depth-rail" role="group" aria-label="Ramas históricas opcionales">
+      <button type="button" class="is-active" data-depth-target="estoicos" aria-pressed="true">
+        <span>01</span><strong>Estoicos</strong><small>signos e inferencia</small>
+      </button>
+      <button type="button" data-depth-target="medieval" aria-pressed="false">
+        <span>02</span><strong>Edad Media</strong><small>disputatio</small>
+      </button>
+      <button type="button" data-depth-target="descartes" aria-pressed="false">
+        <span>03</span><strong>Descartes</strong><small>certeza individual</small>
+      </button>
+      <button type="button" data-depth-target="lenguaje" aria-pressed="false">
+        <span>04</span><strong>Giro lingüístico</strong><small>uso y contexto</small>
+      </button>
+      <button type="button" data-depth-target="argumentacion" aria-pressed="false">
+        <span>05</span><strong>Argumentación</strong><small>reglas de controversia</small>
+      </button>
+    </div>
+
+    <div class="dx-depth-stage">
+      <div class="dx-depth-visual">
+        <svg viewBox="0 0 820 590" role="img" aria-label="Mapa visual de ramas históricas de la dialéctica">
+          <path class="dx-depth-map-line" d="M85 74H735"/>
+
+          <g class="dx-depth-map-node is-active" data-depth-map-node="estoicos" tabindex="0" role="button" aria-label="Estoicos">
+            <circle cx="85" cy="74" r="28"/><text x="85" y="78" text-anchor="middle">01</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="medieval" tabindex="0" role="button" aria-label="Edad Media">
+            <circle cx="247" cy="74" r="28"/><text x="247" y="78" text-anchor="middle">02</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="descartes" tabindex="0" role="button" aria-label="Descartes">
+            <circle cx="410" cy="74" r="28"/><text x="410" y="78" text-anchor="middle">03</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="lenguaje" tabindex="0" role="button" aria-label="Giro lingüístico">
+            <circle cx="573" cy="74" r="28"/><text x="573" y="78" text-anchor="middle">04</text>
+          </g>
+          <g class="dx-depth-map-node" data-depth-map-node="argumentacion" tabindex="0" role="button" aria-label="Argumentación contemporánea">
+            <circle cx="735" cy="74" r="28"/><text x="735" y="78" text-anchor="middle">05</text>
+          </g>
+
+          <g class="dx-depth-scene is-active" data-depth-scene="estoicos" aria-hidden="false">
+            <path class="dx-depth-fill" d="M75 455c72-86 136-92 199-23 64 69 135 56 201-8 68-66 149-50 270 42v86H75Z"/>
+            <circle class="dx-depth-accent-fill" cx="662" cy="192" r="44"/>
+            <g transform="translate(182 205)">
+              <rect class="dx-depth-fill" x="0" y="0" width="185" height="96" rx="18"/>
+              <path class="dx-depth-drawing" d="M22 29h138M22 49h112M22 69h126"/>
+              <path class="dx-depth-accent" d="M185 48h82"/>
+              <path class="dx-depth-accent" d="m255 37 14 11-14 11"/>
+            </g>
+            <g transform="translate(490 218)">
+              <circle class="dx-depth-fill" cx="0" cy="0" r="44"/>
+              <text class="dx-depth-label" x="0" y="5" text-anchor="middle">SIGNO</text>
+              <path class="dx-depth-accent" d="M-34 55-92 118M34 55l92 63M-92 118h184"/>
+              <text class="dx-depth-small" x="-122" y="142">significado</text>
+              <text class="dx-depth-small" x="83" y="142">referencia</text>
+            </g>
+            <text class="dx-depth-label" x="182" y="350">dialéctica → relaciones semánticas e inferenciales</text>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="medieval" aria-hidden="true">
+            <path class="dx-depth-fill" d="M112 474V242c0-91 75-165 167-165h262c92 0 167 74 167 165v232Z"/>
+            <path class="dx-depth-drawing" d="M220 474V253M600 474V253M410 474V174"/>
+            <g transform="translate(238 326)">
+              <rect class="dx-depth-fill" x="-64" y="0" width="128" height="90"/>
+              <circle class="dx-depth-fill" cx="0" cy="-49" r="26"/>
+              <text class="dx-depth-label" x="0" y="50" text-anchor="middle">PRO</text>
+            </g>
+            <g transform="translate(582 326)">
+              <rect class="dx-depth-fill" x="-64" y="0" width="128" height="90"/>
+              <circle class="dx-depth-fill" cx="0" cy="-49" r="26"/>
+              <text class="dx-depth-label" x="0" y="50" text-anchor="middle">CONTRA</text>
+            </g>
+            <g transform="translate(410 236)">
+              <circle class="dx-depth-accent-fill" cx="0" cy="0" r="32"/>
+              <path class="dx-depth-drawing" d="M0 34v72M0 56l-42 31M0 56l42 31"/>
+            </g>
+            <path class="dx-depth-accent" d="M287 300C326 265 350 259 377 260M533 300c-39-35-63-41-90-40"/>
+            <text class="dx-depth-label" x="410" y="455" text-anchor="middle">quaestio → pro / contra → determinatio</text>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="descartes" aria-hidden="true">
+            <path class="dx-depth-fill" d="M88 468h644v84H88Z"/>
+            <path class="dx-depth-drawing" d="M190 390h248v78H190ZM232 390v-58h165v58"/>
+            <g transform="translate(306 252)">
+              <circle class="dx-depth-fill" cx="0" cy="0" r="31"/>
+              <path class="dx-depth-drawing" d="M0 33v90M0 55l-52 39M0 56l53 28M0 123l-34 58M0 123l39 58"/>
+            </g>
+            <g transform="translate(565 250)">
+              <circle class="dx-depth-drawing" cx="0" cy="0" r="84"/>
+              <path class="dx-depth-drawing" d="M-84 0H84M0-84V84M-58-58 58 58M58-58-58 58"/>
+              <path class="dx-depth-accent" d="M-43 36 0-8l38 38"/>
+              <text class="dx-depth-small" x="0" y="112" text-anchor="middle">método / certeza</text>
+            </g>
+            <g transform="translate(126 178)">
+              <path class="dx-depth-drawing" d="M0 0h120v76H0Z"/>
+              <path class="dx-depth-accent" d="M-8-8 128 84M128-8-8 84"/>
+              <text class="dx-depth-small" x="60" y="104" text-anchor="middle">discusión escolar</text>
+            </g>
+            <text class="dx-depth-label" x="306" y="502" text-anchor="middle">el sujeto intenta bastarse a sí mismo</text>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="lenguaje" aria-hidden="true">
+            <g transform="translate(110 168)">
+              <path class="dx-depth-fill" d="M0 0h250a22 22 0 0 1 22 22v82a22 22 0 0 1-22 22H112l-35 32 8-32H0a22 22 0 0 1-22-22V22A22 22 0 0 1 0 0Z"/>
+              <text class="dx-depth-label" x="28" y="50">“p y q”</text>
+              <text class="dx-depth-small" x="28" y="82">misma conjunción formal</text>
+            </g>
+            <g transform="translate(450 278)">
+              <path class="dx-depth-fill" d="M0 0h250a22 22 0 0 1 22 22v82a22 22 0 0 1-22 22H92l8 32-35-32H0a22 22 0 0 1-22-22V22A22 22 0 0 1 0 0Z"/>
+              <text class="dx-depth-label" x="28" y="50">“p pero q”</text>
+              <text class="dx-depth-small" x="28" y="82">otro efecto pragmático</text>
+            </g>
+            <path class="dx-depth-accent" d="M377 210c52 5 80 31 99 69"/>
+            <path class="dx-depth-accent" d="m467 267 10 13-16 3"/>
+            <g transform="translate(204 410)">
+              <rect class="dx-depth-fill" x="0" y="0" width="390" height="90" rx="18"/>
+              <text class="dx-depth-label" x="195" y="38" text-anchor="middle">significado = uso + contexto</text>
+              <text class="dx-depth-small" x="195" y="63" text-anchor="middle">Wittgenstein · Austin/Searle · Grice</text>
+            </g>
+          </g>
+
+          <g class="dx-depth-scene" data-depth-scene="argumentacion" aria-hidden="true">
+            <path class="dx-depth-fill" d="M90 452c118-102 212-117 320-37 101 75 194 70 320-29v166H90Z"/>
+            <g transform="translate(132 192)">
+              <rect class="dx-depth-fill" x="0" y="0" width="160" height="78" rx="14"/>
+              <text class="dx-depth-label" x="80" y="34" text-anchor="middle">RAZONES</text>
+              <text class="dx-depth-small" x="80" y="56" text-anchor="middle">datos / garantía</text>
+            </g>
+            <path class="dx-depth-accent" d="M292 231h154"/>
+            <path class="dx-depth-accent" d="m433 220 14 11-14 11"/>
+            <g transform="translate(447 192)">
+              <rect class="dx-depth-accent-fill" x="0" y="0" width="160" height="78" rx="14"/>
+              <text class="dx-depth-label" x="80" y="34" text-anchor="middle">TESIS</text>
+              <text class="dx-depth-small" x="80" y="56" text-anchor="middle">defendible / refutable</text>
+            </g>
+            <g transform="translate(650 356)">
+              <circle class="dx-depth-fill" cx="0" cy="0" r="24"/><circle class="dx-depth-fill" cx="-56" cy="18" r="20"/><circle class="dx-depth-fill" cx="56" cy="18" r="20"/>
+              <text class="dx-depth-small" x="0" y="72" text-anchor="middle">audiencia / crítico</text>
+            </g>
+            <g transform="translate(138 350)">
+              <rect class="dx-depth-fill" x="0" y="0" width="380" height="105" rx="16"/>
+              <text class="dx-depth-label" x="22" y="31">LÓGICA · ¿se sigue?</text>
+              <text class="dx-depth-label" x="22" y="59">RETÓRICA · ¿cómo logra adhesión?</text>
+              <text class="dx-depth-label" x="22" y="87">DIALÉCTICA · ¿resiste la oposición?</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <aside class="dx-depth-copy" aria-live="polite">
+        <span data-depth-index>01 / 05</span>
+        <small data-depth-period>ANTIGÜEDAD HELENÍSTICA</small>
+        <h3 data-depth-title>Estoicos · del diálogo a la lógica de signos</h3>
+        <p data-depth-thesis>
+          La dialéctica se acerca a lo que hoy llamaríamos lógica: relaciones entre expresiones,
+          significados e inferencias.
+        </p>
+
+        <div class="dx-depth-oral">
+          <span>IDEA ORAL</span>
+          <strong data-depth-oral>
+            Aquí conviene decir: la dialéctica deja de ser sólo una conversación y empieza a funcionar como teoría del lenguaje y del razonamiento.
+          </strong>
+        </div>
+
+        <div class="dx-depth-board">
+          <span>EN EL PIZARRÓN</span>
+          <strong data-depth-board>signo → significado → inferencia</strong>
+        </div>
+
+        <div class="dx-depth-tags" data-depth-tags>
+          <span>dialéctica + retórica</span><span>semántica</span><span>inferencia</span>
+        </div>
+
+        <div class="dx-depth-nav">
+          <button type="button" data-depth-prev>← anterior</button>
+          <button type="button" data-depth-next>siguiente →</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+    <section class="dx-manifesto" aria-label="Punto de transición" data-reveal>
+      <div>
+        <span>GIRO CONTEMPORÁNEO</span>
+        <p>
+          LA DIALÉCTICA VUELVE<br>
+          DE LA “TEORÍA DE TODO”<br>
+          A LA <strong>DISCUSIÓN CRÍTICA.</strong>
+        </p>
+        <i aria-hidden="true">↘</i>
+      </div>
+    </section>
+
+    <section class="dx-section dx-current" id="actualidad" data-era="actualidad" data-scene="actualidad">
+      <header class="dx-section-heading" data-reveal>
+        <div>
+          <p>03 / ACTUALIDAD</p>
+          <h2>Pragmadialéctica: <em>resolver una diferencia de opinión</em></h2>
+        </div>
+        <p>
+          La argumentación contemporánea recupera el carácter social de la razón:
+          dos personas pueden confrontar una posición sin convertir la discusión en una pelea por “ganar”.
+        </p>
+      </header>
+
+      <div class="dx-current-layout">
+        <figure class="dx-roundtable" data-reveal data-discussion-figure data-discussion-current="confrontacion">
+          <svg viewBox="0 0 720 620" role="img" aria-label="Cuatro participantes alrededor de una mesa representan las etapas de una discusión crítica">
+            <rect class="dx-svg-ground" x="0" y="0" width="720" height="620" rx="28"/>
+            <circle class="dx-table" cx="360" cy="322" r="126"/>
+            <text x="360" y="308" text-anchor="middle" data-discussion-center-line1>DIFERENCIA</text>
+            <text x="360" y="338" text-anchor="middle" data-discussion-center-line2>DE OPINIÓN</text>
+            <text class="dx-svg-small dx-discussion-center-note" x="360" y="370" text-anchor="middle" data-discussion-center-note>identificar el desacuerdo</text>
+
+            <g class="dx-discussant" transform="translate(360 105)" data-discussion-stage="confrontacion" tabindex="0" role="button">
+              <circle cx="0" cy="0" r="32"/>
+              <path d="M0 34v75M0 61l-37 28M0 61l37 28"/>
+              <text x="0" y="-54" text-anchor="middle">1 · CONFRONTACIÓN</text>
+            </g>
+            <g class="dx-discussant" transform="translate(590 322)" data-discussion-stage="apertura" tabindex="0" role="button">
+              <circle cx="0" cy="0" r="32"/>
+              <path d="M-34 0h-75M-60 0l-28-37M-60 0l-28 37"/>
+              <text x="0" y="-54" text-anchor="middle">2 · APERTURA</text>
+            </g>
+            <g class="dx-discussant" transform="translate(360 542)" data-discussion-stage="argumentacion" tabindex="0" role="button">
+              <circle cx="0" cy="0" r="32"/>
+              <path d="M0-34v-75M0-61l-37-28M0-61l37-28"/>
+              <text x="0" y="68" text-anchor="middle">3 · ARGUMENTACIÓN</text>
+            </g>
+            <g class="dx-discussant" transform="translate(130 322)" data-discussion-stage="conclusion" tabindex="0" role="button">
+              <circle cx="0" cy="0" r="32"/>
+              <path d="M34 0h75M60 0l28-37M60 0l28 37"/>
+              <text x="0" y="-54" text-anchor="middle">4 · CONCLUSIÓN</text>
+            </g>
+
+            <path class="dx-orbit-arrow" data-discussion-edge="1" d="M405 128c78 18 131 66 158 138"/>
+            <path class="dx-orbit-arrow" data-discussion-edge="2" d="M560 379c-26 71-80 119-155 139"/>
+            <path class="dx-orbit-arrow" data-discussion-edge="3" d="M315 518c-76-19-130-68-157-139"/>
+            <path class="dx-orbit-arrow" data-discussion-edge="4" d="M158 265c26-69 81-117 157-137"/>
+          </svg>
+
+          <div class="dx-discussion-progress" role="group" aria-label="Recorrer etapas de la discusión crítica">
+            <button type="button" class="is-active" data-discussion-progress="confrontacion"><span>01</span> confrontar</button>
+            <button type="button" data-discussion-progress="apertura"><span>02</span> abrir</button>
+            <button type="button" data-discussion-progress="argumentacion"><span>03</span> argumentar</button>
+            <button type="button" data-discussion-progress="conclusion"><span>04</span> concluir</button>
+          </div>
+
+          <figcaption>
+            Toque a cada participante o avance por la barra: la mesa cambia conforme la discusión progresa.
+          </figcaption>
+        </figure>
+
+        <div class="dx-discussion-panel" data-reveal>
+          <span data-discussion-index>01 / 04</span>
+          <h3 data-discussion-title>Confrontación</h3>
+          <p data-discussion-copy>
+            Se identifica exactamente en qué consiste el desacuerdo: alguien sostiene una tesis y otra persona no la acepta.
+          </p>
+          <div class="dx-discussion-question">
+            <span>EN EL PIZARRÓN</span>
+            <strong data-discussion-board>A: p · B: “no acepto p”</strong>
+          </div>
+
+          <div class="dx-discussion-nav">
+            <button type="button" data-discussion-prev>← etapa anterior</button>
+            <button type="button" data-discussion-next>siguiente etapa →</button>
+          </div>
+
+          <div class="dx-mini-rules">
+            <article>
+              <b>01</b>
+              <p><strong>Externalizar</strong> la posición para que pueda criticarse.</p>
+            </article>
+            <article>
+              <b>02</b>
+              <p><strong>Socializar</strong> la razón: hay interlocutores y compromisos.</p>
+            </article>
+            <article>
+              <b>03</b>
+              <p><strong>Funcionalizar</strong>: se discute para resolver un desacuerdo.</p>
+            </article>
+            <article>
+              <b>04</b>
+              <p><strong>Reglar</strong> la discusión: no todo modo de “ganar” es racional.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dx-section dx-synthesis" id="cierre" data-scene="cierre">
+      <header class="dx-section-heading" data-reveal>
+        <div>
+          <p>04 / CIERRE</p>
+          <h2>Una fórmula para <em>explicar todo el texto</em></h2>
+        </div>
+        <p>
+          Si sólo queda una idea al final de la exposición, que sea ésta:
+          la dialéctica vuelve productivo el desacuerdo porque obliga a justificar, corregir o abandonar una posición.
+        </p>
+      </header>
+
+      <div class="dx-final-flow" data-reveal>
+        <button type="button" data-final-step="afirmacion">
+          <span>01</span><strong>AFIRMACIÓN</strong><small>“sostengo p”</small>
+        </button>
+        <i>→</i>
+        <button type="button" data-final-step="critica">
+          <span>02</span><strong>CRÍTICA</strong><small>“¿por qué?”</small>
+        </button>
+        <i>→</i>
+        <button type="button" data-final-step="evaluacion">
+          <span>03</span><strong>EVALUACIÓN</strong><small>razones + objeciones</small>
+        </button>
+        <i>→</i>
+        <button type="button" data-final-step="revision">
+          <span>04</span><strong>REVISIÓN</strong><small>mantener · corregir · abandonar</small>
+        </button>
+      </div>
+
+      <blockquote class="dx-closing-quote" data-reveal>
+        <span>SÍNTESIS DE CIERRE · NO CITA TEXTUAL</span>
+        <p>
+          La dialéctica funciona como método de investigación cuando
+          <strong>la oposición se convierte en control crítico de lo que creemos saber.</strong>
+        </p>
+      </blockquote>
+
+      <div class="dx-source-note" data-reveal>
+        <div>
+          <span>BASE DE LA EXPOSICIÓN</span>
+          <strong>Luis Enrique Ortiz Gutiérrez · “La infortunada historia de la dialéctica”</strong>
+        </div>
+        <p>
+          Página de exposición: sistematiza el recorrido del texto y distingue método dialéctico,
+          proceso dialéctico y teoría contemporánea de la argumentación.
+        </p>
+      </div>
+    </section>
+
+    <footer class="dx-footer">
+      <a href="./">← Volver a Investigación Filosófica</a>
+      <span>Versión candidata · QA final</span>
+      <button type="button" data-scroll-target="inicio">Volver arriba ↑</button>
+    </footer>
+
+    <aside class="dx-idea-drawer" data-idea-drawer aria-hidden="true" aria-label="Idea para explicar">
+      <button type="button" class="dx-idea-close" data-idea-close aria-label="Cerrar">×</button>
+      <span data-idea-kicker>IDEA PARA EXPLICAR</span>
+      <h2 data-idea-title></h2>
+      <p data-idea-copy></p>
+      <div class="dx-idea-board">
+        <span>EN EL PIZARRÓN</span>
+        <strong data-idea-board></strong>
+      </div>
+    </aside>
+    <button class="dx-idea-backdrop" type="button" data-idea-backdrop aria-label="Cerrar explicación"></button>
+
+    <div class="dx-present-controls" aria-label="Controles de exposición">
+      <button type="button" data-present-prev aria-label="Escena anterior">←</button>
+      <span data-present-status>01 / 07 · Núcleo</span>
+      <button type="button" data-present-next aria-label="Escena siguiente">→</button>
+      <button type="button" data-presentation-exit>Salir ×</button>
+    </div>
+  </main>
+</body>
+</html>
