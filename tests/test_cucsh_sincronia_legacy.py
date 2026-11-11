@@ -392,6 +392,7 @@ class SincroniaLegacyTest(
             article_link,
             issue,
             prefer_wayback=False,
+            fetch_article_metadata=True,
         ):
             return {
                 "id":
@@ -456,6 +457,46 @@ class SincroniaLegacyTest(
                 22,
                 41,
             },
+        )
+
+
+    def test_toc_record_does_not_require_article_page_fetch(
+        self,
+    ):
+        issue = {
+            "number": 2,
+            "year": 1997,
+            "title": "Sincronía Núm. 2",
+        }
+        link = {
+            "url":
+                "https://sincronia.cucsh.udg.mx/articulo2.htm",
+            "text":
+                "Un artículo histórico con título verificable",
+        }
+
+        with patch.object(
+            legacy,
+            "request_legacy_bytes",
+        ) as request_page:
+            record = legacy.build_legacy_record(
+                link,
+                issue,
+                fetch_article_metadata=False,
+            )
+
+        request_page.assert_not_called()
+        self.assertEqual(
+            record["title"],
+            link["text"],
+        )
+        self.assertEqual(
+            record["issueNumber"],
+            2,
+        )
+        self.assertEqual(
+            record["authors"],
+            [],
         )
 
 
