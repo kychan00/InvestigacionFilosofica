@@ -233,6 +233,8 @@ def early_issue_filename_variants(
 
 
 EARLY_ISSUE_BASES = [
+    "https://sincronia.cucsh.udg.mx/",
+    "http://sincronia.cucsh.udg.mx/",
     (
         "http://fuentes.csh.udg.mx/"
         "CUCSH/Sincronia/"
@@ -241,8 +243,6 @@ EARLY_ISSUE_BASES = [
         "http://www.cucsh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
-    "http://sincronia.cucsh.udg.mx/",
-    "https://sincronia.cucsh.udg.mx/",
 ]
 
 
@@ -1574,10 +1574,26 @@ def fetch_direct_early_issue(
                 (
                     issue_data,
                     used_wayback,
+                parsed_candidate = (
+                    urllib.parse.urlparse(
+                        candidate
+                    )
+                )
+
+                live_host = (
+                    parsed_candidate.netloc
+                    .casefold()
+                    == "sincronia.cucsh.udg.mx"
+                )
+
                 ) = request_legacy_bytes(
                     candidate,
-                    prefer_wayback=False,
-                    allow_live_fallback=True,
+                    prefer_wayback=(
+                        not live_host
+                    ),
+                    allow_live_fallback=(
+                        live_host
+                    ),
                     wayback_timestamp=(
                         f"{fallback_year}1231"
                     ),
