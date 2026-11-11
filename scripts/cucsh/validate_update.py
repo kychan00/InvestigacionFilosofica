@@ -366,6 +366,8 @@ def validate_snapshot(
 # completeness. Numbers 1-48 and 50-51 come from the 2026-11-11
 # legacy-v3 GitHub Actions evidence (run 42961992150).
 # Number 49's 21 titles are sourced from Dialnet exemplar 251060.
+# Numbers 52-60 are from targeted successful Dialnet audit run
+# 42971659878, de-duplicated by Dialnet article code across issues.
 # Counts prevent a later network hiccup from silently publishing fewer
 # records than were already found. Full article-level provenance is
 # still required before calling the entire corpus complete.
@@ -421,6 +423,15 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
     49: 21,
     50: 10,
     51: 9,
+    52: 9,
+    53: 8,
+    54: 12,
+    55: 4,
+    56: 9,
+    57: 11,
+    58: 9,
+    59: 6,
+    60: 19,
 }
 
 
