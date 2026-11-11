@@ -1885,7 +1885,6 @@ def fetch_direct_early_issue(
         try:
             (
                 data,
-                resolved_url,
                 used_wayback,
             ) = request_legacy_bytes(
                 exact_url,
@@ -1897,33 +1896,38 @@ def fetch_direct_early_issue(
             )
 
             parser = parse_html(
-                data,
-                resolved_url,
+                data
             )
 
-            links = candidate_article_links(
-                parser,
-                issue_url=resolved_url,
-                exclude_urls={
+            links = [
+                link
+                for link in collect_links(
+                    data,
                     exact_url,
-                    resolved_url,
-                },
-            )
+                )
+                if plausible_article_link(
+                    link,
+                    {
+                        exact_url,
+                    },
+                )
+            ]
 
-            if len(links) >= 2:
+            if links:
                 return {
                     "url":
                         exact_url,
-                    "resolvedUrl":
-                        resolved_url,
                     "number":
                         issue_number,
                     "year":
                         fallback_year,
                     "title":
                         (
-                            f"Sincronía Núm. "
-                            f"{issue_number}"
+                            parser.title
+                            or (
+                                f"Sincronía Núm. "
+                                f"{issue_number}"
+                            )
                         ),
                     "links":
                         links,
