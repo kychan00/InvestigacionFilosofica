@@ -1,0 +1,124 @@
+/* Dialectica layout polish: desktop + shared interactive scenes */
+
+/* Preserve the original SVG translations while interactive states scale/move people. */
+.dx-transformation-scene[data-transformation-step="determination"] .dx-history-group-a {
+  transform: translate(248px, 338px) scale(1.2);
+}
+.dx-transformation-scene[data-transformation-step="opposition"] .dx-history-group-a {
+  transform: translate(248px, 338px) scale(1.15);
+}
+.dx-transformation-scene[data-transformation-step="opposition"] .dx-history-group-b {
+  transform: translate(474px, 338px) scale(1.15);
+}
+.dx-transformation-scene[data-transformation-step="material"] .dx-history-group-a {
+  transform: translate(224px, 338px) scale(1.18);
+}
+.dx-transformation-scene[data-transformation-step="material"] .dx-history-group-b {
+  transform: translate(498px, 338px) scale(1.18);
+}
+
+/* Socratic bubble must not cover the speaker's head/body. */
+.dx-socratic-bubble {
+  transform: translateY(-46px) scale(.94);
+  transform-origin: center;
+}
+.dx-socratic-bubble:hover {
+  transform: translateY(-49px) scale(.94);
+}
+
+/* Optional historical rail: active background is enough; decorative dots/line
+   were colliding with labels. */
+.dx-depth-rail::after,
+.dx-depth-rail button::before {
+  display: none;
+}
+.dx-depth-rail button {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.dx-depth-copy h3 {
+  font-size: clamp(2.35rem, 3.7vw, 4rem);
+  line-height: .93;
+  overflow-wrap: normal;
+}
+
+@media (min-width: 681px) {
+  /* Interactive controls live below the artwork instead of floating over it. */
+  .dx-scene-hud {
+    width: min(92%, 680px);
+    margin: 14px auto 0;
+  }
+
+  .dx-era-scene figcaption,
+  .dx-era-scene-left figcaption {
+    width: min(460px, 82%);
+    margin-top: 14px;
+    margin-bottom: 0;
+    transform: none;
+  }
+
+  .dx-era-scene:not(.dx-era-scene-left) figcaption {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .dx-era-scene-left figcaption {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .dx-transformation-steps {
+    width: min(92%, 680px);
+    margin: 10px auto 0;
+  }
+
+  .dx-transformation-scene figcaption {
+    margin-top: 14px;
+  }
+
+  .dx-era {
+    align-items: start;
+  }
+
+  .dx-era-copy {
+    padding-top: 10px;
+  }
+
+  .dx-scene-hud > div {
+    padding-inline: 16px;
+  }
+
+  .dx-scene-hud small {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .dx-depth-stage {
+    grid-template-columns: minmax(560px, 1.2fr) minmax(360px, .8fr);
+    align-items: stretch;
+  }
+
+  .dx-depth-copy {
+    justify-content: flex-start;
+    padding-top: 42px;
+  }
+}
+
+/* Kant: the antinomy badge must not sit on top of the limit sign. */
+.dx-kant-scene[data-kant-state="limit"] .dx-kant-antinomia {
+  transform: translateY(-74px) scale(1);
+}
+.dx-path-label {
+  transform: translateY(-18px);
+}
+
+/* Hegel/Marx: keep the material-conditions label clear of the figures' legs. */
+.dx-history-label-marx {
+  transform: translateY(28px);
+}
+
+/* Active optional-history tabs need readable secondary text in dark mode. */
+html[data-theme="dark"] .dx-depth-rail button.is-active small {
+  color: #3a403c;
+  opacity: .9;
+}

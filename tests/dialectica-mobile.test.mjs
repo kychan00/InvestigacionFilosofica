@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 
 const html = await readFile(new URL('../dialectica.html', import.meta.url), 'utf8');
 const css = await readFile(new URL('../css/dialectica-mobile.css', import.meta.url), 'utf8');
+const polish = await readFile(new URL('../css/dialectica-polish.css', import.meta.url), 'utf8');
 const base = await readFile(new URL('../js/dialectica-exposicion.js', import.meta.url), 'utf8');
 const cinematic = await readFile(new URL('../js/dialectica-presentacion.js', import.meta.url), 'utf8');
 
@@ -38,4 +39,20 @@ test('los dos controladores de presentación sincronizan el mismo capítulo', ()
   assert.match(cinematic, /dialectica:presentation-chapter/);
   assert.match(cinematic, /dialectica:presentation-cinematic-chapter/);
   assert.match(cinematic, /presentationSyncLockUntil/);
+});
+
+
+test('QA visual carga el polish después de mobile y separa paneles de escenas', () => {
+  assert.match(html, /dialectica-polish\.css\?v=20261111-layout1/);
+  assert.ok(html.indexOf('dialectica-polish.css') > html.indexOf('dialectica-mobile.css'));
+  assert.match(polish, /\.dx-scene-hud \{[\s\S]*?margin: 14px auto 0/);
+  assert.match(polish, /\.dx-era-scene figcaption,[\s\S]*?margin-top: 14px/);
+});
+
+test('QA visual fija Sócrates Kant Hegel y la profundización histórica', () => {
+  assert.match(polish, /\.dx-socratic-bubble \{[\s\S]*?translateY\(-46px\)/);
+  assert.match(polish, /data-kant-state="limit"[\s\S]*?translateY\(-74px\)/);
+  assert.match(polish, /data-transformation-step="determination"[\s\S]*?translate\(248px, 338px\)/);
+  assert.match(polish, /\.dx-depth-rail::after,[\s\S]*?display: none/);
+  assert.match(polish, /button\.is-active small[\s\S]*?color: #3a403c/);
 });
