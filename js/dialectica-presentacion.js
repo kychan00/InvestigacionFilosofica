@@ -137,6 +137,7 @@
   let notesVisible = false;
   let helpVisible = false;
   let pointerVisible = false;
+  let presentationSyncLockUntil = 0;
 
   function isPresenting() {
     return page.classList.contains('is-presenting');
@@ -192,9 +193,13 @@
     const node = chapterNode(next);
     if (!node) return;
 
+    presentationSyncLockUntil = performance.now() + 1100;
     syncChrome(next);
     if (announce && isPresenting()) showChapterCard(next);
     node.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.dispatchEvent(new CustomEvent('dialectica:presentation-cinematic-chapter', {
+      detail: { index: next, id: chapters[next].id }
+    }));
   }
 
   function setNotes(visible) {
@@ -232,6 +237,14 @@
 
   railButtons.forEach((button, index) => {
     button.addEventListener('click', () => goTo(index));
+  });
+
+  document.addEventListener('dialectica:presentation-chapter', event => {
+    const id = event.detail?.id;
+    const index = chapters.findIndex(chapter => chapter.id === id);
+    if (index < 0) return;
+    presentationSyncLockUntil = performance.now() + 1100;
+    syncChrome(index);
   });
 
   document.addEventListener('mousemove', event => {
@@ -303,6 +316,7 @@
 
   const sectionObserver = new IntersectionObserver(entries => {
     if (!isPresenting()) return;
+    if (performance.now() < presentationSyncLockUntil) return;
     const visible = entries
       .filter(entry => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
