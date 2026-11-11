@@ -22,6 +22,17 @@ except ModuleNotFoundError:
         harvest_dialnet_records,
     )
 
+try:
+    from scripts.cucsh.sincronia_redalyc import (
+        harvest_redalyc_records,
+        SUPPORTED_ISSUES as REDALYC_SUPPORTED_ISSUES,
+    )
+except ModuleNotFoundError:
+    from sincronia_redalyc import (
+        harvest_redalyc_records,
+        SUPPORTED_ISSUES as REDALYC_SUPPORTED_ISSUES,
+    )
+
 
 
 LEGACY_HOSTS = {
@@ -2289,6 +2300,58 @@ def harvest_legacy_records(
     # against the authoritative seasonal filename map. This keeps the
     # fallback bounded instead of probing every legacy issue on every
     # harvest.
+    redalyc_targets = (
+        set(missing_issues)
+        & REDALYC_SUPPORTED_ISSUES
+    )
+
+    if redalyc_targets:
+        try:
+            (
+                redalyc_records,
+                redalyc_issues,
+            ) = harvest_redalyc_records(
+                redalyc_targets
+            )
+
+        except Exception as exc:
+            print(
+                (
+                    "WARNING: Redalyc historical "
+                    f"fallback failed: {exc!r}"
+                )
+            )
+
+            redalyc_records = []
+            redalyc_issues = []
+
+        combined = merge_historical_records(
+            combined,
+            redalyc_records,
+        )
+
+        covered_issues = (
+            record_issue_numbers(
+                combined
+            )
+        )
+
+        missing_issues = sorted(
+            expected_issues
+            - covered_issues
+        )
+
+        print(
+            (
+                "legacy-after-redalyc "
+                f"attempted={sorted(redalyc_targets)} "
+                f"recovered={redalyc_issues} "
+                f"issues={sorted(covered_issues)} "
+                f"records={len(combined)} "
+                f"missing={missing_issues}"
+            )
+        )
+
     direct_recovery_targets = {
         issue_number
         for issue_number in missing_issues
