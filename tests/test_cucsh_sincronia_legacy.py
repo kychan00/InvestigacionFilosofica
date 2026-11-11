@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import unittest
 
+from unittest.mock import patch
+
 from scripts.cucsh import (
     sincronia_legacy as legacy,
 )
@@ -312,6 +314,112 @@ class SincroniaLegacyTest(
                 "fall00"
             ],
             16,
+        )
+
+
+    def test_targeted_direct_recovery_only_probes_requested_issues(
+        self,
+    ):
+        def fake_issue(
+            issue_number,
+            filename,
+            fallback_year,
+        ):
+            return {
+                "url":
+                    (
+                        "https://sincronia.cucsh.udg.mx/"
+                        + filename
+                    ),
+                "number":
+                    issue_number,
+                "year":
+                    fallback_year,
+                "title":
+                    f"Sincronía Núm. {issue_number}",
+                "links": [
+                    {
+                        "url":
+                            (
+                                "https://sincronia.cucsh.udg.mx/"
+                                f"article-{issue_number}.htm"
+                            ),
+                        "text":
+                            f"Artículo {issue_number}",
+                    },
+                ],
+                "usedWayback":
+                    False,
+            }
+
+        def fake_record(
+            article_link,
+            issue,
+            prefer_wayback=False,
+        ):
+            return {
+                "id":
+                    f"record:{issue['number']}",
+                "title":
+                    article_link["text"],
+                "issueNumber":
+                    issue["number"],
+                "urls": {
+                    "canonical":
+                        article_link["url"],
+                },
+            }
+
+        with (
+            patch.object(
+                legacy,
+                "fetch_direct_early_issue",
+                side_effect=fake_issue,
+            ) as fetch_issue,
+            patch.object(
+                legacy,
+                "build_legacy_record",
+                side_effect=fake_record,
+            ),
+        ):
+            records, issues = (
+                legacy.harvest_direct_early_issues(
+                    max_issue=60,
+                    target_issues={
+                        22,
+                        41,
+                    },
+                )
+            )
+
+        self.assertEqual(
+            issues,
+            [
+                22,
+                41,
+            ],
+        )
+
+        self.assertEqual(
+            {
+                row["issueNumber"]
+                for row in records
+            },
+            {
+                22,
+                41,
+            },
+        )
+
+        self.assertEqual(
+            {
+                call.args[0]
+                for call in fetch_issue.call_args_list
+            },
+            {
+                22,
+                41,
+            },
         )
 
 
