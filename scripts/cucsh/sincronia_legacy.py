@@ -243,9 +243,13 @@ def early_issue_filename_variants(
     return variants
 
 
-EARLY_ISSUE_BASES = [
+PRIMARY_EARLY_ISSUE_BASES = [
     "https://sincronia.cucsh.udg.mx/",
     "http://sincronia.cucsh.udg.mx/",
+]
+
+EARLY_ISSUE_BASES = [
+    *PRIMARY_EARLY_ISSUE_BASES,
     (
         "http://fuentes.csh.udg.mx/"
         "CUCSH/Sincronia/"
@@ -1621,12 +1625,18 @@ def fetch_direct_early_issue(
     issue_number,
     filename,
     fallback_year,
+    bases=None,
 ):
+    bases = (
+        list(bases)
+        if bases is not None
+        else EARLY_ISSUE_BASES
+    )
     issue_data = None
     issue_url = None
     used_wayback = False
 
-    for base_url in EARLY_ISSUE_BASES:
+    for base_url in bases:
         for candidate_filename in (
             direct_issue_filename_variants(
                 filename
@@ -1730,6 +1740,7 @@ def fetch_direct_early_issue(
 def harvest_direct_early_issues(
     max_issue=21,
     target_issues=None,
+    bases=None,
 ):
     target_issues = (
         set(target_issues)
@@ -1770,6 +1781,7 @@ def harvest_direct_early_issues(
                 issue_number,
                 filename,
                 fallback_year,
+                bases,
             ):
                 issue_number
             for (
@@ -2296,7 +2308,8 @@ def harvest_legacy_records(
         max_issue=min(
             max_issue,
             18,
-        )
+        ),
+        bases=PRIMARY_EARLY_ISSUE_BASES,
     )
 
     combined = merge_historical_records(
