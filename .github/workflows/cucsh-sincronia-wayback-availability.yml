@@ -1,0 +1,90 @@
+name: Sincronía Wayback availability probe
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-wayback-availability.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Probe closest Wayback snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import concurrent.futures
+          import json
+          import urllib.parse
+          import urllib.request
+
+          issues={
+              2:("spring97","primavera97",1997),
+              3:("summer97","verano97",1997),
+              8:("fall98","otono98",1998),
+              9:("winter99","invierno99",1999),
+              16:("fall00","otono00",2000),
+              51:("summer09","verano09",2009),
+          }
+          bases=[
+              "http://sincronia.cucsh.udg.mx/",
+              "http://fuentes.csh.udg.mx/CUCSH/Sincronia/",
+              "http://www.cucsh.udg.mx/CUCSH/Sincronia/",
+          ]
+
+          tasks=[]
+          for number,(english,spanish,year) in issues.items():
+              for base in bases:
+                  for stem in (english,spanish):
+                      tasks.append((number,year,base+stem+".htm"))
+
+          def probe(item):
+              number,year,url=item
+              api=(
+                  "https://archive.org/wayback/available?"
+                  + urllib.parse.urlencode({
+                      "url":url,
+                      "timestamp":f"{year}1231",
+                  })
+              )
+              req=urllib.request.Request(
+                  api,
+                  headers={"User-Agent":"Mozilla/5.0 InvestigacionFilosofica/0.1"},
+              )
+              try:
+                  with urllib.request.urlopen(req,timeout=10) as response:
+                      payload=json.loads(response.read().decode("utf-8","replace"))
+                  closest=(payload.get("archived_snapshots") or {}).get("closest") or {}
+                  if closest.get("available"):
+                      return number,url,closest,None
+                  return number,url,None,None
+              except Exception as exc:
+                  return number,url,None,repr(exc)
+
+          found={}
+          with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:
+              for number,url,closest,error in ex.map(probe,tasks):
+                  if closest:
+                      found.setdefault(number,[]).append({
+                          "original":url,
+                          "timestamp":closest.get("timestamp"),
+                          "snapshot":closest.get("url"),
+                          "status":closest.get("status"),
+                      })
+                      print("WAYBACK_FOUND",number,url,closest)
+                  elif error:
+                      print("WAYBACK_ERROR",number,url,error)
+
+          print("WAYBACK_SUMMARY",json.dumps(found,ensure_ascii=False))
+          print("WAYBACK_MISSING",sorted(set(issues)-set(found)))
+          PY
