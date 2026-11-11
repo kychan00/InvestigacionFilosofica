@@ -492,3 +492,63 @@ test(
     );
   }
 );
+
+
+test(
+  "Sincronía 1–90 contiene sólo artículos verificables, sin formularios",
+  () => {
+    const sincronia = records.filter(
+      record => record.journal === "Sincronía"
+    );
+    assert.ok(sincronia.length >= 1442);
+    const issues = new Set(
+      sincronia.map(record => record.issueNumber)
+    );
+    for (let issue = 1; issue <= 90; issue++) {
+      assert.ok(issues.has(issue), `Sincronía issue ${issue} missing`);
+    }
+    assert.ok(
+      sincronia.every(
+        record => Number.isInteger(record.issueNumber) &&
+          record.issueNumber >= 1 && record.issueNumber <= 90
+      )
+    );
+    assert.ok(sincronia.every(record => record.title && record.id));
+    assert.equal(
+      sincronia.filter(
+        record => /^declaraci[oó]n de (?:coautor[ií]a|autor[ií]a individual)$/i.test(record.title)
+      ).length,
+      0
+    );
+  }
+);
+
+test(
+  "la búsqueda local recupera Sincronía histórica y moderna",
+  () => {
+    const sincronia = records.filter(
+      record => record.journal === "Sincronía"
+    );
+    const historical = sincronia.find(
+      record => record.issueNumber === 49 &&
+        /filosof[ií]a de la ense[nñ]anza/i.test(record.title)
+    );
+    const modern = sincronia.find(
+      record => record.issueNumber === 90 && record.title?.length > 20
+    );
+    assert.ok(historical, "Missing Sincronía issue 49 philosophy article");
+    assert.ok(modern, "Missing Sincronía issue 90 article");
+
+    for (const record of [historical, modern]) {
+      const results = searchCucshRecords(
+        records,
+        record.title,
+        { rows: 40 }
+      );
+      assert.ok(
+        results.some(result => result.journal === "Sincronía"),
+        `Search did not recover Sincronía issue ${record.issueNumber}`
+      );
+    }
+  }
+);
