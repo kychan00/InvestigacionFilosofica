@@ -52,16 +52,19 @@ jobs:
             scripts/cucsh/harvest.py \
             scripts/cucsh/sincronia_dialnet.py \
             scripts/cucsh/sincronia_legacy.py \
+            scripts/cucsh/sincronia_redalyc.py \
             scripts/cucsh/validate_update.py \
             tests/test_cucsh_sincronia.py \
             tests/test_cucsh_sincronia_dialnet.py \
             tests/test_cucsh_sincronia_legacy.py \
+            tests/test_cucsh_sincronia_redalyc.py \
             tests/test_cucsh_validate_update.py
 
           python3 -m unittest \
             tests/test_cucsh_sincronia.py \
             tests/test_cucsh_sincronia_dialnet.py \
             tests/test_cucsh_sincronia_legacy.py \
+            tests/test_cucsh_sincronia_redalyc.py \
             tests/test_cucsh_validate_update.py
 
           npm test
