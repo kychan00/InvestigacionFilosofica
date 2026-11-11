@@ -332,6 +332,51 @@ class SincroniaDialnetTest(
         )
 
 
+    def test_verified_issue_51_fallback_builds_valid_records(
+        self,
+    ):
+        payload = dialnet.verified_issue_payload(
+            51
+        )
+
+        self.assertIsNotNone(
+            payload
+        )
+
+        issue, articles = payload
+
+        self.assertEqual(
+            issue["number"],
+            51,
+        )
+        self.assertEqual(
+            issue["year"],
+            2009,
+        )
+        self.assertEqual(
+            len(articles),
+            9,
+        )
+
+        record = dialnet.build_record(
+            articles[0],
+            issue,
+        )
+
+        self.assertEqual(
+            record["issueNumber"],
+            51,
+        )
+        self.assertEqual(
+            record["authors"][0]["name"],
+            "Maximiliano Emanuel Korstanje",
+        )
+        self.assertEqual(
+            record["sourceId"],
+            "dialnet:3297190",
+        )
+
+
     def test_record_preserves_historical_provenance(
         self,
     ):
