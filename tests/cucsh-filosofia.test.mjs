@@ -500,7 +500,7 @@ test(
     const sincronia = records.filter(
       record => record.journal === "Sincronía"
     );
-    assert.ok(sincronia.length >= 1442);
+    assert.ok(sincronia.length >= 1450);
     const issues = new Set(
       sincronia.map(record => record.issueNumber)
     );
@@ -514,6 +514,11 @@ test(
       )
     );
     assert.ok(sincronia.every(record => record.title && record.id));
+    assert.ok(
+      sincronia.filter(record => record.issueNumber === 44).length >= 10,
+      "Issue 44 must retain its ten source-verified records"
+    );
+
     assert.equal(
       sincronia.filter(
         record => /^declaraci[oó]n de (?:coautor[ií]a|autor[ií]a individual)$/i.test(record.title)
@@ -533,13 +538,18 @@ test(
       record => record.issueNumber === 49 &&
         /filosof[ií]a de la ense[nñ]anza/i.test(record.title)
     );
+    const historical44 = sincronia.find(
+      record => record.issueNumber === 44 &&
+        record.title === "Génesis de un personaje teatral"
+    );
     const modern = sincronia.find(
       record => record.issueNumber === 90 && record.title?.length > 20
     );
     assert.ok(historical, "Missing Sincronía issue 49 philosophy article");
+    assert.ok(historical44, "Missing Sincronía issue 44 historical article");
     assert.ok(modern, "Missing Sincronía issue 90 article");
 
-    for (const record of [historical, modern]) {
+    for (const record of [historical, historical44, modern]) {
       const results = searchCucshRecords(
         records,
         record.title,

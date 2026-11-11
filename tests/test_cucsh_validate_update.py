@@ -100,6 +100,15 @@ class CucshValidateUpdateTest(unittest.TestCase):
             result.stdout + result.stderr,
         )
 
+    def test_issue44_cannot_regress_below_verified_ten(self):
+        from scripts.cucsh.validate_update import (
+            SINCRONIA_HISTORICAL_OBSERVED_MINIMUM,
+        )
+        self.assertEqual(
+            SINCRONIA_HISTORICAL_OBSERVED_MINIMUM[44],
+            10,
+        )
+
     def test_discovery_mode_reports_missing_issues_without_failing(self):
         result = self.run_validator(allow_incomplete=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

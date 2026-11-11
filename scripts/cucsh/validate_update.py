@@ -365,6 +365,8 @@ def validate_snapshot(
 # Minimum OBSERVED historical records, not a claim of exhaustive
 # completeness. Numbers 1-48 and 50-51 come from the 2026-11-11
 # legacy-v3 GitHub Actions evidence (run 42961992150).
+# Number 44: audit 42975312757 confirmed 10 Dialnet articles and
+# release 42975808247 safely added 8 records without deleting the 2 prior.
 # Number 49's 21 titles are sourced from Dialnet exemplar 251060.
 # Numbers 52-60 are from targeted successful Dialnet audit run
 # 42971659878, de-duplicated by Dialnet article code across issues.
@@ -415,7 +417,7 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
     41: 13,
     42: 7,
     43: 7,
-    44: 2,
+    44: 10,
     45: 10,
     46: 19,
     47: 14,
