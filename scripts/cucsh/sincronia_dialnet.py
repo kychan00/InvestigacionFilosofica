@@ -20,6 +20,47 @@ JOURNAL_URL = (
 )
 
 
+# Stable Dialnet exemplar identifiers exposed by the journal index.
+# Sincronía's issues 1-16 and 18 are not catalogued there; the
+# original journal archive remains authoritative for those numbers.
+KNOWN_ISSUE_URLS = {
+    17: "https://dialnet.unirioja.es/ejemplar/547854",
+    19: "https://dialnet.unirioja.es/ejemplar/547094",
+    20: "https://dialnet.unirioja.es/ejemplar/546892",
+    21: "https://dialnet.unirioja.es/ejemplar/294174",
+    22: "https://dialnet.unirioja.es/ejemplar/253504",
+    23: "https://dialnet.unirioja.es/ejemplar/253500",
+    24: "https://dialnet.unirioja.es/ejemplar/253439",
+    25: "https://dialnet.unirioja.es/ejemplar/60678",
+    26: "https://dialnet.unirioja.es/ejemplar/70493",
+    27: "https://dialnet.unirioja.es/ejemplar/78940",
+    28: "https://dialnet.unirioja.es/ejemplar/85672",
+    29: "https://dialnet.unirioja.es/ejemplar/94035",
+    30: "https://dialnet.unirioja.es/ejemplar/98510",
+    31: "https://dialnet.unirioja.es/ejemplar/98515",
+    32: "https://dialnet.unirioja.es/ejemplar/119795",
+    33: "https://dialnet.unirioja.es/ejemplar/119796",
+    34: "https://dialnet.unirioja.es/ejemplar/119797",
+    35: "https://dialnet.unirioja.es/ejemplar/137355",
+    36: "https://dialnet.unirioja.es/ejemplar/178749",
+    37: "https://dialnet.unirioja.es/ejemplar/178782",
+    38: "https://dialnet.unirioja.es/ejemplar/144465",
+    39: "https://dialnet.unirioja.es/ejemplar/157682",
+    40: "https://dialnet.unirioja.es/ejemplar/157683",
+    41: "https://dialnet.unirioja.es/ejemplar/157686",
+    42: "https://dialnet.unirioja.es/ejemplar/178736",
+    43: "https://dialnet.unirioja.es/ejemplar/178733",
+    44: "https://dialnet.unirioja.es/ejemplar/547426",
+    45: "https://dialnet.unirioja.es/ejemplar/547233",
+    46: "https://dialnet.unirioja.es/ejemplar/187570",
+    47: "https://dialnet.unirioja.es/ejemplar/251022",
+    48: "https://dialnet.unirioja.es/ejemplar/251053",
+    49: "https://dialnet.unirioja.es/ejemplar/251060",
+    50: "https://dialnet.unirioja.es/ejemplar/251077",
+    51: "https://dialnet.unirioja.es/ejemplar/251120",
+}
+
+
 DIALNET_COOKIE_JAR = (
     http.cookiejar.CookieJar()
 )
@@ -289,7 +330,13 @@ def parse_text(
 def journal_issue_urls(
     data,
     max_issue=None,
+    target_issues=None,
 ):
+    target_issues = (
+        set(target_issues)
+        if target_issues is not None
+        else None
+    )
     output = []
     seen = set()
 
@@ -329,6 +376,13 @@ def journal_issue_urls(
             max_issue is not None
             and number_hint is not None
             and number_hint > max_issue
+        ):
+            continue
+
+        if (
+            target_issues is not None
+            and number_hint is not None
+            and number_hint not in target_issues
         ):
             continue
 
@@ -708,33 +762,70 @@ def fetch_issue_payload(
 
 def harvest_dialnet_records(
     max_issue=84,
+    target_issues=None,
 ):
-    data = request_bytes(
-        JOURNAL_URL,
-        timeout=12,
+    targets = (
+        {
+            int(issue_number)
+            for issue_number in target_issues
+            if (
+                isinstance(
+                    issue_number,
+                    int,
+                )
+                and 1 <= issue_number <= max_issue
+            )
+        }
+        if target_issues is not None
+        else None
     )
 
-    issue_urls = (
-        journal_issue_urls(
-            data,
-            max_issue=max_issue,
-        )
-    )
+    if targets is not None:
+        issue_urls = [
+            KNOWN_ISSUE_URLS[
+                issue_number
+            ]
+            for issue_number in sorted(
+                targets
+            )
+            if issue_number in (
+                KNOWN_ISSUE_URLS
+            )
+        ]
 
-    print(
-        (
-            "dialnet-journal "
-            f"bytes={len(data)} "
-            f"issues={len(issue_urls)}"
+        print(
+            (
+                "dialnet-targeted "
+                f"requested={sorted(targets)} "
+                f"known={len(issue_urls)}"
+            )
         )
-    )
+
+    else:
+        data = request_bytes(
+            JOURNAL_URL,
+            timeout=12,
+        )
+
+        issue_urls = (
+            journal_issue_urls(
+                data,
+                max_issue=max_issue,
+            )
+        )
+
+        print(
+            (
+                "dialnet-journal "
+                f"bytes={len(data)} "
+                f"issues={len(issue_urls)}"
+            )
+        )
 
     if not issue_urls:
-        raise RuntimeError(
-            (
-                "Dialnet did not expose "
-                "Sincronía issue URLs"
-            )
+        return (
+            [],
+            [],
         )
 
     payloads = []
