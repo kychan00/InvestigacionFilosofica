@@ -585,8 +585,11 @@ document.querySelectorAll("[data-final-step]").forEach((button) => {
 
 const presentationScenes = [
   { id: "nucleo", label: "Núcleo" },
-  { id: "recorrido", label: "Recorrido histórico" },
-  { id: "actualidad", label: "Actualidad" },
+  { id: "socrates", label: "Sócrates / Platón" },
+  { id: "aristoteles", label: "Aristóteles" },
+  { id: "kant", label: "Kant" },
+  { id: "hegel-marx", label: "Hegel / Marx" },
+  { id: "actualidad", label: "Pragmadialéctica" },
   { id: "cierre", label: "Cierre" }
 ];
 
