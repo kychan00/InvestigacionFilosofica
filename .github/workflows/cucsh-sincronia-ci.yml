@@ -1,0 +1,79 @@
+name: Sincronía fast CI
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - "scripts/cucsh/**"
+      - "tests/test_cucsh_*.py"
+      - "src/data/cucsh-filosofia.json"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/cucsh-harvest.yml"
+      - ".github/workflows/cucsh-sincronia-ci.yml"
+
+  pull_request:
+    paths:
+      - "scripts/cucsh/**"
+      - "tests/test_cucsh_*.py"
+      - "src/data/cucsh-filosofia.json"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/cucsh-harvest.yml"
+      - ".github/workflows/cucsh-sincronia-ci.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-fast-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Python syntax
+        run: |
+          python3 -m py_compile \
+            scripts/cucsh/harvest.py \
+            scripts/cucsh/sincronia_dialnet.py \
+            scripts/cucsh/sincronia_legacy.py \
+            scripts/cucsh/validate_update.py \
+            tests/test_cucsh_sincronia.py \
+            tests/test_cucsh_sincronia_dialnet.py \
+            tests/test_cucsh_sincronia_legacy.py \
+            tests/test_cucsh_validate_update.py
+
+      - name: Run Sincronía unit tests
+        run: |
+          python3 -m unittest \
+            tests/test_cucsh_sincronia.py \
+            tests/test_cucsh_sincronia_dialnet.py \
+            tests/test_cucsh_sincronia_legacy.py \
+            tests/test_cucsh_validate_update.py
+
+      - name: Run application regression suite
+        run: npm test
+
+      - name: Check repository diff hygiene
+        run: git diff --check HEAD^ HEAD || git diff --check
