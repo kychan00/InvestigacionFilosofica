@@ -149,6 +149,48 @@ class SincroniaLegacyTest(
             ),
         )
 
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                51
+            ],
+            (
+                "summer09.htm",
+                2009,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                53
+            ],
+            (
+                "winter10.htm",
+                2009,
+            ),
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_FILENAMES[
+                60
+            ],
+            (
+                "fall11.htm",
+                2011,
+            ),
+        )
+
+        self.assertEqual(
+            set(
+                legacy.EARLY_ISSUE_FILENAMES
+            ),
+            set(
+                range(
+                    1,
+                    61,
+                )
+            ),
+        )
+
     def test_early_filename_variants_cover_historical_url_shapes(
         self,
     ):
