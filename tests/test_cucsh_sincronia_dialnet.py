@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import unittest
 
+from unittest.mock import patch
+
 from scripts.cucsh import (
     sincronia_dialnet as dialnet,
 )
@@ -266,6 +268,67 @@ class SincroniaDialnetTest(
             [
                 "Peter Watt"
             ],
+        )
+
+
+    def test_failed_target_gets_one_cooldown_retry(
+        self,
+    ):
+        failure = {
+            "error":
+                "fetch:503",
+            "url":
+                dialnet.KNOWN_ISSUE_URLS[51],
+        }
+        success = (
+            {
+                "year": 2009,
+                "number": 51,
+            },
+            [
+                {
+                    "code": "999",
+                    "url":
+                        "https://dialnet.unirioja.es/servlet/articulo?codigo=999",
+                    "title":
+                        "Artículo recuperado",
+                    "authors": [],
+                },
+            ],
+        )
+
+        with (
+            patch.object(
+                dialnet,
+                "fetch_issue_payload",
+                side_effect=[
+                    failure,
+                    success,
+                ],
+            ) as fetch_payload,
+            patch.object(
+                dialnet.time,
+                "sleep",
+            ),
+        ):
+            records, issues = (
+                dialnet.harvest_dialnet_records(
+                    max_issue=51,
+                    target_issues={51},
+                )
+            )
+
+        self.assertEqual(
+            fetch_payload.call_count,
+            2,
+        )
+        self.assertEqual(
+            issues,
+            [51],
+        )
+        self.assertEqual(
+            len(records),
+            1,
         )
 
 
