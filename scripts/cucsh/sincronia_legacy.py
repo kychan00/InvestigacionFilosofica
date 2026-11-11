@@ -222,6 +222,134 @@ HISTORICAL_ISSUE_URLS = {
         "http://fuentes.csh.udg.mx/"
         "CUCSH/Sincronia/spring01.htm"
     ),
+    19: (
+        "http://sincronia.cucsh.udg.mx/"
+        "summer01.htm"
+    ),
+    20: (
+        "http://sincronia.cucsh.udg.mx/"
+        "fall01.htm"
+    ),
+    21: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter02.htm"
+    ),
+    22: (
+        "http://sincronia.cucsh.udg.mx/"
+        "spring02.htm"
+    ),
+    23: (
+        "http://sincronia.cucsh.udg.mx/"
+        "verano02.htm"
+    ),
+    24: (
+        "http://sincronia.cucsh.udg.mx/"
+        "otono02.htm"
+    ),
+    25: (
+        "http://sincronia.cucsh.udg.mx/"
+        "invierno02.htm"
+    ),
+    26: (
+        "http://sincronia.cucsh.udg.mx/"
+        "prim03.htm"
+    ),
+    27: (
+        "http://sincronia.cucsh.udg.mx/"
+        "verano03.htm"
+    ),
+    28: (
+        "http://sincronia.cucsh.udg.mx/"
+        "otono03.htm"
+    ),
+    29: (
+        "http://sincronia.cucsh.udg.mx/"
+        "invierno03.htm"
+    ),
+    30: (
+        "http://sincronia.cucsh.udg.mx/"
+        "primavera04.htm"
+    ),
+    31: (
+        "http://sincronia.cucsh.udg.mx/"
+        "verano04.htm"
+    ),
+    32: (
+        "http://sincronia.cucsh.udg.mx/"
+        "otono04.htm"
+    ),
+    33: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter04.htm"
+    ),
+    34: (
+        "http://sincronia.cucsh.udg.mx/"
+        "spring05.htm"
+    ),
+    35: (
+        "http://sincronia.cucsh.udg.mx/"
+        "summer05.htm"
+    ),
+    36: (
+        "http://sincronia.cucsh.udg.mx/"
+        "otono05.htm"
+    ),
+    37: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter05.htm"
+    ),
+    38: (
+        "http://sincronia.cucsh.udg.mx/"
+        "spring06.htm"
+    ),
+    39: (
+        "http://sincronia.cucsh.udg.mx/"
+        "verano06.htm"
+    ),
+    40: (
+        "http://sincronia.cucsh.udg.mx/"
+        "otono06.htm"
+    ),
+    41: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter06.htm"
+    ),
+    42: (
+        "http://sincronia.cucsh.udg.mx/"
+        "spring07.htm"
+    ),
+    43: (
+        "http://sincronia.cucsh.udg.mx/"
+        "summer07.htm"
+    ),
+    44: (
+        "http://sincronia.cucsh.udg.mx/"
+        "fall07.htm"
+    ),
+    45: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter07.htm"
+    ),
+    46: (
+        "http://sincronia.cucsh.udg.mx/"
+        "spring08.htm"
+    ),
+    47: (
+        "http://sincronia.cucsh.udg.mx/"
+        "summer08.htm"
+    ),
+    48: (
+        "http://sincronia.cucsh.udg.mx/"
+        "fall2008.htm"
+    ),
+    49: (
+        "http://sincronia.cucsh.udg.mx/"
+        "winter08.htm"
+    ),
+    50: (
+        "http://sincronia.cucsh.udg.mx/"
+        "spring09.htm"
+    ),
     51: (
         "http://sincronia.cucsh.udg.mx/"
         "summer09.htm"
