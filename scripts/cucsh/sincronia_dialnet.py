@@ -58,6 +58,15 @@ KNOWN_ISSUE_URLS = {
     49: "https://dialnet.unirioja.es/ejemplar/251060",
     50: "https://dialnet.unirioja.es/ejemplar/251077",
     51: "https://dialnet.unirioja.es/ejemplar/251120",
+    52: "https://dialnet.unirioja.es/ejemplar/251295",
+    53: "https://dialnet.unirioja.es/ejemplar/251318",
+    54: "https://dialnet.unirioja.es/ejemplar/251356",
+    55: "https://dialnet.unirioja.es/ejemplar/255001",
+    56: "https://dialnet.unirioja.es/ejemplar/262071",
+    57: "https://dialnet.unirioja.es/ejemplar/293341",
+    58: "https://dialnet.unirioja.es/ejemplar/293376",
+    59: "https://dialnet.unirioja.es/ejemplar/293388",
+    60: "https://dialnet.unirioja.es/ejemplar/293399",
 }
 
 

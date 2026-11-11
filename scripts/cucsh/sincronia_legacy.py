@@ -2648,7 +2648,7 @@ def harvest_legacy_records(
     )
 
     # Phase 2: Dialnet has stable exemplar identifiers for every
-    # catalogued historical issue (17 and 19-51). Ask only for the
+    # catalogued historical issue (17 and 19-60). Ask only for the
     # unresolved issue numbers. This avoids the previous broad crawl
     # that caused 503s and connection resets.
     dialnet_targets = set(

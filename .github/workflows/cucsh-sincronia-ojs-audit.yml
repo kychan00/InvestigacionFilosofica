@@ -1,4 +1,4 @@
-name: Sincronía OJS 52-90 · live coverage audit
+name: Sincronía OJS 61-90 · live coverage audit
 
 # Opt-in audit: never run this expensive network check for every edit.
 on:
@@ -45,11 +45,11 @@ jobs:
               row.get("issueNumber") for row in records
               if isinstance(row.get("issueNumber"), int)
           )
-          required = set(range(52, 91))
+          required = set(range(61, 91))
           missing = sorted(required - set(issue_counts))
           report = {
               "source": "OJS archive and OAI-PMH",
-              "issuesExpected": [52, 90],
+              "issuesExpected": [61, 90],
               "issuesFound": sorted(issue_counts),
               "issuesMissing": missing,
               "records": len(records),

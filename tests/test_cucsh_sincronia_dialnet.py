@@ -116,6 +116,19 @@ class SincroniaDialnetTest(
                 "ejemplar/251120"
             ),
         )
+        self.assertEqual(
+            {issue for issue in range(52, 61)
+             if issue in dialnet.KNOWN_ISSUE_URLS},
+            set(range(52, 61)),
+        )
+        self.assertEqual(
+            dialnet.KNOWN_ISSUE_URLS[55],
+            "https://dialnet.unirioja.es/ejemplar/255001",
+        )
+        self.assertEqual(
+            dialnet.KNOWN_ISSUE_URLS[60],
+            "https://dialnet.unirioja.es/ejemplar/293399",
+        )
 
 
     def test_issue_identity(

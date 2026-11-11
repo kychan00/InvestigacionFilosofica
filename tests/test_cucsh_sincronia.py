@@ -240,7 +240,7 @@ class SincroniaIssueMetadataTest(
 
         self.assertEqual(
             source["legacyMaxIssue"],
-            51,
+            60,
         )
 
 
