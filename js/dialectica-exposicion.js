@@ -598,7 +598,8 @@ const presentationExit = document.querySelector("[data-presentation-exit]");
 const presentationPrev = document.querySelector("[data-present-prev]");
 const presentationNext = document.querySelector("[data-present-next]");
 const presentationStatus = document.querySelector("[data-present-status]");
-let presentationIndex = 0;\nlet presentationNavigationLockUntil = 0;
+let presentationIndex = 0;
+let presentationNavigationLockUntil = 0;
 
 function syncPresentationStatus() {
   const scene = presentationScenes[presentationIndex];
