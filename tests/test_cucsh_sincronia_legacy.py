@@ -362,7 +362,7 @@ class SincroniaLegacyTest(
             legacy.EARLY_ISSUE_NUMBER_BY_STEM[
                 "winter98"
             ],
-            5,
+            9,
         )
 
         self.assertEqual(
@@ -374,9 +374,30 @@ class SincroniaLegacyTest(
 
         self.assertEqual(
             legacy.EARLY_ISSUE_NUMBER_BY_STEM[
-                "fall00"
+                "otono00"
             ],
             16,
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_NUMBER_BY_STEM[
+                "spring"
+            ],
+            2,
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_NUMBER_BY_STEM[
+                "sum97"
+            ],
+            3,
+        )
+
+        self.assertEqual(
+            legacy.EARLY_ISSUE_NUMBER_BY_STEM[
+                "dindex"
+            ],
+            8,
         )
 
 
