@@ -292,7 +292,7 @@
   document.addEventListener('keydown', event => {
     if (!isPresenting()) return;
     const target = event.target;
-    if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable) return;
+    if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLButtonElement || target instanceof HTMLAnchorElement || target?.isContentEditable) return;
 
     if (event.key.toLowerCase() === 'r') {
       event.preventDefault();
