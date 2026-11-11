@@ -107,6 +107,17 @@ class CucshValidateUpdateTest(unittest.TestCase):
         self.assertIn("incomplete Sincronía issue coverage", result.stdout)
         self.assertIn("CUCSH UPDATE VALIDATION: PASS", result.stdout)
 
+    def test_release_workflow_blocks_preserved_source(
+        self,
+    ):
+        workflow = (
+            ROOT / ".github" / "workflows" / "cucsh-harvest.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("if grep -q 'status=preserved'", workflow)
+        self.assertIn('if [ "${{ inputs.mode }}" = "release" ]; then', workflow)
+        self.assertIn("CUCSH release blocked", workflow)
+        self.assertIn("exit 1", workflow)
+
     def test_release_mode_still_fails_incomplete_coverage(self):
         result = self.run_validator(allow_incomplete=False)
         self.assertNotEqual(result.returncode, 0)
