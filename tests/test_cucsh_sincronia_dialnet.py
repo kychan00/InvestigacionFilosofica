@@ -41,6 +41,19 @@ class SincroniaDialnetTest(
             ],
         )
 
+        self.assertEqual(
+            dialnet.journal_issue_urls(
+                data,
+                max_issue=20,
+            ),
+            [
+                (
+                    "https://dialnet.unirioja.es/"
+                    "ejemplar/547854"
+                ),
+            ],
+        )
+
     def test_issue_identity(
         self,
     ):
