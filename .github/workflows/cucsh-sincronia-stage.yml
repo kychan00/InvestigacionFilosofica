@@ -74,7 +74,21 @@ jobs:
           const sincronia=dataset.records.filter(row=>row.journal==="Sincronía");
           assert.equal(sincronia.length,1444);
           assert.equal(dataset.records.length,1835);
-          assert.equal(new Set(sincronia.map(row=>row.issueNumber)).size,90);
+          const assignedIssues=new Set(
+            sincronia.map(row=>row.issueNumber).filter(Number.isInteger)
+          );
+          const unassigned=sincronia.filter(row=>!Number.isInteger(row.issueNumber));
+          console.log("SINCRONIA_UNASSIGNED",JSON.stringify(
+            unassigned.map(row=>({
+              id:row.id,
+              title:row.title,
+              year:row.year,
+              sourceId:row.sourceId,
+              canonical:row.urls?.canonical
+            }))
+          ));
+          assert.equal(assignedIssues.size,90);
+          assert.equal(unassigned.length,0,"Unassigned Sincronía records need provenance review");
           const cases=[
             "Filosofía de la Enseñanza",
             "Técnica y política en Oppenheimer"
