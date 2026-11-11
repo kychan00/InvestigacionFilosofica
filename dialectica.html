@@ -25,8 +25,14 @@
     name="description"
     content="Exposición visual e interactiva sobre la dialéctica como método de investigación: Sócrates y Platón, Aristóteles, Kant, Hegel, Marx y pragmadialéctica."
   >
-  <link rel="stylesheet" href="./css/dialectica-exposicion.css?v=20261111-fase2">\n  <link rel="stylesheet" href="./css/dialectica-presentacion.css?v=20261111-fase3">\n  <link rel="stylesheet" href="./css/dialectica-profundidad.css?v=20261111-fase4">
-  <script src="./js/dialectica-exposicion.js?v=20261111-fase2" defer></script>\n  <script src="./js/dialectica-presentacion.js?v=20261111-fase3" defer></script>\n  <script src="./js/dialectica-profundidad.js?v=20261111-fase4" defer></script>
+  <link rel="stylesheet" href="./css/dialectica-exposicion.css?v=20261111-fase2">
+  <link rel="stylesheet" href="./css/dialectica-presentacion.css?v=20261111-fase3">
+  <link rel="stylesheet" href="./css/dialectica-profundidad.css?v=20261111-fase4">
+  <link rel="stylesheet" href="./css/dialectica-lentes.css?v=20261111-fase5">
+  <script src="./js/dialectica-exposicion.js?v=20261111-fase2" defer></script>
+  <script src="./js/dialectica-presentacion.js?v=20261111-fase3" defer></script>
+  <script src="./js/dialectica-profundidad.js?v=20261111-fase4" defer></script>
+  <script src="./js/dialectica-lentes.js?v=20261111-fase5" defer></script>
 </head>
 
 <body>
@@ -51,6 +57,17 @@
         </div>
 
         <div class="dx-nav-actions">
+          <button
+            type="button"
+            class="dx-theme-button dx-nav-lenses-toggle"
+            data-lenses-toggle
+            aria-expanded="false"
+            aria-pressed="false"
+            title="Abrir lentes transversales"
+          >
+            <span class="dx-theme-label" data-lenses-toggle-label>Lentes</span>
+            <span class="dx-lenses-shortcut" aria-hidden="true">L</span>
+          </button>
           <button
             type="button"
             class="dx-theme-button"
@@ -290,6 +307,107 @@
         </div>
       </section>
     </section>
+
+    <section class="dx-lenses-entry" id="lentes" data-lenses-section>
+  <div class="dx-lenses-entry-card">
+    <div>
+      <span>CAPA TRANSVERSAL / OPCIONAL</span>
+      <h2>Dos problemas atraviesan toda la historia.</h2>
+      <p>
+        Abra esta capa cuando quiera explicar por qué las distintas formas de dialéctica
+        cambian de vocabulario y de método sin perder del todo el problema de la oposición.
+      </p>
+    </div>
+    <button type="button" class="dx-lenses-toggle" data-lenses-toggle aria-expanded="false" aria-pressed="false">
+      <span data-lenses-toggle-label>Lentes</span>
+      <span class="dx-lenses-shortcut">L</span>
+    </button>
+  </div>
+
+  <div class="dx-lenses-layer" data-lenses-layer aria-hidden="true">
+    <header class="dx-lenses-heading">
+      <div>
+        <span>LOS DOS PROBLEMAS FUNDAMENTALES</span>
+        <h2>¿Qué significa? ¿Y por qué se sigue?</h2>
+      </div>
+      <p>
+        El artículo organiza buena parte de la historia de la dialéctica alrededor de dos problemas persistentes:
+        el semántico y el inferencial.
+      </p>
+    </header>
+
+    <div class="dx-lens-layout">
+      <div class="dx-lens-cards">
+        <button type="button" class="dx-lens-card" data-lens="semantic" aria-pressed="true">
+          <svg viewBox="0 0 250 150" aria-hidden="true">
+            <path d="M30 30h80v50H30zM140 30h80v50h-80zM70 80v35M180 80v35M70 115h110"/>
+            <path class="dx-lens-accent" d="M109 55h30m-9-9 9 9-9 9"/>
+          </svg>
+          <div>
+            <span>01 / SEMÁNTICO</span>
+            <strong>¿Qué estamos diciendo?</strong>
+            <small>Conceptos, definiciones, lenguaje y realidad.</small>
+          </div>
+        </button>
+
+        <button type="button" class="dx-lens-card" data-lens="inferential" aria-pressed="false">
+          <svg viewBox="0 0 250 150" aria-hidden="true">
+            <circle cx="45" cy="75" r="24"/>
+            <circle cx="125" cy="75" r="24"/>
+            <circle cx="205" cy="75" r="24"/>
+            <path d="M69 75h31m49 0h31"/>
+            <path class="dx-lens-accent" d="m91 66 10 9-10 9m80-18 10 9-10 9"/>
+          </svg>
+          <div>
+            <span>02 / INFERENCIAL</span>
+            <strong>¿Por qué se sigue?</strong>
+            <small>Necesidad, plausibilidad, contexto y reglas.</small>
+          </div>
+        </button>
+      </div>
+
+      <aside class="dx-lens-panel" aria-live="polite">
+        <span data-lens-index>01 / 02</span>
+        <h3 data-lens-title>Problema semántico</h3>
+        <p data-lens-copy></p>
+        <strong data-lens-question></strong>
+      </aside>
+    </div>
+
+    <section class="dx-insight-wall" aria-labelledby="dx-insight-title">
+      <header>
+        <h3 id="dx-insight-title">Síntesis para exponer</h3>
+        <p>
+          Estas tarjetas son paráfrasis pedagógicas del recorrido del artículo.
+          <strong>No son citas textuales.</strong>
+        </p>
+      </header>
+
+      <div class="dx-insight-grid">
+        <button class="dx-insight-card" type="button" data-insight="epistemology" aria-pressed="true">
+          <span>PARÁFRASIS · NO CITA TEXTUAL</span>
+          <blockquote>“La dialéctica cambia cuando cambia nuestra idea de conocimiento.”</blockquote>
+        </button>
+
+        <button class="dx-insight-card" type="button" data-insight="science" aria-pressed="false">
+          <span>PARÁFRASIS · NO CITA TEXTUAL</span>
+          <blockquote>“Criticar una hipótesis también puede ser investigar.”</blockquote>
+        </button>
+
+        <button class="dx-insight-card" type="button" data-insight="levels" aria-pressed="false">
+          <span>SÍNTESIS OPERATIVA</span>
+          <blockquote>“Significado, inferencia, persuasión y controversia no son la misma pregunta.”</blockquote>
+        </button>
+      </div>
+
+      <div class="dx-insight-panel" aria-live="polite">
+        <span>AMPLIACIÓN</span>
+        <h4 data-insight-title>Dialéctica y epistemología</h4>
+        <p data-insight-copy></p>
+      </div>
+    </section>
+  </div>
+</section>
 
     <section class="dx-section dx-history" id="recorrido" data-scene="recorrido">
       <header class="dx-section-heading" data-reveal>
@@ -822,7 +940,9 @@
       </aside>
     </div>
   </div>
-</section>\n\n    <section class="dx-manifesto" aria-label="Punto de transición" data-reveal>
+</section>
+
+    <section class="dx-manifesto" aria-label="Punto de transición" data-reveal>
       <div>
         <span>GIRO CONTEMPORÁNEO</span>
         <p>
