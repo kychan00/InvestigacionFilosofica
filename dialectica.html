@@ -25,8 +25,8 @@
     name="description"
     content="Exposición visual e interactiva sobre la dialéctica como método de investigación: Sócrates y Platón, Aristóteles, Kant, Hegel, Marx y pragmadialéctica."
   >
-  <link rel="stylesheet" href="./css/dialectica-exposicion.css?v=20261111-fase1">
-  <script src="./js/dialectica-exposicion.js?v=20261111-fase1" defer></script>
+  <link rel="stylesheet" href="./css/dialectica-exposicion.css?v=20261111-fase2">
+  <script src="./js/dialectica-exposicion.js?v=20261111-fase2" defer></script>
 </head>
 
 <body>
@@ -349,8 +349,8 @@
           </button>
         </div>
 
-        <figure class="dx-era-scene">
-          <svg viewBox="0 0 720 500" role="img" aria-label="Ágora socrática: un maestro pregunta y un interlocutor responde">
+        <figure class="dx-era-scene dx-socratic-scene is-step-question" data-socratic-scene data-socratic-step="question">
+          <svg viewBox="0 0 720 500" role="img" aria-label="Ágora socrática interactiva: pregunta, respuesta, objeción y revisión">
             <rect class="dx-svg-ground" x="0" y="0" width="720" height="500" rx="26"/>
             <circle class="dx-svg-sun" cx="586" cy="86" r="50"/>
             <path class="dx-svg-hill" d="M0 328c98-72 164-42 234 1 81 49 151 36 226-15 91-62 174-63 260 9v177H0Z"/>
@@ -360,25 +360,43 @@
               <path d="M35 94v105M74 94v105M114 94v105M153 94v105"/>
               <rect x="18" y="199" width="172" height="16"/>
             </g>
-            <g class="dx-person" transform="translate(318 248)">
+
+            <circle class="dx-speaker-halo dx-speaker-halo-socrates" cx="318" cy="248" r="51"/>
+            <circle class="dx-speaker-halo dx-speaker-halo-interlocutor" cx="525" cy="258" r="51"/>
+
+            <g class="dx-person dx-socratic-person dx-socratic-person-a" transform="translate(318 248)">
               <circle cx="0" cy="0" r="29"/>
               <path d="M0 31v94M0 63l-48 28M0 62l45 20M0 125l-34 62M0 125l38 62"/>
             </g>
-            <g class="dx-person" transform="translate(525 258)">
+            <g class="dx-person dx-socratic-person dx-socratic-person-b" transform="translate(525 258)">
               <circle cx="0" cy="0" r="29"/>
               <path d="M0 31v94M0 63l-45 26M0 62l43 31M0 125l-34 62M0 125l38 62"/>
             </g>
-            <g class="dx-mini-bubble">
-              <path d="M260 155h164c14 0 25 11 25 25v58c0 14-11 25-25 25h-92l-25 25 6-25h-53c-14 0-25-11-25-25v-58c0-14 11-25 25-25Z"/>
-              <text x="278" y="195">¿Qué es X?</text>
-              <text class="dx-svg-small" x="278" y="222">preguntar antes de afirmar</text>
+
+            <g class="dx-socratic-bubble" tabindex="0" role="button" data-socratic-bubble aria-label="Avanzar diálogo socrático">
+              <path d="M227 124h286c16 0 29 13 29 29v94c0 16-13 29-29 29H389l-33 31 8-31H227c-16 0-29-13-29-29v-94c0-16 13-29 29-29Z"/>
+              <text class="dx-socratic-speaker" x="223" y="160" data-socratic-speaker>SÓCRATES</text>
+              <text class="dx-socratic-line" x="223" y="198" data-socratic-line>¿Qué es X?</text>
+              <text class="dx-socratic-note dx-svg-small" x="223" y="232" data-socratic-note>1 · formular la pregunta</text>
             </g>
-            <path class="dx-hand-line" d="M420 354c27-29 52-31 78-8"/>
-            <path class="dx-hand-line" d="m486 337 13 9-13 8"/>
+
+            <path class="dx-hand-line dx-dialogue-current" d="M420 354c27-29 52-31 78-8"/>
+            <path class="dx-hand-line dx-dialogue-current" d="m486 337 13 9-13 8"/>
           </svg>
+
+          <div class="dx-scene-hud dx-socratic-hud" aria-live="polite">
+            <button type="button" data-socratic-prev aria-label="Paso socrático anterior">←</button>
+            <div>
+              <span data-socratic-index>01 / 04</span>
+              <strong data-socratic-title>Pregunta</strong>
+              <small data-socratic-caption>La investigación comienza haciendo explícito qué se quiere definir.</small>
+            </div>
+            <button type="button" data-socratic-next aria-label="Siguiente paso socrático">→</button>
+          </div>
+
           <figcaption>
-            <span>ESCENA / ÁGORA</span>
-            No empieza con una doctrina terminada: empieza con una pregunta que incomoda una respuesta demasiado segura.
+            <span>ESCENA / ÁGORA INTERACTIVA</span>
+            Toque el globo o use las flechas: la pregunta pasa por respuesta, objeción y revisión.
           </figcaption>
         </figure>
       </article>
@@ -461,8 +479,8 @@
           </button>
         </div>
 
-        <figure class="dx-era-scene">
-          <svg viewBox="0 0 720 500" role="img" aria-label="Dos senderos suben una montaña y desaparecen en la niebla">
+        <figure class="dx-era-scene dx-kant-scene" data-kant-scene data-kant-state="idle">
+          <svg viewBox="0 0 720 500" role="img" aria-label="Dos senderos kantianos interactivos suben una montaña y llegan al límite de la experiencia">
             <defs>
               <linearGradient id="dxFog" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="var(--dx-fog)" stop-opacity="0"/>
@@ -472,49 +490,108 @@
             <rect class="dx-svg-ground" x="0" y="0" width="720" height="500" rx="26"/>
             <circle class="dx-svg-sun" cx="590" cy="85" r="45"/>
             <path class="dx-svg-mountain-single" d="M48 420 340 87l102 117 55-57 174 273Z"/>
-            <path class="dx-road-a" d="M204 500c27-95 75-148 127-202 29-30 43-66 31-102"/>
-            <path class="dx-road-b" d="M511 500c-16-92-56-141-107-188-34-31-44-67-37-112"/>
-            <rect x="0" y="80" width="720" height="210" fill="url(#dxFog)"/>
+
+            <path class="dx-road-a dx-kant-path" data-kant-path="libertad" tabindex="0" role="button"
+              aria-label="Recorrer tesis de libertad"
+              d="M204 500c27-95 75-148 127-202 29-30 43-66 31-102"/>
+            <path class="dx-road-b dx-kant-path" data-kant-path="determinismo" tabindex="0" role="button"
+              aria-label="Recorrer antítesis de determinismo"
+              d="M511 500c-16-92-56-141-107-188-34-31-44-67-37-112"/>
+
+            <circle class="dx-kant-walker dx-kant-walker-a" cx="204" cy="474" r="12"/>
+            <circle class="dx-kant-walker dx-kant-walker-b" cx="511" cy="474" r="12"/>
+
+            <rect class="dx-kant-fog" x="0" y="80" width="720" height="210" fill="url(#dxFog)"/>
             <g class="dx-limit-sign" transform="translate(360 250)">
               <path d="M0-55v110"/>
               <rect x="-102" y="-74" width="204" height="48" rx="5"/>
               <text x="0" y="-43" text-anchor="middle">LÍMITE DE LA EXPERIENCIA</text>
             </g>
-            <text class="dx-path-label" x="168" y="424">libertad</text>
-            <text class="dx-path-label" x="486" y="424">determinismo</text>
+            <text class="dx-path-label" x="154" y="424">TESIS · libertad</text>
+            <text class="dx-path-label" x="454" y="424">ANTÍTESIS · determinismo</text>
+
+            <g class="dx-kant-antinomia">
+              <circle cx="360" cy="182" r="62"/>
+              <text x="360" y="177" text-anchor="middle">ANTINOMIA</text>
+              <text class="dx-svg-small" x="360" y="202" text-anchor="middle">la razón encuentra su límite</text>
+            </g>
           </svg>
+
+          <div class="dx-scene-hud dx-kant-hud" aria-live="polite">
+            <button type="button" data-kant-control="libertad">A · recorrer tesis</button>
+            <div>
+              <span data-kant-index>00 / 03</span>
+              <strong data-kant-title>Elija un sendero</strong>
+              <small data-kant-caption>Las dos rutas pueden argumentarse; el problema aparece cuando ambas pretenden decidir más allá de la experiencia.</small>
+            </div>
+            <button type="button" data-kant-control="determinismo">B · recorrer antítesis</button>
+            <button type="button" class="dx-kant-limit-button" data-kant-control="limit">Revelar antinomia ↑</button>
+          </div>
+
           <figcaption>
-            <span>ESCENA / MONTAÑA</span>
-            Dos rutas argumentativas suben, pero el terreno desaparece: la dialéctica kantiana diagnostica el límite.
+            <span>ESCENA / MONTAÑA INTERACTIVA</span>
+            Recorra primero cada sendero y después revele el límite: aquí la contradicción funciona como diagnóstico.
           </figcaption>
         </figure>
       </article>
 
       <article class="dx-era dx-era-hegel" id="hegel-marx" data-era="hegel-marx" data-reveal>
-        <figure class="dx-era-scene dx-era-scene-left">
-          <svg viewBox="0 0 720 500" role="img" aria-label="Paisaje histórico con un río, un puente y grupos sociales enfrentados">
+        <figure class="dx-era-scene dx-era-scene-left dx-transformation-scene" data-transformation-scene data-transformation-step="determination">
+          <svg viewBox="0 0 720 500" role="img" aria-label="Paisaje histórico transformable: determinación, oposición, superación y giro materialista">
             <rect class="dx-svg-ground" x="0" y="0" width="720" height="500" rx="26"/>
-            <circle class="dx-svg-sun" cx="122" cy="87" r="48"/>
+            <circle class="dx-svg-sun dx-history-sun" cx="122" cy="87" r="48"/>
             <path class="dx-city" d="M0 300h92v-84h54v84h61v-121h59v121h42v-67h66v67h73v-103h52v103h64v-70h55v70h92v200H0Z"/>
             <path class="dx-river" d="M0 397c133-42 239-26 348 19 111 45 222 39 372-20v104H0Z"/>
             <path class="dx-bridge" d="M156 380c87-104 314-108 405 0M160 380h397"/>
-            <g class="dx-person dx-person-mini" transform="translate(248 338)">
+
+            <g class="dx-person dx-person-mini dx-history-group-a" transform="translate(248 338)">
               <circle cx="0" cy="0" r="15"/>
               <path d="M0 16v46M0 28l-20 17M0 28l20 17M0 62l-16 30M0 62l18 30"/>
             </g>
-            <g class="dx-person dx-person-mini" transform="translate(474 338)">
+            <g class="dx-person dx-person-mini dx-history-group-b" transform="translate(474 338)">
               <circle cx="0" cy="0" r="15"/>
               <path d="M0 16v46M0 28l-20 17M0 28l20 17M0 62l-16 30M0 62l18 30"/>
             </g>
-            <path class="dx-conflict-arrow" d="M282 321h156"/>
-            <path class="dx-conflict-arrow" d="m426 311 13 10-13 10"/>
-            <path class="dx-conflict-arrow" d="M438 347H282"/>
-            <path class="dx-conflict-arrow" d="m294 337-13 10 13 10"/>
+
+            <g class="dx-history-conflict">
+              <path class="dx-conflict-arrow" d="M282 321h156"/>
+              <path class="dx-conflict-arrow" d="m426 311 13 10-13 10"/>
+              <path class="dx-conflict-arrow" d="M438 347H282"/>
+              <path class="dx-conflict-arrow" d="m294 337-13 10 13 10"/>
+            </g>
+
             <path class="dx-spiral" d="M340 87c93-56 192 32 139 106-36 51-113 23-100-24 11-40 67-29 66 3-1 23-30 28-42 11"/>
+
+            <g class="dx-history-label dx-history-label-hegel">
+              <rect x="276" y="61" width="166" height="46" rx="23"/>
+              <text x="359" y="90" text-anchor="middle">NUEVA FORMA</text>
+            </g>
+            <g class="dx-history-label dx-history-label-marx">
+              <rect x="224" y="410" width="272" height="48" rx="24"/>
+              <text x="360" y="440" text-anchor="middle">CONDICIONES MATERIALES</text>
+            </g>
           </svg>
+
+          <div class="dx-scene-hud dx-transformation-hud" aria-live="polite">
+            <button type="button" data-transformation-prev aria-label="Paso histórico anterior">←</button>
+            <div>
+              <span data-transformation-index>01 / 04</span>
+              <strong data-transformation-title>Determinación</strong>
+              <small data-transformation-caption>Partimos de una forma que parece estable antes de mostrar la tensión que contiene.</small>
+            </div>
+            <button type="button" data-transformation-next aria-label="Siguiente paso histórico">→</button>
+          </div>
+
+          <div class="dx-transformation-steps" role="group" aria-label="Fases de transformación dialéctica">
+            <button type="button" class="is-active" data-transformation-control="determination"><span>01</span> determinación</button>
+            <button type="button" data-transformation-control="opposition"><span>02</span> oposición</button>
+            <button type="button" data-transformation-control="sublation"><span>03</span> superación</button>
+            <button type="button" data-transformation-control="material"><span>04</span> giro material</button>
+          </div>
+
           <figcaption>
-            <span>ESCENA / HISTORIA</span>
-            Con Hegel y Marx la oposición ya no es sólo una disputa entre frases: se usa para pensar transformación de realidad e historia.
+            <span>ESCENA / HISTORIA TRANSFORMABLE</span>
+            Avance paso a paso: la forma se tensiona, cambia y finalmente se relee desde condiciones materiales y antagonismos.
           </figcaption>
         </figure>
 
@@ -571,12 +648,13 @@
       </header>
 
       <div class="dx-current-layout">
-        <figure class="dx-roundtable" data-reveal>
+        <figure class="dx-roundtable" data-reveal data-discussion-figure data-discussion-current="confrontacion">
           <svg viewBox="0 0 720 620" role="img" aria-label="Cuatro participantes alrededor de una mesa representan las etapas de una discusión crítica">
             <rect class="dx-svg-ground" x="0" y="0" width="720" height="620" rx="28"/>
             <circle class="dx-table" cx="360" cy="322" r="126"/>
-            <text x="360" y="312" text-anchor="middle">DIFERENCIA</text>
-            <text x="360" y="340" text-anchor="middle">DE OPINIÓN</text>
+            <text x="360" y="308" text-anchor="middle" data-discussion-center-line1>DIFERENCIA</text>
+            <text x="360" y="338" text-anchor="middle" data-discussion-center-line2>DE OPINIÓN</text>
+            <text class="dx-svg-small dx-discussion-center-note" x="360" y="370" text-anchor="middle" data-discussion-center-note>identificar el desacuerdo</text>
 
             <g class="dx-discussant" transform="translate(360 105)" data-discussion-stage="confrontacion" tabindex="0" role="button">
               <circle cx="0" cy="0" r="32"/>
@@ -599,13 +677,21 @@
               <text x="0" y="-54" text-anchor="middle">4 · CONCLUSIÓN</text>
             </g>
 
-            <path class="dx-orbit-arrow" d="M405 128c78 18 131 66 158 138"/>
-            <path class="dx-orbit-arrow" d="M560 379c-26 71-80 119-155 139"/>
-            <path class="dx-orbit-arrow" d="M315 518c-76-19-130-68-157-139"/>
-            <path class="dx-orbit-arrow" d="M158 265c26-69 81-117 157-137"/>
+            <path class="dx-orbit-arrow" data-discussion-edge="1" d="M405 128c78 18 131 66 158 138"/>
+            <path class="dx-orbit-arrow" data-discussion-edge="2" d="M560 379c-26 71-80 119-155 139"/>
+            <path class="dx-orbit-arrow" data-discussion-edge="3" d="M315 518c-76-19-130-68-157-139"/>
+            <path class="dx-orbit-arrow" data-discussion-edge="4" d="M158 265c26-69 81-117 157-137"/>
           </svg>
+
+          <div class="dx-discussion-progress" role="group" aria-label="Recorrer etapas de la discusión crítica">
+            <button type="button" class="is-active" data-discussion-progress="confrontacion"><span>01</span> confrontar</button>
+            <button type="button" data-discussion-progress="apertura"><span>02</span> abrir</button>
+            <button type="button" data-discussion-progress="argumentacion"><span>03</span> argumentar</button>
+            <button type="button" data-discussion-progress="conclusion"><span>04</span> concluir</button>
+          </div>
+
           <figcaption>
-            Toque a cada participante para usar la escena como guion de las cuatro etapas.
+            Toque a cada participante o avance por la barra: la mesa cambia conforme la discusión progresa.
           </figcaption>
         </figure>
 
@@ -618,6 +704,11 @@
           <div class="dx-discussion-question">
             <span>EN EL PIZARRÓN</span>
             <strong data-discussion-board>A: p · B: “no acepto p”</strong>
+          </div>
+
+          <div class="dx-discussion-nav">
+            <button type="button" data-discussion-prev>← etapa anterior</button>
+            <button type="button" data-discussion-next>siguiente etapa →</button>
           </div>
 
           <div class="dx-mini-rules">
