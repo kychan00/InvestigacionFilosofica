@@ -1,0 +1,98 @@
+name: Sincronía source probes
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-source-probes.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  direct-early:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Probe original archive issues 1-18
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from collections import Counter
+          from scripts.cucsh.sincronia_legacy import (
+              PRIMARY_EARLY_ISSUE_BASES,
+              harvest_direct_early_issues,
+          )
+
+          records, issues = harvest_direct_early_issues(
+              max_issue=18,
+              bases=PRIMARY_EARLY_ISSUE_BASES,
+          )
+          counts=Counter(r.get("issueNumber") for r in records)
+          missing=sorted(set(range(1,19))-set(issues))
+          print("DIRECT_EARLY_RECORDS",len(records))
+          print("DIRECT_EARLY_ISSUES",issues)
+          print("DIRECT_EARLY_MISSING",missing)
+          print("DIRECT_EARLY_COUNTS",dict(sorted(counts.items())))
+          PY
+
+  redalyc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Probe Redalyc issues 34-45
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from collections import Counter
+          from scripts.cucsh.sincronia_redalyc import harvest_redalyc_records
+
+          targets=set(range(34,46))
+          records,issues=harvest_redalyc_records(targets)
+          counts=Counter(r.get("issueNumber") for r in records)
+          missing=sorted(targets-set(issues))
+          print("REDALYC_RECORDS",len(records))
+          print("REDALYC_ISSUES",issues)
+          print("REDALYC_MISSING",missing)
+          print("REDALYC_COUNTS",dict(sorted(counts.items())))
+          PY
+
+  dialnet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Probe exact Dialnet historical exemplars
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from collections import Counter
+          from scripts.cucsh.sincronia_dialnet import harvest_dialnet_records
+
+          targets={17,*range(19,34),*range(46,52)}
+          records,issues=harvest_dialnet_records(
+              max_issue=51,
+              target_issues=targets,
+          )
+          counts=Counter(r.get("issueNumber") for r in records)
+          missing=sorted(targets-set(issues))
+          print("DIALNET_RECORDS",len(records))
+          print("DIALNET_ISSUES",issues)
+          print("DIALNET_MISSING",missing)
+          print("DIALNET_COUNTS",dict(sorted(counts.items())))
+          PY
