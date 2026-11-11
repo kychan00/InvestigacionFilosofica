@@ -2076,3 +2076,568 @@ html[data-theme="dark"] .dx-idea-drawer {
     break-inside: avoid;
   }
 }
+
+
+/* =========================================================
+   FASE 2 · ESCENAS EXPLICATIVAS INTERACTIVAS
+   ========================================================= */
+
+.dx-scene-hud {
+  position: relative;
+  z-index: 4;
+  width: min(94%, 680px);
+  margin: -18px auto 10px;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: stretch;
+  border: 1px solid var(--dx-line);
+  background: color-mix(in srgb, var(--dx-paper-soft) 94%, transparent);
+  box-shadow: 0 16px 34px var(--dx-shadow);
+}
+
+.dx-scene-hud > button {
+  min-height: 74px;
+  border: 0;
+  color: var(--dx-ink);
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.35rem;
+}
+
+.dx-scene-hud > button:first-child {
+  border-right: 1px solid var(--dx-line);
+}
+
+.dx-scene-hud > button:last-child {
+  border-left: 1px solid var(--dx-line);
+}
+
+.dx-scene-hud > div {
+  min-width: 0;
+  padding: 11px 14px 12px;
+  display: grid;
+  align-content: center;
+  gap: 3px;
+}
+
+.dx-scene-hud span {
+  color: var(--dx-terra);
+  font: 600 .55rem/1 var(--dx-mono);
+  letter-spacing: .1em;
+}
+
+.dx-scene-hud strong {
+  font: 600 1.1rem/1.1 var(--dx-display);
+}
+
+.dx-scene-hud small {
+  color: var(--dx-ink-soft);
+  font-size: .72rem;
+  line-height: 1.4;
+}
+
+/* Socrates / Plato */
+
+.dx-socratic-scene svg {
+  overflow: visible;
+}
+
+.dx-speaker-halo {
+  fill: color-mix(in srgb, var(--dx-terra) 20%, transparent);
+  stroke: var(--dx-terra);
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.dx-socratic-scene.is-speaker-socrates .dx-speaker-halo-socrates,
+.dx-socratic-scene.is-speaker-interlocutor .dx-speaker-halo-interlocutor {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.dx-socratic-person {
+  transition: opacity .2s ease, transform .2s ease;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.dx-socratic-scene.is-speaker-socrates .dx-socratic-person-b,
+.dx-socratic-scene.is-speaker-interlocutor .dx-socratic-person-a {
+  opacity: .5;
+}
+
+.dx-socratic-bubble {
+  cursor: pointer;
+  transition: transform .22s ease, filter .22s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.dx-socratic-bubble:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 8px 14px var(--dx-shadow));
+}
+
+.dx-socratic-bubble path {
+  fill: var(--dx-paper-soft);
+  stroke: var(--dx-ink);
+  stroke-width: 2.3;
+}
+
+.dx-socratic-speaker {
+  fill: var(--dx-terra) !important;
+  font: 600 11px/1 var(--dx-mono) !important;
+  letter-spacing: .1em;
+}
+
+.dx-socratic-line {
+  fill: var(--dx-ink) !important;
+  font: 600 26px/1 var(--dx-display) !important;
+}
+
+.dx-socratic-note {
+  fill: var(--dx-ink-soft) !important;
+}
+
+.dx-dialogue-current {
+  transition: opacity .2s ease, stroke-width .2s ease;
+}
+
+.dx-socratic-scene.is-step-question .dx-dialogue-current {
+  opacity: .45;
+}
+
+.dx-socratic-scene.is-step-answer .dx-dialogue-current,
+.dx-socratic-scene.is-step-objection .dx-dialogue-current {
+  opacity: 1;
+  stroke-width: 5;
+}
+
+.dx-socratic-scene.is-step-revision .dx-dialogue-current {
+  stroke: var(--dx-green);
+  stroke-width: 5;
+}
+
+.dx-socratic-scene.is-step-revision .dx-socratic-bubble path {
+  stroke: var(--dx-green);
+  stroke-width: 4;
+}
+
+/* Kant */
+
+.dx-kant-path {
+  cursor: pointer;
+  stroke-dasharray: 14 7;
+  transition:
+    stroke .24s ease,
+    stroke-width .24s ease,
+    opacity .24s ease,
+    filter .24s ease;
+}
+
+.dx-kant-path:focus-visible {
+  outline: none;
+  filter: drop-shadow(0 0 5px var(--dx-terra));
+}
+
+.dx-kant-scene[data-kant-state="libertad"] .dx-kant-path[data-kant-path="libertad"],
+.dx-kant-scene[data-kant-state="determinismo"] .dx-kant-path[data-kant-path="determinismo"] {
+  stroke: var(--dx-terra);
+  stroke-width: 28;
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--dx-terra) 55%, transparent));
+}
+
+.dx-kant-scene[data-kant-state="libertad"] .dx-kant-path[data-kant-path="determinismo"],
+.dx-kant-scene[data-kant-state="determinismo"] .dx-kant-path[data-kant-path="libertad"] {
+  opacity: .3;
+}
+
+.dx-kant-walker {
+  fill: var(--dx-terra);
+  stroke: var(--dx-paper-soft);
+  stroke-width: 4;
+  opacity: 0;
+  transition: opacity .2s ease, transform .6s cubic-bezier(.2,.8,.2,1);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.dx-kant-scene[data-kant-state="libertad"] .dx-kant-walker-a {
+  opacity: 1;
+  transform: translate(142px, -250px);
+}
+
+.dx-kant-scene[data-kant-state="determinismo"] .dx-kant-walker-b {
+  opacity: 1;
+  transform: translate(-142px, -250px);
+}
+
+.dx-kant-fog {
+  opacity: .48;
+  transition: opacity .3s ease;
+}
+
+.dx-kant-antinomia {
+  opacity: 0;
+  transform: scale(.75);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity .28s ease, transform .28s ease;
+}
+
+.dx-kant-antinomia circle {
+  fill: color-mix(in srgb, var(--dx-terra) 90%, var(--dx-paper-soft));
+  stroke: var(--dx-paper-soft);
+  stroke-width: 3;
+}
+
+.dx-kant-antinomia text {
+  fill: #fff;
+  font-size: 16px;
+}
+
+.dx-kant-antinomia .dx-svg-small {
+  fill: #fff !important;
+  font-size: 9px !important;
+}
+
+.dx-kant-scene[data-kant-state="limit"] .dx-kant-antinomia {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dx-kant-scene[data-kant-state="limit"] .dx-kant-fog {
+  opacity: .9;
+}
+
+.dx-kant-scene[data-kant-state="limit"] .dx-limit-sign {
+  filter: drop-shadow(0 0 8px var(--dx-terra));
+}
+
+.dx-kant-hud {
+  grid-template-columns: minmax(130px, .8fr) minmax(0, 1.3fr) minmax(130px, .8fr);
+  align-items: stretch;
+}
+
+.dx-kant-hud > button {
+  min-height: 70px;
+  padding: 0 12px;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.dx-kant-hud .dx-kant-limit-button {
+  grid-column: 1 / -1;
+  min-height: 42px;
+  border: 0;
+  border-top: 1px solid var(--dx-line);
+  background: var(--dx-green);
+  color: var(--dx-paper-soft);
+}
+
+html[data-theme="dark"] .dx-kant-hud .dx-kant-limit-button {
+  color: #171614;
+  background: #b9c9bc;
+}
+
+.dx-antimony button[data-antimony="libertad"].is-active,
+.dx-antimony button[data-antimony="determinismo"].is-active {
+  transform: translateY(-3px);
+}
+
+/* Hegel / Marx transformation */
+
+.dx-transformation-scene svg * {
+  transition:
+    opacity .28s ease,
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    fill .28s ease,
+    stroke .28s ease,
+    filter .28s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.dx-history-conflict,
+.dx-history-label,
+.dx-spiral,
+.dx-bridge {
+  opacity: .12;
+}
+
+.dx-transformation-scene[data-transformation-step="determination"] .dx-history-group-a {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px var(--dx-terra));
+}
+
+.dx-transformation-scene[data-transformation-step="determination"] .dx-history-group-b {
+  opacity: .42;
+}
+
+.dx-transformation-scene[data-transformation-step="opposition"] .dx-history-conflict {
+  opacity: 1;
+}
+
+.dx-transformation-scene[data-transformation-step="opposition"] .dx-history-group-a,
+.dx-transformation-scene[data-transformation-step="opposition"] .dx-history-group-b {
+  transform: scale(1.15);
+}
+
+.dx-transformation-scene[data-transformation-step="opposition"] .dx-city {
+  fill: color-mix(in srgb, var(--dx-terra) 28%, var(--dx-paper));
+}
+
+.dx-transformation-scene[data-transformation-step="sublation"] .dx-history-conflict {
+  opacity: .35;
+}
+
+.dx-transformation-scene[data-transformation-step="sublation"] .dx-spiral,
+.dx-transformation-scene[data-transformation-step="sublation"] .dx-bridge,
+.dx-transformation-scene[data-transformation-step="sublation"] .dx-history-label-hegel {
+  opacity: 1;
+}
+
+.dx-transformation-scene[data-transformation-step="sublation"] .dx-city {
+  transform: translateY(-12px) scaleY(1.08);
+  fill: color-mix(in srgb, var(--dx-green) 66%, var(--dx-paper));
+}
+
+.dx-transformation-scene[data-transformation-step="material"] .dx-history-label-marx,
+.dx-transformation-scene[data-transformation-step="material"] .dx-history-conflict {
+  opacity: 1;
+}
+
+.dx-transformation-scene[data-transformation-step="material"] .dx-history-label-hegel,
+.dx-transformation-scene[data-transformation-step="material"] .dx-spiral {
+  opacity: .18;
+}
+
+.dx-transformation-scene[data-transformation-step="material"] .dx-river {
+  fill: color-mix(in srgb, var(--dx-blue) 78%, var(--dx-paper-soft));
+}
+
+.dx-transformation-scene[data-transformation-step="material"] .dx-city {
+  transform: translateY(5px);
+  fill: color-mix(in srgb, var(--dx-terra) 34%, var(--dx-green));
+}
+
+.dx-transformation-scene[data-transformation-step="material"] .dx-history-group-a {
+  transform: translateX(-24px) scale(1.18);
+}
+
+.dx-transformation-scene[data-transformation-step="material"] .dx-history-group-b {
+  transform: translateX(24px) scale(1.18);
+}
+
+.dx-history-label rect {
+  fill: var(--dx-paper-soft);
+  stroke: var(--dx-ink);
+  stroke-width: 2;
+}
+
+.dx-history-label text {
+  fill: var(--dx-ink);
+  font: 700 11px/1 var(--dx-sans);
+  letter-spacing: .05em;
+}
+
+.dx-transformation-steps {
+  width: min(94%, 680px);
+  margin: 8px auto 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--dx-line);
+  background: var(--dx-paper-soft);
+}
+
+.dx-transformation-steps button {
+  min-height: 54px;
+  padding: 8px 10px;
+  border: 0;
+  border-right: 1px solid var(--dx-line);
+  color: var(--dx-ink);
+  background: transparent;
+  cursor: pointer;
+  font-size: .67rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.dx-transformation-steps button:last-child {
+  border-right: 0;
+}
+
+.dx-transformation-steps button span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--dx-terra);
+  font: 600 .52rem/1 var(--dx-mono);
+}
+
+.dx-transformation-steps button.is-active {
+  color: var(--dx-paper-soft);
+  background: var(--dx-green);
+}
+
+html[data-theme="dark"] .dx-transformation-steps button.is-active {
+  color: #171614;
+  background: #b9c9bc;
+}
+
+/* Pragmadialectic progression */
+
+.dx-roundtable[data-discussion-figure] {
+  overflow: hidden;
+}
+
+.dx-discussion-center-note {
+  fill: var(--dx-ink-soft) !important;
+}
+
+.dx-orbit-arrow {
+  opacity: .18;
+  transition: opacity .2s ease, stroke-width .2s ease, filter .2s ease;
+}
+
+.dx-orbit-arrow.is-complete {
+  opacity: .62;
+}
+
+.dx-orbit-arrow.is-current {
+  opacity: 1;
+  stroke-width: 5;
+  filter: drop-shadow(0 0 4px var(--dx-terra));
+}
+
+.dx-discussion-progress {
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--dx-line);
+}
+
+.dx-discussion-progress button {
+  min-height: 58px;
+  padding: 8px 9px;
+  border: 0;
+  border-right: 1px solid var(--dx-line);
+  color: var(--dx-ink);
+  background: var(--dx-paper);
+  cursor: pointer;
+  font-size: .68rem;
+  font-weight: 600;
+}
+
+.dx-discussion-progress button:last-child {
+  border-right: 0;
+}
+
+.dx-discussion-progress button span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--dx-terra);
+  font: 600 .5rem/1 var(--dx-mono);
+}
+
+.dx-discussion-progress button.is-active {
+  color: var(--dx-paper-soft);
+  background: var(--dx-green);
+}
+
+html[data-theme="dark"] .dx-discussion-progress button.is-active {
+  color: #171614;
+  background: #b9c9bc;
+}
+
+.dx-discussion-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: -12px 0 26px;
+}
+
+.dx-discussion-nav button {
+  min-height: 42px;
+  border: 1px solid currentColor;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.dx-discussion-nav button:last-child {
+  background: var(--dx-paper-soft);
+  color: var(--dx-green);
+}
+
+html[data-theme="dark"] .dx-discussion-nav button:last-child {
+  color: #171614;
+  background: #f4eee1;
+}
+
+/* Presentation emphasis for phase 2 */
+
+.dx-page.is-presenting .dx-socratic-bubble,
+.dx-page.is-presenting .dx-kant-antinomia,
+.dx-page.is-presenting .dx-history-conflict,
+.dx-page.is-presenting .dx-discussant.is-active {
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--dx-terra) 55%, transparent));
+}
+
+@media (max-width: 760px) {
+  .dx-scene-hud {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .dx-kant-hud {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dx-kant-hud > div {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .dx-kant-hud > button {
+    border-top: 1px solid var(--dx-line);
+  }
+
+  .dx-kant-hud .dx-kant-limit-button {
+    grid-column: 1 / -1;
+  }
+
+  .dx-transformation-steps,
+  .dx-discussion-progress {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dx-transformation-steps button:nth-child(2),
+  .dx-discussion-progress button:nth-child(2) {
+    border-right: 0;
+  }
+
+  .dx-transformation-steps button:nth-child(-n+2),
+  .dx-discussion-progress button:nth-child(-n+2) {
+    border-bottom: 1px solid var(--dx-line);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dx-speaker-halo,
+  .dx-socratic-person,
+  .dx-socratic-bubble,
+  .dx-kant-path,
+  .dx-kant-walker,
+  .dx-kant-antinomia,
+  .dx-transformation-scene svg *,
+  .dx-orbit-arrow {
+    transition: none !important;
+  }
+}
