@@ -31,7 +31,7 @@ test("la página incluye escenas SVG accesibles y controles interactivos", () =>
 test("la fuente académica queda declarada y la conclusión evita reducir dialéctica a una fórmula", () => {
   assert.match(html, /Luis Enrique Ortiz Gutiérrez/);
   assert.match(html, /NO REDUCIR A/);
-  assert.match(html, /posición→crítica→examen→revisión/);
+  assert.match(html, /posición\\s*→\\s*crítica\\s*→\\s*examen\\s*→\\s*revisión/);
 });
 
 test("el diseño contempla tema oscuro, móvil, movimiento reducido e impresión", () => {
@@ -47,4 +47,33 @@ test("la interacción incluye teclado y modo de exposición", () => {
   assert.match(js, /PageDown/);
   assert.match(js, /is-presenting/);
   assert.match(js, /IntersectionObserver/);
+});
+
+
+test("fase 2 convierte las escenas históricas en recorridos interactivos", () => {
+  assert.match(html, /data-socratic-scene/);
+  assert.match(html, /data-socratic-bubble/);
+  assert.match(html, /data-kant-path="libertad"/);
+  assert.match(html, /data-kant-path="determinismo"/);
+  assert.match(html, /data-kant-control="limit"/);
+  assert.match(html, /data-transformation-step="determination"/);
+  assert.match(html, /data-transformation-control="material"/);
+  assert.match(html, /data-discussion-progress="argumentacion"/);
+});
+
+test("fase 2 conserva navegación por teclado y estados pedagógicos", () => {
+  assert.match(js, /const socraticData = \[/);
+  assert.match(js, /selectSocraticStep/);
+  assert.match(js, /kantVisited/);
+  assert.match(js, /selectKantState/);
+  assert.match(js, /selectTransformationStep/);
+  assert.match(js, /discussionCenter1/);
+  assert.match(css, /FASE 2 · ESCENAS EXPLICATIVAS INTERACTIVAS/);
+  assert.match(css, /data-kant-state="limit"/);
+  assert.match(css, /data-transformation-step="material"/);
+});
+
+test("la página invalida caché con los recursos de fase 2", () => {
+  assert.match(html, /dialectica-exposicion\.css\?v=20261111-fase2/);
+  assert.match(html, /dialectica-exposicion\.js\?v=20261111-fase2/);
 });
