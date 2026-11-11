@@ -1001,17 +1001,39 @@ class DocumentParser(
         return text
 
 
+def decode_legacy_html(data):
+    """Decode old Sincronía pages without corrupting Latin-1 bylines.
+
+    Most original issues predate UTF-8 and occasionally declare ISO-8859-1.
+    A short allowlist avoids letting untrusted HTML request arbitrary codecs.
+    """
+    if isinstance(data, str):
+        return data
+
+    declared = re.search(
+        rb"charset\\s*=\\s*['\\\"]?\\s*([a-z0-9_.-]+)",
+        data[:4096],
+        flags=re.IGNORECASE,
+    )
+    if declared:
+        label = declared.group(1).decode("ascii", errors="ignore").lower()
+        if label in {"iso-8859-1", "latin1", "latin-1", "windows-1252", "cp1252"}:
+            return data.decode("cp1252", errors="replace")
+        if label in {"utf8", "utf-8"}:
+            return data.decode("utf-8", errors="replace")
+
+    try:
+        return data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data.decode("cp1252", errors="replace")
+
+
 def parse_html(
     data,
 ):
     parser = DocumentParser()
 
-    parser.feed(
-        data.decode(
-            "utf-8",
-            errors="replace",
-        )
-    )
+    parser.feed(decode_legacy_html(data))
 
     parser.close()
 
@@ -1026,12 +1048,7 @@ def collect_links(
         base_url
     )
 
-    parser.feed(
-        data.decode(
-            "utf-8",
-            errors="replace",
-        )
-    )
+    parser.feed(decode_legacy_html(data))
 
     parser.close()
 

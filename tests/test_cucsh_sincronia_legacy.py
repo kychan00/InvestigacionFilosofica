@@ -57,6 +57,33 @@ class SincroniaLegacyTest(
             2009,
         )
 
+    def test_latin1_html_has_legible_author_metadata(self):
+        html = (
+            '<html><head><meta charset="ISO-8859-1"></head>'
+            '<body><h1>Filosofía de la historia</h1>'
+            '<p>José María Areta</p></body></html>'
+        ).encode("cp1252")
+        parsed = legacy.parse_html(html)
+        self.assertIn("José María Areta", parsed.lines)
+        self.assertNotIn("\ufffd", " ".join(parsed.lines))
+
+    def test_latin1_index_link_text_is_preserved(self):
+        html = (
+            '<html><head><meta charset="windows-1252"></head>'
+            '<body><a href="articulo.htm">Filosofía pública</a></body></html>'
+        ).encode("cp1252")
+        result = legacy.collect_links(
+            html,
+            "http://sincronia.cucsh.udg.mx/inicio.htm",
+        )
+        self.assertEqual(result[0]["text"], "Filosofía pública")
+
+    def test_utf8_source_keeps_non_ascii_author(self):
+        html = "<html><body><h1>Modernidad</h1><p>María López</p></body></html>".encode("utf-8")
+        parsed = legacy.parse_html(html)
+        self.assertIn("María López", parsed.lines)
+
+
     def test_old_article_metadata_is_recovered(
         self,
     ):
