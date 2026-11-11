@@ -332,6 +332,25 @@ class SincroniaDialnetTest(
         )
 
 
+    def test_verified_issue_49_fallback_covers_all_articles(
+        self,
+    ):
+        payload = dialnet.verified_issue_payload(49)
+        self.assertIsNotNone(payload)
+        issue, articles = payload
+        self.assertEqual(issue["number"], 49)
+        self.assertEqual(issue["year"], 2008)
+        self.assertEqual(len(articles), 21)
+        self.assertEqual(len({article["code"] for article in articles}), 21)
+        self.assertEqual(articles[0]["code"], "3296390")
+        self.assertEqual(articles[-1]["code"], "3296628")
+        self.assertTrue(all(article["title"] and article["authors"] for article in articles))
+        records = [dialnet.build_record(article, issue) for article in articles]
+        self.assertTrue(all(row["issueNumber"] == 49 for row in records))
+        self.assertTrue(all(row["legacyMetadataSource"] == "Dialnet" for row in records))
+        self.assertEqual(len({row["id"] for row in records}), 21)
+
+
     def test_verified_issue_51_fallback_builds_valid_records(
         self,
     ):

@@ -64,7 +64,172 @@ KNOWN_ISSUE_URLS = {
 # Static evidence is used only when the corresponding historical
 # Dialnet exemplar endpoint is temporarily unavailable. The values
 # below were verified against Dialnet's public issue/article pages.
+# Source: https://dialnet.unirioja.es/ejemplar/251060
+# The 21 entry/author/code pairs for issue 49 were checked against
+# Dialnet's public issue and article pages on 2026-11-10.
 VERIFIED_ISSUE_FALLBACKS = {
+    49: {
+        "year": 2008,
+        "number": 49,
+        "articles": [
+            {
+                "code": "3296390",
+                "title": "La iglesia de Cañadas Jalisco, a doscientos años de su construcción",
+                "authors": [
+                    "María Esther Gómez Loza"
+                ]
+            },
+            {
+                "code": "3296397",
+                "title": "Análisis de las alteraciones geo-físicas y riesgos naturales a consecuencia de la construcción de la presa Arcediano en la Barranca del Río Santiago zona Oblatos-Huentitán, zona metropolitana de Guadalajara",
+                "authors": [
+                    "Alberto Galván Escobar",
+                    "María del Carmen Macias Huerta"
+                ]
+            },
+            {
+                "code": "3296405",
+                "title": "Something to learn: a conflictive relationship among students and lecturers in tourism",
+                "authors": [
+                    "Maximiliano Emanuel Korstanje"
+                ]
+            },
+            {
+                "code": "3296411",
+                "title": "La importancia del uso de indicadores y estadísticas socioeconómicas en los estudios de Geografía de la Salud: Caso: Tlaquepaque, Jalisco. (Territorio y Planificación Regional)",
+                "authors": [
+                    "María del Carmen Macias Huerta",
+                    "Sandra Mireya Arellano Martínez"
+                ]
+            },
+            {
+                "code": "3296490",
+                "title": "Análisis de las variables climáticas de 1934-2004 en la Microcuenca San Marcos, municipio de Chapala, Jalisco",
+                "authors": [
+                    "Leticia Loza Ramírez",
+                    "Antonio González Salazar",
+                    "Martín Vargas Inclán",
+                    "Milton Omar Sánchez Reyes"
+                ]
+            },
+            {
+                "code": "3296500",
+                "title": "El Padre Placencia en Amatitán, parroquia de Tequila",
+                "authors": [
+                    "José Concepción Martín"
+                ]
+            },
+            {
+                "code": "3296506",
+                "title": "The implementation of a mentor student pairing model into a pre-graduate language distance education program",
+                "authors": [
+                    "Elizabeth Margarita Hernández López",
+                    "Enriqueta Margarita Villa Olvera"
+                ]
+            },
+            {
+                "code": "3296526",
+                "title": "Oswald de Andrade y José Emilio Pacheco: Poéticas de lo ya-hecho",
+                "authors": [
+                    "Simón Henao Jaramillo"
+                ]
+            },
+            {
+                "code": "3296531",
+                "title": "Sloterdijk: Mystische, Antropotecnias y la matriz onto-psicológica del humano potencial de traslado",
+                "authors": [
+                    "Adolfo Vásquez Rocca"
+                ]
+            },
+            {
+                "code": "3296537",
+                "title": "Filosofía de la Enseñanza y enseñanza de la Filosofía",
+                "authors": [
+                    "Jesús Heriberto Ureña Pajarito"
+                ]
+            },
+            {
+                "code": "3296542",
+                "title": "Índices de rodeo y accesibilidad a las unidades de atención médica en casos de alacranismo, municipio de Cihuatlán, Jalisco, 2005",
+                "authors": [
+                    "María Dolores Andrade García",
+                    "María del Carmen Macias Huerta",
+                    "David Chávez Hernández"
+                ]
+            },
+            {
+                "code": "3296558",
+                "title": "Estudio de calidad de vida para las sindicaturas de Eldorado, Baila y Emiliano Zapata del Municipio de Culiacán, Sinaloa, México",
+                "authors": [
+                    "Rocío Calderón García"
+                ]
+            },
+            {
+                "code": "3296560",
+                "title": "Una propuesta de sistematización para el PIT, en el Centro Universitario de Ciencias Económico Administrativas (CUCEA) de la Universidad de Guadalajara (UdeG)",
+                "authors": [
+                    "Raúl Mercado Pérez",
+                    "Demetrio Navarro del Ángel"
+                ]
+            },
+            {
+                "code": "3296571",
+                "title": "Servidores Públicos, Profesionalización y Gestión",
+                "authors": [
+                    "Angélica Cazares Alvarado"
+                ]
+            },
+            {
+                "code": "3296573",
+                "title": "Las misiones franciscanas del siglo XVIII: presencia en la cultura colonial mexicana",
+                "authors": [
+                    "Claudia Macías Rodríguez"
+                ]
+            },
+            {
+                "code": "3296578",
+                "title": "La sociedad latina en los Estados Unidos y un cuento de Silvana Paternostro",
+                "authors": [
+                    "Jy-Eun Son"
+                ]
+            },
+            {
+                "code": "3296603",
+                "title": "La comunidad y sus desafíos: Klail City y sus alrededores, de Rolando Hinojosa-Smith",
+                "authors": [
+                    "You-Jeong Choi"
+                ]
+            },
+            {
+                "code": "3296608",
+                "title": "Nos Centres d’Autoapprentissage proposent-ils des ressources matérielles adéquates ?",
+                "authors": [
+                    "Anne-Catherine Didier"
+                ]
+            },
+            {
+                "code": "3296615",
+                "title": "Ángela Ramos Aguilar ¿revolucionaria o cristera?",
+                "authors": [
+                    "María Guadalupe Mejía Núñez"
+                ]
+            },
+            {
+                "code": "3296620",
+                "title": "La concepción filosófica en Leopoldo Zea y Risieri Frondizi, y sus opiniones acerca de la filosofía latinoamericana",
+                "authors": [
+                    "Jesús Heriberto Ureña Pajarito"
+                ]
+            },
+            {
+                "code": "3296628",
+                "title": "La Región de Nueva Galicia y los Indígenas: la tierra como identidad cultural",
+                "authors": [
+                    "José de Jesús Torres Contreras"
+                ]
+            }
+        ]
+    },
     51: {
         "year": 2009,
         "number": 51,
