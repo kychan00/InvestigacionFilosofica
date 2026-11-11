@@ -34,7 +34,7 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Download already validated candidate from run 42972531480
+      - name: Download already validated candidate from run 42973372282
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -42,9 +42,9 @@ jobs:
           set -euo pipefail
           test "${{ github.ref_name }}" = "feature/cucsh-sincronia"
           mkdir -p /tmp/sincronia-candidate
-          gh run download 42972531480 \
+          gh run download 42973372282 \
             --repo "${{ github.repository }}" \
-            --name sincronia-candidate-42972531480 \
+            --name sincronia-candidate-42973372282 \
             --dir /tmp/sincronia-candidate
           test -s /tmp/sincronia-candidate/cucsh-sincronia-candidate.json
 
@@ -72,8 +72,8 @@ jobs:
 
           const dataset=JSON.parse(readFileSync("src/data/cucsh-filosofia.json","utf8"));
           const sincronia=dataset.records.filter(row=>row.journal==="Sincronía");
-          assert.equal(sincronia.length,1444);
-          assert.equal(dataset.records.length,1835);
+          assert.equal(sincronia.length,1442);
+          assert.equal(dataset.records.length,1833);
           const assignedIssues=new Set(
             sincronia.map(row=>row.issueNumber).filter(Number.isInteger)
           );
@@ -89,9 +89,18 @@ jobs:
           ));
           assert.equal(assignedIssues.size,90);
           assert.equal(unassigned.length,0,"Unassigned Sincronía records need provenance review");
+          assert.equal(
+            sincronia.filter(row => /declaraci[oó]n de (?:coautor[ií]a|autor[ií]a individual)/i.test(row.title)).length,
+            0,
+            "Administrative declarations must not be searchable"
+          );
+          const currentArticle=sincronia.find(
+            row=>row.issueNumber===90 && row.title?.length>20
+          );
+          assert.ok(currentArticle,"Missing modern Sincronía issue 90 article");
           const cases=[
             "Filosofía de la Enseñanza",
-            "Técnica y política en Oppenheimer"
+            currentArticle.title
           ];
           for(const query of cases){
             const results=searchCucshRecords(dataset.records,query,{rows:40});
