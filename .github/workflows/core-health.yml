@@ -1,0 +1,89 @@
+name: Core health · deterministic preflight
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "tesis.html"
+      - "atlas.html"
+      - "acerca.html"
+      - "js/**"
+      - "css/**"
+      - "src/**"
+      - "tests/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/**"
+
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "tesis.html"
+      - "atlas.html"
+      - "acerca.html"
+      - "js/**"
+      - "css/**"
+      - "src/**"
+      - "tests/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/**"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: core-health-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deterministic-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install frozen dependencies
+        run: npm ci
+
+      - name: Check critical browser entrypoints
+        run: |
+          node --check js/app.js
+          node --check js/research-atlas-embed.js
+          node --check js/research-atlas-flow.js
+          node --check js/thesis-demo.js
+          node --check js/thesis-atlas.js
+
+      - name: Run deterministic application regression suite
+        run: npm test
+
+      - name: Check changed-file whitespace and conflict markers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            git diff --check HEAD^ HEAD
+          else
+            git diff --check
+          fi
+
+          if git grep -n -E '^(<<<<<<<|=======|>>>>>>>)' -- .             ':!package-lock.json'; then
+            echo "Unresolved merge-conflict marker found."
+            exit 1
+          fi
