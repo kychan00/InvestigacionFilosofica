@@ -93,11 +93,29 @@ def build_seasonal_issue_filenames(
             + (offset // 4)
         )
 
-        publication_year = (
-            season_year - 1
-            if season == "winter"
-            else season_year
-        )
+        if issue_number == 1:
+            # El primer número fue publicado en
+            # 1996 aunque su archivo histórico
+            # quedó rotulado como winter97.
+            publication_year = 1996
+
+        elif (
+            issue_number <= 16
+            or season != "winter"
+        ):
+            publication_year = (
+                season_year
+            )
+
+        else:
+            # Desde el núm. 17, los ejemplares
+            # "winterYY" pertenecen editorialmente
+            # al cierre del año anterior. Dialnet
+            # confirma, por ejemplo, 17=2000,
+            # 21=2001 y 53=2009.
+            publication_year = (
+                season_year - 1
+            )
 
         output[
             issue_number
