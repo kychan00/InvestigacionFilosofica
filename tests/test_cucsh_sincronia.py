@@ -229,7 +229,7 @@ class SincroniaIssueMetadataTest(
         )
 
 
-    def test_legacy_range_stops_before_modern_ojs_archive(
+    def test_legacy_range_covers_pre_ojs_historical_archive(
         self,
     ):
         source = next(
@@ -240,7 +240,7 @@ class SincroniaIssueMetadataTest(
 
         self.assertEqual(
             source["legacyMaxIssue"],
-            51,
+            60,
         )
 
 
