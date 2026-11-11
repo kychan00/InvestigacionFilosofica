@@ -868,6 +868,47 @@ def harvest_dialnet_records(
                     payload
                 )
 
+    if failures:
+        # A 503 from Dialnet is often transient. The first pass already
+        # uses bounded retries; after the rest of the batch has
+        # finished, give only failed exemplars one cool-down retry.
+        retry_failures = list(
+            failures
+        )
+        failures = []
+
+        time.sleep(5.0)
+
+        for failure in retry_failures:
+            issue_url = failure.get(
+                "url"
+            )
+
+            if not issue_url:
+                failures.append(
+                    failure
+                )
+                continue
+
+            payload = fetch_issue_payload(
+                issue_url,
+                max_issue,
+            )
+
+            if isinstance(
+                payload,
+                dict,
+            ) and payload.get(
+                "error"
+            ):
+                failures.append(
+                    payload
+                )
+            elif payload:
+                payloads.append(
+                    payload
+                )
+
     payloads.sort(
         key=lambda item: (
             item[0][
