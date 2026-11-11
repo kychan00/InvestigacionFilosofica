@@ -150,10 +150,48 @@ def early_issue_filename_variants(
 
     stems = [
         stem,
+    ]
+
+    seasonal_match = re.fullmatch(
         (
-            stem[:1].upper()
-            + stem[1:]
+            r"(winter|spring|summer|fall)"
+            r"(\d{2})"
         ),
+        stem,
+        re.IGNORECASE,
+    )
+
+    if seasonal_match:
+        season = (
+            seasonal_match
+            .group(1)
+            .casefold()
+        )
+
+        short_year = int(
+            seasonal_match.group(2)
+        )
+
+        full_year = (
+            1900 + short_year
+            if short_year >= 96
+            else 2000 + short_year
+        )
+
+        stems.append(
+            f"{season}{full_year}"
+        )
+
+    stems = [
+        variant
+        for raw_stem in stems
+        for variant in (
+            raw_stem,
+            (
+                raw_stem[:1].upper()
+                + raw_stem[1:]
+            ),
+        )
     ]
 
     variants = []
