@@ -1,4 +1,4 @@
-name: Sincronía legacy 1-51 probe
+name: Sincronía legacy · fast offline verification
 
 on:
   push:
@@ -6,97 +6,44 @@ on:
       - feature/cucsh-sincronia
     paths:
       - ".github/triggers/cucsh-sincronia-legacy-v3.txt"
+      - ".github/workflows/cucsh-sincronia-legacy-probe.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+# Keep the existing group: the new, short job supersedes old long-running pushes.
 concurrency:
   group: sincronia-legacy-v3
   cancel-in-progress: true
 
 jobs:
-  legacy:
+  verified-fallbacks:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
-
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
-
-      - name: Harvest only historical Sincronía 1-51
-        shell: bash
+      - name: Verify pinned historical metadata without network access
         run: |
-          set -euo pipefail
+          python3 -m unittest tests.test_cucsh_sincronia_dialnet tests.test_cucsh_sincronia_legacy
+          python3 - <<'PY'
+          from scripts.cucsh.sincronia_dialnet import verified_issue_payload, build_record
 
-          python3 - <<'PY' 2>&1 | tee /tmp/sincronia-legacy-v3.log
-          import json
-          from collections import Counter
-          from pathlib import Path
-
-          from scripts.cucsh.sincronia_legacy import harvest_legacy_records
-
-          records = harvest_legacy_records(
-              archive_urls=[
-                  "http://sincronia.cucsh.udg.mx/num_anteriores.html",
-                  "http://www.cucsh.udg.mx/CUCSH/Sincronia/num_anteriores.html",
-              ],
-              max_issue=51,
-          )
-
-          issues = sorted({
-              row.get("issueNumber")
-              for row in records
-              if isinstance(row.get("issueNumber"), int)
-          })
-          missing = sorted(set(range(1, 52)) - set(issues))
-          by_source = Counter(
-              row.get("legacyMetadataSource") or "original"
-              for row in records
-          )
-          by_issue = Counter(
-              row.get("issueNumber")
-              for row in records
-              if isinstance(row.get("issueNumber"), int)
-          )
-
-          Path("/tmp/sincronia-legacy-v3.json").write_text(
-              json.dumps(
-                  {
-                      "records": records,
-                      "issues": issues,
-                      "missing": missing,
-                      "recordsBySource": dict(by_source),
-                      "recordsByIssue": {
-                          str(key): value
-                          for key, value in sorted(by_issue.items())
-                      },
-                  },
-                  ensure_ascii=False,
-                  indent=2,
-              ),
-              encoding="utf-8",
-          )
-
-          print("LEGACY_V3_RECORDS", len(records))
-          print("LEGACY_V3_ISSUES", issues)
-          print("LEGACY_V3_MISSING", missing)
-          print("LEGACY_V3_BY_SOURCE", dict(by_source))
-          print("LEGACY_V3_BY_ISSUE", dict(sorted(by_issue.items())))
-
-          if missing:
-              raise SystemExit(2)
+          expectations = {49: 21, 51: 9}
+          for issue_number, expected_articles in expectations.items():
+              payload = verified_issue_payload(issue_number)
+              assert payload is not None, f"Missing verified fallback: {issue_number}"
+              issue, articles = payload
+              assert issue["number"] == issue_number
+              assert len(articles) == expected_articles
+              records = [build_record(article, issue) for article in articles]
+              assert len({record["id"] for record in records}) == expected_articles
+              assert all(record["issueNumber"] == issue_number for record in records)
+              assert all(record["urls"]["canonical"].startswith("https://dialnet.unirioja.es/") for record in records)
+              print(f"OFFLINE_FALLBACK_OK issue={issue_number} articles={len(records)}")
           PY
-
-      - name: Upload historical evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sincronia-legacy-v3-${{ github.run_id }}
-          path: |
-            /tmp/sincronia-legacy-v3.log
-            /tmp/sincronia-legacy-v3.json
-          if-no-files-found: warn
-          retention-days: 14
+      - name: Explain full audit policy
+        run: echo "Live full 1-51 harvest is intentionally separate; it is not a routine push check."

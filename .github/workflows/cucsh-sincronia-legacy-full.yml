@@ -1,0 +1,102 @@
+name: Sincronía legacy 1-51 full audit
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-legacy-full.txt"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-legacy-full
+  cancel-in-progress: true
+
+jobs:
+  legacy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Harvest only historical Sincronía 1-51
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 -u - <<'PY' 2>&1 | tee /tmp/sincronia-legacy-v3.log
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          from scripts.cucsh.sincronia_legacy import harvest_legacy_records
+
+          records = harvest_legacy_records(
+              archive_urls=[
+                  "http://sincronia.cucsh.udg.mx/num_anteriores.html",
+                  "http://www.cucsh.udg.mx/CUCSH/Sincronia/num_anteriores.html",
+              ],
+              max_issue=51,
+          )
+
+          issues = sorted({
+              row.get("issueNumber")
+              for row in records
+              if isinstance(row.get("issueNumber"), int)
+          })
+          missing = sorted(set(range(1, 52)) - set(issues))
+          by_source = Counter(
+              row.get("legacyMetadataSource") or "original"
+              for row in records
+          )
+          by_issue = Counter(
+              row.get("issueNumber")
+              for row in records
+              if isinstance(row.get("issueNumber"), int)
+          )
+
+          Path("/tmp/sincronia-legacy-v3.json").write_text(
+              json.dumps(
+                  {
+                      "records": records,
+                      "issues": issues,
+                      "missing": missing,
+                      "recordsBySource": dict(by_source),
+                      "recordsByIssue": {
+                          str(key): value
+                          for key, value in sorted(by_issue.items())
+                      },
+                  },
+                  ensure_ascii=False,
+                  indent=2,
+              ),
+              encoding="utf-8",
+          )
+
+          print("LEGACY_V3_RECORDS", len(records))
+          print("LEGACY_V3_ISSUES", issues)
+          print("LEGACY_V3_MISSING", missing)
+          print("LEGACY_V3_BY_SOURCE", dict(by_source))
+          print("LEGACY_V3_BY_ISSUE", dict(sorted(by_issue.items())))
+
+          if missing:
+              raise SystemExit(2)
+          PY
+
+      - name: Upload historical evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-legacy-v3-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-legacy-v3.log
+            /tmp/sincronia-legacy-v3.json
+          if-no-files-found: warn
+          retention-days: 14
