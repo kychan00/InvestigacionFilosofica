@@ -1,0 +1,124 @@
+name: Sincronía · stage 41 index-verified title encoding repairs
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-title-stage.txt"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: sincronia-title-stage
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Retrieve independently audited title evidence
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/sincronia-index-evidence
+          gh run download 43032349081 \
+            --repo "${{ github.repository }}" \
+            --name sincronia-title-proposals-43032349081 \
+            --dir /tmp/sincronia-index-evidence
+          test -s /tmp/sincronia-index-evidence/sincronia-title-proposals.json
+
+      - name: Verify whitelist and apply only 41 identified title repairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest tests.test_cucsh_sincronia_title_repairs
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-before-title-repair.json
+          python3 -m scripts.cucsh.apply_sincronia_title_repairs \
+            --before /tmp/cucsh-before-title-repair.json \
+            --evidence /tmp/sincronia-index-evidence/sincronia-title-proposals.json \
+            --after src/data/cucsh-filosofia.json \
+            --report /tmp/sincronia-title-repairs.json
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-before-title-repair.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-after-title-repair-audit.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path("/tmp/sincronia-after-title-repair-audit.json").read_text())
+          assert report["articleCount"]==598
+          assert report["encodingAlertCount"] <= 28, report["encodingAlertCount"]
+          print("TITLE_REPAIR_ENCODING_ALERTS_REMAIN",report["encodingAlertCount"])
+          PY
+
+      - name: Run all application and search regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm test
+          node --input-type=module - <<'JS'
+          import assert from "node:assert/strict";
+          import {readFileSync} from "node:fs";
+          import {searchCucshRecords} from "./src/sources/cucsh-filosofia.js";
+
+          const data=JSON.parse(readFileSync("src/data/cucsh-filosofia.json","utf8"));
+          const sync=data.records.filter(x=>x.journal==="Sincronía");
+          assert.equal(sync.length,1450);
+          assert.equal(data.records.length,1841);
+          const cases=[
+            "Análisis del argumento del sueño en la primera meditación de Descartes",
+            "La pérdida y el olvido de la memoria en el cuento Estoy rezando por tu salvación"
+          ];
+          for(const title of cases){
+            assert.ok(sync.some(r=>r.title===title),"Missing restored title: "+title);
+            const results=searchCucshRecords(data.records,title,{rows:80});
+            assert.ok(results.some(r=>r.title===title && r.journal==="Sincronía"));
+            console.log("SINCRONIA_TITLE_SEARCH_OK",title);
+          }
+          JS
+
+      - name: Commit only validated metadata on the working branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          test "$(git diff --cached --name-only)" = "src/data/cucsh-filosofia.json"
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "Correct 41 source-verified Sincronía historical titles"
+            git push origin HEAD:feature/cucsh-sincronia
+          fi
+
+      - name: Upload controlled backfill and remaining review cases
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-title-repair-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-title-repairs.json
+            /tmp/sincronia-after-title-repair-audit.json
+          if-no-files-found: warn
+          retention-days: 30
