@@ -1,0 +1,46 @@
+name: Sincronía · targeted low-count Dialnet comparison
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-sparse-issues.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-sparse-issues
+  cancel-in-progress: true
+
+jobs:
+  comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Verify source comparison rules
+        run: python3 -m unittest tests.test_cucsh_sincronia_sparse
+      - name: Query six low-count exemplars only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -u -m scripts.cucsh.probe_sincronia_sparse \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-sparse-issues.json \
+            2>&1 | tee /tmp/sincronia-sparse-issues.log
+      - name: Preserve source-backed review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-sparse-issues-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-sparse-issues.json
+            /tmp/sincronia-sparse-issues.log
+          retention-days: 30
+          if-no-files-found: warn
