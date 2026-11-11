@@ -36,6 +36,7 @@ def historical_audit(records):
     seen_ids, seen_urls = {}, {}
     provenance = Counter()
     issue_stats = []
+    encoding_alerts = []
 
     for row in historical:
         issue = row["issueNumber"]
@@ -43,6 +44,20 @@ def historical_audit(records):
         title = row.get("title")
         url = (row.get("urls") or {}).get("canonical")
         provenance[row.get("legacyMetadataSource") or "original"] += 1
+        # UTF-8 replacement glyphs indicate source bytes were previously
+        # decoded incorrectly. Do not guess the intended text or change
+        # publication titles without comparison to the original document.
+        affected = [
+            field for field in ("title", "abstract")
+            if "\ufffd" in str(row.get(field) or "")
+        ]
+        if affected:
+            encoding_alerts.append({
+                "id": row_id, "issue": issue,
+                "fields": affected,
+                "titlePreview": str(title or "")[:130],
+                "sourceUrl": url,
+            })
         if not row_id or not title or not isinstance(row.get("year"), int):
             errors.append({"issue": issue, "id": row_id, "type": "required_metadata"})
         if row_id in seen_ids:
@@ -122,6 +137,11 @@ def historical_audit(records):
         "issues": issue_stats,
         "integrityErrors": errors,
         "reviewQueue": review,
+        "encodingAlerts": encoding_alerts,
+        "encodingAlertCount": len(encoding_alerts),
+        "encodingAlertIssues": dict(sorted(Counter(
+            str(entry["issue"]) for entry in encoding_alerts
+        ).items(), key=lambda entry: int(entry[0]))),
         "repeatedTitlesAcrossIssues": repeated_titles[:40],
         "caveat": (
             "All 60 numbered issues represented does not certify exhaustive "
@@ -156,6 +176,10 @@ def main():
         if r["type"] == "very_low_article_count"
     ])
     print("SOURCE_TOTALS", report["sourceTotals"])
+    print("ENCODING_ALERTS", report["encodingAlertCount"])
+    print("ENCODING_ALERT_ISSUES", report["encodingAlertIssues"])
+    for entry in report["encodingAlerts"][:25]:
+        print("ENCODING_REVIEW", json.dumps(entry, ensure_ascii=False))
     if report["integrityErrors"]:
         raise SystemExit(1)
 

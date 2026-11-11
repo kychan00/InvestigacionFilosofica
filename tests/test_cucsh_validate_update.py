@@ -100,6 +100,44 @@ class CucshValidateUpdateTest(unittest.TestCase):
             result.stdout + result.stderr,
         )
 
+    def test_author_metadata_regression_blocks_discovery_too(self):
+        original = snapshot([
+            record("prot:1", "Protrepsis", 2025),
+            record("quad:1", "Quadripartita Ratio", 2025),
+            {
+                **record("sync:original", "Sincronía", 1997, 3),
+                "authors": [{"name": "Helen Galkina"}],
+                "legacyOriginal": True,
+            },
+        ])
+        after = snapshot([
+            *original["records"][:2],
+            {
+                **original["records"][2],
+                "authors": [],
+            },
+        ])
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp)
+            before_file = path / "before.json"
+            after_file = path / "after.json"
+            before_file.write_text(json.dumps(original), encoding="utf-8")
+            after_file.write_text(json.dumps(after), encoding="utf-8")
+            result = subprocess.run(
+                [
+                    "python3", str(VALIDATOR),
+                    "--before", str(before_file),
+                    "--after", str(after_file),
+                    "--allow-incomplete-sincronia",
+                ],
+                cwd=ROOT, capture_output=True, text=True, check=False,
+            )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(
+            "previously verified Sincronía authors disappeared",
+            result.stdout + result.stderr,
+        )
+
     def test_issue44_cannot_regress_below_verified_ten(self):
         from scripts.cucsh.validate_update import (
             SINCRONIA_HISTORICAL_OBSERVED_MINIMUM,

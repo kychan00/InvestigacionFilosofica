@@ -42,6 +42,15 @@ class HistoricalAuditTest(unittest.TestCase):
             for x in result["integrityErrors"]
         ))
 
+    def test_corrupt_accents_are_reported_without_rewriting_title(self):
+        rows = [row(n, n) for n in range(1, 61)]
+        rows[2]["title"] = "Filosof\ufffda e historia"
+        report = historical_audit(rows)
+        self.assertEqual(report["status"], "pass")
+        self.assertEqual(report["encodingAlertCount"], 1)
+        self.assertEqual(report["encodingAlerts"][0]["issue"], 3)
+        self.assertEqual(rows[2]["title"], "Filosof\ufffda e historia")
+
     def test_url_and_id_integrity_is_strict(self):
         records = [row(n, n) for n in range(1, 61)]
         records.append(row(29, 1, title="Otro artículo"))

@@ -32,13 +32,19 @@ La comparación de los números **29, 31, 33, 34 y 55** encontró el mismo núme
 
 ## Otras revisiones pendientes
 
-Los números antiguos **3, 6 y 8** tienen respectivamente 4, 3 y 3 artículos y no constan en el mapa de ejemplares de Dialnet usado para esta comparación; deben revisarse con el archivo original de la revista u otra fuente independiente. También quedan observaciones sobre autoría incompleta y coincidencias entre títulos. Una ausencia de autor no autoriza inventar nombres.
+Los números antiguos **3, 6 y 8** fueron contrastados posteriormente con los índices originales: **4/4**, **3/3** y **3/3** enlaces de artículos coincidentes, sin faltantes en esos sumarios ([auditoría 43030104902](https://github.com/kychan00/InvestigacionFilosofica/actions/runs/43030104902)). Esto acredita concordancia con el índice accesible, no revisión editorial independiente de cada página.
+
+La auditoría de autorías encontró **204 registros sin autores**, todos procedentes del archivo original (355 de Dialnet y 39 de Redalyc ya contaban con autoría). Una muestra de diez páginas ([auditoría 43030567727](https://github.com/kychan00/InvestigacionFilosofica/actions/runs/43030567727)) mostró falsos positivos del extractor, incluidas afiliaciones universitarias. Por eso se incorporaron **seis atribuciones verificadas contra la línea de autor junto al título**, sin inferir nombres en registros no confirmados: Helen Galkina y Marcial Gonzalez (número 3), Gilbert Larochelle y Antonio L Rappa (número 6), José María Areta (número 47) y Kyeong-Eun Park (número 50). [Validación e incorporación 43031380471](https://github.com/kychan00/InvestigacionFilosofica/actions/runs/43031380471). Quedan **198 registros históricos sin autor**.
+
+Se corrigió el lector de páginas HTML antiguas con codificación Latin-1 / Windows-1252 para futuras consultas. **Esta corrección no reescribe automáticamente los títulos ya guardados**: las fichas que contengan caracteres de sustitución requieren comparación con su fuente. La auditoría señala específicamente esos casos. Se añadió una regla que bloquea cualquier cosecha que borre autorías ya incorporadas.
+
+También quedan observaciones sobre coincidencias entre títulos. Una ausencia de autor no autoriza inventar nombres.
 
 ## Evidencia reproducible
 
 - Auditoría estructural por número: [GitHub Actions 42975117370](https://github.com/kychan00/InvestigacionFilosofica/actions/runs/42975117370). Antes del backfill, 60/60 números, 590 registros, cero errores estructurales, 32 observaciones de revisión.
 - Comparación de números escasos en Dialnet: [GitHub Actions 42975312757](https://github.com/kychan00/InvestigacionFilosofica/actions/runs/42975312757). Detectó los ocho artículos faltantes del 44.
 - Integración de los ocho registros: [GitHub Actions 42975808247](https://github.com/kychan00/InvestigacionFilosofica/actions/runs/42975808247). Validación estricta, pruebas de búsqueda y regresión correctas. La nueva auditoría: 598 registros históricos, cero errores estructurales, 31 observaciones.
-- Scripts: `scripts/cucsh/audit_sincronia_historical.py`, `scripts/cucsh/probe_sincronia_sparse.py` y `scripts/cucsh/backfill_sincronia_44.py`.
+- Scripts: `scripts/cucsh/audit_sincronia_historical.py`, `scripts/cucsh/audit_sincronia_early.py`, `scripts/cucsh/probe_sincronia_author_sources.py`, `scripts/cucsh/backfill_sincronia_authors.py`, `scripts/cucsh/probe_sincronia_sparse.py` y `scripts/cucsh/backfill_sincronia_44.py`.
 
 **Política:** cualquier ampliación futura debe preservar identificadores y URLs originales, evitar duplicados según evidencia editorial, producir reporte auditable y superar pruebas antes de incorporarse a esta rama.

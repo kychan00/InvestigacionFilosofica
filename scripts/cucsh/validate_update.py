@@ -639,6 +639,21 @@ def main():
         )
 
 
+    # A source hiccup must not silently erase an author already verified
+    # and committed. This applies equally to strict and discovery mode.
+    lost_authors = [
+        key for key in sorted(common)
+        if before_by_id[key].get("journal") == "Sincronía"
+        and before_by_id[key].get("authors")
+        and not after_by_id[key].get("authors")
+    ]
+    if lost_authors:
+        fail(
+            "AFTER: previously verified Sincronía authors disappeared "
+            f"from {len(lost_authors)} records: {lost_authors[:15]}"
+        )
+
+
     before_counts = Counter(
         record["journal"]
         for record in before
