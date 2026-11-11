@@ -11,7 +11,7 @@
 
 .dxr-chip {
   left: 50%;
-  bottom: 18px;
+  bottom: 88px;
   width: min(760px, calc(100vw - 180px));
   min-height: 46px;
   padding: 8px 14px;
@@ -67,6 +67,18 @@
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
+}
+
+.dx-page.dxr-rehearsal-on .dxp-presenter-note,
+.dx-page.dxr-rehearsal-on .dxp-presenter-help {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.dx-page:has(.dxp-presenter-note.is-visible) .dxr-chip,
+.dx-page:has(.dxp-presenter-help.is-visible) .dxr-chip {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .dxr-rehearsal header,
@@ -221,4 +233,20 @@
   }
 
   .dxr-stage-focus::after { display: none !important; }
+}
+
+
+@media (max-width: 420px) {
+  .dx-brand-copy strong {
+    display: none;
+  }
+
+  .dx-nav-actions {
+    gap: 5px;
+  }
+
+  .dx-present-button {
+    padding-inline: 10px;
+    font-size: .7rem;
+  }
 }
