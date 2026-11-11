@@ -15,10 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
-      - name: Probe closest Wayback snapshots
+      - name: Probe exact archived issue entrypoints
         shell: bash
         run: |
           set -euo pipefail
@@ -28,28 +29,24 @@ jobs:
           import urllib.parse
           import urllib.request
 
-          issues={
-              2:("spring97","primavera97",1997),
-              3:("summer97","verano97",1997),
-              8:("fall98","otono98",1998),
-              9:("winter99","invierno99",1999),
-              16:("fall00","otono00",2000),
-              51:("summer09","verano09",2009),
-          }
-          bases=[
-              "http://sincronia.cucsh.udg.mx/",
-              "http://fuentes.csh.udg.mx/CUCSH/Sincronia/",
-              "http://www.cucsh.udg.mx/CUCSH/Sincronia/",
-          ]
+          from scripts.cucsh.sincronia_legacy import (
+              HISTORICAL_ISSUE_URLS,
+              EARLY_ISSUE_FILENAMES,
+          )
 
-          tasks=[]
-          for number,(english,spanish,year) in issues.items():
-              for base in bases:
-                  for stem in (english,spanish):
-                      tasks.append((number,year,base+stem+".htm"))
+          targets={
+              number:(
+                  HISTORICAL_ISSUE_URLS[number],
+                  EARLY_ISSUE_FILENAMES[number][1],
+              )
+              for number in [
+                  *range(1,19),
+                  51,
+              ]
+          }
 
           def probe(item):
-              number,year,url=item
+              number,(url,year)=item
               api=(
                   "https://archive.org/wayback/available?"
                   + urllib.parse.urlencode({
@@ -73,18 +70,18 @@ jobs:
 
           found={}
           with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:
-              for number,url,closest,error in ex.map(probe,tasks):
+              for number,url,closest,error in ex.map(probe,targets.items()):
                   if closest:
-                      found.setdefault(number,[]).append({
+                      found[number]={
                           "original":url,
                           "timestamp":closest.get("timestamp"),
                           "snapshot":closest.get("url"),
                           "status":closest.get("status"),
-                      })
+                      }
                       print("WAYBACK_FOUND",number,url,closest)
                   elif error:
                       print("WAYBACK_ERROR",number,url,error)
 
-          print("WAYBACK_SUMMARY",json.dumps(found,ensure_ascii=False))
-          print("WAYBACK_MISSING",sorted(set(issues)-set(found)))
+          print("WAYBACK_SUMMARY",json.dumps(found,ensure_ascii=False,sort_keys=True))
+          print("WAYBACK_MISSING",sorted(set(targets)-set(found)))
           PY
