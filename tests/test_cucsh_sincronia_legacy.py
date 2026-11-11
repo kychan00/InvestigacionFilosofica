@@ -331,6 +331,27 @@ class SincroniaLegacyTest(
         )
 
 
+    def test_primary_historical_probe_skips_dead_mirrors(
+        self,
+    ):
+        self.assertEqual(
+            legacy.PRIMARY_EARLY_ISSUE_BASES,
+            [
+                "https://sincronia.cucsh.udg.mx/",
+                "http://sincronia.cucsh.udg.mx/",
+            ],
+        )
+
+        self.assertGreater(
+            len(
+                legacy.EARLY_ISSUE_BASES
+            ),
+            len(
+                legacy.PRIMARY_EARLY_ISSUE_BASES
+            ),
+        )
+
+
     def test_targeted_direct_recovery_only_probes_requested_issues(
         self,
     ):
@@ -338,6 +359,7 @@ class SincroniaLegacyTest(
             issue_number,
             filename,
             fallback_year,
+            bases=None,
         ):
             return {
                 "url":
