@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import html
+import http.cookiejar
 import re
 import time
 import urllib.parse
@@ -16,6 +17,19 @@ from html.parser import HTMLParser
 JOURNAL_URL = (
     "https://dialnet.unirioja.es/"
     "servlet/revista?codigo=2487"
+)
+
+
+DIALNET_COOKIE_JAR = (
+    http.cookiejar.CookieJar()
+)
+
+DIALNET_OPENER = (
+    urllib.request.build_opener(
+        urllib.request.HTTPCookieProcessor(
+            DIALNET_COOKIE_JAR
+        )
+    )
 )
 
 ISSUE_URL_RE = re.compile(
@@ -100,11 +114,17 @@ def request_bytes(
                     ),
                 "Accept-Language":
                     "es-MX,es;q=0.9,en;q=0.7",
+
+                "Referer":
+                    JOURNAL_URL,
+
+                "Cache-Control":
+                    "no-cache",
             },
         )
 
         try:
-            with urllib.request.urlopen(
+            with DIALNET_OPENER.open(
                 request,
                 timeout=timeout,
             ) as response:
@@ -117,7 +137,7 @@ def request_bytes(
                 break
 
             time.sleep(
-                0.8 * attempt
+                1.25 * attempt
             )
 
     raise last_error
@@ -268,6 +288,7 @@ def parse_text(
 
 def journal_issue_urls(
     data,
+    max_issue=None,
 ):
     output = []
     seen = set()
@@ -282,6 +303,32 @@ def journal_issue_urls(
 
         if not ISSUE_URL_RE.search(
             path
+        ):
+            continue
+
+        number_hint = None
+
+        text = (
+            clean_text(
+                link.get("text")
+            )
+            or ""
+        )
+
+        number_match = re.fullmatch(
+            r"\D*(\d{1,3})\D*",
+            text,
+        )
+
+        if number_match:
+            number_hint = int(
+                number_match.group(1)
+            )
+
+        if (
+            max_issue is not None
+            and number_hint is not None
+            and number_hint > max_issue
         ):
             continue
 
@@ -581,6 +628,14 @@ def fetch_issue_payload(
     issue_url,
     max_issue,
 ):
+    # Dialnet responde 503 cuando se le abren
+    # muchos ejemplares históricos de golpe.
+    # Un ritmo corto y secuencial mantiene la
+    # sesión viva sin martillar el servicio.
+    time.sleep(
+        0.35
+    )
+
     try:
         issue_data = request_bytes(
             issue_url,
@@ -661,7 +716,8 @@ def harvest_dialnet_records(
 
     issue_urls = (
         journal_issue_urls(
-            data
+            data,
+            max_issue=max_issue,
         )
     )
 
@@ -685,7 +741,7 @@ def harvest_dialnet_records(
     failures = []
 
     with ThreadPoolExecutor(
-        max_workers=4,
+        max_workers=1,
     ) as executor:
         futures = {
             executor.submit(
