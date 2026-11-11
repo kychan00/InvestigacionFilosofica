@@ -1,0 +1,46 @@
+name: Sincronía · original index encoding repair proposals
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-title-proposals.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-title-proposals
+  cancel-in-progress: true
+
+jobs:
+  source-collation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Verify strict proposal criteria
+        run: python3 -m unittest tests.test_cucsh_sincronia_title_proposals
+      - name: Compare source issue-index links with 69 suspect records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -u -m scripts.cucsh.propose_sincronia_title_repairs \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-title-proposals.json \
+            2>&1 | tee /tmp/sincronia-title-proposals.log
+      - name: Keep auditable proposal report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-title-proposals-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-title-proposals.json
+            /tmp/sincronia-title-proposals.log
+          if-no-files-found: warn
+          retention-days: 30
