@@ -61,29 +61,60 @@ GENERIC_LINK_TEXT = {
     "continuar",
 }
 
-EARLY_ISSUE_FILENAMES = {
-    1: ("winter97.htm", 1996),
-    2: ("spring97.htm", 1997),
-    3: ("summer97.htm", 1997),
-    4: ("fall97.htm", 1997),
-    5: ("winter98.htm", 1998),
-    6: ("spring98.htm", 1998),
-    7: ("summer98.htm", 1998),
-    8: ("fall98.htm", 1998),
-    9: ("winter99.htm", 1999),
-    10: ("spring99.htm", 1999),
-    11: ("summer99.htm", 1999),
-    12: ("fall99.htm", 1999),
-    13: ("winter00.htm", 2000),
-    14: ("spring00.htm", 2000),
-    15: ("summer00.htm", 2000),
-    16: ("fall00.htm", 2000),
-    17: ("winter01.htm", 2000),
-    18: ("spring01.htm", 2001),
-    19: ("summer01.htm", 2001),
-    20: ("fall01.htm", 2001),
-    21: ("winter02.htm", 2001),
-}
+SEASONAL_ISSUE_ORDER = (
+    "winter",
+    "spring",
+    "summer",
+    "fall",
+)
+
+
+def build_seasonal_issue_filenames(
+    max_issue=60,
+):
+    output = {}
+
+    for issue_number in range(
+        1,
+        max_issue + 1,
+    ):
+        offset = (
+            issue_number - 1
+        )
+
+        season = (
+            SEASONAL_ISSUE_ORDER[
+                offset % 4
+            ]
+        )
+
+        season_year = (
+            1997
+            + (offset // 4)
+        )
+
+        publication_year = (
+            season_year - 1
+            if season == "winter"
+            else season_year
+        )
+
+        output[
+            issue_number
+        ] = (
+            (
+                f"{season}"
+                f"{season_year % 100:02d}.htm"
+            ),
+            publication_year,
+        )
+
+    return output
+
+
+EARLY_ISSUE_FILENAMES = (
+    build_seasonal_issue_filenames()
+)
 
 
 EARLY_ISSUE_STEMS = {
@@ -146,6 +177,19 @@ def early_issue_filename_variants(
 
 
 EARLY_ISSUE_BASES = [
+    "https://sincronia.cucsh.udg.mx/",
+    (
+        "https://fuentes.csh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
+        "https://csh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
+    (
+        "https://www.cucsh.udg.mx/"
+        "CUCSH/Sincronia/"
+    ),
     (
         "http://fuentes.csh.udg.mx/"
         "CUCSH/Sincronia/"
@@ -1379,33 +1423,48 @@ def request_legacy_bytes(
                 )
             )
 
-    try:
-        snapshot_url = (
-            wayback_snapshot_url(
-                url,
-                timestamp=(
-                    wayback_timestamp
-                ),
-            )
+    wayback_timestamps = [
+        wayback_timestamp
+    ]
+
+    if wayback_timestamp is not None:
+        wayback_timestamps.append(
+            None
         )
 
-        if snapshot_url:
-            return (
-                request_bytes(
-                    snapshot_url,
-                    timeout=12,
-                    attempts=2,
-                ),
-                True,
+    for candidate_timestamp in (
+        wayback_timestamps
+    ):
+        try:
+            snapshot_url = (
+                wayback_snapshot_url(
+                    url,
+                    timestamp=(
+                        candidate_timestamp
+                    ),
+                )
             )
 
-    except Exception as exc:
-        errors.append(
-            (
-                "wayback",
-                repr(exc),
+            if snapshot_url:
+                return (
+                    request_bytes(
+                        snapshot_url,
+                        timeout=12,
+                        attempts=2,
+                    ),
+                    True,
+                )
+
+        except Exception as exc:
+            errors.append(
+                (
+                    (
+                        "wayback:"
+                        f"{candidate_timestamp or 'latest'}"
+                    ),
+                    repr(exc),
+                )
             )
-        )
 
     if (
         prefer_wayback
@@ -1463,8 +1522,8 @@ def fetch_direct_early_issue(
                     used_wayback,
                 ) = request_legacy_bytes(
                     candidate,
-                    prefer_wayback=True,
-                    allow_live_fallback=False,
+                    prefer_wayback=False,
+                    allow_live_fallback=True,
                     wayback_timestamp=(
                         f"{fallback_year}1231"
                     ),
@@ -1827,6 +1886,17 @@ def harvest_archive_index_records(
         ):
             continue
 
+        # El índice histórico mezcla números
+        # completos y artículos individuales.
+        # Los ejemplares antiguos usan los
+        # nombres estacionales que mantenemos
+        # en la tabla autoritativa. Limitar el
+        # fallback a esos stems evita que un
+        # artículo que menciona "Número N" sea
+        # interpretado como un ejemplar entero.
+        if stem not in EARLY_ISSUE_STEMS:
+            continue
+
         candidates.append(
             link
         )
@@ -2039,7 +2109,9 @@ def harvest_legacy_records(
     ) = harvest_direct_early_issues(
         max_issue=min(
             max_issue,
-            18,
+            max(
+                EARLY_ISSUE_FILENAMES
+            ),
         )
     )
 
