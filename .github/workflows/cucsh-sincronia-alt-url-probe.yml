@@ -1,0 +1,89 @@
+name: Sincronía alternate URL probe
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-alt-urls.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  alternatives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Probe alternate archived URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import concurrent.futures, json, urllib.parse, urllib.request
+
+          variants={
+            3:[
+              "sum97.htm","sum97.html","summer97.htm","summer97.html",
+              "verano97.htm","verano97.html",
+            ],
+            10:[
+              "Spring99.html","Spring99.htm","spring99.html","spring99.htm",
+              "primavera99.htm","primavera99.html",
+            ],
+            14:[
+              "spring00.htm","spring00.html","Spring00.htm","Spring00.html",
+              "primavera00.htm","primavera00.html",
+            ],
+            15:[
+              "summer00.htm","summer00.html","verano00.htm","verano00.html",
+            ],
+          }
+          bases=[
+            "http://fuentes.csh.udg.mx/CUCSH/Sincronia/",
+            "http://csh.udg.mx/CUCSH/Sincronia/",
+            "http://www.csh.udg.mx/CUCSH/Sincronia/",
+            "http://www.cucsh.udg.mx/CUCSH/Sincronia/",
+            "http://cucsh.udg.mx/CUCSH/Sincronia/",
+            "http://sincronia.cucsh.udg.mx/",
+          ]
+
+          tasks=[
+            (number,base+filename)
+            for number,filenames in variants.items()
+            for base in bases
+            for filename in filenames
+          ]
+
+          def probe(item):
+              number,url=item
+              api="https://archive.org/wayback/available?"+urllib.parse.urlencode({"url":url})
+              req=urllib.request.Request(api,headers={"User-Agent":"Mozilla/5.0 InvestigacionFilosofica/0.1"})
+              try:
+                  with urllib.request.urlopen(req,timeout=10) as response:
+                      payload=json.loads(response.read().decode("utf-8","replace"))
+                  closest=(payload.get("archived_snapshots") or {}).get("closest") or {}
+                  if closest.get("available"):
+                      return number,url,closest,None
+                  return number,url,None,None
+              except Exception as exc:
+                  return number,url,None,repr(exc)
+
+          found={}
+          with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:
+              for number,url,closest,error in ex.map(probe,tasks):
+                  if closest:
+                      found.setdefault(number,[]).append({
+                        "original":url,
+                        "timestamp":closest.get("timestamp"),
+                        "snapshot":closest.get("url"),
+                        "status":closest.get("status"),
+                      })
+                      print("ALT_FOUND",number,url,closest)
+
+          print("ALT_SUMMARY",json.dumps(found,ensure_ascii=False,sort_keys=True))
+          print("ALT_MISSING",sorted(set(variants)-set(found)))
+          PY
