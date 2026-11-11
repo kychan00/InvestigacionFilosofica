@@ -138,6 +138,41 @@ class CucshValidateUpdateTest(unittest.TestCase):
             result.stdout + result.stderr,
         )
 
+    def test_title_provenance_reversion_is_blocked(self):
+        row = {
+            **record("sync:protected", "Sincronía", 1996, 1),
+            "legacyOriginal": True,
+            "legacyTitleEncodingEvidence": {
+                "auditRunId": 43032349081,
+                "previousTitle": "Filosof\ufffda",
+            },
+        }
+        baseline = snapshot([
+            record("prot:1", "Protrepsis", 2025),
+            record("quad:1", "Quadripartita Ratio", 2025),
+            row,
+        ])
+        after = snapshot([
+            *baseline["records"][:2],
+            {**row, "title": "Filosof\ufffda"},
+        ])
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            before_path = root / "before.json"
+            after_path = root / "after.json"
+            before_path.write_text(json.dumps(baseline), encoding="utf-8")
+            after_path.write_text(json.dumps(after), encoding="utf-8")
+            result = subprocess.run(
+                ["python3", str(VALIDATOR), "--before", str(before_path),
+                 "--after", str(after_path), "--allow-incomplete-sincronia"],
+                cwd=ROOT, text=True, capture_output=True, check=False,
+            )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(
+            "verified Sincronía title repairs changed",
+            result.stdout + result.stderr,
+        )
+
     def test_issue44_cannot_regress_below_verified_ten(self):
         from scripts.cucsh.validate_update import (
             SINCRONIA_HISTORICAL_OBSERVED_MINIMUM,

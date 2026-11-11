@@ -562,3 +562,27 @@ test(
     }
   }
 );
+
+
+test(
+  "las 41 reparaciones originales conservan títulos legibles y se pueden buscar",
+  () => {
+    const sincronia = records.filter(record => record.journal === "Sincronía");
+    const repaired = sincronia.filter(
+      record => record.legacyTitleEncodingEvidence?.auditRunId === 43032349081
+    );
+    assert.equal(repaired.length, 41);
+    assert.ok(repaired.every(record => !record.title.includes("\ufffd")));
+    for (const title of [
+      "Análisis del argumento del sueño en la primera meditación de Descartes",
+      "La pérdida y el olvido de la memoria en el cuento Estoy rezando por tu salvación"
+    ]) {
+      assert.ok(repaired.some(record => record.title === title));
+      const results = searchCucshRecords(records, title, { rows: 80 });
+      assert.ok(
+        results.some(record => record.title === title && record.journal === "Sincronía"),
+        `Sincronía missing restored title: ${title}`
+      );
+    }
+  }
+);

@@ -654,6 +654,51 @@ def main():
         )
 
 
+    verified_title_regressions = [
+        key for key in sorted(common)
+        if before_by_id[key].get("journal") == "Sincronía"
+        and before_by_id[key].get("legacyTitleEncodingEvidence")
+        and (
+            before_by_id[key].get("title") != after_by_id[key].get("title")
+            or before_by_id[key].get("legacyTitleEncodingEvidence") !=
+               after_by_id[key].get("legacyTitleEncodingEvidence")
+        )
+    ]
+    if verified_title_regressions:
+        fail(
+            "AFTER: verified Sincronía title repairs changed or lost provenance: "
+            f"{verified_title_regressions[:15]}"
+        )
+
+    verified_author_regressions = [
+        key for key in sorted(common)
+        if before_by_id[key].get("journal") == "Sincronía"
+        and before_by_id[key].get("legacyAuthorEvidence")
+        and (
+            before_by_id[key].get("authors") != after_by_id[key].get("authors")
+            or before_by_id[key].get("legacyAuthorEvidence") !=
+               after_by_id[key].get("legacyAuthorEvidence")
+        )
+    ]
+    if verified_author_regressions:
+        fail(
+            "AFTER: verified Sincronía author provenance changed or disappeared: "
+            f"{verified_author_regressions[:15]}"
+        )
+
+    newly_damaged_titles = [
+        key for key in sorted(common)
+        if before_by_id[key].get("journal") == "Sincronía"
+        and "\ufffd" not in str(before_by_id[key].get("title") or "")
+        and "\ufffd" in str(after_by_id[key].get("title") or "")
+    ]
+    if newly_damaged_titles:
+        fail(
+            "AFTER: Sincronía titles acquired replacement characters: "
+            f"{newly_damaged_titles[:15]}"
+        )
+
+
     before_counts = Counter(
         record["journal"]
         for record in before
