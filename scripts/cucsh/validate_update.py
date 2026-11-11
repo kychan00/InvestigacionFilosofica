@@ -377,6 +377,17 @@ def main():
         required=True,
     )
 
+    parser.add_argument(
+        "--allow-incomplete-sincronia",
+        action="store_true",
+        help=(
+            "Discovery mode: report missing Sincronía "
+            "issues without failing coverage validation. "
+            "All structural and destructive-update checks "
+            "remain strict."
+        ),
+    )
+
     args = parser.parse_args()
 
 
@@ -438,11 +449,22 @@ def main():
     )
 
     if missing_sincronia_issues:
-        fail(
-            "AFTER: incomplete Sincronía "
-            "issue coverage; missing "
-            f"{missing_sincronia_issues}"
-        )
+        if args.allow_incomplete_sincronia:
+            print(
+                "CUCSH UPDATE VALIDATION: "
+                "DISCOVERY WARNING"
+            )
+            print(
+                "AFTER: incomplete Sincronía "
+                "issue coverage; missing "
+                f"{missing_sincronia_issues}"
+            )
+        else:
+            fail(
+                "AFTER: incomplete Sincronía "
+                "issue coverage; missing "
+                f"{missing_sincronia_issues}"
+            )
 
 
     before_by_id = {
