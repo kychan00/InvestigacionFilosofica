@@ -244,6 +244,54 @@ class SincroniaIssueMetadataTest(
         )
 
 
+
+    def test_indexed_ojs_articles_cannot_be_silently_omitted(
+        self,
+    ):
+        metadata = {
+            "1100": {"issueNumber": 90, "section": "FILOSOFÍA"},
+            "1101": {"issueNumber": 90, "section": "LETRAS"},
+            "1102": {"issueNumber": 90, "section": "EDITORIAL"},
+        }
+        rows = [{
+            "urls": {
+                "canonical": (
+                    "https://revistasincronia.cucsh.udg.mx/"
+                    "index.php/sincronia/article/view/1100"
+                )
+            },
+        }]
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "2 indexed article\\(s\\) missing",
+        ):
+            MODULE.audit_sincronia_ojs_coverage(metadata, rows)
+
+        # A front-matter exclusion must be specifically identified from OAI.
+        with self.assertRaisesRegex(
+            RuntimeError,
+            "1 indexed article\\(s\\) missing",
+        ):
+            MODULE.audit_sincronia_ojs_coverage(
+                metadata,
+                rows,
+                {"1102"},
+            )
+
+        rows.append({
+            "urls": {
+                "canonical": (
+                    "https://revistasincronia.cucsh.udg.mx/"
+                    "index.php/sincronia/article/view/1101"
+                )
+            },
+        })
+        MODULE.audit_sincronia_ojs_coverage(
+            metadata,
+            rows,
+            {"1102"},
+        )
+
     def test_article_id_is_stable(
         self,
     ):

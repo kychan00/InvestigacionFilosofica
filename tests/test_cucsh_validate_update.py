@@ -37,14 +37,16 @@ def snapshot(records):
 
 
 class CucshValidateUpdateTest(unittest.TestCase):
-    def run_validator(self, allow_incomplete):
+    def run_validator(self, allow_incomplete, sincronia_records=None):
         before = snapshot([
             record("prot:1", "Protrepsis", 2025),
             record("quad:1", "Quadripartita Ratio", 2025),
         ])
         after = snapshot([
             *before["records"],
-            record("sync:1", "Sincronía", 1996, 1),
+            *(sincronia_records if sincronia_records is not None else [
+                record("sync:1", "Sincronía", 1996, 1),
+            ]),
         ])
 
         with tempfile.TemporaryDirectory() as tmp:
@@ -72,6 +74,31 @@ class CucshValidateUpdateTest(unittest.TestCase):
                 capture_output=True,
                 check=False,
             )
+
+
+    def test_one_article_per_issue_does_not_pass_release(
+        self,
+    ):
+        # Old validator checked only that each issue number existed.
+        # The same data now fails against observed historical floors.
+        rows = [
+            record(
+                f"sync:{issue}",
+                "Sincronía",
+                1996 + (issue - 1) // 2,
+                issue,
+            )
+            for issue in range(1, 91)
+        ]
+        result = self.run_validator(
+            allow_incomplete=False,
+            sincronia_records=rows,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(
+            "historical article counts fell below",
+            result.stdout + result.stderr,
+        )
 
     def test_discovery_mode_reports_missing_issues_without_failing(self):
         result = self.run_validator(allow_incomplete=True)

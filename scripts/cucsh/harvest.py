@@ -824,6 +824,53 @@ class SincroniaIssueParser(
             self._h2_parts = []
 
 
+
+def audit_sincronia_ojs_coverage(
+    issue_metadata,
+    active_records,
+    excluded_front_matter_ids=None,
+):
+    """Require every indexed OJS article to survive the OAI harvest.
+
+    A TOC entry absent from OAI is a source consistency failure, not
+    evidence that the article doesn't exist. Never publish a partial
+    journal update merely because every issue has one article.
+    """
+    indexed = set(issue_metadata)
+    active_ids = {
+        article_id_from_url(
+            (record.get("urls") or {}).get("canonical")
+        )
+        for record in active_records
+    }
+    active_ids.discard(None)
+    excluded = set(excluded_front_matter_ids or ())
+    missing = sorted(
+        indexed - active_ids - excluded,
+        key=lambda value: int(value) if value.isdigit() else value,
+    )
+    if missing:
+        examples = [
+            {
+                "articleId": article_id,
+                "issueNumber": issue_metadata[article_id].get("issueNumber"),
+                "section": issue_metadata[article_id].get("section"),
+            }
+            for article_id in missing[:20]
+        ]
+        raise RuntimeError(
+            "Sincronía OJS issue/OAI article coverage mismatch: "
+            f"{len(missing)} indexed article(s) missing, "
+            f"examples={examples}"
+        )
+    print(
+        f"sincronia-ojs-audit indexed={len(indexed)} "
+        f"active={len(active_ids & indexed)} "
+        f"excluded-front-matter={len(excluded & indexed)} "
+        "missing=0"
+    )
+
+
 def harvest_issue_metadata(
     source,
 ):
@@ -1298,6 +1345,14 @@ def parse_oai_record(
 
             "sourceId":
                 source_id,
+
+            "canonical": (
+                canonical_article_url(
+                    metadata.get("identifier", [])
+                )
+                if source.get("id") == "sincronia"
+                else None
+            ),
         }
 
     descriptions = (
@@ -1604,6 +1659,7 @@ def harvest_source(
     deleted = 0
 
     excluded_reasons = Counter()
+    excluded_front_matter_ids = set()
 
     while True:
         page += 1
@@ -1687,6 +1743,19 @@ def harvest_source(
                 excluded_reasons[
                     record["reason"]
                 ] += 1
+
+                if (
+                    source.get("id") == "sincronia"
+                    and record.get("reason")
+                    == "sincronia-non-article-front-matter"
+                ):
+                    excluded_article_id = article_id_from_url(
+                        record.get("canonical")
+                    )
+                    if excluded_article_id:
+                        excluded_front_matter_ids.add(
+                            excluded_article_id
+                        )
 
                 continue
 
@@ -1773,6 +1842,13 @@ def harvest_source(
 
         time.sleep(
             0.25
+        )
+
+    if source.get("id") == "sincronia":
+        audit_sincronia_ojs_coverage(
+            issue_metadata,
+            active_records,
+            excluded_front_matter_ids,
         )
 
     legacy_archives = (

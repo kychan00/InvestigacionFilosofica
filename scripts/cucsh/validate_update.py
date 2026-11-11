@@ -362,6 +362,68 @@ def validate_snapshot(
     return records
 
 
+# Minimum OBSERVED historical records, not a claim of exhaustive
+# completeness. Numbers 1-48 and 50-51 come from the 2026-11-11
+# legacy-v3 GitHub Actions evidence (run 42961992150).
+# Number 49's 21 titles are sourced from Dialnet exemplar 251060.
+# Counts prevent a later network hiccup from silently publishing fewer
+# records than were already found. Full article-level provenance is
+# still required before calling the entire corpus complete.
+SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
+    1: 14,
+    2: 8,
+    3: 4,
+    4: 8,
+    5: 10,
+    6: 3,
+    7: 7,
+    8: 3,
+    9: 6,
+    10: 7,
+    11: 5,
+    12: 8,
+    13: 8,
+    14: 8,
+    15: 7,
+    16: 13,
+    17: 13,
+    18: 10,
+    19: 18,
+    20: 16,
+    21: 26,
+    22: 30,
+    23: 9,
+    24: 14,
+    25: 17,
+    26: 12,
+    27: 11,
+    28: 15,
+    29: 2,
+    30: 6,
+    31: 3,
+    32: 11,
+    33: 2,
+    34: 4,
+    35: 8,
+    36: 6,
+    37: 9,
+    38: 5,
+    39: 6,
+    40: 9,
+    41: 13,
+    42: 7,
+    43: 7,
+    44: 2,
+    45: 10,
+    46: 19,
+    47: 14,
+    48: 10,
+    49: 21,
+    50: 10,
+    51: 9,
+}
+
+
 def main():
     parser = argparse.ArgumentParser()
 
@@ -465,6 +527,37 @@ def main():
                 "issue coverage; missing "
                 f"{missing_sincronia_issues}"
             )
+
+
+
+    # Issue presence alone is insufficient: one record per issue would
+    # pass the issue-number gate while discarding hundreds of articles.
+    historical_counts = Counter(
+        record.get("issueNumber")
+        for record in after
+        if record.get("journal") == "Sincronía"
+        and isinstance(record.get("issueNumber"), int)
+        and 1 <= record["issueNumber"] <= 51
+    )
+    below_observed_baseline = {
+        issue: {
+            "found": historical_counts[issue],
+            "minimum": floor,
+        }
+        for issue, floor in SINCRONIA_HISTORICAL_OBSERVED_MINIMUM.items()
+        if historical_counts[issue] < floor
+    }
+    if below_observed_baseline:
+        message = (
+            "AFTER: Sincronía historical article counts fell below "
+            "previously observed evidence: "
+            f"{below_observed_baseline}"
+        )
+        if args.allow_incomplete_sincronia:
+            print("CUCSH UPDATE VALIDATION: DISCOVERY WARNING")
+            print(message)
+        else:
+            fail(message)
 
 
     before_by_id = {
