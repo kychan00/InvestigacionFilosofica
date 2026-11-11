@@ -135,6 +135,65 @@ class SincroniaDialnetTest(
             ],
         )
 
+    def test_issue_parser_accepts_parameterized_links(
+        self,
+    ):
+        data = (
+            """
+            <html><body>
+              <h3>
+                Año 2011, Nº. 60
+              </h3>
+
+              <a href="/servlet/articulo?info=resumen&codigo=3803596">
+                Obama, Calderón and the Mérida Initiative
+              </a>
+              <a href="/servlet/autor?foo=1&codigo=2630508">
+                Peter Watt
+              </a>
+            </body></html>
+            """
+        ).encode("utf-8")
+
+        self.assertEqual(
+            dialnet.issue_identity(
+                data
+            ),
+            {
+                "year":
+                    2011,
+
+                "number":
+                    60,
+            },
+        )
+
+        articles = dialnet.issue_articles(
+            data,
+            (
+                "https://dialnet.unirioja.es/"
+                "ejemplar/293399"
+            ),
+        )
+
+        self.assertEqual(
+            len(articles),
+            1,
+        )
+
+        self.assertEqual(
+            articles[0]["code"],
+            "3803596",
+        )
+
+        self.assertEqual(
+            articles[0]["authors"],
+            [
+                "Peter Watt"
+            ],
+        )
+
+
     def test_record_preserves_historical_provenance(
         self,
     ):
