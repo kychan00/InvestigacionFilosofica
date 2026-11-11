@@ -2280,34 +2280,15 @@ def harvest_legacy_records(
     archive_urls,
     max_issue=84,
 ):
-    # Dialnet conserva una secuencia bibliográfica
-    # muy estable desde el núm. 17. Lo consultamos
-    # primero porque evita decenas de búsquedas
-    # Wayback sobre URLs históricas muertas.
-    try:
-        (
-            dialnet_records,
-            dialnet_issues,
-        ) = harvest_dialnet_records(
-            max_issue=max_issue
+    expected_issues = set(
+        range(
+            1,
+            max_issue + 1,
         )
+    )
 
-    except Exception as exc:
-        print(
-            (
-                "WARNING: Dialnet historical "
-                f"fallback failed: {exc!r}"
-            )
-        )
-
-        dialnet_records = []
-        dialnet_issues = []
-
-    # Los números 1-16 no están catalogados en
-    # Dialnet y el 18 tampoco aparece en su índice.
-    # La plataforma original sigue siendo la fuente
-    # necesaria para ese tramo temprano; limitar
-    # aquí la búsqueda mantiene el harvest acotado.
+    # Phase 1: recover the pre-Dialnet block from the journal's own
+    # seasonal archive. Dialnet starts at issue 17 and omits issue 18.
     (
         direct_records,
         direct_issues,
@@ -2319,15 +2300,7 @@ def harvest_legacy_records(
     )
 
     combined = merge_historical_records(
-        dialnet_records,
         direct_records,
-    )
-
-    expected_issues = set(
-        range(
-            1,
-            max_issue + 1,
-        )
     )
 
     covered_issues = (
@@ -2343,21 +2316,18 @@ def harvest_legacy_records(
 
     print(
         (
-            "legacy-primary=dialnet+direct-early "
+            "legacy-after-direct-early "
             f"issues={sorted(covered_issues)} "
             f"records={len(combined)} "
             f"missing={missing_issues}"
         )
     )
 
-    # Dialnet can rate-limit or reset historical issue requests even
-    # when the original seasonal Sincronía page still exists in the
-    # live host or Wayback. Retry only the unresolved issue numbers
-    # against the authoritative seasonal filename map. This keeps the
-    # fallback bounded instead of probing every legacy issue on every
-    # harvest.
+    # Phase 2: Redalyc preserves a compact, stable 2005-2007 block
+    # (issues 34-45). Use it before Dialnet so those issues do not
+    # consume Dialnet requests at all.
     redalyc_targets = (
-        set(missing_issues)
+        expected_issues
         & REDALYC_SUPPORTED_ISSUES
     )
 
@@ -2408,6 +2378,67 @@ def harvest_legacy_records(
             )
         )
 
+    # Phase 3: ask Dialnet only for unresolved issues that Dialnet
+    # actually catalogs. Exact exemplar IDs are pinned in
+    # sincronia_dialnet.py, avoiding a journal-index crawl and
+    # dramatically reducing 503/rate-limit pressure.
+    dialnet_targets = set(
+        missing_issues
+    )
+
+    if dialnet_targets:
+        try:
+            (
+                dialnet_records,
+                dialnet_issues,
+            ) = harvest_dialnet_records(
+                max_issue=max_issue,
+                target_issues=(
+                    dialnet_targets
+                ),
+            )
+
+        except Exception as exc:
+            print(
+                (
+                    "WARNING: Dialnet targeted "
+                    f"fallback failed: {exc!r}"
+                )
+            )
+
+            dialnet_records = []
+            dialnet_issues = []
+
+        combined = merge_historical_records(
+            combined,
+            dialnet_records,
+        )
+
+        covered_issues = (
+            record_issue_numbers(
+                combined
+            )
+        )
+
+        missing_issues = sorted(
+            expected_issues
+            - covered_issues
+        )
+
+        print(
+            (
+                "legacy-after-dialnet "
+                f"attempted={sorted(dialnet_targets)} "
+                f"recovered={dialnet_issues} "
+                f"issues={sorted(covered_issues)} "
+                f"records={len(combined)} "
+                f"missing={missing_issues}"
+            )
+        )
+
+    # Phase 4: if a targeted Dialnet request still failed, retry only
+    # those unresolved issue numbers against the original seasonal
+    # filename map (including English and Spanish season aliases).
     direct_recovery_targets = {
         issue_number
         for issue_number in missing_issues
@@ -2426,7 +2457,9 @@ def harvest_legacy_records(
                 max_issue,
                 max(EARLY_ISSUE_FILENAMES),
             ),
-            target_issues=direct_recovery_targets,
+            target_issues=(
+                direct_recovery_targets
+            ),
         )
 
         combined = merge_historical_records(
@@ -2456,6 +2489,8 @@ def harvest_legacy_records(
             )
         )
 
+    # Phase 5: last-resort historical archive index. This is kept
+    # fail-soft because old UdeG/Wayback endpoints are intermittent.
     if missing_issues:
         try:
             index_records = (
