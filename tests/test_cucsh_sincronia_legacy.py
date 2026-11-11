@@ -491,6 +491,102 @@ class SincroniaLegacyTest(
         )
 
 
+    def test_pipeline_targets_dialnet_only_for_unresolved_issues(
+        self,
+    ):
+        def fake_record(issue_number):
+            return {
+                "id":
+                    f"record:{issue_number}",
+                "title":
+                    f"Artículo {issue_number}",
+                "issueNumber":
+                    issue_number,
+                "urls": {
+                    "canonical":
+                        (
+                            "https://example.test/"
+                            f"{issue_number}"
+                        ),
+                },
+            }
+
+        direct_issues = [
+            issue_number
+            for issue_number in range(
+                1,
+                19,
+            )
+            if issue_number != 17
+        ]
+
+        direct_records = [
+            fake_record(
+                issue_number
+            )
+            for issue_number in
+            direct_issues
+        ]
+
+        with (
+            patch.object(
+                legacy,
+                "harvest_direct_early_issues",
+                return_value=(
+                    direct_records,
+                    direct_issues,
+                ),
+            ),
+            patch.object(
+                legacy,
+                "harvest_dialnet_records",
+                return_value=(
+                    [
+                        fake_record(17)
+                    ],
+                    [
+                        17
+                    ],
+                ),
+            ) as dialnet_harvest,
+            patch.object(
+                legacy,
+                "harvest_archive_index_records",
+                return_value=[],
+            ),
+        ):
+            records = (
+                legacy.harvest_legacy_records(
+                    archive_urls=[],
+                    max_issue=18,
+                )
+            )
+
+        self.assertEqual(
+            {
+                row["issueNumber"]
+                for row in records
+            },
+            set(
+                range(
+                    1,
+                    19,
+                )
+            ),
+        )
+
+        dialnet_harvest.assert_called_once()
+
+        self.assertEqual(
+            dialnet_harvest.call_args.kwargs[
+                "target_issues"
+            ],
+            {
+                17
+            },
+        )
+
+
     def test_navigation_is_not_an_article(
         self,
     ):
