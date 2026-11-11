@@ -118,6 +118,38 @@ class CucshValidateUpdateTest(unittest.TestCase):
         self.assertIn("CUCSH release blocked", workflow)
         self.assertIn("exit 1", workflow)
 
+    def test_release_accepts_observed_baselines_through_issue_60(
+        self,
+    ):
+        # Ensure the coverage counter includes issues 52-60, not only 1-51.
+        from scripts.cucsh.validate_update import (
+            SINCRONIA_HISTORICAL_OBSERVED_MINIMUM,
+        )
+
+        rows = [
+            record(
+                f"sync:{issue}:{index}",
+                "Sincronía",
+                1996 + (issue - 1) // 3,
+                issue,
+            )
+            for issue, floor in SINCRONIA_HISTORICAL_OBSERVED_MINIMUM.items()
+            for index in range(floor)
+        ]
+        rows.extend(
+            record(f"sync:{issue}:modern", "Sincronía", 2026, issue)
+            for issue in range(61, 91)
+        )
+        result = self.run_validator(
+            allow_incomplete=False,
+            sincronia_records=rows,
+        )
+        self.assertEqual(
+            result.returncode,
+            0,
+            result.stdout + result.stderr,
+        )
+
     def test_release_mode_still_fails_incomplete_coverage(self):
         result = self.run_validator(allow_incomplete=False)
         self.assertNotEqual(result.returncode, 0)

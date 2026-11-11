@@ -548,7 +548,7 @@ def main():
         for record in after
         if record.get("journal") == "Sincronía"
         and isinstance(record.get("issueNumber"), int)
-        and 1 <= record["issueNumber"] <= 51
+        and 1 <= record["issueNumber"] <= 60
     )
     below_observed_baseline = {
         issue: {
