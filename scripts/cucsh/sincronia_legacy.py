@@ -233,25 +233,8 @@ def early_issue_filename_variants(
 
 
 EARLY_ISSUE_BASES = [
-    "https://sincronia.cucsh.udg.mx/",
-    (
-        "https://fuentes.csh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
-    (
-        "https://csh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
-    (
-        "https://www.cucsh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
     (
         "http://fuentes.csh.udg.mx/"
-        "CUCSH/Sincronia/"
-    ),
-    (
-        "http://csh.udg.mx/"
         "CUCSH/Sincronia/"
     ),
     (
@@ -259,7 +242,22 @@ EARLY_ISSUE_BASES = [
         "CUCSH/Sincronia/"
     ),
     "http://sincronia.cucsh.udg.mx/",
+    "https://sincronia.cucsh.udg.mx/",
 ]
+
+
+def direct_issue_filename_variants(
+    filename,
+):
+    stem = filename.rsplit(
+        ".",
+        1,
+    )[0]
+
+    return [
+        f"{stem}.htm",
+        f"{stem}.html",
+    ]
 
 
 NAVIGATION_NAMES = {
@@ -1563,7 +1561,7 @@ def fetch_direct_early_issue(
 
     for base_url in EARLY_ISSUE_BASES:
         for candidate_filename in (
-            early_issue_filename_variants(
+            direct_issue_filename_variants(
                 filename
             )
         ):
@@ -1906,6 +1904,7 @@ def fetch_first_available(
 def harvest_archive_index_records(
     archive_urls,
     max_issue,
+    target_issues=None,
 ):
     (
         archive_url,
@@ -1951,6 +1950,19 @@ def harvest_archive_index_records(
         # artículo que menciona "Número N" sea
         # interpretado como un ejemplar entero.
         if stem not in EARLY_ISSUE_STEMS:
+            continue
+
+        mapped_issue_number = (
+            EARLY_ISSUE_NUMBER_BY_STEM.get(
+                stem
+            )
+        )
+
+        if (
+            target_issues is not None
+            and mapped_issue_number
+            not in target_issues
+        ):
             continue
 
         candidates.append(
@@ -2248,6 +2260,9 @@ def harvest_legacy_records(
                 harvest_archive_index_records(
                     archive_urls,
                     max_issue,
+                    target_issues=set(
+                        missing_issues
+                    ),
                 )
             )
 
