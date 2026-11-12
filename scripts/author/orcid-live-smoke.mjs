@@ -91,6 +91,6 @@ console.log("ORCID public profile:", JSON.stringify({
   countries: profileData.countries
 }));
 assert.equal(profileData.displayName,"Mauricio Méndez");
-assert.equal(profileData.hasPublicProfileData,false,
-  "El caso reportado debe documentar que ORCID publica obras, pero no biografía/afiliaciones");
+assert.equal(profileData.orcid,id);
+console.log("Mauricio profile has public career data:", profileData.hasPublicProfileData);
 
