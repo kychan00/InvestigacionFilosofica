@@ -34,6 +34,10 @@ import {
   searchCucshFilosofia
 } from "../sources/cucsh-filosofia.js";
 
+import {
+  searchOrcid
+} from "../sources/orcid.js?v=20261112-federated-search-v1";
+
 
 function sleep(ms) {
   return new Promise(
@@ -69,6 +73,12 @@ const DEFAULT_OPTIONS = {
   internetArchive: {
     enabled: true,
     rows: 6
+  },
+
+  orcid: {
+    enabled: true,
+    rows: 6,
+    profilesPerPage: 2
   },
 
   delayBetweenExpansions: 600
@@ -108,6 +118,11 @@ function mergeOptions(
     internetArchive: {
       ...DEFAULT_OPTIONS.internetArchive,
       ...(options.internetArchive || {})
+    },
+
+    orcid: {
+      ...DEFAULT_OPTIONS.orcid,
+      ...(options.orcid || {})
     }
   };
 }
@@ -298,6 +313,34 @@ async function searchExpansion(
           {
             rows:
               options.internetArchive.rows,
+
+            page:
+              1,
+
+            signal:
+              options.signal
+          }
+        )
+    });
+  }
+
+
+  if (
+    options.orcid.enabled
+  ) {
+    jobs.push({
+      provider:
+        "ORCID",
+
+      promise:
+        searchOrcid(
+          expansion,
+          {
+            rows:
+              options.orcid.rows,
+
+            profilesPerPage:
+              options.orcid.profilesPerPage,
 
             page:
               1,
@@ -859,6 +902,34 @@ export async function searchMorePhilosophy(
             {
               rows:
                 settings.internetArchive.rows,
+
+              page:
+                nextBatch,
+
+              signal:
+                settings.signal
+            }
+          )
+      });
+    }
+
+
+    if (
+      settings.orcid.enabled
+    ) {
+      jobs.push({
+        provider:
+          "ORCID",
+
+        promise:
+          searchOrcid(
+            expansion,
+            {
+              rows:
+                settings.orcid.rows,
+
+              profilesPerPage:
+                settings.orcid.profilesPerPage,
 
               page:
                 nextBatch,
