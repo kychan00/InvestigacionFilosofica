@@ -22645,11 +22645,16 @@
       "sourceId": "legacy:227e912cb694dcd4f77c",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Vidaurre Arenas, Carmen V.",
+      "title": "La interacción de diversos tipos textuales en la obra de Alvar Núñez",
       "titleVariants": [
-        "Vidaurre Arenas, Carmen V."
+        "La interacción de diversos tipos textuales en la obra de Alvar Núñez"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Carmen V. Vidaurre Arenas",
+          "sourceName": "Carmen V. Vidaurre Arenas"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -22682,6 +22687,31 @@
         "reason": "timeout",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "independent-exact-work-and-original-url-bibliography",
+        "previousTitle": "Vidaurre Arenas, Carmen V.",
+        "verifiedTitle": "La interacción de diversos tipos textuales en la obra de Alvar Núñez",
+        "verifiedAuthors": [
+          "Carmen V. Vidaurre Arenas"
+        ],
+        "sourceUrl": "https://parnaseo.uv.es/Lemir/Revista/Revista9/Serra/Serra.pdf",
+        "supportingBibliographyUrl": "https://parnaseo.uv.es/lemir/textos/maura2.pdf",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/nunez.htm",
+        "matchedIssueNumber": 16,
+        "matchedYear": 2000,
+        "originalAvailabilityPreserved": true,
+        "note": "Giorgio Serra, Lemir 9 (2005), p. 9 and note 5 on p. 3, cites this 2000 Sincronía work by title, byline and the original nunez.htm URL. The primary page availability was not altered."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "independent-title-author-original-url-citation",
+        "sourceUrl": "https://parnaseo.uv.es/Lemir/Revista/Revista9/Serra/Serra.pdf",
+        "verifiedTitle": "La interacción de diversos tipos textuales en la obra de Alvar Núñez",
+        "verifiedAuthors": [
+          "Carmen V. Vidaurre Arenas"
+        ],
+        "matchedIssueNumber": 16,
+        "originalAvailabilityPreserved": true
       }
     },
     {
