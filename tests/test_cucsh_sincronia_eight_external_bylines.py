@@ -50,8 +50,14 @@ class ExternalBylineTests(unittest.TestCase):
         for index, item in enumerate(VERIFIED):
             before = previous["records"][index]
             after = output["records"][index]
+            # 'authors' is an existing field with an empty value. Verify
+            # changed values, not a symmetric difference of dictionary keys.
+            changed_fields = sorted(
+                key for key in set(before) | set(after)
+                if before.get(key) != after.get(key)
+            )
             self.assertEqual(
-                sorted(set(before) ^ set(after)),
+                changed_fields,
                 ["authors", "legacyAuthorEvidence"],
             )
             for field, original in before.items():
