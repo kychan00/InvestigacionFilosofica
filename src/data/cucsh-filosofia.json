@@ -22453,11 +22453,16 @@
       "sourceId": "legacy:12cf65c2ec1f08182eb5",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Formanchuk, Alejandro B.",
+      "title": "Bajo la misma cruz",
       "titleVariants": [
-        "Formanchuk, Alejandro B."
+        "Bajo la misma cruz"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Alejandro B. Formanchuk",
+          "sourceName": "Alejandro B. Formanchuk"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -22490,6 +22495,31 @@
         "reason": "http-404",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "dated-complete-republication-matching-original-issue-and-byline",
+        "previousTitle": "Formanchuk, Alejandro B.",
+        "verifiedTitle": "Bajo la misma cruz",
+        "verifiedAuthors": [
+          "Alejandro B. Formanchuk"
+        ],
+        "sourceUrl": "https://armonicosdeconciencia.blogspot.com/2011/09/una-aldea-global-que-fractura-lo-que.html?m=0",
+        "sourceArticleUrl": "http://sincronia.cucsh.udg.mx/formanchuk.htm",
+        "matchedIssueNumber": 15,
+        "matchedYear": 2000,
+        "sourceNature": "secondary-2011-republication-crediting-sincronia-verano-2000",
+        "originalAvailabilityPreserved": true,
+        "note": "2011 republication explicitly labels Sincronía Verano 2000 and shows Bajo la misma cruz / POR ALEJANDRO B. FORMANCHUK. It does not establish live full-text access at the original formanchuk.htm URL or substitute for the original page."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "dated-republication-original-issue-byline",
+        "sourceUrl": "https://armonicosdeconciencia.blogspot.com/2011/09/una-aldea-global-que-fractura-lo-que.html?m=0",
+        "verifiedAuthors": [
+          "Alejandro B. Formanchuk"
+        ],
+        "verifiedTitle": "Bajo la misma cruz",
+        "matchedIssueNumber": 15,
+        "originalAvailabilityPreserved": true
       }
     },
     {
