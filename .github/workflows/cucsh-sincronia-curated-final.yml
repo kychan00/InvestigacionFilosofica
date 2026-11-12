@@ -20,6 +20,9 @@ jobs:
   curated-final:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    env:
+      # Python unit tests must not leave __pycache__ files in the guarded worktree.
+      PYTHONDONTWRITEBYTECODE: "1"
 
     steps:
       - uses: actions/checkout@v6
