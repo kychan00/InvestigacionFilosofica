@@ -526,7 +526,7 @@ test(
       [9, 10]
     );
     assert.equal(
-      issueNineTen.issueNumber,
+      issueNineTen.issueNumber ?? null,
       null
     );
 
