@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261109-global-work-dedup-v3";
+} from "../src/core/search-engine.js?v=20261112-orcid-federation-v1";
 
 import {
   explainResult
@@ -3022,6 +3022,8 @@ function renderResult(
               item.retrievalMode ===
                 "semantic"
                 ? "Semántica"
+                : item.retrievalMode === "orcid-registry-search"
+                  ? "ORCID"
                 : [
                     "author-index",
                     "author-crossref",
@@ -3290,6 +3292,16 @@ function renderResult(
                   Fuente académica complementaria
                   · recuperación federada
                   · sin reranker
+                </div>
+              `
+            : item.retrievalMode === "orcid-registry-search"
+              ? `
+                <div class="explain">
+                  Registro público ORCID
+                  · obra presente en el registro
+                  · ${item.orcidSearch?.authorQuery
+                    ? "coincidencia de autor"
+                    : "coincidencia temática"}
                 </div>
               `
             : [
@@ -7093,6 +7105,14 @@ async function loadMoreResults() {
               depth
           },
 
+          orcid: {
+            enabled: true,
+            rows: Math.min(depth, 8),
+            profilesPerPage: 2,
+            preferredAuthorResolution:
+              currentResponse?.authorResolution || null
+          },
+
           onProgress(progress) {
             status.textContent =
               `Ampliando ${progress.completed}/${progress.total}: ` +
@@ -7264,7 +7284,7 @@ function renderSemanticSearchLoading(
       : (
           elapsedSeconds < 10
             ? "Comparando el significado y consultando fuentes académicas complementarias."
-            : "La búsqueda continúa activa; el corpus, Crossref, Internet Archive y UdeG responden a ritmos distintos."
+            : "La búsqueda continúa activa; el corpus, Crossref, ORCID, Internet Archive y UdeG responden a ritmos distintos."
         );
 
   return `
@@ -7544,6 +7564,14 @@ async function runFederatedSearch(
               depth
           },
 
+          orcid: {
+            enabled: true,
+            rows: Math.min(depth, 8),
+            profilesPerPage: 2,
+            preferredAuthorPromise:
+              authorResolutionPromise
+          },
+
           onProgress(progress) {
             status.textContent =
               `Buscando ${progress.completed}/${progress.total}: ` +
@@ -7731,7 +7759,8 @@ function semanticFallbackReason(
 async function searchSemanticCompanions(
   query,
   limit,
-  signal
+  signal,
+  preferredAuthorPromise = null
 ) {
   try {
     return await searchPhilosophy(
@@ -7758,6 +7787,12 @@ async function searchSemanticCompanions(
         internetArchive: {
           enabled: true,
           rows: Math.min(limit, 8)
+        },
+        orcid: {
+          enabled: true,
+          rows: Math.min(limit, 6),
+          profilesPerPage: 2,
+          preferredAuthorPromise
         }
       }
     );
@@ -7943,7 +7978,8 @@ async function runSemanticSearch(
       searchSemanticCompanions(
         query,
         limit,
-        searchController.signal
+        searchController.signal,
+        authorResolutionPromise
       )
     ]);
 
@@ -8138,7 +8174,7 @@ function selectSearchMode(
     "semantic"
   ) {
     searchModeNote.textContent =
-      "Busca por significado en 451.823 documentos y amplía con Crossref, Internet Archive y Biblioteca UdeG; no usa la API de OpenAlex ni el reranker.";
+      "Busca por significado en 451.823 documentos y amplía con Crossref, ORCID, Internet Archive y Biblioteca UdeG; no usa la API de OpenAlex ni el reranker.";
 
     input.placeholder =
       "Ej. ¿Qué relación hay entre lógica y ontología en Quine?";
