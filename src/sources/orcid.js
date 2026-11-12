@@ -487,6 +487,10 @@ export function normalizeOrcidSearchCsv(text) {
     const given = record["given-names"] || record["given-name"] || "";
     const family = record["family-name"] || record["family-names"] || "";
     const credit = record["credit-name"] || "";
+    const otherNames = String(record["other-name"] || "")
+      .split(/[;|]/)
+      .map(value => value.trim())
+      .filter(Boolean);
     const displayName = credit || [given, family].filter(Boolean).join(" ") || orcid;
     const institutions = [
       record["current-institution-affiliation-name"],
@@ -500,6 +504,7 @@ export function normalizeOrcidSearchCsv(text) {
       givenNames: given || null,
       familyName: family || null,
       creditName: credit || null,
+      otherNames: [...new Set(otherNames)],
       institutions: [...new Set(institutions)]
     };
   }).filter(Boolean);
@@ -521,6 +526,7 @@ function orcidCsvSearchUrl(query, {
       "given-names",
       "family-name",
       "credit-name",
+      "other-name",
       "current-institution-affiliation-name",
       "past-institution-affiliation-name"
     ].join(",")
@@ -545,6 +551,7 @@ export async function searchOrcidProfiles(query, {
       givenNames: null,
       familyName: null,
       creditName: null,
+      otherNames: [],
       institutions: []
     }];
   }
@@ -582,16 +589,23 @@ function orcidWorkSearchScore(work, queryTokens) {
   return coverage * 0.75 + precision * 0.25;
 }
 
-function profileMatchesAuthorQuery(profile, queryTokens) {
-  if (!queryTokens.length) return false;
+function orcidProfileIdentityScore(profile, queryTokens) {
+  if (!queryTokens.length) return 0;
   const identityTokens = orcidSearchTokens([
     profile.displayName,
     profile.givenNames,
     profile.familyName,
-    profile.creditName
+    profile.creditName,
+    ...(profile.otherNames || [])
   ].filter(Boolean).join(" "));
-  const coverage = tokenCoverage(queryTokens, identityTokens);
-  return queryTokens.length >= 2 && coverage >= 0.60;
+  const queryCoverage = tokenCoverage(queryTokens, identityTokens);
+  const identityCoverage = tokenCoverage(identityTokens, queryTokens);
+  return queryCoverage * 0.8 + identityCoverage * 0.2;
+}
+
+function profileMatchesAuthorQuery(profile, queryTokens) {
+  return queryTokens.length >= 2 &&
+    orcidProfileIdentityScore(profile, queryTokens) >= 0.58;
 }
 
 function qualifyingOrcidWork(work, queryTokens, authorQuery, exactOrcid) {
@@ -626,6 +640,10 @@ export async function searchOrcid(expansion, options = {}) {
     1,
     Math.min(4, Number(options.profilesPerPage) || 2)
   );
+  const profileCandidates = Math.max(
+    profilesPerPage,
+    Math.min(10, Number(options.profileCandidates) || 8)
+  );
   const exactOrcid = embeddedOrcid(cleanedQuery);
   const queryTokens = orcidSearchTokens(cleanedQuery);
   const searchProfilesImpl = options.searchProfilesImpl || searchOrcidProfiles;
@@ -650,18 +668,38 @@ export async function searchOrcid(expansion, options = {}) {
       givenNames: profile?.givenName || null,
       familyName: profile?.familyName || null,
       creditName: profile?.creditName || null,
+      otherNames: profile?.otherNames || [],
       institutions: (profile?.employments || [])
         .map(item => item.organization)
         .filter(Boolean)
     }];
   } else {
-    profiles = await searchProfilesImpl(cleanedQuery, {
-      start: (page - 1) * profilesPerPage,
-      rows: profilesPerPage,
+    const candidates = await searchProfilesImpl(cleanedQuery, {
+      start: (page - 1) * profileCandidates,
+      rows: profileCandidates,
       signal: options.signal,
       fetchImpl: options.fetchImpl,
       apiBase: options.apiBase
     });
+
+    const scored = candidates.map((profile, index) => ({
+      profile,
+      index,
+      identityScore: orcidProfileIdentityScore(profile, queryTokens)
+    }));
+    const likelyAuthor = scored.some(item => item.identityScore >= 0.58);
+
+    profiles = (likelyAuthor
+      ? scored
+          .sort((a, b) =>
+            b.identityScore - a.identityScore ||
+            a.index - b.index
+          )
+          .filter(item => item.identityScore >= 0.45)
+      : scored
+    )
+      .slice(0, profilesPerPage)
+      .map(item => item.profile);
   }
 
   const settled = await Promise.allSettled(
