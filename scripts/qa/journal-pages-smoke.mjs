@@ -133,8 +133,15 @@ try {
       assert.ok(await page.locator("#journal-issue option").count() >= 2);
       assert.ok(await page.locator(".issue-taxonomy-chip").count() >= 1);
       if (journal === "protrepsis") {
+        const historicalIssueOneCount = await page
+          .locator(".issue-taxonomy-chip")
+          .evaluateAll(elements =>
+            elements.filter(element =>
+              element.querySelector("span")?.textContent?.trim() === "Núm. 1"
+            ).length
+          );
         assert.equal(
-          await page.locator(".issue-taxonomy-chip", { hasText: "Núm. 1" }).count(),
+          historicalIssueOneCount,
           1,
           "Protrepsis must expose historical issue 1 in the editorial map"
         );
