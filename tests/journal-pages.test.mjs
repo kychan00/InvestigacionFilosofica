@@ -63,6 +63,12 @@ test("Atlas de revista distingue Qwen verificado de respaldo textual", async () 
   assert.match(source, /onPointerDown/);
   assert.match(source, /fitView/);
   assert.match(source, /resetLayout/);
+  assert.match(source, /relatedEdgesFor/);
+  assert.match(source, /relationExplanation/);
+  assert.match(source, /RELACIONES SEMÁNTICAS/);
+  assert.match(source, /data-related-node/);
+  assert.match(source, /coseno TF-IDF/);
+  assert.match(source, /coseno Qwen/);
 });
 
 test("navegación lateral enlaza páginas individuales y funciona desde subdirectorios", async () => {
