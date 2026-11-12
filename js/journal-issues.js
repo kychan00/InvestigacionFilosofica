@@ -45,6 +45,7 @@ function issueNumberFromText(value) {
   if (!text) return null;
 
   const patterns = [
+    /\bv\d+i0*(\d{1,3})(?=[./_\s-]|$)/i,
     /(?:^|[./_-])i(?:ssue)?\s*0*(\d{1,3})(?=[./_\s-]|$)/i,
     /\b(?:n[úu]m(?:ero)?\.?|nro\.?|no\.?|issue)\s*[:#.]?\s*0*(\d{1,3})\b/i,
     /\b(?:vol(?:umen)?\.?\s*\d+\s*)?(?:n[úu]m(?:ero)?\.?|issue)\s*0*(\d{1,3})\b/i
