@@ -248,6 +248,14 @@ function publicCountries(person) {
     .filter(Boolean))];
 }
 
+function publicOtherNames(person) {
+  const rows = person?.["other-names"]?.["other-name"] || [];
+  return [...new Set((Array.isArray(rows) ? rows : [])
+    .filter(publicItem)
+    .map(item => textValue(item?.content))
+    .filter(Boolean))];
+}
+
 function fundingSummaries(activities) {
   const groups = activities?.fundings?.group || [];
   return (Array.isArray(groups) ? groups : []).flatMap(group =>
@@ -301,6 +309,7 @@ export function normalizeOrcidPublicProfile(payload, { orcid } = {}) {
   };
   const keywords = publicKeywords(person);
   const countries = publicCountries(person);
+  const otherNames = publicOtherNames(person);
   const websites = researcherUrls(person);
   const fundings = fundingSummaries(activities);
   const displayName = creditName ||
@@ -316,12 +325,13 @@ export function normalizeOrcidPublicProfile(payload, { orcid } = {}) {
     biography: biography || null,
     keywords,
     countries,
+    otherNames,
     websites,
     ...affiliations,
     fundings,
     hasPublicProfileData: Boolean(
-      biography || keywords.length || countries.length || websites.length ||
-      allAffiliations.length || fundings.length
+      biography || keywords.length || countries.length || otherNames.length ||
+      websites.length || allAffiliations.length || fundings.length
     ),
     source: "ORCID"
   };
