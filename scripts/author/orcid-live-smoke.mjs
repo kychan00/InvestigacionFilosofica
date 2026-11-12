@@ -4,7 +4,10 @@
  * Does not store personal data or require credentials.
  */
 import assert from "node:assert/strict";
-import { normalizeOrcidPublicWorks } from "../../src/sources/orcid.js";
+import {
+  normalizeOrcidPublicWorks,
+  normalizeOrcidPublicProfile
+} from "../../src/sources/orcid.js";
 import { mergeAuthorArchives } from "../../src/core/author-deep-discovery.js";
 const id = "0000-0002-7283-8051";
 const origin = "https://kychan00.github.io";
@@ -70,34 +73,24 @@ assert.ok(recordResponse.headers.get("access-control-allow-origin") === "*" ||
   recordResponse.headers.get("access-control-allow-origin") === origin,
   "El registro completo ORCID debe permitir CORS desde GitHub Pages");
 const record = JSON.parse(recordText);
-const activities = record["activities-summary"] || {};
-const person = record.person || {};
-const summaries = (section, key) =>
-  Array.isArray(activities?.[section]?.[key]) ? activities[section][key] : [];
-const affiliation = item => ({
-  organization: item?.organization?.name || null,
-  department: item?.["department-name"] || null,
-  role: item?.["role-title"] || null,
-  start: item?.["start-date"]?.year?.value || null,
-  end: item?.["end-date"]?.year?.value || null
-});
+const profileData = normalizeOrcidPublicProfile(record,{orcid:id});
 console.log("ORCID public profile:", JSON.stringify({
-  name: {
-    given: person?.name?.["given-names"]?.value || null,
-    family: person?.name?.["family-name"]?.value || null,
-    credit: person?.name?.["credit-name"]?.value || null
-  },
-  biography: person?.biography?.content || null,
-  keywords: (person?.keywords?.keyword || []).map(x => x.content).filter(Boolean),
-  websites: (person?.["researcher-urls"]?.["researcher-url"] || [])
-    .map(x => ({name:x["url-name"], url:x.url?.value})),
-  employments: summaries("employments","employment-summary").map(affiliation),
-  educations: summaries("educations","education-summary").map(affiliation),
-  distinctions: summaries("distinctions","distinction-summary").map(affiliation),
-  qualifications: summaries("qualifications","qualification-summary").map(affiliation),
-  memberships: summaries("memberships","membership-summary").map(affiliation),
-  services: summaries("services","service-summary").map(affiliation),
-  invitedPositions: summaries("invited-positions","invited-position-summary").map(affiliation),
-  fundingCount: Array.isArray(activities?.fundings?.group)
-    ? activities.fundings.group.length : 0
+  displayName: profileData.displayName,
+  biography: profileData.biography,
+  hasPublicProfileData: profileData.hasPublicProfileData,
+  employments: profileData.employments,
+  educations: profileData.educations,
+  distinctions: profileData.distinctions,
+  qualifications: profileData.qualifications,
+  memberships: profileData.memberships,
+  services: profileData.services,
+  invitedPositions: profileData.invitedPositions,
+  fundingCount: profileData.fundings.length,
+  keywords: profileData.keywords,
+  websites: profileData.websites,
+  countries: profileData.countries
 }));
+assert.equal(profileData.displayName,"Mauricio Méndez");
+assert.equal(profileData.hasPublicProfileData,false,
+  "El caso reportado debe documentar que ORCID publica obras, pero no biografía/afiliaciones");
+
