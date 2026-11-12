@@ -27,3 +27,5 @@ from article candidate count only, 1 Reyes4 conflict and 1 issue-50
 Korstanje URL-to-work ambiguity preserved.
 
 Use same feature/cucsh-sincronia; do not merge or open another PR.
+
+Retry after fixing Python unittest shadowing of copy.deepcopy; no bibliography, author or title mapping was changed. Re-run complete strict integrity checks before committing data.
