@@ -2939,6 +2939,8 @@ function renderResult(
     : null;
   const hasWorkOrcidEvidence = authorProfileOrcid &&
     workHasAuthorOrcidEvidence(item, authorProfileOrcid);
+  const isOrcidListed = Boolean(item.orcidRecord ||
+    authorWorkSources(item).includes("ORCID"));
   const workSources = authorWorkSources(item);
 
   const archiveDescription =
@@ -3023,6 +3025,9 @@ function renderResult(
                     "author-index",
                     "author-crossref",
                     "author-orcid-crossref",
+                  "author-orcid-registry",
+                "author-orcid-registry",
+                    "author-orcid-registry",
                     "author-internet-archive",
                     "author-institutional",
                     "author-curated"
@@ -3102,10 +3107,13 @@ function renderResult(
             ? `<a class="provider author-work-orcid ${hasWorkOrcidEvidence ? "is-evidenced" : ""}"
                  href="${escapeHtml(authorProfileOrcid)}"
                  target="_blank" rel="noopener noreferrer"
-                 title="${hasWorkOrcidEvidence
-                   ? "Identificador presente en los metadatos de esta publicación"
-                   : "ORCID del perfil; no constituye una atribución verificada de esta obra"}">
-                 ${hasWorkOrcidEvidence ? "ORCID en metadatos" : "ORCID del autor"}
+                 title="${isOrcidListed
+                   ? "Esta obra aparece en la bibliografía pública del registro ORCID del investigador."
+                   : hasWorkOrcidEvidence
+                     ? "El identificador ORCID aparece en metadatos bibliográficos."
+                     : "ORCID del perfil, sin atribución individual confirmada para esta obra."}">
+                 ${isOrcidListed ? "Registrada en ORCID"
+                   : hasWorkOrcidEvidence ? "ORCID en metadatos" : "ORCID del autor"}
                </a>`
             : ""}
 
@@ -3306,6 +3314,8 @@ function renderResult(
                         ? `Bibliografía verificada · identidad confirmada por ${item.authorIdentity?.orcid ? "ORCID y " : ""}fuente académica o editorial`
                         : item.retrievalMode === "author-orcid-crossref"
                           ? "Publicación vinculada al ORCID del investigador en los metadatos de Crossref"
+                        : item.retrievalMode === "author-orcid-registry" || item.orcidRecord
+                          ? "Obra declarada en el registro ORCID público del investigador; no implica validación editorial"
                         : item.collectiveWork
                           ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
                           : `Autoría asociada al nombre en ${escapeHtml(
