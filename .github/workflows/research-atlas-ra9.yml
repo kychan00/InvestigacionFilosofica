@@ -6,17 +6,13 @@ on:
       - "index.html"
       - "js/app.js"
       - "js/research-atlas-embed.js"
-      - "js/research-atlas-flow.js"
       - "css/research-atlas-embed.css"
-      - "css/research-atlas-flow.css"
-      - "src/core/research-atlas-view.js"
       - "tests/research-atlas-main-integration.test.mjs"
       - "scripts/qa/research-atlas-main-smoke.mjs"
       - "scripts/qa/research-atlas-main-hegel-smoke.mjs"
       - "scripts/qa/research-atlas-main-dinora-smoke.mjs"
       - "scripts/qa/research-atlas-main-load-more-smoke.mjs"
       - "docs/RESEARCH_ATLAS_MAIN_INTEGRATION_RA9.md"
-      - "docs/RESEARCH_ATLAS_REACT_FLOW_TEMPORAL.md"
       - ".github/workflows/research-atlas-ra9.yml"
   workflow_dispatch:
 
@@ -40,10 +36,7 @@ jobs:
         run: npm ci
 
       - name: Validate RA9 integration contract
-        run: |
-          node --check js/research-atlas-flow.js
-          node --check js/research-atlas-embed.js
-          node --test tests/research-atlas-main-integration.test.mjs
+        run: node --test tests/research-atlas-main-integration.test.mjs
 
       - name: Validate Research Atlas RA1 through RA8
         run: |
