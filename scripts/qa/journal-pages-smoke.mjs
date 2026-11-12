@@ -138,10 +138,21 @@ try {
       assert.equal(external.length, 0, "Qwen/network must remain opt-in");
       const edgeCount = Number(await page.locator("#journal-atlas-canvas").getAttribute("data-atlas-edges"));
       const issueCount = Number(await page.locator("#journal-atlas-canvas").getAttribute("data-atlas-issues"));
+      const relatedCount = await page.locator(".atlas-related-item").count();
+      assert.ok(relatedCount >= 1, journal + " selected node must expose semantic relations");
+      assert.ok(await page.locator(".atlas-relation-badge.method").count() >= 1);
+      assert.ok(await page.locator(".atlas-relation-badge.score").count() >= 1);
+      assert.match(await page.locator(".atlas-related-header").innerText(), /RELACIONES SEMÁNTICAS/i);
       if (expected >= 3) assert.ok(edgeCount >= 2, journal + " must keep multiple semantic neighbors");
       else assert.ok(edgeCount >= 1, journal + " must keep at least one semantic neighbor");
       assert.ok(issueCount >= 1, journal + " must expose editorial issue clusters");
       if (journal === "protrepsis") assert.ok(issueCount >= 2, "Protrepsis fixture must split issue colors");
+
+      const selectedTitleBefore = await page.locator("#journal-atlas-detail h3").innerText();
+      await page.locator(".atlas-related-focus").first().click();
+      await page.waitForTimeout(40);
+      const selectedTitleAfter = await page.locator("#journal-atlas-detail h3").innerText();
+      assert.notEqual(selectedTitleAfter, selectedTitleBefore, journal + " related card must navigate to its node");
 
       const canvasLocator = page.locator("#journal-atlas-canvas");
       await canvasLocator.scrollIntoViewIfNeeded();
