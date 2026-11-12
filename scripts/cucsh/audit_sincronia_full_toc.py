@@ -122,7 +122,7 @@ def create_report(snapshot, external, issues):
             "partial_source_unavailable" if missing
             else "requires_article_review"
             if totals["possibleMissing"] or totals["possibleVariants"] or totals["titleOnlyNeedsReview"]
-            else "matched_source",
+            else "matched_source"
         ),
         "issues": detail,
         "totals": totals,

@@ -61,6 +61,22 @@ class AllIssueTocAuditTest(unittest.TestCase):
         self.assertEqual(result["totals"]["issuesUnavailable"], 1)
         self.assertEqual(result["missingIssueNumbers"], [44])
 
+    def test_report_status_is_string_for_every_outcome(self):
+        unavailable = create_report([], [], [44])
+        complete = create_report(
+            [record(44, "1", "Filosofía")],
+            [record(44, "1", "Filosofía")], [44],
+        )
+        review = create_report(
+            [record(44, "1", "Filosofía")],
+            [record(44, "2", "Otro artículo distinto")], [44],
+        )
+        self.assertEqual(unavailable["status"], "partial_source_unavailable")
+        self.assertEqual(complete["status"], "matched_source")
+        self.assertEqual(review["status"], "requires_article_review")
+        for report in (unavailable, complete, review):
+            self.assertIsInstance(report["status"], str)
+
     def test_variant_reported_separately_from_certain_missing(self):
         rows = compare_full_issues(
             [record(44, "", "Filosofía política contemporánea")],
