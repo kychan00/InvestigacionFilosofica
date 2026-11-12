@@ -1923,6 +1923,11 @@ html[data-theme="dark"] .atlas-relation-badge.confidence-medium {
 
 /* v5 — interacción táctil limpia en móvil */
 @media (max-width: 820px) {
+  .journal-issues-block .journal-taxonomy-list {
+    max-height: none;
+    overflow: visible;
+  }
+
   .journal-atlas-toolbar button[data-atlas-action] {
     display: none !important;
   }
