@@ -66,6 +66,11 @@ test("Atlas de revista distingue Qwen verificado de respaldo textual", async () 
   assert.match(source, /fitView/);
   assert.match(source, /resetLayout/);
   assert.match(source, /panBy/);
+  assert.match(source, /touchPointers/);
+  assert.match(source, /beginPinch/);
+  assert.match(source, /updatePinch/);
+  assert.match(source, /pointerType === "touch"/);
+  assert.match(source, /atlasTouchMode = "pan-pinch"/);
   assert.match(source, /relatedEdgesFor/);
   assert.match(source, /relationExplanation/);
   assert.match(source, /RELACIONES SEMÁNTICAS/);
@@ -109,4 +114,12 @@ test("números editoriales se recuperan de DOI y citas OJS", () => {
     journalIssueInfo({ bibliographicSources: ["Año 11, Número 22"], year: 2022 }).number,
     22
   );
+});
+
+
+test("Atlas móvil oculta controles mecánicos y conserva Qwen", async () => {
+  const css = await readFile("css/journal-page.css", "utf8");
+  assert.match(css, /@media \(max-width: 820px\)[\s\S]*journal-atlas-toolbar button\[data-atlas-action\][\s\S]*display: none !important/);
+  assert.match(css, /journal-atlas-toolbar \.journal-qwen-toggle[\s\S]*width: 100%/);
+  assert.match(css, /touch-action: none/);
 });

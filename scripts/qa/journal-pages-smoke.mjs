@@ -160,26 +160,58 @@ try {
       const canvas = await canvasLocator.boundingBox();
       assert.ok(canvas && canvas.width > 250 && canvas.height > 350);
 
-      const zoomBefore = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
-      await page.locator('[data-atlas-action="zoom-in"]').click();
-      await page.waitForTimeout(40);
-      const zoomAfter = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
-      assert.ok(zoomAfter > zoomBefore, journal + " " + name + " zoom control must change the view");
+      if (width <= 820) {
+        assert.equal(
+          await canvasLocator.getAttribute("data-atlas-touch-mode"),
+          "pan-pinch",
+          journal + " " + name + " must expose touch pan/pinch mode"
+        );
+        assert.equal(
+          await page.locator('[data-atlas-action="pan-right"]').isVisible(),
+          false,
+          journal + " " + name + " must hide directional controls"
+        );
+        assert.equal(
+          await page.locator('[data-atlas-action="zoom-in"]').isVisible(),
+          false,
+          journal + " " + name + " must hide zoom controls"
+        );
+        assert.equal(
+          await page.locator('[data-atlas-action="fit"]').isVisible(),
+          false,
+          journal + " " + name + " must hide fit controls"
+        );
+        assert.equal(
+          await page.locator('[data-atlas-action="reset"]').isVisible(),
+          false,
+          journal + " " + name + " must hide reorder controls"
+        );
+        assert.equal(
+          await page.locator("#journal-qwen-toggle").isVisible(),
+          true,
+          journal + " " + name + " must keep Qwen control visible"
+        );
+        const touchAction = await canvasLocator.evaluate(element => getComputedStyle(element).touchAction);
+        assert.equal(touchAction, "none", journal + " " + name + " canvas must own touch gestures");
+      } else {
+        const zoomBefore = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
+        await page.locator('[data-atlas-action="zoom-in"]').click();
+        await page.waitForTimeout(40);
+        const zoomAfter = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
+        assert.ok(zoomAfter > zoomBefore, journal + " desktop zoom control must change the view");
 
-      // Pan is validated through explicit Atlas controls instead of
-      // coordinate-sensitive pointer automation. Pointer dragging remains
-      // supported by the runtime, while this smoke stays deterministic.
-      const panBeforeX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
-      const panBeforeY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
-      await page.locator('[data-atlas-action="pan-right"]').click();
-      await page.locator('[data-atlas-action="pan-down"]').click();
-      await page.waitForTimeout(60);
-      const panAfterX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
-      const panAfterY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
-      assert.ok(
-        panAfterX > panBeforeX && panAfterY > panBeforeY,
-        journal + " " + name + " pan controls must move the Atlas"
-      );
+        const panBeforeX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
+        const panBeforeY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
+        await page.locator('[data-atlas-action="pan-right"]').click();
+        await page.locator('[data-atlas-action="pan-down"]').click();
+        await page.waitForTimeout(60);
+        const panAfterX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
+        const panAfterY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
+        assert.ok(
+          panAfterX > panBeforeX && panAfterY > panBeforeY,
+          journal + " desktop pan controls must move the Atlas"
+        );
+      }
 
       await page.locator('[data-journal-view="archive"]').click();
       await page.locator("#journal-query").fill(journal === "protrepsis" ? "verdad" : journal === "sincronia" ? "digital" : "inferencias");
