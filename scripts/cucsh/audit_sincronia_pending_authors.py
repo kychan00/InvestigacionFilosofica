@@ -8,8 +8,54 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
+
+
+
+def classify_work_identity_review(row):
+    """Flag suspicious historical index labels without treating them as facts.
+
+    A potential author label is NOT sufficient bibliographic evidence to
+    overwrite a title or assign an author. All flags require manual review.
+    """
+    title = str(row.get("title") or "").strip()
+    issue = row.get("issueNumber")
+    url = str((row.get("urls") or {}).get("canonical") or "").lower()
+    basename = url.rsplit("/", 1)[-1].split("?", 1)[0]
+
+    if not re.search(r"\\w", title, flags=re.UNICODE):
+        return "malformed_or_punctuation_only_title"
+    if issue == 46 and (
+        (basename == "creditos.html" and title == "Editorial Board/Consejo Editorial")
+        or (basename == "info.htm" and title == "Further information for contributors.")
+    ):
+        return "possible_editorial_navigation_not_article"
+    if issue == 8 and basename == "bio.html" and title == "Dante Medina":
+        return "possible_biography_not_article"
+    if issue == 7:
+        if title.casefold() == "introducción":
+            return "generic_index_heading_needs_source"
+        if basename in {
+            "bedregal.htm", "revilla.htm", "velia.htm", "saavedra.htm",
+            "quiroga.htm", "selum.htm",
+        }:
+            return "person_name_entry_needs_article_identity"
+    if issue in {12, 13, 14, 15, 16, 18, 46, 50}:
+        # Early indexes often used surname, given-name where the article
+        # title should be. Require a short phrase and no colon or semicolon.
+        # A 2008 multi-author label is also a possible index transposition.
+        looks_like_name_label = (
+            len(title) <= 90
+            and bool(re.fullmatch(r"[^,:;]{2,45},\\s*[^:;]{2,100}", title))
+        )
+        multi_name_label = (
+            issue == 46 and ";" in title and title.count(",") >= 2
+        )
+        if looks_like_name_label or multi_name_label:
+            return "possible_author_name_transcribed_as_title"
+    return None
 
 
 def audit_pending_authors(records):
@@ -19,6 +65,8 @@ def audit_pending_authors(records):
     by_issue = Counter()
     by_availability = Counter()
     queue = []
+    identity_queue = []
+    identity_flags = Counter()
 
     for row in pending:
         source = row.get("legacyMetadataSource") or "original"
@@ -55,6 +103,22 @@ def audit_pending_authors(records):
             if evidence_urls else
             "seek_independent_bibliography"
         )
+        identity_reason = classify_work_identity_review(row)
+        if identity_reason:
+            identity_flags[identity_reason] += 1
+            identity_queue.append({
+                "id": row.get("id"),
+                "issueNumber": issue,
+                "titleAsIndexed": row.get("title"),
+                "originalUrl": urls.get("canonical"),
+                "sourceAvailability": availability,
+                "reviewReason": identity_reason,
+                "recommendation": (
+                    "Find independent article-level table of contents or "
+                    "bibliographic citation before changing title, authorship "
+                    "or record type. Preserve this original index entry."
+                ),
+            })
         queue.append({
             "id": row.get("id"),
             "issueNumber": issue,
@@ -65,6 +129,7 @@ def audit_pending_authors(records):
             "originalUrl": urls.get("canonical"),
             "evidenceUrlsForManualReview": evidence_urls,
             "reviewPriority": priority,
+            "possibleWorkIdentityIssue": identity_reason,
         })
 
     queue.sort(key=lambda item: (
@@ -87,6 +152,15 @@ def audit_pending_authors(records):
         ))),
         "pendingByOriginalAvailability": dict(sorted(by_availability.items())),
         "records": queue,
+        "suspectedWorkIdentityRecords": sorted(
+            identity_queue,
+            key=lambda item: (
+                item["issueNumber"] if isinstance(item["issueNumber"], int) else 999,
+                item["id"] or "",
+            ),
+        ),
+        "suspectedWorkIdentityByType": dict(sorted(identity_flags.items())),
+        "suspectedWorkIdentityCount": len(identity_queue),
         "policy": (
             "Never guess an author, delete an incomplete article, or treat "
             "an unavailable historical page as an accessible full text. "
@@ -115,6 +189,8 @@ def main():
         f"evidence_first={sum(x['reviewPriority'] == 'inspect_bibliographic_evidence' for x in report['records'])}",
     )
     print("PENDING_BY_SOURCE", report["pendingBySource"])
+    print("SUSPECTED_WORK_IDENTITY", report["suspectedWorkIdentityCount"])
+    print("IDENTITY_REVIEW_BY_TYPE", report["suspectedWorkIdentityByType"])
     print("PENDING_BY_ORIGINAL_AVAILABILITY", report["pendingByOriginalAvailability"])
 
 
