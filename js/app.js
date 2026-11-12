@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261112-orcid-federation-v1";
+} from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
 
 import {
   explainResult
