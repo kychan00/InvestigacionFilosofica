@@ -1734,6 +1734,9 @@ body[data-journal="protrepsis"] .journal-hero-aside::after {
 
 .atlas-related-list {
   display: grid;
+  max-height: 540px;
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 .atlas-related-item {
@@ -1895,6 +1898,10 @@ html[data-theme="dark"] .atlas-relation-badge.confidence-medium {
 
   .atlas-related-header {
     padding: 16px;
+  }
+
+  .atlas-related-list {
+    max-height: 430px;
   }
 
   .atlas-related-item {
