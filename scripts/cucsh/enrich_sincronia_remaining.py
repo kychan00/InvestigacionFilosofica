@@ -51,6 +51,7 @@ def similarity(a, b):
 
 def human_name(value):
     text = clean_text(value or "")
+    text = re.sub(r"\\s+([,;])", r"\\1", text).strip(" \\t\\r\\n,;|")
     if not text or not 5 <= len(text) <= 75:
         return None
     if any(token in text.casefold() for token in BAD_PERSON_TOKENS):
@@ -235,6 +236,90 @@ def inspect_remote(row):
         }
 
 
+def dialnet_author_proposals(rows, skip_ids=None):
+    skip_ids = set(skip_ids or [])
+    targets = [
+        r for r in rows
+        if r.get("journal") == "Sincronía"
+        and isinstance(r.get("issueNumber"), int)
+        and 1 <= r["issueNumber"] <= 60
+        and not r.get("authors")
+        and "\\ufffd" not in str(r.get("title") or "")
+        and r.get("id") not in skip_ids
+    ]
+    issues = {r["issueNumber"] for r in targets}
+    if not issues:
+        return []
+
+    try:
+        external, covered = harvest_dialnet_records(
+            max_issue=60, target_issues=issues,
+        )
+    except Exception as exc:
+        return [{
+            "id": row["id"], "issue": row["issueNumber"],
+            "url": (row.get("urls") or {}).get("canonical"),
+            "source": "dialnet-issue-title-match",
+            "status": "source_unavailable", "corrections": {},
+            "error": repr(exc)[:500],
+        } for row in targets]
+
+    by_issue = {}
+    for record in external:
+        by_issue.setdefault(record.get("issueNumber"), []).append(record)
+
+    findings = []
+    for row in targets:
+        candidates = by_issue.get(row["issueNumber"], [])
+        scored = sorted(
+            (
+                (similarity(row.get("title"), candidate.get("title")), candidate)
+                for candidate in candidates
+            ),
+            key=lambda item: item[0],
+            reverse=True,
+        )
+        if not scored:
+            continue
+        best_score, best = scored[0]
+        second_score = scored[1][0] if len(scored) > 1 else 0.0
+        raw_authors = best.get("authors") or []
+        cleaned_authors = [
+            human_name(author.get("name"))
+            for author in raw_authors
+            if isinstance(author, dict)
+        ]
+        cleaned_authors = [name for name in cleaned_authors if name]
+        unique_match = (
+            best_score >= 0.965
+            and (second_score < 0.90 or best_score - second_score >= 0.03)
+        )
+        single_author = (
+            len(raw_authors) == 1
+            and len(cleaned_authors) == 1
+        )
+        finding = {
+            "id": row["id"], "issue": row["issueNumber"],
+            "url": (row.get("urls") or {}).get("canonical"),
+            "evidenceUrl": (best.get("urls") or {}).get("canonical"),
+            "source": "dialnet-issue-title-match",
+            "status": "no_high_confidence_evidence",
+            "corrections": {},
+            "identityScore": round(best_score, 4),
+            "runnerUpScore": round(second_score, 4),
+            "matchedTitle": best.get("title"),
+        }
+        if unique_match and single_author and finding["evidenceUrl"]:
+            finding["status"] = "verified_corrections"
+            finding["corrections"]["author"] = {
+                "value": cleaned_authors[0],
+                "evidence": "dialnet-issue-title-match",
+                "field": "title+issue",
+            }
+        findings.append(finding)
+    return findings
+
+
 def dialnet_title_proposals(rows):
     damaged = [
         r for r in rows if r.get("journal") == "Sincronía"
@@ -312,7 +397,7 @@ def apply_evidence(snapshot, findings):
 
         item = copy.deepcopy(row)
         changes = evidence["corrections"]
-        source = evidence["url"]
+        source = evidence.get("evidenceUrl") or evidence["url"]
         for field in ("title", "abstract"):
             if field not in changes:
                 continue
@@ -382,6 +467,11 @@ def main():
                     flush=True,
                 )
 
+    corrected_ids = {
+        f.get("id") for f in findings
+        if f.get("status") == "verified_corrections" and f.get("corrections")
+    }
+    findings.extend(dialnet_author_proposals(rows, skip_ids=corrected_ids))
     findings.extend(dialnet_title_proposals(rows))
     findings.sort(key=lambda f: (f.get("issue") or 0, f.get("id") or ""))
     after, changed = apply_evidence(original, findings)
