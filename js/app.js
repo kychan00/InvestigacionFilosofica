@@ -211,6 +211,7 @@ let authorArchiveLoading = false;
 let authorArchiveNotice = "";
 let authorArchiveSources = [];
 let authorArchiveOrcidSummary = null;
+let authorArchiveOrcidProfile = null;
 
 const qwen3OptIn =
   isQwen3BrowserQ8OptIn(
@@ -4781,6 +4782,7 @@ function showExclusiveAuthorWorks(
     authorArchiveNotice = "";
     authorArchiveSources = [];
     authorArchiveOrcidSummary = null;
+    authorArchiveOrcidProfile = null;
     authorTimelineState = {
       unit: "year",
       selectedKey: null,
@@ -4886,6 +4888,7 @@ function restoreAuthorSourceSearch() {
   authorArchiveNotice = "";
   authorArchiveSources = [];
   authorArchiveOrcidSummary = null;
+  authorArchiveOrcidProfile = null;
   authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
@@ -5269,7 +5272,9 @@ async function openExclusiveAuthorByName(
           },
           initialWorks: resolution.works,
           signal: authorController.signal,
-          onProgress: ({works,source,phase,sources,errors,orcidSummary}) => {
+          onProgress: ({
+            works,source,phase,sources,errors,orcidSummary,orcidProfile
+          }) => {
             if (
               authorController.signal.aborted ||
               currentController !== authorController
@@ -5277,6 +5282,8 @@ async function openExclusiveAuthorByName(
 
             authorArchiveSources = sources;
             authorArchiveOrcidSummary = orcidSummary;
+            authorArchiveOrcidProfile =
+              orcidProfile || authorArchiveOrcidProfile;
             authorArchiveNotice =
               phase === "started"
                 ? (resolution.author?.id
@@ -5289,13 +5296,13 @@ async function openExclusiveAuthorByName(
             showExclusiveAuthorWorks({
               ...resolution,
               works,
-              author: {
+              author: mergeAuthorOrcidProfile({
                 ...resolution.author,
                 corpusWorks: Math.max(
                   Number(resolution.author.corpusWorks || 0),
                   works.length
                 )
-              }
+              }, authorArchiveOrcidProfile)
             }, {loading: true, preserveVisibleLimit: true});
           }
         });
@@ -5307,6 +5314,8 @@ async function openExclusiveAuthorByName(
 
         authorArchiveSources = deep.sources;
         authorArchiveOrcidSummary = deep.orcidSummary;
+        authorArchiveOrcidProfile =
+          deep.orcidProfile || authorArchiveOrcidProfile;
         authorArchiveNotice = deep.errors.length
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
@@ -5316,13 +5325,13 @@ async function openExclusiveAuthorByName(
         showExclusiveAuthorWorks({
           ...resolution,
           works: deep.works,
-          author: {
+          author: mergeAuthorOrcidProfile({
             ...resolution.author,
             corpusWorks: Math.max(
               Number(resolution.author.corpusWorks || 0),
               deep.works.length
             )
-          }
+          }, authorArchiveOrcidProfile)
         }, { loading: false, preserveVisibleLimit: true });
       } catch(error) {
         if (authorController.signal.aborted) return;
