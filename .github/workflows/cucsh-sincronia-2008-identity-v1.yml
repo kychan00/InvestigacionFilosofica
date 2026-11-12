@@ -1,0 +1,47 @@
+name: Sincronía · issue 46–50 source identity audit
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-2008-identity-v1.txt"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-2008-identity-audit
+  cancel-in-progress: false
+
+jobs:
+  source-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Guard source matching and navigation classification
+        run: |
+          python3 -m py_compile scripts/cucsh/audit_sincronia_2008_identity.py
+          python3 -m unittest tests.test_cucsh_sincronia_2008_identity
+      - name: Compare historical issues 46 47 48 50 only with Dialnet
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -u -m scripts.cucsh.audit_sincronia_2008_identity \
+            --input src/data/cucsh-filosofia.json \
+            --report /tmp/sincronia-2008-identity-report.json \
+            2>&1 | tee /tmp/sincronia-2008-identity.log
+      - name: Preserve source-linked findings for human review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-2008-identity-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-2008-identity-report.json
+            /tmp/sincronia-2008-identity.log
+          if-no-files-found: warn
+          retention-days: 30
