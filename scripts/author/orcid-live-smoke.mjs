@@ -132,9 +132,10 @@ const profiles = normalizeOrcidSearchCsv(searchText);
 assert.ok(profiles.some(item => item.orcid === romuloId),
   "La búsqueda pública debe localizar el ORCID conocido de Rómulo");
 
+const mauricioName = "Mauricio Méndez Huerta";
 const federatedOrcid = await searchOrcid(
-  { query: romuloName, weight: 1, type: "original" },
-  { rows: 4, profilesPerPage: 3 }
+  { query: mauricioName, weight: 1, type: "original" },
+  { rows: 4, profilesPerPage: 4 }
 );
 console.log("ORCID federated search sample:", federatedOrcid.map(item => ({
   title: item.title,
@@ -144,9 +145,9 @@ console.log("ORCID federated search sample:", federatedOrcid.map(item => ({
   author: item.authors?.[0]?.name
 })));
 assert.ok(federatedOrcid.length > 0,
-  "ORCID debe aportar obras al motor federado para una búsqueda de autor");
+  "ORCID debe aportar obras al motor federado para un autor con bibliografía pública");
 assert.ok(federatedOrcid.every(item => item.providers.includes("ORCID")),
   "Las obras del buscador ORCID deben conservar su procedencia");
 assert.ok(federatedOrcid.some(item =>
-  item.authors?.some(author => String(author.orcid || "").includes(romuloId))),
+  item.authors?.some(author => String(author.orcid || "").includes(id))),
   "Las obras ORCID deben conservar el identificador del investigador");
