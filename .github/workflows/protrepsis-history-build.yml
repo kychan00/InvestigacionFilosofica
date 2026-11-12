@@ -24,30 +24,123 @@ jobs:
 
       - name: Build historical corpus
         run: |
-          python3             scripts/cucsh/protrepsis_historical.py             --output /tmp/protrepsis-historical.json
+          python3 \
+            scripts/cucsh/protrepsis_historical.py \
+            --output /tmp/protrepsis-historical.json
+
+      - name: Build merged CUCSH snapshot
+        run: |
+          cp \
+            /tmp/protrepsis-historical.json \
+            src/data/protrepsis-historical.json
+
+          python3 - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts/cucsh")
+          import harvest
+
+          base_path = Path("src/data/cucsh-filosofia.json")
+          out_path = Path("/tmp/cucsh-filosofia.json")
+          supplement_path = Path("src/data/protrepsis-historical.json")
+
+          base = json.loads(base_path.read_text(encoding="utf-8"))
+          historical = harvest.load_historical_protrepsis(supplement_path)
+
+          protrepsis = [
+              record
+              for record in base["records"]
+              if record.get("journal") == "Protrepsis"
+          ]
+          others = [
+              record
+              for record in base["records"]
+              if record.get("journal") != "Protrepsis"
+          ]
+
+          merged, added, enriched = harvest.merge_historical_protrepsis(
+              protrepsis,
+              historical,
+          )
+
+          records = others + merged
+          records.sort(
+              key=lambda record: (
+                  record.get("journal") or "",
+                  record.get("year") or 0,
+                  record.get("doi") or "",
+                  record.get("sourceId") or "",
+              )
+          )
+
+          dataset = {
+              "schemaVersion": 1,
+              "provider": "CUCSH Filosofía",
+              "records": records,
+          }
+
+          out_path.write_text(
+              json.dumps(dataset, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          print("historical supplement =", len(historical))
+          print("historical added =", added)
+          print("historical enriched =", enriched)
+          print("Protrepsis before =", len(protrepsis))
+          print("Protrepsis after =", len(merged))
+          print("TOTAL before =", len(base["records"]))
+          print("TOTAL after =", len(records))
+          PY
+
+      - name: Validate historical unit tests
+        run: |
+          python3 tests/test_protrepsis_historical.py
 
       - name: Validate Python
         run: |
-          python3 -m py_compile             scripts/cucsh/protrepsis_historical.py
+          python3 -m py_compile \
+            scripts/cucsh/protrepsis_historical.py \
+            scripts/cucsh/harvest.py \
+            scripts/cucsh/validate_update.py
 
-      - name: Run historical unit tests
+      - name: Validate merged snapshot
         run: |
-          python3 tests/test_protrepsis_historical.py
+          python3 \
+            scripts/cucsh/validate_update.py \
+            --before src/data/cucsh-filosofia.json \
+            --after /tmp/cucsh-filosofia.json
 
       - name: Inspect corpus
         run: |
           python3 - <<'PY'
           import json
+          from collections import Counter
           from pathlib import Path
 
-          path = Path("/tmp/protrepsis-historical.json")
-          data = json.loads(path.read_text(encoding="utf-8"))
+          historical = json.loads(
+              Path("/tmp/protrepsis-historical.json").read_text(encoding="utf-8")
+          )
+          merged = json.loads(
+              Path("/tmp/cucsh-filosofia.json").read_text(encoding="utf-8")
+          )
 
-          print("records =", len(data["records"]))
-          print("issues  =", data["coverage"]["issues"])
+          counts = Counter(
+              record["journal"]
+              for record in merged["records"]
+          )
 
-          assert len(data["records"]) > 0
-          assert data["coverage"]["issueRange"] == "1–14"
+          print("historical records =", len(historical["records"]))
+          print("historical issues =", historical["coverage"]["issues"])
+          print("merged journals =", dict(counts))
+          print("merged total =", len(merged["records"]))
+
+          assert len(historical["records"]) >= 70
+          assert historical["coverage"]["issueRange"] == "1–14"
+          assert counts["Protrepsis"] > 303
+          assert counts["Quadripartita Ratio"] >= 88
           PY
 
       - name: Upload generated corpus
