@@ -83,12 +83,14 @@ function groupWork(summaries, id, authorName) {
     .filter(Boolean);
   const doi = doiCandidates[0] || null;
 
-  const year = members
-    .map(summary => publishedNumber(summary?.["publication-date"]?.year, 1, 3000))
-    .find(Boolean) || null;
-  const month = members
-    .map(summary => publishedNumber(summary?.["publication-date"]?.month, 1, 12))
-    .find(Boolean) || null;
+  // Keep year and month from the SAME dated summary; never combine
+  // different registry assertions into a date that nobody supplied.
+  const dated = members.find(summary =>
+    publishedNumber(summary?.["publication-date"]?.year, 1, 3000));
+  const year = dated
+    ? publishedNumber(dated["publication-date"]?.year, 1, 3000) : null;
+  const month = dated
+    ? publishedNumber(dated["publication-date"]?.month, 1, 12) : null;
   const publicationDate = year && month
     ? String(year).padStart(4, "0") + "-" + String(month).padStart(2, "0")
     : null;
@@ -114,7 +116,7 @@ function groupWork(summaries, id, authorName) {
       : "orcid:" + id + ":" + String(title).toLowerCase() + ":" + (year || ""),
     title,
     year, month, publicationDate,
-    type: best?.["publication-type"] || best?.["work-type"] || null,
+    type: best?.type || best?.["publication-type"] || best?.["work-type"] || null,
     language: null,
     doi,
     isbn,
