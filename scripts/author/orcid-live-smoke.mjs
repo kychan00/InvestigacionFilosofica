@@ -4,6 +4,8 @@
  * Does not store personal data or require credentials.
  */
 import assert from "node:assert/strict";
+import { normalizeOrcidPublicWorks } from "../../src/sources/orcid.js";
+import { mergeAuthorArchives } from "../../src/core/author-deep-discovery.js";
 const id = "0000-0002-7283-8051";
 const origin = "https://kychan00.github.io";
 const url = "https://pub.orcid.org/v3.0/" + id + "/works";
@@ -31,3 +33,23 @@ console.log("sample titles:", payload.group.slice(0, 6).map(x =>
   x["work-summary"]?.[0]?.title?.title?.value).filter(Boolean));
 assert.ok(payload.group.length >= 4,
   "El perfil de Mauricio Méndez Huerta debe ofrecer más de tres obras públicas");
+const parsed = normalizeOrcidPublicWorks(payload, {
+  orcid: id,
+  displayName: "Mauricio Méndez Huerta"
+});
+const deduped = mergeAuthorArchives([], parsed.works);
+console.log(JSON.stringify({
+  sourceGroups: parsed.totalGroups,
+  normalizedWorks: parsed.works.length,
+  deduplicatedWorks: deduped.length,
+  types: [...new Set(parsed.works.map(work => work.type))],
+  sample: parsed.works.slice(0, 6).map(work => ({
+    title: work.title, year: work.year, doi: work.doi
+  }))
+}));
+assert.ok(parsed.works.length >= 4,
+  "El normalizador debe conservar las publicaciones reales del perfil");
+assert.ok(deduped.length >= 4,
+  "La unificación no debe reducir falsamente la bibliografía a tres obras");
+assert.ok(deduped.every(work => work.providers.includes("ORCID")),
+  "La procedencia ORCID debe conservarse en todas las obras");
