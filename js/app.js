@@ -6142,11 +6142,11 @@ function renderAuthorProfileBiography(value) {
   const biography = String(value || "").replace(/\s+/g, " ").trim();
   if (!biography) return "";
 
-  if (biography.length <= 720) {
+  if (biography.length <= 620) {
     return `<p class="author-academic-profile-bio">${escapeHtml(biography)}</p>`;
   }
 
-  const preview = compactAuthorText(biography, 520);
+  const preview = compactAuthorText(biography, 420);
   return `
     <details class="author-biography-details">
       <summary>
