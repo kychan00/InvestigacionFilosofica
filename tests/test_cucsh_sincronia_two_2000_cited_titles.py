@@ -99,18 +99,18 @@ class Two2000SourceVerifiedTests(unittest.TestCase):
         patched, _ = recover_two_cited_2000_titles(dataset)
         old, new = original["records"][0], patched["records"][0]
         for alteration in ("author", "original_url", "source", "aliases"):
-            copy = copy_module(new)
+            tampered = copy.deepcopy(new)
             if alteration == "author":
-                copy["authors"][0]["name"] = "Other person"
+                tampered["authors"][0]["name"] = "Other person"
             if alteration == "original_url":
-                copy["urls"]["canonical"] = "https://not-original.example/"
+                tampered["urls"]["canonical"] = "https://not-original.example/"
             if alteration == "source":
-                copy["legacyIndexMislabelEvidence"]["sourceUrl"] = (
+                tampered["legacyIndexMislabelEvidence"]["sourceUrl"] = (
                     "https://not-a-real-citation.example/"
                 )
             if alteration == "aliases":
-                copy["titleVariants"].remove(VERIFIED[0]["oldTitle"])
-            self.assertFalse(safe_two_2000_exact_url_recoveries(old, copy))
+                tampered["titleVariants"].remove(VERIFIED[0]["oldTitle"])
+            self.assertFalse(safe_two_2000_exact_url_recoveries(old, tampered))
 
     def test_preserves_old_label_when_variants_are_empty(self):
         dataset = fixture()
@@ -128,10 +128,6 @@ class Two2000SourceVerifiedTests(unittest.TestCase):
                     frozen["records"][i], updated["records"][i]
                 )
             )
-
-
-def copy_module(row):
-    return copy.deepcopy(row)
 
 
 if __name__ == "__main__":
