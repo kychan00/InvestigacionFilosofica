@@ -1,0 +1,16 @@
+Execute exact bibliography-driven restoration for one original Sincronía
+article: issue 16 (Autumn 2000), Carmen V. Vidaurre Arenas.
+
+Evidence: Giorgio Serra, Lemir 9 (2005) page 9 and note 5 on page 3, with
+the exact historical article title, author, publication season and link
+http://fuentes.csh.udg.mx/CUCSH/Sincronia/nunez.htm.
+
+Restore "La interacción de diversos tipos textuales en la obra de Alvar Núñez".
+Never replace historical original URLs with new sources or imply the dead
+original site is accessible; source links are provenance evidence only.
+Expected: 1845 CUCSH / 1454 Sincronía records unchanged; author-less
+101 -> 100, suspicious identity 45 -> 44, one unresolved reyes4.htm
+issue/year conflict preserved.
+
+Exclude historical cineus.htm: multiple scholarly citations disagree on title.
+Stay on feature/cucsh-sincronia. Do not merge or open another PR.
