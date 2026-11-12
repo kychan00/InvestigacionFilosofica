@@ -124,6 +124,23 @@ test("números editoriales se recuperan de DOI y citas OJS", () => {
     journalIssueInfo({ bibliographicSources: ["Año 11, Número 22"], year: 2022 }).number,
     22
   );
+
+  const doubleIssue = journalIssueInfo({
+    doi: "10.32870/prot.i9-10.127",
+    year: 2016
+  });
+  assert.equal(doubleIssue.key, "issue:9-10");
+  assert.equal(doubleIssue.label, "Núm. 9–10");
+  assert.deepEqual(doubleIssue.numbers, [9, 10]);
+  assert.equal(doubleIssue.number, null);
+
+  const metadataDouble = journalIssueInfo({
+    issueLabel: "11–12",
+    issueNumbers: [11, 12],
+    year: 2017
+  });
+  assert.equal(metadataDouble.key, "issue:11-12");
+  assert.equal(metadataDouble.label, "Núm. 11–12");
 });
 
 

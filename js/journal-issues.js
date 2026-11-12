@@ -26,63 +26,98 @@ function numericIssue(value) {
   return Number.isFinite(number) && number > 0 ? number : null;
 }
 
-function explicitIssueNumber(record) {
+function issueDescriptor(value) {
+  const text = clean(value).replace(/[–—]/g, "-");
+  if (!text) return null;
+
+  const direct = text.match(/^0*(\d{1,3})(?:\s*-\s*0*(\d{1,3}))?$/);
+  if (!direct) return null;
+
+  const first = numericIssue(direct[1]);
+  const second = numericIssue(direct[2]);
+
+  if (!first) return null;
+
+  const numbers = second && second !== first
+    ? [first, second]
+    : [first];
+
+  return {
+    numbers,
+    number: numbers.length === 1 ? first : null,
+    sortNumber: Math.max(...numbers),
+    slug: numbers.join("-"),
+    display: numbers.join("–")
+  };
+}
+
+function explicitIssue(record) {
+  const issueNumbers = Array.isArray(record?.issueNumbers)
+    ? record.issueNumbers.map(numericIssue).filter(Boolean)
+    : [];
+
+  if (issueNumbers.length) {
+    return issueDescriptor(issueNumbers.join("-"));
+  }
+
   for (const candidate of [
-    record?.issueNumber,
+    record?.issueLabel,
     record?.issue,
+    record?.issueNumber,
     record?.number,
     record?.numero,
     record?.issue?.number
   ]) {
-    const parsed = numericIssue(candidate);
+    const parsed = issueDescriptor(candidate);
     if (parsed) return parsed;
   }
+
   return null;
 }
 
-function issueNumberFromText(value) {
-  const text = clean(value);
+function issueFromText(value) {
+  const text = clean(value).replace(/[–—]/g, "-");
   if (!text) return null;
 
   const patterns = [
-    /\bv\d+i0*(\d{1,3})(?=[./_\s-]|$)/i,
-    /\b\d{1,3}\s*\(\s*0*(\d{1,3})\s*\)/i,
-    /(?:^|[./_-])i(?:ssue)?\s*0*(\d{1,3})(?=[./_\s-]|$)/i,
-    /\b(?:n[úu]m(?:ero)?\.?|nro\.?|no\.?|issue)\s*[:#.]?\s*0*(\d{1,3})\b/i,
-    /\b(?:vol(?:umen)?\.?\s*\d+\s*)?(?:n[úu]m(?:ero)?\.?|issue)\s*0*(\d{1,3})\b/i
+    /\bv\d+i0*(\d{1,3})(?:\s*-\s*0*(\d{1,3}))?(?=[./_\s-]|$)/i,
+    /(?:^|[./_-])i(?:ssue)?\s*0*(\d{1,3})(?:\s*-\s*0*(\d{1,3}))?(?=[./_\s-]|$)/i,
+    /\b(?:n[úu]m(?:ero)?s?\.?|nro\.?|no\.?|issue)\s*[:#.]?\s*0*(\d{1,3})(?:\s*-\s*0*(\d{1,3}))?\b/i,
+    /\b\d{1,3}\s*\(\s*0*(\d{1,3})(?:\s*-\s*0*(\d{1,3}))?\s*\)/i,
+    /\b(?:vol(?:umen)?\.?\s*\d+\s*)?(?:n[úu]m(?:ero)?s?\.?|issue)\s*0*(\d{1,3})(?:\s*-\s*0*(\d{1,3}))?\b/i
   ];
 
   for (const pattern of patterns) {
     const match = text.match(pattern);
-    const parsed = numericIssue(match?.[1]);
+    if (!match) continue;
+    const parsed = issueDescriptor(
+      match[2] ? match[1] + "-" + match[2] : match[1]
+    );
     if (parsed) return parsed;
   }
 
   return null;
 }
 
-function issueNumberFromRecord(record) {
-  const explicit = explicitIssueNumber(record);
-  if (explicit) return { number: explicit, source: "metadata" };
+function issueFromRecord(record) {
+  const explicit = explicitIssue(record);
+  if (explicit) return { ...explicit, source: "metadata" };
 
-  const doi = issueNumberFromText(record?.doi);
-  if (doi) return { number: doi, source: "doi" };
+  const doi = issueFromText(record?.doi);
+  if (doi) return { ...doi, source: "doi" };
 
   for (const value of [
     ...(record?.bibliographicSources || []),
-    record?.issue,
-    record?.number,
-    record?.issueLabel,
     record?.issueTitle,
     record?.citation,
     record?.source,
     record?.sourceId
   ]) {
-    const parsed = issueNumberFromText(value);
-    if (parsed) return { number: parsed, source: "bibliographic" };
+    const parsed = issueFromText(value);
+    if (parsed) return { ...parsed, source: "bibliographic" };
   }
 
-  return { number: null, source: "fallback" };
+  return null;
 }
 
 function issueYear(record) {
@@ -102,19 +137,21 @@ function colorIndex(key, number) {
 }
 
 export function journalIssueInfo(record) {
-  const { number, source } = issueNumberFromRecord(record);
+  const issue = issueFromRecord(record);
   const year = issueYear(record);
 
-  if (number) {
-    const key = "issue:" + number;
+  if (issue) {
+    const key = "issue:" + issue.slug;
     return {
       key,
-      number,
+      number: issue.number,
+      numbers: issue.numbers,
+      sortNumber: issue.sortNumber,
       year,
-      label: "Núm. " + number,
-      shortLabel: "N" + number,
-      color: ISSUE_COLORS[colorIndex(key, number)],
-      source,
+      label: "Núm. " + issue.display,
+      shortLabel: "N" + issue.display,
+      color: ISSUE_COLORS[colorIndex(key, issue.sortNumber)],
+      source: issue.source,
       identified: true
     };
   }
@@ -148,9 +185,12 @@ export function journalIssueGroups(records) {
   }
 
   return [...map.values()].sort((left, right) => {
-    if (left.number && right.number) return right.number - left.number;
-    if (left.number) return -1;
-    if (right.number) return 1;
+    if (left.identified && right.identified) {
+      return Number(right.sortNumber || right.number || 0) -
+        Number(left.sortNumber || left.number || 0);
+    }
+    if (left.identified) return -1;
+    if (right.identified) return 1;
     return Number(right.year || 0) - Number(left.year || 0);
   });
 }
