@@ -9,7 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 
@@ -25,7 +25,7 @@ def classify_work_identity_review(row):
     url = str((row.get("urls") or {}).get("canonical") or "").lower()
     basename = url.rsplit("/", 1)[-1].split("?", 1)[0]
 
-    if not re.search(r"\\w", title, flags=re.UNICODE):
+    if not re.search(r"\w", title, flags=re.UNICODE):
         return "malformed_or_punctuation_only_title"
     if issue == 46 and (
         (basename == "creditos.html" and title == "Editorial Board/Consejo Editorial")
@@ -48,7 +48,7 @@ def classify_work_identity_review(row):
         # A 2008 multi-author label is also a possible index transposition.
         looks_like_name_label = (
             len(title) <= 90
-            and bool(re.fullmatch(r"[^,:;]{2,45},\\s*[^:;]{2,100}", title))
+            and bool(re.fullmatch(r"[^,:;]{2,45},\s*[^:;]{2,100}", title))
         )
         multi_name_label = (
             issue == 46 and ";" in title and title.count(",") >= 2
