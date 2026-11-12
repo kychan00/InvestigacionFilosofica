@@ -4682,7 +4682,7 @@ function fetchMoreButton(
 
       <span>
         Buscar la siguiente página
-        en OpenAlex y Crossref
+        en las fuentes académicas activas
       </span>
     </div>
   `;
