@@ -437,6 +437,62 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_vidaurrre_nunez_restoration(before, after):
+    """Allow a single exact source-verified Sincronía title/byline restoration."""
+    rid = "cucsh:sincronia-legacy:227e912cb694dcd4f77c"
+    former = "Vidaurre Arenas, Carmen V."
+    title = "La interacción de diversos tipos textuales en la obra de Alvar Núñez"
+    author = "Carmen V. Vidaurre Arenas"
+    source = "https://parnaseo.uv.es/Lemir/Revista/Revista9/Serra/Serra.pdf"
+    other = "https://parnaseo.uv.es/lemir/textos/maura2.pdf"
+    provenance = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    original = (before.get("urls") or {}).get("canonical")
+    if (
+        before.get("id") != rid
+        or before.get("id") != after.get("id")
+        or before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 16
+        or before.get("year") != 2000
+        or before.get("title") != former
+        or after.get("title") != title
+        or after.get("titleVariants") != [title]
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not isinstance(provenance, dict)
+        or not isinstance(byline, dict)
+        or provenance.get("kind") != "independent-exact-work-and-original-url-bibliography"
+        or provenance.get("sourceUrl") != source
+        or provenance.get("supportingBibliographyUrl") != other
+        or provenance.get("sourceArticleUrl") != original
+        or provenance.get("previousTitle") != former
+        or provenance.get("verifiedTitle") != title
+        or provenance.get("verifiedAuthors") != [author]
+        or provenance.get("matchedIssueNumber") != 16
+        or provenance.get("matchedYear") != 2000
+        or provenance.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != "independent-title-author-original-url-citation"
+        or byline.get("sourceUrl") != source
+        or byline.get("verifiedTitle") != title
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("matchedIssueNumber") != 16
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [p.get("name") for p in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    allowed = {
+        "title", "titleVariants", "authors", "legacyAuthorEvidence",
+        "legacyIndexMislabelEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in allowed
+    )
+
+
 def safe_three_verified_early_titles(before, after):
     """Allow only three source-backed index-label repairs with exact URLs."""
     approved = {
@@ -1042,6 +1098,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_three_verified_early_titles(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_vidaurrre_nunez_restoration(
             before_by_id[key], after_by_id[key]
         )
     ]
