@@ -3298,7 +3298,7 @@ function renderResult(
               ? `
                 <div class="explain">
                   Registro público ORCID
-                  · obra declarada por el investigador
+                  · obra presente en el registro
                   · ${item.orcidSearch?.authorQuery
                     ? "coincidencia de autor"
                     : "coincidencia temática"}
@@ -7108,7 +7108,9 @@ async function loadMoreResults() {
           orcid: {
             enabled: true,
             rows: Math.min(depth, 8),
-            profilesPerPage: 2
+            profilesPerPage: 2,
+            preferredAuthorResolution:
+              currentResponse?.authorResolution || null
           },
 
           onProgress(progress) {
@@ -7565,7 +7567,9 @@ async function runFederatedSearch(
           orcid: {
             enabled: true,
             rows: Math.min(depth, 8),
-            profilesPerPage: 2
+            profilesPerPage: 2,
+            preferredAuthorPromise:
+              authorResolutionPromise
           },
 
           onProgress(progress) {
@@ -7755,7 +7759,8 @@ function semanticFallbackReason(
 async function searchSemanticCompanions(
   query,
   limit,
-  signal
+  signal,
+  preferredAuthorPromise = null
 ) {
   try {
     return await searchPhilosophy(
@@ -7786,7 +7791,8 @@ async function searchSemanticCompanions(
         orcid: {
           enabled: true,
           rows: Math.min(limit, 6),
-          profilesPerPage: 2
+          profilesPerPage: 2,
+          preferredAuthorPromise
         }
       }
     );
@@ -7972,7 +7978,8 @@ async function runSemanticSearch(
       searchSemanticCompanions(
         query,
         limit,
-        searchController.signal
+        searchController.signal,
+        authorResolutionPromise
       )
     ]);
 
