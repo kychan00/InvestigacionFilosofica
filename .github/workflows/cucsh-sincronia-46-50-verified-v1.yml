@@ -1,0 +1,136 @@
+name: Sincronía · restore confirmed issue 46 and 50 article identities
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-46-50-verified-v1.txt"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: sincronia-46-50-metadata-stage
+  cancel-in-progress: false
+
+jobs:
+  verified-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Validate one-to-one issue matching and non-destructive safeguards
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/cucsh/stage_sincronia_46_50.py
+          python3 -m unittest tests.test_cucsh_sincronia_46_50_verified
+
+      - name: Download verified source audit artifact
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/sincronia-prior-2008
+          gh run download 43131658279 \
+            --name sincronia-2008-identity-43131658279 \
+            --dir /tmp/sincronia-prior-2008
+          test -s /tmp/sincronia-prior-2008/sincronia-2008-identity-report.json
+
+      - name: Restore verified author metadata and source article titles
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-4650-before.json
+          python3 -u -m scripts.cucsh.stage_sincronia_46_50 \
+            --before /tmp/cucsh-4650-before.json \
+            --evidence /tmp/sincronia-prior-2008/sincronia-2008-identity-report.json \
+            --after /tmp/cucsh-4650-after.json \
+            --report /tmp/sincronia-4650-changes.json \
+            2>&1 | tee /tmp/sincronia-4650-staging.log
+
+      - name: Audit complete corpus and protect all prior metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-4650-before.json \
+            --after /tmp/cucsh-4650-after.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input /tmp/cucsh-4650-after.json \
+            --output /tmp/sincronia-4650-quality.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path("/tmp/cucsh-4650-before.json").read_text())
+          b=json.loads(Path("/tmp/cucsh-4650-after.json").read_text())
+          assert len(a["records"])==len(b["records"])==1841
+          before={r["id"]:r for r in a["records"]}
+          after={r["id"]:r for r in b["records"]}
+          assert before.keys()==after.keys()
+          changed=[]
+          for rid,old in before.items():
+              new=after[rid]
+              for key in ("id","sourceId","journal","issueNumber","year","urls","abstract","doi"):
+                  assert old.get(key)==new.get(key),(rid,key)
+              if old!=new:
+                  assert old.get("journal")=="Sincronía"
+                  assert old.get("issueNumber") in (46,50)
+                  assert not old.get("authors")
+                  changed.append(rid)
+              if old.get("legacyTitleEncodingEvidence"):
+                  assert old["legacyTitleEncodingEvidence"]==new.get("legacyTitleEncodingEvidence")
+                  assert old["title"]==new["title"]
+              if old.get("authors"):
+                  assert old["authors"]==new.get("authors")
+          assert len(changed)==18,changed
+          assert before["cucsh:sincronia-legacy:91f36da6674c93b19145"]==after["cucsh:sincronia-legacy:91f36da6674c93b19145"]
+          assert before["cucsh:sincronia-legacy:a2763a903fcca568e32a"]==after["cucsh:sincronia-legacy:a2763a903fcca568e32a"]
+          print("SINCRONIA_4650_NO_LOSS_PASS",len(changed))
+          PY
+
+      - name: Full application search regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp /tmp/cucsh-4650-after.json src/data/cucsh-filosofia.json
+          npm ci
+          npm test
+
+      - name: Commit only validated metadata in feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          test "$(git diff --cached --name-only)" = "src/data/cucsh-filosofia.json"
+          git diff --cached --check
+          git commit -m "Restore 18 verified Sincronía issue 46 and 50 article authors"
+          git push origin HEAD:feature/cucsh-sincronia
+
+      - name: Archive source evidence and unresolved cases
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-4650-verified-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-4650-changes.json
+            /tmp/sincronia-4650-staging.log
+            /tmp/sincronia-4650-quality.json
+          if-no-files-found: warn
+          retention-days: 30
