@@ -76,7 +76,7 @@ const DEFAULT_OPTIONS = {
   },
 
   orcid: {
-    enabled: true,
+    enabled: false,
     rows: 6,
     profilesPerPage: 2
   },
