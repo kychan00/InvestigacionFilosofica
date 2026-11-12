@@ -437,6 +437,69 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_two_bibliography_titles(before, after):
+    """Exactly two independent historic bibliography-matched title repairs."""
+    approved = {
+        "cucsh:sincronia-legacy:940caceb0d1f820da9a5": (
+            "Soler Diaz, Maria Antonieta",
+            "Prospectiva de la educación en México",
+            "María Antonieta Soler Díaz",
+            "https://posgrado.colef.mx/wp-content/uploads/2011/04/TESIS-Morales-Nev%C3%A1rez-Ana-Mar%C3%ADa.pdf",
+        ),
+        "cucsh:sincronia-legacy:b6e314746adecc6757dd": (
+            "Mejía , Guadalupe,",
+            "Texto y música en Jalisco",
+            "Guadalupe Mejía",
+            "https://www.academia.edu/9657868/The_Frontier_of_Progress_and_Repression_1950s_American_Suburbia_in_Todd_Hayness_Far_From_Heaven",
+        ),
+    }
+    item = approved.get(before.get("id"))
+    if not item or before.get("id") != after.get("id"):
+        return False
+    former, title, author, source = item
+    evidence = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    original = (before.get("urls") or {}).get("canonical")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("title") != former
+        or after.get("title") != title
+        or after.get("titleVariants") != [title]
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not isinstance(evidence, dict)
+        or not isinstance(byline, dict)
+        or evidence.get("kind") != "original-index-author-name-replaced-by-cited-work-title"
+        or evidence.get("sourceUrl") != source
+        or evidence.get("sourceArticleUrl") != original
+        or evidence.get("previousTitle") != former
+        or evidence.get("verifiedTitle") != title
+        or evidence.get("verifiedAuthors") != [author]
+        or evidence.get("matchedYear") != before.get("year")
+        or evidence.get("matchedIssueNumber") != before.get("issueNumber")
+        or evidence.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != "independent-exact-title-original-url-citation"
+        or byline.get("sourceUrl") != source
+        or byline.get("verifiedTitle") != title
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("matchedIssueNumber") != before.get("issueNumber")
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors",
+        "legacyAuthorEvidence", "legacyIndexMislabelEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_four_verified_early_titles_batch_two(before, after):
     """Only permit exactly documented 2000–2001 Sincronía label repairs.
 
@@ -897,6 +960,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_four_verified_early_titles_batch_two(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_two_bibliography_titles(
             before_by_id[key], after_by_id[key]
         )
     ]
