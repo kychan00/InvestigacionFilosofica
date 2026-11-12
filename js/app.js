@@ -3026,8 +3026,6 @@ function renderResult(
                     "author-index",
                     "author-crossref",
                     "author-orcid-crossref",
-                  "author-orcid-registry",
-                "author-orcid-registry",
                     "author-orcid-registry",
                     "author-internet-archive",
                     "author-institutional",
@@ -3299,6 +3297,7 @@ function renderResult(
                 "author-live",
                 "author-crossref",
                 "author-orcid-crossref",
+                "author-orcid-registry",
                 "author-internet-archive",
                 "author-institutional",
                 "author-curated"
@@ -3373,6 +3372,7 @@ function renderResult(
                   "author-index",
                   "author-crossref",
                   "author-orcid-crossref",
+                  "author-orcid-registry",
                   "author-internet-archive",
                   "author-institutional"
                 ].includes(
