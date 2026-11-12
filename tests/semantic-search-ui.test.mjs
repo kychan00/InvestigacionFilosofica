@@ -81,7 +81,7 @@ test(
 
     assert.match(
       app,
-      /Crossref, Internet Archive y Biblioteca UdeG/u
+      /Crossref, ORCID, Internet Archive y Biblioteca UdeG/u
     );
 
     assert.match(
