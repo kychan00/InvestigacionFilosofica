@@ -10,6 +10,7 @@ on:
       - "atlas.html"
       - "acerca.html"
       - "articulos.html"
+      - "revistas/**"
       - "js/**"
       - "css/**"
       - "src/**"
@@ -28,6 +29,7 @@ on:
       - "atlas.html"
       - "acerca.html"
       - "articulos.html"
+      - "revistas/**"
       - "js/**"
       - "css/**"
       - "src/**"
@@ -73,6 +75,8 @@ jobs:
           node --check js/thesis-atlas.js
           node --check js/mobile-site-menu.js
           node --check js/articles.js
+          node --check js/journal-page.js
+          node --check js/journal-atlas.js
 
       - name: Run deterministic application regression suite
         run: npm test

@@ -538,3 +538,28 @@ input {
     padding-left: 20px;
   }
 }
+
+.journal-space-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.journal-space-actions a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid var(--accent, #0f62fe);
+  text-decoration: none;
+}
+#journal-page-link {
+  background: var(--accent, #0f62fe);
+  color: #fff;
+}
+#journal-source-link {
+  background: transparent;
+}
+@media (max-width: 720px) {
+  .journal-space-actions { justify-content: flex-start; }
+}

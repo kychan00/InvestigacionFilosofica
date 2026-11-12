@@ -1,36 +1,38 @@
 const MOBILE_MENU_BREAKPOINT = 820;
 const STORAGE_KEY = "investigacion-filosofica-theme";
+const SITE_ROOT = new URL("../", import.meta.url);
+const siteHref = path => new URL(path, SITE_ROOT).href;
 
 const menuItems = [
   {
     index: "01",
     label: "Investigación",
     detail: "Motor federado de búsqueda",
-    href: "./"
+    href: siteHref("")
   },
   {
     index: "02",
     label: "Tesis",
     detail: "Archivo universitario",
-    href: "./tesis.html"
+    href: siteHref("tesis.html")
   },
   {
     index: "03",
     label: "Atlas",
     detail: "Cartografía de investigaciones",
-    href: "./atlas.html"
+    href: siteHref("atlas.html")
   },
   {
     index: "04",
     label: "Resultados",
     detail: "Lista de la búsqueda actual",
-    href: "./#results"
+    href: siteHref("#results")
   },
   {
     index: "05",
     label: "Fuentes",
     detail: "Procedencia y cobertura",
-    href: "./#fuentes"
+    href: siteHref("#fuentes")
   },
   {
     index: "06",
@@ -40,7 +42,7 @@ const menuItems = [
       {
         label: "Todos los artículos",
         detail: "Explorar el archivo de revistas",
-        href: "./articulos.html"
+        href: siteHref("articulos.html")
       },
       {
         label: "UdeG",
@@ -49,22 +51,22 @@ const menuItems = [
           {
             label: "Panorama UdeG",
             detail: "Revistas incorporadas",
-            href: "./articulos.html#udg"
+            href: siteHref("articulos.html#udg")
           },
           {
             label: "Protrepsis",
             detail: "CUCSH · Filosofía",
-            href: "./articulos.html?universidad=udg&revista=protrepsis#revistas"
+            href: siteHref("revistas/udg/protrepsis.html")
           },
           {
             label: "Sincronía",
             detail: "CUCSH · Humanidades",
-            href: "./articulos.html?universidad=udg&revista=sincronia#revistas"
+            href: siteHref("revistas/udg/sincronia.html")
           },
           {
             label: "Quadripartita Ratio",
             detail: "CUCSH · Filosofía",
-            href: "./articulos.html?universidad=udg&revista=quadripartita#revistas"
+            href: siteHref("revistas/udg/quadripartita-ratio.html")
           }
         ]
       }
@@ -74,7 +76,7 @@ const menuItems = [
     index: "07",
     label: "Acerca de",
     detail: "Proyecto, método y cifras",
-    href: "./acerca.html"
+    href: siteHref("acerca.html")
   }
 ];
 

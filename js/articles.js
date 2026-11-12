@@ -6,19 +6,22 @@ const journalConfig = {
     label: "Protrepsis",
     matcher: value => /protrepsis/i.test(value || ""),
     description: "Revista de filosofía del CUCSH. Aquí se reúnen sus artículos como una colección propia, sin perder el enlace hacia la publicación original.",
-    source: "http://protrepsis.cucsh.udg.mx/"
+    source: "http://protrepsis.cucsh.udg.mx/",
+    page: "./revistas/udg/protrepsis.html"
   },
   sincronia: {
     label: "Sincronía",
     matcher: value => /sincron/i.test(value || ""),
     description: "Espacio dedicado a Sincronía dentro del archivo UdeG. La vista ya está preparada para recibir y ordenar su corpus completo como una colección independiente.",
-    source: "https://revistasincronia.cucsh.udg.mx/index.php/sincronia"
+    source: "https://revistasincronia.cucsh.udg.mx/index.php/sincronia",
+    page: "./revistas/udg/sincronia.html"
   },
   quadripartita: {
     label: "Quadripartita Ratio",
     matcher: value => /quadripartita/i.test(value || ""),
     description: "Colección de Quadripartita Ratio integrada como revista independiente dentro de la Universidad de Guadalajara.",
-    source: "https://quadripartitaratio.cucsh.udg.mx/"
+    source: "https://quadripartitaratio.cucsh.udg.mx/",
+    page: "./revistas/udg/quadripartita-ratio.html"
   }
 };
 
@@ -34,6 +37,7 @@ const elements = {
   title: document.querySelector("#journal-title"),
   description: document.querySelector("#journal-description"),
   source: document.querySelector("#journal-source-link"),
+  page: document.querySelector("#journal-page-link"),
   status: document.querySelector("#journal-status"),
   search: document.querySelector("#journal-search"),
   results: document.querySelector("#journal-results"),
@@ -200,6 +204,7 @@ function render() {
   elements.title.textContent = config.label;
   elements.description.textContent = config.description;
   elements.source.href = config.source;
+  if (elements.page) elements.page.href = config.page;
 
   for (const tab of elements.tabs) {
     const selected = tab.dataset.journal === state.journal;

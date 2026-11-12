@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161616">
+  <meta name="description" content="Archivo académico de Sincronía en Investigación Filosófica: artículos, filtros, taxonomía y Atlas semántico.">
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Sincronía · Investigación Filosófica</title>
+  <link rel="stylesheet" href="../../css/journal-page.css?v=20261111-v1">
+  <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261111-sidebar-v2">
+</head>
+<body data-journal="sincronia">
+  <div class="site-mobile-toolbar">
+    <a class="site-mobile-toolbar-brand" href="../../" aria-label="Ir a Investigación Filosófica">
+      <span class="site-mobile-toolbar-mark" aria-hidden="true">Φ</span>
+      <span class="site-mobile-toolbar-name">Investigación Filosófica</span>
+    </a>
+    <button type="button" class="site-menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-mobile-menu">
+      <span class="site-menu-toggle-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+
+  <div class="journal-page">
+    <header class="journal-header">
+      <nav class="journal-nav" aria-label="Navegación de revista">
+        <a class="journal-brand" href="../../articulos.html">
+          <span class="journal-brand-mark" aria-hidden="true">Σ</span>
+          <span>Sincronía<small>archivo interdisciplinario · cucsh</small></span>
+        </a>
+        <div class="journal-nav-links">
+          <a href="../../articulos.html">Artículos</a>
+          <a href="../../acerca.html">Acerca de</a>
+        </div>
+        <div class="theme-switch" role="group" aria-label="Apariencia">
+          <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
+          <button type="button" data-theme-choice="dark" aria-label="Activar modo oscuro" aria-pressed="false">Oscuro</button>
+        </div>
+      </nav>
+
+      <div class="journal-hero">
+        <div class="journal-hero-copy">
+          <p class="journal-eyebrow">UdeG / CUCSH / REVISTA / SINCRONÍA</p>
+          <h1>Cruces, ritmos y <em>lecturas en sincronía.</em></h1>
+          <p class="journal-hero-intro">Sincronía ocupa un espacio independiente dentro del archivo UdeG. La página está pensada para explorar su amplitud temática mediante capas de metadatos, filtros y relaciones entre registros, conservando siempre la procedencia editorial.</p>
+        </div>
+        <aside class="journal-hero-aside">
+          <span class="journal-monogram" aria-hidden="true">Σ</span>
+          <div class="journal-source-card">
+            <span>Publicación original</span>
+            <strong>Sincronía · Revista de Filosofía, Letras y Humanidades</strong>
+            <a href="https://revistasincronia.cucsh.udg.mx/index.php/sincronia" target="_blank" rel="noopener noreferrer">Visitar sitio editorial ↗</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="journal-metrics" aria-label="Resumen del corpus">
+        <div class="journal-metric"><strong id="journal-total">—</strong><span>artículos en el corpus</span></div>
+        <div class="journal-metric"><strong id="journal-year-span">—</strong><span>rango temporal</span></div>
+        <div class="journal-metric"><strong id="journal-author-total">—</strong><span>autorías distintas</span></div>
+        <div class="journal-metric"><strong id="journal-doi-rate">—</strong><span>registros con DOI</span></div>
+        <div class="journal-metric"><strong id="journal-abstract-rate">—</strong><span>registros con resumen</span></div>
+      </div>
+    </header>
+
+    <div class="journal-view-tabs" role="tablist" aria-label="Vistas de la revista">
+      <button type="button" role="tab" class="is-active" aria-selected="true" data-journal-view="archive">Archivo</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="atlas">Atlas semántico</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="insights">Temas y autorías</button>
+    </div>
+
+    <main class="journal-main">
+      <section id="journal-archive-panel" class="journal-panel" aria-label="Archivo de artículos">
+        <div class="journal-archive-layout">
+          <aside class="journal-sidebar">
+            <section class="journal-filter-block">
+              <header><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></header>
+              <div class="journal-filter-body">
+                <label><span>Buscar</span><input id="journal-query" type="search" autocomplete="off" placeholder="Título, autor, tema…"></label>
+                <label><span>Década</span><select id="journal-decade"></select></label>
+                <label><span>Idioma</span><select id="journal-language"></select></label>
+                <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
+                <label><span>Orden</span>
+                  <select id="journal-sort">
+                    <option value="newest">Más recientes</option>
+                    <option value="oldest">Más antiguos</option>
+                    <option value="title">Título A–Z</option>
+                    <option value="authors">Autoría A–Z</option>
+                  </select>
+                </label>
+                <div class="journal-filter-checks">
+                  <label class="journal-filter-check"><input id="journal-doi-only" type="checkbox"> Solo con DOI</label>
+                  <label class="journal-filter-check"><input id="journal-abstract-only" type="checkbox"> Solo con resumen</label>
+                </div>
+                <button id="journal-reset" class="journal-reset" type="button">Limpiar filtros</button>
+              </div>
+            </section>
+
+            <section class="journal-taxonomy-block">
+              <header><p class="journal-kicker">CATEGORÍAS</p><h2>Mapa de navegación</h2></header>
+              <div id="journal-category-chips" class="journal-taxonomy-list"></div>
+            </section>
+          </aside>
+
+          <div>
+            <header class="journal-results-head">
+              <div><p class="journal-kicker">CORPUS EDITORIAL</p><h2>Artículos</h2></div>
+              <p id="journal-results-status" class="journal-results-status" role="status" aria-live="polite">Cargando…</p>
+            </header>
+            <div id="journal-card-grid" class="journal-card-grid"></div>
+            <button id="journal-load-more" class="journal-load-more" type="button" hidden>Cargar más</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="journal-atlas-panel" class="journal-panel" hidden aria-label="Atlas semántico">
+        <div class="journal-atlas-shell">
+          <div class="journal-atlas-stage">
+            <canvas id="journal-atlas-canvas" aria-label="Red semántica de artículos"></canvas>
+            <div class="journal-atlas-floating">
+              <p id="journal-atlas-status">Abra el Atlas para construir la topología del corpus visible.</p>
+              <button id="journal-qwen-toggle" class="journal-qwen-toggle" type="button" aria-pressed="false">Activar capa Qwen</button>
+            </div>
+          </div>
+          <aside class="journal-atlas-aside">
+            <div class="journal-atlas-copy">
+              <p class="journal-kicker">ATLAS DE REVISTA</p>
+              <h2>Proximidad entre artículos</h2>
+              <p id="journal-qwen-note">Qwen es opcional y experimental. Sin activarlo, el Atlas usa similitud textual local.</p>
+            </div>
+            <div id="journal-atlas-legend" class="journal-atlas-legend"></div>
+            <div id="journal-atlas-detail" class="journal-atlas-detail">
+              <p>Seleccione un nodo para inspeccionar el artículo.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="journal-insights-panel" class="journal-panel" hidden aria-label="Temas y autorías">
+        <div class="journal-insights-grid">
+          <article class="journal-insight">
+            <p class="journal-kicker">TEMAS DECLARADOS</p>
+            <h2>Vocabulario del corpus</h2>
+            <p>Etiquetas publicadas por la fuente cuando están disponibles. No se sustituyen por inferencias automáticas.</p>
+            <div id="journal-topic-chips" class="journal-taxonomy-list"></div>
+          </article>
+          <article class="journal-insight">
+            <p class="journal-kicker">AUTORÍAS</p>
+            <h2>Presencias recurrentes</h2>
+            <p>Conteo descriptivo de nombres tal como aparecen en los registros integrados.</p>
+            <div id="journal-author-chips" class="journal-taxonomy-list"></div>
+          </article>
+          <article class="journal-insight">
+            <p class="journal-kicker">MÉTODO</p>
+            <h2>Dos capas, no una sola verdad</h2>
+            <p>Las categorías visibles son una capa derivada únicamente para navegar. El Atlas distingue explícitamente relaciones con vector Qwen verificado de similitud textual de respaldo.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="journal-footer">
+      <span>Φ · Investigación Filosófica · UdeG</span>
+      <span>Sincronía · archivo académico navegable</span>
+    </footer>
+  </div>
+
+  <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261111-v1"></script>
+  <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-v2"></script>
+</body>
+</html>
