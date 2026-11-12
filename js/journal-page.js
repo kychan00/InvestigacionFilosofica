@@ -271,8 +271,10 @@ function card(record, index) {
   const issue = journalIssueInfo(record);
   const issueChip = chip(issue.label, "pin-issue");
   issueChip.style.setProperty("--issue-color", issue.color);
+  const yearChip = chip(record.year || "s/f", "pin-year");
+  if (record.issueYear) yearChip.title = "Año editorial del fascículo";
   pins.append(
-    chip(record.year || "s/f", "pin-year"),
+    yearChip,
     issueChip,
     chip(record.language || "idioma s/f", "pin-language")
   );
@@ -326,10 +328,20 @@ function card(record, index) {
   inspect.addEventListener("click", () => article.classList.toggle("is-expanded"));
   actions.append(inspect);
 
+  const editorialDetails = record.journal === "Quadripartita Ratio" && record.issueYear
+    ? "<div><dt>Año editorial del número</dt><dd>" + escapeHtml(record.issueYear) + "</dd></div>" +
+      (record.publicationDate
+        ? "<div><dt>Fecha de publicación OJS</dt><dd>" + escapeHtml(record.publicationDate) + "</dd></div>"
+        : "") +
+      (record.editorialSource
+        ? "<div><dt>Fuente de la edición</dt><dd><a href=\"" + escapeHtml(record.editorialSource) + "\" target=\"_blank\" rel=\"noopener noreferrer\">Archivo editorial ↗</a></dd></div>"
+        : "")
+    : "";
   const details = document.createElement("div");
   details.className = "journal-card-details";
   details.innerHTML =
     "<dl>" +
+    editorialDetails +
     "<div><dt>Revista</dt><dd>" + escapeHtml(record.journal || config.label) + "</dd></div>" +
     "<div><dt>DOI</dt><dd>" + escapeHtml(record.doi || "No indicado") + "</dd></div>" +
     "<div><dt>Número editorial</dt><dd>" + escapeHtml(journalIssueInfo(record).label) + "</dd></div>" +

@@ -17,6 +17,7 @@ from collections import Counter
 from pathlib import Path
 
 from protrepsis_policy import is_temperie_record
+from quadripartita_editorial import editorial_metadata
 
 
 OAI = "http://www.openarchives.org/OAI/2.0/"
@@ -1695,6 +1696,13 @@ def build_dataset(
                 records,
                 supplement,
             )
+
+        if source["journal"] == "Quadripartita Ratio":
+            # Apply verified chronology to OAI and preserved snapshots.
+            records = [
+                editorial_metadata(record)
+                for record in records
+            ]
 
         all_records.extend(
             records
