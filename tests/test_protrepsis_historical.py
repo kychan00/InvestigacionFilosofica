@@ -60,6 +60,24 @@ class ProtrepsisHistoricalTest(unittest.TestCase):
             )
         )
 
+    def test_temperie_ids_are_excluded_by_policy(self):
+        self.assertIn(
+            24,
+            protrepsis_historical.TEMPERIE_ARTICLE_IDS["2"],
+        )
+        self.assertIn(
+            61,
+            protrepsis_historical.TEMPERIE_ARTICLE_IDS["4"],
+        )
+        self.assertIn(
+            179,
+            protrepsis_historical.TEMPERIE_ARTICLE_IDS["14"],
+        )
+        self.assertNotIn(
+            42,
+            protrepsis_historical.TEMPERIE_ARTICLE_IDS.get("3", set()),
+        )
+
     def test_abstract_reconstruction(self):
         abstract = (
             protrepsis_historical
