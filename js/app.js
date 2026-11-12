@@ -3021,6 +3021,7 @@ function renderResult(
                 : [
                     "author-index",
                     "author-crossref",
+                    "author-orcid-crossref",
                     "author-internet-archive",
                     "author-institutional",
                     "author-curated"
@@ -3287,6 +3288,7 @@ function renderResult(
                 "author-index",
                 "author-live",
                 "author-crossref",
+                "author-orcid-crossref",
                 "author-internet-archive",
                 "author-institutional",
                 "author-curated"
@@ -3301,6 +3303,8 @@ function renderResult(
                       ? "Autoría directa confirmada en el corpus"
                       : item.retrievalMode === "author-curated"
                         ? `Bibliografía verificada · identidad confirmada por ${item.authorIdentity?.orcid ? "ORCID y " : ""}fuente académica o editorial`
+                        : item.retrievalMode === "author-orcid-crossref"
+                          ? "Publicación vinculada al ORCID del investigador en los metadatos de Crossref"
                         : item.collectiveWork
                           ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
                           : `Autoría asociada al nombre en ${escapeHtml(
