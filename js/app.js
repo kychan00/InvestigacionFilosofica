@@ -6001,8 +6001,23 @@ function mergeAuthorOrcidProfile(author, profile) {
   return {
     ...author,
     biography: profile.biography || author?.biography || null,
+    aliases: [...new Set([
+      ...(author?.aliases || []),
+      ...(profile.otherNames || [])
+    ].filter(Boolean))],
     orcidProfile: profile
   };
+}
+
+
+function authorCountryLabel(value) {
+  const code = String(value || "").trim().toUpperCase();
+  if (!code) return "";
+  try {
+    return new Intl.DisplayNames(["es"], { type: "region" }).of(code) || code;
+  } catch {
+    return code;
+  }
 }
 
 
@@ -6017,8 +6032,11 @@ function authorProfileDateRange(item = {}) {
 
 
 function authorProfileAffiliation(item, label) {
-  const location = [item.city, item.region, item.country]
-    .filter(Boolean).join(" · ");
+  const location = [
+    item.city,
+    item.region,
+    authorCountryLabel(item.country)
+  ].filter(Boolean).join(" · ");
   const date = authorProfileDateRange(item);
   return `
     <li class="author-profile-item">
@@ -6144,7 +6162,7 @@ function renderAuthorOrcidProfile(profile, orcidUrl) {
           ${countries.length ? `
             <div>
               <strong>Países indicados</strong>
-              <p>${escapeHtml(countries.join(" · "))}</p>
+              <p>${escapeHtml(countries.map(authorCountryLabel).join(" · "))}</p>
             </div>` : ""}
         </div>` : ""}
 
