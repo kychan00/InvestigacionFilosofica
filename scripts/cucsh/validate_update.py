@@ -437,6 +437,85 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_four_verified_early_titles_batch_two(before, after):
+    """Only permit exactly documented 2000–2001 Sincronía label repairs.
+
+    A frozen allowlist is independent of the remediation script. Previously
+    verified metadata and archival availability must remain untouched.
+    """
+    approved = {
+        "cucsh:sincronia-legacy:1efffea46e9b286d444c": (
+            "Reyes, Giovanni",
+            "The International Monetary Fund: Main Characteristics, Conditionality and Macroeconomic Adjustment",
+            "Giovanni E. Reyes",
+            "https://cdi.mecon.gob.ar/bases/docelec/dp2556.pdf",
+        ),
+        "cucsh:sincronia-legacy:cb9d04769f12b6216000": (
+            "Macías Rodríguez , Claudia",
+            "Presencia de la fiesta en El Llano en llamas de Juan Rulfo",
+            "Claudia Macías Rodríguez",
+            "https://revistas.ucm.es/index.php/ALHI/article/view/62734",
+        ),
+        "cucsh:sincronia-legacy:b3b56216992bd5336973": (
+            "Vidaurre Arenas, Carmen V.",
+            "Una historieta mexicana",
+            "Carmen V. Vidaurre Arenas",
+            "https://publications.iai.spk-berlin.de/servlets/MCRFileNodeServlet/Document_derivate_00002942/Carrillo%20Zeiter_Mueller_Comic.pdf",
+        ),
+        "cucsh:sincronia-legacy:c69e9245b6317699440e": (
+            "Reyes, Giovanni E.",
+            "Theory of globalization: fundamental Basis",
+            "Giovanni E. Reyes",
+            "https://repository.urosario.edu.co/items/c3ec783f-517d-456b-b90b-50303f4e1bf2/full",
+        ),
+    }
+    item = approved.get(before.get("id"))
+    if not item or before.get("id") != after.get("id"):
+        return False
+    former, title, author, source = item
+    evidence = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    original = (before.get("urls") or {}).get("canonical")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("title") != former
+        or after.get("title") != title
+        or after.get("titleVariants") != [title]
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not isinstance(evidence, dict)
+        or not isinstance(byline, dict)
+        or evidence.get("kind") != "original-index-author-name-instead-of-article-title"
+        or evidence.get("sourceUrl") != source
+        or evidence.get("sourceArticleUrl") != original
+        or evidence.get("previousTitle") != former
+        or evidence.get("verifiedTitle") != title
+        or evidence.get("verifiedAuthors") != [author]
+        or evidence.get("matchedYear") != before.get("year")
+        or evidence.get("matchedIssueNumber") != before.get("issueNumber")
+        or evidence.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != "independent-title-author-url-bibliography"
+        or byline.get("sourceUrl") != source
+        or byline.get("verifiedTitle") != title
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("matchedIssueNumber") != before.get("issueNumber")
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors",
+        "legacyAuthorEvidence", "legacyIndexMislabelEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_five_verified_index_title_reconstruction(before, after):
     """Permit only five independently sourced repairs of author-name index labels.
 
@@ -815,6 +894,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_five_verified_index_title_reconstruction(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_four_verified_early_titles_batch_two(
             before_by_id[key], after_by_id[key]
         )
     ]
