@@ -130,6 +130,8 @@ try {
       assert.equal(external.length, 0, "Qwen/network must remain opt-in");
 
       const canvasLocator = page.locator("#journal-atlas-canvas");
+      await canvasLocator.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(60);
       const canvas = await canvasLocator.boundingBox();
       assert.ok(canvas && canvas.width > 250 && canvas.height > 350);
 
@@ -140,11 +142,13 @@ try {
       assert.ok(zoomAfter > zoomBefore, journal + " " + name + " zoom control must change the view");
 
       const panBefore = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
-      await page.mouse.move(canvas.x + 24, canvas.y + canvas.height - 24);
+      const safeStartX = canvas.x + 14;
+      const safeStartY = canvas.y + canvas.height - 14;
+      await page.mouse.move(safeStartX, safeStartY);
       await page.mouse.down();
-      await page.mouse.move(canvas.x + 70, canvas.y + canvas.height - 42, { steps: 3 });
+      await page.mouse.move(safeStartX + 54, safeStartY - 24, { steps: 5 });
       await page.mouse.up();
-      await page.waitForTimeout(40);
+      await page.waitForTimeout(60);
       const panAfter = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
       assert.notEqual(panAfter, panBefore, journal + " " + name + " background drag must pan the Atlas");
 
