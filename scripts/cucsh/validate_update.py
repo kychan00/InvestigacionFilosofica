@@ -437,6 +437,65 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_formanchuk_cruz_restoration(before, after):
+    """Permit one dated full-text republication matching the original issue."""
+    rid = "cucsh:sincronia-legacy:12cf65c2ec1f08182eb5"
+    prior = "Formanchuk, Alejandro B."
+    title = "Bajo la misma cruz"
+    author = "Alejandro B. Formanchuk"
+    source = "https://armonicosdeconciencia.blogspot.com/2011/09/una-aldea-global-que-fractura-lo-que.html?m=0"
+    evidence = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    canonical = (before.get("urls") or {}).get("canonical")
+    if (
+        before.get("id") != rid
+        or after.get("id") != rid
+        or before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 15
+        or before.get("year") != 2000
+        or before.get("title") != prior
+        or after.get("title") != title
+        or after.get("titleVariants") != [title]
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not canonical
+        or not canonical.lower().endswith("/formanchuk.htm")
+        or not isinstance(evidence, dict)
+        or not isinstance(byline, dict)
+        or evidence.get("kind") !=
+           "dated-complete-republication-matching-original-issue-and-byline"
+        or evidence.get("sourceUrl") != source
+        or evidence.get("sourceArticleUrl") != canonical
+        or evidence.get("previousTitle") != prior
+        or evidence.get("verifiedTitle") != title
+        or evidence.get("verifiedAuthors") != [author]
+        or evidence.get("matchedIssueNumber") != 15
+        or evidence.get("matchedYear") != 2000
+        or evidence.get("sourceNature") !=
+           "secondary-2011-republication-crediting-sincronia-verano-2000"
+        or evidence.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != "dated-republication-original-issue-byline"
+        or byline.get("sourceUrl") != source
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("verifiedTitle") != title
+        or byline.get("matchedIssueNumber") != 15
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    allowed = {
+        "title", "titleVariants", "authors", "legacyAuthorEvidence",
+        "legacyIndexMislabelEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in allowed
+    )
+
+
 def safe_vidaurrre_nunez_restoration(before, after):
     """Allow a single exact source-verified Sincronía title/byline restoration."""
     rid = "cucsh:sincronia-legacy:227e912cb694dcd4f77c"
@@ -1101,6 +1160,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_vidaurrre_nunez_restoration(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_formanchuk_cruz_restoration(
             before_by_id[key], after_by_id[key]
         )
     ]
