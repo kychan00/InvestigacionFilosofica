@@ -165,6 +165,191 @@ export function normalizeOrcidPublicWorks(payload, { orcid, displayName = "" } =
   };
 }
 
+
+function publicItem(item) {
+  return item && typeof item === "object" &&
+    item.visibility !== "limited" && item.visibility !== "private";
+}
+
+function dateParts(value) {
+  if (!value || typeof value !== "object") return null;
+  const year = publishedNumber(value.year, 1, 3000);
+  const month = publishedNumber(value.month, 1, 12);
+  const day = publishedNumber(value.day, 1, 31);
+  if (!year) return null;
+  return {
+    year,
+    month,
+    day,
+    label: [year, month ? String(month).padStart(2, "0") : null,
+      day ? String(day).padStart(2, "0") : null].filter(Boolean).join("-")
+  };
+}
+
+function affiliationSummaries(section, key) {
+  if (!section || typeof section !== "object") return [];
+  const direct = Array.isArray(section[key]) ? section[key] : [];
+  const grouped = Array.isArray(section["affiliation-group"])
+    ? section["affiliation-group"].flatMap(group => {
+        if (Array.isArray(group?.summaries)) {
+          return group.summaries.flatMap(summary =>
+            summary?.[key] ? [summary[key]] : []);
+        }
+        return [];
+      })
+    : [];
+  return [...direct, ...grouped].filter(publicItem);
+}
+
+function normalizeAffiliation(item, kind) {
+  const organization = item?.organization || {};
+  const name = textValue(organization.name);
+  if (!name) return null;
+  return {
+    kind,
+    organization: name,
+    department: textValue(item?.["department-name"]) || null,
+    role: textValue(item?.["role-title"]) || null,
+    startDate: dateParts(item?.["start-date"]),
+    endDate: dateParts(item?.["end-date"]),
+    city: textValue(organization?.address?.city) || null,
+    region: textValue(organization?.address?.region) || null,
+    country: textValue(organization?.address?.country) || null,
+    putCode: Number.isInteger(Number(item?.["put-code"]))
+      ? Number(item["put-code"]) : null,
+    sourceName: textValue(item?.source?.["source-name"]) || null
+  };
+}
+
+function researcherUrls(person) {
+  const rows = person?.["researcher-urls"]?.["researcher-url"] || [];
+  return (Array.isArray(rows) ? rows : [])
+    .filter(publicItem)
+    .map(item => ({
+      name: textValue(item?.["url-name"]) || "Sitio del investigador",
+      url: safeUrl(item?.url)
+    }))
+    .filter(item => item.url);
+}
+
+function publicKeywords(person) {
+  const rows = person?.keywords?.keyword || [];
+  return [...new Set((Array.isArray(rows) ? rows : [])
+    .filter(publicItem)
+    .map(item => textValue(item?.content))
+    .filter(Boolean))];
+}
+
+function publicCountries(person) {
+  const rows = person?.address?.address || [];
+  return [...new Set((Array.isArray(rows) ? rows : [])
+    .filter(publicItem)
+    .map(item => textValue(item?.country?.value || item?.country))
+    .filter(Boolean))];
+}
+
+function fundingSummaries(activities) {
+  const groups = activities?.fundings?.group || [];
+  return (Array.isArray(groups) ? groups : []).flatMap(group =>
+    (Array.isArray(group?.["funding-summary"])
+      ? group["funding-summary"] : []))
+    .filter(publicItem)
+    .map(item => ({
+      title: textValue(item?.title?.title),
+      type: textValue(item?.type) || null,
+      organization: textValue(item?.organization?.name) || null,
+      startDate: dateParts(item?.["start-date"]),
+      endDate: dateParts(item?.["end-date"])
+    }))
+    .filter(item => item.title || item.organization);
+}
+
+export function normalizeOrcidPublicProfile(payload, { orcid } = {}) {
+  const id = normalizedAuthorOrcid(orcid);
+  if (!id) throw new Error("ORCID inválido");
+  if (!payload || typeof payload !== "object")
+    throw new Error("La respuesta pública de ORCID no contiene un registro");
+  const person = payload.person || {};
+  const activities = payload["activities-summary"] || {};
+  const name = person.name || {};
+  const givenName = textValue(name?.["given-names"]);
+  const familyName = textValue(name?.["family-name"]);
+  const creditName = textValue(name?.["credit-name"]);
+  const biography = textValue(person?.biography?.content || person?.biography);
+  const affiliations = {
+    employments: affiliationSummaries(
+      activities.employments, "employment-summary")
+      .map(item => normalizeAffiliation(item, "employment")).filter(Boolean),
+    educations: affiliationSummaries(
+      activities.educations, "education-summary")
+      .map(item => normalizeAffiliation(item, "education")).filter(Boolean),
+    distinctions: affiliationSummaries(
+      activities.distinctions, "distinction-summary")
+      .map(item => normalizeAffiliation(item, "distinction")).filter(Boolean),
+    qualifications: affiliationSummaries(
+      activities.qualifications, "qualification-summary")
+      .map(item => normalizeAffiliation(item, "qualification")).filter(Boolean),
+    memberships: affiliationSummaries(
+      activities.memberships, "membership-summary")
+      .map(item => normalizeAffiliation(item, "membership")).filter(Boolean),
+    services: affiliationSummaries(
+      activities.services, "service-summary")
+      .map(item => normalizeAffiliation(item, "service")).filter(Boolean),
+    invitedPositions: affiliationSummaries(
+      activities["invited-positions"], "invited-position-summary")
+      .map(item => normalizeAffiliation(item, "invited-position")).filter(Boolean)
+  };
+  const keywords = publicKeywords(person);
+  const countries = publicCountries(person);
+  const websites = researcherUrls(person);
+  const fundings = fundingSummaries(activities);
+  const displayName = creditName ||
+    [givenName, familyName].filter(Boolean).join(" ") || null;
+  const allAffiliations = Object.values(affiliations).flat();
+  return {
+    orcid: id,
+    profileUrl: "https://orcid.org/" + id,
+    displayName,
+    givenName: givenName || null,
+    familyName: familyName || null,
+    creditName: creditName || null,
+    biography: biography || null,
+    keywords,
+    countries,
+    websites,
+    ...affiliations,
+    fundings,
+    hasPublicProfileData: Boolean(
+      biography || keywords.length || countries.length || websites.length ||
+      allAffiliations.length || fundings.length
+    ),
+    source: "ORCID"
+  };
+}
+
+export async function fetchOrcidPublicProfile(orcid, {
+  signal,
+  fetchImpl = fetch,
+  apiBase = ORCID_PUBLIC_API
+} = {}) {
+  const id = normalizedAuthorOrcid(orcid);
+  if (!id) return {
+    orcid: null, hasPublicProfileData: false, skipped: "invalid-orcid"
+  };
+  const endpoint = String(apiBase).replace(/\/$/, "") + "/" + id + "/record";
+  const response = await fetchImpl(endpoint, {
+    method: "GET",
+    headers: { Accept: "application/vnd.orcid+json" },
+    signal,
+    mode: "cors"
+  });
+  if (!response?.ok)
+    throw new Error("ORCID profile HTTP " +
+      (response?.status || "desconocido"));
+  const data = await response.json();
+  return normalizeOrcidPublicProfile(data, { orcid: id });
+}
+
 export async function fetchOrcidPublicWorks(orcid, {
   displayName = "",
   signal,
