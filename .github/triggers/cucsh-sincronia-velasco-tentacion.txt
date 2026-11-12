@@ -1,0 +1,30 @@
+Restore exactly one Arnulfo Eduardo Velasco historical Sincronía work:
+
+Issue 16 / 2000 / tentacion.htm
+Historical index label: "Velasco , Arnulfo Eduardo"
+Canonical title: "Sobre “La última tentación” de Nikos Kazantzakis"
+Reproduced heading: "SOBRE LA ULTIMA TENTACION DE NIKOS KAZANTZAKIS"
+Author: Arnulfo Eduardo Velasco
+
+Evidence is intentionally triangulated:
+- Full-text reproduction preserves the heading and author:
+  https://es.scribd.com/doc/308811977/Sobre-La-Ultima-Tentacion-de-Nikos-Kazantzakis
+- Independent later bibliography/list links specifically to
+  http://sincronia.cucsh.udg.mx/tentacion.htm for La última tentación de Cristo:
+  https://cesarcallejas.wordpress.com/tag/cristianismo/
+
+This is evidence of work identity only. It does NOT convert the legacy
+fuentes.csh.udg.mx/CUCSH/Sincronia/tentacion.htm record into a live link.
+Keep canonical title, reproduced heading and former author-name index label
+as title variants. Only title/variants/authors/evidence of the frozen ID may change.
+
+Expected after success:
+- 1845 CUCSH / 1454 Sincronía
+- authorless 83 -> 82
+- article-candidate authorless 81 -> 80
+- suspected work identities 33 -> 32
+- 2 editorial navigation records preserved
+- Reyes4 conflict and issue-50 Korstanje ambiguity preserved
+- all 532 application tests pass
+
+Use feature/cucsh-sincronia only. No main merge and no new PR.
