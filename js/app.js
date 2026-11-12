@@ -6000,7 +6000,8 @@ function mergeAuthorOrcidProfile(author, profile) {
   if (!profile) return author;
   return {
     ...author,
-    biography: profile.biography || author?.biography || null,
+    // Keep narrative biography sources separate. ORCID biography is rendered
+    // once in the academic-profile section, never copied into the hero.
     aliases: [...new Set([
       ...(author?.aliases || []),
       ...(profile.otherNames || [])
@@ -6054,6 +6055,26 @@ function authorProfileAffiliation(item, label) {
 }
 
 
+function compactAuthorText(value, maxLength = 430) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text || text.length <= maxLength) return text;
+
+  const slice = text.slice(0, maxLength + 1);
+  const sentence = Math.max(
+    slice.lastIndexOf(". "),
+    slice.lastIndexOf("; "),
+    slice.lastIndexOf(": ")
+  );
+  const word = slice.lastIndexOf(" ");
+  const cut = sentence >= Math.round(maxLength * .55)
+    ? sentence + 1
+    : word >= Math.round(maxLength * .7)
+      ? word
+      : maxLength;
+  return text.slice(0, cut).trim().replace(/[.,;:]+$/, "") + "…";
+}
+
+
 function authorOrcidProfileSummary(profile) {
   if (!profile || profile.error) return "";
 
@@ -6063,24 +6084,25 @@ function authorOrcidProfileSummary(profile) {
   const education = [...(profile.educations || [])].sort((a, b) =>
     Number(b.endDate?.year || b.startDate?.year || 0) -
     Number(a.endDate?.year || a.startDate?.year || 0));
-  const parts = [];
   const current = employment.find(item => !item.endDate);
+  const latestEmployment = current || employment[0] || null;
+  const latestEducation = education[0] || null;
+  const keywords = [...new Set(profile.keywords || [])].slice(0, 4);
+  const parts = [];
 
-  if (current?.organization) {
+  if (latestEmployment?.organization) {
     parts.push(
-      "ORCID registra una afiliación actual" +
-      (current.role ? " como " + current.role : "") +
-      " en " + current.organization + "."
-    );
-  } else if (employment[0]?.organization) {
-    parts.push(
-      "ORCID registra experiencia profesional en " +
-      employment[0].organization + "."
+      (latestEmployment.role || "Actividad académica") +
+      " en " + latestEmployment.organization +
+      (current ? "." : " (experiencia registrada en ORCID).")
     );
   }
 
-  const latestEducation = education[0];
-  if (latestEducation?.organization) {
+  if (keywords.length) {
+    parts.push("Áreas declaradas: " + keywords.join(", ") + ".");
+  }
+
+  if (!latestEmployment && latestEducation?.organization) {
     const detail = [
       latestEducation.role,
       latestEducation.department
@@ -6088,21 +6110,52 @@ function authorOrcidProfileSummary(profile) {
         : null
     ].filter(Boolean).join(" · ");
     parts.push(
-      "Su formación pública incluye " +
-      (detail ? detail + " en " : "estudios en ") +
-      latestEducation.organization + "."
+      "Formación registrada" +
+      (detail ? ": " + detail : "") +
+      " en " + latestEducation.organization + "."
     );
   }
 
   if ((profile.distinctions || []).length) {
     const count = profile.distinctions.length;
     parts.push(
-      "El registro incluye " + count +
-      (count === 1 ? " distinción pública." : " distinciones públicas.")
+      count + (count === 1
+        ? " distinción pública registrada en ORCID."
+        : " distinciones públicas registradas en ORCID.")
     );
   }
 
-  return parts.join(" ");
+  if (!parts.length && profile.biography) {
+    return "Perfil académico y biografía pública disponibles en ORCID.";
+  }
+
+  return compactAuthorText(parts.slice(0, 3).join(" "), 430);
+}
+
+
+function renderAuthorProfileBiography(value) {
+  const biography = String(value || "").replace(/\s+/g, " ").trim();
+  if (!biography) return "";
+
+  if (biography.length <= 720) {
+    return `<p class="author-academic-profile-bio">${escapeHtml(biography)}</p>`;
+  }
+
+  const preview = compactAuthorText(biography, 520);
+  return `
+    <details class="author-biography-details">
+      <summary>
+        <span class="author-biography-preview">${escapeHtml(preview)}</span>
+        <span class="author-biography-toggle">
+          <span class="author-biography-toggle-closed">Leer biografía completa ↓</span>
+          <span class="author-biography-toggle-open">Ocultar biografía ↑</span>
+        </span>
+      </summary>
+      <p class="author-academic-profile-bio author-academic-profile-bio-full">
+        ${escapeHtml(biography)}
+      </p>
+    </details>
+  `;
 }
 
 
@@ -6170,7 +6223,7 @@ function renderAuthorOrcidProfile(profile, orcidUrl) {
       </div>
 
       ${profile.biography
-        ? `<p class="author-academic-profile-bio">${escapeHtml(profile.biography)}</p>`
+        ? renderAuthorProfileBiography(profile.biography)
         : profile.error
           ? `<p class="author-academic-profile-empty">
               No fue posible consultar el perfil académico de ORCID en esta
@@ -6257,6 +6310,17 @@ function renderAuthorPage(
   const orcidProfile =
     author.orcidProfile || authorArchiveOrcidProfile || null;
   const orcidProfileSummary = authorOrcidProfileSummary(orcidProfile);
+  const heroBiography = compactAuthorText(
+    orcidProfile
+      ? (
+          orcidProfileSummary ||
+          (orcidProfile.biography
+            ? "Perfil académico y biografía pública disponibles en ORCID."
+            : "")
+        )
+      : author.biography,
+    430
+  );
   const bibliographicSources = [...new Set(works.flatMap(authorWorkSources))];
   const multiSourceWorks = works.filter(work =>
     authorWorkSources(work).length > 1).length;
@@ -6385,8 +6449,7 @@ function renderAuthorPage(
 
           <p class="author-page-biography">
             ${escapeHtml(
-              author.biography ||
-              orcidProfileSummary ||
+              heroBiography ||
               (
                 orcidProfile && !orcidProfile.hasPublicProfileData
                   ? "El registro ORCID público de este autor no incluye una biografía o afiliaciones. Esta ficha reúne su bibliografía y las fuentes académicas disponibles."
