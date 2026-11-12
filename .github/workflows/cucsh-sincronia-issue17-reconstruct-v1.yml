@@ -1,0 +1,113 @@
+name: Sincronía · reconstruct issue 17 article titles safely
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-issue17-reconstruct-v1.txt"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-issue17-reconstruct
+  cancel-in-progress: false
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Prove matching safeguards and reject ambiguous authors
+        run: |
+          python3 -m py_compile scripts/cucsh/reconstruct_sincronia_issue17.py
+          python3 -m unittest tests.test_cucsh_sincronia_issue17_reconstruct
+
+      - name: Reconstruct all 13 issue 17 titles from Dialnet author evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-issue17-original.json
+          python3 -u -m scripts.cucsh.reconstruct_sincronia_issue17 \
+            --before /tmp/cucsh-issue17-original.json \
+            --after /tmp/cucsh-issue17-candidate.json \
+            --report /tmp/sincronia-issue17-report.json \
+            2>&1 | tee /tmp/sincronia-issue17-run.log
+
+      - name: Guard all existing identifiers, authors, sources and coverage
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-issue17-original.json \
+            --after /tmp/cucsh-issue17-candidate.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input /tmp/cucsh-issue17-candidate.json \
+            --output /tmp/sincronia-issue17-quality.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          old=json.loads(Path("/tmp/cucsh-issue17-original.json").read_text())
+          new=json.loads(Path("/tmp/cucsh-issue17-candidate.json").read_text())
+          assert len(old["records"])==len(new["records"])==1841
+          before={r["id"]:r for r in old["records"]}
+          after={r["id"]:r for r in new["records"]}
+          assert before.keys()==after.keys()
+          changed=[]
+          for rid,row in before.items():
+              now=after[rid]
+              for field in ("id","sourceId","urls","year","issueNumber","journal","doi","abstract"):
+                  assert row.get(field)==now.get(field),(rid,field)
+              if row!=now:
+                  assert row.get("journal")=="Sincronía" and row.get("issueNumber")==17
+                  changed.append(rid)
+              if row.get("authors"):
+                  assert row["authors"]==now.get("authors")
+          assert len(changed)==13,changed
+          print("SINCRONIA_ISSUE17_NO_LOSS_AND_SCOPE_PASS",len(changed))
+          PY
+
+      - name: Validate all app search regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp /tmp/cucsh-issue17-candidate.json src/data/cucsh-filosofia.json
+          npm ci
+          npm test
+
+      - name: Commit reconstructed issue 17 on feature branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          test "$(git diff --cached --name-only)" = "src/data/cucsh-filosofia.json"
+          git diff --cached --check
+          git commit -m "Restore 13 Sincronía issue 17 titles from Dialnet author evidence"
+          git push origin HEAD:feature/cucsh-sincronia
+
+      - name: Archive issue 17 provenance and unresolved cases
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-issue17-reconstruction-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-issue17-report.json
+            /tmp/sincronia-issue17-quality.json
+            /tmp/sincronia-issue17-run.log
+          if-no-files-found: warn
+          retention-days: 30
