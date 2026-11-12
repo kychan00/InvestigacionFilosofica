@@ -1,4 +1,5 @@
 import { normalizedAuthorOrcid } from "../core/author-provenance.js";
+import { normalizeText } from "../core/parser.js";
 
 /*
  * The ORCID public registry's /works endpoint returns every publicly
@@ -380,4 +381,369 @@ export async function fetchOrcidPublicWorks(orcid, {
     throw new Error("ORCID HTTP " + (response?.status || "desconocido"));
   const data = await response.json();
   return normalizeOrcidPublicWorks(data, { orcid: id, displayName });
+}
+
+
+const ORCID_SEARCH_STOPWORDS = new Set([
+  "a","al","an","and","de","del","el","en","for","from","in","la","las",
+  "los","of","on","or","para","por","sobre","the","to","un","una","with","y"
+]);
+
+function embeddedOrcid(value) {
+  const found = String(value || "").match(
+    /(?:https?:\/\/(?:www\.)?orcid\.org\/)?(\d{4}-\d{4}-\d{4}-[\dX]{4})/i
+  );
+  return found ? normalizedAuthorOrcid(found[1]) : null;
+}
+
+function orcidSearchTokens(value) {
+  return [...new Set(
+    normalizeText(String(value || ""))
+      .split(/\s+/)
+      .map(token => token.trim())
+      .filter(token =>
+        token.length >= 3 &&
+        !ORCID_SEARCH_STOPWORDS.has(token) &&
+        !/^\d+$/.test(token)
+      )
+  )].slice(0, 10);
+}
+
+function tokenCoverage(needle, haystack) {
+  if (!needle.length || !haystack.length) return 0;
+  const available = new Set(haystack);
+  let hits = 0;
+  for (const token of needle) {
+    if (available.has(token)) hits += 1;
+  }
+  return hits / needle.length;
+}
+
+function csvRows(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let quoted = false;
+  const input = String(text || "").replace(/^\uFEFF/, "");
+
+  for (let i = 0; i < input.length; i++) {
+    const char = input[i];
+
+    if (quoted) {
+      if (char === '"' && input[i + 1] === '"') {
+        cell += '"';
+        i += 1;
+      } else if (char === '"') {
+        quoted = false;
+      } else {
+        cell += char;
+      }
+      continue;
+    }
+
+    if (char === '"') {
+      quoted = true;
+    } else if (char === ",") {
+      row.push(cell);
+      cell = "";
+    } else if (char === "\n") {
+      row.push(cell.replace(/\r$/, ""));
+      rows.push(row);
+      row = [];
+      cell = "";
+    } else {
+      cell += char;
+    }
+  }
+
+  if (cell || row.length) {
+    row.push(cell.replace(/\r$/, ""));
+    rows.push(row);
+  }
+
+  return rows.filter(item => item.some(value => String(value).trim()));
+}
+
+export function normalizeOrcidSearchCsv(text) {
+  const rows = csvRows(text);
+  if (!rows.length) return [];
+
+  const headers = rows[0].map(value =>
+    String(value || "").trim().toLowerCase()
+  );
+
+  return rows.slice(1).map(values => {
+    const record = {};
+    headers.forEach((header, index) => {
+      record[header] = String(values[index] || "").trim();
+    });
+
+    const orcid = normalizedAuthorOrcid(
+      record.orcid || record["orcid-id"] || record["orcid-identifier"]
+    );
+    if (!orcid) return null;
+
+    const given = record["given-names"] || record["given-name"] || "";
+    const family = record["family-name"] || record["family-names"] || "";
+    const credit = record["credit-name"] || "";
+    const displayName = credit || [given, family].filter(Boolean).join(" ") || orcid;
+    const institutions = [
+      record["current-institution-affiliation-name"],
+      record["past-institution-affiliation-name"],
+      record["institution-name"]
+    ].filter(Boolean);
+
+    return {
+      orcid,
+      displayName,
+      givenNames: given || null,
+      familyName: family || null,
+      creditName: credit || null,
+      institutions: [...new Set(institutions)]
+    };
+  }).filter(Boolean);
+}
+
+function orcidCsvSearchUrl(query, {
+  start = 0,
+  rows = 2,
+  apiBase = ORCID_PUBLIC_API
+} = {}) {
+  const url = new URL(
+    String(apiBase).replace(/\/$/, "") + "/csv-search/"
+  );
+  url.searchParams.set("q", String(query || "").trim());
+  url.searchParams.set(
+    "fl",
+    [
+      "orcid",
+      "given-names",
+      "family-name",
+      "credit-name",
+      "current-institution-affiliation-name",
+      "past-institution-affiliation-name"
+    ].join(",")
+  );
+  url.searchParams.set("start", String(Math.max(0, Number(start) || 0)));
+  url.searchParams.set("rows", String(Math.max(1, Math.min(10, Number(rows) || 2))));
+  return url;
+}
+
+export async function searchOrcidProfiles(query, {
+  start = 0,
+  rows = 2,
+  signal,
+  fetchImpl = fetch,
+  apiBase = ORCID_PUBLIC_API
+} = {}) {
+  const exact = embeddedOrcid(query);
+  if (exact) {
+    return [{
+      orcid: exact,
+      displayName: exact,
+      givenNames: null,
+      familyName: null,
+      creditName: null,
+      institutions: []
+    }];
+  }
+
+  const cleaned = String(query || "").trim();
+  if (!cleaned) return [];
+
+  const url = orcidCsvSearchUrl(cleaned, {
+    start, rows, apiBase
+  });
+  const response = await fetchImpl(url, {
+    method: "GET",
+    headers: { Accept: "text/csv" },
+    signal,
+    mode: "cors"
+  });
+
+  if (!response?.ok) {
+    throw new Error(
+      "ORCID search HTTP " + (response?.status || "desconocido")
+    );
+  }
+
+  return normalizeOrcidSearchCsv(await response.text());
+}
+
+function orcidWorkSearchScore(work, queryTokens) {
+  const textTokens = orcidSearchTokens([
+    work.title,
+    work.journal,
+    work.publisher
+  ].filter(Boolean).join(" "));
+  const coverage = tokenCoverage(queryTokens, textTokens);
+  const precision = tokenCoverage(textTokens, queryTokens);
+  return coverage * 0.75 + precision * 0.25;
+}
+
+function profileMatchesAuthorQuery(profile, queryTokens) {
+  if (!queryTokens.length) return false;
+  const identityTokens = orcidSearchTokens([
+    profile.displayName,
+    profile.givenNames,
+    profile.familyName,
+    profile.creditName
+  ].filter(Boolean).join(" "));
+  const coverage = tokenCoverage(queryTokens, identityTokens);
+  return queryTokens.length >= 2 && coverage >= 0.75;
+}
+
+function qualifyingOrcidWork(work, queryTokens, authorQuery, exactOrcid) {
+  if (authorQuery || exactOrcid) return true;
+  if (!queryTokens.length) return false;
+  const textTokens = orcidSearchTokens([
+    work.title,
+    work.journal,
+    work.publisher
+  ].filter(Boolean).join(" "));
+  const overlap = queryTokens.filter(token => textTokens.includes(token)).length;
+  if (queryTokens.length <= 2) return overlap >= 1;
+  return overlap >= 2 || overlap / queryTokens.length >= 0.5;
+}
+
+export async function searchOrcid(expansion, options = {}) {
+  const query = typeof expansion === "string"
+    ? expansion
+    : expansion?.query;
+  const queryWeight = typeof expansion === "string"
+    ? 1
+    : (expansion?.weight ?? 1);
+  const queryType = typeof expansion === "string"
+    ? "unknown"
+    : (expansion?.type || "unknown");
+  const cleanedQuery = String(query || "").trim();
+  if (!cleanedQuery) return [];
+
+  const rows = Math.max(1, Math.min(20, Number(options.rows) || 6));
+  const page = Math.max(1, Number(options.page) || 1);
+  const profilesPerPage = Math.max(
+    1,
+    Math.min(4, Number(options.profilesPerPage) || 2)
+  );
+  const exactOrcid = embeddedOrcid(cleanedQuery);
+  const queryTokens = orcidSearchTokens(cleanedQuery);
+  const searchProfilesImpl = options.searchProfilesImpl || searchOrcidProfiles;
+  const worksImpl = options.worksImpl || fetchOrcidPublicWorks;
+  const profileImpl = options.profileImpl || fetchOrcidPublicProfile;
+
+  let profiles;
+  if (exactOrcid) {
+    let profile = null;
+    try {
+      profile = await profileImpl(exactOrcid, {
+        signal: options.signal,
+        fetchImpl: options.fetchImpl,
+        apiBase: options.apiBase
+      });
+    } catch {
+      // Exact ORCID remains enough to read its public works.
+    }
+    profiles = [{
+      orcid: exactOrcid,
+      displayName: profile?.displayName || exactOrcid,
+      givenNames: profile?.givenName || null,
+      familyName: profile?.familyName || null,
+      creditName: profile?.creditName || null,
+      institutions: (profile?.employments || [])
+        .map(item => item.organization)
+        .filter(Boolean)
+    }];
+  } else {
+    profiles = await searchProfilesImpl(cleanedQuery, {
+      start: (page - 1) * profilesPerPage,
+      rows: profilesPerPage,
+      signal: options.signal,
+      fetchImpl: options.fetchImpl,
+      apiBase: options.apiBase
+    });
+  }
+
+  const settled = await Promise.allSettled(
+    profiles.map(async profile => {
+      const response = await worksImpl(profile.orcid, {
+        displayName: profile.displayName,
+        signal: options.signal,
+        fetchImpl: options.fetchImpl,
+        apiBase: options.apiBase
+      });
+      return {
+        profile,
+        works: response?.works || []
+      };
+    })
+  );
+
+  const successful = settled
+    .filter(state => state.status === "fulfilled")
+    .map(state => state.value);
+
+  if (!successful.length && settled.some(state => state.status === "rejected")) {
+    const failure = settled.find(state => state.status === "rejected");
+    throw failure.reason;
+  }
+
+  const candidates = [];
+  for (const { profile, works } of successful) {
+    const authorQuery = profileMatchesAuthorQuery(profile, queryTokens);
+
+    for (const work of works) {
+      if (!qualifyingOrcidWork(work, queryTokens, authorQuery, Boolean(exactOrcid))) {
+        continue;
+      }
+
+      const searchScore = authorQuery || exactOrcid
+        ? 1
+        : orcidWorkSearchScore(work, queryTokens);
+
+      candidates.push({
+        ...work,
+        authors: (work.authors || []).map((author, index) =>
+          index === 0
+            ? {
+                ...author,
+                name: profile.displayName || author.name,
+                id: "https://orcid.org/" + profile.orcid,
+                orcid: "https://orcid.org/" + profile.orcid
+              }
+            : author
+        ),
+        matchedQueries: [
+          ...(work.matchedQueries || []),
+          {
+            query: cleanedQuery,
+            weight: queryWeight,
+            type: queryType,
+            provider: "ORCID",
+            score: searchScore
+          }
+        ],
+        retrievalMode: "orcid-registry-search",
+        orcidSearch: {
+          profile: profile.orcid,
+          displayName: profile.displayName,
+          institutions: profile.institutions || [],
+          authorQuery,
+          score: searchScore
+        }
+      });
+    }
+  }
+
+  candidates.sort((a, b) =>
+    Number(b.orcidSearch?.score || 0) - Number(a.orcidSearch?.score || 0) ||
+    Number(b.year || 0) - Number(a.year || 0) ||
+    String(a.title || "").localeCompare(String(b.title || ""), "es")
+  );
+
+  if (exactOrcid) {
+    const offset = (page - 1) * rows;
+    return candidates.slice(offset, offset + rows);
+  }
+
+  return candidates.slice(0, rows);
 }
