@@ -166,31 +166,30 @@ try {
       const zoomAfter = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
       assert.ok(zoomAfter > zoomBefore, journal + " " + name + " zoom control must change the view");
 
-      const panBefore = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
-      const panCandidates = [
-        [0.03, 0.96, 54, -24],
-        [0.97, 0.96, -54, -24],
-        [0.03, 0.12, 54, 24],
-        [0.97, 0.12, -54, 24],
-        [0.50, 0.96, 48, -28]
-      ];
-
-      let panAfter = panBefore;
-      for (const [rx, ry, dx, dy] of panCandidates) {
-        const startX = canvas.x + canvas.width * rx;
-        const startY = canvas.y + canvas.height * ry;
-        await page.mouse.move(startX, startY);
-        await page.mouse.down();
-        await page.mouse.move(startX + dx, startY + dy, { steps: 5 });
-        await page.mouse.up();
-        await page.waitForTimeout(45);
-        panAfter = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
-        if (panAfter !== panBefore) break;
+      // For pan validation, first shrink the graph so a corner is guaranteed
+      // to be background rather than a draggable node. This keeps the smoke
+      // deterministic even as the semantic layout becomes denser.
+      await page.locator('[data-atlas-action="fit"]').click();
+      for (let i = 0; i < 7; i += 1) {
+        await page.locator('[data-atlas-action="zoom-out"]').click();
       }
+      await page.waitForTimeout(60);
 
-      assert.notEqual(
-        panAfter,
-        panBefore,
+      const panBeforeX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
+      const panBeforeY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
+      const startX = canvas.x + 8;
+      const startY = canvas.y + canvas.height - 8;
+
+      await page.mouse.move(startX, startY);
+      await page.mouse.down();
+      await page.mouse.move(startX + 72, startY - 42, { steps: 7 });
+      await page.mouse.up();
+      await page.waitForTimeout(60);
+
+      const panAfterX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
+      const panAfterY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
+      assert.ok(
+        panAfterX !== panBeforeX || panAfterY !== panBeforeY,
         journal + " " + name + " background drag must pan the Atlas"
       );
 
