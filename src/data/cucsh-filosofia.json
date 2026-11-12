@@ -36674,11 +36674,20 @@
       "sourceId": "legacy:0e9b35929d358d7dac8d",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Gilbert, Tony and Powell, Jason,",
+      "title": "\"Trust\" and Power",
       "titleVariants": [
-        "Gilbert, Tony and Powell, Jason,"
+        "\"Trust\" and Power"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Tony Gilbert",
+          "sourceName": "Tony Gilbert"
+        },
+        {
+          "name": "Jason L. Powell",
+          "sourceName": "Jason L. Powell"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -36703,6 +36712,31 @@
         "canonical": "http://sincronia.cucsh.udg.mx/gilbertpowellspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858658",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858658",
+        "previousIndexTitle": "Gilbert, Tony and Powell, Jason,",
+        "matchingScore": 0.9,
+        "verifiedAuthors": [
+          "Tony Gilbert",
+          "Jason L. Powell"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858658",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858658",
+        "previousIndexTitle": "Gilbert, Tony and Powell, Jason,",
+        "matchingScore": 0.9,
+        "previousTitle": "Gilbert, Tony and Powell, Jason,"
       }
     },
     {
@@ -36885,7 +36919,12 @@
       "titleVariants": [
         "Martín Martín, José Concepción"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "José Concepción Martín Martín",
+          "sourceName": "José Concepción Martín Martín"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -36917,6 +36956,19 @@
         "sourceIndexUrl": "http://sincronia.cucsh.udg.mx/martinspring08.htm",
         "previousTitle": "Mart�n Mart�n, Jos� Concepci�n",
         "similarity": 0.8667
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858710",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858710",
+        "previousIndexTitle": "Martín Martín, José Concepción",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "José Concepción Martín Martín"
+        ]
       }
     },
     {
@@ -37079,11 +37131,16 @@
       "sourceId": "legacy:3468a4a452862e8ce3e1",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Saganogo, Brahiman",
+      "title": "El luto humano de José Revueltas",
       "titleVariants": [
-        "Saganogo, Brahiman"
+        "El luto humano de José Revueltas"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Brahiman Saganogo",
+          "sourceName": "Brahiman Saganogo"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37108,6 +37165,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/saganogospring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577252",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577252",
+        "previousIndexTitle": "Saganogo, Brahiman",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Brahiman Saganogo"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577252",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577252",
+        "previousIndexTitle": "Saganogo, Brahiman",
+        "matchingScore": 1.0,
+        "previousTitle": "Saganogo, Brahiman"
       }
     },
     {
@@ -37115,11 +37196,16 @@
       "sourceId": "legacy:3574da5a5f46d1f3d250",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Nazzari Verani, Elizabeth",
+      "title": "Lengua y procesos sociopolíticos en América Latina",
       "titleVariants": [
-        "Nazzari Verani, Elizabeth"
+        "Lengua y procesos sociopolíticos en América Latina"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Elizabeth Nazzari Verani",
+          "sourceName": "Elizabeth Nazzari Verani"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37144,6 +37230,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/veranispring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858703",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858703",
+        "previousIndexTitle": "Nazzari Verani, Elizabeth",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Elizabeth Nazzari Verani"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858703",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858703",
+        "previousIndexTitle": "Nazzari Verani, Elizabeth",
+        "matchingScore": 1.0,
+        "previousTitle": "Nazzari Verani, Elizabeth"
       }
     },
     {
@@ -37151,11 +37261,16 @@
       "sourceId": "legacy:420cdc83dad106bf7853",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Son, Jy-Eun",
+      "title": "El problema del tiempo pasado en la escritura de estudiantes coreanos",
       "titleVariants": [
-        "Son, Jy-Eun"
+        "El problema del tiempo pasado en la escritura de estudiantes coreanos"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Jy-Eun Son",
+          "sourceName": "Jy-Eun Son"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37180,6 +37295,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/SonJyEunspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858731",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858731",
+        "previousIndexTitle": "Son, Jy-Eun",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Jy-Eun Son"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858731",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858731",
+        "previousIndexTitle": "Son, Jy-Eun",
+        "matchingScore": 1.0,
+        "previousTitle": "Son, Jy-Eun"
       }
     },
     {
@@ -37358,7 +37497,12 @@
       "titleVariants": [
         "Esparza Díaz, Mayté"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Mayté Esparza Díaz",
+          "sourceName": "Mayté Esparza Díaz"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37390,6 +37534,19 @@
         "sourceIndexUrl": "http://sincronia.cucsh.udg.mx/esparzaspring08.htm",
         "previousTitle": "Esparza D�az, Mayt�",
         "similarity": 0.8947
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577254",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577254",
+        "previousIndexTitle": "Esparza Díaz, Mayté",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Mayté Esparza Díaz"
+        ]
       }
     },
     {
@@ -37397,11 +37554,16 @@
       "sourceId": "legacy:6cfd6ba8c71a838ca28c",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Zeromska, Joanna Magdalena",
+      "title": "La primera carta de relación de Hernán Cortés en los albores de la literatura hispanoamericana",
       "titleVariants": [
-        "Zeromska, Joanna Magdalena"
+        "La primera carta de relación de Hernán Cortés en los albores de la literatura hispanoamericana"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Joanna Magdalena Zeromska",
+          "sourceName": "Joanna Magdalena Zeromska"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37426,6 +37588,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/zeromskaspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858668",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858668",
+        "previousIndexTitle": "Zeromska, Joanna Magdalena",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Joanna Magdalena Zeromska"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858668",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858668",
+        "previousIndexTitle": "Zeromska, Joanna Magdalena",
+        "matchingScore": 1.0,
+        "previousTitle": "Zeromska, Joanna Magdalena"
       }
     },
     {
@@ -37600,11 +37786,16 @@
       "sourceId": "legacy:8bb0f1a623546092156b",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Gilbert, Stephen W.",
+      "title": "Pound and Provence",
       "titleVariants": [
-        "Gilbert, Stephen W."
+        "Pound and Provence"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Stephen W. Gilbert",
+          "sourceName": "Stephen W. Gilbert"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37629,6 +37820,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/gilbertspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577253",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577253",
+        "previousIndexTitle": "Gilbert, Stephen W.",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Stephen W. Gilbert"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577253",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577253",
+        "previousIndexTitle": "Gilbert, Stephen W.",
+        "matchingScore": 1.0,
+        "previousTitle": "Gilbert, Stephen W."
       }
     },
     {
@@ -37731,11 +37946,24 @@
       "sourceId": "legacy:9ab4ae6aa84dc7c70a6f",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Cruz, G., Angeles, J. Garcia, C.",
+      "title": "El conflicto social de la homofonía",
       "titleVariants": [
-        "Cruz, G., Angeles, J. Garcia, C."
+        "El conflicto social de la homofonía"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "G. Cruz",
+          "sourceName": "G. Cruz"
+        },
+        {
+          "name": "J. Ángeles",
+          "sourceName": "J. Ángeles"
+        },
+        {
+          "name": "C. García",
+          "sourceName": "C. García"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37760,6 +37988,32 @@
         "canonical": "http://sincronia.cucsh.udg.mx/cruzspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858686",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858686",
+        "previousIndexTitle": "Cruz, G., Angeles, J. Garcia, C.",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "G. Cruz",
+          "J. Ángeles",
+          "C. García"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2858686",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858686",
+        "previousIndexTitle": "Cruz, G., Angeles, J. Garcia, C.",
+        "matchingScore": 1.0,
+        "previousTitle": "Cruz, G., Angeles, J. Garcia, C."
       }
     },
     {
@@ -37897,11 +38151,16 @@
       "sourceId": "legacy:a895a9aba40f6d85f67e",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Yoon, Bong-Seo",
+      "title": "Vida y ficción en las memorias de Gabriel García Márquez",
       "titleVariants": [
-        "Yoon, Bong-Seo"
+        "Vida y ficción en las memorias de Gabriel García Márquez"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Bong Seo Yoon",
+          "sourceName": "Bong Seo Yoon"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -37926,6 +38185,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/yoonspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577258",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577258",
+        "previousIndexTitle": "Yoon, Bong-Seo",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Bong Seo Yoon"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577258",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577258",
+        "previousIndexTitle": "Yoon, Bong-Seo",
+        "matchingScore": 1.0,
+        "previousTitle": "Yoon, Bong-Seo"
       }
     },
     {
@@ -37988,7 +38271,12 @@
       "titleVariants": [
         "Macías Rodríguez, Claudia"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Claudia Macías Rodríguez",
+          "sourceName": "Claudia Macías Rodríguez"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -38020,6 +38308,19 @@
         "sourceIndexUrl": "http://sincronia.cucsh.udg.mx/maciasspring08.htm",
         "previousTitle": "Mac�as Rodr�guez, Claudia",
         "similarity": 0.92
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577259",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577259",
+        "previousIndexTitle": "Macías Rodríguez, Claudia",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Claudia Macías Rodríguez"
+        ]
       }
     },
     {
@@ -38063,11 +38364,16 @@
       "sourceId": "legacy:d2b0631e87214be938f0",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Yoon, Nakyung",
+      "title": "Las construcciones ditransitivas y su uso por estudiantes coreanos a través del análisis de error",
       "titleVariants": [
-        "Yoon, Nakyung"
+        "Las construcciones ditransitivas y su uso por estudiantes coreanos a través del análisis de error"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Nakyung Yoon",
+          "sourceName": "Nakyung Yoon"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -38092,6 +38398,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/nakyungspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577257",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577257",
+        "previousIndexTitle": "Yoon, Nakyung",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Nakyung Yoon"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577257",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577257",
+        "previousIndexTitle": "Yoon, Nakyung",
+        "matchingScore": 1.0,
+        "previousTitle": "Yoon, Nakyung"
       }
     },
     {
@@ -38099,11 +38429,16 @@
       "sourceId": "legacy:e1b8e713e3947dbcf432",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Jiwon, Park",
+      "title": "Semejanzas y diferencias entre dos cuentos 'angelicales'",
       "titleVariants": [
-        "Jiwon, Park"
+        "Semejanzas y diferencias entre dos cuentos 'angelicales'"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Park Jiwon",
+          "sourceName": "Park Jiwon"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -38128,6 +38463,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/jiwonspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577256",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577256",
+        "previousIndexTitle": "Jiwon, Park",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Park Jiwon"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577256",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577256",
+        "previousIndexTitle": "Jiwon, Park",
+        "matchingScore": 1.0,
+        "previousTitle": "Jiwon, Park"
       }
     },
     {
@@ -38380,7 +38739,12 @@
       "titleVariants": [
         "Velázquez Martínez, Maria Patricia"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "María Patricia Velázquez Martínez",
+          "sourceName": "María Patricia Velázquez Martínez"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -38412,6 +38776,19 @@
         "sourceIndexUrl": "http://sincronia.cucsh.udg.mx/velasquezspring08.htm",
         "previousTitle": "Vel�zquez Mart�nez, Maria Patricia",
         "similarity": 0.9412
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 46,
+        "sourceId": "dialnet:2577251",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2577251",
+        "previousIndexTitle": "Velázquez Martínez, Maria Patricia",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "María Patricia Velázquez Martínez"
+        ]
       }
     },
     {
@@ -39483,11 +39860,16 @@
       "sourceId": "legacy:1ab688232c5dcfaca37a",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Mayorga Rojel,Alberto Javier",
+      "title": "Estado, poder y discurso político en América Latina",
       "titleVariants": [
-        "Mayorga Rojel,Alberto Javier"
+        "Estado, poder y discurso político en América Latina"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Alberto Javier Mayorga Rojel",
+          "sourceName": "Alberto Javier Mayorga Rojel"
+        }
+      ],
       "date": "2009",
       "year": 2009,
       "type": "journal-article",
@@ -39512,6 +39894,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/mayorgaspring09.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 50,
+        "sourceId": "dialnet:3296664",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3296664",
+        "previousIndexTitle": "Mayorga Rojel,Alberto Javier",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Alberto Javier Mayorga Rojel"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 50,
+        "sourceId": "dialnet:3296664",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3296664",
+        "previousIndexTitle": "Mayorga Rojel,Alberto Javier",
+        "matchingScore": 1.0,
+        "previousTitle": "Mayorga Rojel,Alberto Javier"
       }
     },
     {
@@ -39519,11 +39925,16 @@
       "sourceId": "legacy:2942e4dcf99d44afdbf4",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Saganogo,Brahiman,",
+      "title": "El desgaste como estética en El gran burundún-burundá ha muerto de Jorge Zalamea",
       "titleVariants": [
-        "Saganogo,Brahiman,"
+        "El desgaste como estética en El gran burundún-burundá ha muerto de Jorge Zalamea"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Brahiman Saganogo",
+          "sourceName": "Brahiman Saganogo"
+        }
+      ],
       "date": "2009",
       "year": 2009,
       "type": "journal-article",
@@ -39548,6 +39959,30 @@
         "canonical": "http://sincronia.cucsh.udg.mx/saganogospring09.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 50,
+        "sourceId": "dialnet:3296673",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3296673",
+        "previousIndexTitle": "Saganogo,Brahiman,",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Brahiman Saganogo"
+        ]
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-issue-index-used-author-names-instead-of-title",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 50,
+        "sourceId": "dialnet:3296673",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3296673",
+        "previousIndexTitle": "Saganogo,Brahiman,",
+        "matchingScore": 1.0,
+        "previousTitle": "Saganogo,Brahiman,"
       }
     },
     {
@@ -39595,7 +40030,16 @@
       "titleVariants": [
         "García Núñez,Roberto y Bustos Silva,Guillermina"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Roberto García Núñez",
+          "sourceName": "Roberto García Núñez"
+        },
+        {
+          "name": "Guillermina Bustos Silva",
+          "sourceName": "Guillermina Bustos Silva"
+        }
+      ],
       "date": "2009",
       "year": 2009,
       "type": "journal-article",
@@ -39627,6 +40071,20 @@
         "sourceIndexUrl": "http://sincronia.cucsh.udg.mx/garciaspring09.htm",
         "previousTitle": "Garc�a N��ez,Roberto y Bustos Silva,Guillermina",
         "similarity": 0.9362
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 50,
+        "sourceId": "dialnet:3296677",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3296677",
+        "previousIndexTitle": "García Núñez,Roberto y Bustos Silva,Guillermina",
+        "matchingScore": 1.0,
+        "verifiedAuthors": [
+          "Roberto García Núñez",
+          "Guillermina Bustos Silva"
+        ]
       }
     },
     {
@@ -39838,7 +40296,16 @@
       "titleVariants": [
         "Velázquez Martínez, María Patricia y Hernández López"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "María Patricia Velázquez Martínez",
+          "sourceName": "María Patricia Velázquez Martínez"
+        },
+        {
+          "name": "Elizabeth Margarita Hernández López",
+          "sourceName": "Elizabeth Margarita Hernández López"
+        }
+      ],
       "date": "2009",
       "year": 2009,
       "type": "journal-article",
@@ -39870,6 +40337,20 @@
         "sourceIndexUrl": "http://sincronia.cucsh.udg.mx/velazquezspring09.htm",
         "previousTitle": "Vel�zquez Mart�nez, Mar�a Patricia y Hern�ndez L�pez",
         "similarity": 0.9038
+      },
+      "legacyAuthorEvidence": {
+        "kind": "verified-dialnet-author-index-to-article",
+        "auditRunId": 43134086094,
+        "sourceAuditRunId": 43131658279,
+        "sourceIssue": 50,
+        "sourceId": "dialnet:3296685",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3296685",
+        "previousIndexTitle": "Velázquez Martínez, María Patricia y Hernández López",
+        "matchingScore": 0.875,
+        "verifiedAuthors": [
+          "María Patricia Velázquez Martínez",
+          "Elizabeth Margarita Hernández López"
+        ]
       }
     },
     {
