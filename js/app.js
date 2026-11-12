@@ -6039,8 +6039,12 @@ function authorProfileAffiliation(item, label) {
 function renderAuthorOrcidProfile(profile, orcidUrl) {
   if (!profile || !orcidUrl) return "";
 
-  const employment = profile.employments || [];
-  const education = profile.educations || [];
+  const employment = [...(profile.employments || [])].sort((a, b) =>
+    Number(!b.endDate) - Number(!a.endDate) ||
+    Number(b.startDate?.year || 0) - Number(a.startDate?.year || 0));
+  const education = [...(profile.educations || [])].sort((a, b) =>
+    Number(b.endDate?.year || b.startDate?.year || 0) -
+    Number(a.endDate?.year || a.startDate?.year || 0));
   const distinctions = profile.distinctions || [];
   const qualifications = profile.qualifications || [];
   const memberships = profile.memberships || [];
@@ -6097,6 +6101,11 @@ function renderAuthorOrcidProfile(profile, orcidUrl) {
 
       ${profile.biography
         ? `<p class="author-academic-profile-bio">${escapeHtml(profile.biography)}</p>`
+        : profile.error
+          ? `<p class="author-academic-profile-empty">
+              No fue posible consultar el perfil académico de ORCID en esta
+              carga. La bibliografía y las demás fuentes permanecen disponibles.
+            </p>`
         : !hasStructured
           ? `<p class="author-academic-profile-empty">
               Este registro ORCID no publica biografía, empleo, formación ni
@@ -6180,8 +6189,6 @@ function renderAuthorPage(
   const bibliographicSources = [...new Set(works.flatMap(authorWorkSources))];
   const multiSourceWorks = works.filter(work =>
     authorWorkSources(work).length > 1).length;
-  const orcidEvidenceWorks = works.filter(work =>
-    workHasAuthorOrcidEvidence(work, author.orcid)).length;
   const orcidListedWorks = works.filter(work =>
     work.orcidRecord === true || authorWorkSources(work).includes("ORCID")).length;
   const collaboratorCards = collaborationSummary.collaborators.slice(0, 12)
@@ -6400,7 +6407,7 @@ function renderAuthorPage(
         </p>` : ""}
         <p>Fuentes: ${bibliographicSources.length
           ? escapeHtml(bibliographicSources.join(" · "))
-          : "Pendiente de identificar"}. ORCID no cuenta como un catálogo bibliográfico separado.</p>
+          : "Pendiente de identificar"}. ORCID cuenta como registro bibliográfico público cuando una obra está declarada allí; el identificador personal ORCID no se cuenta como fuente adicional.</p>
       </section>
 
       <section class="author-timeline-placeholder" id="author-timeline-root"></section>
