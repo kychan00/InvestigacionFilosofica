@@ -30,6 +30,11 @@ test("las obras y la cronología distinguen fuentes reales del identificador ORC
     ["Crossref", "Internet Archive", "CUCSH Filosofía"]);
   assert.equal(workHasAuthorOrcidEvidence(work, ORCID), true);
   assert.equal(workHasAuthorOrcidEvidence({
+    retrievalMode:"author-index",
+    authorIdentity:{orcid:ORCID},
+    authors:[{name:"Investigador",orcid:ORCID}]
+  }, ORCID), false, "snapshot author identity is not per-publication ORCID proof");
+  assert.equal(workHasAuthorOrcidEvidence({
     authors: [{name: "Coincidencia nominal", id: "https://orcid.org/" + otherOrcid}]
   }, ORCID), false);
 });
