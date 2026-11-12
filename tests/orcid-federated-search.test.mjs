@@ -148,6 +148,55 @@ test("búsqueda temática ORCID filtra las obras ajenas al término consultado",
   );
 });
 
+test("la identidad ya resuelta por el sitio vence a homónimos del índice ORCID", async () => {
+  const expected = "0000-0002-7283-8051";
+  let registryCalled = false;
+  let requestedOrcid = null;
+
+  const found = await searchOrcid(
+    { query: "Mauricio Méndez Huerta", weight: 1, type: "original" },
+    {
+      rows: 4,
+      preferredAuthorResolution: {
+        status: "resolved",
+        author: {
+          displayName: "Mauricio Méndez Huerta",
+          orcid: expected
+        }
+      },
+      searchProfilesImpl: async () => {
+        registryCalled = true;
+        return [{
+          orcid: "0000-0009-9999-9999",
+          displayName: "Mauricio Huerta",
+          institutions: []
+        }];
+      },
+      worksImpl: async orcid => {
+        requestedOrcid = orcid;
+        return {
+          works: [{
+            ...work("Filosofía y adolescencia", 2021),
+            authors: [{
+              name: "Mauricio Méndez Huerta",
+              id: "https://orcid.org/" + expected,
+              orcid: "https://orcid.org/" + expected
+            }],
+            orcidEvidence: expected
+          }]
+        };
+      }
+    }
+  );
+
+  assert.equal(registryCalled, false);
+  assert.equal(requestedOrcid, expected);
+  assert.equal(found.length, 1);
+  assert.equal(found[0].orcidSearch.identitySource, "resolved-author");
+  assert.equal(found[0].orcidSearch.authorQuery, true);
+});
+
+
 test("ORCID exacto evita la búsqueda nominal y pagina las obras del registro", async () => {
   let searched = false;
   const all = Array.from({ length: 9 }, (_, index) =>
