@@ -437,6 +437,86 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_issue18_poveda_dean_restoration(before, after):
+    """Allow exactly two institutionally sourced issue-18 identity repairs."""
+    approved = {
+        "cucsh:sincronia-legacy:100ad9b6aca92238c28b": (
+            "Poveda, David",
+            "Estructura e identidad en las narraciones escolares de un niño gitano",
+            ["David Poveda Bicknell"],
+            "poveda.htm",
+            "https://portalinvestigacion.consorciomadrono.es/authors/10296.html?page=9&pageType=conference&sortBy=dateAsc",
+            "https://recursoshumanos.unizar.es/sites/recursoshumanos/files/curriculums/310718/2024-119_08.pdf",
+            "institutional-author-profile-plus-cv-journal-year-title",
+        ),
+        "cucsh:sincronia-legacy:d9a2cdc5ea4378b3a96b": (
+            "Dean , Jennifer",
+            "El cambio de código, like a Rock",
+            ["Jennifer Dean"],
+            "dean1.htm",
+            "https://digibug.ugr.es/bitstream/handle/10481/924/16077507.pdf?isAllowed=y&sequence=1",
+            "https://produccioncientifica.ugr.es/documentos/618f4fa19ff8c939aaca52a8",
+            "university-doctoral-thesis-exact-original-url-citation",
+        ),
+    }
+    item = approved.get(before.get("id"))
+    if item is None or before.get("id") != after.get("id"):
+        return False
+    old, title, authors, suffix, source, supporting, kind = item
+    original = (before.get("urls") or {}).get("canonical") or ""
+    variants = before.get("titleVariants") or []
+    expected_variants = list(dict.fromkeys([title, *variants, old]))
+    proof = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 18
+        or before.get("year") != 2001
+        or before.get("title") != old
+        or after.get("title") != title
+        or after.get("titleVariants") != expected_variants
+        or not isinstance(variants, list)
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not original.lower().endswith("/" + suffix)
+        or not isinstance(proof, dict)
+        or not isinstance(byline, dict)
+        or proof.get("kind") != kind
+        or proof.get("previousTitle") != old
+        or proof.get("previousTitleVariants") != variants
+        or proof.get("verifiedTitle") != title
+        or proof.get("verifiedAuthors") != authors
+        or proof.get("sourceUrl") != source
+        or proof.get("supportingSourceUrl") != supporting
+        or proof.get("sourceArticleUrl") != original
+        or proof.get("matchedIssueNumber") != 18
+        or proof.get("matchedYear") != 2001
+        or proof.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != kind
+        or byline.get("sourceUrl") != source
+        or byline.get("supportingSourceUrl") != supporting
+        or byline.get("verifiedAuthors") != authors
+        or byline.get("verifiedTitle") != title
+        or byline.get("sourceArticleUrl") != original
+        or byline.get("matchedIssueNumber") != 18
+        or byline.get("matchedYear") != 2001
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != authors
+    ):
+        return False
+    allowed = {
+        "title", "titleVariants", "authors",
+        "legacyIndexMislabelEvidence", "legacyAuthorEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in allowed
+    )
+
+
 def safe_romero_botto_restoration(before, after):
     """Exactly one source-backed author and title repair with two cited variants."""
     rid = "cucsh:sincronia-legacy:637cb309cca6fc5f3dbf"
@@ -1503,6 +1583,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_romero_botto_restoration(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_issue18_poveda_dean_restoration(
             before_by_id[key], after_by_id[key]
         )
     ]
