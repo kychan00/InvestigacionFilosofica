@@ -9,6 +9,8 @@ on:
       - "tests/test_cucsh_sincronia_historical_audit.py"
       - ".github/workflows/cucsh-sincronia-historical-quality.yml"
       - "src/data/cucsh-filosofia.json"
+      - "scripts/cucsh/audit_sincronia_pending_authors.py"
+      - "tests/test_cucsh_sincronia_pending_authors.py"
   workflow_dispatch:
 
 permissions:
@@ -29,6 +31,13 @@ jobs:
           python-version: "3.13"
       - name: Verify audit rules
         run: python3 -m unittest tests.test_cucsh_sincronia_historical_audit
+      - name: Test pending-author audit safeguards
+        run: python3 -m unittest tests.test_cucsh_sincronia_pending_authors
+      - name: Produce evidence-only pending-author review queue
+        run: |
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-pending-authors.json
       - name: Produce issue-by-issue evidence and review queue
         run: |
           python3 -m scripts.cucsh.audit_sincronia_historical \
@@ -39,5 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sincronia-historical-quality-${{ github.run_id }}
-          path: /tmp/sincronia-historical-quality.json
+          path: |
+            /tmp/sincronia-historical-quality.json
+            /tmp/sincronia-pending-authors.json
           retention-days: 30
