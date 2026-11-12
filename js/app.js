@@ -51,7 +51,7 @@ import {
   workHasAuthorOrcidEvidence
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261112-author-orcid-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261112-orcid-registry-full-v2";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -210,6 +210,7 @@ let authorTimelineState = {
 let authorArchiveLoading = false;
 let authorArchiveNotice = "";
 let authorArchiveSources = [];
+let authorArchiveOrcidSummary = null;
 
 const qwen3OptIn =
   isQwen3BrowserQ8OptIn(
@@ -4769,6 +4770,7 @@ function showExclusiveAuthorWorks(
   if (options.resetTimeline) {
     authorArchiveNotice = "";
     authorArchiveSources = [];
+    authorArchiveOrcidSummary = null;
     authorTimelineState = {
       unit: "year",
       selectedKey: null,
@@ -4825,8 +4827,8 @@ function showExclusiveAuthorWorks(
   }
 
   status.textContent = authorArchiveLoading
-    ? `${currentResults.length} obras verificadas de ${resolution.author.displayName} · búsqueda profunda en curso…`
-    : `${currentResults.length} obras verificadas de ${resolution.author.displayName}${authorArchiveNotice ? " · " + authorArchiveNotice : ""}`;
+    ? `${currentResults.length} obras recuperadas de ${resolution.author.displayName} · búsqueda profunda en curso…`
+    : `${currentResults.length} obras recuperadas de ${resolution.author.displayName}${authorArchiveNotice ? " · " + authorArchiveNotice : ""}`;
 
   researchWorkspace
     ?.classList
@@ -4873,6 +4875,7 @@ function restoreAuthorSourceSearch() {
   authorArchiveLoading = false;
   authorArchiveNotice = "";
   authorArchiveSources = [];
+  authorArchiveOrcidSummary = null;
   authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
@@ -5256,19 +5259,20 @@ async function openExclusiveAuthorByName(
           },
           initialWorks: resolution.works,
           signal: authorController.signal,
-          onProgress: ({works,source,phase,sources,errors}) => {
+          onProgress: ({works,source,phase,sources,errors,orcidSummary}) => {
             if (
               authorController.signal.aborted ||
               currentController !== authorController
             ) return;
 
             authorArchiveSources = sources;
+            authorArchiveOrcidSummary = orcidSummary;
             authorArchiveNotice =
               phase === "started"
                 ? (resolution.author?.id
                   ? "Consultando el corpus filosófico y fuentes bibliográficas…"
-                  : "Integrando bibliografía verificada y ampliando en Crossref, Internet Archive y catálogos institucionales…")
-                : `Consulta de ${source}: ${works.length} obras verificadas`;
+                  : "Consultando ORCID, Crossref, Internet Archive y catálogos institucionales…")
+                : `Consulta de ${source}: ${works.length} obras recuperadas`;
 
             // Do not discard the initial results or collapse the
             // user's selected year/month after each new page.
@@ -5292,6 +5296,7 @@ async function openExclusiveAuthorByName(
         ) return;
 
         authorArchiveSources = deep.sources;
+        authorArchiveOrcidSummary = deep.orcidSummary;
         authorArchiveNotice = deep.errors.length
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
@@ -5996,6 +6001,8 @@ function renderAuthorPage(
     authorWorkSources(work).length > 1).length;
   const orcidEvidenceWorks = works.filter(work =>
     workHasAuthorOrcidEvidence(work, author.orcid)).length;
+  const orcidListedWorks = works.filter(work =>
+    work.orcidRecord === true || authorWorkSources(work).includes("ORCID")).length;
   const collaboratorCards = collaborationSummary.collaborators.slice(0, 12)
     .map(person => `
       <a class="author-coauthor-link"
@@ -6087,13 +6094,7 @@ function renderAuthorPage(
     author.wikidataId
       ? `https://www.wikidata.org/wiki/${author.wikidataId}`
       : null;
-  const orcidUrl = author.orcid
-    ? (
-        author.orcid.startsWith("http")
-          ? author.orcid
-          : `https://orcid.org/${author.orcid}`
-      )
-    : null;
+  const orcidUrl = authorOrcidUrl(author.orcid);
   const corpusNotice =
     federatedCatalog
       ? `${summary.loadedWorks} registros con autoría documentada en los catálogos consultados, incluidas variantes de nombre y obras colectivas; no afirma exhaustividad.`
@@ -6159,9 +6160,9 @@ function renderAuthorPage(
           </div>
           ${orcidUrl ? `
             <p class="author-orcid-explainer">
-              ORCID identifica a este investigador. Las publicaciones marcadas
-              «ORCID en metadatos» tienen un vínculo bibliográfico explícito;
-              el resto conserva su nivel de atribución original.
+              ORCID identifica este perfil. «Registrada en ORCID» significa que
+              la publicación aparece en el registro público del investigador;
+              no constituye verificación editorial independiente.
             </p>` : ""}
         </div>
 
@@ -6201,7 +6202,17 @@ function renderAuthorPage(
       <section class="author-page-source-summary" aria-label="Procedencia de publicaciones">
         <div><strong>${bibliographicSources.length}</strong><span>fuentes bibliográficas identificadas</span></div>
         <div><strong>${multiSourceWorks}</strong><span>obras presentes en varias fuentes</span></div>
-        <div><strong>${orcidEvidenceWorks}</strong><span>obras con vínculo ORCID en metadatos</span></div>
+        <div><strong>${orcidListedWorks}</strong><span>obras registradas en ORCID</span></div>
+        ${identifiedOrcid ? `<p class="author-orcid-coverage">
+          ${authorArchiveOrcidSummary?.totalGroups != null
+            ? `ORCID devuelve ${authorArchiveOrcidSummary.totalGroups} grupos de obras públicas; ${authorArchiveOrcidSummary.returnedWorks} contienen títulos utilizables. Tras unificar fuentes, ${orcidListedWorks} permanecen en el archivo.`
+            : authorArchiveOrcidSummary?.error
+              ? "No se pudo consultar directamente ORCID. El catálogo está parcial."
+              : authorArchiveLoading
+                ? "Recuperando las obras públicas del registro ORCID…"
+                : "Cobertura ORCID no verificada; consulte su registro público."}
+          ${orcidUrl ? `<a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">Ver registro ORCID</a>` : ""}
+        </p>` : ""}
         <p>Fuentes: ${bibliographicSources.length
           ? escapeHtml(bibliographicSources.join(" · "))
           : "Pendiente de identificar"}. ORCID no cuenta como un catálogo bibliográfico separado.</p>
