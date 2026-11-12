@@ -24332,11 +24332,18 @@
       "sourceId": "legacy:a560672620601b8a849e",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Vidaurri Arena, Carmen Vitalia",
+      "title": "Diego Velázquez: La Venus del espejo",
       "titleVariants": [
+        "Diego Velázquez: La Venus del espejo",
+        "VELÁZQUEZ: LA VENUS DEL ESPEJO",
         "Vidaurri Arena, Carmen Vitalia"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Carmen V. Vidaurre Arenas",
+          "sourceName": "Carmen V. Vidaurre Arenas"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -24369,6 +24376,39 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "author-reproduced-original-winter-issue-and-heading",
+        "previousTitle": "Vidaurri Arena, Carmen Vitalia",
+        "previousTitleVariants": [
+          "Vidaurri Arena, Carmen Vitalia"
+        ],
+        "verifiedTitle": "Diego Velázquez: La Venus del espejo",
+        "originalHeading": "VELÁZQUEZ: LA VENUS DEL ESPEJO",
+        "verifiedAuthors": [
+          "Carmen V. Vidaurre Arenas"
+        ],
+        "sourceUrl": "https://www.academia.edu/8658332/Diego_Vel%C3%A1zquez_La_Venus_del_espejo",
+        "supportingSourceUrl": "https://www.researchgate.net/publication/266740368_Diego_Velazquez_La_Venus_del_espejo",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/vidauri2.htm",
+        "matchedIssueNumber": 13,
+        "matchedYear": 2000,
+        "originalAvailabilityPreserved": true,
+        "note": "Author-hosted Academia reproduction identifies Sincronía nº 13 (winter 1999-2000), Carmen V. Vidaurre Arenas and the original heading VELÁZQUEZ: LA VENUS DEL ESPEJO. ResearchGate independently reproduces the same issue metadata and text. Historical vidauri2.htm is preserved as the indexed URL without claiming live access."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "author-reproduced-original-winter-issue-and-heading",
+        "sourceUrl": "https://www.academia.edu/8658332/Diego_Vel%C3%A1zquez_La_Venus_del_espejo",
+        "supportingSourceUrl": "https://www.researchgate.net/publication/266740368_Diego_Velazquez_La_Venus_del_espejo",
+        "verifiedAuthors": [
+          "Carmen V. Vidaurre Arenas"
+        ],
+        "verifiedTitle": "Diego Velázquez: La Venus del espejo",
+        "originalHeading": "VELÁZQUEZ: LA VENUS DEL ESPEJO",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/vidauri2.htm",
+        "matchedIssueNumber": 13,
+        "matchedYear": 2000,
+        "originalAvailabilityPreserved": true
       }
     },
     {
