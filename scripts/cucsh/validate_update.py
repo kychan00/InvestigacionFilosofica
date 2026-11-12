@@ -437,6 +437,71 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_romero_botto_restoration(before, after):
+    """Exactly one source-backed author and title repair with two cited variants."""
+    rid = "cucsh:sincronia-legacy:637cb309cca6fc5f3dbf"
+    old = "Romero, Raúl E."
+    title = "António Botto: la voz diferente"
+    short = "La voz diferente"
+    author = "Raúl E. Romero"
+    usp = "https://revistas.usp.br/viaatlantica/pt_BR/article/download/140073/147134/309500"
+    unesp = "https://repositorio.unesp.br/server/api/core/bitstreams/7eaa8fc1-4110-4cf3-86e0-f0e6eef7f5ee/content"
+    original_url = (before.get("urls") or {}).get("canonical") or ""
+    original_variants = before.get("titleVariants") or []
+    expected_variants = list(dict.fromkeys([title, short, *original_variants, old]))
+    proof = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    if (
+        before.get("id") != rid
+        or after.get("id") != rid
+        or before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 13
+        or before.get("year") != 2000
+        or before.get("title") != old
+        or after.get("title") != title
+        or not isinstance(original_variants, list)
+        or after.get("titleVariants") != expected_variants
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not original_url.lower().endswith("/botto.htm")
+        or not isinstance(proof, dict)
+        or not isinstance(byline, dict)
+        or proof.get("kind") != "two-university-citations-with-exact-original-article-url"
+        or proof.get("previousTitle") != old
+        or proof.get("previousTitleVariants") != original_variants
+        or proof.get("verifiedTitle") != title
+        or proof.get("citedShortTitle") != short
+        or proof.get("verifiedAuthors") != [author]
+        or proof.get("sourceUrl") != usp
+        or proof.get("independentSourceUrl") != unesp
+        or proof.get("sourceArticleUrl") != original_url
+        or proof.get("matchedIssueNumber") != 13
+        or proof.get("matchedYear") != 2000
+        or proof.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != "two-university-author-and-exact-original-url-citations"
+        or byline.get("sourceUrl") != usp
+        or byline.get("independentSourceUrl") != unesp
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("verifiedTitle") != title
+        or byline.get("sourceArticleUrl") != original_url
+        or byline.get("matchedIssueNumber") != 13
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    allowed = {
+        "title", "titleVariants", "authors",
+        "legacyIndexMislabelEvidence", "legacyAuthorEvidence",
+    }
+    return all(
+        before.get(k) == after.get(k)
+        for k in set(before) | set(after)
+        if k not in allowed
+    )
+
+
 def safe_two_2000_exact_url_recoveries(before, after):
     """Immutable two-work bibliography allowlist, separate from backfill code."""
     approved = {
@@ -1435,6 +1500,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_two_2000_exact_url_recoveries(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_romero_botto_restoration(
             before_by_id[key], after_by_id[key]
         )
     ]
