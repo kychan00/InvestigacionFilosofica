@@ -81,7 +81,7 @@ test("las dos obras de Ángeles Eraña se amplían SIN red de OpenAlex",async()=
   assert.ok(snapshotCalled&&federatedCalled);
   assert.equal(result.works.length,4);
   assert.deepEqual(new Set(result.sources),
-    new Set([AUTHOR_SNAPSHOT_SOURCE,"Crossref"]));
+    new Set([AUTHOR_SNAPSHOT_SOURCE,"Crossref","Crossref · ORCID"]));
   assert.equal(result.snapshotComplete,true);
   assert.equal(states[0].works.length,2);
   assert.equal(states.at(-1).works.length,4);
