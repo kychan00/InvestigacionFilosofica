@@ -19,7 +19,7 @@
     })();
   </script>
   <title>Sincronía · Investigación Filosófica</title>
-  <link rel="stylesheet" href="../../css/journal-page.css?v=20261111-v1">
+  <link rel="stylesheet" href="../../css/journal-page.css?v=20261111-v2">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261111-sidebar-v2">
 </head>
 <body data-journal="sincronia">
@@ -128,10 +128,19 @@
       <section id="journal-atlas-panel" class="journal-panel" hidden aria-label="Atlas semántico">
         <div class="journal-atlas-shell">
           <div class="journal-atlas-stage">
-            <canvas id="journal-atlas-canvas" aria-label="Red semántica de artículos"></canvas>
+            <canvas id="journal-atlas-canvas" tabindex="0" aria-label="Red semántica interactiva de artículos"></canvas>
             <div class="journal-atlas-floating">
-              <p id="journal-atlas-status">Abra el Atlas para construir la topología del corpus visible.</p>
-              <button id="journal-qwen-toggle" class="journal-qwen-toggle" type="button" aria-pressed="false">Activar capa Qwen</button>
+              <div class="journal-atlas-status-group">
+                <p id="journal-atlas-status">Abra el Atlas para construir la topología del corpus visible.</p>
+                <p class="journal-atlas-help">Arrastre el fondo para moverse · arrastre nodos para reorganizar · use la rueda o los controles para acercar.</p>
+              </div>
+              <div id="journal-atlas-controls" class="journal-atlas-toolbar" role="group" aria-label="Controles del Atlas">
+                <button type="button" data-atlas-action="zoom-out" aria-label="Alejar">−</button>
+                <button type="button" data-atlas-action="zoom-in" aria-label="Acercar">+</button>
+                <button type="button" data-atlas-action="fit">Encuadrar</button>
+                <button type="button" data-atlas-action="reset">Reordenar</button>
+                <button id="journal-qwen-toggle" class="journal-qwen-toggle" type="button" aria-pressed="false">Activar capa Qwen</button>
+              </div>
             </div>
           </div>
           <aside class="journal-atlas-aside">
@@ -178,7 +187,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261111-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261111-v2"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-v2"></script>
 </body>
 </html>
