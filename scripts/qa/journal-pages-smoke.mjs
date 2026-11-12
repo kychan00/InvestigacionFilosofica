@@ -9,7 +9,7 @@ const records = [
   {
     id: "cucsh:p1", sourceId: "p1", journal: "Protrepsis",
     title: "Ética, responsabilidad y vida común", year: 2024, language: "es",
-    authors: [{ name: "Ana Pérez" }], doi: "10.32870/example.p1",
+    authors: [{ name: "Ana Pérez" }], doi: "10.32870/prot.i20.279",
     abstract: "La ética y la responsabilidad articulan problemas de justicia y vida común.",
     subjects: ["Ética", "Responsabilidad"],
     urls: { canonical: "https://example.org/p1" }
@@ -17,7 +17,7 @@ const records = [
   {
     id: "cucsh:p2", sourceId: "p2", journal: "Protrepsis",
     title: "Justicia política y responsabilidad", year: 2021, language: "es",
-    authors: [{ name: "Luis Gómez" }], doi: null,
+    authors: [{ name: "Luis Gómez" }], doi: "10.32870/prot.i20.280",
     abstract: "Discusión sobre justicia política, responsabilidad y comunidad.",
     subjects: ["Filosofía política"],
     urls: { canonical: "https://example.org/p2" }
@@ -25,22 +25,22 @@ const records = [
   {
     id: "cucsh:p3", sourceId: "p3", journal: "Protrepsis",
     title: "Lenguaje y verdad", year: 2018, language: "en",
-    authors: [{ name: "María López" }], doi: null,
+    authors: [{ name: "María López" }], doi: "10.32870/prot.i18.267",
     abstract: "Lenguaje, significado y verdad en la discusión filosófica.",
     subjects: ["Lenguaje"],
     urls: { canonical: "https://example.org/p3" }
   },
   {
-    id: "cucsh:s1", sourceId: "s1", journal: "Sincronía",
-    title: "Memoria, cultura y sociedad", year: 2023, language: "es",
+    id: "cucsh:s1", sourceId: "s1", journal: "Sincronía", issueNumber: 90,
+    title: "Memoria, cultura y sociedad", year: 2026, language: "es",
     authors: [{ name: "Diana Ruiz" }], doi: null,
     abstract: "Memoria cultural y sociedad se cruzan en prácticas contemporáneas.",
     subjects: ["Cultura", "Memoria"],
     urls: { canonical: "https://example.org/s1" }
   },
   {
-    id: "cucsh:s2", sourceId: "s2", journal: "Sincronía",
-    title: "Cultura digital y memoria", year: 2020, language: "es",
+    id: "cucsh:s2", sourceId: "s2", journal: "Sincronía", issueNumber: 90,
+    title: "Cultura digital y memoria", year: 2026, language: "es",
     authors: [{ name: "Diana Ruiz" }], doi: null,
     abstract: "Tecnología digital, cultura y memoria como espacios de relación.",
     subjects: ["Tecnología", "Cultura"],
@@ -49,7 +49,7 @@ const records = [
   {
     id: "cucsh:q1", sourceId: "q1", journal: "Quadripartita Ratio",
     title: "Argumentación, lógica y diálogo", year: 2024, language: "es",
-    authors: [{ name: "Carlos Vega" }], doi: "10.32870/example.q1",
+    authors: [{ name: "Carlos Vega" }], doi: "10.32870/qr.v9i17.185",
     abstract: "Argumentación y lógica formal en contextos de diálogo filosófico.",
     subjects: ["Argumentación", "Lógica"],
     urls: { canonical: "https://example.org/q1" }
@@ -57,7 +57,7 @@ const records = [
   {
     id: "cucsh:q2", sourceId: "q2", journal: "Quadripartita Ratio",
     title: "Razones y estructuras argumentativas", year: 2019, language: "es",
-    authors: [{ name: "Irene Mora" }], doi: null,
+    authors: [{ name: "Irene Mora" }], doi: "10.32870/qr.v9i17.186",
     abstract: "Estructuras de argumentación, razones e inferencias.",
     subjects: ["Argumentación"],
     urls: { canonical: "https://example.org/q2" }
@@ -120,14 +120,28 @@ try {
       );
       assert.ok(cardGap >= 14, journal + " " + name + " cards need breathing room");
       assert.ok(await page.locator("#journal-category option").count() >= 2);
+      assert.ok(await page.locator("#journal-issue option").count() >= 2);
+      assert.ok(await page.locator(".issue-taxonomy-chip").count() >= 1);
+      if (width <= 820) {
+        assert.equal(await page.locator("#journal-filter-toggle").getAttribute("aria-expanded"), "false");
+        assert.equal(await page.locator(".journal-filter-body").isVisible(), false);
+        await page.locator("#journal-filter-toggle").click();
+        assert.equal(await page.locator(".journal-filter-body").isVisible(), true);
+      }
       assert.equal(await page.locator("#journal-qwen-toggle").getAttribute("aria-pressed"), "false");
 
       await page.locator('[data-journal-view="atlas"]').click();
       await page.waitForFunction(() =>
         document.querySelector("#journal-atlas-status")?.textContent.includes("nodos")
       );
-      assert.match(await page.locator("#journal-atlas-status").innerText(), /0 vectores Qwen verificados/);
+      assert.match(await page.locator("#journal-atlas-status").innerText(), /0 vectores Qwen/);
       assert.equal(external.length, 0, "Qwen/network must remain opt-in");
+      const edgeCount = Number(await page.locator("#journal-atlas-canvas").getAttribute("data-atlas-edges"));
+      const issueCount = Number(await page.locator("#journal-atlas-canvas").getAttribute("data-atlas-issues"));
+      if (expected >= 3) assert.ok(edgeCount >= 2, journal + " must keep multiple semantic neighbors");
+      else assert.ok(edgeCount >= 1, journal + " must keep at least one semantic neighbor");
+      assert.ok(issueCount >= 1, journal + " must expose editorial issue clusters");
+      if (journal === "protrepsis") assert.ok(issueCount >= 2, "Protrepsis fixture must split issue colors");
 
       const canvasLocator = page.locator("#journal-atlas-canvas");
       await canvasLocator.scrollIntoViewIfNeeded();

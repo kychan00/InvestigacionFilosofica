@@ -1,4 +1,8 @@
-import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261111-v2";
+import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261111-v3";
+import {
+  journalIssueGroups,
+  journalIssueInfo
+} from "./journal-issues.js?v=20261111-v1";
 
 const SITE_ROOT = new URL("../", import.meta.url);
 const DATA_URL = new URL("src/data/cucsh-filosofia.json", SITE_ROOT);
@@ -78,6 +82,7 @@ const state = {
   decade: "all",
   language: "all",
   category: "all",
+  issue: "all",
   doiOnly: false,
   abstractOnly: false,
   sort: "newest",
@@ -94,6 +99,7 @@ const el = {
   query: document.querySelector("#journal-query"),
   decade: document.querySelector("#journal-decade"),
   language: document.querySelector("#journal-language"),
+  issue: document.querySelector("#journal-issue"),
   category: document.querySelector("#journal-category"),
   doiOnly: document.querySelector("#journal-doi-only"),
   abstractOnly: document.querySelector("#journal-abstract-only"),
@@ -103,6 +109,7 @@ const el = {
   results: document.querySelector("#journal-card-grid"),
   loadMore: document.querySelector("#journal-load-more"),
   categories: document.querySelector("#journal-category-chips"),
+  issues: document.querySelector("#journal-issue-chips"),
   topics: document.querySelector("#journal-topic-chips"),
   authorsList: document.querySelector("#journal-author-chips"),
   archivePanel: document.querySelector("#journal-archive-panel"),
@@ -115,6 +122,8 @@ const el = {
   atlasControls: document.querySelector("#journal-atlas-controls"),
   qwenToggle: document.querySelector("#journal-qwen-toggle"),
   qwenNote: document.querySelector("#journal-qwen-note"),
+  filterToggle: document.querySelector("#journal-filter-toggle"),
+  filterBlock: document.querySelector(".journal-filter-block"),
   tabs: [...document.querySelectorAll("[data-journal-view]")]
 };
 
@@ -220,6 +229,7 @@ function filteredRecords() {
     if (query && !recordText(record).includes(query)) return false;
     if (state.decade !== "all" && decadeFor(record.year) !== state.decade) return false;
     if (state.language !== "all" && String(record.language || "s/f") !== state.language) return false;
+    if (state.issue !== "all" && journalIssueInfo(record).key !== state.issue) return false;
     if (state.category !== "all" && categoryFor(record) !== state.category) return false;
     if (state.doiOnly && !record.doi) return false;
     if (state.abstractOnly && !record.abstract) return false;
@@ -258,8 +268,12 @@ function card(record, index) {
 
   const pins = document.createElement("div");
   pins.className = "journal-card-pins";
+  const issue = journalIssueInfo(record);
+  const issueChip = chip(issue.label, "pin-issue");
+  issueChip.style.setProperty("--issue-color", issue.color);
   pins.append(
     chip(record.year || "s/f", "pin-year"),
+    issueChip,
     chip(record.language || "idioma s/f", "pin-language")
   );
   if (record.doi) pins.append(chip("DOI", "pin-doi"));
@@ -318,6 +332,7 @@ function card(record, index) {
     "<dl>" +
     "<div><dt>Revista</dt><dd>" + escapeHtml(record.journal || config.label) + "</dd></div>" +
     "<div><dt>DOI</dt><dd>" + escapeHtml(record.doi || "No indicado") + "</dd></div>" +
+    "<div><dt>Número editorial</dt><dd>" + escapeHtml(journalIssueInfo(record).label) + "</dd></div>" +
     "<div><dt>Categoría</dt><dd>" + escapeHtml(categoryFor(record)) + " <small>derivada para navegación</small></dd></div>" +
     "<div><dt>Temas declarados</dt><dd>" + escapeHtml((record.subjects || []).join(" · ") || "No indicados") + "</dd></div>" +
     "</dl>";
@@ -344,8 +359,8 @@ function fillSelect(select, rows, allLabel) {
   if (!select) return;
   const current = select.value;
   select.replaceChildren(new Option(allLabel, "all"));
-  for (const [value, count] of rows) {
-    select.append(new Option(value + " · " + count, value));
+  for (const [value, count, displayLabel] of rows) {
+    select.append(new Option((displayLabel || value) + " · " + count, value));
   }
   if ([...select.options].some(option => option.value === current)) select.value = current;
 }
@@ -362,6 +377,18 @@ function buildTaxonomy() {
 
   fillSelect(el.decade, frequency(state.records.map(row => decadeFor(row.year))), "Todas las décadas");
   fillSelect(el.language, frequency(state.records.map(row => String(row.language || "s/f"))), "Todos los idiomas");
+  fillSelect(
+    el.issue,
+    journalIssueGroups(state.records).map(group => [group.key, group.count, group.label]),
+    "Todos los números"
+  );
+  if (el.issue) {
+    [...el.issue.options].forEach(option => {
+      if (option.value === "all") return;
+      const group = journalIssueGroups(state.records).find(item => item.key === option.value);
+      if (group) option.textContent = group.label + " · " + group.count;
+    });
+  }
   fillSelect(el.category, allCategories(), "Todas las categorías");
 
   el.categories.replaceChildren();
@@ -378,6 +405,23 @@ function buildTaxonomy() {
       renderArchive();
     });
     el.categories.append(button);
+  }
+
+  el.issues?.replaceChildren();
+  for (const group of journalIssueGroups(state.records).slice(0, 16)) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "taxonomy-chip issue-taxonomy-chip";
+    button.style.setProperty("--chip-color", group.color);
+    button.innerHTML = "<span>" + escapeHtml(group.label) + "</span><strong>" + group.count + "</strong>";
+    button.addEventListener("click", () => {
+      state.issue = group.key;
+      if (el.issue) el.issue.value = group.key;
+      state.limit = PAGE_SIZE;
+      renderArchive();
+      if (state.view === "atlas") buildAtlas();
+    });
+    el.issues?.append(button);
   }
 
   const subjects = frequency(state.records.flatMap(row => row.subjects || []));
@@ -407,6 +451,7 @@ function resetFilters() {
   state.decade = "all";
   state.language = "all";
   state.category = "all";
+  state.issue = "all";
   state.doiOnly = false;
   state.abstractOnly = false;
   state.sort = "newest";
@@ -414,6 +459,7 @@ function resetFilters() {
   el.query.value = "";
   el.decade.value = "all";
   el.language.value = "all";
+  if (el.issue) el.issue.value = "all";
   el.category.value = "all";
   el.doiOnly.checked = false;
   el.abstractOnly.checked = false;
@@ -447,7 +493,8 @@ async function buildAtlas() {
   try {
     await atlas.build(filteredRecords(), {
       categoryFor,
-      colorFor: record => CATEGORY_COLORS[categoryFor(record)] || config.accent
+      issueFor: journalIssueInfo,
+      colorFor: record => journalIssueInfo(record).color
     });
   } catch (error) {
     if (error?.name === "AbortError") return;
@@ -465,6 +512,7 @@ function wire() {
   for (const [control, key] of [
     [el.decade, "decade"],
     [el.language, "language"],
+    [el.issue, "issue"],
     [el.category, "category"],
     [el.sort, "sort"]
   ]) {
@@ -479,11 +527,13 @@ function wire() {
     state.doiOnly = event.target.checked;
     state.limit = PAGE_SIZE;
     renderArchive();
+    if (state.view === "atlas") buildAtlas();
   });
   el.abstractOnly?.addEventListener("change", event => {
     state.abstractOnly = event.target.checked;
     state.limit = PAGE_SIZE;
     renderArchive();
+    if (state.view === "atlas") buildAtlas();
   });
   el.reset?.addEventListener("click", resetFilters);
   el.loadMore?.addEventListener("click", () => {
@@ -491,6 +541,34 @@ function wire() {
     renderArchive();
   });
   for (const tab of el.tabs) tab.addEventListener("click", () => switchView(tab.dataset.journalView));
+
+  const syncFilterDisclosure = () => {
+    if (!el.filterBlock || !el.filterToggle) return;
+    const compact = matchMedia("(max-width: 820px)").matches;
+    if (!compact) {
+      el.filterBlock.classList.remove("is-collapsed");
+      el.filterToggle.setAttribute("aria-expanded", "true");
+      el.filterToggle.textContent = "Ocultar";
+      return;
+    }
+    if (!el.filterBlock.dataset.mobileInitialized) {
+      el.filterBlock.classList.add("is-collapsed");
+      el.filterBlock.dataset.mobileInitialized = "true";
+    }
+    const open = !el.filterBlock.classList.contains("is-collapsed");
+    el.filterToggle.setAttribute("aria-expanded", String(open));
+    el.filterToggle.textContent = open ? "Ocultar" : "Mostrar filtros";
+  };
+
+  el.filterToggle?.addEventListener("click", () => {
+    el.filterBlock?.classList.toggle("is-collapsed");
+    const open = !el.filterBlock?.classList.contains("is-collapsed");
+    el.filterToggle.setAttribute("aria-expanded", String(open));
+    el.filterToggle.textContent = open ? "Ocultar" : "Mostrar filtros";
+  });
+  addEventListener("resize", syncFilterDisclosure, { passive: true });
+  syncFilterDisclosure();
+
   el.qwenToggle?.addEventListener("click", () => {
     const active = el.qwenToggle.getAttribute("aria-pressed") !== "true";
     el.qwenToggle.setAttribute("aria-pressed", String(active));
