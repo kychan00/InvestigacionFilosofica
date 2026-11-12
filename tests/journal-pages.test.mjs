@@ -20,7 +20,8 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /journal-topic-chips/);
     assert.match(html, /journal-author-chips/);
     assert.match(html, /temas declarados/i);
-    assert.match(html, /categor[ií]as de navegaci[oó]n/i);
+    assert.match(html, /id="journal-category"/);
+    assert.match(html, /Categor[ií]a de navegaci[oó]n/i);
   });
 }
 
