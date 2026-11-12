@@ -342,6 +342,21 @@ async function searchExpansion(
             profilesPerPage:
               options.orcid.profilesPerPage,
 
+            profileCandidates:
+              options.orcid.profileCandidates,
+
+            preferredOrcid:
+              options.orcid.preferredOrcid,
+
+            preferredName:
+              options.orcid.preferredName,
+
+            preferredAuthorResolution:
+              options.orcid.preferredAuthorResolution,
+
+            preferredAuthorPromise:
+              options.orcid.preferredAuthorPromise,
+
             page:
               1,
 
@@ -930,6 +945,18 @@ export async function searchMorePhilosophy(
 
               profilesPerPage:
                 settings.orcid.profilesPerPage,
+
+              profileCandidates:
+                settings.orcid.profileCandidates,
+
+              preferredOrcid:
+                settings.orcid.preferredOrcid,
+
+              preferredName:
+                settings.orcid.preferredName,
+
+              preferredAuthorResolution:
+                settings.orcid.preferredAuthorResolution,
 
               page:
                 nextBatch,
