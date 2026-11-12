@@ -1,0 +1,126 @@
+name: Sincronía · five Dialnet-verified articles from issues 46 and 47
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-dialnet-46-47.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-dialnet-46-47-exact-five
+  cancel-in-progress: false
+
+jobs:
+  five-dialnet-records:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test frozen Dialnet identities and source safeguards
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_dialnet_46_47
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Apply exactly five Dialnet-backed bibliography corrections
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-dialnet-before.json
+          python3 -m scripts.cucsh.restore_sincronia_dialnet_46_47 \
+            --input /tmp/cucsh-dialnet-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Audit exact source references, original URLs and all existing articles
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-dialnet-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-dialnet-historical-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-dialnet-pending-audit.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          before=json.loads(Path("/tmp/cucsh-dialnet-before.json").read_text())
+          after=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          b={r["id"]:r for r in before["records"]}
+          a={r["id"]:r for r in after["records"]}
+          assert len(b)==len(a)==1845
+          assert list(b)==list(a)
+          changed=[k for k in b if b[k]!=a[k]]
+          assert len(changed)==5,changed
+          title_changes=0
+          for key in changed:
+              x,y=b[key],a[key]
+              assert x["journal"]==y["journal"]=="Sincronía"
+              assert x["issueNumber"]==y["issueNumber"] in (46,47)
+              assert x["year"]==y["year"]==2008
+              assert not x.get("authors") and y.get("authors")
+              allowed={"authors","legacyAuthorEvidence"}
+              if x["title"]!=y["title"]:
+                  title_changes+=1
+                  allowed.update({"title","titleVariants","legacyIndexMislabelEvidence"})
+              for field in set(x)|set(y):
+                  if field not in allowed:
+                      assert x.get(field)==y.get(field),(key,field)
+              assert x["urls"]==y["urls"]
+              assert x["legacyAccessStatus"]==y["legacyAccessStatus"]
+              assert y["legacyAuthorEvidence"]["originalArticleUrlPreserved"] == x["urls"]["canonical"]
+          assert title_changes==3,title_changes
+          queue=json.loads(Path("/tmp/sincronia-dialnet-pending-audit.json").read_text())
+          assert queue["pendingAuthorRecords"]==91
+          assert queue["totalSincroniaRecords"]==1454
+          assert queue["suspectedWorkIdentityCount"]==41
+          assert queue["bibliographicConflictCount"]==1
+          assert queue["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_DIALNET_EXACT_FIVE_NO_LOSS_PASS",len(changed),title_changes,91,41)
+          PY
+      - name: Run all application and search regression tests
+        run: |
+          npm ci
+          npm test
+      - name: Commit only validated corpus to same Sincronía branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected local files changed"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore five Dialnet-backed Sincronía articles in issues 46–47"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Retain evidence quality report and unresolved issue review queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-dialnet-46-47-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-dialnet-historical-quality.json
+            /tmp/sincronia-dialnet-pending-audit.json
+          retention-days: 30
+          if-no-files-found: warn
