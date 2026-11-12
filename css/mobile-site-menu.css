@@ -449,6 +449,7 @@ html[data-theme="light"] .site-desktop-menu-label {
    * x=0, so the rail hid the left edge of author metrics and other content.
    */
   body {
+    box-sizing: border-box;
     padding-left: 46px;
   }
 
