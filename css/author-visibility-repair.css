@@ -822,3 +822,78 @@ html[data-theme] body.author-view .author-profile-websites a {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* Long ORCID biographies stay readable without swallowing the author page. */
+html[data-theme] body.author-view .author-biography-details {
+  max-width: 86ch;
+  margin: 0;
+}
+
+html[data-theme] body.author-view .author-biography-details > summary {
+  display: grid;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  outline: none;
+}
+
+html[data-theme] body.author-view .author-biography-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+html[data-theme] body.author-view .author-biography-preview {
+  color: var(--profile-subtle);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.65;
+}
+
+html[data-theme] body.author-view .author-biography-toggle {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 38px;
+  padding: 8px 11px;
+  align-items: center;
+  border: 1px solid var(--profile-outline);
+  background: var(--profile-panel);
+  color: var(--profile-blue-label);
+  font-family: var(--pg-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+html[data-theme] body.author-view .author-biography-details > summary:hover .author-biography-toggle,
+html[data-theme] body.author-view .author-biography-details > summary:focus-visible .author-biography-toggle {
+  border-color: var(--profile-action);
+}
+
+html[data-theme] body.author-view .author-biography-toggle-open {
+  display: none;
+}
+
+html[data-theme] body.author-view .author-biography-details[open] .author-biography-preview,
+html[data-theme] body.author-view .author-biography-details[open] .author-biography-toggle-closed {
+  display: none;
+}
+
+html[data-theme] body.author-view .author-biography-details[open] .author-biography-toggle-open {
+  display: inline;
+}
+
+html[data-theme] body.author-view .author-biography-details[open] > summary {
+  margin-bottom: 16px;
+}
+
+html[data-theme] body.author-view .author-academic-profile-bio-full {
+  margin: 0;
+  max-width: 86ch;
+}
+
+@media (max-width: 620px) {
+  html[data-theme] body.author-view .author-biography-toggle {
+    min-height: 44px;
+  }
+}
