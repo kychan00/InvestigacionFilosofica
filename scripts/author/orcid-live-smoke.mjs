@@ -93,4 +93,3 @@ console.log("ORCID public profile:", JSON.stringify({
 assert.equal(profileData.displayName,"Mauricio Méndez");
 assert.equal(profileData.orcid,id);
 console.log("Mauricio profile has public career data:", profileData.hasPublicProfileData);
-
