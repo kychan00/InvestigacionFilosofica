@@ -437,6 +437,73 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_vidaurre_velazquez_restoration(before, after):
+    """Allow one author-reproduced Vidaurre issue-13 work restoration."""
+    rid = "cucsh:sincronia-legacy:a560672620601b8a849e"
+    old = "Vidaurri Arena, Carmen Vitalia"
+    title = "Diego Velázquez: La Venus del espejo"
+    heading = "VELÁZQUEZ: LA VENUS DEL ESPEJO"
+    author = "Carmen V. Vidaurre Arenas"
+    source = "https://www.academia.edu/8658332/Diego_Vel%C3%A1zquez_La_Venus_del_espejo"
+    support = "https://www.researchgate.net/publication/266740368_Diego_Velazquez_La_Venus_del_espejo"
+    original_url = (before.get("urls") or {}).get("canonical") or ""
+    old_variants = before.get("titleVariants") or []
+    expected_variants = list(dict.fromkeys([title, heading, *old_variants, old]))
+    proof = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    if (
+        before.get("id") != rid
+        or after.get("id") != rid
+        or before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 13
+        or before.get("year") != 2000
+        or before.get("title") != old
+        or after.get("title") != title
+        or not isinstance(old_variants, list)
+        or after.get("titleVariants") != expected_variants
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not original_url.lower().endswith("/vidauri2.htm")
+        or not isinstance(proof, dict)
+        or not isinstance(byline, dict)
+        or proof.get("kind") != "author-reproduced-original-winter-issue-and-heading"
+        or proof.get("previousTitle") != old
+        or proof.get("previousTitleVariants") != old_variants
+        or proof.get("verifiedTitle") != title
+        or proof.get("originalHeading") != heading
+        or proof.get("verifiedAuthors") != [author]
+        or proof.get("sourceUrl") != source
+        or proof.get("supportingSourceUrl") != support
+        or proof.get("sourceArticleUrl") != original_url
+        or proof.get("matchedIssueNumber") != 13
+        or proof.get("matchedYear") != 2000
+        or proof.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != "author-reproduced-original-winter-issue-and-heading"
+        or byline.get("sourceUrl") != source
+        or byline.get("supportingSourceUrl") != support
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("verifiedTitle") != title
+        or byline.get("originalHeading") != heading
+        or byline.get("sourceArticleUrl") != original_url
+        or byline.get("matchedIssueNumber") != 13
+        or byline.get("matchedYear") != 2000
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    allowed = {
+        "title", "titleVariants", "authors",
+        "legacyIndexMislabelEvidence", "legacyAuthorEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in allowed
+    )
+
+
 def safe_two_vidaurre_reproduced_works(before, after):
     """Allow two Carmen Vidaurre title/byline repairs from reproduced issues."""
     approved = {
@@ -1677,6 +1744,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_two_vidaurre_reproduced_works(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_vidaurre_velazquez_restoration(
             before_by_id[key], after_by_id[key]
         )
     ]
