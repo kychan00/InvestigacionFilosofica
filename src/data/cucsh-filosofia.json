@@ -29077,7 +29077,12 @@
       "titleVariants": [
         "Risa, burla y escarnio: el apodo una herramienta para desenmascarar"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Harriet Kristl Quint Berdac de Comparán",
+          "sourceName": "Harriet Kristl Quint Berdac de Comparán"
+        }
+      ],
       "date": "2002",
       "year": 2002,
       "type": "journal-article",
@@ -29102,6 +29107,16 @@
         "canonical": "http://sincronia.cucsh.udg.mx/quint02.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyAuthorEvidence": {
+        "kind": "dialnet-issue23-exact-article-id",
+        "auditRunId": 43130877477,
+        "sourceIssueUrl": "https://dialnet.unirioja.es/ejemplar/253500",
+        "sourceArticleUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3325204",
+        "sourceArticleId": "dialnet:3325204",
+        "verifiedAuthors": [
+          "Harriet Kristl Quint Berdac de Comparán"
+        ]
       }
     },
     {
@@ -29219,11 +29234,16 @@
       "sourceId": "legacy:bd2ae7d1640a301cd2ce",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Una lectura m�gica de Los r�os profundos ,de Jos� M� Arguedas",
+      "title": "Una lectura mágica de Los ríos profundos, de José Mª Arguedas",
       "titleVariants": [
-        "Una lectura m�gica de Los r�os profundos ,de Jos� M� Arguedas"
+        "Una lectura mágica de Los ríos profundos, de José Mª Arguedas"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "José María González-Serna Sánchez",
+          "sourceName": "José María González-Serna Sánchez"
+        }
+      ],
       "date": "2002",
       "year": 2002,
       "type": "journal-article",
@@ -29248,6 +29268,25 @@
         "canonical": "http://sincronia.cucsh.udg.mx/gonzalezserna.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyTitleEncodingEvidence": {
+        "kind": "dialnet-issue23-exact-article-title",
+        "auditRunId": 43130877477,
+        "sourceIssueUrl": "https://dialnet.unirioja.es/ejemplar/253500",
+        "sourceArticleUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3325211",
+        "sourceArticleId": "dialnet:3325211",
+        "previousTitle": "Una lectura m�gica de Los r�os profundos ,de Jos� M� Arguedas",
+        "originalTitleSimilarity": 0.9492
+      },
+      "legacyAuthorEvidence": {
+        "kind": "dialnet-issue23-exact-article-id",
+        "auditRunId": 43130877477,
+        "sourceIssueUrl": "https://dialnet.unirioja.es/ejemplar/253500",
+        "sourceArticleUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=3325211",
+        "sourceArticleId": "dialnet:3325211",
+        "verifiedAuthors": [
+          "José María González-Serna Sánchez"
+        ]
       }
     },
     {
