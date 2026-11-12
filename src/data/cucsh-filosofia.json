@@ -23545,11 +23545,18 @@
       "sourceId": "legacy:637cb309cca6fc5f3dbf",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Romero, Raúl E.",
+      "title": "António Botto: la voz diferente",
       "titleVariants": [
+        "António Botto: la voz diferente",
+        "La voz diferente",
         "Romero, Raúl E."
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Raúl E. Romero",
+          "sourceName": "Raúl E. Romero"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -23589,6 +23596,37 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "two-university-citations-with-exact-original-article-url",
+        "previousTitle": "Romero, Raúl E.",
+        "previousTitleVariants": [
+          "Romero, Raúl E."
+        ],
+        "verifiedTitle": "António Botto: la voz diferente",
+        "citedShortTitle": "La voz diferente",
+        "verifiedAuthors": [
+          "Raúl E. Romero"
+        ],
+        "sourceUrl": "https://revistas.usp.br/viaatlantica/pt_BR/article/download/140073/147134/309500",
+        "independentSourceUrl": "https://repositorio.unesp.br/server/api/core/bitstreams/7eaa8fc1-4110-4cf3-86e0-f0e6eef7f5ee/content",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/botto.htm",
+        "matchedIssueNumber": 13,
+        "matchedYear": 2000,
+        "originalAvailabilityPreserved": true,
+        "note": "Via Atlântica (Universidade de São Paulo, 2018) cites 'António Botto: la voz diferente'; Ricardo Marques Martins (UNESP thesis, 2013, p.106) cites 'La voz diferente'. Both refer to the original /botto.htm article in Sincronía, winter 1999-2000. Keep both titles searchable; avoid claiming an original heading not directly observed."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "two-university-author-and-exact-original-url-citations",
+        "sourceUrl": "https://revistas.usp.br/viaatlantica/pt_BR/article/download/140073/147134/309500",
+        "independentSourceUrl": "https://repositorio.unesp.br/server/api/core/bitstreams/7eaa8fc1-4110-4cf3-86e0-f0e6eef7f5ee/content",
+        "verifiedAuthors": [
+          "Raúl E. Romero"
+        ],
+        "verifiedTitle": "António Botto: la voz diferente",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/botto.htm",
+        "matchedIssueNumber": 13,
+        "originalAvailabilityPreserved": true
       }
     },
     {
