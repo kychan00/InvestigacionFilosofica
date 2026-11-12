@@ -20735,8 +20735,8 @@
       ],
       "authors": [
         {
-          "name": "Lilia Granillo Vázquez ,",
-          "sourceName": "Lilia Granillo Vázquez ,"
+          "name": "Lilia Granillo Vázquez",
+          "sourceName": "Lilia Granillo Vázquez"
         }
       ],
       "date": "1998",
@@ -20768,8 +20768,9 @@
         "kind": "original-article-adjacent-byline",
         "sourceUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/granillo.html",
         "auditRunId": 43035275585,
-        "verifiedAuthor": "Lilia Granillo Vázquez ,",
-        "fieldOrContext": "Universidad Autónoma Metropolitana-Azcapotzalco"
+        "verifiedAuthor": "Lilia Granillo Vázquez",
+        "fieldOrContext": "Universidad Autónoma Metropolitana-Azcapotzalco",
+        "normalization": "trimmed stray trailing punctuation"
       },
       "legacyAccessStatus": {
         "status": "original-page-archived-only",
@@ -23251,11 +23252,16 @@
       "sourceId": "legacy:759c7e05d547a0bf70b2",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "P�rez, Miguel �ngel Mateo",
+      "title": "Estructura mundial de la pobreza. Visiones, indicadores y políticas tras diez años de desarrollo humano",
       "titleVariants": [
-        "P�rez, Miguel �ngel Mateo"
+        "Estructura mundial de la pobreza. Visiones, indicadores y políticas tras diez años de desarrollo humano"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Miguel Ángel Mateo Pérez",
+          "sourceName": "Miguel Ángel Mateo Pérez"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -23288,6 +23294,20 @@
         "reason": "timeout",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyTitleEncodingEvidence": {
+        "kind": "independent-bibliographic-title-author",
+        "sourceUrl": "https://www.academia.edu/7169136/Per_al_mesurament_de_la_desigualtat_la_pobresa_i_lexclusi%C3%B3_limitacions_propostes_t%C3%A8cniques_i_alternatives",
+        "auditRunId": 43140342324,
+        "previousTitle": "P�rez, Miguel �ngel Mateo",
+        "score": 1.0
+      },
+      "legacyAuthorEvidence": {
+        "kind": "independent-bibliographic-title-author",
+        "sourceUrl": "https://www.academia.edu/7169136/Per_al_mesurament_de_la_desigualtat_la_pobresa_i_lexclusi%C3%B3_limitacions_propostes_t%C3%A8cniques_i_alternatives",
+        "auditRunId": 43140342324,
+        "verifiedAuthor": "Miguel Ángel Mateo Pérez",
+        "fieldOrContext": "independent bibliographic citation + historical URL"
       }
     },
     {
