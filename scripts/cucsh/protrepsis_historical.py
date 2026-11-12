@@ -593,57 +593,54 @@ def normalize_work(work):
 
 
 def openalex_pages():
-    cursor = "*"
-    page = 0
+    query = urllib.parse.urlencode({
+        "filter": (
+            "primary_location.source.id:"
+            + OPENALEX_SOURCE_ID
+            + ",from_publication_date:"
+            "2011-01-01"
+            + ",to_publication_date:"
+            "2018-10-31"
+        ),
+        "per-page": 200,
+        "page": 1,
+    })
 
-    while cursor:
-        page += 1
+    data = request_json(
+        OPENALEX_ENDPOINT
+        + "?"
+        + query
+    )
 
-        query = urllib.parse.urlencode({
-            "filter": (
-                "primary_location.source.id:"
-                + OPENALEX_SOURCE_ID
-            ),
-            "per-page": 200,
-            "cursor": cursor,
-        })
+    results = data.get(
+        "results",
+        []
+    )
 
-        data = request_json(
-            OPENALEX_ENDPOINT
-            + "?"
-            + query
+    total = int(
+        data.get(
+            "meta",
+            {},
+        ).get(
+            "count",
+            len(results),
+        )
+        or 0
+    )
+
+    print(
+        "OpenAlex historical "
+        f"received={len(results)} "
+        f"total={total}"
+    )
+
+    if total > len(results):
+        raise RuntimeError(
+            "historical OpenAlex result "
+            f"exceeds one page: {total}"
         )
 
-        results = data.get(
-            "results",
-            []
-        )
-
-        print(
-            f"OpenAlex page={page} "
-            f"received={len(results)}"
-        )
-
-        for work in results:
-            yield work
-
-        next_cursor = (
-            data.get(
-                "meta",
-                {},
-            ).get(
-                "next_cursor"
-            )
-        )
-
-        if (
-            not next_cursor
-            or not results
-        ):
-            break
-
-        cursor = next_cursor
-        time.sleep(0.1)
+    yield from results
 
 
 def build_dataset():
