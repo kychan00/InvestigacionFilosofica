@@ -3360,6 +3360,7 @@ function renderResult(
               : [
                   "author-index",
                   "author-crossref",
+                  "author-orcid-crossref",
                   "author-internet-archive",
                   "author-institutional"
                 ].includes(
