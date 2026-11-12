@@ -1,6 +1,6 @@
 import { JournalSemanticAtlas } from "./journal-atlas.js";
 
-const DATA_URL = "../../src/data/cucsh-filosofia.json";
+const DATA_URL = new URL("../src/data/cucsh-filosofia.json", import.meta.url);
 const PAGE_SIZE = 18;
 
 const JOURNALS = {
