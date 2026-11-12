@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261109-global-work-dedup-v3";
+} from "../src/core/search-engine.js?v=20261112-orcid-federation-v1";
 
 import {
   explainResult
