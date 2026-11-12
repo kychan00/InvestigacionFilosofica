@@ -7093,6 +7093,12 @@ async function loadMoreResults() {
               depth
           },
 
+          orcid: {
+            enabled: true,
+            rows: Math.min(depth, 8),
+            profilesPerPage: 2
+          },
+
           onProgress(progress) {
             status.textContent =
               `Ampliando ${progress.completed}/${progress.total}: ` +
@@ -7544,6 +7550,12 @@ async function runFederatedSearch(
               depth
           },
 
+          orcid: {
+            enabled: true,
+            rows: Math.min(depth, 8),
+            profilesPerPage: 2
+          },
+
           onProgress(progress) {
             status.textContent =
               `Buscando ${progress.completed}/${progress.total}: ` +
@@ -7758,6 +7770,11 @@ async function searchSemanticCompanions(
         internetArchive: {
           enabled: true,
           rows: Math.min(limit, 8)
+        },
+        orcid: {
+          enabled: true,
+          rows: Math.min(limit, 6),
+          profilesPerPage: 2
         }
       }
     );
