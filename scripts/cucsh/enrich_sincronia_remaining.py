@@ -13,6 +13,7 @@ import copy
 import json
 import os
 import re
+import unicodedata
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from difflib import SequenceMatcher
@@ -41,6 +42,24 @@ BAD_PERSON_TOKENS = (
     "número", "numero", "volver", "enlaces", "professor",
 )
 RUN_ID = int(os.environ.get("GITHUB_RUN_ID", "0"))
+
+
+CURATED_ENCODING_FIXES = {
+    "cucsh:sincronia-dialnet:3297208": {
+        "issue": 51,
+        "previous": "�Carta à José Joaquín Palma� ou la position esthétique de José Martí en exil",
+        "value": "Carta à José Joaquín Palma ou la position esthétique de José Martí en exil",
+        "sourceUrl": "https://www.museosdetenerife.org/assets/downloads/file-695-7829b42836.pdf",
+        "evidence": "independent-bibliographic-citation",
+    },
+    "cucsh:sincronia-dialnet:3803663": {
+        "issue": 60,
+        "previous": "Die Tradition der Beredsamkeit und deutschsprachiger Rhetoriklehre im 19. Jahrhundert Mit einem bibliographischen Anhang, Deutschsprachige Rhetorik-Handbücher des 19. Jahrhunderts�",
+        "value": "Die Tradition der Beredsamkeit und deutschsprachiger Rhetoriklehre im 19. Jahrhundert. Mit einem bibliographischen Anhang “Deutschsprachige Rhetorik-Handbücher des 19. Jahrhunderts”",
+        "sourceUrl": "https://riviste.unimi.it/index.php/StudiaTheodisca/it/article/view/1366",
+        "evidence": "independent-exact-title-publication",
+    },
+}
 
 
 def similarity(a, b):
@@ -234,6 +253,186 @@ def inspect_remote(row):
             "url": url, "status": "source_unavailable",
             "corrections": {}, "error": repr(exc)[:500],
         }
+
+
+
+def loose_person_similarity(a, b):
+    def normalize(value):
+        value = str(value or "").replace("\ufffd", "")
+        value = unicodedata.normalize("NFKD", value)
+        value = "".join(
+            char for char in value if not unicodedata.combining(char)
+        )
+        return " ".join(sorted(re.findall(r"[a-z0-9]+", value.casefold())))
+    return similarity(normalize(a), normalize(b))
+
+
+def dialnet_damaged_legacy_proposals(rows, skip_ids=None):
+    skip_ids = set(skip_ids or [])
+    targets = [
+        row for row in rows
+        if row.get("journal") == "Sincronía"
+        and row.get("legacyOriginal")
+        and (row.get("legacyMetadataSource") or "") != "Dialnet"
+        and isinstance(row.get("issueNumber"), int)
+        and 1 <= row["issueNumber"] <= 60
+        and "\ufffd" in str(row.get("title") or "")
+        and row.get("id") not in skip_ids
+    ]
+    if not targets:
+        return []
+
+    try:
+        external, covered = harvest_dialnet_records(
+            max_issue=60,
+            target_issues={row["issueNumber"] for row in targets},
+        )
+    except Exception as exc:
+        return [{
+            "id": row["id"], "issue": row["issueNumber"],
+            "url": (row.get("urls") or {}).get("canonical"),
+            "source": "dialnet-damaged-legacy-match",
+            "status": "source_unavailable", "corrections": {},
+            "error": repr(exc)[:500],
+        } for row in targets]
+
+    by_issue = {}
+    for record in external:
+        by_issue.setdefault(record.get("issueNumber"), []).append(record)
+
+    findings = []
+    for row in targets:
+        candidates = by_issue.get(row["issueNumber"], [])
+        title_scored = sorted(
+            (
+                (similarity(row.get("title"), candidate.get("title")), candidate)
+                for candidate in candidates
+            ),
+            key=lambda item: item[0],
+            reverse=True,
+        )
+        best_score, best = title_scored[0] if title_scored else (0.0, None)
+        second_score = title_scored[1][0] if len(title_scored) > 1 else 0.0
+        match_kind = "damaged-title"
+        identity_score = best_score
+
+        if not (
+            best
+            and best_score >= 0.94
+            and (second_score < 0.90 or best_score - second_score >= 0.03)
+        ):
+            person_scored = []
+            for candidate in candidates:
+                authors = candidate.get("authors") or []
+                if len(authors) != 1:
+                    continue
+                name = authors[0].get("name")
+                person_scored.append(
+                    (loose_person_similarity(row.get("title"), name), candidate)
+                )
+            person_scored.sort(key=lambda item: item[0], reverse=True)
+            pscore, pcandidate = (
+                person_scored[0] if person_scored else (0.0, None)
+            )
+            psecond = person_scored[1][0] if len(person_scored) > 1 else 0.0
+            if (
+                pcandidate
+                and pscore >= 0.90
+                and (psecond < 0.84 or pscore - psecond >= 0.05)
+            ):
+                best = pcandidate
+                identity_score = pscore
+                second_score = psecond
+                match_kind = "damaged-author-label"
+            else:
+                best = None
+
+        finding = {
+            "id": row["id"], "issue": row["issueNumber"],
+            "url": (row.get("urls") or {}).get("canonical"),
+            "source": "dialnet-damaged-legacy-match",
+            "status": "no_high_confidence_evidence",
+            "corrections": {},
+            "identityScore": round(identity_score, 4),
+            "runnerUpScore": round(second_score, 4),
+            "identityMethod": match_kind,
+        }
+        if not best:
+            findings.append(finding)
+            continue
+
+        evidence_url = (best.get("urls") or {}).get("canonical")
+        good_title = best.get("title")
+        authors = best.get("authors") or []
+        clean_authors = [
+            human_name(author.get("name"))
+            for author in authors if isinstance(author, dict)
+        ]
+        clean_authors = [name for name in clean_authors if name]
+        if (
+            not evidence_url
+            or not good_title
+            or "\ufffd" in good_title
+            or len(authors) != 1
+            or len(clean_authors) != 1
+        ):
+            findings.append(finding)
+            continue
+
+        finding["evidenceUrl"] = evidence_url
+        finding["matchedTitle"] = good_title
+        finding["status"] = "verified_corrections"
+        finding["corrections"]["title"] = {
+            "previous": row["title"],
+            "value": good_title,
+            "evidence": "dialnet-issue-unique-" + match_kind,
+            "score": round(identity_score, 4),
+        }
+        if not row.get("authors"):
+            finding["corrections"]["author"] = {
+                "value": clean_authors[0],
+                "evidence": "dialnet-issue-unique-" + match_kind,
+                "field": "issue+title-or-author-label",
+            }
+        findings.append(finding)
+    return findings
+
+
+def curated_encoding_proposals(rows, skip_ids=None):
+    skip_ids = set(skip_ids or [])
+    by_id = {row.get("id"): row for row in rows}
+    findings = []
+    for record_id, fix in CURATED_ENCODING_FIXES.items():
+        if record_id in skip_ids:
+            continue
+        row = by_id.get(record_id)
+        if not row:
+            continue
+        if (
+            row.get("journal") != "Sincronía"
+            or row.get("issueNumber") != fix["issue"]
+            or row.get("title") != fix["previous"]
+            or "\ufffd" not in row.get("title", "")
+            or "\ufffd" in fix["value"]
+        ):
+            continue
+        findings.append({
+            "id": record_id,
+            "issue": fix["issue"],
+            "url": (row.get("urls") or {}).get("canonical"),
+            "evidenceUrl": fix["sourceUrl"],
+            "source": "curated-independent-bibliography",
+            "status": "verified_corrections",
+            "corrections": {
+                "title": {
+                    "previous": fix["previous"],
+                    "value": fix["value"],
+                    "evidence": fix["evidence"],
+                    "score": 1.0,
+                }
+            },
+        })
+    return findings
 
 
 def dialnet_author_proposals(rows, skip_ids=None):
@@ -471,8 +670,23 @@ def main():
         f.get("id") for f in findings
         if f.get("status") == "verified_corrections" and f.get("corrections")
     }
+    extra = dialnet_damaged_legacy_proposals(rows, skip_ids=corrected_ids)
+    findings.extend(extra)
+    corrected_ids.update(
+        f.get("id") for f in extra
+        if f.get("status") == "verified_corrections" and f.get("corrections")
+    )
+    extra = curated_encoding_proposals(rows, skip_ids=corrected_ids)
+    findings.extend(extra)
+    corrected_ids.update(
+        f.get("id") for f in extra
+        if f.get("status") == "verified_corrections" and f.get("corrections")
+    )
     findings.extend(dialnet_author_proposals(rows, skip_ids=corrected_ids))
-    findings.extend(dialnet_title_proposals(rows))
+    findings.extend(
+        f for f in dialnet_title_proposals(rows)
+        if f.get("id") not in corrected_ids
+    )
     findings.sort(key=lambda f: (f.get("issue") or 0, f.get("id") or ""))
     after, changed = apply_evidence(original, findings)
     counters = Counter(f.get("status") for f in findings)
