@@ -19,7 +19,7 @@
     })();
   </script>
   <title>Protrepsis · Investigación Filosófica</title>
-  <link rel="stylesheet" href="../../css/journal-page.css?v=20261111-v2">
+  <link rel="stylesheet" href="../../css/journal-page.css?v=20261111-v3">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261111-sidebar-v2">
 </head>
 <body data-journal="protrepsis">
@@ -86,11 +86,15 @@
         <div class="journal-archive-layout">
           <aside class="journal-sidebar">
             <section class="journal-filter-block">
-              <header><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></header>
+              <header class="journal-filter-head">
+                <div><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></div>
+                <button id="journal-filter-toggle" class="journal-filter-toggle" type="button" aria-expanded="true">Ocultar</button>
+              </header>
               <div class="journal-filter-body">
                 <label><span>Buscar</span><input id="journal-query" type="search" autocomplete="off" placeholder="Título, autor, tema…"></label>
                 <label><span>Década</span><select id="journal-decade"></select></label>
                 <label><span>Idioma</span><select id="journal-language"></select></label>
+                <label><span>Número editorial</span><select id="journal-issue"></select></label>
                 <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
                 <label><span>Orden</span>
                   <select id="journal-sort">
@@ -112,6 +116,11 @@
               <header><p class="journal-kicker">CATEGORÍAS</p><h2>Mapa de navegación</h2></header>
               <div id="journal-category-chips" class="journal-taxonomy-list"></div>
             </section>
+
+            <section class="journal-taxonomy-block journal-issues-block">
+              <header><p class="journal-kicker">NÚMEROS</p><h2>Ediciones del archivo</h2></header>
+              <div id="journal-issue-chips" class="journal-taxonomy-list"></div>
+            </section>
           </aside>
 
           <div>
@@ -128,8 +137,7 @@
       <section id="journal-atlas-panel" class="journal-panel" hidden aria-label="Atlas semántico">
         <div class="journal-atlas-shell">
           <div class="journal-atlas-stage">
-            <canvas id="journal-atlas-canvas" tabindex="0" aria-label="Red semántica interactiva de artículos"></canvas>
-            <div class="journal-atlas-floating">
+            <div class="journal-atlas-stagebar">
               <div class="journal-atlas-status-group">
                 <p id="journal-atlas-status">Abra el Atlas para construir la topología del corpus visible.</p>
                 <p class="journal-atlas-help">Arrastre el fondo para moverse · arrastre nodos para reorganizar · use la rueda o los controles para acercar.</p>
@@ -142,6 +150,7 @@
                 <button id="journal-qwen-toggle" class="journal-qwen-toggle" type="button" aria-pressed="false">Activar capa Qwen</button>
               </div>
             </div>
+            <canvas id="journal-atlas-canvas" tabindex="0" aria-label="Red semántica interactiva de artículos agrupada por número editorial"></canvas>
           </div>
           <aside class="journal-atlas-aside">
             <div class="journal-atlas-copy">
@@ -187,7 +196,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261111-v2"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261111-v3"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-v2"></script>
 </body>
 </html>
