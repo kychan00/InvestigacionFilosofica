@@ -3,68 +3,148 @@ const STORAGE_KEY = "investigacion-filosofica-theme";
 const SITE_ROOT = new URL("../", import.meta.url);
 const siteHref = path => new URL(path, SITE_ROOT).href;
 
+const MENU_ICONS = {
+  search: [
+    '<circle cx="10.5" cy="10.5" r="5.5"></circle>',
+    '<path d="M14.7 14.7 20 20"></path>'
+  ],
+  thesis: [
+    '<path d="M6 3.5h9l3 3V20.5H6z"></path>',
+    '<path d="M15 3.5v3h3"></path>',
+    '<path d="M9 11h6M9 14h6M9 17h4"></path>'
+  ],
+  atlas: [
+    '<circle cx="6" cy="7" r="2"></circle>',
+    '<circle cx="18" cy="6" r="2"></circle>',
+    '<circle cx="12" cy="18" r="2"></circle>',
+    '<path d="M7.8 7.8 10.5 16M16.2 7.4 13.3 16.2M8 7h8"></path>'
+  ],
+  results: [
+    '<path d="M8 6h11M8 12h11M8 18h11"></path>',
+    '<circle cx="4.5" cy="6" r="1"></circle>',
+    '<circle cx="4.5" cy="12" r="1"></circle>',
+    '<circle cx="4.5" cy="18" r="1"></circle>'
+  ],
+  sources: [
+    '<ellipse cx="12" cy="5.5" rx="7" ry="3"></ellipse>',
+    '<path d="M5 5.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path>',
+    '<path d="M5 11.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path>'
+  ],
+  articles: [
+    '<path d="M4.5 5.5h6.5c1.7 0 3 1.3 3 3v11H7.5c-1.7 0-3-1.3-3-3z"></path>',
+    '<path d="M19.5 5.5H14c-1.7 0-3 1.3-3 3v11h5.5c1.7 0 3-1.3 3-3z"></path>'
+  ],
+  archive: [
+    '<path d="M4 7h16v13H4z"></path>',
+    '<path d="M3 4h18v3H3zM9 11h6"></path>'
+  ],
+  university: [
+    '<path d="m3 9 9-5 9 5"></path>',
+    '<path d="M5 10h14M6.5 10v8M10 10v8M14 10v8M17.5 10v8M4 20h16"></path>'
+  ],
+  journal: [
+    '<path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"></path>',
+    '<path d="M8 4v16M11 8h4M11 11h4"></path>'
+  ],
+  info: [
+    '<circle cx="12" cy="12" r="9"></circle>',
+    '<path d="M12 10.5v6M12 7.5h.01"></path>'
+  ]
+};
+
+function createMenuIcon(name) {
+  const wrapper = createElement("span", "site-menu-link-icon");
+  wrapper.setAttribute("aria-hidden", "true");
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("focusable", "false");
+
+  for (const markup of MENU_ICONS[name] || MENU_ICONS.articles) {
+    const template = document.createElement("template");
+    template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg">' + markup + '</svg>';
+    const node = template.content.firstElementChild.firstElementChild;
+    svg.append(node);
+  }
+
+  wrapper.append(svg);
+  return wrapper;
+}
+
 const menuItems = [
   {
     index: "01",
     label: "Investigación",
+    icon: "search",
     detail: "Motor federado de búsqueda",
     href: siteHref("")
   },
   {
     index: "02",
     label: "Tesis",
+    icon: "thesis",
     detail: "Archivo universitario",
     href: siteHref("tesis.html")
   },
   {
     index: "03",
     label: "Atlas",
+    icon: "atlas",
     detail: "Cartografía de investigaciones",
     href: siteHref("atlas.html")
   },
   {
     index: "04",
     label: "Resultados",
+    icon: "results",
     detail: "Lista de la búsqueda actual",
     href: siteHref("#results")
   },
   {
     index: "05",
     label: "Fuentes",
+    icon: "sources",
     detail: "Procedencia y cobertura",
     href: siteHref("#fuentes")
   },
   {
     index: "06",
     label: "Artículos",
+    icon: "articles",
     detail: "Revistas por universidad",
     children: [
       {
         label: "Todos los artículos",
+        icon: "archive",
         detail: "Explorar el archivo de revistas",
         href: siteHref("articulos.html")
       },
       {
         label: "UdeG",
+        icon: "university",
         detail: "Universidad de Guadalajara",
         children: [
           {
             label: "Panorama UdeG",
+            icon: "university",
             detail: "Revistas incorporadas",
             href: siteHref("articulos.html#udg")
           },
           {
             label: "Protrepsis",
+            icon: "journal",
             detail: "CUCSH · Filosofía",
             href: siteHref("revistas/udg/protrepsis.html")
           },
           {
             label: "Sincronía",
+            icon: "journal",
             detail: "CUCSH · Humanidades",
             href: siteHref("revistas/udg/sincronia.html")
           },
           {
             label: "Quadripartita Ratio",
+            icon: "journal",
             detail: "CUCSH · Filosofía",
             href: siteHref("revistas/udg/quadripartita-ratio.html")
           }
@@ -75,6 +155,7 @@ const menuItems = [
   {
     index: "07",
     label: "Acerca de",
+    icon: "info",
     detail: "Proyecto, método y cifras",
     href: siteHref("acerca.html")
   }
@@ -123,10 +204,14 @@ function makeLink(item, level) {
   link.dataset.siteMenuHref = item.href;
   link.dataset.menuLevel = String(level);
 
-  const index = createElement(
-    "span",
-    "site-menu-link-index",
-    item.index || (level === 1 ? "·" : "—")
+  const leading = createElement("span", "site-menu-link-leading");
+  leading.append(
+    createMenuIcon(item.icon),
+    createElement(
+      "span",
+      "site-menu-link-index",
+      item.index || (level === 1 ? "·" : "—")
+    )
   );
   const copy = createElement("span", "site-menu-link-copy");
   copy.append(
@@ -136,7 +221,7 @@ function makeLink(item, level) {
   const arrow = createElement("span", "site-menu-link-arrow", "→");
   arrow.setAttribute("aria-hidden", "true");
 
-  link.append(index, copy, arrow);
+  link.append(leading, copy, arrow);
   return link;
 }
 
@@ -151,10 +236,14 @@ function makeBranch(item, level) {
   const panelId = "site-menu-branch-" + (++disclosureCounter);
   button.setAttribute("aria-controls", panelId);
 
-  const index = createElement(
-    "span",
-    "site-menu-link-index",
-    item.index || (level === 1 ? "·" : "—")
+  const leading = createElement("span", "site-menu-link-leading");
+  leading.append(
+    createMenuIcon(item.icon),
+    createElement(
+      "span",
+      "site-menu-link-index",
+      item.index || (level === 1 ? "·" : "—")
+    )
   );
   const copy = createElement("span", "site-menu-link-copy");
   copy.append(
@@ -164,7 +253,7 @@ function makeBranch(item, level) {
   const symbol = createElement("span", "site-menu-disclosure-symbol", "+");
   symbol.setAttribute("aria-hidden", "true");
 
-  button.append(index, copy, symbol);
+  button.append(leading, copy, symbol);
 
   const children = createElement("div", "site-menu-children");
   children.id = panelId;

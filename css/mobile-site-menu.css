@@ -137,7 +137,7 @@ body.site-menu-open {
 
 .site-menu-link {
   display: grid;
-  grid-template-columns: 34px minmax(0,1fr) auto;
+  grid-template-columns: 42px minmax(0,1fr) auto;
   gap: 10px;
   align-items: center;
   min-height: 72px;
@@ -185,11 +185,58 @@ body.site-menu-open {
   background: rgba(15,98,254,.18);
 }
 
+.site-menu-link-leading {
+  display: grid;
+  width: 34px;
+  min-width: 34px;
+  justify-items: center;
+  gap: 3px;
+  color: var(--site-nav-blue-soft);
+}
+
+.site-menu-link-icon {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  color: #f4f4f4;
+  transition:
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.site-menu-link-icon svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
 .site-menu-link-index {
   color: var(--site-nav-blue-soft);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 9px;
-  letter-spacing: .06em;
+  font-size: 7px;
+  line-height: 1;
+  letter-spacing: .08em;
+}
+
+.site-menu-link:hover .site-menu-link-icon,
+.site-menu-link:focus-visible .site-menu-link-icon,
+.site-menu-link.is-current .site-menu-link-icon,
+.site-menu-branch-toggle:hover .site-menu-link-icon,
+.site-menu-branch-toggle:focus-visible .site-menu-link-icon,
+.site-menu-branch-toggle[aria-expanded="true"] .site-menu-link-icon {
+  color: #78a9ff;
+  transform: translateY(-1px);
+}
+
+.site-menu-link.is-current .site-menu-link-icon {
+  filter: drop-shadow(0 0 7px rgba(120,169,255,.24));
 }
 
 .site-menu-link-copy {
@@ -225,7 +272,7 @@ body.site-menu-open {
 
 .site-menu-branch-toggle {
   display: grid;
-  grid-template-columns: 34px minmax(0,1fr) auto;
+  grid-template-columns: 42px minmax(0,1fr) auto;
   gap: 10px;
   align-items: center;
   min-height: 72px;
@@ -589,5 +636,46 @@ html[data-theme="light"] .site-desktop-menu-label {
 
   .site-mobile-toolbar-name {
     font-size: 14px;
+  }
+}
+
+
+/* Iconografía de navegación · mantiene jerarquía también en ramas anidadas */
+.site-menu-link[data-menu-level="2"] .site-menu-link-icon,
+.site-menu-branch[data-menu-level="2"] > .site-menu-branch-toggle .site-menu-link-icon {
+  width: 23px;
+  height: 23px;
+  color: #c6c6c6;
+}
+
+.site-menu-link[data-menu-level="3"] .site-menu-link-icon {
+  width: 21px;
+  height: 21px;
+  color: #a8a8a8;
+}
+
+.site-menu-link[data-menu-level="2"] .site-menu-link-icon svg,
+.site-menu-branch[data-menu-level="2"] > .site-menu-branch-toggle .site-menu-link-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.site-menu-link[data-menu-level="3"] .site-menu-link-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+html[data-theme="light"] .site-menu-link-icon {
+  color: #e8e8e8;
+}
+
+@media (max-width: 820px) {
+  .site-menu-link,
+  .site-menu-branch-toggle {
+    grid-template-columns: 42px minmax(0,1fr) auto;
+  }
+
+  .site-menu-link-leading {
+    width: 34px;
   }
 }

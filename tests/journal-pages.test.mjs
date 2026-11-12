@@ -82,6 +82,16 @@ test("Atlas de revista distingue Qwen verificado de respaldo textual", async () 
 test("navegación lateral enlaza páginas individuales y funciona desde subdirectorios", async () => {
   const source = await readFile("js/mobile-site-menu.js", "utf8");
   assert.match(source, /SITE_ROOT = new URL\("\.\.\/", import\.meta\.url\)/);
+  assert.match(source, /MENU_ICONS/);
+  assert.match(source, /createMenuIcon/);
+  assert.match(source, /site-menu-link-icon/);
+  assert.match(source, /icon: "search"/);
+  assert.match(source, /icon: "thesis"/);
+  assert.match(source, /icon: "atlas"/);
+  assert.match(source, /icon: "articles"/);
+  assert.match(source, /icon: "university"/);
+  assert.match(source, /icon: "journal"/);
+  assert.match(source, /icon: "info"/);
   assert.match(source, /revistas\/udg\/protrepsis\.html/);
   assert.match(source, /revistas\/udg\/sincronia\.html/);
   assert.match(source, /revistas\/udg\/quadripartita-ratio\.html/);
