@@ -1,0 +1,121 @@
+name: Sincronía · restore Guillermo Schmidhuber issue-one byline
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-schmidhuber.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-schmidhuber-issue-one
+  cancel-in-progress: false
+
+jobs:
+  restore-one:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Verify documented authorship and cautious URL provenance
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_schmidhuber
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Repair exactly one historical byline
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-schmidhuber-before.json
+          python3 -m scripts.cucsh.restore_sincronia_schmidhuber \
+            --input /tmp/cucsh-schmidhuber-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Audit identity, corpus integrity and outstanding records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-schmidhuber-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-schmidhuber-historical-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-schmidhuber-pending-authors.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          before=json.loads(Path("/tmp/cucsh-schmidhuber-before.json").read_text(encoding="utf-8"))
+          after=json.loads(Path("src/data/cucsh-filosofia.json").read_text(encoding="utf-8"))
+          b={r["id"]:r for r in before["records"]}
+          a={r["id"]:r for r in after["records"]}
+          assert len(b)==len(a)==1845
+          assert list(b)==list(a)
+          changes=[rid for rid in b if b[rid]!=a[rid]]
+          assert changes==["cucsh:sincronia-legacy:c723b894c383b8aa3860"],changes
+          old,new=b[changes[0]],a[changes[0]]
+          assert old["title"]==new["title"]
+          assert old["urls"]==new["urls"]
+          assert old["legacyAccessStatus"]==new["legacyAccessStatus"]
+          assert {k for k in set(old)|set(new)
+                  if old.get(k)!=new.get(k)}=={"authors","legacyAuthorEvidence"}
+          assert new["authors"]==[{"name":"Guillermo Schmidhuber de la Mora","sourceName":"Guillermo Schmidhuber de la Mora"}]
+          assert new["legacyAuthorEvidence"]["urlMatchLevel"]=="different-extension-unverified-equivalence"
+          assert new["legacyAuthorEvidence"]["citedHistoricalUrlVariant"].endswith("/schmid.htm")
+          assert new["urls"]["canonical"].endswith("/schmid.html")
+
+          report=json.loads(Path("/tmp/sincronia-schmidhuber-pending-authors.json").read_text(encoding="utf-8"))
+          assert report["totalSincroniaRecords"]==1454
+          assert report["highConfidenceEditorialNavigationCount"]==2
+          assert report["pendingAuthorRecords"]==79
+          assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==77
+          assert report["bibliographicConflictCount"]==1
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_SCHMIDHUBER_STRICT_PASS",len(changes),79)
+          PY
+      - name: Run full application regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit only verified corpus data to feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected worktree changes"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore verified Guillermo Schmidhuber Sincronía issue-one byline"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload historical and unresolved-author audits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-schmidhuber-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-schmidhuber-historical-quality.json
+            /tmp/sincronia-schmidhuber-pending-authors.json
+          retention-days: 30
+          if-no-files-found: warn
