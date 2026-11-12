@@ -437,6 +437,89 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_five_verified_index_title_reconstruction(before, after):
+    """Permit only five independently sourced repairs of author-name index labels.
+
+    This is intentionally an immutable exact-ID allowlist. Other existing
+    author/title provenance remains protected, including earlier byte fixes.
+    """
+    approved = {
+        "cucsh:sincronia-legacy:49b5784a8ae06fa454b2": (
+            "Gilbert, Stephen W.",
+            "Metáforas conceptuales y la teoría de «mezclaje»",
+            "Stephen W. Gilbert",
+            "https://www.academia.edu/30627352/Los_espacios_mentales_en_pr%C3%A1ctica",
+        ),
+        "cucsh:sincronia-legacy:4f37b04c2e8bb672fe93": (
+            "Rodríguez Alonso, Jesús A.,",
+            "Relación Individuo-Sociedad en Foucault y Habermas",
+            "Jesús Alberto Rodríguez Alonso",
+            "https://www.researchgate.net/publication/275892003_Relacion_Individuo-Sociedad_en_Foucault_y_Habermas",
+        ),
+        "cucsh:sincronia-legacy:7b1169fc953bb5bbcde5": (
+            "Bong Seo, Yoon",
+            "Juan Rulfo, escritor y fotógrafo: dos artes en conjunción",
+            "Seo Yoon Bong",
+            "https://tesiunamdocumentos.dgb.unam.mx/ptb2010/mayo/0657883/0657883_A12.pdf",
+        ),
+        "cucsh:sincronia-legacy:c177a81b39d937c10913": (
+            "Schmidhuber, Guillermo",
+            "Sor Juana Inés de la Cruz, dramaturga",
+            "Guillermo Schmidhuber",
+            "https://alternativas.me/wp-content/uploads/Alternativas-en-Psicologia-42-Numero-especial.pdf",
+        ),
+        "cucsh:sincronia-legacy:8681f9c51943f77086d0": (
+            "Alvarado Borgoño, Miguel",
+            "La estrategia narrativa de una utopía abierta. La obra 'Facundo' de Faustino Sarmiento",
+            "Miguel Alvarado Borgoño",
+            "https://revistas.udec.cl/index.php/rtr/article/download/22007/19529",
+        ),
+    }
+    case = approved.get(before.get("id"))
+    if not case or before.get("id") != after.get("id"):
+        return False
+    former, title, author, source = case
+    evidence = after.get("legacyIndexMislabelEvidence")
+    author_evidence = after.get("legacyAuthorEvidence")
+    original = (before.get("urls") or {}).get("canonical")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("title") != former
+        or after.get("title") != title
+        or after.get("titleVariants") != [title]
+        or before.get("authors")
+        or before.get("legacyIndexMislabelEvidence")
+        or before.get("legacyAuthorEvidence")
+        or not isinstance(evidence, dict)
+        or not isinstance(author_evidence, dict)
+        or evidence.get("kind") != "original-issue-index-used-author-name-instead-of-title"
+        or evidence.get("sourceUrl") != source
+        or evidence.get("previousTitle") != former
+        or evidence.get("verifiedTitle") != title
+        or evidence.get("verifiedAuthors") != [author]
+        or evidence.get("sourceArticleUrl") != original
+        or evidence.get("matchedIssueNumber") != before.get("issueNumber")
+        or evidence.get("originalAvailabilityPreserved") is not True
+        or author_evidence.get("sourceUrl") != source
+        or author_evidence.get("verifiedTitle") != title
+        or author_evidence.get("verifiedAuthors") != [author]
+        or author_evidence.get("matchedIssueNumber") != before.get("issueNumber")
+        or author_evidence.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors",
+        "legacyAuthorEvidence", "legacyIndexMislabelEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_issue17_index_label_reconstruction(before, after):
     """Permit a source-proven issue-17 correction of an *author index label*.
 
@@ -729,6 +812,9 @@ def main():
                after_by_id[key].get("legacyTitleEncodingEvidence")
         )
         and not safe_issue17_index_label_reconstruction(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_five_verified_index_title_reconstruction(
             before_by_id[key], after_by_id[key]
         )
     ]
