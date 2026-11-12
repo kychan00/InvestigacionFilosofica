@@ -866,11 +866,59 @@ function renderStats(
 }
 
 
+function originalSourceUnavailable(
+  item
+) {
+  return [
+    "original-page-unavailable",
+    "original-page-archived-only"
+  ].includes(
+    item.sourceAvailability?.status
+  );
+}
+
+
+function originalSourceStatusLabel(
+  item
+) {
+  if (
+    item.sourceAvailability?.status ===
+    "original-page-archived-only"
+  ) {
+    return (
+      "Página original no disponible al verificar"
+      + " · copia archivada localizada"
+    );
+  }
+
+  if (
+    item.sourceAvailability?.status ===
+    "original-page-unavailable"
+  ) {
+    return (
+      "Página original no disponible al verificar"
+    );
+  }
+
+  return "";
+}
+
+
 function resultUrl(item) {
+  const sourceUnavailable =
+    originalSourceUnavailable(
+      item
+    );
+
   return (
     item.urls?.openAccess ||
     item.urls?.doi ||
-    item.urls?.canonical ||
+    (
+      sourceUnavailable
+        ? null
+        : item.urls?.canonical
+    ) ||
+    item.urls?.reference ||
     item.urls?.landing ||
     item.url ||
     null
@@ -1485,6 +1533,18 @@ function renderRecordDetails(
       .join(" · ");
 
 
+  const sourceUnavailable =
+    originalSourceUnavailable(
+      item
+    );
+
+
+  const sourceStatusLabel =
+    originalSourceStatusLabel(
+      item
+    );
+
+
   const archiveSource =
     (item.sourceRecords || [])
       .find(
@@ -1690,6 +1750,7 @@ function renderRecordDetails(
 
   if (
     item.urls?.canonical &&
+    !sourceUnavailable &&
     !item.urls.canonical.includes(
       "doi.org"
     )
@@ -1709,11 +1770,31 @@ function renderRecordDetails(
   }
 
 
+  if (
+    sourceUnavailable &&
+    item.urls?.reference
+  ) {
+    accessLinks.push(`
+      <a
+        class="cinematic-action"
+        href="${escapeHtml(
+          item.urls.reference
+        )}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Referencia bibliográfica
+      </a>
+    `);
+  }
+
+
   const existingAccessUrls =
     new Set(
       [
         item.urls?.openAccess,
         item.urls?.canonical,
+        item.urls?.reference,
         item.doi
           ? `https://doi.org/${item.doi}`
           : item.urls?.doi
@@ -2109,7 +2190,10 @@ function renderRecordDetails(
 
 
           ${
-            accessLinks.length
+            (
+              accessLinks.length ||
+              sourceUnavailable
+            )
               ? `
                 <section class="cinematic-section">
 
@@ -2132,9 +2216,29 @@ function renderRecordDetails(
                   </div>
 
 
-                  <div class="cinematic-actions">
-                    ${accessLinks.join("")}
-                  </div>
+                  ${
+                    sourceUnavailable
+                      ? `
+                        <p class="cinematic-note">
+                          ${escapeHtml(
+                            sourceStatusLabel
+                          )}. El registro bibliográfico se conserva
+                          aunque el enlace histórico ya no responda.
+                        </p>
+                      `
+                      : ""
+                  }
+
+
+                  ${
+                    accessLinks.length
+                      ? `
+                        <div class="cinematic-actions">
+                          ${accessLinks.join("")}
+                        </div>
+                      `
+                      : ""
+                  }
 
                 </section>
               `
@@ -2890,6 +2994,28 @@ function renderResult(
     resultUrl(item);
 
 
+  const sourceUnavailable =
+    originalSourceUnavailable(
+      item
+    );
+
+
+  const sourceStatusLabel =
+    originalSourceStatusLabel(
+      item
+    );
+
+
+  const resultLinkLabel =
+    (
+      sourceUnavailable &&
+      item.urls?.reference &&
+      url === item.urls.reference
+    )
+      ? "Referencia bibliográfica"
+      : "Abrir";
+
+
   const doi =
     item.doi
       ? `https://doi.org/${item.doi}`
@@ -3104,6 +3230,23 @@ function renderResult(
           }
 
           ${
+            sourceUnavailable
+              ? `
+                <span
+                  class="provider source-unavailable"
+                  title="${escapeHtml(
+                    sourceStatusLabel
+                  )}"
+                >
+                  ${escapeHtml(
+                    sourceStatusLabel
+                  )}
+                </span>
+              `
+              : ""
+          }
+
+          ${
             item.openAccess?.isOpen
               ? `
                 <span class="provider">
@@ -3195,7 +3338,9 @@ function renderResult(
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Abrir
+                  ${escapeHtml(
+                    resultLinkLabel
+                  )}
                 </a>
               `
               : ""
