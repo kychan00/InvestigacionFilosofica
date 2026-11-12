@@ -2,8 +2,9 @@ import unittest
 from unittest.mock import patch
 
 from scripts.cucsh.enrich_sincronia_remaining import (
-    apply_evidence, curated_encoding_proposals, derive_proposals,
-    dialnet_author_proposals, dialnet_damaged_legacy_proposals,
+    annotate_access_status, apply_evidence, curated_encoding_proposals,
+    derive_proposals, dialnet_author_proposals,
+    dialnet_damaged_legacy_proposals, eligible_original_access_records,
     eligible_original_records, human_name, similarity,
 )
 
@@ -218,6 +219,99 @@ class RemainingMetadataTests(unittest.TestCase):
             "Carta à José Joaquín Palma ou la position esthétique "
             "de José Martí en exil",
         )
+
+    def test_curated_legacy_fix_can_restore_title_and_author(self):
+        row = paper("Mac�as Rodr�guez, Claudia")
+        row["id"] = "cucsh:sincronia-legacy:3be5c46dada720c21162"
+        row["issueNumber"] = 15
+        row["urls"]["canonical"] = "http://sincronia.cucsh.udg.mx/macias.htm"
+        findings = curated_encoding_proposals([row])
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(
+            findings[0]["corrections"]["title"]["value"],
+            "Un horizonte de análisis: la hermenéutica en la literatura",
+        )
+        self.assertEqual(
+            findings[0]["corrections"]["author"]["value"],
+            "Claudia Macías Rodríguez",
+        )
+
+    def test_unavailable_original_is_preserved_and_marked(self):
+        row = paper()
+        finding = {
+            "id": row["id"],
+            "issue": row["issueNumber"],
+            "url": row["urls"]["canonical"],
+            "source": "original-access",
+            "status": "source_unavailable",
+            "error": "TimeoutError('timed out')",
+        }
+        after, changed = annotate_access_status(
+            {"records": [row]}, [finding]
+        )
+        self.assertEqual(len(after["records"]), 1)
+        status = after["records"][0]["legacyAccessStatus"]
+        self.assertEqual(status["status"], "original-page-unavailable")
+        self.assertEqual(status["reason"], "timeout")
+        self.assertFalse(status["archiveAvailable"])
+        self.assertEqual(changed[0]["fields"], ["accessStatus"])
+
+    def test_wayback_only_original_is_marked_as_archived_only(self):
+        row = paper()
+        finding = {
+            "id": row["id"],
+            "issue": row["issueNumber"],
+            "url": row["urls"]["canonical"],
+            "source": "original-html",
+            "status": "no_high_confidence_evidence",
+            "retrievedViaWayback": True,
+        }
+        after, _changed = annotate_access_status(
+            {"records": [row]}, [finding]
+        )
+        status = after["records"][0]["legacyAccessStatus"]
+        self.assertEqual(status["status"], "original-page-archived-only")
+        self.assertTrue(status["archiveAvailable"])
+
+    def test_live_original_clears_stale_unavailable_marker(self):
+        row = paper()
+        row["legacyAccessStatus"] = {
+            "status": "original-page-unavailable",
+            "originalUrl": row["urls"]["canonical"],
+            "auditRunId": 1,
+        }
+        finding = {
+            "id": row["id"],
+            "issue": row["issueNumber"],
+            "url": row["urls"]["canonical"],
+            "source": "original-access",
+            "status": "available",
+            "retrievedViaWayback": False,
+        }
+        after, changed = annotate_access_status(
+            {"records": [row]}, [finding]
+        )
+        self.assertNotIn("legacyAccessStatus", after["records"][0])
+        self.assertEqual(changed[0]["fields"], ["accessStatus"])
+
+    def test_all_trusted_original_pages_are_access_targets(self):
+        html = paper()
+        pdf = {
+            **paper(),
+            "id": "pdf",
+            "urls": {
+                "canonical": "http://sincronia.cucsh.udg.mx/article.pdf"
+            },
+        }
+        dialnet = {
+            **paper(),
+            "id": "dialnet",
+            "urls": {
+                "canonical": "https://dialnet.unirioja.es/article"
+            },
+        }
+        targets = eligible_original_access_records([html, pdf, dialnet])
+        self.assertEqual([row["id"] for row in targets], ["original:1", "pdf"])
 
     def test_navigation_and_university_are_not_people(self):
         self.assertIsNone(human_name("Stanford University"))
