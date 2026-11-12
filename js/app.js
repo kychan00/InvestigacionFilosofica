@@ -6055,6 +6055,11 @@ function authorProfileAffiliation(item, label) {
 }
 
 
+function normalizedAuthorNarrative(value) {
+  return String(value || "").replace(/\s+/g, " ").trim().toLocaleLowerCase("es");
+}
+
+
 function compactAuthorText(value, maxLength = 430) {
   const text = String(value || "").replace(/\s+/g, " ").trim();
   if (!text || text.length <= maxLength) return text;
@@ -6310,15 +6315,24 @@ function renderAuthorPage(
   const orcidProfile =
     author.orcidProfile || authorArchiveOrcidProfile || null;
   const orcidProfileSummary = authorOrcidProfileSummary(orcidProfile);
+  const sourceBiography = String(author.biography || "").trim();
+  const orcidBiography = String(orcidProfile?.biography || "").trim();
+  const distinctSourceBiography =
+    sourceBiography &&
+    normalizedAuthorNarrative(sourceBiography) !==
+      normalizedAuthorNarrative(orcidBiography)
+      ? sourceBiography
+      : "";
   const heroBiography = compactAuthorText(
     orcidProfile
       ? (
           orcidProfileSummary ||
-          (orcidProfile.biography
+          distinctSourceBiography ||
+          (orcidBiography
             ? "Perfil académico y biografía pública disponibles en ORCID."
             : "")
         )
-      : author.biography,
+      : sourceBiography,
     430
   );
   const bibliographicSources = [...new Set(works.flatMap(authorWorkSources))];
