@@ -30,6 +30,10 @@ jobs:
         run: |
           python3 -m py_compile             scripts/cucsh/protrepsis_historical.py
 
+      - name: Run historical unit tests
+        run: |
+          python3 tests/test_protrepsis_historical.py
+
       - name: Inspect corpus
         run: |
           python3 - <<'PY'
