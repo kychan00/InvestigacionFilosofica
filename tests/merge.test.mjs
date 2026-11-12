@@ -988,3 +988,82 @@ test(
     );
   }
 );
+
+
+test(
+  "preserva estado de fuente histórica y referencia alternativa al federar",
+  () => {
+    const merged = mergeResults([
+      {
+        id: "crossref:10.1234/shared",
+        title: "Obra histórica compartida",
+        authors: [{ name: "Autora Ejemplo" }],
+        year: 2000,
+        doi: "10.1234/shared",
+        isbn: [],
+        providers: ["Crossref"],
+        sourceRecords: [{
+          provider: "Crossref",
+          sourceId: "10.1234/shared"
+        }],
+        matchedQueries: [],
+        topics: [],
+        institutionalLinks: [],
+        urls: {
+          canonical: "https://example.org/healthy"
+        }
+      },
+      {
+        id: "cucsh:sincronia:test",
+        title: "Obra histórica compartida",
+        authors: [{ name: "Autora Ejemplo" }],
+        year: 2000,
+        doi: "10.1234/shared",
+        isbn: [],
+        providers: ["CUCSH Filosofía"],
+        sourceAvailability: {
+          status: "original-page-unavailable",
+          originalUrl: "http://sincronia.cucsh.udg.mx/dead.htm",
+          auditRunId: 123
+        },
+        sourceRecords: [{
+          provider: "CUCSH Filosofía",
+          sourceId: "legacy:test",
+          accessStatus: {
+            status: "original-page-unavailable",
+            originalUrl: "http://sincronia.cucsh.udg.mx/dead.htm",
+            auditRunId: 123
+          }
+        }],
+        matchedQueries: [],
+        topics: [],
+        institutionalLinks: [],
+        urls: {
+          canonical: "http://sincronia.cucsh.udg.mx/dead.htm",
+          reference: "https://dialnet.unirioja.es/ejemplar/123"
+        }
+      }
+    ]);
+
+    assert.equal(merged.length, 1);
+    assert.equal(
+      merged[0].urls.canonical,
+      "https://example.org/healthy"
+    );
+    assert.equal(
+      merged[0].urls.reference,
+      "https://dialnet.unirioja.es/ejemplar/123"
+    );
+    assert.equal(
+      merged[0].sourceAvailability.status,
+      "original-page-unavailable"
+    );
+    assert.ok(
+      merged[0].sourceLinks.some(
+        link =>
+          link.url === "https://dialnet.unirioja.es/ejemplar/123" &&
+          link.kind === "bibliographic-reference"
+      )
+    );
+  }
+);
