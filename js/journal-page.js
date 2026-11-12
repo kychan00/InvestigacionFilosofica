@@ -2,7 +2,7 @@ import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261111-v6";
 import {
   journalIssueGroups,
   journalIssueInfo
-} from "./journal-issues.js?v=20261111-v1";
+} from "./journal-issues.js?v=20261112-history-v2";
 
 const SITE_ROOT = new URL("../", import.meta.url);
 const DATA_URL = new URL("src/data/cucsh-filosofia.json", SITE_ROOT);
