@@ -28,8 +28,15 @@ test("Quadripartita: 88 DOI únicos, 21 fascículos oficiales, Protrepsis intact
     groups.map(group => group.number).sort((a, b) => a - b),
     [...years.keys()]
   );
-  assert.equal(groups.find(group => group.number === 20).count, 2);
-  assert.equal(groups.find(group => group.number === 21).count, 2);
+  // Exact tables of contents of the 21 verified official OJS issues.
+  const expectedCounts = [
+    14, 6, 5, 10, 6, 4, 3, 2, 2, 3, 3,
+    3, 3, 2, 3, 2, 6, 5, 2, 2, 2
+  ];
+  assert.deepEqual(
+    [...groups].sort((a, b) => a.number - b.number).map(group => group.count),
+    expectedCounts
+  );
 });
 
 test("Quadripartita: 88 fechas editoriales independientes de fecha OJS", () => {
