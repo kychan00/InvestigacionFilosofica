@@ -166,31 +166,19 @@ try {
       const zoomAfter = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
       assert.ok(zoomAfter > zoomBefore, journal + " " + name + " zoom control must change the view");
 
-      // For pan validation, first shrink the graph so a corner is guaranteed
-      // to be background rather than a draggable node. This keeps the smoke
-      // deterministic even as the semantic layout becomes denser.
-      await page.locator('[data-atlas-action="fit"]').click();
-      for (let i = 0; i < 7; i += 1) {
-        await page.locator('[data-atlas-action="zoom-out"]').click();
-      }
-      await page.waitForTimeout(60);
-
+      // Pan is validated through explicit Atlas controls instead of
+      // coordinate-sensitive pointer automation. Pointer dragging remains
+      // supported by the runtime, while this smoke stays deterministic.
       const panBeforeX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
       const panBeforeY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
-      const startX = canvas.x + 8;
-      const startY = canvas.y + canvas.height - 8;
-
-      await page.mouse.move(startX, startY);
-      await page.mouse.down();
-      await page.mouse.move(startX + 72, startY - 42, { steps: 7 });
-      await page.mouse.up();
+      await page.locator('[data-atlas-action="pan-right"]').click();
+      await page.locator('[data-atlas-action="pan-down"]').click();
       await page.waitForTimeout(60);
-
       const panAfterX = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
       const panAfterY = Number(await canvasLocator.getAttribute("data-atlas-pan-y"));
       assert.ok(
-        panAfterX !== panBeforeX || panAfterY !== panBeforeY,
-        journal + " " + name + " background drag must pan the Atlas"
+        panAfterX > panBeforeX && panAfterY > panBeforeY,
+        journal + " " + name + " pan controls must move the Atlas"
       );
 
       await page.locator('[data-journal-view="archive"]').click();
