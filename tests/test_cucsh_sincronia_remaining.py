@@ -1,8 +1,9 @@
 import unittest
+from unittest.mock import patch
 
 from scripts.cucsh.enrich_sincronia_remaining import (
-    apply_evidence, derive_proposals, eligible_original_records,
-    human_name, similarity,
+    apply_evidence, derive_proposals, dialnet_author_proposals,
+    eligible_original_records, human_name, similarity,
 )
 
 
@@ -49,6 +50,56 @@ class RemainingMetadataTests(unittest.TestCase):
         self.assertEqual(
             result["corrections"]["author"]["evidence"],
             "original-article-author-meta",
+        )
+
+    def test_person_name_trims_stray_trailing_punctuation(self):
+        self.assertEqual(
+            human_name("Lilia Granillo Vázquez ,"),
+            "Lilia Granillo Vázquez",
+        )
+
+    @patch(
+        "scripts.cucsh.enrich_sincronia_remaining.harvest_dialnet_records"
+    )
+    def test_dialnet_single_author_requires_strict_issue_title_match(self, harvest):
+        row = paper("La envidia como cultura: el caso mexicano")
+        row["issueNumber"] = 17
+        row["urls"]["canonical"] = (
+            "http://sincronia.cucsh.udg.mx/granillo.htm"
+        )
+        harvest.return_value = ([
+            {
+                "issueNumber": 17,
+                "title": "La envidia como cultura: el caso mexicano",
+                "authors": [{"name": "Lilia Granillo Vázquez ,"}],
+                "urls": {
+                    "canonical": (
+                        "https://dialnet.unirioja.es/servlet/articulo?codigo=1"
+                    )
+                },
+            },
+            {
+                "issueNumber": 17,
+                "title": "Otro artículo completamente distinto",
+                "authors": [{"name": "Otra Persona"}],
+                "urls": {
+                    "canonical": (
+                        "https://dialnet.unirioja.es/servlet/articulo?codigo=2"
+                    )
+                },
+            },
+        ], [17])
+
+        findings = dialnet_author_proposals([row])
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(findings[0]["status"], "verified_corrections")
+        self.assertEqual(
+            findings[0]["corrections"]["author"]["value"],
+            "Lilia Granillo Vázquez",
+        )
+        self.assertEqual(
+            findings[0]["evidenceUrl"],
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=1",
         )
 
     def test_navigation_and_university_are_not_people(self):
