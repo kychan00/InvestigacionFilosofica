@@ -102,7 +102,9 @@ def verify_issue(snapshot, evidence, issue):
         raise ValueError(f"Issue {issue} local article count changed")
     if (
         evidence.get("issue") != issue
-        or not evidence.get("sourceAvailable")
+        # The prior audit records successful retrieval by its status
+        # and counts. It does not publish a sourceAvailable field.
+        or evidence.get("status") != "needs_review"
         or evidence.get("dialnetCount") != expected["source"]
         or evidence.get("localCount") != expected["local"]
         or evidence.get("issueUrl") != KNOWN_ISSUE_URLS[issue]
