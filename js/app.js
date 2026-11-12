@@ -866,14 +866,77 @@ function renderStats(
 }
 
 
+function originalSourceAvailability(
+  item
+) {
+  const direct =
+    item.sourceAvailability;
+
+  if (
+    [
+      "original-page-unavailable",
+      "original-page-archived-only"
+    ].includes(
+      direct?.status
+    )
+  ) {
+    return direct;
+  }
+
+  return (
+    (item.sourceRecords || [])
+      .map(
+        source =>
+          source?.accessStatus
+      )
+      .find(
+        status =>
+          [
+            "original-page-unavailable",
+            "original-page-archived-only"
+          ].includes(
+            status?.status
+          )
+      ) ||
+    null
+  );
+}
+
+
 function originalSourceUnavailable(
   item
 ) {
-  return [
-    "original-page-unavailable",
-    "original-page-archived-only"
-  ].includes(
-    item.sourceAvailability?.status
+  return Boolean(
+    originalSourceAvailability(
+      item
+    )
+  );
+}
+
+
+function canonicalSourceUnavailable(
+  item
+) {
+  const status =
+    originalSourceAvailability(
+      item
+    );
+
+  if (
+    !status ||
+    !item.urls?.canonical ||
+    !status.originalUrl
+  ) {
+    return false;
+  }
+
+  return (
+    String(
+      item.urls.canonical
+    ) ===
+    String(
+      status.originalUrl
+    )
   );
 }
 
@@ -881,8 +944,13 @@ function originalSourceUnavailable(
 function originalSourceStatusLabel(
   item
 ) {
+  const availability =
+    originalSourceAvailability(
+      item
+    );
+
   if (
-    item.sourceAvailability?.status ===
+    availability?.status ===
     "original-page-archived-only"
   ) {
     return (
@@ -892,7 +960,7 @@ function originalSourceStatusLabel(
   }
 
   if (
-    item.sourceAvailability?.status ===
+    availability?.status ===
     "original-page-unavailable"
   ) {
     return (
@@ -905,8 +973,8 @@ function originalSourceStatusLabel(
 
 
 function resultUrl(item) {
-  const sourceUnavailable =
-    originalSourceUnavailable(
+  const canonicalUnavailable =
+    canonicalSourceUnavailable(
       item
     );
 
@@ -914,7 +982,7 @@ function resultUrl(item) {
     item.urls?.openAccess ||
     item.urls?.doi ||
     (
-      sourceUnavailable
+      canonicalUnavailable
         ? null
         : item.urls?.canonical
     ) ||
@@ -1750,7 +1818,9 @@ function renderRecordDetails(
 
   if (
     item.urls?.canonical &&
-    !sourceUnavailable &&
+    !canonicalSourceUnavailable(
+      item
+    ) &&
     !item.urls.canonical.includes(
       "doi.org"
     )
