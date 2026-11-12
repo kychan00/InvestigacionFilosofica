@@ -91,14 +91,15 @@ try {
         if (url.origin !== new URL(BASE).origin) external.push(url.href);
       });
 
-      await page.route("**/src/data/cucsh-filosofia.json", route => route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: JSON.stringify({ provider: "CUCSH Filosofía", records })
-      }));
-
       await page.route("**/*", route => {
         const url = new URL(route.request().url());
+        if (url.pathname.endsWith("/src/data/cucsh-filosofia.json")) {
+          return route.fulfill({
+            status: 200,
+            contentType: "application/json",
+            body: JSON.stringify({ provider: "CUCSH Filosofía", records })
+          });
+        }
         if (url.origin === new URL(BASE).origin) return route.continue();
         return route.abort();
       });
