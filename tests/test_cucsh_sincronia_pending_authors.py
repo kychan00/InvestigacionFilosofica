@@ -49,5 +49,61 @@ class PendingAuthorsAuditTests(unittest.TestCase):
         self.assertEqual(report["pendingAuthorRecords"], 1)
 
 
+    def test_identity_queue_is_only_a_review_flag(self):
+        import copy
+
+        candidates = [
+            ("punctuation", 1, ",", "schmid.html",
+             "malformed_or_punctuation_only_title"),
+            ("person", 7, "Yolanda Bedregal", "bedregal.htm",
+             "person_name_entry_needs_article_identity"),
+            ("intro", 7, "Introducción", "leonard.htm",
+             "generic_index_heading_needs_source"),
+            ("biography", 8, "Dante Medina", "bio.html",
+             "possible_biography_not_article"),
+            ("label", 12, "Bañuelos,Raul", "banuelos.htm",
+             "possible_author_name_transcribed_as_title"),
+            ("multiple", 46, "González, Ana; Juárez, Pedro", "work.htm",
+             "possible_author_name_transcribed_as_title"),
+            ("editors", 46, "Editorial Board/Consejo Editorial", "creditos.html",
+             "possible_editorial_navigation_not_article"),
+            ("contrib", 46, "Further information for contributors.", "info.htm",
+             "possible_editorial_navigation_not_article"),
+            ("recent", 50, "Korstanje, Maximiliano E.", "korstanje.htm",
+             "possible_author_name_transcribed_as_title"),
+        ]
+        records = [
+            {"id": key, "journal": "Sincronía", "issueNumber": issue,
+             "title": title, "authors": [],
+             "urls": {"canonical": "https://legacy.example/" + url}}
+            for key, issue, title, url, _ in candidates
+        ]
+        records += [
+            {"id": "real-article", "journal": "Sincronía",
+             "issueNumber": 4, "title": "American Frontiers, Gregory H. Nobles",
+             "authors": [], "urls": {"canonical": "https://legacy.example/essay.htm"}},
+            {"id": "protrepsis", "journal": "Protrepsis",
+             "issueNumber": 46, "title": "Editorial Board/Consejo Editorial",
+             "authors": []},
+        ]
+        before = copy.deepcopy(records)
+        result = audit_pending_authors(records)
+        self.assertEqual(records, before)
+        self.assertEqual(result["suspectedWorkIdentityCount"], len(candidates))
+        flags = {
+            row["id"]: row["reviewReason"]
+            for row in result["suspectedWorkIdentityRecords"]
+        }
+        for key, _, _, _, kind in candidates:
+            self.assertEqual(flags[key], kind)
+        self.assertNotIn("real-article", flags)
+        self.assertNotIn("protrepsis", flags)
+        self.assertEqual(result["pendingAuthorRecords"], len(candidates) + 1)
+        self.assertEqual(
+            sum(result["suspectedWorkIdentityByType"].values()),
+            len(candidates),
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
