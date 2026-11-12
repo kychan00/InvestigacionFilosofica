@@ -5,6 +5,7 @@ import {
 } from "./remote-author-resolution.js";
 import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261101-federated-coverage-v1";
 import { searchCrossrefByOrcid } from "../sources/crossref.js";
+import { fetchOrcidPublicWorks } from "../sources/orcid.js";
 import { normalizedAuthorOrcid, authorWorkSources } from "./author-provenance.js";
 import { getCuratedAuthorBibliography } from "./curated-author-bibliography.js?v=20261101-curated-bibliography-v1";
 
@@ -221,11 +222,13 @@ export async function discoverAuthorArchive({
   federatedImpl=resolveFederatedAuthor,
   snapshotImpl=fetchAuthorWorksFromSnapshot,
   orcidSearchImpl=searchCrossrefByOrcid,
+  orcidRegistryImpl=fetchOrcidPublicWorks,
   signal,
   onProgress=()=>{},
   snapshotOptions={},
   federatedOptions={},
-  orcidOptions={}
+  orcidOptions={},
+  orcidRegistryOptions={}
 }={}) {
   const name=String(author?.displayName||author?.sourceDisplayName||"").trim();
   const id=authorId(author?.id);
@@ -241,11 +244,12 @@ export async function discoverAuthorArchive({
   ])];
   let snapshotComplete=false;
   let snapshotTotal=null;
+  let orcidSummary=null;
 
   const emit=(source,phase)=>onProgress({
     works:[...works],source,phase,
     sources:[...new Set(sources)],errors:[...errors],
-    snapshotComplete,snapshotTotal
+    snapshotComplete,snapshotTotal,orcidSummary
   });
   emit(curated.works?.length
     ? "Bibliografía verificada"
@@ -293,7 +297,33 @@ export async function discoverAuthorArchive({
       emit("Crossref / Internet Archive / CUCSH Filosofía","settled");
     })());
   }
-  // Crossref's exact ORCID filter discovers works that name-only searches
+  // Read the public ORCID registry itself. A search for ORCID in Crossref
+  // cannot substitute for the works explicitly listed on the ORCID profile.
+  if (orcid) {
+    jobs.push((async () => {
+      try {
+        const result = await orcidRegistryImpl(orcid, {
+          displayName: name, signal, ...orcidRegistryOptions
+        });
+        works = mergeAuthorArchives(works, result.works || []);
+        orcidSummary = {
+          totalGroups: result.totalGroups ?? (result.works || []).length,
+          returnedWorks: (result.works || []).length,
+          complete: Boolean(result.complete)
+        };
+        if (!sources.includes("ORCID"))
+          sources.push("ORCID");
+      } catch (error) {
+        if (signal?.aborted || error?.name === "AbortError") throw error;
+        errors.push("Registro público ORCID: " +
+          String(error.message || "No disponible"));
+        orcidSummary = { error: "No disponible", complete: false };
+      }
+      emit("ORCID", "settled");
+    })());
+  }
+
+    // Crossref's exact ORCID filter discovers works that name-only searches
   // miss. It is not the ORCID registry; coverage can still be partial.
   if (orcid) {
     jobs.push((async () => {
@@ -323,7 +353,7 @@ export async function discoverAuthorArchive({
 
   return {
     works,sources:[...new Set(sources)],errors,
-    snapshotComplete,snapshotTotal,
+    snapshotComplete,snapshotTotal,orcidSummary,
     // Curated coverage improves the archive but does not claim a universal bibliography.
     curatedWorks:curated.works?.length||0,
     complete:false
