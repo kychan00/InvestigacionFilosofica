@@ -45,9 +45,13 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261109-editorial-timeline-v2";
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
+import {
+  authorOrcidUrl, normalizedAuthorOrcid, authorWorkSources,
+  workHasAuthorOrcidEvidence
+} from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-curated-bibliography-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261112-author-orcid-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -1606,8 +1610,15 @@ function renderRecordDetails(
       .join("");
 
 
+  const sourceList = [...(item.sourceRecords || [])];
+  // Show every catalog even when a source supplied only its provider name.
+  for (const provider of authorWorkSources(item)) {
+    if (!sourceList.some(record => record?.provider === provider)) {
+      sourceList.push({ provider, sourceId: null });
+    }
+  }
   const sourceRecords =
-    (item.sourceRecords || [])
+    sourceList
       .map(
         source => `
           <li>
@@ -2922,6 +2933,13 @@ function renderResult(
       : abstract;
 
 
+  const authorProfileOrcid = currentResponse?.authorOnly
+    ? authorOrcidUrl(currentResponse.authorResolution?.author?.orcid)
+    : null;
+  const hasWorkOrcidEvidence = authorProfileOrcid &&
+    workHasAuthorOrcidEvidence(item, authorProfileOrcid);
+  const workSources = authorWorkSources(item);
+
   const archiveDescription =
     (item.sourceRecords || [])
       .find(
@@ -3075,8 +3093,22 @@ function renderResult(
 
         <div class="provider-row">
 
+          ${workSources.length > 1
+            ? `<span class="provider author-multiple-sources">Varias fuentes · ${workSources.length}</span>`
+            : ""}
+          ${authorProfileOrcid
+            ? `<a class="provider author-work-orcid ${hasWorkOrcidEvidence ? "is-evidenced" : ""}"
+                 href="${escapeHtml(authorProfileOrcid)}"
+                 target="_blank" rel="noopener noreferrer"
+                 title="${hasWorkOrcidEvidence
+                   ? "Identificador presente en los metadatos de esta publicación"
+                   : "ORCID del perfil; no constituye una atribución verificada de esta obra"}">
+                 ${hasWorkOrcidEvidence ? "ORCID en metadatos" : "ORCID del autor"}
+               </a>`
+            : ""}
+
           ${
-            (item.providers || [])
+            workSources
               .map(
                 provider => `
                   <span class="provider">
@@ -5557,13 +5589,7 @@ function renderAuthorResolution(
     author.wikidataId
       ? `https://www.wikidata.org/wiki/${author.wikidataId}`
       : null;
-  const orcidUrl = author.orcid
-    ? (
-        author.orcid.startsWith("http")
-          ? author.orcid
-          : `https://orcid.org/${author.orcid}`
-      )
-    : null;
+  const orcidUrl = authorOrcidUrl(author.orcid);
 
   return `
     <section
@@ -5959,6 +5985,12 @@ function renderAuthorPage(
   const collaborationSummary = summarizeAuthorCollaborations(author, works);
   const aliasNames = [...new Set((author.aliases || [])
     .filter(alias => alias && alias !== author.displayName))];
+  const identifiedOrcid = normalizedAuthorOrcid(author.orcid);
+  const bibliographicSources = [...new Set(works.flatMap(authorWorkSources))];
+  const multiSourceWorks = works.filter(work =>
+    authorWorkSources(work).length > 1).length;
+  const orcidEvidenceWorks = works.filter(work =>
+    workHasAuthorOrcidEvidence(work, author.orcid)).length;
   const collaboratorCards = collaborationSummary.collaborators.slice(0, 12)
     .map(person => `
       <a class="author-coauthor-link"
@@ -6116,10 +6148,16 @@ function renderAuthorPage(
             }
             ${
               orcidUrl
-                ? `<a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">ORCID</a>`
+                ? `<a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">ORCID · ${escapeHtml(identifiedOrcid)}</a>`
                 : ""
             }
           </div>
+          ${orcidUrl ? `
+            <p class="author-orcid-explainer">
+              ORCID identifica a este investigador. Las publicaciones marcadas
+              «ORCID en metadatos» tienen un vínculo bibliográfico explícito;
+              el resto conserva su nivel de atribución original.
+            </p>` : ""}
         </div>
 
         <div class="author-page-seal" aria-hidden="true">
@@ -6153,6 +6191,15 @@ function renderAuthorPage(
           <strong>${summary.types.length}</strong>
           <small>Clasificación de la fuente</small>
         </div>
+      </section>
+
+      <section class="author-page-source-summary" aria-label="Procedencia de publicaciones">
+        <div><strong>${bibliographicSources.length}</strong><span>fuentes bibliográficas identificadas</span></div>
+        <div><strong>${multiSourceWorks}</strong><span>obras presentes en varias fuentes</span></div>
+        <div><strong>${orcidEvidenceWorks}</strong><span>obras con vínculo ORCID en metadatos</span></div>
+        <p>Fuentes: ${bibliographicSources.length
+          ? escapeHtml(bibliographicSources.join(" · "))
+          : "Pendiente de identificar"}. ORCID no cuenta como un catálogo bibliográfico separado.</p>
       </section>
 
       <section class="author-timeline-placeholder" id="author-timeline-root"></section>
@@ -6305,6 +6352,7 @@ function renderFilteredResults() {
       authorTimelineState,
       {
         loading: authorArchiveLoading,
+        authorOrcid: currentResponse.authorResolution?.author?.orcid,
         onOpenWork: index => {
           const work = currentResponse.results?.[index];
           if (work) openRecord(work);
