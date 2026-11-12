@@ -91,7 +91,8 @@ export function combineSemanticWithFederated(
           "OpenAlex Philosophy",
           "Crossref",
           "Internet Archive",
-          "CUCSH Filosofía"
+          "CUCSH Filosofía",
+          "ORCID"
         ],
         openAlexApiEnabled: false,
         rerankerEnabled: false
