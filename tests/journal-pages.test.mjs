@@ -19,6 +19,8 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /journal-qwen-toggle/);
     assert.match(html, /journal-atlas-controls/);
     assert.match(html, /data-atlas-action="zoom-in"/);
+    assert.match(html, /data-atlas-action="pan-right"/);
+    assert.match(html, /data-atlas-action="pan-down"/);
     assert.match(html, /data-atlas-action="fit"/);
     assert.match(html, /journal-category-chips/);
     assert.match(html, /journal-topic-chips/);
@@ -63,6 +65,13 @@ test("Atlas de revista distingue Qwen verificado de respaldo textual", async () 
   assert.match(source, /onPointerDown/);
   assert.match(source, /fitView/);
   assert.match(source, /resetLayout/);
+  assert.match(source, /panBy/);
+  assert.match(source, /relatedEdgesFor/);
+  assert.match(source, /relationExplanation/);
+  assert.match(source, /RELACIONES SEMÁNTICAS/);
+  assert.match(source, /data-related-node/);
+  assert.match(source, /coseno TF-IDF/);
+  assert.match(source, /coseno Qwen/);
 });
 
 test("navegación lateral enlaza páginas individuales y funciona desde subdirectorios", async () => {

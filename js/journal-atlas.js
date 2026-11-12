@@ -365,6 +365,58 @@ function shortTitle(value, max = 34) {
   return text.length <= max ? text : text.slice(0, max - 1).trimEnd() + "…";
 }
 
+function confidenceLabel(value) {
+  if (value === "high") return "alta";
+  if (value === "medium") return "media";
+  return "débil";
+}
+
+function relationTerms(left, right) {
+  const leftTerms = weightedTerms(left);
+  const rightTerms = weightedTerms(right);
+  const shared = [];
+
+  for (const [token, leftWeight] of leftTerms) {
+    const rightWeight = rightTerms.get(token);
+    if (!rightWeight) continue;
+    shared.push({
+      token,
+      weight: Math.min(leftWeight, rightWeight)
+    });
+  }
+
+  return shared
+    .sort((a, b) => b.weight - a.weight || a.token.localeCompare(b.token, "es"))
+    .slice(0, 4)
+    .map(item => item.token);
+}
+
+function relationMethod(edge) {
+  if (edge.source === "qwen") return "Qwen verificado";
+  if (edge.confidence === "high") return "Proximidad textual fuerte";
+  if (edge.confidence === "medium") return "Proximidad textual media";
+  return "Aproximación textual";
+}
+
+function relationExplanation(edge, sourceNode, targetNode) {
+  const terms = relationTerms(sourceNode, targetNode);
+  const parts = [];
+
+  if (edge.source === "qwen") {
+    parts.push("La cercanía principal proviene de vectores Qwen verificados.");
+  } else if (terms.length) {
+    parts.push("Coinciden especialmente en: " + terms.join(", ") + ".");
+  } else {
+    parts.push("Es uno de los vecinos más próximos dentro del corpus visible.");
+  }
+
+  if (edge.sameIssue) {
+    parts.push("Además pertenece al mismo número editorial.");
+  }
+
+  return parts.join(" ");
+}
+
 export class JournalSemanticAtlas {
   constructor({ canvas, status, detail, legend, controls = null, accent = "#0f62fe" }) {
     this.canvas = canvas;
@@ -411,6 +463,10 @@ export class JournalSemanticAtlas {
       const button = event.target.closest("[data-atlas-action]");
       if (!button) return;
       const action = button.dataset.atlasAction;
+      if (action === "pan-left") this.panBy(-72, 0);
+      if (action === "pan-right") this.panBy(72, 0);
+      if (action === "pan-up") this.panBy(0, -72);
+      if (action === "pan-down") this.panBy(0, 72);
       if (action === "zoom-in") this.zoomBy(1.22);
       if (action === "zoom-out") this.zoomBy(1 / 1.22);
       if (action === "fit") this.fitView();
@@ -671,18 +727,42 @@ export class JournalSemanticAtlas {
 
     this.drawIssueRegions(ctx, metrics, colors);
 
+    const selectedIndex = this.selectedNode ? this.nodes.indexOf(this.selectedNode) : -1;
+
     for (const edge of this.edges) {
       const a = this.point(this.nodes[edge.a], metrics);
       const b = this.point(this.nodes[edge.b], metrics);
       const low = edge.confidence === "low";
       const medium = edge.confidence === "medium";
+      const selectedEdge = selectedIndex >= 0 && (edge.a === selectedIndex || edge.b === selectedIndex);
+      const dimmed = selectedIndex >= 0 && !selectedEdge;
 
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
       ctx.lineTo(b.x, b.y);
-      ctx.globalAlpha = edge.source === "qwen" ? 0.68 : low ? 0.18 : medium ? 0.32 : 0.5;
-      ctx.strokeStyle = edge.source === "qwen" ? this.accent : colors.line;
-      ctx.lineWidth = edge.source === "qwen" ? 1.9 : low ? 0.8 : 1.15;
+      ctx.globalAlpha = dimmed
+        ? 0.055
+        : selectedEdge
+          ? 0.9
+          : edge.source === "qwen"
+            ? 0.68
+            : low
+              ? 0.18
+              : medium
+                ? 0.32
+                : 0.5;
+      ctx.strokeStyle = selectedEdge
+        ? (edge.source === "qwen" ? this.accent : this.selectedNode.issue.color)
+        : edge.source === "qwen"
+          ? this.accent
+          : colors.line;
+      ctx.lineWidth = selectedEdge
+        ? (edge.source === "qwen" ? 3 : 2.2)
+        : edge.source === "qwen"
+          ? 1.9
+          : low
+            ? 0.8
+            : 1.15;
       ctx.setLineDash(low ? [2, 6] : medium ? [4, 5] : []);
       ctx.stroke();
     }
@@ -694,13 +774,18 @@ export class JournalSemanticAtlas {
       const point = this.point(node, metrics);
       const selected = node === this.selectedNode;
       const hovered = node === this.hoverNode;
-      const radius = selected ? 10 : hovered ? 8.7 : node.vector ? 7.4 : 6.1;
+      const nodeIndex = this.nodes.indexOf(node);
+      const related = selectedIndex >= 0 && this.edges.some(edge =>
+        (edge.a === selectedIndex && edge.b === nodeIndex) ||
+        (edge.b === selectedIndex && edge.a === nodeIndex)
+      );
+      const radius = selected ? 10 : hovered ? 8.7 : related ? 7.8 : node.vector ? 7.4 : 6.1;
 
-      if (selected || hovered) {
+      if (selected || hovered || related) {
         ctx.beginPath();
-        ctx.arc(point.x, point.y, radius + 5, 0, Math.PI * 2);
+        ctx.arc(point.x, point.y, radius + (selected ? 5 : 3.5), 0, Math.PI * 2);
         ctx.fillStyle = node.issue.color;
-        ctx.globalAlpha = selected ? 0.19 : 0.11;
+        ctx.globalAlpha = selected ? 0.19 : related ? 0.13 : 0.11;
         ctx.fill();
         ctx.globalAlpha = 1;
       }
@@ -713,7 +798,7 @@ export class JournalSemanticAtlas {
       ctx.strokeStyle = node.vector ? "#ffffff" : colors.surface;
       ctx.stroke();
 
-      if (selected || hovered || this.view.zoom >= 1.3) {
+      if (selected || hovered || related || this.view.zoom >= 1.3) {
         this.drawLabel(ctx, point, shortTitle(node.record.title), colors, selected, node.issue.color);
       }
     }
@@ -851,6 +936,13 @@ export class JournalSemanticAtlas {
     this.requestDraw();
   }
 
+  panBy(dx, dy) {
+    if (!this.nodes.length) return;
+    this.view.panX += Number(dx) || 0;
+    this.view.panY += Number(dy) || 0;
+    this.requestDraw();
+  }
+
   zoomBy(factor) {
     if (!this.nodes.length) return;
     const metrics = this.metrics();
@@ -895,6 +987,41 @@ export class JournalSemanticAtlas {
     else this.requestDraw();
   }
 
+  relatedEdgesFor(node) {
+    const index = this.nodes.indexOf(node);
+    if (index < 0) return [];
+
+    const confidenceRank = { high: 3, medium: 2, low: 1 };
+
+    return this.edges
+      .filter(edge => edge.a === index || edge.b === index)
+      .map(edge => {
+        const targetIndex = edge.a === index ? edge.b : edge.a;
+        return {
+          edge,
+          targetIndex,
+          target: this.nodes[targetIndex]
+        };
+      })
+      .sort((left, right) =>
+        (left.edge.source === right.edge.source ? 0 : left.edge.source === "qwen" ? -1 : 1) ||
+        (confidenceRank[right.edge.confidence] || 0) - (confidenceRank[left.edge.confidence] || 0) ||
+        right.edge.score - left.edge.score ||
+        String(left.target.record.title || "").localeCompare(String(right.target.record.title || ""), "es")
+      );
+  }
+
+  focusNode(node) {
+    if (!node) return;
+    this.selectedNode = node;
+    this.renderDetail(node);
+
+    const metrics = this.metrics();
+    this.view.panX = -node.x * metrics.base * this.view.zoom;
+    this.view.panY = -node.y * metrics.base * this.view.zoom;
+    this.requestDraw();
+  }
+
   renderDetail(node) {
     if (!this.detail) return;
 
@@ -919,6 +1046,50 @@ export class JournalSemanticAtlas {
         ).join(" · ")
       : "Autor no indicado";
 
+    const relations = this.relatedEdgesFor(node);
+    const relationItems = relations.map(({ edge, targetIndex, target }) => {
+      const targetRecord = target.record;
+      const targetLink = targetRecord.urls?.canonical ||
+        targetRecord.urls?.doi ||
+        (targetRecord.doi ? "https://doi.org/" + targetRecord.doi : "");
+      const terms = relationTerms(node, target);
+      const scoreLabel = edge.source === "qwen" ? "coseno Qwen" : "coseno TF-IDF";
+      const relationBadges =
+        '<span class="atlas-relation-badge method">' + escapeHtml(relationMethod(edge)) + '</span>' +
+        '<span class="atlas-relation-badge confidence confidence-' + escapeAttribute(edge.confidence) + '">' +
+          'confianza ' + escapeHtml(confidenceLabel(edge.confidence)) +
+        '</span>' +
+        '<span class="atlas-relation-badge score">' +
+          escapeHtml(scoreLabel) + ' ' + escapeHtml(edge.score.toFixed(2)) +
+        '</span>' +
+        (edge.sameIssue
+          ? '<span class="atlas-relation-badge same-issue">mismo ' + escapeHtml(node.issue.label) + '</span>'
+          : '');
+
+      return (
+        '<article class="atlas-related-item" data-related-card="' + escapeAttribute(target.id) + '">' +
+          '<button class="atlas-related-focus" type="button" data-related-node="' + targetIndex + '">' +
+            '<span class="atlas-related-dot" style="--issue-color:' + escapeAttribute(target.issue.color) + '"></span>' +
+            '<span class="atlas-related-copy">' +
+              '<strong>' + escapeHtml(targetRecord.title || "Sin título") + '</strong>' +
+              '<small>' + escapeHtml(target.issue.label) + ' · ' + escapeHtml(targetRecord.year || "s/f") + '</small>' +
+            '</span>' +
+          '</button>' +
+          '<div class="atlas-relation-badges">' + relationBadges + '</div>' +
+          '<p class="atlas-related-why">' + escapeHtml(relationExplanation(edge, node, target)) + '</p>' +
+          (terms.length
+            ? '<div class="atlas-related-terms">' +
+                terms.map(term => '<span>' + escapeHtml(term) + '</span>').join("") +
+              '</div>'
+            : '') +
+          (targetLink
+            ? '<a class="atlas-related-open" href="' + escapeAttribute(targetLink) +
+              '" target="_blank" rel="noopener noreferrer">Abrir relacionado ↗</a>'
+            : '') +
+        '</article>'
+      );
+    }).join("");
+
     this.detail.innerHTML =
       '<span class="atlas-detail-kicker">' +
       (node.vector ? "QWEN VERIFICADO" : "PROXIMIDAD TEXTUAL") +
@@ -932,10 +1103,28 @@ export class JournalSemanticAtlas {
         '<span>' + escapeHtml(record.year || "s/f") + '</span>' +
         '<span>' + escapeHtml(node.category || "General") + '</span>' +
       '</div>' +
-      '<p class="atlas-detail-method">El color identifica el número editorial. Las líneas representan vecinos semánticos; las punteadas son aproximaciones de menor confianza.</p>' +
+      '<p class="atlas-detail-method">El color identifica el número editorial. Al seleccionar un artículo se resaltan únicamente sus conexiones directas.</p>' +
       (link
         ? '<a class="atlas-detail-record" href="' + escapeAttribute(link) +
           '" target="_blank" rel="noopener noreferrer">Abrir registro ↗</a>'
-        : "");
+        : '') +
+      '<section class="atlas-related-section" aria-label="Relaciones semánticas del artículo">' +
+        '<header class="atlas-related-header">' +
+          '<div><span>RELACIONES SEMÁNTICAS</span><strong>' + relations.length + '</strong></div>' +
+          '<p>Vecinos conectados con este artículo, ordenados por método y fuerza de proximidad.</p>' +
+        '</header>' +
+        (relations.length
+          ? '<div class="atlas-related-list">' + relationItems + '</div>'
+          : '<p class="atlas-related-empty">Este nodo no tiene relaciones visibles con los filtros actuales.</p>') +
+      '</section>';
+
+    this.detail.querySelectorAll("[data-related-node]").forEach(button => {
+      button.addEventListener("click", () => {
+        const target = this.nodes[Number(button.dataset.relatedNode)];
+        this.focusNode(target);
+      });
+    });
+
+    this.requestDraw();
   }
 }

@@ -1683,3 +1683,239 @@ body[data-journal="protrepsis"] .journal-hero-aside::after {
     min-height: 400px;
   }
 }
+
+
+/* v4 — ficha relacional del Atlas */
+.atlas-related-section {
+  margin: 24px -28px -28px;
+  border-top: 1px solid var(--jp-line);
+}
+
+.atlas-related-header {
+  display: grid;
+  gap: 8px;
+  padding: 18px 28px 16px;
+  background: color-mix(in srgb, var(--jp-surface-2) 86%, transparent);
+  border-bottom: 1px solid var(--jp-line);
+}
+
+.atlas-related-header > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.atlas-related-header span {
+  color: var(--journal-accent);
+  font-family: var(--jp-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.atlas-related-header strong {
+  display: grid;
+  min-width: 28px;
+  height: 28px;
+  place-items: center;
+  background: var(--journal-accent);
+  color: #fff;
+  font-family: var(--jp-mono);
+  font-size: 11px;
+}
+
+.atlas-related-header p {
+  margin: 0 !important;
+  color: var(--jp-muted) !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+.atlas-related-list {
+  display: grid;
+  max-height: 540px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.atlas-related-item {
+  padding: 16px 20px 17px;
+  border-bottom: 1px solid var(--jp-line);
+  background: var(--jp-surface);
+}
+
+.atlas-related-item:last-child {
+  border-bottom: 0;
+}
+
+.atlas-related-focus {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.atlas-related-focus:hover strong {
+  color: var(--journal-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.atlas-related-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--issue-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--issue-color) 15%, transparent);
+}
+
+.atlas-related-copy {
+  min-width: 0;
+}
+
+.atlas-related-copy strong {
+  display: block;
+  font-family: var(--jp-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.atlas-related-copy small {
+  display: block;
+  margin-top: 5px;
+  color: var(--jp-muted);
+  font-family: var(--jp-mono);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.atlas-relation-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 11px 0 8px 22px;
+}
+
+.atlas-relation-badge {
+  display: inline-flex;
+  min-height: 23px;
+  align-items: center;
+  padding: 3px 6px;
+  border: 1px solid var(--jp-line);
+  color: var(--jp-muted);
+  font-family: var(--jp-mono);
+  font-size: 8px;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+}
+
+.atlas-relation-badge.method {
+  border-color: color-mix(in srgb, var(--journal-accent) 50%, var(--jp-line));
+  color: var(--journal-accent);
+}
+
+.atlas-relation-badge.confidence-high {
+  border-color: #198038;
+  color: #198038;
+}
+
+.atlas-relation-badge.confidence-medium {
+  border-color: #b28600;
+  color: #8e6a00;
+}
+
+html[data-theme="dark"] .atlas-relation-badge.confidence-medium {
+  color: #f1c21b;
+}
+
+.atlas-relation-badge.confidence-low {
+  border-style: dashed;
+}
+
+.atlas-relation-badge.same-issue {
+  border-color: #8a3ffc;
+  color: #8a3ffc;
+}
+
+.atlas-related-why {
+  margin: 0 0 9px 22px !important;
+  color: var(--jp-muted) !important;
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+}
+
+.atlas-related-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0 0 10px 22px;
+}
+
+.atlas-related-terms span {
+  padding: 3px 6px;
+  background: var(--jp-chip-bg);
+  color: var(--jp-muted);
+  font-family: var(--jp-mono);
+  font-size: 8px;
+}
+
+.atlas-related-open {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  margin-left: 22px;
+  color: var(--journal-accent);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.atlas-related-open:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.atlas-related-empty {
+  margin: 0 !important;
+  padding: 18px 28px !important;
+  color: var(--jp-muted) !important;
+  font-size: 12px !important;
+}
+
+@media (max-width: 820px) {
+  .atlas-related-section {
+    margin: 22px -16px -20px;
+  }
+
+  .atlas-related-header {
+    padding: 16px;
+  }
+
+  .atlas-related-list {
+    max-height: 430px;
+  }
+
+  .atlas-related-item {
+    padding: 15px 16px;
+  }
+
+  .atlas-related-copy strong {
+    font-size: 16px;
+  }
+
+  .atlas-relation-badges,
+  .atlas-related-why,
+  .atlas-related-terms,
+  .atlas-related-open {
+    margin-left: 22px;
+  }
+}
