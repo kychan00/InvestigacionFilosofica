@@ -437,6 +437,95 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_two_2000_exact_url_recoveries(before, after):
+    """Immutable two-work bibliography allowlist, separate from backfill code."""
+    approved = {
+        "cucsh:sincronia-legacy:c7cbf58138a51053d669": (
+            "Bong Seo,Yoon",
+            "Dos frutos de la era cibernética: la generación net y los hackers",
+            ["Seo Yoon Bong"],
+            "joon.htm",
+            "SEO, Yoon Bong",
+            "https://www.scielo.br/j/rbedu/a/gSfFcSpCssjML8Wj9xq5dgj/?format=html",
+            "https://latinjournal.org/index.php/roh/article/view/121",
+        ),
+        "cucsh:sincronia-legacy:014936a40189f16c9b90": (
+            "Velasco, Arnulfo Eduardo",
+            "El sueño del héroe en el cine estadounidense contemporáneo",
+            ["Arnulfo Eduardo Velasco"],
+            "cineus.htm",
+            "VELASCO, ARNULFO EDUARDO",
+            "https://repositorio.ub.edu.ar/bitstream/handle/123456789/542/389_Walpen.pdf?isAllowed=y&sequence=2",
+            "https://www.academia.edu/144073190/La_construcci%C3%B3n_del_personaje_en_el_relato_cinematogr%C3%A1fico_h%C3%A9roes_y_villanos",
+        ),
+    }
+    match = approved.get(before.get("id"))
+    if match is None or before.get("id") != after.get("id"):
+        return False
+    original_title, verified_title, authors, suffix, citing_author, source, supporting = match
+    original_url = (before.get("urls") or {}).get("canonical") or ""
+    original_variants = before.get("titleVariants") or []
+    verified_variants = (
+        [verified_title]
+        + [v for v in original_variants if v != verified_title]
+    )
+    if original_title not in verified_variants:
+        verified_variants.append(original_title)
+    work_evidence = after.get("legacyIndexMislabelEvidence")
+    author_evidence = after.get("legacyAuthorEvidence")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 15
+        or before.get("year") != 2000
+        or before.get("title") != original_title
+        or after.get("title") != verified_title
+        or not original_url.lower().endswith("/" + suffix)
+        or not isinstance(original_variants, list)
+        or after.get("titleVariants") != verified_variants
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not isinstance(work_evidence, dict)
+        or not isinstance(author_evidence, dict)
+        or work_evidence.get("kind") !=
+           "exact-original-url-independent-bibliography-2000"
+        or work_evidence.get("sourceUrl") != source
+        or work_evidence.get("supportingSourceUrl") != supporting
+        or work_evidence.get("sourceArticleUrl") != original_url
+        or work_evidence.get("previousTitle") != original_title
+        or work_evidence.get("originalTitleVariants") != original_variants
+        or work_evidence.get("verifiedTitle") != verified_title
+        or work_evidence.get("verifiedAuthors") != authors
+        or work_evidence.get("citationAuthorName") != citing_author
+        or work_evidence.get("matchedIssueNumber") != 15
+        or work_evidence.get("matchedYear") != 2000
+        or work_evidence.get("originalAvailabilityPreserved") is not True
+        or author_evidence.get("kind") !=
+           "exact-original-url-independent-author-citation-2000"
+        or author_evidence.get("sourceUrl") != source
+        or author_evidence.get("supportingSourceUrl") != supporting
+        or author_evidence.get("verifiedAuthors") != authors
+        or author_evidence.get("citationAuthorName") != citing_author
+        or author_evidence.get("verifiedTitle") != verified_title
+        or author_evidence.get("matchedIssueNumber") != 15
+        or author_evidence.get("matchedYear") != 2000
+        or author_evidence.get("sourceArticleUrl") != original_url
+        or author_evidence.get("originalAvailabilityPreserved") is not True
+        or [x.get("name") for x in (after.get("authors") or [])] != authors
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors",
+        "legacyIndexMislabelEvidence", "legacyAuthorEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_issue50_dialnet_two_existing_author_titles(before, after):
     """Protect both existing coauthor lists when repairing 2009 article titles.
 
@@ -1343,6 +1432,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_issue50_dialnet_two_existing_author_titles(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_two_2000_exact_url_recoveries(
             before_by_id[key], after_by_id[key]
         )
     ]
