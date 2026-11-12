@@ -9,6 +9,7 @@ on:
       - "tesis.html"
       - "atlas.html"
       - "acerca.html"
+      - "articulos.html"
       - "js/**"
       - "css/**"
       - "src/**"
@@ -26,6 +27,7 @@ on:
       - "tesis.html"
       - "atlas.html"
       - "acerca.html"
+      - "articulos.html"
       - "js/**"
       - "css/**"
       - "src/**"
@@ -66,9 +68,11 @@ jobs:
         run: |
           node --check js/app.js
           node --check js/research-atlas-embed.js
-          node --check js/research-atlas-flow.js
+          node --check js/research-atlas.js
           node --check js/thesis-demo.js
           node --check js/thesis-atlas.js
+          node --check js/mobile-site-menu.js
+          node --check js/articles.js
 
       - name: Run deterministic application regression suite
         run: npm test
