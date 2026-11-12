@@ -469,3 +469,88 @@ test(
     );
   }
 );
+
+
+test(
+  "Protrepsis conserva metadatos editoriales de los números 1–14",
+  () => {
+    const historical =
+      records.filter(
+        record =>
+          record.journal === "Protrepsis" &&
+          record.historicalSource === "OpenAlex"
+      );
+
+    assert.equal(
+      historical.length,
+      77
+    );
+
+    const issue1 =
+      records.find(
+        record =>
+          record.doi ===
+          "10.32870/prot.i1.11"
+      );
+
+    assert.ok(issue1);
+    assert.equal(issue1.issue, "1");
+    assert.equal(issue1.issueLabel, "1");
+    assert.deepEqual(
+      issue1.issueNumbers,
+      [1]
+    );
+    assert.equal(
+      issue1.issueNumber,
+      1
+    );
+
+    const issueNineTen =
+      records.find(
+        record =>
+          record.doi ===
+          "10.32870/prot.i9-10.127"
+      );
+
+    assert.ok(issueNineTen);
+    assert.equal(
+      issueNineTen.issue,
+      "9-10"
+    );
+    assert.equal(
+      issueNineTen.issueLabel,
+      "9–10"
+    );
+    assert.deepEqual(
+      issueNineTen.issueNumbers,
+      [9, 10]
+    );
+    assert.equal(
+      issueNineTen.issueNumber,
+      null
+    );
+
+    const issue14 =
+      records.find(
+        record =>
+          record.doi ===
+          "10.32870/prot.i14.146"
+      );
+
+    assert.ok(issue14);
+    assert.deepEqual(
+      issue14.issueNumbers,
+      [14]
+    );
+
+    assert.equal(
+      records.some(
+        record =>
+          record.doi ===
+          "10.32870/prot.i2.24"
+      ),
+      false,
+      "Temperie debe permanecer fuera del corpus académico"
+    );
+  }
+);
