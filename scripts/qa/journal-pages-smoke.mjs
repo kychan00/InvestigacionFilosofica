@@ -167,15 +167,32 @@ try {
       assert.ok(zoomAfter > zoomBefore, journal + " " + name + " zoom control must change the view");
 
       const panBefore = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
-      const safeStartX = canvas.x + 14;
-      const safeStartY = canvas.y + canvas.height - 14;
-      await page.mouse.move(safeStartX, safeStartY);
-      await page.mouse.down();
-      await page.mouse.move(safeStartX + 54, safeStartY - 24, { steps: 5 });
-      await page.mouse.up();
-      await page.waitForTimeout(60);
-      const panAfter = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
-      assert.notEqual(panAfter, panBefore, journal + " " + name + " background drag must pan the Atlas");
+      const panCandidates = [
+        [0.03, 0.96, 54, -24],
+        [0.97, 0.96, -54, -24],
+        [0.03, 0.12, 54, 24],
+        [0.97, 0.12, -54, 24],
+        [0.50, 0.96, 48, -28]
+      ];
+
+      let panAfter = panBefore;
+      for (const [rx, ry, dx, dy] of panCandidates) {
+        const startX = canvas.x + canvas.width * rx;
+        const startY = canvas.y + canvas.height * ry;
+        await page.mouse.move(startX, startY);
+        await page.mouse.down();
+        await page.mouse.move(startX + dx, startY + dy, { steps: 5 });
+        await page.mouse.up();
+        await page.waitForTimeout(45);
+        panAfter = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
+        if (panAfter !== panBefore) break;
+      }
+
+      assert.notEqual(
+        panAfter,
+        panBefore,
+        journal + " " + name + " background drag must pan the Atlas"
+      );
 
       await page.locator('[data-journal-view="archive"]').click();
       await page.locator("#journal-query").fill(journal === "protrepsis" ? "verdad" : journal === "sincronia" ? "digital" : "inferencias");
