@@ -6054,6 +6054,58 @@ function authorProfileAffiliation(item, label) {
 }
 
 
+function authorOrcidProfileSummary(profile) {
+  if (!profile || profile.error) return "";
+
+  const employment = [...(profile.employments || [])].sort((a, b) =>
+    Number(!b.endDate) - Number(!a.endDate) ||
+    Number(b.startDate?.year || 0) - Number(a.startDate?.year || 0));
+  const education = [...(profile.educations || [])].sort((a, b) =>
+    Number(b.endDate?.year || b.startDate?.year || 0) -
+    Number(a.endDate?.year || a.startDate?.year || 0));
+  const parts = [];
+  const current = employment.find(item => !item.endDate);
+
+  if (current?.organization) {
+    parts.push(
+      "ORCID registra una afiliación actual" +
+      (current.role ? " como " + current.role : "") +
+      " en " + current.organization + "."
+    );
+  } else if (employment[0]?.organization) {
+    parts.push(
+      "ORCID registra experiencia profesional en " +
+      employment[0].organization + "."
+    );
+  }
+
+  const latestEducation = education[0];
+  if (latestEducation?.organization) {
+    const detail = [
+      latestEducation.role,
+      latestEducation.department
+        ? "Departamento de " + latestEducation.department
+        : null
+    ].filter(Boolean).join(" · ");
+    parts.push(
+      "Su formación pública incluye " +
+      (detail ? detail + " en " : "estudios en ") +
+      latestEducation.organization + "."
+    );
+  }
+
+  if ((profile.distinctions || []).length) {
+    const count = profile.distinctions.length;
+    parts.push(
+      "El registro incluye " + count +
+      (count === 1 ? " distinción pública." : " distinciones públicas.")
+    );
+  }
+
+  return parts.join(" ");
+}
+
+
 function renderAuthorOrcidProfile(profile, orcidUrl) {
   if (!profile || !orcidUrl) return "";
 
@@ -6204,6 +6256,7 @@ function renderAuthorPage(
   const identifiedOrcid = normalizedAuthorOrcid(author.orcid);
   const orcidProfile =
     author.orcidProfile || authorArchiveOrcidProfile || null;
+  const orcidProfileSummary = authorOrcidProfileSummary(orcidProfile);
   const bibliographicSources = [...new Set(works.flatMap(authorWorkSources))];
   const multiSourceWorks = works.filter(work =>
     authorWorkSources(work).length > 1).length;
@@ -6333,6 +6386,7 @@ function renderAuthorPage(
           <p class="author-page-biography">
             ${escapeHtml(
               author.biography ||
+              orcidProfileSummary ||
               (
                 orcidProfile && !orcidProfile.hasPublicProfileData
                   ? "El registro ORCID público de este autor no incluye una biografía o afiliaciones. Esta ficha reúne su bibliografía y las fuentes académicas disponibles."
