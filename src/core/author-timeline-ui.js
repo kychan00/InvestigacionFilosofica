@@ -1,4 +1,10 @@
 import { buildAuthorTimeline } from "./author-timeline.js";
+import {
+  authorOrcidUrl,
+  normalizedAuthorOrcid,
+  authorWorkSources,
+  workHasAuthorOrcidEvidence
+} from "./author-provenance.js";
 
 function el(tag, className = "", label = "") {
   const element = document.createElement(tag);
@@ -24,7 +30,8 @@ function stat(value, label) {
 }
 
 function renderTimeline(root, works, state, options) {
-  const { onOpenWork, loading } = options;
+  const { onOpenWork, loading, authorOrcid } = options;
+  const orcidUrl = authorOrcidUrl(authorOrcid);
   const model = buildAuthorTimeline(works, state.unit);
   const selected = model.groups.find(group =>
     group.key === state.selectedKey
@@ -62,6 +69,15 @@ function renderTimeline(root, works, state, options) {
     modes.append(control);
   }
 
+  if (orcidUrl) {
+    const link = el("a", "author-timeline-orcid",
+      "ORCID · " + normalizedAuthorOrcid(authorOrcid));
+    link.href = orcidUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.title = "Identificador del autor; no acredita por sí solo cada publicación";
+    text.append(link);
+  }
   heading.append(text, modes);
   root.append(heading);
 
@@ -70,7 +86,8 @@ function renderTimeline(root, works, state, options) {
   coverage.append(
     stat(model.total, "obras recuperadas"),
     stat(model.dated, "con año identificado"),
-    stat(model.monthsKnown, "con mes confirmado")
+    stat(model.monthsKnown, "con mes confirmado"),
+    stat(new Set(works.flatMap(authorWorkSources)).size, "fuentes bibliográficas")
   );
   if (loading) {
     coverage.append(el(
@@ -185,6 +202,27 @@ function renderTimeline(root, works, state, options) {
       el("span", "author-timeline-work-type", work.type || "Obra")
     );
 
+    const sources = authorWorkSources(work);
+    const provenance = el("span", "author-timeline-provenance");
+    if (sources.length > 1) {
+      provenance.append(el("span", "author-timeline-multi-source",
+        "Varias fuentes · " + sources.length));
+    }
+    sources.forEach(source => provenance.append(
+      el("span", "author-timeline-provider", source)
+    ));
+    if (orcidUrl) {
+      const verified = workHasAuthorOrcidEvidence(work, authorOrcid);
+      const tag = el("span", "author-timeline-orcid-context" +
+        (verified ? " is-evidenced" : ""),
+        verified ? "ORCID en metadatos" : "ORCID del autor");
+      tag.title = verified
+        ? "La obra contiene el ORCID del autor en sus metadatos."
+        : "Identificador del perfil; esta obra no tiene atribución individual confirmada por ORCID.";
+      provenance.append(tag);
+    }
+    copy.append(provenance);
+
     const arrow = el("span", "author-timeline-arrow", "↗");
     arrow.setAttribute("aria-hidden", "true");
 
@@ -233,8 +271,8 @@ export function mountAuthorTimeline(
   root,
   works,
   state,
-  { onOpenWork = () => {}, loading = false } = {}
+  { onOpenWork = () => {}, loading = false, authorOrcid = null } = {}
 ) {
   if (!root) return;
-  renderTimeline(root, works, state, { onOpenWork, loading });
+  renderTimeline(root, works, state, { onOpenWork, loading, authorOrcid });
 }
