@@ -105,5 +105,49 @@ class PendingAuthorsAuditTests(unittest.TestCase):
         )
 
 
+    def test_reyes4_issue_conflict_preserves_original_index(self):
+        import copy
+        indexed = {
+            "id": "cucsh:sincronia-legacy:53c3bea7bff8e9572369",
+            "journal": "Sincronía",
+            "title": "Reyes, Giovanni E.",
+            "issueNumber": 12,
+            "year": 1999,
+            "authors": [],
+            "urls": {"canonical": (
+                "http://fuentes.csh.udg.mx/CUCSH/Sincronia/reyes4.htm"
+            )},
+            "legacyAccessStatus": {"status": "original-page-unavailable"},
+        }
+        frozen = copy.deepcopy(indexed)
+        report = audit_pending_authors([indexed])
+        self.assertEqual(indexed, frozen)
+        self.assertEqual(report["bibliographicConflictCount"], 1)
+        case = report["bibliographicConflicts"][0]
+        self.assertEqual(case["indexedIssue"], 12)
+        self.assertEqual(case["indexedYear"], 1999)
+        self.assertEqual(case["externalCitedIssue"], 21)
+        self.assertEqual(case["externalCitedYear"], 2001)
+        self.assertEqual(case["status"], "unresolved_issue_and_year_conflict")
+        self.assertEqual(
+            report["records"][0]["sourceAvailability"],
+            "original-page-unavailable",
+        )
+
+    def test_unrelated_records_never_inherit_an_issue_conflict(self):
+        rows = [{
+            "id": "other",
+            "journal": "Sincronía",
+            "title": "Reyes, Giovanni E.",
+            "issueNumber": 12,
+            "year": 1999,
+            "authors": [],
+            "urls": {"canonical": "https://example.edu/reyes4.htm"},
+        }]
+        self.assertEqual(
+            audit_pending_authors(rows)["bibliographicConflictCount"], 0
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
