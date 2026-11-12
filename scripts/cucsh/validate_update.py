@@ -437,6 +437,82 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_three_verified_early_titles(before, after):
+    """Allow only three source-backed index-label repairs with exact URLs."""
+    approved = {
+        "cucsh:sincronia-legacy:1e03d7c907df022999a8": (
+            "Costantini, Peter",
+            "Trade talks without tear gas",
+            ["Peter Costantini"],
+            "https://www.routledge.com/Synchronizing-Science-and-Technology-with-Human-Behaviour-1st-Edition/Brand/p/book/9781849775908",
+            None,
+        ),
+        "cucsh:sincronia-legacy:e017c8338187ec6e4212": (
+            "Zamora , Rogelio Luna",
+            "El Mestizaje y el tequila",
+            ["Rogelio Luna Zamora"],
+            "https://riunet.upv.es/server/api/core/bitstreams/92508e23-da08-4d99-8b2e-1100bd95afab/content",
+            "https://revistas.ucr.ac.cr/index.php/reconomicas/article/view/6213",
+        ),
+        "cucsh:sincronia-legacy:fcf488048b022c02adc8": (
+            "Assies,Willem, y Gemma van der Haar, y André J. Hoekema",
+            "Los pueblos indígenas y la reforma del estado en América Latina",
+            ["Willem Assies", "Gemma van der Haar", "André J. Hoekema"],
+            "https://red.pucp.edu.pe/ridei/fixes/2011/08/158.pdf",
+            "https://www.aacademica.org/v.congreso.chileno.de.antropologia/119.pdf",
+        ),
+    }
+    record = approved.get(before.get("id"))
+    if record is None or before.get("id") != after.get("id"):
+        return False
+    former, title, authors, source, secondary = record
+    evidence = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    original = (before.get("urls") or {}).get("canonical")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("title") != former
+        or after.get("title") != title
+        or after.get("titleVariants") != [title]
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not isinstance(evidence, dict)
+        or not isinstance(byline, dict)
+        or evidence.get("kind") !=
+           "independent-exact-work-citation-overrides-author-index-label"
+        or evidence.get("sourceUrl") != source
+        or evidence.get("secondaryCitationUrl") != secondary
+        or evidence.get("sourceArticleUrl") != original
+        or evidence.get("previousTitle") != former
+        or evidence.get("verifiedTitle") != title
+        or evidence.get("verifiedAuthors") != authors
+        or evidence.get("matchedYear") != before.get("year")
+        or evidence.get("matchedIssueNumber") != before.get("issueNumber")
+        or evidence.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") !=
+           "independent-title-and-author-matched-to-historical-url"
+        or byline.get("sourceUrl") != source
+        or byline.get("secondaryCitationUrl") != secondary
+        or byline.get("verifiedTitle") != title
+        or byline.get("verifiedAuthors") != authors
+        or byline.get("matchedIssueNumber") != before.get("issueNumber")
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != authors
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors", "legacyAuthorEvidence",
+        "legacyIndexMislabelEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_two_bibliography_titles(before, after):
     """Exactly two independent historic bibliography-matched title repairs."""
     approved = {
@@ -963,6 +1039,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_two_bibliography_titles(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_three_verified_early_titles(
             before_by_id[key], after_by_id[key]
         )
     ]
