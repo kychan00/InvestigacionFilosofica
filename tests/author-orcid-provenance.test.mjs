@@ -101,6 +101,9 @@ test("la ampliación por ORCID se integra con el índice y otras fuentes", async
       author:{catalogSources:["Internet Archive"]},
       works:[{id:"ia:x",title:"Obra común",year:2021,
         providers:["Internet Archive"]}]}),
+    orcidRegistryImpl:async()=>({
+      works:[],totalGroups:0,returnedWorks:0,complete:true
+    }),
     orcidSearchImpl:async id=>{
       assert.equal(id, ORCID);
       return {works:[{id:"crossref:x",title:"Obra común",year:2021,

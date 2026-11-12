@@ -213,12 +213,17 @@ function renderTimeline(root, works, state, options) {
     ));
     if (orcidUrl) {
       const verified = workHasAuthorOrcidEvidence(work, authorOrcid);
+      const listed = work.orcidRecord === true ||
+        sources.includes("ORCID");
       const tag = el("span", "author-timeline-orcid-context" +
         (verified ? " is-evidenced" : ""),
-        verified ? "ORCID en metadatos" : "ORCID del autor");
-      tag.title = verified
-        ? "La obra contiene el ORCID del autor en sus metadatos."
-        : "Identificador del perfil; esta obra no tiene atribución individual confirmada por ORCID.";
+        listed ? "Registrada en ORCID"
+          : verified ? "ORCID en metadatos" : "ORCID del autor");
+      tag.title = listed
+        ? "Obra presente en la bibliografía pública del investigador en ORCID."
+        : verified
+          ? "El identificador ORCID está presente en metadatos bibliográficos."
+          : "El ORCID corresponde al perfil, no acredita por sí solo esta obra.";
       provenance.append(tag);
     }
     copy.append(provenance);
