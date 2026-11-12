@@ -5,7 +5,10 @@ import {
 } from "./remote-author-resolution.js";
 import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261101-federated-coverage-v1";
 import { searchCrossrefByOrcid } from "../sources/crossref.js";
-import { fetchOrcidPublicWorks } from "../sources/orcid.js";
+import {
+  fetchOrcidPublicWorks,
+  fetchOrcidPublicProfile
+} from "../sources/orcid.js?v=20261112-orcid-profile-v1";
 import { normalizedAuthorOrcid, authorWorkSources } from "./author-provenance.js";
 import { getCuratedAuthorBibliography } from "./curated-author-bibliography.js?v=20261101-curated-bibliography-v1";
 
@@ -223,12 +226,14 @@ export async function discoverAuthorArchive({
   snapshotImpl=fetchAuthorWorksFromSnapshot,
   orcidSearchImpl=searchCrossrefByOrcid,
   orcidRegistryImpl=fetchOrcidPublicWorks,
+  orcidProfileImpl=fetchOrcidPublicProfile,
   signal,
   onProgress=()=>{},
   snapshotOptions={},
   federatedOptions={},
   orcidOptions={},
-  orcidRegistryOptions={}
+  orcidRegistryOptions={},
+  orcidProfileOptions={}
 }={}) {
   const name=String(author?.displayName||author?.sourceDisplayName||"").trim();
   const id=authorId(author?.id);
@@ -245,11 +250,12 @@ export async function discoverAuthorArchive({
   let snapshotComplete=false;
   let snapshotTotal=null;
   let orcidSummary=null;
+  let orcidProfile=null;
 
   const emit=(source,phase)=>onProgress({
     works:[...works],source,phase,
     sources:[...new Set(sources)],errors:[...errors],
-    snapshotComplete,snapshotTotal,orcidSummary
+    snapshotComplete,snapshotTotal,orcidSummary,orcidProfile
   });
   emit(curated.works?.length
     ? "Bibliografía verificada"
@@ -297,6 +303,30 @@ export async function discoverAuthorArchive({
       emit("Crossref / Internet Archive / CUCSH Filosofía","settled");
     })());
   }
+  // ORCID also exposes public career/profile data separately from works.
+  // Never infer missing biography, employment or achievements.
+  if (orcid) {
+    jobs.push((async () => {
+      try {
+        const profile = await orcidProfileImpl(orcid, {
+          signal, ...orcidProfileOptions
+        });
+        orcidProfile = profile || null;
+      } catch (error) {
+        if (signal?.aborted || error?.name === "AbortError") throw error;
+        errors.push("Perfil público ORCID: " +
+          String(error.message || "No disponible"));
+        orcidProfile = {
+          orcid,
+          hasPublicProfileData: false,
+          error: "No disponible",
+          source: "ORCID"
+        };
+      }
+      emit("Perfil ORCID", "settled");
+    })());
+  }
+
   // Read the public ORCID registry itself. A search for ORCID in Crossref
   // cannot substitute for the works explicitly listed on the ORCID profile.
   if (orcid) {
@@ -353,7 +383,7 @@ export async function discoverAuthorArchive({
 
   return {
     works,sources:[...new Set(sources)],errors,
-    snapshotComplete,snapshotTotal,orcidSummary,
+    snapshotComplete,snapshotTotal,orcidSummary,orcidProfile,
     // Curated coverage improves the archive but does not claim a universal bibliography.
     curatedWorks:curated.works?.length||0,
     complete:false

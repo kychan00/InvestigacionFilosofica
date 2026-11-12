@@ -104,6 +104,9 @@ test("la ampliación por ORCID se integra con el índice y otras fuentes", async
     orcidRegistryImpl:async()=>({
       works:[],totalGroups:0,returnedWorks:0,complete:true
     }),
+    orcidProfileImpl:async()=>({
+      hasPublicProfileData:false,source:"ORCID"
+    }),
     orcidSearchImpl:async id=>{
       assert.equal(id, ORCID);
       return {works:[{id:"crossref:x",title:"Obra común",year:2021,

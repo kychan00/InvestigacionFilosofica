@@ -4,7 +4,10 @@
  * Does not store personal data or require credentials.
  */
 import assert from "node:assert/strict";
-import { normalizeOrcidPublicWorks } from "../../src/sources/orcid.js";
+import {
+  normalizeOrcidPublicWorks,
+  normalizeOrcidPublicProfile
+} from "../../src/sources/orcid.js";
 import { mergeAuthorArchives } from "../../src/core/author-deep-discovery.js";
 const id = "0000-0002-7283-8051";
 const origin = "https://kychan00.github.io";
@@ -53,3 +56,40 @@ assert.ok(deduped.length >= 4,
   "La unificación no debe reducir falsamente la bibliografía a tres obras");
 assert.ok(deduped.every(work => work.providers.includes("ORCID")),
   "La procedencia ORCID debe conservarse en todas las obras");
+
+
+const recordUrl = "https://pub.orcid.org/v3.0/" + id + "/record";
+const recordResponse = await fetch(recordUrl, {
+  headers: {
+    Accept: "application/vnd.orcid+json",
+    Origin: origin
+  },
+  signal: AbortSignal.timeout(18000)
+});
+const recordText = await recordResponse.text();
+assert.equal(recordResponse.status, 200,
+  "El registro público completo de ORCID debe responder HTTP 200");
+assert.ok(recordResponse.headers.get("access-control-allow-origin") === "*" ||
+  recordResponse.headers.get("access-control-allow-origin") === origin,
+  "El registro completo ORCID debe permitir CORS desde GitHub Pages");
+const record = JSON.parse(recordText);
+const profileData = normalizeOrcidPublicProfile(record,{orcid:id});
+console.log("ORCID public profile:", JSON.stringify({
+  displayName: profileData.displayName,
+  biography: profileData.biography,
+  hasPublicProfileData: profileData.hasPublicProfileData,
+  employments: profileData.employments,
+  educations: profileData.educations,
+  distinctions: profileData.distinctions,
+  qualifications: profileData.qualifications,
+  memberships: profileData.memberships,
+  services: profileData.services,
+  invitedPositions: profileData.invitedPositions,
+  fundingCount: profileData.fundings.length,
+  keywords: profileData.keywords,
+  websites: profileData.websites,
+  countries: profileData.countries
+}));
+assert.equal(profileData.displayName,"Mauricio Méndez");
+assert.equal(profileData.orcid,id);
+console.log("Mauricio profile has public career data:", profileData.hasPublicProfileData);

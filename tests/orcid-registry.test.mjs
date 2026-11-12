@@ -1,7 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
-  fetchOrcidPublicWorks, normalizeOrcidPublicWorks
+  fetchOrcidPublicWorks,
+  fetchOrcidPublicProfile,
+  normalizeOrcidPublicWorks,
+  normalizeOrcidPublicProfile
 } from "../src/sources/orcid.js";
 import {
   mergeAuthorArchives, discoverAuthorArchive
@@ -10,6 +13,12 @@ import { authorWorkSources } from "../src/core/author-provenance.js";
 
 const ORCID = "0000-0002-7283-8051";
 const profile = "https://orcid.org/" + ORCID;
+const emptyProfile = async () => ({
+  orcid: ORCID,
+  hasPublicProfileData: false,
+  source: "ORCID"
+});
+
 function record(title, putCode, year, options = {}) {
   return {
     "put-code": putCode,
@@ -122,6 +131,7 @@ test("bibliografía pública ORCID se integra con Crossref e Internet Archive si
       assert.equal(id,ORCID);
       return registry;
     },
+    orcidProfileImpl:emptyProfile,
     onProgress:step=>progress.push(step)
   });
   assert.equal(archive.orcidSummary.totalGroups,17);
@@ -141,7 +151,8 @@ test("una caída de ORCID se informa sin descartar los resultados de otros catá
     initialWorks:[{title:"Obra inicial",year:2019,providers:["Crossref"]}],
     federatedImpl:async()=>({status:"none",works:[]}),
     orcidSearchImpl:async()=>({works:[],complete:true}),
-    orcidRegistryImpl:async()=>{throw new Error("ORCID HTTP 503")}
+    orcidRegistryImpl:async()=>{throw new Error("ORCID HTTP 503")},
+    orcidProfileImpl:emptyProfile
   });
   assert.equal(found.works.length,1);
   assert.ok(found.errors.some(x=>x.includes("Registro público ORCID")));
@@ -160,4 +171,139 @@ test("fusión ORCID + Crossref conserva el registro público como procedencia",(
   assert.equal(joined.length,1);
   assert.equal(joined[0].orcidRecord,true);
   assert.deepEqual(new Set(joined[0].providers),new Set(["Crossref","ORCID"]));
+});
+
+
+test("ORCID normaliza biografía, empleo, educación y reconocimientos públicos",()=>{
+  const payload={
+    person:{
+      name:{
+        "given-names":{value:"Ana"},
+        "family-name":{value:"Investigadora"},
+        "credit-name":{value:"A. Investigadora"}
+      },
+      biography:{content:"Filósofa e investigadora en ética aplicada."},
+      keywords:{keyword:[
+        {content:"ética",visibility:"public"},
+        {content:"filosofía política",visibility:"public"}
+      ]},
+      address:{address:[
+        {country:{value:"MX"},visibility:"public"}
+      ]},
+      "researcher-urls":{"researcher-url":[
+        {"url-name":"Perfil institucional",url:{value:"https://example.edu/ana"},visibility:"public"}
+      ]}
+    },
+    "activities-summary":{
+      employments:{"employment-summary":[{
+        visibility:"public",
+        "department-name":"Departamento de Filosofía",
+        "role-title":"Profesora investigadora",
+        "start-date":{year:{value:"2020"}},
+        "end-date":null,
+        organization:{name:"Universidad Ejemplo",address:{city:"Guadalajara",country:"MX"}}
+      }]},
+      educations:{"education-summary":[{
+        visibility:"public",
+        "role-title":"Doctorado en Filosofía",
+        "end-date":{year:{value:"2019"}},
+        organization:{name:"Universidad Doctoral",address:{country:"MX"}}
+      }]},
+      distinctions:{"distinction-summary":[{
+        visibility:"public",
+        "role-title":"Premio de Investigación",
+        organization:{name:"Academia Ejemplo",address:{country:"MX"}}
+      }]},
+      memberships:{"membership-summary":[{
+        visibility:"public",
+        "role-title":"Miembro",
+        organization:{name:"Sociedad Filosófica",address:{country:"MX"}}
+      }]},
+      fundings:{group:[{"funding-summary":[{
+        visibility:"public",
+        title:{title:{value:"Proyecto sobre justicia"}},
+        type:"GRANT",
+        organization:{name:"Consejo de Investigación"}
+      }]}]}
+    }
+  };
+  const parsed=normalizeOrcidPublicProfile(payload,{orcid:ORCID});
+  assert.equal(parsed.displayName,"A. Investigadora");
+  assert.equal(parsed.biography,"Filósofa e investigadora en ética aplicada.");
+  assert.equal(parsed.employments[0].organization,"Universidad Ejemplo");
+  assert.equal(parsed.employments[0].role,"Profesora investigadora");
+  assert.equal(parsed.educations[0].role,"Doctorado en Filosofía");
+  assert.equal(parsed.distinctions[0].role,"Premio de Investigación");
+  assert.equal(parsed.memberships[0].organization,"Sociedad Filosófica");
+  assert.equal(parsed.fundings[0].title,"Proyecto sobre justicia");
+  assert.deepEqual(parsed.keywords,["ética","filosofía política"]);
+  assert.deepEqual(parsed.countries,["MX"]);
+  assert.equal(parsed.websites[0].url,"https://example.edu/ana");
+  assert.equal(parsed.hasPublicProfileData,true);
+});
+
+test("ORCID no inventa biografía cuando el registro sólo contiene obras",()=>{
+  const parsed=normalizeOrcidPublicProfile({
+    person:{name:{
+      "given-names":{value:"Mauricio"},
+      "family-name":{value:"Méndez"}
+    }},
+    "activities-summary":{}
+  },{orcid:ORCID});
+  assert.equal(parsed.displayName,"Mauricio Méndez");
+  assert.equal(parsed.biography,null);
+  assert.equal(parsed.employments.length,0);
+  assert.equal(parsed.educations.length,0);
+  assert.equal(parsed.distinctions.length,0);
+  assert.equal(parsed.hasPublicProfileData,false);
+});
+
+test("perfil ORCID consume /record sin credenciales embebidas",async()=>{
+  const calls=[];
+  const profileResult=await fetchOrcidPublicProfile(ORCID,{
+    fetchImpl:async(url,options)=>{
+      calls.push({url,options});
+      return {ok:true,json:async()=>({
+        person:{name:{"given-names":{value:"Ana"},"family-name":{value:"Investigadora"}}},
+        "activities-summary":{}
+      })};
+    }
+  });
+  assert.equal(calls[0].url,
+    "https://pub.orcid.org/v3.0/"+ORCID+"/record");
+  assert.equal(calls[0].options.headers.Accept,"application/vnd.orcid+json");
+  assert.equal(calls[0].options.headers.Authorization,undefined);
+  assert.equal(profileResult.displayName,"Ana Investigadora");
+});
+
+test("discoverAuthorArchive entrega el perfil ORCID junto a la bibliografía",async()=>{
+  const authorProfile={
+    orcid:ORCID,
+    biography:"Investigadora de prueba",
+    employments:[],
+    educations:[],
+    distinctions:[],
+    qualifications:[],
+    memberships:[],
+    services:[],
+    invitedPositions:[],
+    fundings:[],
+    keywords:[],
+    countries:[],
+    websites:[],
+    hasPublicProfileData:true,
+    source:"ORCID"
+  };
+  const found=await discoverAuthorArchive({
+    author:{displayName:"Ana Investigadora",orcid:ORCID},
+    initialWorks:[],
+    federatedImpl:async()=>({status:"none",works:[]}),
+    orcidRegistryImpl:async()=>({
+      works:[],totalGroups:0,returnedWorks:0,complete:true
+    }),
+    orcidSearchImpl:async()=>({works:[],complete:true}),
+    orcidProfileImpl:async()=>authorProfile
+  });
+  assert.equal(found.orcidProfile.biography,"Investigadora de prueba");
+  assert.equal(found.orcidProfile.source,"ORCID");
 });
