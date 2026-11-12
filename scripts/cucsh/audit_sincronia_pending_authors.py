@@ -58,6 +58,113 @@ def classify_work_identity_review(row):
     return None
 
 
+def exact_editorial_navigation_records(records):
+    """Classify only two unmistakable non-article legacy navigation pages.
+
+    Never remove them from the source archive or assume any similarly
+    named work in another issue is a navigational page. Status remains
+    provisional metadata until historical content is independently checked.
+    """
+    candidates = {
+        "cucsh:sincronia-legacy:91f36da6674c93b19145": (
+            "Editorial Board/Consejo Editorial", "creditos.html",
+            "editorial_board_navigation",
+        ),
+        "cucsh:sincronia-legacy:a2763a903fcca568e32a": (
+            "Further information for contributors.", "info.htm",
+            "contributor_instructions_navigation",
+        ),
+    }
+    result = []
+    for record in records:
+        match = candidates.get(record.get("id"))
+        if not match or record.get("journal") != "Sincronía":
+            continue
+        title, filename, kind = match
+        url = (record.get("urls") or {}).get("canonical") or ""
+        if (record.get("issueNumber") != 46
+                or record.get("year") != 2008
+                or record.get("title") != title
+                or not url.lower().endswith("/" + filename)):
+            continue
+        result.append({
+            "id": record["id"],
+            "issueNumber": record["issueNumber"],
+            "originalTitle": title,
+            "originalUrl": url,
+            "classification": kind,
+            "status": "high_confidence_non_article_navigation",
+            "accessStatus": (record.get("legacyAccessStatus") or {}).get("status"),
+            "preservationPolicy": (
+                "Retain historical record, original URL, availability and "
+                "index label. Do not treat as an academic article or invent "
+                "an author; any public UI filtering requires a separate review."
+            ),
+        })
+    return sorted(result, key=lambda row: row["id"])
+
+
+def unresolved_issue50_work_identity(records):
+    """Surface ambiguity without conflating two works by one author."""
+    target = "cucsh:sincronia-legacy:8eded0eac6e2a217ade1"
+    sin50 = [
+        row for row in records
+        if row.get("journal") == "Sincronía" and row.get("issueNumber") == 50
+    ]
+    snapshot = [{
+        "id": row.get("id"),
+        "indexedTitle": row.get("title"),
+        "indexedAuthors": [
+            a.get("name") for a in (row.get("authors") or [])
+            if isinstance(a, dict)
+        ],
+        "originalUrl": (row.get("urls") or {}).get("canonical"),
+    } for row in sin50]
+    candidates = []
+    for row in sin50:
+        url = (row.get("urls") or {}).get("canonical") or ""
+        if (
+            row.get("id") == target
+            and row.get("year") == 2009
+            and row.get("title") == "Korstanje, Maximiliano E."
+            and not row.get("authors")
+            and url.lower().endswith("/korstanjespring09.htm")
+        ):
+            candidates.append({
+                "id": target,
+                "indexLabel": row["title"],
+                "originalUrl": url,
+                "sourceIssueUrl": "https://dialnet.unirioja.es/ejemplar/251077",
+                "possibleWorks": [
+                    {
+                        "title": ("Las fobias, Compilador Jorge Saurí. "
+                                  "Buenos Aires, Ediciones Nueva Visión. "
+                                  "(1986). ISBN 950-602-058-2: Una reseña"),
+                        "bibliographyUrl": (
+                            "https://dialnet.unirioja.es/servlet/articulo?codigo=3296660"
+                        ),
+                        "kind": "bibliographic_review",
+                    },
+                    {
+                        "title": "La delincuencia hoy: el doble valor de la represión",
+                        "bibliographyUrl": (
+                            "https://dialnet.unirioja.es/servlet/articulo?codigo=3296668"
+                        ),
+                        "kind": "article",
+                    },
+                ],
+                "status": "unresolved_original_url_to_article_mapping",
+                "requiredEvidence": (
+                    "An original issue-50 table-of-contents link, web archive "
+                    "capture of korstanjespring09.htm or independent citation "
+                    "explicitly joining that exact URL to one title. "
+                    "A shared author and issue alone cannot decide which."
+                ),
+            })
+    return {"issue50WorkSnapshot": snapshot,
+            "unresolvedIssue50UrlMappings": candidates}
+
+
 def documented_bibliographic_conflicts(pending):
     """Report independently documented provenance conflicts; NEVER patch data.
 
@@ -187,6 +294,8 @@ def audit_pending_authors(records):
         str(item["id"] or ""),
     ))
     conflicts = documented_bibliographic_conflicts(pending)
+    editorial_navigation = exact_editorial_navigation_records(sincronia)
+    issue50_review = unresolved_issue50_work_identity(sincronia)
     title_encoding_remaining = sum(
         "\ufffd" in str(row.get("title") or "") for row in sincronia
     )
@@ -194,6 +303,21 @@ def audit_pending_authors(records):
         "scope": "All available Sincronía issues",
         "status": "manual_evidence_review_required" if pending else "complete",
         "totalSincroniaRecords": len(sincronia),
+        "highConfidenceEditorialNavigationCount": len(editorial_navigation),
+        "highConfidenceEditorialNavigationRecords": editorial_navigation,
+        "articleCandidatesExcludingEditorialNavigation": (
+            len(sincronia) - len(editorial_navigation)
+        ),
+        "authorlessArticleCandidatesExcludingEditorialNavigation": (
+            len(pending) - sum(
+                any(r["id"] == row.get("id") for r in editorial_navigation)
+                for row in pending
+            )
+        ),
+        "issue50WorkSnapshot": issue50_review["issue50WorkSnapshot"],
+        "unresolvedIssue50UrlMappings": (
+            issue50_review["unresolvedIssue50UrlMappings"]
+        ),
         "pendingAuthorRecords": len(pending),
         "titlesWithUnicodeReplacementCharacter": title_encoding_remaining,
         "pendingBySource": dict(sorted(by_source.items())),
@@ -245,6 +369,10 @@ def main():
     print("IDENTITY_REVIEW_BY_TYPE", report["suspectedWorkIdentityByType"])
     print("PENDING_BY_ORIGINAL_AVAILABILITY", report["pendingByOriginalAvailability"])
     print("BIBLIOGRAPHIC_CONFLICTS", report["bibliographicConflictCount"])
+    print("HIGH_CONFIDENCE_EDITORIAL_NAVIGATION", report["highConfidenceEditorialNavigationCount"])
+    print("SINCRONIA_ARTICLE_CANDIDATES_EXCLUDING_NAVIGATION", report["articleCandidatesExcludingEditorialNavigation"])
+    print("PENDING_AUTHOR_ARTICLE_CANDIDATES", report["authorlessArticleCandidatesExcludingEditorialNavigation"])
+    print("UNRESOLVED_ISSUE_50_MAPPINGS", len(report["unresolvedIssue50UrlMappings"]))
 
 
 if __name__ == "__main__":
