@@ -176,7 +176,7 @@ try {
     await page.locator("#atlas-reset-view").click();
     assert.equal(await page.locator("#atlas-match-count").innerText(), "566");
 
-    if (width <= 768) {
+    if (width <= 820) {
       await page.locator(".site-menu-toggle").click();
       await page.locator('[data-site-theme="light"]').click();
       await page.locator(".site-menu-close").click();
@@ -189,7 +189,7 @@ try {
       fullPage: true,
     });
 
-    if (width <= 768) {
+    if (width <= 820) {
       await page.locator(".site-menu-toggle").click();
       await page.locator('[data-site-theme="dark"]').click();
       await page.locator(".site-menu-close").click();
