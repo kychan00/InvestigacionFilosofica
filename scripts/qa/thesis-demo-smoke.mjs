@@ -239,7 +239,7 @@ try {
     assert.ok(ugWidth.scroll <= ugWidth.viewport + 2,
       `${name} UG overflow: ${JSON.stringify(ugWidth)}`);
 
-    if (width <= 768) {
+    if (width <= 820) {
       await page.locator(".site-menu-toggle").click();
       await page.locator('[data-site-theme="light"]').click();
       await page.locator(".site-menu-close").click();
@@ -248,7 +248,7 @@ try {
     }
     assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
     await page.screenshot({ path: `artifacts/thesis-demo-ui/${name}-light.png`, fullPage: true });
-    if (width <= 768) {
+    if (width <= 820) {
       await page.locator(".site-menu-toggle").click();
       await page.locator('[data-site-theme="dark"]').click();
       await page.locator(".site-menu-close").click();
