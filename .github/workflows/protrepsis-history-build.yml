@@ -1,0 +1,55 @@
+name: Build Protrepsis historical supplement
+
+on:
+  push:
+    branches:
+      - feature/protrepsis-historico-1-14-20261112
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Build historical corpus
+        run: |
+          python3             scripts/cucsh/protrepsis_historical.py             --output /tmp/protrepsis-historical.json
+
+      - name: Validate Python
+        run: |
+          python3 -m py_compile             scripts/cucsh/protrepsis_historical.py
+
+      - name: Inspect corpus
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("/tmp/protrepsis-historical.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+
+          print("records =", len(data["records"]))
+          print("issues  =", data["coverage"]["issues"])
+
+          assert len(data["records"]) > 0
+          assert data["coverage"]["issueRange"] == "1–14"
+          PY
+
+      - name: Upload historical corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: protrepsis-historical
+          path: /tmp/protrepsis-historical.json
+          if-no-files-found: error
+          retention-days: 7
