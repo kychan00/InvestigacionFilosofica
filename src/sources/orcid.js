@@ -10,6 +10,7 @@ import { normalizeText } from "../core/parser.js";
  * public requests have ORCID rate limits and can fail with network/CORS.
  */
 const ORCID_PUBLIC_API = "https://pub.orcid.org/v3.0";
+const ORCID_SEARCH_WORKS_CACHE = new Map();
 
 function textValue(value) {
   if (typeof value === "string" || typeof value === "number")
@@ -621,6 +622,38 @@ function qualifyingOrcidWork(work, queryTokens, authorQuery, exactOrcid) {
   return overlap >= 2 || overlap / queryTokens.length >= 0.5;
 }
 
+async function searchOrcidWorks(profile, options, worksImpl) {
+  const useSharedCache =
+    worksImpl === fetchOrcidPublicWorks &&
+    !options.fetchImpl &&
+    options.cache !== false;
+
+  if (!useSharedCache) {
+    return worksImpl(profile.orcid, {
+      displayName: profile.displayName,
+      signal: options.signal,
+      fetchImpl: options.fetchImpl,
+      apiBase: options.apiBase
+    });
+  }
+
+  const key = profile.orcid;
+  if (!ORCID_SEARCH_WORKS_CACHE.has(key)) {
+    const request = fetchOrcidPublicWorks(profile.orcid, {
+      displayName: profile.displayName,
+      signal: options.signal,
+      apiBase: options.apiBase
+    }).catch(error => {
+      ORCID_SEARCH_WORKS_CACHE.delete(key);
+      throw error;
+    });
+    ORCID_SEARCH_WORKS_CACHE.set(key, request);
+  }
+
+  return ORCID_SEARCH_WORKS_CACHE.get(key);
+}
+
+
 export async function searchOrcid(expansion, options = {}) {
   const query = typeof expansion === "string"
     ? expansion
@@ -704,12 +737,11 @@ export async function searchOrcid(expansion, options = {}) {
 
   const settled = await Promise.allSettled(
     profiles.map(async profile => {
-      const response = await worksImpl(profile.orcid, {
-        displayName: profile.displayName,
-        signal: options.signal,
-        fetchImpl: options.fetchImpl,
-        apiBase: options.apiBase
-      });
+      const response = await searchOrcidWorks(
+        profile,
+        options,
+        worksImpl
+      );
       return {
         profile,
         works: response?.works || []
