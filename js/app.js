@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261112-orcid-federation-v1";
+} from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
 
 import {
   explainResult
@@ -4682,7 +4682,7 @@ function fetchMoreButton(
 
       <span>
         Buscar la siguiente página
-        en OpenAlex y Crossref
+        en las fuentes académicas activas
       </span>
     </div>
   `;

@@ -66,6 +66,18 @@ test("ORCID extrae cada grupo público con título, DOI, año, fuente y URL", ()
   assert.equal(response.works[2].year, null);
 });
 
+test("limpia HTML y entidades incrustadas en títulos ORCID", () => {
+  const response = normalizeOrcidPublicWorks(groups(
+    record("<b>Argumentación &amp; Inteligencia Artificial</b>", 150, 2026)
+  ), {orcid:ORCID,displayName:"Autor de prueba"});
+  assert.equal(response.works.length, 1);
+  assert.equal(
+    response.works[0].title,
+    "Argumentación & Inteligencia Artificial"
+  );
+});
+
+
 test("agrupa versiones equivalentes de ORCID, preservando dos put-codes", () => {
   const response = normalizeOrcidPublicWorks(groups([
     record("Un artículo", 333, 2023),

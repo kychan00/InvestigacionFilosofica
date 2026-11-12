@@ -36,7 +36,7 @@ import {
 
 import {
   searchOrcid
-} from "../sources/orcid.js?v=20261112-federated-search-v1";
+} from "../sources/orcid.js?v=20261112-production-visible-v2";
 
 
 function sleep(ms) {
