@@ -8,7 +8,7 @@ import { searchCrossrefByOrcid } from "../sources/crossref.js";
 import {
   fetchOrcidPublicWorks,
   fetchOrcidPublicProfile
-} from "../sources/orcid.js";
+} from "../sources/orcid.js?v=20261112-orcid-profile-v1";
 import { normalizedAuthorOrcid, authorWorkSources } from "./author-provenance.js";
 import { getCuratedAuthorBibliography } from "./curated-author-bibliography.js?v=20261101-curated-bibliography-v1";
 
