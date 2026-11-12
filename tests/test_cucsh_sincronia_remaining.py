@@ -2,7 +2,8 @@ import unittest
 from unittest.mock import patch
 
 from scripts.cucsh.enrich_sincronia_remaining import (
-    apply_evidence, derive_proposals, dialnet_author_proposals,
+    apply_evidence, curated_encoding_proposals, derive_proposals,
+    dialnet_author_proposals, dialnet_damaged_legacy_proposals,
     eligible_original_records, human_name, similarity,
 )
 
@@ -100,6 +101,122 @@ class RemainingMetadataTests(unittest.TestCase):
         self.assertEqual(
             findings[0]["evidenceUrl"],
             "https://dialnet.unirioja.es/servlet/articulo?codigo=1",
+        )
+
+    @patch(
+        "scripts.cucsh.enrich_sincronia_remaining.harvest_dialnet_records"
+    )
+    def test_dialnet_repairs_damaged_legacy_title_and_author(self, harvest):
+        row = paper(
+            "Historias que nos contamos: una redescripci\ufffdn "
+            "de Zapata para los ni\ufffdos"
+        )
+        row["issueNumber"] = 48
+        row["urls"]["canonical"] = (
+            "http://sincronia.cucsh.udg.mx/perezfall08.htm"
+        )
+        harvest.return_value = ([
+            {
+                "issueNumber": 48,
+                "title": (
+                    "Historias que nos contamos: una redescripción "
+                    "de Zapata para los niños"
+                ),
+                "authors": [{"name": "María Dolores Pérez Padilla"}],
+                "urls": {
+                    "canonical": (
+                        "https://dialnet.unirioja.es/servlet/"
+                        "articulo?codigo=123"
+                    )
+                },
+            },
+            {
+                "issueNumber": 48,
+                "title": "Otro artículo completamente distinto",
+                "authors": [{"name": "Otra Persona"}],
+                "urls": {
+                    "canonical": (
+                        "https://dialnet.unirioja.es/servlet/"
+                        "articulo?codigo=456"
+                    )
+                },
+            },
+        ], [48])
+
+        findings = dialnet_damaged_legacy_proposals([row])
+        self.assertEqual(findings[0]["status"], "verified_corrections")
+        self.assertEqual(
+            findings[0]["corrections"]["title"]["value"],
+            "Historias que nos contamos: una redescripción "
+            "de Zapata para los niños",
+        )
+        self.assertEqual(
+            findings[0]["corrections"]["author"]["value"],
+            "María Dolores Pérez Padilla",
+        )
+
+    @patch(
+        "scripts.cucsh.enrich_sincronia_remaining.harvest_dialnet_records"
+    )
+    def test_dialnet_repairs_damaged_author_label_only_when_unique(self, harvest):
+        row = paper("Garc\ufffda N\ufffd\ufffdez, Roberto")
+        row["issueNumber"] = 46
+        row["urls"]["canonical"] = (
+            "http://sincronia.cucsh.udg.mx/garciaspring08.htm"
+        )
+        harvest.return_value = ([
+            {
+                "issueNumber": 46,
+                "title": "Un acercamiento al Buddhismo",
+                "authors": [{"name": "Roberto García Núñez"}],
+                "urls": {
+                    "canonical": (
+                        "https://dialnet.unirioja.es/servlet/"
+                        "articulo?codigo=789"
+                    )
+                },
+            },
+            {
+                "issueNumber": 46,
+                "title": "Otro texto",
+                "authors": [{"name": "Persona Distinta"}],
+                "urls": {
+                    "canonical": (
+                        "https://dialnet.unirioja.es/servlet/"
+                        "articulo?codigo=999"
+                    )
+                },
+            },
+        ], [46])
+
+        findings = dialnet_damaged_legacy_proposals([row])
+        self.assertEqual(findings[0]["status"], "verified_corrections")
+        self.assertEqual(
+            findings[0]["corrections"]["title"]["value"],
+            "Un acercamiento al Buddhismo",
+        )
+        self.assertEqual(
+            findings[0]["corrections"]["author"]["value"],
+            "Roberto García Núñez",
+        )
+
+    def test_curated_encoding_fix_requires_exact_frozen_record(self):
+        row = paper(
+            "�Carta à José Joaquín Palma� ou la position esthétique "
+            "de José Martí en exil",
+            authors=[{"name": "Brahiman Saganogo"}],
+        )
+        row["id"] = "cucsh:sincronia-dialnet:3297208"
+        row["issueNumber"] = 51
+        row["urls"]["canonical"] = (
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=3297208"
+        )
+        findings = curated_encoding_proposals([row])
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(
+            findings[0]["corrections"]["title"]["value"],
+            "Carta à José Joaquín Palma ou la position esthétique "
+            "de José Martí en exil",
         )
 
     def test_navigation_and_university_are_not_people(self):
