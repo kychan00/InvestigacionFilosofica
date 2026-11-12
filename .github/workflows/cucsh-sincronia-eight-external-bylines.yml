@@ -1,0 +1,111 @@
+name: Sincronía · externally verified historical author recovery
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-eight-external-bylines.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-external-bylines-eight
+  cancel-in-progress: false
+
+jobs:
+  verified-eight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test evidence-frozen mapping
+        run: python3 -m unittest tests.test_cucsh_sincronia_eight_external_bylines
+      - name: Apply exactly eight corroborated bylines
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-eight-before.json
+          python3 -m scripts.cucsh.backfill_sincronia_eight_external_bylines \
+            --input /tmp/cucsh-eight-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Validate all original records and availability
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-eight-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-eight-historical-audit.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-eight-pending-audit.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          prior=json.loads(Path("/tmp/cucsh-eight-before.json").read_text())
+          current=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          assert len(prior["records"]) == len(current["records"]) == 1845
+          old={r["id"]:r for r in prior["records"]}
+          new={r["id"]:r for r in current["records"]}
+          assert set(old)==set(new)
+          changed=[key for key in old if old[key]!=new[key]]
+          assert len(changed)==8,changed
+          for key in changed:
+              assert old[key]["journal"]=="Sincronía"
+              assert not old[key].get("authors")
+              assert new[key].get("authors")
+              for field in set(old[key])|set(new[key]):
+                  if field not in {"authors", "legacyAuthorEvidence"}:
+                      assert old[key].get(field)==new[key].get(field),(key,field)
+          pending=json.loads(Path("/tmp/sincronia-eight-pending-audit.json").read_text())
+          assert pending["pendingAuthorRecords"]==115
+          assert pending["totalSincroniaRecords"]==1454
+          assert pending["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_EIGHT_EXTERNAL_STRICT_AUDIT_PASS",len(changed),115)
+          PY
+      - name: Run complete application regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit validated metadata only to Sincronía branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            echo "Unexpected local files changed"
+            git status --short
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Recover eight externally corroborated Sincronía author names"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Save evidence-based audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-eight-external-bylines-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-eight-historical-audit.json
+            /tmp/sincronia-eight-pending-audit.json
+          retention-days: 30
+          if-no-files-found: warn
