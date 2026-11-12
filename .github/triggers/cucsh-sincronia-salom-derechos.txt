@@ -1,0 +1,34 @@
+Restore exactly one Genaro D. Salom historical Sincronía work:
+
+Issue 16 / year 2000 / derechos.htm
+Historical index label: "Salom, Genaro D."
+Canonical title: "Derechos Humanos"
+Author: Genaro D. Salom
+
+Evidence:
+- Bibliography explicitly lists "Salom, Genaro: Derechos Humanos. Doc/html:
+  Sincronía 2000".
+- Independent 2010 republication preserves the complete human-rights text
+  and ends with the signature "Derechos Humanos Lic. Genaro D. Salom".
+
+Important evidence caveat:
+No external source found in this audit writes the exact legacy derechos.htm
+URL. That path comes from the historical Sincronía issue index already in
+the corpus. Record this honestly as
+"historical-index-only-not-external-exact-url-proof". Do not present either
+secondary source as a replacement/live original URL.
+
+Only the frozen ID cucsh:sincronia-legacy:a62bbf11f17db65d6d35 may change
+title/titleVariants/authors/evidence. Preserve all original URLs, access status,
+issue/year, IDs and unrelated records.
+
+Expected after success:
+- 1845 CUCSH / 1454 Sincronía
+- authorless 82 -> 81
+- article-candidate authorless 80 -> 79
+- suspected work identities 32 -> 31
+- 2 editorial navigation pages preserved
+- Reyes4 conflict + issue-50 Korstanje ambiguity preserved
+- all 532 application tests pass
+
+Use feature/cucsh-sincronia only. No merge, no main change, no new PR.
