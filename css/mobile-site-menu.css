@@ -443,6 +443,15 @@ html[data-theme="light"] .site-desktop-menu-label {
 
 /* En escritorio, la cabecera vuelve a respirar: sólo Acerca de queda arriba. */
 @media (min-width: 821px) {
+  /*
+   * The permanent 46px navigation rail must own its own page gutter.
+   * Previously it was fixed above the document while the app still began at
+   * x=0, so the rail hid the left edge of author metrics and other content.
+   */
+  body {
+    padding-left: 46px;
+  }
+
   .philo-nav-links > a:not([href="./acerca.html"]),
   .td-nav-actions > a:not([href="./acerca.html"]),
   .ta-nav-links > a:not([href="./acerca.html"]),
