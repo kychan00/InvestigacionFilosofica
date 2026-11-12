@@ -59,6 +59,94 @@ CURATED_ENCODING_FIXES = {
         "sourceUrl": "https://riviste.unimi.it/index.php/StudiaTheodisca/it/article/view/1366",
         "evidence": "independent-exact-title-publication",
     },
+    "cucsh:sincronia-legacy:78772294f3c8075ac1d9": {
+        "issue": 12,
+        "previous": "Calvi�o , Manuel",
+        "value": "Premuras y corduras en psicoterapia",
+        "author": "Manuel Calviño",
+        "sourceUrl": "https://scielo.conicyt.cl/scielo.php?pid=S0718-48082009000200007&script=sci_arttext",
+        "evidence": "independent-bibliographic-title-author",
+    },
+    "cucsh:sincronia-legacy:3be5c46dada720c21162": {
+        "issue": 15,
+        "previous": "Mac�as Rodr�guez, Claudia",
+        "value": "Un horizonte de análisis: la hermenéutica en la literatura",
+        "author": "Claudia Macías Rodríguez",
+        "sourceUrl": "https://repositorio.ues.edu.sv/server/api/core/bitstreams/25c1a332-c9e1-422e-b415-b0915f7a486a/content",
+        "evidence": "independent-bibliographic-title-author",
+    },
+    "cucsh:sincronia-legacy:b0eebf5520d3ed02fb62": {
+        "issue": 15,
+        "previous": "Filgueiras Nodar,Jos� Mar�a",
+        "value": "Análisis icónico de los textos filosóficos",
+        "author": "José María Filgueiras Nodar",
+        "sourceUrl": "https://www.umar.mx/transparencia/Articulo_70/Fraccion_XVII/2023/3erTrim/CV_Jose_Maria_Filgueiras_Nodar.pdf",
+        "evidence": "author-cv-exact-publication",
+    },
+    "cucsh:sincronia-legacy:ccd677438696f2e0aa3c": {
+        "issue": 16,
+        "previous": "Mac�as Rodr�guez, Claudia",
+        "value": "La fiesta en Juan Rulfo: Estructura y significación en ‘El día del derrumbe’",
+        "author": "Claudia Macías Rodríguez",
+        "sourceUrl": "https://riviste.lineaedizioni.it/index.php/oltreoceano/article/view/147",
+        "evidence": "independent-bibliographic-title-author",
+    },
+    "cucsh:sincronia-legacy:e03150eb3897ff5be989": {
+        "issue": 16,
+        "previous": "D�az G�mez, Alvaro",
+        "value": "La participación de las niñas y los niños y la formación de ciudadanía",
+        "author": "Alvaro Díaz Gómez",
+        "sourceUrl": "https://bibliotecadigital.mineduc.cl/bitstream/handle/20.500.12365/17905/E08-0077.pdf?isAllowed=y&sequence=1",
+        "evidence": "independent-fulltext-title-author",
+    },
+    "cucsh:sincronia-legacy:0612eae7bddf9a81c927": {
+        "issue": 48,
+        "previous": "Historias que nos contamos: una redescripci�n de Zapata para los ni�os",
+        "value": "Historias que nos contamos: una redescripción de Zapata para los niños",
+        "author": "María Dolores Pérez Padilla",
+        "sourceUrl": "https://dialnet.unirioja.es/ejemplar/251053",
+        "evidence": "dialnet-issue-bibliography",
+    },
+    "cucsh:sincronia-legacy:21e83b4cf2267d92ee5a": {
+        "issue": 48,
+        "previous": "Las pol�micas por la cientificidad en las ciensias sociales: De la neutralidad ideol�gica a la objetividad dient�fica",
+        "value": "Las polémicas por la cientificidad en las ciencias sociales: De la neutralidad ideológica a la objetividad científica",
+        "author": "Guillermina Bustos Silva",
+        "sourceUrl": "https://dialnet.unirioja.es/ejemplar/251053",
+        "evidence": "dialnet-issue-bibliography",
+    },
+    "cucsh:sincronia-legacy:2b07f117b2138a454136": {
+        "issue": 48,
+        "previous": "QU� SON... ETOS? (El soneto at�pico en la literatura)",
+        "value": "Qué son... etos?: (El soneto atípico en la literatura)",
+        "author": "Dante Medina",
+        "sourceUrl": "https://dialnet.unirioja.es/ejemplar/251053",
+        "evidence": "dialnet-issue-bibliography",
+    },
+    "cucsh:sincronia-legacy:52e8bd42da04504dc974": {
+        "issue": 47,
+        "previous": "La fiesta : preservaci�n de la cultura popular en Am�rica Latina",
+        "value": "La fiesta: preservación de la cultura popular en América Latina",
+        "author": "Claudia Macías Rodríguez",
+        "sourceUrl": "https://dialnet.unirioja.es/ejemplar/251022",
+        "evidence": "dialnet-issue-bibliography",
+    },
+    "cucsh:sincronia-legacy:60b1adbef4601be4c580": {
+        "issue": 48,
+        "previous": "Literatura coreana en M�xico: La balada del adi�s de Oh, Jung-Hee",
+        "value": "Literatura coreana en México: La balada del adiós de Oh, Jung-Hee",
+        "author": "Claudia Macías Rodríguez",
+        "sourceUrl": "https://dialnet.unirioja.es/ejemplar/251053",
+        "evidence": "dialnet-issue-bibliography",
+    },
+    "cucsh:sincronia-legacy:8b3cd0a09bbc44c1ef1a": {
+        "issue": 47,
+        "previous": "La distribuci�n de los SSNN escuetos del espa�ol: el rasgo-D y el Caso estructural",
+        "value": "La distribución de los SSNN escuetos del español: el rasgo-D y el Caso estructural",
+        "author": "Man-Ki Lee",
+        "sourceUrl": "https://dialnet.unirioja.es/ejemplar/251022",
+        "evidence": "dialnet-issue-bibliography",
+    },
 }
 
 
@@ -250,7 +338,8 @@ def inspect_remote(row):
     except Exception as exc:
         return {
             "id": row["id"], "issue": row["issueNumber"],
-            "url": url, "status": "source_unavailable",
+            "url": url, "source": "original-html",
+            "status": "source_unavailable",
             "corrections": {}, "error": repr(exc)[:500],
         }
 
@@ -416,6 +505,20 @@ def curated_encoding_proposals(rows, skip_ids=None):
             or "\ufffd" in fix["value"]
         ):
             continue
+        corrections = {
+            "title": {
+                "previous": fix["previous"],
+                "value": fix["value"],
+                "evidence": fix["evidence"],
+                "score": 1.0,
+            }
+        }
+        if fix.get("author") and not row.get("authors"):
+            corrections["author"] = {
+                "value": fix["author"],
+                "evidence": fix["evidence"],
+                "field": "independent-bibliographic-evidence",
+            }
         findings.append({
             "id": record_id,
             "issue": fix["issue"],
@@ -423,14 +526,7 @@ def curated_encoding_proposals(rows, skip_ids=None):
             "evidenceUrl": fix["sourceUrl"],
             "source": "curated-independent-bibliography",
             "status": "verified_corrections",
-            "corrections": {
-                "title": {
-                    "previous": fix["previous"],
-                    "value": fix["value"],
-                    "evidence": fix["evidence"],
-                    "score": 1.0,
-                }
-            },
+            "corrections": corrections,
         })
     return findings
 
@@ -443,7 +539,7 @@ def dialnet_author_proposals(rows, skip_ids=None):
         and isinstance(r.get("issueNumber"), int)
         and 1 <= r["issueNumber"] <= 60
         and not r.get("authors")
-        and "\\ufffd" not in str(r.get("title") or "")
+        and "\ufffd" not in str(r.get("title") or "")
         and r.get("id") not in skip_ids
     ]
     issues = {r["issueNumber"] for r in targets}
@@ -565,6 +661,124 @@ def dialnet_title_proposals(rows):
     return findings
 
 
+
+def eligible_original_access_records(rows):
+    result = []
+    for row in rows:
+        if (
+            row.get("journal") != "Sincronía"
+            or not row.get("legacyOriginal")
+            or not isinstance(row.get("issueNumber"), int)
+            or not 1 <= row["issueNumber"] <= 60
+        ):
+            continue
+        url = (row.get("urls") or {}).get("canonical") or ""
+        parsed = urlparse(url)
+        if parsed.hostname in TRUSTED_HOSTS and url.startswith(("http://", "https://")):
+            result.append(row)
+    return sorted(result, key=lambda r: (r["issueNumber"], r["id"]))
+
+
+def inspect_original_access(row):
+    url = (row.get("urls") or {}).get("canonical")
+    try:
+        _data, archived = request_legacy_bytes(
+            url, prefer_wayback=False, allow_live_fallback=True,
+        )
+        return {
+            "id": row["id"],
+            "issue": row["issueNumber"],
+            "url": url,
+            "source": "original-access",
+            "status": "available",
+            "retrievedViaWayback": bool(archived),
+        }
+    except Exception as exc:
+        return {
+            "id": row["id"],
+            "issue": row["issueNumber"],
+            "url": url,
+            "source": "original-access",
+            "status": "source_unavailable",
+            "retrievedViaWayback": False,
+            "error": repr(exc)[:500],
+        }
+
+
+def access_failure_reason(error):
+    error = str(error or "").casefold()
+    if "404" in error:
+        return "http-404"
+    if "timeout" in error:
+        return "timeout"
+    if "403" in error:
+        return "http-403"
+    if "410" in error:
+        return "http-410"
+    return "unreachable"
+
+
+def annotate_access_status(snapshot, access_findings):
+    by_id = {
+        finding.get("id"): finding
+        for finding in access_findings
+        if finding.get("id")
+    }
+    rows = []
+    changed = []
+    for row in snapshot["records"]:
+        finding = by_id.get(row.get("id"))
+        if not finding:
+            rows.append(row)
+            continue
+
+        item = copy.deepcopy(row)
+        previous = item.get("legacyAccessStatus")
+        current = None
+
+        if finding.get("status") == "source_unavailable":
+            current = {
+                "status": "original-page-unavailable",
+                "originalUrl": finding.get("url"),
+                "auditRunId": RUN_ID,
+                "reason": access_failure_reason(finding.get("error")),
+                "archiveAvailable": False,
+                "note": (
+                    "Registro bibliográfico conservado; la página original "
+                    "no estaba disponible en la última verificación."
+                ),
+            }
+        elif finding.get("retrievedViaWayback"):
+            current = {
+                "status": "original-page-archived-only",
+                "originalUrl": finding.get("url"),
+                "auditRunId": RUN_ID,
+                "reason": "live-source-unavailable-archive-recovered",
+                "archiveAvailable": True,
+                "note": (
+                    "Registro bibliográfico conservado; la página original "
+                    "no respondió y la verificación usó una copia archivada."
+                ),
+            }
+
+        if current:
+            item["legacyAccessStatus"] = current
+        else:
+            item.pop("legacyAccessStatus", None)
+
+        if previous != item.get("legacyAccessStatus"):
+            changed.append({
+                "id": item["id"],
+                "issue": item.get("issueNumber"),
+                "fields": ["accessStatus"],
+                "title": item.get("title"),
+                "sourceUrl": finding.get("url"),
+            })
+        rows.append(item)
+
+    return {**snapshot, "records": rows}, changed
+
+
 def apply_evidence(snapshot, findings):
     updates = {}
     for finding in findings:
@@ -666,6 +880,31 @@ def main():
                     flush=True,
                 )
 
+    original_access_findings = [
+        f for f in findings if f.get("source") == "original-html"
+    ]
+    inspected_original_ids = {
+        f.get("id") for f in original_access_findings
+    }
+    access_targets = [
+        row for row in eligible_original_access_records(rows)
+        if row.get("id") not in inspected_original_ids
+    ]
+    if access_targets:
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            futures = {
+                executor.submit(inspect_original_access, row): row
+                for row in access_targets
+            }
+            for index, future in enumerate(as_completed(futures), start=1):
+                original_access_findings.append(future.result())
+                if index % 20 == 0 or index == len(access_targets):
+                    print(
+                        "SINCRONIA_ACCESS_PROGRESS",
+                        f"inspected={index}/{len(access_targets)}",
+                        flush=True,
+                    )
+
     corrected_ids = {
         f.get("id") for f in findings
         if f.get("status") == "verified_corrections" and f.get("corrections")
@@ -688,9 +927,23 @@ def main():
         if f.get("id") not in corrected_ids
     )
     findings.sort(key=lambda f: (f.get("issue") or 0, f.get("id") or ""))
-    after, changed = apply_evidence(original, findings)
+    after, metadata_changed = apply_evidence(original, findings)
+    after, access_changed = annotate_access_status(
+        after, original_access_findings
+    )
+    changed = metadata_changed + access_changed
     counters = Counter(f.get("status") for f in findings)
     fields = Counter(field for c in changed for field in c["fields"])
+    unavailable_original_pages = sum(
+        (r.get("legacyAccessStatus") or {}).get("status")
+        == "original-page-unavailable"
+        for r in after["records"]
+    )
+    archived_only_original_pages = sum(
+        (r.get("legacyAccessStatus") or {}).get("status")
+        == "original-page-archived-only"
+        for r in after["records"]
+    )
     unresolved_authors = sum(
         r.get("journal") == "Sincronía" and
         isinstance(r.get("issueNumber"), int) and
@@ -711,8 +964,11 @@ def main():
         "beforeRecords": len(rows),
         "afterRecords": len(after["records"]),
         "originalPagesAttempted": len(targets),
+        "originalPagesChecked": len(original_access_findings),
+        "originalPagesUnavailable": unavailable_original_pages,
+        "originalPagesArchivedOnly": archived_only_original_pages,
         "sourceStatuses": dict(sorted(counters.items())),
-        "changedRecords": len(changed),
+        "changedRecords": len({change["id"] for change in changed}),
         "changedFields": dict(sorted(fields.items())),
         "stillWithoutAuthors": unresolved_authors,
         "stillWithDamagedText": unresolved_damaged,
@@ -733,7 +989,9 @@ def main():
     print("SINCRONIA_TARGETED_ENRICHMENT", json.dumps({
         key: report[key] for key in (
             "beforeRecords", "afterRecords", "originalPagesAttempted",
-            "sourceStatuses", "changedRecords", "changedFields",
+            "originalPagesChecked", "originalPagesUnavailable",
+            "originalPagesArchivedOnly", "sourceStatuses",
+            "changedRecords", "changedFields",
             "stillWithoutAuthors", "stillWithDamagedText",
         )
     }, ensure_ascii=False), flush=True)
