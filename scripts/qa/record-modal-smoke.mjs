@@ -110,7 +110,15 @@ try {
       route.request().url().startsWith(BASE) ? route.continue() : route.abort()
     );
     await page.goto(BASE, { waitUntil: "domcontentloaded" });
-    await page.locator('[data-theme-choice="' + theme + '"]').click();
+
+    if (width <= 768) {
+      await page.locator(".site-menu-toggle").click();
+      await page.locator('[data-site-theme="' + theme + '"]').click();
+      await page.locator(".site-menu-close").click();
+    } else {
+      await page.locator('[data-theme-choice="' + theme + '"]').click();
+    }
+
     await page.waitForFunction(() =>
       [...document.styleSheets].some(sheet =>
         sheet.href?.includes("record-folio-polish.css") && sheet.cssRules.length > 0

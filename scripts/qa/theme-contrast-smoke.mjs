@@ -49,16 +49,36 @@ try {
       route.request().url().startsWith(BASE) ? route.continue() : route.abort());
     await page.goto(BASE,{waitUntil:"domcontentloaded"});
     await page.waitForFunction(() =>
-      document.querySelector('[data-theme-choice="light"]')?.getAttribute("aria-pressed") !== "false" ||
-      document.querySelector('[data-theme-choice="dark"]')?.getAttribute("aria-pressed") !== "false"
+      document.querySelector("[data-site-theme]") ||
+      document.querySelector("[data-theme-choice]")
     );
     for(const theme of ["light","dark"]) {
-      await page.locator('[data-theme-choice="'+theme+'"]').click();
+      let mobileAppearance=null;
+      if(width<=768){
+        await page.locator(".site-menu-toggle").click();
+        await page.locator('[data-site-theme="'+theme+'"]').click();
+        mobileAppearance=await page.evaluate(theme=>{
+          const buttons=[...document.querySelectorAll(".site-menu-theme button")];
+          return {
+            selected:document.querySelector('[data-site-theme="'+theme+'"]')?.getAttribute("aria-pressed"),
+            other:document.querySelector('[data-site-theme="'+(theme==="light"?"dark":"light")+'"]')?.getAttribute("aria-pressed"),
+            labels:buttons.map(button=>button.textContent.trim()),
+            choices:buttons.map(button=>{
+              const r=button.getBoundingClientRect();
+              return {width:r.width,height:r.height,left:r.left,right:r.right};
+            })
+          };
+        },theme);
+        await page.locator(".site-menu-close").click();
+      }else{
+        await page.locator('[data-theme-choice="'+theme+'"]').click();
+      }
       await page.waitForFunction(theme =>
         document.documentElement.dataset.theme===theme,theme);
       const state=await page.evaluate(() => {
         const theme=document.documentElement.dataset.theme;
         const doc=document.documentElement;
+        const mobile=innerWidth<=820;
         const targets=[
           ".search-filter-grid label",
           ".search-filter-grid input",
@@ -67,8 +87,14 @@ try {
           ".search-filters-heading h2",
           ".search-filter-footer .filter-count",
           ".search-mode-note",
-          '.theme-switch button:not([aria-pressed="true"])',
-          '.theme-switch button[aria-pressed="true"]'
+          ...(
+            mobile
+              ? []
+              : [
+                  '.theme-switch button:not([aria-pressed="true"])',
+                  '.theme-switch button[aria-pressed="true"]'
+                ]
+          )
         ];
         const rows=targets.map(selector=>{
           const el=document.querySelector(selector);
@@ -83,28 +109,37 @@ try {
         return {
           theme,
           storage:localStorage.getItem("investigacion-filosofica-theme"),
-          selected:document.querySelector('[data-theme-choice="'+theme+'"]').getAttribute("aria-pressed"),
-          other:document.querySelector('[data-theme-choice="'+(theme==="light"?"dark":"light")+'"]').getAttribute("aria-pressed"),
+          selected:mobile?null:document.querySelector('[data-theme-choice="'+theme+'"]').getAttribute("aria-pressed"),
+          other:mobile?null:document.querySelector('[data-theme-choice="'+(theme==="light"?"dark":"light")+'"]').getAttribute("aria-pressed"),
           documentWidth:doc.scrollWidth,innerWidth,
-          icons:[...document.querySelectorAll(".theme-switch .theme-icon")].map(e=>{
+          icons:mobile?[]:[...document.querySelectorAll(".theme-switch .theme-icon")].map(e=>{
             const r=e.getBoundingClientRect();return {width:r.width,height:r.height,display:getComputedStyle(e).display};
           }),
-          choices:[...document.querySelectorAll(".theme-switch button")].map(e=>{
+          choices:mobile?[]:[...document.querySelectorAll(".theme-switch button")].map(e=>{
             const r=e.getBoundingClientRect();return {width:r.width,height:r.height,left:r.left,right:r.right};
           }),
           rows
         };
       });
       assert.equal(state.storage,theme);
-      assert.equal(state.selected,"true");
-      assert.equal(state.other,"false");
       assert.ok(state.documentWidth <= width+2,
         "Page overflows after theme switch "+width);
-      assert.ok(state.icons.every(icon=>icon.width>=18&&icon.height>=18&&icon.display!=="none"),
-        "Sun and moon icons must be visible");
-      assert.ok(state.choices.every(choice=>
-        choice.height>=44 && choice.width>=44 && choice.left>=-2 && choice.right<=width+2),
-        "Appearance actions must remain tappable and within screen");
+      if(width<=768){
+        assert.equal(mobileAppearance?.selected,"true");
+        assert.equal(mobileAppearance?.other,"false");
+        assert.deepEqual(mobileAppearance?.labels,["Claro","Oscuro"]);
+        assert.ok(mobileAppearance?.choices.every(choice=>
+          choice.height>=44 && choice.width>=44 && choice.left>=-2 && choice.right<=width+2),
+          "Mobile appearance actions must remain tappable and within screen");
+      }else{
+        assert.equal(state.selected,"true");
+        assert.equal(state.other,"false");
+        assert.ok(state.icons.every(icon=>icon.width>=18&&icon.height>=18&&icon.display!=="none"),
+          "Sun and moon icons must be visible");
+        assert.ok(state.choices.every(choice=>
+          choice.height>=44 && choice.width>=44 && choice.left>=-2 && choice.right<=width+2),
+          "Appearance actions must remain tappable and within screen");
+      }
       checkContrasts(state.rows);
       await page.screenshot({
         path:"artifacts/theme-contrast/search-"+theme+"-"+width+".png",

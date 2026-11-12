@@ -176,14 +176,26 @@ try {
     await page.locator("#atlas-reset-view").click();
     assert.equal(await page.locator("#atlas-match-count").innerText(), "566");
 
-    await page.locator('[data-theme-choice="light"]').click();
+    if (width <= 820) {
+      await page.locator(".site-menu-toggle").click();
+      await page.locator('[data-site-theme="light"]').click();
+      await page.locator(".site-menu-close").click();
+    } else {
+      await page.locator('[data-theme-choice="light"]').click();
+    }
     assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
     await page.screenshot({
       path: `artifacts/thesis-atlas-ui/${name}-light.png`,
       fullPage: true,
     });
 
-    await page.locator('[data-theme-choice="dark"]').click();
+    if (width <= 820) {
+      await page.locator(".site-menu-toggle").click();
+      await page.locator('[data-site-theme="dark"]').click();
+      await page.locator(".site-menu-close").click();
+    } else {
+      await page.locator('[data-theme-choice="dark"]').click();
+    }
     assert.equal(await page.locator("html").getAttribute("data-theme"), "dark");
     await page.screenshot({
       path: `artifacts/thesis-atlas-ui/${name}-dark.png`,

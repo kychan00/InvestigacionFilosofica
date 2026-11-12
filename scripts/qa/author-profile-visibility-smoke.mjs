@@ -52,7 +52,13 @@ try{
   await page.waitForFunction(()=>[...document.styleSheets].some(
    x=>x.href?.includes("author-visibility-repair.css")&&x.cssRules.length>0));
   for(const theme of ["light","dark"]){
-   await page.locator('[data-theme-choice="'+theme+'"]').click();
+   if(width<=768){
+    await page.locator(".site-menu-toggle").click();
+    await page.locator('[data-site-theme="'+theme+'"]').click();
+    await page.locator(".site-menu-close").click();
+   }else{
+    await page.locator('[data-theme-choice="'+theme+'"]').click();
+   }
    await page.evaluate(({wrapper,cards})=>{
     document.body.classList.add("author-view");
     document.querySelector("#research-workspace").classList.remove("hidden");

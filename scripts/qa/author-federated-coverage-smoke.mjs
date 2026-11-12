@@ -67,7 +67,9 @@ try{
   const u=new URL(BASE);u.searchParams.set("view","author");
   u.searchParams.set("author","Dra Dinora Hernández");u.hash="results";
   await page.goto(u.toString(),{waitUntil:"domcontentloaded"});
-  await page.locator('[data-theme-choice="'+theme+'"]').click();
+  await page.locator(".site-menu-toggle").click();
+  await page.locator('[data-site-theme="'+theme+'"]').click();
+  await page.locator(".site-menu-close").click();
   try{
     await page.waitForFunction(()=>
       document.querySelectorAll(".author-work-grid .result-card").length>=20 &&

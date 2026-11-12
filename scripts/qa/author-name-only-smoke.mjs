@@ -77,7 +77,9 @@ try{
   url.searchParams.set("author",name);
   url.hash="results";
   await page.goto(url.toString(),{waitUntil:"domcontentloaded"});
-  await page.locator('[data-theme-choice="'+theme+'"]').click();
+  await page.locator(".site-menu-toggle").click();
+  await page.locator('[data-site-theme="'+theme+'"]').click();
+  await page.locator(".site-menu-close").click();
   try{
     await page.waitForFunction(()=>
       document.querySelectorAll(".author-work-grid .result-card").length===4,
