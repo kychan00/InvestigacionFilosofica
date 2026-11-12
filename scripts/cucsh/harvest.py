@@ -16,6 +16,8 @@ import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
 
+from protrepsis_policy import is_temperie_record
+
 
 OAI = "http://www.openarchives.org/OAI/2.0/"
 DC = "http://purl.org/dc/elements/1.1/"
@@ -1187,6 +1189,18 @@ def harvest_source(
 
                 continue
 
+            if (
+                source["journal"]
+                == "Protrepsis"
+                and is_temperie_record(
+                    record
+                )
+            ):
+                excluded_reasons[
+                    "non-peer-reviewed-literary"
+                ] += 1
+                continue
+
             active_records.append(
                 record
             )
@@ -1632,6 +1646,34 @@ def build_dataset(
             source["journal"]
             == "Protrepsis"
         ):
+            before_policy = len(
+                records
+            )
+
+            records = [
+                record
+                for record in records
+                if not is_temperie_record(
+                    record
+                )
+            ]
+
+            policy_removed = (
+                before_policy
+                - len(records)
+            )
+
+            if policy_removed:
+                excluded[
+                    "non-peer-reviewed-literary"
+                ] = (
+                    excluded.get(
+                        "non-peer-reviewed-literary",
+                        0,
+                    )
+                    + policy_removed
+                )
+
             supplement = (
                 load_historical_protrepsis()
             )

@@ -43,7 +43,7 @@ test(
     );
 
     assert.ok(
-      records.length >= 391
+      records.length >= 336
     );
 
 
@@ -61,7 +61,7 @@ test(
         record =>
           record.journal ===
           "Protrepsis"
-      ).length >= 303
+      ).length >= 248
     );
 
 

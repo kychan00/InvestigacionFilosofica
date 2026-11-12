@@ -12,6 +12,8 @@ import urllib.request
 
 from pathlib import Path
 
+from protrepsis_policy import TEMPERIE_ARTICLE_IDS
+
 
 JOURNAL = "Protrepsis"
 PROVIDER = "CUCSH Filosofía"
@@ -27,24 +29,6 @@ TEMPERIE_RE = re.compile(
     r"temperie.*secci[oó]n\s+literaria\s+no\s+arbitrada",
     re.IGNORECASE,
 )
-
-# La versión histórica de OpenAlex no conserva de forma
-# consistente la sección editorial de OJS. Estos IDs se
-# reconstruyen de los índices de cada número y corresponden
-# a V. TEMPERIE, la sección literaria no arbitrada que el
-# cosechador OAI moderno ya excluye por política.
-TEMPERIE_ARTICLE_IDS = {
-    "1": {13, 14, 15, 16, 17, 18},
-    "2": {24, 25, 26, 27, 28, 29},
-    "3": {43, 44, 45, 46, 47, 48},
-    "4": {61, 62, 63, 64, 65},
-    "5": {82, 83, 85, 87, 88, 89},
-    "6": {99, 101, 102, 103, 104, 106},
-    "7-8": {113, 114, 115, 116, 117},
-    "9-10": {119, 121, 122, 123, 124, 125},
-    "13": {157, 158, 159, 160},
-    "14": {179, 180, 181, 182, 183},
-}
 
 
 def request_json(url: str, timeout: int = 35):

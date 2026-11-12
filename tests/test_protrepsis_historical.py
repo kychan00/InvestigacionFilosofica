@@ -15,6 +15,7 @@ sys.path.insert(0, str(CUCSH))
 
 import harvest
 import protrepsis_historical
+import protrepsis_policy
 
 
 class ProtrepsisHistoricalTest(unittest.TestCase):
@@ -63,19 +64,32 @@ class ProtrepsisHistoricalTest(unittest.TestCase):
     def test_temperie_ids_are_excluded_by_policy(self):
         self.assertIn(
             24,
-            protrepsis_historical.TEMPERIE_ARTICLE_IDS["2"],
+            protrepsis_policy.TEMPERIE_ARTICLE_IDS["2"],
         )
         self.assertIn(
             61,
-            protrepsis_historical.TEMPERIE_ARTICLE_IDS["4"],
+            protrepsis_policy.TEMPERIE_ARTICLE_IDS["4"],
         )
         self.assertIn(
             179,
-            protrepsis_historical.TEMPERIE_ARTICLE_IDS["14"],
+            protrepsis_policy.TEMPERIE_ARTICLE_IDS["14"],
         )
         self.assertNotIn(
             42,
-            protrepsis_historical.TEMPERIE_ARTICLE_IDS.get("3", set()),
+            protrepsis_policy.TEMPERIE_ARTICLE_IDS.get("3", set()),
+        )
+
+        self.assertTrue(
+            protrepsis_policy.is_temperie_record({
+                "journal": "Protrepsis",
+                "doi": "10.32870/prot.i2.24",
+            })
+        )
+        self.assertFalse(
+            protrepsis_policy.is_temperie_record({
+                "journal": "Protrepsis",
+                "doi": "10.32870/prot.i3.42",
+            })
         )
 
     def test_abstract_reconstruction(self):
