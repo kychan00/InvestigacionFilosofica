@@ -18506,7 +18506,12 @@
       "titleVariants": [
         "Problemas de Periodización de la Historia Literaria de Jalisco"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Wolfgang Vogt",
+          "sourceName": "Wolfgang Vogt"
+        }
+      ],
       "date": "1996",
       "year": 1996,
       "type": "journal-article",
@@ -18546,6 +18551,19 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "udeg-journal-citation-exact-original-article-url",
+        "sourceUrl": "https://revistaargos.cucsh.udg.mx/index.php/argos/article/download/80/111/359",
+        "sourcePage": 152,
+        "citingWork": "Propuesta para un ordenamiento generacional de los escritores jaliscienses",
+        "verifiedAuthor": "Wolfgang Vogt",
+        "verifiedTitle": "Problemas de Periodización de la Historia Literaria de Jalisco",
+        "sourceArticleUrl": "http://sincronia.cucsh.udg.mx/vogt.htm",
+        "matchedIssueNumber": 1,
+        "matchedYear": 1996,
+        "originalAvailabilityPreserved": true,
+        "note": "Argos (UdeG, 2023), p. 152, cites Vogt, W. (1996), Problemas de periodización de la historia literaria en Jalisco, Sincronía, and the exact /vogt.htm original URL. Its 'en Jalisco' citation variant does not override the historically indexed 'de Jalisco' title. The original page remains archived-only, not live."
       }
     },
     {
