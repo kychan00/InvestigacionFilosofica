@@ -463,6 +463,10 @@ export class JournalSemanticAtlas {
       const button = event.target.closest("[data-atlas-action]");
       if (!button) return;
       const action = button.dataset.atlasAction;
+      if (action === "pan-left") this.panBy(-72, 0);
+      if (action === "pan-right") this.panBy(72, 0);
+      if (action === "pan-up") this.panBy(0, -72);
+      if (action === "pan-down") this.panBy(0, 72);
       if (action === "zoom-in") this.zoomBy(1.22);
       if (action === "zoom-out") this.zoomBy(1 / 1.22);
       if (action === "fit") this.fitView();
@@ -929,6 +933,13 @@ export class JournalSemanticAtlas {
       this.renderDetail(state.node);
     }
 
+    this.requestDraw();
+  }
+
+  panBy(dx, dy) {
+    if (!this.nodes.length) return;
+    this.view.panX += Number(dx) || 0;
+    this.view.panY += Number(dy) || 0;
     this.requestDraw();
   }
 
