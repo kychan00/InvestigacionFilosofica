@@ -438,6 +438,8 @@ export class JournalSemanticAtlas {
     this.selectedNode = null;
     this.hoverNode = null;
     this.pointerState = null;
+    this.touchPointers = new Map();
+    this.pinchState = null;
     this.view = { panX: 0, panY: 0, zoom: 1 };
 
     if (canvas && this.context) {
@@ -661,7 +663,8 @@ export class JournalSemanticAtlas {
     this.canvas.dataset.atlasPanY = this.view.panY.toFixed(1);
     this.canvas.dataset.atlasEdges = String(this.edges.length);
     this.canvas.dataset.atlasIssues = String(this.groups.length);
-    this.canvas.classList.toggle("is-dragging", Boolean(this.pointerState));
+    this.canvas.dataset.atlasTouchMode = "pan-pinch";
+    this.canvas.classList.toggle("is-dragging", Boolean(this.pointerState || this.pinchState));
   }
 
   palette() {
@@ -846,16 +849,96 @@ export class JournalSemanticAtlas {
     this.requestDraw();
   }
 
+  pointerPosition(event) {
+    const rect = this.canvas.getBoundingClientRect();
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  }
+
+  beginPinch() {
+    if (this.touchPointers.size < 2) return;
+
+    const metrics = this.metrics();
+    const points = [...this.touchPointers.values()].slice(0, 2);
+    const midpoint = {
+      x: (points[0].x + points[1].x) / 2,
+      y: (points[0].y + points[1].y) / 2
+    };
+    const distance = Math.max(
+      1,
+      Math.hypot(points[1].x - points[0].x, points[1].y - points[0].y)
+    );
+    const world = this.worldPoint(midpoint.x, midpoint.y, metrics);
+
+    this.pointerState = null;
+    this.pinchState = {
+      startDistance: distance,
+      startZoom: this.view.zoom,
+      worldX: world.x,
+      worldY: world.y
+    };
+  }
+
+  updatePinch() {
+    if (!this.pinchState || this.touchPointers.size < 2) return;
+
+    const metrics = this.metrics();
+    const points = [...this.touchPointers.values()].slice(0, 2);
+    const midpointX = (points[0].x + points[1].x) / 2;
+    const midpointY = (points[0].y + points[1].y) / 2;
+    const distance = Math.max(
+      1,
+      Math.hypot(points[1].x - points[0].x, points[1].y - points[0].y)
+    );
+    const scale = distance / this.pinchState.startDistance;
+    const nextZoom = Math.max(
+      MIN_ZOOM,
+      Math.min(MAX_ZOOM, this.pinchState.startZoom * scale)
+    );
+
+    this.view.zoom = nextZoom;
+    this.view.panX =
+      midpointX -
+      metrics.width / 2 -
+      this.pinchState.worldX * metrics.base * nextZoom;
+    this.view.panY =
+      midpointY -
+      metrics.height / 2 -
+      this.pinchState.worldY * metrics.base * nextZoom;
+  }
+
   onPointerDown(event) {
     if (!this.nodes.length) return;
 
-    const rect = this.canvas.getBoundingClientRect();
     const metrics = this.metrics();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    const { x, y } = this.pointerPosition(event);
     const node = this.hitNode(x, y, metrics);
 
     this.canvas.setPointerCapture?.(event.pointerId);
+
+    if (event.pointerType === "touch") {
+      this.touchPointers.set(event.pointerId, { x, y });
+
+      if (this.touchPointers.size >= 2) {
+        this.beginPinch();
+      } else {
+        this.pointerState = {
+          type: "touch-pan",
+          pointerId: event.pointerId,
+          startX: x,
+          startY: y,
+          originPanX: this.view.panX,
+          originPanY: this.view.panY,
+          moved: 0,
+          tappedNode: node
+        };
+      }
+
+      this.syncCanvasState();
+      return;
+    }
 
     if (node) {
       const world = this.worldPoint(x, y, metrics);
@@ -887,10 +970,32 @@ export class JournalSemanticAtlas {
   }
 
   onPointerMove(event) {
-    const rect = this.canvas.getBoundingClientRect();
     const metrics = this.metrics();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    const { x, y } = this.pointerPosition(event);
+
+    if (event.pointerType === "touch") {
+      if (!this.touchPointers.has(event.pointerId)) return;
+      this.touchPointers.set(event.pointerId, { x, y });
+
+      if (this.touchPointers.size >= 2) {
+        if (!this.pinchState) this.beginPinch();
+        this.updatePinch();
+        this.requestDraw();
+        return;
+      }
+
+      const state = this.pointerState;
+      if (state?.type !== "touch-pan" || state.pointerId !== event.pointerId) return;
+
+      state.moved = Math.max(
+        state.moved,
+        Math.hypot(x - state.startX, y - state.startY)
+      );
+      this.view.panX = state.originPanX + (x - state.startX);
+      this.view.panY = state.originPanY + (y - state.startY);
+      this.requestDraw();
+      return;
+    }
 
     if (!this.pointerState) {
       const nextHover = this.hitNode(x, y, metrics);
@@ -920,6 +1025,48 @@ export class JournalSemanticAtlas {
   }
 
   onPointerUp(event) {
+    if (event.pointerType === "touch") {
+      const state = this.pointerState;
+      const tapNode =
+        state?.type === "touch-pan" &&
+        state.pointerId === event.pointerId &&
+        state.moved < 7
+          ? state.tappedNode
+          : null;
+
+      this.canvas.releasePointerCapture?.(event.pointerId);
+      this.touchPointers.delete(event.pointerId);
+
+      if (this.touchPointers.size < 2) {
+        this.pinchState = null;
+      }
+
+      if (this.touchPointers.size === 1) {
+        const [pointerId, point] = [...this.touchPointers.entries()][0];
+        this.pointerState = {
+          type: "touch-pan",
+          pointerId,
+          startX: point.x,
+          startY: point.y,
+          originPanX: this.view.panX,
+          originPanY: this.view.panY,
+          moved: 8,
+          tappedNode: null
+        };
+      } else if (this.touchPointers.size === 0) {
+        this.pointerState = null;
+      }
+
+      if (tapNode) {
+        this.selectedNode = tapNode;
+        this.renderDetail(tapNode);
+      }
+
+      this.syncCanvasState();
+      this.requestDraw();
+      return;
+    }
+
     const state = this.pointerState;
     if (!state || state.pointerId !== event.pointerId) return;
 
