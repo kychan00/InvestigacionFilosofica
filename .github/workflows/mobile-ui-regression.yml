@@ -6,6 +6,14 @@ on:
       - "index.html"
       - "tesis.html"
       - "atlas.html"
+      - "articulos.html"
+      - "revistas/**"
+      - "js/articles.js"
+      - "js/journal-page.js"
+      - "js/journal-atlas.js"
+      - "js/mobile-site-menu.js"
+      - "tests/journal-pages.test.mjs"
+      - "scripts/qa/journal-pages-smoke.mjs"
       - "js/thesis-atlas.js"
       - "src/core/thesis-atlas.js"
       - "scripts/qa/thesis-atlas-smoke.mjs"
@@ -148,6 +156,8 @@ jobs:
         run: node scripts/qa/thesis-demo-smoke.mjs
       - name: Verify experimental thesis Atlas on phone, tablet and desktop
         run: node scripts/qa/thesis-atlas-smoke.mjs
+      - name: Verify individual journal pages, filters and semantic Atlas fallback
+        run: node scripts/qa/journal-pages-smoke.mjs
 
       - name: Upload responsive screenshots
         if: always()
@@ -165,4 +175,5 @@ jobs:
             artifacts/author-deep-discovery/
             artifacts/author-name-lookup/
             artifacts/author-federated-coverage/
+            artifacts/journal-pages/
           if-no-files-found: ignore
