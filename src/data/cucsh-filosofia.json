@@ -25415,11 +25415,18 @@
       "sourceId": "legacy:e8f623d39efb7e943e95",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Velasco , Arnulfo Eduardo",
+      "title": "Sobre “La última tentación” de Nikos Kazantzakis",
       "titleVariants": [
+        "Sobre “La última tentación” de Nikos Kazantzakis",
+        "SOBRE LA ULTIMA TENTACION DE NIKOS KAZANTZAKIS",
         "Velasco , Arnulfo Eduardo"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Arnulfo Eduardo Velasco",
+          "sourceName": "Arnulfo Eduardo Velasco"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -25452,6 +25459,40 @@
         "reason": "timeout",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "full-text-heading-plus-independent-legacy-path-association",
+        "previousTitle": "Velasco , Arnulfo Eduardo",
+        "previousTitleVariants": [
+          "Velasco , Arnulfo Eduardo"
+        ],
+        "verifiedTitle": "Sobre “La última tentación” de Nikos Kazantzakis",
+        "reproducedHeading": "SOBRE LA ULTIMA TENTACION DE NIKOS KAZANTZAKIS",
+        "verifiedAuthors": [
+          "Arnulfo Eduardo Velasco"
+        ],
+        "fullTextReproductionUrl": "https://es.scribd.com/doc/308811977/Sobre-La-Ultima-Tentacion-de-Nikos-Kazantzakis",
+        "legacyPathAssociationSourceUrl": "https://cesarcallejas.wordpress.com/tag/cristianismo/",
+        "associatedLegacyUrl": "http://sincronia.cucsh.udg.mx/tentacion.htm",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/tentacion.htm",
+        "matchedIssueNumber": 16,
+        "matchedYear": 2000,
+        "originalAvailabilityPreserved": true,
+        "note": "The reproduced text carries Arnulfo Eduardo Velasco's byline and the heading SOBRE LA ULTIMA TENTACION DE NIKOS KAZANTZAKIS. A separate bibliographic page points specifically to sincronia.cucsh.udg.mx/tentacion.htm for La última tentación de Cristo. This triangulates the work identity but does not imply that the historical original page is currently accessible."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "full-text-heading-plus-independent-legacy-path-association",
+        "fullTextReproductionUrl": "https://es.scribd.com/doc/308811977/Sobre-La-Ultima-Tentacion-de-Nikos-Kazantzakis",
+        "legacyPathAssociationSourceUrl": "https://cesarcallejas.wordpress.com/tag/cristianismo/",
+        "associatedLegacyUrl": "http://sincronia.cucsh.udg.mx/tentacion.htm",
+        "verifiedAuthors": [
+          "Arnulfo Eduardo Velasco"
+        ],
+        "verifiedTitle": "Sobre “La última tentación” de Nikos Kazantzakis",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/tentacion.htm",
+        "matchedIssueNumber": 16,
+        "matchedYear": 2000,
+        "originalAvailabilityPreserved": true
       }
     },
     {
