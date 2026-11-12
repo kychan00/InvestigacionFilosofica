@@ -1,4 +1,4 @@
-import { JournalSemanticAtlas } from "./journal-atlas.js";
+import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261111-v2";
 
 const SITE_ROOT = new URL("../", import.meta.url);
 const DATA_URL = new URL("src/data/cucsh-filosofia.json", SITE_ROOT);
