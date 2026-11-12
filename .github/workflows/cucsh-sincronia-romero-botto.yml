@@ -1,0 +1,125 @@
+name: Sincronía · restore Romero's António Botto article
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-romero-botto.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-one-romero-botto-issue-13
+  cancel-in-progress: false
+
+jobs:
+  source-verified-botto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Unit-test exact work, two citations and immutable metadata
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_romero_botto
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Restore one verified historic title and author
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/sincronia-botto-before.json
+          python3 -m scripts.cucsh.restore_sincronia_romero_botto \
+            --input /tmp/sincronia-botto-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Validate strict no-loss, provenance and historical counts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/sincronia-botto-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-botto-historical-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-botto-pending-review.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.cucsh.validate_update import safe_romero_botto_restoration
+          before=json.loads(Path("/tmp/sincronia-botto-before.json").read_text(encoding="utf-8"))
+          after=json.loads(Path("src/data/cucsh-filosofia.json").read_text(encoding="utf-8"))
+          orig={r["id"]:r for r in before["records"]}
+          final={r["id"]:r for r in after["records"]}
+          assert len(orig)==len(final)==1845
+          assert list(orig)==list(final)
+          changed=[rid for rid in orig if orig[rid]!=final[rid]]
+          assert changed==["cucsh:sincronia-legacy:637cb309cca6fc5f3dbf"],changed
+          permitted={"title","titleVariants","authors","legacyIndexMislabelEvidence","legacyAuthorEvidence"}
+          for rid in changed:
+              b,a=orig[rid],final[rid]
+              assert b["journal"]==a["journal"]=="Sincronía"
+              assert b["issueNumber"]==a["issueNumber"]==13
+              assert b["year"]==a["year"]==2000
+              assert safe_romero_botto_restoration(b,a)
+              for key in set(b)|set(a):
+                  if key not in permitted:
+                      assert b.get(key)==a.get(key),(rid,key)
+              assert b["urls"]==a["urls"]
+              assert b["legacyAccessStatus"]==a["legacyAccessStatus"]
+          report=json.loads(Path("/tmp/sincronia-botto-pending-review.json").read_text(encoding="utf-8"))
+          assert report["totalSincroniaRecords"]==1454
+          assert report["articleCandidatesExcludingEditorialNavigation"]==1452
+          assert report["highConfidenceEditorialNavigationCount"]==2
+          assert report["pendingAuthorRecords"]==88
+          assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==86
+          assert report["suspectedWorkIdentityCount"]==38
+          assert report["bibliographicConflictCount"]==1
+          assert len(report["unresolvedIssue50UrlMappings"])==1
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_ROMERO_BOTTO_STRICT_NO_LOSS_PASS",len(changed),88,38)
+          PY
+      - name: Run all application and retrieval tests
+        run: |
+          npm ci
+          npm test
+      - name: Commit verified corpus metadata only to existing feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected worktree changes"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore Romero's António Botto work from two university citations"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload review queue and historical quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-romero-botto-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-botto-historical-quality.json
+            /tmp/sincronia-botto-pending-review.json
+          retention-days: 30
+          if-no-files-found: warn
