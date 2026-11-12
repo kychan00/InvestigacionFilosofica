@@ -1,0 +1,118 @@
+name: Sincronía · three original issue 1996 author citations
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-issue-one-authors.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-first-issue-1996-author-recovery
+  cancel-in-progress: false
+
+jobs:
+  source-verified-authors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test exact bibliographic source matches
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_issue_one_authors
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Apply only three verified author bylines
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/sincronia-issue-one-before.json
+          python3 -m scripts.cucsh.backfill_sincronia_issue_one_authors \
+            --input /tmp/sincronia-issue-one-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Validate strict no-loss and bibliographic preservation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/sincronia-issue-one-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-issue-one-historical-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-issue-one-pending-audit.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          before=json.loads(Path("/tmp/sincronia-issue-one-before.json").read_text())
+          after=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          b={r["id"]:r for r in before["records"]}
+          a={r["id"]:r for r in after["records"]}
+          assert len(b)==len(a)==1845
+          assert list(b)==list(a)
+          changes=[i for i in b if b[i]!=a[i]]
+          assert len(changes)==3,changes
+          for i in changes:
+              old,new=b[i],a[i]
+              assert old["journal"]==new["journal"]=="Sincronía"
+              assert old["issueNumber"]==new["issueNumber"]==1
+              assert old["year"]==new["year"]==1996
+              assert not old.get("authors") and len(new["authors"])==1
+              for field in set(old)|set(new):
+                  if field not in {"authors","legacyAuthorEvidence"}:
+                      assert old.get(field)==new.get(field),(i,field)
+              assert new["legacyAuthorEvidence"]["originalArticleUrlPreserved"]==old["urls"]["canonical"]
+          report=json.loads(Path("/tmp/sincronia-issue-one-pending-audit.json").read_text())
+          assert report["totalSincroniaRecords"]==1454
+          assert report["pendingAuthorRecords"]==96
+          assert report["suspectedWorkIdentityCount"]==43
+          assert report["bibliographicConflictCount"]==1
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_ISSUE_ONE_THREE_AUTHORS_PASS",len(changes),96,43)
+          PY
+      - name: Run complete integration and search regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit strictly verified author metadata to existing feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected worktree file changes"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Recover three source-verified Sincronía first-issue author bylines"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload evidence-only audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-issue-one-author-evidence-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-issue-one-historical-quality.json
+            /tmp/sincronia-issue-one-pending-audit.json
+          retention-days: 30
+          if-no-files-found: warn
