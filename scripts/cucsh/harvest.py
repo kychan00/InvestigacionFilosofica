@@ -1397,6 +1397,15 @@ def merge_record_metadata(
             merged[field] = values
 
     if (
+        supplement.get("historicalSource")
+        and supplement.get("year")
+    ):
+        merged["year"] = supplement["year"]
+
+        if supplement.get("date"):
+            merged["date"] = supplement["date"]
+
+    if (
         not merged.get("abstract")
         and supplement.get("abstract")
     ):

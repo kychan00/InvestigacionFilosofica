@@ -505,6 +505,26 @@ test(
       1
     );
 
+    assert.equal(
+      issue1.year,
+      2011
+    );
+    assert.match(
+      String(issue1.date),
+      /^2011/
+    );
+
+    const protrepsisYears =
+      records
+        .filter(record => record.journal === "Protrepsis")
+        .map(record => Number(record.year))
+        .filter(Number.isFinite);
+
+    assert.equal(
+      Math.min(...protrepsisYears),
+      2011
+    );
+
     const issueNineTen =
       records.find(
         record =>

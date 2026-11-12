@@ -408,7 +408,7 @@ function buildTaxonomy() {
   }
 
   el.issues?.replaceChildren();
-  for (const group of journalIssueGroups(state.records).slice(0, 16)) {
+  for (const group of journalIssueGroups(state.records)) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "taxonomy-chip issue-taxonomy-chip";

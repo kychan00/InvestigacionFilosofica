@@ -31,6 +31,16 @@ const records = [
     urls: { canonical: "https://example.org/p3" }
   },
   {
+    id: "cucsh:p4", sourceId: "p4", journal: "Protrepsis",
+    title: "La causalidad ¿Delirios de la mente?", year: 2011, language: "es",
+    authors: [{ name: "René Rivera López" }], doi: "10.32870/prot.i1.11",
+    issue: "1", issueLabel: "1", issueNumbers: [1], issueNumber: 1,
+    historicalSource: "OpenAlex",
+    abstract: "Problematización filosófica del principio de causalidad.",
+    subjects: ["Filosofía"],
+    urls: { canonical: "https://example.org/p4" }
+  },
+  {
     id: "cucsh:s1", sourceId: "s1", journal: "Sincronía", issueNumber: 90,
     title: "Memoria, cultura y sociedad", year: 2026, language: "es",
     authors: [{ name: "Diana Ruiz" }], doi: null,
@@ -65,7 +75,7 @@ const records = [
 ];
 
 const pages = [
-  ["protrepsis", "revistas/udg/protrepsis.html", 3],
+  ["protrepsis", "revistas/udg/protrepsis.html", 4],
   ["sincronia", "revistas/udg/sincronia.html", 2],
   ["quadripartita", "revistas/udg/quadripartita-ratio.html", 2]
 ];
@@ -122,6 +132,25 @@ try {
       assert.ok(await page.locator("#journal-category option").count() >= 2);
       assert.ok(await page.locator("#journal-issue option").count() >= 2);
       assert.ok(await page.locator(".issue-taxonomy-chip").count() >= 1);
+      if (journal === "protrepsis") {
+        const historicalIssueOneCount = await page
+          .locator(".issue-taxonomy-chip")
+          .evaluateAll(elements =>
+            elements.filter(element =>
+              element.querySelector("span")?.textContent?.trim() === "Núm. 1"
+            ).length
+          );
+        assert.equal(
+          historicalIssueOneCount,
+          1,
+          "Protrepsis must expose historical issue 1 in the editorial map"
+        );
+        assert.equal(
+          (await page.locator("#journal-year-span").innerText()).trim(),
+          "2011—2024",
+          "Protrepsis fixture must preserve the historical year span"
+        );
+      }
       if (width <= 820) {
         assert.equal(await page.locator("#journal-filter-toggle").getAttribute("aria-expanded"), "false");
         assert.equal(await page.locator(".journal-filter-body").isVisible(), false);
