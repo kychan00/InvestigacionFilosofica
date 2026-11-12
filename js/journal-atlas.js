@@ -3,39 +3,92 @@ import { cosineInt8 } from "../src/core/research-atlas-qwen-vector-range.js";
 
 const SITE_ROOT = new URL("../", import.meta.url);
 const MAX_ATLAS_RECORDS = 72;
-const MAX_EDGES = 120;
 const TOP_K = 3;
-const MIN_ZOOM = 0.45;
-const MAX_ZOOM = 3.6;
+const MAX_EDGES = 150;
+const MIN_ZOOM = 0.42;
+const MAX_ZOOM = 4.2;
+
+const STOPWORDS = new Set([
+  "the","and","for","from","with","into","about","after","before","this","that","these","those",
+  "between","through","over","under","within","without","where","when","which","while","of","to","in","on",
+  "de","del","la","las","el","los","una","uno","unos","unas","que","como","entre","desde","hacia","tras",
+  "ante","sin","sus","este","esta","estos","estas","donde","cuando","cual","cuales","pero","porque","para","por","con",
+  "study","studies","analysis","analyses","approach","approaches","introduction","review","paper","article",
+  "estudio","estudios","analisis","enfoque","enfoques","introduccion","revision","articulo"
+]);
 
 function normalize(value) {
   return String(value || "")
     .normalize("NFKD")
     .replace(/\p{M}/gu, "")
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/[^\p{L}\p{N}_-]+/gu, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
-function tokens(record) {
-  return new Set(
-    normalize([
-      record.title,
-      record.abstract,
-      ...(record.subjects || [])
-    ].join(" "))
-      .split(" ")
-      .filter(token => token.length >= 4)
-  );
+function normalizedTokens(value) {
+  return normalize(value)
+    .split(" ")
+    .filter(token =>
+      token.length >= 3 &&
+      !STOPWORDS.has(token) &&
+      !/^\d+$/.test(token)
+    );
 }
 
-function lexicalSimilarity(left, right) {
-  const a = tokens(left);
-  const b = tokens(right);
-  if (!a.size || !b.size) return 0;
-  let intersection = 0;
-  for (const token of a) if (b.has(token)) intersection += 1;
-  return intersection / Math.sqrt(a.size * b.size);
+function weightedTerms(node) {
+  const counts = new Map();
+  const add = (value, weight) => {
+    for (const token of normalizedTokens(value)) {
+      counts.set(token, (counts.get(token) || 0) + weight);
+    }
+  };
+
+  add(node.record.title, 4.2);
+  add((node.record.subjects || []).join(" "), 3.1);
+  add(node.category, 1.8);
+  add(node.record.abstract, 1.0);
+
+  return counts;
+}
+
+function buildTextVectors(nodes) {
+  const termMaps = nodes.map(weightedTerms);
+  const df = new Map();
+
+  for (const terms of termMaps) {
+    for (const token of terms.keys()) {
+      df.set(token, (df.get(token) || 0) + 1);
+    }
+  }
+
+  return termMaps.map(terms => {
+    const vector = new Map();
+    let squared = 0;
+
+    for (const [token, count] of terms) {
+      const tf = 1 + Math.log(Math.max(count, 1e-9));
+      const idf = Math.log((nodes.length + 1) / ((df.get(token) || 0) + 1)) + 1;
+      const value = tf * idf;
+      vector.set(token, value);
+      squared += value * value;
+    }
+
+    const norm = Math.sqrt(squared) || 1;
+    for (const [token, value] of vector) vector.set(token, value / norm);
+    return vector;
+  });
+}
+
+function cosineSparse(left, right) {
+  const [small, large] = left.size <= right.size ? [left, right] : [right, left];
+  let score = 0;
+  for (const [token, value] of small) {
+    const other = large.get(token);
+    if (other) score += value * other;
+  }
+  return Math.max(0, Math.min(1, score));
 }
 
 function semanticResult(record) {
@@ -78,12 +131,14 @@ function cohort(records) {
 async function mapLimit(values, limit, mapper) {
   const output = new Array(values.length);
   let cursor = 0;
+
   async function worker() {
     while (cursor < values.length) {
       const index = cursor++;
       output[index] = await mapper(values[index], index);
     }
   }
+
   await Promise.all(Array.from({ length: Math.min(limit, values.length) }, worker));
   return output;
 }
@@ -92,74 +147,145 @@ function pairKey(a, b) {
   return a < b ? a + "|" + b : b + "|" + a;
 }
 
+function confidenceFor(source, score) {
+  if (source === "qwen") {
+    if (score >= 0.62) return "high";
+    if (score >= 0.42) return "medium";
+    return "low";
+  }
+  if (score >= 0.22) return "high";
+  if (score >= 0.075) return "medium";
+  return "low";
+}
+
 function chooseEdges(nodes) {
-  const candidates = [];
+  if (nodes.length < 2) return [];
+
+  const vectors = buildTextVectors(nodes);
+  const byNode = Array.from({ length: nodes.length }, () => []);
+  const all = [];
 
   for (let i = 0; i < nodes.length; i += 1) {
     for (let j = i + 1; j < nodes.length; j += 1) {
-      const left = nodes[i];
-      const right = nodes[j];
-      const qwen = left.vector && right.vector;
+      const qwen = Boolean(nodes[i].vector && nodes[j].vector);
       const score = qwen
-        ? cosineInt8(left.vector.bytes, right.vector.bytes)
-        : lexicalSimilarity(left.record, right.record);
+        ? Math.max(0, Math.min(1, cosineInt8(nodes[i].vector.bytes, nodes[j].vector.bytes)))
+        : cosineSparse(vectors[i], vectors[j]);
 
-      if (score <= (qwen ? 0 : 0.06)) continue;
-
-      candidates.push({
+      const edge = {
         a: i,
         b: j,
         score,
         source: qwen ? "qwen" : "textual",
-        key: pairKey(left.id, right.id)
-      });
+        confidence: confidenceFor(qwen ? "qwen" : "textual", score),
+        sameIssue: nodes[i].issue.key === nodes[j].issue.key,
+        key: pairKey(nodes[i].id, nodes[j].id)
+      };
+
+      all.push(edge);
+      byNode[i].push(edge);
+      byNode[j].push(edge);
     }
   }
 
-  candidates.sort((a, b) =>
-    (a.source === b.source ? 0 : a.source === "qwen" ? -1 : 1) ||
-    b.score - a.score ||
-    a.key.localeCompare(b.key)
-  );
+  const selected = new Map();
+  const neighbors = Math.min(TOP_K, Math.max(1, nodes.length - 1));
 
-  const degree = new Map();
-  const selected = [];
-
-  for (const edge of candidates) {
-    if (selected.length >= MAX_EDGES) break;
-    const da = degree.get(edge.a) || 0;
-    const db = degree.get(edge.b) || 0;
-    if (da >= TOP_K || db >= TOP_K) continue;
-
-    selected.push(edge);
-    degree.set(edge.a, da + 1);
-    degree.set(edge.b, db + 1);
+  for (const candidates of byNode) {
+    candidates
+      .sort((left, right) =>
+        (left.source === right.source ? 0 : left.source === "qwen" ? -1 : 1) ||
+        right.score - left.score ||
+        Number(right.sameIssue) - Number(left.sameIssue) ||
+        left.key.localeCompare(right.key)
+      )
+      .slice(0, neighbors)
+      .forEach(edge => selected.set(edge.key, edge));
   }
 
-  return selected;
+  if (selected.size < Math.min(nodes.length - 1, MAX_EDGES)) {
+    all
+      .sort((left, right) =>
+        right.score - left.score ||
+        Number(right.sameIssue) - Number(left.sameIssue) ||
+        left.key.localeCompare(right.key)
+      )
+      .forEach(edge => {
+        if (selected.size >= Math.min(nodes.length - 1, MAX_EDGES)) return;
+        selected.set(edge.key, edge);
+      });
+  }
+
+  return [...selected.values()]
+    .sort((left, right) =>
+      (left.source === right.source ? 0 : left.source === "qwen" ? -1 : 1) ||
+      right.score - left.score ||
+      left.key.localeCompare(right.key)
+    )
+    .slice(0, MAX_EDGES);
 }
 
-function hash(value) {
-  let h = 2166136261;
-  for (const ch of String(value || "")) {
-    h ^= ch.charCodeAt(0);
-    h = Math.imul(h, 16777619);
+function stableHash(value) {
+  let hash = 2166136261;
+  for (const char of String(value || "")) {
+    hash ^= char.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
   }
-  return h >>> 0;
+  return hash >>> 0;
+}
+
+function issueGroups(nodes) {
+  const map = new Map();
+
+  nodes.forEach((node, index) => {
+    const group = map.get(node.issue.key) || {
+      issue: node.issue,
+      indices: []
+    };
+    group.indices.push(index);
+    map.set(node.issue.key, group);
+  });
+
+  const groups = [...map.values()].sort((left, right) => {
+    const a = left.issue.number ?? -1;
+    const b = right.issue.number ?? -1;
+    if (a !== b) return b - a;
+    return left.issue.key.localeCompare(right.issue.key);
+  });
+
+  const count = groups.length;
+  const columns = Math.max(1, Math.ceil(Math.sqrt(count)));
+  const rows = Math.ceil(count / columns);
+  const spacingX = count <= 2 ? 1.1 : 1.0;
+  const spacingY = 0.86;
+
+  groups.forEach((group, index) => {
+    const column = index % columns;
+    const row = Math.floor(index / columns);
+    group.centerX = (column - (columns - 1) / 2) * spacingX;
+    group.centerY = (row - (rows - 1) / 2) * spacingY;
+  });
+
+  return groups;
 }
 
 function layout(nodes, edges) {
-  const n = Math.max(nodes.length, 1);
+  const groups = issueGroups(nodes);
+  const groupByKey = new Map(groups.map(group => [group.issue.key, group]));
 
-  nodes.forEach((node, index) => {
-    const jitter = (hash(node.id) % 1000) / 1000;
-    const angle = (index / n) * Math.PI * 2 + jitter * 0.2;
-    const radius = 0.5 + (jitter - 0.5) * 0.18;
-    node.x = Math.cos(angle) * radius;
-    node.y = Math.sin(angle) * radius;
-  });
+  for (const group of groups) {
+    const n = Math.max(1, group.indices.length);
+    group.indices.forEach((nodeIndex, localIndex) => {
+      const node = nodes[nodeIndex];
+      const jitter = (stableHash(node.id) % 1000) / 1000;
+      const angle = (localIndex / n) * Math.PI * 2 + jitter * 0.35;
+      const radius = 0.11 + Math.min(0.24, Math.sqrt(n) * 0.028) + jitter * 0.035;
+      node.x = group.centerX + Math.cos(angle) * radius;
+      node.y = group.centerY + Math.sin(angle) * radius;
+    });
+  }
 
-  for (let step = 0; step < 150; step += 1) {
+  for (let step = 0; step < 180; step += 1) {
     const fx = new Float64Array(nodes.length);
     const fy = new Float64Array(nodes.length);
 
@@ -167,13 +293,16 @@ function layout(nodes, edges) {
       for (let j = i + 1; j < nodes.length; j += 1) {
         let dx = nodes[j].x - nodes[i].x;
         let dy = nodes[j].y - nodes[i].y;
-        let d2 = dx * dx + dy * dy;
-        if (d2 < 0.0036) d2 = 0.0036;
-        const force = 0.00155 / d2;
-        fx[i] -= dx * force;
-        fy[i] -= dy * force;
-        fx[j] += dx * force;
-        fy[j] += dy * force;
+        let distanceSquared = dx * dx + dy * dy;
+        if (distanceSquared < 0.0025) distanceSquared = 0.0025;
+
+        const sameIssue = nodes[i].issue.key === nodes[j].issue.key;
+        const repulsion = (sameIssue ? 0.00145 : 0.00082) / distanceSquared;
+
+        fx[i] -= dx * repulsion;
+        fy[i] -= dy * repulsion;
+        fx[j] += dx * repulsion;
+        fy[j] += dy * repulsion;
       }
     }
 
@@ -183,9 +312,10 @@ function layout(nodes, edges) {
       const dx = b.x - a.x;
       const dy = b.y - a.y;
       const distance = Math.sqrt(dx * dx + dy * dy) || 0.001;
-      const target = edge.source === "qwen" ? 0.2 : 0.31;
-      const strength = edge.source === "qwen" ? 0.021 : 0.0085;
-      const force = (distance - target) * strength;
+      const target = edge.source === "qwen" ? 0.24 : edge.confidence === "high" ? 0.28 : 0.38;
+      const baseStrength = edge.source === "qwen" ? 0.02 : edge.confidence === "high" ? 0.013 : 0.006;
+      const scoreStrength = 0.45 + edge.score;
+      const force = (distance - target) * baseStrength * scoreStrength;
 
       fx[edge.a] += (dx / distance) * force;
       fy[edge.a] += (dy / distance) * force;
@@ -193,14 +323,21 @@ function layout(nodes, edges) {
       fy[edge.b] -= (dy / distance) * force;
     }
 
-    const cooling = 1 - step / 170;
     nodes.forEach((node, index) => {
-      fx[index] += -node.x * 0.0018;
-      fy[index] += -node.y * 0.0018;
+      const group = groupByKey.get(node.issue.key);
+      if (!group) return;
+      fx[index] += (group.centerX - node.x) * 0.011;
+      fy[index] += (group.centerY - node.y) * 0.011;
+    });
+
+    const cooling = 1 - step / 205;
+    nodes.forEach((node, index) => {
       node.x += Math.max(-0.035, Math.min(0.035, fx[index])) * cooling;
       node.y += Math.max(-0.035, Math.min(0.035, fy[index])) * cooling;
     });
   }
+
+  return issueGroups(nodes);
 }
 
 function authorSearchUrl(name) {
@@ -239,6 +376,7 @@ export class JournalSemanticAtlas {
     this.accent = accent;
     this.nodes = [];
     this.edges = [];
+    this.groups = [];
     this.abortController = null;
     this.lastRecordsKey = "";
     this.qwenEnabled = false;
@@ -265,9 +403,7 @@ export class JournalSemanticAtlas {
       });
       canvas.addEventListener("dblclick", () => this.fitView());
 
-      this.resizeObserver = new ResizeObserver(() => {
-        this.requestDraw();
-      });
+      this.resizeObserver = new ResizeObserver(() => this.requestDraw());
       this.resizeObserver.observe(canvas);
     }
 
@@ -286,7 +422,16 @@ export class JournalSemanticAtlas {
     this.qwenEnabled = Boolean(value);
   }
 
-  async build(records, { categoryFor = () => "General", colorFor = () => this.accent } = {}) {
+  async build(records, {
+    categoryFor = () => "General",
+    issueFor = () => ({
+      key: "unknown",
+      label: "Número no identificado",
+      color: "#6f6f6f",
+      number: null
+    }),
+    colorFor = () => this.accent
+  } = {}) {
     if (!this.canvas || !this.context) return;
 
     this.abortController?.abort();
@@ -303,7 +448,7 @@ export class JournalSemanticAtlas {
     this.lastRecordsKey = key;
     this.status.textContent = this.qwenEnabled
       ? "Resolviendo vectores Qwen verificables…"
-      : "Construyendo topología textual de respaldo…";
+      : "Calculando vecinos semánticos y números editoriales…";
 
     let resolved = chosen.map(record => ({ record, vector: null, resolution: null }));
 
@@ -333,39 +478,67 @@ export class JournalSemanticAtlas {
       vector: item.vector,
       resolution: item.resolution,
       category: categoryFor(item.record),
+      issue: issueFor(item.record),
       color: colorFor(item.record, index)
     }));
 
     this.edges = chooseEdges(this.nodes);
-    layout(this.nodes, this.edges);
+    this.groups = layout(this.nodes, this.edges);
     this.selectedNode = this.nodes[0] || null;
     this.hoverNode = null;
 
     const qwenNodes = this.nodes.filter(node => node.vector).length;
     const qwenEdges = this.edges.filter(edge => edge.source === "qwen").length;
+    const weakEdges = this.edges.filter(edge => edge.confidence === "low").length;
 
     this.status.textContent =
       this.nodes.length + " nodos · " +
-      this.edges.length + " conexiones · " +
-      qwenNodes + " vectores Qwen verificados · " +
-      qwenEdges + " relaciones Qwen" +
+      this.edges.length + " relaciones · " +
+      this.groups.length + " números editoriales · " +
+      qwenNodes + " vectores Qwen" +
+      (weakEdges ? " · " + weakEdges + " aproximaciones débiles" : "") +
       (records.length > chosen.length ? " · muestra de " + chosen.length + " / " + records.length : "");
 
-    if (this.legend) {
-      this.legend.innerHTML =
-        '<span><i class="atlas-key qwen"></i>Qwen verificado</span>' +
-        '<span><i class="atlas-key textual"></i>Respaldo textual</span>' +
-        '<span><i class="atlas-key node"></i>Artículo</span>';
-    }
-
+    this.renderLegend(qwenEdges);
     this.renderDetail(this.selectedNode);
     this.fitView({ immediate: true });
   }
 
+  renderLegend(qwenEdges) {
+    if (!this.legend) return;
+
+    const relationLegend =
+      '<div class="atlas-relation-legend">' +
+        '<span><i class="atlas-key qwen"></i>' + (qwenEdges ? "Qwen verificado" : "Qwen disponible al activar") + '</span>' +
+        '<span><i class="atlas-key textual"></i>Proximidad textual</span>' +
+        '<span><i class="atlas-key weak"></i>Aproximación débil</span>' +
+      '</div>';
+
+    const issueLegend = this.groups
+      .slice(0, 18)
+      .map(group =>
+        '<span class="atlas-issue-key" title="' + escapeAttribute(group.issue.label) + '">' +
+          '<i style="--issue-color:' + escapeAttribute(group.issue.color) + '"></i>' +
+          escapeHtml(group.issue.label) +
+          '<small>' + group.indices.length + '</small>' +
+        '</span>'
+      )
+      .join("");
+
+    const overflow = this.groups.length > 18
+      ? '<span class="atlas-issue-more">+' + (this.groups.length - 18) + ' números</span>'
+      : "";
+
+    this.legend.innerHTML =
+      relationLegend +
+      '<div class="atlas-issue-legend">' + issueLegend + overflow + '</div>';
+  }
+
   resetLayout() {
     if (!this.nodes.length) return;
-    layout(this.nodes, this.edges);
+    this.groups = layout(this.nodes, this.edges);
     this.selectedNode = this.nodes[0] || null;
+    this.renderLegend(this.edges.filter(edge => edge.source === "qwen").length);
     this.renderDetail(this.selectedNode);
     this.fitView();
   }
@@ -384,7 +557,7 @@ export class JournalSemanticAtlas {
     }
 
     this.context.setTransform(dpr, 0, 0, dpr, 0, 0);
-    return { width, height, dpr, base: Math.min(width, height) * 0.42 };
+    return { width, height, dpr, base: Math.min(width, height) * 0.34 };
   }
 
   point(node, metrics) {
@@ -401,7 +574,7 @@ export class JournalSemanticAtlas {
     };
   }
 
-  hitNode(screenX, screenY, metrics, radius = 18) {
+  hitNode(screenX, screenY, metrics, radius = 19) {
     let best = null;
     let distance = radius;
 
@@ -430,6 +603,8 @@ export class JournalSemanticAtlas {
     this.canvas.dataset.atlasZoom = this.view.zoom.toFixed(3);
     this.canvas.dataset.atlasPanX = this.view.panX.toFixed(1);
     this.canvas.dataset.atlasPanY = this.view.panY.toFixed(1);
+    this.canvas.dataset.atlasEdges = String(this.edges.length);
+    this.canvas.dataset.atlasIssues = String(this.groups.length);
     this.canvas.classList.toggle("is-dragging", Boolean(this.pointerState));
   }
 
@@ -443,13 +618,46 @@ export class JournalSemanticAtlas {
     };
   }
 
+  drawIssueRegions(ctx, metrics, colors) {
+    for (const group of this.groups) {
+      if (!group.indices.length) continue;
+
+      const points = group.indices.map(index => this.point(this.nodes[index], metrics));
+      const cx = points.reduce((sum, point) => sum + point.x, 0) / points.length;
+      const cy = points.reduce((sum, point) => sum + point.y, 0) / points.length;
+      const radius = Math.max(
+        42,
+        ...points.map(point => Math.hypot(point.x - cx, point.y - cy) + 24)
+      );
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.fillStyle = group.issue.color;
+      ctx.globalAlpha = 0.055;
+      ctx.fill();
+      ctx.globalAlpha = 0.24;
+      ctx.strokeStyle = group.issue.color;
+      ctx.lineWidth = 1;
+      ctx.setLineDash([5, 6]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.globalAlpha = 0.9;
+      ctx.fillStyle = group.issue.color;
+      ctx.font = "700 10px IBM Plex Mono, SFMono-Regular, monospace";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "bottom";
+      ctx.fillText(group.issue.label.toUpperCase(), cx - radius + 10, cy - radius + 18);
+    }
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = colors.line;
+  }
+
   draw() {
     if (!this.context) return;
 
     const metrics = this.metrics();
     const ctx = this.context;
     const colors = this.palette();
-
     ctx.clearRect(0, 0, metrics.width, metrics.height);
 
     if (!this.nodes.length) {
@@ -461,17 +669,21 @@ export class JournalSemanticAtlas {
       return;
     }
 
+    this.drawIssueRegions(ctx, metrics, colors);
+
     for (const edge of this.edges) {
       const a = this.point(this.nodes[edge.a], metrics);
       const b = this.point(this.nodes[edge.b], metrics);
+      const low = edge.confidence === "low";
+      const medium = edge.confidence === "medium";
 
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
       ctx.lineTo(b.x, b.y);
-      ctx.globalAlpha = edge.source === "qwen" ? 0.58 : 0.24;
+      ctx.globalAlpha = edge.source === "qwen" ? 0.68 : low ? 0.18 : medium ? 0.32 : 0.5;
       ctx.strokeStyle = edge.source === "qwen" ? this.accent : colors.line;
-      ctx.lineWidth = edge.source === "qwen" ? 1.75 : 1;
-      ctx.setLineDash(edge.source === "textual" ? [3, 5] : []);
+      ctx.lineWidth = edge.source === "qwen" ? 1.9 : low ? 0.8 : 1.15;
+      ctx.setLineDash(low ? [2, 6] : medium ? [4, 5] : []);
       ctx.stroke();
     }
 
@@ -482,28 +694,27 @@ export class JournalSemanticAtlas {
       const point = this.point(node, metrics);
       const selected = node === this.selectedNode;
       const hovered = node === this.hoverNode;
-      const radius = selected ? 9.5 : hovered ? 8.5 : node.vector ? 7 : 5.5;
+      const radius = selected ? 10 : hovered ? 8.7 : node.vector ? 7.4 : 6.1;
 
       if (selected || hovered) {
         ctx.beginPath();
         ctx.arc(point.x, point.y, radius + 5, 0, Math.PI * 2);
-        ctx.fillStyle = selected ? this.accent : colors.line;
-        ctx.globalAlpha = selected ? 0.14 : 0.1;
+        ctx.fillStyle = node.issue.color;
+        ctx.globalAlpha = selected ? 0.19 : 0.11;
         ctx.fill();
         ctx.globalAlpha = 1;
       }
 
       ctx.beginPath();
       ctx.arc(point.x, point.y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = node.color || this.accent;
+      ctx.fillStyle = node.issue.color;
       ctx.fill();
-      ctx.lineWidth = node.vector ? 2.3 : 1.4;
+      ctx.lineWidth = node.vector ? 2.5 : 1.5;
       ctx.strokeStyle = node.vector ? "#ffffff" : colors.surface;
       ctx.stroke();
 
-      const showLabel = selected || hovered || this.view.zoom >= 1.18;
-      if (showLabel) {
-        this.drawLabel(ctx, point, shortTitle(node.record.title), colors, selected);
+      if (selected || hovered || this.view.zoom >= 1.3) {
+        this.drawLabel(ctx, point, shortTitle(node.record.title), colors, selected, node.issue.color);
       }
     }
 
@@ -511,25 +722,25 @@ export class JournalSemanticAtlas {
     this.syncCanvasState();
   }
 
-  drawLabel(ctx, point, label, colors, selected) {
+  drawLabel(ctx, point, label, colors, selected, issueColor) {
     ctx.font = selected
       ? "600 11px IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
       : "500 10px IBM Plex Sans, Helvetica Neue, Arial, sans-serif";
     const width = Math.min(240, ctx.measureText(label).width + 14);
-    const x = point.x + 11;
-    const y = point.y - 17;
+    const x = point.x + 12;
+    const y = point.y - 18;
 
     ctx.fillStyle = colors.surface;
-    ctx.globalAlpha = 0.92;
-    ctx.fillRect(x, y, width, 22);
+    ctx.globalAlpha = 0.94;
+    ctx.fillRect(x, y, width, 23);
     ctx.globalAlpha = 1;
-    ctx.strokeStyle = selected ? this.accent : colors.line;
+    ctx.strokeStyle = selected ? issueColor : colors.line;
     ctx.lineWidth = 1;
-    ctx.strokeRect(x + 0.5, y + 0.5, width - 1, 21);
+    ctx.strokeRect(x + 0.5, y + 0.5, width - 1, 22);
     ctx.fillStyle = colors.ink;
     ctx.textAlign = "left";
     ctx.textBaseline = "middle";
-    ctx.fillText(label, x + 7, y + 11, width - 14);
+    ctx.fillText(label, x + 7, y + 11.5, width - 14);
   }
 
   onWheel(event) {
@@ -609,10 +820,7 @@ export class JournalSemanticAtlas {
     const state = this.pointerState;
     if (state.pointerId !== event.pointerId) return;
 
-    state.moved = Math.max(
-      state.moved,
-      Math.hypot(x - state.startX, y - state.startY)
-    );
+    state.moved = Math.max(state.moved, Math.hypot(x - state.startX, y - state.startY));
 
     if (state.type === "pan") {
       this.view.panX = state.originPanX + (x - state.startX);
@@ -648,6 +856,7 @@ export class JournalSemanticAtlas {
     const metrics = this.metrics();
     const world = this.worldPoint(metrics.width / 2, metrics.height / 2, metrics);
     const nextZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, this.view.zoom * factor));
+
     this.view.zoom = nextZoom;
     this.view.panX = -world.x * metrics.base * nextZoom;
     this.view.panY = -world.y * metrics.base * nextZoom;
@@ -673,10 +882,10 @@ export class JournalSemanticAtlas {
     const spanX = Math.max(0.25, maxX - minX);
     const spanY = Math.max(0.25, maxY - minY);
     const availableWidth = Math.max(220, metrics.width - 110);
-    const availableHeight = Math.max(220, metrics.height - 120);
+    const availableHeight = Math.max(220, metrics.height - 100);
     const zoomX = availableWidth / (spanX * metrics.base);
     const zoomY = availableHeight / (spanY * metrics.base);
-    const zoom = Math.max(MIN_ZOOM, Math.min(2.35, Math.min(zoomX, zoomY)));
+    const zoom = Math.max(MIN_ZOOM, Math.min(2.5, Math.min(zoomX, zoomY)));
 
     this.view.zoom = zoom;
     this.view.panX = -centerX * metrics.base * zoom;
@@ -712,12 +921,18 @@ export class JournalSemanticAtlas {
 
     this.detail.innerHTML =
       '<span class="atlas-detail-kicker">' +
-      (node.vector ? "QWEN VERIFICADO" : "RESPALDO TEXTUAL") +
+      (node.vector ? "QWEN VERIFICADO" : "PROXIMIDAD TEXTUAL") +
       '</span>' +
       '<h3>' + escapeHtml(record.title || "Sin título") + '</h3>' +
       '<p class="atlas-detail-authors">' + authorHtml + '</p>' +
-      '<div class="atlas-detail-meta"><span>' + escapeHtml(record.year || "s/f") +
-      '</span><span>' + escapeHtml(node.category || "General") + '</span></div>' +
+      '<div class="atlas-detail-meta">' +
+        '<span class="atlas-detail-issue" style="--issue-color:' + escapeAttribute(node.issue.color) + '">' +
+          escapeHtml(node.issue.label) +
+        '</span>' +
+        '<span>' + escapeHtml(record.year || "s/f") + '</span>' +
+        '<span>' + escapeHtml(node.category || "General") + '</span>' +
+      '</div>' +
+      '<p class="atlas-detail-method">El color identifica el número editorial. Las líneas representan vecinos semánticos; las punteadas son aproximaciones de menor confianza.</p>' +
       (link
         ? '<a class="atlas-detail-record" href="' + escapeAttribute(link) +
           '" target="_blank" rel="noopener noreferrer">Abrir registro ↗</a>'
