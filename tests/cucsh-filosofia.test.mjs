@@ -317,6 +317,62 @@ test(
 );
 
 
+
+
+test(
+  "normaliza disponibilidad histórica y referencia bibliográfica de Sincronía",
+  () => {
+    const source = {
+      id: "cucsh:sincronia:test",
+      sourceId: "legacy:test",
+      journal: "Sincronía",
+      issueNumber: 12,
+      title: "Artículo histórico",
+      titleVariants: ["Artículo histórico"],
+      authors: [{ name: "Autora Prueba" }],
+      year: 1999,
+      type: "journal-article",
+      legacyOriginal: true,
+      legacyAccessStatus: {
+        status: "original-page-unavailable",
+        originalUrl: "http://sincronia.cucsh.udg.mx/test.htm",
+        auditRunId: 123,
+        reason: "timeout",
+        archiveAvailable: false
+      },
+      legacyTitleEncodingEvidence: {
+        sourceUrl: "https://dialnet.unirioja.es/ejemplar/123"
+      },
+      urls: {
+        canonical: "http://sincronia.cucsh.udg.mx/test.htm",
+        relations: []
+      }
+    };
+
+    const result = normalizeCucshRecord(source);
+
+    assert.equal(
+      result.sourceAvailability.status,
+      "original-page-unavailable"
+    );
+
+    assert.equal(
+      result.sourceRecords[0].accessStatus.status,
+      "original-page-unavailable"
+    );
+
+    assert.equal(
+      result.urls.reference,
+      "https://dialnet.unirioja.es/ejemplar/123"
+    );
+
+    assert.equal(
+      result.urls.canonical,
+      "http://sincronia.cucsh.udg.mx/test.htm"
+    );
+  }
+);
+
 test(
   "paginación local no repite resultados",
   () => {
