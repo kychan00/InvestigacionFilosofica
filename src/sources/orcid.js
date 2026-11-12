@@ -622,6 +622,71 @@ function qualifyingOrcidWork(work, queryTokens, authorQuery, exactOrcid) {
   return overlap >= 2 || overlap / queryTokens.length >= 0.5;
 }
 
+function preferredProfilesFromResolution(resolution) {
+  if (!resolution || typeof resolution !== "object") return [];
+
+  const authors = resolution.status === "resolved"
+    ? [resolution.author]
+    : resolution.status === "multiple"
+      ? (resolution.authors || [])
+      : [];
+
+  const seen = new Set();
+  const profiles = [];
+
+  for (const author of authors) {
+    const orcid = normalizedAuthorOrcid(author?.orcid);
+    if (!orcid || seen.has(orcid)) continue;
+    seen.add(orcid);
+    profiles.push({
+      orcid,
+      displayName: author?.displayName || author?.sourceDisplayName || orcid,
+      givenNames: null,
+      familyName: null,
+      creditName: null,
+      otherNames: [],
+      institutions: [],
+      identitySource: "resolved-author"
+    });
+  }
+
+  return profiles;
+}
+
+
+async function preferredOrcidProfiles(options = {}) {
+  const direct = normalizedAuthorOrcid(options.preferredOrcid);
+  if (direct) {
+    return [{
+      orcid: direct,
+      displayName: options.preferredName || direct,
+      givenNames: null,
+      familyName: null,
+      creditName: null,
+      otherNames: [],
+      institutions: [],
+      identitySource: "preferred-orcid"
+    }];
+  }
+
+  const fromResolution = preferredProfilesFromResolution(
+    options.preferredAuthorResolution
+  );
+  if (fromResolution.length) return fromResolution;
+
+  if (options.preferredAuthorPromise) {
+    try {
+      const resolution = await options.preferredAuthorPromise;
+      return preferredProfilesFromResolution(resolution);
+    } catch {
+      // Identity resolution is an optimization, never a hard dependency.
+    }
+  }
+
+  return [];
+}
+
+
 async function searchOrcidWorks(profile, options, worksImpl) {
   const useSharedCache =
     worksImpl === fetchOrcidPublicWorks &&
@@ -684,6 +749,10 @@ export async function searchOrcid(expansion, options = {}) {
   const profileImpl = options.profileImpl || fetchOrcidPublicProfile;
 
   let profiles;
+  const preferredProfiles = exactOrcid
+    ? []
+    : await preferredOrcidProfiles(options);
+
   if (exactOrcid) {
     let profile = null;
     try {
@@ -706,6 +775,8 @@ export async function searchOrcid(expansion, options = {}) {
         .map(item => item.organization)
         .filter(Boolean)
     }];
+  } else if (preferredProfiles.length) {
+    profiles = preferredProfiles.slice(0, profilesPerPage);
   } else {
     const candidates = await searchProfilesImpl(cleanedQuery, {
       start: (page - 1) * profileCandidates,
@@ -760,7 +831,10 @@ export async function searchOrcid(expansion, options = {}) {
 
   const candidates = [];
   for (const { profile, works } of successful) {
-    const authorQuery = profileMatchesAuthorQuery(profile, queryTokens);
+    const authorQuery =
+      profile.identitySource === "resolved-author" ||
+      profile.identitySource === "preferred-orcid" ||
+      profileMatchesAuthorQuery(profile, queryTokens);
 
     for (const work of works) {
       if (!qualifyingOrcidWork(work, queryTokens, authorQuery, Boolean(exactOrcid))) {
@@ -799,6 +873,7 @@ export async function searchOrcid(expansion, options = {}) {
           displayName: profile.displayName,
           institutions: profile.institutions || [],
           authorQuery,
+          identitySource: profile.identitySource || "orcid-search",
           score: searchScore
         }
       });
