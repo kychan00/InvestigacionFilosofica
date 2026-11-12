@@ -437,6 +437,94 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_two_vidaurre_reproduced_works(before, after):
+    """Allow two Carmen Vidaurre title/byline repairs from reproduced issues."""
+    approved = {
+        "cucsh:sincronia-legacy:f0219709b1318d38b4e9": (
+            12, 1999,
+            "Vidaurri Arenas, Carmen Vitaliana",
+            "Análisis cinematográfico: Se7en",
+            "SE7EN",
+            ["Carmen V. Vidaurre Arenas"],
+            "vidaurri.htm",
+            "https://www.academia.edu/8657927/An%C3%A1lisis_cinematogr%C3%A1fico_Se7en",
+            "https://uvadoc.uva.es/bitstream/handle/10324/52061/TFM_F_2021_002.pdf",
+            None,
+        ),
+        "cucsh:sincronia-legacy:56729985caa12c05d30e": (
+            14, 2000,
+            "Vidaurri Arenas, Carmen",
+            "Augusto Roa Bastos: El trueno entre las hojas",
+            "AUGUSTO ROA BASTOS",
+            ["Carmen V. Vidaurre Arenas"],
+            "vidauri3.htm",
+            "https://www.academia.edu/8657906/Augusto_Roa_Bastos_El_trueno_entre_las_hojas",
+            "https://www.researchgate.net/publication/266740539_Sincronia_Primavera_Spring_2000_Ano_5_Numero_14_Marzo-Junio_2000_CUCSH-Universidad_de_Guadalajara",
+            "https://www.academia.edu/99143679/Comentario_El_prisionero",
+        ),
+    }
+    item = approved.get(before.get("id"))
+    if item is None or before.get("id") != after.get("id"):
+        return False
+    issue, year, old, title, heading, authors, suffix, source, supporting, exact_url_citation = item
+    original_url = (before.get("urls") or {}).get("canonical") or ""
+    old_variants = before.get("titleVariants") or []
+    expected_variants = list(dict.fromkeys([title, heading, *old_variants, old]))
+    proof = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != issue
+        or before.get("year") != year
+        or before.get("title") != old
+        or after.get("title") != title
+        or not isinstance(old_variants, list)
+        or after.get("titleVariants") != expected_variants
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not original_url.lower().endswith("/" + suffix)
+        or not isinstance(proof, dict)
+        or not isinstance(byline, dict)
+        or proof.get("kind") != "author-reproduced-original-issue-and-heading"
+        or proof.get("previousTitle") != old
+        or proof.get("previousTitleVariants") != old_variants
+        or proof.get("verifiedTitle") != title
+        or proof.get("originalHeading") != heading
+        or proof.get("verifiedAuthors") != authors
+        or proof.get("sourceUrl") != source
+        or proof.get("supportingSourceUrl") != supporting
+        or proof.get("exactOriginalUrlCitation") != exact_url_citation
+        or proof.get("sourceArticleUrl") != original_url
+        or proof.get("matchedIssueNumber") != issue
+        or proof.get("matchedYear") != year
+        or proof.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") != "author-reproduced-original-issue-and-heading"
+        or byline.get("sourceUrl") != source
+        or byline.get("supportingSourceUrl") != supporting
+        or byline.get("exactOriginalUrlCitation") != exact_url_citation
+        or byline.get("verifiedAuthors") != authors
+        or byline.get("verifiedTitle") != title
+        or byline.get("originalHeading") != heading
+        or byline.get("sourceArticleUrl") != original_url
+        or byline.get("matchedIssueNumber") != issue
+        or byline.get("matchedYear") != year
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != authors
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors",
+        "legacyIndexMislabelEvidence", "legacyAuthorEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_issue18_poveda_dean_restoration(before, after):
     """Allow exactly two institutionally sourced issue-18 identity repairs."""
     approved = {
@@ -1586,6 +1674,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_issue18_poveda_dean_restoration(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_two_vidaurre_reproduced_works(
             before_by_id[key], after_by_id[key]
         )
     ]
