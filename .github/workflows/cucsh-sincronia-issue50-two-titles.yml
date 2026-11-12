@@ -1,0 +1,128 @@
+name: Sincronía · restore two original titles in issue 50
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-issue50-two-titles.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-issue50-two-titles-existing-authors
+  cancel-in-progress: false
+
+jobs:
+  frozen-two:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test exact work title mappings and metadata guards
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_issue50_existing_author_titles
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Restore two correct titles from Dialnet's 2009 issue 50
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/sincronia-issue50-before.json
+          python3 -m scripts.cucsh.restore_sincronia_issue50_existing_author_titles \
+            --input /tmp/sincronia-issue50-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Validate preservation and scholarly source audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/sincronia-issue50-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-issue50-historical-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-issue50-pending-authors.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          b=json.loads(Path("/tmp/sincronia-issue50-before.json").read_text())
+          a=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          prior={r["id"]:r for r in b["records"]}
+          final={r["id"]:r for r in a["records"]}
+          assert len(prior)==len(final)==1845
+          assert list(prior)==list(final)
+          changed=[rid for rid in prior if prior[rid]!=final[rid]]
+          assert set(changed)=={
+              "cucsh:sincronia-legacy:32aab3dfc0369f0cead1",
+              "cucsh:sincronia-legacy:c3beb6f2b0b892bc9313",
+          },changed
+          allowed={"title","titleVariants","legacyIndexMislabelEvidence"}
+          for rid in changed:
+              old,new=prior[rid],final[rid]
+              assert old["journal"]==new["journal"]=="Sincronía"
+              assert old["issueNumber"]==new["issueNumber"]==50
+              assert old["year"]==new["year"]==2009
+              assert old["authors"]==new["authors"]
+              for key in set(old)|set(new):
+                  if key not in allowed:
+                      assert old.get(key)==new.get(key),(rid,key)
+              assert old["urls"]==new["urls"]
+              assert old["legacyAccessStatus"]==new["legacyAccessStatus"]
+              assert new["legacyIndexMislabelEvidence"]["originalArticleUrlPreserved"]==old["urls"]["canonical"]
+          audit=json.loads(Path("/tmp/sincronia-issue50-pending-authors.json").read_text())
+          assert audit["totalSincroniaRecords"]==1454
+          assert audit["articleCandidatesExcludingEditorialNavigation"]==1452
+          assert audit["highConfidenceEditorialNavigationCount"]==2
+          assert audit["pendingAuthorRecords"]==91
+          assert audit["authorlessArticleCandidatesExcludingEditorialNavigation"]==89
+          assert audit["suspectedWorkIdentityCount"]==41
+          assert len(audit["unresolvedIssue50UrlMappings"])==1
+          assert audit["bibliographicConflictCount"]==1
+          assert audit["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_ISSUE50_TWO_TITLES_STRICT_PASS",len(changed),91,89)
+          PY
+      - name: Run complete application and retrieval regression suite
+        run: |
+          npm ci
+          npm test
+      - name: Commit only verified titles to same development branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected files changed"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore two Dialnet-verified issue 50 article titles"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload post-repair quality and unresolved identity evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-issue50-two-titles-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-issue50-historical-quality.json
+            /tmp/sincronia-issue50-pending-authors.json
+          retention-days: 30
+          if-no-files-found: warn
