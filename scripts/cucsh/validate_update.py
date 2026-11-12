@@ -437,6 +437,110 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_dialnet_issue46_47_repair(before, after):
+    """Permit only five frozen bibliographic corrections from Dialnet.
+
+    Only three known index-title defects can be updated. Two other
+    existing article titles remain unchanged; all five receive bylines.
+    """
+    approved = {
+        "cucsh:sincronia-legacy:15f593f7bde72d33a081": (
+            "González Salazar, Antonio; Juárez, Armando y Valdivia Órnelas, Luís,",
+            "Análisis del balance hídrico y su influencia en el surgimiento de grietas en el Valle de Tesistán",
+            ["Antonio González Salazar", "Armando Juárez Guaní", "Lluís Valdivia Orleans"],
+            46,
+            2008,
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=2858720",
+        ),
+        "cucsh:sincronia-legacy:8032a652020cefdf8953": (
+            "Korstanje, Maximiliano",
+            "Observaciones sobre la gastronomía en Roma Imperial: un enfoque interdisciplinario",
+            ["Maximiliano Emanuel Korstanje"],
+            46,
+            2008,
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=2858714",
+        ),
+        "cucsh:sincronia-legacy:28a0dbaf40e37d406a5a": (
+            "Deconstructing Employment Policy in America: Equal Pay or Affirmative Action",
+            None,
+            ["Jason L. Powell", "Ian Cook"],
+            47,
+            2008,
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=3296006",
+        ),
+        "cucsh:sincronia-legacy:c7a8809b261362f79466": (
+            "Desarrollo humano y calidad de vida",
+            "Ciencia, Desarrollo Humano y calidad de vida",
+            ["Rocío Calderón García"],
+            47,
+            2008,
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=3296016",
+        ),
+        "cucsh:sincronia-legacy:e4386de4eb370de99a23": (
+            "Cayo Seutonio and Roman Leisure: An Historical Perspective for a modern problem",
+            None,
+            ["Maximiliano Emanuel Korstanje"],
+            47,
+            2008,
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=3296009",
+        ),
+    }
+    item = approved.get(before.get("id"))
+    if item is None or before.get("id") != after.get("id"):
+        return False
+    old_title, restored, authors, issue, year, source = item
+    url = (before.get("urls") or {}).get("canonical")
+    evidence = after.get("legacyAuthorEvidence")
+    title_evidence = after.get("legacyIndexMislabelEvidence")
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != issue
+        or before.get("year") != year
+        or before.get("title") != old_title
+        or after.get("title") != (restored or old_title)
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not isinstance(evidence, dict)
+        or evidence.get("kind") != "dialnet-exact-issue-article-bibliographic-byline"
+        or evidence.get("sourceUrl") != source
+        or evidence.get("verifiedAuthors") != authors
+        or evidence.get("originalIndexedTitle") != old_title
+        or evidence.get("matchedIssueNumber") != issue
+        or evidence.get("matchedYear") != year
+        or evidence.get("originalArticleUrlPreserved") != url
+        or evidence.get("originalAvailabilityPreserved") is not True
+        or [x.get("name") for x in (after.get("authors") or [])] != authors
+    ):
+        return False
+    if restored:
+        if (
+            after.get("titleVariants") != [restored]
+            or not isinstance(title_evidence, dict)
+            or title_evidence.get("kind") !=
+               "dialnet-exact-issue-article-identity-restoration"
+            or title_evidence.get("sourceUrl") != source
+            or title_evidence.get("previousTitle") != old_title
+            or title_evidence.get("verifiedTitle") != restored
+            or title_evidence.get("sourceArticleUrl") != url
+            or title_evidence.get("matchedIssueNumber") != issue
+            or title_evidence.get("matchedYear") != year
+            or title_evidence.get("originalAvailabilityPreserved") is not True
+        ):
+            return False
+    elif title_evidence is not None:
+        return False
+    permitted = {"authors", "legacyAuthorEvidence"}
+    if restored:
+        permitted.update({"title", "titleVariants", "legacyIndexMislabelEvidence"})
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_formanchuk_cruz_restoration(before, after):
     """Permit one dated full-text republication matching the original issue."""
     rid = "cucsh:sincronia-legacy:12cf65c2ec1f08182eb5"
@@ -1163,6 +1267,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_formanchuk_cruz_restoration(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_dialnet_issue46_47_repair(
             before_by_id[key], after_by_id[key]
         )
     ]
