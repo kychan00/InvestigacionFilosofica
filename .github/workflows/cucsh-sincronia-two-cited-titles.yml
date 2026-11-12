@@ -1,0 +1,119 @@
+name: Sincronía · two corroborated historic titles
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-two-cited-titles.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-two-cited-titles
+  cancel-in-progress: false
+
+jobs:
+  cited-two:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test frozen author-title maps and no-loss rules
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_two_cited_titles
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Apply source-matched historical title repairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-two-before.json
+          python3 -m scripts.cucsh.restore_sincronia_two_cited_titles \
+            --input /tmp/cucsh-two-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Audit strict corpus safety and unverified records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-two-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-two-historical-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-two-pending-authors.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          before=json.loads(Path("/tmp/cucsh-two-before.json").read_text())
+          after=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          b={r["id"]:r for r in before["records"]}
+          a={r["id"]:r for r in after["records"]}
+          assert len(b)==len(a)==1845
+          assert list(b)==list(a)
+          changes=[rid for rid in b if b[rid]!=a[rid]]
+          assert len(changes)==2,changes
+          allowed={
+              "title","titleVariants","authors",
+              "legacyIndexMislabelEvidence","legacyAuthorEvidence"
+          }
+          for rid in changes:
+              old,new=b[rid],a[rid]
+              assert old["journal"]==new["journal"]=="Sincronía"
+              assert not old.get("authors") and len(new["authors"])==1
+              for key in set(old)|set(new):
+                  if key not in allowed:
+                      assert old.get(key)==new.get(key),(rid,key)
+              assert new["legacyIndexMislabelEvidence"]["sourceArticleUrl"]==old["urls"]["canonical"]
+              assert old["legacyAccessStatus"]==new["legacyAccessStatus"]
+          report=json.loads(Path("/tmp/sincronia-two-pending-authors.json").read_text())
+          assert report["totalSincroniaRecords"]==1454
+          assert report["pendingAuthorRecords"]==104
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_TWO_CITED_NO_LOSS_PASS",len(changes),104)
+          PY
+      - name: Run complete application tests
+        run: |
+          npm ci
+          npm test
+      - name: Commit only verified corpus to Sincronía development branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected worktree files"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore two source-cited Sincronía historical article titles"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-two-cited-titles-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-two-historical-quality.json
+            /tmp/sincronia-two-pending-authors.json
+          retention-days: 30
+          if-no-files-found: warn
