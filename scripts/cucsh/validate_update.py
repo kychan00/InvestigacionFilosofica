@@ -437,6 +437,77 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_velasco_tentacion_restoration(before, after):
+    """Permit one triangulated Velasco/Kazantzakis work restoration."""
+    rid = "cucsh:sincronia-legacy:e8f623d39efb7e943e95"
+    old = "Velasco , Arnulfo Eduardo"
+    title = "Sobre “La última tentación” de Nikos Kazantzakis"
+    heading = "SOBRE LA ULTIMA TENTACION DE NIKOS KAZANTZAKIS"
+    author = "Arnulfo Eduardo Velasco"
+    text_source = "https://es.scribd.com/doc/308811977/Sobre-La-Ultima-Tentacion-de-Nikos-Kazantzakis"
+    path_source = "https://cesarcallejas.wordpress.com/tag/cristianismo/"
+    associated = "http://sincronia.cucsh.udg.mx/tentacion.htm"
+    original = (before.get("urls") or {}).get("canonical") or ""
+    variants = before.get("titleVariants") or []
+    expected_variants = list(dict.fromkeys([title, heading, *variants, old]))
+    proof = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    if (
+        before.get("id") != rid
+        or after.get("id") != rid
+        or before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 16
+        or before.get("year") != 2000
+        or before.get("title") != old
+        or after.get("title") != title
+        or not isinstance(variants, list)
+        or after.get("titleVariants") != expected_variants
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not original.lower().endswith("/tentacion.htm")
+        or not isinstance(proof, dict)
+        or not isinstance(byline, dict)
+        or proof.get("kind") !=
+           "full-text-heading-plus-independent-legacy-path-association"
+        or proof.get("previousTitle") != old
+        or proof.get("previousTitleVariants") != variants
+        or proof.get("verifiedTitle") != title
+        or proof.get("reproducedHeading") != heading
+        or proof.get("verifiedAuthors") != [author]
+        or proof.get("fullTextReproductionUrl") != text_source
+        or proof.get("legacyPathAssociationSourceUrl") != path_source
+        or proof.get("associatedLegacyUrl") != associated
+        or proof.get("sourceArticleUrl") != original
+        or proof.get("matchedIssueNumber") != 16
+        or proof.get("matchedYear") != 2000
+        or proof.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") !=
+           "full-text-heading-plus-independent-legacy-path-association"
+        or byline.get("fullTextReproductionUrl") != text_source
+        or byline.get("legacyPathAssociationSourceUrl") != path_source
+        or byline.get("associatedLegacyUrl") != associated
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("verifiedTitle") != title
+        or byline.get("sourceArticleUrl") != original
+        or byline.get("matchedIssueNumber") != 16
+        or byline.get("matchedYear") != 2000
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors",
+        "legacyIndexMislabelEvidence", "legacyAuthorEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_vidaurre_velazquez_restoration(before, after):
     """Allow one author-reproduced Vidaurre issue-13 work restoration."""
     rid = "cucsh:sincronia-legacy:a560672620601b8a849e"
@@ -1747,6 +1818,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_vidaurre_velazquez_restoration(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_velasco_tentacion_restoration(
             before_by_id[key], after_by_id[key]
         )
     ]
