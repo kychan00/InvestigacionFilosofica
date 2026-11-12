@@ -12,10 +12,37 @@ import { normalizeText } from "../core/parser.js";
 const ORCID_PUBLIC_API = "https://pub.orcid.org/v3.0";
 const ORCID_SEARCH_WORKS_CACHE = new Map();
 
+function decodeOrcidText(value) {
+  return String(value || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, "\"")
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&#(\d+);/g, (_, code) => {
+      const point = Number(code);
+      return Number.isInteger(point) && point > 0
+        ? String.fromCodePoint(point)
+        : "";
+    })
+    .replace(/&#x([\da-f]+);/gi, (_, code) => {
+      const point = Number.parseInt(code, 16);
+      return Number.isInteger(point) && point > 0
+        ? String.fromCodePoint(point)
+        : "";
+    })
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function textValue(value) {
   if (typeof value === "string" || typeof value === "number")
-    return String(value).trim();
-  return typeof value?.value === "string" ? value.value.trim() : "";
+    return decodeOrcidText(value);
+  return typeof value?.value === "string"
+    ? decodeOrcidText(value.value)
+    : "";
 }
 
 function publishedNumber(value, min, max) {
