@@ -399,6 +399,7 @@ function embeddedOrcid(value) {
 function orcidSearchTokens(value) {
   return [...new Set(
     normalizeText(String(value || ""))
+      .replace(/-/g, " ")
       .split(/\s+/)
       .map(token => token.trim())
       .filter(token =>
@@ -590,7 +591,7 @@ function profileMatchesAuthorQuery(profile, queryTokens) {
     profile.creditName
   ].filter(Boolean).join(" "));
   const coverage = tokenCoverage(queryTokens, identityTokens);
-  return queryTokens.length >= 2 && coverage >= 0.75;
+  return queryTokens.length >= 2 && coverage >= 0.60;
 }
 
 function qualifyingOrcidWork(work, queryTokens, authorQuery, exactOrcid) {
