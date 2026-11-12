@@ -7,3 +7,5 @@ The operation must never change original links, source status, titles, years,
 journal IDs, DOIs, the total corpus count, or other records.
 
 Expected 123 -> 115 articles with no author. No PR or main merge.
+
+Retry after fixing the frozen byline unittest: compare changed field values, not dictionary key symmetric difference. No metadata sources or expected author names were altered.
