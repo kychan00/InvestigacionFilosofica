@@ -35,13 +35,14 @@ export function authorWorkSources(work = {}) {
 export function workHasAuthorOrcidEvidence(work = {}, authorOrcid) {
   const expected = normalizedAuthorOrcid(authorOrcid);
   if (!expected) return false;
-  const candidates = [
-    work.orcidEvidence,
-    work.authorIdentity?.orcid,
-    ...(Array.isArray(work.authors)
-      ? work.authors.flatMap(author => [author?.orcid, author?.id])
-      : [])
-  ];
+  if (normalizedAuthorOrcid(work.orcidEvidence) === expected) return true;
+  // The local OpenAlex snapshot copies the author's profile ORCID into
+  // EVERY indexed authorship. That is identity context, not evidence that
+  // each individual work carried ORCID in publisher metadata.
+  if (work.retrievalMode === "author-index") return false;
+  const candidates = Array.isArray(work.authors)
+    ? work.authors.flatMap(author => [author?.orcid, author?.id])
+    : [];
   return candidates.some(candidate =>
     normalizedAuthorOrcid(candidate) === expected
   );
