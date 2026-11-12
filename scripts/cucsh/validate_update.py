@@ -437,6 +437,76 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_issue50_dialnet_two_existing_author_titles(before, after):
+    """Protect both existing coauthor lists when repairing 2009 article titles.
+
+    Independent validator: author objects and evidence cannot change,
+    existing title variants are retained, original URLs never rewritten.
+    """
+    allowed = {
+        "cucsh:sincronia-legacy:32aab3dfc0369f0cead1": (
+            "García Núñez,Roberto y Bustos Silva,Guillermina",
+            "Las modalidades y opciones de titulación y el comportamiento recepcional de los egresados de la Licenciatura en Sociología de la Universidad de Guadalajara",
+            ["Roberto García Núñez", "Guillermina Bustos Silva"],
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=3296677",
+            "garciaspring09.htm",
+        ),
+        "cucsh:sincronia-legacy:c3beb6f2b0b892bc9313": (
+            "Velázquez Martínez, María Patricia y Hernández López",
+            "Exploración de la Didáctica de la Interpretación desde un Ambiente Virtual de Aprendizaje",
+            ["María Patricia Velázquez Martínez", "Elizabeth Margarita Hernández López"],
+            "https://dialnet.unirioja.es/servlet/articulo?codigo=3296685",
+            "velazquezspring09.htm",
+        ),
+    }
+    item = allowed.get(before.get("id"))
+    if item is None or before.get("id") != after.get("id"):
+        return False
+    previous, title, authors, source, suffix = item
+    url = (before.get("urls") or {}).get("canonical") or ""
+    provenance = after.get("legacyIndexMislabelEvidence")
+    old_variants = before.get("titleVariants") or []
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 50
+        or before.get("year") != 2009
+        or before.get("title") != previous
+        or after.get("title") != title
+        or not url.lower().endswith("/" + suffix)
+        or not isinstance(old_variants, list)
+        or after.get("titleVariants") != (
+            [title] + [v for v in old_variants if v != title]
+        )
+        or not before.get("authors")
+        or [a.get("name") for a in before["authors"]] != authors
+        or after.get("authors") != before.get("authors")
+        or before.get("legacyIndexMislabelEvidence")
+        or not isinstance(provenance, dict)
+        or provenance.get("kind") != "dialnet-verified-issue-50-title-authors-match"
+        or provenance.get("sourceUrl") != source
+        or provenance.get("previousTitle") != previous
+        or provenance.get("originalTitleVariants") != old_variants
+        or provenance.get("verifiedTitle") != title
+        or provenance.get("authorsPreserved") != authors
+        or provenance.get("originalArticleUrlPreserved") != url
+        or provenance.get("matchedIssueNumber") != 50
+        or provenance.get("matchedYear") != 2009
+        or provenance.get("matchingMethod") !=
+           "unique-issue-and-complete-existing-coauthors"
+        or provenance.get("originalAvailabilityPreserved") is not True
+    ):
+        return False
+    changed_fields = {
+        "title", "titleVariants", "legacyIndexMislabelEvidence"
+    }
+    return all(
+        before.get(key) == after.get(key)
+        for key in set(before) | set(after)
+        if key not in changed_fields
+    )
+
+
 def safe_dialnet_issue46_47_repair(before, after):
     """Permit only five frozen bibliographic corrections from Dialnet.
 
@@ -1270,6 +1340,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_dialnet_issue46_47_repair(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_issue50_dialnet_two_existing_author_titles(
             before_by_id[key], after_by_id[key]
         )
     ]
