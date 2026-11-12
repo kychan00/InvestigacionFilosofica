@@ -46,10 +46,12 @@ jobs:
           assert data["coverage"]["issueRange"] == "1–14"
           PY
 
-      - name: Upload historical corpus
+      - name: Upload generated corpus
         uses: actions/upload-artifact@v4
         with:
           name: protrepsis-historical
-          path: /tmp/protrepsis-historical.json
+          path: |
+            /tmp/protrepsis-historical.json
+            /tmp/cucsh-filosofia.json
           if-no-files-found: error
           retention-days: 7
