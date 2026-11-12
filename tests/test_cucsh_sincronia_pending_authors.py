@@ -149,5 +149,107 @@ class PendingAuthorsAuditTests(unittest.TestCase):
         )
 
 
+    def test_editorial_navigation_is_reported_without_deleting_or_attributing(self):
+        import copy
+        two = [
+            {
+                "id": "cucsh:sincronia-legacy:91f36da6674c93b19145",
+                "journal": "Sincronía", "issueNumber": 46, "year": 2008,
+                "title": "Editorial Board/Consejo Editorial", "authors": [],
+                "urls": {"canonical": "http://sincronia.cucsh.udg.mx/creditos.html"},
+                "legacyAccessStatus": {"status": "original-page-unavailable"},
+            },
+            {
+                "id": "cucsh:sincronia-legacy:a2763a903fcca568e32a",
+                "journal": "Sincronía", "issueNumber": 46, "year": 2008,
+                "title": "Further information for contributors.", "authors": [],
+                "urls": {"canonical": "http://sincronia.cucsh.udg.mx/info.htm"},
+                "legacyAccessStatus": {"status": "original-page-archived-only"},
+            },
+        ]
+        ordinary = {
+            "id": "unrelated", "journal": "Sincronía", "issueNumber": 46,
+            "year": 2008, "title": "Original research paper",
+            "authors": [{"name": "Researcher"}],
+            "urls": {"canonical": "http://sincronia.cucsh.udg.mx/paper.htm"},
+        }
+        rows = two + [ordinary]
+        before = copy.deepcopy(rows)
+        result = audit_pending_authors(rows)
+        self.assertEqual(rows, before)
+        self.assertEqual(result["totalSincroniaRecords"], 3)
+        self.assertEqual(result["pendingAuthorRecords"], 2)
+        self.assertEqual(result["highConfidenceEditorialNavigationCount"], 2)
+        self.assertEqual(result["articleCandidatesExcludingEditorialNavigation"], 1)
+        self.assertEqual(result["authorlessArticleCandidatesExcludingEditorialNavigation"], 0)
+        self.assertEqual(
+            {item["classification"] for item in result["highConfidenceEditorialNavigationRecords"]},
+            {"editorial_board_navigation", "contributor_instructions_navigation"},
+        )
+        self.assertEqual([row["id"] for row in rows], [row["id"] for row in before])
+
+    def test_editorial_classification_requires_exact_issue_label_and_url(self):
+        originals = [
+            {
+                "id": "cucsh:sincronia-legacy:91f36da6674c93b19145",
+                "journal": "Sincronía", "issueNumber": 47, "year": 2008,
+                "title": "Editorial Board/Consejo Editorial",
+                "authors": [], "urls": {"canonical": "https://example.edu/creditos.html"},
+            },
+            {
+                "id": "not-original", "journal": "Sincronía",
+                "issueNumber": 46, "year": 2008,
+                "title": "Further information for contributors.",
+                "authors": [], "urls": {"canonical": "https://example.edu/info.htm"},
+            },
+        ]
+        report = audit_pending_authors(originals)
+        self.assertEqual(report["highConfidenceEditorialNavigationCount"], 0)
+        self.assertEqual(report["articleCandidatesExcludingEditorialNavigation"], 2)
+
+    def test_issue_50_two_possible_works_not_assigned(self):
+        import copy
+        records = [
+            {
+                "id": "cucsh:sincronia-legacy:8eded0eac6e2a217ade1",
+                "journal": "Sincronía", "issueNumber": 50, "year": 2009,
+                "title": "Korstanje, Maximiliano E.", "authors": [],
+                "urls": {"canonical": (
+                    "http://sincronia.cucsh.udg.mx/korstanjespring09.htm"
+                )},
+                "legacyAccessStatus": {"status": "original-page-archived-only"},
+            },
+            {
+                "id": "another-same-issue", "journal": "Sincronía",
+                "issueNumber": 50, "year": 2009,
+                "title": "La delincuencia hoy: el doble valor de la represión",
+                "authors": [{"name": "Maximiliano Emanuel Korstanje"}],
+            },
+        ]
+        before = copy.deepcopy(records)
+        report = audit_pending_authors(records)
+        self.assertEqual(records, before)
+        self.assertEqual(len(report["unresolvedIssue50UrlMappings"]), 1)
+        mapping = report["unresolvedIssue50UrlMappings"][0]
+        self.assertEqual(mapping["status"], "unresolved_original_url_to_article_mapping")
+        self.assertEqual(len(mapping["possibleWorks"]), 2)
+        self.assertEqual(len(report["issue50WorkSnapshot"]), 2)
+        self.assertEqual(report["pendingAuthorRecords"], 1)
+        self.assertEqual(report["records"][0]["title"], before[0]["title"])
+
+    def test_issue_50_mapping_omitted_when_id_or_url_differs(self):
+        item = {
+            "id": "not-indexed-original", "journal": "Sincronía",
+            "issueNumber": 50, "year": 2009,
+            "title": "Korstanje, Maximiliano E.", "authors": [],
+            "urls": {"canonical": (
+                "http://sincronia.cucsh.udg.mx/korstanjespring09.htm"
+            )},
+        }
+        self.assertEqual(
+            audit_pending_authors([item])["unresolvedIssue50UrlMappings"], []
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
