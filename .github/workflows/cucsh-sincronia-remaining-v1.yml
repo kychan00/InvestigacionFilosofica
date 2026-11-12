@@ -65,7 +65,9 @@ jobs:
 
           before=json.loads(Path("/tmp/cucsh-before-remediation.json").read_text())
           after=json.loads(Path("/tmp/cucsh-targeted-candidate.json").read_text())
-          assert len(after["records"])==len(before["records"])==1841
+          # This enrichment pass must never add/drop records, but the corpus
+          # baseline can legitimately grow through separately verified backfills.
+          assert len(after["records"])==len(before["records"])
           b={r["id"]:r for r in before["records"]}
           a={r["id"]:r for r in after["records"]}
           assert set(a)==set(b)
