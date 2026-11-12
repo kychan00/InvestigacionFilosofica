@@ -36650,11 +36650,16 @@
       "sourceId": "legacy:0d780812a67af4ee3d35",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Garc�a N��ez, Roberto",
+      "title": "Un acercamiento al Buddhismo",
       "titleVariants": [
-        "Garc�a N��ez, Roberto"
+        "Un acercamiento al Buddhismo"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Roberto García Núñez",
+          "sourceName": "Roberto García Núñez"
+        }
+      ],
       "date": "2008",
       "year": 2008,
       "type": "journal-article",
@@ -36679,6 +36684,20 @@
         "canonical": "http://sincronia.cucsh.udg.mx/garciaspring08.htm",
         "doi": null,
         "relations": []
+      },
+      "legacyTitleEncodingEvidence": {
+        "kind": "dialnet-issue-unique-damaged-author-label",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858717",
+        "auditRunId": 43138373505,
+        "previousTitle": "Garc�a N��ez, Roberto",
+        "score": 0.9189
+      },
+      "legacyAuthorEvidence": {
+        "kind": "dialnet-issue-unique-damaged-author-label",
+        "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=2858717",
+        "auditRunId": 43138373505,
+        "verifiedAuthor": "Roberto García Núñez",
+        "fieldOrContext": "issue+title-or-author-label"
       }
     },
     {
@@ -38848,9 +38867,9 @@
       "sourceId": "dialnet:3297208",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "�Carta à José Joaquín Palma� ou la position esthétique de José Martí en exil",
+      "title": "Carta à José Joaquín Palma ou la position esthétique de José Martí en exil",
       "titleVariants": [
-        "�Carta à José Joaquín Palma� ou la position esthétique de José Martí en exil"
+        "Carta à José Joaquín Palma ou la position esthétique de José Martí en exil"
       ],
       "authors": [
         {
@@ -38881,6 +38900,13 @@
         "canonical": "https://dialnet.unirioja.es/servlet/articulo?codigo=3297208",
         "doi": null,
         "relations": []
+      },
+      "legacyTitleEncodingEvidence": {
+        "kind": "independent-bibliographic-citation",
+        "sourceUrl": "https://www.museosdetenerife.org/assets/downloads/file-695-7829b42836.pdf",
+        "auditRunId": 43138373505,
+        "previousTitle": "�Carta à José Joaquín Palma� ou la position esthétique de José Martí en exil",
+        "score": 1.0
       }
     },
     {
@@ -42750,9 +42776,9 @@
       "sourceId": "dialnet:3803663",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Die Tradition der Beredsamkeit und deutschsprachiger Rhetoriklehre im 19. Jahrhundert Mit einem bibliographischen Anhang, Deutschsprachige Rhetorik-Handbücher des 19. Jahrhunderts�",
+      "title": "Die Tradition der Beredsamkeit und deutschsprachiger Rhetoriklehre im 19. Jahrhundert. Mit einem bibliographischen Anhang “Deutschsprachige Rhetorik-Handbücher des 19. Jahrhunderts”",
       "titleVariants": [
-        "Die Tradition der Beredsamkeit und deutschsprachiger Rhetoriklehre im 19. Jahrhundert Mit einem bibliographischen Anhang, Deutschsprachige Rhetorik-Handbücher des 19. Jahrhunderts�"
+        "Die Tradition der Beredsamkeit und deutschsprachiger Rhetoriklehre im 19. Jahrhundert. Mit einem bibliographischen Anhang “Deutschsprachige Rhetorik-Handbücher des 19. Jahrhunderts”"
       ],
       "authors": [
         {
@@ -42783,6 +42809,13 @@
         "canonical": "https://dialnet.unirioja.es/servlet/articulo?codigo=3803663",
         "doi": null,
         "relations": []
+      },
+      "legacyTitleEncodingEvidence": {
+        "kind": "independent-exact-title-publication",
+        "sourceUrl": "https://riviste.unimi.it/index.php/StudiaTheodisca/it/article/view/1366",
+        "auditRunId": 43138373505,
+        "previousTitle": "Die Tradition der Beredsamkeit und deutschsprachiger Rhetoriklehre im 19. Jahrhundert Mit einem bibliographischen Anhang, Deutschsprachige Rhetorik-Handbücher des 19. Jahrhunderts�",
+        "score": 1.0
       }
     },
     {
