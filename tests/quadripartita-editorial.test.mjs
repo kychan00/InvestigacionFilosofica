@@ -44,7 +44,7 @@ test("Quadripartita: 88 fechas editoriales independientes de fecha OJS", () => {
     assert.ok(record.publicationDate, record.title);
     assert.equal(record.publicationDate, record.date, record.title);
     assert.equal(record.publicationYear,
-      Number(String(record.publicationDate).match(/\b(?:19|20)\d{2}\b)?.[0]),
+      Number(String(record.publicationDate).match(/\b(?:19|20)\d{2}\b/)?.[0]),
       record.title
     );
   }
