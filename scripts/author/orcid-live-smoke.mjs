@@ -135,7 +135,17 @@ assert.ok(profiles.some(item => item.orcid === romuloId),
 const mauricioName = "Mauricio Méndez Huerta";
 const federatedOrcid = await searchOrcid(
   { query: mauricioName, weight: 1, type: "original" },
-  { rows: 4, profilesPerPage: 4 }
+  {
+    rows: 4,
+    profilesPerPage: 4,
+    preferredAuthorResolution: {
+      status: "resolved",
+      author: {
+        displayName: mauricioName,
+        orcid: id
+      }
+    }
+  }
 );
 console.log("ORCID federated search sample:", federatedOrcid.map(item => ({
   title: item.title,
