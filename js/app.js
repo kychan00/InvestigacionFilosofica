@@ -5996,6 +5996,166 @@ function authorMonogram(name) {
 }
 
 
+function mergeAuthorOrcidProfile(author, profile) {
+  if (!profile) return author;
+  return {
+    ...author,
+    biography: profile.biography || author?.biography || null,
+    orcidProfile: profile
+  };
+}
+
+
+function authorProfileDateRange(item = {}) {
+  const start = item.startDate?.year || null;
+  const end = item.endDate?.year || null;
+  if (!start && !end) return "";
+  if (start && !end) return start + "–actual";
+  if (!start && end) return "hasta " + end;
+  return start === end ? String(start) : start + "–" + end;
+}
+
+
+function authorProfileAffiliation(item, label) {
+  const location = [item.city, item.region, item.country]
+    .filter(Boolean).join(" · ");
+  const date = authorProfileDateRange(item);
+  return `
+    <li class="author-profile-item">
+      <span class="author-profile-item-kind">${escapeHtml(label)}</span>
+      <strong>${escapeHtml(item.role || item.organization || "Actividad")}</strong>
+      ${item.role && item.organization
+        ? `<span>${escapeHtml(item.organization)}</span>` : ""}
+      ${item.department
+        ? `<small>${escapeHtml(item.department)}</small>` : ""}
+      ${location || date
+        ? `<small>${escapeHtml([location, date].filter(Boolean).join(" · "))}</small>`
+        : ""}
+    </li>
+  `;
+}
+
+
+function renderAuthorOrcidProfile(profile, orcidUrl) {
+  if (!profile || !orcidUrl) return "";
+
+  const employment = profile.employments || [];
+  const education = profile.educations || [];
+  const distinctions = profile.distinctions || [];
+  const qualifications = profile.qualifications || [];
+  const memberships = profile.memberships || [];
+  const services = profile.services || [];
+  const invited = profile.invitedPositions || [];
+  const funding = profile.fundings || [];
+  const keywords = profile.keywords || [];
+  const websites = profile.websites || [];
+  const countries = profile.countries || [];
+
+  const careerItems = [
+    ...employment.slice(0, 6).map(item =>
+      authorProfileAffiliation(item,
+        item.endDate ? "Experiencia" : "Afiliación actual")),
+    ...education.slice(0, 6).map(item =>
+      authorProfileAffiliation(item, "Formación"))
+  ].join("");
+
+  const milestoneItems = [
+    ...distinctions.map(item => [item, "Distinción"]),
+    ...qualifications.map(item => [item, "Cualificación"]),
+    ...invited.map(item => [item, "Posición invitada"]),
+    ...memberships.map(item => [item, "Membresía"]),
+    ...services.map(item => [item, "Servicio"])
+  ].slice(0, 10).map(([item, label]) =>
+    authorProfileAffiliation(item, label)).join("");
+
+  const fundingItems = funding.slice(0, 6).map(item => `
+    <li class="author-profile-funding-item">
+      <strong>${escapeHtml(item.title || item.organization || "Financiación")}</strong>
+      ${item.organization && item.title
+        ? `<span>${escapeHtml(item.organization)}</span>` : ""}
+      ${item.type ? `<small>${escapeHtml(item.type)}</small>` : ""}
+    </li>
+  `).join("");
+
+  const hasStructured = Boolean(
+    careerItems || milestoneItems || fundingItems ||
+    keywords.length || websites.length || countries.length
+  );
+
+  return `
+    <section class="author-academic-profile ${profile.hasPublicProfileData ? "" : "is-empty"}"
+      aria-label="Perfil académico público del autor">
+      <div class="author-academic-profile-heading">
+        <div>
+          <span class="author-section-kicker">Perfil académico · ORCID</span>
+          <h2>Biografía y trayectoria</h2>
+        </div>
+        <a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">
+          Ver ORCID ↗
+        </a>
+      </div>
+
+      ${profile.biography
+        ? `<p class="author-academic-profile-bio">${escapeHtml(profile.biography)}</p>`
+        : !hasStructured
+          ? `<p class="author-academic-profile-empty">
+              Este registro ORCID no publica biografía, empleo, formación ni
+              reconocimientos. La bibliografía pública se integra por separado.
+            </p>`
+          : `<p class="author-academic-profile-note">
+              ORCID no publica una biografía narrativa para este autor; la
+              trayectoria visible se construye únicamente con sus campos públicos.
+            </p>`}
+
+      ${careerItems ? `
+        <div class="author-profile-block">
+          <h3>Afiliaciones y formación</h3>
+          <ul class="author-profile-list">${careerItems}</ul>
+        </div>` : ""}
+
+      ${milestoneItems ? `
+        <div class="author-profile-block">
+          <h3>Reconocimientos y actividad profesional</h3>
+          <ul class="author-profile-list">${milestoneItems}</ul>
+        </div>` : ""}
+
+      ${fundingItems ? `
+        <div class="author-profile-block">
+          <h3>Financiación registrada</h3>
+          <ul class="author-profile-funding-list">${fundingItems}</ul>
+        </div>` : ""}
+
+      ${keywords.length || countries.length ? `
+        <div class="author-profile-facts">
+          ${keywords.length ? `
+            <div>
+              <strong>Áreas / palabras clave</strong>
+              <p>${escapeHtml(keywords.join(" · "))}</p>
+            </div>` : ""}
+          ${countries.length ? `
+            <div>
+              <strong>Países indicados</strong>
+              <p>${escapeHtml(countries.join(" · "))}</p>
+            </div>` : ""}
+        </div>` : ""}
+
+      ${websites.length ? `
+        <div class="author-profile-websites">
+          ${websites.slice(0, 8).map(site => `
+            <a href="${escapeHtml(site.url)}" target="_blank" rel="noopener noreferrer">
+              ${escapeHtml(site.name || "Sitio del investigador")} ↗
+            </a>`).join("")}
+        </div>` : ""}
+
+      <p class="author-profile-source-note">
+        Sólo se muestran datos que el titular o una fuente autorizada mantiene
+        públicos en ORCID. Ausencia de datos no implica ausencia de trayectoria.
+      </p>
+    </section>
+  `;
+}
+
+
 function renderAuthorPage(
   response,
   visible
@@ -6015,6 +6175,8 @@ function renderAuthorPage(
   const aliasNames = [...new Set((author.aliases || [])
     .filter(alias => alias && alias !== author.displayName))];
   const identifiedOrcid = normalizedAuthorOrcid(author.orcid);
+  const orcidProfile =
+    author.orcidProfile || authorArchiveOrcidProfile || null;
   const bibliographicSources = [...new Set(works.flatMap(authorWorkSources))];
   const multiSourceWorks = works.filter(work =>
     authorWorkSources(work).length > 1).length;
@@ -6147,9 +6309,11 @@ function renderAuthorPage(
             ${escapeHtml(
               author.biography ||
               (
-                federatedCatalog
-                  ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
-                  : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
+                orcidProfile && !orcidProfile.hasPublicProfileData
+                  ? "El registro ORCID público de este autor no incluye una biografía o afiliaciones. Esta ficha reúne su bibliografía y las fuentes académicas disponibles."
+                  : federatedCatalog
+                    ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
+                    : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
               )
             )}
           </p>
@@ -6190,6 +6354,8 @@ function renderAuthorPage(
           <small>${federatedCatalog ? "Autor en catálogos" : "Autor identificado"}</small>
         </div>
       </header>
+
+      ${renderAuthorOrcidProfile(orcidProfile, orcidUrl)}
 
       <section class="author-page-metrics" aria-label="Resumen del corpus del autor">
         <div>
