@@ -31,7 +31,7 @@ test("identical narrative biographies are explicitly de-duplicated", () => {
 });
 
 test("long academic biographies are collapsed behind a native details control", () => {
-  assert.match(app, /biography\.length\s*<=\s*720/);
+  assert.match(app, /biography\.length\s*<=\s*620/);
   assert.match(app, /<details class="author-biography-details">/);
   assert.match(app, /Leer biografía completa ↓/);
   assert.match(app, /Ocultar biografía ↑/);
