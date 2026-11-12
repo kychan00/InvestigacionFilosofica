@@ -67,6 +67,9 @@ test("las dos obras de Ángeles Eraña se amplían SIN red de OpenAlex",async()=
       };
     },
     orcidSearchImpl:async()=>({works:[],complete:true}),
+    orcidRegistryImpl:async()=>({
+      works:[],totalGroups:0,returnedWorks:0,complete:true
+    }),
     federatedImpl:async name=>{
       federatedCalled=true;
       assert.equal(name,author.displayName);
@@ -81,7 +84,7 @@ test("las dos obras de Ángeles Eraña se amplían SIN red de OpenAlex",async()=
   assert.ok(snapshotCalled&&federatedCalled);
   assert.equal(result.works.length,4);
   assert.deepEqual(new Set(result.sources),
-    new Set([AUTHOR_SNAPSHOT_SOURCE,"Crossref","Crossref · ORCID"]));
+    new Set([AUTHOR_SNAPSHOT_SOURCE,"Crossref","Crossref · ORCID","ORCID"]));
   assert.equal(result.snapshotComplete,true);
   assert.equal(states[0].works.length,2);
   assert.equal(states.at(-1).works.length,4);
@@ -92,6 +95,9 @@ test("el índice no disponible conserva las obras iniciales y no consume tokens"
     author,initialWorks:[work(1,"Primera",2001)],
     snapshotImpl:async()=>{throw new Error("HF storage temporarily unavailable")},
     orcidSearchImpl:async()=>({works:[],complete:true}),
+    orcidRegistryImpl:async()=>({
+      works:[],totalGroups:0,returnedWorks:0,complete:true
+    }),
     federatedImpl:async()=>({status:"none",works:[]})
   });
   assert.equal(result.works.length,1);
