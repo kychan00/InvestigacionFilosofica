@@ -78,6 +78,9 @@ jobs:
           node --check js/journal-page.js
           node --check js/journal-atlas.js
 
+      - name: Verify Quadripartita editorial chronology policy
+        run: python3 -m unittest discover -s tests -p 'test_quadripartita_editorial.py' -v
+
       - name: Run deterministic application regression suite
         run: npm test
 
