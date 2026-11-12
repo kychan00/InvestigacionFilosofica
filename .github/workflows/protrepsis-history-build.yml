@@ -152,10 +152,22 @@ jobs:
           print("merged journals =", dict(counts))
           print("merged total =", len(merged["records"]))
 
-          assert len(historical["records"]) >= 70
+          enriched = [
+              record
+              for record in merged["records"]
+              if (
+                  record.get("journal") == "Protrepsis"
+                  and record.get("historicalSource") == "OpenAlex"
+              )
+          ]
+
+          print("historical enriched records =", len(enriched))
+
+          assert len(historical["records"]) == 77
           assert historical["coverage"]["issueRange"] == "1–14"
-          assert counts["Protrepsis"] > 303
+          assert counts["Protrepsis"] >= 303
           assert counts["Quadripartita Ratio"] >= 88
+          assert len(enriched) == len(historical["records"])
           PY
 
       - name: Write generated corpus to branch
