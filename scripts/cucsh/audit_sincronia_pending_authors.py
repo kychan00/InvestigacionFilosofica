@@ -58,6 +58,55 @@ def classify_work_identity_review(row):
     return None
 
 
+def documented_bibliographic_conflicts(pending):
+    """Report independently documented provenance conflicts; NEVER patch data.
+
+    The source and catalogue agree on an original article filename, but
+    disagree on its issue and year. This is a research lead, not permission
+    to replace the journal's original index entry.
+    """
+    results = []
+    for row in pending:
+        original_url = (row.get("urls") or {}).get("canonical") or ""
+        if not (
+            row.get("id") == "cucsh:sincronia-legacy:53c3bea7bff8e9572369"
+            and row.get("title") == "Reyes, Giovanni E."
+            and row.get("issueNumber") == 12
+            and row.get("year") == 1999
+            and original_url.endswith("/reyes4.htm")
+        ):
+            continue
+        results.append({
+            "id": row["id"],
+            "originalUrlAsIndexed": original_url,
+            "indexedIssue": row["issueNumber"],
+            "indexedYear": row["year"],
+            "indexedTitle": row["title"],
+            "alternativeWorkTitle": (
+                "Four main theories of development: modernization, "
+                "dependency, world-systems, and globalization"
+            ),
+            "alternativeAuthors": ["Giovanni Efraín Reyes Ortíz"],
+            "externalCitedIssue": 21,
+            "externalCitedYear": 2001,
+            "externalBibliographyUrl": (
+                "https://repository.urosario.edu.co/handle/10336/27750"
+            ),
+            "externalRecordDetailsUrl": (
+                "https://redcol.minciencias.gov.co/Record/"
+                "EDOCUR2_d1b56980606f7282399f02fe43ee1f1c/Details"
+            ),
+            "status": "unresolved_issue_and_year_conflict",
+            "requiredAction": (
+                "Review an original issue-level table of contents or a "
+                "preserved original article before modifying issue, year, "
+                "title or authors. The institutional record is evidence, "
+                "not an automatic override of the archived journal index."
+            ),
+        })
+    return results
+
+
 def audit_pending_authors(records):
     sincronia = [row for row in records if row.get("journal") == "Sincronía"]
     pending = [row for row in sincronia if not row.get("authors")]
@@ -137,6 +186,7 @@ def audit_pending_authors(records):
         item["issueNumber"] if isinstance(item["issueNumber"], int) else 999,
         str(item["id"] or ""),
     ))
+    conflicts = documented_bibliographic_conflicts(pending)
     title_encoding_remaining = sum(
         "\ufffd" in str(row.get("title") or "") for row in sincronia
     )
@@ -152,6 +202,8 @@ def audit_pending_authors(records):
         ))),
         "pendingByOriginalAvailability": dict(sorted(by_availability.items())),
         "records": queue,
+        "bibliographicConflictCount": len(conflicts),
+        "bibliographicConflicts": conflicts,
         "suspectedWorkIdentityRecords": sorted(
             identity_queue,
             key=lambda item: (
@@ -192,6 +244,7 @@ def main():
     print("SUSPECTED_WORK_IDENTITY", report["suspectedWorkIdentityCount"])
     print("IDENTITY_REVIEW_BY_TYPE", report["suspectedWorkIdentityByType"])
     print("PENDING_BY_ORIGINAL_AVAILABILITY", report["pendingByOriginalAvailability"])
+    print("BIBLIOGRAPHIC_CONFLICTS", report["bibliographicConflictCount"])
 
 
 if __name__ == "__main__":
