@@ -112,6 +112,13 @@ try {
 
       assert.equal(await page.locator(".journal-card").count(), expected);
       assert.ok(await page.locator(".taxonomy-chip").count() >= 1);
+      assert.ok(await page.locator(".journal-card-byline .journal-author-link").count() >= 1);
+      const authorHref = await page.locator(".journal-card-byline .journal-author-link").first().getAttribute("href");
+      assert.ok(authorHref && authorHref.includes("view=author") && authorHref.includes("author="));
+      const cardGap = await page.locator(".journal-card-grid").evaluate(element =>
+        Number.parseFloat(getComputedStyle(element).gap || "0")
+      );
+      assert.ok(cardGap >= 14, journal + " " + name + " cards need breathing room");
       assert.ok(await page.locator("#journal-category option").count() >= 2);
       assert.equal(await page.locator("#journal-qwen-toggle").getAttribute("aria-pressed"), "false");
 
@@ -122,8 +129,28 @@ try {
       assert.match(await page.locator("#journal-atlas-status").innerText(), /0 vectores Qwen verificados/);
       assert.equal(external.length, 0, "Qwen/network must remain opt-in");
 
-      const canvas = await page.locator("#journal-atlas-canvas").boundingBox();
+      const canvasLocator = page.locator("#journal-atlas-canvas");
+      await canvasLocator.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(60);
+      const canvas = await canvasLocator.boundingBox();
       assert.ok(canvas && canvas.width > 250 && canvas.height > 350);
+
+      const zoomBefore = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
+      await page.locator('[data-atlas-action="zoom-in"]').click();
+      await page.waitForTimeout(40);
+      const zoomAfter = Number(await canvasLocator.getAttribute("data-atlas-zoom"));
+      assert.ok(zoomAfter > zoomBefore, journal + " " + name + " zoom control must change the view");
+
+      const panBefore = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
+      const safeStartX = canvas.x + 14;
+      const safeStartY = canvas.y + canvas.height - 14;
+      await page.mouse.move(safeStartX, safeStartY);
+      await page.mouse.down();
+      await page.mouse.move(safeStartX + 54, safeStartY - 24, { steps: 5 });
+      await page.mouse.up();
+      await page.waitForTimeout(60);
+      const panAfter = Number(await canvasLocator.getAttribute("data-atlas-pan-x"));
+      assert.notEqual(panAfter, panBefore, journal + " " + name + " background drag must pan the Atlas");
 
       await page.locator('[data-journal-view="archive"]').click();
       await page.locator("#journal-query").fill(journal === "protrepsis" ? "verdad" : journal === "sincronia" ? "digital" : "inferencias");

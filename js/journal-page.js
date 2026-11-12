@@ -1,6 +1,7 @@
-import { JournalSemanticAtlas } from "./journal-atlas.js";
+import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261111-v2";
 
-const DATA_URL = new URL("../src/data/cucsh-filosofia.json", import.meta.url);
+const SITE_ROOT = new URL("../", import.meta.url);
+const DATA_URL = new URL("src/data/cucsh-filosofia.json", SITE_ROOT);
 const PAGE_SIZE = 18;
 
 const JOURNALS = {
@@ -111,6 +112,7 @@ const el = {
   atlasStatus: document.querySelector("#journal-atlas-status"),
   atlasDetail: document.querySelector("#journal-atlas-detail"),
   atlasLegend: document.querySelector("#journal-atlas-legend"),
+  atlasControls: document.querySelector("#journal-atlas-controls"),
   qwenToggle: document.querySelector("#journal-qwen-toggle"),
   qwenNote: document.querySelector("#journal-qwen-note"),
   tabs: [...document.querySelectorAll("[data-journal-view]")]
@@ -162,6 +164,23 @@ function linkFor(record) {
   return record.urls?.canonical ||
     record.urls?.doi ||
     (record.doi ? "https://doi.org/" + record.doi : "");
+}
+
+function authorSearchUrl(name) {
+  const url = new URL("", SITE_ROOT);
+  url.searchParams.set("view", "author");
+  url.searchParams.set("author", String(name || "").trim());
+  url.hash = "results";
+  return url.href;
+}
+
+function authorLink(name, className = "journal-author-link") {
+  const link = document.createElement("a");
+  link.className = className;
+  link.href = authorSearchUrl(name);
+  link.textContent = name;
+  link.title = "Buscar a " + name + " en toda la red";
+  return link;
 }
 
 function decadeFor(year) {
@@ -251,7 +270,15 @@ function card(record, index) {
 
   const byline = document.createElement("p");
   byline.className = "journal-card-byline";
-  byline.textContent = authors(record).join(" · ") || "Autor no indicado";
+  const recordAuthors = authors(record);
+  if (recordAuthors.length) {
+    recordAuthors.forEach((name, authorIndex) => {
+      if (authorIndex) byline.append(document.createTextNode(" · "));
+      byline.append(authorLink(name));
+    });
+  } else {
+    byline.textContent = "Autor no indicado";
+  }
 
   const category = document.createElement("div");
   category.className = "journal-card-taxonomy";
@@ -366,8 +393,10 @@ function buildTaxonomy() {
   const authorFreq = frequency(state.records.flatMap(authors));
   el.authorsList.replaceChildren();
   for (const [label, count] of authorFreq.slice(0, 12)) {
-    const item = document.createElement("span");
+    const item = document.createElement("a");
     item.className = "author-chip";
+    item.href = authorSearchUrl(label);
+    item.title = "Buscar a " + label + " en toda la red";
     item.innerHTML = "<span>" + escapeHtml(label) + "</span><strong>" + count + "</strong>";
     el.authorsList.append(item);
   }
@@ -411,6 +440,7 @@ async function buildAtlas() {
     status: el.atlasStatus,
     detail: el.atlasDetail,
     legend: el.atlasLegend,
+    controls: el.atlasControls,
     accent: config.accent
   });
   atlas.setQwenEnabled(el.qwenToggle?.getAttribute("aria-pressed") === "true");
