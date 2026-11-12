@@ -144,6 +144,14 @@ test("números editoriales se recuperan de DOI y citas OJS", () => {
 });
 
 
+test("archivo editorial no recorta números históricos", async () => {
+  const source = await readFile("js/journal-page.js", "utf8");
+  const css = await readFile("css/journal-page.css", "utf8");
+  assert.doesNotMatch(source, /journalIssueGroups\(state\.records\)\.slice\(0,\s*16\)/);
+  assert.match(source, /for \(const group of journalIssueGroups\(state\.records\)\)/);
+  assert.match(css, /@media \(max-width: 820px\)[\s\S]*journal-issues-block \.journal-taxonomy-list[\s\S]*max-height: none/);
+});
+
 test("Atlas móvil oculta controles mecánicos y conserva Qwen", async () => {
   const css = await readFile("css/journal-page.css", "utf8");
   assert.match(css, /@media \(max-width: 820px\)[\s\S]*journal-atlas-toolbar button\[data-atlas-action\][\s\S]*display: none !important/);
