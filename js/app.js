@@ -7264,7 +7264,7 @@ function renderSemanticSearchLoading(
       : (
           elapsedSeconds < 10
             ? "Comparando el significado y consultando fuentes académicas complementarias."
-            : "La búsqueda continúa activa; el corpus, Crossref, Internet Archive y UdeG responden a ritmos distintos."
+            : "La búsqueda continúa activa; el corpus, Crossref, ORCID, Internet Archive y UdeG responden a ritmos distintos."
         );
 
   return `
@@ -8138,7 +8138,7 @@ function selectSearchMode(
     "semantic"
   ) {
     searchModeNote.textContent =
-      "Busca por significado en 451.823 documentos y amplía con Crossref, Internet Archive y Biblioteca UdeG; no usa la API de OpenAlex ni el reranker.";
+      "Busca por significado en 451.823 documentos y amplía con Crossref, ORCID, Internet Archive y Biblioteca UdeG; no usa la API de OpenAlex ni el reranker.";
 
     input.placeholder =
       "Ej. ¿Qué relación hay entre lógica y ontología en Quine?";
