@@ -23813,11 +23813,16 @@
       "sourceId": "legacy:940caceb0d1f820da9a5",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Soler Diaz, Maria Antonieta",
+      "title": "Prospectiva de la educación en México",
       "titleVariants": [
-        "Soler Diaz, Maria Antonieta"
+        "Prospectiva de la educación en México"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "María Antonieta Soler Díaz",
+          "sourceName": "María Antonieta Soler Díaz"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -23850,6 +23855,31 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-index-author-name-replaced-by-cited-work-title",
+        "sourceUrl": "https://posgrado.colef.mx/wp-content/uploads/2011/04/TESIS-Morales-Nev%C3%A1rez-Ana-Mar%C3%ADa.pdf",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/poled.htm",
+        "previousTitle": "Soler Diaz, Maria Antonieta",
+        "verifiedTitle": "Prospectiva de la educación en México",
+        "verifiedAuthors": [
+          "María Antonieta Soler Díaz"
+        ],
+        "matchedIssueNumber": 16,
+        "matchedYear": 2000,
+        "evidenceNote": "El Colegio de la Frontera Norte master's thesis, reference bibliography p.167, cites article title, 'Soler, María', fall 2000, and poled.htm. Extended given names derived from original historical Sincronía index label, not from that bibliography.",
+        "originalAvailabilityPreserved": true
+      },
+      "legacyAuthorEvidence": {
+        "kind": "independent-exact-title-original-url-citation",
+        "sourceUrl": "https://posgrado.colef.mx/wp-content/uploads/2011/04/TESIS-Morales-Nev%C3%A1rez-Ana-Mar%C3%ADa.pdf",
+        "verifiedTitle": "Prospectiva de la educación en México",
+        "verifiedAuthors": [
+          "María Antonieta Soler Díaz"
+        ],
+        "matchedIssueNumber": 16,
+        "originalAvailabilityPreserved": true,
+        "evidenceNote": "El Colegio de la Frontera Norte master's thesis, reference bibliography p.167, cites article title, 'Soler, María', fall 2000, and poled.htm. Extended given names derived from original historical Sincronía index label, not from that bibliography."
       }
     },
     {
@@ -27640,11 +27670,16 @@
       "sourceId": "legacy:b6e314746adecc6757dd",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Mejía , Guadalupe,",
+      "title": "Texto y música en Jalisco",
       "titleVariants": [
-        "Mejía , Guadalupe,"
+        "Texto y música en Jalisco"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Guadalupe Mejía",
+          "sourceName": "Guadalupe Mejía"
+        }
+      ],
       "date": "2001",
       "year": 2001,
       "type": "journal-article",
@@ -27684,6 +27719,31 @@
         "reason": "timeout",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "original-index-author-name-replaced-by-cited-work-title",
+        "sourceUrl": "https://www.academia.edu/9657868/The_Frontier_of_Progress_and_Repression_1950s_American_Suburbia_in_Todd_Hayness_Far_From_Heaven",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/mejia.htm",
+        "previousTitle": "Mejía , Guadalupe,",
+        "verifiedTitle": "Texto y música en Jalisco",
+        "verifiedAuthors": [
+          "Guadalupe Mejía"
+        ],
+        "matchedIssueNumber": 18,
+        "matchedYear": 2001,
+        "evidenceNote": "Academic article Del barroco al negrismo references Guadalupe Mejía's 2001 Sincronía work with exact title and original mejia.htm URL; original historical issue is 18.",
+        "originalAvailabilityPreserved": true
+      },
+      "legacyAuthorEvidence": {
+        "kind": "independent-exact-title-original-url-citation",
+        "sourceUrl": "https://www.academia.edu/9657868/The_Frontier_of_Progress_and_Repression_1950s_American_Suburbia_in_Todd_Hayness_Far_From_Heaven",
+        "verifiedTitle": "Texto y música en Jalisco",
+        "verifiedAuthors": [
+          "Guadalupe Mejía"
+        ],
+        "matchedIssueNumber": 18,
+        "originalAvailabilityPreserved": true,
+        "evidenceNote": "Academic article Del barroco al negrismo references Guadalupe Mejía's 2001 Sincronía work with exact title and original mejia.htm URL; original historical issue is 18."
       }
     },
     {
