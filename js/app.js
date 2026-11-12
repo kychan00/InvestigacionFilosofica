@@ -3022,6 +3022,8 @@ function renderResult(
               item.retrievalMode ===
                 "semantic"
                 ? "Semántica"
+                : item.retrievalMode === "orcid-registry-search"
+                  ? "ORCID"
                 : [
                     "author-index",
                     "author-crossref",
@@ -3290,6 +3292,16 @@ function renderResult(
                   Fuente académica complementaria
                   · recuperación federada
                   · sin reranker
+                </div>
+              `
+            : item.retrievalMode === "orcid-registry-search"
+              ? `
+                <div class="explain">
+                  Registro público ORCID
+                  · obra declarada por el investigador
+                  · ${item.orcidSearch?.authorQuery
+                    ? "coincidencia de autor"
+                    : "coincidencia temática"}
                 </div>
               `
             : [
