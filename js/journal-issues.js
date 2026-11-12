@@ -46,6 +46,7 @@ function issueNumberFromText(value) {
 
   const patterns = [
     /\bv\d+i0*(\d{1,3})(?=[./_\s-]|$)/i,
+    /\b\d{1,3}\s*\(\s*0*(\d{1,3})\s*\)/i,
     /(?:^|[./_-])i(?:ssue)?\s*0*(\d{1,3})(?=[./_\s-]|$)/i,
     /\b(?:n[úu]m(?:ero)?\.?|nro\.?|no\.?|issue)\s*[:#.]?\s*0*(\d{1,3})\b/i,
     /\b(?:vol(?:umen)?\.?\s*\d+\s*)?(?:n[úu]m(?:ero)?\.?|issue)\s*0*(\d{1,3})\b/i
@@ -69,6 +70,8 @@ function issueNumberFromRecord(record) {
 
   for (const value of [
     ...(record?.bibliographicSources || []),
+    record?.issue,
+    record?.number,
     record?.issueLabel,
     record?.issueTitle,
     record?.citation,
