@@ -1,0 +1,24 @@
+name: ORCID · live public bibliography smoke
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/sources/orcid.js"
+      - "scripts/author/orcid-live-smoke.mjs"
+      - ".github/workflows/author-orcid-live-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  orcid-public-works:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node scripts/author/orcid-live-smoke.mjs
