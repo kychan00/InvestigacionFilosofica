@@ -24416,11 +24416,17 @@
       "sourceId": "legacy:a62bbf11f17db65d6d35",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "Salom, Genaro D.",
+      "title": "Derechos Humanos",
       "titleVariants": [
+        "Derechos Humanos",
         "Salom, Genaro D."
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Genaro D. Salom",
+          "sourceName": "Genaro D. Salom"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -24453,6 +24459,39 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "bibliography-journal-year-title-plus-independent-full-text-byline",
+        "previousTitle": "Salom, Genaro D.",
+        "previousTitleVariants": [
+          "Salom, Genaro D."
+        ],
+        "verifiedTitle": "Derechos Humanos",
+        "verifiedAuthors": [
+          "Genaro D. Salom"
+        ],
+        "bibliographySourceUrl": "https://es.scribd.com/document/544160505/Derecho-Constitucional-y-Derechos-Humanos",
+        "fullTextRepublicationUrl": "https://jujuyddhh.blogspot.com/2010/",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/derechos.htm",
+        "matchedIssueNumber": 16,
+        "matchedYear": 2000,
+        "urlMatchLevel": "historical-index-only-not-external-exact-url-proof",
+        "originalAvailabilityPreserved": true,
+        "note": "A legal/human-rights course bibliography explicitly lists 'Salom, Genaro: Derechos Humanos. Doc/html: Sincronía 2000'. An independent 2010 republication preserves the article text and signature 'Derechos Humanos Lic. Genaro D. Salom'. The /derechos.htm association is retained from the original Sincronía index; no external source is claimed to reproduce that exact URL."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "bibliography-journal-year-title-plus-independent-full-text-byline",
+        "bibliographySourceUrl": "https://es.scribd.com/document/544160505/Derecho-Constitucional-y-Derechos-Humanos",
+        "fullTextRepublicationUrl": "https://jujuyddhh.blogspot.com/2010/",
+        "verifiedAuthors": [
+          "Genaro D. Salom"
+        ],
+        "verifiedTitle": "Derechos Humanos",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/derechos.htm",
+        "matchedIssueNumber": 16,
+        "matchedYear": 2000,
+        "urlMatchLevel": "historical-index-only-not-external-exact-url-proof",
+        "originalAvailabilityPreserved": true
       }
     },
     {
