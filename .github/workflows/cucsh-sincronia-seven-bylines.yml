@@ -1,0 +1,110 @@
+name: Sincronía · seven source-verified historical bylines
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-seven-bylines.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-seven-verified-bylines
+  cancel-in-progress: false
+
+jobs:
+  curated-bylines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test frozen evidence mapping
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_seven_bylines
+      - name: Apply strictly verified author attributions
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-seven-before.json
+          python3 -m scripts.cucsh.backfill_sincronia_seven_bylines \
+            --input /tmp/cucsh-seven-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Validate corpus and historical integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-seven-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-seven-historical-audit.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-seven-pending-audit.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          b=json.loads(Path("/tmp/cucsh-seven-before.json").read_text())
+          a=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          assert len(b["records"])==len(a["records"])==1845
+          before={r["id"]:r for r in b["records"]}
+          after={r["id"]:r for r in a["records"]}
+          assert set(before)==set(after)
+          allowed={"authors","legacyAuthorEvidence"}
+          changes=[key for key in before if before[key]!=after[key]]
+          assert len(changes)==7,changes
+          for key in changes:
+              assert before[key]["journal"]=="Sincronía"
+              for f in set(before[key])|set(after[key]):
+                  if f not in allowed:
+                      assert before[key].get(f)==after[key].get(f),(key,f)
+          pending=json.loads(Path("/tmp/sincronia-seven-pending-audit.json").read_text())
+          assert pending["pendingAuthorRecords"]==123
+          assert pending["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_SEVEN_STRICT_NO_LOSS_PASS",len(changes),pending["pendingAuthorRecords"])
+          PY
+      - name: Run full app tests
+        run: |
+          npm ci
+          npm test
+      - name: Commit only verified dataset change
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected files changed"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore seven source-verified Sincronía author bylines"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload review and audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-seven-bylines-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-seven-historical-audit.json
+            /tmp/sincronia-seven-pending-audit.json
+          retention-days: 30
+          if-no-files-found: warn
