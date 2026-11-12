@@ -437,6 +437,75 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_salom_derechos_restoration(before, after):
+    """Permit one Salom work repair without overstating URL-level evidence."""
+    rid = "cucsh:sincronia-legacy:a62bbf11f17db65d6d35"
+    old = "Salom, Genaro D."
+    title = "Derechos Humanos"
+    author = "Genaro D. Salom"
+    bibliography = "https://es.scribd.com/document/544160505/Derecho-Constitucional-y-Derechos-Humanos"
+    full_text = "https://jujuyddhh.blogspot.com/2010/"
+    url_level = "historical-index-only-not-external-exact-url-proof"
+    original = (before.get("urls") or {}).get("canonical") or ""
+    variants = before.get("titleVariants") or []
+    expected_variants = list(dict.fromkeys([title, *variants, old]))
+    proof = after.get("legacyIndexMislabelEvidence")
+    byline = after.get("legacyAuthorEvidence")
+    if (
+        before.get("id") != rid
+        or after.get("id") != rid
+        or before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 16
+        or before.get("year") != 2000
+        or before.get("title") != old
+        or after.get("title") != title
+        or not isinstance(variants, list)
+        or after.get("titleVariants") != expected_variants
+        or before.get("authors")
+        or before.get("legacyAuthorEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or not original.lower().endswith("/derechos.htm")
+        or not isinstance(proof, dict)
+        or not isinstance(byline, dict)
+        or proof.get("kind") !=
+           "bibliography-journal-year-title-plus-independent-full-text-byline"
+        or proof.get("previousTitle") != old
+        or proof.get("previousTitleVariants") != variants
+        or proof.get("verifiedTitle") != title
+        or proof.get("verifiedAuthors") != [author]
+        or proof.get("bibliographySourceUrl") != bibliography
+        or proof.get("fullTextRepublicationUrl") != full_text
+        or proof.get("sourceArticleUrl") != original
+        or proof.get("matchedIssueNumber") != 16
+        or proof.get("matchedYear") != 2000
+        or proof.get("urlMatchLevel") != url_level
+        or proof.get("originalAvailabilityPreserved") is not True
+        or byline.get("kind") !=
+           "bibliography-journal-year-title-plus-independent-full-text-byline"
+        or byline.get("bibliographySourceUrl") != bibliography
+        or byline.get("fullTextRepublicationUrl") != full_text
+        or byline.get("verifiedAuthors") != [author]
+        or byline.get("verifiedTitle") != title
+        or byline.get("sourceArticleUrl") != original
+        or byline.get("matchedIssueNumber") != 16
+        or byline.get("matchedYear") != 2000
+        or byline.get("urlMatchLevel") != url_level
+        or byline.get("originalAvailabilityPreserved") is not True
+        or [a.get("name") for a in (after.get("authors") or [])] != [author]
+    ):
+        return False
+    permitted = {
+        "title", "titleVariants", "authors",
+        "legacyIndexMislabelEvidence", "legacyAuthorEvidence",
+    }
+    return all(
+        before.get(field) == after.get(field)
+        for field in set(before) | set(after)
+        if field not in permitted
+    )
+
+
 def safe_velasco_tentacion_restoration(before, after):
     """Permit one triangulated Velasco/Kazantzakis work restoration."""
     rid = "cucsh:sincronia-legacy:e8f623d39efb7e943e95"
@@ -1821,6 +1890,9 @@ def main():
             before_by_id[key], after_by_id[key]
         )
         and not safe_velasco_tentacion_restoration(
+            before_by_id[key], after_by_id[key]
+        )
+        and not safe_salom_derechos_restoration(
             before_by_id[key], after_by_id[key]
         )
     ]
