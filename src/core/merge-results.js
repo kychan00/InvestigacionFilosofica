@@ -515,6 +515,11 @@ function sourceLinkCandidates(
   );
 
   add(
+    result.urls?.reference,
+    "bibliographic-reference"
+  );
+
+  add(
     result.urls?.landing,
     "landing"
   );
@@ -1409,6 +1414,11 @@ function mergeUrls(
     openAccess:
       existing.openAccess ||
       incoming.openAccess ||
+      null,
+
+    reference:
+      existing.reference ||
+      incoming.reference ||
       null
   };
 }
@@ -1435,6 +1445,12 @@ function mergeOne(
       existing.sourceRecords,
       incoming.sourceRecords
     );
+
+
+  existing.sourceAvailability =
+    existing.sourceAvailability ||
+    incoming.sourceAvailability ||
+    null;
 
 
   /*
