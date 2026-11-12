@@ -66,6 +66,7 @@ test("las dos obras de Ángeles Eraña se amplían SIN red de OpenAlex",async()=
         total:3,complete:true
       };
     },
+    orcidSearchImpl:async()=>({works:[],complete:true}),
     federatedImpl:async name=>{
       federatedCalled=true;
       assert.equal(name,author.displayName);
@@ -90,6 +91,7 @@ test("el índice no disponible conserva las obras iniciales y no consume tokens"
   const result=await discoverAuthorArchive({
     author,initialWorks:[work(1,"Primera",2001)],
     snapshotImpl:async()=>{throw new Error("HF storage temporarily unavailable")},
+    orcidSearchImpl:async()=>({works:[],complete:true}),
     federatedImpl:async()=>({status:"none",works:[]})
   });
   assert.equal(result.works.length,1);
