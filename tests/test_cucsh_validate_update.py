@@ -173,6 +173,64 @@ class CucshValidateUpdateTest(unittest.TestCase):
             result.stdout + result.stderr,
         )
 
+    def test_issue17_author_index_reconstruction_preserves_encoding_provenance(self):
+        from scripts.cucsh.validate_update import (
+            safe_issue17_index_label_reconstruction,
+        )
+
+        original = {
+            **record("sync:issue17", "Sincronía", 2000, 17),
+            "title": "Campos Rodríguez , Patricia",
+            "titleVariants": ["Campos Rodríguez , Patricia"],
+            "authors": [],
+            "legacyOriginal": True,
+            "urls": {"canonical": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/camposr.htm"},
+            "legacyTitleEncodingEvidence": {
+                "kind": "original-issue-index-article-url-and-title",
+                "auditRunId": 43032349081,
+                "sourceIndexUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/camposr.htm",
+                "previousTitle": "Campos Rodr�guez , Patricia",
+            },
+        }
+        updated = {
+            **original,
+            "title": "Una mujer empresaria de principios de siglo",
+            "titleVariants": ["Una mujer empresaria de principios de siglo"],
+            "authors": [{"name": "Patricia Campos Rodríguez"}],
+            "legacyIndexMislabelEvidence": {
+                "kind": "original-issue-index-used-author-names-instead-of-title",
+                "auditRunId": 9876,
+                "sourceIssueUrl": "https://dialnet.unirioja.es/ejemplar/547854",
+                "dialnetArticleId": "dialnet:7425237",
+                "sourceUrl": "https://dialnet.unirioja.es/servlet/articulo?codigo=7425237",
+                "previousTitle": "Campos Rodríguez , Patricia",
+                "score": 1.0,
+                "priorIndexEncodingEvidencePreserved": True,
+            },
+        }
+        self.assertTrue(safe_issue17_index_label_reconstruction(original, updated))
+        tampered = {**updated, "legacyTitleEncodingEvidence": {"kind": "changed"}}
+        self.assertFalse(safe_issue17_index_label_reconstruction(original, tampered))
+        wrong_issue = {**updated, "issueNumber": 18}
+        self.assertFalse(safe_issue17_index_label_reconstruction(original, wrong_issue))
+
+        baseline = snapshot([
+            record("prot:1", "Protrepsis", 2025),
+            record("quad:1", "Quadripartita Ratio", 2025), original,
+        ])
+        after = snapshot([*baseline["records"][:2], updated])
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            before_path, after_path = root / "before.json", root / "after.json"
+            before_path.write_text(json.dumps(baseline), encoding="utf-8")
+            after_path.write_text(json.dumps(after), encoding="utf-8")
+            process = subprocess.run(
+                ["python3", str(VALIDATOR), "--before", str(before_path),
+                 "--after", str(after_path), "--allow-incomplete-sincronia"],
+                cwd=ROOT, text=True, capture_output=True, check=False,
+            )
+        self.assertEqual(process.returncode, 0, process.stdout + process.stderr)
+
     def test_issue44_cannot_regress_below_verified_ten(self):
         from scripts.cucsh.validate_update import (
             SINCRONIA_HISTORICAL_OBSERVED_MINIMUM,

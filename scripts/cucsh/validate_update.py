@@ -437,6 +437,71 @@ SINCRONIA_HISTORICAL_OBSERVED_MINIMUM = {
 }
 
 
+def safe_issue17_index_label_reconstruction(before, after):
+    """Permit a source-proven issue-17 correction of an *author index label*.
+
+    Earlier title-encoding provenance describes restored bytes in the index,
+    not a source-verified article title. It must remain unchanged when we
+    replace the index label with the one-to-one Dialnet article title.
+    """
+    prior = before.get("legacyTitleEncodingEvidence")
+    migration = after.get("legacyIndexMislabelEvidence")
+    if not isinstance(prior, dict) or not isinstance(migration, dict):
+        return False
+    if (
+        before.get("journal") != "Sincronía"
+        or after.get("journal") != "Sincronía"
+        or before.get("issueNumber") != 17
+        or after.get("issueNumber") != 17
+        or prior.get("kind") != "original-issue-index-article-url-and-title"
+        or prior.get("auditRunId") != 43032349081
+        or prior.get("sourceIndexUrl") !=
+           (before.get("urls") or {}).get("canonical")
+        or prior != after.get("legacyTitleEncodingEvidence")
+        or before.get("legacyIndexMislabelEvidence")
+        or migration.get("kind") !=
+           "original-issue-index-used-author-names-instead-of-title"
+        or migration.get("sourceIssueUrl") !=
+           "https://dialnet.unirioja.es/ejemplar/547854"
+        or migration.get("previousTitle") != before.get("title")
+        or not migration.get("priorIndexEncodingEvidencePreserved")
+        or not isinstance(migration.get("auditRunId"), int)
+        or migration["auditRunId"] <= 0
+        or not isinstance(migration.get("score"), (int, float))
+        or migration["score"] < 0.8
+    ):
+        return False
+
+    article_id = migration.get("dialnetArticleId") or ""
+    if not isinstance(article_id, str) or not article_id.startswith("dialnet:"):
+        return False
+    code = article_id.removeprefix("dialnet:")
+    if (
+        not code.isdecimal()
+        or migration.get("sourceUrl") !=
+           f"https://dialnet.unirioja.es/servlet/articulo?codigo={code}"
+        or not isinstance(after.get("title"), str)
+        or len(after["title"]) < 12
+        or "\ufffd" in after["title"]
+        or after["title"] == before.get("title")
+        or after.get("titleVariants") != [after["title"]]
+    ):
+        return False
+
+    permitted = {
+        "title", "titleVariants", "authors", "legacyAuthorEvidence",
+        "legacyIndexMislabelEvidence",
+    }
+    for key in set(before) | set(after):
+        if key not in permitted and before.get(key) != after.get(key):
+            return False
+    if before.get("authors") and before["authors"] != after.get("authors"):
+        return False
+    if not after.get("authors"):
+        return False
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser()
 
@@ -662,6 +727,9 @@ def main():
             before_by_id[key].get("title") != after_by_id[key].get("title")
             or before_by_id[key].get("legacyTitleEncodingEvidence") !=
                after_by_id[key].get("legacyTitleEncodingEvidence")
+        )
+        and not safe_issue17_index_label_reconstruction(
+            before_by_id[key], after_by_id[key]
         )
     ]
     if verified_title_regressions:

@@ -28,6 +28,15 @@ RUN_ID = int(os.environ.get("GITHUB_RUN_ID", "0"))
 STOPWORDS = {"y", "e", "and", "de", "del", "la", "las", "los", "da", "do",
              "dos", "van", "von", "el", "jr", "dr", "dra"}
 
+# Two precisely identified errors in the original *index labels* of issue 17.
+# These aliases are solely for matching author tokens, never for rewriting
+# the original source text, which is preserved in provenance.
+INDEX_LABEL_MATCH_ALIASES = {
+    "M a rtinez , François": "Martínez, François",
+    "Cardaillac-Hermosilla, Yvette": "Cardaillac-Hemosilla, Yvette",
+}
+TITLE_ENCODING_AUDIT = 43032349081
+
 
 def tokens(text):
     value = unicodedata.normalize("NFKD", str(text or "").casefold())
@@ -40,7 +49,9 @@ def score_legacy_label(legacy_title, catalogue_authors):
         (value.get("name") if isinstance(value, dict) else str(value or ""))
         for value in (catalogue_authors or [])
     ]
-    label_words = tokens(legacy_title)
+    label_words = tokens(INDEX_LABEL_MATCH_ALIASES.get(
+        legacy_title, legacy_title
+    ))
     author_words = set().union(*(tokens(name) for name in names))
     if len(label_words) < 2 or len(author_words) < 2:
         return 0.0
@@ -76,10 +87,29 @@ def reconcile_issue17(snapshot, dialnet, expected=EXPECTED, audit_run=RUN_ID):
     if any(
         not row.get("legacyOriginal")
         or row.get("legacyIndexMislabelEvidence")
-        or row.get("legacyTitleEncodingEvidence")
         for row in local
     ):
         raise ValueError("Issue 17 source records are not raw unreconstructed labels")
+
+    # Five of the index author labels were ALREADY repaired for byte-encoding
+    # errors in audit 43032349081. Those repairs were valid corrections of the
+    # *index text*, not verification that it was an article title. Keep their
+    # evidence byte-for-byte; the next layer restores the real work title.
+    for row in local:
+        prior = row.get("legacyTitleEncodingEvidence")
+        if not prior:
+            continue
+        if (
+            prior.get("kind") != "original-issue-index-article-url-and-title"
+            or prior.get("auditRunId") != TITLE_ENCODING_AUDIT
+            or prior.get("sourceIndexUrl") !=
+               (row.get("urls") or {}).get("canonical")
+            or not prior.get("previousTitle")
+        ):
+            raise ValueError(
+                "Issue 17 has incompatible prior title evidence: "
+                + str(row.get("id"))
+            )
 
     if len({row.get("sourceId") for row in external}) != expected:
         raise ValueError("Dialnet article identifiers are missing or duplicated")
@@ -150,6 +180,10 @@ def reconcile_issue17(snapshot, dialnet, expected=EXPECTED, audit_run=RUN_ID):
             "sourceUrl": (external_row.get("urls") or {}).get("canonical"),
             "previousTitle": original_title,
             "score": confidence,
+            "priorIndexEncodingEvidencePreserved": bool(
+                row.get("legacyTitleEncodingEvidence")
+            ),
+            "labelMatchAlias": INDEX_LABEL_MATCH_ALIASES.get(original_title),
         }
         updated["legacyIndexMislabelEvidence"] = evidence
         staged.append(updated)
