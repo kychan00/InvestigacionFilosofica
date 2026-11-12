@@ -8,7 +8,8 @@ import {
   normalizeOrcidPublicWorks,
   normalizeOrcidPublicProfile,
   normalizeOrcidSearchCsv,
-  searchOrcid
+  searchOrcid,
+  searchOrcidProfiles
 } from "../../src/sources/orcid.js?v=20261112-federated-search-v1";
 import { mergeAuthorArchives } from "../../src/core/author-deep-discovery.js";
 const id = "0000-0002-7283-8051";
@@ -131,6 +132,15 @@ assert.ok(searchCors === "*" || searchCors === origin,
 const profiles = normalizeOrcidSearchCsv(searchText);
 assert.ok(profiles.some(item => item.orcid === romuloId),
   "La búsqueda pública debe localizar el ORCID conocido de Rómulo");
+
+const productionProfileSearch = await searchOrcidProfiles(romuloName, {
+  start: 0,
+  rows: 4
+});
+console.log("ORCID production searchOrcidProfiles:", productionProfileSearch);
+assert.ok(productionProfileSearch.length > 0,
+  "La función real searchOrcidProfiles debe devolver perfiles con la configuración de producción");
+
 
 const mauricioName = "Mauricio Méndez Huerta";
 const federatedOrcid = await searchOrcid(
