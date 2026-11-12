@@ -34,8 +34,12 @@ class Verified2008GapsTest(unittest.TestCase):
             check_source({**entry, "url": "https://malicious.example/record"}, 47)
 
     def test_unavailable_issue_never_authorizes_additions(self):
+        existing = [
+            {"id": f"original:{i}", "journal": "Sincronía", "issueNumber": 47}
+            for i in range(14)
+        ]
         with self.assertRaisesRegex(ValueError, "evidence missing"):
-            verify_issue([], {}, 47)
+            verify_issue(existing, {}, 47)
 
     def test_metadata_from_different_code_does_not_pass(self):
         entry = {
