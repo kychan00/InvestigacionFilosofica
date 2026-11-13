@@ -31,7 +31,10 @@ TARGET_IDS = {
 }
 CANDIDATES = [
     DANTE + "index.html", DANTE + "index.htm", DANTE + "default.htm",
-    DANTE + "dante.html", DANTE, DANTE + "ana.html", DANTE + "hyper.html",
+    DANTE + "dante.html", DANTE + "dindex.html", DANTE + "dindex.htm",
+    ROOT + "dindex.html", ROOT + "dindex.htm",
+    "http://sincronia.cucsh.udg.mx/dindex.html",
+    DANTE, DANTE + "ana.html", DANTE + "hyper.html",
     DANTE + "bio.html", ROOT + "indice8.htm", ROOT + "indice8.html",
     ROOT + "index.html", "http://sincronia.cucsh.udg.mx/campos.htm",
     ROOT + "campos.htm", ROOT + "campos.html", ROOT + "campo.htm",
@@ -74,7 +77,7 @@ def index_captures(url, *, getter=get_json):
             captures = parse_available(getter(available_url(url), timeout=7), url)
         except (ValueError, KeyError, TimeoutError, urllib.error.URLError, OSError) as exc:
             errors.append(type(exc).__name__)
-    return captures[:2], errors
+    return captures[:4], errors
 
 
 def fetch_archived_document(snapshot_url, *, opener=urllib.request.urlopen):
@@ -110,7 +113,7 @@ def fetch_archived_document(snapshot_url, *, opener=urllib.request.urlopen):
 def inspect_candidate(url, *, indexer=index_captures, fetcher=fetch_archived_document):
     snapshots, errors = indexer(url)
     outcome = {"candidateUrl": url, "indexErrors": errors, "captures": []}
-    for snap in snapshots[:2]:
+    for snap in snapshots[:3]:
         capture = {"timestamp": snap["timestamp"], "snapshotUrl": snap["snapshotUrl"]}
         try:
             capture.update(fetcher(snap["snapshotUrl"]))
