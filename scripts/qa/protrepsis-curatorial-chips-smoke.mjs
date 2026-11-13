@@ -77,6 +77,11 @@ try {
     await page.locator("#journal-category-all").click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),6);
 
+    // En móvil, los selects tradicionales viven dentro del panel plegable.
+    // Abrirlo antes de comprobar selectOption y el reset global.
+    const filterToggle=page.locator("#journal-filter-toggle");
+    if(await filterToggle.getAttribute("aria-expanded")==="false") await filterToggle.click();
+    assert.equal(await page.locator(".journal-filter-body").isVisible(),true);
     // El selector tradicional debe reflejarse en los chips.
     const politicalValue=await page.locator("#journal-category option").evaluateAll(
       options=>options.find(option=>option.textContent?.includes("Política"))?.value
