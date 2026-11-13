@@ -50,6 +50,8 @@ test("runtime de revistas separa metadatos editoriales de categorías derivadas"
   assert.match(source, /!categoriesFor\(record\)\.includes\(state\.category\)/);
   assert.match(source, /Área general/);
   assert.match(source, /category-filter-chip/);
+  assert.match(source, /function hasActiveFilters\(\)/);
+  assert.match(source, /hasActiveFilters\(\) \? " · filtros activos" : ""/);
   assert.match(source, /record\.subjects/);
   assert.match(topics, /Palabras clave editoriales/);
   assert.match(topics, /Temas bibliográficos/);
