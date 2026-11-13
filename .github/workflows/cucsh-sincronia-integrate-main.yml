@@ -1,0 +1,128 @@
+name: Sincronía · integrate vetted main into feature branch
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-integrate-main.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-integration-main-into-feature-once
+  cancel-in-progress: false
+
+jobs:
+  vetted-merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Fetch actual main and prepare fail-closed merge
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          git rev-parse origin/main > /tmp/sincronia-reviewed-main-head.txt
+          git rev-parse HEAD > /tmp/sincronia-reviewed-feature-head.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git merge --no-commit --no-ff origin/main || true
+          test "$(git diff --name-only --diff-filter=U | LC_ALL=C sort | tr '\n' ' ')" = "acerca.html scripts/cucsh/harvest.py src/data/cucsh-filosofia.json tests/cucsh-filosofia.test.mjs "
+      - name: Resolve four reviewed conflicts preserving main plus 1454 Sincronía
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/reconcile_sincronia_main_conflicts.py \
+            --output /tmp/sincronia-final-main-reconciliation.json
+          git add acerca.html scripts/cucsh/harvest.py src/data/cucsh-filosofia.json tests/cucsh-filosofia.test.mjs tests/quadripartita-stamps.test.mjs
+          test -z "$(git diff --name-only --diff-filter=U)"
+          git diff --cached --check
+          python3 -m py_compile scripts/cucsh/harvest.py scripts/cucsh/reconcile_sincronia_main_conflicts.py
+      - name: Validate corpus conservation and scholarly articles
+        shell: bash
+        run: |
+          set -euo pipefail
+          git show origin/main:src/data/cucsh-filosofia.json > /tmp/sincronia-current-main-cucsh.json
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/sincronia-current-main-cucsh.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-reconciled-pending-authors.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-reconciled-historical.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          r=json.loads(Path("/tmp/sincronia-reconciled-pending-authors.json").read_text())
+          counts={name:sum(x["journal"]==name for x in d["records"])
+                  for name in ["Protrepsis","Quadripartita Ratio","Sincronía"]}
+          assert counts=={"Protrepsis":248,"Quadripartita Ratio":88,"Sincronía":1454},counts
+          assert len(d["records"])==1790
+          assert len({x["id"] for x in d["records"]})==1790
+          assert r["totalSincroniaRecords"]==1454
+          assert r["pendingAuthorRecords"]==3
+          assert r["pendingAuthorshipCasesExcludingVerifiedNonArticles"]==0
+          assert r["highConfidenceNonArticleCount"]==3
+          assert r["unresolvedOriginalWorkIdentityConflictCount"]==0
+          assert r["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_COMPLETE_CORPUS_CONSERVED",counts)
+          PY
+      - name: Run every CUCSH Python test
+        run: |
+          python3 -m unittest discover -s tests -p 'test_cucsh_*.py'
+      - name: Run full JavaScript application regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit vetted main merge on feature only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          test "$(git rev-parse origin/main)" = "$(cat /tmp/sincronia-reviewed-main-head.txt)" || {
+            echo "main changed during tests; stop and re-evaluate the current version"
+            exit 1
+          }
+          test -f .git/MERGE_HEAD || { echo "Missing merge metadata; cannot prove two parents"; exit 1; }
+          test -z "$(git diff --name-only --diff-filter=U)"
+          git diff --cached --check
+          git commit -m "Integrate current main with complete source-verified Sincronía corpus"
+          test "$(git rev-list --parents -n1 HEAD | wc -w)" -eq 3 || {
+            echo "Expected a two-parent merge commit"
+            exit 1
+          }
+          git push origin HEAD:feature/cucsh-sincronia
+          echo "SINCRONIA_FEATURE_MERGE_COMMITTED $(git rev-parse HEAD)"
+          echo "SINCRONIA_MAIN_UNMODIFIED $(cat /tmp/sincronia-reviewed-main-head.txt)"
+      - name: Preserve reconciled evidence and validation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-main-integration-audited
+          path: |
+            /tmp/sincronia-final-main-reconciliation.json
+            /tmp/sincronia-reconciled-pending-authors.json
+            /tmp/sincronia-reconciled-historical.json
+            /tmp/sincronia-reviewed-main-head.txt
+            /tmp/sincronia-reviewed-feature-head.txt
+          retention-days: 30
+          if-no-files-found: warn
