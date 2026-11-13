@@ -1,0 +1,132 @@
+name: Sincronía · restore second four signed archive works
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-second-four-wayback.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-second-four-signed-wayback
+  cancel-in-progress: false
+
+jobs:
+  restore-four:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Verify signed historical source matches and unchanged originals
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_second_four_wayback
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Restore exactly four directly signed original bylines
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-second-four-before.json
+          python3 -m scripts.cucsh.restore_sincronia_second_four_wayback \
+            --input /tmp/cucsh-second-four-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Audit original metadata and strictly four changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-second-four-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-second-four-history.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-second-four-pending.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.cucsh.restore_sincronia_second_four_wayback import SOURCES
+
+          bdata=json.loads(Path("/tmp/cucsh-second-four-before.json").read_text(encoding="utf-8"))
+          adata=json.loads(Path("src/data/cucsh-filosofia.json").read_text(encoding="utf-8"))
+          before={row["id"]:row for row in bdata["records"]}
+          after={row["id"]:row for row in adata["records"]}
+          assert len(before)==len(after)==1845
+          assert list(before)==list(after)
+          changed=[rid for rid in before if before[rid]!=after[rid]]
+          assert len(changed)==4 and set(changed)==set(SOURCES),changed
+          for rid in changed:
+              old,new=before[rid],after[rid]
+              source=SOURCES[rid]
+              assert old["journal"]==new["journal"]=="Sincronía"
+              for field in ("title","year","issueNumber","urls","legacyOriginal","legacyAccessStatus"):
+                  assert old[field]==new[field],(rid,field)
+              assert old.get("legacyTitleEncodingEvidence")==new.get("legacyTitleEncodingEvidence")
+              assert {k for k in set(old)|set(new)
+                      if old.get(k)!=new.get(k)}=={"authors","legacyAuthorEvidence"}
+              assert new["authors"]==[{"name":source["author"],"sourceName":source["author"]}]
+              evidence=new["legacyAuthorEvidence"]
+              assert evidence["sourceUrl"]==source["snapshot"]
+              assert evidence["sourceArticleUrl"]==source["url"]
+              assert evidence["sourcePrintedByline"]==source["printedByline"]
+              assert evidence["verifiedTitle"]==source["title"]
+              assert evidence["matchedIndexedYear"]==source["year"]
+              assert evidence["matchedIndexedIssue"]==source["issue"]
+              assert evidence["originalAvailabilityPreserved"]
+          duran=after["cucsh:sincronia-legacy:4869f07f890d2997ddb1"]
+          assert duran["year"]==1998
+          assert duran["legacyAuthorEvidence"]["sourcePrintedCopyrightYear"]==1996
+          report=json.loads(Path("/tmp/sincronia-second-four-pending.json").read_text(encoding="utf-8"))
+          assert report["totalSincroniaRecords"]==1454
+          assert report["pendingAuthorRecords"]==43
+          assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==41
+          assert report["highConfidenceEditorialNavigationCount"]==2
+          assert report["bibliographicConflictCount"]==1
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_SECOND_FOUR_BYLINES_PASS",len(changed),43)
+          PY
+      - name: Run full application regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit only verified bibliography change to feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected worktree modification"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore four more directly signed original Sincronía bylines"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload archival quality and pending author audits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-second-four-signed
+          path: |
+            /tmp/sincronia-second-four-history.json
+            /tmp/sincronia-second-four-pending.json
+          retention-days: 30
+          if-no-files-found: warn
