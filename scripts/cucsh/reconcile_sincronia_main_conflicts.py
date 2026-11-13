@@ -68,6 +68,26 @@ def resolve_text(path, expected_count):
             raise ValueError("Unexpected unit test conflict")
         raise ValueError(f"Unsupported conflict: {path}")
     repaired=CONFLICT_MARKERS.sub(replace,content)
+    if path=="tests/cucsh-filosofia.test.mjs":
+        original_feature=read_stage(path,2)
+        original_main=read_stage(path,3)
+        anchor='test(\\n  "Protrepsis conserva metadatos editoriales de los números 1–14"'
+        anchor=anchor.replace('\\n','\n')
+        if original_feature.count("Sincronía 1–90 contiene")!=1:
+            raise ValueError("Sincronía article tests not found exactly once")
+        if original_main.count(anchor)!=1:
+            raise ValueError("Cannot identify new main Protrepsis tests")
+        if original_feature.count("records.length >= 391")!=1:
+            raise ValueError("Original feature corpus test precondition changed")
+        if original_feature.count(").length >= 303")!=1:
+            raise ValueError("Original feature Protrepsis test precondition changed")
+        repaired=(
+            original_feature
+                .replace("records.length >= 391","records.length >= 1790")
+                .replace(").length >= 303",").length >= 248")
+                .rstrip()
+            +"\\n\\n"+original_main[original_main.index(anchor):]
+        )
     if "<<<<<<<" in repaired or ">>>>>>> origin/main" in repaired:
         raise ValueError(f"Merge markers remain in {path}")
     if path=="scripts/cucsh/harvest.py":
@@ -152,6 +172,20 @@ def reconcile_data():
         "mainCuratedJournalRecordsAltered":0,
     }
 
+def adapt_quadripartita_test():
+    path=ROOT/"tests/quadripartita-stamps.test.mjs"
+    code=path.read_text(encoding="utf-8")
+    before="  assert.equal(data.records.length, 336);"
+    if code.count(before)!=1:
+        raise ValueError("Quadripartita's main-only count assertion drifted")
+    after=(
+        "  assert.equal(data.records.length, 1790);\\n"
+        '  assert.equal(data.records.filter(x => x.journal === "Sincronía").length, 1454);'
+    ).replace("\\n","\n")
+    path.write_text(code.replace(before,after),encoding="utf-8")
+    return str(path.relative_to(ROOT))
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--output",required=True,type=Path)
@@ -166,6 +200,7 @@ def main():
             ("tests/cucsh-filosofia.test.mjs",1)
         )},
         "data":reconcile_data(),
+        "adaptedMainOnlyTest":adapt_quadripartita_test(),
         "protectedMain":True,
         "branchIsOnlyAnEphemeralRunnerWorktree":True,
     }

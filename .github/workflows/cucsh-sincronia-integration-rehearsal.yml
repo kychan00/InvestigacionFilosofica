@@ -43,7 +43,7 @@ jobs:
       - name: Resolve exactly four reviewed conflicts with main curation preserved
         run: |
           python3 scripts/cucsh/reconcile_sincronia_main_conflicts.py --output /tmp/sincronia-integration-report.json
-          git add acerca.html scripts/cucsh/harvest.py src/data/cucsh-filosofia.json tests/cucsh-filosofia.test.mjs
+          git add acerca.html scripts/cucsh/harvest.py src/data/cucsh-filosofia.json tests/cucsh-filosofia.test.mjs tests/quadripartita-stamps.test.mjs
           git diff --cached --check
           test -z "$(git diff --name-only --diff-filter=U)"
           python3 -m py_compile scripts/cucsh/harvest.py scripts/cucsh/reconcile_sincronia_main_conflicts.py
@@ -56,7 +56,11 @@ jobs:
           npm test > /tmp/sincronia-rehearsal-npm.log 2>&1
           status=$?
           set -e
-          cat /tmp/sincronia-rehearsal-npm.log | tail -80
+          tail -80 /tmp/sincronia-rehearsal-npm.log
+          if [ "$status" -ne 0 ]; then
+            node --check tests/cucsh-filosofia.test.mjs || true
+            grep -n -E '✖|SyntaxError|ERR_ASSERTION|expected|Expected' /tmp/sincronia-rehearsal-npm.log | tail -45 || true
+          fi
           echo "SINCRONIA_INTEGRATION_NPM_TEST_EXIT $status"
           echo "$status" > /tmp/sincronia-rehearsal-npm-status.txt
       - name: Run Python auditing and source conservation tests
