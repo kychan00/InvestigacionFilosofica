@@ -476,13 +476,25 @@ function selectTaxonomyFacet(facet, value) {
   if (state.view === "atlas") buildAtlas();
 }
 
+function hasActiveFilters() {
+  return Boolean(
+    String(state.query || "").trim() ||
+    state.decade !== "all" ||
+    state.language !== "all" ||
+    state.category !== "all" ||
+    state.issue !== "all" ||
+    state.doiOnly ||
+    state.abstractOnly
+  );
+}
+
 function renderArchive() {
   const records = filteredRecords();
   const visible = records.slice(0, state.limit);
   el.results.replaceChildren(...visible.map(card));
   el.status.textContent =
     records.length + (records.length === 1 ? " artículo" : " artículos") +
-    (state.records.length !== records.length ? " · filtros activos" : "");
+    (hasActiveFilters() ? " · filtros activos" : "");
   el.loadMore.hidden = visible.length >= records.length;
   el.loadMore.textContent = visible.length < records.length
     ? "Cargar " + Math.min(PAGE_SIZE, records.length - visible.length) + " más"
