@@ -22554,7 +22554,12 @@
       "titleVariants": [
         "Vevia Romero,Fernando Carlos"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Fernando Carlos Vevia Romero",
+          "sourceName": "Fernando Carlos Vevia Romero"
+        }
+      ],
       "date": "1999",
       "year": 1999,
       "type": "journal-article",
@@ -22587,6 +22592,27 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "signed-original-sincronia-wayback-page-exact-url",
+        "sourceUrl": "https://web.archive.org/web/20000124192116/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/vevia2.htm",
+        "sourceArchive": "Internet Archive Wayback Machine",
+        "sourceCaptureTimestamp": "20000124192116",
+        "sourcePageTitle": "Sincronia Fall99",
+        "sourceArticleTitle": "La dimensión filosófica del dolor",
+        "sourcePrintedByline": "Fernando Carlos Vevia Romero",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/vevia2.htm",
+        "urlMatchLevel": "exact-historical-url-with-optional-http-default-port",
+        "matchedIndexedIssue": 12,
+        "matchedIndexedYear": 1999,
+        "verifiedAuthor": "Fernando Carlos Vevia Romero",
+        "verifiedTitle": "Vevia Romero,Fernando Carlos",
+        "originalAvailabilityPreserved": true,
+        "note": "The source is a captured original page with explicit author byline and article heading. This does not establish that the historic original URL is online.",
+        "sourceIssueHeading": "Sincronía Fall/Otoño 1999",
+        "sourcePrintedAffiliation": "Universidad de Guadalajara",
+        "authorOtherOriginalSignedArticle": "http://sincronia.cucsh.udg.mx/vevia.html",
+        "titleIdentityCaveat": "The historical index uses 'Vevia Romero,Fernando Carlos' as an item label, while the signed original /vevia2.htm page is titled 'La dimensión filosófica del dolor'. The same researcher's issue 1 work on Peirce is a distinct article at a distinct original URL. Keep both work identities separate and preserve issue 12 (1999)."
       }
     },
     {
@@ -25898,7 +25924,12 @@
       "titleVariants": [
         "Formanchuk, Alejandro E."
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Alejandro E. Formanchuk",
+          "sourceName": "Alejandro E. Formanchuk"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -25931,6 +25962,26 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "signed-original-sincronia-wayback-page-exact-url",
+        "sourceUrl": "https://web.archive.org/web/20010611171110/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/formanchuk2.htm",
+        "sourceArchive": "Internet Archive Wayback Machine",
+        "sourceCaptureTimestamp": "20010611171110",
+        "sourcePageTitle": "Como una aspiradora, el pago de los intereses de la deuda absorbe gran parte del presupuesto nacional",
+        "sourceArticleTitle": "El nudo gordiano",
+        "sourcePrintedByline": "ALEJANDRO E. FORMANCHUK",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/formanchuk2.htm",
+        "urlMatchLevel": "exact-historical-url-with-optional-http-default-port",
+        "matchedIndexedIssue": 16,
+        "matchedIndexedYear": 2000,
+        "verifiedAuthor": "Alejandro E. Formanchuk",
+        "verifiedTitle": "Formanchuk, Alejandro E.",
+        "originalAvailabilityPreserved": true,
+        "note": "The source is a captured original page with explicit author byline and article heading. This does not establish that the historic original URL is online.",
+        "sourceIssueHeading": "Sincronía Otoño 2000",
+        "sourcePrintedContact": "mariscal@elsitio.net",
+        "titleIdentityCaveat": "The historical index uses 'Formanchuk, Alejandro E.' where the original /formanchuk2.htm page displays 'El nudo gordiano' followed by the explicit signature 'ALEJANDRO E. FORMANCHUK'. The distinct HTML page title is a sentence about foreign-debt interest payments, not the work's displayed article title. Preserve index metadata and archived-only original status unchanged."
       }
     },
     {
