@@ -216,6 +216,62 @@ def validate_snapshot(
                 )
 
 
+        editorial_keywords = record.get(
+            "editorialKeywords",
+            [],
+        )
+
+        if not isinstance(
+            editorial_keywords,
+            list,
+        ):
+            fail(
+                f"{label}: editorialKeywords "
+                f"is not a list in {key}"
+            )
+
+        cleaned_editorial = [
+            str(value).strip()
+            for value in editorial_keywords
+            if str(value).strip()
+        ]
+
+        if len({
+            value.casefold()
+            for value in cleaned_editorial
+        }) != len(cleaned_editorial):
+            fail(
+                f"{label}: duplicate editorial "
+                f"keywords in {key}"
+            )
+
+        editorial_source = record.get(
+            "editorialKeywordSource"
+        )
+
+        if (
+            editorial_source
+            and editorial_source not in {
+                "oai-dc",
+                "ojs-article",
+            }
+        ):
+            fail(
+                f"{label}: invalid editorial "
+                f"keyword source in {key}: "
+                f"{editorial_source}"
+            )
+
+        if (
+            editorial_keywords
+            and not editorial_source
+        ):
+            fail(
+                f"{label}: editorial keywords "
+                f"without provenance in {key}"
+            )
+
+
         doi = record.get(
             "doi"
         )
