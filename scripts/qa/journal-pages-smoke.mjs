@@ -262,6 +262,8 @@ try {
       await page.locator('[data-journal-view="archive"]').click();
       if (journal === "protrepsis") {
         await page.locator('[data-pro-explorer-tab="filters"]').click();
+      } else if (journal === "sincronia") {
+        await page.locator('[data-sn-explorer-tab="filters"]').click();
       }
       await page.locator("#journal-query").fill(journal === "protrepsis" ? "verdad" : journal === "sincronia" ? "digital" : "inferencias");
       await page.waitForTimeout(30);
