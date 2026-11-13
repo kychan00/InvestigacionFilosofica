@@ -112,7 +112,17 @@ export function articleTopicMetadata(record, { derive = true, limit = 8 } = {}) 
     };
   }
 
-  const derived = derive ? derivedArticleTopics(record, limit) : [];
+  if (!derive) {
+    return {
+      topics: [],
+      allTopics: [],
+      origin: "none",
+      label: "Temas documentados",
+      note: "La fuente no proporciona etiquetas temáticas documentadas para este registro."
+    };
+  }
+
+  const derived = derivedArticleTopics(record, limit);
   return {
     topics: derived,
     allTopics: derived,
