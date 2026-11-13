@@ -16,6 +16,11 @@ on:
       - "scripts/qa/journal-pages-smoke.mjs"
       - "scripts/qa/journal-institutional-smoke.mjs"
       - "scripts/qa/protrepsis-paper-smoke.mjs"
+      - "scripts/qa/quadripartita-stamps-smoke.mjs"
+      - "tests/quadripartita-stamps.test.mjs"
+      - "js/quadripartita-stamps.js"
+      - "css/quadripartita-cobalt.css"
+      - "assets/quadripartita-engraving.svg"
       - "tests/protrepsis-paper.test.mjs"
       - "js/journal-institutional.js"
       - "tests/journal-institutional.test.mjs"
@@ -170,6 +175,9 @@ jobs:
       - name: Verify complete Protrepsis paper redesign and editorial navigation
         run: node scripts/qa/protrepsis-paper-smoke.mjs
 
+      - name: Verify Quadripartita engraved stamps and cobalt editorial design
+        run: node scripts/qa/quadripartita-stamps-smoke.mjs
+
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -189,4 +197,5 @@ jobs:
             artifacts/journal-pages/
             artifacts/journal-institutional/
             artifacts/protrepsis-paper/
+            artifacts/quadripartita-stamps/
           if-no-files-found: ignore
