@@ -53,12 +53,20 @@ test("Protrepsis presenta artículo junto al mapa y relaciones debajo", () => {
   assert.match(style,/\.pro-atlas-reader-detail \.atlas-abstract-body/);
 });
 
-test("no se introduce el cambio en Sincronía ni Quadripartita ni se modifica el corpus", async () => {
-  for (const journalName of ["quadripartita-ratio","sincronia"]) {
-    const html = await readFile("revistas/udg/"+journalName+".html","utf8");
+test("el layout de Protrepsis permanece aislado aunque Sincronía adopte su patrón UX", async () => {
+  const quadripartita = await readFile("revistas/udg/quadripartita-ratio.html","utf8");
+  const sincronia = await readFile("revistas/udg/sincronia.html","utf8");
+
+  for (const html of [quadripartita, sincronia]) {
     assert.doesNotMatch(html,/protrepsis-reading-layout|protrepsis-explorer/);
-    assert.doesNotMatch(html,/journal-atlas-relations/);
+    assert.doesNotMatch(html,/pro-atlas-reader|pro-explorer-tab/);
   }
+  // Quadripartita keeps its own Atlas. Sincronía intentionally reuses only
+  // the optional shared relationship outlet with its own scoped UI.
+  assert.doesNotMatch(quadripartita,/journal-atlas-relations/);
+  assert.match(sincronia,/id="journal-atlas-relations"/);
+  assert.match(sincronia,/class="journal-atlas-aside sn-atlas-reader"/);
+
   const data = JSON.parse(await readFile("src/data/cucsh-filosofia.json","utf8"));
   assert.equal(data.records.filter(record => record.journal === "Protrepsis").length,248);
   assert.match(style,/@media\(max-width:950px\)/);

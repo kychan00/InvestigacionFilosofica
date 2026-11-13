@@ -110,7 +110,22 @@ try{
   assert.match(await page.locator(".author-page-aliases").textContent(),/Marina Hernández/);
   assert.equal(await page.locator(".author-collaboration-tag").count(),2);
   assert.equal(await page.locator(".author-individual-tag").count(),2);
-  await page.locator(".author-page-works").scrollIntoViewIfNeeded();
+  // The author page may replace the works section after aliases/collaborations
+  // settle. Reacquire the live node in the browser to avoid a stale locator race.
+  await page.evaluate(() => {
+    const worksSection = document.querySelector(".author-page-works");
+    if (!worksSection || !worksSection.isConnected) {
+      throw new Error("The author works section is missing after name-only resolution");
+    }
+    worksSection.scrollIntoView({block:"start",behavior:"instant"});
+  });
+  await page.waitForFunction(expectedTitles => {
+    const worksSection = document.querySelector(".author-page-works");
+    const currentTitles = [...document.querySelectorAll(".author-work-grid .result-card h2")]
+      .map(node => node.textContent || "");
+    return Boolean(worksSection?.isConnected) &&
+      expectedTitles.every(title => currentTitles.some(current => current.includes(title)));
+  }, works.map(entry => entry.t), {timeout:10000});
   await page.screenshot({path:"artifacts/author-name-lookup/marina-"+theme+"-390.png",
     animations:"disabled"});
   await page.close();
