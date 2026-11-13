@@ -14,6 +14,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from protrepsis_policy import is_temperie_record
@@ -183,6 +184,30 @@ WHITESPACE_RE = re.compile(
     r"\s+"
 )
 
+META_TAG_RE = re.compile(
+    r"<meta\b[^>]*>",
+    re.IGNORECASE,
+)
+
+HTML_ATTR_RE = re.compile(
+    r"""([:\w-]+)\s*=\s*(["'])(.*?)\2""",
+    re.IGNORECASE | re.DOTALL,
+)
+
+KEYWORD_SECTION_RE = re.compile(
+    r"""<(?:section|div)\b[^>]*class\s*=\s*["'][^"']*(?:keywords?|subjects?)[^"']*["'][^>]*>(.*?)</(?:section|div)>""",
+    re.IGNORECASE | re.DOTALL,
+)
+
+KEYWORD_LABEL_RE = re.compile(
+    r"^\s*(?:palabras?\s+clave|keywords?|subjects?)\s*:?\s*",
+    re.IGNORECASE,
+)
+
+KEYWORD_SPLIT_RE = re.compile(
+    r"\s*(?:;|,|\||•|·)\s*"
+)
+
 
 def request_bytes(
     url: str,
@@ -273,6 +298,251 @@ def unique_strings(
         output.append(clean)
 
     return output
+
+
+
+def split_keyword_values(
+    values,
+):
+    output = []
+    seen = set()
+
+    for value in values or []:
+        clean = (
+            clean_text(value)
+            or ""
+        )
+
+        clean = KEYWORD_LABEL_RE.sub(
+            "",
+            clean,
+        )
+
+        if not clean:
+            continue
+
+        parts = KEYWORD_SPLIT_RE.split(
+            clean
+        )
+
+        for part in parts:
+            keyword = (
+                clean_text(part)
+                or ""
+            ).strip(" .:;-")
+
+            if (
+                len(keyword) < 2
+                or len(keyword) > 160
+            ):
+                continue
+
+            if KEYWORD_LABEL_RE.fullmatch(
+                keyword
+            ):
+                continue
+
+            key = keyword.casefold()
+
+            if key in seen:
+                continue
+
+            seen.add(key)
+            output.append(keyword)
+
+    return output[:24]
+
+
+def keywords_from_article_html(
+    payload,
+):
+    if isinstance(payload, bytes):
+        text = payload.decode(
+            "utf-8",
+            errors="replace",
+        )
+    else:
+        text = str(payload or "")
+
+    candidates = []
+
+    for tag in META_TAG_RE.findall(
+        text
+    ):
+        attrs = {
+            name.casefold():
+                html.unescape(value)
+            for name, _, value
+            in HTML_ATTR_RE.findall(tag)
+        }
+
+        meta_name = (
+            attrs.get("name")
+            or attrs.get("property")
+            or ""
+        ).casefold()
+
+        if (
+            meta_name in {
+                "dc.subject",
+                "dcterms.subject",
+                "citation_keywords",
+                "keywords",
+                "article:tag",
+            }
+            or meta_name.endswith(
+                ".subject"
+            )
+        ):
+            content = attrs.get(
+                "content"
+            )
+
+            if content:
+                candidates.append(
+                    content
+                )
+
+    for block in KEYWORD_SECTION_RE.findall(
+        text
+    ):
+        clean = clean_text(
+            block
+        )
+
+        if clean:
+            candidates.append(
+                clean
+            )
+
+    return split_keyword_values(
+        candidates
+    )
+
+
+def article_keywords_for_record(
+    record,
+):
+    canonical = (
+        record.get(
+            "urls",
+            {},
+        ).get(
+            "canonical"
+        )
+        or ""
+    ).strip()
+
+    if (
+        not canonical
+        or "/article/view/" not in canonical
+    ):
+        return []
+
+    try:
+        payload = request_bytes(
+            canonical,
+            timeout=12,
+        )
+
+        return keywords_from_article_html(
+            payload
+        )
+
+    except Exception:
+        # HTML enrichment is deliberately best-effort:
+        # OAI remains the authoritative harvest path.
+        return []
+
+
+def enrich_protrepsis_editorial_keywords(
+    records,
+):
+    candidates = [
+        record
+        for record in records
+        if not (
+            record.get(
+                "editorialKeywords"
+            )
+            or []
+        )
+        and (
+            record.get(
+                "urls",
+                {},
+            ).get(
+                "canonical"
+            )
+            or ""
+        )
+    ]
+
+    if not candidates:
+        return 0
+
+    enriched = 0
+
+    # Small bounded pool keeps the monthly harvest practical
+    # without hammering the journal server.
+    with ThreadPoolExecutor(
+        max_workers=4
+    ) as executor:
+        future_to_record = {
+            executor.submit(
+                article_keywords_for_record,
+                record,
+            ):
+                record
+            for record in candidates
+        }
+
+        for future in as_completed(
+            future_to_record
+        ):
+            record = (
+                future_to_record[
+                    future
+                ]
+            )
+
+            try:
+                keywords = (
+                    future.result()
+                )
+            except Exception:
+                keywords = []
+
+            if not keywords:
+                continue
+
+            record[
+                "editorialKeywords"
+            ] = keywords
+
+            record[
+                "editorialKeywordSource"
+            ] = "ojs-article"
+
+            subjects = unique_strings(
+                [
+                    *(
+                        record.get(
+                            "subjects"
+                        )
+                        or []
+                    ),
+                    *keywords,
+                ]
+            )
+
+            record["subjects"] = (
+                subjects
+            )
+
+            enriched += 1
+
+    return enriched
 
 
 def normalize_language(
@@ -1040,6 +1310,16 @@ def parse_oai_record(
         "subjects":
             subjects,
 
+        "editorialKeywords":
+            subjects,
+
+        "editorialKeywordSource":
+            (
+                "oai-dc"
+                if subjects
+                else None
+            ),
+
         "bibliographicSources":
             sources,
 
@@ -1361,6 +1641,7 @@ def merge_record_metadata(
         "issueNumbers",
         "issueNumber",
         "historicalSource",
+        "editorialKeywordSource",
     ):
         if (
             not merged.get(field)
@@ -1372,6 +1653,7 @@ def merge_record_metadata(
 
     for field in (
         "subjects",
+        "editorialKeywords",
         "bibliographicSources",
         "rights",
         "titleVariants",
@@ -1651,6 +1933,7 @@ def build_dataset(
 
         historical_added = 0
         historical_enriched = 0
+        editorial_keywords_enriched = 0
 
         if (
             source["journal"]
@@ -1683,6 +1966,12 @@ def build_dataset(
                     )
                     + policy_removed
                 )
+
+            editorial_keywords_enriched = (
+                enrich_protrepsis_editorial_keywords(
+                    records
+                )
+            )
 
             supplement = (
                 load_historical_protrepsis()
@@ -1753,6 +2042,9 @@ def build_dataset(
 
             "historicalEnriched":
                 historical_enriched,
+
+            "editorialKeywordsEnriched":
+                editorial_keywords_enriched,
         })
 
     all_records.sort(
@@ -1880,7 +2172,8 @@ def main():
             f"excluded={summary['excludedTotal']} "
             f"deleted={summary['deleted']} "
             f"historicalAdded={summary['historicalAdded']} "
-            f"historicalEnriched={summary['historicalEnriched']}"
+            f"historicalEnriched={summary['historicalEnriched']} "
+            f"editorialKeywords={summary['editorialKeywordsEnriched']}"
         )
 
         for reason, count in sorted(
