@@ -308,6 +308,47 @@ html[data-theme="dark"] .ji.ji--protrepsis {--paper:#1b201e;--paper-light:#292d2
 .ji.ji--protrepsis .art-stamp {color:#8c364c;border-color:#8c364c;}
 .ji.ji--protrepsis .nav-archive {background:#1c3027;color:#f4eee1;}
 .ji.ji--protrepsis .nav-archive:hover {background:#0f62fe;color:white;}
+
+.ji.ji--protrepsis .pro-profile-topnote {
+  position:relative;z-index:4;display:flex;justify-content:space-between;align-items:center;
+  gap:20px;min-height:41px;padding:8px clamp(18px,5vw,80px);
+  background:var(--paper);border-bottom:1px solid var(--line);
+  font:500 .64rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.11em;
+}
+.ji.ji--protrepsis .pro-profile-topnote a {
+  display:inline-flex;align-items:center;gap:16px;color:var(--accent);
+  text-decoration:none;border-bottom:1px solid transparent;
+}
+.ji.ji--protrepsis .pro-profile-topnote a:hover {border-color:var(--accent);}
+.ji.ji--protrepsis .pro-profile-companion {
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:35px;
+  padding:24px 32px;margin:42px 0 0;border:1px solid var(--line);
+  border-left:4px solid #8c364c;background:var(--paper-light);
+}
+.ji.ji--protrepsis .pro-profile-companion span {
+  font:500 .62rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.14em;color:var(--accent);
+}
+.ji.ji--protrepsis .pro-profile-companion p {
+  max-width:630px;margin:9px 0 0;color:var(--muted);
+  font:400 1rem/1.5 'IBM Plex Sans',system-ui,sans-serif;
+}
+.ji.ji--protrepsis .pro-profile-companion a {
+  display:inline-flex;justify-content:space-between;align-items:center;gap:28px;
+  padding:16px 21px;min-height:54px;color:#f4eee1;background:#1c3027;
+  border:1px solid #1c3027;font:600 .78rem/1.4 'IBM Plex Sans',sans-serif;text-decoration:none;
+  transition:background .2s;
+}
+.ji.ji--protrepsis .pro-profile-companion a:hover {background:#0f62fe;border-color:#0f62fe;color:#fff;}
+.ji.ji--protrepsis .hero {border-bottom-color:var(--line);}
+.ji.ji--protrepsis .book-stack {filter:drop-shadow(19px 28px 20px rgba(24,21,20,.26));}
+.ji.ji--protrepsis .book-stack::before {background:#8c364c;}
+.ji.ji--protrepsis .book-glyph {letter-spacing:-.1em;}
+@media(max-width:680px) {
+  .ji.ji--protrepsis .pro-profile-topnote {flex-direction:column;align-items:flex-start;gap:7px;padding:12px 18px;}
+  .ji.ji--protrepsis .pro-profile-companion {grid-template-columns:1fr;padding:23px;margin-top:24px;}
+  .ji.ji--protrepsis .pro-profile-companion a {width:100%;}
+}
+
 @media(max-width:1120px){
   body[data-journal="protrepsis"] .journal-hero {grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);min-height:550px;}
   body[data-journal="protrepsis"] .journal-hero-copy {padding-left:28px;padding-right:20px;}
