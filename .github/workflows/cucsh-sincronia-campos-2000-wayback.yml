@@ -1,0 +1,71 @@
+name: Sincronía · issue 15 Campos URL chronology and Wayback evidence
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-campos-2000-wayback.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-campos-2000-wayback-chronology
+  cancel-in-progress: false
+
+jobs:
+  inspect-snapshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test original versus reused URLs and capture chronology
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_campos_2000_wayback
+          python3 -m unittest tests.test_cucsh_sincronia_final_nonarticle_triage
+      - name: Inspect Wayback index and Campos candidate URLs without mutations
+        run: |
+          python3 -m scripts.cucsh.probe_sincronia_campos_2000_wayback --output /tmp/sincronia-campos-2000-wayback.json
+      - name: Verify conservation and authorless source status
+        run: |
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors --input src/data/cucsh-filosofia.json --output /tmp/sincronia-campos-wayback-pending.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("/tmp/sincronia-campos-2000-wayback.json").read_text())
+          a=json.loads(Path("/tmp/sincronia-campos-wayback-pending.json").read_text())
+          assert a["totalSincroniaRecords"]==1454 and a["pendingAuthorRecords"]==4
+          assert a["pendingAuthorshipCasesExcludingVerifiedNonArticles"]==1
+          assert r["sourceUrlsChecked"]==6 and r["authorAssignments"]==0
+          assert not r["corpusModified"] and not r["signed2000ArticleVerified"]
+          print("SINCRONIA_CAMPOS_WAYBACK_NO_LOSS_PASS")
+          PY
+          git diff --check
+          test -z "$(git status --porcelain)"
+      - name: Full application regression
+        run: |
+          npm ci
+          npm test
+      - name: Preserve independent source audit as an artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-campos-2000-wayback
+          path: |
+            /tmp/sincronia-campos-2000-wayback.json
+            /tmp/sincronia-campos-wayback-pending.json
+          retention-days: 30
+          if-no-files-found: warn
