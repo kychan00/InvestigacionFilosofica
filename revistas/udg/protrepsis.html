@@ -5,7 +5,7 @@
   <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#161616">
-  <meta name="description" content="Archivo académico de Protrepsis en Investigación Filosófica: artículos, filtros, taxonomía y Atlas semántico.">
+  <meta name="description" content="Protrepsis, Revista de Filosofía de la UdeG: portada editorial, archivo histórico de 2011 a 2026, Atlas, artículos y comunidad académica.">
   <script>
     (() => {
       const key = "investigacion-filosofica-theme";
@@ -20,6 +20,7 @@
   </script>
   <title>Protrepsis · Investigación Filosófica</title>
   <link rel="stylesheet" href="../../css/journal-page.css?v=20261112-history-v6">
+  <link rel="stylesheet" href="../../css/protrepsis-paper.css?v=20261113-editorial-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body data-journal="protrepsis">
@@ -33,17 +34,22 @@
     </button>
   </div>
 
-  <div class="journal-page">
+  <div class="journal-page protrepsis-paper" id="inicio">
     <header class="journal-header">
-      <nav class="journal-nav" aria-label="Navegación de revista">
-        <a class="journal-brand" href="../../articulos.html">
+      <div class="pro-masthead">
+        <div class="pro-masthead-inner">
+          <span>CUCSH · UNIVERSIDAD DE GUADALAJARA</span>
+          <span>REVISTA DE FILOSOFÍA · ISSN 2007-9273</span>
+        </div>
+      </div>
+      <nav class="journal-nav" aria-label="Navegación de Protrepsis">
+        <a class="journal-brand" href="#inicio" aria-label="Protrepsis, inicio">
           <span class="journal-brand-mark" aria-hidden="true">Π</span>
-          <span>Protrepsis<small>archivo editorial · filosofía · cucsh</small></span>
+          <span>PROTREPSIS<small>Revista de Filosofía · UdeG</small></span>
         </a>
         <div class="journal-nav-links">
-          <a href="../../articulos.html">Artículos</a>
-          <a href="protrepsis-institucional.html">La revista · equipo</a>
-          <a href="../../acerca.html">Acerca de</a>
+          <a href="#journal-views">Archivo y Atlas</a>
+          <a class="pro-nav-editorial" href="protrepsis-institucional.html">La revista y su equipo <span aria-hidden="true">↗</span></a>
         </div>
         <div class="theme-switch" role="group" aria-label="Apariencia">
           <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
@@ -51,41 +57,72 @@
         </div>
       </nav>
 
-      <div class="journal-hero">
+      <div class="journal-hero" aria-labelledby="pro-hero-title">
         <div class="journal-hero-copy">
-          <p class="journal-eyebrow">UdeG / CUCSH / REVISTA / PROTREPSIS</p>
-          <h1>Un archivo para <em>leer por problemas.</em></h1>
-          <p class="journal-hero-intro">La colección de Protrepsis se transforma en un espacio de investigación: filtros, categorías de navegación, temas declarados, autorías recurrentes y una red semántica que permite recorrer relaciones entre textos sin reducirlos a una simple lista.</p>
+          <p class="journal-eyebrow"><span class="pro-kicker-line" aria-hidden="true"></span> FILOSOFÍA · PUBLICACIÓN SEMESTRAL · DESDE 2011</p>
+          <h1 id="pro-hero-title">Protrepsis<em>Revista de Filosofía.</em></h1>
+          <p class="pro-hero-claim">Un espacio para leer, cuestionar y volver a pensar.</p>
+          <p class="journal-hero-intro">Un encuentro entre la investigación filosófica y sus lectores. Explore los artículos de Protrepsis por época, autoría y problema; descubra sus números editoriales y las relaciones entre las obras en nuestro Atlas.</p>
+          <div class="pro-hero-actions">
+            <a class="pro-button pro-button-primary" href="#journal-views">Explorar el archivo <span aria-hidden="true">↗</span></a>
+            <a class="pro-button pro-button-plain" href="protrepsis-institucional.html">Historia y equipo editorial <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="pro-hero-footnote"><span>01 / UNA REVISTA DE FILOSOFÍA</span><span>UDG · CUCSH · MÉXICO</span></div>
         </div>
-        <aside class="journal-hero-aside">
-          <span class="journal-monogram" aria-hidden="true">Π</span>
-          <div class="journal-source-card">
-            <span>Publicación original</span>
-            <strong>Protrepsis · Revista de Filosofía</strong>
-            <a href="http://protrepsis.cucsh.udg.mx/" target="_blank" rel="noopener noreferrer">Visitar sitio editorial ↗</a>
-            <a href="protrepsis-institucional.html">Historia, equipo y contacto ↗</a>
-            <a href="http://protrepsis.cucsh.udg.mx/index.php/prot/about/editorialTeam" target="_blank" rel="noopener noreferrer">Directorio editorial oficial ↗</a>
+        <aside class="journal-hero-aside" aria-label="Composición editorial de la revista Protrepsis">
+          <div class="pro-art-orbit" aria-hidden="true"></div>
+          <div class="pro-book" aria-hidden="true">
+            <div class="pro-book-back"></div>
+            <div class="pro-book-middle"></div>
+            <div class="pro-book-cover">
+              <span class="pro-book-eyebrow">Universidad de Guadalajara<br>Centro Universitario de Ciencias Sociales y Humanidades</span>
+              <span class="pro-book-glyph">Π</span>
+              <span class="pro-book-title">PROTREPSIS</span>
+              <span class="pro-book-caption">Revista de Filosofía<br>ISSN 2007-9273</span>
+              <span class="pro-book-bottom">ARCHIVO DE PENSAMIENTO · 2011–2026</span>
+            </div>
+          </div>
+          <span class="pro-stamp" aria-hidden="true">Φ<br>LEER<br>PENSAR</span>
+          <div class="pro-cover-credit">
+            <span>PUBLICACIÓN ORIGINAL</span>
+            <a href="http://protrepsis.cucsh.udg.mx/index.php/prot" target="_blank" rel="noopener noreferrer">Visitar portal editorial <span aria-hidden="true">↗</span></a>
           </div>
         </aside>
       </div>
 
-      <div class="journal-metrics" aria-label="Resumen del corpus">
+      <div class="journal-metrics" aria-label="Resumen del corpus de Protrepsis">
         <div class="journal-metric"><strong id="journal-total">—</strong><span>artículos en el corpus</span></div>
-        <div class="journal-metric"><strong id="journal-year-span">—</strong><span>rango temporal</span></div>
+        <div class="journal-metric"><strong id="journal-year-span">—</strong><span>años de pensamiento</span></div>
         <div class="journal-metric"><strong id="journal-author-total">—</strong><span>autorías distintas</span></div>
         <div class="journal-metric"><strong id="journal-doi-rate">—</strong><span>registros con DOI</span></div>
         <div class="journal-metric"><strong id="journal-abstract-rate">—</strong><span>registros con resumen</span></div>
       </div>
     </header>
 
-    <div class="journal-view-tabs" role="tablist" aria-label="Vistas de la revista">
-      <button type="button" role="tab" class="is-active" aria-selected="true" data-journal-view="archive">Archivo</button>
-      <button type="button" role="tab" aria-selected="false" data-journal-view="atlas">Atlas semántico</button>
-      <button type="button" role="tab" aria-selected="false" data-journal-view="insights">Temas y autorías</button>
+    <section class="pro-editorial-feature" aria-labelledby="pro-editorial-title">
+      <div class="pro-editorial-feature-index"><span>02 / LAS PERSONAS</span><span class="pro-editorial-mark" aria-hidden="true">✳</span></div>
+      <div class="pro-editorial-feature-copy">
+        <p class="journal-kicker">LA REVISTA MÁS ALLÁ DE LOS ARTÍCULOS</p>
+        <h2 id="pro-editorial-title">Una revista hecha por <em>personas que piensan.</em></h2>
+        <p>Conozca su historia, la dirección, el equipo editorial y los consejos académicos. Un directorio documentado con nombres, responsabilidades, afiliaciones y contactos publicados por Protrepsis.</p>
+        <p class="pro-source-note">70 personas registradas en el directorio consultado · datos del equipo, Consejo Editorial y Comité Científico Asesor.</p>
+      </div>
+      <a class="pro-editorial-feature-link" href="protrepsis-institucional.html" aria-label="Conocer la historia y el equipo editorial de Protrepsis">
+        <span class="pro-feature-link-top">UNA PUERTA A LA REVISTA <span aria-hidden="true">↗</span></span>
+        <strong>Conocer Protrepsis</strong>
+        <span class="pro-feature-link-bottom">Historia · Equipo · Contacto <span aria-hidden="true">→</span></span>
+      </a>
+    </section>
+
+    <div class="journal-view-tabs" id="journal-views" role="tablist" aria-label="Vistas de la revista">
+      <button type="button" role="tab" class="is-active" aria-selected="true" data-journal-view="archive"><span class="pro-tab-no" aria-hidden="true">01</span> Archivo</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="atlas"><span class="pro-tab-no" aria-hidden="true">02</span> Atlas semántico</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="insights"><span class="pro-tab-no" aria-hidden="true">03</span> Temas y autorías</button>
     </div>
 
     <main class="journal-main">
       <section id="journal-archive-panel" class="journal-panel" aria-label="Archivo de artículos">
+        <div class="pro-section-heading"><span class="pro-section-number">03 / EXPLORACIÓN</span><h2>El archivo <em>abierto.</em></h2><p>Cada artículo, una puerta. Explore las ediciones y siga las preguntas que atraviesan la revista.</p></div>
         <div class="journal-archive-layout">
           <aside class="journal-sidebar">
             <section class="journal-filter-block">
@@ -128,7 +165,7 @@
 
           <div>
             <header class="journal-results-head">
-              <div><p class="journal-kicker">CORPUS EDITORIAL</p><h2>Artículos</h2></div>
+              <div><p class="journal-kicker">BIBLIOTECA DE PROTREPSIS</p><h2>Artículos <em>y ensayos.</em></h2></div>
               <p id="journal-results-status" class="journal-results-status" role="status" aria-live="polite">Cargando…</p>
             </header>
             <div id="journal-card-grid" class="journal-card-grid"></div>
@@ -138,6 +175,7 @@
       </section>
 
       <section id="journal-atlas-panel" class="journal-panel" hidden aria-label="Atlas semántico">
+        <div class="pro-section-heading"><span class="pro-section-number">04 / CARTOGRAFÍA</span><h2>Una constelación <em>de ideas.</em></h2><p>Explore proximidades entre artículos sin confundir la similitud semántica con citas, lecturas o influencias demostradas.</p></div>
         <div class="journal-atlas-shell">
           <div class="journal-atlas-stage">
             <div class="journal-atlas-stagebar">
@@ -174,6 +212,7 @@
       </section>
 
       <section id="journal-insights-panel" class="journal-panel" hidden aria-label="Temas y autorías">
+        <div class="pro-section-heading"><span class="pro-section-number">05 / MIRADAS</span><h2>La revista <em>en perspectiva.</em></h2><p>Palabras clave y autorías tal como aparecen documentadas en el corpus.</p></div>
         <div class="journal-insights-grid">
           <article class="journal-insight">
             <p class="journal-kicker">TEMAS DECLARADOS</p>
@@ -198,7 +237,7 @@
 
     <footer class="journal-footer">
       <span>Φ · Investigación Filosófica · UdeG</span>
-      <span>Protrepsis · archivo académico navegable</span>
+      <a href="protrepsis-institucional.html">La revista y su equipo editorial ↗</a>
     </footer>
   </div>
 
