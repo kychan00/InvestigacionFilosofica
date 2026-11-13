@@ -652,11 +652,11 @@ function qualifyingOrcidWork(work, queryTokens, authorQuery, exactOrcid) {
 function preferredProfilesFromResolution(resolution) {
   if (!resolution || typeof resolution !== "object") return [];
 
+  // A set of possible authors is not a verified identity. Never expand
+  // the ORCID bibliographies of every homonym in an ambiguous resolution.
   const authors = resolution.status === "resolved"
     ? [resolution.author]
-    : resolution.status === "multiple"
-      ? (resolution.authors || [])
-      : [];
+    : [];
 
   const seen = new Set();
   const profiles = [];
@@ -819,6 +819,11 @@ export async function searchOrcid(expansion, options = {}) {
       identityScore: orcidProfileIdentityScore(profile, queryTokens)
     }));
     const likelyAuthor = scored.some(item => item.identityScore >= 0.58);
+
+    // The public ORCID name search discovers candidates, not identities.
+    // A name match alone must never unlock the full registry bibliography.
+    // Await the trusted author resolver (or use an explicit ORCID) instead.
+    if (likelyAuthor) return [];
 
     profiles = (likelyAuthor
       ? scored
