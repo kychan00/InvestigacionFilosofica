@@ -106,6 +106,13 @@ class FinalMissingAuthorTriageTests(unittest.TestCase):
         self.assertIn("Floriano Martins",item["laterPageSubtitle"])
         self.assertIn("20020607092529",item["laterArchivedSameUrl"])
         self.assertIn("professionalBibliographyUrl",item)
+        independently_cited=item["separateDeleuzeEssayLaterCitation"]
+        self.assertEqual(independently_cited["documentYear"],2007)
+        self.assertEqual(independently_cited["citedHistoricalUrl"],
+                         "http://sincronia.cucsh.udg.mx/campos2.htm")
+        self.assertIn("does not identify the 2000",independently_cited["caution"])
+        self.assertNotEqual(independently_cited["citedHistoricalUrl"],
+                            item["originalUrl"])
         self.assertEqual(item["status"],"original_2000_work_identity_unverified")
 
     def test_campos_original_identity_protects_against_wrong_issue_and_url(self):

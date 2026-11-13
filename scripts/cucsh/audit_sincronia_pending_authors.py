@@ -177,6 +177,27 @@ def exact_campos_identity_conflicts(pending):
                 "https://www.escavador.com/sobre/764869/jorge-lucio-de-campos"
             ),
             "bibliographyConfirmsOtherSincronia2000Works": True,
+            "separateDeleuzeEssayLaterCitation": {
+                "bibliographyDocument": (
+                    "https://tede2.pucsp.br/bitstream/handle/7665/1/"
+                    "Ana%20Maria%20Moliterno%20Pena.pdf"
+                ),
+                "documentYear": 2007,
+                "citedWork": (
+                    "Deleuze e o Impulso Alegórico: "
+                    "A Arte como o 'Outro' da Filosofia"
+                ),
+                "citedHistoricalUrl": (
+                    "http://sincronia.cucsh.udg.mx/campos2.htm"
+                ),
+                "status": "independent_later_citation_not_original_2000_identity",
+                "caution": (
+                    "A 2007 master's bibliography cites a distinct Campos "
+                    "essay at /campos2.htm. It does not identify the 2000 "
+                    "/campos.htm entry or establish which publication "
+                    "occupied either URL in 2000. Preserve the open case."
+                ),
+            },
             "laterArchivedSameUrl": (
                 "https://web.archive.org/web/20020607092529/"
                 "http://sincronia.cucsh.udg.mx:80/campos.htm"
