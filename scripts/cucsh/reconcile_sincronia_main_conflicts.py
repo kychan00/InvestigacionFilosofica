@@ -86,7 +86,7 @@ def resolve_text(path, expected_count):
                 .replace("records.length >= 391","records.length >= 1790")
                 .replace(").length >= 303",").length >= 248")
                 .rstrip()
-            +"\\n\\n"+original_main[original_main.index(anchor):]
+            +"\n\n"+original_main[original_main.index(anchor):]
         )
     if "<<<<<<<" in repaired or ">>>>>>> origin/main" in repaired:
         raise ValueError(f"Merge markers remain in {path}")
