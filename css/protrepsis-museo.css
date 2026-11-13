@@ -144,7 +144,8 @@ body[data-journal="protrepsis"] .pro-museum-seal {
   background:rgba(247,227,172,.64);
 }
 body[data-journal="protrepsis"] .pro-museum-plaque {
-  position:absolute;bottom:20px;right:clamp(20px,4vw,62px);z-index:2;
+  position:absolute;inset:auto;left:auto;top:auto;height:auto;
+  bottom:20px;right:clamp(20px,4vw,62px);z-index:2;
   display:flex;flex-direction:column;justify-content:space-between;gap:8px;
   width:min(285px,37%);padding:17px 20px;background:#1c3449;
   color:#f6eddb;border-left:4px solid #c59c42;
@@ -497,6 +498,8 @@ body[data-journal="protrepsis"] .journal-footer a {color:#f2cc6b;text-decoration
 body[data-journal="protrepsis"] :is(a,button,input,select,canvas):focus-visible {outline:3px solid #b67743;outline-offset:3px;}
 /* Second chapter: a gallery of the people of Protrepsis. */
 .ji.ji--protrepsis {
+  --pro-display:'EB Garamond',Georgia,serif;
+  --pro-text:'DM Sans','IBM Plex Sans',sans-serif;
   --paper:#f5f0e6;--paper-light:#fffdf6;--paper-deep:#e6d4a2;
   --ink:#192d3b;--muted:#5d605b;--line:#d7ccba;--rule:#99866b;
   --accent:#254c80;--book:#192d3b;
