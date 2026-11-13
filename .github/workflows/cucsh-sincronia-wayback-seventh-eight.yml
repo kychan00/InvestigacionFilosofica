@@ -55,7 +55,7 @@ jobs:
           assert d["pendingAuthorRecords"] == 27
           assert d["authorlessArticleCandidatesExcludingEditorialNavigation"] == 25
           assert d["highConfidenceEditorialNavigationCount"] == 2
-          assert d["bibliographicConflictCount"] == 1
+          assert d["bibliographicConflictCount"] == 0  # conflict remains documented on attributed work
           assert d["titlesWithUnicodeReplacementCharacter"] == 0
           print("SINCRONIA_SEVENTH_EIGHT_FROZEN_VALIDATED",27)
           PY
