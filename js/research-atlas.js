@@ -1,10 +1,10 @@
 import {
   ResearchAtlasLiveSession
-} from "../src/core/research-atlas-live.js";
+} from "../src/core/research-atlas-live.js?v=20261113-ra13a-v1";
 
 import {
   ResearchAtlasAssembler
-} from "../src/core/research-atlas-assembler.js";
+} from "../src/core/research-atlas-assembler.js?v=20261113-ra13a-v1";
 
 import {
   expandResearchAtlasWithRelatedWorks
@@ -22,7 +22,7 @@ import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
   selectedResearchAtlasContext
-} from "../src/core/research-atlas-view.js";
+} from "../src/core/research-atlas-view.js?v=20261113-ra13a-v1";
 
 
 const canvas =
