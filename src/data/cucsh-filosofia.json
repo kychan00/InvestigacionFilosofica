@@ -26082,7 +26082,12 @@
       "titleVariants": [
         "Yoon Bong Seo"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Yoon Bong Seo",
+          "sourceName": "Yoon Bong Seo"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -26115,6 +26120,26 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "university-masters-thesis-bibliography-exact-historical-url-and-byline",
+        "sourceUrl": "https://uvadoc.uva.es/bitstream/handle/10324/3560/TFM-F-45.pdf?sequence=1",
+        "sourceInstitution": "Universidad de Valladolid, Facultad de Filosofía y Letras",
+        "sourceAuthor": "Violeta Cárdenas Hernández",
+        "sourceYear": 2013,
+        "sourcePage": 79,
+        "sourceBylineAsPrinted": "Bong Seo, Yoon",
+        "sourceBibliographicTitle": "Muerte y conciencia social en El luto humano, de José Revueltas",
+        "sourcePublicationYear": 2000,
+        "sourceHistoricalUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/revueltas.htm",
+        "urlMatchLevel": "exact-historical-url-plus-byline-and-work-title",
+        "publicationVersionCaveat": "The Universidad de Valladolid 2013 master's thesis bibliography, p. 79, cites Bong Seo, Yoon (2000) with the exact historical Sincronia REVUELTAS.htm URL. The frozen issue-16 index uses the label 'Yoon Bong Seo', not the article's bibliographic title. Preserve the original index title, issue, year and URL. The bibliography establishes historical attribution, not current URL availability or textual identity of other copies.",
+        "verifiedAuthor": "Yoon Bong Seo",
+        "verifiedTitle": "Yoon Bong Seo",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/revueltas.htm",
+        "matchedIndexedIssue": 16,
+        "matchedIndexedYear": 2000,
+        "originalAvailabilityPreserved": true
       }
     },
     {
