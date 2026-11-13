@@ -20,6 +20,7 @@
   </script>
   <title>Sincronía · Investigación Filosófica</title>
   <link rel="stylesheet" href="../../css/journal-page.css?v=20261112-history-v6">
+  <link rel="stylesheet" href="../../css/sincronia-stamps.css?v=20261113-editorial-stamps-v1">
   <link rel="stylesheet" href="../../css/journal-atlas-sheet.css?v=20261113-atlas-sheet-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
@@ -52,21 +53,59 @@
         </div>
       </nav>
 
-      <div class="journal-hero">
-        <div class="journal-hero-copy">
-          <p class="journal-eyebrow">UdeG / CUCSH / REVISTA / SINCRONÍA</p>
-          <h1>Cruces, ritmos y <em>lecturas en sincronía.</em></h1>
-          <p class="journal-hero-intro">Sincronía ocupa un espacio independiente dentro del archivo UdeG. La página está pensada para explorar su amplitud temática mediante capas de metadatos, filtros y relaciones entre registros, conservando siempre la procedencia editorial.</p>
+      <div class="journal-hero sn-hero">
+        <div class="journal-hero-copy sn-hero-copy">
+          <p class="journal-eyebrow">UdeG / CUCSH / ARCHIVO ACADÉMICO / SINCRONÍA</p>
+          <p class="sn-hero-index" aria-label="Archivo de los números 1 a 90">NÚMEROS 01—90 · FILOSOFÍA · LETRAS · HUMANIDADES</p>
+          <h1>Ideas en circulación. <em>Archivo en sincronía.</em></h1>
+          <p class="journal-hero-intro">Un archivo académico interdisciplinario presentado como colección editorial: cada artículo conserva su procedencia, autoría y número de revista, mientras filtros, metadatos y Atlas permiten recorrer tres décadas de investigación sin confundir diseño con evidencia.</p>
+          <div class="sn-hero-actions">
+            <a class="sn-primary-action" href="#journal-archive-panel">Explorar el archivo <span aria-hidden="true">↓</span></a>
+            <a class="sn-secondary-action" href="sincronia-institucional.html">Historia y equipo editorial <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <aside class="journal-hero-aside">
-          <span class="journal-monogram" aria-hidden="true">Σ</span>
-          <div class="journal-source-card">
-            <span>Publicación original</span>
+        <aside class="journal-hero-aside sn-hero-aside">
+          <div class="sn-stamp-collage" aria-hidden="true">
+            <div class="sn-hero-stamp sn-hero-stamp--blue">
+              <span class="sn-stamp-kicker">ARCHIVO / CUCSH</span>
+              <strong>Σ</strong>
+              <span class="sn-stamp-caption">SINCRONÍA<br>01—90</span>
+            </div>
+            <div class="sn-hero-stamp sn-hero-stamp--cream">
+              <span class="sn-stamp-kicker">REVISTA</span>
+              <div class="sn-orbit-mark"><i></i><i></i><i></i></div>
+              <span class="sn-stamp-caption">FILOSOFÍA<br>LETRAS<br>HUMANIDADES</span>
+            </div>
+            <div class="sn-hero-stamp sn-hero-stamp--red">
+              <span class="sn-stamp-kicker">UDG · MÉXICO</span>
+              <strong class="sn-stamp-year">30</strong>
+              <span class="sn-stamp-caption">AÑOS DE<br>LECTURAS<br>EN CRUCE</span>
+            </div>
+            <div class="sn-hero-stamp sn-hero-stamp--ink">
+              <span class="sn-stamp-kicker">E-ISSN</span>
+              <strong class="sn-stamp-issn">1562<br>384X</strong>
+              <span class="sn-stamp-caption">FUENTE<br>EDITORIAL</span>
+            </div>
+            <div class="sn-hero-stamp sn-hero-stamp--wide">
+              <span class="sn-stamp-kicker">INVESTIGACIÓN FILOSÓFICA</span>
+              <div class="sn-wave-mark"></div>
+              <span class="sn-stamp-caption">METADATOS · ARCHIVO · ATLAS</span>
+            </div>
+          </div>
+          <div class="journal-source-card sn-source-card">
+            <span>Fuente editorial</span>
             <strong>Sincronía · Revista de Filosofía, Letras y Humanidades</strong>
-            <a href="https://revistasincronia.cucsh.udg.mx/index.php/sincronia" target="_blank" rel="noopener noreferrer">Visitar sitio editorial ↗</a>
-            <a href="sincronia-institucional.html">Historia, equipo y contacto ↗</a>
+            <p>La composición visual es una capa de navegación. Los datos académicos proceden de los registros y fuentes documentadas del corpus.</p>
+            <div class="sn-source-links">
+              <a href="https://revistasincronia.cucsh.udg.mx/index.php/sincronia" target="_blank" rel="noopener noreferrer">Sitio editorial ↗</a>
+              <a href="sincronia-institucional.html">Ficha institucional ↗</a>
+            </div>
           </div>
         </aside>
+      </div>
+
+      <div class="sn-archive-ribbon" aria-hidden="true">
+        <span>ARCHIVO EDITORIAL</span><i></i><span>PROCEDENCIA EXPLÍCITA</span><i></i><span>RELACIONES SEMÁNTICAS</span><i></i><span>UDEG / CUCSH</span>
       </div>
 
       <div class="journal-metrics" aria-label="Resumen del corpus">
@@ -78,10 +117,10 @@
       </div>
     </header>
 
-    <div class="journal-view-tabs" role="tablist" aria-label="Vistas de la revista">
-      <button type="button" role="tab" class="is-active" aria-selected="true" data-journal-view="archive">Archivo</button>
-      <button type="button" role="tab" aria-selected="false" data-journal-view="atlas">Atlas semántico</button>
-      <button type="button" role="tab" aria-selected="false" data-journal-view="insights">Temas y autorías</button>
+    <div class="journal-view-tabs sn-view-tabs" role="tablist" aria-label="Vistas de la revista">
+      <button type="button" role="tab" class="is-active" aria-selected="true" data-journal-view="archive"><span>01</span> Archivo</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="atlas"><span>02</span> Atlas semántico</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="insights"><span>03</span> Temas y autorías</button>
     </div>
 
     <main class="journal-main">
@@ -127,8 +166,12 @@
           </aside>
 
           <div>
-            <header class="journal-results-head">
-              <div><p class="journal-kicker">CORPUS EDITORIAL</p><h2>Artículos</h2></div>
+            <header class="journal-results-head sn-results-head">
+              <div>
+                <p class="journal-kicker">CORPUS EDITORIAL / COLECCIÓN DE ESTAMPAS ACADÉMICAS</p>
+                <h2>Artículos <em>en archivo.</em></h2>
+                <p class="sn-results-note">La estética cambia; la bibliografía no. Título, autoría, número, DOI, resumen y procedencia permanecen como datos académicos verificables.</p>
+              </div>
               <p id="journal-results-status" class="journal-results-status" role="status" aria-live="polite">Cargando…</p>
             </header>
             <div id="journal-card-grid" class="journal-card-grid"></div>
@@ -204,6 +247,7 @@
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
   <script type="module" src="../../js/journal-page.js?v=20261113-atlas-sheet-v1"></script>
+  <script type="module" src="../../js/sincronia-stamps.js?v=20261113-editorial-stamps-v1"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
 </body>
 </html>
