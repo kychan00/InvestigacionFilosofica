@@ -632,8 +632,13 @@ function orcidProfileIdentityScore(profile, queryTokens) {
 }
 
 function profileMatchesAuthorQuery(profile, queryTokens) {
+  /*
+   * Name-only ORCID discovery is never allowed to turn a partial
+   * 2-of-3 token overlap into "this is the author". Exact identity
+   * should come from preferred resolution (ORCID/author evidence).
+   */
   return queryTokens.length >= 2 &&
-    orcidProfileIdentityScore(profile, queryTokens) >= 0.58;
+    orcidProfileIdentityScore(profile, queryTokens) >= 0.92;
 }
 
 function qualifyingOrcidWork(work, queryTokens, authorQuery, exactOrcid) {
@@ -681,36 +686,52 @@ function preferredProfilesFromResolution(resolution) {
 }
 
 
-async function preferredOrcidProfiles(options = {}) {
+async function preferredOrcidContext(options = {}) {
   const direct = normalizedAuthorOrcid(options.preferredOrcid);
   if (direct) {
-    return [{
-      orcid: direct,
-      displayName: options.preferredName || direct,
-      givenNames: null,
-      familyName: null,
-      creditName: null,
-      otherNames: [],
-      institutions: [],
-      identitySource: "preferred-orcid"
-    }];
+    return {
+      profiles: [{
+        orcid: direct,
+        displayName: options.preferredName || direct,
+        givenNames: null,
+        familyName: null,
+        creditName: null,
+        otherNames: [],
+        institutions: [],
+        identitySource: "preferred-orcid"
+      }],
+      strict: true,
+      resolution: null
+    };
   }
 
-  const fromResolution = preferredProfilesFromResolution(
-    options.preferredAuthorResolution
-  );
-  if (fromResolution.length) return fromResolution;
+  let resolution =
+    options.preferredAuthorResolution ||
+    null;
 
-  if (options.preferredAuthorPromise) {
+  if (
+    !resolution &&
+    options.preferredAuthorPromise
+  ) {
     try {
-      const resolution = await options.preferredAuthorPromise;
-      return preferredProfilesFromResolution(resolution);
+      resolution =
+        await options.preferredAuthorPromise;
     } catch {
-      // Identity resolution is an optimization, never a hard dependency.
+      resolution = null;
     }
   }
 
-  return [];
+  return {
+    profiles:
+      preferredProfilesFromResolution(
+        resolution
+      ),
+    strict:
+      Boolean(
+        resolution?.identitySearchStrict
+      ),
+    resolution
+  };
 }
 
 
@@ -776,9 +797,26 @@ export async function searchOrcid(expansion, options = {}) {
   const profileImpl = options.profileImpl || fetchOrcidPublicProfile;
 
   let profiles;
-  const preferredProfiles = exactOrcid
-    ? []
-    : await preferredOrcidProfiles(options);
+  const preferredContext = exactOrcid
+    ? {
+        profiles: [],
+        strict: false,
+        resolution: null
+      }
+    : await preferredOrcidContext(options);
+
+  const preferredProfiles =
+    preferredContext.profiles;
+
+  const identityAnchored =
+    preferredProfiles.some(profile =>
+      [
+        "resolved-author",
+        "preferred-orcid"
+      ].includes(
+        profile.identitySource
+      )
+    );
 
   if (exactOrcid) {
     let profile = null;
@@ -804,6 +842,12 @@ export async function searchOrcid(expansion, options = {}) {
     }];
   } else if (preferredProfiles.length) {
     profiles = preferredProfiles.slice(0, profilesPerPage);
+  } else if (preferredContext.strict) {
+    /*
+     * The site already recognized an author identity but could not
+     * establish an ORCID. Do not guess another person's ORCID by name.
+     */
+    return [];
   } else {
     const candidates = await searchProfilesImpl(cleanedQuery, {
       start: (page - 1) * profileCandidates,
@@ -818,7 +862,7 @@ export async function searchOrcid(expansion, options = {}) {
       index,
       identityScore: orcidProfileIdentityScore(profile, queryTokens)
     }));
-    const likelyAuthor = scored.some(item => item.identityScore >= 0.58);
+    const likelyAuthor = scored.some(item => item.identityScore >= 0.92);
 
     profiles = (likelyAuthor
       ? scored
@@ -826,7 +870,7 @@ export async function searchOrcid(expansion, options = {}) {
             b.identityScore - a.identityScore ||
             a.index - b.index
           )
-          .filter(item => item.identityScore >= 0.45)
+          .filter(item => item.identityScore >= 0.75)
       : scored
     )
       .slice(0, profilesPerPage)
@@ -913,9 +957,17 @@ export async function searchOrcid(expansion, options = {}) {
     String(a.title || "").localeCompare(String(b.title || ""), "es")
   );
 
-  if (exactOrcid) {
-    const offset = (page - 1) * rows;
-    return candidates.slice(offset, offset + rows);
+  if (
+    exactOrcid ||
+    identityAnchored
+  ) {
+    const offset =
+      (page - 1) * rows;
+
+    return candidates.slice(
+      offset,
+      offset + rows
+    );
   }
 
   return candidates.slice(0, rows);

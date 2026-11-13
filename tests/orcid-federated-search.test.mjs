@@ -197,6 +197,118 @@ test("la identidad ya resuelta por el sitio vence a homónimos del índice ORCID
 });
 
 
+test("coincidencias nominales parciales no se convierten en identidad de autor", async () => {
+  const found = await searchOrcid(
+    { query: "Mauricio Méndez Huerta", weight: 1, type: "original" },
+    {
+      rows: 8,
+      searchProfilesImpl: async () => [
+        {
+          orcid:"0000-0001-1111-1111",
+          displayName:"Mauricio Huerta",
+          givenNames:"Mauricio",
+          familyName:"Huerta",
+          otherNames:[],
+          institutions:[]
+        },
+        {
+          orcid:"0000-0002-2222-2222",
+          displayName:"Ana Méndez-Huerta",
+          givenNames:"Ana",
+          familyName:"Méndez-Huerta",
+          otherNames:[],
+          institutions:[]
+        }
+      ],
+      worksImpl: async orcid => ({
+        works: orcid.endsWith("1111-1111")
+          ? [work("A Real-Time Intelligent System Based on Machine-Learning Methods",2025)]
+          : [work("Habilidades Intrapersonales e Interpersonales",2023)]
+      })
+    }
+  );
+
+  assert.deepEqual(found,[]);
+});
+
+test("identidad reconocida sin ORCID impide fallback nominal inseguro", async () => {
+  let registryCalled = false;
+
+  const found = await searchOrcid(
+    { query:"Mauricio Méndez Huerta",weight:1,type:"original" },
+    {
+      rows:8,
+      preferredAuthorPromise:Promise.resolve({
+        status:"resolved",
+        identitySearchStrict:true,
+        author:{
+          displayName:"Mauricio Méndez Huerta",
+          orcid:null
+        },
+        works:[]
+      }),
+      searchProfilesImpl:async()=>{
+        registryCalled = true;
+        return [];
+      }
+    }
+  );
+
+  assert.equal(registryCalled,false);
+  assert.deepEqual(found,[]);
+});
+
+test("ORCID resuelto pagina el registro público sin repetir el primer lote", async () => {
+  const expected = "0000-0002-7283-8051";
+  const all = Array.from({length:17},(_,index)=>({
+    ...work("Obra Mauricio " + String(index + 1).padStart(2,"0"),2026-index),
+    authors:[{
+      name:"Mauricio Méndez Huerta",
+      id:"https://orcid.org/" + expected,
+      orcid:"https://orcid.org/" + expected
+    }],
+    orcidEvidence:expected
+  }));
+
+  const options = {
+    rows:8,
+    profilesPerPage:2,
+    preferredAuthorResolution:{
+      status:"resolved",
+      identitySearchStrict:true,
+      author:{
+        displayName:"Mauricio Méndez Huerta",
+        orcid:expected
+      }
+    },
+    searchProfilesImpl:async()=>{
+      throw new Error("no debe buscar perfiles por nombre");
+    },
+    worksImpl:async orcid=>{
+      assert.equal(orcid,expected);
+      return {works:all};
+    }
+  };
+
+  const page1 = await searchOrcid(
+    {query:"Mauricio Méndez Huerta",weight:1,type:"original"},
+    {...options,page:1}
+  );
+  const page2 = await searchOrcid(
+    {query:"Mauricio Méndez Huerta",weight:1,type:"original"},
+    {...options,page:2}
+  );
+  const page3 = await searchOrcid(
+    {query:"Mauricio Méndez Huerta",weight:1,type:"original"},
+    {...options,page:3}
+  );
+
+  assert.deepEqual(page1.map(item=>item.title),all.slice(0,8).map(item=>item.title));
+  assert.deepEqual(page2.map(item=>item.title),all.slice(8,16).map(item=>item.title));
+  assert.deepEqual(page3.map(item=>item.title),all.slice(16,17).map(item=>item.title));
+});
+
+
 test("ORCID exacto evita la búsqueda nominal y pagina las obras del registro", async () => {
   let searched = false;
   const all = Array.from({ length: 9 }, (_, index) =>

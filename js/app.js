@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
+} from "../src/core/search-engine.js?v=20261113-strict-orcid-author-v1";
 
 import {
   explainResult
@@ -59,6 +59,10 @@ import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/autho
 import {
   resolveFederatedAuthor
 } from "../src/core/crossref-author-fallback.js?v=20261101-federated-coverage-v1";
+
+import {
+  resolveSearchAuthorIdentity
+} from "../src/core/search-author-identity.js?v=20261113-strict-orcid-author-v1";
 
 import {
   openAuthorDestination,
@@ -447,7 +451,7 @@ function resolveAuthorForQuery(
     philosophyMap
   );
 
-  return resolveRemoteAuthors(
+  return resolveSearchAuthorIdentity(
     query,
     {
       signal,

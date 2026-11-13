@@ -110,6 +110,12 @@ try{
   assert.match(await page.locator(".author-page-aliases").textContent(),/Marina Hernández/);
   assert.equal(await page.locator(".author-collaboration-tag").count(),2);
   assert.equal(await page.locator(".author-individual-tag").count(),2);
+  // Deep author discovery intentionally re-renders the profile as each
+  // source settles. Wait for the final stable render before scrolling.
+  await page.waitForFunction(()=>
+    document.querySelector(".author-archive-discovery strong")
+      ?.textContent.includes("Archivo de publicaciones recuperadas"),
+    null,{timeout:20000});
   await page.locator(".author-page-works").scrollIntoViewIfNeeded();
   await page.screenshot({path:"artifacts/author-name-lookup/marina-"+theme+"-390.png",
     animations:"disabled"});

@@ -36,7 +36,7 @@ import {
 
 import {
   searchOrcid
-} from "../sources/orcid.js?v=20261112-production-visible-v2";
+} from "../sources/orcid.js?v=20261113-strict-author-v1";
 
 
 function sleep(ms) {
