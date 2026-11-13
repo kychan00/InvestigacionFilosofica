@@ -1,5 +1,10 @@
 import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-topic-tags-v1";
-import { articleTopicMetadata, articleTopics } from "./journal-article-topics.js?v=20261113-v1";
+import {
+  articleCategories,
+  articleCategoryMetadata,
+  articleTopicMetadata,
+  articleTopics
+} from "./journal-article-topics.js?v=20261113-categories-v2";
 import {
   journalIssueGroups,
   journalIssueInfo
@@ -150,7 +155,7 @@ function authors(record) {
     .filter(Boolean);
 }
 
-function categoryFor(record) {
+function broadCategoryFor(record) {
   const text = normalize([
     record.title,
     record.abstract,
@@ -162,6 +167,45 @@ function categoryFor(record) {
   return "Otros";
 }
 
+function categoryMetadataFor(record) {
+  if (record?.journal === "Protrepsis") {
+    return articleCategoryMetadata(record, { derive: true, limit: 12 });
+  }
+  const broad = broadCategoryFor(record);
+  return {
+    topics: [broad],
+    allTopics: [broad],
+    origin: "derived",
+    label: "Categoría de navegación",
+    note: "Clasificación amplia derivada para navegar esta colección."
+  };
+}
+
+function categoriesFor(record) {
+  if (record?.journal !== "Protrepsis") return [broadCategoryFor(record)];
+  const categories = articleCategories(record, { derive: true, limit: 12 });
+  return categories.length ? categories : [broadCategoryFor(record)];
+}
+
+function categoryFor(record) {
+  return categoriesFor(record)[0] || broadCategoryFor(record);
+}
+
+const CURATORIAL_CATEGORY_COLORS = [
+  "#0f62fe", "#007d79", "#8a3ffc", "#a2191f", "#198038",
+  "#b28600", "#9f1853", "#005d5d", "#6929c4", "#1192e8"
+];
+
+function categoryColorFor(label) {
+  if (CATEGORY_COLORS[label]) return CATEGORY_COLORS[label];
+  const key = normalize(label);
+  let hash = 0;
+  for (let index = 0; index < key.length; index += 1) {
+    hash = (hash * 31 + key.charCodeAt(index)) >>> 0;
+  }
+  return CURATORIAL_CATEGORY_COLORS[hash % CURATORIAL_CATEGORY_COLORS.length];
+}
+
 function recordText(record) {
   return normalize([
     record.title,
@@ -170,7 +214,8 @@ function recordText(record) {
     record.language,
     ...authors(record),
     ...articleTopics(record, {derive: record.journal === "Protrepsis", limit: 12}),
-    categoryFor(record)
+    ...categoriesFor(record),
+    broadCategoryFor(record)
   ].join(" "));
 }
 
@@ -225,7 +270,7 @@ function frequency(values) {
 }
 
 function allCategories() {
-  return frequency(state.records.map(categoryFor));
+  return frequency(state.records.flatMap(categoriesFor));
 }
 
 function filteredRecords() {
@@ -235,7 +280,7 @@ function filteredRecords() {
     if (state.decade !== "all" && decadeFor(record.year) !== state.decade) return false;
     if (state.language !== "all" && String(record.language || "s/f") !== state.language) return false;
     if (state.issue !== "all" && journalIssueInfo(record).key !== state.issue) return false;
-    if (state.category !== "all" && categoryFor(record) !== state.category) return false;
+    if (state.category !== "all" && !categoriesFor(record).includes(state.category)) return false;
     if (state.doiOnly && !record.doi) return false;
     if (state.abstractOnly && !record.abstract) return false;
     return true;
@@ -261,7 +306,7 @@ function chip(label, className = "") {
 function card(record, index) {
   const article = document.createElement("article");
   article.className = "journal-card";
-  article.dataset.category = categoryFor(record);
+  article.dataset.category = categoriesFor(record).join("|");
 
   const rail = document.createElement("div");
   rail.className = "journal-card-rail";
@@ -303,31 +348,46 @@ function card(record, index) {
 
   const category = document.createElement("div");
   category.className = "journal-card-taxonomy";
-  const categoryChip = chip(categoryFor(record), "category-chip");
-  categoryChip.title = "Categoría amplia derivada para navegación; consulte debajo los temas específicos del artículo.";
-  categoryChip.style.setProperty("--chip-color", CATEGORY_COLORS[categoryFor(record)] || CATEGORY_COLORS.Otros);
-  category.append(categoryChip);
+
+  const broadCategory = broadCategoryFor(record);
+  const broadChip = chip("Área general · " + broadCategory, "category-chip broad-category-chip");
+  broadChip.title = "Área filosófica amplia derivada. Las categorías específicas del artículo aparecen debajo.";
+  broadChip.style.setProperty("--chip-color", CATEGORY_COLORS[broadCategory] || CATEGORY_COLORS.Otros);
+  category.append(broadChip);
 
   const topicMeta = articleTopicMetadata(record, {
     derive: record.journal === "Protrepsis",
     limit: record.journal === "Protrepsis" ? 8 : 4
   });
-  if (topicMeta.topics.length) {
+  const categoryMeta = categoryMetadataFor(record);
+  if (categoryMeta.topics.length) {
     const topicGroup = document.createElement("div");
-    topicGroup.className = "journal-card-topic-group";
-    topicGroup.dataset.topicOrigin = topicMeta.origin;
-    topicGroup.title = topicMeta.note;
+    topicGroup.className = "journal-card-topic-group journal-card-category-group";
+    topicGroup.dataset.topicOrigin = categoryMeta.origin;
+    topicGroup.title = categoryMeta.note;
 
     const topicLabel = document.createElement("span");
     topicLabel.className = "journal-card-topic-label";
-    topicLabel.textContent = topicMeta.label;
+    topicLabel.textContent = record.journal === "Protrepsis" ? categoryMeta.label : topicMeta.label;
 
     const topicList = document.createElement("div");
     topicList.className = "journal-card-topic-list";
-    for (const subject of topicMeta.topics) {
-      topicList.append(chip(subject, "subject-chip topic-" + topicMeta.origin));
+    for (const subject of categoryMeta.topics) {
+      if (record.journal === "Protrepsis") {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "journal-chip subject-chip category-filter-chip topic-" + categoryMeta.origin;
+        button.dataset.taxonomyValue = subject;
+        button.textContent = subject;
+        button.title = "Filtrar Protrepsis por la categoría «" + subject + "»";
+        button.style.setProperty("--chip-color", categoryColorFor(subject));
+        button.addEventListener("click", () => selectTaxonomyFacet("category", subject));
+        topicList.append(button);
+      } else {
+        topicList.append(chip(subject, "subject-chip topic-" + categoryMeta.origin));
+      }
     }
-    const hiddenCount = Math.max(0, topicMeta.allTopics.length - topicMeta.topics.length);
+    const hiddenCount = Math.max(0, categoryMeta.allTopics.length - categoryMeta.topics.length);
     if (hiddenCount) topicList.append(chip("+" + hiddenCount, "subject-chip topic-more"));
 
     topicGroup.append(topicLabel, topicList);
@@ -374,10 +434,10 @@ function card(record, index) {
     "<div><dt>Revista</dt><dd>" + escapeHtml(record.journal || config.label) + "</dd></div>" +
     "<div><dt>DOI</dt><dd>" + escapeHtml(record.doi || "No indicado") + "</dd></div>" +
     "<div><dt>Número editorial</dt><dd>" + escapeHtml(journalIssueInfo(record).label) + "</dd></div>" +
-    "<div><dt>Categoría de navegación</dt><dd>" + escapeHtml(categoryFor(record)) + " <small>clasificación amplia derivada</small></dd></div>" +
-    "<div><dt>" + escapeHtml(topicMeta.label) + "</dt><dd>" +
-      escapeHtml(topicMeta.allTopics.join(" · ") || "No disponibles") +
-      " <small>" + escapeHtml(topicMeta.note) + "</small></dd></div>" +
+    "<div><dt>Área general</dt><dd>" + escapeHtml(broadCategoryFor(record)) + " <small>clasificación filosófica amplia derivada</small></dd></div>" +
+    "<div><dt>" + escapeHtml(categoryMetadataFor(record).label) + "</dt><dd>" +
+      escapeHtml(categoryMetadataFor(record).allTopics.join(" · ") || "No disponibles") +
+      " <small>" + escapeHtml(categoryMetadataFor(record).note) + "</small></dd></div>" +
     "</dl>";
 
   body.append(pins, title, byline, category, excerpt, actions, details);
@@ -416,13 +476,25 @@ function selectTaxonomyFacet(facet, value) {
   if (state.view === "atlas") buildAtlas();
 }
 
+function hasActiveFilters() {
+  return Boolean(
+    String(state.query || "").trim() ||
+    state.decade !== "all" ||
+    state.language !== "all" ||
+    state.category !== "all" ||
+    state.issue !== "all" ||
+    state.doiOnly ||
+    state.abstractOnly
+  );
+}
+
 function renderArchive() {
   const records = filteredRecords();
   const visible = records.slice(0, state.limit);
   el.results.replaceChildren(...visible.map(card));
   el.status.textContent =
     records.length + (records.length === 1 ? " artículo" : " artículos") +
-    (state.records.length !== records.length ? " · filtros activos" : "");
+    (hasActiveFilters() ? " · filtros activos" : "");
   el.loadMore.hidden = visible.length >= records.length;
   el.loadMore.textContent = visible.length < records.length
     ? "Cargar " + Math.min(PAGE_SIZE, records.length - visible.length) + " más"
@@ -476,7 +548,7 @@ function buildTaxonomy() {
     button.dataset.taxonomyValue = label;
     button.setAttribute("aria-pressed", String(state.category === label));
     button.setAttribute("aria-controls", "journal-card-grid");
-    button.style.setProperty("--chip-color", CATEGORY_COLORS[label] || CATEGORY_COLORS.Otros);
+    button.style.setProperty("--chip-color", categoryColorFor(label));
     button.innerHTML = "<span>" + escapeHtml(label) + "</span><strong>" + count + "</strong>";
     button.addEventListener("click", () => selectTaxonomyFacet("category", label));
     el.categories.append(button);
@@ -496,15 +568,22 @@ function buildTaxonomy() {
     el.issues?.append(button);
   }
 
-  const subjects = frequency(state.records.flatMap(row => row.subjects || []));
+  const subjects = journalId === "protrepsis"
+    ? allCategories()
+    : frequency(state.records.flatMap(row => row.subjects || []));
   el.topics.replaceChildren();
-  for (const [label, count] of subjects.slice(0, 14)) {
-    const item = document.createElement("span");
-    item.className = "topic-chip";
+  for (const [label, count] of subjects.slice(0, 24)) {
+    const item = journalId === "protrepsis" ? document.createElement("button") : document.createElement("span");
+    item.className = "topic-chip" + (journalId === "protrepsis" ? " topic-category-filter" : "");
+    if (journalId === "protrepsis") {
+      item.type = "button";
+      item.title = "Filtrar por la categoría «" + label + "»";
+      item.addEventListener("click", () => selectTaxonomyFacet("category", label));
+    }
     item.innerHTML = "<span>" + escapeHtml(label) + "</span><strong>" + count + "</strong>";
     el.topics.append(item);
   }
-  if (!subjects.length) el.topics.innerHTML = '<p class="taxonomy-empty">El corpus no publica temas declarados para esta colección.</p>';
+  if (!subjects.length) el.topics.innerHTML = '<p class="taxonomy-empty">El corpus no contiene categorías temáticas para esta colección.</p>';
 
   const authorFreq = frequency(state.records.flatMap(authors));
   el.authorsList.replaceChildren();

@@ -1,6 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { articleTopicMetadata, articleTopics, derivedArticleTopics } from "../js/journal-article-topics.js";
+import {
+  articleCategories,
+  articleCategoryMetadata,
+  articleTopicMetadata,
+  articleTopics,
+  derivedArticleTopics
+} from "../js/journal-article-topics.js";
 
 const example = {
   journal: "Protrepsis",
@@ -64,4 +70,24 @@ test("las etiquetas duplicadas documentadas se normalizan sin alterar su escritu
     subjects:["Ética"," ética ","BIOÉTICA","bioética"]
   });
   assert.deepEqual(meta.allTopics,["Ética","BIOÉTICA"]);
+});
+
+
+test("las etiquetas ricas exponen un contrato explícito de categorías", () => {
+  const record = {
+    ...example,
+    editorialKeywords: ["Violencia cultural", "Justicia epistémica"]
+  };
+  const meta = articleCategoryMetadata(record);
+  assert.equal(meta.label, "Categorías editoriales");
+  assert.equal(meta.origin, "editorial");
+  assert.deepEqual(articleCategories(record), ["Violencia cultural", "Justicia epistémica"]);
+});
+
+test("las categorías derivadas conservan su procedencia cuando no hay metadata editorial", () => {
+  const meta = articleCategoryMetadata(example, { derive: true, limit: 8 });
+  assert.equal(meta.label, "Categorías derivadas");
+  assert.equal(meta.origin, "derived");
+  assert.ok(meta.allTopics.includes("Epistemología crítica"));
+  assert.ok(meta.allTopics.includes("Pueblos originarios"));
 });

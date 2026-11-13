@@ -25,7 +25,11 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /journal-category-chips/);
     assert.match(html, /journal-topic-chips/);
     assert.match(html, /journal-author-chips/);
-    assert.match(html, /temas declarados/i);
+    if (journal === "protrepsis") {
+      assert.match(html, /categor[ií]as del corpus/i);
+    } else {
+      assert.match(html, /temas declarados/i);
+    }
     assert.match(html, /id="journal-category"/);
     assert.match(html, /id="journal-issue"/);
     assert.match(html, /journal-filter-toggle/);
@@ -40,12 +44,21 @@ test("runtime de revistas separa metadatos editoriales de categorías derivadas"
   assert.match(source, /CATEGORY_RULES/);
   assert.match(source, /articleTopicMetadata/);
   assert.match(source, /topicMeta\.label/);
-  assert.match(source, /topicMeta\.note/);
-  assert.match(source, /Categoría amplia derivada para navegación/);
+  assert.match(source, /categoryMetadataFor\(record\)\.note/);
+  assert.match(source, /categoriesFor\(record\)/);
+  assert.match(source, /categoryMetadataFor\(record\)/);
+  assert.match(source, /!categoriesFor\(record\)\.includes\(state\.category\)/);
+  assert.match(source, /Área general/);
+  assert.match(source, /category-filter-chip/);
+  assert.match(source, /function hasActiveFilters\(\)/);
+  assert.match(source, /hasActiveFilters\(\) \? " · filtros activos" : ""/);
   assert.match(source, /record\.subjects/);
   assert.match(topics, /Palabras clave editoriales/);
   assert.match(topics, /Temas bibliográficos/);
   assert.match(topics, /Temas del texto/);
+  assert.match(topics, /Categorías editoriales/);
+  assert.match(topics, /Categorías bibliográficas/);
+  assert.match(topics, /Categorías derivadas/);
   assert.match(topics, /no sustituyen palabras clave editoriales/);
   assert.match(source, /journal-doi-only/);
   assert.match(source, /journal-abstract-only/);
