@@ -61,6 +61,11 @@ jobs:
           assert d["authorlessArticleCandidatesExcludingEditorialNavigation"]==2
           assert d["unresolvedOriginalWorkIdentityConflictCount"]==1
           assert d["unresolvedOriginalWorkIdentityConflicts"][0]["indexedYear"]==2000
+          campos=d["unresolvedOriginalWorkIdentityConflicts"][0]
+          assert campos["issue15DatingEvidence"]["season"]=="Verano / Summer"
+          assert campos["issue15DatingEvidence"]["monthRange"]=="Junio-Septiembre 2000"
+          assert len(campos["sameYearIndependentBibliographyCandidates"])==2
+          assert not any(c["matchedOriginalUrl"] for c in campos["sameYearIndependentBibliographyCandidates"])
           assert d["unresolvedOriginalWorkIdentityConflicts"][0]["laterPageInternalIssueYear"]==2001
           assert d["pendingByIssue"]=={"8":1,"15":1,"46":2}
           assert d["bibliographicConflictCount"]==0
@@ -84,7 +89,9 @@ jobs:
               "One genuine unresolved scholarly source identity remains:",
               "- /campos.htm: original issue 15, 2000, indexed as de Campos,Jorge Lucio",
               "- A later archived same URL shows a separate 2001 interview; never overwrite 2000 identity",
-              "- Independent bibliography confirms multiple 2000 Sincronía works by Campos, but cannot match exact article URL",
+              "- Reproduced issue header independently establishes issue 15 as Summer, June-September 2000",
+              "- Campos bibliography names two 2000 Sincronía candidates (Deleuze; education/technology), neither confirmed at /campos.htm",
+              "- A thesis citing the Deleuze essay in 2006 points instead to distinct /campos2.htm; do not substitute URLs",
               "",
               "Original URLs, source statuses, issues and titles remain unchanged.",
               "No authors assigned on the basis of ambiguous catalog entries.",

@@ -106,6 +106,18 @@ class FinalMissingAuthorTriageTests(unittest.TestCase):
         self.assertIn("Floriano Martins",item["laterPageSubtitle"])
         self.assertIn("20020607092529",item["laterArchivedSameUrl"])
         self.assertIn("professionalBibliographyUrl",item)
+        issue=item["issue15DatingEvidence"]
+        self.assertEqual((issue["issueNumber"],issue["year"]),(15,2000))
+        self.assertEqual(issue["season"],"Verano / Summer")
+        self.assertEqual(issue["monthRange"],"Junio-Septiembre 2000")
+        self.assertIn("LosgrabadosdeGoya.pdf",issue["publicationHeaderEvidence"])
+        self.assertIn("neither identifies a Campos work",issue["scope"])
+        candidates=item["sameYearIndependentBibliographyCandidates"]
+        self.assertEqual(len(candidates),2)
+        self.assertEqual({c["reportedYear"] for c in candidates},{2000})
+        self.assertFalse(any(c["matchedOriginalUrl"] for c in candidates))
+        self.assertEqual({c["reportedSeason"] for c in candidates},
+                         {"Verano",None})
         independently_cited=item["separateDeleuzeEssayLaterCitation"]
         self.assertEqual(independently_cited["documentYear"],2007)
         self.assertEqual(independently_cited["citedHistoricalUrl"],

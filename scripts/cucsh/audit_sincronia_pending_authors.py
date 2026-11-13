@@ -177,6 +177,51 @@ def exact_campos_identity_conflicts(pending):
                 "https://www.escavador.com/sobre/764869/jorge-lucio-de-campos"
             ),
             "bibliographyConfirmsOtherSincronia2000Works": True,
+            "issue15DatingEvidence": {
+                "issueNumber": 15,
+                "year": 2000,
+                "season": "Verano / Summer",
+                "monthRange": "Junio-Septiembre 2000",
+                "publicationHeaderEvidence": (
+                    "https://filosofiaenimagenes.com/wp-content/uploads/"
+                    "2023/07/LosgrabadosdeGoya.pdf"
+                ),
+                "evidenceSourceWork": "Los grabados de Goya",
+                "evidenceSourceAuthor": "Carmen V. Vidaurre",
+                "scope": (
+                    "The reproduced 2000 issue-15 header corroborates issue "
+                    "and dating only. It neither identifies a Campos work "
+                    "nor establishes the content of /campos.htm."
+                ),
+            },
+            "sameYearIndependentBibliographyCandidates": [
+                {
+                    "title": (
+                        "Deleuze e o impulso alegórico: "
+                        'A arte como o "outro" da filosofia'
+                    ),
+                    "reportedYear": 2000,
+                    "reportedSeason": "Verano",
+                    "matchedOriginalUrl": False,
+                    "researchNote": (
+                        "The later 2006 citation names /campos2.htm; "
+                        "do not transfer it to /campos.htm."
+                    ),
+                },
+                {
+                    "title": (
+                        "A educação e o fascínio tecnológico: "
+                        "Algumas considerações"
+                    ),
+                    "reportedYear": 2000,
+                    "reportedSeason": None,
+                    "matchedOriginalUrl": False,
+                    "researchNote": (
+                        "A 2000 Sincronía bibliography entry is not a "
+                        "source-corroborated mapping to /campos.htm."
+                    ),
+                },
+            ],
             "separateDeleuzeEssayLaterCitation": {
                 "bibliographyDocument": (
                     "https://tede2.pucsp.br/bitstream/handle/7665/1/"
@@ -209,8 +254,9 @@ def exact_campos_identity_conflicts(pending):
             "requiredEvidence": (
                 "The later reuse of /campos.htm shows a 2001 interview, "
                 "while the frozen source record points to issue 15 (2000). "
-                "A professional bibliography confirms several distinct "
-                "Jorge Lúcio de Campos works in Sincronía in 2000. "
+                "A professional bibliography confirms two distinct "
+                "Jorge Lúcio de Campos Sincronía works in 2000, but "
+                "only a separate /campos2.htm citation is evidenced. "
                 "Do not equate them, silently move the issue/year, or "
                 "assign interviewer/interviewee roles without a matched "
                 "original 2000 publication or issue-level citation."
