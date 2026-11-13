@@ -21,6 +21,53 @@ function createEngraving(seed, variant) {
   svg.setAttribute("aria-hidden", "true");
   svg.setAttribute("focusable", "false");
 
+  // Five original screen-print palettes, tied to stable article identity.
+  // Color is decorative and does not imply any editorial classification.
+  const paints = [
+    ["#f9e8b8", "#b54c36", "#355a70"],
+    ["#e7b85f", "#2e507b", "#f3e9ca"],
+    ["#f4d19a", "#28655f", "#fce8cf"],
+    ["#e8d59c", "#b65e49", "#2d5671"],
+    ["#e7d2aa", "#af694e", "#23435e"]
+  ];
+  const [paper, pigment, contrast] = paints[variant];
+  const paint = document.createElementNS(SVG, "g");
+  paint.setAttribute("stroke", "none");
+  const ink = (tag, attributes) => {
+    const element = document.createElementNS(SVG, tag);
+    for (const [key, value] of Object.entries(attributes)) {
+      element.setAttribute(key, String(value));
+    }
+    paint.append(element);
+  };
+  // Large irregular print blocks are deliberately different from
+  // Quadripartita's perforated postal stamps.
+  ink("circle", {cx: 398, cy: 44, r: 82, fill: paper, opacity: .84});
+  ink("path", {
+    d: "M-18 170 Q96 91 180 124 T364 120 T522 65 L522 190 H-18 Z",
+    fill: contrast, opacity: .18
+  });
+  ink("path", {
+    d: "M-14 4 L145 -16 L120 192 L-14 192 Z",
+    fill: pigment, opacity: .16
+  });
+  if (variant === 0) {
+    ink("path",{d:"M124 166 V80 L248 25 L372 80 V166 Z",fill:paper,opacity:.78});
+    ink("circle",{cx:249,cy:64,r:25,fill:pigment,opacity:.52});
+  } else if (variant === 1) {
+    ink("circle",{cx:248,cy:95,r:82,fill:paper,opacity:.85});
+    ink("circle",{cx:248,cy:95,r:48,fill:pigment,opacity:.21});
+  } else if (variant === 2) {
+    ink("path",{d:"M202 180 Q158 82 242 21 Q335 67 287 180 Z",fill:paper,opacity:.68});
+    ink("path",{d:"M214 168 Q178 73 242 32 Q299 86 272 167 Z",fill:pigment,opacity:.13});
+  } else if (variant === 3) {
+    ink("path",{d:"M215 37 H282 Q276 63 294 94 Q311 142 281 161 Q249 175 217 161 Q188 140 206 94 Q225 62 215 37 Z",fill:paper,opacity:.87});
+    ink("path",{d:"M206 100 Q255 74 296 100 V133 Q249 111 208 136 Z",fill:pigment,opacity:.25});
+  } else {
+    ink("circle",{cx:249,cy:91,r:80,fill:paper,opacity:.81});
+    ink("path",{d:"M130 20 L249 91 L370 20 V37 L249 111 L130 37 Z",fill:pigment,opacity:.35});
+  }
+
   const g = document.createElementNS(SVG, "g");
   g.setAttribute("stroke", "currentColor");
   g.setAttribute("stroke-linecap", "round");
@@ -107,7 +154,7 @@ function createEngraving(seed, variant) {
     const y=12+((i*97+(seed%17))%156);
     draw("M"+x+" "+y+"h"+(i%7===0?3:.9),.55,.35);
   }
-  svg.append(g);
+  svg.append(paint, g);
   return svg;
 }
 
@@ -130,6 +177,8 @@ function decorate(card) {
   overlineB.textContent="FICHA "+serial;
   overline.append(overlineA,overlineB);
 
+  // The palette is a reproducible presentation detail, not scholarly metadata.
+  card.dataset.proPalette=String(variant);
   const art=document.createElement("div");
   art.className="pro-catalog-art";
   art.setAttribute("aria-hidden","true");
@@ -138,6 +187,10 @@ function decorate(card) {
   signature.className="pro-catalog-signature";
   signature.textContent="Π · "+year+" / "+issue;
   art.append(signature);
+  const plate=document.createElement("span");
+  plate.className="pro-catalog-plate-index";
+  plate.textContent="LÁMINA "+String(variant+1).padStart(2,"0")+" / PROTREPSIS";
+  art.append(plate);
 
   body.prepend(overline,art);
   card.dataset.proCatalogReady="true";
