@@ -1631,10 +1631,29 @@ export function augmentWithAuthorResolution(
    * después pasamos TODO por el mismo agregador de
    * obra usado por la búsqueda federada.
    */
+  const federatedResults =
+    response.results || [];
+
+  /*
+   * ORCID y registros ya consolidados con ORCID deben conservar visibilidad
+   * en una búsqueda de autor. Antes, las 50 obras del índice local se
+   * anteponían y estos resultados quedaban fuera de los primeros 20 cards.
+   */
+  const orcidFirst =
+    federatedResults.filter(item =>
+      (item.providers || []).includes("ORCID")
+    );
+
+  const remainingFederated =
+    federatedResults.filter(item =>
+      !(item.providers || []).includes("ORCID")
+    );
+
   const results =
     mergeResults([
+      ...orcidFirst,
       ...works,
-      ...(response.results || [])
+      ...remainingFederated
     ]);
 
   const providerCounts = {};

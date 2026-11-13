@@ -4,6 +4,12 @@ import {
   enrichAuthorWorksWithCollaborators
 } from "./remote-author-resolution.js";
 import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261101-federated-coverage-v1";
+import { searchCrossrefByOrcid } from "../sources/crossref.js";
+import {
+  fetchOrcidPublicWorks,
+  fetchOrcidPublicProfile
+} from "../sources/orcid.js?v=20261112-orcid-profile-v1";
+import { normalizedAuthorOrcid, authorWorkSources } from "./author-provenance.js";
 import { getCuratedAuthorBibliography } from "./curated-author-bibliography.js?v=20261101-curated-bibliography-v1";
 
 /*
@@ -45,11 +51,25 @@ function titleAliases(work) {
 }
 
 function sourceRecords(existing, incoming) {
-  const seen=new Set();
-  return [...(existing||[]),...(incoming||[])].filter(item=>{
-    const key=[item?.provider,item?.sourceId].join("|");
-    if(seen.has(key))return false;
-    seen.add(key);return true;
+  const seen = new Set();
+  return [...(existing || []), ...(incoming || [])].filter(item => {
+    if (!item?.provider) return false;
+    const key = [item.provider, item.sourceId, item.query || ""].join("|");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function sourceLinks(existing, incoming) {
+  const seen = new Set();
+  return [...(existing || []), ...(incoming || [])].filter(item => {
+    if (!item) return false;
+    const key = [item.provider || "", item.url || item.href || "",
+      item.sourceId || ""].join("|");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
   });
 }
 
@@ -93,7 +113,10 @@ export function mergeAuthorArchives(initial = [], additions = []) {
       aliasIndex;
 
     if (index === undefined) {
-      const enriched=enrichedWork(work);
+      const enriched=enrichedWork({
+        ...work,
+        providers: authorWorkSources(work)
+      });
       merged.push(enriched);
       register(enriched,merged.length-1);
       continue;
@@ -109,8 +132,18 @@ export function mergeAuthorArchives(initial = [], additions = []) {
     const secondary = preferIncoming ? existing : work;
     const combined = {
       ...secondary,...primary,
-      providers:[...new Set([...(existing.providers||[]),...(work.providers||[])])],
+      providers: authorWorkSources({
+        providers: [...authorWorkSources(existing), ...authorWorkSources(work)]
+      }),
       sourceRecords:sourceRecords(existing.sourceRecords,work.sourceRecords),
+      sourceLinks:sourceLinks(existing.sourceLinks,work.sourceLinks),
+      orcidEvidence: primary.orcidEvidence || secondary.orcidEvidence || null,
+      authorIdentity: {
+        ...(secondary.authorIdentity || {}),
+        ...(primary.authorIdentity || {}),
+        orcid: primary.authorIdentity?.orcid ||
+          secondary.authorIdentity?.orcid || null
+      },
       authors:primary.authors?.length ? primary.authors : secondary.authors,
       alternativeTitles:[...new Set([
         ...(existing.alternativeTitles||[]),
@@ -124,6 +157,10 @@ export function mergeAuthorArchives(initial = [], additions = []) {
     };
     merged[index]=combined;
     register(combined,index);
+    // Retain aliases for ALL source identifiers after a canonical record
+    // changes from an OpenAlex work ID to a DOI-bearing Crossref record.
+    byId.set(fingerprint(existing), index);
+    byId.set(fingerprint(work), index);
   }
   return merged.sort((a,b)=>
     (Number(b.year)||0)-(Number(a.year)||0) ||
@@ -187,30 +224,38 @@ export async function discoverAuthorArchive({
   initialWorks=[],
   federatedImpl=resolveFederatedAuthor,
   snapshotImpl=fetchAuthorWorksFromSnapshot,
+  orcidSearchImpl=searchCrossrefByOrcid,
+  orcidRegistryImpl=fetchOrcidPublicWorks,
+  orcidProfileImpl=fetchOrcidPublicProfile,
   signal,
   onProgress=()=>{},
   snapshotOptions={},
-  federatedOptions={}
+  federatedOptions={},
+  orcidOptions={},
+  orcidRegistryOptions={},
+  orcidProfileOptions={}
 }={}) {
   const name=String(author?.displayName||author?.sourceDisplayName||"").trim();
   const id=authorId(author?.id);
-  const orcid=author?.orcid||null;
+  const orcid=normalizedAuthorOrcid(author?.orcid);
   const linkedAuthorIds=Array.isArray(author?.linkedAuthorIds)
     ? author.linkedAuthorIds : [];
   const curated=getCuratedAuthorBibliography(author);
   let works=mergeAuthorArchives(initialWorks,curated.works||[]);
   const errors=[];
   const sources=[...new Set([
-    ...initialWorks.flatMap(work=>work.providers||[]),
+    ...initialWorks.flatMap(authorWorkSources),
     ...(curated.source?[curated.source]:[])
   ])];
   let snapshotComplete=false;
   let snapshotTotal=null;
+  let orcidSummary=null;
+  let orcidProfile=null;
 
   const emit=(source,phase)=>onProgress({
     works:[...works],source,phase,
     sources:[...new Set(sources)],errors:[...errors],
-    snapshotComplete,snapshotTotal
+    snapshotComplete,snapshotTotal,orcidSummary,orcidProfile
   });
   emit(curated.works?.length
     ? "Bibliografía verificada"
@@ -258,14 +303,87 @@ export async function discoverAuthorArchive({
       emit("Crossref / Internet Archive / CUCSH Filosofía","settled");
     })());
   }
-  const results=await Promise.allSettled(jobs);
+  // ORCID also exposes public career/profile data separately from works.
+  // Never infer missing biography, employment or achievements.
+  if (orcid) {
+    jobs.push((async () => {
+      try {
+        const profile = await orcidProfileImpl(orcid, {
+          signal, ...orcidProfileOptions
+        });
+        orcidProfile = profile || null;
+      } catch (error) {
+        if (signal?.aborted || error?.name === "AbortError") throw error;
+        errors.push("Perfil público ORCID: " +
+          String(error.message || "No disponible"));
+        orcidProfile = {
+          orcid,
+          hasPublicProfileData: false,
+          error: "No disponible",
+          source: "ORCID"
+        };
+      }
+      emit("Perfil ORCID", "settled");
+    })());
+  }
+
+  // Read the public ORCID registry itself. A search for ORCID in Crossref
+  // cannot substitute for the works explicitly listed on the ORCID profile.
+  if (orcid) {
+    jobs.push((async () => {
+      try {
+        const result = await orcidRegistryImpl(orcid, {
+          displayName: name, signal, ...orcidRegistryOptions
+        });
+        works = mergeAuthorArchives(works, result.works || []);
+        orcidSummary = {
+          totalGroups: result.totalGroups ?? (result.works || []).length,
+          returnedWorks: (result.works || []).length,
+          complete: Boolean(result.complete)
+        };
+        if (!sources.includes("ORCID"))
+          sources.push("ORCID");
+      } catch (error) {
+        if (signal?.aborted || error?.name === "AbortError") throw error;
+        errors.push("Registro público ORCID: " +
+          String(error.message || "No disponible"));
+        orcidSummary = { error: "No disponible", complete: false };
+      }
+      emit("ORCID", "settled");
+    })());
+  }
+
+    // Crossref's exact ORCID filter discovers works that name-only searches
+  // miss. It is not the ORCID registry; coverage can still be partial.
+  if (orcid) {
+    jobs.push((async () => {
+      try {
+        const result = await orcidSearchImpl(orcid, {
+          signal, ...orcidOptions
+        });
+        const additions = Array.isArray(result) ? result : result.works || [];
+        works = mergeAuthorArchives(works, additions);
+        if (!sources.includes("Crossref · ORCID"))
+          sources.push("Crossref · ORCID");
+        if (result.complete === false)
+          errors.push("Crossref por ORCID tiene más registros que el límite de consulta.");
+      } catch (error) {
+        if (signal?.aborted || error?.name === "AbortError") throw error;
+        errors.push("Crossref por ORCID: " +
+          String(error.message || "No disponible"));
+      }
+      emit("Crossref · ORCID", "settled");
+    })());
+  }
+
+    const results=await Promise.allSettled(jobs);
   if(signal?.aborted||results.some(item=>
     item.status==="rejected"&&item.reason?.name==="AbortError"))
     throw new DOMException("Aborted","AbortError");
 
   return {
     works,sources:[...new Set(sources)],errors,
-    snapshotComplete,snapshotTotal,
+    snapshotComplete,snapshotTotal,orcidSummary,orcidProfile,
     // Curated coverage improves the archive but does not claim a universal bibliography.
     curatedWorks:curated.works?.length||0,
     complete:false

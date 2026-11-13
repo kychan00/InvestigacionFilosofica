@@ -210,7 +210,13 @@ try {
         doiButton: find(".result-card:nth-of-type(2) .result-doi-link"),
         resultGridColumns:
           getComputedStyle(document.querySelector(".result-card")).gridTemplateColumns,
-        nav: [...document.querySelectorAll(".philo-nav-links a")].map(rect),
+        nav: [
+          document.querySelector(".site-menu-toggle"),
+          ...document.querySelectorAll(
+            ".site-menu-links > .site-menu-link, " +
+            ".site-menu-links > .site-menu-branch > .site-menu-branch-toggle"
+          )
+        ].filter(Boolean).map(rect),
         filtersColumnCount:
           getComputedStyle(document.querySelector(".filter-grid"))
             .gridTemplateColumns.split(" ").length
@@ -296,7 +302,7 @@ try {
         Math.abs(values.select.left - values.submit.left) < 2,
         "Search controls must stack on phones"
       );
-      assert.ok(values.nav.every(link => link.height >= 44));
+      assert.ok(values.nav.length >= 2 && values.nav.every(link => link.height >= 44), "Mobile navigation targets must remain tappable");
     } else {
       assert.ok(
         Math.abs(values.select.top - values.submit.top) < 2,

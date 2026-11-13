@@ -14,7 +14,10 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Queue production deploys instead of cancelling an in-flight Pages sync.
+  # This keeps the latest deployment reliable without leaving noisy
+  # cancelled runs when merges land close together.
+  cancel-in-progress: false
 
 
 jobs:

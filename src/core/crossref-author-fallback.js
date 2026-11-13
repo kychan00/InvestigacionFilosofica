@@ -38,6 +38,20 @@ function mergeMatchedWorks(works) {
     index.set(key,{
       ...second,...first,
       providers:[...new Set([...(existing.providers||[]),...(work.providers||[])])],
+      sourceRecords: [...new Map(
+        [...(existing.sourceRecords||[]),...(work.sourceRecords||[])]
+          .map(record => [
+            [record.provider||"",record.sourceId||"",record.query||""].join("|"),
+            record
+          ])
+      ).values()],
+      sourceLinks: [...new Map(
+        [...(existing.sourceLinks||[]),...(work.sourceLinks||[])]
+          .map(link => [
+            [link.provider||"",link.url||link.href||""].join("|"),
+            link
+          ])
+      ).values()],
       collectiveWork:Boolean(work.collectiveWork||existing.collectiveWork),
       coauthorCount:Math.max(Number(work.coauthorCount||0),
         Number(existing.coauthorCount||0)) || first.coauthorCount || null,

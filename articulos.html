@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161616">
+  <meta name="description" content="Artículos de revistas universitarias integrados en Investigación Filosófica, organizados por universidad y revista.">
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Artículos · Investigación Filosófica</title>
+  <link rel="stylesheet" href="./css/articles.css?v=20261111-v2">
+  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
+</head>
+<body>
+  <div class="site-mobile-toolbar">
+    <a class="site-mobile-toolbar-brand" href="./" aria-label="Ir a Investigación Filosófica">
+      <span class="site-mobile-toolbar-mark" aria-hidden="true">Φ</span>
+      <span class="site-mobile-toolbar-name">Investigación Filosófica</span>
+    </a>
+    <button type="button" class="site-menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-mobile-menu">
+      <span class="site-menu-toggle-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+
+  <div class="articles-page">
+    <header class="articles-header">
+      <nav class="articles-nav" aria-label="Navegación principal">
+        <a class="articles-brand" href="./">
+          <span class="articles-brand-mark" aria-hidden="true">Φ</span>
+          <span>Investigación Filosófica <small>Archivo vivo</small></span>
+        </a>
+        <div class="articles-nav-links">
+          <a href="./acerca.html">Acerca de</a>
+        </div>
+        <div class="theme-switch" role="group" aria-label="Apariencia">
+          <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
+          <button type="button" data-theme-choice="dark" aria-label="Activar modo oscuro" aria-pressed="false">Oscuro</button>
+        </div>
+      </nav>
+
+      <div class="articles-hero">
+        <p class="articles-eyebrow">ARTÍCULOS / UNIVERSIDADES / REVISTAS</p>
+        <h1>Las revistas también tienen <em>territorio propio.</em></h1>
+        <p>El archivo se organiza por universidad y después por revista. Hoy comienza con la Universidad de Guadalajara; la estructura está preparada para incorporar nuevas instituciones sin convertir la navegación en una lista interminable.</p>
+      </div>
+
+      <div class="articles-stats" aria-label="Resumen del archivo de artículos">
+        <div><strong id="articles-total">—</strong><span>artículos publicados</span></div>
+        <div><strong>1</strong><span>universidad</span></div>
+        <div><strong>3</strong><span>revistas UdeG</span></div>
+      </div>
+    </header>
+
+    <main class="articles-main">
+      <section id="udg" class="articles-university" aria-labelledby="university-title">
+        <div class="articles-section-copy">
+          <p class="articles-kicker">01 / UNIVERSIDAD</p>
+          <h2 id="university-title">Universidad de Guadalajara</h2>
+          <p>Primera colección institucional del archivo de revistas. Cada publicación conserva su procedencia, autores, fecha y enlace al registro original.</p>
+        </div>
+        <div class="articles-university-tabs" role="tablist" aria-label="Universidades">
+          <button type="button" role="tab" aria-selected="true">UdeG <span>Universidad de Guadalajara</span></button>
+        </div>
+      </section>
+
+      <section id="revistas" class="articles-journals" aria-labelledby="journals-title">
+        <div class="articles-section-copy">
+          <p class="articles-kicker">02 / REVISTAS</p>
+          <h2 id="journals-title">Elija una revista</h2>
+          <p>Las revistas son espacios independientes dentro de la misma universidad. Esta separación permitirá sumar nuevas colecciones sin mezclar sus identidades editoriales.</p>
+        </div>
+
+        <div class="journal-tabs" role="tablist" aria-label="Revistas UdeG">
+          <button type="button" role="tab" data-journal="protrepsis" aria-selected="true">
+            <span>01</span><strong>Protrepsis</strong><small id="count-protrepsis">—</small>
+          </button>
+          <button type="button" role="tab" data-journal="sincronia" aria-selected="false">
+            <span>02</span><strong>Sincronía</strong><small id="count-sincronia">—</small>
+          </button>
+          <button type="button" role="tab" data-journal="quadripartita" aria-selected="false">
+            <span>03</span><strong>Quadripartita Ratio</strong><small id="count-quadripartita">—</small>
+          </button>
+        </div>
+
+        <article class="journal-space">
+          <header class="journal-space-head">
+            <div>
+              <p id="journal-kicker" class="articles-kicker">REVISTA</p>
+              <h2 id="journal-title">Protrepsis</h2>
+              <p id="journal-description"></p>
+            </div>
+            <div class="journal-space-actions">
+              <a id="journal-page-link" href="#">Abrir página de la revista →</a>
+              <a id="journal-source-link" href="#" target="_blank" rel="noopener noreferrer">Sitio de la revista ↗</a>
+            </div>
+          </header>
+
+          <div class="journal-tools">
+            <label>
+              <span>Buscar dentro de esta revista</span>
+              <input id="journal-search" type="search" autocomplete="off" placeholder="Título, autor, concepto…">
+            </label>
+            <p id="journal-status" role="status" aria-live="polite">Cargando corpus universitario…</p>
+          </div>
+
+          <div id="journal-results" class="journal-results"></div>
+          <button id="journal-load-more" class="journal-load-more" type="button" hidden>Cargar más artículos</button>
+        </article>
+      </section>
+    </main>
+
+    <footer class="articles-footer">
+      <span>Φ · INVESTIGACIÓN FILOSÓFICA</span>
+      <span>Artículos universitarios · archivo en expansión</span>
+    </footer>
+  </div>
+
+  <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
+  <script type="module" src="./js/articles.js?v=20261111-v2"></script>
+  <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
+</body>
+</html>

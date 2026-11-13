@@ -13,7 +13,7 @@ import {
 import {
   searchPhilosophy,
   searchMorePhilosophy
-} from "../src/core/search-engine.js?v=20261109-global-work-dedup-v3";
+} from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
 
 import {
   explainResult
@@ -45,9 +45,13 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261109-editorial-timeline-v2";
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
+import {
+  authorOrcidUrl, normalizedAuthorOrcid, authorWorkSources,
+  workHasAuthorOrcidEvidence
+} from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261101-curated-bibliography-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261112-orcid-profile-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -206,6 +210,8 @@ let authorTimelineState = {
 let authorArchiveLoading = false;
 let authorArchiveNotice = "";
 let authorArchiveSources = [];
+let authorArchiveOrcidSummary = null;
+let authorArchiveOrcidProfile = null;
 
 const qwen3OptIn =
   isQwen3BrowserQ8OptIn(
@@ -1734,8 +1740,15 @@ function renderRecordDetails(
       .join("");
 
 
+  const sourceList = [...(item.sourceRecords || [])];
+  // Show every catalog even when a source supplied only its provider name.
+  for (const provider of authorWorkSources(item)) {
+    if (!sourceList.some(record => record?.provider === provider)) {
+      sourceList.push({ provider, sourceId: null });
+    }
+  }
   const sourceRecords =
-    (item.sourceRecords || [])
+    sourceList
       .map(
         source => `
           <li>
@@ -3118,6 +3131,15 @@ function renderResult(
       : abstract;
 
 
+  const authorProfileOrcid = currentResponse?.authorOnly
+    ? authorOrcidUrl(currentResponse.authorResolution?.author?.orcid)
+    : null;
+  const hasWorkOrcidEvidence = authorProfileOrcid &&
+    workHasAuthorOrcidEvidence(item, authorProfileOrcid);
+  const isOrcidListed = Boolean(item.orcidRecord ||
+    authorWorkSources(item).includes("ORCID"));
+  const workSources = authorWorkSources(item);
+
   const archiveDescription =
     (item.sourceRecords || [])
       .find(
@@ -3196,9 +3218,13 @@ function renderResult(
               item.retrievalMode ===
                 "semantic"
                 ? "Semántica"
+                : item.retrievalMode === "orcid-registry-search"
+                  ? "ORCID"
                 : [
                     "author-index",
                     "author-crossref",
+                    "author-orcid-crossref",
+                    "author-orcid-registry",
                     "author-internet-archive",
                     "author-institutional",
                     "author-curated"
@@ -3271,8 +3297,25 @@ function renderResult(
 
         <div class="provider-row">
 
+          ${workSources.length > 1
+            ? `<span class="provider author-multiple-sources">Varias fuentes · ${workSources.length}</span>`
+            : ""}
+          ${authorProfileOrcid
+            ? `<a class="provider author-work-orcid ${hasWorkOrcidEvidence ? "is-evidenced" : ""}"
+                 href="${escapeHtml(authorProfileOrcid)}"
+                 target="_blank" rel="noopener noreferrer"
+                 title="${isOrcidListed
+                   ? "Esta obra aparece en la bibliografía pública del registro ORCID del investigador."
+                   : hasWorkOrcidEvidence
+                     ? "El identificador ORCID aparece en metadatos bibliográficos."
+                     : "ORCID del perfil, sin atribución individual confirmada para esta obra."}">
+                 ${isOrcidListed ? "Registrada en ORCID"
+                   : hasWorkOrcidEvidence ? "ORCID en metadatos" : "ORCID del autor"}
+               </a>`
+            : ""}
+
           ${
-            (item.providers || [])
+            workSources
               .map(
                 provider => `
                   <span class="provider">
@@ -3466,10 +3509,22 @@ function renderResult(
                   · sin reranker
                 </div>
               `
+            : item.retrievalMode === "orcid-registry-search"
+              ? `
+                <div class="explain">
+                  Registro público ORCID
+                  · obra presente en el registro
+                  · ${item.orcidSearch?.authorQuery
+                    ? "coincidencia de autor"
+                    : "coincidencia temática"}
+                </div>
+              `
             : [
                 "author-index",
                 "author-live",
                 "author-crossref",
+                "author-orcid-crossref",
+                "author-orcid-registry",
                 "author-internet-archive",
                 "author-institutional",
                 "author-curated"
@@ -3484,6 +3539,10 @@ function renderResult(
                       ? "Autoría directa confirmada en el corpus"
                       : item.retrievalMode === "author-curated"
                         ? `Bibliografía verificada · identidad confirmada por ${item.authorIdentity?.orcid ? "ORCID y " : ""}fuente académica o editorial`
+                        : item.retrievalMode === "author-orcid-crossref"
+                          ? "Publicación vinculada al ORCID del investigador en los metadatos de Crossref"
+                        : item.retrievalMode === "author-orcid-registry" || item.orcidRecord
+                          ? "Obra declarada en el registro ORCID público del investigador; no implica validación editorial"
                         : item.collectiveWork
                           ? "Participación registrada en obra colectiva o coordinada · metadatos bibliográficos"
                           : `Autoría asociada al nombre en ${escapeHtml(
@@ -3539,6 +3598,8 @@ function renderResult(
               : [
                   "author-index",
                   "author-crossref",
+                  "author-orcid-crossref",
+                  "author-orcid-registry",
                   "author-internet-archive",
                   "author-institutional"
                 ].includes(
@@ -4836,7 +4897,7 @@ function fetchMoreButton(
 
       <span>
         Buscar la siguiente página
-        en OpenAlex y Crossref
+        en las fuentes académicas activas
       </span>
     </div>
   `;
@@ -4947,6 +5008,8 @@ function showExclusiveAuthorWorks(
   if (options.resetTimeline) {
     authorArchiveNotice = "";
     authorArchiveSources = [];
+    authorArchiveOrcidSummary = null;
+    authorArchiveOrcidProfile = null;
     authorTimelineState = {
       unit: "year",
       selectedKey: null,
@@ -5003,8 +5066,8 @@ function showExclusiveAuthorWorks(
   }
 
   status.textContent = authorArchiveLoading
-    ? `${currentResults.length} obras verificadas de ${resolution.author.displayName} · búsqueda profunda en curso…`
-    : `${currentResults.length} obras verificadas de ${resolution.author.displayName}${authorArchiveNotice ? " · " + authorArchiveNotice : ""}`;
+    ? `${currentResults.length} obras recuperadas de ${resolution.author.displayName} · búsqueda profunda en curso…`
+    : `${currentResults.length} obras recuperadas de ${resolution.author.displayName}${authorArchiveNotice ? " · " + authorArchiveNotice : ""}`;
 
   researchWorkspace
     ?.classList
@@ -5051,6 +5114,8 @@ function restoreAuthorSourceSearch() {
   authorArchiveLoading = false;
   authorArchiveNotice = "";
   authorArchiveSources = [];
+  authorArchiveOrcidSummary = null;
+  authorArchiveOrcidProfile = null;
   authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
@@ -5434,32 +5499,37 @@ async function openExclusiveAuthorByName(
           },
           initialWorks: resolution.works,
           signal: authorController.signal,
-          onProgress: ({works,source,phase,sources,errors}) => {
+          onProgress: ({
+            works,source,phase,sources,errors,orcidSummary,orcidProfile
+          }) => {
             if (
               authorController.signal.aborted ||
               currentController !== authorController
             ) return;
 
             authorArchiveSources = sources;
+            authorArchiveOrcidSummary = orcidSummary;
+            authorArchiveOrcidProfile =
+              orcidProfile || authorArchiveOrcidProfile;
             authorArchiveNotice =
               phase === "started"
                 ? (resolution.author?.id
                   ? "Consultando el corpus filosófico y fuentes bibliográficas…"
-                  : "Integrando bibliografía verificada y ampliando en Crossref, Internet Archive y catálogos institucionales…")
-                : `Consulta de ${source}: ${works.length} obras verificadas`;
+                  : "Consultando ORCID, Crossref, Internet Archive y catálogos institucionales…")
+                : `Consulta de ${source}: ${works.length} obras recuperadas`;
 
             // Do not discard the initial results or collapse the
             // user's selected year/month after each new page.
             showExclusiveAuthorWorks({
               ...resolution,
               works,
-              author: {
+              author: mergeAuthorOrcidProfile({
                 ...resolution.author,
                 corpusWorks: Math.max(
                   Number(resolution.author.corpusWorks || 0),
                   works.length
                 )
-              }
+              }, authorArchiveOrcidProfile)
             }, {loading: true, preserveVisibleLimit: true});
           }
         });
@@ -5470,6 +5540,9 @@ async function openExclusiveAuthorByName(
         ) return;
 
         authorArchiveSources = deep.sources;
+        authorArchiveOrcidSummary = deep.orcidSummary;
+        authorArchiveOrcidProfile =
+          deep.orcidProfile || authorArchiveOrcidProfile;
         authorArchiveNotice = deep.errors.length
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
@@ -5479,13 +5552,13 @@ async function openExclusiveAuthorByName(
         showExclusiveAuthorWorks({
           ...resolution,
           works: deep.works,
-          author: {
+          author: mergeAuthorOrcidProfile({
             ...resolution.author,
             corpusWorks: Math.max(
               Number(resolution.author.corpusWorks || 0),
               deep.works.length
             )
-          }
+          }, authorArchiveOrcidProfile)
         }, { loading: false, preserveVisibleLimit: true });
       } catch(error) {
         if (authorController.signal.aborted) return;
@@ -5772,13 +5845,7 @@ function renderAuthorResolution(
     author.wikidataId
       ? `https://www.wikidata.org/wiki/${author.wikidataId}`
       : null;
-  const orcidUrl = author.orcid
-    ? (
-        author.orcid.startsWith("http")
-          ? author.orcid
-          : `https://orcid.org/${author.orcid}`
-      )
-    : null;
+  const orcidUrl = authorOrcidUrl(author.orcid);
 
   return `
     <section
@@ -6156,6 +6223,303 @@ function authorMonogram(name) {
 }
 
 
+function mergeAuthorOrcidProfile(author, profile) {
+  if (!profile) return author;
+  return {
+    ...author,
+    // Keep narrative biography sources separate. ORCID biography is rendered
+    // once in the academic-profile section, never copied into the hero.
+    aliases: [...new Set([
+      ...(author?.aliases || []),
+      ...(profile.otherNames || [])
+    ].filter(Boolean))],
+    orcidProfile: profile
+  };
+}
+
+
+function authorCountryLabel(value) {
+  const code = String(value || "").trim().toUpperCase();
+  if (!code) return "";
+  try {
+    return new Intl.DisplayNames(["es"], { type: "region" }).of(code) || code;
+  } catch {
+    return code;
+  }
+}
+
+
+function authorProfileDateRange(item = {}) {
+  const start = item.startDate?.year || null;
+  const end = item.endDate?.year || null;
+  if (!start && !end) return "";
+  if (start && !end) return start + "–actual";
+  if (!start && end) return "hasta " + end;
+  return start === end ? String(start) : start + "–" + end;
+}
+
+
+function authorProfileAffiliation(item, label) {
+  const location = [
+    item.city,
+    item.region,
+    authorCountryLabel(item.country)
+  ].filter(Boolean).join(" · ");
+  const date = authorProfileDateRange(item);
+  return `
+    <li class="author-profile-item">
+      <span class="author-profile-item-kind">${escapeHtml(label)}</span>
+      <strong>${escapeHtml(item.role || item.organization || "Actividad")}</strong>
+      ${item.role && item.organization
+        ? `<span>${escapeHtml(item.organization)}</span>` : ""}
+      ${item.department
+        ? `<small>${escapeHtml(item.department)}</small>` : ""}
+      ${location || date
+        ? `<small>${escapeHtml([location, date].filter(Boolean).join(" · "))}</small>`
+        : ""}
+    </li>
+  `;
+}
+
+
+function normalizedAuthorNarrative(value) {
+  return String(value || "").replace(/\s+/g, " ").trim().toLocaleLowerCase("es");
+}
+
+
+function compactAuthorText(value, maxLength = 430) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text || text.length <= maxLength) return text;
+
+  const slice = text.slice(0, maxLength + 1);
+  const sentence = Math.max(
+    slice.lastIndexOf(". "),
+    slice.lastIndexOf("; "),
+    slice.lastIndexOf(": ")
+  );
+  const word = slice.lastIndexOf(" ");
+  const cut = sentence >= Math.round(maxLength * .55)
+    ? sentence + 1
+    : word >= Math.round(maxLength * .7)
+      ? word
+      : maxLength;
+  return text.slice(0, cut).trim().replace(/[.,;:]+$/, "") + "…";
+}
+
+
+function authorOrcidProfileSummary(profile) {
+  if (!profile || profile.error) return "";
+
+  const employment = [...(profile.employments || [])].sort((a, b) =>
+    Number(!b.endDate) - Number(!a.endDate) ||
+    Number(b.startDate?.year || 0) - Number(a.startDate?.year || 0));
+  const education = [...(profile.educations || [])].sort((a, b) =>
+    Number(b.endDate?.year || b.startDate?.year || 0) -
+    Number(a.endDate?.year || a.startDate?.year || 0));
+  const current = employment.find(item => !item.endDate);
+  const latestEmployment = current || employment[0] || null;
+  const latestEducation = education[0] || null;
+  const keywords = [...new Set(profile.keywords || [])].slice(0, 4);
+  const parts = [];
+
+  if (latestEmployment?.organization) {
+    parts.push(
+      (latestEmployment.role || "Actividad académica") +
+      " en " + latestEmployment.organization +
+      (current ? "." : " (experiencia registrada en ORCID).")
+    );
+  }
+
+  if (keywords.length) {
+    parts.push("Áreas declaradas: " + keywords.join(", ") + ".");
+  }
+
+  if (!latestEmployment && latestEducation?.organization) {
+    const detail = [
+      latestEducation.role,
+      latestEducation.department
+        ? "Departamento de " + latestEducation.department
+        : null
+    ].filter(Boolean).join(" · ");
+    parts.push(
+      "Formación registrada" +
+      (detail ? ": " + detail : "") +
+      " en " + latestEducation.organization + "."
+    );
+  }
+
+  if ((profile.distinctions || []).length) {
+    const count = profile.distinctions.length;
+    parts.push(
+      count + (count === 1
+        ? " distinción pública registrada en ORCID."
+        : " distinciones públicas registradas en ORCID.")
+    );
+  }
+
+  if (!parts.length && profile.biography) {
+    return "Perfil académico y biografía pública disponibles en ORCID.";
+  }
+
+  return compactAuthorText(parts.slice(0, 3).join(" "), 430);
+}
+
+
+function renderAuthorProfileBiography(value) {
+  const biography = String(value || "").replace(/\s+/g, " ").trim();
+  if (!biography) return "";
+
+  if (biography.length <= 620) {
+    return `<p class="author-academic-profile-bio">${escapeHtml(biography)}</p>`;
+  }
+
+  const preview = compactAuthorText(biography, 420);
+  return `
+    <details class="author-biography-details">
+      <summary>
+        <span class="author-biography-preview">${escapeHtml(preview)}</span>
+        <span class="author-biography-toggle">
+          <span class="author-biography-toggle-closed">Leer biografía completa ↓</span>
+          <span class="author-biography-toggle-open">Ocultar biografía ↑</span>
+        </span>
+      </summary>
+      <p class="author-academic-profile-bio author-academic-profile-bio-full">
+        ${escapeHtml(biography)}
+      </p>
+    </details>
+  `;
+}
+
+
+function renderAuthorOrcidProfile(profile, orcidUrl) {
+  if (!profile || !orcidUrl) return "";
+
+  const employment = [...(profile.employments || [])].sort((a, b) =>
+    Number(!b.endDate) - Number(!a.endDate) ||
+    Number(b.startDate?.year || 0) - Number(a.startDate?.year || 0));
+  const education = [...(profile.educations || [])].sort((a, b) =>
+    Number(b.endDate?.year || b.startDate?.year || 0) -
+    Number(a.endDate?.year || a.startDate?.year || 0));
+  const distinctions = profile.distinctions || [];
+  const qualifications = profile.qualifications || [];
+  const memberships = profile.memberships || [];
+  const services = profile.services || [];
+  const invited = profile.invitedPositions || [];
+  const funding = profile.fundings || [];
+  const keywords = profile.keywords || [];
+  const websites = profile.websites || [];
+  const countries = profile.countries || [];
+
+  const careerItems = [
+    ...employment.slice(0, 6).map(item =>
+      authorProfileAffiliation(item,
+        item.endDate ? "Experiencia" : "Afiliación actual")),
+    ...education.slice(0, 6).map(item =>
+      authorProfileAffiliation(item, "Formación"))
+  ].join("");
+
+  const milestoneItems = [
+    ...distinctions.map(item => [item, "Distinción"]),
+    ...qualifications.map(item => [item, "Cualificación"]),
+    ...invited.map(item => [item, "Posición invitada"]),
+    ...memberships.map(item => [item, "Membresía"]),
+    ...services.map(item => [item, "Servicio"])
+  ].slice(0, 10).map(([item, label]) =>
+    authorProfileAffiliation(item, label)).join("");
+
+  const fundingItems = funding.slice(0, 6).map(item => `
+    <li class="author-profile-funding-item">
+      <strong>${escapeHtml(item.title || item.organization || "Financiación")}</strong>
+      ${item.organization && item.title
+        ? `<span>${escapeHtml(item.organization)}</span>` : ""}
+      ${item.type ? `<small>${escapeHtml(item.type)}</small>` : ""}
+    </li>
+  `).join("");
+
+  const hasStructured = Boolean(
+    careerItems || milestoneItems || fundingItems ||
+    keywords.length || websites.length || countries.length
+  );
+
+  return `
+    <section class="author-academic-profile ${profile.hasPublicProfileData ? "" : "is-empty"}"
+      aria-label="Perfil académico público del autor">
+      <div class="author-academic-profile-heading">
+        <div>
+          <span class="author-section-kicker">Perfil académico · ORCID</span>
+          <h2>Biografía y trayectoria</h2>
+        </div>
+        <a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">
+          Ver ORCID ↗
+        </a>
+      </div>
+
+      ${profile.biography
+        ? renderAuthorProfileBiography(profile.biography)
+        : profile.error
+          ? `<p class="author-academic-profile-empty">
+              No fue posible consultar el perfil académico de ORCID en esta
+              carga. La bibliografía y las demás fuentes permanecen disponibles.
+            </p>`
+        : !hasStructured
+          ? `<p class="author-academic-profile-empty">
+              Este registro ORCID no publica biografía, empleo, formación ni
+              reconocimientos. La bibliografía pública se integra por separado.
+            </p>`
+          : `<p class="author-academic-profile-note">
+              ORCID no publica una biografía narrativa para este autor; la
+              trayectoria visible se construye únicamente con sus campos públicos.
+            </p>`}
+
+      ${careerItems ? `
+        <div class="author-profile-block">
+          <h3>Afiliaciones y formación</h3>
+          <ul class="author-profile-list">${careerItems}</ul>
+        </div>` : ""}
+
+      ${milestoneItems ? `
+        <div class="author-profile-block">
+          <h3>Reconocimientos y actividad profesional</h3>
+          <ul class="author-profile-list">${milestoneItems}</ul>
+        </div>` : ""}
+
+      ${fundingItems ? `
+        <div class="author-profile-block">
+          <h3>Financiación registrada</h3>
+          <ul class="author-profile-funding-list">${fundingItems}</ul>
+        </div>` : ""}
+
+      ${keywords.length || countries.length ? `
+        <div class="author-profile-facts">
+          ${keywords.length ? `
+            <div>
+              <strong>Áreas / palabras clave</strong>
+              <p>${escapeHtml(keywords.join(" · "))}</p>
+            </div>` : ""}
+          ${countries.length ? `
+            <div>
+              <strong>Países indicados</strong>
+              <p>${escapeHtml(countries.map(authorCountryLabel).join(" · "))}</p>
+            </div>` : ""}
+        </div>` : ""}
+
+      ${websites.length ? `
+        <div class="author-profile-websites">
+          ${websites.slice(0, 8).map(site => `
+            <a href="${escapeHtml(site.url)}" target="_blank" rel="noopener noreferrer">
+              ${escapeHtml(site.name || "Sitio del investigador")} ↗
+            </a>`).join("")}
+        </div>` : ""}
+
+      <p class="author-profile-source-note">
+        Sólo se muestran datos que el titular o una fuente autorizada mantiene
+        públicos en ORCID. Ausencia de datos no implica ausencia de trayectoria.
+      </p>
+    </section>
+  `;
+}
+
+
 function renderAuthorPage(
   response,
   visible
@@ -6174,6 +6538,35 @@ function renderAuthorPage(
   const collaborationSummary = summarizeAuthorCollaborations(author, works);
   const aliasNames = [...new Set((author.aliases || [])
     .filter(alias => alias && alias !== author.displayName))];
+  const identifiedOrcid = normalizedAuthorOrcid(author.orcid);
+  const orcidProfile =
+    author.orcidProfile || authorArchiveOrcidProfile || null;
+  const orcidProfileSummary = authorOrcidProfileSummary(orcidProfile);
+  const sourceBiography = String(author.biography || "").trim();
+  const orcidBiography = String(orcidProfile?.biography || "").trim();
+  const distinctSourceBiography =
+    sourceBiography &&
+    normalizedAuthorNarrative(sourceBiography) !==
+      normalizedAuthorNarrative(orcidBiography)
+      ? sourceBiography
+      : "";
+  const heroBiography = compactAuthorText(
+    orcidProfile
+      ? (
+          orcidProfileSummary ||
+          distinctSourceBiography ||
+          (orcidBiography
+            ? "Perfil académico y biografía pública disponibles en ORCID."
+            : "")
+        )
+      : sourceBiography,
+    430
+  );
+  const bibliographicSources = [...new Set(works.flatMap(authorWorkSources))];
+  const multiSourceWorks = works.filter(work =>
+    authorWorkSources(work).length > 1).length;
+  const orcidListedWorks = works.filter(work =>
+    work.orcidRecord === true || authorWorkSources(work).includes("ORCID")).length;
   const collaboratorCards = collaborationSummary.collaborators.slice(0, 12)
     .map(person => `
       <a class="author-coauthor-link"
@@ -6265,13 +6658,7 @@ function renderAuthorPage(
     author.wikidataId
       ? `https://www.wikidata.org/wiki/${author.wikidataId}`
       : null;
-  const orcidUrl = author.orcid
-    ? (
-        author.orcid.startsWith("http")
-          ? author.orcid
-          : `https://orcid.org/${author.orcid}`
-      )
-    : null;
+  const orcidUrl = authorOrcidUrl(author.orcid);
   const corpusNotice =
     federatedCatalog
       ? `${summary.loadedWorks} registros con autoría documentada en los catálogos consultados, incluidas variantes de nombre y obras colectivas; no afirma exhaustividad.`
@@ -6303,11 +6690,13 @@ function renderAuthorPage(
 
           <p class="author-page-biography">
             ${escapeHtml(
-              author.biography ||
+              heroBiography ||
               (
-                federatedCatalog
-                  ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
-                  : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
+                orcidProfile && !orcidProfile.hasPublicProfileData
+                  ? "El registro ORCID público de este autor no incluye una biografía o afiliaciones. Esta ficha reúne su bibliografía y las fuentes académicas disponibles."
+                  : federatedCatalog
+                    ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
+                    : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
               )
             )}
           </p>
@@ -6331,10 +6720,16 @@ function renderAuthorPage(
             }
             ${
               orcidUrl
-                ? `<a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">ORCID</a>`
+                ? `<a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">ORCID · ${escapeHtml(identifiedOrcid)}</a>`
                 : ""
             }
           </div>
+          ${orcidUrl ? `
+            <p class="author-orcid-explainer">
+              ORCID identifica este perfil. «Registrada en ORCID» significa que
+              la publicación aparece en el registro público del investigador;
+              no constituye verificación editorial independiente.
+            </p>` : ""}
         </div>
 
         <div class="author-page-seal" aria-hidden="true">
@@ -6342,6 +6737,8 @@ function renderAuthorPage(
           <small>${federatedCatalog ? "Autor en catálogos" : "Autor identificado"}</small>
         </div>
       </header>
+
+      ${renderAuthorOrcidProfile(orcidProfile, orcidUrl)}
 
       <section class="author-page-metrics" aria-label="Resumen del corpus del autor">
         <div>
@@ -6368,6 +6765,25 @@ function renderAuthorPage(
           <strong>${summary.types.length}</strong>
           <small>Clasificación de la fuente</small>
         </div>
+      </section>
+
+      <section class="author-page-source-summary" aria-label="Procedencia de publicaciones">
+        <div><strong>${bibliographicSources.length}</strong><span>fuentes bibliográficas identificadas</span></div>
+        <div><strong>${multiSourceWorks}</strong><span>obras presentes en varias fuentes</span></div>
+        <div><strong>${orcidListedWorks}</strong><span>obras registradas en ORCID</span></div>
+        ${identifiedOrcid ? `<p class="author-orcid-coverage">
+          ${authorArchiveOrcidSummary?.totalGroups != null
+            ? `ORCID devuelve ${authorArchiveOrcidSummary.totalGroups} grupos de obras públicas; ${authorArchiveOrcidSummary.returnedWorks} contienen títulos utilizables. Tras unificar fuentes, ${orcidListedWorks} permanecen en el archivo.`
+            : authorArchiveOrcidSummary?.error
+              ? "No se pudo consultar directamente ORCID. El catálogo está parcial."
+              : authorArchiveLoading
+                ? "Recuperando las obras públicas del registro ORCID…"
+                : "Cobertura ORCID no verificada; consulte su registro público."}
+          ${orcidUrl ? `<a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener noreferrer">Ver registro ORCID</a>` : ""}
+        </p>` : ""}
+        <p>Fuentes: ${bibliographicSources.length
+          ? escapeHtml(bibliographicSources.join(" · "))
+          : "Pendiente de identificar"}. ORCID cuenta como registro bibliográfico público cuando una obra está declarada allí; el identificador personal ORCID no se cuenta como fuente adicional.</p>
       </section>
 
       <section class="author-timeline-placeholder" id="author-timeline-root"></section>
@@ -6520,6 +6936,7 @@ function renderFilteredResults() {
       authorTimelineState,
       {
         loading: authorArchiveLoading,
+        authorOrcid: currentResponse.authorResolution?.author?.orcid,
         onOpenWork: index => {
           const work = currentResponse.results?.[index];
           if (work) openRecord(work);
@@ -6903,6 +7320,14 @@ async function loadMoreResults() {
               depth
           },
 
+          orcid: {
+            enabled: true,
+            rows: Math.min(depth, 8),
+            profilesPerPage: 2,
+            preferredAuthorResolution:
+              currentResponse?.authorResolution || null
+          },
+
           onProgress(progress) {
             status.textContent =
               `Ampliando ${progress.completed}/${progress.total}: ` +
@@ -7074,7 +7499,7 @@ function renderSemanticSearchLoading(
       : (
           elapsedSeconds < 10
             ? "Comparando el significado y consultando fuentes académicas complementarias."
-            : "La búsqueda continúa activa; el corpus, Crossref, Internet Archive y UdeG responden a ritmos distintos."
+            : "La búsqueda continúa activa; el corpus, Crossref, ORCID, Internet Archive y UdeG responden a ritmos distintos."
         );
 
   return `
@@ -7354,6 +7779,14 @@ async function runFederatedSearch(
               depth
           },
 
+          orcid: {
+            enabled: true,
+            rows: Math.min(depth, 8),
+            profilesPerPage: 2,
+            preferredAuthorPromise:
+              authorResolutionPromise
+          },
+
           onProgress(progress) {
             status.textContent =
               `Buscando ${progress.completed}/${progress.total}: ` +
@@ -7541,7 +7974,8 @@ function semanticFallbackReason(
 async function searchSemanticCompanions(
   query,
   limit,
-  signal
+  signal,
+  preferredAuthorPromise = null
 ) {
   try {
     return await searchPhilosophy(
@@ -7568,6 +8002,12 @@ async function searchSemanticCompanions(
         internetArchive: {
           enabled: true,
           rows: Math.min(limit, 8)
+        },
+        orcid: {
+          enabled: true,
+          rows: Math.min(limit, 6),
+          profilesPerPage: 2,
+          preferredAuthorPromise
         }
       }
     );
@@ -7753,7 +8193,8 @@ async function runSemanticSearch(
       searchSemanticCompanions(
         query,
         limit,
-        searchController.signal
+        searchController.signal,
+        authorResolutionPromise
       )
     ]);
 
@@ -7948,7 +8389,7 @@ function selectSearchMode(
     "semantic"
   ) {
     searchModeNote.textContent =
-      "Busca por significado en 451.823 documentos y amplía con Crossref, Internet Archive y Biblioteca UdeG; no usa la API de OpenAlex ni el reranker.";
+      "Busca por significado en 451.823 documentos y amplía con Crossref, ORCID, Internet Archive y Biblioteca UdeG; no usa la API de OpenAlex ni el reranker.";
 
     input.placeholder =
       "Ej. ¿Qué relación hay entre lógica y ontología en Quine?";

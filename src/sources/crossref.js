@@ -619,7 +619,8 @@ async function fetchWithRetry(
 ) {
   const {
     retries = 2,
-    signal
+    signal,
+    fetchImpl = fetch
   } = options;
 
   for (
@@ -631,7 +632,7 @@ async function fetchWithRetry(
 
     try {
       response =
-        await fetch(
+        await fetchImpl(
           url,
           {
             method: "GET",
@@ -799,4 +800,67 @@ export async function searchCrossref(
           }
         )
     );
+}
+
+
+/*
+ * Crossref documents the exact contributor ORCID filter. This provides
+ * public, credential-free ORCID-linked works on our static site; it does
+ * not claim to read the entire ORCID registry or private ORCID records.
+ */
+export async function searchCrossrefByOrcid(orcid, options = {}) {
+  const match = /^(?:https?:\/\/(?:www\.)?orcid\.org\/)?(\d{4}-\d{4}-\d{4}-[\dX]{4})\/?$/i
+    .exec(String(orcid || "").trim());
+  if (!match) return { works: [], total: 0, complete: true };
+  const id = match[1].toUpperCase();
+  const pageSize = Math.max(1, Math.min(250, Number(options.rows) || 150));
+  const limit = Math.max(1, Math.min(1000, Number(options.maxWorks) || 600));
+  const works = [];
+  let offset = 0;
+  let total = 0;
+
+  while (offset < limit) {
+    const url = new URL(CROSSREF_BASE);
+    url.searchParams.set("filter", "orcid:" + id);
+    url.searchParams.set("rows", String(Math.min(pageSize, limit - offset)));
+    url.searchParams.set("offset", String(offset));
+    const response = await fetchWithRetry(url, {
+      ...options, retries: options.retries ?? 1
+    });
+    const message = (await response.json())?.message || {};
+    const items = Array.isArray(message.items) ? message.items : [];
+    total = Math.max(total, Number(message["total-results"]) || 0);
+    for (const item of items) {
+      if (!isEligibleCrossrefWork(item)) continue;
+      // The ORCID must belong to a contributor, not merely appear in text.
+      const matchingAuthor = (item.author || []).some(author => {
+        const found = /(?:orcid\.org\/)?(\d{4}-\d{4}-\d{4}-[\dX]{4})\/?$/i
+          .exec(String(author.ORCID || ""));
+        return found?.[1]?.toUpperCase() === id;
+      });
+      if (!matchingAuthor) continue;
+      const work = normalizeCrossrefWork(item, {
+        query: "ORCID " + id,
+        queryType: "author-orcid",
+        rank: offset + works.length + 1
+      });
+      works.push({
+        ...work,
+        orcidEvidence: id,
+        retrievalMode: "author-orcid-crossref",
+        authorIdentity: {
+          orcid: "https://orcid.org/" + id,
+          evidence: "crossref-contributor-orcid"
+        }
+      });
+    }
+    offset += items.length;
+    if (!items.length || offset >= total) break;
+  }
+
+  return {
+    works,
+    total: Math.max(total, works.length),
+    complete: offset >= total
+  };
 }

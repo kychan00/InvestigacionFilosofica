@@ -1229,6 +1229,68 @@ test(
 
 
 test(
+  "ORCID permanece visible antes de 20+ obras del índice al resolver un autor",
+  () => {
+    const authorWorks = Array.from(
+      { length: 25 },
+      (_, index) => ({
+        id: "https://openalex.org/W" + (index + 1),
+        title: "Obra del índice " + (index + 1),
+        providers: ["OpenAlex Philosophy"],
+        authors: [{ name: "Mauricio Méndez Huerta" }]
+      })
+    );
+
+    const augmented = augmentWithAuthorResolution(
+      {
+        results: [{
+          id: "orcid:0000-0002-7283-8051:99",
+          title: "Adolescencia e intimidades: narrativas en transición",
+          year: 2021,
+          providers: ["ORCID"],
+          sourceRecords: [{
+            provider: "ORCID",
+            sourceId: "0000-0002-7283-8051/work/99"
+          }],
+          authors: [{
+            name: "Mauricio Méndez Huerta",
+            orcid: "https://orcid.org/0000-0002-7283-8051"
+          }],
+          matchedQueries: []
+        }],
+        stats: {
+          unique: 1,
+          appearances: 1,
+          providers: { ORCID: 1 }
+        }
+      },
+      {
+        status: "resolved",
+        author: {
+          displayName: "Mauricio Méndez Huerta",
+          orcid: "0000-0002-7283-8051"
+        },
+        works: authorWorks
+      }
+    );
+
+    assert.equal(augmented.results.length, 26);
+    assert.equal(
+      augmented.results[0].providers.includes("ORCID"),
+      true
+    );
+    assert.ok(
+      augmented.results
+        .slice(0, 20)
+        .some(item =>
+          (item.providers || []).includes("ORCID")
+        )
+    );
+  }
+);
+
+
+test(
   "una consulta multiautor prioriza artículos que relacionan a todos sin anteponer un autor",
   () => {
     const results = [

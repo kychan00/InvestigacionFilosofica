@@ -66,7 +66,7 @@
 
   <link
     rel="stylesheet"
-    href="./css/author-timeline.css?v=20261109-author-timeline-v2"
+    href="./css/author-timeline.css?v=20261112-orcid-registry-full-v2"
   >
 
   <link
@@ -76,7 +76,7 @@
 
   <link
     rel="stylesheet"
-    href="./css/author-visibility-repair.css?v=20261031-author-collaborations-v1"
+    href="./css/author-visibility-repair.css?v=20261112-biography-dedupe-v3"
   >
 
   <link
@@ -91,19 +91,9 @@
 
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@xyflow/react@12.12.1/dist/style.css"
-    crossorigin="anonymous"
-  >
-
-  <link
-    rel="stylesheet"
-    href="./css/research-atlas-flow.css?v=20261109-react-flow-temporal-v1"
-  >
-  <link
-    rel="stylesheet"
     href="./css/site-visitor-counter.css?v=20261108-v1"
   >
-  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261109-v2">
+  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 
 <body>
@@ -563,6 +553,10 @@
         <span>·</span>
         <span>Crossref</span>
         <span>·</span>
+        <span>ORCID</span>
+        <span>·</span>
+        <span>Internet Archive</span>
+        <span>·</span>
         <span>Biblioteca UdeG</span>
       </div>
 
@@ -767,12 +761,6 @@
               id="research-atlas-stage"
               class="research-atlas-stage"
             >
-              <div
-                id="research-atlas-flow"
-                class="research-atlas-flow hidden"
-                aria-label="Atlas temporal y semántico de la búsqueda actual"
-              ></div>
-
               <canvas
                 id="research-atlas-canvas"
                 role="img"
@@ -917,12 +905,7 @@
   <script type="importmap">
   {
     "imports": {
-      "franc-min": "https://esm.sh/franc-min@6.2.0?bundle",
-      "react": "https://esm.sh/react@19.3.1",
-      "react/jsx-runtime": "https://esm.sh/react@19.3.1/jsx-runtime",
-      "react-dom": "https://esm.sh/react-dom@19.3.1?external=react",
-      "react-dom/client": "https://esm.sh/react-dom@19.3.1/client?external=react",
-      "@xyflow/react": "https://esm.sh/@xyflow/react@12.12.1?external=react,react-dom"
+      "franc-min": "https://esm.sh/franc-min@6.2.0?bundle"
     }
   }
   </script>
@@ -930,12 +913,12 @@
 
   <script
     type="module"
-    src="./js/research-atlas-embed.js?v=20261109-react-flow-temporal-v1"
+    src="./js/research-atlas-embed.js?v=20261109-global-work-dedup-v3"
   ></script>
 
   <script
     type="module"
-    src="./js/app.js?v=20261109-author-timeline-v2"
+    src="./js/app.js?v=20261112-orcid-production-v2"
   ></script>
 
   <script
@@ -953,6 +936,6 @@
     src="./js/private-analytics-listener.js?v=20261108-v3"
   ></script>
 
-  <script type="module" src="./js/mobile-site-menu.js?v=20261109-v2"></script>
+  <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
 </body>
 </html>

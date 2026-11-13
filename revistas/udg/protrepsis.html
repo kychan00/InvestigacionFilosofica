@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d9b94d">
+  <meta name="description" content="Protrepsis, revista de filosofía del CUCSH, Universidad de Guadalajara: archivo filosófico, ilustraciones originales, números editoriales, artículos y Atlas semántico.">
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Protrepsis · Investigación Filosófica</title>
+  <link rel="stylesheet" href="../../css/journal-page.css?v=20261112-history-v6">
+  <link rel="stylesheet" href="../../css/journal-atlas-sheet.css?v=20261113-atlas-sheet-v1">
+  <link rel="stylesheet" href="../../css/protrepsis-paper.css?v=20261113-editorial-v1">
+  <link rel="stylesheet" href="../../css/protrepsis-museo.css?v=20261113-gallery-v1">
+  <link rel="stylesheet" href="../../css/protrepsis-folios-color.css?v=20261113-folios-v2">
+  <link rel="stylesheet" href="../../css/protrepsis-curatorial-chips.css?v=20261113-museum-chips-v1">
+  <link rel="stylesheet" href="../../css/protrepsis-reading-layout.css?v=20261113-ux-v2">
+  <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
+</head>
+<body data-journal="protrepsis">
+  <div class="site-mobile-toolbar">
+    <a class="site-mobile-toolbar-brand" href="../../" aria-label="Ir a Investigación Filosófica">
+      <span class="site-mobile-toolbar-mark" aria-hidden="true">Φ</span>
+      <span class="site-mobile-toolbar-name">Investigación Filosófica</span>
+    </a>
+    <button type="button" class="site-menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-mobile-menu">
+      <span class="site-menu-toggle-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+
+  <div class="journal-page protrepsis-paper" id="inicio">
+    <header class="journal-header">
+      <div class="pro-gallery-topline">
+        <span>PROTREPSIS · REVISTA DE FILOSOFÍA</span>
+        <span>UNA PUBLICACIÓN DEL CUCSH / UdeG</span>
+        <a href="protrepsis-institucional.html">Historia y equipo editorial <span aria-hidden="true">↗</span></a>
+      </div>
+      <nav class="journal-nav" aria-label="Navegación editorial de Protrepsis">
+        <a class="journal-brand" href="#inicio" aria-label="Protrepsis, inicio"><span class="journal-brand-mark" aria-hidden="true">Π</span><span>PROTREPSIS<small>Cuaderno filosófico · Universidad de Guadalajara</small></span></a>
+        <div class="journal-nav-links"><a href="#journal-views">Artículos y Atlas</a><a class="pro-nav-editorial" href="protrepsis-institucional.html">La revista y sus personas <span aria-hidden="true">↗</span></a></div>
+        <div class="theme-switch" role="group" aria-label="Apariencia">
+          <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
+          <button type="button" data-theme-choice="dark" aria-label="Activar modo oscuro" aria-pressed="false">Oscuro</button>
+        </div>
+      </nav>
+      <div class="journal-hero" aria-labelledby="pro-hero-title">
+        <div class="journal-hero-aside">
+          <div class="pro-museum-frame">
+            <img class="pro-museum-art" src="../../assets/protrepsis-mural-filosofico.svg" width="1600" height="850" alt="Ilustración original de temática filosófica: ruinas clásicas, olivos, una brújula filosófica y un paisaje de tonos ocres y azules." fetchpriority="high">
+          </div>
+          <div class="pro-museum-caption" aria-label="Datos de la ilustración">
+            <span>PROTREPSIS · REVISTA DE FILOSOFÍA</span>
+            <span>GRABADO ORIGINAL <span aria-hidden="true">✳</span> CUCSH / UdeG · ISSN 2007-9273</span>
+          </div>
+        </div>
+        <div class="journal-hero-copy">
+          <div class="pro-gallery-heading">
+            <div class="pro-heading-primary">
+              <p class="journal-eyebrow">01 / PROTREPSIS · REVISTA DE FILOSOFÍA</p>
+              <h1 id="pro-hero-title">Protrepsis<em>El arte de preguntar.</em></h1>
+            </div>
+            <div class="pro-heading-secondary">
+              <p class="pro-hero-claim">La filosofía no tiene una última página.</p>
+              <p class="journal-hero-intro">Una revista de investigación filosófica para detenerse, disentir y descubrir nuevas preguntas. Un archivo vivo de obras, voces y encuentros intelectuales, publicado por el Departamento de Filosofía de la Universidad de Guadalajara.</p>
+              <div class="pro-hero-actions">
+                <a class="pro-button pro-button-primary" href="#journal-views">Explorar el archivo <span aria-hidden="true">↗</span></a>
+                <a class="pro-button pro-button-plain" href="protrepsis-institucional.html">Historia y equipo editorial <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="pro-hero-footnote"><span>INVESTIGACIÓN · ENSAYO · PENSAMIENTO</span><span>CUCSH · JALISCO · MÉXICO</span></div>
+        </div>
+      </div>
+      <div class="pro-archive-banner" aria-label="Identidad editorial">
+        <span>ΜΗΔΕΝ ΑΓΑΝ · PENSAR CON RIGOR</span><span class="pro-archive-asterisk" aria-hidden="true">✳</span><span>REVISTA SEMESTRAL · DESDE 2011</span>
+      </div>
+      <div class="journal-metrics" aria-label="Resumen del corpus de Protrepsis">
+        <div class="journal-metric"><strong id="journal-total">—</strong><span>publicaciones catalogadas</span></div>
+        <div class="journal-metric"><strong id="journal-year-span">—</strong><span>años de archivo</span></div>
+        <div class="journal-metric"><strong id="journal-author-total">—</strong><span>autorías distintas</span></div>
+        <div class="journal-metric"><strong id="journal-doi-rate">—</strong><span>registros con DOI</span></div>
+        <div class="journal-metric"><strong id="journal-abstract-rate">—</strong><span>registros con resumen</span></div>
+      </div>
+    </header>
+    <section class="pro-editorial-feature" aria-labelledby="pro-editorial-title">
+      <div class="pro-editorial-feature-index">
+        <span>02 / LA COMUNIDAD</span>
+        <span class="pro-editorial-mark" aria-hidden="true">❧</span>
+        <span class="pro-index-bottom">UNA OBRA COLECTIVA</span>
+      </div>
+      <div class="pro-editorial-feature-copy">
+        <p class="journal-kicker">QUIENES HACEN POSIBLE CADA PÁGINA</p>
+        <h2 id="pro-editorial-title">La filosofía se escribe <em>en plural.</em></h2>
+        <p>Protrepsis es mucho más que sus textos. Hay personas que dirigen, editan, dialogan y sostienen cada número. Conozca su historia y los nombres documentados de quienes integran el equipo y sus consejos.</p>
+        <p class="pro-source-note">70 personas en el directorio consultado · Equipo Editorial · Consejo Editorial · Comité Científico Asesor</p>
+      </div>
+      <a class="pro-editorial-feature-link" href="protrepsis-institucional.html" aria-label="Conocer la historia y el equipo editorial de Protrepsis">
+        <span class="pro-feature-link-top">CUADERNO II / LAS PERSONAS <span aria-hidden="true">↗</span></span>
+        <span class="pro-feature-ornament" aria-hidden="true">Π</span>
+        <strong>Conocer Protrepsis</strong>
+        <span class="pro-feature-link-bottom">Historia · Equipo · Contacto <span aria-hidden="true">→</span></span>
+      </a>
+    </section>
+    <div class="journal-view-tabs" id="journal-views" role="tablist" aria-label="Vistas de la revista">
+      <button type="button" role="tab" class="is-active" aria-selected="true" data-journal-view="archive"><span class="pro-tab-no" aria-hidden="true">01</span> Archivo</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="atlas"><span class="pro-tab-no" aria-hidden="true">02</span> Atlas semántico</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="insights"><span class="pro-tab-no" aria-hidden="true">03</span> Temas y autorías</button>
+    </div>
+
+    <main class="journal-main">
+      <section id="journal-archive-panel" class="journal-panel" aria-label="Archivo de artículos">
+        <div class="pro-section-heading"><span class="pro-section-number">03 / CATÁLOGO</span><h2>Un archivo <em>para habitar.</em></h2><p>Cada ficha guarda una pregunta, una voz y una fecha. Recorra los números de la revista como quien visita una colección viva.</p></div>
+        <div class="journal-archive-layout">
+          <aside class="journal-sidebar pro-explorer" aria-label="Explorador del archivo filosófico">
+            <div class="pro-explorer-tabs" role="tablist" aria-label="Elegir panel del catálogo">
+              <button id="pro-explorer-tab-topics" role="tab" type="button" data-pro-explorer-tab="topics" aria-controls="pro-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Temas</button>
+              <button id="pro-explorer-tab-issues" role="tab" type="button" data-pro-explorer-tab="issues" aria-controls="pro-explorer-issues" aria-selected="false" tabindex="-1"><span aria-hidden="true">№</span> Números</button>
+              <button id="pro-explorer-tab-filters" role="tab" type="button" data-pro-explorer-tab="filters" aria-controls="pro-explorer-filters" aria-selected="false" tabindex="-1"><span aria-hidden="true">☷</span> Filtros</button>
+            </div>
+            <div class="pro-explorer-panels">
+              <section id="pro-explorer-topics" role="tabpanel" aria-labelledby="pro-explorer-tab-topics" data-pro-explorer-panel="topics" class="journal-taxonomy-block pro-curatorial-block" aria-labelledby="pro-categories-title">
+              <header class="pro-curatorial-header">
+                <div class="pro-curatorial-header-top">
+                  <p class="journal-kicker">CATÁLOGO / 01 — TEMAS</p>
+                  <span class="pro-curatorial-ornament" aria-hidden="true">✳</span>
+                </div>
+                <h2 id="pro-categories-title">Mapa de navegación</h2>
+                <p class="pro-curatorial-hint">Categorías de consulta, derivadas para recorrer el archivo.</p>
+                <button id="journal-category-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los temas <span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
+            </section>
+              <section id="pro-explorer-issues" role="tabpanel" aria-labelledby="pro-explorer-tab-issues" data-pro-explorer-panel="issues" hidden class="journal-taxonomy-block journal-issues-block pro-curatorial-block pro-curatorial-issues" aria-labelledby="pro-issues-title">
+              <header class="pro-curatorial-header">
+                <div class="pro-curatorial-header-top">
+                  <p class="journal-kicker">CATÁLOGO / 02 — NÚMEROS</p>
+                  <span class="pro-curatorial-ornament" aria-hidden="true">Π</span>
+                </div>
+                <h2 id="pro-issues-title">Ediciones del archivo</h2>
+                <p class="pro-curatorial-hint">Recorra la colección por número de publicación.</p>
+                <button id="journal-issue-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los números <span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
+            </section>
+              <section id="pro-explorer-filters" role="tabpanel" aria-labelledby="pro-explorer-tab-filters" data-pro-explorer-panel="filters" hidden class="journal-filter-block">
+              <header class="journal-filter-head">
+                <div><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></div>
+                <button id="journal-filter-toggle" class="journal-filter-toggle" type="button" aria-expanded="true">Ocultar</button>
+              </header>
+              <div class="journal-filter-body">
+                <label><span>Buscar</span><input id="journal-query" type="search" autocomplete="off" placeholder="Título, autor, tema…"></label>
+                <label><span>Década</span><select id="journal-decade"></select></label>
+                <label><span>Idioma</span><select id="journal-language"></select></label>
+                <label><span>Número editorial</span><select id="journal-issue"></select></label>
+                <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
+                <label><span>Orden</span>
+                  <select id="journal-sort">
+                    <option value="newest">Más recientes</option>
+                    <option value="oldest">Más antiguos</option>
+                    <option value="title">Título A–Z</option>
+                    <option value="authors">Autoría A–Z</option>
+                  </select>
+                </label>
+                <div class="journal-filter-checks">
+                  <label class="journal-filter-check"><input id="journal-doi-only" type="checkbox"> Solo con DOI</label>
+                  <label class="journal-filter-check"><input id="journal-abstract-only" type="checkbox"> Solo con resumen</label>
+                </div>
+                <button id="journal-reset" class="journal-reset" type="button">Limpiar filtros</button>
+              </div>
+            </section>
+            </div>
+            <p class="pro-explorer-caption">ÍNDICE TEMÁTICO · ARCHIVO 2011—2026</p>
+          </aside>
+
+          <div>
+            <header class="journal-results-head">
+              <div><p class="journal-kicker">COLECCIÓN FILOSÓFICA / ARCHIVO ABIERTO</p><h2>Fichas del <em>pensamiento.</em></h2></div>
+              <p id="journal-results-status" class="journal-results-status" role="status" aria-live="polite">Cargando…</p>
+            </header>
+            <div id="journal-card-grid" class="journal-card-grid"></div>
+            <button id="journal-load-more" class="journal-load-more" type="button" hidden>Cargar más</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="journal-atlas-panel" class="journal-panel" hidden aria-label="Atlas semántico">
+        <div class="pro-section-heading"><span class="pro-section-number">04 / CARTOGRAFÍAS</span><h2>El mapa de <em>las ideas.</em></h2><p>Explore proximidades entre artículos sin confundir la similitud semántica con citas, lecturas o influencias demostradas.</p></div>
+        <div class="journal-atlas-shell">
+          <div class="journal-atlas-stage">
+            <div class="journal-atlas-stagebar">
+              <div class="journal-atlas-status-group">
+                <p id="journal-atlas-status">Abra el Atlas para construir la topología del corpus visible.</p>
+                <p class="journal-atlas-help">Arrastre para moverse · pellizque con dos dedos o use la rueda para acercar · toque un nodo para inspeccionarlo.</p>
+              </div>
+              <div id="journal-atlas-controls" class="journal-atlas-toolbar" role="group" aria-label="Controles del Atlas">
+                <button type="button" data-atlas-action="pan-left" aria-label="Mover Atlas a la izquierda">←</button>
+                <button type="button" data-atlas-action="pan-up" aria-label="Mover Atlas hacia arriba">↑</button>
+                <button type="button" data-atlas-action="pan-down" aria-label="Mover Atlas hacia abajo">↓</button>
+                <button type="button" data-atlas-action="pan-right" aria-label="Mover Atlas a la derecha">→</button>
+                <button type="button" data-atlas-action="zoom-out" aria-label="Alejar">−</button>
+                <button type="button" data-atlas-action="zoom-in" aria-label="Acercar">+</button>
+                <button type="button" data-atlas-action="fit">Encuadrar</button>
+                <button type="button" data-atlas-action="reset">Reordenar</button>
+                <button id="journal-qwen-toggle" class="journal-qwen-toggle" type="button" aria-pressed="false">Activar capa Qwen</button>
+              </div>
+            </div>
+            <canvas id="journal-atlas-canvas" tabindex="0" aria-label="Red semántica interactiva de artículos agrupada por número editorial"></canvas>
+          </div>
+          <aside class="journal-atlas-aside pro-atlas-reader" aria-label="Lectura del artículo seleccionado">
+            <div class="journal-atlas-copy pro-atlas-reader-heading">
+              <span class="pro-atlas-reader-number">II / LECTURA</span>
+              <p class="journal-kicker">FICHA DEL ARTÍCULO</p>
+              <h2>Artículo <em>seleccionado.</em></h2>
+              <p>Seleccione un nodo para leer su resumen, consultar metadatos y acceder al texto de origen.</p>
+            </div>
+            <div id="journal-atlas-detail" class="journal-atlas-detail pro-atlas-reader-detail" role="region" aria-label="Contenido del artículo seleccionado">
+              <p>Seleccione un nodo para inspeccionar el artículo.</p>
+            </div>
+          </aside>
+          <div class="pro-atlas-map-footer">
+            <div class="pro-atlas-map-key"><strong>CLAVE DE EDICIONES</strong><div id="journal-atlas-legend" class="journal-atlas-legend"></div></div>
+            <p id="journal-qwen-note">Qwen es opcional y experimental. Sin activarlo, el Atlas usa similitud textual local.</p>
+          </div>
+          <div id="journal-atlas-relations" class="pro-atlas-relations" role="region" aria-label="Relaciones del artículo seleccionado">
+            <p class="pro-atlas-relations-empty">Las relaciones semánticas del artículo seleccionado aparecerán aquí, debajo del mapa.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="journal-insights-panel" class="journal-panel" hidden aria-label="Temas y autorías">
+        <div class="pro-section-heading"><span class="pro-section-number">05 / VOCES</span><h2>Las voces de <em>la revista.</em></h2><p>Palabras clave y autorías tal como aparecen documentadas en el corpus.</p></div>
+        <div class="journal-insights-grid">
+          <article class="journal-insight">
+            <p class="journal-kicker">TEMAS DECLARADOS</p>
+            <h2>Vocabulario del corpus</h2>
+            <p>Etiquetas publicadas por la fuente cuando están disponibles. No se sustituyen por inferencias automáticas.</p>
+            <div id="journal-topic-chips" class="journal-taxonomy-list"></div>
+          </article>
+          <article class="journal-insight">
+            <p class="journal-kicker">AUTORÍAS</p>
+            <h2>Presencias recurrentes</h2>
+            <p>Conteo descriptivo de nombres tal como aparecen en los registros integrados.</p>
+            <div id="journal-author-chips" class="journal-taxonomy-list"></div>
+          </article>
+          <article class="journal-insight">
+            <p class="journal-kicker">MÉTODO</p>
+            <h2>Dos capas, no una sola verdad</h2>
+            <p>Las categorías visibles son una capa derivada únicamente para navegar. El Atlas distingue explícitamente relaciones con vector Qwen verificado de similitud textual de respaldo.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="journal-footer">
+      <span>Φ · Investigación Filosófica · UdeG</span>
+      <a href="protrepsis-institucional.html">La revista y su equipo editorial ↗</a>
+    </footer>
+  </div>
+
+  <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261113-reader-v1"></script>
+  <script type="module" src="../../js/protrepsis-explorer.js?v=20261113-ux-v1"></script>
+  <script type="module" src="../../js/protrepsis-catalog.js?v=20261113-folios-v2"></script>
+  <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
+</body>
+</html>

@@ -743,3 +743,150 @@ html[data-theme="dark"] .author-page #author-timeline-root {
     transition: none !important;
   }
 }
+
+
+/* ORCID identity and multi-catalog provenance in author archives. */
+.author-timeline-coverage {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.author-timeline-orcid {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 13px;
+  padding: 7px 11px;
+  border: 1px solid color-mix(in srgb, var(--tl-blue) 38%, var(--tl-line));
+  border-radius: 999px;
+  color: var(--tl-blue-label);
+  background: var(--tl-blue-soft);
+  font-family: var(--pg-mono);
+  font-size: 11px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.author-timeline-provenance {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+  min-width: 0;
+}
+
+.author-timeline-provenance > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 23px;
+  max-width: 100%;
+  padding: 4px 7px;
+  border: 1px solid color-mix(in srgb, var(--tl-line) 88%, transparent);
+  border-radius: 5px;
+  color: var(--tl-muted);
+  font-family: var(--pg-mono);
+  font-size: 9px;
+  font-weight: 650;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.author-timeline-provenance .author-timeline-multi-source,
+.author-timeline-provenance .author-timeline-orcid-context.is-evidenced {
+  background: var(--tl-blue-soft);
+  color: var(--tl-blue-label);
+  border-color: color-mix(in srgb, var(--tl-blue) 28%, var(--tl-line));
+}
+
+.author-orcid-explainer {
+  max-width: 68ch;
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--theme-text-soft, #525252);
+}
+
+.author-page-source-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 15px 0 24px;
+}
+
+.author-page-source-summary > div {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid var(--theme-line, #c6c6c6);
+  border-radius: 10px;
+  background: var(--theme-surface-2, #f4f4f4);
+}
+
+.author-page-source-summary strong {
+  display: block;
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 500;
+  color: var(--theme-text, #161616);
+}
+
+.author-page-source-summary span {
+  display: block;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--theme-text-soft, #525252);
+}
+
+.author-page-source-summary > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 6px 2px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--theme-text-soft, #525252);
+  overflow-wrap: anywhere;
+}
+
+.author-work-orcid {
+  text-decoration: none;
+  background: color-mix(in srgb, var(--theme-surface-2, #f4f4f4) 85%, transparent);
+  border: 1px solid var(--theme-line, #c6c6c6);
+}
+
+.author-work-orcid.is-evidenced,
+.author-multiple-sources {
+  color: var(--profile-action, #0f62fe);
+  border-color: color-mix(in srgb, var(--profile-action, #0f62fe) 35%, transparent);
+}
+
+@media (max-width: 660px) {
+  .author-timeline-coverage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .author-page-source-summary {
+    grid-template-columns: 1fr;
+  }
+  .author-page-source-summary > p {
+    grid-column: 1;
+  }
+}
+
+/* The ORCID registry is a real bibliographic source, unlike an identity link. */
+.author-page-source-summary .author-orcid-coverage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--profile-action, #0f62fe);
+  background: var(--theme-surface-2, #f4f4f4);
+  font-family: var(--pg-sans);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.author-page-source-summary .author-orcid-coverage a {
+  color: var(--profile-action, #0f62fe);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}

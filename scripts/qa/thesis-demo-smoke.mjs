@@ -239,10 +239,22 @@ try {
     assert.ok(ugWidth.scroll <= ugWidth.viewport + 2,
       `${name} UG overflow: ${JSON.stringify(ugWidth)}`);
 
-    await page.locator('[data-theme-choice="light"]').click();
+    if (width <= 820) {
+      await page.locator(".site-menu-toggle").click();
+      await page.locator('[data-site-theme="light"]').click();
+      await page.locator(".site-menu-close").click();
+    } else {
+      await page.locator('[data-theme-choice="light"]').click();
+    }
     assert.equal(await page.locator("html").getAttribute("data-theme"), "light");
     await page.screenshot({ path: `artifacts/thesis-demo-ui/${name}-light.png`, fullPage: true });
-    await page.locator('[data-theme-choice="dark"]').click();
+    if (width <= 820) {
+      await page.locator(".site-menu-toggle").click();
+      await page.locator('[data-site-theme="dark"]').click();
+      await page.locator(".site-menu-close").click();
+    } else {
+      await page.locator('[data-theme-choice="dark"]').click();
+    }
     assert.equal(await page.locator("html").getAttribute("data-theme"), "dark");
     const measured = await page.evaluate(() => ({
       viewport: window.innerWidth,

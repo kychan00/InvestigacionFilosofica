@@ -18,6 +18,13 @@ from collections import Counter
 from pathlib import Path
 
 try:
+    from scripts.cucsh.protrepsis_policy import is_temperie_record
+    from scripts.cucsh.quadripartita_editorial import editorial_metadata
+except ModuleNotFoundError:
+    from protrepsis_policy import is_temperie_record
+    from quadripartita_editorial import editorial_metadata
+
+try:
     from scripts.cucsh.sincronia_legacy import (
         harvest_legacy_records,
     )
@@ -43,6 +50,13 @@ DEFAULT_OUTPUT = (
     / "src"
     / "data"
     / "cucsh-filosofia.json"
+)
+
+HISTORICAL_PROTREPSIS = (
+    ROOT
+    / "src"
+    / "data"
+    / "protrepsis-historical.json"
 )
 
 
@@ -1810,6 +1824,17 @@ def harvest_source(
                             "section"
                         )
                     )
+            if (
+                source["journal"]
+                == "Protrepsis"
+                and is_temperie_record(
+                    record
+                )
+            ):
+                excluded_reasons[
+                    "non-peer-reviewed-literary"
+                ] += 1
+                continue
 
             active_records.append(
                 record
@@ -2011,6 +2036,319 @@ def previous_records_for(
     ]
 
 
+def normalized_record_title(
+    record,
+):
+    return re.sub(
+        r"[^\wáéíóúüñ]+",
+        " ",
+        str(
+            record.get("title")
+            or ""
+        ).casefold(),
+        flags=re.UNICODE,
+    ).strip()
+
+
+def record_dedupe_keys(
+    record,
+):
+    keys = []
+
+    doi = (
+        str(
+            record.get("doi")
+            or ""
+        )
+        .strip()
+        .lower()
+    )
+
+    if doi:
+        keys.append(
+            "doi:" + doi
+        )
+
+    canonical = (
+        str(
+            record.get(
+                "urls",
+                {},
+            ).get(
+                "canonical"
+            )
+            or ""
+        )
+        .strip()
+        .lower()
+        .rstrip("/")
+    )
+
+    if canonical:
+        keys.append(
+            "url:" + canonical
+        )
+
+    title = normalized_record_title(
+        record
+    )
+
+    year = record.get("year")
+
+    if title and year:
+        keys.append(
+            f"title-year:{year}:{title}"
+        )
+
+    return keys
+
+
+def merge_record_metadata(
+    primary,
+    supplement,
+):
+    merged = dict(
+        primary
+    )
+
+    for field in (
+        "issue",
+        "issueLabel",
+        "issueNumbers",
+        "issueNumber",
+        "historicalSource",
+    ):
+        if (
+            not merged.get(field)
+            and supplement.get(field)
+        ):
+            merged[field] = (
+                supplement[field]
+            )
+
+    for field in (
+        "subjects",
+        "bibliographicSources",
+        "rights",
+        "titleVariants",
+        "abstractVariants",
+        "languages",
+    ):
+        values = []
+
+        for value in (
+            merged.get(field)
+            or []
+        ):
+            if value not in values:
+                values.append(value)
+
+        for value in (
+            supplement.get(field)
+            or []
+        ):
+            if value not in values:
+                values.append(value)
+
+        if values:
+            merged[field] = values
+
+    if (
+        supplement.get("historicalSource")
+        and supplement.get("year")
+    ):
+        merged["year"] = supplement["year"]
+
+        if supplement.get("date"):
+            merged["date"] = supplement["date"]
+
+    if (
+        not merged.get("abstract")
+        and supplement.get("abstract")
+    ):
+        merged["abstract"] = (
+            supplement["abstract"]
+        )
+
+    if (
+        not merged.get("publisher")
+        and supplement.get("publisher")
+    ):
+        merged["publisher"] = (
+            supplement["publisher"]
+        )
+
+    primary_urls = dict(
+        merged.get("urls")
+        or {}
+    )
+
+    supplement_urls = (
+        supplement.get("urls")
+        or {}
+    )
+
+    if (
+        not primary_urls.get("canonical")
+        and supplement_urls.get(
+            "canonical"
+        )
+    ):
+        primary_urls["canonical"] = (
+            supplement_urls["canonical"]
+        )
+
+    if (
+        not primary_urls.get("doi")
+        and supplement_urls.get("doi")
+    ):
+        primary_urls["doi"] = (
+            supplement_urls["doi"]
+        )
+
+    relations = []
+
+    for value in (
+        primary_urls.get("relations")
+        or []
+    ):
+        if value not in relations:
+            relations.append(value)
+
+    for value in (
+        supplement_urls.get("relations")
+        or []
+    ):
+        if value not in relations:
+            relations.append(value)
+
+    primary_urls["relations"] = relations
+    merged["urls"] = primary_urls
+
+    return merged
+
+
+def load_historical_protrepsis(
+    path=HISTORICAL_PROTREPSIS,
+):
+    if not path.exists():
+        return []
+
+    try:
+        data = json.loads(
+            path.read_text(
+                encoding="utf-8"
+            )
+        )
+    except Exception as exc:
+        raise RuntimeError(
+            "Cannot read Protrepsis "
+            f"historical supplement: {exc}"
+        ) from exc
+
+    records = data.get(
+        "records",
+    )
+
+    if not isinstance(
+        records,
+        list,
+    ):
+        raise RuntimeError(
+            "Invalid Protrepsis "
+            "historical supplement"
+        )
+
+    for record in records:
+        if (
+            record.get("journal")
+            != "Protrepsis"
+        ):
+            raise RuntimeError(
+                "Historical supplement "
+                "contains another journal"
+            )
+
+    return records
+
+
+def merge_historical_protrepsis(
+    current,
+    historical,
+):
+    output = [
+        dict(record)
+        for record in current
+    ]
+
+    key_to_index = {}
+
+    for index, record in enumerate(
+        output
+    ):
+        for key in record_dedupe_keys(
+            record
+        ):
+            key_to_index.setdefault(
+                key,
+                index,
+            )
+
+    added = 0
+    enriched = 0
+
+    for record in historical:
+        existing_index = None
+
+        for key in record_dedupe_keys(
+            record
+        ):
+            if key in key_to_index:
+                existing_index = (
+                    key_to_index[key]
+                )
+                break
+
+        if existing_index is None:
+            output.append(
+                dict(record)
+            )
+
+            index = len(output) - 1
+
+            for key in record_dedupe_keys(
+                record
+            ):
+                key_to_index.setdefault(
+                    key,
+                    index,
+                )
+
+            added += 1
+            continue
+
+        before = output[
+            existing_index
+        ]
+
+        after = merge_record_metadata(
+            before,
+            record,
+        )
+
+        if after != before:
+            output[
+                existing_index
+            ] = after
+            enriched += 1
+
+    return (
+        output,
+        added,
+        enriched,
+    )
+
+
 def build_dataset(
     output_path,
 ):
@@ -2067,6 +2405,61 @@ def build_dataset(
                 file=sys.stderr,
             )
 
+        historical_added = 0
+        historical_enriched = 0
+
+        if (
+            source["journal"]
+            == "Protrepsis"
+        ):
+            before_policy = len(
+                records
+            )
+
+            records = [
+                record
+                for record in records
+                if not is_temperie_record(
+                    record
+                )
+            ]
+
+            policy_removed = (
+                before_policy
+                - len(records)
+            )
+
+            if policy_removed:
+                excluded[
+                    "non-peer-reviewed-literary"
+                ] = (
+                    excluded.get(
+                        "non-peer-reviewed-literary",
+                        0,
+                    )
+                    + policy_removed
+                )
+
+            supplement = (
+                load_historical_protrepsis()
+            )
+
+            (
+                records,
+                historical_added,
+                historical_enriched,
+            ) = merge_historical_protrepsis(
+                records,
+                supplement,
+            )
+
+        if source["journal"] == "Quadripartita Ratio":
+            # Apply verified chronology to OAI and preserved snapshots.
+            records = [
+                editorial_metadata(record)
+                for record in records
+            ]
+
         all_records.extend(
             records
         )
@@ -2110,6 +2503,12 @@ def build_dataset(
                         "abstract"
                     )
                 ),
+
+            "historicalAdded":
+                historical_added,
+
+            "historicalEnriched":
+                historical_enriched,
         })
 
     all_records.sort(
@@ -2235,7 +2634,9 @@ def main():
             f"doi={summary['withDoi']} "
             f"abstract={summary['withAbstract']} "
             f"excluded={summary['excludedTotal']} "
-            f"deleted={summary['deleted']}"
+            f"deleted={summary['deleted']} "
+            f"historicalAdded={summary['historicalAdded']} "
+            f"historicalEnriched={summary['historicalEnriched']}"
         )
 
         for reason, count in sorted(

@@ -90,45 +90,6 @@ test("RA6 view model conserva todos los nodos y coordenadas del layout", () => {
 });
 
 
-test("view model expone el año de publicación para el plano temporal", () => {
-  const view =
-    buildView();
-
-  const works =
-    view.nodes.filter(
-      node =>
-        node.kind ===
-          "work-direct" ||
-        node.kind ===
-          "work-expanded"
-    );
-
-  assert.ok(
-    works.length >= 1
-  );
-
-  for (const node of works) {
-    const source =
-      fixture.initialSnapshot.nodes.find(
-        item =>
-          item.id === node.id
-      );
-
-    const expected =
-      Number.isFinite(
-        Number(source?.year)
-      )
-        ? Number(source.year)
-        : null;
-
-    assert.equal(
-      node.year,
-      expected
-    );
-  }
-});
-
-
 test("hits directos y expansiones L1 permanecen visualmente distintos", () => {
   const view =
     buildView();

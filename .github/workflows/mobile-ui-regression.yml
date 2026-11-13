@@ -6,6 +6,36 @@ on:
       - "index.html"
       - "tesis.html"
       - "atlas.html"
+      - "articulos.html"
+      - "revistas/**"
+      - "js/articles.js"
+      - "js/journal-page.js"
+      - "js/journal-atlas.js"
+      - "js/journal-atlas-article-sheet.js"
+      - "tests/journal-atlas-article-sheet.test.mjs"
+      - "scripts/qa/journal-atlas-sheet-smoke.mjs"
+      - "js/mobile-site-menu.js"
+      - "tests/journal-pages.test.mjs"
+      - "scripts/qa/journal-pages-smoke.mjs"
+      - "scripts/qa/journal-institutional-smoke.mjs"
+      - "scripts/qa/protrepsis-paper-smoke.mjs"
+      - "scripts/qa/protrepsis-curatorial-chips-smoke.mjs"
+      - "scripts/qa/protrepsis-reading-layout-smoke.mjs"
+      - "tests/protrepsis-reading-layout.test.mjs"
+      - "css/protrepsis-reading-layout.css"
+      - "js/protrepsis-explorer.js"
+      - "tests/protrepsis-curatorial-chips.test.mjs"
+      - "scripts/qa/quadripartita-stamps-smoke.mjs"
+      - "scripts/qa/quadripartita-postal-taxonomy-smoke.mjs"
+      - "tests/quadripartita-postal-taxonomy.test.mjs"
+      - "css/quadripartita-postal-taxonomy.css"
+      - "tests/quadripartita-stamps.test.mjs"
+      - "js/quadripartita-stamps.js"
+      - "css/quadripartita-cobalt.css"
+      - "assets/quadripartita-engraving.svg"
+      - "tests/protrepsis-paper.test.mjs"
+      - "js/journal-institutional.js"
+      - "tests/journal-institutional.test.mjs"
       - "js/thesis-atlas.js"
       - "src/core/thesis-atlas.js"
       - "scripts/qa/thesis-atlas-smoke.mjs"
@@ -148,6 +178,29 @@ jobs:
         run: node scripts/qa/thesis-demo-smoke.mjs
       - name: Verify experimental thesis Atlas on phone, tablet and desktop
         run: node scripts/qa/thesis-atlas-smoke.mjs
+      - name: Verify individual journal pages, filters and semantic Atlas fallback
+        run: node scripts/qa/journal-pages-smoke.mjs
+
+      - name: Verify journal Atlas abstract and expandable article sheet without screenshots
+        run: node scripts/qa/journal-atlas-sheet-smoke.mjs
+
+      - name: Verify journal editorial profiles on phone tablet and desktop
+        run: node scripts/qa/journal-institutional-smoke.mjs
+
+      - name: Verify complete Protrepsis paper redesign and editorial navigation
+        run: node scripts/qa/protrepsis-paper-smoke.mjs
+
+      - name: Verify Protrepsis museum taxonomy chips and independent reset controls
+        run: node scripts/qa/protrepsis-curatorial-chips-smoke.mjs
+
+      - name: Verify Protrepsis quick explorer and article-reading Atlas
+        run: node scripts/qa/protrepsis-reading-layout-smoke.mjs
+
+      - name: Verify Quadripartita engraved stamps and cobalt editorial design
+        run: node scripts/qa/quadripartita-stamps-smoke.mjs
+
+      - name: Verify Quadripartita cobalt postal taxonomy selection and independent resets
+        run: node scripts/qa/quadripartita-postal-taxonomy-smoke.mjs
 
       - name: Upload responsive screenshots
         if: always()
@@ -165,4 +218,8 @@ jobs:
             artifacts/author-deep-discovery/
             artifacts/author-name-lookup/
             artifacts/author-federated-coverage/
+            artifacts/journal-pages/
+            artifacts/journal-institutional/
+            artifacts/protrepsis-paper/
+            artifacts/quadripartita-stamps/
           if-no-files-found: ignore
