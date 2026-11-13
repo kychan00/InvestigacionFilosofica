@@ -1,5 +1,6 @@
 import { ResearchAtlasQwenVectorClient } from "../src/core/research-atlas-qwen-vector-client.js";
 import { cosineInt8 } from "../src/core/research-atlas-qwen-vector-range.js";
+import { journalArticleAbstract, journalArticleSheet, journalArticleSourceUrl } from "./journal-atlas-article-sheet.js";
 
 const SITE_ROOT = new URL("../", import.meta.url);
 const MAX_ATLAS_RECORDS = 72;
@@ -1181,9 +1182,7 @@ export class JournalSemanticAtlas {
     const authors = (record.authors || [])
       .map(author => author?.name || author?.sourceName)
       .filter(Boolean);
-    const link = record.urls?.canonical ||
-      record.urls?.doi ||
-      (record.doi ? "https://doi.org/" + record.doi : "");
+    const link = journalArticleSourceUrl(record);
 
     const authorHtml = authors.length
       ? authors.map(name =>
@@ -1196,9 +1195,7 @@ export class JournalSemanticAtlas {
     const relations = this.relatedEdgesFor(node);
     const relationItems = relations.map(({ edge, targetIndex, target }) => {
       const targetRecord = target.record;
-      const targetLink = targetRecord.urls?.canonical ||
-        targetRecord.urls?.doi ||
-        (targetRecord.doi ? "https://doi.org/" + targetRecord.doi : "");
+      const targetLink = journalArticleSourceUrl(targetRecord);
       const terms = relationTerms(node, target);
       const scoreLabel = edge.source === "qwen" ? "coseno Qwen" : "coseno TF-IDF";
       const relationBadges =
@@ -1229,6 +1226,8 @@ export class JournalSemanticAtlas {
                 terms.map(term => '<span>' + escapeHtml(term) + '</span>').join("") +
               '</div>'
             : '') +
+          '<button class="atlas-related-sheet" type="button" data-related-sheet="' + targetIndex + '">' +
+            'Ver ficha del relacionado ↗</button>' +
           (targetLink
             ? '<a class="atlas-related-open" href="' + escapeAttribute(targetLink) +
               '" target="_blank" rel="noopener noreferrer">Abrir relacionado ↗</a>'
@@ -1251,6 +1250,8 @@ export class JournalSemanticAtlas {
         '<span>' + escapeHtml(node.category || "General") + '</span>' +
       '</div>' +
       '<p class="atlas-detail-method">El color identifica el número editorial. Al seleccionar un artículo se resaltan únicamente sus conexiones directas.</p>' +
+      journalArticleAbstract(record) +
+      journalArticleSheet(record, node.issue, node.category) +
       (link
         ? '<a class="atlas-detail-record" href="' + escapeAttribute(link) +
           '" target="_blank" rel="noopener noreferrer">Abrir registro ↗</a>'
@@ -1269,6 +1270,18 @@ export class JournalSemanticAtlas {
       button.addEventListener("click", () => {
         const target = this.nodes[Number(button.dataset.relatedNode)];
         this.focusNode(target);
+      });
+    });
+
+    this.detail.querySelectorAll("[data-related-sheet]").forEach(button => {
+      button.addEventListener("click", () => {
+        const target = this.nodes[Number(button.dataset.relatedSheet)];
+        if (!target) return;
+        this.focusNode(target);
+        const sheet = this.detail.querySelector("[data-article-sheet]");
+        if (!sheet) return;
+        sheet.open = true;
+        sheet.querySelector("summary")?.focus({ preventScroll: true });
       });
     });
 
