@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "research-atlas-author-identity-policy-v1",
+  "revision": "2026-11-13.ra13a-orcid-identity-v1",
+  "phase": "RA13-A",
+  "primaryTopology": {
+    "entity": "work",
+    "unchangedFrom": "RA11",
+    "authorIdentityMayMoveWorks": false
+  },
+  "identity": {
+    "scope": "query-scoped",
+    "automaticMergeByName": false,
+    "deterministicIdentifiers": [
+      "orcid",
+      "openalex-author"
+    ],
+    "orcidPreferredWhenPresent": true,
+    "openalexMayJoinOrcidWhenObservedTogether": true,
+    "nameOnlyRemains": "author-mention",
+    "conflictingIdentifiers": "fail-closed"
+  },
+  "relationships": {
+    "contribution": "confirmed only through deterministic identity evidence",
+    "sameAuthor": "derived only from shared AuthorityPerson",
+    "coauthor": "derived only from a documented shared work",
+    "affiliation": "metadata on AuthorityPerson in RA13-A; institution nodes deferred"
+  },
+  "provenance": {
+    "noAdditionalProviderSearchFromAtlas": true,
+    "consumesSearchResponseOnly": true,
+    "orcidAffiliationsMayUse": "orcidSearch.institutions already present in SearchResponse"
+  },
+  "futurePhases": {
+    "RA13-B": "Institution nodes and affiliation edges",
+    "RA13-C": "Author/coauthor exploration controls and identity-focused UI",
+    "RA13-D": "Optional deeper authority reconciliation with audited external evidence"
+  }
+}
