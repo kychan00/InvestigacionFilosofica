@@ -487,7 +487,7 @@ body[data-journal="protrepsis"] #journal-atlas-panel .pro-atlas-relations .atlas
   body[data-journal="protrepsis"] .pro-explorer-panels {max-height:min(54dvh,420px);}
   body[data-journal="protrepsis"] .pro-explorer-tabs button {min-height:61px;font-size:.76rem;}
   body[data-journal="protrepsis"] #journal-atlas-panel .journal-atlas-stage {
-    height:clamp(365px,52dvh,510px);
+    height:clamp(535px,67dvh,630px);
   }
   body[data-journal="protrepsis"] #journal-atlas-panel .pro-atlas-reader-detail {
     padding:23px 18px 28px;
