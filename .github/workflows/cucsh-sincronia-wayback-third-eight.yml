@@ -63,7 +63,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 -m scripts.cucsh.probe_sincronia_wayback_second_eight \
+          python3 -m scripts.cucsh.probe_sincronia_wayback_third_eight \
             --input /tmp/sincronia-third-eight-pending.json \
             --output /tmp/sincronia-wayback-third-eight.json
           python3 - <<'PY'
