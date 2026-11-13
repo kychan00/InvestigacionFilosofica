@@ -1,0 +1,123 @@
+name: Sincronía · restore John S. Ransom 1998 byline
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-ransom.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-ransom-issue-six
+  cancel-in-progress: false
+
+jobs:
+  restore-one:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Verify Ransom attribution with frozen-identity tests
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_ransom
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Recover exactly one Sincronía issue-six author
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-ransom-before.json
+          python3 -m scripts.cucsh.restore_sincronia_ransom \
+            --input /tmp/cucsh-ransom-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Audit no loss, original links and remaining bylines
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-ransom-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-ransom-historical-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-ransom-pending-authors.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          before=json.loads(Path("/tmp/cucsh-ransom-before.json").read_text(encoding="utf-8"))
+          after=json.loads(Path("src/data/cucsh-filosofia.json").read_text(encoding="utf-8"))
+          b={r["id"]:r for r in before["records"]}
+          a={r["id"]:r for r in after["records"]}
+          assert len(b)==len(a)==1845
+          assert list(b)==list(a)
+          changed=[rid for rid in b if b[rid]!=a[rid]]
+          assert changed==["cucsh:sincronia-legacy:609131a63943ffe9c013"],changed
+          old,new=b[changed[0]],a[changed[0]]
+          assert old["title"]==new["title"]
+          assert old["urls"]==new["urls"]
+          assert old["legacyAccessStatus"]==new["legacyAccessStatus"]
+          assert old.get("legacyTitleEncodingEvidence")==new.get("legacyTitleEncodingEvidence")
+          assert {k for k in set(old)|set(new)
+                  if old.get(k)!=new.get(k)}=={"authors","legacyAuthorEvidence"}
+          assert new["authors"]==[{"name":"John S. Ransom","sourceName":"John S. Ransom"}]
+          evidence=new["legacyAuthorEvidence"]
+          assert evidence["sourceArticleUrl"]=="http://fuentes.csh.udg.mx/CUCSH/Sincronia/ransom.htm"
+          assert evidence["urlMatchLevel"]=="independent-exact-original-url-citation"
+          assert evidence["originalUrlAccessedBySource"]=="2005-05-21"
+
+          report=json.loads(Path("/tmp/sincronia-ransom-pending-authors.json").read_text(encoding="utf-8"))
+          assert report["totalSincroniaRecords"]==1454
+          assert report["highConfidenceEditorialNavigationCount"]==2
+          assert report["pendingAuthorRecords"]==75
+          assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==73
+          assert report["bibliographicConflictCount"]==1
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_RANSOM_STRICT_PASS",len(changed),75)
+          PY
+      - name: Run complete application regression suite
+        run: |
+          npm ci
+          npm test
+      - name: Commit only verified corpus change to existing feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected worktree changes"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore John S. Ransom Sincronía issue-six byline"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload historical audit and outstanding review queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-ransom-${{ github.run_id }}
+          path: |
+            /tmp/sincronia-ransom-historical-quality.json
+            /tmp/sincronia-ransom-pending-authors.json
+          retention-days: 30
+          if-no-files-found: warn
