@@ -787,6 +787,7 @@ function palette() {
     green: "#42be65",
     purple: "#8a3ffc",
     yellow: "#f1c21b",
+    red: "#fa4d56",
     focusAuthor: "#ee5396",
     muted: cssColor("--pg-muted", "#6f6f6f")
   };
@@ -823,6 +824,9 @@ function edgeStyle(edge, colors) {
   }
   if (edge.visualType === "contribution") {
     return { color: colors.green, alpha: 0.62, width: 1.2, dash: [] };
+  }
+  if (edge.visualType === "coauthor") {
+    return { color: colors.red, alpha: 0.64, width: 1.25, dash: [6, 3] };
   }
   if (edge.visualType === "provisional") {
     return { color: colors.yellow, alpha: 0.65, width: 1, dash: [3, 5] };
