@@ -42,7 +42,7 @@ try {
     assert.equal(await issues.locator("button").count(),3);
     const maxHeight=await issues.evaluate(node=>getComputedStyle(node).maxHeight);
     assert.equal(maxHeight,"none","Ningún número debe quedar escondido en una lista recortada");
-    const firstCategory=page.locator("#journal-category-chips button").filter({hasText:"Ética"});
+    const firstCategory=page.locator('#journal-category-chips button[data-taxonomy-value="Ética"]');
     assert.equal(await firstCategory.count(),1);
     await firstCategory.click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),2);
@@ -84,7 +84,7 @@ try {
     assert.ok(politicalValue,"Must find the Política navigation category");
     await page.locator("#journal-category").selectOption(politicalValue);
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),1);
-    assert.equal(await page.locator("#journal-category-chips button").filter({hasText:"Política"}).getAttribute("aria-pressed"),"true");
+    assert.equal(await page.locator('#journal-category-chips button[data-taxonomy-value="Política"]').getAttribute("aria-pressed"),"true");
     await page.locator("#journal-reset").click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),6);
     assert.equal(await page.locator("#journal-category-all").getAttribute("aria-pressed"),"true");
