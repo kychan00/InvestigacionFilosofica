@@ -109,6 +109,8 @@ const el = {
   results: document.querySelector("#journal-card-grid"),
   loadMore: document.querySelector("#journal-load-more"),
   categories: document.querySelector("#journal-category-chips"),
+  categoryAll: document.querySelector("#journal-category-all"),
+  issueAll: document.querySelector("#journal-issue-all"),
   issues: document.querySelector("#journal-issue-chips"),
   topics: document.querySelector("#journal-topic-chips"),
   authorsList: document.querySelector("#journal-author-chips"),
@@ -354,6 +356,37 @@ function card(record, index) {
   return article;
 }
 
+function syncCuratorialChips() {
+  if (journalId !== "protrepsis") return;
+  for (const [container, facet] of [[el.categories, "category"], [el.issues, "issue"]]) {
+    container?.querySelectorAll("[data-taxonomy-value]").forEach(button => {
+      const selected = state[facet] === button.dataset.taxonomyValue;
+      button.classList.toggle("is-active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+  }
+  for (const [button, facet] of [[el.categoryAll, "category"], [el.issueAll, "issue"]]) {
+    if (!button) continue;
+    const showAll = state[facet] === "all";
+    button.setAttribute("aria-pressed", String(showAll));
+    button.classList.toggle("is-current", showAll);
+    button.classList.toggle("has-selection", !showAll);
+  }
+}
+
+function selectTaxonomyFacet(facet, value) {
+  if (facet !== "category" && facet !== "issue") return;
+  // A second tap releases the same tag. Clearing a single facet keeps
+  // the rest of the researcher's filters intact.
+  const next = journalId === "protrepsis" && value !== "all" && state[facet] === value ? "all" : value;
+  state[facet] = next;
+  const select = facet === "category" ? el.category : el.issue;
+  if (select) select.value = next;
+  state.limit = PAGE_SIZE;
+  renderArchive();
+  if (state.view === "atlas") buildAtlas();
+}
+
 function renderArchive() {
   const records = filteredRecords();
   const visible = records.slice(0, state.limit);
@@ -365,6 +398,7 @@ function renderArchive() {
   el.loadMore.textContent = visible.length < records.length
     ? "Cargar " + Math.min(PAGE_SIZE, records.length - visible.length) + " más"
     : "Todo cargado";
+  syncCuratorialChips();
 }
 
 function fillSelect(select, rows, allLabel) {
@@ -408,14 +442,12 @@ function buildTaxonomy() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "taxonomy-chip";
+    button.dataset.taxonomyValue = label;
+    button.setAttribute("aria-pressed", String(state.category === label));
+    button.setAttribute("aria-controls", "journal-card-grid");
     button.style.setProperty("--chip-color", CATEGORY_COLORS[label] || CATEGORY_COLORS.Otros);
     button.innerHTML = "<span>" + escapeHtml(label) + "</span><strong>" + count + "</strong>";
-    button.addEventListener("click", () => {
-      state.category = label;
-      el.category.value = label;
-      state.limit = PAGE_SIZE;
-      renderArchive();
-    });
+    button.addEventListener("click", () => selectTaxonomyFacet("category", label));
     el.categories.append(button);
   }
 
@@ -424,15 +456,12 @@ function buildTaxonomy() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "taxonomy-chip issue-taxonomy-chip";
+    button.dataset.taxonomyValue = group.key;
+    button.setAttribute("aria-pressed", String(state.issue === group.key));
+    button.setAttribute("aria-controls", "journal-card-grid");
     button.style.setProperty("--chip-color", group.color);
     button.innerHTML = "<span>" + escapeHtml(group.label) + "</span><strong>" + group.count + "</strong>";
-    button.addEventListener("click", () => {
-      state.issue = group.key;
-      if (el.issue) el.issue.value = group.key;
-      state.limit = PAGE_SIZE;
-      renderArchive();
-      if (state.view === "atlas") buildAtlas();
-    });
+    button.addEventListener("click", () => selectTaxonomyFacet("issue", group.key));
     el.issues?.append(button);
   }
 
@@ -548,6 +577,8 @@ function wire() {
     if (state.view === "atlas") buildAtlas();
   });
   el.reset?.addEventListener("click", resetFilters);
+  el.categoryAll?.addEventListener("click", () => selectTaxonomyFacet("category", "all"));
+  el.issueAll?.addEventListener("click", () => selectTaxonomyFacet("issue", "all"));
   el.loadMore?.addEventListener("click", () => {
     state.limit += PAGE_SIZE;
     renderArchive();
