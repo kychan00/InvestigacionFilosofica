@@ -78,7 +78,11 @@ try {
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),6);
 
     // El selector tradicional debe reflejarse en los chips.
-    await page.locator("#journal-category").selectOption({label:/Política/});
+    const politicalValue=await page.locator("#journal-category option").evaluateAll(
+      options=>options.find(option=>option.textContent?.includes("Política"))?.value
+    );
+    assert.ok(politicalValue,"Must find the Política navigation category");
+    await page.locator("#journal-category").selectOption(politicalValue);
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),1);
     assert.equal(await page.locator("#journal-category-chips button").filter({hasText:"Política"}).getAttribute("aria-pressed"),"true");
     await page.locator("#journal-reset").click();
