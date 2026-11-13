@@ -1,0 +1,146 @@
+name: Sincronía · restore Dante Medina and Stephen Gilbert hypertexts
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-dante-gilbert-hypertext.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-1998-dante-and-gilbert-hypertext
+  cancel-in-progress: false
+
+jobs:
+  restore-two-hypertexts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test explicit original hypertext section signatures and frozen works
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_dante_gilbert_hypertext
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Restore exactly two linked work credits
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/sincronia-hypertext-before.json
+          python3 -m scripts.cucsh.restore_sincronia_dante_gilbert_hypertext \
+            --input /tmp/sincronia-hypertext-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Audit exact two changes and four remaining unattributed records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/sincronia-hypertext-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-hypertext-history.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-hypertext-pending.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.cucsh.restore_sincronia_dante_gilbert_hypertext import (
+              SOURCES, INDEX_CAPTURE, PREFIX,
+          )
+
+          before_data=json.loads(Path("/tmp/sincronia-hypertext-before.json").read_text(encoding="utf-8"))
+          after_data=json.loads(Path("src/data/cucsh-filosofia.json").read_text(encoding="utf-8"))
+          before={r["id"]:r for r in before_data["records"]}
+          after={r["id"]:r for r in after_data["records"]}
+          assert len(before)==len(after)==1845
+          assert list(before)==list(after)
+          touched=[rid for rid in before if before[rid]!=after[rid]]
+          assert len(touched)==2 and set(touched)==set(SOURCES),touched
+          for rid in touched:
+              old,new=before[rid],after[rid]
+              source=SOURCES[rid]
+              assert old["journal"]==new["journal"]=="Sincronía"
+              for field in ("title","issueNumber","year","urls","legacyOriginal","legacyAccessStatus"):
+                  assert old[field]==new[field],(rid,field)
+              assert old.get("legacyTitleEncodingEvidence")==new.get("legacyTitleEncodingEvidence")
+              assert {f for f in set(old)|set(new) if old.get(f)!=new.get(f)}=={
+                  "authors","legacyAuthorEvidence"
+              }
+              assert new["authors"]==[{"name":source["author"],"sourceName":source["author"]}]
+              ev=new["legacyAuthorEvidence"]
+              assert ev["sourceUrl"]==INDEX_CAPTURE
+              assert ev["sourceIndexPrintedCredit"]==source["indexPrintedCredit"]
+              assert ev["sourceArticleUrl"]==PREFIX+source["filename"]
+              assert ev["sourceIndexExactLinkedOriginalUrl"]==PREFIX+source["filename"]
+              assert ev["sourceIndexLinkLabel"]==source["title"]
+              assert ev["sourceWorkCaptureUrl"]==source["snapshot"]
+              assert ev["sourcePrintedAuthorOnWorkPage"] is False
+              assert ev["sourceAuthorCreditOnExactLinkedSectionIndex"] is True
+              assert ev["matchedIndexedYear"]==1998
+              assert ev["matchedIndexedIssue"]==8
+              assert ev["originalAvailabilityPreserved"]
+              assert ev["publicationVersionCaveat"]
+
+          poem=after["cucsh:sincronia-legacy:4800ef829bfca4e699cb"]
+          hyper=after["cucsh:sincronia-legacy:582537d89e07194c5970"]
+          bio=after["cucsh:sincronia-legacy:a9b2551729fe0893d5e3"]
+          assert [x["name"] for x in poem["authors"]]==["Dante Medina"]
+          assert [x["name"] for x in hyper["authors"]]==["Stephen W. Gilbert"]
+          assert not bio["authors"] and before[bio["id"]]==bio
+
+          report=json.loads(Path("/tmp/sincronia-hypertext-pending.json").read_text(encoding="utf-8"))
+          assert report["totalSincroniaRecords"]==1454
+          assert report["pendingAuthorRecords"]==4
+          assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==2
+          assert report["highConfidenceEditorialNavigationCount"]==2
+          assert report["pendingByIssue"]=={"8":1,"15":1,"46":2}
+          assert report["bibliographicConflictCount"]==0
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_DANTE_GILBERT_EXPLICIT_INDEX_SIGNATURES_PASS",len(touched),4)
+          PY
+      - name: Run full application regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit only verified source corpus to existing feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected files changed"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore 1998 Sincronía hypertext authors Dante Medina and Stephen Gilbert"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload updated historical source and byline audits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-dante-gilbert-hypertext
+          path: |
+            /tmp/sincronia-hypertext-history.json
+            /tmp/sincronia-hypertext-pending.json
+          retention-days: 30
+          if-no-files-found: warn
