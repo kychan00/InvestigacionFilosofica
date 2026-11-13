@@ -13,7 +13,7 @@ import {
 import {
   buildResearchAtlasIdentityAuthorityGraph,
   RESEARCH_ATLAS_IDENTITY_REVISION
-} from "./research-atlas-identity.js";
+} from "./research-atlas-identity.js?v=20261113-ra13a-v1";
 
 import {
   RESEARCH_ATLAS_SCHEMA_VERSION,
