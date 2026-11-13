@@ -27106,11 +27106,17 @@
       "sourceId": "legacy:d578e8ef399dde877feb",
       "oaiDatestamp": null,
       "journal": "Sincronía",
-      "title": "de Campos,Jorge Lucio",
+      "title": "A educação e o fascínio tecnológico: Algumas considerações",
       "titleVariants": [
+        "A educação e o fascínio tecnológico: Algumas considerações",
         "de Campos,Jorge Lucio"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Jorge Lucio de Campos",
+          "sourceName": "Jorge Lucio de Campos"
+        }
+      ],
       "date": "2000",
       "year": 2000,
       "type": "journal-article",
@@ -27143,6 +27149,50 @@
         "reason": "http-404",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyIndexMislabelEvidence": {
+        "kind": "archived-original-2000-index-plus-signed-article",
+        "previousTitle": "de Campos,Jorge Lucio",
+        "verifiedTitle": "A educação e o fascínio tecnológico: Algumas considerações",
+        "verifiedAuthors": [
+          "Jorge Lucio de Campos"
+        ],
+        "originalTitleVariants": [
+          "de Campos,Jorge Lucio"
+        ],
+        "indexSourceUrl": "https://web.archive.org/web/20000824085411/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/summer00.htm",
+        "signedArticleSourceUrl": "https://web.archive.org/web/20000930033955/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos.htm",
+        "separateDeleuzeArticleSourceUrl": "https://web.archive.org/web/20000930034002/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos2.htm",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/campos.htm",
+        "originalCatalogUrlPreserved": "http://sincronia.cucsh.udg.mx/campos.htm",
+        "indexIssueNumber": 15,
+        "indexYear": 2000,
+        "signedArticleCaptureDate": "2000-09-30",
+        "indexCaptureDate": "2000-08-24",
+        "printedByline": "Jorge Lucio de Campos",
+        "actualVisibleArticleHeading": "A educação e o fascínio tecnológico: Algumas considerações",
+        "archivedHtmlTitleDiscrepancy": "The page HTML <title> refers to A SALA DE AULA ENQUANTO PAISAGEM VIRTUAL, but the visible signed article and issue-15 table of contents identify A EDUCAÇÃO E O FASCÍNIO TECNOLÓGICO: ALGUMAS CONSIDERAÇÕES.",
+        "different2001InterviewOnReusedUrl": "https://web.archive.org/web/20020607092529/http://sincronia.cucsh.udg.mx:80/campos.htm",
+        "historicalUrlIdentityNote": "The original 2000 document survives at the older fuentes.csh.udg.mx CUCSH/Sincronia/campos.htm path. The legacy catalog canonical sincronia.cucsh.udg.mx/campos.htm was later reused for a 2001 interview. Do not use the 2001 article as evidence of the 2000 work, and do not claim the dead catalog URL is currently live.",
+        "originalAvailabilityPreserved": true
+      },
+      "legacyAuthorEvidence": {
+        "kind": "signed-2000-archived-primary-article-and-original-index",
+        "verifiedAuthor": "Jorge Lucio de Campos",
+        "verifiedAuthors": [
+          "Jorge Lucio de Campos"
+        ],
+        "verifiedTitle": "A educação e o fascínio tecnológico: Algumas considerações",
+        "sourceUrl": "https://web.archive.org/web/20000930033955/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos.htm",
+        "supportingSourceUrl": "https://web.archive.org/web/20000824085411/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/summer00.htm",
+        "separateArticleUrl": "https://web.archive.org/web/20000930034002/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos2.htm",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/campos.htm",
+        "originalCatalogUrlPreserved": "http://sincronia.cucsh.udg.mx/campos.htm",
+        "printedByline": "Jorge Lucio de Campos",
+        "matchedIndexedIssue": 15,
+        "matchedIndexedYear": 2000,
+        "originalAvailabilityPreserved": true,
+        "reused2001DifferentWorkCapture": "https://web.archive.org/web/20020607092529/http://sincronia.cucsh.udg.mx:80/campos.htm"
       }
     },
     {
