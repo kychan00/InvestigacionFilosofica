@@ -84,6 +84,10 @@ try {
       assert.equal(await page.locator(".qr-stamp-paper").count(),36);
       assert.equal(await page.locator(".journal-card-byline").count(),36);
       // Filtering also re-renders the card set; no stale or duplicated stamps.
+      const filterToggle=page.locator("#journal-filter-toggle");
+      if(await filterToggle.getAttribute("aria-expanded")==="false"){
+        await filterToggle.click();
+      }
       const select=page.locator("#journal-issue");
       const first=await select.locator('option:not([value="all"])').first().getAttribute("value");
       assert.ok(first);
