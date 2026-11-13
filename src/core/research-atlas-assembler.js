@@ -11,6 +11,11 @@ import {
 } from "./research-atlas-authority.js";
 
 import {
+  buildResearchAtlasIdentityAuthorityGraph,
+  RESEARCH_ATLAS_IDENTITY_REVISION
+} from "./research-atlas-identity.js?v=20261113-ra13a-v1";
+
+import {
   RESEARCH_ATLAS_SCHEMA_VERSION,
   RESEARCH_ATLAS_NODE_TYPES,
   RESEARCH_ATLAS_EDGE_TYPES,
@@ -23,7 +28,7 @@ import {
 
 
 export const RESEARCH_ATLAS_ASSEMBLER_REVISION =
-  "2026-11-09.ra2-external-context-v2";
+  "2026-11-13.ra13a-identity-v1";
 
 
 function isPlainObject(value) {
@@ -1121,22 +1126,43 @@ export class ResearchAtlasAssembler {
         this.graphRevision
     };
 
+    const dynamicIdentity =
+      !effectiveContext.authorityGraph &&
+      effectiveContext.dynamicIdentity === true
+        ? buildResearchAtlasIdentityAuthorityGraph(
+            searchResponse
+          )
+        : null;
+
+    if (dynamicIdentity) {
+      effectiveContext.sourceRevisions = {
+        ...(
+          effectiveContext.sourceRevisions ||
+          {}
+        ),
+        researchAtlasIdentity:
+          RESEARCH_ATLAS_IDENTITY_REVISION
+      };
+    }
+
+    const authorityGraph =
+      effectiveContext.authorityGraph ||
+      dynamicIdentity?.authorityGraph ||
+      null;
+
     const baseSnapshot =
       buildResearchAtlasSnapshot(
         searchResponse,
         effectiveContext
       );
 
-    this.currentSnapshot =
-      effectiveContext
-        .authorityGraph
+    let enriched =
+      authorityGraph
         ? enrichResearchAtlasWithAuthority(
             baseSnapshot,
             searchResponse,
             {
-              authorityGraph:
-                effectiveContext
-                  .authorityGraph,
+              authorityGraph,
               authorityWorkMap:
                 effectiveContext
                   .authorityWorkMap ||
@@ -1148,6 +1174,35 @@ export class ResearchAtlasAssembler {
             }
           )
         : baseSnapshot;
+
+    if (dynamicIdentity) {
+      enriched = {
+        ...enriched,
+        session: {
+          ...enriched.session,
+          identityLayer: {
+            mode:
+              "query-scoped-deterministic",
+            revision:
+              RESEARCH_ATLAS_IDENTITY_REVISION
+          }
+        },
+        diagnostics: {
+          ...enriched.diagnostics,
+          identityLayer:
+            structuredClone(
+              dynamicIdentity.diagnostics
+            )
+        }
+      };
+
+      assertResearchAtlasSnapshot(
+        enriched
+      );
+    }
+
+    this.currentSnapshot =
+      enriched;
 
     return structuredClone(
       this.currentSnapshot

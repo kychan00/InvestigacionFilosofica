@@ -233,11 +233,31 @@ test("RA12-D4 actualiza copy público y cache bust del Atlas embebido", () => {
   );
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-global-work-dedup-v3/
+    /research-atlas-embed\.js\?v=20261113-ra13a-v1/
   );
   assert.match(
     page,
     /research-atlas-embed\.css\?v=20261109-ra12d3-main-v1/
+  );
+});
+
+
+test("RA13 expone coautoría e identidad académica en el Atlas principal", () => {
+  assert.match(
+    page,
+    /data-research-atlas-edge="coauthor"/
+  );
+  assert.match(
+    embed,
+    /edge\.visualType === "coauthor"/
+  );
+  assert.match(
+    embed,
+    /Identidad académica/
+  );
+  assert.match(
+    embed,
+    /authorityIdentifierValue/
   );
 });
 
@@ -333,7 +353,7 @@ test("load-more topology reuses the existing cached Qwen vector client", () => {
 test("load-more topology cache-busts both app and embedded Atlas assets", () => {
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-global-work-dedup-v3/
+    /research-atlas-embed\.js\?v=20261113-ra13a-v1/
   );
   assert.match(
     page,

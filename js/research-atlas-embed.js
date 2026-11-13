@@ -1,5 +1,5 @@
 
-import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js";
+import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js?v=20261113-ra13a-v1";
 import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js";
 import { addResearchAtlasDocumentSimilarity } from "../src/core/research-atlas-document-similarity.js";
 import {
@@ -13,10 +13,10 @@ import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
   selectedResearchAtlasContext
-} from "../src/core/research-atlas-view.js";
+} from "../src/core/research-atlas-view.js?v=20261113-ra13a-v1";
 import { OPENALEX_PHILOSOPHY_HF_REVISION } from "../src/sources/openalex-philosophy.js";
 
-export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-09.ra12d3-main-v1";
+export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-13.ra13a-main-v1";
 export const RESEARCH_ATLAS_RESPONSE_EVENT = "research-atlas:search-response";
 export const RESEARCH_ATLAS_RESET_EVENT = "research-atlas:reset";
 export const RESEARCH_ATLAS_FILTER_EVENT = "research-atlas:filter-results";
@@ -45,20 +45,6 @@ const edgeToggles = [...document.querySelectorAll("[data-research-atlas-edge]")]
 const authorKey = q("#research-atlas-author-key");
 const context = canvas?.getContext("2d", { alpha: true }) || null;
 
-const EMPTY_AUTHORITY_GRAPH = Object.freeze({
-  schemaVersion: "author-authority-graph-v1",
-  buildRevision: "research-atlas-main-unresolved-only",
-  datasetRevision: "research-atlas-main-unresolved-only",
-  authorities: [],
-  mentions: [],
-  sourceRecords: [],
-  mentionAuthorityLinks: [],
-  identifierRegistry: {},
-  candidateRegistry: {},
-  decisionLedger: { decisions: [] },
-  buildMetrics: {}
-});
-
 let assembler;
 let layoutEngine;
 let snapshot = null;
@@ -85,7 +71,9 @@ const qwenVectorClient = new ResearchAtlasQwenVectorClient();
 const view = { x: 0, y: 0, zoom: 1 };
 
 function makeAssembler() {
-  assembler = new ResearchAtlasAssembler({ authorityGraph: EMPTY_AUTHORITY_GRAPH });
+  assembler = new ResearchAtlasAssembler({
+    dynamicIdentity: true
+  });
   layoutEngine = new ResearchAtlasLayoutEngine({ maxExistingDisplacement: 0.18 });
 }
 
@@ -436,6 +424,45 @@ function authorHref(author) {
   return url.toString();
 }
 
+function authorityIdentifierValue(node, scheme) {
+  return (node?.externalIdentifiers || [])
+    .find(identifier =>
+      identifier?.scheme === scheme
+    )?.normalizedValue ||
+    null;
+}
+
+function authorIdentityForNode(node) {
+  const orcid =
+    authorityIdentifierValue(
+      node,
+      "orcid"
+    );
+
+  const openalex =
+    authorityIdentifierValue(
+      node,
+      "openalex-author"
+    );
+
+  return {
+    name:
+      node?.label ||
+      "",
+    id:
+      openalex
+        ? "https://openalex.org/A" +
+          openalex
+        : null,
+    orcid:
+      orcid
+        ? "https://orcid.org/" +
+          orcid
+        : null
+  };
+}
+
+
 function decorateViewModelNodes() {
   if (!viewModel) return;
 
@@ -760,6 +787,7 @@ function palette() {
     green: "#42be65",
     purple: "#8a3ffc",
     yellow: "#f1c21b",
+    red: "#fa4d56",
     focusAuthor: "#ee5396",
     muted: cssColor("--pg-muted", "#6f6f6f")
   };
@@ -796,6 +824,9 @@ function edgeStyle(edge, colors) {
   }
   if (edge.visualType === "contribution") {
     return { color: colors.green, alpha: 0.62, width: 1.2, dash: [] };
+  }
+  if (edge.visualType === "coauthor") {
+    return { color: colors.red, alpha: 0.64, width: 1.25, dash: [6, 3] };
   }
   if (edge.visualType === "provisional") {
     return { color: colors.yellow, alpha: 0.65, width: 1, dash: [3, 5] };
@@ -1166,18 +1197,150 @@ function renderDetail() {
     node.kind === "authority-person" ||
     node.kind === "author-mention"
   ) {
-    const href = authorHref(node.label);
-    if (href) {
-      const actions = element("div", "research-atlas-node-actions");
-      const openAuthor = element(
-        "a",
-        "research-atlas-node-action primary",
-        "Abrir autor"
+    if (
+      node.kind === "authority-person"
+    ) {
+      const identitySection =
+        element(
+          "section",
+          "research-atlas-why"
+        );
+
+      identitySection.append(
+        element(
+          "h3",
+          "",
+          "Identidad académica"
+        )
       );
+
+      const identityList =
+        element("ul");
+
+      const orcid =
+        authorityIdentifierValue(
+          node,
+          "orcid"
+        );
+
+      const openalex =
+        authorityIdentifierValue(
+          node,
+          "openalex-author"
+        );
+
+      if (orcid) {
+        identityList.append(
+          element(
+            "li",
+            "",
+            "ORCID · " + orcid
+          )
+        );
+      }
+
+      if (openalex) {
+        identityList.append(
+          element(
+            "li",
+            "",
+            "OpenAlex Author ID · A" +
+              openalex
+          )
+        );
+      }
+
+      for (
+        const affiliation of
+        node.affiliations || []
+      ) {
+        const institution =
+          affiliation?.institution ||
+          affiliation?.name ||
+          affiliation?.organization ||
+          null;
+
+        if (!institution) continue;
+
+        identityList.append(
+          element(
+            "li",
+            "",
+            "Afiliación observada · " +
+              institution
+          )
+        );
+      }
+
+      if (
+        identityList.children.length
+      ) {
+        identitySection.append(
+          identityList
+        );
+        fragment.append(
+          identitySection
+        );
+      }
+    }
+
+    const authorIdentity =
+      node.kind === "authority-person"
+        ? authorIdentityForNode(node)
+        : node.label;
+
+    const href =
+      authorHref(
+        authorIdentity
+      );
+
+    if (href) {
+      const actions =
+        element(
+          "div",
+          "research-atlas-node-actions"
+        );
+
+      const openAuthor =
+        element(
+          "a",
+          "research-atlas-node-action primary",
+          "Abrir autor"
+        );
+
       openAuthor.href = href;
       openAuthor.target = "_blank";
       openAuthor.rel = "noopener noreferrer";
       actions.append(openAuthor);
+
+      const orcid =
+        node.kind === "authority-person"
+          ? authorityIdentifierValue(
+              node,
+              "orcid"
+            )
+          : null;
+
+      if (orcid) {
+        const openOrcid =
+          element(
+            "a",
+            "research-atlas-node-action",
+            "ORCID"
+          );
+
+        openOrcid.href =
+          "https://orcid.org/" +
+          orcid;
+        openOrcid.target = "_blank";
+        openOrcid.rel =
+          "noopener noreferrer";
+
+        actions.append(
+          openOrcid
+        );
+      }
+
       fragment.append(actions);
     }
   }

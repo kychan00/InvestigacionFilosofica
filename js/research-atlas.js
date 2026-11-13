@@ -1,10 +1,10 @@
 import {
   ResearchAtlasLiveSession
-} from "../src/core/research-atlas-live.js";
+} from "../src/core/research-atlas-live.js?v=20261113-ra13a-v1";
 
 import {
   ResearchAtlasAssembler
-} from "../src/core/research-atlas-assembler.js";
+} from "../src/core/research-atlas-assembler.js?v=20261113-ra13a-v1";
 
 import {
   expandResearchAtlasWithRelatedWorks
@@ -22,7 +22,7 @@ import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
   selectedResearchAtlasContext
-} from "../src/core/research-atlas-view.js";
+} from "../src/core/research-atlas-view.js?v=20261113-ra13a-v1";
 
 
 const canvas =
@@ -201,7 +201,12 @@ function themeColors() {
       styles.getPropertyValue(
         "--ra-yellow"
       ).trim() ||
-      "#f1c21b"
+      "#f1c21b",
+    red:
+      styles.getPropertyValue(
+        "--ra-red"
+      ).trim() ||
+      "#fa4d56"
   };
 }
 
@@ -547,6 +552,19 @@ function edgeStyle(
       alpha: 0.62,
       width: 1.25,
       dash: []
+    };
+  }
+
+  if (
+    edge.visualType ===
+    "coauthor"
+  ) {
+    return {
+      color:
+        colors.red,
+      alpha: 0.64,
+      width: 1.25,
+      dash: [6, 3]
     };
   }
 
