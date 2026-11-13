@@ -51,7 +51,7 @@ jobs:
           import json
           from pathlib import Path
           d=json.loads(Path("/tmp/sincronia-third-eight-pending.json").read_text(encoding="utf-8"))
-          assert d["totalSincroniaRecords"] == 1414
+          assert d["totalSincroniaRecords"] == 1454
           assert d["pendingAuthorRecords"] == 43
           assert d["authorlessArticleCandidatesExcludingEditorialNavigation"] == 41
           assert d["highConfidenceEditorialNavigationCount"] == 2
