@@ -9,3 +9,5 @@ Retry after preserving both separate Protrepsis and Sincronía tests, adjusting 
 Rehearsal retry: restore literal newline escape in merged JS test separator, preserving main and Sincronia test suites. No push until all tests pass. 2026-11-13.
 
 Expand approved integration rehearsal to all tests matching test_cucsh_*.py, keep output and no-push until complete. 2026-11-13.
+
+Full CUCSH suite uncovered syntax errors in three earlier Wayback test fixtures. Correct the unclosed assertion and expected inputMissingAuthors=32/27/20 respectively, then rerun all 420+ Python and 611 JS tests before integration push. 2026-11-13.

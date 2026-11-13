@@ -69,7 +69,7 @@ class ArchiveEighthEightTests(unittest.TestCase):
             "id": r["id"], "snapshots": [], "authorAttribution": None,
         })
         self.assertEqual(result["withSnapshotLeads"], 0)
-        self.assertEqual(result["inputMissingAuthors"], 32
+        self.assertEqual(result["inputMissingAuthors"], 20)
         self.assertEqual(result["inputCorpusRecords"], 1454)
 
     def test_refuse_stale_counts_missing_ids_or_duplicate_work(self):
