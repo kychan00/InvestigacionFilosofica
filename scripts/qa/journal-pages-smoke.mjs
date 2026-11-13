@@ -296,6 +296,20 @@ try {
         });
       }
 
+      if (journal === "sincronia" && name === "desktop") {
+        // Prove a real author tap follows the existing canonical author profile.
+        const author = page.locator(".journal-card-byline .journal-author-link").first();
+        const displayName = (await author.innerText()).trim();
+        const hitHeight = await author.evaluate(element => element.getBoundingClientRect().height);
+        assert.ok(hitHeight >= 44, "Sincronía author links need a 44px tap target");
+        await Promise.all([
+          page.waitForURL(url => url.searchParams.get("view") === "author"),
+          author.click()
+        ]);
+        assert.equal(new URL(page.url()).searchParams.get("author"), displayName);
+        assert.equal(new URL(page.url()).hash, "#results");
+      }
+
       await context.close();
     }
   }
