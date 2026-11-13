@@ -25,7 +25,11 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /journal-category-chips/);
     assert.match(html, /journal-topic-chips/);
     assert.match(html, /journal-author-chips/);
-    assert.match(html, /temas declarados/i);
+    if (journal === "protrepsis") {
+      assert.match(html, /categor[ií]as del corpus/i);
+    } else {
+      assert.match(html, /temas declarados/i);
+    }
     assert.match(html, /id="journal-category"/);
     assert.match(html, /id="journal-issue"/);
     assert.match(html, /journal-filter-toggle/);
