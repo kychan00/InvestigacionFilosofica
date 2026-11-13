@@ -130,7 +130,7 @@ class DeepArchiveEightTests(unittest.TestCase):
             capture_fetch=lambda _: self.fail("Must not fetch unavailable capture"),
         )
         self.assertIsNone(result["authorAttribution"])
-        self.assertEqual(len(result["candidateSourceCaptures"]), 3)
+        self.assertEqual(len(result["candidateSourceCaptures"]), len(variants(row["originalUrl"])))
         self.assertTrue(all(not x["captures"]
                             for x in result["candidateSourceCaptures"]))
 
