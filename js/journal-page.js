@@ -1,4 +1,4 @@
-import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261111-v6";
+import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-atlas-sheet-v1";
 import {
   journalIssueGroups,
   journalIssueInfo
