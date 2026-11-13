@@ -159,6 +159,6 @@ test("RA8 elimina metadata y cache-busting obsoletos de RA6", () => {
 
   assert.match(
     page,
-    /research-atlas\.js\?v=20261107-ra11-v1/
+    /research-atlas\.js\?v=20261113-ra13a-v1/
   );
 });
