@@ -10,7 +10,7 @@ import {
   normalizeOrcidSearchCsv,
   searchOrcid,
   searchOrcidProfiles
-} from "../../src/sources/orcid.js?v=20261112-federated-search-v1";
+} from "../../src/sources/orcid.js?v=20261113-strict-author-v1";
 import { mergeAuthorArchives } from "../../src/core/author-deep-discovery.js";
 const id = "0000-0002-7283-8051";
 const origin = "https://kychan00.github.io";
@@ -143,18 +143,22 @@ assert.ok(productionProfileSearch.length > 0,
 
 
 const mauricioName = "Mauricio Méndez Huerta";
+const resolvedMauricio = {
+  status: "resolved",
+  identitySearchStrict: true,
+  identityEvidence: "federated-exact-orcid",
+  author: {
+    displayName: mauricioName,
+    orcid: id
+  }
+};
+
 const federatedOrcid = await searchOrcid(
   { query: mauricioName, weight: 1, type: "original" },
   {
     rows: 4,
     profilesPerPage: 4,
-    preferredAuthorResolution: {
-      status: "resolved",
-      author: {
-        displayName: mauricioName,
-        orcid: id
-      }
-    }
+    preferredAuthorResolution: resolvedMauricio
   }
 );
 console.log("ORCID federated search sample:", federatedOrcid.map(item => ({
@@ -171,3 +175,49 @@ assert.ok(federatedOrcid.every(item => item.providers.includes("ORCID")),
 assert.ok(federatedOrcid.some(item =>
   item.authors?.some(author => String(author.orcid || "").includes(id))),
   "Las obras ORCID deben conservar el identificador del investigador");
+
+
+const mauricioPage1 = await searchOrcid(
+  { query: mauricioName, weight: 1, type: "original" },
+  {
+    rows: 8,
+    page: 1,
+    profilesPerPage: 2,
+    preferredAuthorResolution: resolvedMauricio
+  }
+);
+
+const mauricioPage2 = await searchOrcid(
+  { query: mauricioName, weight: 1, type: "original" },
+  {
+    rows: 8,
+    page: 2,
+    profilesPerPage: 2,
+    preferredAuthorResolution: resolvedMauricio
+  }
+);
+
+const page1Ids = new Set(mauricioPage1.map(item => item.id));
+const page2Ids = new Set(mauricioPage2.map(item => item.id));
+const repeated = [...page2Ids].filter(value => page1Ids.has(value));
+
+console.log("Mauricio ORCID pagination:", JSON.stringify({
+  totalPublicWorks: parsed.works.length,
+  page1: mauricioPage1.map(item => item.title),
+  page2: mauricioPage2.map(item => item.title),
+  repeated
+}));
+
+assert.equal(mauricioPage1.length, 8,
+  "El primer lote ORCID de Mauricio debe contener ocho obras cuando hay cobertura suficiente");
+assert.equal(mauricioPage2.length, Math.min(8, Math.max(0, parsed.works.length - 8)),
+  "El segundo lote debe avanzar sobre el mismo registro ORCID");
+assert.deepEqual(repeated, [],
+  "Cargar más no debe repetir el primer lote del ORCID confirmado");
+assert.ok(
+  [...mauricioPage1, ...mauricioPage2].every(item =>
+    item.orcidSearch?.profile === id &&
+    item.orcidSearch?.identitySource === "resolved-author"
+  ),
+  "Todos los lotes deben conservar la misma identidad ORCID confirmada"
+);
