@@ -16,7 +16,7 @@ TARGET_IDS = [
     "cucsh:sincronia-legacy:4084f13c0e0361cd3907",  # suarez2.htm — Ramón Iván Suárez Caamal
     "cucsh:sincronia-legacy:45e6f64e9c503606fd0d",  # arrivi.htm — Jorge Medina
     "cucsh:sincronia-legacy:78815d4ff675c1655f09",  # ecgrow.htm — Giovanni E. Reyes
-    "cucsh:sincronia-legacy:a3d34239ce50b4e18aa4e",  # cabeza.htm — Sahnya Shulterbrandt
+    "cucsh:sincronia-legacy:a3d34239ce50b4e18aa4",  # cabeza.htm — Sahnya Shulterbrandt
     "cucsh:sincronia-legacy:b6f5b07d79cc222d68e1",  # uspr.htm — Forum Intercultura
     "cucsh:sincronia-legacy:c620fd33bd50bf1b7558",  # formanchuk2.htm — Alejandro Formanchuk
     "cucsh:sincronia-legacy:e904a85e0a828a3eb2e9",  # fressia.htm — Floriano Martins
@@ -39,7 +39,7 @@ def make_report(pending, *, inspect=inspect_entry):
         raise ValueError("Pending worklist differs from approved 43-record baseline")
     examined = [inspect(lookup[rid]) for rid in TARGET_IDS]
     return {
-        "scope": "Third eight-work archival investigation issues 5–13",
+        "scope": "Third eight-work archival investigation issues 11–18",
         "inputCorpusRecords": 1454,
         "inputMissingAuthors": 43,
         "selected": len(examined),
