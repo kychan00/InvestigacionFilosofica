@@ -126,43 +126,51 @@
     <main class="journal-main">
       <section id="journal-archive-panel" class="journal-panel" aria-label="Archivo de artículos">
         <div class="journal-archive-layout">
-          <aside class="journal-sidebar">
-            <section class="journal-filter-block">
-              <header class="journal-filter-head">
-                <div><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></div>
-                <button id="journal-filter-toggle" class="journal-filter-toggle" type="button" aria-expanded="true">Ocultar</button>
-              </header>
-              <div class="journal-filter-body">
-                <label><span>Buscar</span><input id="journal-query" type="search" autocomplete="off" placeholder="Título, autor, tema…"></label>
-                <label><span>Década</span><select id="journal-decade"></select></label>
-                <label><span>Idioma</span><select id="journal-language"></select></label>
-                <label><span>Número editorial</span><select id="journal-issue"></select></label>
-                <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
-                <label><span>Orden</span>
-                  <select id="journal-sort">
-                    <option value="newest">Más recientes</option>
-                    <option value="oldest">Más antiguos</option>
-                    <option value="title">Título A–Z</option>
-                    <option value="authors">Autoría A–Z</option>
-                  </select>
-                </label>
-                <div class="journal-filter-checks">
-                  <label class="journal-filter-check"><input id="journal-doi-only" type="checkbox"> Solo con DOI</label>
-                  <label class="journal-filter-check"><input id="journal-abstract-only" type="checkbox"> Solo con resumen</label>
+          <aside class="journal-sidebar sn-explorer" aria-label="Explorador del archivo de Sincronía">
+            <div class="sn-explorer-tabs" role="tablist" aria-label="Elegir panel del archivo">
+              <button id="sn-explorer-tab-topics" role="tab" type="button" data-sn-explorer-tab="topics" aria-controls="sn-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Temas</button>
+              <button id="sn-explorer-tab-issues" role="tab" type="button" data-sn-explorer-tab="issues" aria-controls="sn-explorer-issues" aria-selected="false" tabindex="-1"><span aria-hidden="true">№</span> Números</button>
+              <button id="sn-explorer-tab-filters" role="tab" type="button" data-sn-explorer-tab="filters" aria-controls="sn-explorer-filters" aria-selected="false" tabindex="-1"><span aria-hidden="true">☷</span> Filtros</button>
+            </div>
+            <div class="sn-explorer-panels">
+              <section id="sn-explorer-topics" role="tabpanel" aria-labelledby="sn-explorer-tab-topics" data-sn-explorer-panel="topics" class="journal-taxonomy-block">
+                <header><p class="journal-kicker">CATÁLOGO / 01 — TEMAS</p><h2>Mapa de navegación</h2><p class="sn-explorer-hint">Categorías derivadas únicamente para recorrer el corpus.</p></header>
+                <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
+              </section>
+
+              <section id="sn-explorer-issues" role="tabpanel" aria-labelledby="sn-explorer-tab-issues" data-sn-explorer-panel="issues" hidden class="journal-taxonomy-block journal-issues-block">
+                <header><p class="journal-kicker">CATÁLOGO / 02 — NÚMEROS</p><h2>Ediciones del archivo</h2><p class="sn-explorer-hint">Números editoriales conservados en el archivo de Sincronía.</p></header>
+                <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
+              </section>
+
+              <section id="sn-explorer-filters" role="tabpanel" aria-labelledby="sn-explorer-tab-filters" data-sn-explorer-panel="filters" hidden class="journal-filter-block">
+                <header class="journal-filter-head">
+                  <div><p class="journal-kicker">CATÁLOGO / 03 — FILTROS</p><h2>Filtros del corpus</h2></div>
+                  <button id="journal-filter-toggle" class="journal-filter-toggle" type="button" aria-expanded="true">Ocultar</button>
+                </header>
+                <div class="journal-filter-body">
+                  <label><span>Buscar</span><input id="journal-query" type="search" autocomplete="off" placeholder="Título, autor, tema…"></label>
+                  <label><span>Década</span><select id="journal-decade"></select></label>
+                  <label><span>Idioma</span><select id="journal-language"></select></label>
+                  <label><span>Número editorial</span><select id="journal-issue"></select></label>
+                  <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
+                  <label><span>Orden</span>
+                    <select id="journal-sort">
+                      <option value="newest">Más recientes</option>
+                      <option value="oldest">Más antiguos</option>
+                      <option value="title">Título A–Z</option>
+                      <option value="authors">Autoría A–Z</option>
+                    </select>
+                  </label>
+                  <div class="journal-filter-checks">
+                    <label class="journal-filter-check"><input id="journal-doi-only" type="checkbox"> Solo con DOI</label>
+                    <label class="journal-filter-check"><input id="journal-abstract-only" type="checkbox"> Solo con resumen</label>
+                  </div>
+                  <button id="journal-reset" class="journal-reset" type="button">Limpiar filtros</button>
                 </div>
-                <button id="journal-reset" class="journal-reset" type="button">Limpiar filtros</button>
-              </div>
-            </section>
-
-            <section class="journal-taxonomy-block">
-              <header><p class="journal-kicker">CATEGORÍAS</p><h2>Mapa de navegación</h2></header>
-              <div id="journal-category-chips" class="journal-taxonomy-list"></div>
-            </section>
-
-            <section class="journal-taxonomy-block journal-issues-block">
-              <header><p class="journal-kicker">NÚMEROS</p><h2>Ediciones del archivo</h2></header>
-              <div id="journal-issue-chips" class="journal-taxonomy-list"></div>
-            </section>
+              </section>
+            </div>
+            <p class="sn-explorer-caption">ARCHIVO SINCRONÍA · NÚMEROS 01—90 · PANEL COMPACTO</p>
           </aside>
 
           <div>
@@ -181,7 +189,11 @@
       </section>
 
       <section id="journal-atlas-panel" class="journal-panel" hidden aria-label="Atlas semántico">
-        <div class="journal-atlas-shell">
+        <header class="sn-atlas-heading">
+          <div><p class="journal-kicker">ATLAS / MESA DE LECTURA</p><h2>Mapa, artículo y <em>relaciones.</em></h2></div>
+          <p>El mapa muestra proximidades semánticas; la ficha de lectura conserva el artículo seleccionado a la derecha y las relaciones aparecen debajo, sin desperdiciar el espacio de trabajo.</p>
+        </header>
+        <div class="journal-atlas-shell sn-atlas-shell">
           <div class="journal-atlas-stage">
             <div class="journal-atlas-stagebar">
               <div class="journal-atlas-status-group">
@@ -202,17 +214,30 @@
             </div>
             <canvas id="journal-atlas-canvas" tabindex="0" aria-label="Red semántica interactiva de artículos agrupada por número editorial"></canvas>
           </div>
-          <aside class="journal-atlas-aside">
-            <div class="journal-atlas-copy">
-              <p class="journal-kicker">ATLAS DE REVISTA</p>
-              <h2>Proximidad entre artículos</h2>
-              <p id="journal-qwen-note">Qwen es opcional y experimental. Sin activarlo, el Atlas usa similitud textual local.</p>
+
+          <aside class="journal-atlas-aside sn-atlas-reader" aria-label="Lectura del artículo seleccionado">
+            <div class="journal-atlas-copy sn-atlas-reader-heading">
+              <span class="sn-atlas-reader-number">II / LECTURA</span>
+              <p class="journal-kicker">FICHA DEL ARTÍCULO</p>
+              <h2>Artículo <em>seleccionado.</em></h2>
+              <p>Seleccione un nodo para leer su resumen, consultar metadatos y abrir la fuente original.</p>
             </div>
-            <div id="journal-atlas-legend" class="journal-atlas-legend"></div>
-            <div id="journal-atlas-detail" class="journal-atlas-detail">
+            <div id="journal-atlas-detail" class="journal-atlas-detail sn-atlas-reader-detail" role="region" aria-label="Contenido del artículo seleccionado">
               <p>Seleccione un nodo para inspeccionar el artículo.</p>
             </div>
           </aside>
+
+          <div class="sn-atlas-map-footer">
+            <div class="sn-atlas-map-key">
+              <strong>CLAVE DE EDICIONES Y MÉTODOS</strong>
+              <div id="journal-atlas-legend" class="journal-atlas-legend"></div>
+            </div>
+            <p id="journal-qwen-note">Qwen es opcional y experimental. Sin activarlo, el Atlas usa similitud textual local.</p>
+          </div>
+
+          <div id="journal-atlas-relations" class="sn-atlas-relations" role="region" aria-label="Relaciones del artículo seleccionado">
+            <p class="sn-atlas-relations-empty">Las relaciones semánticas del artículo seleccionado aparecerán aquí, debajo del mapa y de la ficha de lectura.</p>
+          </div>
         </div>
       </section>
 
@@ -246,7 +271,8 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261113-atlas-sheet-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261113-reader-v1"></script>
+  <script type="module" src="../../js/sincronia-explorer.js?v=20261113-compact-panel-v1"></script>
   <script type="module" src="../../js/sincronia-stamps.js?v=20261113-editorial-stamps-v1"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
 </body>

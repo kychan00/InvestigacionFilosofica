@@ -1061,3 +1061,475 @@ body[data-journal="sincronia"] .journal-footer {
     transform: none;
   }
 }
+
+
+/* =========================================================
+   Sincronía archive explorer — fixes the tall/static sidebar bug.
+   Only one research cabinet is visible at a time; the cabinet itself
+   remains sticky but its contents can scroll independently.
+   ========================================================= */
+body[data-journal="sincronia"] #journal-archive-panel .journal-archive-layout {
+  grid-template-columns:minmax(290px,330px) minmax(0,1fr);
+  align-items:start;
+}
+
+body[data-journal="sincronia"] .sn-explorer {
+  position:sticky;
+  top:82px;
+  z-index:8;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  min-width:0;
+  max-height:calc(100dvh - 98px);
+  overflow:hidden;
+  background:var(--sn-paper-bright);
+  border:1px solid var(--sn-ink);
+  box-shadow:6px 6px 0 rgba(18,35,47,.13);
+}
+
+body[data-journal="sincronia"] .sn-explorer-tabs {
+  flex:0 0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  background:#12232f;
+  border-bottom:4px solid var(--sn-red);
+}
+
+body[data-journal="sincronia"] .sn-explorer-tabs button {
+  min-width:0;
+  min-height:64px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:8px 4px;
+  border:0;
+  border-right:1px solid rgba(255,255,255,.16);
+  background:transparent;
+  color:#e7e0d2;
+  cursor:pointer;
+  font:700 11px/1.2 var(--jp-sans);
+  transition:background .16s ease,color .16s ease;
+}
+
+body[data-journal="sincronia"] .sn-explorer-tabs button:last-child {border-right:0;}
+body[data-journal="sincronia"] .sn-explorer-tabs button span {
+  font:500 20px/1 var(--jp-serif);
+}
+
+body[data-journal="sincronia"] .sn-explorer-tabs button[aria-selected="true"] {
+  background:var(--sn-paper-bright);
+  color:var(--sn-ink);
+  box-shadow:inset 0 5px 0 var(--sn-red);
+}
+
+body[data-journal="sincronia"] .sn-explorer-tabs button:hover:not([aria-selected="true"]) {
+  background:#1d4055;
+}
+
+body[data-journal="sincronia"] .sn-explorer-tabs button:focus-visible {
+  outline:3px solid #f09b82;
+  outline-offset:-4px;
+}
+
+body[data-journal="sincronia"] .sn-explorer-panels {
+  flex:1 1 auto;
+  min-height:0;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:#9d8f76 transparent;
+}
+
+body[data-journal="sincronia"] .sn-explorer [data-sn-explorer-panel][hidden] {
+  display:none !important;
+}
+
+body[data-journal="sincronia"] .sn-explorer [data-sn-explorer-panel] {
+  margin:0;
+  border:0;
+  box-shadow:none;
+  min-width:0;
+}
+
+body[data-journal="sincronia"] .sn-explorer .journal-taxonomy-list {
+  max-height:none !important;
+  overflow:visible !important;
+  padding:16px 14px 24px;
+}
+
+body[data-journal="sincronia"] .sn-explorer-hint {
+  margin:8px 0 0;
+  color:#c8d0d2;
+  font-size:10px;
+  line-height:1.45;
+}
+
+body[data-journal="sincronia"] .sn-explorer-caption {
+  flex:0 0 auto;
+  margin:0;
+  padding:10px 13px;
+  border-top:1px solid var(--sn-line);
+  background:color-mix(in srgb,var(--sn-paper) 86%,var(--sn-blue) 14%);
+  color:var(--sn-ink-soft);
+  text-align:center;
+  font:700 8px/1.5 var(--jp-mono);
+  letter-spacing:.08em;
+}
+
+/* =========================================================
+   Sincronía Atlas reading desk — fixes wasted aside space.
+   Map left, selected article right, legend below map,
+   semantic relationships full width below both.
+   ========================================================= */
+body[data-journal="sincronia"] .sn-atlas-heading {
+  max-width:1660px;
+  margin:0 auto 34px;
+  padding-bottom:22px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.48fr);
+  gap:28px 60px;
+  align-items:end;
+  border-bottom:2px solid #879aa3;
+}
+
+body[data-journal="sincronia"] .sn-atlas-heading h2 {
+  margin:0;
+  color:#f3eddf;
+  font:500 clamp(42px,5vw,76px)/.92 var(--jp-serif);
+  letter-spacing:-.045em;
+}
+
+body[data-journal="sincronia"] .sn-atlas-heading h2 em {
+  color:#ef8269;
+  font-weight:400;
+}
+
+body[data-journal="sincronia"] .sn-atlas-heading > p {
+  margin:0;
+  color:#b9c6ca;
+  font-size:13px;
+  line-height:1.65;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-shell {
+  max-width:1660px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.06fr) minmax(400px,.94fr);
+  grid-template-rows:auto auto auto;
+  min-width:0;
+  min-height:0;
+  overflow:visible;
+  border:1px solid #72868f;
+  background:#0d1b22;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-stage {
+  grid-column:1;
+  grid-row:1;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  width:100%;
+  height:clamp(485px,68dvh,655px);
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+  border-right:1px solid #536972;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(201,69,50,.18),transparent 42%),
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    #0d1b22;
+  background-size:auto,32px 32px,32px 32px,auto;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-stage canvas {
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-width:100%;
+  display:block;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-stagebar {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-status-group {
+  flex:1 1 180px;
+  max-width:100%;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-toolbar {
+  flex:0 1 auto;
+  max-width:100%;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader {
+  grid-column:2;
+  grid-row:1;
+  min-width:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  height:clamp(485px,68dvh,655px);
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:#8a7862 transparent;
+  background:#efe8d7;
+  color:#12232f;
+  border:0;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-heading {
+  flex:0 0 auto;
+  padding:20px clamp(18px,2.6vw,34px) 18px;
+  background:#ded6c2;
+  border-bottom:1px solid #958b75;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-number {
+  display:block;
+  margin-bottom:8px;
+  color:var(--sn-red);
+  font:700 9px/1.2 var(--jp-mono);
+  letter-spacing:.1em;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-heading h2 {
+  margin:3px 0 8px;
+  color:#12232f;
+  font:500 clamp(31px,2.7vw,46px)/.95 var(--jp-serif);
+  letter-spacing:-.035em;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-heading h2 em {
+  color:var(--sn-red);
+  font-weight:400;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-heading > p:last-child {
+  max-width:52ch;
+  margin:0;
+  color:#4d5d62;
+  font-size:12px;
+  line-height:1.55;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail {
+  flex:1 1 auto;
+  min-width:0;
+  max-height:none;
+  overflow:visible;
+  padding:24px clamp(19px,2.8vw,36px) 38px;
+  color:#12232f;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail h3 {
+  margin:9px 0 14px;
+  color:#12232f;
+  font:500 clamp(31px,2.8vw,50px)/1.03 var(--jp-serif);
+  letter-spacing:-.04em;
+  overflow-wrap:anywhere;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail :is(.atlas-detail-authors,.atlas-detail-method) {
+  color:#4a5c63;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail .atlas-abstract-block,
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail .atlas-article-sheet {
+  border-color:#a59a82;
+  background:#f8f1df;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail .atlas-abstract-body {
+  max-height:none;
+  overflow:visible;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail .atlas-abstract-body p,
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail .atlas-article-sheet {
+  color:#12232f;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-map-footer {
+  grid-column:1;
+  grid-row:2;
+  min-width:0;
+  padding:18px 20px 21px;
+  background:#13252f;
+  border-top:1px solid #536972;
+  border-right:1px solid #536972;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-map-key > strong {
+  display:block;
+  color:#ef8269;
+  font:700 9px/1.3 var(--jp-mono);
+  letter-spacing:.1em;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-map-footer .journal-atlas-legend {
+  padding:12px 0 4px;
+  border:0;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel #journal-qwen-note {
+  margin:12px 0 0;
+  padding:12px 0 0;
+  border-top:1px solid #40555f;
+  color:#afbdc1;
+  font-size:11px;
+  line-height:1.6;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations {
+  grid-column:1 / -1;
+  grid-row:3;
+  min-width:0;
+  padding:0;
+  background:var(--sn-paper);
+  border-top:2px solid #73858d;
+  color:var(--sn-ink);
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations-empty {
+  margin:0;
+  padding:38px 28px;
+  color:var(--sn-ink-soft);
+  font:italic 400 20px/1.5 var(--jp-serif);
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-section {
+  margin:0;
+  border:0;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-header {
+  padding:24px clamp(19px,3vw,44px);
+  background:var(--sn-paper-bright);
+  border-bottom:1px solid var(--sn-line);
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-header span {
+  color:var(--sn-red);
+  font:700 10px/1.4 var(--jp-mono);
+  letter-spacing:.08em;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-list {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  max-height:none;
+  overflow:visible;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-item {
+  min-width:0;
+  padding:24px clamp(18px,2.4vw,32px) 28px;
+  border-right:1px solid var(--sn-line);
+  border-bottom:1px solid var(--sn-line);
+  background:var(--sn-paper-bright);
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-copy strong {
+  color:var(--sn-ink);
+  font:500 clamp(20px,1.6vw,29px)/1.12 var(--jp-serif);
+  overflow-wrap:anywhere;
+}
+
+body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-why {
+  color:var(--sn-ink-soft);
+  font-size:12px;
+  line-height:1.65;
+}
+
+@media (max-width:1070px) {
+  body[data-journal="sincronia"] #journal-archive-panel .journal-archive-layout {
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  body[data-journal="sincronia"] .sn-explorer {
+    position:relative;
+    top:auto;
+    max-height:480px;
+  }
+  body[data-journal="sincronia"] .sn-explorer-panels {max-height:390px;}
+}
+
+@media (max-width:950px) {
+  body[data-journal="sincronia"] .sn-atlas-heading {
+    grid-template-columns:1fr;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-shell {
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto auto;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-stage {
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    height:clamp(390px,59dvh,560px);
+    border-right:0;
+    border-bottom:1px solid #536972;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-map-footer {
+    grid-column:1;
+    grid-row:2;
+    border-right:0;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader {
+    grid-column:1;
+    grid-row:3;
+    height:auto;
+    max-height:none;
+    overflow:visible;
+    border-top:1px solid #9e927b;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations {
+    grid-column:1;
+    grid-row:4;
+  }
+}
+
+@media (max-width:700px) {
+  body[data-journal="sincronia"] .sn-explorer {
+    max-height:min(66dvh,510px);
+  }
+  body[data-journal="sincronia"] .sn-explorer-panels {
+    max-height:min(54dvh,420px);
+  }
+  body[data-journal="sincronia"] .sn-explorer-tabs button {
+    min-height:60px;
+    font-size:11px;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-stage {
+    height:clamp(365px,52dvh,510px);
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail {
+    padding:22px 18px 28px;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-list {
+    grid-template-columns:1fr;
+  }
+  body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-related-item {
+    border-right:0;
+    padding:22px 18px 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-journal="sincronia"] .sn-explorer-tabs button {transition:none;}
+}

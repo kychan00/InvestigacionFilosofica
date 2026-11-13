@@ -64,3 +64,32 @@ test("otras revistas no cargan el tema de Sincronía", async () => {
     assert.doesNotMatch(other, /sincronia-stamps\.(?:css|js)/);
   }
 });
+
+
+test("Sincronía evita el panel lateral interminable con tres vistas accesibles", async () => {
+  const explorer = await readFile("js/sincronia-explorer.js", "utf8");
+  assert.match(html, /class="journal-sidebar sn-explorer"/);
+  assert.match(html, /data-sn-explorer-tab="topics"/);
+  assert.match(html, /data-sn-explorer-tab="issues"/);
+  assert.match(html, /data-sn-explorer-tab="filters"/);
+  assert.match(html, /data-sn-explorer-panel="topics"/);
+  assert.match(html, /data-sn-explorer-panel="issues"/);
+  assert.match(html, /data-sn-explorer-panel="filters"/);
+  assert.match(css, /max-height:calc\(100dvh - 98px\)/);
+  assert.match(css, /sn-explorer-panels[\s\S]*overflow-y:auto/);
+  assert.match(explorer, /ArrowRight/);
+  assert.match(explorer, /ArrowLeft/);
+  assert.match(explorer, /filterToggle\.click/);
+});
+
+test("Atlas de Sincronía usa lector lateral y relaciones de ancho completo", () => {
+  assert.match(html, /class="journal-atlas-aside sn-atlas-reader"/);
+  assert.match(html, /id="journal-atlas-relations"/);
+  assert.match(html, /class="sn-atlas-map-footer"/);
+  assert.match(html, /II \/ LECTURA/);
+  assert.match(css, /sn-atlas-shell[\s\S]*grid-template-columns:minmax\(0,1\.06fr\) minmax\(400px,\.94fr\)/);
+  assert.match(css, /sn-atlas-reader[\s\S]*overflow-y:auto/);
+  assert.match(css, /sn-atlas-relations[\s\S]*grid-column:1 \/ -1/);
+  assert.match(css, /atlas-related-list[\s\S]*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+  assert.match(css, /@media \(max-width:950px\)[\s\S]*sn-atlas-reader[\s\S]*grid-row:3/);
+});
