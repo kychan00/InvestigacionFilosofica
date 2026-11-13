@@ -7,11 +7,17 @@ const page = await readFile(root + "protrepsis.html", "utf8");
 const profile = await readFile(root + "protrepsis-institucional.html", "utf8");
 const css = await readFile("css/protrepsis-paper.css", "utf8");
 const menu = await readFile("js/mobile-site-menu.js", "utf8");
+const newCss = await readFile("css/protrepsis-museo.css", "utf8");
+const catalogJs = await readFile("js/protrepsis-catalog.js", "utf8");
+const artwork = await readFile("assets/protrepsis-mural-filosofico.svg", "utf8");
 
 test("portada de Protrepsis tiene identidad editorial real, no solo página de equipo", () => {
   assert.match(page, /class="journal-page protrepsis-paper"/);
   assert.match(page, /<h1 id="pro-hero-title">Protrepsis/);
-  assert.match(page, /class="pro-book-cover"/);
+  assert.match(page, /class="pro-book-cover pro-museum-plaque"/);
+  assert.match(page, /class="pro-museum-art"/);
+  assert.match(page, /assets\/protrepsis-mural-filosofico\.svg/);
+  assert.match(page, /js\/protrepsis-catalog\.js\?v=/);
   assert.match(page, /class="pro-editorial-feature"/);
   assert.match(page, /Conocer Protrepsis/);
   assert.match(page, /Historia y equipo editorial/);
@@ -19,6 +25,8 @@ test("portada de Protrepsis tiene identidad editorial real, no solo página de e
   assert.match(page, /href="#journal-views"/);
   assert.match(profile, /href="protrepsis\.html#journal-views"/);
   assert.match(profile, /pro-profile-companion/);
+  assert.match(profile, /assets\/protrepsis-mural-filosofico\.svg/);
+  assert.doesNotMatch(page + profile, /jardín de las preguntas/i);
 });
 
 test("el rediseño preserva controles de la revista y su Atlas", () => {
@@ -47,6 +55,16 @@ test("la identidad editorial se limita a Protrepsis y contempla accesibilidad", 
   assert.match(css, /prefers-reduced-motion:reduce/);
   assert.match(css, /html\[data-theme="dark"\]/);
   assert.match(css, /@media\(max-width:620px\)/);
+  assert.match(page, /protrepsis-museo\.css\?v=/);
+  assert.match(profile, /protrepsis-museo\.css\?v=/);
+  assert.match(newCss, /body\[data-journal="protrepsis"\]/);
+  assert.match(newCss, /\.ji\.ji--protrepsis/);
+  assert.match(newCss, /prefers-reduced-motion:reduce/);
+  assert.match(newCss, /html\[data-theme="dark"\]/);
+  assert.match(catalogJs, /MutationObserver\(decorateAll\)/);
+  assert.match(catalogJs, /body\.prepend\(overline,art\)/);
+  assert.match(artwork, /<svg[^>]*viewBox="0 0 1600 850"/);
+  assert.doesNotMatch(artwork, /jardín de las preguntas/i);
   for (const other of ["sincronia.html", "quadripartita-ratio.html"]) {
     const html = await readFile(root + other, "utf8");
     assert.doesNotMatch(html, /protrepsis-paper\.css/);
