@@ -1,0 +1,654 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* PROTREPSIS · El jardín de las preguntas
+ * Museo editorial filosófico: ocre, añil, papel, arte original.
+ * Afecta exclusivamente la revista Protrepsis y su capítulo institucional.
+ * Respeta el runtime del catálogo, el Atlas y el modo oscuro existente.
+ */
+body[data-journal="protrepsis"] {
+  --journal-accent:#254c80;
+  --journal-accent-2:#c7a03e;
+  --jp-bg:#f5f0e6;
+  --jp-surface:#fffdf6;
+  --jp-surface-2:#eee7d7;
+  --jp-ink:#192d3b;
+  --jp-muted:#5d605b;
+  --jp-line:#d7ccba;
+  --jp-line-strong:#99866b;
+  --jp-chip-bg:#eee7d7;
+  --jp-focus:#254c80;
+  --jp-shadow:0 12px 40px rgba(38,43,32,.12);
+  --pro-forest:#192d3b;
+  --pro-paper:#f5f0e6;
+  --pro-surface:#fffdf6;
+  --pro-gallery-gold:#dbb94e;
+  --pro-gallery-sienna:#9a593a;
+  --pro-gallery-navy:#192d3b;
+  --pro-gallery-paper:#fffdf6;
+  --pro-gallery-ink:#192d3b;
+  --pro-gallery-line:#d7ccba;
+  --pro-gallery-muted:#5d605b;
+  --pro-display:'EB Garamond',Georgia,serif;
+  --pro-text:'DM Sans','IBM Plex Sans',sans-serif;
+  background:var(--jp-bg);
+}
+html[data-theme="dark"] body[data-journal="protrepsis"] {
+  --jp-bg:#171f25;
+  --jp-surface:#24313a;
+  --jp-surface-2:#2c363d;
+  --jp-ink:#f2e8d8;
+  --jp-muted:#c2b8a9;
+  --jp-line:#49545d;
+  --jp-line-strong:#9b8d74;
+  --jp-chip-bg:#39444a;
+  --jp-focus:#e1b95e;
+  --pro-forest:#dfbf75;
+  --pro-paper:#171f25;
+  --pro-surface:#24313a;
+  --pro-gallery-gold:#c5a148;
+  --pro-gallery-sienna:#c78a60;
+  --pro-gallery-navy:#162630;
+  --pro-gallery-paper:#24313a;
+  --pro-gallery-ink:#f2e8d8;
+  --pro-gallery-line:#49545d;
+  --pro-gallery-muted:#c2b8a9;
+}
+body[data-journal="protrepsis"] .journal-page {
+  background:var(--jp-bg);font-family:var(--pro-text);overflow:clip;
+  color:var(--jp-ink);isolation:isolate;
+}
+body[data-journal="protrepsis"] .journal-page::before {
+  opacity:.19;
+  background:repeating-linear-gradient(33deg,rgba(108,75,37,.065) 0 1px,transparent 1px 17px);
+}
+body[data-journal="protrepsis"] .journal-header {background:var(--jp-bg);border:0;}
+body[data-journal="protrepsis"] .journal-header::before,
+body[data-journal="protrepsis"] .journal-hero-aside::before,
+body[data-journal="protrepsis"] .journal-hero-aside::after {display:none;}
+body[data-journal="protrepsis"] .pro-gallery-topline {
+  background:var(--pro-gallery-navy);color:#fbefcf;min-height:43px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:8px clamp(22px,4vw,72px);
+  font:600 .61rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.13em;
+}
+body[data-journal="protrepsis"] .pro-gallery-topline a {
+  color:#f6dda2;text-decoration:none;display:inline-flex;gap:15px;
+  border-bottom:1px solid transparent;
+}
+body[data-journal="protrepsis"] .pro-gallery-topline a:hover {border-color:currentColor;}
+body[data-journal="protrepsis"] .journal-nav {
+  max-width:none;margin:0;min-height:89px;background:var(--jp-bg);
+  border-bottom:1px solid var(--jp-line);padding:17px clamp(20px,4vw,72px);
+}
+body[data-journal="protrepsis"] .journal-brand {
+  font:500 clamp(1.4rem,2.1vw,1.8rem)/1 var(--pro-display);
+  gap:14px;letter-spacing:.045em;
+}
+body[data-journal="protrepsis"] .journal-brand-mark {
+  background:var(--pro-gallery-gold);color:#192d3b;
+  width:49px;height:49px;font:500 2rem/1 var(--pro-display);
+  border:1px solid #a78632;
+}
+body[data-journal="protrepsis"] .journal-brand small {
+  font:600 .6rem/1.5 'IBM Plex Mono',monospace;letter-spacing:.08em;margin-top:3px;
+}
+body[data-journal="protrepsis"] .journal-nav-links a {
+  color:var(--jp-ink);font:600 .75rem var(--pro-text);
+  padding:12px 18px;border-bottom:1px solid var(--jp-line-strong);
+  text-decoration:none;
+}
+body[data-journal="protrepsis"] .journal-nav-links a.pro-nav-editorial {
+  color:#fff5df;background:var(--pro-gallery-navy);border:1px solid var(--pro-gallery-navy);
+  display:inline-flex;gap:25px;align-items:center;
+}
+body[data-journal="protrepsis"] .journal-nav-links a.pro-nav-editorial:hover {
+  background:#315982;border-color:#315982;color:white;
+}
+body[data-journal="protrepsis"] .theme-switch {border:1px solid var(--jp-line-strong);background:transparent;border-radius:0;}
+body[data-journal="protrepsis"] .theme-switch button[aria-pressed="true"] {
+  background:var(--pro-gallery-gold);color:#192d3b;
+}
+/* The artwork IS the journal cover, not a decorative aside. */
+body[data-journal="protrepsis"] .journal-hero {
+  display:flex;flex-direction:column;width:100%;max-width:none;
+  margin:0;min-height:0;background:var(--jp-surface);border:0;
+}
+body[data-journal="protrepsis"] .journal-hero-aside {
+  order:-1;display:block;min-height:0;position:relative;border:0;padding:0;
+  width:100%;background:var(--pro-gallery-gold);overflow:hidden;
+}
+body[data-journal="protrepsis"] .pro-museum-frame {
+  position:relative;height:clamp(360px,52vw,730px);
+  background:#d9b349;overflow:hidden;
+}
+body[data-journal="protrepsis"] .pro-museum-frame::after {
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(0deg,rgba(28,39,34,.14),transparent 17%,transparent 84%,rgba(255,255,255,.06));
+}
+body[data-journal="protrepsis"] .pro-museum-art {
+  display:block;width:100%;height:100%;object-fit:cover;
+  object-position:center 46%;max-width:none;
+}
+body[data-journal="protrepsis"] .pro-museum-corner {
+  position:absolute;top:26px;left:clamp(20px,4vw,60px);
+  display:flex;flex-direction:column;gap:4px;z-index:2;
+  font:600 .6rem/1.5 'IBM Plex Mono',monospace;letter-spacing:.13em;
+  color:#172d42;text-shadow:0 1px rgba(255,240,194,.5);
+}
+body[data-journal="protrepsis"] .pro-museum-seal {
+  position:absolute;top:27px;right:clamp(21px,4vw,64px);
+  width:96px;height:96px;z-index:2;display:grid;place-items:center;
+  color:#1e3b4b;border:1.5px double #1e3b4b;border-radius:50%;
+  text-align:center;transform:rotate(11deg);padding:8px;
+  font:600 .8rem/1.3 var(--pro-display);letter-spacing:.13em;
+  background:rgba(247,227,172,.64);
+}
+body[data-journal="protrepsis"] .pro-museum-plaque {
+  position:absolute;inset:auto;left:auto;top:auto;height:auto;
+  bottom:20px;right:clamp(20px,4vw,62px);z-index:2;
+  display:flex;flex-direction:column;justify-content:space-between;gap:8px;
+  width:min(285px,37%);padding:17px 20px;background:#1c3449;
+  color:#f6eddb;border-left:4px solid #c59c42;
+  filter:drop-shadow(8px 10px 12px rgba(20,28,31,.2));
+  font:500 .53rem/1.3 'IBM Plex Mono',monospace;
+}
+body[data-journal="protrepsis"] .pro-museum-plaque strong {
+  font:500 clamp(1.5rem,2vw,2.25rem)/1 var(--pro-display);
+  letter-spacing:-.02em;
+}
+body[data-journal="protrepsis"] .journal-hero-copy {
+  order:1;display:block;min-height:0;padding:clamp(38px,5vw,80px) clamp(21px,5vw,85px) 24px;
+  background:var(--jp-surface);color:var(--jp-ink);
+}
+body[data-journal="protrepsis"] .pro-gallery-heading {
+  display:grid;grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);
+  align-items:end;gap:clamp(26px,5vw,90px);
+}
+body[data-journal="protrepsis"] .journal-eyebrow {
+  display:block;font:600 .69rem/1.5 'IBM Plex Mono',monospace;
+  letter-spacing:.13em;color:var(--journal-accent);margin:0 0 23px;
+}
+body[data-journal="protrepsis"] .journal-hero h1 {
+  font:500 clamp(5rem,10vw,11.6rem)/.75 var(--pro-display);
+  letter-spacing:-.067em;margin:0 0 9px;color:var(--jp-ink);
+  max-width:100%;
+}
+body[data-journal="protrepsis"] .journal-hero h1 em {
+  display:block;font:italic 400 .44em/1.08 var(--pro-display);
+  letter-spacing:-.044em;color:var(--journal-accent);margin:23px 0 0;
+}
+body[data-journal="protrepsis"] .pro-heading-secondary {
+  padding:0 0 7px;border-top:2px solid var(--journal-accent);
+}
+body[data-journal="protrepsis"] .pro-hero-claim {
+  font:500 clamp(1.9rem,2.75vw,3.35rem)/.97 var(--pro-display);
+  letter-spacing:-.026em;color:var(--jp-ink);margin:20px 0 17px;
+}
+body[data-journal="protrepsis"] .journal-hero-intro {
+  max-width:580px;font:400 clamp(.85rem,1vw,1rem)/1.8 var(--pro-text);
+  color:var(--jp-muted);margin:0 0 24px;
+}
+body[data-journal="protrepsis"] .pro-hero-actions {
+  display:flex;flex-wrap:wrap;gap:10px;margin:0;
+}
+body[data-journal="protrepsis"] .pro-button {
+  display:inline-flex;align-items:center;justify-content:space-between;gap:18px;
+  min-height:53px;padding:13px 17px;
+  text-decoration:none;font:600 .79rem/1.3 var(--pro-text);
+  border:1px solid var(--jp-ink);transition:background .2s,transform .2s;
+}
+body[data-journal="protrepsis"] .pro-button-primary {
+  color:#fff4d8;background:var(--pro-gallery-navy);border-color:var(--pro-gallery-navy);
+}
+body[data-journal="protrepsis"] .pro-button-primary:hover {background:#315982;color:#fff;}
+body[data-journal="protrepsis"] .pro-button-plain {
+  color:var(--jp-ink);background:transparent;border-color:var(--jp-line-strong);
+}
+body[data-journal="protrepsis"] .pro-button-plain:hover {border-color:var(--journal-accent);color:var(--journal-accent);}
+body[data-journal="protrepsis"] .pro-hero-footnote {
+  margin-top:clamp(35px,6vw,82px);padding-top:16px;
+  border-top:1px solid var(--jp-line);
+  display:flex;justify-content:space-between;gap:15px;
+  font:600 .6rem/1.5 'IBM Plex Mono',monospace;letter-spacing:.12em;color:var(--jp-muted);
+}
+body[data-journal="protrepsis"] .pro-archive-banner {
+  background:var(--pro-gallery-gold);color:#233846;min-height:94px;
+  padding:12px clamp(20px,5vw,75px);
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  font:600 .64rem/1.5 'IBM Plex Mono',monospace;letter-spacing:.14em;
+  border-top:1px solid #c9a747;border-bottom:1px solid #c9a747;
+}
+body[data-journal="protrepsis"] .pro-archive-asterisk {
+  font:400 clamp(3rem,5vw,5.4rem)/.65 var(--pro-display);
+  transform:rotate(-9deg);
+}
+body[data-journal="protrepsis"] .journal-metrics {
+  width:100%;max-width:none;background:var(--jp-surface);
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  border-bottom:1px solid var(--jp-line-strong);
+}
+body[data-journal="protrepsis"] .journal-metric {
+  background:transparent;min-height:137px;padding:28px clamp(12px,2vw,30px);
+  border-color:var(--jp-line);
+}
+body[data-journal="protrepsis"] .journal-metric strong {
+  color:var(--journal-accent);font:500 clamp(2.2rem,3.4vw,4rem)/.95 var(--pro-display);
+  margin-bottom:12px;
+}
+body[data-journal="protrepsis"] .journal-metric span {
+  color:var(--jp-muted);font:500 .78rem/1.5 var(--pro-text);
+}
+/* The curatorial invitation is part of the journal itself. */
+body[data-journal="protrepsis"] .pro-editorial-feature {
+  max-width:none;margin:0;min-height:480px;
+  grid-template-columns:minmax(100px,.19fr) minmax(0,1.3fr) minmax(270px,.6fr);
+  gap:clamp(25px,4vw,65px);align-items:stretch;
+  padding:clamp(54px,7vw,104px) clamp(21px,5vw,85px);
+  background:var(--pro-gallery-gold);color:#1b3040;
+  border-bottom:1px solid #c19b3f;
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-index {
+  border-top:2px solid #1b3040;color:#1b3040;
+  display:flex;flex-direction:column;justify-content:space-between;gap:16px;
+  font:600 .67rem/1.4 'IBM Plex Mono',monospace;
+}
+body[data-journal="protrepsis"] .pro-editorial-mark {
+  color:#1c3449;font:500 clamp(4rem,7vw,9rem)/.8 var(--pro-display);
+}
+body[data-journal="protrepsis"] .pro-index-bottom {letter-spacing:.09em;}
+body[data-journal="protrepsis"] .pro-editorial-feature-copy .journal-kicker {
+  color:#223d4f;letter-spacing:.1em;
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-copy h2 {
+  color:#192d3b;font:500 clamp(3.1rem,6.1vw,7.2rem)/.88 var(--pro-display);
+  letter-spacing:-.054em;max-width:850px;margin:0 0 28px;
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-copy h2 em {
+  color:#35496c;font-weight:400;
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-copy > p:not(.journal-kicker) {
+  max-width:630px;color:#344444;font:500 clamp(.94rem,1.08vw,1.03rem)/1.85 var(--pro-text);
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-copy .pro-source-note {
+  color:#314252!important;font:600 .66rem/1.65 'IBM Plex Mono',monospace!important;
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-link {
+  position:relative;min-height:335px;
+  background:#1d3549;color:#f6e8c7;border:1px solid #1d3549;
+  padding:clamp(22px,2.5vw,36px);gap:18px;
+  transition:transform .22s,background .22s;
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-link:hover {
+  background:#315982;color:white;border-color:#315982;
+}
+body[data-journal="protrepsis"] .pro-feature-link-top,
+body[data-journal="protrepsis"] .pro-feature-link-bottom {
+  font:600 .61rem/1.5 'IBM Plex Mono',monospace;letter-spacing:.1em;
+}
+body[data-journal="protrepsis"] .pro-feature-ornament {
+  position:absolute;top:26%;right:11%;font:500 clamp(5rem,8vw,9rem)/1 var(--pro-display);
+  opacity:.24;transform:rotate(17deg);
+}
+body[data-journal="protrepsis"] .pro-editorial-feature-link strong {
+  position:relative;font:500 clamp(2.6rem,3.5vw,4.7rem)/.97 var(--pro-display);
+}
+body[data-journal="protrepsis"] .journal-view-tabs {
+  position:sticky;top:0;z-index:14;scroll-margin-top:70px;
+  width:100%;max-width:none;margin:0;border:0;
+  background:var(--pro-gallery-navy);
+}
+body[data-journal="protrepsis"] .journal-view-tabs button {
+  min-height:77px;color:#e2d8bf;border-right:1px solid rgba(255,255,255,.2);
+  background:transparent;text-transform:none;
+  font:600 .83rem/1.3 var(--pro-text);
+}
+body[data-journal="protrepsis"] .journal-view-tabs button.is-active {
+  background:var(--jp-bg);color:var(--jp-ink);
+}
+body[data-journal="protrepsis"] .pro-tab-no {
+  color:#e9bc63;font:600 .65rem 'IBM Plex Mono',monospace;letter-spacing:.09em;
+  margin-right:15px;
+}
+body[data-journal="protrepsis"] .journal-view-tabs button.is-active .pro-tab-no {
+  color:var(--journal-accent);
+}
+body[data-journal="protrepsis"] .journal-main {width:100%;max-width:none;background:var(--jp-bg);}
+body[data-journal="protrepsis"] .journal-panel {
+  padding:clamp(48px,6vw,96px) clamp(19px,4.5vw,80px) 104px;
+  background:var(--jp-bg);
+}
+body[data-journal="protrepsis"] .pro-section-heading {
+  display:grid;grid-template-columns:minmax(135px,.24fr) 1fr;gap:18px 40px;
+  margin:0 0 clamp(35px,5vw,74px);align-items:start;
+}
+body[data-journal="protrepsis"] .pro-section-heading .pro-section-number {
+  border-top:2px solid var(--journal-accent);
+  font:600 .66rem/1.5 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--journal-accent);
+  padding-top:12px;
+}
+body[data-journal="protrepsis"] .pro-section-heading h2 {
+  color:var(--jp-ink);font:500 clamp(3.4rem,6.3vw,7.5rem)/.88 var(--pro-display);
+  letter-spacing:-.05em;margin:0;
+}
+body[data-journal="protrepsis"] .pro-section-heading h2 em {
+  color:var(--journal-accent);font-weight:400;
+}
+body[data-journal="protrepsis"] .pro-section-heading p {
+  grid-column:2;color:var(--jp-muted);max-width:710px;
+  font:400 clamp(.9rem,1.05vw,1rem)/1.8 var(--pro-text);margin:0;
+}
+body[data-journal="protrepsis"] .journal-archive-layout {
+  grid-template-columns:minmax(235px,290px) minmax(0,1fr);
+  gap:clamp(24px,3.7vw,57px);
+}
+body[data-journal="protrepsis"] .journal-sidebar {top:90px;gap:18px;}
+body[data-journal="protrepsis"] .journal-filter-block,
+body[data-journal="protrepsis"] .journal-taxonomy-block {
+  border:1px solid var(--jp-line);background:var(--jp-surface);
+}
+body[data-journal="protrepsis"] .journal-filter-head,
+body[data-journal="protrepsis"] .journal-taxonomy-block header {
+  background:var(--jp-surface-2);border-bottom:1px solid var(--jp-line);
+}
+body[data-journal="protrepsis"] .journal-filter-block h2,
+body[data-journal="protrepsis"] .journal-taxonomy-block h2 {
+  font:500 clamp(1.8rem,2.35vw,2.7rem)/.97 var(--pro-display);
+  letter-spacing:-.03em;
+}
+body[data-journal="protrepsis"] .journal-filter-body input[type="search"],
+body[data-journal="protrepsis"] .journal-filter-body select {
+  background:var(--jp-surface);border:1px solid var(--jp-line-strong);color:var(--jp-ink);
+}
+body[data-journal="protrepsis"] .journal-filter-body label > span {
+  font:600 .65rem/1.5 'IBM Plex Mono',monospace;letter-spacing:.06em;
+}
+body[data-journal="protrepsis"] .journal-reset {
+  border:1px solid var(--jp-line-strong);background:transparent;color:var(--jp-ink);
+}
+body[data-journal="protrepsis"] .journal-taxonomy-list {background:transparent;}
+body[data-journal="protrepsis"] .journal-results-head {
+  border-bottom:2px solid var(--jp-line-strong);padding-bottom:25px;margin-bottom:30px;
+}
+body[data-journal="protrepsis"] .journal-results-head h2 {
+  font:500 clamp(2.9rem,4.8vw,5.5rem)/.88 var(--pro-display);
+  letter-spacing:-.046em;color:var(--jp-ink);
+}
+body[data-journal="protrepsis"] .journal-results-head h2 em {font-weight:400;color:var(--journal-accent);}
+body[data-journal="protrepsis"] .journal-results-status {
+  color:var(--jp-muted);font:600 .71rem/1.5 'IBM Plex Mono',monospace;
+}
+body[data-journal="protrepsis"] .journal-card-grid {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2vw,29px);
+  border:0;align-items:stretch;
+}
+/* Archival folios, not another stamp collection. */
+body[data-journal="protrepsis"] .journal-card {
+  display:grid;grid-template-columns:33px minmax(0,1fr);
+  background:var(--jp-surface);border:1px solid var(--jp-line);
+  min-height:510px;overflow:hidden;box-shadow:0 4px 20px rgba(30,38,37,.055);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+body[data-journal="protrepsis"] .journal-card:hover {
+  transform:translateY(-4px);box-shadow:0 16px 38px rgba(30,38,37,.14);
+}
+body[data-journal="protrepsis"] .journal-card-rail {
+  background:var(--jp-surface-2);border-right:1px solid var(--jp-line);
+  padding:14px 5px;
+}
+body[data-journal="protrepsis"] .journal-card-rail strong {
+  color:var(--journal-accent);font:600 .62rem 'IBM Plex Mono',monospace;
+}
+body[data-journal="protrepsis"] .journal-card-rail span {
+  background:var(--pro-gallery-gold);color:#233846;
+  font:500 1.2rem var(--pro-display);
+}
+body[data-journal="protrepsis"] .journal-card-body {
+  display:flex;flex-direction:column;min-width:0;
+  padding:clamp(17px,2vw,30px);background:var(--jp-surface);
+}
+body[data-journal="protrepsis"] .pro-catalog-art {
+  position:relative;height:164px;min-height:164px;overflow:hidden;margin:0 0 21px;
+  background:#ead7a1;color:#254c80;border:1px solid #cbb67d;
+}
+body[data-journal="protrepsis"] .pro-catalog-art::before {
+  content:"";position:absolute;inset:8px;border:1px solid rgba(35,69,91,.36);pointer-events:none;
+}
+body[data-journal="protrepsis"] .pro-catalog-art svg {
+  position:absolute;inset:0;display:block;width:100%;height:100%;
+  color:#264a68;stroke:currentColor;
+}
+body[data-journal="protrepsis"] .pro-catalog-signature {
+  position:absolute;bottom:8px;right:13px;
+  color:#1b3950;font:600 .56rem/1.3 'IBM Plex Mono',monospace;
+  background:rgba(245,230,189,.77);padding:2px 5px;letter-spacing:.08em;
+}
+body[data-journal="protrepsis"] .pro-catalog-overline {
+  display:flex;justify-content:space-between;gap:10px;
+  margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--jp-line);
+  font:600 .59rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--journal-accent);
+}
+body[data-journal="protrepsis"] .journal-card-pins {gap:6px;margin:0 0 13px;}
+body[data-journal="protrepsis"] .journal-chip {
+  border:1px solid var(--jp-line);background:var(--jp-surface-2);
+  color:var(--jp-muted);font:.6rem/1.35 'IBM Plex Mono',monospace;
+  min-height:22px;padding:4px 6px;
+}
+body[data-journal="protrepsis"] .journal-chip.pin-year {
+  background:var(--journal-accent);color:#fff;border-color:var(--journal-accent);
+}
+body[data-journal="protrepsis"] .journal-card h3 {
+  color:var(--jp-ink);font:500 clamp(1.65rem,2vw,2.4rem)/1.02 var(--pro-display);
+  letter-spacing:-.025em;margin:3px 0 17px;
+}
+body[data-journal="protrepsis"] .journal-card-byline {
+  color:var(--jp-muted);font:500 .78rem/1.5 var(--pro-text);margin:0 0 14px;
+}
+body[data-journal="protrepsis"] .journal-author-link {
+  color:var(--journal-accent);text-decoration:underline;text-underline-offset:3px;
+}
+body[data-journal="protrepsis"] .journal-card-taxonomy {margin:0 0 15px;}
+body[data-journal="protrepsis"] .journal-card-taxonomy .journal-chip {
+  background:transparent;color:var(--jp-muted);border-color:var(--jp-line);
+}
+body[data-journal="protrepsis"] .journal-card-excerpt {
+  font:400 clamp(1.02rem,1.25vw,1.2rem)/1.35 var(--pro-display);
+  color:var(--jp-muted);margin:0 0 20px;
+}
+body[data-journal="protrepsis"] .journal-card-actions {
+  margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;
+}
+body[data-journal="protrepsis"] .journal-card-actions a {
+  color:#fff3db;border-color:var(--pro-gallery-navy);background:var(--pro-gallery-navy);
+  min-height:44px;font:600 .75rem var(--pro-text);
+}
+body[data-journal="protrepsis"] .journal-card-actions a:hover {
+  background:#315982;border-color:#315982;color:white;
+}
+body[data-journal="protrepsis"] .journal-card-actions button {
+  min-height:44px;border:1px solid var(--jp-line-strong);
+  background:transparent;color:var(--jp-ink);font:600 .75rem var(--pro-text);
+}
+body[data-journal="protrepsis"] .journal-card-details {
+  border-top:1px solid var(--jp-line);color:var(--jp-ink);margin-top:20px;
+}
+body[data-journal="protrepsis"] .journal-card-details dd {overflow-wrap:anywhere;}
+body[data-journal="protrepsis"] .journal-load-more {
+  border:1px solid var(--jp-line-strong);background:var(--jp-surface);color:var(--jp-ink);
+  font:600 .78rem 'IBM Plex Mono',monospace;letter-spacing:.09em;
+}
+body[data-journal="protrepsis"] .journal-atlas-shell {
+  border:1px solid var(--jp-line-strong);background:var(--jp-surface);
+}
+body[data-journal="protrepsis"] .journal-atlas-stage {
+  background:radial-gradient(circle at 50% 44%,rgba(225,186,83,.16),transparent 53%),var(--jp-surface-2);
+}
+body[data-journal="protrepsis"] .journal-atlas-copy h2,
+body[data-journal="protrepsis"] .journal-insight h2 {
+  font:500 clamp(2.1rem,3.2vw,3.7rem)/.98 var(--pro-display);color:var(--jp-ink);
+}
+body[data-journal="protrepsis"] .journal-insight {
+  background:var(--jp-surface);border-color:var(--jp-line);
+}
+body[data-journal="protrepsis"] .journal-footer {
+  width:100%;max-width:none;background:var(--pro-gallery-navy);
+  color:#e6dabc;border-top:0;
+  font:600 .65rem 'IBM Plex Mono',monospace;letter-spacing:.04em;
+}
+body[data-journal="protrepsis"] .journal-footer a {color:#f2cc6b;text-decoration:underline;text-underline-offset:4px;}
+body[data-journal="protrepsis"] :is(a,button,input,select,canvas):focus-visible {outline:3px solid #b67743;outline-offset:3px;}
+/* Second chapter: a gallery of the people of Protrepsis. */
+.ji.ji--protrepsis {
+  --pro-display:'EB Garamond',Georgia,serif;
+  --pro-text:'DM Sans','IBM Plex Sans',sans-serif;
+  --paper:#f5f0e6;--paper-light:#fffdf6;--paper-deep:#e6d4a2;
+  --ink:#192d3b;--muted:#5d605b;--line:#d7ccba;--rule:#99866b;
+  --accent:#254c80;--book:#192d3b;
+  font-family:var(--pro-text);background:var(--paper);
+}
+html[data-theme="dark"] .ji.ji--protrepsis {
+  --paper:#171f25;--paper-light:#24313a;--paper-deep:#2c363d;
+  --ink:#f2e8d8;--muted:#c2b8a9;--line:#49545d;--rule:#9b8d74;--accent:#e0b85a;
+}
+.ji.ji--protrepsis .pro-profile-topnote {
+  background:#192d3b;color:#f0dfb7;border-bottom:0;
+}
+.ji.ji--protrepsis .pro-profile-topnote a {color:#f2cd7c;}
+.ji.ji--protrepsis .nav-wrap {background:var(--paper);}
+.ji.ji--protrepsis .brand-mark {background:#d4ad49;color:#192d3b;}
+.ji.ji--protrepsis .nav-archive {background:#192d3b;color:#f7ebd5;border-color:#192d3b;}
+.ji.ji--protrepsis .nav-archive:hover {background:#315982;color:white;}
+.ji.ji--protrepsis .hero {min-height:660px;}
+.ji.ji--protrepsis .hero-copy {background:var(--paper-light);padding-top:clamp(65px,7vw,105px);}
+.ji.ji--protrepsis .hero h1 {
+  font:500 clamp(5rem,8.3vw,10.5rem)/.85 var(--pro-display);
+  letter-spacing:-.055em;
+}
+.ji.ji--protrepsis .hero h1 em {
+  color:var(--accent);font:italic 400 .48em/1.12 var(--pro-display);
+  letter-spacing:-.032em;margin-top:15px;
+}
+.ji.ji--protrepsis .hero-art {
+  position:relative;min-height:570px;background:var(--paper-deep);padding:0;overflow:hidden;
+}
+.ji.ji--protrepsis .hero-art::before {
+  z-index:2;inset:20px;border-color:rgba(27,48,64,.5);pointer-events:none;
+}
+.ji.ji--protrepsis .hero-art img.pro-profile-mural {
+  position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;
+  object-position:center;
+}
+.ji.ji--protrepsis .art-orbit {display:none;}
+.ji.ji--protrepsis .book-stack {
+  z-index:3;width:min(39%,215px);position:absolute;right:9%;bottom:10%;
+  transform:rotate(8deg);filter:drop-shadow(12px 18px 14px rgba(17,30,31,.23));
+}
+.ji.ji--protrepsis .hero-art:hover .book-stack {transform:rotate(3deg) translateY(-6px);}
+.ji.ji--protrepsis .book-stack .book-glyph {font-size:clamp(6rem,10vw,9rem);}
+.ji.ji--protrepsis .art-stamp {
+  background:#f9ecd0;border:1px dashed #1e4053;color:#1e4053;z-index:5;
+}
+.ji.ji--protrepsis .pro-profile-companion {
+  margin:34px 0 0;border-left:5px solid #c7a03e;border-color:var(--line);
+  background:var(--paper-light);
+}
+.ji.ji--protrepsis .pro-profile-companion a {
+  background:#192d3b;color:#f8ead3;border-color:#192d3b;
+}
+.ji.ji--protrepsis .pro-profile-companion a:hover {
+  background:#315982;color:white;
+}
+.ji.ji--protrepsis h2,
+.ji.ji--protrepsis .profile h3,
+.ji.ji--protrepsis .disclosure summary {
+  font-family:var(--pro-display);
+}
+.ji.ji--protrepsis h2 {font-size:clamp(3.6rem,6.3vw,7.4rem);}
+.ji.ji--protrepsis .section-number {border-color:var(--accent);color:var(--accent);}
+.ji.ji--protrepsis .profile {
+  background:var(--paper-light);border-color:var(--line);
+}
+.ji.ji--protrepsis .profile h3 {font-size:clamp(2.6rem,4vw,4.5rem);}
+.ji.ji--protrepsis .person {background:transparent;}
+.ji.ji--protrepsis .person strong {font-family:var(--pro-display);font-size:1.65rem;}
+.ji.ji--protrepsis .contact-card {background:#192d3b;color:#f6e9cf;}
+.ji.ji--protrepsis .contact-card .mono {color:#e3bd72;}
+.ji.ji--protrepsis .editorial-directory-card {
+  background:var(--paper-light);border-color:var(--line);
+}
+.ji.ji--protrepsis .editorial-directory-card h4 {font-family:var(--pro-display);}
+.ji.ji--protrepsis .closing .sign {font-family:var(--pro-display);}
+@media(max-width:1180px) {
+ body[data-journal="protrepsis"] .pro-gallery-heading {grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);gap:30px;}
+ body[data-journal="protrepsis"] .journal-hero h1 {font-size:clamp(4.8rem,9vw,8.5rem);}
+ body[data-journal="protrepsis"] .pro-editorial-feature {grid-template-columns:110px minmax(0,1fr);gap:36px;}
+ body[data-journal="protrepsis"] .pro-editorial-feature-link {grid-column:2;min-height:230px;}
+ body[data-journal="protrepsis"] .journal-card-grid {grid-template-columns:1fr;}
+}
+@media(max-width:900px) {
+ body[data-journal="protrepsis"] .pro-gallery-topline {display:none;}
+ body[data-journal="protrepsis"] .journal-hero-copy {padding:51px 29px 25px;}
+ body[data-journal="protrepsis"] .pro-gallery-heading {grid-template-columns:1fr;align-items:start;gap:27px;}
+ body[data-journal="protrepsis"] .journal-hero h1 {font-size:clamp(5rem,12vw,8rem);}
+ body[data-journal="protrepsis"] .pro-heading-secondary {max-width:680px;}
+ body[data-journal="protrepsis"] .pro-museum-frame {height:clamp(350px,63vw,620px);}
+ body[data-journal="protrepsis"] .journal-metrics {grid-template-columns:repeat(2,minmax(0,1fr));}
+ body[data-journal="protrepsis"] .journal-metric {min-height:108px;padding:19px;border-bottom:1px solid var(--jp-line);}
+ body[data-journal="protrepsis"] .journal-metric:nth-child(even) {border-right:0;}
+ body[data-journal="protrepsis"] .pro-section-heading {grid-template-columns:1fr;gap:16px;}
+ body[data-journal="protrepsis"] .pro-section-heading p {grid-column:1;}
+ body[data-journal="protrepsis"] .journal-archive-layout {display:block;}
+ body[data-journal="protrepsis"] .journal-sidebar {position:static;margin:0 0 32px;}
+ body[data-journal="protrepsis"] .journal-view-tabs {top:56px;scroll-margin-top:56px;}
+ body[data-journal="protrepsis"] .journal-card-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .ji.ji--protrepsis .hero {grid-template-columns:1fr;}
+ .ji.ji--protrepsis .hero-art {min-height:480px;}
+ .ji.ji--protrepsis .hero-copy {padding:55px 27px 45px;}
+}
+@media(max-width:700px) {
+ body[data-journal="protrepsis"] .journal-card-grid {grid-template-columns:1fr;}
+ body[data-journal="protrepsis"] .journal-panel {padding:39px 17px 70px;}
+ body[data-journal="protrepsis"] .journal-hero-copy {padding:43px 22px 22px;}
+ body[data-journal="protrepsis"] .journal-hero h1 {font-size:clamp(4.3rem,13.7vw,6.7rem);}
+ body[data-journal="protrepsis"] .journal-hero h1 em {font-size:.5em;margin-top:14px;}
+ body[data-journal="protrepsis"] .pro-hero-claim {font-size:2.3rem;}
+ body[data-journal="protrepsis"] .pro-archive-banner {padding:20px 17px;font-size:.52rem;min-height:72px;}
+ body[data-journal="protrepsis"] .pro-archive-asterisk {font-size:2.9rem;}
+ body[data-journal="protrepsis"] .pro-editorial-feature {display:block;padding:52px 22px;}
+ body[data-journal="protrepsis"] .pro-editorial-feature-index {flex-direction:row;align-items:center;}
+ body[data-journal="protrepsis"] .pro-index-bottom {display:none;}
+ body[data-journal="protrepsis"] .pro-editorial-mark {font-size:3rem;}
+ body[data-journal="protrepsis"] .pro-editorial-feature-copy {margin:32px 0;}
+ body[data-journal="protrepsis"] .pro-editorial-feature-copy h2 {font-size:clamp(3.6rem,12vw,5.3rem);}
+ body[data-journal="protrepsis"] .pro-editorial-feature-link {min-height:265px;}
+ body[data-journal="protrepsis"] .pro-museum-seal {width:68px;height:68px;font-size:.65rem;right:16px;top:16px;}
+ body[data-journal="protrepsis"] .pro-museum-corner {top:17px;left:17px;font-size:.52rem;}
+ body[data-journal="protrepsis"] .pro-museum-plaque {width:min(222px,56%);bottom:12px;right:13px;padding:10px 13px;font-size:.44rem;}
+ body[data-journal="protrepsis"] .pro-museum-plaque strong {font-size:1.4rem;}
+ body[data-journal="protrepsis"] .pro-museum-frame {height:390px;}
+ body[data-journal="protrepsis"] .journal-view-tabs button {min-height:62px;font-size:.7rem;padding:8px 7px;}
+ body[data-journal="protrepsis"] .pro-tab-no {display:block;margin:0 0 4px;}
+ body[data-journal="protrepsis"] .pro-section-heading h2 {font-size:clamp(3rem,11.4vw,5rem);}
+ body[data-journal="protrepsis"] .journal-results-head h2 {font-size:clamp(2.6rem,9vw,4rem);}
+ .ji.ji--protrepsis .hero h1 {font-size:clamp(4.2rem,13vw,6.4rem);}
+ .ji.ji--protrepsis .hero-art {min-height:410px;}
+ .ji.ji--protrepsis .book-stack {width:145px;right:7%;bottom:8%;}
+}
+@media(max-width:420px) {
+ body[data-journal="protrepsis"] .journal-hero h1 {font-size:clamp(3.55rem,14.3vw,4.5rem);}
+ body[data-journal="protrepsis"] .pro-museum-corner {font-size:.44rem;}
+ body[data-journal="protrepsis"] .pro-museum-seal {width:60px;height:60px;font-size:.54rem;}
+ body[data-journal="protrepsis"] .pro-gallery-heading {gap:20px;}
+ body[data-journal="protrepsis"] .journal-hero-intro {font-size:.88rem;}
+ body[data-journal="protrepsis"] .pro-hero-actions {flex-direction:column;width:100%;}
+ body[data-journal="protrepsis"] .pro-button {width:100%;}
+ body[data-journal="protrepsis"] .pro-hero-footnote {font-size:.49rem;}
+ body[data-journal="protrepsis"] .journal-card {grid-template-columns:29px minmax(0,1fr);}
+ body[data-journal="protrepsis"] .journal-card-body {padding:18px;}
+ body[data-journal="protrepsis"] .pro-catalog-art {height:144px;min-height:144px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ body[data-journal="protrepsis"] .pro-button,
+ body[data-journal="protrepsis"] .pro-editorial-feature-link,
+ body[data-journal="protrepsis"] .journal-card,
+ .ji.ji--protrepsis .book-stack {transition:none;transform:none;}
+}
