@@ -1516,7 +1516,10 @@ body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-relations .atlas-r
     font-size:11px;
   }
   body[data-journal="sincronia"] #journal-atlas-panel .journal-atlas-stage {
-    height:clamp(365px,52dvh,510px);
+    /* Keep a genuinely usable map after the status/help bar consumes space.
+       The browser smoke requires the drawable canvas itself—not only the
+       surrounding stage—to remain comfortably above 350px on phones. */
+    height:clamp(500px,66dvh,600px);
   }
   body[data-journal="sincronia"] #journal-atlas-panel .sn-atlas-reader-detail {
     padding:22px 18px 28px;
