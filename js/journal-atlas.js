@@ -419,12 +419,14 @@ function relationExplanation(edge, sourceNode, targetNode) {
 }
 
 export class JournalSemanticAtlas {
-  constructor({ canvas, status, detail, legend, controls = null, accent = "#0f62fe" }) {
+  constructor({ canvas, status, detail, legend, relations = null, controls = null, accent = "#0f62fe" }) {
     this.canvas = canvas;
     this.context = canvas?.getContext("2d") || null;
     this.status = status;
     this.detail = detail;
     this.legend = legend;
+    // Optional full-width relation area; existing journals retain inline relations.
+    this.relations = relations;
     this.controls = controls;
     this.accent = accent;
     this.nodes = [];
@@ -1175,6 +1177,8 @@ export class JournalSemanticAtlas {
 
     if (!node) {
       this.detail.innerHTML = "<p>Seleccione un nodo para inspeccionar el artículo.</p>";
+      if (this.relations) this.relations.innerHTML =
+        '<p class="pro-atlas-relations-empty">Seleccione un nodo para ver sus relaciones debajo del mapa.</p>';
       return;
     }
 
@@ -1236,6 +1240,17 @@ export class JournalSemanticAtlas {
       );
     }).join("");
 
+    const relatedMarkup =
+      '<section class="atlas-related-section" aria-label="Relaciones semánticas del artículo">' +
+        '<header class="atlas-related-header">' +
+          '<div><span>RELACIONES SEMÁNTICAS</span><strong>' + relations.length + '</strong></div>' +
+          '<p>Vecinos conectados con este artículo, ordenados por método y fuerza de proximidad.</p>' +
+        '</header>' +
+        (relations.length
+          ? '<div class="atlas-related-list">' + relationItems + '</div>'
+          : '<p class="atlas-related-empty">Este nodo no tiene relaciones visibles con los filtros actuales.</p>') +
+      '</section>';
+
     this.detail.innerHTML =
       '<span class="atlas-detail-kicker">' +
       (node.vector ? "QWEN VERIFICADO" : "PROXIMIDAD TEXTUAL") +
@@ -1256,24 +1271,17 @@ export class JournalSemanticAtlas {
         ? '<a class="atlas-detail-record" href="' + escapeAttribute(link) +
           '" target="_blank" rel="noopener noreferrer">Abrir registro ↗</a>'
         : '') +
-      '<section class="atlas-related-section" aria-label="Relaciones semánticas del artículo">' +
-        '<header class="atlas-related-header">' +
-          '<div><span>RELACIONES SEMÁNTICAS</span><strong>' + relations.length + '</strong></div>' +
-          '<p>Vecinos conectados con este artículo, ordenados por método y fuerza de proximidad.</p>' +
-        '</header>' +
-        (relations.length
-          ? '<div class="atlas-related-list">' + relationItems + '</div>'
-          : '<p class="atlas-related-empty">Este nodo no tiene relaciones visibles con los filtros actuales.</p>') +
-      '</section>';
+      (this.relations ? '' : relatedMarkup);
 
-    this.detail.querySelectorAll("[data-related-node]").forEach(button => {
+    if (this.relations) this.relations.innerHTML = relatedMarkup;
+    const relationRoot = this.relations || this.detail;
+    relationRoot.querySelectorAll("[data-related-node]").forEach(button => {
       button.addEventListener("click", () => {
         const target = this.nodes[Number(button.dataset.relatedNode)];
         this.focusNode(target);
       });
     });
-
-    this.detail.querySelectorAll("[data-related-sheet]").forEach(button => {
+    relationRoot.querySelectorAll("[data-related-sheet]").forEach(button => {
       button.addEventListener("click", () => {
         const target = this.nodes[Number(button.dataset.relatedSheet)];
         if (!target) return;
@@ -1284,7 +1292,6 @@ export class JournalSemanticAtlas {
         sheet.querySelector("summary")?.focus({ preventScroll: true });
       });
     });
-
     this.requestDraw();
   }
 }
