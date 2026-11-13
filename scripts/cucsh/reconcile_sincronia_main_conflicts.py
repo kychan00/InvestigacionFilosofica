@@ -72,9 +72,20 @@ def resolve_text(path, expected_count):
         raise ValueError(f"Merge markers remain in {path}")
     if path=="scripts/cucsh/harvest.py":
         if "from protrepsis_policy import is_temperie_record" not in repaired:
-            raise ValueError("Main's Temperie policy import is missing")
-        if "from quadripartita_editorial import editorial_metadata" not in repaired:
-            raise ValueError("Main's Quadripartita enrichment import is missing")
+            import_policy=(
+                "\\ntry:\\n"
+                "    from scripts.cucsh.protrepsis_policy import is_temperie_record\\n"
+                "    from scripts.cucsh.quadripartita_editorial import editorial_metadata\\n"
+                "except ModuleNotFoundError:\\n"
+                "    from protrepsis_policy import is_temperie_record\\n"
+                "    from quadripartita_editorial import editorial_metadata\\n"
+            ).replace("\\n","\n")
+            marker="from pathlib import Path\n"
+            if repaired.count(marker)!=1:
+                raise ValueError("Cannot safely place main Protrepsis policy imports")
+            repaired=repaired.replace(marker,marker+import_policy,1)
+        if "is_temperie_record" not in repaired or "editorial_metadata" not in repaired:
+            raise ValueError("Main's Protrepsis and Quadripartita imports are missing")
         if "harvest_legacy_records" not in repaired:
             raise ValueError("Sincronía historical harvester missing")
         if "is_temperie_record(record)" not in repaired.replace("\n",""):
