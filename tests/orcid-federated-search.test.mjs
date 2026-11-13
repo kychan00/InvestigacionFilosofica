@@ -90,18 +90,21 @@ test("CSV público de ORCID conserva nombres, ORCID y afiliaciones con comas", (
   ]);
 });
 
-test("búsqueda por nombre devuelve bibliografía ORCID del autor, no perfiles sueltos", async () => {
+test("búsqueda por nombre con identidad resuelta devuelve bibliografía ORCID del autor", async () => {
   const found = await searchOrcid(
     { query: "Rómulo Ramírez Daza y García", weight: 1, type: "original" },
     {
       rows: 4,
-      searchProfilesImpl: async () => [{
-        orcid: ROMULO,
-        displayName: "Rómulo Ramírez Daza y García",
-        givenNames: "Rómulo",
-        familyName: "Ramírez Daza y García",
-        institutions: ["Universidad Panamericana"]
-      }],
+      preferredAuthorResolution: {
+        status: "resolved",
+        author: {
+          displayName: "Rómulo Ramírez Daza y García",
+          orcid: ROMULO
+        }
+      },
+      searchProfilesImpl: async () => {
+        throw new Error("No se debe resolver un ORCID por parecido de nombre");
+      },
       worksImpl: async () => ({
         works: [
           work("Platón y la argumentación", 2022),
@@ -294,7 +297,11 @@ test("searchPhilosophy incorpora ORCID como proveedor y emite parciales", async 
         openAlex: { enabled: false },
         crossref: { enabled: false },
         internetArchive: { enabled: false },
-        orcid: { enabled: true, rows: 6, profilesPerPage: 2 },
+        orcid: {
+          enabled: true, rows: 6, profilesPerPage: 2,
+          preferredOrcid: ROMULO,
+          preferredName: "Rómulo Ramírez Daza y García"
+        },
         onPartialResults(value) {
           partials.push(value);
         }
