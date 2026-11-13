@@ -18404,7 +18404,12 @@
       "titleVariants": [
         "La Apreciación del Cine: Docencia, Periodismo Critico y Algunas Encrucijadas"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Alfredo Naime Padua",
+          "sourceName": "Alfredo Naime Padua"
+        }
+      ],
       "date": "1996",
       "year": 1996,
       "type": "journal-article",
@@ -18444,6 +18449,23 @@
         "reason": "live-source-unavailable-archive-recovered",
         "archiveAvailable": true,
         "note": "Registro bibliográfico conservado; la página original no respondió y la verificación usó una copia archivada."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "institutional-conference-archive-two-independent-documents",
+        "sourceUrl": "https://bibliotecadigitalconeicc.iteso.mx/bitstream/handle/123456789/7451/CD22.pdf?sequence=1",
+        "sourceInstitution": "CONEICC / ITESO academic archive",
+        "sourceYear": 1997,
+        "sourceEvent": "IX Encuentro CONEICC, Querétaro, 20 March 1997",
+        "sourceCatalogEntry": "9528 C",
+        "supportingSourceUrl": "https://bibliotecadigitalconeicc.iteso.mx/bitstream/handle/123456789/7241/AI234.pdf?sequence=1",
+        "sourceArticleUrl": "http://sincronia.cucsh.udg.mx/naime.htm",
+        "urlMatchLevel": "same-distinctive-title-no-external-exact-url-proof",
+        "publicationVersionCaveat": "Two 1997 CONEICC archival items attribute the matching conference title to Alfredo Naime Padua. The preserved Sincronía index dates its item to issue 1 (1996). This establishes authorship of the same-titled work, not identity of 1996 journal and 1997 conference versions.",
+        "verifiedAuthor": "Alfredo Naime Padua",
+        "verifiedTitle": "La Apreciación del Cine: Docencia, Periodismo Critico y Algunas Encrucijadas",
+        "matchedIndexedIssue": 1,
+        "matchedIndexedYear": 1996,
+        "originalAvailabilityPreserved": true
       }
     },
     {
@@ -19174,7 +19196,12 @@
       "titleVariants": [
         "Notes on NAFTA: The Masters of Mankind"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Noam Chomsky",
+          "sourceName": "Noam Chomsky"
+        }
+      ],
       "date": "1997",
       "year": 1997,
       "type": "journal-article",
@@ -19207,6 +19234,22 @@
         "reason": "timeout",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "original-publication-plus-independent-republication",
+        "sourceUrl": "https://thenation.s3.amazonaws.com/pdf/chomskynafta1993.pdf",
+        "sourcePublisher": "The Nation",
+        "sourcePublicationDate": "1993-03-29",
+        "supportingSourceUrl": "https://www.iatp.org/sites/default/files/Notes_on_NAFTA_The_Masters_of_Mankind.htm",
+        "sourceAttribution": "NOAM CHOMSKY",
+        "sourceArticleUrl": "http://sincronia.cucsh.udg.mx/chomnaft.html",
+        "urlMatchLevel": "same-distinctive-work-title-no-external-exact-url-proof",
+        "publicationVersionCaveat": "Original published in The Nation in 1993. Sincronía's historical index attributes the item to issue 4 in 1997. Do not infer exact reprint version or live original URL.",
+        "verifiedAuthor": "Noam Chomsky",
+        "verifiedTitle": "Notes on NAFTA: The Masters of Mankind",
+        "matchedIndexedIssue": 4,
+        "matchedIndexedYear": 1997,
+        "originalAvailabilityPreserved": true
       }
     },
     {
@@ -19481,7 +19524,12 @@
       "titleVariants": [
         "The Life of a Maquiladora Worker"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "David Bacon",
+          "sourceName": "David Bacon"
+        }
+      ],
       "date": "1997",
       "year": 1997,
       "type": "journal-article",
@@ -19514,6 +19562,21 @@
         "reason": "http-404",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "interviewers-original-site-same-unique-title",
+        "sourceUrl": "https://dbacon.igc.org/Portrait/01MaLife.htm",
+        "sourceAttribution": "Interview by David Bacon",
+        "sourceOriginalDate": "1996-08-09",
+        "workRole": "interviewer-and-narrative-reporter",
+        "sourceArticleUrl": "http://sincronia.cucsh.udg.mx/maquilad.html",
+        "urlMatchLevel": "same-distinctive-title-no-external-exact-url-proof",
+        "publicationVersionCaveat": "David Bacon's original site bears the exact same work title and explicit 'Interview by David Bacon' attribution dated 9 Aug 1996. Sincronía's preserved issue 4 dates its entry to 1997. An external record does not prove full text equivalence or current access to the original.",
+        "verifiedAuthor": "David Bacon",
+        "verifiedTitle": "The Life of a Maquiladora Worker",
+        "matchedIndexedIssue": 4,
+        "matchedIndexedYear": 1997,
+        "originalAvailabilityPreserved": true
       }
     },
     {
