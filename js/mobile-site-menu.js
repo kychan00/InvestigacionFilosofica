@@ -137,34 +137,16 @@ const menuItems = [
             href: siteHref("revistas/udg/protrepsis.html")
           },
           {
-            label: "Protrepsis · equipo editorial",
-            icon: "info",
-            detail: "Historia, personas y contacto",
-            href: siteHref("revistas/udg/protrepsis-institucional.html")
-          },
-          {
             label: "Sincronía",
             icon: "journal",
             detail: "CUCSH · Humanidades",
             href: siteHref("revistas/udg/sincronia.html")
           },
           {
-            label: "Sincronía · equipo editorial",
-            icon: "info",
-            detail: "Historia, personas y contacto",
-            href: siteHref("revistas/udg/sincronia-institucional.html")
-          },
-          {
             label: "Quadripartita Ratio",
             icon: "journal",
             detail: "CUCSH · Filosofía",
             href: siteHref("revistas/udg/quadripartita-ratio.html")
-          },
-          {
-            label: "Quadripartita · equipo editorial",
-            icon: "info",
-            detail: "Historia, personas y contacto",
-            href: siteHref("revistas/udg/quadripartita-ratio-institucional.html")
           }
         ]
       }
