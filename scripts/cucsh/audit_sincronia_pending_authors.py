@@ -104,6 +104,100 @@ def exact_editorial_navigation_records(records):
     return sorted(result, key=lambda row: row["id"])
 
 
+def exact_biographical_non_article_records(records):
+    """Recognize only the directly archived Dante Medina biography, no guessed roles.
+
+    The 1998 Wayback page at the exact indexed URL describes his birthplace,
+    education and bibliography and links to the separate ana.html hypertext;
+    it is not a new peer-reviewed research article needing an author byline.
+    Source records, URLs and access status are never modified here.
+    """
+    target = "cucsh:sincronia-legacy:a9b2551729fe0893d5e3"
+    original = "http://fuentes.csh.udg.mx/CUCSH/Sincronia/dante/bio.html"
+    archival_evidence = (
+        "https://web.archive.org/web/19980211205946/"
+        "http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/dante/bio.html"
+    )
+    result = []
+    for row in records:
+        if not (
+            row.get("id") == target
+            and row.get("journal") == "Sincronía"
+            and row.get("issueNumber") == 8
+            and row.get("year") == 1998
+            and row.get("title") == "Dante Medina"
+            and (row.get("urls") or {}).get("canonical") == original
+            and not row.get("authors")
+            and (row.get("legacyAccessStatus") or {}).get("status")
+            == "original-page-unavailable"
+        ):
+            continue
+        result.append({
+            "id": target,
+            "issueNumber": 8,
+            "originalTitle": row["title"],
+            "originalUrl": original,
+            "classification": "author_biographical_profile_not_scholarly_work",
+            "status": "directly_verified_original_archived_biography",
+            "sourceCapture": archival_evidence,
+            "originalAvailabilityPreserved": True,
+            "preservationPolicy": (
+                "Retain the original biography record, URL and authorless "
+                "state; do not assign Dante Medina as author of his own "
+                "biography without a source byline, and do not count this "
+                "profile as an uncredited research article."
+            ),
+        })
+    return result
+
+
+def exact_campos_identity_conflicts(pending):
+    """Expose the 2000-vs-2001 /campos.htm identity problem without attribution."""
+    original = "http://sincronia.cucsh.udg.mx/campos.htm"
+    target = "cucsh:sincronia-legacy:d578e8ef399dde877feb"
+    result = []
+    for row in pending:
+        if not (
+            row.get("id") == target
+            and row.get("journal") == "Sincronía"
+            and row.get("issueNumber") == 15
+            and row.get("year") == 2000
+            and row.get("title") == "de Campos,Jorge Lucio"
+            and (row.get("urls") or {}).get("canonical") == original
+            and not row.get("authors")
+        ):
+            continue
+        result.append({
+            "id": target,
+            "indexedTitle": row["title"],
+            "indexedIssue": 15,
+            "indexedYear": 2000,
+            "originalUrl": original,
+            "professionalBibliographyUrl": (
+                "https://www.escavador.com/sobre/764869/jorge-lucio-de-campos"
+            ),
+            "bibliographyConfirmsOtherSincronia2000Works": True,
+            "laterArchivedSameUrl": (
+                "https://web.archive.org/web/20020607092529/"
+                "http://sincronia.cucsh.udg.mx:80/campos.htm"
+            ),
+            "laterPageInternalIssueYear": 2001,
+            "laterPageTitle": "UMA SITUAÇÃO DE PALAVRAS",
+            "laterPageSubtitle": "Entrevista a Floriano Martins",
+            "status": "original_2000_work_identity_unverified",
+            "requiredEvidence": (
+                "The later reuse of /campos.htm shows a 2001 interview, "
+                "while the frozen source record points to issue 15 (2000). "
+                "A professional bibliography confirms several distinct "
+                "Jorge Lúcio de Campos works in Sincronía in 2000. "
+                "Do not equate them, silently move the issue/year, or "
+                "assign interviewer/interviewee roles without a matched "
+                "original 2000 publication or issue-level citation."
+            ),
+        })
+    return result
+
+
 def unresolved_issue50_work_identity(records):
     """Surface ambiguity without conflating two works by one author."""
     target = "cucsh:sincronia-legacy:8eded0eac6e2a217ade1"
@@ -295,6 +389,10 @@ def audit_pending_authors(records):
     ))
     conflicts = documented_bibliographic_conflicts(pending)
     editorial_navigation = exact_editorial_navigation_records(sincronia)
+    biographical_non_articles = exact_biographical_non_article_records(sincronia)
+    non_article_ids = {r["id"] for r in editorial_navigation + biographical_non_articles}
+    pending_non_article_count = sum(r.get("id") in non_article_ids for r in pending)
+    campos_conflicts = exact_campos_identity_conflicts(pending)
     issue50_review = unresolved_issue50_work_identity(sincronia)
     title_encoding_remaining = sum(
         "\ufffd" in str(row.get("title") or "") for row in sincronia
@@ -305,6 +403,18 @@ def audit_pending_authors(records):
         "totalSincroniaRecords": len(sincronia),
         "highConfidenceEditorialNavigationCount": len(editorial_navigation),
         "highConfidenceEditorialNavigationRecords": editorial_navigation,
+        "highConfidenceBiographicalNonArticleCount": len(biographical_non_articles),
+        "highConfidenceBiographicalNonArticleRecords": biographical_non_articles,
+        "highConfidenceNonArticleCount": len(non_article_ids),
+        "highConfidenceNonArticleRecords": (
+            editorial_navigation + biographical_non_articles
+        ),
+        "pendingNonArticleRecordsNoBylineRequired": pending_non_article_count,
+        "pendingAuthorshipCasesExcludingVerifiedNonArticles": (
+            len(pending) - pending_non_article_count
+        ),
+        "unresolvedOriginalWorkIdentityConflicts": campos_conflicts,
+        "unresolvedOriginalWorkIdentityConflictCount": len(campos_conflicts),
         "articleCandidatesExcludingEditorialNavigation": (
             len(sincronia) - len(editorial_navigation)
         ),
@@ -370,6 +480,9 @@ def main():
     print("PENDING_BY_ORIGINAL_AVAILABILITY", report["pendingByOriginalAvailability"])
     print("BIBLIOGRAPHIC_CONFLICTS", report["bibliographicConflictCount"])
     print("HIGH_CONFIDENCE_EDITORIAL_NAVIGATION", report["highConfidenceEditorialNavigationCount"])
+    print("HIGH_CONFIDENCE_BIOGRAPHY_NON_ARTICLE", report["highConfidenceBiographicalNonArticleCount"])
+    print("AUTHORS_ACTUALLY_REQUIRING_EVIDENCE", report["pendingAuthorshipCasesExcludingVerifiedNonArticles"])
+    print("UNRESOLVED_ORIGINAL_WORK_IDENTITIES", report["unresolvedOriginalWorkIdentityConflictCount"])
     print("SINCRONIA_ARTICLE_CANDIDATES_EXCLUDING_NAVIGATION", report["articleCandidatesExcludingEditorialNavigation"])
     print("PENDING_AUTHOR_ARTICLE_CANDIDATES", report["authorlessArticleCandidatesExcludingEditorialNavigation"])
     print("UNRESOLVED_ISSUE_50_MAPPINGS", len(report["unresolvedIssue50UrlMappings"]))
