@@ -77,6 +77,7 @@ jobs:
           node --check js/articles.js
           node --check js/journal-page.js
           node --check js/journal-atlas.js
+          node --check js/journal-institutional.js
 
       - name: Verify Quadripartita editorial chronology policy
         run: python3 -m unittest discover -s tests -p 'test_quadripartita_editorial.py' -v
