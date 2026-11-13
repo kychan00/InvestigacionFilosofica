@@ -825,15 +825,7 @@ export async function searchOrcid(expansion, options = {}) {
     // Await the trusted author resolver (or use an explicit ORCID) instead.
     if (likelyAuthor) return [];
 
-    profiles = (likelyAuthor
-      ? scored
-          .sort((a, b) =>
-            b.identityScore - a.identityScore ||
-            a.index - b.index
-          )
-          .filter(item => item.identityScore >= 0.45)
-      : scored
-    )
+    profiles = scored
       .slice(0, profilesPerPage)
       .map(item => item.profile);
   }
