@@ -36,10 +36,17 @@ for (const [journal, path] of Object.entries(paths)) {
 
 test("runtime de revistas separa metadatos editoriales de categorías derivadas", async () => {
   const source = await readFile("js/journal-page.js", "utf8");
+  const topics = await readFile("js/journal-article-topics.js", "utf8");
   assert.match(source, /CATEGORY_RULES/);
-  assert.match(source, /Temas declarados/);
-  assert.match(source, /derivada para navegaci[oó]n/);
+  assert.match(source, /articleTopicMetadata/);
+  assert.match(source, /topicMeta\.label/);
+  assert.match(source, /topicMeta\.note/);
+  assert.match(source, /Categoría amplia derivada para navegación/);
   assert.match(source, /record\.subjects/);
+  assert.match(topics, /Palabras clave editoriales/);
+  assert.match(topics, /Temas bibliográficos/);
+  assert.match(topics, /Temas del texto/);
+  assert.match(topics, /no sustituyen palabras clave editoriales/);
   assert.match(source, /journal-doi-only/);
   assert.match(source, /journal-abstract-only/);
   assert.match(source, /journalIssueGroups/);
