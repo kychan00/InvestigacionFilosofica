@@ -1,9 +1,9 @@
 name: Protrepsis editorial source inspection (temporary)
 
 on:
-  push:
+  pull_request:
     branches:
-      - feat/journal-editorial-profiles-20261112
+      - main
     paths:
       - ".github/workflows/protrepsis-editorial-inspection.yml"
 
