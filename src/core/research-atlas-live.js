@@ -41,7 +41,7 @@ import {
 
 
 export const RESEARCH_ATLAS_LIVE_REVISION =
-  "2026-11-09.ra12d3-v1";
+  "2026-11-13.ra13a-identity-v1";
 
 
 function emptyAuthorityGraph() {
@@ -219,8 +219,8 @@ export class ResearchAtlasLiveSession {
   resetGraph() {
     this.assembler =
       new ResearchAtlasAssembler({
-        authorityGraph:
-          emptyAuthorityGraph()
+        dynamicIdentity:
+          true
       });
 
     this.layoutEngine =
