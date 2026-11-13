@@ -1,6 +1,6 @@
 import { ResearchAtlasQwenVectorClient } from "../src/core/research-atlas-qwen-vector-client.js";
 import { cosineInt8 } from "../src/core/research-atlas-qwen-vector-range.js";
-import { journalArticleAbstract, journalArticleSheet, journalArticleSourceUrl } from "./journal-atlas-article-sheet.js";
+import { journalArticleAbstract, journalArticleSheet, journalArticleSourceUrl } from "./journal-atlas-article-sheet.js?v=20261113-topic-tags-v1";
 import { articleTopics } from "./journal-article-topics.js?v=20261113-v1";
 
 const SITE_ROOT = new URL("../", import.meta.url);
