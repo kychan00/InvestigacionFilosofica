@@ -28,7 +28,8 @@ test("SVG original, estética estampilla y perforaciones sin imagen de tercero",
   assert.match(engraved, /^<svg/);
   assert.match(engraved, /viewBox="0 0 1280 635"/);
   assert.match(engraved, /Grabado original/);
-  assert.doesNotMatch(engraved, /<image\s|https?:\/\//);
+  assert.doesNotMatch(engraved, /<(?:image|foreignObject|script)\b/i);
+  assert.doesNotMatch(engraved, /\b(?:href|src)=["\x27]https?:\/\//i);
   assert.match(script, /MutationObserver\(decorateAll\)/);
   assert.match(script, /makeEngraving\(seed, variant\)/);
   assert.match(script, /qr-stamp-paper/);
