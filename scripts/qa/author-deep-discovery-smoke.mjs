@@ -80,7 +80,26 @@ try{
     assert.equal(state.bg,"rgb(22, 22, 22)");
     assert.equal(state.ink,"rgb(244, 244, 244)");
   }
-  await page.locator(".author-page-works").scrollIntoViewIfNeeded();
+  // The author detail panel is rebuilt when remote author cards settle.
+  // A Playwright locator action can race that replacement and throw
+  // "Element is not attached to the DOM" despite valid visible results.
+  // Re-acquire the current section within one browser-side evaluation.
+  await page.evaluate(() => {
+    const works = document.querySelector(".author-page-works");
+    if (!works || !works.isConnected) {
+      throw new Error("The author works section is missing after discovery");
+    }
+    works.scrollIntoView({block: "start", behavior: "instant"});
+  });
+  await page.waitForFunction(() => {
+    const works = document.querySelector(".author-page-works");
+    const cards = [...document.querySelectorAll(".author-work-grid .result-card")];
+    return Boolean(works?.isConnected) &&
+      cards.length === 4 &&
+      cards.some(card => card.querySelector("h2")?.textContent?.includes(
+        "Tercera publicación indexada"
+      ));
+  }, null, {timeout: 10000});
   await page.screenshot({
     path:"artifacts/author-deep-discovery/"+theme+"-profile-390.png",
     animations:"disabled"

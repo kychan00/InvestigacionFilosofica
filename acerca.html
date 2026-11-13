@@ -163,9 +163,9 @@
           </article>
           <article>
             <span class="metric-index">04</span>
-            <strong>336</strong>
+            <strong id="cucsh-article-count">1,790</strong>
             <h3>Artículos CUCSH Filosofía</h3>
-            <p>Protrepsis y Quadripartita Ratio reunidas con procedencia explícita; se excluye la sección literaria no arbitrada Temperie.</p>
+            <p>Protrepsis, Quadripartita Ratio y Sincronía, reunidas con procedencia explícita; se excluye la sección literaria no arbitrada Temperie.</p>
           </article>
           <article>
             <span class="metric-index">05</span>
@@ -622,5 +622,26 @@
 
   <script type="module" src="./js/theme.js"></script>
   <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
+  <script>
+    fetch("./src/data/cucsh-filosofia.json")
+      .then(response => response.ok ? response.json() : null)
+      .then(data => {
+        const count =
+          Array.isArray(data?.records)
+            ? data.records.length
+            : null;
+
+        const target =
+          document.getElementById(
+            "cucsh-article-count"
+          );
+
+        if (target && count) {
+          target.textContent =
+            count.toLocaleString("es-MX");
+        }
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>

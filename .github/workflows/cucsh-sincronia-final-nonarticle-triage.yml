@@ -1,0 +1,115 @@
+name: Sincronía · final non-article and unresolved-byline audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-final-nonarticle-and-campos-audit
+  cancel-in-progress: false
+
+jobs:
+  verify-final-bibliography:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test original page identity, biography and interview chronology
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_final_nonarticle_triage
+          python3 -m unittest tests.test_cucsh_sincronia_pending_authors
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Produce full historical and final author triage reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-final-triage-history.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-final-triage-pending.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("/tmp/sincronia-final-triage-pending.json").read_text(encoding="utf-8"))
+          assert d["totalSincroniaRecords"]==1454
+          assert d["pendingAuthorRecords"]==3
+          assert d["highConfidenceEditorialNavigationCount"]==2
+          assert d["highConfidenceBiographicalNonArticleCount"]==1
+          assert d["highConfidenceNonArticleCount"]==3
+          assert d["pendingNonArticleRecordsNoBylineRequired"]==3
+          assert d["pendingAuthorshipCasesExcludingVerifiedNonArticles"]==0
+          assert d["authorlessArticleCandidatesExcludingEditorialNavigation"]==1
+          assert d["unresolvedOriginalWorkIdentityConflictCount"]==0
+          assert d["unresolvedOriginalWorkIdentityConflicts"]==[]
+          assert not any(row["id"]=="cucsh:sincronia-legacy:d578e8ef399dde877feb"
+                         for row in d["records"])
+          assert d["pendingByIssue"]=={"8":1,"46":2}
+          assert d["bibliographicConflictCount"]==0
+          assert d["titlesWithUnicodeReplacementCharacter"]==0
+          known_nonarticles={x["id"] for x in d["highConfidenceNonArticleRecords"]}
+          assert known_nonarticles=={
+              "cucsh:sincronia-legacy:a9b2551729fe0893d5e3",
+              "cucsh:sincronia-legacy:91f36da6674c93b19145",
+              "cucsh:sincronia-legacy:a2763a903fcca568e32a",
+          }
+          lines=[
+              "# Sincronía: bibliographic completion status",
+              "",
+              "Conserved Sincronía source rows: 1,454; no records deleted.",
+              "Only 3 source records remain without a byline, all verified non-article documents:",
+              "- Issue 8 /dante/bio.html: Dante Medina biography, no signed author evidenced",
+              "- Issue 46 /creditos.html: editorial board navigation",
+              "- Issue 46 /info.htm: contributor instructions",
+              "",
+              "Zero unresolved scholarly authorship cases remain.",
+              "Jorge Lucio de Campos issue 15 (2000) title and signed author restored from two actual 2000 Wayback original-host captures.",
+              "- Original index: https://web.archive.org/web/20000824085411/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/summer00.htm",
+              "- Signed article: https://web.archive.org/web/20000930033955/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos.htm",
+              "- Separate Deleuze article: https://web.archive.org/web/20000930034002/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos2.htm",
+              "- Later reused modern-host /campos.htm holds a different 2001 interview; not treated as the 2000 work.",
+              "",
+              "All 1,454 source records, source URL values, and access status values preserved.",
+              "Only the verified Campos title, author and provenance metadata changed.",
+          ]
+          Path("/tmp/sincronia-final-triage.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
+          print("SINCRONIA_ALL_REAL_AUTHORSHIP_CASES_COMPLETED",d["pendingAuthorshipCasesExcludingVerifiedNonArticles"])
+          PY
+      - name: Run complete application regression
+        run: |
+          npm ci
+          npm test
+      - name: Enforce no metadata or corpus modification
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test -z "$(git status --porcelain)" || {
+            git status --short
+            echo "Unexpected worktree modification"
+            exit 1
+          }
+          echo "SINCRONIA_FINAL_AUDIT_READ_ONLY_PASSED"
+      - name: Upload human-readable and machine-readable completion report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-final-nonarticle-triage
+          path: |
+            /tmp/sincronia-final-triage.md
+            /tmp/sincronia-final-triage-history.json
+            /tmp/sincronia-final-triage-pending.json
+          retention-days: 30
+          if-no-files-found: warn

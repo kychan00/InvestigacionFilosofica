@@ -60,7 +60,8 @@ test("no se pierden las funciones de catálogo, Atlas ni los controles históric
 });
 
 test("la cobertura institucional y bibliográfica permanece idéntica", () => {
-  assert.equal(data.records.length, 336);
+  assert.equal(data.records.length, 1790);
+  assert.equal(data.records.filter(x => x.journal === "Sincronía").length, 1454);
   const quad = data.records.filter(x => x.journal === "Quadripartita Ratio");
   assert.equal(quad.length, 88);
   assert.equal(new Set(quad.map(x => x.issueNumber)).size, 21);

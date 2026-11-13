@@ -13,11 +13,25 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
+from html.parser import HTMLParser
 from collections import Counter
 from pathlib import Path
 
-from protrepsis_policy import is_temperie_record
-from quadripartita_editorial import editorial_metadata
+try:
+    from scripts.cucsh.protrepsis_policy import is_temperie_record
+    from scripts.cucsh.quadripartita_editorial import editorial_metadata
+except ModuleNotFoundError:
+    from protrepsis_policy import is_temperie_record
+    from quadripartita_editorial import editorial_metadata
+
+try:
+    from scripts.cucsh.sincronia_legacy import (
+        harvest_legacy_records,
+    )
+except ModuleNotFoundError:
+    from sincronia_legacy import (
+        harvest_legacy_records,
+    )
 
 
 OAI = "http://www.openarchives.org/OAI/2.0/"
@@ -70,6 +84,33 @@ SOURCES = [
                 "index.php/prot/oai"
             ),
         ],
+    },
+    {
+        "id": "sincronia",
+        "journal": "Sincronía",
+        "endpoints": [
+            (
+                "https://revistasincronia.cucsh.udg.mx/"
+                "index.php/sincronia/oai"
+            ),
+        ],
+        "issueArchive": (
+            "https://revistasincronia.cucsh.udg.mx/"
+            "index.php/sincronia/issue/archive"
+        ),
+        "enrichIssueMetadata": True,
+        "legacyArchives": [
+            (
+                "http://sincronia.cucsh.udg.mx/"
+                "num_anteriores.html"
+            ),
+            (
+                "http://www.cucsh.udg.mx/"
+                "CUCSH/Sincronia/"
+                "num_anteriores.html"
+            ),
+        ],
+        "legacyMaxIssue": 60,
     },
 ]
 
@@ -162,6 +203,20 @@ DOI_RE = re.compile(
 
 EDITORIAL_TITLE_RE = re.compile(
     r"^editorial$",
+    re.IGNORECASE,
+)
+
+
+SINCRONIA_NON_ARTICLE_TITLE_RE = re.compile(
+    (
+        r"^(?:"
+        r"cintillo\s+legal(?:\s+del.*)?"
+        r"|"
+        r"n[uú]mero(?:\s+\d+)?\s+completo"
+        r"|"
+        r"declaraci[oó]n\s+de\s+(?:coautor[ií]a|autor[ií]a\s+individual)"
+        r")$"
+    ),
     re.IGNORECASE,
 )
 
@@ -543,6 +598,439 @@ def relation_urls(
     return output
 
 
+ARTICLE_VIEW_RE = re.compile(
+    r"/article/view/(\d+)",
+    re.IGNORECASE,
+)
+
+
+ISSUE_VIEW_RE = re.compile(
+    r"/issue/view/(\d+)",
+    re.IGNORECASE,
+)
+
+
+SINCRONIA_ISSUE_NUMBER_RE = re.compile(
+    r"(?:n[uú]m\.?|n[uú]mero)\s*(\d{1,3})",
+    re.IGNORECASE,
+)
+
+
+def article_id_from_url(
+    value,
+):
+    clean = (
+        clean_text(value)
+        or ""
+    )
+
+    match = ARTICLE_VIEW_RE.search(
+        clean
+    )
+
+    return (
+        match.group(1)
+        if match
+        else None
+    )
+
+
+class SincroniaArchiveParser(
+    HTMLParser,
+):
+    def __init__(
+        self,
+        base_url,
+    ):
+        super().__init__(
+            convert_charrefs=True
+        )
+
+        self.base_url = base_url
+        self.issue_urls = []
+        self._seen = set()
+
+    def handle_starttag(
+        self,
+        tag,
+        attrs,
+    ):
+        if tag.casefold() != "a":
+            return
+
+        href = dict(attrs).get(
+            "href"
+        )
+
+        if not href:
+            return
+
+        url = urllib.parse.urljoin(
+            self.base_url,
+            href,
+        )
+
+        if not ISSUE_VIEW_RE.search(
+            url
+        ):
+            return
+
+        if url in self._seen:
+            return
+
+        self._seen.add(url)
+        self.issue_urls.append(url)
+
+
+class SincroniaIssueParser(
+    HTMLParser,
+):
+    def __init__(
+        self,
+        base_url,
+    ):
+        super().__init__(
+            convert_charrefs=True
+        )
+
+        self.base_url = base_url
+        self.issue_title = None
+        self.issue_year = None
+        self.issue_number = None
+        self.current_section = None
+        self.articles = {}
+
+        self._in_h1 = False
+        self._h1_parts = []
+
+        self._in_h2 = False
+        self._h2_parts = []
+
+    def handle_starttag(
+        self,
+        tag,
+        attrs,
+    ):
+        tag = tag.casefold()
+
+        if tag == "h1":
+            self._in_h1 = True
+            self._h1_parts = []
+            return
+
+        if tag == "h2":
+            self._in_h2 = True
+            self._h2_parts = []
+            return
+
+        if tag != "a":
+            return
+
+        href = dict(attrs).get(
+            "href"
+        )
+
+        if not href:
+            return
+
+        url = urllib.parse.urljoin(
+            self.base_url,
+            href,
+        )
+
+        article_id = article_id_from_url(
+            url
+        )
+
+        if not article_id:
+            return
+
+        self.articles.setdefault(
+            article_id,
+            {
+                "issueTitle":
+                    self.issue_title,
+
+                "year":
+                    self.issue_year,
+
+                "issueNumber":
+                    self.issue_number,
+
+                "section":
+                    self.current_section,
+            },
+        )
+
+    def handle_data(
+        self,
+        data,
+    ):
+        if self._in_h1:
+            self._h1_parts.append(
+                data
+            )
+
+        if self._in_h2:
+            self._h2_parts.append(
+                data
+            )
+
+    def handle_endtag(
+        self,
+        tag,
+    ):
+        tag = tag.casefold()
+
+        if (
+            tag == "h1"
+            and self._in_h1
+        ):
+            self.issue_title = clean_text(
+                " ".join(
+                    self._h1_parts
+                )
+            )
+
+            year_match = re.search(
+                r"\b(19|20)\d{2}\b",
+                self.issue_title or "",
+            )
+
+            self.issue_year = (
+                int(year_match.group(0))
+                if year_match
+                else None
+            )
+
+            issue_number_match = (
+                SINCRONIA_ISSUE_NUMBER_RE
+                .search(
+                    self.issue_title
+                    or ""
+                )
+            )
+
+            self.issue_number = (
+                int(
+                    issue_number_match
+                    .group(1)
+                )
+                if issue_number_match
+                else None
+            )
+
+            self._in_h1 = False
+            self._h1_parts = []
+            return
+
+        if (
+            tag == "h2"
+            and self._in_h2
+        ):
+            self.current_section = (
+                clean_text(
+                    " ".join(
+                        self._h2_parts
+                    )
+                )
+            )
+
+            self._in_h2 = False
+            self._h2_parts = []
+
+
+
+def audit_sincronia_ojs_coverage(
+    issue_metadata,
+    active_records,
+    excluded_front_matter_ids=None,
+):
+    """Require every indexed OJS article to survive the OAI harvest.
+
+    A TOC entry absent from OAI is a source consistency failure, not
+    evidence that the article doesn't exist. Never publish a partial
+    journal update merely because every issue has one article.
+    """
+    indexed = set(issue_metadata)
+    active_ids = {
+        article_id_from_url(
+            (record.get("urls") or {}).get("canonical")
+        )
+        for record in active_records
+    }
+    active_ids.discard(None)
+    excluded = set(excluded_front_matter_ids or ())
+    missing = sorted(
+        indexed - active_ids - excluded,
+        key=lambda value: int(value) if value.isdigit() else value,
+    )
+    if missing:
+        examples = [
+            {
+                "articleId": article_id,
+                "issueNumber": issue_metadata[article_id].get("issueNumber"),
+                "section": issue_metadata[article_id].get("section"),
+            }
+            for article_id in missing[:20]
+        ]
+        raise RuntimeError(
+            "Sincronía OJS issue/OAI article coverage mismatch: "
+            f"{len(missing)} indexed article(s) missing, "
+            f"examples={examples}"
+        )
+    print(
+        f"sincronia-ojs-audit indexed={len(indexed)} "
+        f"active={len(active_ids & indexed)} "
+        f"excluded-front-matter={len(excluded & indexed)} "
+        "missing=0"
+    )
+
+
+def harvest_issue_metadata(
+    source,
+):
+    if not source.get(
+        "enrichIssueMetadata"
+    ):
+        return {}
+
+    archive_url = source.get(
+        "issueArchive"
+    )
+
+    if not archive_url:
+        return {}
+
+    issue_urls = []
+    seen = set()
+
+    for page in range(
+        1,
+        25,
+    ):
+        page_url = (
+            archive_url
+            if page == 1
+            else (
+                archive_url.rstrip("/")
+                + f"/{page}"
+            )
+        )
+
+        data = request_bytes(
+            page_url,
+            timeout=30,
+        )
+
+        parser = SincroniaArchiveParser(
+            page_url
+        )
+
+        parser.feed(
+            data.decode(
+                "utf-8",
+                errors="replace",
+            )
+        )
+
+        new_urls = [
+            url
+            for url in parser.issue_urls
+            if url not in seen
+        ]
+
+        if not new_urls:
+            break
+
+        for url in new_urls:
+            seen.add(url)
+            issue_urls.append(url)
+
+        time.sleep(
+            0.10
+        )
+
+    if not issue_urls:
+        raise RuntimeError(
+            "Sincronía issue archive is empty"
+        )
+
+    metadata = {}
+
+    for index, issue_url in enumerate(
+        issue_urls,
+        start=1,
+    ):
+        data = request_bytes(
+            issue_url,
+            timeout=30,
+        )
+
+        parser = SincroniaIssueParser(
+            issue_url
+        )
+
+        parser.feed(
+            data.decode(
+                "utf-8",
+                errors="replace",
+            )
+        )
+
+        for article_id, values in (
+            parser.articles.items()
+        ):
+            enriched = dict(
+                values
+            )
+
+            if not enriched.get(
+                "issueTitle"
+            ):
+                enriched[
+                    "issueTitle"
+                ] = parser.issue_title
+
+            if not enriched.get(
+                "year"
+            ):
+                enriched[
+                    "year"
+                ] = parser.issue_year
+
+            if not enriched.get(
+                "issueNumber"
+            ):
+                enriched[
+                    "issueNumber"
+                ] = parser.issue_number
+
+            metadata[
+                article_id
+            ] = enriched
+
+        print(
+            f"issue-scan={index}/"
+            f"{len(issue_urls)} "
+            f"articles={len(metadata)}"
+        )
+
+        time.sleep(
+            0.10
+        )
+
+    if not metadata:
+        raise RuntimeError(
+            (
+                "Sincronía issue metadata "
+                "could not be resolved"
+            )
+        )
+
+    return metadata
+
+
 def description_candidates(
     values,
 ):
@@ -832,13 +1320,31 @@ def parse_oai_record(
     if not title:
         return None
 
-    excluded = exclusion_reason(
-        title,
-        metadata.get(
-            "description",
-            [],
-        ),
-    )
+    if (
+        source.get("id")
+        == "sincronia"
+        and SINCRONIA_NON_ARTICLE_TITLE_RE
+        .fullmatch(
+            clean_text(title)
+            or ""
+        )
+    ):
+        excluded = (
+            "sincronia-non-article-front-matter"
+        )
+    elif (
+        source.get("id")
+        == "sincronia"
+    ):
+        excluded = None
+    else:
+        excluded = exclusion_reason(
+            title,
+            metadata.get(
+                "description",
+                [],
+            ),
+        )
 
     if excluded:
         return {
@@ -855,6 +1361,14 @@ def parse_oai_record(
 
             "sourceId":
                 source_id,
+
+            "canonical": (
+                canonical_article_url(
+                    metadata.get("identifier", [])
+                )
+                if source.get("id") == "sincronia"
+                else None
+            ),
         }
 
     descriptions = (
@@ -1063,6 +1577,57 @@ def parse_oai_record(
     }
 
 
+def sincronia_title_key(
+    value,
+):
+    normalized = (
+        clean_text(value)
+        or ""
+    ).casefold()
+
+    normalized = re.sub(
+        r"[^a-z0-9áéíóúüñ]+",
+        " ",
+        normalized,
+        flags=re.UNICODE,
+    )
+
+    return WHITESPACE_RE.sub(
+        " ",
+        normalized,
+    ).strip()
+
+
+def sincronia_issue_title_key(
+    record,
+):
+    issue_number = (
+        record.get(
+            "issueNumber"
+        )
+    )
+
+    title = sincronia_title_key(
+        record.get(
+            "title"
+        )
+    )
+
+    if (
+        not isinstance(
+            issue_number,
+            int,
+        )
+        or not title
+    ):
+        return None
+
+    return (
+        issue_number,
+        title,
+    )
+
+
 def harvest_source(
     source,
 ):
@@ -1098,12 +1663,19 @@ def harvest_source(
             error,
         )
 
+    issue_metadata = (
+        harvest_issue_metadata(
+            source
+        )
+    )
+
     token = None
     page = 0
     active_records = []
     deleted = 0
 
     excluded_reasons = Counter()
+    excluded_front_matter_ids = set()
 
     while True:
         page += 1
@@ -1188,8 +1760,70 @@ def harvest_source(
                     record["reason"]
                 ] += 1
 
+                if (
+                    source.get("id") == "sincronia"
+                    and record.get("reason")
+                    == "sincronia-non-article-front-matter"
+                ):
+                    excluded_article_id = article_id_from_url(
+                        record.get("canonical")
+                    )
+                    if excluded_article_id:
+                        excluded_front_matter_ids.add(
+                            excluded_article_id
+                        )
+
                 continue
 
+            if issue_metadata:
+                article_id = (
+                    article_id_from_url(
+                        record.get(
+                            "urls",
+                            {},
+                        ).get(
+                            "canonical"
+                        )
+                    )
+                )
+
+                values = (
+                    issue_metadata.get(
+                        article_id
+                    )
+                    if article_id
+                    else None
+                )
+
+                if values:
+                    issue_year = (
+                        values.get(
+                            "year"
+                        )
+                    )
+
+                    if issue_year:
+                        record["year"] = (
+                            issue_year
+                        )
+
+                    record["issueTitle"] = (
+                        values.get(
+                            "issueTitle"
+                        )
+                    )
+
+                    record["issueNumber"] = (
+                        values.get(
+                            "issueNumber"
+                        )
+                    )
+
+                    record["section"] = (
+                        values.get(
+                            "section"
+                        )
+                    )
             if (
                 source["journal"]
                 == "Protrepsis"
@@ -1235,6 +1869,128 @@ def harvest_source(
 
         time.sleep(
             0.25
+        )
+
+    if source.get("id") == "sincronia":
+        audit_sincronia_ojs_coverage(
+            issue_metadata,
+            active_records,
+            excluded_front_matter_ids,
+        )
+
+    legacy_archives = (
+        source.get(
+            "legacyArchives"
+        )
+        or []
+    )
+
+    if legacy_archives:
+        legacy_records = (
+            harvest_legacy_records(
+                legacy_archives,
+                max_issue=source.get(
+                    "legacyMaxIssue",
+                    51,
+                ),
+            )
+        )
+
+        existing_urls = {
+            record.get(
+                "urls",
+                {},
+            ).get(
+                "canonical"
+            )
+            for record in active_records
+            if record.get(
+                "urls",
+                {},
+            ).get(
+                "canonical"
+            )
+        }
+
+        existing_ids = {
+            record.get("id")
+            for record in active_records
+            if record.get("id")
+        }
+
+        existing_issue_titles = {
+            key
+            for record in active_records
+            if (
+                key := (
+                    sincronia_issue_title_key(
+                        record
+                    )
+                )
+            )
+        }
+
+        legacy_added = 0
+
+        for record in legacy_records:
+            canonical = (
+                record.get(
+                    "urls",
+                    {},
+                ).get(
+                    "canonical"
+                )
+            )
+
+            issue_title_key = (
+                sincronia_issue_title_key(
+                    record
+                )
+            )
+
+            if (
+                record.get("id")
+                in existing_ids
+                or (
+                    canonical
+                    and canonical
+                    in existing_urls
+                )
+                or (
+                    issue_title_key
+                    and issue_title_key
+                    in existing_issue_titles
+                )
+            ):
+                continue
+
+            active_records.append(
+                record
+            )
+
+            existing_ids.add(
+                record.get("id")
+            )
+
+            if canonical:
+                existing_urls.add(
+                    canonical
+                )
+
+            if issue_title_key:
+                existing_issue_titles.add(
+                    issue_title_key
+                )
+
+            legacy_added += 1
+
+        print(
+            (
+                "legacy-total="
+                f"{len(legacy_records)} "
+                "legacy-added="
+                f"{legacy_added}"
+            )
         )
 
     return (

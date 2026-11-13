@@ -43,7 +43,7 @@ test(
     );
 
     assert.ok(
-      records.length >= 336
+      records.length >= 1790
     );
 
 
@@ -65,20 +65,43 @@ test(
     );
 
 
-    assert.deepEqual(
-      [
-        ...new Set(
-          records.map(
-            record =>
-              record.journal
-          )
+    const journals =
+      new Set(
+        records.map(
+          record =>
+            record.journal
         )
-      ].sort(),
-      [
-        "Protrepsis",
-        "Quadripartita Ratio"
-      ]
+      );
+
+
+    assert.ok(
+      journals.has(
+        "Protrepsis"
+      )
     );
+
+
+    assert.ok(
+      journals.has(
+        "Quadripartita Ratio"
+      )
+    );
+
+
+    assert.equal(
+      [...journals].every(
+        journal =>
+          [
+            "Protrepsis",
+            "Quadripartita Ratio",
+            "Sincronía"
+          ].includes(
+            journal
+          )
+      ),
+      true
+    );
+
   }
 );
 
@@ -294,6 +317,62 @@ test(
 );
 
 
+
+
+test(
+  "normaliza disponibilidad histórica y referencia bibliográfica de Sincronía",
+  () => {
+    const source = {
+      id: "cucsh:sincronia:test",
+      sourceId: "legacy:test",
+      journal: "Sincronía",
+      issueNumber: 12,
+      title: "Artículo histórico",
+      titleVariants: ["Artículo histórico"],
+      authors: [{ name: "Autora Prueba" }],
+      year: 1999,
+      type: "journal-article",
+      legacyOriginal: true,
+      legacyAccessStatus: {
+        status: "original-page-unavailable",
+        originalUrl: "http://sincronia.cucsh.udg.mx/test.htm",
+        auditRunId: 123,
+        reason: "timeout",
+        archiveAvailable: false
+      },
+      legacyTitleEncodingEvidence: {
+        sourceUrl: "https://dialnet.unirioja.es/ejemplar/123"
+      },
+      urls: {
+        canonical: "http://sincronia.cucsh.udg.mx/test.htm",
+        relations: []
+      }
+    };
+
+    const result = normalizeCucshRecord(source);
+
+    assert.equal(
+      result.sourceAvailability.status,
+      "original-page-unavailable"
+    );
+
+    assert.equal(
+      result.sourceRecords[0].accessStatus.status,
+      "original-page-unavailable"
+    );
+
+    assert.equal(
+      result.urls.reference,
+      "https://dialnet.unirioja.es/ejemplar/123"
+    );
+
+    assert.equal(
+      result.urls.canonical,
+      "http://sincronia.cucsh.udg.mx/test.htm"
+    );
+  }
+);
+
 test(
   "paginación local no repite resultados",
   () => {
@@ -470,6 +549,99 @@ test(
   }
 );
 
+
+test(
+  "Sincronía 1–90 contiene sólo artículos verificables, sin formularios",
+  () => {
+    const sincronia = records.filter(
+      record => record.journal === "Sincronía"
+    );
+    assert.ok(sincronia.length >= 1450);
+    const issues = new Set(
+      sincronia.map(record => record.issueNumber)
+    );
+    for (let issue = 1; issue <= 90; issue++) {
+      assert.ok(issues.has(issue), `Sincronía issue ${issue} missing`);
+    }
+    assert.ok(
+      sincronia.every(
+        record => Number.isInteger(record.issueNumber) &&
+          record.issueNumber >= 1 && record.issueNumber <= 90
+      )
+    );
+    assert.ok(sincronia.every(record => record.title && record.id));
+    assert.ok(
+      sincronia.filter(record => record.issueNumber === 44).length >= 10,
+      "Issue 44 must retain its ten source-verified records"
+    );
+
+    assert.equal(
+      sincronia.filter(
+        record => /^declaraci[oó]n de (?:coautor[ií]a|autor[ií]a individual)$/i.test(record.title)
+      ).length,
+      0
+    );
+  }
+);
+
+test(
+  "la búsqueda local recupera Sincronía histórica y moderna",
+  () => {
+    const sincronia = records.filter(
+      record => record.journal === "Sincronía"
+    );
+    const historical = sincronia.find(
+      record => record.issueNumber === 49 &&
+        /filosof[ií]a de la ense[nñ]anza/i.test(record.title)
+    );
+    const historical44 = sincronia.find(
+      record => record.issueNumber === 44 &&
+        record.title === "Génesis de un personaje teatral"
+    );
+    const modern = sincronia.find(
+      record => record.issueNumber === 90 && record.title?.length > 20
+    );
+    assert.ok(historical, "Missing Sincronía issue 49 philosophy article");
+    assert.ok(historical44, "Missing Sincronía issue 44 historical article");
+    assert.ok(modern, "Missing Sincronía issue 90 article");
+
+    for (const record of [historical, historical44, modern]) {
+      const results = searchCucshRecords(
+        records,
+        record.title,
+        { rows: 40 }
+      );
+      assert.ok(
+        results.some(result => result.journal === "Sincronía"),
+        `Search did not recover Sincronía issue ${record.issueNumber}`
+      );
+    }
+  }
+);
+
+
+test(
+  "las 41 reparaciones originales conservan títulos legibles y se pueden buscar",
+  () => {
+    const sincronia = records.filter(record => record.journal === "Sincronía");
+    const repaired = sincronia.filter(
+      record => record.legacyTitleEncodingEvidence?.auditRunId === 43032349081
+    );
+    assert.equal(repaired.length, 41);
+    assert.ok(repaired.every(record => !record.title.includes("\ufffd")));
+    for (const title of [
+      "Análisis del argumento del sueño en la primera meditación de Descartes",
+      "La pérdida y el olvido de la memoria en el cuento Estoy rezando por tu salvación"
+    ]) {
+      assert.ok(repaired.some(record => record.title === title));
+      const results = searchCucshRecords(records, title, { rows: 80 });
+      assert.ok(
+        results.some(record => record.title === title && record.journal === "Sincronía"),
+        `Sincronía missing restored title: ${title}`
+      );
+    }
+  }
+);
 
 test(
   "Protrepsis conserva metadatos editoriales de los números 1–14",

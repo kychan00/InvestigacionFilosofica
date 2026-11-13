@@ -872,11 +872,127 @@ function renderStats(
 }
 
 
+function originalSourceAvailability(
+  item
+) {
+  const direct =
+    item.sourceAvailability;
+
+  if (
+    [
+      "original-page-unavailable",
+      "original-page-archived-only"
+    ].includes(
+      direct?.status
+    )
+  ) {
+    return direct;
+  }
+
+  return (
+    (item.sourceRecords || [])
+      .map(
+        source =>
+          source?.accessStatus
+      )
+      .find(
+        status =>
+          [
+            "original-page-unavailable",
+            "original-page-archived-only"
+          ].includes(
+            status?.status
+          )
+      ) ||
+    null
+  );
+}
+
+
+function originalSourceUnavailable(
+  item
+) {
+  return Boolean(
+    originalSourceAvailability(
+      item
+    )
+  );
+}
+
+
+function canonicalSourceUnavailable(
+  item
+) {
+  const status =
+    originalSourceAvailability(
+      item
+    );
+
+  if (
+    !status ||
+    !item.urls?.canonical ||
+    !status.originalUrl
+  ) {
+    return false;
+  }
+
+  return (
+    String(
+      item.urls.canonical
+    ) ===
+    String(
+      status.originalUrl
+    )
+  );
+}
+
+
+function originalSourceStatusLabel(
+  item
+) {
+  const availability =
+    originalSourceAvailability(
+      item
+    );
+
+  if (
+    availability?.status ===
+    "original-page-archived-only"
+  ) {
+    return (
+      "Página original no disponible al verificar"
+      + " · copia archivada localizada"
+    );
+  }
+
+  if (
+    availability?.status ===
+    "original-page-unavailable"
+  ) {
+    return (
+      "Página original no disponible al verificar"
+    );
+  }
+
+  return "";
+}
+
+
 function resultUrl(item) {
+  const canonicalUnavailable =
+    canonicalSourceUnavailable(
+      item
+    );
+
   return (
     item.urls?.openAccess ||
     item.urls?.doi ||
-    item.urls?.canonical ||
+    (
+      canonicalUnavailable
+        ? null
+        : item.urls?.canonical
+    ) ||
+    item.urls?.reference ||
     item.urls?.landing ||
     item.url ||
     null
@@ -1491,6 +1607,18 @@ function renderRecordDetails(
       .join(" · ");
 
 
+  const sourceUnavailable =
+    originalSourceUnavailable(
+      item
+    );
+
+
+  const sourceStatusLabel =
+    originalSourceStatusLabel(
+      item
+    );
+
+
   const archiveSource =
     (item.sourceRecords || [])
       .find(
@@ -1703,6 +1831,9 @@ function renderRecordDetails(
 
   if (
     item.urls?.canonical &&
+    !canonicalSourceUnavailable(
+      item
+    ) &&
     !item.urls.canonical.includes(
       "doi.org"
     )
@@ -1722,11 +1853,31 @@ function renderRecordDetails(
   }
 
 
+  if (
+    sourceUnavailable &&
+    item.urls?.reference
+  ) {
+    accessLinks.push(`
+      <a
+        class="cinematic-action"
+        href="${escapeHtml(
+          item.urls.reference
+        )}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Referencia bibliográfica
+      </a>
+    `);
+  }
+
+
   const existingAccessUrls =
     new Set(
       [
         item.urls?.openAccess,
         item.urls?.canonical,
+        item.urls?.reference,
         item.doi
           ? `https://doi.org/${item.doi}`
           : item.urls?.doi
@@ -2122,7 +2273,10 @@ function renderRecordDetails(
 
 
           ${
-            accessLinks.length
+            (
+              accessLinks.length ||
+              sourceUnavailable
+            )
               ? `
                 <section class="cinematic-section">
 
@@ -2145,9 +2299,29 @@ function renderRecordDetails(
                   </div>
 
 
-                  <div class="cinematic-actions">
-                    ${accessLinks.join("")}
-                  </div>
+                  ${
+                    sourceUnavailable
+                      ? `
+                        <p class="cinematic-note">
+                          ${escapeHtml(
+                            sourceStatusLabel
+                          )}. El registro bibliográfico se conserva
+                          aunque el enlace histórico ya no responda.
+                        </p>
+                      `
+                      : ""
+                  }
+
+
+                  ${
+                    accessLinks.length
+                      ? `
+                        <div class="cinematic-actions">
+                          ${accessLinks.join("")}
+                        </div>
+                      `
+                      : ""
+                  }
 
                 </section>
               `
@@ -2903,6 +3077,28 @@ function renderResult(
     resultUrl(item);
 
 
+  const sourceUnavailable =
+    originalSourceUnavailable(
+      item
+    );
+
+
+  const sourceStatusLabel =
+    originalSourceStatusLabel(
+      item
+    );
+
+
+  const resultLinkLabel =
+    (
+      sourceUnavailable &&
+      item.urls?.reference &&
+      url === item.urls.reference
+    )
+      ? "Referencia bibliográfica"
+      : "Abrir";
+
+
   const doi =
     item.doi
       ? `https://doi.org/${item.doi}`
@@ -3147,6 +3343,23 @@ function renderResult(
           }
 
           ${
+            sourceUnavailable
+              ? `
+                <span
+                  class="provider source-unavailable"
+                  title="${escapeHtml(
+                    sourceStatusLabel
+                  )}"
+                >
+                  ${escapeHtml(
+                    sourceStatusLabel
+                  )}
+                </span>
+              `
+              : ""
+          }
+
+          ${
             item.openAccess?.isOpen
               ? `
                 <span class="provider">
@@ -3238,7 +3451,9 @@ function renderResult(
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Abrir
+                  ${escapeHtml(
+                    resultLinkLabel
+                  )}
                 </a>
               `
               : ""

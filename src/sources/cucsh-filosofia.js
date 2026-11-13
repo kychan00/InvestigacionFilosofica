@@ -583,6 +583,26 @@ export function normalizeCucshRecord(
     null;
 
 
+  const sourceAvailability =
+    record.legacyAccessStatus ||
+    null;
+
+
+  const bibliographicReference =
+    [
+      record.legacyTitleEncodingEvidence?.sourceUrl,
+      record.legacyAuthorEvidence?.sourceUrl,
+      record.legacyCompletenessEvidence?.sourceArticleUrl,
+      record.legacyCompletenessEvidence?.sourceIssueUrl
+    ]
+      .find(
+        url =>
+          url &&
+          String(url) !== String(canonical)
+      ) ||
+    null;
+
+
   return {
     id:
       record.id ||
@@ -703,9 +723,29 @@ export function normalizeCucshRecord(
           record.journal ||
           null,
 
+        section:
+          record.section ||
+          null,
+
+        issueTitle:
+          record.issueTitle ||
+          null,
+
+        issueNumber:
+          record.issueNumber ??
+          null,
+
+        legacyOriginal:
+          Boolean(
+            record.legacyOriginal
+          ),
+
         oaiDatestamp:
           record.oaiDatestamp ||
           null,
+
+        accessStatus:
+          sourceAvailability,
 
         relations:
           (
@@ -745,6 +785,8 @@ export function normalizeCucshRecord(
     metadataConfidence:
       0,
 
+    sourceAvailability,
+
     urls: {
       canonical,
 
@@ -754,7 +796,10 @@ export function normalizeCucshRecord(
           : null,
 
       openAccess:
-        null
+        null,
+
+      reference:
+        bibliographicReference
     },
 
     institutionalLinks: []

@@ -1,198 +1,173 @@
-name: Update CUCSH Filosofía
+name: CUCSH harvest · Sincronía discovery/release
 
 on:
   workflow_dispatch:
-
-  schedule:
-    - cron: "17 12 3 * *"
-
+    inputs:
+      mode:
+        description: "discovery tolera cobertura histórica incompleta; release exige Sincronía completa"
+        required: true
+        default: discovery
+        type: choice
+        options:
+          - discovery
+          - release
 
 permissions:
   contents: write
-  actions: write
-
+  actions: read
 
 concurrency:
-  group: cucsh-harvest
+  group: cucsh-harvest-${{ github.ref_name }}
   cancel-in-progress: false
-
 
 jobs:
   harvest:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
-      - name: Checkout main
+      - name: Checkout requested ref
         uses: actions/checkout@v6
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
-
 
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
-
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
           node-version: 24
-
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Fast offline preflight
+        run: |
+          python3 -m py_compile \
+            scripts/cucsh/harvest.py \
+            scripts/cucsh/sincronia_dialnet.py \
+            scripts/cucsh/sincronia_legacy.py \
+            scripts/cucsh/sincronia_redalyc.py \
+            scripts/cucsh/validate_update.py \
+            tests/test_cucsh_sincronia.py \
+            tests/test_cucsh_sincronia_dialnet.py \
+            tests/test_cucsh_sincronia_legacy.py \
+            tests/test_cucsh_sincronia_redalyc.py \
+            tests/test_cucsh_validate_update.py
+
+          python3 -m unittest \
+            tests/test_cucsh_sincronia.py \
+            tests/test_cucsh_sincronia_dialnet.py \
+            tests/test_cucsh_sincronia_legacy.py \
+            tests/test_cucsh_sincronia_redalyc.py \
+            tests/test_cucsh_validate_update.py
+
+          npm test
 
       - name: Preserve previous snapshot
-        run: |
-          cp \
-            src/data/cucsh-filosofia.json \
-            /tmp/cucsh-before.json
-
+        run: cp src/data/cucsh-filosofia.json /tmp/cucsh-before.json
 
       - name: Harvest CUCSH metadata
         shell: bash
         run: |
           set -euo pipefail
 
-          python3 \
-            scripts/cucsh/harvest.py \
-            2>&1 \
-            | tee /tmp/cucsh-harvest.log
+          python3 scripts/cucsh/harvest.py \
+            2>&1 | tee /tmp/cucsh-harvest.log
 
-          if grep -q \
-            'status=preserved' \
-            /tmp/cucsh-harvest.log
-          then
-            echo \
-              "::warning title=CUCSH source preserved::At least one journal could not be harvested; its previous snapshot was preserved."
+          if grep -q 'status=preserved' /tmp/cucsh-harvest.log; then
+            echo "::warning title=CUCSH source preserved::At least one journal could not be harvested; its previous snapshot was preserved."
+            if [ "${{ inputs.mode }}" = "release" ]; then
+              echo "::error title=CUCSH release blocked::A source harvest failed and previous records were reused. Release requires a fresh harvest of every source."
+              exit 1
+            fi
           fi
 
-
       - name: Validate snapshot update
+        shell: bash
         run: |
-          python3 \
-            scripts/cucsh/validate_update.py \
-            --before /tmp/cucsh-before.json \
-            --after src/data/cucsh-filosofia.json
+          set -euo pipefail
 
+          args=(
+            --before /tmp/cucsh-before.json
+            --after src/data/cucsh-filosofia.json
+          )
+
+          if [ "${{ inputs.mode }}" = "discovery" ]; then
+            args+=(--allow-incomplete-sincronia)
+          fi
+
+          python3 scripts/cucsh/validate_update.py "${args[@]}"
 
       - name: Detect snapshot changes
         id: snapshot
         shell: bash
         run: |
-          if git diff --quiet -- \
-            src/data/cucsh-filosofia.json
-          then
-            echo "changed=false" \
-              >> "$GITHUB_OUTPUT"
-
-            echo \
-              "CUCSH snapshot unchanged."
+          if git diff --quiet -- src/data/cucsh-filosofia.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "CUCSH snapshot unchanged."
           else
-            echo "changed=true" \
-              >> "$GITHUB_OUTPUT"
-
-            echo \
-              "CUCSH snapshot changed."
-
-            git diff --stat -- \
-              src/data/cucsh-filosofia.json
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "CUCSH snapshot changed."
+            git diff --stat -- src/data/cucsh-filosofia.json
           fi
-
-
-      - name: Validate Python
-        run: |
-          python3 -m py_compile \
-            scripts/cucsh/harvest.py \
-            scripts/cucsh/validate_update.py
-
-
-      - name: Run test suite
-        run: npm test
-
 
       - name: Validate diff
         run: git diff --check
 
+      - name: Upload discovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucsh-sincronia-${{ inputs.mode }}-${{ github.run_id }}
+          path: |
+            src/data/cucsh-filosofia.json
+            /tmp/cucsh-harvest.log
+          if-no-files-found: warn
+          retention-days: 14
 
-      - name: Commit updated snapshot
-        if: steps.snapshot.outputs.changed == 'true'
+      - name: Commit complete release snapshot
+        if: inputs.mode == 'release' && steps.snapshot.outputs.changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
 
-          git config \
-            user.name \
-            "github-actions[bot]"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git config \
-            user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
 
-          git add \
-            src/data/cucsh-filosofia.json
-
-          STAGED="$(
-            git diff \
-              --cached \
-              --name-only
-          )"
-
-          if [
-            "$STAGED" != \
-            "src/data/cucsh-filosofia.json"
-          ]
-          then
-            echo \
-              "Unexpected staged files:"
+          STAGED="$(git diff --cached --name-only)"
+          if [ "$STAGED" != "src/data/cucsh-filosofia.json" ]; then
+            echo "Unexpected staged files:"
             echo "$STAGED"
             exit 1
           fi
 
-          git diff \
-            --cached \
-            --check
-
-          git commit \
-            -m "Update CUCSH Filosofía snapshot"
-
-          git push \
-            origin \
-            HEAD:main
-
-
-      - name: Deploy updated snapshot
-        if: steps.snapshot.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh workflow run \
-            deploy.yml \
-            --ref main
-
+          git diff --cached --check
+          git commit -m "Update complete CUCSH Filosofía snapshot"
+          git push origin "HEAD:${{ github.ref_name }}"
 
       - name: Job summary
         if: always()
         shell: bash
         run: |
           {
-            echo "## CUCSH Filosofía"
+            echo "## CUCSH Filosofía · Sincronía"
             echo
+            echo "- Mode: ${{ inputs.mode }}"
             echo "- Snapshot changed: ${{ steps.snapshot.outputs.changed || 'unknown' }}"
-            echo "- Schedule: monthly, day 3 at 12:17 UTC"
+            echo "- Discovery never commits partial snapshots."
+            echo "- Release commits only after strict complete-coverage validation."
             echo
-            echo '```text'
-
-            if [
-              -f /tmp/cucsh-harvest.log
-            ]
-            then
-              tail -n 35 \
-                /tmp/cucsh-harvest.log
+            echo '~~~text'
+            if [ -f /tmp/cucsh-harvest.log ]; then
+              tail -n 45 /tmp/cucsh-harvest.log
             fi
-
-            echo '```'
+            echo '~~~'
           } >> "$GITHUB_STEP_SUMMARY"
