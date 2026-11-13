@@ -135,3 +135,24 @@ export function articleTopicMetadata(record, { derive = true, limit = 8 } = {}) 
 export function articleTopics(record, options = {}) {
   return articleTopicMetadata(record, options).topics;
 }
+
+
+const CATEGORY_LABELS = {
+  editorial: "Categorías editoriales",
+  bibliographic: "Categorías bibliográficas",
+  documented: "Categorías documentadas",
+  derived: "Categorías derivadas",
+  none: "Categorías documentadas"
+};
+
+export function articleCategoryMetadata(record, options = {}) {
+  const meta = articleTopicMetadata(record, options);
+  return {
+    ...meta,
+    label: CATEGORY_LABELS[meta.origin] || "Categorías documentadas"
+  };
+}
+
+export function articleCategories(record, options = {}) {
+  return articleCategoryMetadata(record, options).allTopics;
+}
