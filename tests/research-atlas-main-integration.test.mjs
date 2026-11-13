@@ -233,7 +233,7 @@ test("RA12-D4 actualiza copy público y cache bust del Atlas embebido", () => {
   );
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-global-work-dedup-v3/
+    /research-atlas-embed\.js\?v=20261113-ra13a-v1/
   );
   assert.match(
     page,
@@ -333,7 +333,7 @@ test("load-more topology reuses the existing cached Qwen vector client", () => {
 test("load-more topology cache-busts both app and embedded Atlas assets", () => {
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261109-global-work-dedup-v3/
+    /research-atlas-embed\.js\?v=20261113-ra13a-v1/
   );
   assert.match(
     page,
