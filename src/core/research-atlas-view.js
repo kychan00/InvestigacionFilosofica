@@ -12,7 +12,7 @@ export const RESEARCH_ATLAS_VIEW_SCHEMA_VERSION =
   "research-atlas-view-v1";
 
 export const RESEARCH_ATLAS_VIEW_REVISION =
-  "2026-11-07.ra11-v1";
+  "2026-11-13.ra13a-identity-v1";
 
 
 const DEFAULT_EDGE_TYPES = Object.freeze([
@@ -30,6 +30,18 @@ function normalize(value) {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim();
+}
+
+
+function authorityIdentifier(
+  node,
+  scheme
+) {
+  return (node?.externalIdentifiers || [])
+    .find(identifier =>
+      identifier?.scheme === scheme
+    )?.normalizedValue ||
+    null;
 }
 
 
@@ -98,6 +110,24 @@ function nodeSubtitle(node) {
     node.nodeType ===
     RESEARCH_ATLAS_NODE_TYPES.AUTHORITY_PERSON
   ) {
+    if (
+      authorityIdentifier(
+        node,
+        "orcid"
+      )
+    ) {
+      return "ORCID · identidad confirmada";
+    }
+
+    if (
+      authorityIdentifier(
+        node,
+        "openalex-author"
+      )
+    ) {
+      return "OpenAlex Author ID · identidad confirmada";
+    }
+
     return node.resolutionState === "confirmed"
       ? "Autoridad confirmada"
       : "Autoridad probable";
@@ -244,9 +274,25 @@ function whyNode(node) {
     node.nodeType ===
     RESEARCH_ATLAS_NODE_TYPES.AUTHORITY_PERSON
   ) {
+    const orcid =
+      authorityIdentifier(
+        node,
+        "orcid"
+      );
+
+    const openalex =
+      authorityIdentifier(
+        node,
+        "openalex-author"
+      );
+
     return [
-      "Persona resuelta por Author Authority Graph.",
-      "Su posición es satélite de sus obras y no modifica la topología."
+      orcid
+        ? "Persona resuelta por identificador ORCID determinista."
+        : openalex
+          ? "Persona resuelta por OpenAlex Author ID determinista."
+          : "Persona resuelta por evidencia de autoridad.",
+      "Su posición es satélite de sus obras y no modifica la topología Work-first."
     ];
   }
 
@@ -311,6 +357,20 @@ export function buildResearchAtlasViewModel(
             node.identity?.key || null,
           providers:
             [...(node.providers || [])],
+          authorityRef:
+            node.authorityRef || null,
+          resolutionState:
+            node.resolutionState || null,
+          externalIdentifiers:
+            structuredClone(
+              node.externalIdentifiers || []
+            ),
+          affiliations:
+            structuredClone(
+              node.affiliations || []
+            ),
+          authorityRevision:
+            node.authorityRevision || null,
           why: whyNode(node)
         };
       })
