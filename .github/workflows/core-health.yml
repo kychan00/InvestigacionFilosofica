@@ -82,6 +82,9 @@ jobs:
       - name: Verify Quadripartita editorial chronology policy
         run: python3 -m unittest discover -s tests -p 'test_quadripartita_editorial.py' -v
 
+      - name: Verify Protrepsis OJS editorial keyword parser
+        run: python3 -m unittest tests/test_protrepsis_keywords.py -v
+
       - name: Run deterministic application regression suite
         run: npm test
 
