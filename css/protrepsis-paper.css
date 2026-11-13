@@ -421,7 +421,7 @@ html[data-theme="dark"] .ji.ji--protrepsis {--paper:#1b201e;--paper-light:#292d2
   body[data-journal="protrepsis"] .pro-tab-no {display:block;margin:0 0 4px;}
   body[data-journal="protrepsis"] .pro-section-heading h2 {font-size:3rem;}
   body[data-journal="protrepsis"] .journal-panel {padding:28px 14px 59px;}
-  body[data-journal="protrepsis"] .journal-card-grid {gap:13px;}
+  body[data-journal="protrepsis"] .journal-card-grid {gap:16px;}
   body[data-journal="protrepsis"] .journal-card-body {padding:18px;}
   body[data-journal="protrepsis"] .journal-card h3 {font-size:1.85rem;}
 }
