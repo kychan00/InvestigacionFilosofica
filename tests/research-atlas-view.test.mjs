@@ -160,12 +160,78 @@ test("AuthorityPerson y AuthorMention conservan estados visuales diferentes", ()
 
   assert.match(
     person.why.join(" "),
-    /Author Authority Graph/
+    /evidencia de autoridad|identificador/i
   );
 
   assert.match(
     mention.why.join(" "),
     /no resuelta/i
+  );
+});
+
+
+test("RA13 expone ORCID, OpenAlex y afiliaciones de AuthorityPerson en el view model", () => {
+  const snapshot =
+    structuredClone(
+      fixture.initialSnapshot
+    );
+
+  const person =
+    snapshot.nodes.find(
+      node =>
+        node.id ===
+        "person:p1"
+    );
+
+  person.externalIdentifiers = [
+    {
+      scheme: "orcid",
+      normalizedValue: "0000-0002-7283-8051"
+    },
+    {
+      scheme: "openalex-author",
+      normalizedValue: "123"
+    }
+  ];
+
+  person.affiliations = [
+    {
+      institution: "Universidad de Guadalajara",
+      status: "asserted",
+      sources: ["ORCID"]
+    }
+  ];
+
+  const view =
+    buildView(
+      snapshot
+    );
+
+  const rendered =
+    view.nodes.find(
+      node =>
+        node.id ===
+        "person:p1"
+    );
+
+  assert.match(
+    rendered.subtitle,
+    /ORCID/
+  );
+
+  assert.equal(
+    rendered.externalIdentifiers[0].normalizedValue,
+    "0000-0002-7283-8051"
+  );
+
+  assert.equal(
+    rendered.affiliations[0].institution,
+    "Universidad de Guadalajara"
+  );
+
+  assert.match(
+    rendered.why.join(" "),
+    /ORCID determinista/
   );
 });
 
