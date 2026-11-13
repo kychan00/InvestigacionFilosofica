@@ -73,6 +73,19 @@ jobs:
           tail -100 /tmp/sincronia-rehearsal-python.log
           echo "SINCRONIA_INTEGRATION_PYTHON_TEST_EXIT $status"
           echo "$status" > /tmp/sincronia-rehearsal-python-status.txt
+      - name: Run all CUCSH Python unit tests against merged corpus
+        shell: bash
+        run: |
+          set +e
+          python3 -m unittest discover -s tests -p 'test_cucsh_*.py' > /tmp/sincronia-rehearsal-all-python.log 2>&1
+          status=$?
+          set -e
+          tail -120 /tmp/sincronia-rehearsal-all-python.log
+          if [ "$status" -ne 0 ]; then
+            grep -n -E 'FAIL:|ERROR:|Ran [0-9]+ tests|AssertionError|ValueError|ModuleNotFoundError' /tmp/sincronia-rehearsal-all-python.log | tail -100 || true
+          fi
+          echo "SINCRONIA_INTEGRATION_ALL_PYTHON_EXIT $status"
+          echo "$status" > /tmp/sincronia-rehearsal-all-python-status.txt
       - name: Inspect merged source and preserve dry-run report only
         shell: bash
         run: |
@@ -103,5 +116,7 @@ jobs:
             /tmp/sincronia-rehearsal-npm-status.txt
             /tmp/sincronia-rehearsal-python.log
             /tmp/sincronia-rehearsal-python-status.txt
+            /tmp/sincronia-rehearsal-all-python.log
+            /tmp/sincronia-rehearsal-all-python-status.txt
           retention-days: 30
           if-no-files-found: warn

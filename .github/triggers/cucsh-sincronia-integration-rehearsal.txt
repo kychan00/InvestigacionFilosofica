@@ -7,3 +7,5 @@ Rehearsal correction: restore both main policy imports after auto merge omitted 
 Retry after preserving both separate Protrepsis and Sincronía tests, adjusting catalog-wide count expectations and updating Quadripartita stamp invariant to 1790. No push; full regression. 2026-11-13.
 
 Rehearsal retry: restore literal newline escape in merged JS test separator, preserving main and Sincronia test suites. No push until all tests pass. 2026-11-13.
+
+Expand approved integration rehearsal to all tests matching test_cucsh_*.py, keep output and no-push until complete. 2026-11-13.
