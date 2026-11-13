@@ -1,0 +1,288 @@
+/* PROTREPSIS · Filtrado como gabinete museográfico
+ * Etiquetas de lámina, cintas de archivo y tinta sobre papel.
+ * Se limita a Protrepsis: preserva Quadripartita y Sincronía.
+ */
+body[data-journal="protrepsis"] .pro-curatorial-block {
+  --pro-ticket-paper:#faf6e9;
+  --pro-ticket-dark:#203e55;
+  --pro-ticket-gold:#bb8a30;
+  --pro-ticket-border:#d7c7a5;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #c7b488;
+  background:var(--pro-ticket-paper);
+  box-shadow:0 7px 0 -4px #cdb88e,0 9px 24px rgba(28,39,40,.07);
+}
+body[data-journal="protrepsis"] .pro-curatorial-block::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:5px;
+  z-index:1;
+  background:linear-gradient(90deg,#b8503d 0 28%,#244f70 28% 57%,#bc913b 57% 77%,#497263 77% 100%);
+}
+body[data-journal="protrepsis"] .pro-curatorial-issues::before {
+  background:linear-gradient(90deg,#315d6f 0 28%,#c49c4b 28% 61%,#a05442 61% 82%,#6b7859 82% 100%);
+}
+body[data-journal="protrepsis"] .pro-curatorial-header {
+  position:relative;
+  padding:23px 22px 20px;
+  background:#f0e5ce;
+  color:#20384a;
+  border-bottom:1px solid var(--pro-ticket-border);
+}
+body[data-journal="protrepsis"] .pro-curatorial-header::after {
+  content:"";
+  position:absolute;
+  right:15px;
+  bottom:15px;
+  width:57px;
+  height:57px;
+  border:1px solid rgba(43,68,77,.15);
+  border-radius:50%;
+  pointer-events:none;
+}
+body[data-journal="protrepsis"] .pro-curatorial-header-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:13px;
+}
+body[data-journal="protrepsis"] .pro-curatorial-header .journal-kicker {
+  margin:0;
+  font:600 .61rem/1.5 'IBM Plex Mono',monospace;
+  letter-spacing:.12em;
+  color:#36526c;
+}
+body[data-journal="protrepsis"] .pro-curatorial-ornament {
+  display:grid;
+  flex:0 0 auto;
+  place-items:center;
+  width:31px;
+  height:31px;
+  border:1px solid #c5a469;
+  color:#b34a39;
+  font:500 1.35rem/1 var(--pro-display,Georgia,serif);
+  transform:rotate(-8deg);
+}
+body[data-journal="protrepsis"] .pro-curatorial-header h2 {
+  position:relative;
+  z-index:1;
+  margin:0 0 9px;
+  max-width:260px;
+  color:#19354a;
+  font:italic 400 clamp(2.2rem,3vw,3.1rem)/.97 var(--pro-display,Georgia,serif);
+  letter-spacing:-.035em;
+}
+body[data-journal="protrepsis"] .pro-curatorial-hint {
+  position:relative;
+  z-index:1;
+  margin:0 0 18px;
+  max-width:255px;
+  color:#5e605c;
+  font:500 .7rem/1.62 var(--pro-text,Arial,sans-serif);
+}
+body[data-journal="protrepsis"] .pro-curatorial-all {
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  width:100%;
+  min-height:44px;
+  padding:9px 11px;
+  border:1px solid #3b5a6b;
+  border-radius:0;
+  background:transparent;
+  color:#284659;
+  font:600 .73rem/1.3 var(--pro-text,Arial,sans-serif);
+  cursor:pointer;
+  text-align:left;
+  transition:background-color .2s ease,color .2s ease,transform .16s ease,box-shadow .2s ease;
+}
+body[data-journal="protrepsis"] .pro-curatorial-all .pro-curatorial-all-symbol {
+  display:grid;
+  place-items:center;
+  flex:0 0 23px;
+  width:23px;
+  height:23px;
+  border:1px solid currentColor;
+  font:600 1.15rem/1 var(--pro-display,Georgia,serif);
+}
+body[data-journal="protrepsis"] .pro-curatorial-all > span:last-child {margin-left:auto;}
+body[data-journal="protrepsis"] .pro-curatorial-all.is-current {
+  background:#e0d3b5;
+  border-color:#a78a54;
+  color:#2c4758;
+}
+body[data-journal="protrepsis"] .pro-curatorial-all.has-selection,
+body[data-journal="protrepsis"] .pro-curatorial-all:hover {
+  background:#274a62;
+  border-color:#274a62;
+  color:#fff5dc;
+}
+body[data-journal="protrepsis"] .pro-curatorial-all:active {transform:scale(.974);}
+body[data-journal="protrepsis"] .pro-curatorial-block .journal-taxonomy-list {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:11px;
+  padding:20px 17px 24px;
+  max-height:none !important;
+  overflow:visible !important;
+  background:#faf6e9;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .journal-taxonomy-list .taxonomy-chip {
+  --ticket-accent:#335773;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:9px;
+  width:100%;
+  min-width:0;
+  min-height:61px;
+  margin:0;
+  padding:12px 12px 11px;
+  border:1px solid color-mix(in srgb,var(--ticket-accent) 57%,#e7dbbe);
+  border-left:4px solid var(--ticket-accent);
+  border-radius:0;
+  color:#203647;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--ticket-accent) 13%,#fff7e5) 0%,#fff9ed 95%);
+  box-shadow:3px 3px 0 color-mix(in srgb,var(--ticket-accent) 16%,#f8ebd1);
+  font:600 .78rem/1.36 var(--pro-text,Arial,sans-serif);
+  letter-spacing:-.015em;
+  text-align:left;
+  cursor:pointer;
+  isolation:isolate;
+  transition:background-color .22s ease,color .22s ease,transform .19s ease,
+             box-shadow .2s ease,border-color .2s ease;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip::before {
+  content:"✳";
+  position:absolute;
+  top:4px;
+  right:6px;
+  color:var(--ticket-accent);
+  opacity:.22;
+  font:400 1rem/1 var(--pro-display,Georgia,serif);
+  pointer-events:none;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip > span {
+  z-index:1;
+  min-width:0;
+  white-space:normal;
+  overflow-wrap:break-word;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip strong {
+  z-index:1;
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  min-width:27px;
+  min-height:26px;
+  padding:4px 6px;
+  margin-left:auto;
+  border:1px solid color-mix(in srgb,var(--ticket-accent) 44%,transparent);
+  background:rgba(255,253,244,.73);
+  color:var(--ticket-accent);
+  font:700 .68rem/1.25 'IBM Plex Mono',monospace;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip:nth-child(5n+1) {--ticket-accent:#9b4a3b;}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip:nth-child(5n+2) {--ticket-accent:#28587b;}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip:nth-child(5n+3) {--ticket-accent:#4b7160;}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip:nth-child(5n+4) {--ticket-accent:#786087;}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip:nth-child(5n+5) {--ticket-accent:#936921;}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip:hover {
+  transform:translateY(-3px);
+  box-shadow:3px 7px 0 color-mix(in srgb,var(--ticket-accent) 24%,#eddcba);
+  border-color:var(--ticket-accent);
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip:active {
+  transform:translateY(1px) scale(.965);
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip.is-active,
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip[aria-pressed="true"] {
+  background:var(--ticket-accent);
+  color:#fffaf0;
+  border-color:var(--ticket-accent);
+  box-shadow:0 0 0 3px #faf6e9,0 0 0 5px var(--ticket-accent);
+  animation:pro-curatorial-select .32s cubic-bezier(.2,.75,.2,1) both;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip.is-active::before,
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip[aria-pressed="true"]::before {
+  color:#fff6d6;opacity:.46;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip.is-active strong,
+body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip[aria-pressed="true"] strong {
+  background:#fff1cf;
+  color:#213e52;
+  border-color:#fff1cf;
+}
+body[data-journal="protrepsis"] .pro-curatorial-block :is(.taxonomy-chip,.pro-curatorial-all):focus-visible {
+  outline:3px solid #ab5b37;
+  outline-offset:4px;
+}
+body[data-journal="protrepsis"] .pro-curatorial-issues .taxonomy-chip {
+  min-height:56px;
+  padding:11px 9px;
+  font-size:.77rem;
+}
+body[data-journal="protrepsis"] .pro-curatorial-issues .taxonomy-chip::before {
+  content:"◈";
+  font-size:1rem;
+}
+body[data-journal="protrepsis"] .journal-card-grid > .journal-card {
+  animation:pro-curatorial-results .35s cubic-bezier(.2,.7,.2,1) backwards;
+}
+body[data-journal="protrepsis"] .journal-card-grid > .journal-card:nth-child(2) {animation-delay:.045s;}
+body[data-journal="protrepsis"] .journal-card-grid > .journal-card:nth-child(3) {animation-delay:.075s;}
+body[data-journal="protrepsis"] .journal-card-grid > .journal-card:nth-child(n+4) {animation-delay:.09s;}
+@keyframes pro-curatorial-select {
+  0% {transform:scale(.97);filter:brightness(1.2);}
+  58% {transform:scale(1.038);}
+  100% {transform:scale(1);filter:brightness(1);}
+}
+@keyframes pro-curatorial-results {
+  from {opacity:.5;transform:translateY(9px);}
+  to {opacity:1;transform:translateY(0);}
+}
+@media (max-width: 1180px) {
+  body[data-journal="protrepsis"] .pro-curatorial-header {padding:21px 18px 18px;}
+  body[data-journal="protrepsis"] .pro-curatorial-block .journal-taxonomy-list {padding:17px 13px 20px;gap:9px;}
+  body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip {padding:10px 9px;min-height:57px;font-size:.73rem;}
+}
+@media (min-width: 821px) and (max-width: 980px) {
+  body[data-journal="protrepsis"] .pro-curatorial-block .journal-taxonomy-list {
+    grid-template-columns:1fr;
+  }
+}
+@media (max-width: 700px) {
+  body[data-journal="protrepsis"] .pro-curatorial-header {padding:24px 21px 19px;}
+  body[data-journal="protrepsis"] .pro-curatorial-header h2 {font-size:clamp(2.4rem,8vw,3.2rem);}
+  body[data-journal="protrepsis"] .pro-curatorial-block .journal-taxonomy-list {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:11px;
+    padding:19px 16px 23px;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip {min-height:58px;padding:11px 10px;font-size:.8rem;}
+}
+@media (max-width: 365px) {
+  body[data-journal="protrepsis"] .pro-curatorial-block .journal-taxonomy-list {
+    grid-template-columns:1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-journal="protrepsis"] .pro-curatorial-block .taxonomy-chip,
+  body[data-journal="protrepsis"] .pro-curatorial-all,
+  body[data-journal="protrepsis"] .journal-card-grid > .journal-card {
+    transition:none !important;
+    animation:none !important;
+    transform:none !important;
+  }
+}

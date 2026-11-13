@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="../../css/protrepsis-paper.css?v=20261113-editorial-v1">
   <link rel="stylesheet" href="../../css/protrepsis-museo.css?v=20261113-gallery-v1">
   <link rel="stylesheet" href="../../css/protrepsis-folios-color.css?v=20261113-folios-v2">
+  <link rel="stylesheet" href="../../css/protrepsis-curatorial-chips.css?v=20261113-museum-chips-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body data-journal="protrepsis">
@@ -147,14 +148,34 @@
               </div>
             </section>
 
-            <section class="journal-taxonomy-block">
-              <header><p class="journal-kicker">CATEGORÍAS</p><h2>Mapa de navegación</h2></header>
-              <div id="journal-category-chips" class="journal-taxonomy-list"></div>
+            <section class="journal-taxonomy-block pro-curatorial-block" aria-labelledby="pro-categories-title">
+              <header class="pro-curatorial-header">
+                <div class="pro-curatorial-header-top">
+                  <p class="journal-kicker">CATÁLOGO / 01 — TEMAS</p>
+                  <span class="pro-curatorial-ornament" aria-hidden="true">✳</span>
+                </div>
+                <h2 id="pro-categories-title">Mapa de navegación</h2>
+                <p class="pro-curatorial-hint">Categorías de consulta, derivadas para recorrer el archivo.</p>
+                <button id="journal-category-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los temas <span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
             </section>
 
-            <section class="journal-taxonomy-block journal-issues-block">
-              <header><p class="journal-kicker">NÚMEROS</p><h2>Ediciones del archivo</h2></header>
-              <div id="journal-issue-chips" class="journal-taxonomy-list"></div>
+            <section class="journal-taxonomy-block journal-issues-block pro-curatorial-block pro-curatorial-issues" aria-labelledby="pro-issues-title">
+              <header class="pro-curatorial-header">
+                <div class="pro-curatorial-header-top">
+                  <p class="journal-kicker">CATÁLOGO / 02 — NÚMEROS</p>
+                  <span class="pro-curatorial-ornament" aria-hidden="true">Π</span>
+                </div>
+                <h2 id="pro-issues-title">Ediciones del archivo</h2>
+                <p class="pro-curatorial-hint">Recorra la colección por número de publicación.</p>
+                <button id="journal-issue-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los números <span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
             </section>
           </aside>
 
@@ -237,7 +258,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261113-atlas-sheet-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261113-museum-chips-v1"></script>
   <script type="module" src="../../js/protrepsis-catalog.js?v=20261113-folios-v2"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
 </body>
