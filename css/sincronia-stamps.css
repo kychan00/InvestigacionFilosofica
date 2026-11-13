@@ -224,16 +224,25 @@ body[data-journal="sincronia"] .sn-hero-stamp {
   justify-content: space-between;
   color: #10191f;
   background: #f2ebd9;
-  border: 9px solid transparent;
-  -webkit-mask:
-    radial-gradient(circle 5px at 5px 5px,#0000 98%,#000) -5px -5px/18px 18px,
-    linear-gradient(#000 0 0);
-  mask:
-    radial-gradient(circle 5px at 5px 5px,#0000 98%,#000) -5px -5px/18px 18px,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  /* Safari/iOS: never mask the whole stamp; holes live only on the edges. */
+  border: 8px solid transparent;
+  background-clip: padding-box;
+  isolation: isolate;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
+}
+
+body[data-journal="sincronia"] .sn-hero-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* Four narrow edge strips; no full-surface mask or dot overlay. */
+  background:
+    radial-gradient(circle at 7px 4px,#10191f 0 3px,transparent 3.5px) 0 0/14px 8px repeat-x,
+    radial-gradient(circle at 7px 4px,#10191f 0 3px,transparent 3.5px) 0 100%/14px 8px repeat-x,
+    radial-gradient(circle at 4px 7px,#10191f 0 3px,transparent 3.5px) 0 0/8px 14px repeat-y,
+    radial-gradient(circle at 4px 7px,#10191f 0 3px,transparent 3.5px) 100% 0/8px 14px repeat-y;
 }
 
 body[data-journal="sincronia"] .sn-hero-stamp::after {
@@ -697,24 +706,24 @@ body[data-journal="sincronia"] .sn-stamp-paper {
     repeating-linear-gradient(0deg,rgba(20,42,50,.018) 0 1px,transparent 1px 4px),
     var(--sn-card-paper);
   color: #152932;
-  -webkit-mask-image:
-    radial-gradient(circle 6px at left center,transparent 97%,#000 104%),
-    radial-gradient(circle 6px at right center,transparent 97%,#000 104%),
-    radial-gradient(circle 6px at center top,transparent 97%,#000 104%),
-    radial-gradient(circle 6px at center bottom,transparent 97%,#000 104%);
-  mask-image:
-    radial-gradient(circle 6px at left center,transparent 97%,#000 104%),
-    radial-gradient(circle 6px at right center,transparent 97%,#000 104%),
-    radial-gradient(circle 6px at center top,transparent 97%,#000 104%),
-    radial-gradient(circle 6px at center bottom,transparent 97%,#000 104%);
-  -webkit-mask-position: left top,right top,left top,left bottom;
-  mask-position: left top,right top,left top,left bottom;
-  -webkit-mask-size: 100% 20px,100% 20px,20px 100%,20px 100%;
-  mask-size: 100% 20px,100% 20px,20px 100%,20px 100%;
-  -webkit-mask-repeat: repeat-y,repeat-y,repeat-x,repeat-x;
-  mask-repeat: repeat-y,repeat-y,repeat-x,repeat-x;
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  /* Keep the full paper and its links opaque on Mobile Safari. */
+  border: 6px solid transparent;
+  background-clip: padding-box;
+}
+
+body[data-journal="sincronia"] .sn-stamp-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Perforation accents remain within the 8px paper perimeter. */
+  background:
+    radial-gradient(circle at 7px 4px,var(--sn-card-accent) 0 2.6px,transparent 3px) 0 0/14px 8px repeat-x,
+    radial-gradient(circle at 7px 4px,var(--sn-card-accent) 0 2.6px,transparent 3px) 0 100%/14px 8px repeat-x,
+    radial-gradient(circle at 4px 7px,var(--sn-card-accent) 0 2.6px,transparent 3px) 0 0/8px 14px repeat-y,
+    radial-gradient(circle at 4px 7px,var(--sn-card-accent) 0 2.6px,transparent 3px) 100% 0/8px 14px repeat-y;
+  opacity: .8;
 }
 
 body[data-journal="sincronia"] .sn-stamp-plate {
@@ -825,6 +834,55 @@ body[data-journal="sincronia"] .sn-stamp-card .journal-author-link {
   color: var(--sn-card-accent);
   font-weight: 700;
   text-underline-offset: 3px;
+}
+
+/* Names already point to the standard ?view=author&author=... profile.
+   Make that navigation evident and comfortable on touch screens. */
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-byline .journal-author-link,
+body[data-journal="sincronia"] .sn-atlas-reader-detail .journal-author-link,
+body[data-journal="sincronia"] .journal-insight .author-chip {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  margin: 3px 4px 3px 0;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-byline .journal-author-link::after,
+body[data-journal="sincronia"] .sn-atlas-reader-detail .journal-author-link::after {
+  content: "Ver obras ↗";
+  color: inherit;
+  font: 700 9px/1.2 var(--jp-sans);
+  white-space: nowrap;
+  opacity: .9;
+}
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-byline .journal-author-link:hover,
+body[data-journal="sincronia"] .sn-atlas-reader-detail .journal-author-link:hover {
+  background: var(--sn-card-accent, #1e5f8f);
+  border-color: var(--sn-card-accent, #1e5f8f);
+  color: #fff;
+}
+body[data-journal="sincronia"] .sn-atlas-reader-detail .journal-author-link {
+  color: #155675;
+  border-color: #155675;
+}
+body[data-journal="sincronia"] .sn-stamp-card .journal-author-link:focus-visible,
+body[data-journal="sincronia"] .sn-atlas-reader-detail .journal-author-link:focus-visible,
+body[data-journal="sincronia"] .journal-insight .author-chip:focus-visible {
+  outline: 3px solid var(--sn-red);
+  outline-offset: 3px;
+}
+body[data-journal="sincronia"] .journal-insight .author-chip::after {
+  content: "↗";
+  margin-left: auto;
 }
 
 body[data-journal="sincronia"] .sn-stamp-card .journal-card-taxonomy {
@@ -1034,6 +1092,32 @@ body[data-journal="sincronia"] .journal-footer {
   body[data-journal="sincronia"] .sn-stamp-plate { padding: 20px 19px 0; }
   body[data-journal="sincronia"] .sn-stamp-card .journal-card-body { padding: 18px 19px 22px; }
   body[data-journal="sincronia"] .sn-stamp-visual { height: 120px; }
+}
+
+@media (max-width: 700px) {
+  body[data-journal="sincronia"] .sn-hero-stamp {
+    padding: 14px 12px;
+    border-width: 6px;
+  }
+  body[data-journal="sincronia"] .sn-hero-stamp > strong {
+    font-size: clamp(38px, 11vw, 62px);
+    line-height: .96;
+    letter-spacing: -.065em;
+  }
+  body[data-journal="sincronia"] .sn-stamp-issn {
+    font-size: clamp(27px, 8.5vw, 40px) !important;
+    line-height: 1 !important;
+    letter-spacing: -.045em !important;
+  }
+  body[data-journal="sincronia"] .sn-stamp-kicker {
+    font-size: 9px;
+    line-height: 1.3;
+    letter-spacing: .025em;
+  }
+  body[data-journal="sincronia"] .sn-stamp-caption {
+    font-size: 10px;
+    line-height: 1.34;
+  }
 }
 
 @media (max-width: 430px) {
