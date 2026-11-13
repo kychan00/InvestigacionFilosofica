@@ -22,6 +22,9 @@ on:
       - "scripts/qa/protrepsis-curatorial-chips-smoke.mjs"
       - "tests/protrepsis-curatorial-chips.test.mjs"
       - "scripts/qa/quadripartita-stamps-smoke.mjs"
+      - "scripts/qa/quadripartita-postal-taxonomy-smoke.mjs"
+      - "tests/quadripartita-postal-taxonomy.test.mjs"
+      - "css/quadripartita-postal-taxonomy.css"
       - "tests/quadripartita-stamps.test.mjs"
       - "js/quadripartita-stamps.js"
       - "css/quadripartita-cobalt.css"
@@ -188,6 +191,9 @@ jobs:
 
       - name: Verify Quadripartita engraved stamps and cobalt editorial design
         run: node scripts/qa/quadripartita-stamps-smoke.mjs
+
+      - name: Verify Quadripartita cobalt postal taxonomy selection and independent resets
+        run: node scripts/qa/quadripartita-postal-taxonomy-smoke.mjs
 
       - name: Upload responsive screenshots
         if: always()
