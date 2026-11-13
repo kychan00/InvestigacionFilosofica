@@ -74,6 +74,7 @@ const CATEGORY_COLORS = {
 };
 
 const journalId = document.body.dataset.journal;
+const supportsCuratorialFacets = journalId === "protrepsis" || journalId === "quadripartita";
 const config = JOURNALS[journalId] || JOURNALS.protrepsis;
 
 const state = {
@@ -357,7 +358,7 @@ function card(record, index) {
 }
 
 function syncCuratorialChips() {
-  if (journalId !== "protrepsis") return;
+  if (!supportsCuratorialFacets) return;
   for (const [container, facet] of [[el.categories, "category"], [el.issues, "issue"]]) {
     container?.querySelectorAll("[data-taxonomy-value]").forEach(button => {
       const selected = state[facet] === button.dataset.taxonomyValue;
@@ -378,7 +379,7 @@ function selectTaxonomyFacet(facet, value) {
   if (facet !== "category" && facet !== "issue") return;
   // A second tap releases the same tag. Clearing a single facet keeps
   // the rest of the researcher's filters intact.
-  const next = journalId === "protrepsis" && value !== "all" && state[facet] === value ? "all" : value;
+  const next = supportsCuratorialFacets && value !== "all" && state[facet] === value ? "all" : value;
   state[facet] = next;
   const select = facet === "category" ? el.category : el.issue;
   if (select) select.value = next;
@@ -439,7 +440,7 @@ function buildTaxonomy() {
 
   el.categories.replaceChildren();
   const navigationCategories = allCategories();
-  const visibleCategories = journalId === "protrepsis" ? navigationCategories : navigationCategories.slice(0, 10);
+  const visibleCategories = supportsCuratorialFacets ? navigationCategories : navigationCategories.slice(0, 10);
   for (const [label, count] of visibleCategories) {
     const button = document.createElement("button");
     button.type = "button";
