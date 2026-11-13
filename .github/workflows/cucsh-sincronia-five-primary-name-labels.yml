@@ -1,0 +1,134 @@
+name: Sincronía · restore five signed original name-index works
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-five-primary-name-labels.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-five-signed-name-labels
+  cancel-in-progress: false
+
+jobs:
+  restore-five:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Verify five signed originals, organization and source identity
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_five_primary_names_as_titles
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Restore five bylines and retain original index labels
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp src/data/cucsh-filosofia.json /tmp/cucsh-five-primary-before.json
+          python3 -m scripts.cucsh.restore_sincronia_five_primary_names_as_titles \
+            --input /tmp/cucsh-five-primary-before.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Audit bibliography and exactly five author-evidence changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/cucsh-five-primary-before.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-five-primary-history.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-five-primary-pending.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.cucsh.restore_sincronia_five_primary_names_as_titles import SOURCES
+
+          old_data=json.loads(Path("/tmp/cucsh-five-primary-before.json").read_text(encoding="utf-8"))
+          new_data=json.loads(Path("src/data/cucsh-filosofia.json").read_text(encoding="utf-8"))
+          b={row["id"]:row for row in old_data["records"]}
+          a={row["id"]:row for row in new_data["records"]}
+          assert len(b)==len(a)==1845
+          assert list(b)==list(a)
+          changed=[rid for rid in b if b[rid]!=a[rid]]
+          assert len(changed)==5 and set(changed)==set(SOURCES),changed
+          for rid in changed:
+              old,new=b[rid],a[rid]
+              source=SOURCES[rid]
+              assert old["journal"]==new["journal"]=="Sincronía"
+              for key in ("title","year","issueNumber","urls","legacyOriginal","legacyAccessStatus"):
+                  assert old[key]==new[key],(rid,key)
+              assert old.get("legacyTitleEncodingEvidence")==new.get("legacyTitleEncodingEvidence")
+              assert {k for k in set(old)|set(new)
+                      if old.get(k)!=new.get(k)}=={"authors","legacyAuthorEvidence"}
+              assert new["authors"]==[{"name":source["author"],"sourceName":source["author"]}]
+              evidence=new["legacyAuthorEvidence"]
+              assert evidence["sourceUrl"]==source["snapshot"]
+              assert evidence["sourceArticleUrl"]==source["url"]
+              assert evidence["sourceArticleTitle"]==source["sourceArticleTitle"]
+              assert evidence["sourcePrintedByline"]==source["printedByline"]
+              assert evidence["matchedIndexedYear"]==source["year"]
+              assert evidence["matchedIndexedIssue"]==source["issue"]
+              assert evidence["titleIdentityCaveat"]
+              assert evidence["originalAvailabilityPreserved"]
+              assert source["title"]!=source["sourceArticleTitle"]
+          forum=a["cucsh:sincronia-legacy:b6f5b07d79cc222d68e1"]
+          assert forum["authors"]==[{"name":"Forum Intercultura","sourceName":"Forum Intercultura"}]
+          assert forum["legacyAuthorEvidence"]["sourceContributorType"]=="collective/organizational byline"
+          report=json.loads(Path("/tmp/sincronia-five-primary-pending.json").read_text(encoding="utf-8"))
+          assert report["totalSincroniaRecords"]==1454
+          assert report["pendingAuthorRecords"]==38
+          assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==36
+          assert report["highConfidenceEditorialNavigationCount"]==2
+          assert report["bibliographicConflictCount"]==1
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_FIVE_BYLINES_STRICT_PASS",len(changed),38)
+          PY
+      - name: Run complete application regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit only source-verified corpus modifications to feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected worktree changes"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore five signed Sincronía authors and document original article titles"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Upload historical and pending-author reviews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-five-primary-name-labels
+          path: |
+            /tmp/sincronia-five-primary-history.json
+            /tmp/sincronia-five-primary-pending.json
+          retention-days: 30
+          if-no-files-found: warn
