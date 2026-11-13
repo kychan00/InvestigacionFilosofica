@@ -1,0 +1,136 @@
+name: Sincronía · audit six profiles and two Dante texts
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-profiles-poems.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-six-profiles-two-poems
+  cancel-in-progress: false
+
+jobs:
+  verify-work-identities:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Verify source-only identity research and no inferred authors
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_profiles_poems
+          python3 -m unittest tests.test_cucsh_sincronia_last_eight_primary
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Audit remaining source corpus and authorless queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-profiles-history.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-profiles-pending.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("/tmp/sincronia-profiles-pending.json").read_text(encoding="utf-8"))
+          assert d["totalSincroniaRecords"]==1454
+          assert d["pendingAuthorRecords"]==12
+          assert d["authorlessArticleCandidatesExcludingEditorialNavigation"]==10
+          assert d["highConfidenceEditorialNavigationCount"]==2
+          assert d["bibliographicConflictCount"]==0
+          assert d["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_TWELVE_REMAINING_AUDIT_PASS")
+          PY
+      - name: Read historical profiles and Dante texts without assigning bylines
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m scripts.cucsh.research_sincronia_profiles_poems \
+            --input /tmp/sincronia-profiles-pending.json \
+            --output /tmp/sincronia-profiles-poems-eight.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("/tmp/sincronia-profiles-poems-eight.json")
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert d["inputMissingAuthors"]==12
+          assert d["selectionCount"]==8
+          assert d["metadataMutation"] is False
+          assert d["automaticAuthorAssignment"] is False
+          assert len(d["records"])==8
+          assert all(r["authorAttribution"] is None for r in d["records"])
+
+          lines=[
+              "# Six Bolivian author profiles and two Dante pages: archival review",
+              "",
+              "The presence of a person's biography does not establish authorship.",
+              "",
+              "| Historical issue | Original indexed title | Readable capture count |",
+              "|---|---|---:|",
+          ]
+          for r in d["records"]:
+              readable=sum(
+                  x.get("fetchStatus")=="html"
+                  for source in r["candidateSourceCaptures"]
+                  for x in source["captures"]
+              )
+              lines.append(
+                  f'| {r["issueNumber"]} | {r["indexedTitle"].replace("|","/")} | {readable} |'
+              )
+          lines.extend([
+              "",
+              "Kathy Leonard's separate signed introduction to six Bolivian interviews",
+              "is context, NOT automatic source-byline proof for each profile.",
+              "Dante Medina's author biography is not a signature on every text",
+              "in the dante/ subdirectory.",
+              "All original record titles, URLs, years and access statuses remain frozen.",
+          ])
+          Path("/tmp/sincronia-profiles-poems-eight.md").write_text(
+              "\n".join(lines)+"\n",encoding="utf-8"
+          )
+          print("SINCRONIA_PROFILES_POEMS_ARCHIVAL_LEADS_PASS")
+          PY
+      - name: Run full application tests
+        run: |
+          npm ci
+          npm test
+      - name: Prove read-only state and no data loss
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test -z "$(git status --porcelain)" || {
+            git status --short
+            exit 1
+          }
+          echo "SINCRONIA_PROFILES_NO_AUTOMATIC_AUTHOR_PASS"
+      - name: Upload profile excerpts and complete remaining author audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-profiles-poems-eight
+          path: |
+            /tmp/sincronia-profiles-poems-eight.json
+            /tmp/sincronia-profiles-poems-eight.md
+            /tmp/sincronia-profiles-history.json
+            /tmp/sincronia-profiles-pending.json
+          retention-days: 30
+          if-no-files-found: warn
