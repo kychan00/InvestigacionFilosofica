@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="../../css/journal-page.css?v=20261112-history-v6">
   <link rel="stylesheet" href="../../css/journal-atlas-sheet.css?v=20261113-atlas-sheet-v1">
   <link rel="stylesheet" href="../../css/quadripartita-cobalt.css?v=20261113-stamps-v1">
+  <link rel="stylesheet" href="../../css/quadripartita-postal-taxonomy.css?v=20261113-postal-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body data-journal="quadripartita">
@@ -122,14 +123,28 @@
               </div>
             </section>
 
-            <section class="journal-taxonomy-block">
-              <header><p class="journal-kicker">CATEGORÍAS</p><h2>Mapa de navegación</h2></header>
-              <div id="journal-category-chips" class="journal-taxonomy-list"></div>
+            <section class="journal-taxonomy-block qr-postal-taxonomy" aria-labelledby="qr-postal-themes">
+              <header class="qr-postal-header">
+                <div class="qr-postal-overline"><p class="journal-kicker">CLASIFICADOR POSTAL / 01</p><span aria-hidden="true" class="qr-postal-emblem">✳</span></div>
+                <h2 id="qr-postal-themes">Mapa de navegación</h2>
+                <p class="qr-postal-deck">Cada categoría es una ruta de lectura derivada para explorar el archivo.</p>
+                <button id="journal-category-all" class="qr-postal-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todos los temas</span><span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
             </section>
 
-            <section class="journal-taxonomy-block journal-issues-block">
-              <header><p class="journal-kicker">NÚMEROS</p><h2>Ediciones del archivo</h2></header>
-              <div id="journal-issue-chips" class="journal-taxonomy-list"></div>
+            <section class="journal-taxonomy-block journal-issues-block qr-postal-taxonomy qr-postal-issues" aria-labelledby="qr-postal-issues-title">
+              <header class="qr-postal-header">
+                <div class="qr-postal-overline"><p class="journal-kicker">CLASIFICADOR POSTAL / 02</p><span aria-hidden="true" class="qr-postal-emblem">№</span></div>
+                <h2 id="qr-postal-issues-title">Ediciones del archivo</h2>
+                <p class="qr-postal-deck">Seleccione una edición para descubrir sus artículos y conexiones.</p>
+                <button id="journal-issue-all" class="qr-postal-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todos los números</span><span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
             </section>
           </aside>
 
@@ -212,7 +227,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261113-atlas-sheet-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261113-postal-v1"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
   <script type="module" src="../../js/quadripartita-stamps.js?v=20261113-stamps-v1"></script>
 </body>
