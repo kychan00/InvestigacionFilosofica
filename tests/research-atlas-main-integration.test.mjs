@@ -242,6 +242,26 @@ test("RA12-D4 actualiza copy público y cache bust del Atlas embebido", () => {
 });
 
 
+test("RA13 expone coautoría e identidad académica en el Atlas principal", () => {
+  assert.match(
+    page,
+    /data-research-atlas-edge="coauthor"/
+  );
+  assert.match(
+    embed,
+    /edge\.visualType === "coauthor"/
+  );
+  assert.match(
+    embed,
+    /Identidad académica/
+  );
+  assert.match(
+    embed,
+    /authorityIdentifierValue/
+  );
+});
+
+
 test("Atlas principal infiere autor buscado desde authors[] cuando authorResolution no existe", () => {
   assert.match(embed, /resultAuthorFallback/);
   assert.match(embed, /looksLikeGenericAuthorQuery/);
