@@ -164,7 +164,13 @@ try {
         document.querySelector("#journal-atlas-status")?.textContent.includes("nodos")
       );
       assert.match(await page.locator("#journal-atlas-status").innerText(), /0 vectores Qwen/);
-      assert.equal(external.length, 0, "Qwen/network must remain opt-in");
+      // External fonts are intentional visual assets for the Protrepsis paper
+      // identity; they are not semantic searches or Qwen requests.
+      const unexpectedExternal = external.filter(url => {
+        const host = new URL(url).hostname;
+        return host !== "fonts.googleapis.com" && host !== "fonts.gstatic.com";
+      });
+      assert.equal(unexpectedExternal.length, 0, "Unexpected network/Qwen request: " + unexpectedExternal.join(", "));
       const edgeCount = Number(await page.locator("#journal-atlas-canvas").getAttribute("data-atlas-edges"));
       const issueCount = Number(await page.locator("#journal-atlas-canvas").getAttribute("data-atlas-issues"));
       const relatedCount = await page.locator(".atlas-related-item").count();
