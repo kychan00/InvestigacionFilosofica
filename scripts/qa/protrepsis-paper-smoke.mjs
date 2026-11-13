@@ -36,7 +36,10 @@ try {
     );
     assert.equal(await page.locator("html").getAttribute("data-theme"),theme);
     assert.equal(await page.locator(".pro-museum-art").count(),1);
-    assert.equal(await page.locator(".pro-museum-plaque").count(),1);
+    assert.equal(await page.locator(".pro-museum-caption").count(),1);
+    assert.equal(await page.locator(".pro-museum-corner").count(),0);
+    assert.equal(await page.locator(".pro-museum-seal").count(),0);
+    assert.equal(await page.locator('[data-pro-explorer-tab="topics"]').getAttribute("aria-selected"),"true");
     assert.equal(await page.locator(".pro-editorial-feature-link").count(),1);
     assert.equal(
       await page.locator(".pro-museum-art").evaluate(img => img.complete && img.naturalWidth>0),
@@ -76,6 +79,8 @@ try {
         );
       },null,{timeout:20000}
     );
+    await page.locator('[data-pro-explorer-tab="filters"]').click();
+    assert.equal(await page.locator("#pro-explorer-filters").isVisible(),true);
     const filterToggle=page.locator("#journal-filter-toggle");
     if(await filterToggle.getAttribute("aria-expanded")==="false") await filterToggle.click();
     await page.locator("#journal-query").fill(title);
@@ -89,6 +94,8 @@ try {
     await page.locator("#journal-reset").click();
     await page.locator('[data-journal-view="atlas"]').click();
     assert.equal(await page.locator("#journal-atlas-panel").isVisible(),true);
+    assert.equal(await page.locator("#journal-atlas-relations").count(),1);
+    assert.equal(await page.locator(".pro-atlas-reader").count(),1);
     await page.locator('[data-journal-view="insights"]').click();
     assert.equal(await page.locator("#journal-insights-panel").isVisible(),true);
     await page.locator('[data-journal-view="archive"]').click();
