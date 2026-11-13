@@ -236,7 +236,7 @@ body[data-journal="protrepsis"] .pro-curatorial-issues .taxonomy-chip::before {
   font-size:1rem;
 }
 body[data-journal="protrepsis"] .journal-card-grid > .journal-card {
-  animation:pro-curatorial-results .35s cubic-bezier(.2,.7,.2,1) both;
+  animation:pro-curatorial-results .35s cubic-bezier(.2,.7,.2,1) backwards;
 }
 body[data-journal="protrepsis"] .journal-card-grid > .journal-card:nth-child(2) {animation-delay:.045s;}
 body[data-journal="protrepsis"] .journal-card-grid > .journal-card:nth-child(3) {animation-delay:.075s;}
