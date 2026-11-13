@@ -1,0 +1,126 @@
+name: Sincronía · inspect eight historical archive captures
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-wayback-eight.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sincronia-archive-evidence-eight
+  cancel-in-progress: false
+
+jobs:
+  audit-eight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test archive parsing, fail-closed selection, no guessed authors
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_wayback_eight
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Audit frozen Sincronía authorless queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-archive-quality.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-archive-pending.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("/tmp/sincronia-archive-pending.json").read_text(encoding="utf-8"))
+          assert d["totalSincroniaRecords"] == 1454
+          assert d["pendingAuthorRecords"] == 51
+          assert d["highConfidenceEditorialNavigationCount"] == 2
+          assert d["authorlessArticleCandidatesExcludingEditorialNavigation"] == 49
+          assert d["bibliographicConflictCount"] == 1
+          print("SINCRONIA_FROZEN_51_VERIFIED")
+          PY
+      - name: Inspect eight preserved original URLs in historical archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m scripts.cucsh.probe_sincronia_wayback_eight \
+            --input /tmp/sincronia-archive-pending.json \
+            --output /tmp/sincronia-wayback-eight.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("/tmp/sincronia-wayback-eight.json")
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert d["selectionCount"]==8 and d["metadataMutation"] is False
+          assert len(d["records"])==8
+          assert all(r["authorAttribution"] is None for r in d["records"])
+          lines=[
+            "# Sincronía — archival leads for eight original URLs",
+            "",
+            "**No authors were assigned; this is evidence discovery only.**",
+            "",
+            "| Original issue | Indexed title | Archive index | Snapshot leads |",
+            "|---|---|---|---|",
+          ]
+          for row in d["records"]:
+              title=row["indexedTitle"].replace("|","\\|")
+              state=row["archiveIndexStatus"]
+              if row.get("fallbackIndexStatus"):
+                  state += " / " + row["fallbackIndexStatus"]
+              snaps=len(row["snapshots"])
+              lines.append(f'| {row["issueNumber"]} | {title} | {state} | {snaps} |')
+          lines.extend([
+              "",
+              "A snapshot lead is **not** a verified author or proof of full-text equivalence.",
+              "Original URL and access status in the research corpus remain unchanged.",
+              "",
+              "Next: inspect any archived bylines and corroborate authorship with independent bibliographies.",
+          ])
+          Path("/tmp/sincronia-wayback-eight.md").write_text(
+              "\n".join(lines)+"\n",encoding="utf-8")
+          print("SINCRONIA_EVIDENCE_DISCOVERY_PASS",d["withSnapshotLeads"])
+          PY
+      - name: Run full application tests (without modifying corpus)
+        run: |
+          npm ci
+          npm test
+      - name: Verify repository remains read-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test -z "$(git status --porcelain)" || {
+            git status --short
+            exit 1
+          }
+          echo "READ_ONLY_EVIDENCE_AUDIT_PASS"
+      - name: Upload audit, archive leads and readable summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-wayback-eight
+          path: |
+            /tmp/sincronia-wayback-eight.json
+            /tmp/sincronia-wayback-eight.md
+            /tmp/sincronia-archive-quality.json
+            /tmp/sincronia-archive-pending.json
+          retention-days: 30
+          if-no-files-found: warn
