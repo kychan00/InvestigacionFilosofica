@@ -1,0 +1,336 @@
+/* Protrepsis · Colección policromada de láminas filosóficas
+ * Only article cards: no effect on the Atlas, institutional page, other journals,
+ * bibliographic data, interactions, or the original cover artwork.
+ * The five illustrated palettes are decorative, not topic classifications.
+ */
+
+/* A five-colour archive: ochre, lapis, terracotta, sage, and lilac. */
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card {
+  --folio-field:#ecc462;
+  --folio-ink:#243e57;
+  --folio-rail:#264a69;
+  --folio-detail:#b94d39;
+  --folio-soft:#f2dfb4;
+  --folio-text:#203348;
+  --folio-paper:#fffaf0;
+  --folio-gold:#d6a844;
+  position:relative;
+  min-height:590px;
+  background:var(--folio-paper);
+  border:1px solid color-mix(in srgb,var(--folio-rail) 32%,#d0c5b5);
+  border-top:5px solid var(--folio-detail);
+  box-shadow:0 7px 0 -3px color-mix(in srgb,var(--folio-rail) 18%,transparent),
+    0 15px 37px rgba(24,33,39,.11);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card[data-pro-palette="0"] {
+  --folio-field:#e8b851;
+  --folio-ink:#244459;
+  --folio-rail:#244459;
+  --folio-detail:#9f4535;
+  --folio-soft:#f3d99c;
+  --folio-gold:#c89134;
+}
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card[data-pro-palette="1"] {
+  --folio-field:#5076a5;
+  --folio-ink:#192f50;
+  --folio-rail:#1d3f6f;
+  --folio-detail:#c49037;
+  --folio-soft:#d4e2ef;
+  --folio-gold:#e1bb66;
+}
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card[data-pro-palette="2"] {
+  --folio-field:#d9785d;
+  --folio-ink:#23464e;
+  --folio-rail:#295e58;
+  --folio-detail:#af563b;
+  --folio-soft:#f7d3bd;
+  --folio-gold:#d29c62;
+}
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card[data-pro-palette="3"] {
+  --folio-field:#85a38a;
+  --folio-ink:#2b4057;
+  --folio-rail:#315b49;
+  --folio-detail:#a65442;
+  --folio-soft:#dbe8c8;
+  --folio-gold:#c9a668;
+}
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card[data-pro-palette="4"] {
+  --folio-field:#afa0c4;
+  --folio-ink:#253e5f;
+  --folio-rail:#4c477a;
+  --folio-detail:#a45f4b;
+  --folio-soft:#e6d9eb;
+  --folio-gold:#d9a86c;
+}
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 9px 0 -3px color-mix(in srgb,var(--folio-rail) 28%,transparent),
+    0 25px 55px rgba(24,33,39,.2);
+}
+body[data-journal="protrepsis"] .journal-card.pro-catalog-card:focus-within {
+  outline:3px solid var(--folio-detail);
+  outline-offset:3px;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-rail {
+  background:var(--folio-rail);
+  border-right:0;
+  color:#fff4d8;
+  padding:20px 5px;
+  position:relative;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-rail::after {
+  content:"";
+  position:absolute;
+  inset:9px 5px;
+  border:1px solid rgba(255,249,235,.38);
+  pointer-events:none;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-rail strong {
+  font:600 .61rem/1.4 'IBM Plex Mono',monospace;
+  color:#fff5df;
+  letter-spacing:.1em;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-rail span {
+  width:27px;
+  height:27px;
+  background:#fff2d3;
+  color:var(--folio-rail);
+  border:1px solid #fff2d3;
+  font:600 1.35rem/1 var(--pro-display);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-body {
+  --folio-padding:clamp(17px,2vw,29px);
+  padding:var(--folio-padding);
+  color:var(--folio-text);
+  background:var(--folio-paper);
+  min-width:0;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-overline {
+  display:flex;align-items:center;gap:9px;
+  margin:0 0 14px;padding:0 0 12px;
+  border-bottom:1px solid color-mix(in srgb,var(--folio-rail) 34%,#e5daca);
+  color:var(--folio-rail);
+  font:600 .59rem/1.35 'IBM Plex Mono',monospace;
+  letter-spacing:.075em;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-overline span:last-child {
+  margin-left:auto;
+  font-weight:700;
+  color:var(--folio-detail);
+  text-align:right;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-art {
+  position:relative;
+  height:clamp(185px,17vw,245px);
+  min-height:185px;
+  margin:0 calc(-1 * var(--folio-padding)) 22px;
+  padding:0;
+  border:0;
+  background:var(--folio-field);
+  color:var(--folio-ink);
+  overflow:hidden;
+  isolation:isolate;
+  box-shadow:inset 0 -5px 0 rgba(23,41,58,.13);
+}
+/* A printmaking grain and multiple fine keylines, no decorative asset download. */
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-art::before {
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:13px;
+  border:1px solid color-mix(in srgb,var(--folio-ink) 60%,transparent);
+  box-shadow:inset 0 0 0 5px color-mix(in srgb,var(--folio-field) 16%,transparent),
+    0 0 0 1px color-mix(in srgb,var(--folio-field) 10%,transparent);
+  pointer-events:none;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-art::after {
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:repeating-linear-gradient(16deg,rgba(255,250,230,.07) 0 1px,transparent 1px 7px),
+    repeating-linear-gradient(105deg,rgba(20,39,55,.035) 0 1px,transparent 1px 12px);
+  pointer-events:none;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-art svg {
+  display:block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  color:var(--folio-ink);
+  filter:drop-shadow(1px 2px 0 rgba(255,255,255,.13));
+}
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-plate-index {
+  position:absolute;
+  z-index:3;
+  top:21px;
+  left:24px;
+  color:#fff9ec;
+  background:var(--folio-rail);
+  font:600 .56rem/1.4 'IBM Plex Mono',monospace;
+  letter-spacing:.06em;
+  padding:6px 9px;
+  box-shadow:3px 3px 0 rgba(255,250,220,.26);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-signature {
+  position:absolute;
+  z-index:3;
+  bottom:18px;
+  right:24px;
+  color:#fff9e9;
+  background:var(--folio-rail);
+  border:1px solid rgba(255,250,230,.62);
+  padding:6px 9px;
+  font:600 .56rem/1.4 'IBM Plex Mono',monospace;
+  letter-spacing:.045em;
+  text-shadow:none;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-pins {
+  margin:0 0 14px;
+  gap:7px;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-chip {
+  background:transparent;
+  border:1px solid #c9c2ad;
+  color:#374958;
+  font:600 .58rem/1.35 'IBM Plex Mono',monospace;
+  min-height:25px;
+  padding:5px 8px;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-chip.pin-year {
+  background:var(--folio-rail);
+  border-color:var(--folio-rail);
+  color:#fff8e6;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-chip.pin-issue {
+  background:var(--folio-soft);
+  border-color:var(--folio-soft);
+  color:#243d4a;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-chip.pin-doi {
+  color:#145e4b;
+  border-color:#47846b;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-chip.pin-abstract {
+  color:#6d407c;
+  border-color:#9c6aac;
+}
+body[data-journal="protrepsis"] .pro-catalog-card h3 {
+  margin:3px 0 17px;
+  color:var(--folio-text);
+  font:500 clamp(1.95rem,2.35vw,2.95rem)/1.03 var(--pro-display);
+  letter-spacing:-.035em;
+  overflow-wrap:break-word;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-byline {
+  margin:0 0 16px;
+  color:#46505a;
+  line-height:1.65;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-author-link {
+  color:var(--folio-rail);
+  text-decoration-color:var(--folio-detail);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-taxonomy {
+  margin:0 0 17px;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-taxonomy .journal-chip {
+  color:var(--folio-rail);
+  border-color:color-mix(in srgb,var(--folio-rail) 33%,#e2d7bd);
+  background:color-mix(in srgb,var(--folio-soft) 35%,#fffaf0);
+  font-size:.55rem;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-excerpt {
+  margin:0 0 24px;
+  min-height:0;
+  padding-top:13px;
+  border-top:1px solid #e1d7c3;
+  color:#555854;
+  font:400 clamp(1.06rem,1.3vw,1.22rem)/1.4 var(--pro-display);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions {
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:auto;
+  padding-top:9px;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions a,
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions button {
+  min-height:46px;
+  padding:11px 14px;
+  font:600 .79rem/1.3 var(--pro-text);
+  text-decoration:none;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions a {
+  background:var(--folio-rail);
+  border:1px solid var(--folio-rail);
+  color:#fff9e9;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions a:hover {
+  background:var(--folio-detail);
+  border-color:var(--folio-detail);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions button {
+  background:transparent;
+  border:1px solid var(--folio-rail);
+  color:var(--folio-rail);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions button:hover {
+  background:var(--folio-soft);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-details {
+  color:#253f52;
+  border-color:#d2c5aa;
+  overflow-wrap:anywhere;
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-details a {
+  color:var(--folio-rail);
+}
+body[data-journal="protrepsis"] .pro-catalog-card .journal-card-details small {
+  color:#515d61;
+}
+/* Ink and paper stay legible even while the surrounding site is dark. */
+html[data-theme="dark"] body[data-journal="protrepsis"] .pro-catalog-card {
+  --folio-paper:#f8f1e3;
+  --folio-text:#203348;
+  border-color:var(--folio-rail);
+}
+html[data-theme="dark"] body[data-journal="protrepsis"] .pro-catalog-card .journal-card-body {
+  background:var(--folio-paper);
+  color:var(--folio-text);
+}
+html[data-theme="dark"] body[data-journal="protrepsis"] .pro-catalog-card .journal-card h3,
+html[data-theme="dark"] body[data-journal="protrepsis"] .pro-catalog-card h3 {color:var(--folio-text);}
+html[data-theme="dark"] body[data-journal="protrepsis"] .pro-catalog-card .journal-card-details dt,
+html[data-theme="dark"] body[data-journal="protrepsis"] .pro-catalog-card .journal-card-details dd {
+  color:#263b49;
+}
+@media (max-width: 700px) {
+  body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-art {
+    height:clamp(185px,57vw,240px);
+  }
+  body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-overline {
+    font-size:.52rem;
+    gap:5px;
+  }
+  body[data-journal="protrepsis"] .pro-catalog-card h3 {
+    font-size:clamp(2rem,7.5vw,2.65rem);
+  }
+}
+@media (max-width: 420px) {
+  body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-plate-index {
+    top:19px;left:20px;font-size:.48rem;
+  }
+  body[data-journal="protrepsis"] .pro-catalog-card .pro-catalog-signature {
+    bottom:17px;right:20px;font-size:.48rem;
+  }
+  body[data-journal="protrepsis"] .pro-catalog-card .journal-card-actions {
+    align-items:stretch;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-journal="protrepsis"] .journal-card.pro-catalog-card {
+    transition:none;
+  }
+}
