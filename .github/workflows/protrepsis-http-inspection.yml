@@ -27,6 +27,21 @@ jobs:
             "http://protrepsis.cucsh.udg.mx/index.php/prot/about/editorialTeam",
             "http://www.protrepsis.cucsh.udg.mx/index.php/prot/about/editorialTeam",
           ]
+          class LinkExtractor(HTMLParser):
+              def __init__(self):
+                  super().__init__();self.href=None;self.text=[];self.links=[]
+              def handle_starttag(self,tag,attrs):
+                  if tag=="a":
+                      self.href=dict(attrs).get("href")
+                      self.text=[]
+              def handle_data(self,data):
+                  if self.href is not None:self.text.append(data)
+              def handle_endtag(self,tag):
+                  if tag=="a" and self.href:
+                      label=" ".join(" ".join(self.text).split())
+                      self.links.append((label,self.href))
+                      self.href=None
+          from urllib.parse import urljoin
           for url in urls:
               print("ATTEMPT",url,flush=True)
               try:
@@ -47,12 +62,28 @@ jobs:
                           elif t in ("p","div","li","h1","h2","h3","h4","h5","section","article","br","td"): self.chunks.append("\n")
                       def handle_data(self,data):
                           if not self.skip:self.chunks.append(data)
+                  l=LinkExtractor();l.feed(source)
+                  wanted=[(label,urljoin(url,href)) for label,href in l.links if any(key in label.casefold() for key in ("consejo editorial","comité científico asesor","comite cientifico asesor"))]
+                  print("EDITORIAL_RELATED_LINKS",repr(wanted),flush=True)
                   p=Page();p.feed(source)
                   cleaned=html.unescape("".join(p.chunks))
                   cleaned="\n".join(line.strip() for line in cleaned.splitlines() if line.strip())
                   print("EDITORIAL_TEXT_BEGIN",flush=True)
                   print(cleaned[:42000],flush=True)
                   print("EDITORIAL_TEXT_END",flush=True)
+                  for label,link in wanted:
+                      print("RELATED_PAGE_BEGIN",label,link,flush=True)
+                      try:
+                          with urllib.request.urlopen(urllib.request.Request(link,headers={"User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"}),timeout=15) as related:
+                              raw2=related.read(800000)
+                              source2=raw2.decode(related.headers.get_content_charset() or "utf-8",errors="replace")
+                          p2=Page();p2.feed(source2)
+                          text2=html.unescape("".join(p2.chunks))
+                          text2="\n".join(line.strip() for line in text2.splitlines() if line.strip())
+                          print(text2[:32000],flush=True)
+                      except Exception as e:
+                          print("RELATED_FETCH_FAILED",repr(e),flush=True)
+                      print("RELATED_PAGE_END",flush=True)
                   break
               except Exception as e:
                   print("FETCH_FAILED",repr(e),flush=True)
