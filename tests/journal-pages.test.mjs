@@ -40,7 +40,7 @@ test("runtime de revistas separa metadatos editoriales de categorías derivadas"
   assert.match(source, /CATEGORY_RULES/);
   assert.match(source, /articleTopicMetadata/);
   assert.match(source, /topicMeta\.label/);
-  assert.match(source, /topicMeta\.note/);
+  assert.match(source, /categoryMetadataFor\(record\)\.note/);
   assert.match(source, /categoriesFor\(record\)/);
   assert.match(source, /categoryMetadataFor\(record\)/);
   assert.match(source, /!categoriesFor\(record\)\.includes\(state\.category\)/);
