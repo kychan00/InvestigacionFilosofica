@@ -16,7 +16,7 @@ import {
 } from "../src/core/research-atlas-view.js";
 import { OPENALEX_PHILOSOPHY_HF_REVISION } from "../src/sources/openalex-philosophy.js";
 
-export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-09.ra12d3-main-v1";
+export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-13.ra13a-main-v1";
 export const RESEARCH_ATLAS_RESPONSE_EVENT = "research-atlas:search-response";
 export const RESEARCH_ATLAS_RESET_EVENT = "research-atlas:reset";
 export const RESEARCH_ATLAS_FILTER_EVENT = "research-atlas:filter-results";
@@ -45,20 +45,6 @@ const edgeToggles = [...document.querySelectorAll("[data-research-atlas-edge]")]
 const authorKey = q("#research-atlas-author-key");
 const context = canvas?.getContext("2d", { alpha: true }) || null;
 
-const EMPTY_AUTHORITY_GRAPH = Object.freeze({
-  schemaVersion: "author-authority-graph-v1",
-  buildRevision: "research-atlas-main-unresolved-only",
-  datasetRevision: "research-atlas-main-unresolved-only",
-  authorities: [],
-  mentions: [],
-  sourceRecords: [],
-  mentionAuthorityLinks: [],
-  identifierRegistry: {},
-  candidateRegistry: {},
-  decisionLedger: { decisions: [] },
-  buildMetrics: {}
-});
-
 let assembler;
 let layoutEngine;
 let snapshot = null;
@@ -85,7 +71,9 @@ const qwenVectorClient = new ResearchAtlasQwenVectorClient();
 const view = { x: 0, y: 0, zoom: 1 };
 
 function makeAssembler() {
-  assembler = new ResearchAtlasAssembler({ authorityGraph: EMPTY_AUTHORITY_GRAPH });
+  assembler = new ResearchAtlasAssembler({
+    dynamicIdentity: true
+  });
   layoutEngine = new ResearchAtlasLayoutEngine({ maxExistingDisplacement: 0.18 });
 }
 
