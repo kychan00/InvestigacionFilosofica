@@ -304,6 +304,7 @@ function card(record, index) {
   const category = document.createElement("div");
   category.className = "journal-card-taxonomy";
   const categoryChip = chip(categoryFor(record), "category-chip");
+  categoryChip.title = "Categoría amplia derivada para navegación; consulte debajo los temas específicos del artículo.";
   categoryChip.style.setProperty("--chip-color", CATEGORY_COLORS[categoryFor(record)] || CATEGORY_COLORS.Otros);
   category.append(categoryChip);
 
