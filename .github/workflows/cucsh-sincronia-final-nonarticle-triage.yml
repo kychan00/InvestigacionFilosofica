@@ -52,28 +52,18 @@ jobs:
           from pathlib import Path
           d=json.loads(Path("/tmp/sincronia-final-triage-pending.json").read_text(encoding="utf-8"))
           assert d["totalSincroniaRecords"]==1454
-          assert d["pendingAuthorRecords"]==4
+          assert d["pendingAuthorRecords"]==3
           assert d["highConfidenceEditorialNavigationCount"]==2
           assert d["highConfidenceBiographicalNonArticleCount"]==1
           assert d["highConfidenceNonArticleCount"]==3
           assert d["pendingNonArticleRecordsNoBylineRequired"]==3
-          assert d["pendingAuthorshipCasesExcludingVerifiedNonArticles"]==1
-          assert d["authorlessArticleCandidatesExcludingEditorialNavigation"]==2
-          assert d["unresolvedOriginalWorkIdentityConflictCount"]==1
-          assert d["unresolvedOriginalWorkIdentityConflicts"][0]["indexedYear"]==2000
-          campos=d["unresolvedOriginalWorkIdentityConflicts"][0]
-          assert campos["indexedContributorCandidate"]["name"]=="Jorge Lúcio de Campos"
-          assert campos["indexedContributorCandidate"]["sourceIndexNamesContributor"]
-          assert not campos["indexedContributorCandidate"]["original2000SignedBylineVerified"]
-          assert not campos["indexedContributorCandidate"]["specificWorkAndUrlMappingVerified"]
-          assert campos["independentArchiveInvestigation"]["candidateUrls"]==4
-          assert campos["independentArchiveInvestigation"]["capturedMatchesObserved"]==0
-          assert campos["issue15DatingEvidence"]["season"]=="Verano / Summer"
-          assert campos["issue15DatingEvidence"]["monthRange"]=="Junio-Septiembre 2000"
-          assert len(campos["sameYearIndependentBibliographyCandidates"])==2
-          assert not any(c["matchedOriginalUrl"] for c in campos["sameYearIndependentBibliographyCandidates"])
-          assert d["unresolvedOriginalWorkIdentityConflicts"][0]["laterPageInternalIssueYear"]==2001
-          assert d["pendingByIssue"]=={"8":1,"15":1,"46":2}
+          assert d["pendingAuthorshipCasesExcludingVerifiedNonArticles"]==0
+          assert d["authorlessArticleCandidatesExcludingEditorialNavigation"]==1
+          assert d["unresolvedOriginalWorkIdentityConflictCount"]==0
+          assert d["unresolvedOriginalWorkIdentityConflicts"]==[]
+          assert not any(row["id"]=="cucsh:sincronia-legacy:d578e8ef399dde877feb"
+                         for row in d["records"])
+          assert d["pendingByIssue"]=={"8":1,"46":2}
           assert d["bibliographicConflictCount"]==0
           assert d["titlesWithUnicodeReplacementCharacter"]==0
           known_nonarticles={x["id"] for x in d["highConfidenceNonArticleRecords"]}
@@ -86,26 +76,23 @@ jobs:
               "# Sincronía: bibliographic completion status",
               "",
               "Conserved Sincronía source rows: 1,454; no records deleted.",
-              "Source author field missing in 4 original records.",
-              "Three are non-article records not requiring a scholarly byline:",
-              "- /dante/bio.html: Dante Medina biography, signed author not evidenced",
-              "- /creditos.html: editorial board navigation",
-              "- /info.htm: contributor instructions",
+              "Only 3 source records remain without a byline, all verified non-article documents:",
+              "- Issue 8 /dante/bio.html: Dante Medina biography, no signed author evidenced",
+              "- Issue 46 /creditos.html: editorial board navigation",
+              "- Issue 46 /info.htm: contributor instructions",
               "",
-              "One genuine unresolved scholarly source identity remains:",
-              "- /campos.htm: original issue 15, 2000, indexed as de Campos,Jorge Lucio",
-              "- A later archived same URL shows a separate 2001 interview; never overwrite 2000 identity",
-              "- Reproduced issue header independently establishes issue 15 as Summer, June-September 2000",
-              "- Campos bibliography names two 2000 Sincronía candidates (Deleuze; education/technology), neither confirmed at /campos.htm",
-              "- A thesis citing the Deleuze essay in 2006 points instead to distinct /campos2.htm; do not substitute URLs",
-              "- Issue-15 index identifies Jorge Lucio de Campos as a probable contributor; source-2000 signed byline and title identity not verified",
-              "- Arquivo.pt independent check on 2026-11-13 found no captures for four candidates; absence of capture is not absence of publication",
+              "Zero unresolved scholarly authorship cases remain.",
+              "Jorge Lucio de Campos issue 15 (2000) title and signed author restored from two actual 2000 Wayback original-host captures.",
+              "- Original index: https://web.archive.org/web/20000824085411/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/summer00.htm",
+              "- Signed article: https://web.archive.org/web/20000930033955/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos.htm",
+              "- Separate Deleuze article: https://web.archive.org/web/20000930034002/http://fuentes.csh.udg.mx:80/CUCSH/Sincronia/campos2.htm",
+              "- Later reused modern-host /campos.htm holds a different 2001 interview; not treated as the 2000 work.",
               "",
-              "Original URLs, source statuses, issues and titles remain unchanged.",
-              "No authors assigned on the basis of ambiguous catalog entries.",
+              "All 1,454 source records, source URL values, and access status values preserved.",
+              "Only the verified Campos title, author and provenance metadata changed.",
           ]
           Path("/tmp/sincronia-final-triage.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
-          print("SINCRONIA_ONE_REAL_AUTHORSHIP_RESEARCH_CASE",d["pendingAuthorshipCasesExcludingVerifiedNonArticles"])
+          print("SINCRONIA_ALL_REAL_AUTHORSHIP_CASES_COMPLETED",d["pendingAuthorshipCasesExcludingVerifiedNonArticles"])
           PY
       - name: Run complete application regression
         run: |

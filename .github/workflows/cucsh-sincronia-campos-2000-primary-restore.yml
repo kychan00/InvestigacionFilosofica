@@ -1,0 +1,132 @@
+name: Sincronía · restore final Campos 2000 signed original
+
+on:
+  push:
+    branches:
+      - feature/cucsh-sincronia
+    paths:
+      - ".github/triggers/cucsh-sincronia-campos-2000-primary-restore.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronia-campos-2000-primary-restoration
+  cancel-in-progress: false
+
+jobs:
+  restore-signed-work:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/cucsh-sincronia
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - name: Test exact source identity and restoration protections
+        run: |
+          python3 -m unittest tests.test_cucsh_sincronia_campos_2000_primary
+          python3 -m unittest tests.test_cucsh_sincronia_final_nonarticle_triage
+          python3 -m unittest tests.test_cucsh_validate_update
+      - name: Restore exactly one signed historical work
+        run: |
+          cp src/data/cucsh-filosofia.json /tmp/sincronia-before-final-campos.json
+          python3 -m scripts.cucsh.restore_sincronia_campos_2000_primary \
+            --input /tmp/sincronia-before-final-campos.json \
+            --output src/data/cucsh-filosofia.json
+      - name: Enforce frozen inventory and exactly one authorized bibliographic correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/cucsh/validate_update.py \
+            --before /tmp/sincronia-before-final-campos.json \
+            --after src/data/cucsh-filosofia.json
+          python3 -m scripts.cucsh.audit_sincronia_historical \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-campos-final-historical-audit.json
+          python3 -m scripts.cucsh.audit_sincronia_pending_authors \
+            --input src/data/cucsh-filosofia.json \
+            --output /tmp/sincronia-campos-final-authors.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.cucsh.restore_sincronia_campos_2000_primary import (
+              TARGET_ID, VERIFIED_TITLE, VERIFIED_AUTHOR,
+              ARTICLE_CAPTURE, INDEX_CAPTURE, OTHER_ARTICLE_CAPTURE,
+          )
+          b=json.loads(Path("/tmp/sincronia-before-final-campos.json").read_text())
+          a=json.loads(Path("src/data/cucsh-filosofia.json").read_text())
+          old=b["records"]
+          new=a["records"]
+          assert len(old)==len(new)==1845
+          assert [r["id"] for r in old]==[r["id"] for r in new]
+          assert sum(x["journal"]=="Sincronía" for x in new)==1454
+          changed=[i for i,(x,y) in enumerate(zip(old,new)) if x!=y]
+          assert len(changed)==1,changed
+          x,y=old[changed[0]],new[changed[0]]
+          assert x["id"]==y["id"]==TARGET_ID
+          allowed={"title","titleVariants","authors","legacyIndexMislabelEvidence","legacyAuthorEvidence"}
+          assert {k for k in set(x)|set(y) if x.get(k)!=y.get(k)}==allowed
+          assert x["title"]=="de Campos,Jorge Lucio"
+          assert y["title"]==VERIFIED_TITLE
+          assert y["authors"]==[{"name":VERIFIED_AUTHOR,"sourceName":VERIFIED_AUTHOR}]
+          assert x["urls"]==y["urls"]
+          assert x["legacyAccessStatus"]==y["legacyAccessStatus"]
+          evidence=y["legacyIndexMislabelEvidence"]
+          assert evidence["signedArticleSourceUrl"]==ARTICLE_CAPTURE
+          assert evidence["indexSourceUrl"]==INDEX_CAPTURE
+          assert evidence["separateDeleuzeArticleSourceUrl"]==OTHER_ARTICLE_CAPTURE
+          assert evidence["originalAvailabilityPreserved"]
+          report=json.loads(Path("/tmp/sincronia-campos-final-authors.json").read_text())
+          assert report["totalSincroniaRecords"]==1454
+          assert report["pendingAuthorRecords"]==3
+          assert report["pendingAuthorshipCasesExcludingVerifiedNonArticles"]==0
+          assert report["highConfidenceNonArticleCount"]==3
+          assert report["highConfidenceEditorialNavigationCount"]==2
+          assert report["highConfidenceBiographicalNonArticleCount"]==1
+          assert report["unresolvedOriginalWorkIdentityConflictCount"]==0
+          assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==1
+          assert report["pendingByIssue"]=={"8":1,"46":2}
+          assert report["bibliographicConflictCount"]==0
+          assert report["titlesWithUnicodeReplacementCharacter"]==0
+          print("SINCRONIA_ALL_REAL_AUTHORSHIP_CASES_COMPLETED",TARGET_ID)
+          PY
+      - name: Run complete site regression
+        run: |
+          npm ci
+          npm test
+      - name: Commit only the single amended corpus file to existing branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test "$(git status --short)" = " M src/data/cucsh-filosofia.json" || {
+            git status --short
+            echo "Unexpected files modified or missing output"
+            exit 1
+          }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/cucsh-filosofia.json
+          git commit -m "Restore Jorge Lucio de Campos signed 2000 Sincronía article"
+          git push origin HEAD:feature/cucsh-sincronia
+      - name: Publish final historical and unsigned-nonarticle audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sincronia-final-campos-2000-restoration
+          path: |
+            /tmp/sincronia-campos-final-historical-audit.json
+            /tmp/sincronia-campos-final-authors.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -78,6 +78,7 @@ jobs:
             tests/test_cucsh_sincronia_redalyc.py \
             tests/test_cucsh_sincronia_remaining.py \
             tests/test_cucsh_sincronia_curated_final.py \
+            tests/test_cucsh_sincronia_campos_2000_primary.py \
             tests/test_cucsh_validate_update.py
 
       - name: Run Sincronía unit tests
