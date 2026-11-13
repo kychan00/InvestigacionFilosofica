@@ -1,5 +1,5 @@
 
-import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js";
+import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js?v=20261113-ra13a-v1";
 import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js";
 import { addResearchAtlasDocumentSimilarity } from "../src/core/research-atlas-document-similarity.js";
 import {
@@ -13,7 +13,7 @@ import {
   buildResearchAtlasViewModel,
   filterResearchAtlasViewModel,
   selectedResearchAtlasContext
-} from "../src/core/research-atlas-view.js";
+} from "../src/core/research-atlas-view.js?v=20261113-ra13a-v1";
 import { OPENALEX_PHILOSOPHY_HF_REVISION } from "../src/sources/openalex-philosophy.js";
 
 export const RESEARCH_ATLAS_MAIN_REVISION = "2026-11-13.ra13a-main-v1";
