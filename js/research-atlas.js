@@ -201,7 +201,12 @@ function themeColors() {
       styles.getPropertyValue(
         "--ra-yellow"
       ).trim() ||
-      "#f1c21b"
+      "#f1c21b",
+    red:
+      styles.getPropertyValue(
+        "--ra-red"
+      ).trim() ||
+      "#fa4d56"
   };
 }
 
@@ -547,6 +552,19 @@ function edgeStyle(
       alpha: 0.62,
       width: 1.25,
       dash: []
+    };
+  }
+
+  if (
+    edge.visualType ===
+    "coauthor"
+  ) {
+    return {
+      color:
+        colors.red,
+      alpha: 0.64,
+      width: 1.25,
+      dash: [6, 3]
     };
   }
 
