@@ -49,6 +49,11 @@ try {
     assert.equal(await page.locator(".pro-museum-art").count(),1);
     assert.equal(await page.locator(".pro-museum-caption").count(),1);
     assert.equal(await page.locator(".pro-museum-corner,.pro-museum-seal,.pro-museum-plaque").count(),0);
+    const firstTopicGroup=page.locator("#journal-card-grid .journal-card-topic-group").first();
+    assert.equal(await firstTopicGroup.count(),1);
+    assert.match(await firstTopicGroup.locator(".journal-card-topic-label").innerText(),/Temas del texto|Palabras clave editoriales|Temas bibliográficos|Temas documentados/i);
+    assert.ok(await firstTopicGroup.locator(".journal-card-topic-list .subject-chip").count()>=2);
+    assert.match(await page.locator("#journal-card-grid .category-chip").first().getAttribute("title"),/Categoría amplia/);
 
     const topics=page.locator("#pro-explorer-tab-topics");
     const issues=page.locator("#pro-explorer-tab-issues");

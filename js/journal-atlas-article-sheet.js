@@ -2,6 +2,7 @@
  * Presenta exclusivamente los campos documentados: nunca inventa resúmenes.
  * HTML y enlaces se validan antes de incorporarse al panel.
  */
+import { articleTopicMetadata } from "./journal-article-topics.js?v=20261113-v1";
 function escapeHtml(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -59,7 +60,10 @@ export function journalArticleSheet(record = {}, issue = {}, category = "General
   const authors = (Array.isArray(record.authors) ? record.authors : [])
     .map(author => typeof author === "string" ? author : author?.name || author?.sourceName)
     .filter(Boolean);
-  const subjects = Array.isArray(record.subjects) ? record.subjects.filter(Boolean) : [];
+  const topicMeta = articleTopicMetadata(record, {
+    derive: record.journal === "Protrepsis",
+    limit: 12
+  });
   const link = journalArticleSourceUrl(record);
   const originalDoi = String(record.doi || "").trim();
   const doiUrl = originalDoi && !/\s/.test(originalDoi)
@@ -80,7 +84,7 @@ export function journalArticleSheet(record = {}, issue = {}, category = "General
     property("Fecha registrada", record.editorialDate || record.date || ""),
     property("DOI", doiHtml, { html: true }),
     property("Idioma", record.language || ""),
-    property("Temas declarados", subjects.join(" · ")),
+    property(topicMeta.label, topicMeta.allTopics.join(" · ")),
     property("Categoría de navegación", category || "General")
   ].filter(Boolean).join("");
 
@@ -96,7 +100,7 @@ export function journalArticleSheet(record = {}, issue = {}, category = "General
         '<strong>' + escapeHtml(record.title || "Sin título") + '</strong>' +
       '</div>' +
       '<dl class="atlas-article-sheet-fields">' + details + '</dl>' +
-      '<p class="atlas-article-sheet-note">Los campos proceden del registro de la revista. La categoría es una clasificación de navegación, no una etiqueta editorial.</p>' +
+      '<p class="atlas-article-sheet-note">' + escapeHtml(topicMeta.note) + ' La categoría de navegación es una clasificación amplia y separada.</p>' +
       (link
         ? '<a class="atlas-article-sheet-open" href="' + escapeHtml(link) + '" target="_blank" rel="noopener noreferrer">Leer artículo en la fuente original <span aria-hidden="true">↗</span></a>'
         : '<p class="atlas-article-sheet-unavailable">El registro no proporciona un enlace directo al artículo.</p>') +
