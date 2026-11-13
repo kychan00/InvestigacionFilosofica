@@ -528,6 +528,13 @@ input:focus-visible {
 }
 .ra-line-swatch.is-related { background: var(--ra-purple); }
 .ra-line-swatch.is-contribution { background: var(--ra-green); }
+.ra-line-swatch.is-coauthor {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ra-red) 0 6px,
+    transparent 6px 9px
+  );
+}
 
 .ra-line-swatch.is-provisional {
   background:
