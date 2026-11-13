@@ -20133,7 +20133,12 @@
       "titleVariants": [
         "La rebelion en el placer del texto literario"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Guadalupe Sánchez Robles",
+          "sourceName": "Guadalupe Sánchez Robles"
+        }
+      ],
       "date": "1997",
       "year": 1997,
       "type": "journal-article",
@@ -20166,6 +20171,27 @@
         "reason": "timeout",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "academic-bibliography-exact-original-url-and-author",
+        "sourceUrl": "https://tidsskrift.dk/aktualitet/article/download/111516/160514/228321",
+        "sourceTitle": "Tilnærmelser til Isabel Allendes litterær univers",
+        "sourceAuthor": "Claudio Cifuentes-Aldunate",
+        "sourcePublisher": "Tidsskrift.dk academic journal platform",
+        "sourcePdfPage": 9,
+        "sourceSection": "Litteraturliste",
+        "sourceCitationAuthor": "Sánchez Robles, Guadalupe",
+        "sourceCitationTitleVariant": "La rebelión en el placer del texto literario",
+        "sourceCitedOriginalUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/TEXTO.htm",
+        "sourceLastConsulted": "2012-10-16",
+        "urlMatchLevel": "independent-exact-original-url-citation",
+        "publicationVersionCaveat": "An academic bibliography names Guadalupe Sánchez Robles, the same article title with accented 'rebelión', and the exact frozen /CUCSH/Sincronia/TEXTO.htm URL (consulted 16 October 2012). It does not establish current original page availability. The indexed unaccented title and issue 2 (1997) remain unchanged.",
+        "verifiedAuthor": "Guadalupe Sánchez Robles",
+        "verifiedTitle": "La rebelion en el placer del texto literario",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/TEXTO.htm",
+        "matchedIndexedIssue": 2,
+        "matchedIndexedYear": 1997,
+        "originalAvailabilityPreserved": true
       }
     },
     {
@@ -22797,7 +22823,12 @@
       "titleVariants": [
         "Hijos de desaparecidos, hilos de memoria para el futuro"
       ],
-      "authors": [],
+      "authors": [
+        {
+          "name": "Ludmila da Silva Catela",
+          "sourceName": "Ludmila da Silva Catela"
+        }
+      ],
       "date": "1999",
       "year": 1999,
       "type": "journal-article",
@@ -22830,6 +22861,30 @@
         "reason": "timeout",
         "archiveAvailable": false,
         "note": "Registro bibliográfico conservado; la página original no estaba disponible en la última verificación."
+      },
+      "legacyAuthorEvidence": {
+        "kind": "preserved-byline-plus-independent-journal-exact-filename",
+        "sourceUrl": "https://www.comisionporlamemoria.org/archivos/jovenesymemoria/bibliografia_web/memorias/daSilva.pdf",
+        "sourceInstitution": "Comisión Provincial por la Memoria",
+        "sourceTextPdfPage": 1,
+        "sourceByline": "Ludmila da Silva Catela",
+        "sourceAffiliation": "PPGS-IFCS-UFRJ",
+        "supportingSourceUrl": "https://revistasacademicas.unsam.edu.ar/index.php/etnocontemp/article/view/995",
+        "supportingInstitution": "Universidad Nacional de San Martín",
+        "supportingJournal": "Etnografías Contemporáneas",
+        "supportingPublicationYear": 2021,
+        "supportingCitationYear": 1999,
+        "supportingCitedOriginalUrlVariant": "http://sincronia.cucsh.udg.mx/hijos.htm",
+        "additionalSourceUrl": "https://www.comisionporlamemoria.org/archivos/jovenesymemoria/bibliografia_web/memorias.html",
+        "additionalSourceCitedOriginalUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/hijos.htm",
+        "urlMatchLevel": "institutional-original-url-exact-plus-journal-alternative-host-and-preserved-byline",
+        "publicationVersionCaveat": "Comisión Provincial por la Memoria preserves a full-text copy signed Ludmila da Silva Catela and its indexed reading list cites the exact frozen /CUCSH/Sincronia/hijos.htm URL. An independent UNSAM journal reference cites the same work and author in 1999 using a different historical host, sincronia.cucsh.udg.mx. Preserve the original host, unavailable status, indexed title and issue 10 (1999); do not assume that either historical host remains live.",
+        "verifiedAuthor": "Ludmila da Silva Catela",
+        "verifiedTitle": "Hijos de desaparecidos, hilos de memoria para el futuro",
+        "sourceArticleUrl": "http://fuentes.csh.udg.mx/CUCSH/Sincronia/hijos.htm",
+        "matchedIndexedIssue": 10,
+        "matchedIndexedYear": 1999,
+        "originalAvailabilityPreserved": true
       }
     },
     {
