@@ -14,8 +14,12 @@ const artwork = await readFile("assets/protrepsis-mural-filosofico.svg", "utf8")
 test("portada de Protrepsis tiene identidad editorial real, no solo página de equipo", () => {
   assert.match(page, /class="journal-page protrepsis-paper"/);
   assert.match(page, /<h1 id="pro-hero-title">Protrepsis/);
-  assert.match(page, /class="pro-book-cover pro-museum-plaque"/);
+  assert.match(page, /class="pro-museum-caption"/);
+  assert.doesNotMatch(page, /class="pro-museum-corner/);
+  assert.doesNotMatch(page, /class="pro-museum-seal/);
   assert.match(page, /class="pro-museum-art"/);
+  assert.match(page, /protrepsis-reading-layout\.css\?v=/);
+  assert.match(page, /protrepsis-explorer\.js\?v=/);
   assert.match(page, /assets\/protrepsis-mural-filosofico\.svg/);
   assert.match(page, /js\/protrepsis-catalog\.js\?v=/);
   assert.match(page, /class="pro-editorial-feature"/);
@@ -37,7 +41,8 @@ test("el rediseño preserva controles de la revista y su Atlas", () => {
     "journal-filter-toggle", "journal-card-grid", "journal-results-status",
     "journal-load-more", "journal-issue-chips", "journal-topic-chips",
     "journal-author-chips", "journal-qwen-toggle", "journal-atlas-canvas",
-    "journal-atlas-detail", "journal-archive-panel", "journal-atlas-panel",
+    "journal-atlas-detail", "journal-atlas-relations", "pro-explorer-topics",
+    "pro-explorer-issues", "pro-explorer-filters", "journal-archive-panel", "journal-atlas-panel",
     "journal-insights-panel"
   ]) assert.ok(page.includes('id="' + id + '"'), "preserved runtime ID: " + id);
   for (const view of ["archive", "atlas", "insights"]) {
