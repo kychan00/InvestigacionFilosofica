@@ -104,7 +104,7 @@ jobs:
           assert report["pendingAuthorRecords"]==27
           assert report["authorlessArticleCandidatesExcludingEditorialNavigation"]==25
           assert report["highConfidenceEditorialNavigationCount"]==2
-          assert report["bibliographicConflictCount"]==1
+          assert report["bibliographicConflictCount"]==0  # reyes4 conflict now documented on attributed record
           assert report["titlesWithUnicodeReplacementCharacter"]==0
           print("SINCRONIA_FIVE_ISSUE7_12_STRICT_PASS",len(changed),27)
           PY
