@@ -186,6 +186,18 @@ test("RA11 expone la capa título + abstract sin llamarla semántica Qwen3", () 
 });
 
 
+test("RA13 añade la capa visible de coautoría al Atlas standalone", () => {
+  assert.match(
+    page,
+    /data-ra-edge-toggle="coauthor"/
+  );
+  assert.match(
+    renderer,
+    /edge\.visualType ===\s*"coauthor"/
+  );
+});
+
+
 test("renderer mantiene filtros, pan, zoom, cancelación y URL compartible", () => {
   for (const token of [
     "ra-live-cancel",
