@@ -6,7 +6,7 @@ const profiles = [
   {
     slug: "protrepsis", file: "protrepsis-institucional.html",
     expected: ["Jorge Grajeda Velázquez", "director.protrepsis@academicos.udg.mx",
-      "2007-9273", "Latindex", "Directorio en verificación"]
+      "2007-9273", "Latindex", "Directorio oficial de la revista"]
   },
   {
     slug: "sincronia", file: "sincronia-institucional.html",
@@ -57,7 +57,14 @@ test("enlaces institucionales presentes en la navegación global", async () => {
 
 test("dirección editorial de Protrepsis no inventa responsables", async () => {
   const html = await readFile("revistas/udg/protrepsis-institucional.html", "utf8");
-  assert.match(html, /No reproducimos una nómina de comité editorial/i);
+  assert.match(html, /Directorio oficial de la revista/i);
+  assert.match(html, /Equipo editorial/i);
+  assert.match(html, /Consejo Editorial/);
+  assert.match(html, /Comité Científico Asesor/);
+  assert.match(html, /responsabilidad científica/i);
+  assert.match(html, /https:\/\/protrepsis\.cucsh\.udg\.mx\/index\.php\/prot\/about\/editorialTeam/);
+  assert.doesNotMatch(html, /cuando el portal editorial publique un directorio comprobable/i);
+  assert.match(html, /no permite transcribir con fiabilidad todos los nombres/i);
   assert.match(html, /2011/);
   assert.match(html, /2012/);
 });
