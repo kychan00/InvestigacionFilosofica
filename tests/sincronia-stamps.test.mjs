@@ -51,8 +51,12 @@ test("ilustración es procedural, local y tiene seis composiciones", () => {
   assert.match(js, /variant === 4/);
   assert.match(js, /const variant = .* % 6/);
   assert.match(css, /sn-stamp-paper/);
-  assert.match(css, /radial-gradient\(circle 6px/);
-  assert.match(css, /mask-composite: intersect/);
+  assert.match(css, /sn-stamp-paper::before/);
+  assert.match(css, /sn-hero-stamp::before/);
+  assert.match(css, /Four narrow edge strips/);
+  // Safari can multiply full-element masks into an opaque polka-dot overlay.
+  assert.doesNotMatch(css, /(?:-webkit-)?mask(?:-image|-composite)?\s*:/);
+  assert.match(css, /background-clip: padding-box/);
 });
 
 test("otras revistas no cargan el tema de Sincronía", async () => {
@@ -92,4 +96,19 @@ test("Atlas de Sincronía usa lector lateral y relaciones de ancho completo", ()
   assert.match(css, /sn-atlas-relations[\s\S]*grid-column:1 \/ -1/);
   assert.match(css, /atlas-related-list[\s\S]*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
   assert.match(css, /@media \(max-width:950px\)[\s\S]*sn-atlas-reader[\s\S]*grid-row:3/);
+});
+
+test("Sincronía muestra enlaces pulsables a fichas de autor y todas sus obras", async () => {
+  const journal = await readFile("js/journal-page.js", "utf8");
+  const atlas = await readFile("js/journal-atlas.js", "utf8");
+  assert.match(journal, /url\.searchParams\.set\("view", "author"\)/);
+  assert.match(journal, /url\.searchParams\.set\("author", String\(name \|\| ""\)\.trim\(\)\)/);
+  assert.match(journal, /byline\.append\(authorLink\(name\)\)/);
+  assert.match(atlas, /escapeAttribute\(authorSearchUrl\(name\)\)/);
+  assert.match(css, /\.sn-stamp-card \.journal-card-byline \.journal-author-link/);
+  assert.match(css, /\.sn-atlas-reader-detail \.journal-author-link/);
+  assert.match(css, /min-height: 44px/);
+  assert.match(css, /Ver obras ↗/);
+  assert.match(html, /Toque el nombre de un autor para ver su ficha y todas sus obras/);
+  assert.match(html, /Toque el nombre de cualquier autor para consultar su ficha y sus obras/);
 });
