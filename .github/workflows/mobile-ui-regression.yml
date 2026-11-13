@@ -11,6 +11,9 @@ on:
       - "js/articles.js"
       - "js/journal-page.js"
       - "js/journal-atlas.js"
+      - "js/journal-atlas-article-sheet.js"
+      - "tests/journal-atlas-article-sheet.test.mjs"
+      - "scripts/qa/journal-atlas-sheet-smoke.mjs"
       - "js/mobile-site-menu.js"
       - "tests/journal-pages.test.mjs"
       - "scripts/qa/journal-pages-smoke.mjs"
@@ -168,6 +171,9 @@ jobs:
         run: node scripts/qa/thesis-atlas-smoke.mjs
       - name: Verify individual journal pages, filters and semantic Atlas fallback
         run: node scripts/qa/journal-pages-smoke.mjs
+
+      - name: Verify journal Atlas abstract and expandable article sheet without screenshots
+        run: node scripts/qa/journal-atlas-sheet-smoke.mjs
 
       - name: Verify journal editorial profiles on phone tablet and desktop
         run: node scripts/qa/journal-institutional-smoke.mjs
