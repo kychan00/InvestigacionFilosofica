@@ -377,6 +377,7 @@ function card(record, index) {
         const button = document.createElement("button");
         button.type = "button";
         button.className = "journal-chip subject-chip category-filter-chip topic-" + categoryMeta.origin;
+        button.dataset.taxonomyValue = subject;
         button.textContent = subject;
         button.title = "Filtrar Protrepsis por la categoría «" + subject + "»";
         button.style.setProperty("--chip-color", categoryColorFor(subject));
