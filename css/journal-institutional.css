@@ -119,6 +119,29 @@ html[data-theme="dark"] .ji--quadripartita {--book:#122d2b;}
 .ji .person strong {font:500 1.55rem/1.2 var(--display);display:block;letter-spacing:-.02em;}
 .ji .person small {display:block;color:var(--muted);font-size:.75rem;margin-top:7px;line-height:1.55;}
 .ji .person a {display:inline-block;margin-top:8px;font:500 .64rem var(--mono);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere;}
+/* Protrepsis: original academic directory is a verifiable primary source. */
+.ji .editorial-directory {margin-top:35px;}
+.ji .editorial-directory-intro {display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:28px 0 32px;border-top:2px solid var(--accent);}
+.ji .editorial-directory-intro h3 {font:500 clamp(2.1rem,3.6vw,3.9rem)/1.03 var(--display);letter-spacing:-.025em;margin:7px 0 0;}
+.ji .editorial-directory-intro h3 em {color:var(--accent);font-weight:400;}
+.ji .editorial-directory-intro .action {flex-shrink:0;}
+.ji .editorial-directory-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);background:var(--paper-light);}
+.ji .editorial-directory-card {min-width:0;display:flex;flex-direction:column;gap:15px;min-height:310px;padding:clamp(22px,2.8vw,37px);border-right:1px solid var(--line);}
+.ji .editorial-directory-card:last-child {border-right:0;}
+.ji .editorial-directory-card .mono {color:var(--accent);}
+.ji .editorial-directory-card h4 {font:500 clamp(2rem,3vw,3.15rem)/1 var(--display);letter-spacing:-.025em;margin:0;}
+.ji .editorial-directory-card p {font-size:.88rem;line-height:1.75;color:var(--muted);margin:0;flex:1;}
+.ji .editorial-directory-card a {font:600 .73rem/1.4 var(--sans);text-underline-offset:4px;overflow-wrap:anywhere;}
+.ji .editorial-directory .note {margin-top:28px;}
+@media(max-width:1000px){
+  .ji .editorial-directory-grid {grid-template-columns:1fr;}
+  .ji .editorial-directory-card {min-height:0;border-right:0;border-bottom:1px solid var(--line);}
+  .ji .editorial-directory-card:last-child {border-bottom:0;}
+}
+@media(max-width:680px){
+  .ji .editorial-directory-intro {align-items:flex-start;flex-direction:column;}
+}
+
 .ji .section-label {font:500 .72rem var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.15em;margin:47px 0 15px;}
 .ji .disclosure {border-top:1px solid var(--line);}
 .ji .disclosure:last-child {border-bottom:1px solid var(--line);}
