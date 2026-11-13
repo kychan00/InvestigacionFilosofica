@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="../../css/protrepsis-museo.css?v=20261113-gallery-v1">
   <link rel="stylesheet" href="../../css/protrepsis-folios-color.css?v=20261113-folios-v2">
   <link rel="stylesheet" href="../../css/protrepsis-curatorial-chips.css?v=20261113-museum-chips-v1">
+  <link rel="stylesheet" href="../../css/protrepsis-reading-layout.css?v=20261113-ux-v2">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body data-journal="protrepsis">
@@ -57,9 +58,10 @@
         <div class="journal-hero-aside">
           <div class="pro-museum-frame">
             <img class="pro-museum-art" src="../../assets/protrepsis-mural-filosofico.svg" width="1600" height="850" alt="Ilustración original de temática filosófica: ruinas clásicas, olivos, una brújula filosófica y un paisaje de tonos ocres y azules." fetchpriority="high">
-            <div class="pro-museum-corner pro-museum-corner-left"><span>UNA REVISTA COMO ESPACIO</span><span>PARA EL PENSAMIENTO</span></div>
-            <span class="pro-museum-seal" aria-hidden="true">Π<br>2011<br>UDG</span>
-            <div class="pro-book-cover pro-museum-plaque" aria-hidden="true"><span>ARCHIVO · FILOSOFÍA</span><strong>Protrepsis</strong><span>EDICIÓN DIGITAL · ISSN 2007-9273</span></div>
+          </div>
+          <div class="pro-museum-caption" aria-label="Datos de la ilustración">
+            <span>PROTREPSIS · REVISTA DE FILOSOFÍA</span>
+            <span>GRABADO ORIGINAL <span aria-hidden="true">✳</span> CUCSH / UdeG · ISSN 2007-9273</span>
           </div>
         </div>
         <div class="journal-hero-copy">
@@ -120,8 +122,42 @@
       <section id="journal-archive-panel" class="journal-panel" aria-label="Archivo de artículos">
         <div class="pro-section-heading"><span class="pro-section-number">03 / CATÁLOGO</span><h2>Un archivo <em>para habitar.</em></h2><p>Cada ficha guarda una pregunta, una voz y una fecha. Recorra los números de la revista como quien visita una colección viva.</p></div>
         <div class="journal-archive-layout">
-          <aside class="journal-sidebar">
-            <section class="journal-filter-block">
+          <aside class="journal-sidebar pro-explorer" aria-label="Explorador del archivo filosófico">
+            <div class="pro-explorer-tabs" role="tablist" aria-label="Elegir panel del catálogo">
+              <button id="pro-explorer-tab-topics" role="tab" type="button" data-pro-explorer-tab="topics" aria-controls="pro-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Temas</button>
+              <button id="pro-explorer-tab-issues" role="tab" type="button" data-pro-explorer-tab="issues" aria-controls="pro-explorer-issues" aria-selected="false" tabindex="-1"><span aria-hidden="true">№</span> Números</button>
+              <button id="pro-explorer-tab-filters" role="tab" type="button" data-pro-explorer-tab="filters" aria-controls="pro-explorer-filters" aria-selected="false" tabindex="-1"><span aria-hidden="true">☷</span> Filtros</button>
+            </div>
+            <div class="pro-explorer-panels">
+              <section id="pro-explorer-topics" role="tabpanel" aria-labelledby="pro-explorer-tab-topics" data-pro-explorer-panel="topics" class="journal-taxonomy-block pro-curatorial-block" aria-labelledby="pro-categories-title">
+              <header class="pro-curatorial-header">
+                <div class="pro-curatorial-header-top">
+                  <p class="journal-kicker">CATÁLOGO / 01 — TEMAS</p>
+                  <span class="pro-curatorial-ornament" aria-hidden="true">✳</span>
+                </div>
+                <h2 id="pro-categories-title">Mapa de navegación</h2>
+                <p class="pro-curatorial-hint">Categorías de consulta, derivadas para recorrer el archivo.</p>
+                <button id="journal-category-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los temas <span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
+            </section>
+              <section id="pro-explorer-issues" role="tabpanel" aria-labelledby="pro-explorer-tab-issues" data-pro-explorer-panel="issues" hidden class="journal-taxonomy-block journal-issues-block pro-curatorial-block pro-curatorial-issues" aria-labelledby="pro-issues-title">
+              <header class="pro-curatorial-header">
+                <div class="pro-curatorial-header-top">
+                  <p class="journal-kicker">CATÁLOGO / 02 — NÚMEROS</p>
+                  <span class="pro-curatorial-ornament" aria-hidden="true">Π</span>
+                </div>
+                <h2 id="pro-issues-title">Ediciones del archivo</h2>
+                <p class="pro-curatorial-hint">Recorra la colección por número de publicación.</p>
+                <button id="journal-issue-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los números <span aria-hidden="true">↗</span>
+                </button>
+              </header>
+              <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
+            </section>
+              <section id="pro-explorer-filters" role="tabpanel" aria-labelledby="pro-explorer-tab-filters" data-pro-explorer-panel="filters" hidden class="journal-filter-block">
               <header class="journal-filter-head">
                 <div><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></div>
                 <button id="journal-filter-toggle" class="journal-filter-toggle" type="button" aria-expanded="true">Ocultar</button>
@@ -147,36 +183,8 @@
                 <button id="journal-reset" class="journal-reset" type="button">Limpiar filtros</button>
               </div>
             </section>
-
-            <section class="journal-taxonomy-block pro-curatorial-block" aria-labelledby="pro-categories-title">
-              <header class="pro-curatorial-header">
-                <div class="pro-curatorial-header-top">
-                  <p class="journal-kicker">CATÁLOGO / 01 — TEMAS</p>
-                  <span class="pro-curatorial-ornament" aria-hidden="true">✳</span>
-                </div>
-                <h2 id="pro-categories-title">Mapa de navegación</h2>
-                <p class="pro-curatorial-hint">Categorías de consulta, derivadas para recorrer el archivo.</p>
-                <button id="journal-category-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
-                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los temas <span aria-hidden="true">↗</span>
-                </button>
-              </header>
-              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
-            </section>
-
-            <section class="journal-taxonomy-block journal-issues-block pro-curatorial-block pro-curatorial-issues" aria-labelledby="pro-issues-title">
-              <header class="pro-curatorial-header">
-                <div class="pro-curatorial-header-top">
-                  <p class="journal-kicker">CATÁLOGO / 02 — NÚMEROS</p>
-                  <span class="pro-curatorial-ornament" aria-hidden="true">Π</span>
-                </div>
-                <h2 id="pro-issues-title">Ediciones del archivo</h2>
-                <p class="pro-curatorial-hint">Recorra la colección por número de publicación.</p>
-                <button id="journal-issue-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
-                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los números <span aria-hidden="true">↗</span>
-                </button>
-              </header>
-              <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
-            </section>
+            </div>
+            <p class="pro-explorer-caption">ÍNDICE TEMÁTICO · ARCHIVO 2011—2026</p>
           </aside>
 
           <div>
@@ -213,17 +221,24 @@
             </div>
             <canvas id="journal-atlas-canvas" tabindex="0" aria-label="Red semántica interactiva de artículos agrupada por número editorial"></canvas>
           </div>
-          <aside class="journal-atlas-aside">
-            <div class="journal-atlas-copy">
-              <p class="journal-kicker">ATLAS DE REVISTA</p>
-              <h2>Proximidad entre artículos</h2>
-              <p id="journal-qwen-note">Qwen es opcional y experimental. Sin activarlo, el Atlas usa similitud textual local.</p>
+          <aside class="journal-atlas-aside pro-atlas-reader" aria-label="Lectura del artículo seleccionado">
+            <div class="journal-atlas-copy pro-atlas-reader-heading">
+              <span class="pro-atlas-reader-number">II / LECTURA</span>
+              <p class="journal-kicker">FICHA DEL ARTÍCULO</p>
+              <h2>Artículo <em>seleccionado.</em></h2>
+              <p>Seleccione un nodo para leer su resumen, consultar metadatos y acceder al texto de origen.</p>
             </div>
-            <div id="journal-atlas-legend" class="journal-atlas-legend"></div>
-            <div id="journal-atlas-detail" class="journal-atlas-detail">
+            <div id="journal-atlas-detail" class="journal-atlas-detail pro-atlas-reader-detail" role="region" aria-label="Contenido del artículo seleccionado">
               <p>Seleccione un nodo para inspeccionar el artículo.</p>
             </div>
           </aside>
+          <div class="pro-atlas-map-footer">
+            <div class="pro-atlas-map-key"><strong>CLAVE DE EDICIONES</strong><div id="journal-atlas-legend" class="journal-atlas-legend"></div></div>
+            <p id="journal-qwen-note">Qwen es opcional y experimental. Sin activarlo, el Atlas usa similitud textual local.</p>
+          </div>
+          <div id="journal-atlas-relations" class="pro-atlas-relations" role="region" aria-label="Relaciones del artículo seleccionado">
+            <p class="pro-atlas-relations-empty">Las relaciones semánticas del artículo seleccionado aparecerán aquí, debajo del mapa.</p>
+          </div>
         </div>
       </section>
 
@@ -258,7 +273,8 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261113-museum-chips-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261113-reader-v1"></script>
+  <script type="module" src="../../js/protrepsis-explorer.js?v=20261113-ux-v1"></script>
   <script type="module" src="../../js/protrepsis-catalog.js?v=20261113-folios-v2"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
 </body>

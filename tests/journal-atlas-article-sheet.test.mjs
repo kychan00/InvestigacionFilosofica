@@ -90,7 +90,7 @@ test("los tres Atlas comparten módulo, CSS y invalidación de caché", async ()
   assert.match(atlas,/journalArticleSheet\(record, node\.issue, node\.category\)/);
   assert.match(atlas,/data-related-sheet/);
   assert.match(atlas,/sheet\.open = true/);
-  assert.match(script,/journal-atlas\.js\?v=20261113-atlas-sheet-v1/);
+  assert.match(script,/journal-atlas\.js\?v=20261113-[a-z0-9-]+/);
   assert.match(style,/atlas-abstract-body/);
   assert.match(style,/atlas-article-sheet-toggle/);
   assert.match(style,/prefers-reduced-motion: reduce/);

@@ -20,6 +20,10 @@ on:
       - "scripts/qa/journal-institutional-smoke.mjs"
       - "scripts/qa/protrepsis-paper-smoke.mjs"
       - "scripts/qa/protrepsis-curatorial-chips-smoke.mjs"
+      - "scripts/qa/protrepsis-reading-layout-smoke.mjs"
+      - "tests/protrepsis-reading-layout.test.mjs"
+      - "css/protrepsis-reading-layout.css"
+      - "js/protrepsis-explorer.js"
       - "tests/protrepsis-curatorial-chips.test.mjs"
       - "scripts/qa/quadripartita-stamps-smoke.mjs"
       - "scripts/qa/quadripartita-postal-taxonomy-smoke.mjs"
@@ -188,6 +192,9 @@ jobs:
 
       - name: Verify Protrepsis museum taxonomy chips and independent reset controls
         run: node scripts/qa/protrepsis-curatorial-chips-smoke.mjs
+
+      - name: Verify Protrepsis quick explorer and article-reading Atlas
+        run: node scripts/qa/protrepsis-reading-layout-smoke.mjs
 
       - name: Verify Quadripartita engraved stamps and cobalt editorial design
         run: node scripts/qa/quadripartita-stamps-smoke.mjs

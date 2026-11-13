@@ -12,7 +12,7 @@ test("chips y resets de Protrepsis forman parte del catálogo, no de otras revis
   assert.match(page,/Todos los temas/);
   assert.match(page,/Todos los números/);
   assert.match(page,/protrepsis-curatorial-chips\.css\?v=20261113-museum-chips-v1/);
-  assert.match(page,/journal-page\.js\?v=20261113-museum-chips-v1/);
+  assert.match(page,/journal-page\.js\?v=20261113-[a-z0-9-]+/);
   // Quadripartita now intentionally shares the independent reset behavior,
   // but it must never load Protrepsis's museum-ticket visual system.
   const quad=await readFile("revistas/udg/quadripartita-ratio.html","utf8");

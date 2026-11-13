@@ -152,10 +152,16 @@ try {
         );
       }
       if (width <= 820) {
-        assert.equal(await page.locator("#journal-filter-toggle").getAttribute("aria-expanded"), "false");
-        assert.equal(await page.locator(".journal-filter-body").isVisible(), false);
-        await page.locator("#journal-filter-toggle").click();
-        assert.equal(await page.locator(".journal-filter-body").isVisible(), true);
+        if (journal === "protrepsis") {
+          await page.locator('[data-pro-explorer-tab="filters"]').click();
+          assert.equal(await page.locator("#pro-explorer-filters").isVisible(),true);
+          assert.equal(await page.locator(".journal-filter-body").isVisible(),true);
+        } else {
+          assert.equal(await page.locator("#journal-filter-toggle").getAttribute("aria-expanded"), "false");
+          assert.equal(await page.locator(".journal-filter-body").isVisible(), false);
+          await page.locator("#journal-filter-toggle").click();
+          assert.equal(await page.locator(".journal-filter-body").isVisible(), true);
+        }
       }
       assert.equal(await page.locator("#journal-qwen-toggle").getAttribute("aria-pressed"), "false");
 
@@ -249,6 +255,9 @@ try {
       }
 
       await page.locator('[data-journal-view="archive"]').click();
+      if (journal === "protrepsis") {
+        await page.locator('[data-pro-explorer-tab="filters"]').click();
+      }
       await page.locator("#journal-query").fill(journal === "protrepsis" ? "verdad" : journal === "sincronia" ? "digital" : "inferencias");
       await page.waitForTimeout(30);
       assert.equal(await page.locator(".journal-card").count(), 1);
