@@ -1,6 +1,7 @@
 import { ResearchAtlasQwenVectorClient } from "../src/core/research-atlas-qwen-vector-client.js";
 import { cosineInt8 } from "../src/core/research-atlas-qwen-vector-range.js";
 import { journalArticleAbstract, journalArticleSheet, journalArticleSourceUrl } from "./journal-atlas-article-sheet.js";
+import { articleTopics } from "./journal-article-topics.js?v=20261113-v1";
 
 const SITE_ROOT = new URL("../", import.meta.url);
 const MAX_ATLAS_RECORDS = 72;
@@ -47,7 +48,7 @@ function weightedTerms(node) {
   };
 
   add(node.record.title, 4.2);
-  add((node.record.subjects || []).join(" "), 3.1);
+  add(articleTopics(node.record, {derive: node.record.journal === "Protrepsis", limit: 12}).join(" "), 3.1);
   add(node.category, 1.8);
   add(node.record.abstract, 1.0);
 
