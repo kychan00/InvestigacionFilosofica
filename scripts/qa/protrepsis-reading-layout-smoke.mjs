@@ -59,9 +59,10 @@ try {
     assert.match(await page.locator("#journal-card-grid .broad-category-chip").first().getAttribute("title"),/Área filosófica amplia/);
     const categoryButtons=page.locator("#journal-card-grid .category-filter-chip");
     assert.ok(await categoryButtons.count()>=2);
-    const categoryLabel=(await categoryButtons.first().innerText()).trim();
+    const categoryValue=await categoryButtons.first().getAttribute("data-taxonomy-value");
+    assert.ok(categoryValue);
     await categoryButtons.first().click();
-    assert.equal(await page.locator("#journal-category").inputValue(),categoryLabel);
+    assert.equal(await page.locator("#journal-category").inputValue(),categoryValue);
     assert.match(await page.locator("#journal-results-status").innerText(),/filtros activos/);
     await page.locator("#journal-category-all").click();
     assert.equal(await page.locator("#journal-category").inputValue(),"all");
