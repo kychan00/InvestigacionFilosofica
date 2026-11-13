@@ -13,10 +13,14 @@ test("chips y resets de Protrepsis forman parte del catálogo, no de otras revis
   assert.match(page,/Todos los números/);
   assert.match(page,/protrepsis-curatorial-chips\.css\?v=20261113-museum-chips-v1/);
   assert.match(page,/journal-page\.js\?v=20261113-museum-chips-v1/);
-  for(const path of ["sincronia.html","quadripartita-ratio.html"]){
-    const other=await readFile("revistas/udg/"+path,"utf8");
-    assert.doesNotMatch(other,/journal-category-all|journal-issue-all|protrepsis-curatorial-chips/);
-  }
+  // Quadripartita now intentionally shares the independent reset behavior,
+  // but it must never load Protrepsis's museum-ticket visual system.
+  const quad=await readFile("revistas/udg/quadripartita-ratio.html","utf8");
+  assert.match(quad,/journal-category-all/);
+  assert.match(quad,/journal-issue-all/);
+  assert.doesNotMatch(quad,/protrepsis-curatorial-chips/);
+  const sincronia=await readFile("revistas/udg/sincronia.html","utf8");
+  assert.doesNotMatch(sincronia,/journal-category-all|journal-issue-all|protrepsis-curatorial-chips|quadripartita-postal-taxonomy/);
 });
 
 test("selección es accesible y restablece solo el filtro correspondiente",()=>{
