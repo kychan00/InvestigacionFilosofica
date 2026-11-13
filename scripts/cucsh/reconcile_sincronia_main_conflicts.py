@@ -38,8 +38,9 @@ def resolve_text(path, expected_count):
     conflicts=list(CONFLICT_MARKERS.finditer(content))
     if len(conflicts)!=expected_count:
         raise ValueError(f"{path}: expected {expected_count} conflict blocks, found {len(conflicts)}")
+    block_index=iter(range(len(conflicts)))
     def replace(match):
-        idx=conflicts.index(match)
+        idx=next(block_index)
         ours, theirs=match.group(1), match.group(2)
         if path=="acerca.html":
             if idx==0:
