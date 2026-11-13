@@ -317,13 +317,13 @@ body[data-journal="protrepsis"] #journal-atlas-panel .pro-atlas-reader-detail .a
   color:#fff;
 }
 body[data-journal="protrepsis"] #journal-atlas-panel .pro-atlas-map-footer {
-  grid-column:1;
+  grid-column:1 / -1;
   grid-row:2;
   min-width:0;
   padding:19px 21px 22px;
   background:var(--jp-surface);
   border-top:1px solid var(--jp-line);
-  border-right:1px solid var(--jp-line);
+  border-right:0;
 }
 body[data-journal="protrepsis"] #journal-atlas-panel .pro-atlas-map-key > strong {
   display:block;
