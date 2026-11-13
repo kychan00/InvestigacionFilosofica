@@ -51,6 +51,55 @@ jobs:
           git diff --name-only --diff-filter=U | LC_ALL=C sort > /tmp/sincronia-main-reconciliation/conflicting-paths.txt
           git status --short > /tmp/sincronia-main-reconciliation/merge-status.txt
           python3 - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          root=Path("/tmp/sincronia-main-reconciliation")
+          path="src/data/cucsh-filosofia.json"
+          row={}
+          for stage,label in ((2,"feature"),(3,"main")):
+              result=subprocess.run(["git","show",f":{stage}:{path}"],capture_output=True,check=True)
+              doc=json.loads(result.stdout)
+              records=doc["records"]
+              journals={}
+              for r in records:
+                  key=r.get("journal")
+                  journals[key]=journals.get(key,0)+1
+              row[label]={"schemaVersion":doc.get("schemaVersion"),"provider":doc.get("provider"),
+                          "recordCount":len(records),"journals":journals,
+                          "recordsById":{r["id"]:r for r in records}}
+          common=set(row["feature"]["recordsById"]) & set(row["main"]["recordsById"])
+          changed=[i for i in common if row["feature"]["recordsById"][i]!=row["main"]["recordsById"][i]]
+          merged={
+              "feature":{"records":row["feature"]["recordCount"],"journals":row["feature"]["journals"]},
+              "main":{"records":row["main"]["recordCount"],"journals":row["main"]["journals"]},
+              "sharedIdCount":len(common),"differingSharedIdCount":len(changed),
+              "differingSharedIdSamples":sorted(changed)[:12],
+              "mainOnlyIdCount":len(set(row["main"]["recordsById"])-common),
+              "featureOnlyIdCount":len(set(row["feature"]["recordsById"])-common),
+          }
+          (root/"corpus-overlap.json").write_text(json.dumps(merged,ensure_ascii=False,indent=2)+"\n")
+          print("SINCRONIA_CORPUS_CONFLICT",json.dumps(merged,ensure_ascii=False))
+          for file in ("acerca.html","scripts/cucsh/harvest.py","tests/cucsh-filosofia.test.mjs"):
+              data=Path(file).read_text(encoding="utf-8").splitlines()
+              groups=[]; active=None
+              for line in data:
+                  if line.startswith("<<<<<<< "):
+                      active=[line]
+                  elif active is not None:
+                      active.append(line)
+                      if line.startswith(">>>>>>> "):
+                          groups.append(active)
+                          active=None
+              print("SINCRONIA_TEXT_CONFLICT",file,"hunks",len(groups))
+              for i,block in enumerate(groups):
+                  print("SINCRONIA_CONFLICT_START",file,i,"lines",len(block))
+                  for ln in block[:80]:
+                      print("    "+ln[:250])
+                  if len(block)>80:
+                      print("    ...truncated",len(block)-80)
+                  print("SINCRONIA_CONFLICT_END",file,i)
+          PY
+          python3 - <<'PY'
           from pathlib import Path
           import json
           p=Path("/tmp/sincronia-main-reconciliation")

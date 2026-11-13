@@ -1,1 +1,3 @@
 Assess merge of current main into feature/cucsh-sincronia using a read-only, no-commit GitHub Actions probe. Report all conflicts and shared paths. Do NOT change main, merge, or open a PR until compatibility and full regression are established. 2026-11-13.
+
+Diagnostic rerun: print exact text conflict hunks and calculate JSON corpus overlap by ID without changing branches. 2026-11-13.
