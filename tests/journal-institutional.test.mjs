@@ -48,10 +48,13 @@ for (const { slug, file, expected } of profiles) {
   });
 }
 
-test("enlaces institucionales presentes en la navegación global", async () => {
+test("la navegación global lista solo revistas, sus equipos están dentro de cada revista", async () => {
   const js = await readFile("js/mobile-site-menu.js", "utf8");
-  for (const { file } of profiles) {
-    assert.ok(js.includes('revistas/udg/' + file), "missing navigation entry " + file);
+  for (const { slug, file } of profiles) {
+    assert.ok(js.includes('revistas/udg/' + slug + '.html'), "missing journal " + slug);
+    assert.ok(!js.includes('revistas/udg/' + file), "institutional profile belongs within the journal, not global menu: " + file);
+    const archive = await readFile("revistas/udg/" + slug + ".html", "utf8");
+    assert.ok(archive.includes(file), "journal should link to its own institutional profile");
   }
 });
 
