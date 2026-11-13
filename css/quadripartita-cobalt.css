@@ -34,6 +34,21 @@ html[data-theme="dark"] body[data-journal="quadripartita"] {
   --qr-blue:#2838be;
   --qr-blue-deep:#1f2b96;
 }
+/* Keep textual cobalt accents readable against the darker theme. */
+html[data-theme="dark"] body[data-journal="quadripartita"] :is(
+ .journal-eyebrow, .journal-hero h1 em, .qr-hero-deck i,
+ .qr-hero-signature span, .qr-engraving-caption,
+ .qr-index, .qr-issue-note h2 em, .journal-metric strong,
+ .journal-nav-links a[href*="-institucional.html"],
+ .qr-button-outline, .qr-topline i
+) {color:#b7c4ff;}
+html[data-theme="dark"] body[data-journal="quadripartita"] .qr-button-outline,
+html[data-theme="dark"] body[data-journal="quadripartita"] .journal-nav-links a[href*="-institucional.html"] {
+ border-color:#b7c4ff;
+}
+html[data-theme="dark"] body[data-journal="quadripartita"] .journal-hero-aside img {
+ filter:brightness(1.85);
+}
 body[data-journal="quadripartita"] .journal-page {
   min-height:100vh;background:var(--jp-bg);isolation:isolate;overflow:clip;
   font-family:var(--jp-sans);color:var(--jp-ink);
