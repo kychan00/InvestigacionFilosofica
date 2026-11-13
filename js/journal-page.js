@@ -1,4 +1,5 @@
-import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-reader-v1";
+import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-topic-tags-v1";
+import { articleTopicMetadata, articleTopics } from "./journal-article-topics.js?v=20261113-v1";
 import {
   journalIssueGroups,
   journalIssueInfo
@@ -168,7 +169,7 @@ function recordText(record) {
     record.year,
     record.language,
     ...authors(record),
-    ...(record.subjects || []),
+    ...articleTopics(record, {derive: record.journal === "Protrepsis", limit: 12}),
     categoryFor(record)
   ].join(" "));
 }
@@ -305,8 +306,31 @@ function card(record, index) {
   const categoryChip = chip(categoryFor(record), "category-chip");
   categoryChip.style.setProperty("--chip-color", CATEGORY_COLORS[categoryFor(record)] || CATEGORY_COLORS.Otros);
   category.append(categoryChip);
-  for (const subject of (record.subjects || []).slice(0, 4)) {
-    category.append(chip(subject, "subject-chip"));
+
+  const topicMeta = articleTopicMetadata(record, {
+    derive: record.journal === "Protrepsis",
+    limit: record.journal === "Protrepsis" ? 8 : 4
+  });
+  if (topicMeta.topics.length) {
+    const topicGroup = document.createElement("div");
+    topicGroup.className = "journal-card-topic-group";
+    topicGroup.dataset.topicOrigin = topicMeta.origin;
+    topicGroup.title = topicMeta.note;
+
+    const topicLabel = document.createElement("span");
+    topicLabel.className = "journal-card-topic-label";
+    topicLabel.textContent = topicMeta.label;
+
+    const topicList = document.createElement("div");
+    topicList.className = "journal-card-topic-list";
+    for (const subject of topicMeta.topics) {
+      topicList.append(chip(subject, "subject-chip topic-" + topicMeta.origin));
+    }
+    const hiddenCount = Math.max(0, topicMeta.allTopics.length - topicMeta.topics.length);
+    if (hiddenCount) topicList.append(chip("+" + hiddenCount, "subject-chip topic-more"));
+
+    topicGroup.append(topicLabel, topicList);
+    category.append(topicGroup);
   }
 
   const excerpt = document.createElement("p");
@@ -349,8 +373,10 @@ function card(record, index) {
     "<div><dt>Revista</dt><dd>" + escapeHtml(record.journal || config.label) + "</dd></div>" +
     "<div><dt>DOI</dt><dd>" + escapeHtml(record.doi || "No indicado") + "</dd></div>" +
     "<div><dt>Número editorial</dt><dd>" + escapeHtml(journalIssueInfo(record).label) + "</dd></div>" +
-    "<div><dt>Categoría</dt><dd>" + escapeHtml(categoryFor(record)) + " <small>derivada para navegación</small></dd></div>" +
-    "<div><dt>Temas declarados</dt><dd>" + escapeHtml((record.subjects || []).join(" · ") || "No indicados") + "</dd></div>" +
+    "<div><dt>Categoría de navegación</dt><dd>" + escapeHtml(categoryFor(record)) + " <small>clasificación amplia derivada</small></dd></div>" +
+    "<div><dt>" + escapeHtml(topicMeta.label) + "</dt><dd>" +
+      escapeHtml(topicMeta.allTopics.join(" · ") || "No disponibles") +
+      " <small>" + escapeHtml(topicMeta.note) + "</small></dd></div>" +
     "</dl>";
 
   body.append(pins, title, byline, category, excerpt, actions, details);
