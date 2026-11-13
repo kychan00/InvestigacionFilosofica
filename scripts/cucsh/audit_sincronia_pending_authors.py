@@ -173,6 +173,43 @@ def exact_campos_identity_conflicts(pending):
             "indexedIssue": 15,
             "indexedYear": 2000,
             "originalUrl": original,
+            "indexedContributorCandidate": {
+                "name": "Jorge Lúcio de Campos",
+                "indexPrintedLabel": "de Campos,Jorge Lucio",
+                "indexSourceUrl": (
+                    "http://fuentes.csh.udg.mx/CUCSH/Sincronia/summer00.htm"
+                ),
+                "issue": 15,
+                "year": 2000,
+                "independentSameYearWorksBySamePerson": 2,
+                "sourceIndexNamesContributor": True,
+                "original2000SignedBylineVerified": False,
+                "specificWorkAndUrlMappingVerified": False,
+                "evidencePolicy": (
+                    "The original issue label identifies a probable contributor, "
+                    "and a professional bibliography attributes both 2000 "
+                    "Sincronía work candidates to that person. A name in an "
+                    "index is not a signed article: keep authors empty until "
+                    "the original 2000 /campos.htm work or an exact-URL "
+                    "bibliographic citation is verified."
+                ),
+            },
+            "independentArchiveInvestigation": {
+                "archive": "Arquivo.pt",
+                "checkedOn": "2026-11-13",
+                "candidateUrls": 4,
+                "fullTextQueries": 3,
+                "capturedMatchesObserved": 0,
+                "sourceRun": (
+                    "https://github.com/kychan00/InvestigacionFilosofica/"
+                    "actions/runs/43487098391"
+                ),
+                "negativeEvidenceCaveat": (
+                    "Zero query results in Arquivo.pt is not evidence "
+                    "the source publication never existed. Wayback has "
+                    "a later capture of reused /campos.htm."
+                ),
+            },
             "professionalBibliographyUrl": (
                 "https://www.escavador.com/sobre/764869/jorge-lucio-de-campos"
             ),

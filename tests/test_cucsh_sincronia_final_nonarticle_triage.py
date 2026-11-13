@@ -106,6 +106,15 @@ class FinalMissingAuthorTriageTests(unittest.TestCase):
         self.assertIn("Floriano Martins",item["laterPageSubtitle"])
         self.assertIn("20020607092529",item["laterArchivedSameUrl"])
         self.assertIn("professionalBibliographyUrl",item)
+        candidate=item["indexedContributorCandidate"]
+        self.assertEqual(candidate["name"],"Jorge Lúcio de Campos")
+        self.assertTrue(candidate["sourceIndexNamesContributor"])
+        self.assertEqual(candidate["independentSameYearWorksBySamePerson"],2)
+        self.assertFalse(candidate["original2000SignedBylineVerified"])
+        self.assertFalse(candidate["specificWorkAndUrlMappingVerified"])
+        self.assertIn("keep authors empty",candidate["evidencePolicy"])
+        self.assertEqual(item["independentArchiveInvestigation"]["capturedMatchesObserved"],0)
+        self.assertIn("not evidence",item["independentArchiveInvestigation"]["negativeEvidenceCaveat"])
         issue=item["issue15DatingEvidence"]
         self.assertEqual((issue["issueNumber"],issue["year"]),(15,2000))
         self.assertEqual(issue["season"],"Verano / Summer")
