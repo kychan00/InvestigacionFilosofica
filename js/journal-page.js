@@ -438,7 +438,9 @@ function buildTaxonomy() {
   fillSelect(el.category, allCategories(), "Todas las categorías");
 
   el.categories.replaceChildren();
-  for (const [label, count] of allCategories().slice(0, 10)) {
+  const navigationCategories = allCategories();
+  const visibleCategories = journalId === "protrepsis" ? navigationCategories : navigationCategories.slice(0, 10);
+  for (const [label, count] of visibleCategories) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "taxonomy-chip";
