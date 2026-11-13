@@ -53,7 +53,15 @@ try {
     assert.equal(await firstTopicGroup.count(),1);
     assert.match(await firstTopicGroup.locator(".journal-card-topic-label").innerText(),/Temas del texto|Palabras clave editoriales|Temas bibliográficos|Temas documentados/i);
     assert.ok(await firstTopicGroup.locator(".journal-card-topic-list .subject-chip").count()>=2);
-    assert.match(await page.locator("#journal-card-grid .category-chip").first().getAttribute("title"),/Categoría amplia/);
+    assert.match(await page.locator("#journal-card-grid .broad-category-chip").first().getAttribute("title"),/Área filosófica amplia/);
+    const categoryButtons=page.locator("#journal-card-grid .category-filter-chip");
+    assert.ok(await categoryButtons.count()>=2);
+    const categoryLabel=(await categoryButtons.first().innerText()).trim();
+    await categoryButtons.first().click();
+    assert.equal(await page.locator("#journal-category").inputValue(),categoryLabel);
+    assert.match(await page.locator("#journal-results-status").innerText(),/filtros activos/);
+    await page.locator("#journal-category-all").click();
+    assert.equal(await page.locator("#journal-category").inputValue(),"all");
 
     const topics=page.locator("#pro-explorer-tab-topics");
     const issues=page.locator("#pro-explorer-tab-issues");
