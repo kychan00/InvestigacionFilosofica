@@ -1,4 +1,4 @@
-import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-atlas-sheet-v1";
+import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-reader-v1";
 import {
   journalIssueGroups,
   journalIssueInfo
@@ -121,6 +121,7 @@ const el = {
   atlasCanvas: document.querySelector("#journal-atlas-canvas"),
   atlasStatus: document.querySelector("#journal-atlas-status"),
   atlasDetail: document.querySelector("#journal-atlas-detail"),
+  atlasRelations: document.querySelector("#journal-atlas-relations"),
   atlasLegend: document.querySelector("#journal-atlas-legend"),
   atlasControls: document.querySelector("#journal-atlas-controls"),
   qwenToggle: document.querySelector("#journal-qwen-toggle"),
@@ -529,6 +530,7 @@ async function buildAtlas() {
     canvas: el.atlasCanvas,
     status: el.atlasStatus,
     detail: el.atlasDetail,
+    relations: el.atlasRelations,
     legend: el.atlasLegend,
     controls: el.atlasControls,
     accent: config.accent
