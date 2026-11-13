@@ -1,3 +1,0 @@
-Use independent issue 47/48 full TOC audit 43131658279. Verify all 24 existing record identities including abbreviated titles, then add only four missing records with exact Dialnet article ID. No main, no PR.
-Verified tests now supply the 14 expected existing records to exercise the missing-audit gate; prior snapshot is immutable.
-Repair source-availability guard against actual audit JSON contract; add integration test loading immutable artifact; retry failed run 43135201890.

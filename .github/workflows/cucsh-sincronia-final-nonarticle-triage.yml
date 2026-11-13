@@ -1,11 +1,6 @@
 name: Sincronía · final non-article and unresolved-byline audit
 
 on:
-  push:
-    branches:
-      - feature/cucsh-sincronia
-    paths:
-      - ".github/triggers/cucsh-sincronia-final-nonarticle-triage.txt"
   workflow_dispatch:
 
 permissions:
@@ -23,8 +18,6 @@ jobs:
       PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v6
-        with:
-          ref: feature/cucsh-sincronia
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
