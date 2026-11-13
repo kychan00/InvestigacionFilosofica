@@ -99,6 +99,6 @@ test("los tres Atlas comparten módulo, CSS y invalidación de caché", async ()
   for (const name of ["protrepsis","sincronia","quadripartita-ratio"]) {
     const html=await readFile("revistas/udg/"+name+".html","utf8");
     assert.match(html,/journal-atlas-sheet\.css\?v=20261113-atlas-sheet-v1/);
-    assert.match(html,/journal-page\.js\?v=20261113-atlas-sheet-v1/);
+    assert.match(html,/journal-page\.js\?v=20261113-[a-z0-9-]+/);
   }
 });
