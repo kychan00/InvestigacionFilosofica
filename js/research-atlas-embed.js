@@ -424,6 +424,45 @@ function authorHref(author) {
   return url.toString();
 }
 
+function authorityIdentifierValue(node, scheme) {
+  return (node?.externalIdentifiers || [])
+    .find(identifier =>
+      identifier?.scheme === scheme
+    )?.normalizedValue ||
+    null;
+}
+
+function authorIdentityForNode(node) {
+  const orcid =
+    authorityIdentifierValue(
+      node,
+      "orcid"
+    );
+
+  const openalex =
+    authorityIdentifierValue(
+      node,
+      "openalex-author"
+    );
+
+  return {
+    name:
+      node?.label ||
+      "",
+    id:
+      openalex
+        ? "https://openalex.org/A" +
+          openalex
+        : null,
+    orcid:
+      orcid
+        ? "https://orcid.org/" +
+          orcid
+        : null
+  };
+}
+
+
 function decorateViewModelNodes() {
   if (!viewModel) return;
 
@@ -1154,18 +1193,150 @@ function renderDetail() {
     node.kind === "authority-person" ||
     node.kind === "author-mention"
   ) {
-    const href = authorHref(node.label);
-    if (href) {
-      const actions = element("div", "research-atlas-node-actions");
-      const openAuthor = element(
-        "a",
-        "research-atlas-node-action primary",
-        "Abrir autor"
+    if (
+      node.kind === "authority-person"
+    ) {
+      const identitySection =
+        element(
+          "section",
+          "research-atlas-why"
+        );
+
+      identitySection.append(
+        element(
+          "h3",
+          "",
+          "Identidad académica"
+        )
       );
+
+      const identityList =
+        element("ul");
+
+      const orcid =
+        authorityIdentifierValue(
+          node,
+          "orcid"
+        );
+
+      const openalex =
+        authorityIdentifierValue(
+          node,
+          "openalex-author"
+        );
+
+      if (orcid) {
+        identityList.append(
+          element(
+            "li",
+            "",
+            "ORCID · " + orcid
+          )
+        );
+      }
+
+      if (openalex) {
+        identityList.append(
+          element(
+            "li",
+            "",
+            "OpenAlex Author ID · A" +
+              openalex
+          )
+        );
+      }
+
+      for (
+        const affiliation of
+        node.affiliations || []
+      ) {
+        const institution =
+          affiliation?.institution ||
+          affiliation?.name ||
+          affiliation?.organization ||
+          null;
+
+        if (!institution) continue;
+
+        identityList.append(
+          element(
+            "li",
+            "",
+            "Afiliación observada · " +
+              institution
+          )
+        );
+      }
+
+      if (
+        identityList.children.length
+      ) {
+        identitySection.append(
+          identityList
+        );
+        fragment.append(
+          identitySection
+        );
+      }
+    }
+
+    const authorIdentity =
+      node.kind === "authority-person"
+        ? authorIdentityForNode(node)
+        : node.label;
+
+    const href =
+      authorHref(
+        authorIdentity
+      );
+
+    if (href) {
+      const actions =
+        element(
+          "div",
+          "research-atlas-node-actions"
+        );
+
+      const openAuthor =
+        element(
+          "a",
+          "research-atlas-node-action primary",
+          "Abrir autor"
+        );
+
       openAuthor.href = href;
       openAuthor.target = "_blank";
       openAuthor.rel = "noopener noreferrer";
       actions.append(openAuthor);
+
+      const orcid =
+        node.kind === "authority-person"
+          ? authorityIdentifierValue(
+              node,
+              "orcid"
+            )
+          : null;
+
+      if (orcid) {
+        const openOrcid =
+          element(
+            "a",
+            "research-atlas-node-action",
+            "ORCID"
+          );
+
+        openOrcid.href =
+          "https://orcid.org/" +
+          orcid;
+        openOrcid.target = "_blank";
+        openOrcid.rel =
+          "noopener noreferrer";
+
+        actions.append(
+          openOrcid
+        );
+      }
+
       fragment.append(actions);
     }
   }
