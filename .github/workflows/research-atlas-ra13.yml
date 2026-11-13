@@ -1,0 +1,61 @@
+name: Research Atlas RA13 · author identity graph
+
+on:
+  pull_request:
+    paths:
+      - "benchmark/research-atlas/v13/**"
+      - "src/core/research-atlas-identity.js"
+      - "src/core/research-atlas-assembler.js"
+      - "src/core/research-atlas-authority.js"
+      - "src/core/research-atlas-live.js"
+      - "src/core/research-atlas-view.js"
+      - "js/research-atlas-embed.js"
+      - "js/research-atlas.js"
+      - "index.html"
+      - "research-atlas.html"
+      - "tests/research-atlas-identity.test.mjs"
+      - "tests/research-atlas-ra13-policy.test.mjs"
+      - "tests/research-atlas-authority.test.mjs"
+      - "tests/research-atlas-document-similarity.test.mjs"
+      - "tests/research-atlas-main-integration.test.mjs"
+      - "docs/RESEARCH_ATLAS_AUTHOR_IDENTITY_RA13.md"
+      - "docs/RESEARCH_ATLAS_WORK_FIRST_RA11.md"
+      - ".github/workflows/research-atlas-ra13.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  author-identity-graph:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate RA13 identity graph
+        run: node --test tests/research-atlas-identity.test.mjs
+
+      - name: Validate RA13 policy
+        run: node --test tests/research-atlas-ra13-policy.test.mjs
+
+      - name: Preserve Author Authority semantics
+        run: node --test tests/research-atlas-authority.test.mjs
+
+      - name: Preserve RA11 work-first topology
+        run: node --test tests/research-atlas-document-similarity.test.mjs
+
+      - name: Validate main Atlas integration
+        run: node --test tests/research-atlas-main-integration.test.mjs
+
+      - name: Run complete regression suite
+        run: npm test
