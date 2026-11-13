@@ -118,6 +118,7 @@ html[data-theme="dark"] .ji--quadripartita {--book:#122d2b;}
 .ji .person:not(:nth-child(3n+1)) {padding-left:28px;border-left:1px solid var(--line);}
 .ji .person strong {font:500 1.55rem/1.2 var(--display);display:block;letter-spacing:-.02em;}
 .ji .person small {display:block;color:var(--muted);font-size:.75rem;margin-top:7px;line-height:1.55;}
+.ji .person .person-role {color:var(--accent);font:500 .67rem/1.5 var(--mono);letter-spacing:.04em;}
 .ji .person a {display:inline-block;margin-top:8px;font:500 .64rem var(--mono);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere;}
 /* Protrepsis: original academic directory is a verifiable primary source. */
 .ji .editorial-directory {margin-top:35px;}
