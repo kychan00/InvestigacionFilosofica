@@ -343,6 +343,7 @@ html[data-theme="dark"] .ji.ji--protrepsis {--paper:#1b201e;--paper-light:#292d2
 .ji.ji--protrepsis .book-stack {filter:drop-shadow(19px 28px 20px rgba(24,21,20,.26));}
 .ji.ji--protrepsis .book-stack::before {background:#8c364c;}
 .ji.ji--protrepsis .book-glyph {letter-spacing:-.1em;}
+.ji.ji--protrepsis h1 em {font-size:.56em;line-height:1.07;letter-spacing:-.025em;margin-top:13px;}
 @media(max-width:680px) {
   .ji.ji--protrepsis .pro-profile-topnote {flex-direction:column;align-items:flex-start;gap:7px;padding:12px 18px;}
   .ji.ji--protrepsis .pro-profile-companion {grid-template-columns:1fr;padding:23px;margin-top:24px;}
@@ -388,7 +389,7 @@ html[data-theme="dark"] .ji.ji--protrepsis {--paper:#1b201e;--paper-light:#292d2
   body[data-journal="protrepsis"] .journal-hero-copy {padding:47px 19px 26px;}
   body[data-journal="protrepsis"] .journal-eyebrow {font-size:.55rem;gap:9px;margin-bottom:28px;letter-spacing:.03em;}
   body[data-journal="protrepsis"] .pro-kicker-line {flex-basis:18px;width:18px;}
-  body[data-journal="protrepsis"] .journal-hero h1 {font-size:clamp(3.95rem,15.8vw,6.25rem);letter-spacing:-.06em;}
+  body[data-journal="protrepsis"] .journal-hero h1 {font-size:clamp(3.4rem,15.8vw,6.25rem);letter-spacing:-.06em;}
   body[data-journal="protrepsis"] .journal-hero h1 em {font-size:.54em;margin-top:12px;}
   body[data-journal="protrepsis"] .pro-hero-claim {font-size:1.65rem;}
   body[data-journal="protrepsis"] .journal-hero-intro {font-size:.91rem;margin:16px 0 22px;}
@@ -420,6 +421,9 @@ html[data-theme="dark"] .ji.ji--protrepsis {--paper:#1b201e;--paper-light:#292d2
   body[data-journal="protrepsis"] .journal-card-grid {gap:13px;}
   body[data-journal="protrepsis"] .journal-card-body {padding:18px;}
   body[data-journal="protrepsis"] .journal-card h3 {font-size:1.85rem;}
+}
+@media(max-width:520px){
+  .ji.ji--protrepsis h1 {font-size:clamp(3.45rem,14.7vw,5.5rem);}
 }
 @media(prefers-reduced-motion:reduce){
   body[data-journal="protrepsis"] .pro-book,
