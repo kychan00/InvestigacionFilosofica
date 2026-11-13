@@ -16,7 +16,7 @@ import {
 
 import {
   ResearchAtlasAssembler
-} from "./research-atlas-assembler.js";
+} from "./research-atlas-assembler.js?v=20261113-ra13a-v1";
 
 import {
   ResearchAtlasLayoutEngine
@@ -42,28 +42,6 @@ import {
 
 export const RESEARCH_ATLAS_LIVE_REVISION =
   "2026-11-13.ra13a-identity-v1";
-
-
-function emptyAuthorityGraph() {
-  return {
-    schemaVersion:
-      "author-authority-graph-v1",
-    buildRevision:
-      "research-atlas-live-unresolved-only",
-    datasetRevision:
-      "research-atlas-live-unresolved-only",
-    authorities: [],
-    mentions: [],
-    sourceRecords: [],
-    mentionAuthorityLinks: [],
-    identifierRegistry: {},
-    candidateRegistry: {},
-    decisionLedger: {
-      decisions: []
-    },
-    buildMetrics: {}
-  };
-}
 
 
 function abortError() {
