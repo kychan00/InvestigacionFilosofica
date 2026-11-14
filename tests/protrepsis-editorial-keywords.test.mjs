@@ -32,13 +32,26 @@ const batch02 = new Map([
   ["10.32870/prot.i27.457", ["Deber indirecto-directo","clemencia","libertad","justicia"]]
 ]);
 
+const batch03 = new Map([
+  ["10.32870/prot.i26.449", ["Marxismo crítico","emancipación","materialismo","cultura material"]],
+  ["10.32870/prot.i26.447", ["Estética","espíritu","fealdad"]],
+  ["10.32870/prot.i26.446", ["Idea","interpretación","obra de arte","fragmento","fenómeno originario"]],
+  ["10.32870/prot.i26.442", ["Aura","cine","emancipación","fotografía","marxismo"]],
+  ["10.32870/prot.i26.436", ["Escuela de Frankfurt","Instituto de Investigación Social","presente","fascismo","nueva derecha"]],
+  ["10.32870/prot.i26.432", ["Concepto","cognición 4-E","habitar","filosofía del lenguaje","discurso"]],
+  ["10.32870/prot.i26.425", ["Ibero Gutiérrez","Heidegger","recepción","filosofía en el Uruguay","actualidad"]],
+  ["10.32870/prot.i25.422", ["Imagen","filosofía de la imagen","giro hacia la imagen","ciencia de la imagen","praxis negativa"]],
+  ["10.32870/prot.i25.418", ["Historia","verdad","saber","máscara","olvido","creación","Chat GPT"]],
+  ["10.32870/prot.i25.414", ["Ética","lenguaje","mística","mundo","lo inexpresable","el significado de la vida"]]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 20);
+  assert.ok(records.length >= 30);
 
   const seen = new Set();
   for (const record of records) {
@@ -63,6 +76,18 @@ test("capa curada de Protrepsis conserva el lote 02 verificado DOI por DOI", () 
   for (const [doi, expectedKeywords] of batch02) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 02: " + doi);
+    assert.deepEqual(record.keywords, expectedKeywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+});
+
+test("capa curada de Protrepsis conserva el lote 03 verificado DOI por DOI", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch03.size, 10);
+  for (const [doi, expectedKeywords] of batch03) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 03: " + doi);
     assert.deepEqual(record.keywords, expectedKeywords);
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
