@@ -40,6 +40,21 @@ try {
       const url=new URL(route.request().url());
       if(url.pathname.endsWith("/src/data/cucsh-filosofia.json"))
         return route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({provider:"CUCSH Filosofía",records})});
+      if(url.pathname.endsWith("/src/data/protrepsis-editorial-keywords.json"))
+        return route.fulfill({
+          status:200,
+          contentType:"application/json",
+          body:JSON.stringify({
+            schemaVersion:1,
+            journal:"Protrepsis",
+            records:[{
+              doi:"10.1234/pro-ux-a",
+              keywords:["Lenguaje","Verdad"],
+              verifiedAt:"2026-11-14",
+              evidence:"https://example.org/pro-a"
+            }]
+          })
+        });
       if(url.origin===new URL(BASE).origin) return route.continue();
       return route.abort();
     });
@@ -53,12 +68,17 @@ try {
     assert.equal(await firstTopicGroup.count(),1);
     assert.match(
       await firstTopicGroup.locator(".journal-card-topic-label").innerText(),
-      /Categorías editoriales|Categorías bibliográficas|Categorías documentadas|Categorías derivadas/i
+      /Palabras clave editoriales/i
     );
-    assert.ok(await firstTopicGroup.locator(".journal-card-topic-list .subject-chip").count()>=2);
+    assert.equal(await firstTopicGroup.locator(".journal-card-topic-list .subject-chip").count(),2);
+    assert.equal(await page.locator("#journal-card-grid .is-keywords-pending").count(),1);
+    assert.match(
+      await page.locator("#journal-card-grid .is-keywords-pending .journal-card-topic-empty").innerText(),
+      /Pendientes de recuperación/i
+    );
     assert.match(await page.locator("#journal-card-grid .broad-category-chip").first().getAttribute("title"),/Área filosófica amplia/);
     const categoryButtons=page.locator("#journal-card-grid .category-filter-chip");
-    assert.ok(await categoryButtons.count()>=2);
+    assert.equal(await categoryButtons.count(),2);
     const categoryValue=await categoryButtons.first().getAttribute("data-taxonomy-value");
     assert.ok(categoryValue);
     await categoryButtons.first().click();
