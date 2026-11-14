@@ -166,12 +166,12 @@ function broadCategoryFor(record) {
   return "Otros";
 }
 
-function uniqueStrings(values) {
+function uniqueStrings(values, preserveCase = false) {
   const output = [];
   const seen = new Set();
   for (const value of values || []) {
     const clean = String(value || "").trim();
-    const key = clean.toLocaleLowerCase("es");
+    const key = preserveCase ? clean : clean.toLocaleLowerCase("es");
     if (!clean || seen.has(key)) continue;
     seen.add(key);
     output.push(clean);
@@ -196,7 +196,7 @@ function hasVerifiedEditorialKeywordSource(record) {
 function categoryMetadataFor(record) {
   if (record?.journal === "Protrepsis") {
     const editorial = hasVerifiedEditorialKeywordSource(record)
-      ? uniqueStrings(record?.editorialKeywords || [])
+      ? uniqueStrings(record?.editorialKeywords || [], true)
       : [];
     return {
       topics: editorial.slice(0, 12),
@@ -236,7 +236,7 @@ function applyProtrepsisKeywordOverlay(records, overlay) {
     const entry = byDoi.get(normalizeDoi(record?.doi));
     if (!entry) return record;
 
-    const keywords = uniqueStrings(entry.keywords || []);
+    const keywords = uniqueStrings(entry.keywords || [], true);
     if (!keywords.length) return record;
 
     return {
