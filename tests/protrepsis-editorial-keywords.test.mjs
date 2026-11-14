@@ -1087,7 +1087,7 @@ const batch14Partial = new Map([
   ]
 ]);
 
-const batch14Next10 = new Map([
+const batch15 = new Map([
   [
     "10.32870/prot.i26.444",
     [
@@ -1437,15 +1437,15 @@ test("Protrepsis lote 14 parcial: cinco DOI con palabras clave documentadas", ()
   }
 });
 
-test("Protrepsis lote 14: segunda tanda de diez palabras clave editoriales documentadas", () => {
+test("Protrepsis lote 15: diez palabras clave editoriales documentadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(batch14Next10.size, 10);
+  assert.equal(batch15.size, 10);
   assert.equal(batch14Partial.size, 5);
   assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
-  for (const [doi, keywords] of batch14Next10) {
+  for (const [doi, keywords] of batch15) {
     const record = records.find(item => item.doi === doi);
-    assert.ok(record, "Falta DOI del lote 14 (segunda tanda): " + doi);
+    assert.ok(record, "Falta DOI del lote 15: " + doi);
     assert.deepEqual(record.keywords, keywords);
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
