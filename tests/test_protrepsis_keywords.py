@@ -464,5 +464,35 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         )
 
 
+    def test_batch16_additional_verified_records(self):
+        curated = load_protrepsis_editorial_keywords()
+        self.assertGreaterEqual(len(curated), 149)
+        self.assertEqual(
+            curated["10.32870/prot.i11-12.137"]["keywords"],
+            [
+                "Iusphilosophy",
+                "ontology and gnoseology constitutional",
+                "centenary of the CPEUM",
+                "analysis of constitutional issues",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i13.152"]["keywords"],
+            ["Filosofía", "método", "formación"],
+        )
+        self.assertEqual(
+            len({record["doi"] for record in __import__("json").loads(
+                (ROOT / "src" / "data" / "protrepsis-editorial-keywords.json").read_text(
+                    encoding="utf-8"
+                )
+            )["records"]}),
+            len(__import__("json").loads(
+                (ROOT / "src" / "data" / "protrepsis-editorial-keywords.json").read_text(
+                    encoding="utf-8"
+                )
+            )["records"]),
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
