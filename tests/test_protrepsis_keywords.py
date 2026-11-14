@@ -57,7 +57,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 10)
+        self.assertGreaterEqual(len(curated), 20)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -67,6 +67,30 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
                 "Nayib Bukele",
                 "influencia digital",
                 "ciudadanía informada",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i29.503"]["keywords"],
+            ["Animalidad", "muerte", "tiempo", "poesía"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i27.453"]["keywords"],
+            [
+                "Capitalismo tardío",
+                "funcionalidad civilizatoria",
+                "mal del ímpetu",
+                "lo absurdo",
+                "desprendimiento",
+                "habitar este espacio",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i27.457"]["keywords"],
+            [
+                "Deber indirecto-directo",
+                "clemencia",
+                "libertad",
+                "justicia",
             ],
         )
 
