@@ -164,13 +164,113 @@ const batch05 = new Map([
   ]
 ]);
 
+const batch06 = new Map([
+  [
+    "10.32870/prot.i14.161",
+    [
+      "ética",
+      "escritura",
+      "literatura",
+      "filosofía"
+    ]
+  ],
+  [
+    "10.32870/prot.i14.164",
+    [
+      "lectura filosófica",
+      "método",
+      "signos",
+      "filosofía de la novela"
+    ]
+  ],
+  [
+    "10.32870/prot.i14.167",
+    [
+      "Fernando González",
+      "Friedrich Nietzsche",
+      "literatura",
+      "estética"
+    ]
+  ],
+  [
+    "10.32870/prot.i14.174",
+    [
+      "estadio del espejo",
+      "Yo-Tú",
+      "encuentro",
+      "dualismo",
+      "introspección"
+    ]
+  ],
+  [
+    "10.32870/prot.i14.175",
+    [
+      "lenguaje",
+      "nombre",
+      "mito",
+      "cosmogonía",
+      "origen del lenguaje"
+    ]
+  ],
+  [
+    "10.32870/prot.i14.177",
+    [
+      "Esquemas",
+      "nodos",
+      "realidades",
+      "sistema",
+      "relaciones",
+      "matemática"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.318",
+    [
+      "Feminidad",
+      "complicidad",
+      "opresión",
+      "formación",
+      "internalización"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.323",
+    [
+      "Feminismos",
+      "filosofía",
+      "crítica",
+      "ontología",
+      "cuerpo"
+    ]
+  ],
+  [
+    "10.32870/prot.i23.398",
+    [
+      "Tradición",
+      "acción",
+      "natalidad",
+      "narración",
+      "historia"
+    ]
+  ],
+  [
+    "10.32870/prot.i23.384",
+    [
+      "Kant",
+      "Schopenhauer",
+      "Übertragung",
+      "teoría del conocimiento"
+    ]
+  ]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 50);
+  assert.ok(records.length >= 60);
 
   const seen = new Set();
   for (const record of records) {
@@ -233,7 +333,7 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
 test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch04.size, 10);
-  assert.ok(records.length >= 50);
+  assert.ok(records.length >= 60);
   for (const [doi, expectedKeywords] of batch04) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 04: " + doi);
@@ -246,10 +346,24 @@ test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", (
 test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch05.size, 10);
-  assert.ok(records.length >= 50);
+  assert.ok(records.length >= 60);
   for (const [doi, expectedKeywords] of batch05) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 05: " + doi);
+    assert.deepEqual(record.keywords, expectedKeywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+});
+
+test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch06.size, 10);
+  assert.ok(records.length >= 60);
+  assert.equal(new Set(records.map(record => record.doi)).size, records.length);
+  for (const [doi, expectedKeywords] of batch06) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 06: " + doi);
     assert.deepEqual(record.keywords, expectedKeywords);
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
