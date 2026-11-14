@@ -58,7 +58,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 110)
+        self.assertGreaterEqual(len(curated), 120)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -298,6 +298,29 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
                 "Karl Popper", "inductivismo", "problema de la inducción",
                 "corroboración", "falsación", "justificacionismo", "falibilismo",
             ],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i16.190"]["keywords"],
+            [
+                "explotación animal", "sintientes", "vulnerabilidad",
+                "especismo", "consideración moral",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i17.229"]["keywords"],
+            ["Axiomatización", "reducción", "revolución científica",
+             "relaciones interteóricas"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i18.263"]["keywords"],
+            ["Tolerancia", "mal", "deísmo", "providencia",
+             "libertad", "bien", "optimismo", "desdicha"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i19.275"]["keywords"],
+            ["Inferencia", "deducción", "inducción", "abducción",
+             "pragmatismo", "realismo", "investigación"],
         )
 
         records = [{
