@@ -64,6 +64,11 @@ try {
     await categoryButtons.first().click();
     assert.equal(await page.locator("#journal-category").inputValue(),categoryValue);
     assert.match(await page.locator("#journal-results-status").innerText(),/filtros activos/);
+    const feedback=page.locator("#journal-filter-feedback");
+    assert.equal(await feedback.isVisible(),true);
+    assert.match(await feedback.innerText(),new RegExp(categoryValue,"i"));
+    assert.ok(await page.locator('#journal-card-grid .category-filter-chip.is-active[aria-pressed="true"]').count()>=1);
+    assert.equal(await page.locator("#journal-card-grid").evaluate(node=>node.classList.contains("is-filter-refreshing")),true);
     await page.locator("#journal-category-all").click();
     assert.equal(await page.locator("#journal-category").inputValue(),"all");
 
