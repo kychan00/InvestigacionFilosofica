@@ -558,7 +558,9 @@ function announceFacetSelection(facet, value, { revealResults = false } = {}) {
   }
 
   const active = value !== "all";
-  const facetName = facet === "category" ? "Categoría" : "Número";
+  const facetName = facet === "category"
+    ? (journalId === "protrepsis" ? "Palabra clave" : "Categoría")
+    : "Número";
   feedback.textContent = active
     ? "✓ " + facetName + " activa · " + value
     : "✓ " + facetName + " restablecido";
@@ -662,7 +664,11 @@ function buildTaxonomy() {
       if (group) option.textContent = group.label + " · " + group.count;
     });
   }
-  fillSelect(el.category, allCategories(), "Todas las categorías");
+  fillSelect(
+    el.category,
+    allCategories(),
+    journalId === "protrepsis" ? "Todas las palabras clave" : "Todas las categorías"
+  );
 
   el.categories.replaceChildren();
   const navigationCategories = allCategories();
@@ -703,13 +709,17 @@ function buildTaxonomy() {
     item.className = "topic-chip" + (journalId === "protrepsis" ? " topic-category-filter" : "");
     if (journalId === "protrepsis") {
       item.type = "button";
-      item.title = "Filtrar por la categoría «" + label + "»";
+      item.title = "Filtrar por la palabra clave «" + label + "»";
       item.addEventListener("click", () => selectTaxonomyFacet("category", label));
     }
     item.innerHTML = "<span>" + escapeHtml(label) + "</span><strong>" + count + "</strong>";
     el.topics.append(item);
   }
-  if (!subjects.length) el.topics.innerHTML = '<p class="taxonomy-empty">El corpus no contiene categorías temáticas para esta colección.</p>';
+  if (!subjects.length) el.topics.innerHTML = '<p class="taxonomy-empty">' +
+    (journalId === "protrepsis"
+      ? "Aún no hay palabras clave editoriales verificadas en esta colección."
+      : "El corpus no contiene categorías temáticas para esta colección.") +
+    "</p>";
 
   const authorFreq = frequency(state.records.flatMap(authors));
   el.authorsList.replaceChildren();
