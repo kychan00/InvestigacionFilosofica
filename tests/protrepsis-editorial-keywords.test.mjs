@@ -1507,3 +1507,27 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
   assert.match(method.evidence, /^https:\/\/www\.researchgate\.net\/publication\/352780765_/);
   assert.equal(method.verifiedAt, "2026-11-14");
 });
+
+
+test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(records.length, 155);
+  assert.equal(new Set(records.map(record => record.doi)).size, 155);
+
+  const expected = new Map([
+    ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
+    ["10.32870/prot.i22.350", ["Plotino", "Eros", "metafísica", "naturaleza", "asombro"]],
+    ["10.32870/prot.i23.385", ["Hannah Arendt", "feminismo", "esfera social", "labor", "mujer"]],
+    ["10.32870/prot.i23.392", ["Apátrida", "pariah", "activismo", "condición judía", "refugiados", "ciudadanía"]],
+    ["10.32870/prot.i23.405", ["Arendt", "shlemihl", "Rahel Varnhagen", "refugiados", "paria"]],
+    ["10.32870/prot.i21.325", ["Unidad de la ciencia", "pluralismo", "Rickert", "zonas intermedias"]]
+  ]);
+
+  for (const [doi, keywords] of expected) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI final del lote 16: " + doi);
+    assert.deepEqual(record.keywords, keywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+});
