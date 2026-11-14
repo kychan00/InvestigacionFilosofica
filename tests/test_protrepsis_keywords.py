@@ -58,7 +58,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 100)
+        self.assertGreaterEqual(len(curated), 110)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -271,6 +271,32 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             [
                 "Marxismo", "Postmodernidad", "historia", "Historia",
                 "proceso", "progreso",
+            ],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i1.3"]["keywords"],
+            [
+                "justicia", "juventud dorada", "persona", "placer",
+                "poder", "política", "universidad", "valores",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i1.4"]["keywords"],
+            ["pensar", "rumiar", "traspasar", "sustraerse"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i1.10"]["keywords"],
+            [
+                "mente", "inteligencia artificial", "Turing",
+                "computación", "procesos", "cerebro",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i3.35"]["keywords"],
+            [
+                "Karl Popper", "inductivismo", "problema de la inducción",
+                "corroboración", "falsación", "justificacionismo", "falibilismo",
             ],
         )
 
