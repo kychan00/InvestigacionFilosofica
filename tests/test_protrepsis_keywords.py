@@ -10,6 +10,7 @@ from harvest import (
     keywords_from_article_html,
     load_protrepsis_editorial_keywords,
     split_keyword_values,
+    unique_strings,
 )
 
 
@@ -312,6 +313,16 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         self.assertIn(
             '"editorialKeywords":\n            []',
             source,
+        )
+
+    def test_verified_keyword_casing_is_not_collapsed(self):
+        self.assertEqual(
+            unique_strings(["historia", "Historia", "historia"], preserve_case=True),
+            ["historia", "Historia"],
+        )
+        self.assertEqual(
+            unique_strings(["historia", "Historia", "historia"]),
+            ["historia"],
         )
 
     def test_duplicate_and_empty_values_are_safe(self):
