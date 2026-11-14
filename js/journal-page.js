@@ -187,9 +187,17 @@ function normalizeDoi(value) {
     .replace(/[.,;]+$/, "");
 }
 
+function hasVerifiedEditorialKeywordSource(record) {
+  return ["verified-publication", "ojs-article"].includes(
+    String(record?.editorialKeywordSource || "").trim()
+  );
+}
+
 function categoryMetadataFor(record) {
   if (record?.journal === "Protrepsis") {
-    const editorial = uniqueStrings(record?.editorialKeywords || []);
+    const editorial = hasVerifiedEditorialKeywordSource(record)
+      ? uniqueStrings(record?.editorialKeywords || [])
+      : [];
     return {
       topics: editorial.slice(0, 12),
       allTopics: editorial,
