@@ -390,7 +390,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
         self.assertEqual(
             curated["10.32870/prot.i23.395"]["keywords"],
-            ["Hannah Arendt", "story", "empathy", "witness", "common sense"],
+            ["Hannah Arendt", "relato", "empatía", "testigo", "sentido común"],
         )
 
         self.assertEqual(
