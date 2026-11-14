@@ -57,7 +57,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 30)
+        self.assertGreaterEqual(len(curated), 40)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -114,6 +114,28 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
                 "olvido",
                 "creación",
                 "Chat GPT",
+            ],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i22.317"]["keywords"],
+            [
+                "Cyborg feminismo",
+                "epistemología",
+                "ontología",
+                "logos",
+                "metáfora",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i22.343"]["keywords"],
+            [
+                "Bien",
+                "belleza",
+                "verdad",
+                "mujeres filósofas",
+                "justicia",
+                "equilibrio",
             ],
         )
 
