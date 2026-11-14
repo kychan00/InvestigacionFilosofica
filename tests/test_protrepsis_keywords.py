@@ -58,7 +58,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 135)
+        self.assertGreaterEqual(len(curated), 145)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -361,6 +361,31 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         self.assertEqual(
             curated["10.32870/prot.i26.431"]["keywords"],
             ["Intuición", "duración", "libertad", "multiplicidad", "vitalismo"],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i26.444"]["keywords"],
+            ["Razón instrumental", "Antropoceno", "tecnoceno",
+             "crisis ecológica", "progreso", "Prometeo"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i21.311"]["keywords"],
+            ["Masculinidad", "subjetivación", "sexaje",
+             "falocracia", "violencia"],
+        )
+        self.assertNotIn(
+            "falopoder",
+            curated["10.32870/prot.i21.311"]["keywords"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i20.332"]["keywords"],
+            ["Pregunta", "preguntar", "filosofía", "práctica filosófica",
+             "filosofía con niños", "filosofía para niños",
+             "tríada del buen preguntador"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i20.286"]["keywords"],
+            ["Diferencia", "duración", "memoria", "tiempo", "repetición"],
         )
 
         records = [{
