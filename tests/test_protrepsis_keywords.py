@@ -57,7 +57,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 80)
+        self.assertGreaterEqual(len(curated), 90)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -228,6 +228,25 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
                 "Acción comunicativa", "Razón instrumental", "Modernidad",
                 "Ilustración", "Racionalidad dramatúrgica", "Consenso",
             ],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i2.23"]["keywords"],
+            ["Límites del lenguaje", "Tractatus Logico Philosophicus", "Wittgenstein", "Kant"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i2.30"]["keywords"],
+            ["Vita beata", "vita activa", "bien", "libertad", "comunidad",
+             "humanización", "acción", "discurso"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i4.55"]["keywords"],
+            ["Kierkegaard", "Aristófanes", "sexualidad", "mito"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i11-12.139"]["keywords"],
+            ["Fenomenología", "hermenéutica", "encarnación",
+             "comprensión", "sensibilidad"],
         )
 
         records = [{
