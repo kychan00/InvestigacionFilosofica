@@ -1458,14 +1458,14 @@ test("Protrepsis lote 15: diez palabras clave editoriales documentadas", () => {
   assert.ok(!construction.keywords.includes("falopoder"));
 });
 
-test("lote 16 parcial: i23.395 conserva los cinco Keywords ingleses impresos", () => {
+test("lote 16 parcial: i23.395 conserva las cinco Palabras clave españolas impresas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.ok(records.length >= 147);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   const original = records.find(record => record.doi === "10.32870/prot.i23.395");
   assert.ok(original, "Falta DOI 10.32870/prot.i23.395");
   assert.deepEqual(original.keywords,
-    ["Hannah Arendt", "story", "empathy", "witness", "common sense"]);
+    ["Hannah Arendt", "relato", "empatía", "testigo", "sentido común"]);
   assert.equal(original.verifiedAt, "2026-11-14");
   assert.match(original.evidence, /^https:\/\/www\.researchgate\.net\/publication\/365792032_/);
 });
