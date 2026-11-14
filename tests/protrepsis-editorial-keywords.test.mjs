@@ -58,13 +58,119 @@ const batch04 = new Map([
   ["10.32870/prot.i22.343", ["Bien","belleza","verdad","mujeres filósofas","justicia","equilibrio"]]
 ]);
 
+const batch05 = new Map([
+  [
+    "10.32870/prot.i23.374",
+    [
+      "mundo común",
+      "pareja",
+      "fraternidad",
+      "compasión",
+      "amistad"
+    ]
+  ],
+  [
+    "10.32870/prot.i23.404",
+    [
+      "Cuerpo",
+      "labor",
+      "acción",
+      "pluralidad",
+      "política"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.316",
+    [
+      "Subjetivación",
+      "género",
+      "ideología",
+      "tecnologías sociales"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.278",
+    [
+      "Aborto",
+      "moralidad",
+      "conservadores",
+      "liberales",
+      "persona"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.279",
+    [
+      "Filosofía para Niños y Jóvenes",
+      "pensamiento crítico",
+      "confinamiento",
+      "pandemia",
+      "comunidad de indagación"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.290",
+    [
+      "Pragmatismo",
+      "comunidad de indagación filosófica",
+      "Filosofía para Niños",
+      "asombro",
+      "experiencia",
+      "significado",
+      "Lipman"
+    ]
+  ],
+  [
+    "10.32870/prot.i19.242",
+    [
+      "Verdad",
+      "opinión",
+      "Badiou",
+      "doxa",
+      "ética",
+      "filosofía clásica"
+    ]
+  ],
+  [
+    "10.32870/prot.i19.256",
+    [
+      "San Agustín",
+      "sabiduría",
+      "academia",
+      "Contra los académicos",
+      "crítica filosófica",
+      "filosofía medieval"
+    ]
+  ],
+  [
+    "10.32870/prot.i18.267",
+    [
+      "Habermas",
+      "Kant",
+      "ética discursiva",
+      "humanidad",
+      "intersubjetividad"
+    ]
+  ],
+  [
+    "10.32870/prot.i17.212",
+    [
+      "Muerte",
+      "infinitud",
+      "ser occidental",
+      "Mismo y Otro",
+      "ciencia y tecnología"
+    ]
+  ]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 40);
+  assert.ok(records.length >= 50);
 
   const seen = new Set();
   for (const record of records) {
@@ -127,10 +233,23 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
 test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch04.size, 10);
-  assert.ok(records.length >= 40);
+  assert.ok(records.length >= 50);
   for (const [doi, expectedKeywords] of batch04) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 04: " + doi);
+    assert.deepEqual(record.keywords, expectedKeywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+});
+
+test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch05.size, 10);
+  assert.ok(records.length >= 50);
+  for (const [doi, expectedKeywords] of batch05) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 05: " + doi);
     assert.deepEqual(record.keywords, expectedKeywords);
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
