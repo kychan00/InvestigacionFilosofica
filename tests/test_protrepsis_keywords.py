@@ -57,7 +57,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 70)
+        self.assertGreaterEqual(len(curated), 80)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -200,6 +200,33 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
                 "física newtoniana",
                 "relatividad general",
                 "“ontología de la experiencia”",
+            ],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i1.7"]["keywords"],
+            [
+                "Paradigma", "Continuidad", "Discontinuidad", "Externalismo",
+                "Internalismo", "Ciencia", "Alquimia", "Química",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i5.76"]["keywords"],
+            ["utopía", "homogeneidad", "distopía", "pluralismo"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i7-8.109"]["keywords"],
+            [
+                "Cyborg", "Biocapitalismo", "Ubjetos", "Hipersubsunción",
+                "Feminismo", "Naturaleza Humana", "Naturaleza vs. Crianza",
+                "Estudios Culturales",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i9-10.129"]["keywords"],
+            [
+                "Acción comunicativa", "Razón instrumental", "Modernidad",
+                "Ilustración", "Racionalidad dramatúrgica", "Consenso",
             ],
         )
 
