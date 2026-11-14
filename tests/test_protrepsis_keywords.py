@@ -58,7 +58,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 130)
+        self.assertGreaterEqual(len(curated), 135)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -347,6 +347,20 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             curated["10.32870/prot.i21.313"]["keywords"],
             ["Patriarcado", "historia androcéntrica", "narración dominante",
              "olas del feminismo", "injusticia epistémica"],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i23.399"]["keywords"],
+            ["Arendt", "violencia", "necroemprendimientos",
+             "subjetividad", "cadáver", "neoliberalismo"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i23.333"]["keywords"],
+            ["Videojuegos", "colonialidad", "poder", "lengua", "cultura"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i26.431"]["keywords"],
+            ["Intuición", "duración", "libertad", "multiplicidad", "vitalismo"],
         )
 
         records = [{
