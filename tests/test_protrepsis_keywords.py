@@ -57,7 +57,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 40)
+        self.assertGreaterEqual(len(curated), 50)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -136,6 +136,33 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
                 "mujeres filósofas",
                 "justicia",
                 "equilibrio",
+            ],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i23.374"]["keywords"],
+            ["mundo común", "pareja", "fraternidad", "compasión", "amistad"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i20.290"]["keywords"],
+            [
+                "Pragmatismo",
+                "comunidad de indagación filosófica",
+                "Filosofía para Niños",
+                "asombro",
+                "experiencia",
+                "significado",
+                "Lipman",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i17.212"]["keywords"],
+            [
+                "Muerte",
+                "infinitud",
+                "ser occidental",
+                "Mismo y Otro",
+                "ciencia y tecnología",
             ],
         )
 
