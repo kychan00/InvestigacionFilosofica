@@ -26,7 +26,9 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /journal-topic-chips/);
     assert.match(html, /journal-author-chips/);
     if (journal === "protrepsis") {
-      assert.match(html, /categor[ií]as del corpus/i);
+      assert.match(html, /palabras clave del corpus/i);
+      assert.match(html, /palabra clave editorial/i);
+      assert.doesNotMatch(html, /categor[ií]as del corpus/i);
     } else {
       assert.match(html, /temas declarados/i);
     }
@@ -34,7 +36,11 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /id="journal-issue"/);
     assert.match(html, /journal-filter-toggle/);
     assert.match(html, /journal-atlas-stagebar/);
-    assert.match(html, /Categor[ií]a de navegaci[oó]n/i);
+    if (journal === "protrepsis") {
+      assert.match(html, /Palabra clave editorial/i);
+    } else {
+      assert.match(html, /Categor[ií]a de navegaci[oó]n/i);
+    }
   });
 }
 
@@ -47,6 +53,12 @@ test("runtime de revistas separa metadatos editoriales de categorías derivadas"
   assert.match(source, /categoryMetadataFor\(record\)\.note/);
   assert.match(source, /categoriesFor\(record\)/);
   assert.match(source, /categoryMetadataFor\(record\)/);
+  assert.match(source, /PROTREPSIS_KEYWORDS_URL/);
+  assert.match(source, /applyProtrepsisKeywordOverlay/);
+  assert.match(source, /editorialKeywordSource: "verified-publication"/);
+  assert.match(source, /return categoryMetadataFor\(record\)\.allTopics/);
+  assert.match(source, /Pendientes de recuperación/);
+  assert.match(source, /no se infieren desde el título, el resumen ni fuentes bibliográficas/);
   assert.match(source, /!categoriesFor\(record\)\.includes\(state\.category\)/);
   assert.match(source, /Área general/);
   assert.match(source, /category-filter-chip/);
