@@ -55,6 +55,8 @@ test("runtime de revistas separa metadatos editoriales de categorías derivadas"
   assert.match(source, /categoryMetadataFor\(record\)/);
   assert.match(source, /PROTREPSIS_KEYWORDS_URL/);
   assert.match(source, /applyProtrepsisKeywordOverlay/);
+  assert.match(source, /hasVerifiedEditorialKeywordSource/);
+  assert.match(source, /"verified-publication", "ojs-article"/);
   assert.match(source, /editorialKeywordSource: "verified-publication"/);
   assert.match(source, /return categoryMetadataFor\(record\)\.allTopics/);
   assert.match(source, /Pendientes de recuperación/);
