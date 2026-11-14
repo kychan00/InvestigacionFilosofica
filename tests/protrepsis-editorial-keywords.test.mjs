@@ -1087,13 +1087,116 @@ const batch14Partial = new Map([
   ]
 ]);
 
+const batch14Next10 = new Map([
+  [
+    "10.32870/prot.i26.444",
+    [
+      "Razón instrumental",
+      "Antropoceno",
+      "tecnoceno",
+      "crisis ecológica",
+      "progreso",
+      "Prometeo"
+    ]
+  ],
+  [
+    "10.32870/prot.i22.341",
+    [
+      "Estado",
+      "racionalidad",
+      "cultura",
+      "ideología",
+      "violencia física legítima"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.307",
+    [
+      "Praxis",
+      "contexto",
+      "recontextualización",
+      "significado",
+      "actividad"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.311",
+    [
+      "Masculinidad",
+      "subjetivación",
+      "sexaje",
+      "falocracia",
+      "violencia"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.324",
+    [
+      "Escucha",
+      "fenomenología",
+      "objeto cultural",
+      "sonoridad"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.280",
+    [
+      "Antropología filosófica",
+      "persona",
+      "desarrollo",
+      "corazón",
+      "ser",
+      "semiótica"
+    ]
+  ],
+  [
+    "10.32870/prot.i19.281",
+    [
+      "Teleología",
+      "determinismo",
+      "libertad social y política"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.289",
+    [
+      "Comunidad de investigación",
+      "lógica",
+      "argumentación",
+      "pensamiento multidimensional"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.332",
+    [
+      "Pregunta",
+      "preguntar",
+      "filosofía",
+      "práctica filosófica",
+      "filosofía con niños",
+      "filosofía para niños",
+      "tríada del buen preguntador"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.286",
+    [
+      "Diferencia",
+      "duración",
+      "memoria",
+      "tiempo",
+      "repetición"
+    ]
+  ]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
 
   const seen = new Set();
   for (const record of records) {
@@ -1156,7 +1259,7 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
 test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch04.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   for (const [doi, expectedKeywords] of batch04) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 04: " + doi);
@@ -1169,7 +1272,7 @@ test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", (
 test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch05.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   for (const [doi, expectedKeywords] of batch05) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 05: " + doi);
@@ -1182,7 +1285,7 @@ test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch06.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch06) {
     const record = records.find(item => item.doi === doi);
@@ -1196,7 +1299,7 @@ test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 07 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch07.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch07) {
     const record = records.find(item => item.doi === doi);
@@ -1210,7 +1313,7 @@ test("capa curada de Protrepsis conserva el lote 07 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 08 histórico DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch08.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch08) {
     const record = records.find(item => item.doi === doi);
@@ -1224,7 +1327,7 @@ test("capa curada de Protrepsis conserva el lote 08 histórico DOI por DOI", () 
 test("capa curada de Protrepsis conserva el lote 09 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch09.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch09) {
     const record = records.find(item => item.doi === doi);
@@ -1238,7 +1341,7 @@ test("capa curada de Protrepsis conserva el lote 09 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 10 DOI por DOI y su evidencia", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch10.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch10) {
     const record = records.find(item => item.doi === doi);
@@ -1269,7 +1372,7 @@ test("la UI de Protrepsis conserva palabras clave que difieren sólo en mayúscu
 test("capa curada de Protrepsis conserva el lote 11: número 1 y 3, DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch11.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, keywords] of batch11) {
     const record = records.find(entry => entry.doi === doi);
@@ -1287,7 +1390,7 @@ test("capa curada de Protrepsis conserva el lote 11: número 1 y 3, DOI por DOI"
 test("capa curada de Protrepsis conserva lote 12: números 16 a 19", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch12.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, keywords] of batch12) {
     const record = records.find(entry => entry.doi === doi);
@@ -1301,7 +1404,7 @@ test("capa curada de Protrepsis conserva lote 12: números 16 a 19", () => {
 test("capa curada de Protrepsis conserva lote 13 DOI por DOI y sin palabras clave inferidas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch13.size, 10);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, keywords] of batch13) {
     const record = records.find(entry => entry.doi === doi);
@@ -1323,7 +1426,7 @@ test("capa curada de Protrepsis conserva lote 13 DOI por DOI y sin palabras clav
 test("Protrepsis lote 14 parcial: cinco DOI con palabras clave documentadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch14Partial.size, 5);
-  assert.ok(records.length >= 135);
+  assert.ok(records.length >= 145);
   assert.equal(new Set(records.map(entry => entry.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch14Partial) {
     const record = records.find(entry => entry.doi === doi);
@@ -1332,4 +1435,25 @@ test("Protrepsis lote 14 parcial: cinco DOI con palabras clave documentadas", ()
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
   }
+});
+
+test("Protrepsis lote 14: segunda tanda de diez palabras clave editoriales documentadas", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch14Next10.size, 10);
+  assert.equal(batch14Partial.size, 5);
+  assert.ok(records.length >= 145);
+  assert.equal(new Set(records.map(record => record.doi)).size, records.length);
+  for (const [doi, keywords] of batch14Next10) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 14 (segunda tanda): " + doi);
+    assert.deepEqual(record.keywords, keywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+  // Se copian las palabras clave impresas en el artículo, no las
+  // palabras clave alternativas del repositorio institucional.
+  const construction = records.find(item => item.doi === "10.32870/prot.i21.311");
+  assert.deepEqual(construction.keywords,
+    ["Masculinidad", "subjetivación", "sexaje", "falocracia", "violencia"]);
+  assert.ok(!construction.keywords.includes("falopoder"));
 });
