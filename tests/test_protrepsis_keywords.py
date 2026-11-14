@@ -57,7 +57,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 60)
+        self.assertGreaterEqual(len(curated), 70)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -177,6 +177,30 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         self.assertEqual(
             curated["10.32870/prot.i23.384"]["keywords"],
             ["Kant", "Schopenhauer", "Übertragung", "teoría del conocimiento"],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i14.146"]["keywords"],
+            ["nihilismo", "décadence", "transparencia", "rendimiento", "positividad"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i13.153"]["keywords"],
+            ["Humanidades", "construcción de una tesis", "investigación", "metodología"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i9-10.128"]["keywords"],
+            ["Foucault", "Deleuze", "Poder", "Infancia", "Saber pedagógico"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i9-10.132"]["keywords"],
+            [
+                "Kant",
+                "espacio",
+                "tiempo",
+                "física newtoniana",
+                "relatividad general",
+                "“ontología de la experiencia”",
+            ],
         )
 
         records = [{
