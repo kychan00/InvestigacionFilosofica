@@ -923,13 +923,122 @@ const batch12 = new Map([
   ]
 ]);
 
+const batch13 = new Map([
+  [
+    "10.32870/prot.i4.37",
+    [
+      "Love",
+      "suffering",
+      "human nature",
+      "Eros",
+      "despair",
+      "sacrifice",
+      "resurrection"
+    ]
+  ],
+  [
+    "10.32870/prot.i4.53",
+    [
+      "amor",
+      "sufrimiento",
+      "naturaleza humana",
+      "Eros",
+      "desesperación",
+      "sacrificio",
+      "resurrección"
+    ]
+  ],
+  [
+    "10.32870/prot.i5.74",
+    [
+      "Kierkergaad",
+      "God",
+      "religious",
+      "human being",
+      "christianity",
+      "existentialism"
+    ]
+  ],
+  [
+    "10.32870/prot.i5.75",
+    [
+      "Kierkergaard",
+      "Dios",
+      "religión",
+      "ser humano",
+      "cristianismo",
+      "existencialismo"
+    ]
+  ],
+  [
+    "10.32870/prot.i5.80",
+    [
+      "literatura",
+      "filosofía",
+      "responsabilidad",
+      "suerte moral",
+      "arrepentimiento"
+    ]
+  ],
+  [
+    "10.32870/prot.i6.90",
+    [
+      "Romanticismo",
+      "Sturm und Drang",
+      "Idealismo Trascendental",
+      "cosa en sí",
+      "Neokantismo",
+      "Schopenhauer"
+    ]
+  ],
+  [
+    "10.32870/prot.i20.274",
+    [
+      "Filosofía",
+      "fantasía",
+      "infancia",
+      "creatividad",
+      "diálogo",
+      "pensamiento crítico"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.322",
+    [
+      "Educación",
+      "guerra",
+      "réplica",
+      "vivencia"
+    ]
+  ],
+  [
+    "10.32870/prot.i21.313",
+    [
+      "Patriarcado",
+      "historia androcéntrica",
+      "narración dominante",
+      "olas del feminismo",
+      "injusticia epistémica"
+    ]
+  ],
+  [
+    "10.32870/prot.i19.258",
+    [
+      "Crítica del juicio",
+      "signo",
+      "Kant",
+      "semiótica"
+    ]
+  ]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
 
   const seen = new Set();
   for (const record of records) {
@@ -992,7 +1101,7 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
 test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch04.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   for (const [doi, expectedKeywords] of batch04) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 04: " + doi);
@@ -1005,7 +1114,7 @@ test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", (
 test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch05.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   for (const [doi, expectedKeywords] of batch05) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 05: " + doi);
@@ -1018,7 +1127,7 @@ test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch06.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch06) {
     const record = records.find(item => item.doi === doi);
@@ -1032,7 +1141,7 @@ test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 07 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch07.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch07) {
     const record = records.find(item => item.doi === doi);
@@ -1046,7 +1155,7 @@ test("capa curada de Protrepsis conserva el lote 07 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 08 histórico DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch08.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch08) {
     const record = records.find(item => item.doi === doi);
@@ -1060,7 +1169,7 @@ test("capa curada de Protrepsis conserva el lote 08 histórico DOI por DOI", () 
 test("capa curada de Protrepsis conserva el lote 09 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch09.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch09) {
     const record = records.find(item => item.doi === doi);
@@ -1074,7 +1183,7 @@ test("capa curada de Protrepsis conserva el lote 09 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 10 DOI por DOI y su evidencia", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch10.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch10) {
     const record = records.find(item => item.doi === doi);
@@ -1105,7 +1214,7 @@ test("la UI de Protrepsis conserva palabras clave que difieren sólo en mayúscu
 test("capa curada de Protrepsis conserva el lote 11: número 1 y 3, DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch11.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, keywords] of batch11) {
     const record = records.find(entry => entry.doi === doi);
@@ -1123,7 +1232,7 @@ test("capa curada de Protrepsis conserva el lote 11: número 1 y 3, DOI por DOI"
 test("capa curada de Protrepsis conserva lote 12: números 16 a 19", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch12.size, 10);
-  assert.ok(records.length >= 120);
+  assert.ok(records.length >= 130);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, keywords] of batch12) {
     const record = records.find(entry => entry.doi === doi);
@@ -1132,4 +1241,26 @@ test("capa curada de Protrepsis conserva lote 12: números 16 a 19", () => {
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
   }
+});
+
+test("capa curada de Protrepsis conserva lote 13 DOI por DOI y sin palabras clave inferidas", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch13.size, 10);
+  assert.ok(records.length >= 130);
+  assert.equal(new Set(records.map(record => record.doi)).size, records.length);
+  for (const [doi, keywords] of batch13) {
+    const record = records.find(entry => entry.doi === doi);
+    assert.ok(record, "Falta DOI del lote 13: " + doi);
+    assert.deepEqual(record.keywords, keywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+  assert.deepEqual(
+    records.find(record => record.doi === "10.32870/prot.i5.74").keywords,
+    ["Kierkergaad","God","religious","human being","christianity","existentialism"]
+  );
+  assert.deepEqual(
+    records.find(record => record.doi === "10.32870/prot.i5.75").keywords,
+    ["Kierkergaard","Dios","religión","ser humano","cristianismo","existencialismo"]
+  );
 });
