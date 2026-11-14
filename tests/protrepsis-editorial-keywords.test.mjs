@@ -867,3 +867,15 @@ test("capa curada de Protrepsis conserva el lote 10 DOI por DOI y su evidencia",
     ["historia", "Historia"]
   );
 });
+
+test("la UI de Protrepsis conserva palabras clave que difieren sólo en mayúsculas", async () => {
+  const source = await readFile("js/journal-page.js", "utf8");
+  const page = await readFile("revistas/udg/protrepsis.html", "utf8");
+  assert.match(source, /function uniqueStrings\(values, preserveCase = false\)/);
+  assert.match(source, /const key = preserveCase \? clean : clean\.toLocaleLowerCase\("es"\)/);
+  assert.match(source, /uniqueStrings\(entry\.keywords \|\| \[\], true\)/);
+  assert.match(source, /uniqueStrings\(record\?\.editorialKeywords \|\| \[\], true\)/);
+  assert.match(page, /journal-page\.js\?v=20261114-editorial-keywords-v2/);
+  const original = overlay.records.find(record => record.doi === "10.32870/prot.i15.173");
+  assert.deepEqual(original.keywords.slice(2,4), ["historia", "Historia"]);
+});
