@@ -370,13 +370,134 @@ const batch07 = new Map([
   ]
 ]);
 
+const batch08 = new Map([
+  [
+    "10.32870/prot.i1.7",
+    [
+      "Paradigma",
+      "Continuidad",
+      "Discontinuidad",
+      "Externalismo",
+      "Internalismo",
+      "Ciencia",
+      "Alquimia",
+      "Química"
+    ]
+  ],
+  [
+    "10.32870/prot.i4.50",
+    [
+      "Racionalismo",
+      "substancias",
+      "comunicación",
+      "Descartes",
+      "Spinoza",
+      "modos",
+      "atributos",
+      "Leibniz",
+      "armonía preestablecida",
+      "Malebranche",
+      "ocasionalismo",
+      "Deus ex machina"
+    ]
+  ],
+  [
+    "10.32870/prot.i5.76",
+    [
+      "utopía",
+      "homogeneidad",
+      "distopía",
+      "pluralismo"
+    ]
+  ],
+  [
+    "10.32870/prot.i5.77",
+    [
+      "Principio de actuación",
+      "escuela de Frankfurt",
+      "pensamiento crítico",
+      "utopía"
+    ]
+  ],
+  [
+    "10.32870/prot.i6.92",
+    [
+      "Ciencia Cognitiva",
+      "psicología cognitiva",
+      "paradigma del procesamiento de información",
+      "Inteligencia artificial",
+      "PDP"
+    ]
+  ],
+  [
+    "10.32870/prot.i6.94",
+    [
+      "libre albedrío",
+      "determinismo",
+      "mente",
+      "dualismo",
+      "materialismo",
+      "Mario Bunge",
+      "Martin Mahner"
+    ]
+  ],
+  [
+    "10.32870/prot.i7-8.108",
+    [
+      "Siglo XVII",
+      "anatomía",
+      "cuerpo",
+      "medicina",
+      "fisiología",
+      "filosofía natural"
+    ]
+  ],
+  [
+    "10.32870/prot.i7-8.109",
+    [
+      "Cyborg",
+      "Biocapitalismo",
+      "Ubjetos",
+      "Hipersubsunción",
+      "Feminismo",
+      "Naturaleza Humana",
+      "Naturaleza vs. Crianza",
+      "Estudios Culturales"
+    ]
+  ],
+  [
+    "10.32870/prot.i7-8.111",
+    [
+      "Contrastación",
+      "Poder heurístico",
+      "Ciencia planetaria",
+      "Sistema",
+      "Atmósfera",
+      "Equilibrio",
+      "Gaia",
+      "Teoría sintética"
+    ]
+  ],
+  [
+    "10.32870/prot.i9-10.129",
+    [
+      "Acción comunicativa",
+      "Razón instrumental",
+      "Modernidad",
+      "Ilustración",
+      "Racionalidad dramatúrgica",
+      "Consenso"
+    ]
+  ]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 70);
+  assert.ok(records.length >= 80);
 
   const seen = new Set();
   for (const record of records) {
@@ -439,7 +560,7 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
 test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch04.size, 10);
-  assert.ok(records.length >= 70);
+  assert.ok(records.length >= 80);
   for (const [doi, expectedKeywords] of batch04) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 04: " + doi);
@@ -452,7 +573,7 @@ test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", (
 test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch05.size, 10);
-  assert.ok(records.length >= 70);
+  assert.ok(records.length >= 80);
   for (const [doi, expectedKeywords] of batch05) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 05: " + doi);
@@ -465,7 +586,7 @@ test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch06.size, 10);
-  assert.ok(records.length >= 70);
+  assert.ok(records.length >= 80);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch06) {
     const record = records.find(item => item.doi === doi);
@@ -479,11 +600,25 @@ test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 07 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch07.size, 10);
-  assert.ok(records.length >= 70);
+  assert.ok(records.length >= 80);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch07) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 07: " + doi);
+    assert.deepEqual(record.keywords, expectedKeywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+});
+
+test("capa curada de Protrepsis conserva el lote 08 histórico DOI por DOI", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch08.size, 10);
+  assert.ok(records.length >= 80);
+  assert.equal(new Set(records.map(record => record.doi)).size, records.length);
+  for (const [doi, expectedKeywords] of batch08) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 08: " + doi);
     assert.deepEqual(record.keywords, expectedKeywords);
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
