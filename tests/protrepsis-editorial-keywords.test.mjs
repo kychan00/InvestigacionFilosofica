@@ -599,13 +599,115 @@ const batch09 = new Map([
   ]
 ]);
 
+const batch10 = new Map([
+  [
+    "10.32870/prot.i24.413",
+    [
+      "Presuposición",
+      "trasfondo",
+      "argumento trascendental",
+      "constructivismo social",
+      "idealismo fenomenalista"
+    ]
+  ],
+  [
+    "10.32870/prot.i24.408",
+    [
+      "Neoliberalismo",
+      "subjetividad",
+      "interculturalidad"
+    ]
+  ],
+  [
+    "10.32870/prot.i24.353",
+    [
+      "Hermenéutica",
+      "opinión",
+      "confianza",
+      "atestación"
+    ]
+  ],
+  [
+    "10.32870/prot.i24.375",
+    [
+      "Modernidad",
+      "universalidad",
+      "racionalidad",
+      "autodeterminación",
+      "autonomía",
+      "emancipación civil"
+    ]
+  ],
+  [
+    "10.32870/prot.i15.201",
+    [
+      "Univocidad",
+      "Bondad",
+      "Libertad",
+      "Vacuidad",
+      "Nada"
+    ]
+  ],
+  [
+    "10.32870/prot.i15.170",
+    [
+      "monarquía",
+      "universal",
+      "política",
+      "utopía"
+    ]
+  ],
+  [
+    "10.32870/prot.i15.185",
+    [
+      "praxis",
+      "marxismo",
+      "práctica",
+      "teórica"
+    ]
+  ],
+  [
+    "10.32870/prot.i15.172",
+    [
+      "Marx",
+      "marxismo",
+      "teoría crítica",
+      "sociología política",
+      "espacio teórico",
+      "Althusser",
+      "materialismo",
+      "acumulación originaria"
+    ]
+  ],
+  [
+    "10.32870/prot.i15.197",
+    [
+      "teoría del valor",
+      "interpretación holista",
+      "axioma",
+      "ley de acumulación del capital"
+    ]
+  ],
+  [
+    "10.32870/prot.i15.173",
+    [
+      "Marxismo",
+      "Postmodernidad",
+      "historia",
+      "Historia",
+      "proceso",
+      "progreso"
+    ]
+  ]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 90);
+  assert.ok(records.length >= 100);
 
   const seen = new Set();
   for (const record of records) {
@@ -668,7 +770,7 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
 test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch04.size, 10);
-  assert.ok(records.length >= 90);
+  assert.ok(records.length >= 100);
   for (const [doi, expectedKeywords] of batch04) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 04: " + doi);
@@ -681,7 +783,7 @@ test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", (
 test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch05.size, 10);
-  assert.ok(records.length >= 90);
+  assert.ok(records.length >= 100);
   for (const [doi, expectedKeywords] of batch05) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 05: " + doi);
@@ -694,7 +796,7 @@ test("capa curada de Protrepsis conserva el lote 05 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch06.size, 10);
-  assert.ok(records.length >= 90);
+  assert.ok(records.length >= 100);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch06) {
     const record = records.find(item => item.doi === doi);
@@ -708,7 +810,7 @@ test("capa curada de Protrepsis conserva el lote 06 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 07 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch07.size, 10);
-  assert.ok(records.length >= 90);
+  assert.ok(records.length >= 100);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch07) {
     const record = records.find(item => item.doi === doi);
@@ -722,7 +824,7 @@ test("capa curada de Protrepsis conserva el lote 07 DOI por DOI", () => {
 test("capa curada de Protrepsis conserva el lote 08 histórico DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch08.size, 10);
-  assert.ok(records.length >= 90);
+  assert.ok(records.length >= 100);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch08) {
     const record = records.find(item => item.doi === doi);
@@ -736,7 +838,7 @@ test("capa curada de Protrepsis conserva el lote 08 histórico DOI por DOI", () 
 test("capa curada de Protrepsis conserva el lote 09 DOI por DOI", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
   assert.equal(batch09.size, 10);
-  assert.ok(records.length >= 90);
+  assert.ok(records.length >= 100);
   assert.equal(new Set(records.map(record => record.doi)).size, records.length);
   for (const [doi, expectedKeywords] of batch09) {
     const record = records.find(item => item.doi === doi);
@@ -745,4 +847,23 @@ test("capa curada de Protrepsis conserva el lote 09 DOI por DOI", () => {
     assert.ok(record.evidence.startsWith("https://"));
     assert.equal(record.verifiedAt, "2026-11-14");
   }
+});
+
+test("capa curada de Protrepsis conserva el lote 10 DOI por DOI y su evidencia", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch10.size, 10);
+  assert.ok(records.length >= 100);
+  assert.equal(new Set(records.map(record => record.doi)).size, records.length);
+  for (const [doi, expectedKeywords] of batch10) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 10: " + doi);
+    assert.deepEqual(record.keywords, expectedKeywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+  // El artículo i15.173 distingue deliberadamente historia de Historia.
+  assert.deepEqual(
+    records.find(item => item.doi === "10.32870/prot.i15.173").keywords.slice(2,4),
+    ["historia", "Historia"]
+  );
 });
