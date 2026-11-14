@@ -58,7 +58,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 120)
+        self.assertGreaterEqual(len(curated), 130)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -321,6 +321,32 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             curated["10.32870/prot.i19.275"]["keywords"],
             ["Inferencia", "deducción", "inducción", "abducción",
              "pragmatismo", "realismo", "investigación"],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i4.37"]["keywords"],
+            ["Love", "suffering", "human nature", "Eros",
+             "despair", "sacrifice", "resurrection"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i4.53"]["keywords"],
+            ["amor", "sufrimiento", "naturaleza humana", "Eros",
+             "desesperación", "sacrificio", "resurrección"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i5.74"]["keywords"],
+            ["Kierkergaad", "God", "religious", "human being",
+             "christianity", "existentialism"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i5.75"]["keywords"],
+            ["Kierkergaard", "Dios", "religión", "ser humano",
+             "cristianismo", "existencialismo"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i21.313"]["keywords"],
+            ["Patriarcado", "historia androcéntrica", "narración dominante",
+             "olas del feminismo", "injusticia epistémica"],
         )
 
         records = [{
