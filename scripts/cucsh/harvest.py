@@ -341,6 +341,7 @@ def clean_text(
 
 def unique_strings(
     values,
+    preserve_case=False,
 ):
     output = []
     seen = set()
@@ -351,7 +352,7 @@ def unique_strings(
         if not clean:
             continue
 
-        key = clean.casefold()
+        key = clean if preserve_case else clean.casefold()
 
         if key in seen:
             continue
@@ -629,7 +630,8 @@ def load_protrepsis_editorial_keywords(
             entry.get(
                 "keywords",
                 [],
-            )
+            ),
+            preserve_case=True,
         )
 
         if (
