@@ -9,7 +9,9 @@ const styles = await readFile("css/protrepsis-curatorial-chips.css","utf8");
 test("chips y resets de Protrepsis forman parte del catálogo, no de otras revistas",async()=>{
   assert.match(page,/journal-category-all/);
   assert.match(page,/journal-issue-all/);
-  assert.match(page,/Todos los temas/);
+  assert.match(page,/Palabras clave verificadas/);
+  assert.match(page,/Sólo términos publicados por Protrepsis/);
+  assert.match(page,/Todas las palabras clave/);
   assert.match(page,/Todos los números/);
   assert.match(page,/protrepsis-curatorial-chips\.css\?v=20261113-museum-chips-v1/);
   assert.match(page,/journal-page\.js\?v=20261113-[a-z0-9-]+/);
