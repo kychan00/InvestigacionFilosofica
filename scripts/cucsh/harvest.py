@@ -60,6 +60,13 @@ HISTORICAL_PROTREPSIS = (
     / "protrepsis-historical.json"
 )
 
+PROTREPSIS_EDITORIAL_KEYWORDS = (
+    ROOT
+    / "src"
+    / "data"
+    / "protrepsis-editorial-keywords.json"
+)
+
 
 SOURCES = [
     {
@@ -594,6 +601,127 @@ def enrich_protrepsis_editorial_keywords(
             enriched += 1
 
     return enriched
+
+
+def load_protrepsis_editorial_keywords(
+    path=PROTREPSIS_EDITORIAL_KEYWORDS,
+):
+    if not path.exists():
+        return {}
+
+    data = json.loads(
+        path.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    entries = {}
+
+    for entry in data.get(
+        "records",
+        [],
+    ):
+        doi = normalize_doi([
+            entry.get("doi")
+        ])
+
+        keywords = unique_strings(
+            entry.get(
+                "keywords",
+                [],
+            )
+        )
+
+        if (
+            not doi
+            or not keywords
+        ):
+            continue
+
+        entries[doi] = {
+            "keywords": keywords,
+            "evidence": entry.get(
+                "evidence"
+            ),
+            "verifiedAt": entry.get(
+                "verifiedAt"
+            ),
+        }
+
+    return entries
+
+
+def apply_curated_protrepsis_editorial_keywords(
+    records,
+):
+    curated = (
+        load_protrepsis_editorial_keywords()
+    )
+
+    if not curated:
+        return 0
+
+    applied = 0
+
+    for record in records:
+        doi = normalize_doi([
+            record.get("doi")
+        ])
+
+        entry = curated.get(
+            doi
+        )
+
+        if not entry:
+            continue
+
+        keywords = entry[
+            "keywords"
+        ]
+
+        record[
+            "editorialKeywords"
+        ] = keywords
+
+        record[
+            "editorialKeywordSource"
+        ] = "verified-publication"
+
+        if entry.get(
+            "evidence"
+        ):
+            record[
+                "editorialKeywordEvidence"
+            ] = entry[
+                "evidence"
+            ]
+
+        if entry.get(
+            "verifiedAt"
+        ):
+            record[
+                "editorialKeywordVerifiedAt"
+            ] = entry[
+                "verifiedAt"
+            ]
+
+        record[
+            "subjects"
+        ] = unique_strings(
+            [
+                *(
+                    record.get(
+                        "subjects"
+                    )
+                    or []
+                ),
+                *keywords,
+            ]
+        )
+
+        applied += 1
+
+    return applied
 
 
 def normalize_language(
@@ -1820,15 +1948,14 @@ def parse_oai_record(
         "subjects":
             subjects,
 
+        # dc:subject se conserva como metadata temática/bibliográfica.
+        # No se asume que equivalga a las palabras clave publicadas
+        # por el artículo; estas requieren verificación editorial.
         "editorialKeywords":
-            subjects,
+            [],
 
         "editorialKeywordSource":
-            (
-                "oai-dc"
-                if subjects
-                else None
-            ),
+            None,
 
         "bibliographicSources":
             sources,
@@ -2394,6 +2521,8 @@ def merge_record_metadata(
         "issueNumber",
         "historicalSource",
         "editorialKeywordSource",
+        "editorialKeywordEvidence",
+        "editorialKeywordVerifiedAt",
     ):
         if (
             not merged.get(field)
@@ -2686,6 +2815,7 @@ def build_dataset(
         historical_added = 0
         historical_enriched = 0
         editorial_keywords_enriched = 0
+        curated_editorial_keywords = 0
 
         if (
             source["journal"]
@@ -2721,6 +2851,15 @@ def build_dataset(
 
             editorial_keywords_enriched = (
                 enrich_protrepsis_editorial_keywords(
+                    records
+                )
+            )
+
+            # La capa curada prevalece sobre inferencias bibliográficas
+            # y sobre una cosecha HTML incompleta. Cada entrada está
+            # vinculada por DOI y conserva evidencia de verificación.
+            curated_editorial_keywords = (
+                apply_curated_protrepsis_editorial_keywords(
                     records
                 )
             )
@@ -2797,6 +2936,9 @@ def build_dataset(
 
             "editorialKeywordsEnriched":
                 editorial_keywords_enriched,
+
+            "curatedEditorialKeywords":
+                curated_editorial_keywords,
         })
 
     all_records.sort(
@@ -2925,7 +3067,8 @@ def main():
             f"deleted={summary['deleted']} "
             f"historicalAdded={summary['historicalAdded']} "
             f"historicalEnriched={summary['historicalEnriched']} "
-            f"editorialKeywords={summary['editorialKeywordsEnriched']}"
+            f"editorialKeywords={summary['editorialKeywordsEnriched']} "
+            f"curatedKeywords={summary['curatedEditorialKeywords']}"
         )
 
         for reason, count in sorted(
