@@ -1483,3 +1483,27 @@ test("lote 16 parcial: i3.39 conserva las cinco palabras clave editoriales impre
   assert.match(record.evidence, /^https:\/\/es\.scribd\.com\/document\/144936061\//);
   assert.equal(record.verifiedAt, "2026-11-14");
 });
+
+
+test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales verificadas", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.ok(records.length >= 149);
+  assert.equal(new Set(records.map(record => record.doi)).size, records.length);
+
+  const constitution = records.find(record => record.doi === "10.32870/prot.i11-12.137");
+  assert.ok(constitution, "Falta DOI i11-12.137");
+  assert.deepEqual(constitution.keywords, [
+    "Iusphilosophy",
+    "ontology and gnoseology constitutional",
+    "centenary of the CPEUM",
+    "analysis of constitutional issues"
+  ]);
+  assert.match(constitution.evidence, /^https:\/\/www\.academia\.edu\/79610401\//);
+  assert.equal(constitution.verifiedAt, "2026-11-14");
+
+  const method = records.find(record => record.doi === "10.32870/prot.i13.152");
+  assert.ok(method, "Falta DOI i13.152");
+  assert.deepEqual(method.keywords, ["Filosofía", "método", "formación"]);
+  assert.match(method.evidence, /^https:\/\/www\.researchgate\.net\/publication\/352780765_/);
+  assert.equal(method.verifiedAt, "2026-11-14");
+});
