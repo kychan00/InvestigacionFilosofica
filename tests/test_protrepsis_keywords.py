@@ -494,5 +494,36 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         )
 
 
+    def test_batch16_complete_verified_records(self):
+        curated = load_protrepsis_editorial_keywords()
+        self.assertEqual(len(curated), 155)
+        self.assertEqual(
+            curated["10.32870/prot.i21.321"]["keywords"],
+            ["Jürgen Habermas", "movimientos feministas",
+             "teoría de la esfera pública", "Jean Cohen y Andrew Arato"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i22.350"]["keywords"],
+            ["Plotino", "Eros", "metafísica", "naturaleza", "asombro"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i23.385"]["keywords"],
+            ["Hannah Arendt", "feminismo", "esfera social", "labor", "mujer"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i23.392"]["keywords"],
+            ["Apátrida", "pariah", "activismo", "condición judía",
+             "refugiados", "ciudadanía"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i23.405"]["keywords"],
+            ["Arendt", "shlemihl", "Rahel Varnhagen", "refugiados", "paria"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i21.325"]["keywords"],
+            ["Unidad de la ciencia", "pluralismo", "Rickert", "zonas intermedias"],
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
