@@ -19,13 +19,26 @@ const batch01 = new Map([
   ["10.32870/prot.i29.494", ["Duelo","violencia","nosotros","vulnerabilidad","proximidad"]]
 ]);
 
+const batch02 = new Map([
+  ["10.32870/prot.i29.503", ["Animalidad","muerte","tiempo","poesía"]],
+  ["10.32870/prot.i29.497", ["Levinas","exclusión","violencia","género","ontología"]],
+  ["10.32870/prot.i29.496", ["Hermenéutica","univocismo","equivocismo","analogía","cientificismo","posmodernidad"]],
+  ["10.32870/prot.i29.488", ["Tiempo lineal","tiempo del oprimido","trauma","resistencia","memoria","anacronismo"]],
+  ["10.32870/prot.i28.489", ["Foucault","cinismo","resistencia","arte"]],
+  ["10.32870/prot.i28.483", ["Movimientos sociales","pacientes","derecho a la salud","ética"]],
+  ["10.32870/prot.i27.474", ["Análisis","a priori","concepto","intuición","mundos posibles","síntesis"]],
+  ["10.32870/prot.i27.469", ["Discernimiento reflexionante","juicio","pedagogía","crítica","finalidad de la naturaleza","ideas estéticas"]],
+  ["10.32870/prot.i27.453", ["Capitalismo tardío","funcionalidad civilizatoria","mal del ímpetu","lo absurdo","desprendimiento","habitar este espacio"]],
+  ["10.32870/prot.i27.457", ["Deber indirecto-directo","clemencia","libertad","justicia"]]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 10);
+  assert.ok(records.length >= 20);
 
   const seen = new Set();
   for (const record of records) {
@@ -41,6 +54,18 @@ test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () 
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del lote 01: " + doi);
     assert.deepEqual(record.keywords, expectedKeywords);
+  }
+});
+
+test("capa curada de Protrepsis conserva el lote 02 verificado DOI por DOI", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch02.size, 10);
+  for (const [doi, expectedKeywords] of batch02) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 02: " + doi);
+    assert.deepEqual(record.keywords, expectedKeywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
   }
 });
 
