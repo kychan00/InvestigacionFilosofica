@@ -45,13 +45,26 @@ const batch03 = new Map([
   ["10.32870/prot.i25.414", ["Ética","lenguaje","mística","mundo","lo inexpresable","el significado de la vida"]]
 ]);
 
+const batch04 = new Map([
+  ["10.32870/prot.i22.317", ["Cyborg feminismo","epistemología","ontología","logos","metáfora"]],
+  ["10.32870/prot.i22.312", ["Epistemologías feministas","metáforas científicas","discurso científico"]],
+  ["10.32870/prot.i22.336", ["Creencias generales","pseudoracionalidad","cierre epistémico","falacias narrativas"]],
+  ["10.32870/prot.i22.328", ["Filosofía medieval","doctrinas filosóficas","bibliotecas novohispanas"]],
+  ["10.32870/prot.i22.359", ["Amor","maldad","mecanicismo","libertad","deseo","egoísmo"]],
+  ["10.32870/prot.i22.358", ["Platón","Sócrates","Eros","conocimiento","locura"]],
+  ["10.32870/prot.i22.369", ["Platón","Alain Badiou","Slavoj Žižek","Agustín de Hipona","psicoanálisis","amor","verdad","melancolía"]],
+  ["10.32870/prot.i22.354", ["Amor","afección","géneros de conocimiento","pasión"]],
+  ["10.32870/prot.i22.348", ["Filosofía","sexualidad","seducción","producción","Baudrillard"]],
+  ["10.32870/prot.i22.343", ["Bien","belleza","verdad","mujeres filósofas","justicia","equilibrio"]]
+]);
+
 test("capa curada de Protrepsis conserva el lote 01 verificado DOI por DOI", () => {
   assert.equal(overlay.schemaVersion, 1);
   assert.equal(overlay.journal, "Protrepsis");
   assert.match(overlay.policy, /No se infieren/i);
 
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.ok(records.length >= 30);
+  assert.ok(records.length >= 40);
 
   const seen = new Set();
   for (const record of records) {
@@ -108,5 +121,18 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
   ]);
   for (const invented of ["Poder","Política","Ontología","Tecnología"]) {
     assert.equal(record.keywords.includes(invented), false);
+  }
+});
+
+test("capa curada de Protrepsis conserva el lote 04 (número 22) DOI por DOI", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  assert.equal(batch04.size, 10);
+  assert.ok(records.length >= 40);
+  for (const [doi, expectedKeywords] of batch04) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote 04: " + doi);
+    assert.deepEqual(record.keywords, expectedKeywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
   }
 });
