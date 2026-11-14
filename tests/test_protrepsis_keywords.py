@@ -58,7 +58,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 146)
+        self.assertGreaterEqual(len(curated), 147)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -391,6 +391,15 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         self.assertEqual(
             curated["10.32870/prot.i23.395"]["keywords"],
             ["Hannah Arendt", "story", "empathy", "witness", "common sense"],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i3.39"]["keywords"],
+            [
+                "Trasplante renal", "justicia distributiva",
+                "asignación de órganos", "inmunosupresión",
+                "selección de donador y receptor",
+            ],
         )
 
         records = [{
