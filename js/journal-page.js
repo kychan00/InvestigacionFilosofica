@@ -381,7 +381,11 @@ function card(record, index) {
         button.textContent = subject;
         button.title = "Filtrar Protrepsis por la categoría «" + subject + "»";
         button.style.setProperty("--chip-color", categoryColorFor(subject));
-        button.addEventListener("click", () => selectTaxonomyFacet("category", subject));
+        const selected = state.category === subject;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+        button.setAttribute("aria-controls", "journal-card-grid");
+        button.addEventListener("click", () => selectTaxonomyFacet("category", subject, { revealResults: true }));
         topicList.append(button);
       } else {
         topicList.append(chip(subject, "subject-chip topic-" + categoryMeta.origin));
@@ -463,7 +467,55 @@ function syncCuratorialChips() {
   }
 }
 
-function selectTaxonomyFacet(facet, value) {
+let facetFeedbackTimer = null;
+let facetPulseTimer = null;
+
+function announceFacetSelection(facet, value, { revealResults = false } = {}) {
+  if (journalId !== "protrepsis") return;
+
+  let feedback = document.querySelector("#journal-filter-feedback");
+  if (!feedback) {
+    feedback = document.createElement("div");
+    feedback.id = "journal-filter-feedback";
+    feedback.className = "journal-filter-feedback";
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+    feedback.setAttribute("aria-atomic", "true");
+    document.body.append(feedback);
+  }
+
+  const active = value !== "all";
+  const facetName = facet === "category" ? "Categoría" : "Número";
+  feedback.textContent = active
+    ? "✓ " + facetName + " activa · " + value
+    : "✓ " + facetName + " restablecido";
+  feedback.classList.remove("is-visible");
+  void feedback.offsetWidth;
+  feedback.classList.add("is-visible");
+
+  clearTimeout(facetFeedbackTimer);
+  facetFeedbackTimer = setTimeout(() => feedback.classList.remove("is-visible"), 2200);
+
+  if (el.results) {
+    el.results.classList.remove("is-filter-refreshing");
+    void el.results.offsetWidth;
+    el.results.classList.add("is-filter-refreshing");
+    clearTimeout(facetPulseTimer);
+    facetPulseTimer = setTimeout(() => el.results?.classList.remove("is-filter-refreshing"), 700);
+  }
+
+  if (revealResults && state.view === "archive" && el.results) {
+    const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    requestAnimationFrame(() => {
+      el.results.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+    });
+  }
+}
+
+function selectTaxonomyFacet(facet, value, options = {}) {
   if (facet !== "category" && facet !== "issue") return;
   // A second tap releases the same tag. Clearing a single facet keeps
   // the rest of the researcher's filters intact.
@@ -473,6 +525,7 @@ function selectTaxonomyFacet(facet, value) {
   if (select) select.value = next;
   state.limit = PAGE_SIZE;
   renderArchive();
+  announceFacetSelection(facet, next, options);
   if (state.view === "atlas") buildAtlas();
 }
 
@@ -550,7 +603,7 @@ function buildTaxonomy() {
     button.setAttribute("aria-controls", "journal-card-grid");
     button.style.setProperty("--chip-color", categoryColorFor(label));
     button.innerHTML = "<span>" + escapeHtml(label) + "</span><strong>" + count + "</strong>";
-    button.addEventListener("click", () => selectTaxonomyFacet("category", label));
+    button.addEventListener("click", () => selectTaxonomyFacet("category", label, { revealResults: true }));
     el.categories.append(button);
   }
 
@@ -564,7 +617,7 @@ function buildTaxonomy() {
     button.setAttribute("aria-controls", "journal-card-grid");
     button.style.setProperty("--chip-color", group.color);
     button.innerHTML = "<span>" + escapeHtml(group.label) + "</span><strong>" + group.count + "</strong>";
-    button.addEventListener("click", () => selectTaxonomyFacet("issue", group.key));
+    button.addEventListener("click", () => selectTaxonomyFacet("issue", group.key, { revealResults: true }));
     el.issues?.append(button);
   }
 
