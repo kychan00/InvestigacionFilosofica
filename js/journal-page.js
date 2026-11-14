@@ -269,7 +269,7 @@ function recordText(record) {
     record.language,
     ...authors(record),
     ...(record.journal === "Protrepsis"
-      ? categoriesFor(record)
+      ? []
       : articleTopics(record, { derive: false, limit: 12 })),
     ...categoriesFor(record),
     broadCategoryFor(record)
@@ -413,7 +413,7 @@ function card(record, index) {
   category.append(broadChip);
 
   const topicMeta = articleTopicMetadata(record, {
-    derive: record.journal === "Protrepsis",
+    derive: false,
     limit: record.journal === "Protrepsis" ? 8 : 4
   });
   const categoryMeta = categoryMetadataFor(record);
