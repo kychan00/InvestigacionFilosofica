@@ -609,6 +609,25 @@ body[data-journal="protrepsis"] .broad-category-chip {
   opacity:.82;
 }
 
+body[data-journal="protrepsis"] .journal-card-category-group.is-keywords-pending {
+  gap:.42rem;
+}
+body[data-journal="protrepsis"] .journal-card-topic-empty {
+  display:inline-flex;
+  width:max-content;
+  max-width:100%;
+  padding:5px 8px;
+  border:1px dotted color-mix(in srgb,var(--jp-muted,#6f6f6f) 62%,transparent);
+  color:var(--jp-muted,#6f6f6f);
+  font-family:var(--jp-sans,system-ui,sans-serif);
+  font-size:.61rem;
+  font-weight:650;
+  letter-spacing:.08em;
+  line-height:1.25;
+  text-transform:uppercase;
+  opacity:.82;
+}
+
 body[data-journal="protrepsis"] .journal-card-category-group .category-filter-chip {
   transition:
     transform .16s ease,
