@@ -57,7 +57,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_curated_layer_is_doi_keyed_and_preserves_real_keywords(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertGreaterEqual(len(curated), 90)
+        self.assertGreaterEqual(len(curated), 100)
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
@@ -247,6 +247,30 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             curated["10.32870/prot.i11-12.139"]["keywords"],
             ["Fenomenología", "hermenéutica", "encarnación",
              "comprensión", "sensibilidad"],
+        )
+
+        self.assertEqual(
+            curated["10.32870/prot.i24.353"]["keywords"],
+            ["Hermenéutica", "opinión", "confianza", "atestación"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i15.170"]["keywords"],
+            ["monarquía", "universal", "política", "utopía"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i15.172"]["keywords"],
+            [
+                "Marx", "marxismo", "teoría crítica", "sociología política",
+                "espacio teórico", "Althusser", "materialismo",
+                "acumulación originaria",
+            ],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i15.173"]["keywords"],
+            [
+                "Marxismo", "Postmodernidad", "historia", "Historia",
+                "proceso", "progreso",
+            ],
         )
 
         records = [{
