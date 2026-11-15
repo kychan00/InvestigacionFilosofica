@@ -1511,8 +1511,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 157);
-  assert.equal(new Set(records.map(record => record.doi)).size, 157);
+  assert.equal(records.length, 158);
+  assert.equal(new Set(records.map(record => record.doi)).size, 158);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1555,5 +1555,21 @@ test("lote 17: i27.435 conserva las cuatro palabras clave editoriales impresas",
   ]);
   assert.equal(record.evidence,
     "https://www.academia.edu/170293736/Ram%C3%B3n_Rosa_Freire_y_Fornet_Betancourt_discurso_de_la_Universidad_Central_de_Honduras_entre_la_pedagog%C3%ADa_emancipatoria_y_la_filosof%C3%ADa_intercultural");
+  assert.equal(record.verifiedAt, "2026-11-14");
+});
+
+
+test("lote 17: i21.314 conserva las palabras clave impresas del facsímil de Protrepsis", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  const record = records.find(item => item.doi === "10.32870/prot.i21.314");
+  assert.ok(record, "Falta el DOI i21.314 de Laura Alicia Soto Rangel");
+  assert.deepEqual(record.keywords, [
+    "Feminismo",
+    "Graciela Hierro",
+    "novohispanas",
+    "Sor Juana Inés de la Cruz"
+  ]);
+  assert.equal(record.evidence,
+    "https://www.academia.edu/144649960/El_feminismo_como_una_%C3%A9tica_para_s%C3%AD_Aplicaci%C3%B3n_del_m%C3%A9todo_feminista_de_Graciela_Hierro_en_la_resignificaci%C3%B3n_de_las_mujeres_en_la_Nueva_Espa%C3%B1a");
   assert.equal(record.verifiedAt, "2026-11-14");
 });

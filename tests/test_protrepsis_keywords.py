@@ -509,7 +509,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_batch16_complete_verified_records(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertEqual(len(curated), 157)
+        self.assertEqual(len(curated), 158)
         self.assertEqual(
             curated["10.32870/prot.i21.321"]["keywords"],
             ["Jürgen Habermas", "movimientos feministas",
@@ -553,6 +553,19 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         self.assertEqual(
             item["evidence"],
             "https://www.academia.edu/170293736/Ram%C3%B3n_Rosa_Freire_y_Fornet_Betancourt_discurso_de_la_Universidad_Central_de_Honduras_entre_la_pedagog%C3%ADa_emancipatoria_y_la_filosof%C3%ADa_intercultural",
+        )
+
+
+    def test_batch17_i21_314_literal_editorial_keywords(self):
+        curated = load_protrepsis_editorial_keywords()
+        item = curated["10.32870/prot.i21.314"]
+        self.assertEqual(
+            item["keywords"],
+            ["Feminismo", "Graciela Hierro", "novohispanas", "Sor Juana Inés de la Cruz"],
+        )
+        self.assertEqual(
+            item["evidence"],
+            "https://www.academia.edu/144649960/El_feminismo_como_una_%C3%A9tica_para_s%C3%AD_Aplicaci%C3%B3n_del_m%C3%A9todo_feminista_de_Graciela_Hierro_en_la_resignificaci%C3%B3n_de_las_mujeres_en_la_Nueva_Espa%C3%B1a",
         )
 
 
