@@ -4,8 +4,8 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "protrepsisWithDOI": 247,
-    "curatedWithLiteralEditorialKeywords": 169,
-    "awaitingPublicationEvidence": 78,
+    "curatedWithLiteralEditorialKeywords": 170,
+    "awaitingPublicationEvidence": 77,
     "historicalSupplementPending": 22,
     "historicalOriginalResearchToVerify": 6,
     "explicitReviewInterviewOrBibliographicTitle": 21,
@@ -20,7 +20,6 @@
     "10.32870/prot.i14.176"
   ],
   "nextTenCandidatesWithoutEditorialEvidence": [
-    "10.32870/prot.i29.501",
     "10.32870/prot.i27.452",
     "10.32870/prot.i27.461",
     "10.32870/prot.i27.463",
@@ -29,7 +28,8 @@
     "10.32870/prot.i25.409",
     "10.32870/prot.i25.417",
     "10.32870/prot.i25.430",
-    "10.32870/prot.i21.315"
+    "10.32870/prot.i21.315",
+    "10.32870/prot.i22.346"
   ],
   "records": [
     {
@@ -155,26 +155,6 @@
       "genreTitleSignal": "not-explicit-in-title",
       "editorialKeywordStatus": "not-verified",
       "recoveryLane": "historical-first-page-needed"
-    },
-    {
-      "doi": "10.32870/prot.i29.501",
-      "title": "La crítica bergsoniana del tiempo espacializado a través de la semiótica plotiniana",
-      "year": 2025,
-      "issue": "29",
-      "authors": [
-        "Eduardo Yalán Dongo"
-      ],
-      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501",
-      "publisherRelatedLinks": [
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501/697",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501/708",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501/709"
-      ],
-      "inHistoricalSupplement": false,
-      "hasPublisherAbstract": true,
-      "genreTitleSignal": "not-explicit-in-title",
-      "editorialKeywordStatus": "not-verified",
-      "recoveryLane": "article-original-keywords-check"
     },
     {
       "doi": "10.32870/prot.i27.452",
