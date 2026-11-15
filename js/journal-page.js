@@ -998,7 +998,7 @@ function switchView(view) {
   el.archivePanel.hidden = view !== "archive";
   el.atlasPanel.hidden = view !== "atlas";
   el.insightsPanel.hidden = view !== "insights";
-  if (view === "atlas") buildAtlas();
+  if (view === "atlas" && state.records.length) buildAtlas();
 }
 
 async function buildAtlas() {
@@ -1147,6 +1147,8 @@ async function load() {
     state.records = records;
     buildTaxonomy();
     renderArchive();
+    // Un enlace directo al Atlas puede llegar antes de que termine la carga del corpus.
+    if (state.view === "atlas") buildAtlas();
     if (!state.records.length) {
       el.status.textContent = "La página está lista, pero este corpus todavía no contiene registros publicados de " + config.label + ".";
     }
