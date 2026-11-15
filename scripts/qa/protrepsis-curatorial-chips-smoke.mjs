@@ -115,10 +115,17 @@ try {
     assert.equal(await page.locator("#journal-category-all").getAttribute("aria-pressed"),"true");
     assert.equal(await page.locator("#journal-issue-all").getAttribute("aria-pressed"),"true");
 
-    const cardMotion=await page.locator("#journal-card-grid .journal-card").first()
-      .evaluate(node=>getComputedStyle(node).animationName);
+    // La animación de refresco editorial sustituye temporalmente la entrada
+    // de las tarjetas durante 700 ms; ambas son comportamientos correctos.
+    // Leer clase y animación en la misma evaluación evita un falso fallo de carrera.
+    const {cardMotion,isRefreshing}=await page.locator("#journal-card-grid")
+      .evaluate(grid=>({
+        cardMotion:getComputedStyle(grid.querySelector(".journal-card")).animationName,
+        isRefreshing:grid.classList.contains("is-filter-refreshing")
+      }));
     if(reducedMotion==="reduce")assert.equal(cardMotion,"none");
-    else assert.match(cardMotion,/pro-curatorial-results/);
+    else assert.match(cardMotion,
+      isRefreshing ? /protrepsis-filter-result-in/ : /pro-curatorial-results/);
     assert.deepEqual(pageErrors,[],theme+" page errors");
     await context.close();
   }
