@@ -1,4 +1,4 @@
-/* Contrato funcional, sin capturas ni diffs visuales: filtros por tema y número,
+/* Contrato funcional, sin capturas ni diffs visuales: filtros por palabra clave y número,
  * selección accesible, reinicios independientes, móvil y movimiento reducido.
  */
 import assert from "node:assert/strict";
@@ -29,6 +29,21 @@ try {
       const url=new URL(route.request().url());
       if(url.pathname.endsWith("/src/data/cucsh-filosofia.json"))
         return route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({provider:"CUCSH Filosofía",records})});
+      if(url.pathname.endsWith("/src/data/protrepsis-editorial-keywords.json"))
+        return route.fulfill({
+          status:200,
+          contentType:"application/json",
+          body:JSON.stringify({
+            schemaVersion:1,
+            journal:"Protrepsis",
+            records:records.map(record=>({
+              doi:record.doi,
+              keywords:record.subjects,
+              verifiedAt:"2026-11-14",
+              evidence:record.urls.canonical
+            }))
+          })
+        });
       if(url.origin===new URL(BASE).origin)return route.continue();
       return route.abort();
     });
@@ -91,7 +106,7 @@ try {
     const politicalValue=await page.locator("#journal-category option").evaluateAll(
       options=>options.find(option=>option.textContent?.includes("Política"))?.value
     );
-    assert.ok(politicalValue,"Must find the Política navigation category");
+    assert.ok(politicalValue,"Must find the Política editorial keyword");
     await page.locator("#journal-category").selectOption(politicalValue);
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),1);
     assert.equal(await page.locator('#journal-category-chips button[data-taxonomy-value="Política"]').getAttribute("aria-pressed"),"true");
@@ -100,10 +115,17 @@ try {
     assert.equal(await page.locator("#journal-category-all").getAttribute("aria-pressed"),"true");
     assert.equal(await page.locator("#journal-issue-all").getAttribute("aria-pressed"),"true");
 
-    const cardMotion=await page.locator("#journal-card-grid .journal-card").first()
-      .evaluate(node=>getComputedStyle(node).animationName);
+    // La animación de refresco editorial sustituye temporalmente la entrada
+    // de las tarjetas durante 700 ms; ambas son comportamientos correctos.
+    // Leer clase y animación en la misma evaluación evita un falso fallo de carrera.
+    const {cardMotion,isRefreshing}=await page.locator("#journal-card-grid")
+      .evaluate(grid=>({
+        cardMotion:getComputedStyle(grid.querySelector(".journal-card")).animationName,
+        isRefreshing:grid.classList.contains("is-filter-refreshing")
+      }));
     if(reducedMotion==="reduce")assert.equal(cardMotion,"none");
-    else assert.match(cardMotion,/pro-curatorial-results/);
+    else assert.match(cardMotion,
+      isRefreshing ? /protrepsis-filter-result-in/ : /pro-curatorial-results/);
     assert.deepEqual(pageErrors,[],theme+" page errors");
     await context.close();
   }

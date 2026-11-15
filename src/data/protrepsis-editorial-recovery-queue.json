@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 2,
+  "description": "DOI-first recovery audit for Protrepsis. Corpus fully resolved: every DOI is either curated with literal editorial keywords or explicitly verified as having no editorial keyword block; no keywords are inferred.",
+  "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
+  "counts": {
+    "protrepsisWithDOI": 247,
+    "curatedWithLiteralEditorialKeywords": 211,
+    "awaitingPublicationEvidence": 0,
+    "historicalSupplementPending": 0,
+    "historicalOriginalResearchToVerify": 0,
+    "explicitReviewInterviewOrBibliographicTitle": 0,
+    "lackingPublisherAbstract": 0,
+    "confirmedWithoutEditorialKeywords": 36,
+    "fullyResolved": 247
+  },
+  "historicalResearchToVerify": [],
+  "nextTenCandidatesWithoutEditorialEvidence": [],
+  "records": [],
+  "resolvedWithoutEditorialKeywords": [
+    {
+      "doi": "10.32870/prot.i24.376",
+      "title": "¡Dar a luz una estrella roja!",
+      "issue": "24",
+      "documentKind": "translation",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/issue/view/22",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/566",
+        "https://www.academia.edu/103583817/_Dar_a_luz_una_estrella_roja_Aspectos_del_nietzscheanismo_de_izquierda_y_su_tr%C3%A1gica_historia_Traducci%C3%B3n_"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación es una traducción y el texto publicado no presenta bloque de Palabras clave ni Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i18.269",
+      "title": "Educación y cambio (recensión)",
+      "issue": "18",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/269",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/269/215"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i18.270",
+      "title": "“Ser o no ser Charlie: Voltaire y la tolerancia” en Forja-dores de la Tolerancia (Noticia bibliográfica)",
+      "issue": "18",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/270",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/270/216"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i16.222",
+      "title": "En defensa de los derechos de los animales (reseña)",
+      "issue": "16",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/222",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/222/186"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i17.233",
+      "title": "Muerte y alteridad (recensión)",
+      "issue": "17",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/233",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/233/197"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i1.1",
+      "title": "Entrevista con el Dr. Gabriel Vargas Lozano",
+      "issue": "1",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/1",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/1/5"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i1.2",
+      "title": "Entrevista con el Dr. León Olivé.",
+      "issue": "1",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/2",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/2/6"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i14.178",
+      "title": "Caín (reseña)",
+      "issue": "14",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/178",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/178/147"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i15.203",
+      "title": "El Capital. El manga (reseña)",
+      "issue": "15",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/203",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/203/174"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i6.97",
+      "title": "Reseña: \"Leer la mente. El cerebro y el arte de la ficción\" de Jorge Volpi",
+      "issue": "6",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/97",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/97/89"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i13.155",
+      "title": "Introducción a la teoría de la educación (reseña)",
+      "issue": "13",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/155",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/155/130"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i9-10.134",
+      "title": "Reseña: \"Albert Einstein: Navegante solitario\" de Luis de la Peña",
+      "issue": "9-10",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/134",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/134/114"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i7-8.112",
+      "title": "Reseña: \"El rostro y el alma. Siete ensayos fisiognómicos\" de Francisco González Crussí",
+      "issue": "7-8",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/112",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/112/101"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i6.98",
+      "title": "Reseña: \"Touching a Nerve The Self as a Brain\" de Patricia Smith Churchland",
+      "issue": "6",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/98",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/98/90"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i4.60",
+      "title": "Reseña: \"O pensamiento de Kierkegaard. E A Clínica Psicológica\" de Ana María Calvo de Feijoo",
+      "issue": "4",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/60",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/60/65"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i5.81",
+      "title": "Reseña: \"Anarquía, estado y utopía\" (Anarchy, state and utopia) de Robert Nozick",
+      "issue": "5",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/81",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/81/78"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i2.33",
+      "title": "Reseña: \"Wittgenstein y la tradición clásica. Los peldaños de una escalera\" de Ángeles J. Perona (Ed)",
+      "issue": "2",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/33",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/33/36"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i2.34",
+      "title": "Reseña: \"Wittgenstein. La modernidad, el progreso y la decadencia\" de Jacques Bouveresse",
+      "issue": "2",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/34",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/34/37"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i3.42",
+      "title": "Reseña: \"Ética Práctica\" de Peter Singer",
+      "issue": "3",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/42",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/42/49"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i1.20",
+      "title": "Reseña: \"Crisis y reconstrucción de la filosofía\" de Mario Bunge",
+      "issue": "1",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/20",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/20/23"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i1.21",
+      "title": "Reseña: \"Filosofía hoy\" de Ulrich Boehm",
+      "issue": "1",
+      "documentKind": "review-interview-or-bibliographic-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/21",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/21/24"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i18.271",
+      "title": "Mahihtolli / Xochitepecopa Hueyohtli / Xochimilco / ¿Tehuantin ayoc cintli totec? / Tetzahuitl",
+      "issue": "18",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/271",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/271/217"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i18.272",
+      "title": "Elogio de la inmadurez: Kandinsky y su Estética de lo inexistente",
+      "issue": "18",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/272",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/272/218"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i18.273",
+      "title": "Como un proyecto del que nadie habla",
+      "issue": "18",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/273",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/273/219"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i16.223",
+      "title": "El pasado / Jorge Sumalavia iba por la fiesta contando que había matado a un hombre",
+      "issue": "16",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/223",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/223/187"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i16.224",
+      "title": "PIEDRAS",
+      "issue": "16",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/224",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/224/188"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i17.246",
+      "title": "Canto ceremonial del desierto / Hihacatol cöicoos",
+      "issue": "17",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/246",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/246/198"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i17.247",
+      "title": "Juliana Alejandra",
+      "issue": "17",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/247",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/247/199"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i17.248",
+      "title": "Viaje",
+      "issue": "17",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/248",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/248/200"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i17.249",
+      "title": "Nayúli / Avitayala",
+      "issue": "17",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/249",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/249/201"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i17.250",
+      "title": "Comala y Walden 2",
+      "issue": "17",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/250",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/250/202"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i15.204",
+      "title": "memoria / panal / caja de cartón o el parto de un pájaro / peligro de extinción",
+      "issue": "15",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/204",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/204/175"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i15.205",
+      "title": "Manada",
+      "issue": "15",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/205",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/205/176"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i15.206",
+      "title": "Brisa celeste / Gu'wá ná rígà iya nàjngaà",
+      "issue": "15",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/206",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/206/177"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i15.207",
+      "title": "EL ALACRÁN Y LA PÁGINA / ARTE DE CANTAR / EL ALACRAN Y EL AGUA / EL ALACRÁN Y LAS PALABRAS",
+      "issue": "15",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/207",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/207/178"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/prot.i15.208",
+      "title": "Jaque / Vigilancia / The Unresolved / Lado C",
+      "issue": "15",
+      "documentKind": "creative-or-non-article-item",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/208",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/208/179"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación suministrada y revisada no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    }
+  ]
+}

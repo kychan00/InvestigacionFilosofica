@@ -110,6 +110,21 @@ try {
             body: JSON.stringify({ provider: "CUCSH Filosofía", records })
           });
         }
+        if (url.pathname.endsWith("/src/data/protrepsis-editorial-keywords.json")) {
+          const protrepsis = records
+            .filter(record => record.journal === "Protrepsis")
+            .map(record => ({
+              doi: record.doi,
+              keywords: record.subjects,
+              verifiedAt: "2026-11-14",
+              evidence: record.urls.canonical
+            }));
+          return route.fulfill({
+            status: 200,
+            contentType: "application/json",
+            body: JSON.stringify({ schemaVersion: 1, journal: "Protrepsis", records: protrepsis })
+          });
+        }
         if (url.origin === new URL(BASE).origin) return route.continue();
         return route.abort();
       });

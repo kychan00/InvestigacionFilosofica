@@ -40,6 +40,38 @@ try {
       const url=new URL(route.request().url());
       if(url.pathname.endsWith("/src/data/cucsh-filosofia.json"))
         return route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({provider:"CUCSH Filosofía",records})});
+      if(url.pathname.endsWith("/src/data/protrepsis-editorial-keywords.json"))
+        return route.fulfill({
+          status:200,
+          contentType:"application/json",
+          body:JSON.stringify({
+            schemaVersion:1,
+            journal:"Protrepsis",
+            records:[{
+              doi:"10.1234/pro-ux-a",
+              keywords:["Lenguaje","Verdad"],
+              verifiedAt:"2026-11-14",
+              evidence:"https://example.org/pro-a"
+            }]
+          })
+        });
+      if(url.pathname.endsWith("/src/data/protrepsis-editorial-recovery-queue.json"))
+        return route.fulfill({
+          status:200,
+          contentType:"application/json",
+          body:JSON.stringify({
+            schemaVersion:2,
+            records:[],
+            resolvedWithoutEditorialKeywords:[{
+              doi:"10.1234/pro-ux-b",
+              title:"Lenguaje, conocimiento y verdad en el pensamiento filosófico",
+              editorialKeywordStatus:"verified-absent",
+              documentKind:"creative-or-non-article-item",
+              verifiedAt:"2026-11-14",
+              evidence:["https://example.org/pro-b"]
+            }]
+          })
+        });
       if(url.origin===new URL(BASE).origin) return route.continue();
       return route.abort();
     });
@@ -49,15 +81,29 @@ try {
     assert.equal(await page.locator(".pro-museum-art").count(),1);
     assert.equal(await page.locator(".pro-museum-caption").count(),1);
     assert.equal(await page.locator(".pro-museum-corner,.pro-museum-seal,.pro-museum-plaque").count(),0);
-    const firstTopicGroup=page.locator("#journal-card-grid .journal-card-topic-group").first();
-    assert.equal(await firstTopicGroup.count(),1);
+    const firstCard=page.locator("#journal-card-grid .journal-card").first();
+    const relationGroup=firstCard.locator(".relation-category-group");
+    const keywordGroup=firstCard.locator(".journal-card-keyword-group");
+    assert.equal(await relationGroup.count(),1);
+    assert.equal(await keywordGroup.count(),1);
     assert.match(
-      await firstTopicGroup.locator(".journal-card-topic-label").innerText(),
-      /Categorías editoriales|Categorías bibliográficas|Categorías documentadas|Categorías derivadas/i
+      await relationGroup.locator(".journal-card-topic-label").innerText(),
+      /Categorías de relación/i
     );
-    assert.ok(await firstTopicGroup.locator(".journal-card-topic-list .subject-chip").count()>=2);
-    assert.match(await page.locator("#journal-card-grid .broad-category-chip").first().getAttribute("title"),/Área filosófica amplia/);
-    const categoryButtons=page.locator("#journal-card-grid .category-filter-chip");
+    assert.match(
+      await keywordGroup.locator(".journal-card-topic-label").innerText(),
+      /Palabras clave editoriales/i
+    );
+    assert.ok(await relationGroup.locator(".relation-category-chip").count()>=1);
+    assert.equal(await keywordGroup.locator(".keyword-filter-chip").count(),2);
+
+    assert.equal(await page.locator("#journal-card-grid .is-keywords-absent").count(),1);
+    assert.match(
+      await page.locator("#journal-card-grid .is-keywords-absent .journal-card-topic-empty").innerText(),
+      /Sin palabras clave editoriales/i
+    );
+
+    const categoryButtons=page.locator("#journal-card-grid .relation-category-chip");
     assert.ok(await categoryButtons.count()>=2);
     const categoryValue=await categoryButtons.first().getAttribute("data-taxonomy-value");
     assert.ok(categoryValue);
@@ -67,10 +113,19 @@ try {
     const feedback=page.locator("#journal-filter-feedback");
     assert.equal(await feedback.isVisible(),true);
     assert.match(await feedback.innerText(),new RegExp(categoryValue,"i"));
-    assert.ok(await page.locator('#journal-card-grid .category-filter-chip.is-active[aria-pressed="true"]').count()>=1);
+    assert.ok(await page.locator('#journal-card-grid .relation-category-chip.is-active[aria-pressed="true"]').count()>=1);
     assert.equal(await page.locator("#journal-card-grid").evaluate(node=>node.classList.contains("is-filter-refreshing")),true);
     await page.locator("#journal-category-all").click();
     assert.equal(await page.locator("#journal-category").inputValue(),"all");
+
+    const keywordButtons=page.locator("#journal-card-grid .keyword-filter-chip");
+    const keywordValue=await keywordButtons.first().getAttribute("data-taxonomy-value");
+    assert.ok(keywordValue);
+    await keywordButtons.first().click();
+    assert.match(await feedback.innerText(),new RegExp(keywordValue,"i"));
+    assert.ok(await page.locator('#journal-card-grid .keyword-filter-chip.is-active[aria-pressed="true"]').count()>=1);
+    await page.locator('#journal-card-grid .keyword-filter-chip.is-active').first().click();
+    assert.equal(await page.locator('#journal-card-grid .keyword-filter-chip.is-active').count(),0);
 
     const topics=page.locator("#pro-explorer-tab-topics");
     const issues=page.locator("#pro-explorer-tab-issues");

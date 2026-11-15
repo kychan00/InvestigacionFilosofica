@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="../../css/protrepsis-paper.css?v=20261113-editorial-v1">
   <link rel="stylesheet" href="../../css/protrepsis-museo.css?v=20261113-gallery-v1">
   <link rel="stylesheet" href="../../css/protrepsis-folios-color.css?v=20261113-folios-v2">
-  <link rel="stylesheet" href="../../css/protrepsis-curatorial-chips.css?v=20261113-museum-chips-v1">
-  <link rel="stylesheet" href="../../css/protrepsis-reading-layout.css?v=20261113-category-feedback-v1">
+  <link rel="stylesheet" href="../../css/protrepsis-curatorial-chips.css?v=20261114-relation-categories-v1">
+  <link rel="stylesheet" href="../../css/protrepsis-reading-layout.css?v=20261114-editorial-keywords-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body data-journal="protrepsis">
@@ -115,7 +115,7 @@
     <div class="journal-view-tabs" id="journal-views" role="tablist" aria-label="Vistas de la revista">
       <button type="button" role="tab" class="is-active" aria-selected="true" data-journal-view="archive"><span class="pro-tab-no" aria-hidden="true">01</span> Archivo</button>
       <button type="button" role="tab" aria-selected="false" data-journal-view="atlas"><span class="pro-tab-no" aria-hidden="true">02</span> Atlas semántico</button>
-      <button type="button" role="tab" aria-selected="false" data-journal-view="insights"><span class="pro-tab-no" aria-hidden="true">03</span> Temas y autorías</button>
+      <button type="button" role="tab" aria-selected="false" data-journal-view="insights"><span class="pro-tab-no" aria-hidden="true">03</span> Palabras clave y autorías</button>
     </div>
 
     <main class="journal-main">
@@ -124,7 +124,7 @@
         <div class="journal-archive-layout">
           <aside class="journal-sidebar pro-explorer" aria-label="Explorador del archivo filosófico">
             <div class="pro-explorer-tabs" role="tablist" aria-label="Elegir panel del catálogo">
-              <button id="pro-explorer-tab-topics" role="tab" type="button" data-pro-explorer-tab="topics" aria-controls="pro-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Temas</button>
+              <button id="pro-explorer-tab-topics" role="tab" type="button" data-pro-explorer-tab="topics" aria-controls="pro-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Categorías</button>
               <button id="pro-explorer-tab-issues" role="tab" type="button" data-pro-explorer-tab="issues" aria-controls="pro-explorer-issues" aria-selected="false" tabindex="-1"><span aria-hidden="true">№</span> Números</button>
               <button id="pro-explorer-tab-filters" role="tab" type="button" data-pro-explorer-tab="filters" aria-controls="pro-explorer-filters" aria-selected="false" tabindex="-1"><span aria-hidden="true">☷</span> Filtros</button>
             </div>
@@ -132,16 +132,16 @@
               <section id="pro-explorer-topics" role="tabpanel" aria-labelledby="pro-explorer-tab-topics" data-pro-explorer-panel="topics" class="journal-taxonomy-block pro-curatorial-block" aria-labelledby="pro-categories-title">
               <header class="pro-curatorial-header">
                 <div class="pro-curatorial-header-top">
-                  <p class="journal-kicker">CATÁLOGO / 01 — TEMAS</p>
+                  <p class="journal-kicker">CATÁLOGO / 01 — CATEGORÍAS</p>
                   <span class="pro-curatorial-ornament" aria-hidden="true">✳</span>
                 </div>
-                <h2 id="pro-categories-title">Mapa de navegación</h2>
-                <p class="pro-curatorial-hint">Categorías de consulta, derivadas para recorrer el archivo.</p>
+                <h2 id="pro-categories-title">Categorías de relación</h2>
+                <p class="pro-curatorial-hint">Agrupan artículos relacionados. Se derivan primero de las palabras clave editoriales; cuando éstas no existen, del título, resumen y tipo documental.</p>
                 <button id="journal-category-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
-                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todos los temas <span aria-hidden="true">↗</span>
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todas las categorías <span aria-hidden="true">↗</span>
                 </button>
               </header>
-              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
+              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de relación"></div>
             </section>
               <section id="pro-explorer-issues" role="tabpanel" aria-labelledby="pro-explorer-tab-issues" data-pro-explorer-panel="issues" hidden class="journal-taxonomy-block journal-issues-block pro-curatorial-block pro-curatorial-issues" aria-labelledby="pro-issues-title">
               <header class="pro-curatorial-header">
@@ -167,7 +167,7 @@
                 <label><span>Década</span><select id="journal-decade"></select></label>
                 <label><span>Idioma</span><select id="journal-language"></select></label>
                 <label><span>Número editorial</span><select id="journal-issue"></select></label>
-                <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
+                <label><span>Categoría de relación</span><select id="journal-category"></select></label>
                 <label><span>Orden</span>
                   <select id="journal-sort">
                     <option value="newest">Más recientes</option>
@@ -242,13 +242,13 @@
         </div>
       </section>
 
-      <section id="journal-insights-panel" class="journal-panel" hidden aria-label="Temas y autorías">
+      <section id="journal-insights-panel" class="journal-panel" hidden aria-label="Palabras clave y autorías">
         <div class="pro-section-heading"><span class="pro-section-number">05 / VOCES</span><h2>Las voces de <em>la revista.</em></h2><p>Palabras clave y autorías tal como aparecen documentadas en el corpus.</p></div>
         <div class="journal-insights-grid">
           <article class="journal-insight">
-            <p class="journal-kicker">CATEGORÍAS DEL CORPUS</p>
-            <h2>Categorías recurrentes</h2>
-            <p>Las etiquetas de cada artículo funcionan también como categorías navegables. Se conserva su procedencia: editorial, bibliográfica o derivada.</p>
+            <p class="journal-kicker">PALABRAS CLAVE DEL CORPUS</p>
+            <h2>Palabras clave recurrentes</h2>
+            <p>Estas palabras clave fueron publicadas por Protrepsis y verificadas contra cada artículo. No se completan con inferencias ni con etiquetas de OpenAlex.</p>
             <div id="journal-topic-chips" class="journal-taxonomy-list"></div>
           </article>
           <article class="journal-insight">
@@ -259,8 +259,8 @@
           </article>
           <article class="journal-insight">
             <p class="journal-kicker">MÉTODO</p>
-            <h2>Categorías con procedencia</h2>
-            <p>En Protrepsis, las etiquetas específicas del artículo son categorías de navegación. La interfaz distingue cuáles fueron publicadas por la revista, recuperadas bibliográficamente o derivadas del texto; el área filosófica amplia queda como referencia secundaria.</p>
+            <h2>Metadata editorial verificada</h2>
+            <p>Las palabras clave editoriales se conservan literalmente y se filtran por separado. Las categorías de relación son una capa de navegación derivada: priorizan esas keywords y, en los registros sin keywords, se construyen desde el título, el resumen y el tipo documental.</p>
           </article>
         </div>
       </section>
@@ -273,7 +273,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261113-category-feedback-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261114-relation-categories-v1"></script>
   <script type="module" src="../../js/protrepsis-explorer.js?v=20261113-ux-v1"></script>
   <script type="module" src="../../js/protrepsis-catalog.js?v=20261113-folios-v2"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>

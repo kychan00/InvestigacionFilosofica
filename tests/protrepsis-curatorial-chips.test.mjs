@@ -9,10 +9,12 @@ const styles = await readFile("css/protrepsis-curatorial-chips.css","utf8");
 test("chips y resets de Protrepsis forman parte del catálogo, no de otras revistas",async()=>{
   assert.match(page,/journal-category-all/);
   assert.match(page,/journal-issue-all/);
-  assert.match(page,/Todos los temas/);
+  assert.match(page,/Categorías de relación/);
+  assert.match(page,/Se derivan primero de las palabras clave editoriales/);
+  assert.match(page,/Todas las categorías/);
   assert.match(page,/Todos los números/);
-  assert.match(page,/protrepsis-curatorial-chips\.css\?v=20261113-museum-chips-v1/);
-  assert.match(page,/journal-page\.js\?v=20261113-[a-z0-9-]+/);
+  assert.match(page,/protrepsis-curatorial-chips\.css\?v=20261114-relation-categories-v1/);
+  assert.match(page,/journal-page\.js\?v=\d{8}-[a-z0-9-]+/);
   // Quadripartita now intentionally shares the independent reset behavior,
   // but it must never load Protrepsis's museum-ticket visual system.
   const quad=await readFile("revistas/udg/quadripartita-ratio.html","utf8");
@@ -29,6 +31,8 @@ test("selección es accesible y restablece solo el filtro correspondiente",()=>{
   assert.match(runtime,/value !== "all" && state\[facet\] === value \? "all" : value/);
   assert.match(runtime,/button\.setAttribute\("aria-pressed", String\(selected\)\)/);
   assert.match(runtime,/button\.classList\.toggle\("is-active", selected\)/);
+  assert.match(runtime,/button\.dataset\.taxonomyFacet = "category"/);
+  assert.match(runtime,/item\.dataset\.taxonomyFacet = "keyword"/);
   assert.match(runtime,/button\.dataset\.taxonomyValue = label/);
   assert.match(runtime,/button\.dataset\.taxonomyValue = group\.key/);
   assert.match(runtime,/el\.categoryAll\?\.addEventListener\("click"/);

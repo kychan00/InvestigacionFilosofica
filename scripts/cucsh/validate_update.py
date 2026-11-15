@@ -325,6 +325,7 @@ def validate_snapshot(
             and editorial_source not in {
                 "oai-dc",
                 "ojs-article",
+                "verified-publication",
             }
         ):
             fail(
@@ -341,6 +342,35 @@ def validate_snapshot(
                 f"{label}: editorial keywords "
                 f"without provenance in {key}"
             )
+
+        if (
+            record.get("journal") == "Protrepsis"
+            and editorial_source == "oai-dc"
+        ):
+            fail(
+                f"{label}: Protrepsis dc:subject "
+                "must not be treated as editorial "
+                f"keywords in {key}"
+            )
+
+        if editorial_source == "verified-publication":
+            evidence = str(
+                record.get(
+                    "editorialKeywordEvidence"
+                )
+                or ""
+            ).strip()
+
+            if not re.match(
+                r"^https?://",
+                evidence,
+                flags=re.IGNORECASE,
+            ):
+                fail(
+                    f"{label}: verified editorial "
+                    "keywords require evidence URL "
+                    f"in {key}"
+                )
 
 
         doi = record.get(
