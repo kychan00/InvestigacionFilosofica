@@ -1512,8 +1512,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 174);
-  assert.equal(new Set(records.map(record => record.doi)).size, 174);
+  assert.equal(records.length, 175);
+  assert.equal(new Set(records.map(record => record.doi)).size, 175);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1617,8 +1617,8 @@ test("número 28 completo: diez artículos conservan palabras clave editoriales 
     ["10.32870/prot.i28.489", ["Foucault","cinismo","resistencia","arte"]],
     ["10.32870/prot.i28.483", ["Movimientos sociales","pacientes","derecho a la salud","ética"]]
   ]);
-  assert.equal(records.length, 174);
-  assert.equal(new Set(records.map(record => record.doi)).size, 174);
+  assert.equal(records.length, 175);
+  assert.equal(new Set(records.map(record => record.doi)).size, 175);
   for (const [doi, keywords] of expected) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del número 28: " + doi);
@@ -1638,8 +1638,8 @@ test("número 29 completo: diez artículos conservan palabras clave editoriales 
     assert.deepEqual(record.keywords, keywords);
     assert.equal(record.evidence, issueUrl);
   }
-  assert.equal(overlay.records.length, 174);
-  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 174);
+  assert.equal(overlay.records.length, 175);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 175);
 });
 
 
@@ -1648,7 +1648,7 @@ test("i27.452 conserva las palabras clave literales del PDF oficial", () => {
   assert.ok(record);
   assert.deepEqual(record.keywords, ["Crítica","metafísica","teología"]);
   assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/640");
-  assert.equal(overlay.records.length, 174);
+  assert.equal(overlay.records.length, 175);
 });
 
 
@@ -1657,7 +1657,7 @@ test("i27.461 conserva las palabras clave literales de la página oficial", () =
   assert.ok(record);
   assert.deepEqual(record.keywords, ["Modernidad","naturaleza","Estado","Ilustración","psicoanálisis"]);
   assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461");
-  assert.equal(overlay.records.length, 174);
+  assert.equal(overlay.records.length, 175);
 });
 
 
@@ -1668,6 +1668,15 @@ test("número 27 completo: diez artículos conservan palabras clave editoriales 
     assert.ok(record, "Falta DOI del número 27: " + doi);
     assert.deepEqual(record.keywords, keywords);
   }
-  assert.equal(overlay.records.length, 174);
-  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 174);
+  assert.equal(overlay.records.length, 175);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 175);
+});
+
+
+test("i24.420 conserva las palabras clave literales de la página oficial", () => {
+  const record = overlay.records.find(item => item.doi === "10.32870/prot.i24.420");
+  assert.ok(record);
+  assert.deepEqual(record.keywords, ["Lógica","teoría pictórica","lenguaje","sintaxis","semántica","nombres","cuantificación","silencio"]);
+  assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420");
+  assert.equal(overlay.records.length, 175);
 });
