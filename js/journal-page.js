@@ -9,6 +9,10 @@ import {
   protrepsisRelationCategoryMetadata
 } from "./protrepsis-relation-categories.js?v=20261114-relations-v1";
 import {
+  quadripartitaRelationCategories,
+  quadripartitaRelationCategoryMetadata
+} from "./quadripartita-relation-categories.js?v=20261114-relations-v1";
+import {
   journalIssueGroups,
   journalIssueInfo
 } from "./journal-issues.js?v=20261112-history-v2";
@@ -17,6 +21,8 @@ const SITE_ROOT = new URL("../", import.meta.url);
 const DATA_URL = new URL("src/data/cucsh-filosofia.json", SITE_ROOT);
 const PROTREPSIS_KEYWORDS_URL = new URL("src/data/protrepsis-editorial-keywords.json", SITE_ROOT);
 const PROTREPSIS_RECOVERY_URL = new URL("src/data/protrepsis-editorial-recovery-queue.json", SITE_ROOT);
+const QUADRIPARTITA_KEYWORDS_URL = new URL("src/data/quadripartita-editorial-keywords.json", SITE_ROOT);
+const QUADRIPARTITA_RECOVERY_URL = new URL("src/data/quadripartita-editorial-recovery-queue.json", SITE_ROOT);
 const PAGE_SIZE = 18;
 
 const JOURNALS = {
@@ -216,19 +222,41 @@ function editorialKeywordsFor(record) {
     : [];
 }
 
+function isCuratorialRecord(record) {
+  return record?.journal === "Protrepsis" || record?.journal === "Quadripartita Ratio";
+}
+
+function quadripartitaMissingKeywordStatus(record) {
+  if (String(record?.editorialKeywordStatus || "") === "verified-absent") {
+    return {
+      label: "Sin palabras clave editoriales",
+      className: "is-keywords-absent",
+      note: "La publicación fue verificada en Quadripartita Ratio sin bloque editorial de Palabras clave/Keywords. Las categorías de relación se derivan por separado."
+    };
+  }
+  return {
+    label: "Sin palabras clave editoriales verificadas",
+    className: "",
+    note: "No hay palabras clave editoriales verificadas para este registro."
+  };
+}
+
 function keywordMetadataFor(record) {
-  if (record?.journal !== "Protrepsis") {
+  if (!isCuratorialRecord(record)) {
     return articleTopicMetadata(record, { derive: false, limit: 8 });
   }
   const editorial = editorialKeywordsFor(record);
-  const missingStatus = protrepsisMissingKeywordStatus(record);
+  const missingStatus = record?.journal === "Protrepsis"
+    ? protrepsisMissingKeywordStatus(record)
+    : quadripartitaMissingKeywordStatus(record);
+  const journalLabel = record?.journal === "Protrepsis" ? "Protrepsis" : "Quadripartita Ratio";
   return {
     topics: editorial.slice(0, 12),
     allTopics: editorial,
     origin: editorial.length ? "editorial" : "none",
     label: "Palabras clave editoriales",
     note: editorial.length
-      ? "Publicadas por Protrepsis y verificadas contra la publicación."
+      ? "Publicadas por " + journalLabel + " y verificadas contra la publicación."
       : missingStatus.note,
     emptyLabel: missingStatus.label,
     emptyClass: missingStatus.className
@@ -238,6 +266,14 @@ function keywordMetadataFor(record) {
 function categoryMetadataFor(record) {
   if (record?.journal === "Protrepsis") {
     const relation = protrepsisRelationCategoryMetadata(record, { limit: 4 });
+    return {
+      ...relation,
+      topics: relation.categories,
+      allTopics: relation.categories
+    };
+  }
+  if (record?.journal === "Quadripartita Ratio") {
+    const relation = quadripartitaRelationCategoryMetadata(record, { limit: 4 });
     return {
       ...relation,
       topics: relation.categories,
@@ -257,6 +293,9 @@ function categoryMetadataFor(record) {
 function categoriesFor(record) {
   if (record?.journal === "Protrepsis") {
     return protrepsisRelationCategories(record, { limit: 4 });
+  }
+  if (record?.journal === "Quadripartita Ratio") {
+    return quadripartitaRelationCategories(record, { limit: 4 });
   }
   return [broadCategoryFor(record)];
 }
@@ -312,6 +351,57 @@ function applyProtrepsisEditorialResolution(records, recovery) {
   });
 }
 
+function applyQuadripartitaKeywordOverlay(records, overlay) {
+  const entries = Array.isArray(overlay?.records) ? overlay.records : [];
+  const byDoi = new Map(
+    entries
+      .map(entry => [normalizeDoi(entry?.doi), entry])
+      .filter(([doi]) => doi)
+  );
+
+  return records.map(record => {
+    if (record?.journal !== "Quadripartita Ratio") return record;
+    const entry = byDoi.get(normalizeDoi(record?.doi));
+    if (!entry) return record;
+
+    const keywords = uniqueStrings(entry.keywords || [], true);
+    if (!keywords.length) return record;
+
+    return {
+      ...record,
+      editorialKeywords: keywords,
+      editorialKeywordSource: "verified-publication",
+      editorialKeywordEvidence: entry.evidence || null,
+      editorialKeywordVerifiedAt: entry.verifiedAt || null,
+      subjects: uniqueStrings([...(record.subjects || []), ...keywords])
+    };
+  });
+}
+
+function applyQuadripartitaEditorialResolution(records, recovery) {
+  const entries = Array.isArray(recovery?.resolvedWithoutEditorialKeywords)
+    ? recovery.resolvedWithoutEditorialKeywords
+    : [];
+  const byDoi = new Map(
+    entries
+      .map(entry => [normalizeDoi(entry?.doi), entry])
+      .filter(([doi]) => doi)
+  );
+
+  return records.map(record => {
+    if (record?.journal !== "Quadripartita Ratio") return record;
+    const entry = byDoi.get(normalizeDoi(record?.doi));
+    if (!entry) return record;
+    return {
+      ...record,
+      editorialKeywordStatus: entry.editorialKeywordStatus || "verified-absent",
+      editorialKeywordAbsenceEvidence: entry.evidence || [],
+      editorialKeywordVerifiedAt: entry.verifiedAt || record.editorialKeywordVerifiedAt || null,
+      editorialDocumentKind: entry.documentKind || null
+    };
+  });
+}
+
 function categoryFor(record) {
   return categoriesFor(record)[0] || broadCategoryFor(record);
 }
@@ -339,7 +429,7 @@ function recordText(record) {
     record.language,
     ...authors(record),
     ...editorialKeywordsFor(record),
-    ...(record.journal === "Protrepsis"
+    ...(isCuratorialRecord(record)
       ? []
       : articleTopics(record, { derive: false, limit: 12 })),
     ...categoriesFor(record),
@@ -409,7 +499,7 @@ function filteredRecords() {
     if (state.language !== "all" && String(record.language || "s/f") !== state.language) return false;
     if (state.issue !== "all" && journalIssueInfo(record).key !== state.issue) return false;
     if (state.category !== "all" && !categoriesFor(record).includes(state.category)) return false;
-    if (journalId === "protrepsis" &&
+    if (supportsCuratorialFacets &&
         state.keyword !== "all" &&
         !editorialKeywordsFor(record).includes(state.keyword)) return false;
     if (state.doiOnly && !record.doi) return false;
@@ -482,12 +572,12 @@ function card(record, index) {
 
   const topicMeta = articleTopicMetadata(record, {
     derive: false,
-    limit: record.journal === "Protrepsis" ? 8 : 4
+    limit: isCuratorialRecord(record) ? 8 : 4
   });
   const categoryMeta = categoryMetadataFor(record);
   const keywordMeta = keywordMetadataFor(record);
 
-  if (record.journal === "Protrepsis") {
+  if (isCuratorialRecord(record)) {
     const relationGroup = document.createElement("div");
     relationGroup.className = "journal-card-topic-group journal-card-category-group relation-category-group";
     relationGroup.dataset.topicOrigin = categoryMeta.origin;
@@ -506,7 +596,7 @@ function card(record, index) {
       button.dataset.taxonomyFacet = "category";
       button.dataset.taxonomyValue = relation;
       button.textContent = relation;
-      button.title = "Filtrar Protrepsis por la categoría de relación «" + relation + "»";
+      button.title = "Filtrar " + config.label + " por la categoría de relación «" + relation + "»";
       button.style.setProperty("--chip-color", categoryColorFor(relation));
       const selected = state.category === relation;
       button.classList.toggle("is-active", selected);
@@ -537,7 +627,7 @@ function card(record, index) {
         button.dataset.taxonomyFacet = "keyword";
         button.dataset.taxonomyValue = keyword;
         button.textContent = keyword;
-        button.title = "Filtrar Protrepsis por la palabra clave «" + keyword + "»";
+        button.title = "Filtrar " + config.label + " por la palabra clave «" + keyword + "»";
         button.style.setProperty("--chip-color", categoryColorFor(keyword));
         const selected = state.keyword === keyword;
         button.classList.toggle("is-active", selected);
@@ -614,7 +704,7 @@ function card(record, index) {
         ? "<div><dt>Fuente de la edición</dt><dd><a href=\"" + escapeHtml(record.editorialSource) + "\" target=\"_blank\" rel=\"noopener noreferrer\">Archivo editorial ↗</a></dd></div>"
         : "")
     : "";
-  const taxonomyDetails = record.journal === "Protrepsis"
+  const taxonomyDetails = isCuratorialRecord(record)
     ? "<div><dt>Categorías de relación</dt><dd>" +
         escapeHtml(categoryMeta.allTopics.join(" · ")) +
         " <small>" + escapeHtml(categoryMeta.note) + "</small></dd></div>" +
@@ -662,7 +752,7 @@ let facetFeedbackTimer = null;
 let facetPulseTimer = null;
 
 function announceFacetSelection(facet, value, { revealResults = false } = {}) {
-  if (journalId !== "protrepsis") return;
+  if (!supportsCuratorialFacets) return;
 
   let feedback = document.querySelector("#journal-filter-feedback");
   if (!feedback) {
@@ -823,14 +913,14 @@ function buildTaxonomy() {
     el.issues?.append(button);
   }
 
-  const subjects = journalId === "protrepsis"
+  const subjects = supportsCuratorialFacets
     ? frequency(state.records.flatMap(editorialKeywordsFor))
     : frequency(state.records.flatMap(row => row.subjects || []));
   el.topics.replaceChildren();
   for (const [label, count] of subjects.slice(0, 24)) {
-    const item = journalId === "protrepsis" ? document.createElement("button") : document.createElement("span");
-    item.className = "topic-chip" + (journalId === "protrepsis" ? " topic-category-filter" : "");
-    if (journalId === "protrepsis") {
+    const item = supportsCuratorialFacets ? document.createElement("button") : document.createElement("span");
+    item.className = "topic-chip" + (supportsCuratorialFacets ? " topic-category-filter" : "");
+    if (supportsCuratorialFacets) {
       item.type = "button";
       item.dataset.taxonomyFacet = "keyword";
       item.dataset.taxonomyValue = label;
@@ -842,7 +932,7 @@ function buildTaxonomy() {
     el.topics.append(item);
   }
   if (!subjects.length) el.topics.innerHTML = '<p class="taxonomy-empty">' +
-    (journalId === "protrepsis"
+    (supportsCuratorialFacets
       ? "Aún no hay palabras clave editoriales verificadas en esta colección."
       : "El corpus no contiene categorías temáticas para esta colección.") +
     "</p>";
@@ -1008,24 +1098,32 @@ async function load() {
     let records = (Array.isArray(payload.records) ? payload.records : [])
       .filter(record => config.matcher(record.journal));
 
-    if (journalId === "protrepsis") {
+    if (supportsCuratorialFacets) {
+      const keywordUrl = journalId === "protrepsis" ? PROTREPSIS_KEYWORDS_URL : QUADRIPARTITA_KEYWORDS_URL;
+      const recoveryUrl = journalId === "protrepsis" ? PROTREPSIS_RECOVERY_URL : QUADRIPARTITA_RECOVERY_URL;
+      const applyKeywords = journalId === "protrepsis"
+        ? applyProtrepsisKeywordOverlay
+        : applyQuadripartitaKeywordOverlay;
+      const applyResolution = journalId === "protrepsis"
+        ? applyProtrepsisEditorialResolution
+        : applyQuadripartitaEditorialResolution;
       try {
         const [keywordResponse, recoveryResponse] = await Promise.all([
-          fetch(PROTREPSIS_KEYWORDS_URL, { cache: "no-store" }),
-          fetch(PROTREPSIS_RECOVERY_URL, { cache: "no-store" })
+          fetch(keywordUrl, { cache: "no-store" }),
+          fetch(recoveryUrl, { cache: "no-store" })
         ]);
         if (keywordResponse.ok) {
-          records = applyProtrepsisKeywordOverlay(records, await keywordResponse.json());
+          records = applyKeywords(records, await keywordResponse.json());
         } else {
-          console.warn("No se pudo cargar la capa curada de palabras clave de Protrepsis:", keywordResponse.status);
+          console.warn("No se pudo cargar la capa curada de palabras clave de " + config.label + ":", keywordResponse.status);
         }
         if (recoveryResponse.ok) {
-          records = applyProtrepsisEditorialResolution(records, await recoveryResponse.json());
+          records = applyResolution(records, await recoveryResponse.json());
         } else {
-          console.warn("No se pudo cargar el cierre editorial de Protrepsis:", recoveryResponse.status);
+          console.warn("No se pudo cargar el cierre editorial de " + config.label + ":", recoveryResponse.status);
         }
       } catch (keywordError) {
-        console.warn("Las capas curatoriales de Protrepsis no están disponibles.", keywordError);
+        console.warn("Las capas curatoriales de " + config.label + " no están disponibles.", keywordError);
       }
     }
 
