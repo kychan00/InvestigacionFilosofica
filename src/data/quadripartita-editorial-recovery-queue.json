@@ -5,60 +5,12 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "quadripartitaWithDOI": 88,
-    "curatedWithLiteralEditorialKeywords": 29,
-    "awaitingPublicationEvidence": 53,
-    "confirmedWithoutEditorialKeywords": 6,
-    "fullyResolved": 35
+    "curatedWithLiteralEditorialKeywords": 34,
+    "awaitingPublicationEvidence": 47,
+    "confirmedWithoutEditorialKeywords": 7,
+    "fullyResolved": 41
   },
   "records": [
-    {
-      "doi": "10.32870/qr.v3i5.71",
-      "title": "Acerca del discurso figurado y su uso en las declamaciones latinas sobre tiranos",
-      "issue": "5",
-      "issueYear": 2018,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/71",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v3i5.72",
-      "title": "En torno al discurso epidíctico. El elogio de Fidel Castro al Che Guevara.",
-      "issue": "5",
-      "issueYear": 2018,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/72",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v3i5.73",
-      "title": "\"La retórica en Grecia y Roma\" de Laurent Pernot",
-      "issue": "5",
-      "issueYear": 2018,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/73",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v3i5.74",
-      "title": "La pistis-fides como el objeto propio de la retórica",
-      "issue": "5",
-      "issueYear": 2018,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/74",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v3i5.75",
-      "title": "La enseñanza de la retórica en la Antigüedad grecorromana. Aspectos desconocidos y sugerencias para el presente.",
-      "issue": "5",
-      "issueYear": 2018,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/75",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v3i5.76",
-      "title": "Retórica y educación en el reformismo cubano: La obra de José Agustín Caballero",
-      "issue": "5",
-      "issueYear": 2018,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/76",
-      "editorialKeywordStatus": "pending-verification"
-    },
     {
       "doi": "10.32870/qr.v3i6.79",
       "title": "Las teorías de la conspiración y su efecto sobre las decisiones",
@@ -508,6 +460,18 @@
       ],
       "verifiedAt": "2026-11-14",
       "note": "La ficha oficial OJS, en la sección Revisiones críticas, muestra SIN RESUMEN y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v3i5.73",
+      "title": "\"La retórica en Grecia y Roma\" de Laurent Pernot",
+      "issue": "5",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/73"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
     }
   ]
 }
