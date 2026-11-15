@@ -24,10 +24,10 @@ const expectedGenre = /\b(reseña|recensión|entrevista|noticia bibliográfica)\
 test("la cola cubre todos y solo los DOI de Protrepsis sin keywords editoriales verificadas", () => {
   assert.equal(queue.schemaVersion, 1);
   assert.equal(protrepsis.length, 247);
-  assert.equal(curated.records.length, 161);
-  assert.equal(pending.length, 86);
-  assert.equal(queue.records.length, 86);
-  assert.equal(new Set(queue.records.map(x => x.doi)).size, 86);
+  assert.equal(curated.records.length, 169);
+  assert.equal(pending.length, 78);
+  assert.equal(queue.records.length, 78);
+  assert.equal(new Set(queue.records.map(x => x.doi)).size, 78);
   assert.deepEqual(sort(queue.records.map(x => x.doi)), sort(pending.map(x => x.doi)));
   assert.equal(queue.counts.protrepsisWithDOI, protrepsis.length);
   assert.equal(queue.counts.curatedWithLiteralEditorialKeywords, curated.records.length);
@@ -124,6 +124,21 @@ test("i22.366 sale de la cola al documentarse sus palabras clave literales", () 
 test("i18.262 e i20.276 salen de la cola con evidencia literal", () => {
   for (const doi of ["10.32870/prot.i18.262", "10.32870/prot.i20.276"]) {
     assert.ok(curatedDois.has(doi));
+    assert.equal(queue.records.some(record => record.doi === doi), false);
+    assert.equal(queue.nextTenCandidatesWithoutEditorialEvidence.includes(doi), false);
+  }
+});
+
+
+test("número 28 sale completo de la cola tras verificar el fascículo oficial", () => {
+  const dois = [
+    "10.32870/prot.i28.480","10.32870/prot.i28.481","10.32870/prot.i28.483",
+    "10.32870/prot.i28.484","10.32870/prot.i28.485","10.32870/prot.i28.486",
+    "10.32870/prot.i28.487","10.32870/prot.i28.489","10.32870/prot.i28.490",
+    "10.32870/prot.i28.491"
+  ];
+  for (const doi of dois) {
+    assert.ok(curatedDois.has(doi.toLowerCase()));
     assert.equal(queue.records.some(record => record.doi === doi), false);
     assert.equal(queue.nextTenCandidatesWithoutEditorialEvidence.includes(doi), false);
   }
