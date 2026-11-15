@@ -1511,8 +1511,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 156);
-  assert.equal(new Set(records.map(record => record.doi)).size, 156);
+  assert.equal(records.length, 157);
+  assert.equal(new Set(records.map(record => record.doi)).size, 157);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1540,5 +1540,20 @@ test("lote 17: Ruletistul conserva las cuatro palabras clave impresas del PDF", 
   assert.deepEqual(record.keywords, ["Cărtărescu", "filosofía", "Deleuze", "literatura"]);
   assert.equal(record.evidence,
     "https://www.researchgate.net/publication/352724640_Ruletistul_Un_ejercicio_empirico_ensayo");
+  assert.equal(record.verifiedAt, "2026-11-14");
+});
+
+test("lote 17: i27.435 conserva las cuatro palabras clave editoriales impresas", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  const record = records.find(item => item.doi === "10.32870/prot.i27.435");
+  assert.ok(record, "Falta el DOI i27.435 de Brooks Asencio y Zuniga Mejía");
+  assert.deepEqual(record.keywords, [
+    "Universidad Central",
+    "positivismo",
+    "pedagogía emancipatoria",
+    "filosofía intercultural"
+  ]);
+  assert.equal(record.evidence,
+    "https://www.academia.edu/170293736/Ram%C3%B3n_Rosa_Freire_y_Fornet_Betancourt_discurso_de_la_Universidad_Central_de_Honduras_entre_la_pedagog%C3%ADa_emancipatoria_y_la_filosof%C3%ADa_intercultural");
   assert.equal(record.verifiedAt, "2026-11-14");
 });
