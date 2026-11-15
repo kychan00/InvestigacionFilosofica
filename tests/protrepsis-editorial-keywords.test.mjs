@@ -1512,8 +1512,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 175);
-  assert.equal(new Set(records.map(record => record.doi)).size, 175);
+  assert.equal(records.length, 211);
+  assert.equal(new Set(records.map(record => record.doi)).size, 211);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1617,8 +1617,8 @@ test("número 28 completo: diez artículos conservan palabras clave editoriales 
     ["10.32870/prot.i28.489", ["Foucault","cinismo","resistencia","arte"]],
     ["10.32870/prot.i28.483", ["Movimientos sociales","pacientes","derecho a la salud","ética"]]
   ]);
-  assert.equal(records.length, 175);
-  assert.equal(new Set(records.map(record => record.doi)).size, 175);
+  assert.equal(records.length, 211);
+  assert.equal(new Set(records.map(record => record.doi)).size, 211);
   for (const [doi, keywords] of expected) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del número 28: " + doi);
@@ -1638,8 +1638,8 @@ test("número 29 completo: diez artículos conservan palabras clave editoriales 
     assert.deepEqual(record.keywords, keywords);
     assert.equal(record.evidence, issueUrl);
   }
-  assert.equal(overlay.records.length, 175);
-  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 175);
+  assert.equal(overlay.records.length, 211);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 211);
 });
 
 
@@ -1648,7 +1648,7 @@ test("i27.452 conserva las palabras clave literales del PDF oficial", () => {
   assert.ok(record);
   assert.deepEqual(record.keywords, ["Crítica","metafísica","teología"]);
   assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/640");
-  assert.equal(overlay.records.length, 175);
+  assert.equal(overlay.records.length, 211);
 });
 
 
@@ -1657,7 +1657,7 @@ test("i27.461 conserva las palabras clave literales de la página oficial", () =
   assert.ok(record);
   assert.deepEqual(record.keywords, ["Modernidad","naturaleza","Estado","Ilustración","psicoanálisis"]);
   assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461");
-  assert.equal(overlay.records.length, 175);
+  assert.equal(overlay.records.length, 211);
 });
 
 
@@ -1668,8 +1668,8 @@ test("número 27 completo: diez artículos conservan palabras clave editoriales 
     assert.ok(record, "Falta DOI del número 27: " + doi);
     assert.deepEqual(record.keywords, keywords);
   }
-  assert.equal(overlay.records.length, 175);
-  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 175);
+  assert.equal(overlay.records.length, 211);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 211);
 });
 
 
@@ -1678,5 +1678,19 @@ test("i24.420 conserva las palabras clave literales de la página oficial", () =
   assert.ok(record);
   assert.deepEqual(record.keywords, ["Lógica","teoría pictórica","lenguaje","sintaxis","semántica","nombres","cuantificación","silencio"]);
   assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420");
-  assert.equal(overlay.records.length, 175);
+  assert.equal(overlay.records.length, 211);
+});
+
+
+test("lote final conserva 36 conjuntos de palabras clave literales suministrados desde Protrepsis", () => {
+  const expected = new Map([["10.32870/prot.i25.409",["Asco","Incomprensión","Objeto","Ungeheuer","Nihilismo","Knausgård"]],["10.32870/prot.i25.417",["Ontología","Tiempo","Inenmendabilidad","Documentalidad","Objetividad"]],["10.32870/prot.i25.430",["Epistemología","Hechos","Interpretación","Sujeto","Verdad"]],["10.32870/prot.i23.345",["deconstrucción","Derrida","occidente","metafísica","estructura","poder","logos"]],["10.32870/prot.i23.363",["pathos","sabiduría","Eros","élenchos","apertura"]],["10.32870/prot.i23.406",["Hannah Arendt","aparecer","contingencia","comprender","mundo"]],["10.32870/prot.i22.346",["Filosofía","cristianismo","Ilustración","crisis mimética","trampa de la cruz"]],["10.32870/prot.i22.351",["Afectividad","filosofía de la educación","existencialismo","ética","educación moral"]],["10.32870/prot.i22.356",["Amor","Yo","el Otro","totalidad","deseo","obra"]],["10.32870/prot.i21.315",["sexismo","segregación","estereotipo","prejuicio"]],["10.32870/prot.i19.254",["Rancière","crítica","marxismo","desacuerdo","disenso"]],["10.32870/prot.i19.255",["fundamentos del conocimiento","investigación","crítica","ciencia"]],["10.32870/prot.i19.257",["dignidad","moral","valor absoluto","naturaleza no humana","antropocentrismo"]],["10.32870/prot.i19.285",["estratificación estética","arte digital","estética modal","Hartman","estética de lo visual"]],["10.32870/prot.i19.305",["intuición","evidencia","metafilosofía","Cappelen","definiciones"]],["10.32870/prot.i18.232",["pluralismo","relativismo","fundamentalismo","ética","cultura"]],["10.32870/prot.i18.264",["tolerancia","Ilustración","fanatismo","democracia"]],["10.32870/prot.i18.266",["filosofía moderna","filosofía política","problema teológico-político","cartas filosóficas","construcción del nuevo mundo"]],["10.32870/prot.i18.268",["filosofía de la ciencia","lógica","argumento","inferencia","explicación","concepto"]],["10.32870/prot.i17.234",["objeto","realismo","fenómeno","noúmeno","experiencia estética","Ontología orientada a objetos"]],["10.32870/prot.i17.244",["vacuidad","ateísmo","espiritualidad","carencia","significación"]],["10.32870/prot.i17.245",["valor","mercancía","negatividad","función simbólica","sujeto y deseo del Otro"]],["10.32870/prot.i16.219",["hermenéutica","analogía","hermenéutica analógica","univocismo","equivocismo","Vattimo","Velasco"]],["10.32870/prot.i15.186",["sujeto","racionalidad","tragedia"]],["10.32870/prot.i15.195",["Mahatma Gandhi","parresiasta","socialismo no-violento","Latinoamérica","Lanza del Vasto","Javier Sicilia"]],["10.32870/prot.i15.196",["política","socialismo","utopía","teoría","praxis"]],["10.32870/prot.i15.198",["ideología","cualificación","sometimiento","sujeto","cambio social"]],["10.32870/prot.i15.199",["sí mismo","otro","prójimo","extranjero","origen","ideas","Cohen","Heidegger","Levinas"]],["10.32870/prot.i15.202",["avance de publicación"]],["10.32870/prot.i14.165",["Sentido","Deleuze","filosofía y literatura","novela"]],["10.32870/prot.i14.166",["silencio","ontología","linguística","hermenéutica","analógica","analogía","univocidad","equivocidad"]],["10.32870/prot.i14.176",["Sade","filosofía","ley","límite"]],["10.32870/prot.i13.151",["Maquiavelo","educación","política","cristianismo","Duch","Aristóteles","Biblia","Jesús"]],["10.32870/prot.i11-12.138",["teoría M","teoría de cuerdas","arché"]],["10.32870/prot.i7-8.107",["Galileo","Aristotelismo","heliocentrismo","geocentrismo","física clásica"]],["10.32870/prot.i2.22",["Ian Hacking"]]]);
+  assert.equal(expected.size, 36);
+  for (const [doi, keywords] of expected) {
+    const record = overlay.records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del lote final: " + doi);
+    assert.deepEqual(record.keywords, keywords);
+    assert.ok(record.evidence.startsWith("http://protrepsis.cucsh.udg.mx/"));
+  }
+  assert.equal(overlay.records.length, 211);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 211);
 });
