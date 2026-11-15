@@ -1,3 +1,4 @@
+import { protrepsisMissingKeywordStatus } from "./protrepsis-editorial-status.js";
 import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-topic-tags-v1";
 import {
   articleTopicMetadata,
@@ -198,6 +199,7 @@ function categoryMetadataFor(record) {
     const editorial = hasVerifiedEditorialKeywordSource(record)
       ? uniqueStrings(record?.editorialKeywords || [], true)
       : [];
+    const missingStatus = protrepsisMissingKeywordStatus(record);
     return {
       topics: editorial.slice(0, 12),
       allTopics: editorial,
@@ -205,7 +207,9 @@ function categoryMetadataFor(record) {
       label: "Palabras clave editoriales",
       note: editorial.length
         ? "Publicadas por Protrepsis y verificadas contra la publicación."
-        : "Pendientes de recuperación y verificación editorial; no se infieren desde el título, el resumen ni fuentes bibliográficas."
+        : missingStatus.note,
+      emptyLabel: missingStatus.label,
+      emptyClass: missingStatus.className
     };
   }
   const broad = broadCategoryFor(record);
@@ -463,7 +467,7 @@ function card(record, index) {
     category.append(topicGroup);
   } else if (record.journal === "Protrepsis") {
     const topicGroup = document.createElement("div");
-    topicGroup.className = "journal-card-topic-group journal-card-category-group is-keywords-pending";
+    topicGroup.className = "journal-card-topic-group journal-card-category-group " + categoryMeta.emptyClass;
     topicGroup.dataset.topicOrigin = "none";
     topicGroup.title = categoryMeta.note;
 
@@ -473,7 +477,7 @@ function card(record, index) {
 
     const pending = document.createElement("span");
     pending.className = "journal-card-topic-empty";
-    pending.textContent = "Pendientes de recuperación";
+    pending.textContent = categoryMeta.emptyLabel;
 
     topicGroup.append(topicLabel, pending);
     category.append(topicGroup);
