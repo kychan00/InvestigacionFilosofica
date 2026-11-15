@@ -1512,8 +1512,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 172);
-  assert.equal(new Set(records.map(record => record.doi)).size, 172);
+  assert.equal(records.length, 174);
+  assert.equal(new Set(records.map(record => record.doi)).size, 174);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1617,8 +1617,8 @@ test("número 28 completo: diez artículos conservan palabras clave editoriales 
     ["10.32870/prot.i28.489", ["Foucault","cinismo","resistencia","arte"]],
     ["10.32870/prot.i28.483", ["Movimientos sociales","pacientes","derecho a la salud","ética"]]
   ]);
-  assert.equal(records.length, 172);
-  assert.equal(new Set(records.map(record => record.doi)).size, 172);
+  assert.equal(records.length, 174);
+  assert.equal(new Set(records.map(record => record.doi)).size, 174);
   for (const [doi, keywords] of expected) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del número 28: " + doi);
@@ -1638,8 +1638,8 @@ test("número 29 completo: diez artículos conservan palabras clave editoriales 
     assert.deepEqual(record.keywords, keywords);
     assert.equal(record.evidence, issueUrl);
   }
-  assert.equal(overlay.records.length, 172);
-  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 172);
+  assert.equal(overlay.records.length, 174);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 174);
 });
 
 
@@ -1648,7 +1648,7 @@ test("i27.452 conserva las palabras clave literales del PDF oficial", () => {
   assert.ok(record);
   assert.deepEqual(record.keywords, ["Crítica","metafísica","teología"]);
   assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/640");
-  assert.equal(overlay.records.length, 172);
+  assert.equal(overlay.records.length, 174);
 });
 
 
@@ -1657,5 +1657,17 @@ test("i27.461 conserva las palabras clave literales de la página oficial", () =
   assert.ok(record);
   assert.deepEqual(record.keywords, ["Modernidad","naturaleza","Estado","Ilustración","psicoanálisis"]);
   assert.equal(record.evidence, "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461");
-  assert.equal(overlay.records.length, 172);
+  assert.equal(overlay.records.length, 174);
+});
+
+
+test("número 27 completo: diez artículos conservan palabras clave editoriales literales", () => {
+  const expected = new Map([["10.32870/prot.i27.474",["Análisis","a priori","concepto","intuición","mundos posibles","síntesis"]],["10.32870/prot.i27.469",["Discernimiento reflexionante","juicio","pedagogía","crítica","finalidad de la naturaleza","ideas estéticas"]],["10.32870/prot.i27.453",["Capitalismo tardío","funcionalidad civilizatoria","mal del ímpetu","lo absurdo","desprendimiento","habitar este espacio"]],["10.32870/prot.i27.457",["Deber indirecto-directo","clemencia","libertad","justicia"]],["10.32870/prot.i27.460",["Arte","Fisk","fotorrealismo","museo","vintage"]],["10.32870/prot.i27.435",["Universidad Central","positivismo","pedagogía emancipatoria","filosofía intercultural"]],["10.32870/prot.i27.452",["Crítica","metafísica","teología"]],["10.32870/prot.i27.461",["Modernidad","naturaleza","Estado","Ilustración","psicoanálisis"]],["10.32870/prot.i27.463",["Cosa-en-sí","alteridad","determinidad","indeterminidad","sentido","libertad"]],["10.32870/prot.i27.468",["Síntesis trascendental","formas a priori","epistemología","percepción","construcción del significado","filosofía del lenguaje"]]]);
+  for (const [doi, keywords] of expected) {
+    const record = overlay.records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del número 27: " + doi);
+    assert.deepEqual(record.keywords, keywords);
+  }
+  assert.equal(overlay.records.length, 174);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 174);
 });
