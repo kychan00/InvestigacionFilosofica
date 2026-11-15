@@ -317,3 +317,102 @@ html[data-theme="dark"] body[data-journal="quadripartita"] .qr-postal-taxonomy .
     transform: none !important;
   }
 }
+
+
+/* Quadripartita relation taxonomy:
+   navigational relations and literal editorial keywords remain visually distinct. */
+body[data-journal="quadripartita"] .journal-card-topic-group {
+  width: 100%;
+  display: grid;
+  gap: 7px;
+  margin-top: 8px;
+}
+body[data-journal="quadripartita"] .journal-card-topic-label {
+  color: #53608f;
+  font: 700 .61rem/1.35 var(--jp-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body[data-journal="quadripartita"] .journal-card-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+body[data-journal="quadripartita"] .relation-category-chip,
+body[data-journal="quadripartita"] .keyword-filter-chip {
+  min-height: 30px;
+  border-radius: 0;
+  padding: 5px 9px;
+  cursor: pointer;
+  transition: transform .16s ease, background-color .16s ease, color .16s ease, box-shadow .16s ease;
+}
+body[data-journal="quadripartita"] .relation-category-chip {
+  border: 1px solid #2939c8;
+  background: #eef1ff;
+  color: #17276a;
+  box-shadow: 2px 2px 0 #d4dafa;
+}
+body[data-journal="quadripartita"] .keyword-filter-chip {
+  border: 1px dashed #6d79bd;
+  background: transparent;
+  color: #465478;
+}
+body[data-journal="quadripartita"] .relation-category-chip:hover,
+body[data-journal="quadripartita"] .keyword-filter-chip:hover {
+  transform: translateY(-1px);
+}
+body[data-journal="quadripartita"] .relation-category-chip[aria-pressed="true"],
+body[data-journal="quadripartita"] .keyword-filter-chip[aria-pressed="true"] {
+  color: #fff;
+  background: #2939c8;
+  border-color: #2939c8;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2939c8;
+}
+body[data-journal="quadripartita"] .is-keywords-absent .journal-card-topic-empty {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  min-height: 28px;
+  border: 1px dashed #7d86b8;
+  padding: 4px 9px;
+  color: #596486;
+  background: #f7f8ff;
+  font-size: 11px;
+  font-style: italic;
+}
+body[data-journal="quadripartita"] #journal-topic-chips .topic-category-filter {
+  cursor: pointer;
+}
+body[data-journal="quadripartita"] #journal-topic-chips .topic-category-filter[aria-pressed="true"] {
+  outline: 2px solid #2939c8;
+  outline-offset: 2px;
+}
+body[data-journal="quadripartita"] .journal-filter-feedback {
+  position: fixed;
+  z-index: 1200;
+  right: 18px;
+  bottom: 18px;
+  max-width: min(360px, calc(100vw - 36px));
+  padding: 11px 14px;
+  border: 1px solid #2939c8;
+  background: #fbfbf5;
+  color: #17276a;
+  box-shadow: 4px 4px 0 #c8cff8;
+  font: 700 .75rem/1.4 var(--jp-sans);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+body[data-journal="quadripartita"] .journal-filter-feedback.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-journal="quadripartita"] .relation-category-chip,
+  body[data-journal="quadripartita"] .keyword-filter-chip,
+  body[data-journal="quadripartita"] .journal-filter-feedback {
+    transition: none;
+    transform: none;
+  }
+}
