@@ -94,7 +94,7 @@ test("los temas registrados no se duplican por tildes o variantes de mayúsculas
 });
 
 test("casos sin señales reciben fallback honesto, no palabras clave editoriales", () => {
-  const record = { journal: "Sincronía", title: "Un documento histórico sin clasificación" };
+  const record = { journal: "Sincronía", title: "Nota sin tema identificado" };
   const meta = sincroniaRelationCategoryMetadata(record);
   assert.deepEqual(meta.categories, ["Humanidades y cultura"]);
   assert.equal(meta.origin, "text-derived");
