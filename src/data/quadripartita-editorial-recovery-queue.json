@@ -5,92 +5,12 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "quadripartitaWithDOI": 88,
-    "curatedWithLiteralEditorialKeywords": 21,
-    "awaitingPublicationEvidence": 63,
-    "confirmedWithoutEditorialKeywords": 4,
-    "fullyResolved": 25
+    "curatedWithLiteralEditorialKeywords": 29,
+    "awaitingPublicationEvidence": 53,
+    "confirmedWithoutEditorialKeywords": 6,
+    "fullyResolved": 35
   },
   "records": [
-    {
-      "doi": "10.32870/qr.v2i4.36",
-      "title": "Los primeros días de un curso de lógica",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/36",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.37",
-      "title": "Compleción y reconstrucción de argumentos. Minimismo y deductivismo.",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/37",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.38",
-      "title": "La primera historia de la retórica (Platón, Fedro, 266d7-267d7)",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/38",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.39",
-      "title": "Aproximación a Visión de Anáhuac de Alfonso Reyes desde la teoría de la argumentación",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/39",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.40",
-      "title": "De las siete maneras de contraargumentar",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/40",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.41",
-      "title": "Argumentación y lógica, ¿amigas o enemigas? ¿Substitutas o complementarias? ¿Relacionadas o independientes?",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/41",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.42",
-      "title": "Lógica, lógicas y teoría de la argumentación",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/42",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.43",
-      "title": "Lógica y Teoría de la Argumentación",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/43",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.44",
-      "title": "Deducción y contrición",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/44",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v2i4.45",
-      "title": "De la lógica a la gente",
-      "issue": "4",
-      "issueYear": 2017,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/45",
-      "editorialKeywordStatus": "pending-verification"
-    },
     {
       "doi": "10.32870/qr.v3i5.71",
       "title": "Acerca del discurso figurado y su uso en las declamaciones latinas sobre tiranos",
@@ -564,6 +484,30 @@
       ],
       "verifiedAt": "2026-11-14",
       "note": "La ficha oficial OJS corresponde a la sección Reseñas, muestra Sin resumen y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v2i4.43",
+      "title": "Lógica y Teoría de la Argumentación",
+      "issue": "4",
+      "documentKind": "critical-review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/43"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS, en la sección Revisiones críticas, presenta resumen pero no muestra bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v2i4.45",
+      "title": "De la lógica a la gente",
+      "issue": "4",
+      "documentKind": "critical-review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/45"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS, en la sección Revisiones críticas, muestra SIN RESUMEN y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
     }
   ]
 }
