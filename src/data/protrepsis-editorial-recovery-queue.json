@@ -4,8 +4,8 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "protrepsisWithDOI": 247,
-    "curatedWithLiteralEditorialKeywords": 170,
-    "awaitingPublicationEvidence": 77,
+    "curatedWithLiteralEditorialKeywords": 171,
+    "awaitingPublicationEvidence": 76,
     "historicalSupplementPending": 22,
     "historicalOriginalResearchToVerify": 6,
     "explicitReviewInterviewOrBibliographicTitle": 21,
@@ -20,7 +20,6 @@
     "10.32870/prot.i14.176"
   ],
   "nextTenCandidatesWithoutEditorialEvidence": [
-    "10.32870/prot.i27.452",
     "10.32870/prot.i27.461",
     "10.32870/prot.i27.463",
     "10.32870/prot.i27.468",
@@ -29,7 +28,8 @@
     "10.32870/prot.i25.417",
     "10.32870/prot.i25.430",
     "10.32870/prot.i21.315",
-    "10.32870/prot.i22.346"
+    "10.32870/prot.i22.346",
+    "10.32870/prot.i22.351"
   ],
   "records": [
     {
@@ -155,26 +155,6 @@
       "genreTitleSignal": "not-explicit-in-title",
       "editorialKeywordStatus": "not-verified",
       "recoveryLane": "historical-first-page-needed"
-    },
-    {
-      "doi": "10.32870/prot.i27.452",
-      "title": "El Viraje kantiano",
-      "year": 2024,
-      "issue": "27",
-      "authors": [
-        "Sergio Espinosa Proa"
-      ],
-      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452",
-      "publisherRelatedLinks": [
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/640",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/641",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/642"
-      ],
-      "inHistoricalSupplement": false,
-      "hasPublisherAbstract": true,
-      "genreTitleSignal": "not-explicit-in-title",
-      "editorialKeywordStatus": "not-verified",
-      "recoveryLane": "article-original-keywords-check"
     },
     {
       "doi": "10.32870/prot.i27.461",
