@@ -19,9 +19,12 @@
   html[data-theme="dark"] body[data-journal-quicknav="quadripartita"] { --jq-accent: #95a7ff; }
 
   .journal-quicknav {
-    position: sticky;
-    top: calc(var(--site-mobile-toolbar-height, 58px) + env(safe-area-inset-top, 0px));
-    z-index: 1150;
+    /* Keep the editorial strip in document flow. The fixed global toolbar
+       already reserves the safe-area gutter; a second sticky offset used to
+       float this strip over cover art and journal headings on iOS Safari. */
+    position: relative;
+    top: auto;
+    z-index: 1;
     display: block;
     box-sizing: border-box;
     width: 100%;
