@@ -83,6 +83,10 @@ export function quadripartitaRelationCategoryMetadata(record, { limit = 4 } = {}
       score += editorialKeywords.length ? 1 : 2;
       sources.push("abstract");
     }
+    // "Teoría de la argumentación" es la categoría transversal de la revista.
+    // Conserva su relación, pero en empates cede la categoría principal a
+    // áreas más específicas (Lógica, Retórica, Política, Bioética, etc.).
+    if (label === "Teoría de la argumentación" && score > 1) score -= 1;
     return { label, score, order, sources };
   }).filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score || a.order - b.order);
