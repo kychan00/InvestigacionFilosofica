@@ -62,7 +62,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         self.assertEqual(
             curated["10.32870/prot.i29.477"]["keywords"],
             [
-                "redes sociales",
+                "Redes sociales",
                 "transparencia",
                 "desinformación",
                 "Nayib Bukele",
@@ -426,7 +426,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             records[0]["subjects"],
         )
         self.assertIn(
-            "redes sociales",
+            "Redes sociales",
             records[0]["subjects"],
         )
 
@@ -509,7 +509,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_batch16_complete_verified_records(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertEqual(len(curated), 169)
+        self.assertEqual(len(curated), 170)
         self.assertEqual(
             curated["10.32870/prot.i21.321"]["keywords"],
             ["Jürgen Habermas", "movimientos feministas",
@@ -605,10 +605,94 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             "10.32870/prot.i28.489": ["Foucault", "cinismo", "resistencia", "arte"],
             "10.32870/prot.i28.483": ["Movimientos sociales", "pacientes", "derecho a la salud", "ética"],
         }
-        self.assertEqual(len(curated), 169)
+        self.assertEqual(len(curated), 170)
         for doi, keywords in expected.items():
             self.assertEqual(curated[doi]["keywords"], keywords)
             self.assertTrue(curated[doi]["evidence"].startswith(("http://", "https://")))
+
+
+    def test_issue_29_complete_literal_editorial_keywords(self):
+        curated = load_protrepsis_editorial_keywords()
+        issue_url = "http://protrepsis.cucsh.udg.mx/index.php/prot/issue/view/27/N%C3%BAmero29"
+        expected = {
+        "10.32870/prot.i29.499": [
+                "Movimiento",
+                "continuidad",
+                "medición",
+                "numeración",
+                "alma"
+        ],
+        "10.32870/prot.i29.509": [
+                "Heidegger",
+                "tiempo",
+                "historia",
+                "hermenéutica",
+                "medida"
+        ],
+        "10.32870/prot.i29.501": [
+                "Plotino",
+                "Bergson",
+                "Metafísica",
+                "Semiótica",
+                "Duración"
+        ],
+        "10.32870/prot.i29.477": [
+                "Redes sociales",
+                "transparencia",
+                "desinformación",
+                "Nayib Bukele",
+                "influencia digital",
+                "ciudadanía informada"
+        ],
+        "10.32870/prot.i29.497": [
+                "Levinas",
+                "exclusión",
+                "violencia",
+                "género",
+                "ontología"
+        ],
+        "10.32870/prot.i29.496": [
+                "Hermenéutica",
+                "univocismo",
+                "equivocismo",
+                "analogía",
+                "cientificismo",
+                "posmodernidad"
+        ],
+        "10.32870/prot.i29.504": [
+                "Negatividad",
+                "no-identidad",
+                "crítica inmanente",
+                "constelaciones"
+        ],
+        "10.32870/prot.i29.488": [
+                "Tiempo lineal",
+                "tiempo del oprimido",
+                "trauma",
+                "resistencia",
+                "memoria",
+                "anacronismo"
+        ],
+        "10.32870/prot.i29.503": [
+                "Animalidad",
+                "muerte",
+                "tiempo",
+                "poesía"
+        ],
+        "10.32870/prot.i29.494": [
+                "Duelo",
+                "violencia",
+                "nosotros",
+                "vulnerabilidad",
+                "proximidad",
+                "comunidad"
+        ]
+}
+        for doi, keywords in expected.items():
+            self.assertIn(doi, curated)
+            self.assertEqual(curated[doi]["keywords"], keywords)
+            self.assertEqual(curated[doi]["evidence"], issue_url)
+        self.assertEqual(len(curated), 170)
 
 
 if __name__ == "__main__":
