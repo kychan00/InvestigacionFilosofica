@@ -47,6 +47,7 @@ for (const [journal, path] of Object.entries(paths)) {
 test("runtime de revistas separa metadatos editoriales de categorías derivadas", async () => {
   const source = await readFile("js/journal-page.js", "utf8");
   const topics = await readFile("js/journal-article-topics.js", "utf8");
+  const keywordStatus = await readFile("js/protrepsis-editorial-status.js", "utf8");
   assert.match(source, /CATEGORY_RULES/);
   assert.match(source, /articleTopicMetadata/);
   assert.match(source, /topicMeta\.label/);
@@ -59,8 +60,8 @@ test("runtime de revistas separa metadatos editoriales de categorías derivadas"
   assert.match(source, /"verified-publication", "ojs-article"/);
   assert.match(source, /editorialKeywordSource: "verified-publication"/);
   assert.match(source, /return categoryMetadataFor\(record\)\.allTopics/);
-  assert.match(source, /Pendientes de recuperación/);
-  assert.match(source, /no se infieren desde el título, el resumen ni fuentes bibliográficas/);
+  assert.match(keywordStatus, /Pendientes de recuperación/);
+  assert.match(keywordStatus, /no se infieren desde el título, el resumen ni fuentes bibliográficas/);
   assert.match(source, /!categoriesFor\(record\)\.includes\(state\.category\)/);
   assert.match(source, /Área general/);
   assert.match(source, /category-filter-chip/);
