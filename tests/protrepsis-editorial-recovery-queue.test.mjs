@@ -26,10 +26,10 @@ const expectedGenre = /\b(reseña|recensión|entrevista|noticia bibliográfica)\
 test("la cola cubre todos y solo los DOI de Protrepsis sin keywords editoriales verificadas", () => {
   assert.equal(queue.schemaVersion, 2);
   assert.equal(protrepsis.length, 247);
-  assert.equal(curated.records.length, 175);
-  assert.equal(pending.length, 71);
-  assert.equal(queue.records.length, 71);
-  assert.equal(new Set(queue.records.map(x => x.doi)).size, 71);
+  assert.equal(curated.records.length, 211);
+  assert.equal(pending.length, 0);
+  assert.equal(queue.records.length, 0);
+  assert.equal(new Set(queue.records.map(x => x.doi)).size, 0);
   assert.deepEqual(sort(queue.records.map(x => x.doi)), sort(pending.map(x => x.doi)));
   assert.equal(queue.counts.protrepsisWithDOI, protrepsis.length);
   assert.equal(queue.counts.curatedWithLiteralEditorialKeywords, curated.records.length);
@@ -64,31 +64,23 @@ test("géneros sugeridos exclusivamente por títulos literales y sin fingir ause
     if (expectedGenre.test(item.title)) explicitlyNamed++;
     if (!source.abstract) noAbstract++;
   }
-  assert.equal(explicitlyNamed, 21);
-  assert.equal(noAbstract, 23);
+  assert.equal(explicitlyNamed, 0);
+  assert.equal(noAbstract, 0);
   assert.equal(queue.counts.explicitReviewInterviewOrBibliographicTitle, explicitlyNamed);
   assert.equal(queue.counts.lackingPublisherAbstract, noAbstract);
 });
 
-test("distingue 22 pendientes históricos: 6 artículos de investigación y 16 registros de otros géneros", () => {
+test("no quedan pendientes históricos tras cerrar la recuperación completa", () => {
   const historicalPending = queue.records.filter(x => x.inHistoricalSupplement);
-  assert.equal(historicalPending.length, 22);
-  assert.deepEqual(sort(historicalPending.map(x => x.doi)),sort(pending.filter(x => historicalDois.has(x.doi.toLowerCase())).map(x => x.doi)));
-  assert.equal(historicalPending.filter(x => x.recoveryLane === "historical-first-page-needed").length,6);
-  assert.equal(historicalPending.filter(x => x.genreTitleSignal === "review-interview-or-bibliographic-title").length,16);
-  assert.equal(queue.counts.historicalSupplementPending,22);
-  assert.equal(queue.counts.historicalOriginalResearchToVerify,6);
-  assert.deepEqual(sort(queue.historicalResearchToVerify),sort(historicalPending.filter(x => x.recoveryLane === "historical-first-page-needed").map(x=>x.doi)));
+  assert.equal(historicalPending.length, 0);
+  assert.equal(queue.counts.historicalSupplementPending, 0);
+  assert.equal(queue.counts.historicalOriginalResearchToVerify, 0);
+  assert.deepEqual(queue.historicalResearchToVerify, []);
 });
 
-test("siguiente lote de diez no finge evidencia ni incluye registros ya curados", () => {
-  assert.equal(queue.nextTenCandidatesWithoutEditorialEvidence.length, 10);
-  assert.equal(new Set(queue.nextTenCandidatesWithoutEditorialEvidence).size, 10);
-  const pendingDois = new Set(pending.map(x => x.doi));
-  for (const doi of queue.nextTenCandidatesWithoutEditorialEvidence) {
-    assert.ok(pendingDois.has(doi));
-    assert.equal(curatedDois.has(doi.toLowerCase()), false);
-  }
+test("no existe siguiente lote porque la recuperación quedó cerrada", () => {
+  assert.deepEqual(queue.nextTenCandidatesWithoutEditorialEvidence, []);
+  assert.equal(pending.length, 0);
 });
 
 
@@ -206,8 +198,8 @@ test("i24.376 queda confirmada sin palabras clave editoriales y no se inventan e
   assert.equal(Object.hasOwn(resolved, "editorialKeywords"), false);
   assert.equal(queue.records.some(record => record.doi === doi), false);
   assert.equal(curatedDois.has(doi), false);
-  assert.equal(queue.counts.confirmedWithoutEditorialKeywords, 1);
-  assert.equal(queue.counts.awaitingPublicationEvidence, 71);
+  assert.equal(queue.counts.confirmedWithoutEditorialKeywords, 36);
+  assert.equal(queue.counts.awaitingPublicationEvidence, 0);
 });
 
 test("número 24 queda resuelto sin fingir keywords para su traducción", () => {
@@ -218,4 +210,21 @@ test("número 24 queda resuelto sin fingir keywords para su traducción", () => 
   for (const doi of curatedIssueDois) assert.ok(curatedDois.has(doi));
   assert.ok(resolvedWithoutKeywordDois.has("10.32870/prot.i24.376"));
   assert.equal(queue.records.some(record => record.doi.includes("prot.i24.")), false);
+});
+
+
+test("los 247 DOI de Protrepsis quedan resueltos sin solapamientos ni inferencias", () => {
+  assert.equal(curatedDois.size, 211);
+  assert.equal(resolvedWithoutKeywordDois.size, 36);
+  assert.equal(queue.records.length, 0);
+  assert.equal(queue.counts.fullyResolved, 247);
+  assert.equal(curatedDois.size + resolvedWithoutKeywordDois.size, 247);
+  for (const doi of resolvedWithoutKeywordDois) {
+    assert.equal(curatedDois.has(doi), false);
+  }
+  for (const record of resolvedWithoutKeywords) {
+    assert.equal(record.editorialKeywordStatus, "verified-absent");
+    assert.equal(Object.hasOwn(record, "keywords"), false);
+    assert.equal(Object.hasOwn(record, "editorialKeywords"), false);
+  }
 });
