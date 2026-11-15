@@ -1511,8 +1511,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 155);
-  assert.equal(new Set(records.map(record => record.doi)).size, 155);
+  assert.equal(records.length, 156);
+  assert.equal(new Set(records.map(record => record.doi)).size, 156);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1530,4 +1530,15 @@ test("lote 16 completo: seis DOI finales conservan palabras clave editoriales ve
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
   }
+});
+
+
+test("lote 17: Ruletistul conserva las cuatro palabras clave impresas del PDF", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  const record = records.find(item => item.doi === "10.32870/prot.i15.200");
+  assert.ok(record, "Falta el DOI i15.200 de Jesús Ruiz Pozo");
+  assert.deepEqual(record.keywords, ["Cărtărescu", "filosofía", "Deleuze", "literatura"]);
+  assert.equal(record.evidence,
+    "https://www.researchgate.net/publication/352724640_Ruletistul_Un_ejercicio_empirico_ensayo");
+  assert.equal(record.verifiedAt, "2026-11-14");
 });
