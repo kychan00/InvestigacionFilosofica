@@ -6,15 +6,18 @@ const page = await readFile("revistas/udg/quadripartita-ratio.html", "utf8");
 const runtime = await readFile("js/journal-page.js", "utf8");
 const style = await readFile("css/quadripartita-postal-taxonomy.css", "utf8");
 
-test("Quadripartita tiene un clasificador de temas y números con reinicios independientes", async () => {
+test("Quadripartita tiene categorías de relación y números con reinicios independientes", async () => {
   assert.match(page,/id="journal-category-all"/);
   assert.match(page,/id="journal-issue-all"/);
-  assert.match(page,/Todos los temas/);
+  assert.match(page,/Todas las categorías/);
   assert.match(page,/Todos los números/);
   assert.match(page,/aria-pressed="true"/);
+  assert.match(page,/Categoría de relación/);
+  assert.match(page,/PALABRAS CLAVE EDITORIALES/);
+  assert.match(page,/palabras clave editoriales se conservan literalmente/i);
   assert.match(page,/qr-postal-taxonomy/);
-  assert.match(page,/quadripartita-postal-taxonomy\.css\?v=20261113-postal-v1/);
-  assert.match(page,/journal-page\.js\?v=20261113-postal-v1/);
+  assert.match(page,/quadripartita-postal-taxonomy\.css\?v=20261114-relations-v1/);
+  assert.match(page,/journal-page\.js\?v=20261114-quadripartita-relations-v1/);
   for (const path of ["protrepsis.html","sincronia.html"]) {
     const other = await readFile("revistas/udg/"+path,"utf8");
     assert.doesNotMatch(other,/quadripartita-postal-taxonomy\.css/);
@@ -26,6 +29,9 @@ test("filtros compartidos funcionan en Protrepsis y Quadripartita sin afectar Si
   assert.match(runtime,/const supportsCuratorialFacets = journalId === "protrepsis" \|\| journalId === "quadripartita"/);
   assert.match(runtime,/function syncCuratorialChips\(\)/);
   assert.match(runtime,/if \(!supportsCuratorialFacets\) return;/);
+  assert.match(runtime,/QUADRIPARTITA_KEYWORDS_URL/);
+  assert.match(runtime,/applyQuadripartitaKeywordOverlay/);
+  assert.match(runtime,/quadripartitaRelationCategories/);
   assert.match(runtime,/supportsCuratorialFacets && value !== "all" && state\[facet\] === value \? "all" : value/);
   assert.match(runtime,/button\.dataset\.taxonomyValue = group\.key/);
   assert.match(runtime,/button\.classList\.toggle\("is-active", selected\)/);
@@ -45,6 +51,9 @@ test("estampillas-filtro muestran todos los números y animan solo cuando se per
   assert.match(style,/@media \(prefers-reduced-motion: reduce\)/);
   assert.match(style,/:focus-visible/);
   assert.match(style,/html\[data-theme="dark"\]/);
+  assert.match(style,/\.relation-category-chip/);
+  assert.match(style,/\.keyword-filter-chip/);
+  assert.match(style,/\.is-keywords-absent/);
   assert.doesNotMatch(style,/body\[data-journal="protrepsis"\]/);
 });
 

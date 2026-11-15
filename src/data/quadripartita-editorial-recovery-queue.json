@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "journal": "Quadripartita Ratio",
+  "description": "DOI-first recovery audit for literal editorial keywords. Pending records require direct verification in the official OJS/HTML/PDF publication; keywords must never be inferred from title, abstract, OAI, Crossref, OpenAlex or general knowledge.",
+  "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
+  "counts": {
+    "quadripartitaWithDOI": 88,
+    "curatedWithLiteralEditorialKeywords": 77,
+    "awaitingPublicationEvidence": 0,
+    "confirmedWithoutEditorialKeywords": 11,
+    "fullyResolved": 88
+  },
+  "records": [],
+  "resolvedWithoutEditorialKeywords": [
+    {
+      "doi": "10.32870/qr.v1i1.68",
+      "title": "Reseña de: Frans H. van Eemeren (2015): Reasonableness and Effectiveness in Argumentative Discourse: Fifty Contributions to the Development of Prama-Dialectics, Cham (CH), Springe (Argumentation Library, 27), 880 pp.",
+      "issue": "1",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/68"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas, muestra SIN RESUMEN y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v1i1.69",
+      "title": "Leal Carretero, Fernando (coordinador y traductor), Argumentación y pragma-dialéctica: Estudios en honor a Frans van Eemeren, Guadalajara, Editorial Universitaria, 2015, 650 págs.",
+      "issue": "1",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/69"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas, muestra SIN RESUMEN y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v1i1.70",
+      "title": "Leonard Nelson, A Theory of Philosophical Fallacies (2016), Trad. al inglés de Fernando Leal y David Carus, Springer, Dordrecht, 211 pp.",
+      "issue": "1",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/70"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas, muestra SIN RESUMEN y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v1i2.56",
+      "title": "Reseña: Tantos tontos tópicos de Aurelio Arteta, ARIEL, Segunda Edición. Barcelona, 2012.",
+      "issue": "2",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/56"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas, muestra Sin resumen y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v2i4.43",
+      "title": "Lógica y Teoría de la Argumentación",
+      "issue": "4",
+      "documentKind": "critical-review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/43"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS, en la sección Revisiones críticas, presenta resumen pero no muestra bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v2i4.45",
+      "title": "De la lógica a la gente",
+      "issue": "4",
+      "documentKind": "critical-review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/45"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS, en la sección Revisiones críticas, muestra SIN RESUMEN y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v3i5.73",
+      "title": "\"La retórica en Grecia y Roma\" de Laurent Pernot",
+      "issue": "5",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/73"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v6i12.130",
+      "title": "Reseña de la colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara",
+      "issue": "12",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/130"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v7i13.132",
+      "title": "Colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara. Segunda entrega",
+      "issue": "13",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/132"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v8i15.140",
+      "title": "La obra Immanent Reasoning or Equality in Action y su relación con diversas teorías de la argumentación.",
+      "issue": "15",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://www.quadripartitaratio.cucsh.udg.mx/index.php/QR/article/download/140/452/"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La reseña fue verificada directamente en el PDF oficial; no presenta bloque editorial de Palabras clave/Keywords. No se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v9i18.163",
+      "title": "Reseña: Gascón, José Ángel. (2024). Manual de Argumentación. El Ámbito de lo Razonable.",
+      "issue": "18",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/163",
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/download/163/465/"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La reseña fue verificada en la ficha OJS y en el PDF oficial; no presenta bloque editorial de Palabras clave/Keywords. No se infieren etiquetas."
+    }
+  ]
+}
