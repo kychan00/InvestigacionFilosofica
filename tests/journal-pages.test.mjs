@@ -65,6 +65,7 @@ test("runtime de revistas separa categorías de relación y palabras clave edito
   assert.match(source, /applyProtrepsisEditorialResolution/);
   assert.match(source, /applyQuadripartitaKeywordOverlay/);
   assert.match(source, /applyQuadripartitaEditorialResolution/);
+  assert.match(source, /if \(keywordMeta\.emptyClass\) keywordGroup\.classList\.add\(keywordMeta\.emptyClass\)/);
   assert.match(source, /quadripartitaRelationCategoryMetadata/);
   assert.match(source, /quadripartitaRelationCategories/);
   assert.match(source, /editorialKeywordSource: "verified-publication"/);
