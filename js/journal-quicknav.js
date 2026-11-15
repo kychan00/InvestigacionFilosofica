@@ -24,7 +24,7 @@
     { label: "Categorías", id: journal.explorer + "-explorer-topics", page: "archive" },
     { label: "Números", id: journal.explorer + "-explorer-issues", page: "archive" },
     { label: "Filtros", id: journal.explorer + "-explorer-filters", page: "archive" },
-    { label: "Autorías", id: "journal-insights-panel", page: "archive" },
+    { label: "Temas y autorías", id: "journal-insights-panel", page: "archive" },
     { label: "Historia", id: "historia", page: "profile" },
     { label: "Equipo", id: "equipo", page: "profile" },
     { label: "Contacto", id: "contacto", page: "profile" },
@@ -101,7 +101,7 @@
     const y = target.id === "inicio"
       ? 0
       : Math.max(0, window.scrollY + target.getBoundingClientRect().top - toolbarHeight - quicknavHeight - 12);
-    window.scrollTo({ top: y, behavior: reducedMotion ? "instant" : "smooth" });
+    window.scrollTo({ top: y, behavior: reducedMotion ? "auto" : "smooth" });
   }
 
   function navigateHash(hash) {
@@ -126,6 +126,19 @@
     setCurrent(id);
     const target = document.getElementById(id);
     if (target) requestAnimationFrame(() => requestAnimationFrame(() => scrollToSection(target)));
+  }
+
+  // Reflejar también el cambio cuando se usan las pestañas originales de la página.
+  if (!institutional) {
+    for (const tab of document.querySelectorAll("[data-journal-view]")) {
+      tab.addEventListener("click", () => {
+        const ids = { archive: "journal-archive-panel", atlas: "journal-atlas-panel", insights: "journal-insights-panel" };
+        setCurrent(ids[tab.dataset.journalView]);
+      });
+    }
+    for (const tab of document.querySelectorAll('[data-' + journal.explorer + '-explorer-tab]')) {
+      tab.addEventListener("click", () => setCurrent(journal.explorer + "-explorer-" + tab.dataset[journal.explorer + "ExplorerTab"]));
+    }
   }
 
   for (const link of links) {
