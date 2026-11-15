@@ -4,8 +4,8 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "protrepsisWithDOI": 247,
-    "curatedWithLiteralEditorialKeywords": 174,
-    "awaitingPublicationEvidence": 73,
+    "curatedWithLiteralEditorialKeywords": 175,
+    "awaitingPublicationEvidence": 72,
     "historicalSupplementPending": 22,
     "historicalOriginalResearchToVerify": 6,
     "explicitReviewInterviewOrBibliographicTitle": 21,
@@ -20,7 +20,6 @@
     "10.32870/prot.i14.176"
   ],
   "nextTenCandidatesWithoutEditorialEvidence": [
-    "10.32870/prot.i24.420",
     "10.32870/prot.i25.409",
     "10.32870/prot.i25.417",
     "10.32870/prot.i25.430",
@@ -29,7 +28,8 @@
     "10.32870/prot.i22.351",
     "10.32870/prot.i22.356",
     "10.32870/prot.i23.345",
-    "10.32870/prot.i23.363"
+    "10.32870/prot.i23.363",
+    "10.32870/prot.i23.406"
   ],
   "records": [
     {
@@ -155,26 +155,6 @@
       "genreTitleSignal": "not-explicit-in-title",
       "editorialKeywordStatus": "not-verified",
       "recoveryLane": "historical-first-page-needed"
-    },
-    {
-      "doi": "10.32870/prot.i24.420",
-      "title": "Tensiones y problemas aparentes en el Tractatus",
-      "year": 2023,
-      "issue": "24",
-      "authors": [
-        "Alejandro Tomasini Bassols"
-      ],
-      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420",
-      "publisherRelatedLinks": [
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420/571",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420/572",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420/573"
-      ],
-      "inHistoricalSupplement": false,
-      "hasPublisherAbstract": true,
-      "genreTitleSignal": "not-explicit-in-title",
-      "editorialKeywordStatus": "not-verified",
-      "recoveryLane": "article-original-keywords-check"
     },
     {
       "doi": "10.32870/prot.i25.409",
