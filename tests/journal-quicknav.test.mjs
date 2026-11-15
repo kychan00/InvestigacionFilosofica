@@ -62,8 +62,9 @@ test("componente común conserva vínculos locales y controles accesibles", asyn
 
   // The strip must stay in document flow; Safari used to float it over the
   // opening artwork and headings when both bars were sticky/fixed.
-  assert.match(css, /\\.journal-quicknav \\{[\\s\\S]*position: relative;/);
-  assert.doesNotMatch(css, /\\.journal-quicknav \\{[\\s\\S]*?position: sticky;/);
+  const navRule = css.split("  .journal-quicknav {")[1]?.split("  .journal-quicknav,")[0];
+  assert.ok(navRule?.includes("position: relative;"), "mobile quicknav must stay in flow");
+  assert.ok(!navRule?.includes("position: sticky;"), "mobile quicknav must not float over hero");
   assert.doesNotMatch(js, /toolbarHeight - quicknavHeight/);
   assert.match(css, /overflow-x: auto/);
   assert.match(css, /:focus-visible/);
