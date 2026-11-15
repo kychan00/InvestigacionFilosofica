@@ -30,6 +30,26 @@ try {
       );
       assert.equal(response?.status(), 200, filename + " must be served");
       await page.locator(".ji .book-cover").waitFor({ state: "visible" });
+      if (width <= 820) {
+        const layout = await page.evaluate(() => {
+          const b = document.querySelector(".journal-quicknav");
+          const global = document.querySelector(".site-mobile-toolbar");
+          const journal = document.querySelector(".ji");
+          const navBox = b.getBoundingClientRect();
+          return {
+            position: getComputedStyle(b).position,
+            navTop: navBox.top,
+            navBottom: navBox.bottom,
+            toolbarBottom: global.getBoundingClientRect().bottom,
+            journalTop: journal.getBoundingClientRect().top
+          };
+        });
+        assert.equal(layout.position, "relative", filename + " nav must be in normal flow");
+        assert.ok(Math.abs(layout.navTop - layout.toolbarBottom) <= 4,
+          filename + " gap below fixed site toolbar: " + JSON.stringify(layout));
+        assert.ok(layout.journalTop >= layout.navBottom - 2,
+          filename + " profile content is covered by quicknav: " + JSON.stringify(layout));
+      }
       await page.locator("#equipo").scrollIntoViewIfNeeded();
       assert.ok(await page.locator(".profile").count() >= 1);
       assert.ok(await page.locator('a[href^="mailto:"]').count() >= 1);
