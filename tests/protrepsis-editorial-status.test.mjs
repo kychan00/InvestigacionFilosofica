@@ -3,7 +3,9 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import {
   PROTREPSIS_HISTORICAL_REVIEW_INTERVIEW_DOIS,
+  PROTREPSIS_ADDITIONAL_REVIEW_BIBLIOGRAPHIC_DOIS,
   isProtrepsisHistoricalReviewOrInterview,
+  isProtrepsisExplicitReviewOrBibliographic,
   protrepsisMissingKeywordStatus
 } from "../js/protrepsis-editorial-status.js";
 
@@ -73,6 +75,36 @@ test("reseñas y entrevistas no reciben etiquetas inferidas ni se anuncian como 
     assert.match(status.label, /Sin palabras clave verificadas/);
     assert.match(status.note, /No se han verificado/);
     assert.equal(status.className, "is-keywords-unverified");
+  }
+});
+
+test("los cinco géneros editoriales explícitos restantes no se anuncian como investigaciones pendientes", async () => {
+  const queue = JSON.parse(await readFile("src/data/protrepsis-editorial-recovery-queue.json", "utf8"));
+  const additional = [
+    "10.32870/prot.i15.203",
+    "10.32870/prot.i16.222",
+    "10.32870/prot.i17.233",
+    "10.32870/prot.i18.269",
+    "10.32870/prot.i18.270"
+  ];
+  assert.deepEqual(sort(PROTREPSIS_ADDITIONAL_REVIEW_BIBLIOGRAPHIC_DOIS), sort(additional));
+
+  for (const doi of additional) {
+    const item = queue.records.find(record => record.doi === doi);
+    assert.ok(item, "No existe DOI adicional en el inventario: " + doi);
+    const record = { journal: "Protrepsis", doi, title: item.title };
+    assert.equal(isProtrepsisHistoricalReviewOrInterview(record), false);
+    assert.equal(isProtrepsisExplicitReviewOrBibliographic(record), true);
+    const status = protrepsisMissingKeywordStatus(record);
+    assert.equal(status.className, "is-keywords-unverified");
+    assert.match(status.label, /Sin palabras clave verificadas/);
+    assert.match(item.title, /reseña|recensión|noticia bibliográfica/i);
+  }
+
+  const allExplicit = queue.records.filter(record => record.genreTitleSignal === "review-interview-or-bibliographic-title");
+  assert.equal(allExplicit.length, 21);
+  for (const record of allExplicit) {
+    assert.equal(isProtrepsisExplicitReviewOrBibliographic({ ...record, journal: "Protrepsis" }), true);
   }
 });
 
