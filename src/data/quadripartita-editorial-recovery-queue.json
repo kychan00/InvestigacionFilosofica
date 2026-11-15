@@ -1,0 +1,720 @@
+{
+  "schemaVersion": 1,
+  "journal": "Quadripartita Ratio",
+  "description": "DOI-first recovery audit for literal editorial keywords. Pending records require direct verification in the official OJS/HTML/PDF publication; keywords must never be inferred from title, abstract, OAI, Crossref, OpenAlex or general knowledge.",
+  "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
+  "counts": {
+    "quadripartitaWithDOI": 88,
+    "curatedWithLiteralEditorialKeywords": 0,
+    "awaitingPublicationEvidence": 88,
+    "confirmedWithoutEditorialKeywords": 0,
+    "fullyResolved": 0
+  },
+  "records": [
+    {
+      "doi": "10.32870/qr.v1i1.57",
+      "title": "La enseñanza de la lógica en el siglo XXI",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/57",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.58",
+      "title": "El Eutidemo de Jenofonte (Memorabilia IV 2): Un ensayo de macro-retórica",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/58",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.59",
+      "title": "Qué debería saber de lógica un (buen) ciudadano",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/59",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.60",
+      "title": "Los usos del interrogatorio en Platón",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/60",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.61",
+      "title": "Usos y abusos de la Metaargumentacion",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/61",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.62",
+      "title": "Silogismos entimemáticos y entimemas retóricos",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/62",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.63",
+      "title": "Emotividad en Aristóteles. Un cariz protréptico en su argumentación filosófica.",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/63",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.64",
+      "title": "Argumentación moral. Pasos de una investigación en proceso.",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/64",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.65",
+      "title": "La lógica formal como un procedimiento de rescate del niño superdotado con problemas de inadaptación y fracaso escolar",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/65",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.66",
+      "title": "Acerca de las tópicas particulares en Retórica",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/66",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.67",
+      "title": "Tiempo y estructura de la deliberación en bioética",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/67",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.68",
+      "title": "Reseña de: Frans H. van Eemeren (2015): Reasonableness and Effectiveness in Argumentative Discourse: Fifty Contributions to the Development of Prama-Dialectics, Cham (CH), Springe (Argumentation Library, 27), 880 pp.",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/68",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.69",
+      "title": "Leal Carretero, Fernando (coordinador y traductor), Argumentación y pragma-dialéctica: Estudios en honor a Frans van Eemeren, Guadalajara, Editorial Universitaria, 2015, 650 págs.",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/69",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i1.70",
+      "title": "Leonard Nelson, A Theory of Philosophical Fallacies (2016), Trad. al inglés de Fernando Leal y David Carus, Springer, Dordrecht, 211 pp.",
+      "issue": "1",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/70",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i2.51",
+      "title": "Rorty y Fraser en torno a la distinción entre redistribución y reconocimiento: un debate abierto",
+      "issue": "2",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/51",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i2.52",
+      "title": "Racionalidad y persuasión desde un punto de vista epistemológico",
+      "issue": "2",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/52",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i2.53",
+      "title": "Ejercicios argumentativos alrededor de la dicotomía entre naturaleza y cultura",
+      "issue": "2",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/53",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i2.54",
+      "title": "Fuerza argumentativa como criterio comparativo",
+      "issue": "2",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/54",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i2.55",
+      "title": "José Palomar: la fuerza del discurso de un político y empresario jalisciense en las cartas a su mujer (1844)",
+      "issue": "2",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/55",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v1i2.56",
+      "title": "Reseña: Tantos tontos tópicos de Aurelio Arteta, ARIEL, Segunda Edición. Barcelona, 2012.",
+      "issue": "2",
+      "issueYear": 2016,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/56",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i3.46",
+      "title": "Las falacias de composición y división en Aristóteles",
+      "issue": "3",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/46",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i3.47",
+      "title": "Obstáculos comunes en la argumentación filosófica",
+      "issue": "3",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/47",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i3.48",
+      "title": "¿La lógica formal es útil para argumentar? La utilidad política",
+      "issue": "3",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/48",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i3.49",
+      "title": "¿Ayuda la enseñanza de la lógica a los estudiantes a argumentar mejor?",
+      "issue": "3",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/49",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i3.50",
+      "title": "La argumentación en filosofía: una modesta propuesta tipológica",
+      "issue": "3",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/50",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.36",
+      "title": "Los primeros días de un curso de lógica",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/36",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.37",
+      "title": "Compleción y reconstrucción de argumentos. Minimismo y deductivismo.",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/37",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.38",
+      "title": "La primera historia de la retórica (Platón, Fedro, 266d7-267d7)",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/38",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.39",
+      "title": "Aproximación a Visión de Anáhuac de Alfonso Reyes desde la teoría de la argumentación",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/39",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.40",
+      "title": "De las siete maneras de contraargumentar",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/40",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.41",
+      "title": "Argumentación y lógica, ¿amigas o enemigas? ¿Substitutas o complementarias? ¿Relacionadas o independientes?",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/41",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.42",
+      "title": "Lógica, lógicas y teoría de la argumentación",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/42",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.43",
+      "title": "Lógica y Teoría de la Argumentación",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/43",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.44",
+      "title": "Deducción y contrición",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/44",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v2i4.45",
+      "title": "De la lógica a la gente",
+      "issue": "4",
+      "issueYear": 2017,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/45",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i5.71",
+      "title": "Acerca del discurso figurado y su uso en las declamaciones latinas sobre tiranos",
+      "issue": "5",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/71",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i5.72",
+      "title": "En torno al discurso epidíctico. El elogio de Fidel Castro al Che Guevara.",
+      "issue": "5",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/72",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i5.73",
+      "title": "\"La retórica en Grecia y Roma\" de Laurent Pernot",
+      "issue": "5",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/73",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i5.74",
+      "title": "La pistis-fides como el objeto propio de la retórica",
+      "issue": "5",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/74",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i5.75",
+      "title": "La enseñanza de la retórica en la Antigüedad grecorromana. Aspectos desconocidos y sugerencias para el presente.",
+      "issue": "5",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/75",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i5.76",
+      "title": "Retórica y educación en el reformismo cubano: La obra de José Agustín Caballero",
+      "issue": "5",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/76",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i6.79",
+      "title": "Las teorías de la conspiración y su efecto sobre las decisiones",
+      "issue": "6",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/79",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i6.86",
+      "title": "“Argumentando se entiende la gente” de Michael A. Gilbert",
+      "issue": "6",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/86",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i6.90",
+      "title": "La calidad de la argumentación en las democracias contemporáneas",
+      "issue": "6",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/90",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v3i6.93",
+      "title": "La deliberación electrónica como proceso argumentativo",
+      "issue": "6",
+      "issueYear": 2018,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/93",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v4i7.102",
+      "title": "Una aproximación ilocucionaria a la teoría de falacias",
+      "issue": "7",
+      "issueYear": 2019,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/102",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v4i7.103",
+      "title": "La retórica antigua y los problemas discursivos en el sistema acusatorio adversarial en México",
+      "issue": "7",
+      "issueYear": 2019,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/103",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v4i7.104",
+      "title": "Lógica y Teoría de la Argumentación. Anatomía de una Reforma",
+      "issue": "7",
+      "issueYear": 2019,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/104",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v4i8.107",
+      "title": "Falacias y derecho penal",
+      "issue": "8",
+      "issueYear": 2019,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/107",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v4i8.108",
+      "title": "La vida soñada de los argumentos deductivos",
+      "issue": "8",
+      "issueYear": 2019,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/108",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v5i9.109",
+      "title": "Relaciones entre narrativa y argumentación: breve aproximación teórica",
+      "issue": "9",
+      "issueYear": 2020,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/109",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v5i9.111",
+      "title": "Una nota sobre un argumento acerca del concepto de entimema",
+      "issue": "9",
+      "issueYear": 2020,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/111",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v5i10.117",
+      "title": "El argumento por analogía en la teoría de la argumentación.",
+      "issue": "10",
+      "issueYear": 2020,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/117",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v5i10.119",
+      "title": "Un alegato a favor del enfoque lógico en la teoría de la argumentación",
+      "issue": "10",
+      "issueYear": 2020,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/119",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v5i10.120",
+      "title": "¿Oponentes o colegas? Desacuerdo y adversarialidad en la teoría de la argumentación",
+      "issue": "10",
+      "issueYear": 2020,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/120",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v6i11.121",
+      "title": "La Falsa historia del origen de las falacias",
+      "issue": "11",
+      "issueYear": 2021,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/121",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v6i11.124",
+      "title": "Cuatro modelos de argumento",
+      "issue": "11",
+      "issueYear": 2021,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/124",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v6i11.125",
+      "title": "Sobre las cuestiones en pragma-dialéctica estándar",
+      "issue": "11",
+      "issueYear": 2021,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/125",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v6i12.127",
+      "title": "La argumentación multimodal en el ámbito de la deliberación bioética",
+      "issue": "12",
+      "issueYear": 2021,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/127",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v6i12.128",
+      "title": "La infortunada historia de la dialéctica",
+      "issue": "12",
+      "issueYear": 2021,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/128",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v6i12.130",
+      "title": "Reseña de la colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara",
+      "issue": "12",
+      "issueYear": 2021,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/130",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v7i13.129",
+      "title": "Causa dudosa y conocimiento: las insinuaciones de Simone de Beauvoir y de John Milton",
+      "issue": "13",
+      "issueYear": 2022,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/129",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v7i13.132",
+      "title": "Colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara. Segunda entrega",
+      "issue": "13",
+      "issueYear": 2022,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/132",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v7i13.134",
+      "title": "Conceptos esencialmente polémicos.",
+      "issue": "13",
+      "issueYear": 2022,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/134",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v7i14.136",
+      "title": "Teorías de la composición discursiva en la Antigüedad griega",
+      "issue": "14",
+      "issueYear": 2022,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/136",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v7i14.144",
+      "title": "Argumentación in statu nascendi: el poder del dilema moral",
+      "issue": "14",
+      "issueYear": 2022,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/144",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v8i15.139",
+      "title": "¿Es útil la lógica en filosofía?",
+      "issue": "15",
+      "issueYear": 2023,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/139",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v8i15.140",
+      "title": "La obra Immanent Reasoning or Equality in Action y su relación con diversas teorías de la argumentación.",
+      "issue": "15",
+      "issueYear": 2023,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/140",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v8i15.143",
+      "title": "¿Qué es la dialéctica de los argumentos?",
+      "issue": "15",
+      "issueYear": 2023,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/143",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v8i16.149",
+      "title": "Una nota sobre reglas dialécticas, reglas lógicas y reglas retóricas",
+      "issue": "16",
+      "issueYear": 2023,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/149",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v8i16.150",
+      "title": "Algunas relaciones entre los problemas filosóficos",
+      "issue": "16",
+      "issueYear": 2023,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/150",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i17.151",
+      "title": "Estrategias de argumentación filosófica y presuposición erotética. Un enfoque dialéctico",
+      "issue": "17",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/151",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i17.154",
+      "title": "Educación estética y pensamiento crítico en la formación docente mexicana: Planes de Estudio 2022",
+      "issue": "17",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/154",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i17.155",
+      "title": "Voces tercerizadas y footing relacional: ¿puede, el silencio, ser un argumento?",
+      "issue": "17",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/155",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i17.156",
+      "title": "Argumentación Multimodal como fundamento teórico para una propuesta didáctica en la enseñanza de la ética en el Nivel Medio Superio",
+      "issue": "17",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/156",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i17.157",
+      "title": "Un análisis del argumento de Aristóteles a favor de la felicidad como el fin último del habitante (racional) de la polis",
+      "issue": "17",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/157",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i17.158",
+      "title": "El diálogo crítico en la educación básica: comparación y contraste entre los contextos rural, semi-urbano y urbano",
+      "issue": "17",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/158",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i18.148",
+      "title": "Para una teoría del texto argumentativo",
+      "issue": "18",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/148",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i18.159",
+      "title": "Sobre el carácter interactivo de las prácticas argumentativas",
+      "issue": "18",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/159",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i18.160",
+      "title": "Argumentación polarizada",
+      "issue": "18",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/160",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i18.161",
+      "title": "Sobre derrotadores y atenuadores en John Pollock",
+      "issue": "18",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/161",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v9i18.163",
+      "title": "Reseña: Gascón, José Ángel. (2024). Manual de Argumentación. El Ámbito de lo Razonable.",
+      "issue": "18",
+      "issueYear": 2024,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/163",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v10i19.186",
+      "title": "Reflexiones sobre el generalismo argumentativo: reglas de inferencias y reglas de razonamiento",
+      "issue": "19",
+      "issueYear": 2025,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/186",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v10i19.187",
+      "title": "La argumentación en filosofía. Lección 1: El papel de las preguntas en los textos filosóficos",
+      "issue": "19",
+      "issueYear": 2025,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/187",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v10i20.188",
+      "title": "La argumentación en filosofía. Lección 2: Diferencias de opinión",
+      "issue": "20",
+      "issueYear": 2025,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/188",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v10i20.189",
+      "title": "Aprendizaje Basado en Argumentación: una aproximación a las habilidades dialógicas para la convivencia escolar",
+      "issue": "20",
+      "issueYear": 2025,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/189",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v10i20.185",
+      "title": "La falsa sistematización en Lógica viva",
+      "issue": "21",
+      "issueYear": 2026,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/185",
+      "editorialKeywordStatus": "pending-verification"
+    },
+    {
+      "doi": "10.32870/qr.v11i21.164",
+      "title": "El dilema del prisionero argumentativo: un “triálogo” con Arthur Schopenhauer y Luís Vega",
+      "issue": "21",
+      "issueYear": 2026,
+      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/164",
+      "editorialKeywordStatus": "pending-verification"
+    }
+  ],
+  "resolvedWithoutEditorialKeywords": []
+}
