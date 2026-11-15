@@ -509,7 +509,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_batch16_complete_verified_records(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertEqual(len(curated), 174)
+        self.assertEqual(len(curated), 175)
         self.assertEqual(
             curated["10.32870/prot.i21.321"]["keywords"],
             ["Jürgen Habermas", "movimientos feministas",
@@ -605,7 +605,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             "10.32870/prot.i28.489": ["Foucault", "cinismo", "resistencia", "arte"],
             "10.32870/prot.i28.483": ["Movimientos sociales", "pacientes", "derecho a la salud", "ética"],
         }
-        self.assertEqual(len(curated), 174)
+        self.assertEqual(len(curated), 175)
         for doi, keywords in expected.items():
             self.assertEqual(curated[doi]["keywords"], keywords)
             self.assertTrue(curated[doi]["evidence"].startswith(("http://", "https://")))
@@ -692,7 +692,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             self.assertIn(doi, curated)
             self.assertEqual(curated[doi]["keywords"], keywords)
             self.assertEqual(curated[doi]["evidence"], issue_url)
-        self.assertEqual(len(curated), 174)
+        self.assertEqual(len(curated), 175)
 
 
     def test_i27_452_literal_editorial_keywords(self):
@@ -700,7 +700,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         item = curated["10.32870/prot.i27.452"]
         self.assertEqual(item["keywords"], ["Crítica", "metafísica", "teología"])
         self.assertEqual(item["evidence"], "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/640")
-        self.assertEqual(len(curated), 174)
+        self.assertEqual(len(curated), 175)
 
 
     def test_i27_461_literal_editorial_keywords(self):
@@ -711,7 +711,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             ["Modernidad", "naturaleza", "Estado", "Ilustración", "psicoanálisis"],
         )
         self.assertEqual(item["evidence"], "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461")
-        self.assertEqual(len(curated), 174)
+        self.assertEqual(len(curated), 175)
 
 
     def test_issue_27_complete_literal_editorial_keywords(self):
@@ -731,7 +731,18 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         for doi, keywords in expected.items():
             self.assertIn(doi, curated)
             self.assertEqual(curated[doi]["keywords"], keywords)
-        self.assertEqual(len(curated), 174)
+        self.assertEqual(len(curated), 175)
+
+
+    def test_i24_420_literal_editorial_keywords(self):
+        curated = load_protrepsis_editorial_keywords()
+        item = curated["10.32870/prot.i24.420"]
+        self.assertEqual(
+            item["keywords"],
+            ["Lógica", "teoría pictórica", "lenguaje", "sintaxis", "semántica", "nombres", "cuantificación", "silencio"],
+        )
+        self.assertEqual(item["evidence"], "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420")
+        self.assertEqual(len(curated), 175)
 
 
 if __name__ == "__main__":
