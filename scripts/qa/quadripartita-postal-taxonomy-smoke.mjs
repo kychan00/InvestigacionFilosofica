@@ -55,6 +55,8 @@ try {
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),6);
     assert.equal(await firstCategory.getAttribute("aria-pressed"),"false");
 
+    await page.locator('[data-qr-explorer-tab="issues"]').click();
+    assert.equal(await page.locator("#qr-explorer-issues").isVisible(),true);
     const issue21=issues.locator("button").filter({hasText:"Núm. 21"});
     await issue21.click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),2);
@@ -66,19 +68,24 @@ try {
     assert.equal(await issue21.getAttribute("aria-pressed"),"false");
     assert.equal(await page.locator("#journal-issue-all").getAttribute("aria-pressed"),"true");
 
-    // Dos filtros simultáneos: al liberar uno, el otro permanece vigente.
+    // Dos filtros simultáneos: cambiar de pestaña no borra ninguna selección.
+    await page.locator('[data-qr-explorer-tab="topics"]').click();
     await firstCategory.click();
+    await page.locator('[data-qr-explorer-tab="issues"]').click();
     const issue23=issues.locator("button").filter({hasText:"Núm. 23"});
     await issue23.click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),1);
     await page.locator("#journal-issue-all").click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),2);
     assert.equal(await firstCategory.getAttribute("aria-pressed"),"true");
+    await page.locator('[data-qr-explorer-tab="topics"]').click();
     await page.locator("#journal-category-all").click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),6);
 
     // En móvil, los selects tradicionales viven dentro del panel plegable.
     // Abrirlo antes de comprobar selectOption y el reset global.
+    await page.locator('[data-qr-explorer-tab="filters"]').click();
+    assert.equal(await page.locator("#qr-explorer-filters").isVisible(),true);
     const filterToggle=page.locator("#journal-filter-toggle");
     if(await filterToggle.getAttribute("aria-expanded")==="false") await filterToggle.click();
     assert.equal(await page.locator(".journal-filter-body").isVisible(),true);
