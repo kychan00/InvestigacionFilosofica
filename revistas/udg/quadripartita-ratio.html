@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="../../css/journal-page.css?v=20261112-history-v6">
   <link rel="stylesheet" href="../../css/journal-atlas-sheet.css?v=20261113-atlas-sheet-v1">
   <link rel="stylesheet" href="../../css/quadripartita-cobalt.css?v=20261113-stamps-v1">
-  <link rel="stylesheet" href="../../css/quadripartita-postal-taxonomy.css?v=20261113-postal-v1">
+  <link rel="stylesheet" href="../../css/quadripartita-postal-taxonomy.css?v=20261114-relations-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body data-journal="quadripartita">
@@ -106,7 +106,7 @@
                 <label><span>Década</span><select id="journal-decade"></select></label>
                 <label><span>Idioma</span><select id="journal-language"></select></label>
                 <label><span>Número editorial</span><select id="journal-issue"></select></label>
-                <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
+                <label><span>Categoría de relación</span><select id="journal-category"></select></label>
                 <label><span>Orden</span>
                   <select id="journal-sort">
                     <option value="newest">Más recientes</option>
@@ -127,12 +127,12 @@
               <header class="qr-postal-header">
                 <div class="qr-postal-overline"><p class="journal-kicker">CLASIFICADOR POSTAL / 01</p><span aria-hidden="true" class="qr-postal-emblem">✳</span></div>
                 <h2 id="qr-postal-themes">Mapa de navegación</h2>
-                <p class="qr-postal-deck">Cada categoría es una ruta de lectura derivada para explorar el archivo.</p>
+                <p class="qr-postal-deck">Las categorías de relación agrupan artículos conectados: priorizan las palabras clave editoriales verificadas y, cuando no existen, usan título, resumen y tipo documental.</p>
                 <button id="journal-category-all" class="qr-postal-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
-                  <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todos los temas</span><span aria-hidden="true">↗</span>
+                  <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todas las categorías</span><span aria-hidden="true">↗</span>
                 </button>
               </header>
-              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
+              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de relación"></div>
             </section>
 
             <section class="journal-taxonomy-block journal-issues-block qr-postal-taxonomy qr-postal-issues" aria-labelledby="qr-postal-issues-title">
@@ -197,12 +197,12 @@
       </section>
 
       <section id="journal-insights-panel" class="journal-panel" hidden aria-label="Temas y autorías">
-        <header class="qr-section-heading"><span>05 / VOCABULARIO</span><h2>La conversación <em>se expande.</em></h2><p>Temas declarados y autorías presentes en los registros bibliográficos.</p></header>
+        <header class="qr-section-heading"><span>05 / VOCABULARIO</span><h2>La conversación <em>se expande.</em></h2><p>Palabras clave editoriales verificadas y autorías presentes en los registros bibliográficos.</p></header>
         <div class="journal-insights-grid">
           <article class="journal-insight">
-            <p class="journal-kicker">TEMAS DECLARADOS</p>
+            <p class="journal-kicker">PALABRAS CLAVE EDITORIALES</p>
             <h2>Vocabulario del corpus</h2>
-            <p>Etiquetas publicadas por la fuente cuando están disponibles. No se sustituyen por inferencias automáticas.</p>
+            <p>Palabras clave publicadas literalmente por Quadripartita Ratio y verificadas contra cada publicación. Son independientes de las categorías de relación.</p>
             <div id="journal-topic-chips" class="journal-taxonomy-list"></div>
           </article>
           <article class="journal-insight">
@@ -214,7 +214,7 @@
           <article class="journal-insight">
             <p class="journal-kicker">MÉTODO</p>
             <h2>Dos capas, no una sola verdad</h2>
-            <p>Las categorías visibles son una capa derivada únicamente para navegar. El Atlas distingue explícitamente relaciones con vector Qwen verificado de similitud textual de respaldo.</p>
+            <p>Las palabras clave editoriales se conservan literalmente. Las categorías de relación son una capa derivada para navegar y nunca se presentan como metadata publicada por la revista. El Atlas mantiene aparte sus relaciones semánticas.</p>
           </article>
         </div>
       </section>
@@ -227,7 +227,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261113-postal-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261114-quadripartita-relations-v1"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
   <script type="module" src="../../js/quadripartita-stamps.js?v=20261113-stamps-v1"></script>
 </body>
