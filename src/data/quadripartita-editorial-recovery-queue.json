@@ -5,60 +5,12 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "quadripartitaWithDOI": 88,
-    "curatedWithLiteralEditorialKeywords": 11,
-    "awaitingPublicationEvidence": 74,
-    "confirmedWithoutEditorialKeywords": 3,
-    "fullyResolved": 14
+    "curatedWithLiteralEditorialKeywords": 16,
+    "awaitingPublicationEvidence": 68,
+    "confirmedWithoutEditorialKeywords": 4,
+    "fullyResolved": 20
   },
   "records": [
-    {
-      "doi": "10.32870/qr.v1i2.51",
-      "title": "Rorty y Fraser en torno a la distinción entre redistribución y reconocimiento: un debate abierto",
-      "issue": "2",
-      "issueYear": 2016,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/51",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v1i2.52",
-      "title": "Racionalidad y persuasión desde un punto de vista epistemológico",
-      "issue": "2",
-      "issueYear": 2016,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/52",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v1i2.53",
-      "title": "Ejercicios argumentativos alrededor de la dicotomía entre naturaleza y cultura",
-      "issue": "2",
-      "issueYear": 2016,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/53",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v1i2.54",
-      "title": "Fuerza argumentativa como criterio comparativo",
-      "issue": "2",
-      "issueYear": 2016,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/54",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v1i2.55",
-      "title": "José Palomar: la fuerza del discurso de un político y empresario jalisciense en las cartas a su mujer (1844)",
-      "issue": "2",
-      "issueYear": 2016,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/55",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v1i2.56",
-      "title": "Reseña: Tantos tontos tópicos de Aurelio Arteta, ARIEL, Segunda Edición. Barcelona, 2012.",
-      "issue": "2",
-      "issueYear": 2016,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/56",
-      "editorialKeywordStatus": "pending-verification"
-    },
     {
       "doi": "10.32870/qr.v2i3.46",
       "title": "Las falacias de composición y división en Aristóteles",
@@ -640,6 +592,18 @@
       ],
       "verifiedAt": "2026-11-14",
       "note": "La ficha oficial OJS corresponde a la sección Reseñas, muestra SIN RESUMEN y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v1i2.56",
+      "title": "Reseña: Tantos tontos tópicos de Aurelio Arteta, ARIEL, Segunda Edición. Barcelona, 2012.",
+      "issue": "2",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/56"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas, muestra Sin resumen y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
     }
   ]
 }
