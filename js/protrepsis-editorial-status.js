@@ -1,8 +1,8 @@
 /**
- * Auditoría DOI-first del archivo histórico de Protrepsis.
- * Estas 16 publicaciones son reseñas o entrevistas: todavía NO hay
- * evidencia verificada de palabras clave editoriales para ellas.
- * Esta clasificación NO implica que nunca hayan tenido keywords.
+ * Inventario histórico de reseñas y entrevistas de Protrepsis.
+ * La recuperación DOI-first ya está cerrada; estas listas se conservan
+ * únicamente para reconocer el género documental y nunca para inventar
+ * palabras clave editoriales.
  */
 export const PROTREPSIS_HISTORICAL_REVIEW_INTERVIEW_DOIS = Object.freeze([
   "10.32870/prot.i1.20",
@@ -29,7 +29,7 @@ const historicalReviewsAndInterviews = new Set(
 
 /**
  * Cinco registros adicionales con género declarado en su título editorial.
- * Sin evidencia literal de keywords: no se asignan ni se infieren etiquetas.
+ * Su estado de ausencia de keywords se obtiene de la auditoría cerrada.
  */
 export const PROTREPSIS_ADDITIONAL_REVIEW_BIBLIOGRAPHIC_DOIS = Object.freeze([
   "10.32870/prot.i15.203",
@@ -63,22 +63,31 @@ export function isProtrepsisExplicitReviewOrBibliographic(record) {
 }
 
 export function protrepsisMissingKeywordStatus(record) {
-  if (isProtrepsisExplicitReviewOrBibliographic(record)) {
+  if (String(record?.editorialKeywordStatus || "") === "verified-absent") {
     const title = String(record?.title || "");
     const genre = /entrevista/i.test(title) ? "Entrevista"
       : /noticia bibliográfica/i.test(title) ? "Noticia bibliográfica"
       : /recensión/i.test(title) ? "Recensión"
       : /reseña/i.test(title) ? "Reseña"
-      : "Reseña/entrevista";
+      : "";
     return {
-      label: genre + " · Sin palabras clave verificadas",
-      note: "Registro identificado como reseña, recensión, entrevista o noticia bibliográfica. No se han verificado palabras clave editoriales; esto no demuestra que la publicación carezca de ellas.",
+      label: (genre ? genre + " · " : "") + "Sin palabras clave editoriales",
+      note: "Ausencia editorial verificada en la publicación. Las categorías de relación mostradas para este registro son derivadas y no se presentan como palabras clave de Protrepsis.",
+      className: "is-keywords-absent"
+    };
+  }
+
+  if (isProtrepsisExplicitReviewOrBibliographic(record)) {
+    return {
+      label: "Sin palabras clave verificadas",
+      note: "No se cargó la resolución editorial de este registro. No se infieren palabras clave desde el título o el resumen.",
       className: "is-keywords-unverified"
     };
   }
+
   return {
     label: "Pendientes de recuperación",
-    note: "Pendientes de recuperación y verificación editorial; no se infieren desde el título, el resumen ni fuentes bibliográficas.",
+    note: "No se cargó evidencia editorial suficiente para resolver este registro; no se infieren palabras clave.",
     className: "is-keywords-pending"
   };
 }
