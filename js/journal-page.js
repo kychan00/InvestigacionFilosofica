@@ -13,6 +13,12 @@ import {
   quadripartitaRelationCategoryMetadata
 } from "./quadripartita-relation-categories.js?v=20261114-relations-v1";
 import {
+  sincroniaRelationCategories,
+  sincroniaRelationCategoryMetadata,
+  sincroniaKeywordMetadata,
+  sincroniaKeywords
+} from "./sincronia-relation-categories.js?v=20261115-relations-v1";
+import {
   journalIssueGroups,
   journalIssueInfo
 } from "./journal-issues.js?v=20261112-history-v2";
@@ -101,7 +107,7 @@ const CATEGORY_COLORS = {
 };
 
 const journalId = document.body.dataset.journal;
-const supportsCuratorialFacets = journalId === "protrepsis" || journalId === "quadripartita";
+const supportsCuratorialFacets = ["protrepsis", "quadripartita", "sincronia"].includes(journalId);
 const config = JOURNALS[journalId] || JOURNALS.protrepsis;
 
 const state = {
@@ -223,7 +229,7 @@ function editorialKeywordsFor(record) {
 }
 
 function isCuratorialRecord(record) {
-  return record?.journal === "Protrepsis" || record?.journal === "Quadripartita Ratio";
+  return ["Protrepsis", "Quadripartita Ratio", "Sincronía"].includes(record?.journal);
 }
 
 function quadripartitaMissingKeywordStatus(record) {
@@ -242,6 +248,7 @@ function quadripartitaMissingKeywordStatus(record) {
 }
 
 function keywordMetadataFor(record) {
+  if (record?.journal === "Sincronía") return sincroniaKeywordMetadata(record);
   if (!isCuratorialRecord(record)) {
     return articleTopicMetadata(record, { derive: false, limit: 8 });
   }
@@ -264,6 +271,10 @@ function keywordMetadataFor(record) {
 }
 
 function categoryMetadataFor(record) {
+  if (record?.journal === "Sincronía") {
+    const relation = sincroniaRelationCategoryMetadata(record, { limit: 4 });
+    return { ...relation, topics: relation.categories, allTopics: relation.categories };
+  }
   if (record?.journal === "Protrepsis") {
     const relation = protrepsisRelationCategoryMetadata(record, { limit: 4 });
     return {
@@ -291,6 +302,9 @@ function categoryMetadataFor(record) {
 }
 
 function categoriesFor(record) {
+  if (record?.journal === "Sincronía") {
+    return sincroniaRelationCategories(record, { limit: 4 });
+  }
   if (record?.journal === "Protrepsis") {
     return protrepsisRelationCategories(record, { limit: 4 });
   }
@@ -429,6 +443,7 @@ function recordText(record) {
     record.language,
     ...authors(record),
     ...editorialKeywordsFor(record),
+    ...(record?.journal === "Sincronía" ? sincroniaKeywords(record) : []),
     ...(isCuratorialRecord(record)
       ? []
       : articleTopics(record, { derive: false, limit: 12 })),
@@ -501,7 +516,7 @@ function filteredRecords() {
     if (state.category !== "all" && !categoriesFor(record).includes(state.category)) return false;
     if (supportsCuratorialFacets &&
         state.keyword !== "all" &&
-        !editorialKeywordsFor(record).includes(state.keyword)) return false;
+        !(record.journal === "Sincronía" ? sincroniaKeywords(record) : editorialKeywordsFor(record)).includes(state.keyword)) return false;
     if (state.doiOnly && !record.doi) return false;
     if (state.abstractOnly && !record.abstract) return false;
     return true;
@@ -708,7 +723,7 @@ function card(record, index) {
     ? "<div><dt>Categorías de relación</dt><dd>" +
         escapeHtml(categoryMeta.allTopics.join(" · ")) +
         " <small>" + escapeHtml(categoryMeta.note) + "</small></dd></div>" +
-      "<div><dt>Palabras clave editoriales</dt><dd>" +
+      "<div><dt>" + escapeHtml(keywordMeta.label) + "</dt><dd>" +
         escapeHtml(keywordMeta.allTopics.join(" · ") || keywordMeta.emptyLabel) +
         " <small>" + escapeHtml(keywordMeta.note) + "</small></dd></div>"
     : "<div><dt>Área general</dt><dd>" + escapeHtml(broadCategoryFor(record)) +
@@ -914,7 +929,7 @@ function buildTaxonomy() {
   }
 
   const subjects = supportsCuratorialFacets
-    ? frequency(state.records.flatMap(editorialKeywordsFor))
+    ? frequency(state.records.flatMap(row => row.journal === "Sincronía" ? sincroniaKeywords(row) : editorialKeywordsFor(row)))
     : frequency(state.records.flatMap(row => row.subjects || []));
   el.topics.replaceChildren();
   for (const [label, count] of subjects.slice(0, 24)) {
@@ -932,9 +947,11 @@ function buildTaxonomy() {
     el.topics.append(item);
   }
   if (!subjects.length) el.topics.innerHTML = '<p class="taxonomy-empty">' +
-    (supportsCuratorialFacets
-      ? "Aún no hay palabras clave editoriales verificadas en esta colección."
-      : "El corpus no contiene categorías temáticas para esta colección.") +
+    (journalId === "sincronia"
+      ? "No hay palabras clave verificadas ni temas bibliográficos registrados en esta colección."
+      : supportsCuratorialFacets
+        ? "Aún no hay palabras clave editoriales verificadas en esta colección."
+        : "El corpus no contiene categorías temáticas para esta colección.") +
     "</p>";
 
   const authorFreq = frequency(state.records.flatMap(authors));
@@ -1098,7 +1115,7 @@ async function load() {
     let records = (Array.isArray(payload.records) ? payload.records : [])
       .filter(record => config.matcher(record.journal));
 
-    if (supportsCuratorialFacets) {
+    if (journalId === "protrepsis" || journalId === "quadripartita") {
       const keywordUrl = journalId === "protrepsis" ? PROTREPSIS_KEYWORDS_URL : QUADRIPARTITA_KEYWORDS_URL;
       const recoveryUrl = journalId === "protrepsis" ? PROTREPSIS_RECOVERY_URL : QUADRIPARTITA_RECOVERY_URL;
       const applyKeywords = journalId === "protrepsis"
