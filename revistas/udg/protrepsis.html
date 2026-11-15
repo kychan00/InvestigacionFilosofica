@@ -124,7 +124,7 @@
         <div class="journal-archive-layout">
           <aside class="journal-sidebar pro-explorer" aria-label="Explorador del archivo filosófico">
             <div class="pro-explorer-tabs" role="tablist" aria-label="Elegir panel del catálogo">
-              <button id="pro-explorer-tab-topics" role="tab" type="button" data-pro-explorer-tab="topics" aria-controls="pro-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Palabras clave</button>
+              <button id="pro-explorer-tab-topics" role="tab" type="button" data-pro-explorer-tab="topics" aria-controls="pro-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Categorías</button>
               <button id="pro-explorer-tab-issues" role="tab" type="button" data-pro-explorer-tab="issues" aria-controls="pro-explorer-issues" aria-selected="false" tabindex="-1"><span aria-hidden="true">№</span> Números</button>
               <button id="pro-explorer-tab-filters" role="tab" type="button" data-pro-explorer-tab="filters" aria-controls="pro-explorer-filters" aria-selected="false" tabindex="-1"><span aria-hidden="true">☷</span> Filtros</button>
             </div>
@@ -132,16 +132,16 @@
               <section id="pro-explorer-topics" role="tabpanel" aria-labelledby="pro-explorer-tab-topics" data-pro-explorer-panel="topics" class="journal-taxonomy-block pro-curatorial-block" aria-labelledby="pro-categories-title">
               <header class="pro-curatorial-header">
                 <div class="pro-curatorial-header-top">
-                  <p class="journal-kicker">CATÁLOGO / 01 — PALABRAS CLAVE</p>
+                  <p class="journal-kicker">CATÁLOGO / 01 — CATEGORÍAS</p>
                   <span class="pro-curatorial-ornament" aria-hidden="true">✳</span>
                 </div>
-                <h2 id="pro-categories-title">Palabras clave verificadas</h2>
-                <p class="pro-curatorial-hint">Sólo términos publicados por Protrepsis y verificados en la publicación.</p>
+                <h2 id="pro-categories-title">Categorías de relación</h2>
+                <p class="pro-curatorial-hint">Agrupan artículos relacionados. Se derivan primero de las palabras clave editoriales; cuando éstas no existen, del título, resumen y tipo documental.</p>
                 <button id="journal-category-all" class="pro-curatorial-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
-                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todas las palabras clave <span aria-hidden="true">↗</span>
+                  <span class="pro-curatorial-all-symbol" aria-hidden="true">↺</span> Todas las categorías <span aria-hidden="true">↗</span>
                 </button>
               </header>
-              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por palabra clave editorial"></div>
+              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de relación"></div>
             </section>
               <section id="pro-explorer-issues" role="tabpanel" aria-labelledby="pro-explorer-tab-issues" data-pro-explorer-panel="issues" hidden class="journal-taxonomy-block journal-issues-block pro-curatorial-block pro-curatorial-issues" aria-labelledby="pro-issues-title">
               <header class="pro-curatorial-header">
@@ -167,7 +167,7 @@
                 <label><span>Década</span><select id="journal-decade"></select></label>
                 <label><span>Idioma</span><select id="journal-language"></select></label>
                 <label><span>Número editorial</span><select id="journal-issue"></select></label>
-                <label><span>Palabra clave editorial</span><select id="journal-category"></select></label>
+                <label><span>Categoría de relación</span><select id="journal-category"></select></label>
                 <label><span>Orden</span>
                   <select id="journal-sort">
                     <option value="newest">Más recientes</option>
@@ -260,7 +260,7 @@
           <article class="journal-insight">
             <p class="journal-kicker">MÉTODO</p>
             <h2>Metadata editorial verificada</h2>
-            <p>En Protrepsis, sólo las palabras clave publicadas por la revista aparecen como filtros específicos del artículo. El área filosófica amplia sigue siendo una clasificación derivada y se muestra por separado.</p>
+            <p>Las palabras clave editoriales se conservan literalmente y se filtran por separado. Las categorías de relación son una capa de navegación derivada: priorizan esas keywords y, en los registros sin keywords, se construyen desde el título, el resumen y el tipo documental.</p>
           </article>
         </div>
       </section>
@@ -273,7 +273,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261114-editorial-keywords-v4-queue"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261114-relation-categories-v1"></script>
   <script type="module" src="../../js/protrepsis-explorer.js?v=20261113-ux-v1"></script>
   <script type="module" src="../../js/protrepsis-catalog.js?v=20261113-folios-v2"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
