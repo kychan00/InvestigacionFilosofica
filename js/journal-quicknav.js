@@ -1,4 +1,4 @@
-/* Navegación editorial móvil compartida: tres revistas, archivo y ficha institucional.
+/* Navegación editorial adaptable: tres revistas, archivo y ficha institucional.
  * Usa las pestañas y exploradores existentes; no altera filtros ni metadatos.
  */
 (() => {
@@ -57,7 +57,22 @@
       <button class="journal-quicknav-more" type="button" aria-label="Ver más secciones" title="Desplazar enlaces">→</button>
     </div>
   `;
-  toolbar.insertAdjacentElement("afterend", nav);
+  // On phones it follows the fixed global toolbar in normal flow; on desktop
+  // it belongs to the journal's editorial masthead, before the cover/hero.
+  // Relocate the same node when crossing the breakpoint; never duplicate it.
+  const mobileBreakpoint = matchMedia("(max-width: 820px)");
+  const desktopAnchor = institutional
+    ? document.querySelector(".ji .nav-wrap")
+    : document.querySelector(".journal-header .journal-nav");
+  function placeQuicknav() {
+    const anchor = mobileBreakpoint.matches ? toolbar : (desktopAnchor || toolbar);
+    if (nav.previousElementSibling !== anchor) anchor.insertAdjacentElement("afterend", nav);
+  }
+  placeQuicknav();
+  mobileBreakpoint.addEventListener("change", () => {
+    placeQuicknav();
+    requestAnimationFrame(syncTray);
+  });
 
   const links = [...nav.querySelectorAll("[data-quicknav-id]")];
   const tray = nav.querySelector(".journal-quicknav-links");
@@ -96,12 +111,17 @@
 
   function scrollToSection(target) {
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const toolbarHeight = toolbar.getBoundingClientRect().height;
-    // The quick-nav is no longer sticky. Only the global fixed toolbar covers
-    // anchored content; subtracting quick-nav height left a blank band.
+    const toolbarHeight = mobileBreakpoint.matches
+      ? toolbar.getBoundingClientRect().height : 0;
+    // Institutional desktop pages keep their ORIGINAL journal masthead sticky;
+    // the new quicknav itself remains in the reading flow on every device.
+    const masthead = institutional && !mobileBreakpoint.matches
+      ? document.querySelector(".ji .nav-wrap") : null;
+    const stickyHeight = masthead && getComputedStyle(masthead).position === "sticky"
+      ? masthead.getBoundingClientRect().height : 0;
     const y = target.id === "inicio"
       ? 0
-      : Math.max(0, window.scrollY + target.getBoundingClientRect().top - toolbarHeight - 12);
+      : Math.max(0, window.scrollY + target.getBoundingClientRect().top - toolbarHeight - stickyHeight - 12);
     window.scrollTo({ top: y, behavior: reducedMotion ? "auto" : "smooth" });
   }
 
