@@ -73,7 +73,7 @@ test("runtime de revistas separa categorías de relación y palabras clave edito
   assert.match(source, /selectTaxonomyFacet\("keyword"/);
   assert.match(source, /selectTaxonomyFacet\("category"/);
   assert.match(source, /!categoriesFor\(record\)\.includes\(state\.category\)/);
-  assert.match(source, /sincroniaKeywords\\(record\\) : editorialKeywordsFor\\(record\\)/);
+  assert.ok(source.includes('sincroniaKeywords(record) : editorialKeywordsFor(record)'));
   assert.match(source, /Categorías de relación/);
   assert.match(source, /Palabras clave editoriales/);
   assert.match(source, /relation-category-chip/);
