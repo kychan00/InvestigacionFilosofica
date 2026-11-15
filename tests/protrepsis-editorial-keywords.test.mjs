@@ -1511,8 +1511,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 161);
-  assert.equal(new Set(records.map(record => record.doi)).size, 161);
+  assert.equal(records.length, 169);
+  assert.equal(new Set(records.map(record => record.doi)).size, 169);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1595,6 +1595,32 @@ test("lote 17: i18.262 e i20.276 conservan palabras clave impresas", () => {
   for (const [doi, keywords] of cases) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI verificado: " + doi);
+    assert.deepEqual(record.keywords, keywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
+});
+
+
+test("número 28 completo: diez artículos conservan palabras clave editoriales literales", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  const expected = new Map([
+    ["10.32870/prot.i28.490", ["Moral","arqueología","genealogía","el intelectual","ciencias sociales"]],
+    ["10.32870/prot.i28.484", ["Capitalismo neoliberal","sujeto automático","vigilancia algorítmica","control y normalización","arte y resistencia","cuidado de sí"]],
+    ["10.32870/prot.i28.480", ["Tecnologías","genealogía","gubernamentalidad","seguridad","resistencia","desproletarización"]],
+    ["10.32870/prot.i28.486", ["Deseo","confesión","dispositivo","sujeto","manuscrito"]],
+    ["10.32870/prot.i28.481", ["Iusnaturalismo","sujeto","cuerpo","biopolítica","estética de la existencia"]],
+    ["10.32870/prot.i28.487", ["Sujeto","existencia","ser","subjetividad","moral capitalista"]],
+    ["10.32870/prot.i28.491", ["Foucault","Deleuze","Esposito","subjetividad","biopolítica"]],
+    ["10.32870/prot.i28.485", ["Archivo","historia","genealogía","arte","prácticas","sentido","discontinuidades"]],
+    ["10.32870/prot.i28.489", ["Foucault","cinismo","resistencia","arte"]],
+    ["10.32870/prot.i28.483", ["Movimientos sociales","pacientes","derecho a la salud","ética"]]
+  ]);
+  assert.equal(records.length, 169);
+  assert.equal(new Set(records.map(record => record.doi)).size, 169);
+  for (const [doi, keywords] of expected) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del número 28: " + doi);
     assert.deepEqual(record.keywords, keywords);
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
