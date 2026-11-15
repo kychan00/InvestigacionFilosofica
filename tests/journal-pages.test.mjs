@@ -27,8 +27,8 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /journal-author-chips/);
     if (journal === "protrepsis") {
       assert.match(html, /palabras clave del corpus/i);
-      assert.match(html, /palabra clave editorial/i);
-      assert.doesNotMatch(html, /categor[ií]as del corpus/i);
+      assert.match(html, /categor[ií]as de relaci[oó]n/i);
+      assert.match(html, /categor[ií]a de relaci[oó]n/i);
     } else {
       assert.match(html, /temas declarados/i);
     }
@@ -37,44 +37,44 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /journal-filter-toggle/);
     assert.match(html, /journal-atlas-stagebar/);
     if (journal === "protrepsis") {
-      assert.match(html, /Palabra clave editorial/i);
+      assert.match(html, /Categor[ií]a de relaci[oó]n/i);
+      assert.match(html, /palabras clave editoriales se conservan literalmente/i);
     } else {
       assert.match(html, /Categor[ií]a de navegaci[oó]n/i);
     }
   });
 }
 
-test("runtime de revistas separa metadatos editoriales de categorías derivadas", async () => {
+test("runtime de revistas separa categorías de relación y palabras clave editoriales", async () => {
   const source = await readFile("js/journal-page.js", "utf8");
   const topics = await readFile("js/journal-article-topics.js", "utf8");
+  const relations = await readFile("js/protrepsis-relation-categories.js", "utf8");
   const keywordStatus = await readFile("js/protrepsis-editorial-status.js", "utf8");
-  assert.match(source, /CATEGORY_RULES/);
-  assert.match(source, /articleTopicMetadata/);
-  assert.match(source, /topicMeta\.label/);
-  assert.match(source, /categoryMeta\.note/);
-  assert.match(source, /categoriesFor\(record\)/);
-  assert.match(source, /categoryMetadataFor\(record\)/);
+  assert.match(source, /protrepsisRelationCategoryMetadata/);
+  assert.match(source, /protrepsisRelationCategories/);
   assert.match(source, /PROTREPSIS_KEYWORDS_URL/);
+  assert.match(source, /PROTREPSIS_RECOVERY_URL/);
   assert.match(source, /applyProtrepsisKeywordOverlay/);
-  assert.match(source, /hasVerifiedEditorialKeywordSource/);
-  assert.match(source, /"verified-publication", "ojs-article"/);
+  assert.match(source, /applyProtrepsisEditorialResolution/);
   assert.match(source, /editorialKeywordSource: "verified-publication"/);
-  assert.match(source, /return categoryMetadataFor\(record\)\.allTopics/);
-  assert.match(keywordStatus, /Pendientes de recuperación/);
-  assert.match(keywordStatus, /no se infieren desde el título, el resumen ni fuentes bibliográficas/);
+  assert.match(source, /state\.keyword/);
+  assert.match(source, /selectTaxonomyFacet\("keyword"/);
+  assert.match(source, /selectTaxonomyFacet\("category"/);
   assert.match(source, /!categoriesFor\(record\)\.includes\(state\.category\)/);
-  assert.match(source, /Área general/);
-  assert.match(source, /category-filter-chip/);
+  assert.match(source, /!editorialKeywordsFor\(record\)\.includes\(state\.keyword\)/);
+  assert.match(source, /Categorías de relación/);
+  assert.match(source, /Palabras clave editoriales/);
+  assert.match(source, /relation-category-chip/);
+  assert.match(source, /keyword-filter-chip/);
   assert.match(source, /function hasActiveFilters\(\)/);
   assert.match(source, /hasActiveFilters\(\) \? " · filtros activos" : ""/);
-  assert.match(source, /record\.subjects/);
+  assert.match(relations, /keyword-derived/);
+  assert.match(relations, /text-derived-no-keywords/);
+  assert.match(relations, /Recepción filosófica/);
+  assert.match(relations, /Literatura y creación/);
+  assert.match(keywordStatus, /Sin palabras clave editoriales/);
+  assert.match(keywordStatus, /verified-absent/);
   assert.match(topics, /Palabras clave editoriales/);
-  assert.match(topics, /Temas bibliográficos/);
-  assert.match(topics, /Temas del texto/);
-  assert.match(topics, /Categorías editoriales/);
-  assert.match(topics, /Categorías bibliográficas/);
-  assert.match(topics, /Categorías derivadas/);
-  assert.match(topics, /no sustituyen palabras clave editoriales/);
   assert.match(source, /journal-doi-only/);
   assert.match(source, /journal-abstract-only/);
   assert.match(source, /journalIssueGroups/);
