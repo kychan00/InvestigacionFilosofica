@@ -286,3 +286,71 @@ body[data-journal="protrepsis"] .journal-card-grid > .journal-card:nth-child(n+4
     transform:none !important;
   }
 }
+
+
+/* Protrepsis relation taxonomy: broad navigational categories stay visually
+   distinct from literal editorial keywords. */
+body[data-journal="protrepsis"] .journal-card-topic-group {
+  width: 100%;
+  display: grid;
+  gap: 7px;
+  margin-top: 7px;
+}
+body[data-journal="protrepsis"] .journal-card-topic-label {
+  color: var(--jp-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body[data-journal="protrepsis"] .journal-card-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+body[data-journal="protrepsis"] .relation-category-chip,
+body[data-journal="protrepsis"] .keyword-filter-chip {
+  min-height: 30px;
+  border: 1px solid color-mix(in srgb, var(--chip-color, var(--journal-accent)) 44%, var(--jp-line));
+  border-radius: 999px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+body[data-journal="protrepsis"] .relation-category-chip {
+  background: color-mix(in srgb, var(--chip-color, var(--journal-accent)) 11%, transparent);
+  color: color-mix(in srgb, var(--chip-color, var(--journal-accent)) 82%, var(--jp-text));
+}
+body[data-journal="protrepsis"] .keyword-filter-chip {
+  background: transparent;
+  color: var(--jp-muted);
+}
+body[data-journal="protrepsis"] .relation-category-chip[aria-pressed="true"],
+body[data-journal="protrepsis"] .keyword-filter-chip[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--chip-color, var(--journal-accent)) 18%, transparent);
+  border-color: var(--chip-color, var(--journal-accent));
+  color: var(--jp-text);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--chip-color, var(--journal-accent)) 32%, transparent);
+}
+body[data-journal="protrepsis"] .relation-category-chip:hover,
+body[data-journal="protrepsis"] .keyword-filter-chip:hover {
+  transform: translateY(-1px);
+}
+body[data-journal="protrepsis"] .is-keywords-absent .journal-card-topic-empty {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  min-height: 28px;
+  border: 1px dashed color-mix(in srgb, var(--jp-muted) 44%, transparent);
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: var(--jp-muted);
+  font-size: 11px;
+  font-style: italic;
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-journal="protrepsis"] .relation-category-chip,
+  body[data-journal="protrepsis"] .keyword-filter-chip {
+    transition: none;
+  }
+}
