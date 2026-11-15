@@ -15,8 +15,9 @@ const batch01 = new Map([
   ["10.32870/prot.i29.509", ["Heidegger","tiempo","historia","hermenéutica","medida"]],
   ["10.32870/prot.i29.504", ["Negatividad","no-identidad","crítica inmanente","constelaciones"]],
   ["10.32870/prot.i29.499", ["Movimiento","continuidad","medición","numeración","alma"]],
-  ["10.32870/prot.i29.477", ["redes sociales","transparencia","desinformación","Nayib Bukele","influencia digital","ciudadanía informada"]],
-  ["10.32870/prot.i29.494", ["Duelo","violencia","nosotros","vulnerabilidad","proximidad"]]
+  ["10.32870/prot.i29.501", ["Plotino","Bergson","Metafísica","Semiótica","Duración"]],
+  ["10.32870/prot.i29.477", ["Redes sociales","transparencia","desinformación","Nayib Bukele","influencia digital","ciudadanía informada"]],
+  ["10.32870/prot.i29.494", ["Duelo","violencia","nosotros","vulnerabilidad","proximidad","comunidad"]]
 ]);
 
 const batch02 = new Map([
@@ -1511,8 +1512,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 169);
-  assert.equal(new Set(records.map(record => record.doi)).size, 169);
+  assert.equal(records.length, 170);
+  assert.equal(new Set(records.map(record => record.doi)).size, 170);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1616,8 +1617,8 @@ test("número 28 completo: diez artículos conservan palabras clave editoriales 
     ["10.32870/prot.i28.489", ["Foucault","cinismo","resistencia","arte"]],
     ["10.32870/prot.i28.483", ["Movimientos sociales","pacientes","derecho a la salud","ética"]]
   ]);
-  assert.equal(records.length, 169);
-  assert.equal(new Set(records.map(record => record.doi)).size, 169);
+  assert.equal(records.length, 170);
+  assert.equal(new Set(records.map(record => record.doi)).size, 170);
   for (const [doi, keywords] of expected) {
     const record = records.find(item => item.doi === doi);
     assert.ok(record, "Falta DOI del número 28: " + doi);
@@ -1625,4 +1626,18 @@ test("número 28 completo: diez artículos conservan palabras clave editoriales 
     assert.match(record.evidence, /^https?:\/\//);
     assert.equal(record.verifiedAt, "2026-11-14");
   }
+});
+
+
+test("número 29 completo: diez artículos conservan palabras clave editoriales literales", () => {
+  const issueUrl = "http://protrepsis.cucsh.udg.mx/index.php/prot/issue/view/27/N%C3%BAmero29";
+  const expected = new Map([["10.32870/prot.i29.499",["Movimiento","continuidad","medición","numeración","alma"]],["10.32870/prot.i29.509",["Heidegger","tiempo","historia","hermenéutica","medida"]],["10.32870/prot.i29.501",["Plotino","Bergson","Metafísica","Semiótica","Duración"]],["10.32870/prot.i29.477",["Redes sociales","transparencia","desinformación","Nayib Bukele","influencia digital","ciudadanía informada"]],["10.32870/prot.i29.497",["Levinas","exclusión","violencia","género","ontología"]],["10.32870/prot.i29.496",["Hermenéutica","univocismo","equivocismo","analogía","cientificismo","posmodernidad"]],["10.32870/prot.i29.504",["Negatividad","no-identidad","crítica inmanente","constelaciones"]],["10.32870/prot.i29.488",["Tiempo lineal","tiempo del oprimido","trauma","resistencia","memoria","anacronismo"]],["10.32870/prot.i29.503",["Animalidad","muerte","tiempo","poesía"]],["10.32870/prot.i29.494",["Duelo","violencia","nosotros","vulnerabilidad","proximidad","comunidad"]]]);
+  for (const [doi, keywords] of expected) {
+    const record = overlay.records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI del número 29: " + doi);
+    assert.deepEqual(record.keywords, keywords);
+    assert.equal(record.evidence, issueUrl);
+  }
+  assert.equal(overlay.records.length, 170);
+  assert.equal(new Set(overlay.records.map(record => record.doi)).size, 170);
 });
