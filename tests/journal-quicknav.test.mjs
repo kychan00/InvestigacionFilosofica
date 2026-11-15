@@ -59,7 +59,12 @@ test("componente común conserva vínculos locales y controles accesibles", asyn
   assert.match(js, /\?\.click\(\)/);
   assert.match(js, /prefers-reduced-motion/);
   assert.match(css, /@media \(max-width: 820px\)/);
-  assert.match(css, /position: sticky/);
+
+  // The strip must stay in document flow; Safari used to float it over the
+  // opening artwork and headings when both bars were sticky/fixed.
+  assert.match(css, /\\.journal-quicknav \\{[\\s\\S]*position: relative;/);
+  assert.doesNotMatch(css, /\\.journal-quicknav \\{[\\s\\S]*?position: sticky;/);
+  assert.doesNotMatch(js, /toolbarHeight - quicknavHeight/);
   assert.match(css, /overflow-x: auto/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /html\[data-theme="dark"\]/);
