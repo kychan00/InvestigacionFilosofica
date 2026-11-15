@@ -1,15 +1,16 @@
 {
-  "schemaVersion": 1,
-  "description": "DOI-first recovery audit for Protrepsis. Missing verified editorial keywords is not evidence that the publication lacks keywords.",
+  "schemaVersion": 2,
+  "description": "DOI-first recovery audit for Protrepsis. Unresolved records remain in records; publications verified as having no editorial keyword block are tracked separately and are never assigned inferred keywords.",
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "protrepsisWithDOI": 247,
     "curatedWithLiteralEditorialKeywords": 175,
-    "awaitingPublicationEvidence": 72,
+    "awaitingPublicationEvidence": 71,
     "historicalSupplementPending": 22,
     "historicalOriginalResearchToVerify": 6,
     "explicitReviewInterviewOrBibliographicTitle": 21,
-    "lackingPublisherAbstract": 24
+    "lackingPublisherAbstract": 23,
+    "confirmedWithoutEditorialKeywords": 1
   },
   "historicalResearchToVerify": [
     "10.32870/prot.i7-8.107",
@@ -1159,27 +1160,6 @@
       "recoveryLane": "genre-and-keyword-evidence-review"
     },
     {
-      "doi": "10.32870/prot.i24.376",
-      "title": "¡Dar a luz una estrella roja!",
-      "year": 2023,
-      "issue": "24",
-      "authors": [
-        "Paul Stephan",
-        "Osman Choque-Aliaga"
-      ],
-      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376",
-      "publisherRelatedLinks": [
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/566",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/569",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/568"
-      ],
-      "inHistoricalSupplement": false,
-      "hasPublisherAbstract": false,
-      "genreTitleSignal": "not-explicit-in-title",
-      "editorialKeywordStatus": "not-verified",
-      "recoveryLane": "document-kind-check"
-    },
-    {
       "doi": "10.32870/prot.i18.271",
       "title": "Mahihtolli / Xochitepecopa Hueyohtli / Xochimilco / ¿Tehuantin ayoc cintli totec? / Tetzahuitl",
       "year": 2020,
@@ -1469,6 +1449,22 @@
       "genreTitleSignal": "not-explicit-in-title",
       "editorialKeywordStatus": "not-verified",
       "recoveryLane": "document-kind-check"
+    }
+  ],
+  "resolvedWithoutEditorialKeywords": [
+    {
+      "doi": "10.32870/prot.i24.376",
+      "title": "¡Dar a luz una estrella roja!",
+      "issue": "24",
+      "documentKind": "translation",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/issue/view/22",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/566",
+        "https://www.academia.edu/103583817/_Dar_a_luz_una_estrella_roja_Aspectos_del_nietzscheanismo_de_izquierda_y_su_tr%C3%A1gica_historia_Traducci%C3%B3n_"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La publicación es una traducción y el texto publicado no presenta bloque de Palabras clave ni Keywords; no se infieren etiquetas."
     }
   ]
 }
