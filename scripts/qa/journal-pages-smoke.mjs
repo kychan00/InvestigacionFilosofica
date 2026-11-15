@@ -135,6 +135,42 @@ try {
         expected
       );
 
+      if (width <= 820) {
+        // A fixed site toolbar and an additional sticky journal nav must never
+        // stack incorrectly on mobile and cover the opening journal hero.
+        const layout = await page.evaluate(() => {
+          const bar = document.querySelector(".journal-quicknav");
+          const global = document.querySelector(".site-mobile-toolbar");
+          const opening = document.querySelector(".journal-page");
+          const b = bar.getBoundingClientRect();
+          const g = global.getBoundingClientRect();
+          const o = opening.getBoundingClientRect();
+          return {
+            position: getComputedStyle(bar).position,
+            barTop: b.top, barBottom: b.bottom,
+            toolbarBottom: g.bottom, openingTop: o.top
+          };
+        });
+        assert.equal(layout.position, "relative", journal + " " + name + " nav must stay in normal flow");
+        assert.ok(Math.abs(layout.barTop - layout.toolbarBottom) <= 4,
+          journal + " " + name + " unwanted gap beneath toolbar: " + JSON.stringify(layout));
+        assert.ok(layout.openingTop >= layout.barBottom - 2,
+          journal + " " + name + " nav is covering the hero: " + JSON.stringify(layout));
+
+        const afterScroll = await page.evaluate(() => {
+          document.documentElement.style.scrollBehavior = "auto";
+          window.scrollTo(0, 420);
+          const nav = document.querySelector(".journal-quicknav").getBoundingClientRect();
+          const toolbar = document.querySelector(".site-mobile-toolbar").getBoundingClientRect();
+          const result = { navBottom: nav.bottom, toolbarBottom: toolbar.bottom };
+          window.scrollTo(0, 0);
+          document.documentElement.style.scrollBehavior = "";
+          return result;
+        });
+        assert.ok(afterScroll.navBottom <= afterScroll.toolbarBottom + 2,
+          journal + " " + name + " quicknav must scroll away instead of covering reading content");
+      }
+
       assert.equal(await page.locator(".journal-card").count(), expected);
       assert.ok(await page.locator(".taxonomy-chip").count() >= 1);
       assert.ok(await page.locator(".journal-card-byline .journal-author-link").count() >= 1);
