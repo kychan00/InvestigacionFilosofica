@@ -2,6 +2,8 @@
 .journal-quicknav { display: none; }
 
 @media (max-width: 820px) {
+  /* Institutional pages lack the journal-page body reset (8px browser margin). */
+  body[data-journal-quicknav] { margin: 0; }
   body[data-journal-quicknav="protrepsis"] {
     --jq-paper: #f6eed8; --jq-ink: #2b2821; --jq-accent: #77581b; --jq-rule: #d5c5a4;
   }
@@ -19,9 +21,12 @@
   html[data-theme="dark"] body[data-journal-quicknav="quadripartita"] { --jq-accent: #95a7ff; }
 
   .journal-quicknav {
-    position: sticky;
-    top: calc(var(--site-mobile-toolbar-height, 58px) + env(safe-area-inset-top, 0px));
-    z-index: 1150;
+    /* Keep the editorial strip in document flow. The fixed global toolbar
+       already reserves the safe-area gutter; a second sticky offset used to
+       float this strip over cover art and journal headings on iOS Safari. */
+    position: relative;
+    top: auto;
+    z-index: 1;
     display: block;
     box-sizing: border-box;
     width: 100%;

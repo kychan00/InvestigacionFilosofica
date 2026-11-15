@@ -97,10 +97,11 @@
   function scrollToSection(target) {
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const toolbarHeight = toolbar.getBoundingClientRect().height;
-    const quicknavHeight = nav.getBoundingClientRect().height;
+    // The quick-nav is no longer sticky. Only the global fixed toolbar covers
+    // anchored content; subtracting quick-nav height left a blank band.
     const y = target.id === "inicio"
       ? 0
-      : Math.max(0, window.scrollY + target.getBoundingClientRect().top - toolbarHeight - quicknavHeight - 12);
+      : Math.max(0, window.scrollY + target.getBoundingClientRect().top - toolbarHeight - 12);
     window.scrollTo({ top: y, behavior: reducedMotion ? "auto" : "smooth" });
   }
 
