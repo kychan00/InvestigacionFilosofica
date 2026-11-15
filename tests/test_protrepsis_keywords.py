@@ -509,7 +509,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_batch16_complete_verified_records(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertEqual(len(curated), 161)
+        self.assertEqual(len(curated), 169)
         self.assertEqual(
             curated["10.32870/prot.i21.321"]["keywords"],
             ["Jürgen Habermas", "movimientos feministas",
@@ -589,6 +589,26 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             curated["10.32870/prot.i20.276"]["keywords"],
             ["Enseñanza", "pedagogía", "alfabetización", "escuela"],
         )
+
+
+    def test_issue_28_complete_literal_editorial_keywords(self):
+        curated = load_protrepsis_editorial_keywords()
+        expected = {
+            "10.32870/prot.i28.490": ["Moral", "arqueología", "genealogía", "el intelectual", "ciencias sociales"],
+            "10.32870/prot.i28.484": ["Capitalismo neoliberal", "sujeto automático", "vigilancia algorítmica", "control y normalización", "arte y resistencia", "cuidado de sí"],
+            "10.32870/prot.i28.480": ["Tecnologías", "genealogía", "gubernamentalidad", "seguridad", "resistencia", "desproletarización"],
+            "10.32870/prot.i28.486": ["Deseo", "confesión", "dispositivo", "sujeto", "manuscrito"],
+            "10.32870/prot.i28.481": ["Iusnaturalismo", "sujeto", "cuerpo", "biopolítica", "estética de la existencia"],
+            "10.32870/prot.i28.487": ["Sujeto", "existencia", "ser", "subjetividad", "moral capitalista"],
+            "10.32870/prot.i28.491": ["Foucault", "Deleuze", "Esposito", "subjetividad", "biopolítica"],
+            "10.32870/prot.i28.485": ["Archivo", "historia", "genealogía", "arte", "prácticas", "sentido", "discontinuidades"],
+            "10.32870/prot.i28.489": ["Foucault", "cinismo", "resistencia", "arte"],
+            "10.32870/prot.i28.483": ["Movimientos sociales", "pacientes", "derecho a la salud", "ética"],
+        }
+        self.assertEqual(len(curated), 169)
+        for doi, keywords in expected.items():
+            self.assertEqual(curated[doi]["keywords"], keywords)
+            self.assertTrue(curated[doi]["evidence"].startswith(("http://", "https://")))
 
 
 if __name__ == "__main__":
