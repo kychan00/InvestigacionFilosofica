@@ -640,7 +640,7 @@ function card(record, index) {
       if (hiddenCount) keywordList.append(chip("+" + hiddenCount, "subject-chip topic-more"));
       keywordGroup.append(keywordLabel, keywordList);
     } else {
-      keywordGroup.classList.add(keywordMeta.emptyClass);
+      if (keywordMeta.emptyClass) keywordGroup.classList.add(keywordMeta.emptyClass);
       const empty = document.createElement("span");
       empty.className = "journal-card-topic-empty";
       empty.textContent = keywordMeta.emptyLabel;
