@@ -50,6 +50,44 @@ try {
         assert.ok(layout.journalTop >= layout.navBottom - 2,
           filename + " profile content is covered by quicknav: " + JSON.stringify(layout));
       }
+      if (width > 820) {
+        const layout = await page.evaluate(() => {
+          const profile = document.querySelector(".ji");
+          const masthead = profile.querySelector(".nav-wrap");
+          const quicknav = document.querySelector(".journal-quicknav");
+          const hero = profile.querySelector(".hero");
+          const b = quicknav.getBoundingClientRect();
+          return {
+            inProfile: quicknav.parentElement === profile,
+            followsMasthead: quicknav.previousElementSibling === masthead,
+            position: getComputedStyle(quicknav).position,
+            mastheadBottom: masthead.getBoundingClientRect().bottom,
+            navTop: b.top,
+            navBottom: b.bottom,
+            heroTop: hero.getBoundingClientRect().top,
+            viewportWidth: innerWidth,
+            pageWidth: document.documentElement.scrollWidth
+          };
+        });
+        assert.ok(layout.inProfile && layout.followsMasthead,
+          filename + " navigation should follow its institutional masthead");
+        assert.equal(layout.position, "relative");
+        assert.ok(layout.navTop >= layout.mastheadBottom - 2,
+          filename + " desktop navigation covers the masthead: " + JSON.stringify(layout));
+        assert.ok(layout.heroTop >= layout.navBottom - 2,
+          filename + " desktop navigation covers the hero: " + JSON.stringify(layout));
+        assert.ok(layout.pageWidth <= layout.viewportWidth + 2,
+          filename + " navigation causes horizontal overflow");
+
+        await page.locator('.journal-quicknav [data-quicknav-id="equipo"]').click();
+        assert.equal(new URL(page.url()).hash, "#equipo");
+        const landing = await page.evaluate(() => ({
+          teamTop: document.querySelector("#equipo").getBoundingClientRect().top,
+          stickyBottom: document.querySelector(".nav-wrap").getBoundingClientRect().bottom
+        }));
+        assert.ok(landing.teamTop >= landing.stickyBottom - 2,
+          filename + " team heading hidden by desktop sticky masthead: " + JSON.stringify(landing));
+      }
       await page.locator("#equipo").scrollIntoViewIfNeeded();
       assert.ok(await page.locator(".profile").count() >= 1);
       assert.ok(await page.locator('a[href^="mailto:"]').count() >= 1);
