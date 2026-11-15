@@ -1,4 +1,4 @@
-/* Contrato funcional, sin capturas ni diffs visuales: filtros por tema y número,
+/* Contrato funcional, sin capturas ni diffs visuales: filtros por categoría de relación y número,
  * selección accesible, reinicios independientes, móvil y movimiento reducido.
  */
 import assert from "node:assert/strict";
@@ -42,7 +42,7 @@ try {
     assert.equal(await issues.locator("button").count(),3);
     const maxHeight=await issues.evaluate(node=>getComputedStyle(node).maxHeight);
     assert.equal(maxHeight,"none","Ningún número debe quedar escondido en una lista recortada");
-    const firstCategory=page.locator('#journal-category-chips button[data-taxonomy-value="Ética"]');
+    const firstCategory=page.locator('#journal-category-chips button[data-taxonomy-value="Ética y bioética"]');
     assert.equal(await firstCategory.count(),1);
     await firstCategory.click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),2);
@@ -84,12 +84,12 @@ try {
     assert.equal(await page.locator(".journal-filter-body").isVisible(),true);
     // El selector tradicional debe reflejarse en los chips.
     const politicalValue=await page.locator("#journal-category option").evaluateAll(
-      options=>options.find(option=>option.textContent?.includes("Política"))?.value
+      options=>options.find(option=>option.textContent?.includes("Política y deliberación"))?.value
     );
-    assert.ok(politicalValue,"Must find the Política navigation category");
+    assert.ok(politicalValue,"Must find the Política y deliberación relation category");
     await page.locator("#journal-category").selectOption(politicalValue);
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),1);
-    assert.equal(await page.locator('#journal-category-chips button[data-taxonomy-value="Política"]').getAttribute("aria-pressed"),"true");
+    assert.equal(await page.locator('#journal-category-chips button[data-taxonomy-value="Política y deliberación"]').getAttribute("aria-pressed"),"true");
     await page.locator("#journal-reset").click();
     assert.equal(await page.locator("#journal-card-grid .journal-card").count(),6);
     assert.equal(await page.locator("#journal-category-all").getAttribute("aria-pressed"),"true");
