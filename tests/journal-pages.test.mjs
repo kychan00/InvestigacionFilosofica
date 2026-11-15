@@ -29,6 +29,10 @@ for (const [journal, path] of Object.entries(paths)) {
       assert.match(html, /palabras clave del corpus/i);
       assert.match(html, /categor[ií]as de relaci[oó]n/i);
       assert.match(html, /categor[ií]a de relaci[oó]n/i);
+    } else if (journal === "quadripartita") {
+      assert.match(html, /palabras clave editoriales/i);
+      assert.match(html, /categor[ií]as de relaci[oó]n/i);
+      assert.match(html, /categor[ií]a de relaci[oó]n/i);
     } else {
       assert.match(html, /temas declarados/i);
     }
@@ -36,7 +40,7 @@ for (const [journal, path] of Object.entries(paths)) {
     assert.match(html, /id="journal-issue"/);
     assert.match(html, /journal-filter-toggle/);
     assert.match(html, /journal-atlas-stagebar/);
-    if (journal === "protrepsis") {
+    if (journal === "protrepsis" || journal === "quadripartita") {
       assert.match(html, /Categor[ií]a de relaci[oó]n/i);
       assert.match(html, /palabras clave editoriales se conservan literalmente/i);
     } else {
@@ -49,13 +53,20 @@ test("runtime de revistas separa categorías de relación y palabras clave edito
   const source = await readFile("js/journal-page.js", "utf8");
   const topics = await readFile("js/journal-article-topics.js", "utf8");
   const relations = await readFile("js/protrepsis-relation-categories.js", "utf8");
+  const quadripartitaRelations = await readFile("js/quadripartita-relation-categories.js", "utf8");
   const keywordStatus = await readFile("js/protrepsis-editorial-status.js", "utf8");
   assert.match(source, /protrepsisRelationCategoryMetadata/);
   assert.match(source, /protrepsisRelationCategories/);
   assert.match(source, /PROTREPSIS_KEYWORDS_URL/);
   assert.match(source, /PROTREPSIS_RECOVERY_URL/);
+  assert.match(source, /QUADRIPARTITA_KEYWORDS_URL/);
+  assert.match(source, /QUADRIPARTITA_RECOVERY_URL/);
   assert.match(source, /applyProtrepsisKeywordOverlay/);
   assert.match(source, /applyProtrepsisEditorialResolution/);
+  assert.match(source, /applyQuadripartitaKeywordOverlay/);
+  assert.match(source, /applyQuadripartitaEditorialResolution/);
+  assert.match(source, /quadripartitaRelationCategoryMetadata/);
+  assert.match(source, /quadripartitaRelationCategories/);
   assert.match(source, /editorialKeywordSource: "verified-publication"/);
   assert.match(source, /state\.keyword/);
   assert.match(source, /selectTaxonomyFacet\("keyword"/);
@@ -72,6 +83,10 @@ test("runtime de revistas separa categorías de relación y palabras clave edito
   assert.match(relations, /text-derived-no-keywords/);
   assert.match(relations, /Recepción filosófica/);
   assert.match(relations, /Literatura y creación/);
+  assert.match(quadripartitaRelations, /Teoría de la argumentación/);
+  assert.match(quadripartitaRelations, /Recepción y reseñas/);
+  assert.match(quadripartitaRelations, /keyword-derived/);
+  assert.match(quadripartitaRelations, /text-derived-no-keywords/);
   assert.match(keywordStatus, /Sin palabras clave editoriales/);
   assert.match(keywordStatus, /verified-absent/);
   assert.match(topics, /Palabras clave editoriales/);
