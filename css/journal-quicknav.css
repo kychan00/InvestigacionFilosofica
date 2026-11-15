@@ -2,6 +2,8 @@
 .journal-quicknav { display: none; }
 
 @media (max-width: 820px) {
+  /* Institutional pages lack the journal-page body reset (8px browser margin). */
+  body[data-journal-quicknav] { margin: 0; }
   body[data-journal-quicknav="protrepsis"] {
     --jq-paper: #f6eed8; --jq-ink: #2b2821; --jq-accent: #77581b; --jq-rule: #d5c5a4;
   }
