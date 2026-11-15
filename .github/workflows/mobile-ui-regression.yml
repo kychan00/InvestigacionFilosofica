@@ -28,6 +28,8 @@ on:
       - "scripts/qa/quadripartita-stamps-smoke.mjs"
       - "scripts/qa/quadripartita-postal-taxonomy-smoke.mjs"
       - "tests/quadripartita-postal-taxonomy.test.mjs"
+      - "tests/quadripartita-explorer.test.mjs"
+      - "js/quadripartita-explorer.js"
       - "css/quadripartita-postal-taxonomy.css"
       - "tests/quadripartita-stamps.test.mjs"
       - "js/quadripartita-stamps.js"

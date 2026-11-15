@@ -166,6 +166,25 @@ try {
           "Protrepsis fixture must preserve the historical year span"
         );
       }
+      if (journal === "quadripartita") {
+        assert.equal(await page.locator("#qr-explorer-topics").isVisible(), true);
+        assert.equal(await page.locator("#qr-explorer-issues").isVisible(), false);
+        assert.equal(await page.locator("#qr-explorer-filters").isVisible(), false);
+        const explorerGeometry = await page.locator(".qr-explorer").evaluate(element => ({
+          height: element.getBoundingClientRect().height,
+          viewport: window.innerHeight,
+          overflow: getComputedStyle(element.querySelector(".qr-explorer-panels")).overflowY
+        }));
+        assert.equal(explorerGeometry.overflow, "auto");
+        assert.ok(explorerGeometry.height <= explorerGeometry.viewport);
+        await page.locator('[data-qr-explorer-tab="issues"]').click();
+        assert.equal(await page.locator("#qr-explorer-issues").isVisible(), true);
+        await page.locator("#journal-issue-all").click();
+        await page.locator('[data-qr-explorer-tab="issues"]').press("End");
+        assert.equal(await page.locator('[data-qr-explorer-tab="filters"]').getAttribute("aria-selected"), "true");
+        await page.locator('[data-qr-explorer-tab="filters"]').press("Home");
+        assert.equal(await page.locator('[data-qr-explorer-tab="topics"]').getAttribute("aria-selected"), "true");
+      }
       if (width <= 820) {
         if (journal === "protrepsis") {
           await page.locator('[data-pro-explorer-tab="filters"]').click();
@@ -176,6 +195,11 @@ try {
           assert.equal(await page.locator("#sn-explorer-filters").isVisible(),true);
           assert.equal(await page.locator("#journal-filter-toggle").getAttribute("aria-expanded"), "true");
           assert.equal(await page.locator(".journal-filter-body").isVisible(),true);
+        } else if (journal === "quadripartita") {
+          await page.locator('[data-qr-explorer-tab="filters"]').click();
+          assert.equal(await page.locator("#qr-explorer-filters").isVisible(), true);
+          assert.equal(await page.locator("#journal-filter-toggle").getAttribute("aria-expanded"), "true");
+          assert.equal(await page.locator(".journal-filter-body").isVisible(), true);
         } else {
           assert.equal(await page.locator("#journal-filter-toggle").getAttribute("aria-expanded"), "false");
           assert.equal(await page.locator(".journal-filter-body").isVisible(), false);
@@ -279,6 +303,8 @@ try {
         await page.locator('[data-pro-explorer-tab="filters"]').click();
       } else if (journal === "sincronia") {
         await page.locator('[data-sn-explorer-tab="filters"]').click();
+      } else if (journal === "quadripartita") {
+        await page.locator('[data-qr-explorer-tab="filters"]').click();
       }
       await page.locator("#journal-query").fill(journal === "protrepsis" ? "verdad" : journal === "sincronia" ? "digital" : "inferencias");
       await page.waitForTimeout(30);

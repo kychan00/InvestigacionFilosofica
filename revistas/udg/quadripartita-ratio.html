@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="../../css/journal-atlas-sheet.css?v=20261113-atlas-sheet-v1">
   <link rel="stylesheet" href="../../css/quadripartita-cobalt.css?v=20261113-stamps-v1">
   <link rel="stylesheet" href="../../css/quadripartita-postal-taxonomy.css?v=20261114-relations-v1">
+  <link rel="stylesheet" href="../../css/quadripartita-explorer.css?v=20261115-compact-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body data-journal="quadripartita">
@@ -95,57 +96,65 @@
       <section id="journal-archive-panel" class="journal-panel" aria-label="Archivo de artículos">
         <header class="qr-section-heading"><span>03 / ARCHIVO EDITORIAL</span><h2>Un atlas de <em>argumentos.</em></h2><p>88 publicaciones en 21 números editoriales. Cada tarjeta es una estampilla bibliográfica, con ilustración propia y un artículo que invita a seguir leyendo.</p></header>
         <div class="journal-archive-layout">
-          <aside class="journal-sidebar">
-            <section class="journal-filter-block">
-              <header class="journal-filter-head">
-                <div><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></div>
-                <button id="journal-filter-toggle" class="journal-filter-toggle" type="button" aria-expanded="true">Ocultar</button>
-              </header>
-              <div class="journal-filter-body">
-                <label><span>Buscar</span><input id="journal-query" type="search" autocomplete="off" placeholder="Título, autor, tema…"></label>
-                <label><span>Década</span><select id="journal-decade"></select></label>
-                <label><span>Idioma</span><select id="journal-language"></select></label>
-                <label><span>Número editorial</span><select id="journal-issue"></select></label>
-                <label><span>Categoría de relación</span><select id="journal-category"></select></label>
-                <label><span>Orden</span>
-                  <select id="journal-sort">
-                    <option value="newest">Más recientes</option>
-                    <option value="oldest">Más antiguos</option>
-                    <option value="title">Título A–Z</option>
-                    <option value="authors">Autoría A–Z</option>
-                  </select>
-                </label>
-                <div class="journal-filter-checks">
-                  <label class="journal-filter-check"><input id="journal-doi-only" type="checkbox"> Solo con DOI</label>
-                  <label class="journal-filter-check"><input id="journal-abstract-only" type="checkbox"> Solo con resumen</label>
-                </div>
-                <button id="journal-reset" class="journal-reset" type="button">Limpiar filtros</button>
-              </div>
-            </section>
+          <aside class="journal-sidebar qr-explorer" aria-label="Explorador del archivo de Quadripartita Ratio">
+            <div class="qr-explorer-tabs" role="tablist" aria-label="Elegir panel del catálogo">
+              <button id="qr-explorer-tab-topics" role="tab" type="button" data-qr-explorer-tab="topics" aria-controls="qr-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Categorías</button>
+              <button id="qr-explorer-tab-issues" role="tab" type="button" data-qr-explorer-tab="issues" aria-controls="qr-explorer-issues" aria-selected="false" tabindex="-1"><span aria-hidden="true">№</span> Números</button>
+              <button id="qr-explorer-tab-filters" role="tab" type="button" data-qr-explorer-tab="filters" aria-controls="qr-explorer-filters" aria-selected="false" tabindex="-1"><span aria-hidden="true">☷</span> Filtros</button>
+            </div>
+            <div class="qr-explorer-panels">
+    <section id="qr-explorer-topics" role="tabpanel" aria-labelledby="qr-explorer-tab-topics" data-qr-explorer-panel="topics" class="journal-taxonomy-block qr-postal-taxonomy">
+                  <header class="qr-postal-header">
+                    <div class="qr-postal-overline"><p class="journal-kicker">CLASIFICADOR POSTAL / 01</p><span aria-hidden="true" class="qr-postal-emblem">✳</span></div>
+                    <h2 id="qr-postal-themes">Mapa de navegación</h2>
+                    <p class="qr-postal-deck">Las categorías de relación agrupan artículos conectados: priorizan las palabras clave editoriales verificadas y, cuando no existen, usan título, resumen y tipo documental.</p>
+                    <button id="journal-category-all" class="qr-postal-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                      <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todas las categorías</span><span aria-hidden="true">↗</span>
+                    </button>
+                  </header>
+                  <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de relación"></div>
+                </section>
 
-            <section class="journal-taxonomy-block qr-postal-taxonomy" aria-labelledby="qr-postal-themes">
-              <header class="qr-postal-header">
-                <div class="qr-postal-overline"><p class="journal-kicker">CLASIFICADOR POSTAL / 01</p><span aria-hidden="true" class="qr-postal-emblem">✳</span></div>
-                <h2 id="qr-postal-themes">Mapa de navegación</h2>
-                <p class="qr-postal-deck">Las categorías de relación agrupan artículos conectados: priorizan las palabras clave editoriales verificadas y, cuando no existen, usan título, resumen y tipo documental.</p>
-                <button id="journal-category-all" class="qr-postal-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
-                  <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todas las categorías</span><span aria-hidden="true">↗</span>
-                </button>
-              </header>
-              <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de relación"></div>
-            </section>
+    <section id="qr-explorer-issues" role="tabpanel" aria-labelledby="qr-explorer-tab-issues" data-qr-explorer-panel="issues" hidden class="journal-taxonomy-block journal-issues-block qr-postal-taxonomy qr-postal-issues">
+                  <header class="qr-postal-header">
+                    <div class="qr-postal-overline"><p class="journal-kicker">CLASIFICADOR POSTAL / 02</p><span aria-hidden="true" class="qr-postal-emblem">№</span></div>
+                    <h2 id="qr-postal-issues-title">Ediciones del archivo</h2>
+                    <p class="qr-postal-deck">Seleccione una edición para descubrir sus artículos y conexiones.</p>
+                    <button id="journal-issue-all" class="qr-postal-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
+                      <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todos los números</span><span aria-hidden="true">↗</span>
+                    </button>
+                  </header>
+                  <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
+                </section>
 
-            <section class="journal-taxonomy-block journal-issues-block qr-postal-taxonomy qr-postal-issues" aria-labelledby="qr-postal-issues-title">
-              <header class="qr-postal-header">
-                <div class="qr-postal-overline"><p class="journal-kicker">CLASIFICADOR POSTAL / 02</p><span aria-hidden="true" class="qr-postal-emblem">№</span></div>
-                <h2 id="qr-postal-issues-title">Ediciones del archivo</h2>
-                <p class="qr-postal-deck">Seleccione una edición para descubrir sus artículos y conexiones.</p>
-                <button id="journal-issue-all" class="qr-postal-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">
-                  <span class="qr-postal-all-mark" aria-hidden="true">↺</span><span>Todos los números</span><span aria-hidden="true">↗</span>
-                </button>
-              </header>
-              <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
-            </section>
+    <section id="qr-explorer-filters" role="tabpanel" aria-labelledby="qr-explorer-tab-filters" data-qr-explorer-panel="filters" hidden class="journal-filter-block">
+                  <header class="journal-filter-head">
+                    <div><p class="journal-kicker">EXPLORACIÓN</p><h2>Filtros del corpus</h2></div>
+                    <button id="journal-filter-toggle" class="journal-filter-toggle" type="button" aria-expanded="true">Ocultar</button>
+                  </header>
+                  <div class="journal-filter-body">
+                    <label><span>Buscar</span><input id="journal-query" type="search" autocomplete="off" placeholder="Título, autor, tema…"></label>
+                    <label><span>Década</span><select id="journal-decade"></select></label>
+                    <label><span>Idioma</span><select id="journal-language"></select></label>
+                    <label><span>Número editorial</span><select id="journal-issue"></select></label>
+                    <label><span>Categoría de relación</span><select id="journal-category"></select></label>
+                    <label><span>Orden</span>
+                      <select id="journal-sort">
+                        <option value="newest">Más recientes</option>
+                        <option value="oldest">Más antiguos</option>
+                        <option value="title">Título A–Z</option>
+                        <option value="authors">Autoría A–Z</option>
+                      </select>
+                    </label>
+                    <div class="journal-filter-checks">
+                      <label class="journal-filter-check"><input id="journal-doi-only" type="checkbox"> Solo con DOI</label>
+                      <label class="journal-filter-check"><input id="journal-abstract-only" type="checkbox"> Solo con resumen</label>
+                    </div>
+                    <button id="journal-reset" class="journal-reset" type="button">Limpiar filtros</button>
+                  </div>
+                </section>
+            </div>
+            <p class="qr-explorer-caption">QUADRIPARTITA RATIO · 21 NÚMEROS · ARCHIVO POSTAL</p>
           </aside>
 
           <div>
@@ -228,6 +237,7 @@
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
   <script type="module" src="../../js/journal-page.js?v=20261114-quadripartita-relations-v1"></script>
+  <script type="module" src="../../js/quadripartita-explorer.js?v=20261115-compact-v1"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
   <script type="module" src="../../js/quadripartita-stamps.js?v=20261113-stamps-v1"></script>
 </body>
