@@ -21,6 +21,7 @@
   <title>Sincronía · Investigación Filosófica</title>
   <link rel="stylesheet" href="../../css/journal-page.css?v=20261112-history-v6">
   <link rel="stylesheet" href="../../css/sincronia-stamps.css?v=20261113-safari-edges-v2">
+  <link rel="stylesheet" href="../../css/sincronia-taxonomy.css?v=20261115-relations-v1">
   <link rel="stylesheet" href="../../css/journal-atlas-sheet.css?v=20261113-atlas-sheet-v1">
   <link rel="stylesheet" href="../../css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
@@ -128,18 +129,18 @@
         <div class="journal-archive-layout">
           <aside class="journal-sidebar sn-explorer" aria-label="Explorador del archivo de Sincronía">
             <div class="sn-explorer-tabs" role="tablist" aria-label="Elegir panel del archivo">
-              <button id="sn-explorer-tab-topics" role="tab" type="button" data-sn-explorer-tab="topics" aria-controls="sn-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Temas</button>
+              <button id="sn-explorer-tab-topics" role="tab" type="button" data-sn-explorer-tab="topics" aria-controls="sn-explorer-topics" aria-selected="true" tabindex="0"><span aria-hidden="true">✳</span> Categorías</button>
               <button id="sn-explorer-tab-issues" role="tab" type="button" data-sn-explorer-tab="issues" aria-controls="sn-explorer-issues" aria-selected="false" tabindex="-1"><span aria-hidden="true">№</span> Números</button>
               <button id="sn-explorer-tab-filters" role="tab" type="button" data-sn-explorer-tab="filters" aria-controls="sn-explorer-filters" aria-selected="false" tabindex="-1"><span aria-hidden="true">☷</span> Filtros</button>
             </div>
             <div class="sn-explorer-panels">
               <section id="sn-explorer-topics" role="tabpanel" aria-labelledby="sn-explorer-tab-topics" data-sn-explorer-panel="topics" class="journal-taxonomy-block">
-                <header><p class="journal-kicker">CATÁLOGO / 01 — TEMAS</p><h2>Mapa de navegación</h2><p class="sn-explorer-hint">Categorías derivadas únicamente para recorrer el corpus.</p></header>
-                <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de navegación"></div>
+                <header><p class="journal-kicker">CATÁLOGO / 01 — RELACIONES</p><h2>Mapa de categorías</h2><p class="sn-explorer-hint">Áreas interdisciplinarias derivadas de etiquetas bibliográficas, títulos y resúmenes; no son palabras clave editoriales.</p><button id="journal-category-all" class="sn-taxonomy-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">Todas las categorías <span aria-hidden="true">↺</span></button></header>
+                <div id="journal-category-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por categoría de relación"></div>
               </section>
 
               <section id="sn-explorer-issues" role="tabpanel" aria-labelledby="sn-explorer-tab-issues" data-sn-explorer-panel="issues" hidden class="journal-taxonomy-block journal-issues-block">
-                <header><p class="journal-kicker">CATÁLOGO / 02 — NÚMEROS</p><h2>Ediciones del archivo</h2><p class="sn-explorer-hint">Números editoriales conservados en el archivo de Sincronía.</p></header>
+                <header><p class="journal-kicker">CATÁLOGO / 02 — NÚMEROS</p><h2>Ediciones del archivo</h2><p class="sn-explorer-hint">Números editoriales conservados en el archivo de Sincronía.</p><button id="journal-issue-all" class="sn-taxonomy-all" type="button" aria-pressed="true" aria-controls="journal-card-grid">Todos los números <span aria-hidden="true">↺</span></button></header>
                 <div id="journal-issue-chips" class="journal-taxonomy-list" role="group" aria-label="Filtrar por número editorial"></div>
               </section>
 
@@ -153,7 +154,7 @@
                   <label><span>Década</span><select id="journal-decade"></select></label>
                   <label><span>Idioma</span><select id="journal-language"></select></label>
                   <label><span>Número editorial</span><select id="journal-issue"></select></label>
-                  <label><span>Categoría de navegación</span><select id="journal-category"></select></label>
+                  <label><span>Categoría de relación</span><select id="journal-category"></select></label>
                   <label><span>Orden</span>
                     <select id="journal-sort">
                       <option value="newest">Más recientes</option>
@@ -244,9 +245,9 @@
       <section id="journal-insights-panel" class="journal-panel" hidden aria-label="Temas y autorías">
         <div class="journal-insights-grid">
           <article class="journal-insight">
-            <p class="journal-kicker">TEMAS DECLARADOS</p>
-            <h2>Vocabulario del corpus</h2>
-            <p>Etiquetas publicadas por la fuente cuando están disponibles. No se sustituyen por inferencias automáticas.</p>
+            <p class="journal-kicker">ETIQUETAS BIBLIOGRÁFICAS</p>
+            <h2>Temas registrados y palabras clave</h2>
+            <p>Consulte y filtre los temas del registro. Sólo se llaman «palabras clave editoriales» cuando se ha verificado su publicación; las categorías de relación son una clasificación independiente.</p>
             <div id="journal-topic-chips" class="journal-taxonomy-list"></div>
           </article>
           <article class="journal-insight">
@@ -258,7 +259,7 @@
           <article class="journal-insight">
             <p class="journal-kicker">MÉTODO</p>
             <h2>Dos capas, no una sola verdad</h2>
-            <p>Las categorías visibles son una capa derivada únicamente para navegar. El Atlas distingue explícitamente relaciones con vector Qwen verificado de similitud textual de respaldo.</p>
+            <p>Las categorías de relación son agrupaciones derivadas; los temas bibliográficos se muestran con su procedencia, sin hacerlos pasar por palabras clave de la revista. El Atlas distingue conexiones Qwen verificadas de similitud textual.</p>
           </article>
         </div>
       </section>
@@ -271,7 +272,7 @@
   </div>
 
   <script type="module" src="../../js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="../../js/journal-page.js?v=20261113-reader-v1"></script>
+  <script type="module" src="../../js/journal-page.js?v=20261115-sincronia-relations-v1"></script>
   <script type="module" src="../../js/sincronia-explorer.js?v=20261113-compact-panel-v1"></script>
   <script type="module" src="../../js/sincronia-stamps.js?v=20261113-editorial-stamps-v1"></script>
   <script type="module" src="../../js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
