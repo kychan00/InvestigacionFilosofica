@@ -494,9 +494,22 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         )
 
 
+
+    def test_batch17_ruletistul_literal_editorial_keywords(self):
+        curated = load_protrepsis_editorial_keywords()
+        item = curated["10.32870/prot.i15.200"]
+        self.assertEqual(
+            item["keywords"],
+            ["Cărtărescu", "filosofía", "Deleuze", "literatura"],
+        )
+        self.assertEqual(
+            item["evidence"],
+            "https://www.researchgate.net/publication/352724640_Ruletistul_Un_ejercicio_empirico_ensayo",
+        )
+
     def test_batch16_complete_verified_records(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertEqual(len(curated), 155)
+        self.assertEqual(len(curated), 156)
         self.assertEqual(
             curated["10.32870/prot.i21.321"]["keywords"],
             ["Jürgen Habermas", "movimientos feministas",
