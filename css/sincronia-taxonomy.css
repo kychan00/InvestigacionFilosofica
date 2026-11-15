@@ -1,0 +1,191 @@
+/* Sincronía · archivador de categorías y etiquetas.
+ * Se mantiene el lenguaje filatélico; las categorías derivadas y los
+ * temas documentados tienen estilos y etiquetas de procedencia distintos.
+ */
+body[data-journal="sincronia"] .sn-explorer .sn-taxonomy-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 45px;
+  margin-top: 16px;
+  padding: 9px 13px;
+  border: 1px solid #c8cdbf;
+  background: #fffdf3;
+  color: #253e50;
+  text-align: left;
+  cursor: pointer;
+  font: 700 .72rem/1.3 var(--jp-sans);
+  transition: color .16s ease, background-color .16s ease, border-color .16s ease;
+}
+
+body[data-journal="sincronia"] .sn-explorer .sn-taxonomy-all[aria-pressed="true"] {
+  background: #dce7dd;
+  border-color: #55755e;
+}
+
+body[data-journal="sincronia"] .sn-explorer .sn-taxonomy-all.has-selection,
+body[data-journal="sincronia"] .sn-explorer .sn-taxonomy-all:hover {
+  background: #253f52;
+  border-color: #253f52;
+  color: #fff;
+}
+
+body[data-journal="sincronia"] .sn-explorer .sn-taxonomy-all:focus-visible {
+  outline: 3px solid #a9463c;
+  outline-offset: 2px;
+}
+
+body[data-journal="sincronia"] .sn-explorer .taxonomy-chip {
+  min-height: 46px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+body[data-journal="sincronia"] .sn-explorer .journal-taxonomy-list {
+  gap: 8px;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-taxonomy {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-topic-group {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  padding: 10px 0 0;
+  border-top: 1px solid rgba(43, 61, 65, .25);
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-topic-label {
+  color: #294657;
+  font: 700 .61rem/1.4 var(--jp-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .relation-category-chip,
+body[data-journal="sincronia"] .sn-stamp-card .keyword-filter-chip {
+  min-height: 33px;
+  max-width: 100%;
+  padding: 6px 10px;
+  border-radius: 0;
+  color: #173d52;
+  cursor: pointer;
+  font: 600 .7rem/1.4 var(--jp-sans);
+  white-space: normal;
+  text-align: left;
+  overflow-wrap: anywhere;
+  transition: background-color .16s ease, color .16s ease, transform .16s ease;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .relation-category-chip {
+  border: 1px solid #48667a;
+  background: #dce8e9;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .keyword-filter-chip {
+  border: 1px dashed #967550;
+  background: #f7f0df;
+  color: #6d4726;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .relation-category-chip:hover,
+body[data-journal="sincronia"] .sn-stamp-card .keyword-filter-chip:hover {
+  transform: translateY(-1px);
+}
+
+body[data-journal="sincronia"] .sn-stamp-card :is(.relation-category-chip,.keyword-filter-chip)[aria-pressed="true"] {
+  color: #fff;
+  background: #a63d3a;
+  border-color: #a63d3a;
+  outline: 2px solid #fff9ee;
+  outline-offset: -4px;
+}
+
+body[data-journal="sincronia"] .sn-stamp-card .journal-card-topic-empty {
+  display: inline-block;
+  justify-self: start;
+  color: #655d52;
+  font: italic 400 .72rem/1.5 var(--jp-sans);
+}
+
+body[data-journal="sincronia"] #journal-topic-chips .topic-category-filter {
+  cursor: pointer;
+  min-height: 44px;
+  transition: background .16s ease, color .16s ease;
+}
+
+body[data-journal="sincronia"] #journal-topic-chips .topic-category-filter[aria-pressed="true"] {
+  background: #a63d3a;
+  color: #fff;
+  border-color: #a63d3a;
+}
+
+body[data-journal="sincronia"] .journal-filter-feedback {
+  position: fixed;
+  z-index: 1200;
+  right: 16px;
+  bottom: 16px;
+  max-width: min(365px, calc(100vw - 32px));
+  padding: 12px 16px;
+  background: #f8f4e7;
+  border: 1px solid #8e9ca1;
+  color: #233f50;
+  box-shadow: 4px 4px 0 #c7b7a1;
+  font: 700 .77rem/1.45 var(--jp-sans);
+  opacity: 0;
+  transform: translateY(7px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+body[data-journal="sincronia"] .journal-filter-feedback.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body[data-journal="sincronia"] .journal-card-grid.is-filter-refreshing {
+  animation: sn-filter-refresh .45s ease-out;
+}
+
+@keyframes sn-filter-refresh {
+  from { opacity: .65; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  body[data-journal="sincronia"] .sn-stamp-card .relation-category-chip,
+  body[data-journal="sincronia"] .sn-stamp-card .keyword-filter-chip {
+    min-height: 42px;
+  }
+  body[data-journal="sincronia"] .journal-filter-feedback {
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-journal="sincronia"] .sn-stamp-card :is(.relation-category-chip,.keyword-filter-chip),
+  body[data-journal="sincronia"] .sn-explorer .sn-taxonomy-all,
+  body[data-journal="sincronia"] .journal-filter-feedback,
+  body[data-journal="sincronia"] #journal-topic-chips .topic-category-filter {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  body[data-journal="sincronia"] .journal-card-grid.is-filter-refreshing {
+    animation: none !important;
+  }
+}
