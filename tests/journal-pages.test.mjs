@@ -34,7 +34,7 @@ for (const [journal, path] of Object.entries(paths)) {
       assert.match(html, /categor[ií]as de relaci[oó]n/i);
       assert.match(html, /categor[ií]a de relaci[oó]n/i);
     } else {
-      assert.match(html, /temas declarados/i);
+      assert.match(html, /etiquetas bibliográficas/i);
     }
     assert.match(html, /id="journal-category"/);
     assert.match(html, /id="journal-issue"/);
@@ -44,7 +44,7 @@ for (const [journal, path] of Object.entries(paths)) {
       assert.match(html, /Categor[ií]a de relaci[oó]n/i);
       assert.match(html, /palabras clave editoriales se conservan literalmente/i);
     } else {
-      assert.match(html, /Categor[ií]a de navegaci[oó]n/i);
+      assert.match(html, /Categor[ií]a de relaci[oó]n/i);
     }
   });
 }
