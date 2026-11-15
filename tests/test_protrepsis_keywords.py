@@ -509,7 +509,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_batch16_complete_verified_records(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertEqual(len(curated), 175)
+        self.assertEqual(len(curated), 211)
         self.assertEqual(
             curated["10.32870/prot.i21.321"]["keywords"],
             ["Jürgen Habermas", "movimientos feministas",
@@ -605,7 +605,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             "10.32870/prot.i28.489": ["Foucault", "cinismo", "resistencia", "arte"],
             "10.32870/prot.i28.483": ["Movimientos sociales", "pacientes", "derecho a la salud", "ética"],
         }
-        self.assertEqual(len(curated), 175)
+        self.assertEqual(len(curated), 211)
         for doi, keywords in expected.items():
             self.assertEqual(curated[doi]["keywords"], keywords)
             self.assertTrue(curated[doi]["evidence"].startswith(("http://", "https://")))
@@ -692,7 +692,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             self.assertIn(doi, curated)
             self.assertEqual(curated[doi]["keywords"], keywords)
             self.assertEqual(curated[doi]["evidence"], issue_url)
-        self.assertEqual(len(curated), 175)
+        self.assertEqual(len(curated), 211)
 
 
     def test_i27_452_literal_editorial_keywords(self):
@@ -700,7 +700,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         item = curated["10.32870/prot.i27.452"]
         self.assertEqual(item["keywords"], ["Crítica", "metafísica", "teología"])
         self.assertEqual(item["evidence"], "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/640")
-        self.assertEqual(len(curated), 175)
+        self.assertEqual(len(curated), 211)
 
 
     def test_i27_461_literal_editorial_keywords(self):
@@ -711,7 +711,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             ["Modernidad", "naturaleza", "Estado", "Ilustración", "psicoanálisis"],
         )
         self.assertEqual(item["evidence"], "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461")
-        self.assertEqual(len(curated), 175)
+        self.assertEqual(len(curated), 211)
 
 
     def test_issue_27_complete_literal_editorial_keywords(self):
@@ -731,7 +731,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         for doi, keywords in expected.items():
             self.assertIn(doi, curated)
             self.assertEqual(curated[doi]["keywords"], keywords)
-        self.assertEqual(len(curated), 175)
+        self.assertEqual(len(curated), 211)
 
 
     def test_i24_420_literal_editorial_keywords(self):
@@ -742,7 +742,272 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
             ["Lógica", "teoría pictórica", "lenguaje", "sintaxis", "semántica", "nombres", "cuantificación", "silencio"],
         )
         self.assertEqual(item["evidence"], "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420")
-        self.assertEqual(len(curated), 175)
+        self.assertEqual(len(curated), 211)
+
+
+    def test_final_36_literal_editorial_keyword_sets(self):
+        curated = load_protrepsis_editorial_keywords()
+        expected = {
+                "10.32870/prot.i25.409": [
+                        "Asco",
+                        "Incomprensión",
+                        "Objeto",
+                        "Ungeheuer",
+                        "Nihilismo",
+                        "Knausgård"
+                ],
+                "10.32870/prot.i25.417": [
+                        "Ontología",
+                        "Tiempo",
+                        "Inenmendabilidad",
+                        "Documentalidad",
+                        "Objetividad"
+                ],
+                "10.32870/prot.i25.430": [
+                        "Epistemología",
+                        "Hechos",
+                        "Interpretación",
+                        "Sujeto",
+                        "Verdad"
+                ],
+                "10.32870/prot.i23.345": [
+                        "deconstrucción",
+                        "Derrida",
+                        "occidente",
+                        "metafísica",
+                        "estructura",
+                        "poder",
+                        "logos"
+                ],
+                "10.32870/prot.i23.363": [
+                        "pathos",
+                        "sabiduría",
+                        "Eros",
+                        "élenchos",
+                        "apertura"
+                ],
+                "10.32870/prot.i23.406": [
+                        "Hannah Arendt",
+                        "aparecer",
+                        "contingencia",
+                        "comprender",
+                        "mundo"
+                ],
+                "10.32870/prot.i22.346": [
+                        "Filosofía",
+                        "cristianismo",
+                        "Ilustración",
+                        "crisis mimética",
+                        "trampa de la cruz"
+                ],
+                "10.32870/prot.i22.351": [
+                        "Afectividad",
+                        "filosofía de la educación",
+                        "existencialismo",
+                        "ética",
+                        "educación moral"
+                ],
+                "10.32870/prot.i22.356": [
+                        "Amor",
+                        "Yo",
+                        "el Otro",
+                        "totalidad",
+                        "deseo",
+                        "obra"
+                ],
+                "10.32870/prot.i21.315": [
+                        "sexismo",
+                        "segregación",
+                        "estereotipo",
+                        "prejuicio"
+                ],
+                "10.32870/prot.i19.254": [
+                        "Rancière",
+                        "crítica",
+                        "marxismo",
+                        "desacuerdo",
+                        "disenso"
+                ],
+                "10.32870/prot.i19.255": [
+                        "fundamentos del conocimiento",
+                        "investigación",
+                        "crítica",
+                        "ciencia"
+                ],
+                "10.32870/prot.i19.257": [
+                        "dignidad",
+                        "moral",
+                        "valor absoluto",
+                        "naturaleza no humana",
+                        "antropocentrismo"
+                ],
+                "10.32870/prot.i19.285": [
+                        "estratificación estética",
+                        "arte digital",
+                        "estética modal",
+                        "Hartman",
+                        "estética de lo visual"
+                ],
+                "10.32870/prot.i19.305": [
+                        "intuición",
+                        "evidencia",
+                        "metafilosofía",
+                        "Cappelen",
+                        "definiciones"
+                ],
+                "10.32870/prot.i18.232": [
+                        "pluralismo",
+                        "relativismo",
+                        "fundamentalismo",
+                        "ética",
+                        "cultura"
+                ],
+                "10.32870/prot.i18.264": [
+                        "tolerancia",
+                        "Ilustración",
+                        "fanatismo",
+                        "democracia"
+                ],
+                "10.32870/prot.i18.266": [
+                        "filosofía moderna",
+                        "filosofía política",
+                        "problema teológico-político",
+                        "cartas filosóficas",
+                        "construcción del nuevo mundo"
+                ],
+                "10.32870/prot.i18.268": [
+                        "filosofía de la ciencia",
+                        "lógica",
+                        "argumento",
+                        "inferencia",
+                        "explicación",
+                        "concepto"
+                ],
+                "10.32870/prot.i17.234": [
+                        "objeto",
+                        "realismo",
+                        "fenómeno",
+                        "noúmeno",
+                        "experiencia estética",
+                        "Ontología orientada a objetos"
+                ],
+                "10.32870/prot.i17.244": [
+                        "vacuidad",
+                        "ateísmo",
+                        "espiritualidad",
+                        "carencia",
+                        "significación"
+                ],
+                "10.32870/prot.i17.245": [
+                        "valor",
+                        "mercancía",
+                        "negatividad",
+                        "función simbólica",
+                        "sujeto y deseo del Otro"
+                ],
+                "10.32870/prot.i16.219": [
+                        "hermenéutica",
+                        "analogía",
+                        "hermenéutica analógica",
+                        "univocismo",
+                        "equivocismo",
+                        "Vattimo",
+                        "Velasco"
+                ],
+                "10.32870/prot.i15.186": [
+                        "sujeto",
+                        "racionalidad",
+                        "tragedia"
+                ],
+                "10.32870/prot.i15.195": [
+                        "Mahatma Gandhi",
+                        "parresiasta",
+                        "socialismo no-violento",
+                        "Latinoamérica",
+                        "Lanza del Vasto",
+                        "Javier Sicilia"
+                ],
+                "10.32870/prot.i15.196": [
+                        "política",
+                        "socialismo",
+                        "utopía",
+                        "teoría",
+                        "praxis"
+                ],
+                "10.32870/prot.i15.198": [
+                        "ideología",
+                        "cualificación",
+                        "sometimiento",
+                        "sujeto",
+                        "cambio social"
+                ],
+                "10.32870/prot.i15.199": [
+                        "sí mismo",
+                        "otro",
+                        "prójimo",
+                        "extranjero",
+                        "origen",
+                        "ideas",
+                        "Cohen",
+                        "Heidegger",
+                        "Levinas"
+                ],
+                "10.32870/prot.i15.202": [
+                        "avance de publicación"
+                ],
+                "10.32870/prot.i14.165": [
+                        "Sentido",
+                        "Deleuze",
+                        "filosofía y literatura",
+                        "novela"
+                ],
+                "10.32870/prot.i14.166": [
+                        "silencio",
+                        "ontología",
+                        "linguística",
+                        "hermenéutica",
+                        "analógica",
+                        "analogía",
+                        "univocidad",
+                        "equivocidad"
+                ],
+                "10.32870/prot.i14.176": [
+                        "Sade",
+                        "filosofía",
+                        "ley",
+                        "límite"
+                ],
+                "10.32870/prot.i13.151": [
+                        "Maquiavelo",
+                        "educación",
+                        "política",
+                        "cristianismo",
+                        "Duch",
+                        "Aristóteles",
+                        "Biblia",
+                        "Jesús"
+                ],
+                "10.32870/prot.i11-12.138": [
+                        "teoría M",
+                        "teoría de cuerdas",
+                        "arché"
+                ],
+                "10.32870/prot.i7-8.107": [
+                        "Galileo",
+                        "Aristotelismo",
+                        "heliocentrismo",
+                        "geocentrismo",
+                        "física clásica"
+                ],
+                "10.32870/prot.i2.22": [
+                        "Ian Hacking"
+                ]
+        }
+        self.assertEqual(len(expected), 36)
+        for doi, keywords in expected.items():
+            self.assertIn(doi, curated)
+            self.assertEqual(curated[doi]["keywords"], keywords)
+        self.assertEqual(len(curated), 211)
 
 
 if __name__ == "__main__":
