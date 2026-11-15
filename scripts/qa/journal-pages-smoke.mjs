@@ -166,6 +166,26 @@ try {
           "Protrepsis fixture must preserve the historical year span"
         );
       }
+      if (journal === "sincronia") {
+        // Sincronía must expose richer navigation without mislabeling subjects
+        // as published editorial keywords.
+        assert.equal(await page.locator("#journal-category-all").getAttribute("aria-pressed"), "true");
+        assert.equal(await page.locator("#journal-issue-all").getAttribute("aria-pressed"), "true");
+        assert.ok(await page.locator(".journal-card .relation-category-chip").count() >= 1);
+        assert.ok(await page.locator(".journal-card .keyword-filter-chip").count() >= 1);
+        assert.ok(await page.locator('.journal-card-topic-group[data-topic-origin="bibliographic"]').count() >= 1);
+        const firstCategory = page.locator("#journal-category-chips .taxonomy-chip").first();
+        await firstCategory.click();
+        assert.equal(await firstCategory.getAttribute("aria-pressed"), "true");
+        await page.locator("#journal-category-all").click();
+        assert.equal(await page.locator("#journal-category-all").getAttribute("aria-pressed"), "true");
+        const firstSubject = page.locator(".journal-card .keyword-filter-chip").first();
+        await firstSubject.click();
+        assert.equal(await page.locator(".journal-card .keyword-filter-chip[aria-pressed='true']").count() >= 1, true);
+        await page.locator(".journal-card .keyword-filter-chip[aria-pressed='true']").first().click();
+        assert.equal(await page.locator("#journal-category-all").getAttribute("aria-pressed"), "true");
+        assert.equal(await page.locator(".journal-card").count(), expected);
+      }
       if (journal === "quadripartita") {
         assert.equal(await page.locator("#qr-explorer-topics").isVisible(), true);
         assert.equal(await page.locator("#qr-explorer-issues").isVisible(), false);
