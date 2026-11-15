@@ -24,7 +24,7 @@ test("chips y resets de Protrepsis forman parte del catálogo, no de otras revis
   const sincronia=await readFile("revistas/udg/sincronia.html","utf8");
   assert.match(sincronia,/journal-category-all/);
   assert.match(sincronia,/journal-issue-all/);
-  assert.match(sincronia,/sincronia-taxonomy\\.css/);
+  assert.ok(sincronia.includes("sincronia-taxonomy.css"));
   assert.doesNotMatch(sincronia,/protrepsis-curatorial-chips|quadripartita-postal-taxonomy/);
 });
 
