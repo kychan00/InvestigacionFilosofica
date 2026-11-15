@@ -4,8 +4,8 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "protrepsisWithDOI": 247,
-    "curatedWithLiteralEditorialKeywords": 172,
-    "awaitingPublicationEvidence": 75,
+    "curatedWithLiteralEditorialKeywords": 174,
+    "awaitingPublicationEvidence": 73,
     "historicalSupplementPending": 22,
     "historicalOriginalResearchToVerify": 6,
     "explicitReviewInterviewOrBibliographicTitle": 21,
@@ -20,8 +20,6 @@
     "10.32870/prot.i14.176"
   ],
   "nextTenCandidatesWithoutEditorialEvidence": [
-    "10.32870/prot.i27.463",
-    "10.32870/prot.i27.468",
     "10.32870/prot.i24.420",
     "10.32870/prot.i25.409",
     "10.32870/prot.i25.417",
@@ -29,7 +27,9 @@
     "10.32870/prot.i21.315",
     "10.32870/prot.i22.346",
     "10.32870/prot.i22.351",
-    "10.32870/prot.i22.356"
+    "10.32870/prot.i22.356",
+    "10.32870/prot.i23.345",
+    "10.32870/prot.i23.363"
   ],
   "records": [
     {
@@ -155,46 +155,6 @@
       "genreTitleSignal": "not-explicit-in-title",
       "editorialKeywordStatus": "not-verified",
       "recoveryLane": "historical-first-page-needed"
-    },
-    {
-      "doi": "10.32870/prot.i27.463",
-      "title": "Kant y la clausura determinista",
-      "year": 2024,
-      "issue": "27",
-      "authors": [
-        "Miguel Ángel Aponte Reyes"
-      ],
-      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463",
-      "publisherRelatedLinks": [
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463/654",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463/655",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463/657"
-      ],
-      "inHistoricalSupplement": false,
-      "hasPublisherAbstract": true,
-      "genreTitleSignal": "not-explicit-in-title",
-      "editorialKeywordStatus": "not-verified",
-      "recoveryLane": "article-original-keywords-check"
-    },
-    {
-      "doi": "10.32870/prot.i27.468",
-      "title": "Kant y la construcción del significado",
-      "year": 2024,
-      "issue": "27",
-      "authors": [
-        "Lauro Gutierrez Castro"
-      ],
-      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468",
-      "publisherRelatedLinks": [
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468/628",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468/629",
-        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468/630"
-      ],
-      "inHistoricalSupplement": false,
-      "hasPublisherAbstract": true,
-      "genreTitleSignal": "not-explicit-in-title",
-      "editorialKeywordStatus": "not-verified",
-      "recoveryLane": "article-original-keywords-check"
     },
     {
       "doi": "10.32870/prot.i24.420",
