@@ -13,7 +13,7 @@ test("chips y resets de Protrepsis forman parte del catálogo, no de otras revis
   assert.match(page,/Se derivan primero de las palabras clave editoriales/);
   assert.match(page,/Todas las categorías/);
   assert.match(page,/Todos los números/);
-  assert.match(page,/protrepsis-curatorial-chips\.css\?v=20261113-museum-chips-v1/);
+  assert.match(page,/protrepsis-curatorial-chips\.css\?v=20261114-relation-categories-v1/);
   assert.match(page,/journal-page\.js\?v=\d{8}-[a-z0-9-]+/);
   // Quadripartita now intentionally shares the independent reset behavior,
   // but it must never load Protrepsis's museum-ticket visual system.
