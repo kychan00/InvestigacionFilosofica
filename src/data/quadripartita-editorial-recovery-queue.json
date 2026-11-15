@@ -5,100 +5,12 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "quadripartitaWithDOI": 88,
-    "curatedWithLiteralEditorialKeywords": 48,
-    "awaitingPublicationEvidence": 33,
-    "confirmedWithoutEditorialKeywords": 7,
-    "fullyResolved": 55
+    "curatedWithLiteralEditorialKeywords": 57,
+    "awaitingPublicationEvidence": 22,
+    "confirmedWithoutEditorialKeywords": 9,
+    "fullyResolved": 66
   },
   "records": [
-    {
-      "doi": "10.32870/qr.v6i11.121",
-      "title": "La Falsa historia del origen de las falacias",
-      "issue": "11",
-      "issueYear": 2021,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/121",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v6i11.124",
-      "title": "Cuatro modelos de argumento",
-      "issue": "11",
-      "issueYear": 2021,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/124",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v6i11.125",
-      "title": "Sobre las cuestiones en pragma-dialéctica estándar",
-      "issue": "11",
-      "issueYear": 2021,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/125",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v6i12.127",
-      "title": "La argumentación multimodal en el ámbito de la deliberación bioética",
-      "issue": "12",
-      "issueYear": 2021,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/127",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v6i12.128",
-      "title": "La infortunada historia de la dialéctica",
-      "issue": "12",
-      "issueYear": 2021,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/128",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v6i12.130",
-      "title": "Reseña de la colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara",
-      "issue": "12",
-      "issueYear": 2021,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/130",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v7i13.129",
-      "title": "Causa dudosa y conocimiento: las insinuaciones de Simone de Beauvoir y de John Milton",
-      "issue": "13",
-      "issueYear": 2022,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/129",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v7i13.132",
-      "title": "Colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara. Segunda entrega",
-      "issue": "13",
-      "issueYear": 2022,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/132",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v7i13.134",
-      "title": "Conceptos esencialmente polémicos.",
-      "issue": "13",
-      "issueYear": 2022,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/134",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v7i14.136",
-      "title": "Teorías de la composición discursiva en la Antigüedad griega",
-      "issue": "14",
-      "issueYear": 2022,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/136",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v7i14.144",
-      "title": "Argumentación in statu nascendi: el poder del dilema moral",
-      "issue": "14",
-      "issueYear": 2022,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/144",
-      "editorialKeywordStatus": "pending-verification"
-    },
     {
       "doi": "10.32870/qr.v8i15.139",
       "title": "¿Es útil la lógica en filosofía?",
@@ -357,6 +269,30 @@
       "editorialKeywordStatus": "verified-absent",
       "evidence": [
         "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/73"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v6i12.130",
+      "title": "Reseña de la colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara",
+      "issue": "12",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/130"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v7i13.132",
+      "title": "Colección “Tablero de Disertaciones” de la Editorial Universidad de Guadalajara. Segunda entrega",
+      "issue": "13",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/132"
       ],
       "verifiedAt": "2026-11-14",
       "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
