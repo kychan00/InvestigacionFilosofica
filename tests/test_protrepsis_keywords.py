@@ -509,7 +509,7 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
 
     def test_batch16_complete_verified_records(self):
         curated = load_protrepsis_editorial_keywords()
-        self.assertEqual(len(curated), 159)
+        self.assertEqual(len(curated), 161)
         self.assertEqual(
             curated["10.32870/prot.i21.321"]["keywords"],
             ["Jürgen Habermas", "movimientos feministas",
@@ -576,6 +576,18 @@ class ProtrepsisKeywordParserTest(unittest.TestCase):
         self.assertEqual(
             item["evidence"],
             "https://www.academia.edu/121753198/Estudio_introductorio_a_las_bipolaridades_del_amor_en_el_pensamiento_occidental_premoderno_y_moderno",
+        )
+
+
+    def test_batch17_i18_262_and_i20_276_literal_editorial_keywords(self):
+        curated = load_protrepsis_editorial_keywords()
+        self.assertEqual(
+            curated["10.32870/prot.i18.262"]["keywords"],
+            ["Cristianismo", "Ilustración", "tolerancia"],
+        )
+        self.assertEqual(
+            curated["10.32870/prot.i20.276"]["keywords"],
+            ["Enseñanza", "pedagogía", "alfabetización", "escuela"],
         )
 
 

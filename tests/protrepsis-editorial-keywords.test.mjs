@@ -1511,8 +1511,8 @@ test("lote 16 parcial: i11-12.137 e i13.152 conservan palabras clave editoriales
 
 test("lote 16 completo: seis DOI finales conservan palabras clave editoriales verificadas", () => {
   const records = Array.isArray(overlay.records) ? overlay.records : [];
-  assert.equal(records.length, 159);
-  assert.equal(new Set(records.map(record => record.doi)).size, 159);
+  assert.equal(records.length, 161);
+  assert.equal(new Set(records.map(record => record.doi)).size, 161);
 
   const expected = new Map([
     ["10.32870/prot.i21.321", ["Jürgen Habermas", "movimientos feministas", "teoría de la esfera pública", "Jean Cohen y Andrew Arato"]],
@@ -1583,4 +1583,20 @@ test("lote 17: i22.366 conserva las palabras clave impresas del facsímil de Pro
   assert.equal(record.evidence,
     "https://www.academia.edu/121753198/Estudio_introductorio_a_las_bipolaridades_del_amor_en_el_pensamiento_occidental_premoderno_y_moderno");
   assert.equal(record.verifiedAt, "2026-11-14");
+});
+
+
+test("lote 17: i18.262 e i20.276 conservan palabras clave impresas", () => {
+  const records = Array.isArray(overlay.records) ? overlay.records : [];
+  const cases = [
+    ["10.32870/prot.i18.262", ["Cristianismo", "Ilustración", "tolerancia"]],
+    ["10.32870/prot.i20.276", ["Enseñanza", "pedagogía", "alfabetización", "escuela"]]
+  ];
+  for (const [doi, keywords] of cases) {
+    const record = records.find(item => item.doi === doi);
+    assert.ok(record, "Falta DOI verificado: " + doi);
+    assert.deepEqual(record.keywords, keywords);
+    assert.match(record.evidence, /^https?:\/\//);
+    assert.equal(record.verifiedAt, "2026-11-14");
+  }
 });
