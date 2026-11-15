@@ -5,189 +5,12 @@
   "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
   "counts": {
     "quadripartitaWithDOI": 88,
-    "curatedWithLiteralEditorialKeywords": 57,
-    "awaitingPublicationEvidence": 22,
-    "confirmedWithoutEditorialKeywords": 9,
-    "fullyResolved": 66
+    "curatedWithLiteralEditorialKeywords": 77,
+    "awaitingPublicationEvidence": 0,
+    "confirmedWithoutEditorialKeywords": 11,
+    "fullyResolved": 88
   },
-  "records": [
-    {
-      "doi": "10.32870/qr.v8i15.139",
-      "title": "¿Es útil la lógica en filosofía?",
-      "issue": "15",
-      "issueYear": 2023,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/139",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v8i15.140",
-      "title": "La obra Immanent Reasoning or Equality in Action y su relación con diversas teorías de la argumentación.",
-      "issue": "15",
-      "issueYear": 2023,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/140",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v8i15.143",
-      "title": "¿Qué es la dialéctica de los argumentos?",
-      "issue": "15",
-      "issueYear": 2023,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/143",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v8i16.149",
-      "title": "Una nota sobre reglas dialécticas, reglas lógicas y reglas retóricas",
-      "issue": "16",
-      "issueYear": 2023,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/149",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v8i16.150",
-      "title": "Algunas relaciones entre los problemas filosóficos",
-      "issue": "16",
-      "issueYear": 2023,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/150",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i17.151",
-      "title": "Estrategias de argumentación filosófica y presuposición erotética. Un enfoque dialéctico",
-      "issue": "17",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/151",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i17.154",
-      "title": "Educación estética y pensamiento crítico en la formación docente mexicana: Planes de Estudio 2022",
-      "issue": "17",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/154",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i17.155",
-      "title": "Voces tercerizadas y footing relacional: ¿puede, el silencio, ser un argumento?",
-      "issue": "17",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/155",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i17.156",
-      "title": "Argumentación Multimodal como fundamento teórico para una propuesta didáctica en la enseñanza de la ética en el Nivel Medio Superio",
-      "issue": "17",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/156",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i17.157",
-      "title": "Un análisis del argumento de Aristóteles a favor de la felicidad como el fin último del habitante (racional) de la polis",
-      "issue": "17",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/157",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i17.158",
-      "title": "El diálogo crítico en la educación básica: comparación y contraste entre los contextos rural, semi-urbano y urbano",
-      "issue": "17",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/158",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i18.148",
-      "title": "Para una teoría del texto argumentativo",
-      "issue": "18",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/148",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i18.159",
-      "title": "Sobre el carácter interactivo de las prácticas argumentativas",
-      "issue": "18",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/159",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i18.160",
-      "title": "Argumentación polarizada",
-      "issue": "18",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/160",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i18.161",
-      "title": "Sobre derrotadores y atenuadores en John Pollock",
-      "issue": "18",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/161",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v9i18.163",
-      "title": "Reseña: Gascón, José Ángel. (2024). Manual de Argumentación. El Ámbito de lo Razonable.",
-      "issue": "18",
-      "issueYear": 2024,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/163",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v10i19.186",
-      "title": "Reflexiones sobre el generalismo argumentativo: reglas de inferencias y reglas de razonamiento",
-      "issue": "19",
-      "issueYear": 2025,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/186",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v10i19.187",
-      "title": "La argumentación en filosofía. Lección 1: El papel de las preguntas en los textos filosóficos",
-      "issue": "19",
-      "issueYear": 2025,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/187",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v10i20.188",
-      "title": "La argumentación en filosofía. Lección 2: Diferencias de opinión",
-      "issue": "20",
-      "issueYear": 2025,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/188",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v10i20.189",
-      "title": "Aprendizaje Basado en Argumentación: una aproximación a las habilidades dialógicas para la convivencia escolar",
-      "issue": "20",
-      "issueYear": 2025,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/189",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v10i20.185",
-      "title": "La falsa sistematización en Lógica viva",
-      "issue": "21",
-      "issueYear": 2026,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/185",
-      "editorialKeywordStatus": "pending-verification"
-    },
-    {
-      "doi": "10.32870/qr.v11i21.164",
-      "title": "El dilema del prisionero argumentativo: un “triálogo” con Arthur Schopenhauer y Luís Vega",
-      "issue": "21",
-      "issueYear": 2026,
-      "canonical": "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/164",
-      "editorialKeywordStatus": "pending-verification"
-    }
-  ],
+  "records": [],
   "resolvedWithoutEditorialKeywords": [
     {
       "doi": "10.32870/qr.v1i1.68",
@@ -296,6 +119,31 @@
       ],
       "verifiedAt": "2026-11-14",
       "note": "La ficha oficial OJS corresponde a la sección Reseñas y no presenta bloque editorial de Palabras clave/Keywords; no se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v8i15.140",
+      "title": "La obra Immanent Reasoning or Equality in Action y su relación con diversas teorías de la argumentación.",
+      "issue": "15",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://www.quadripartitaratio.cucsh.udg.mx/index.php/QR/article/download/140/452/"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La reseña fue verificada directamente en el PDF oficial; no presenta bloque editorial de Palabras clave/Keywords. No se infieren etiquetas."
+    },
+    {
+      "doi": "10.32870/qr.v9i18.163",
+      "title": "Reseña: Gascón, José Ángel. (2024). Manual de Argumentación. El Ámbito de lo Razonable.",
+      "issue": "18",
+      "documentKind": "review",
+      "editorialKeywordStatus": "verified-absent",
+      "evidence": [
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/163",
+        "https://quadripartitaratio.cucsh.udg.mx/index.php/QR/article/download/163/465/"
+      ],
+      "verifiedAt": "2026-11-14",
+      "note": "La reseña fue verificada en la ficha OJS y en el PDF oficial; no presenta bloque editorial de Palabras clave/Keywords. No se infieren etiquetas."
     }
   ]
 }
