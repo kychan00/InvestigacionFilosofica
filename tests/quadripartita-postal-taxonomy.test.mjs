@@ -25,8 +25,8 @@ test("Quadripartita tiene categorías de relación y números con reinicios inde
   }
 });
 
-test("filtros compartidos funcionan en Protrepsis y Quadripartita sin afectar Sincronía", () => {
-  assert.match(runtime,/const supportsCuratorialFacets = journalId === "protrepsis" \|\| journalId === "quadripartita"/);
+test("filtros compartidos funcionan en las tres revistas con procedencia separada", () => {
+  assert.ok(runtime.includes('const supportsCuratorialFacets = ["protrepsis", "quadripartita", "sincronia"].includes(journalId)'));
   assert.match(runtime,/function syncCuratorialChips\(\)/);
   assert.match(runtime,/if \(!supportsCuratorialFacets\) return;/);
   assert.match(runtime,/QUADRIPARTITA_KEYWORDS_URL/);
