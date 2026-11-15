@@ -1,0 +1,1876 @@
+{
+  "schemaVersion": 1,
+  "description": "DOI-first recovery audit for Protrepsis. Missing verified editorial keywords is not evidence that the publication lacks keywords.",
+  "frozenCorpusBlobSha": "6b95afd7dd3cc15fb8d93db9ef6146600767f86a",
+  "counts": {
+    "protrepsisWithDOI": 247,
+    "curatedWithLiteralEditorialKeywords": 155,
+    "awaitingPublicationEvidence": 92,
+    "historicalSupplementPending": 22,
+    "historicalOriginalResearchToVerify": 6,
+    "explicitReviewInterviewOrBibliographicTitle": 21,
+    "lackingPublisherAbstract": 24
+  },
+  "historicalResearchToVerify": [
+    "10.32870/prot.i7-8.107",
+    "10.32870/prot.i11-12.138",
+    "10.32870/prot.i13.151",
+    "10.32870/prot.i14.165",
+    "10.32870/prot.i14.166",
+    "10.32870/prot.i14.176"
+  ],
+  "nextTenCandidatesWithoutEditorialEvidence": [
+    "10.32870/prot.i28.480",
+    "10.32870/prot.i28.481",
+    "10.32870/prot.i28.484",
+    "10.32870/prot.i28.485",
+    "10.32870/prot.i28.486",
+    "10.32870/prot.i28.487",
+    "10.32870/prot.i28.490",
+    "10.32870/prot.i28.491",
+    "10.32870/prot.i29.501",
+    "10.32870/prot.i15.200"
+  ],
+  "records": [
+    {
+      "doi": "10.32870/prot.i14.165",
+      "title": "El problema del sentido a partir de la novela Crónica del pájaro que da cuerda al mundo de Haruki Murakami: Una mirada desde Gilles Deleuze",
+      "year": 2018,
+      "issue": "14",
+      "authors": [
+        "Juan David Almeyda Sarmiento"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/165",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/165/138",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/165/138",
+        "https://doi.org/10.32870/prot.i14.165.",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/165/138"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "historical-first-page-needed"
+    },
+    {
+      "doi": "10.32870/prot.i14.166",
+      "title": "La morfología del silencio en Ensayo sobre la ceguera de José Saramago.",
+      "year": 2018,
+      "issue": "14",
+      "authors": [
+        "Jorge Manuel González Hernández"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/166",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/166/136",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/166/136",
+        "https://doi.org/10.32870/prot.i14.166.",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/166/136"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "historical-first-page-needed"
+    },
+    {
+      "doi": "10.32870/prot.i14.176",
+      "title": "El efecto Sade sobre la ley. Imaginación literaria y límite trascendente",
+      "year": 2018,
+      "issue": "14",
+      "authors": [
+        "Jesús Ruiz Pozo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/176",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/176/155",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/176/155",
+        "https://doi.org/10.32870/prot.i14.176.",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/176/155"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "historical-first-page-needed"
+    },
+    {
+      "doi": "10.32870/prot.i11-12.138",
+      "title": "La teoría M: en la búsqueda de una teoría del todo",
+      "year": 2017,
+      "issue": "11-12",
+      "authors": [
+        "Felix Antonio Cossío Romero"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/138",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/138/121",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/138/121",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/138/121"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "historical-first-page-needed"
+    },
+    {
+      "doi": "10.32870/prot.i13.151",
+      "title": "Maquiavelo y el cristianismo como educación política fallida. Un estudio sobre política y religión desde Lluis Duch",
+      "year": 2017,
+      "issue": "13",
+      "authors": [
+        "Fabian Gutiérrez López"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/151",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/151/126",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/151/126",
+        "https://doi.org/10.32870/prot.i13.151.",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/151/126"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "historical-first-page-needed"
+    },
+    {
+      "doi": "10.32870/prot.i7-8.107",
+      "title": "Un nuevo juicio a Galileo: Aristóteles frente a Copérnico.",
+      "year": 2015,
+      "issue": "7-8",
+      "authors": [
+        "Yolanda Cadenas"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/107",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/107/94",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/107/94",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/107/94"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "historical-first-page-needed"
+    },
+    {
+      "doi": "10.32870/prot.i28.480",
+      "title": "Mutaciones del poder en el capitalismo. Del cuerpo disciplinario al sujeto del emprendimiento en el neoliberalismo de Foucault",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "Enrique G. Gallegos"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/480",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/480/667",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/480/668",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/480/669"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i28.481",
+      "title": "Técnicas de sí y subjetividad",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "Hermann Omar Amaya Velasco"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/481",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/481/673",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/481/674",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/481/675"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i28.484",
+      "title": "Tecnobiopolítica: Sujetos algorítmicos y dispositivos de resistencia. Un análisis desde la perspectiva de Foucault.",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "Christian Guillermo Gómez Vargas"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/484",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/484/664",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/484/665",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/484/666"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i28.485",
+      "title": "Nada es total: el giro de Michel Foucault y la figura del archivador como artista desobediente",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "María Yolanda García Ibarra"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/485",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/485/688",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/485/689",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/485/690"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i28.486",
+      "title": "La historia de la sexualidad foucaultiana que no fue: La carne y el cuerpo.",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "Juan Cruz Cuamba Herrejón"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/486",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/486/670",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/486/671",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/486/672"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i28.487",
+      "title": "Abismando formaciones discursivas, entrecruces del ser maya ch´ol versus ser alguien en la vida",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "Eleazar Jiménez López"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/487",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/487/685",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/487/686",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/487/687"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i28.490",
+      "title": "Michel Foucault: ¿Método o perspectiva? Horizontes y paradojas del trabajo intelectual (trazos y conjeturas para la transmisión de la obra de Michel Foucault)",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "Luis Fernando Macías García"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/490",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/490/661",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/490/662",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/490/663"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i28.491",
+      "title": "El vitalismo culminante de Foucault: un nuevo núcleo de resistencia.",
+      "year": 2025,
+      "issue": "28",
+      "authors": [
+        "Karla Castillo Villapudua",
+        "Christian Conrado Pardo Eudave"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/491",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/491/682",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/491/683",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/491/684"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i29.501",
+      "title": "La crítica bergsoniana del tiempo espacializado a través de la semiótica plotiniana",
+      "year": 2025,
+      "issue": "29",
+      "authors": [
+        "Eduardo Yalán Dongo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501/697",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501/708",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/501/709"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.200",
+      "title": "Ruletistul. Un ejercicio empírico (ensayo)",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Jesús Ruiz Pozo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/200",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/200/169",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/200/335",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/200/336"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i27.435",
+      "title": "Ramón Rosa, Freire y Fornet-Betancourt: discurso de la Universidad Central de Honduras entre la pedagogía emancipatoria y la filosofía intercultural",
+      "year": 2024,
+      "issue": "27",
+      "authors": [
+        "Jelba Erlinda Brooks Asencio",
+        "Rafael Antonio Zuniga Mejía"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/435",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/435/643",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/435/644",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/435/645"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i27.452",
+      "title": "El Viraje kantiano",
+      "year": 2024,
+      "issue": "27",
+      "authors": [
+        "Sergio Espinosa Proa"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/640",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/641",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/452/642"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i27.461",
+      "title": "Entre la razón y la pasión: la vida anímica de las sociedades",
+      "year": 2024,
+      "issue": "27",
+      "authors": [
+        "Oscar Eduardo Cortés Ruiz"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461/646",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461/647",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/461/648"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i27.463",
+      "title": "Kant y la clausura determinista",
+      "year": 2024,
+      "issue": "27",
+      "authors": [
+        "Miguel Ángel Aponte Reyes"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463/654",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463/655",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/463/657"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i27.468",
+      "title": "Kant y la construcción del significado",
+      "year": 2024,
+      "issue": "27",
+      "authors": [
+        "Lauro Gutierrez Castro"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468/628",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468/629",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/468/630"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i24.420",
+      "title": "Tensiones y problemas aparentes en el Tractatus",
+      "year": 2023,
+      "issue": "24",
+      "authors": [
+        "Alejandro Tomasini Bassols"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420/571",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420/572",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/420/573"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i25.409",
+      "title": "El asco y la cosa",
+      "year": 2023,
+      "issue": "25",
+      "authors": [
+        "Felipe Zegers Quiroga"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/409",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/409/578",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/409/586",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/409/587"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i25.417",
+      "title": "El Nuevo Realismo de Ferraris, noción de realidad y teoría de los objetos",
+      "year": 2023,
+      "issue": "25",
+      "authors": [
+        "Juan Diego Véjar Serrano"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/417",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/417/577",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/417/590",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/417/591"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i25.430",
+      "title": "Nietzsche y la crítica al modelo epistemológico positivista",
+      "year": 2023,
+      "issue": "25",
+      "authors": [
+        "Ramón Bárcenas"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/430",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/430/575",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/430/580",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/430/581"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i21.314",
+      "title": "El feminismo como una ética “para sí”",
+      "year": 2022,
+      "issue": "21",
+      "authors": [
+        "Laura Alicia Soto Rangel"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/314",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/314/419",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/314/430",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/314/444"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i21.315",
+      "title": "Las filósofas en la Universidad",
+      "year": 2022,
+      "issue": "21",
+      "authors": [
+        "Vanessa Huerta Donado"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/315",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/315/414",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/315/431",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/315/445"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i22.346",
+      "title": "Rousseau, el perseguido persecutor de los jesuitas",
+      "year": 2022,
+      "issue": "22",
+      "authors": [
+        "Juan Carlos Moreno Romo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/346",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/346/470",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/346/472",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/346/471"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i22.351",
+      "title": "El amor como fundamento de la educación moral",
+      "year": 2022,
+      "issue": "22",
+      "authors": [
+        "Felipe Nicolás Mujica Johnson"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/351",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/351/455",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/351/492",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/351/494"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i22.356",
+      "title": "El Otro ante el amor propio. Notas para una crítica del \"Yo\" como primera posibilidad de amar.",
+      "year": 2022,
+      "issue": "22",
+      "authors": [
+        "Aldo Félix Flores Cabrera"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/356",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/356/457",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/356/501",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/356/500"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i22.366",
+      "title": "Estudio introductorio a las bipolaridades del amor en el pensamiento occidental premoderno y moderno",
+      "year": 2022,
+      "issue": "22",
+      "authors": [
+        "Juan Manuel García Garduño"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/366",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/366/452",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/366/481",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/366/482"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i23.345",
+      "title": "La Deconstrucción explicada a los niños",
+      "year": 2022,
+      "issue": "23",
+      "authors": [
+        "Rodolfo González Morales",
+        "Alma Rosa Gonzáles Morales"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/345",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/345/539",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/345/540",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/345/541"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i23.363",
+      "title": "La relación entre pasión y sabiduría en la filosofía de Platón.",
+      "year": 2022,
+      "issue": "23",
+      "authors": [
+        "Ramón Bárcenas"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/363",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/363/530",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/363/531",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/363/532"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i23.406",
+      "title": "Hannah Arendt: ¿Esperanza o Epistemología?",
+      "year": 2022,
+      "issue": "23",
+      "authors": [
+        "Ana Lilia Ulloa Cuéllar"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/406",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/406/536",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/406/537",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/406/538"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i20.276",
+      "title": "Claudio Matte o el arquitecto del silencio educativo chileno: democracia, política, escuela.",
+      "year": 2021,
+      "issue": "20",
+      "authors": [
+        "Felipe Eduardo Roco Zúñiga"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/276",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/276/376",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/276/387",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/276/402"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.232",
+      "title": "El Pluralismo ético y cultural como alternativa frente al relativismo y el fundamentalismo (ensayo)",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Jesús Roberto Gutiérrez Carmelu"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/232",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/232/214",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/232/263",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/232/264"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.262",
+      "title": "Voltaire, nuestra filosofía y nuestra (in)modernidad",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Juan Carlos Moreno Romo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/262",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/262/207",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/262/269",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/262/270"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.264",
+      "title": "Voltaire: una educación para la tolerancia desde la Ilustración a nuestros días",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Juan Carlos Orejudo Pedrosa",
+        "Rolando Picos Bovio"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/264",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/264/209",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/264/273",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/264/274"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.266",
+      "title": "La filosofía política de Voltaire en las Cartas filosóficas",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Luis Antonio Velasco Guzmán"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/266",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/266/211",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/266/277",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/266/278"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.268",
+      "title": "Relaciones entre la lógica y la filosofía de la ciencia (ensayo)",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Lenin Eduardo López Velas"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/268",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/268/213",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/268/261",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/268/262"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i19.254",
+      "title": "El concepto de crítica en Rancière",
+      "year": 2020,
+      "issue": "19",
+      "authors": [
+        "Camilo Vargas Guevara"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/254",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/254/224",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/254/249",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/254/250"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i19.255",
+      "title": "La crítica en torno a los fundamentos del conocimiento en la filosofía occidental",
+      "year": 2020,
+      "issue": "19",
+      "authors": [
+        "Juan Uriel Idalgo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/255",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/255/225",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/255/251",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/255/252"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i19.257",
+      "title": "Dignidad. Una revisión crítica de un asunto polémico",
+      "year": 2020,
+      "issue": "19",
+      "authors": [
+        "Paula Cristina Mira Bohórquez"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/257",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/257/226",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/257/253",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/257/254"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i19.285",
+      "title": "Fundamentación ontológica de la estética del arte digital",
+      "year": 2020,
+      "issue": "19",
+      "authors": [
+        "Alvaro Alberto Molina D'Jesús"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/285",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/285/230",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/285/247",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/285/248"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i19.305",
+      "title": "El uso de intuiciones como evidencia en la filosofía analítica (ensayo)",
+      "year": 2020,
+      "issue": "19",
+      "authors": [
+        "Joel Alejandro Franco Ramírez",
+        "Joel Anaya Padilla"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/305",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/305/233",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/305/241",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/305/242"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i16.219",
+      "title": "Hermenéutica analógica. Exposición y discusión (ensayo)",
+      "year": 2019,
+      "issue": "16",
+      "authors": [
+        "Mauricio Beuchot"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/219",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/219/183",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/219/317",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/219/318"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.234",
+      "title": "Una ontología propiamente dicha",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Miguel Candel Sanmartín"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/234",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/234/193",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/234/303",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/234/304"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.244",
+      "title": "La utilidad de la carencia. Hacia una reconsideración del desamor, la procrastinación, el sinsentido y el ateísmo (ensayo)",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Héctor Sevilla Godínez"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/244",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/244/194",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/244/297",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/244/298"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.245",
+      "title": "La experiencia del deseo del Otro como constitutiva del fetiche-mercancía (ensayo)",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Manuel Felix Oyarzabal Montealegre"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/245",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/245/195",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/245/299",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/245/300"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.186",
+      "title": "El sujeto moderno. De lo racional a lo trágico (ensayo)",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Sergio Espinosa Proa"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/186",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/186/172",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/186/345",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/186/346"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.195",
+      "title": "Mahatma Gandhi, el parresiasta del siglo XX-XXI: Un socialista no-violento referencial para América Latina",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Santiago Borda-Malo Echeverri"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/195",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/195/161",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/195/349",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/195/350"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.196",
+      "title": "Utopía y socialismo en Karl Marx",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Gerardo Ambriz Arévalo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/196",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/196/162",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/196/351",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/196/352"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.198",
+      "title": "Cualificación y sometimiento ideológico para el cambio social",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Omer Buatu Batubenge"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/198",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/198/166",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/198/359",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/198/360"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.199",
+      "title": "El redescubrimiento del Otro en tiempos antisemitas (II)",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Julio Quesada Martín"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/199",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/199/168",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/199/341",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/199/342"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.202",
+      "title": "Filosofía y revolución. Materialismo dialéctico en el siglo XXI (avance de publicación)",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Antonio Rubira León"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/202",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/202/173",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/202/363",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/202/364"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "article-original-keywords-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.269",
+      "title": "Educación y cambio (recensión)",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Vianey de Jesús Mendoza Ruelas"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/269",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/269/215",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/269/281",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/269/282"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i18.270",
+      "title": "“Ser o no ser Charlie: Voltaire y la tolerancia” en Forja-dores de la Tolerancia (Noticia bibliográfica)",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "María Alejandra Apodaca Aguirre"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/270",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/270/216",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/270/283",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/270/284"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i16.222",
+      "title": "En defensa de los derechos de los animales (reseña)",
+      "year": 2019,
+      "issue": "16",
+      "authors": [
+        "María Alejandra Apodaca Aguirre"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/222",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/222/186",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/222/325",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/222/326"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i17.233",
+      "title": "Muerte y alteridad (recensión)",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Luis Gabriel Mateo Mejía",
+        "Silvia Andreli Díaz Navarro"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/233",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/233/197",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/233/309",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/233/310"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i1.1",
+      "title": "Entrevista con el Dr. Gabriel Vargas Lozano",
+      "year": 2018,
+      "issue": "1",
+      "authors": [
+        "Jorge Grajeda Velázquez"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/1",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/1/5",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/1/5"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i1.2",
+      "title": "Entrevista con el Dr. León Olivé.",
+      "year": 2018,
+      "issue": "1",
+      "authors": [
+        "jorge Grajeda Velázquez"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/2",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/2/6",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/2/6"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i14.178",
+      "title": "Caín (reseña)",
+      "year": 2018,
+      "issue": "14",
+      "authors": [
+        "Alejandro Aurelio Rivera Álvarez"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/178",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/178/147",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/178/147",
+        "https://doi.org/10.32870/prot.i14.178.",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/178/147",
+        "http://148.202.6.72/ojs/index.php/prot/article/download/178/147"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i15.203",
+      "title": "El Capital. El manga (reseña)",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "María Alejandra Apodaca Aguirre"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/203",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/203/174"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i6.97",
+      "title": "Reseña: \"Leer la mente. El cerebro y el arte de la ficción\" de Jorge Volpi",
+      "year": 2018,
+      "issue": "6",
+      "authors": [
+        "Fernando Juárez Salazar"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/97",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/97/89",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/97/89"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i13.155",
+      "title": "Introducción a la teoría de la educación (reseña)",
+      "year": 2017,
+      "issue": "13",
+      "authors": [
+        "Alejandra Apodaca Aguirre"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/155",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/155/130",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/155/130",
+        "https://doi.org/10.32870/prot.i13.155.",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/155/130"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i9-10.134",
+      "title": "Reseña: \"Albert Einstein: Navegante solitario\" de Luis de la Peña",
+      "year": 2016,
+      "issue": "9-10",
+      "authors": [
+        "María Alejandra Apodaca Aguirre"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/134",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/134/114",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/134/114",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/134/114"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i7-8.112",
+      "title": "Reseña: \"El rostro y el alma. Siete ensayos fisiognómicos\" de Francisco González Crussí",
+      "year": 2015,
+      "issue": "7-8",
+      "authors": [
+        "María Alejandra Apodaca Aguirre"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/112",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/112/101",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/112/101",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/112/101"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i6.98",
+      "title": "Reseña: \"Touching a Nerve The Self as a Brain\" de Patricia Smith Churchland",
+      "year": 2014,
+      "issue": "6",
+      "authors": [
+        "Aldo Enrique Fuentes Rosado"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/98",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/98/90",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/98/90",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/98"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i4.60",
+      "title": "Reseña: \"O pensamiento de Kierkegaard. E A Clínica Psicológica\" de Ana María Calvo de Feijoo",
+      "year": 2013,
+      "issue": "4",
+      "authors": [
+        "Gilberto Santaolalla Lourerio"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/60",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/60/65",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/60/65",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/60/65"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i5.81",
+      "title": "Reseña: \"Anarquía, estado y utopía\" (Anarchy, state and utopia) de Robert Nozick",
+      "year": 2013,
+      "issue": "5",
+      "authors": [
+        "Aldo Enrique Fuentes Rosado"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/81",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/81/78",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/81/78",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/81/78"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i2.22",
+      "title": "Entrevista con el Dr. Ian Hacking",
+      "year": 2012,
+      "issue": "2",
+      "authors": [
+        "Pamela Geraldine Olivo Montaño"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/22",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/22/26",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/22/26",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/22/26"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i2.33",
+      "title": "Reseña: \"Wittgenstein y la tradición clásica. Los peldaños de una escalera\" de Ángeles J. Perona (Ed)",
+      "year": 2012,
+      "issue": "2",
+      "authors": [
+        "Pamela Geraldine Olivo Montaño"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/33",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/33/36",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/33/36",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/33/36"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i2.34",
+      "title": "Reseña: \"Wittgenstein. La modernidad, el progreso y la decadencia\" de Jacques Bouveresse",
+      "year": 2012,
+      "issue": "2",
+      "authors": [
+        "Pamela Geraldine Olivo Montaño"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/34",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/34/37",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/34/37",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/34/37"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i3.42",
+      "title": "Reseña: \"Ética Práctica\" de Peter Singer",
+      "year": 2012,
+      "issue": "3",
+      "authors": [
+        "Itzel Villa Páez"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/42",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/42/49",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/42/49",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/42/49"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i1.20",
+      "title": "Reseña: \"Crisis y reconstrucción de la filosofía\" de Mario Bunge",
+      "year": 2011,
+      "issue": "1",
+      "authors": [
+        "Pamela Geraldine Olivo Montaño"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/20",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/20/23",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/20/23",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/20/23"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i1.21",
+      "title": "Reseña: \"Filosofía hoy\" de Ulrich Boehm",
+      "year": 2011,
+      "issue": "1",
+      "authors": [
+        "Pamela Geraldine Olivo Montaño"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/21",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/21/24",
+        "http://www.protrepsis.cucsh.udg.mx/index.php/prot/article/download/21/24",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/download/21/24"
+      ],
+      "inHistoricalSupplement": true,
+      "hasPublisherAbstract": true,
+      "genreTitleSignal": "review-interview-or-bibliographic-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "genre-and-keyword-evidence-review"
+    },
+    {
+      "doi": "10.32870/prot.i24.376",
+      "title": "¡Dar a luz una estrella roja!",
+      "year": 2023,
+      "issue": "24",
+      "authors": [
+        "Paul Stephan",
+        "Osman Choque-Aliaga"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/566",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/569",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/376/568"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.271",
+      "title": "Mahihtolli / Xochitepecopa Hueyohtli / Xochimilco / ¿Tehuantin ayoc cintli totec? / Tetzahuitl",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Santos De la Cruz Hernández"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/271",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/271/217",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/271/223"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.272",
+      "title": "Elogio de la inmadurez: Kandinsky y su Estética de lo inexistente",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "José Luis Rangel"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/272",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/272/218",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/272/288"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i18.273",
+      "title": "Como un proyecto del que nadie habla",
+      "year": 2020,
+      "issue": "18",
+      "authors": [
+        "Jaime Tzompantzi Cruz"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/273",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/273/219",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/273/286",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/273/287"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i16.223",
+      "title": "El pasado / Jorge Sumalavia iba por la fiesta contando que había matado a un hombre",
+      "year": 2019,
+      "issue": "16",
+      "authors": [
+        "Tilsa Otta Vildoso"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/223",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/223/187",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/223/311",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/223/312"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i16.224",
+      "title": "PIEDRAS",
+      "year": 2019,
+      "issue": "16",
+      "authors": [
+        "Valeria Guzmán"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/224",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/224/188",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/224/313",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/224/314"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.246",
+      "title": "Canto ceremonial del desierto / Hihacatol cöicoos",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Alejandro Aguilar Zeleny"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/246",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/246/198",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/246/289"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.247",
+      "title": "Juliana Alejandra",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Karen Salgado"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/247",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/247/199",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/247/291"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.248",
+      "title": "Viaje",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Isabel Ferrer"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/248",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/248/200",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/248/292"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.249",
+      "title": "Nayúli / Avitayala",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Mircea Lavaniegos"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/249",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/249/201",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/249/293"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i17.250",
+      "title": "Comala y Walden 2",
+      "year": 2019,
+      "issue": "17",
+      "authors": [
+        "Edgar Mayo"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/250",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/250/202",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/250/294"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.204",
+      "title": "memoria / panal / caja de cartón o el parto de un pájaro / peligro de extinción",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Andrea Alzati"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/204",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/204/175",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/204/329",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/204/330"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.205",
+      "title": "Manada",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Luis Eduardo Yee"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/205",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/205/176",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/205/331",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/205/332"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.206",
+      "title": "Brisa celeste / Gu'wá ná rígà iya nàjngaà",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Hubert Matiúwàa"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/206",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/206/177",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/206/333",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/206/334"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.207",
+      "title": "EL ALACRÁN Y LA PÁGINA / ARTE DE CANTAR / EL ALACRAN Y EL AGUA / EL ALACRÁN Y LAS PALABRAS",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Neftalí Coria"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/207",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/207/178"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    },
+    {
+      "doi": "10.32870/prot.i15.208",
+      "title": "Jaque / Vigilancia / The Unresolved / Lado C",
+      "year": 2018,
+      "issue": "15",
+      "authors": [
+        "Luis Ernesto Valadez"
+      ],
+      "journalPage": "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/208",
+      "publisherRelatedLinks": [
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/208/179",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/208/337",
+        "http://protrepsis.cucsh.udg.mx/index.php/prot/article/view/208/338"
+      ],
+      "inHistoricalSupplement": false,
+      "hasPublisherAbstract": false,
+      "genreTitleSignal": "not-explicit-in-title",
+      "editorialKeywordStatus": "not-verified",
+      "recoveryLane": "document-kind-check"
+    }
+  ]
+}
