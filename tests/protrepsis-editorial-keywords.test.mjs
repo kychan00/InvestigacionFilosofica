@@ -1245,7 +1245,7 @@ test("el artículo de marketing usa exactamente las palabras clave publicadas", 
     item => item.doi === "10.32870/prot.i29.477"
   );
   assert.deepEqual(record.keywords, [
-    "redes sociales",
+    "Redes sociales",
     "transparencia",
     "desinformación",
     "Nayib Bukele",
