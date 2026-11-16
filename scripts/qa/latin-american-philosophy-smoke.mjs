@@ -14,6 +14,12 @@ const browser = await chromium.launch({
   args: ["--no-sandbox"]
 });
 
+async function settlePaint(page) {
+  await page.evaluate(() => new Promise(resolve => {
+    requestAnimationFrame(() => requestAnimationFrame(resolve));
+  }));
+}
+
 try {
   for (const width of WIDTHS) {
     const context = await browser.newContext({
@@ -122,8 +128,17 @@ try {
     assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
       "Dossier must retain the canonical author identifier");
 
+    await settlePaint(page);
     await page.screenshot({
       path: ARTIFACTS + "/dossier-" + width + "-light.png",
+      animations: "disabled"
+    });
+
+    await page.locator('[data-dossier-target="author-dossier-works-section"]').click();
+    await page.locator("#author-dossier-works-section").waitFor({ state: "visible" });
+    await settlePaint(page);
+    await page.screenshot({
+      path: ARTIFACTS + "/dossier-" + width + "-works-light.png",
       animations: "disabled"
     });
 
@@ -226,6 +241,7 @@ try {
 
     assert.deepEqual(pageErrors, [], "Page must not emit uncaught JS errors");
 
+    await settlePaint(page);
     await page.screenshot({
       path: ARTIFACTS + "/dossier-" + width + "-dark.png",
       animations: "disabled"
