@@ -4,7 +4,7 @@
   "kind": "research-metadata",
   "snapshot": {
     "date": "2026-11-15",
-    "stage": "phase-6-closed",
+    "stage": "phase-7-final-bibliography-audited",
     "confirmedCount": 1504,
     "sourceInventory": "inventario_maestro_fase6_control_editorial.txt"
   },
@@ -49,9 +49,39 @@
       "Osvaldo Gómez Lezcano",
       "Bartomeu Melià"
     ],
-    "pending": [
-      "Final general bibliography safety-net"
-    ]
+    "pending": [],
+    "bibliographySafetyNet": {
+      "status": "closed",
+      "confirmedAdditions": 0,
+      "rule": "Bibliographic presence alone is not sufficient for inclusion; candidates require substantive treatment as philosophical subjects in the book.",
+      "highRiskCandidatesReviewed": [
+        "J.M. Campos Benítez",
+        "José Aricó",
+        "I. Angelelli",
+        "C.A. Lértora Mendoza",
+        "R. Krauze de Kolteniuk",
+        "J.B. Soto",
+        "G. Ortiz",
+        "J. Ñanculef",
+        "J. Pacheco Farfán",
+        "M.E. Orellana Benado",
+        "M.A. de Oliveira",
+        "G. Santiago",
+        "M. Aguirre Cárdenas",
+        "J.A. Tamayo",
+        "S. Lipp",
+        "J.L. Kunz",
+        "H. Solari",
+        "H.C.F. Mansilla",
+        "J. Taborga",
+        "M. Löwy",
+        "D.F. Pró",
+        "P. Ramis",
+        "M. Skarica",
+        "O.C. Ternevoi",
+        "G. Vargas Lozano"
+      ]
+    }
   },
   "philosophers": [
     {
