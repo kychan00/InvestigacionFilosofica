@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 480,
-    "authors_remaining": 1024,
-    "works_or_contributions_seeded": 2908,
-    "current_batch": "048",
+    "authors_seeded": 490,
+    "authors_remaining": 1014,
+    "works_or_contributions_seeded": 2978,
+    "current_batch": "049",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2527,6 +2527,58 @@
       "author_id": 480,
       "canonical_name": "Marvin Sandi",
       "path": "authors/0480.json"
+    }
+  ],
+  "batch_049": [
+    {
+      "author_id": 481,
+      "canonical_name": "Vicente Ferreira da Silva",
+      "path": "authors/0481.json"
+    },
+    {
+      "author_id": 482,
+      "canonical_name": "Moacir Teixeira de Aguiar",
+      "path": "authors/0482.json"
+    },
+    {
+      "author_id": 483,
+      "canonical_name": "Gerd Alberto Bornheim",
+      "path": "authors/0483.json"
+    },
+    {
+      "author_id": 484,
+      "canonical_name": "Emmanuel Carneiro Leão",
+      "path": "authors/0484.json"
+    },
+    {
+      "author_id": 485,
+      "canonical_name": "Antônio Luís Machado Neto",
+      "path": "authors/0485.json"
+    },
+    {
+      "author_id": 486,
+      "canonical_name": "Ernildo Stein",
+      "path": "authors/0486.json"
+    },
+    {
+      "author_id": 487,
+      "canonical_name": "Creusa Capalbo",
+      "path": "authors/0487.json"
+    },
+    {
+      "author_id": 488,
+      "canonical_name": "Maria do Carmo Tavares de Miranda",
+      "path": "authors/0488.json"
+    },
+    {
+      "author_id": 489,
+      "canonical_name": "Tarcísio Meirelles Padilla",
+      "path": "authors/0489.json"
+    },
+    {
+      "author_id": 490,
+      "canonical_name": "Euryalo Cannabrava",
+      "path": "authors/0490.json"
     }
   ]
 }

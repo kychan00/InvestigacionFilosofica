@@ -29,11 +29,11 @@ El PR #336 quedó **mergeado a `main`** y constituye la base cerrada de la prime
 Estado absorbido en `main`:
 
 - **1,504 autores** en el inventario maestro.
-- **480 autores con ficha bibliográfica**, IDs **0001–0480**.
-- **2,908 obras, manuscritos, artículos, tesis, documentos, traducciones, ediciones y contribuciones** registradas.
-- Lotes completados: **001–048**.
+- **490 autores con ficha bibliográfica**, IDs **0001–0490**.
+- **2,978 obras, manuscritos, artículos, tesis, documentos, traducciones, ediciones y contribuciones** registradas.
+- Lotes completados: **001–049**.
 - Último archivo de autor mergeado: `authors/0480.json`.
-- Último lote mergeado: **048**.
+- Último lote completado en el PR actual: **049**.
 - PR histórico consolidado: **#336**.
 - El PR #336 ya no debe reutilizarse para nuevos lotes.
 
@@ -41,24 +41,24 @@ Estado absorbido en `main`:
 
 Quedan:
 
-- **1,024 autores**.
-- IDs pendientes: **0481–1504**.
-- Próximo lote: **049**, IDs **0481–0490**.
+- **1,014 autores**.
+- IDs pendientes: **0491–1504**.
+- Próximo lote: **050**, IDs **0491–0500**.
 
-Autores del lote 049:
+Autores del lote 050:
 
-1. 0481 — Vicente Ferreira da Silva
-2. 0482 — Moacir Teixeira de Aguiar
-3. 0483 — Gerd Alberto Bornheim
-4. 0484 — Emmanuel Carneiro Leão
-5. 0485 — Antônio Luís Machado Neto
-6. 0486 — Ernildo Stein
-7. 0487 — Creusa Capalbo
-8. 0488 — Maria do Carmo Tavares de Miranda
-9. 0489 — Tarcísio Meirelles Padilla
-10. 0490 — Euryalo Cannabrava
+1. 0491 — Evaldo Pauli
+2. 0492 — Adolpho Crippa
+3. 0493 — Nilton Campos
+4. 0494 — João de Sousa Ferraz
+5. 0495 — Eudoro de Souza
+6. 0496 — José Herculano Pires
+7. 0497 — Lourival Vilanova
+8. 0498 — Beneval de Oliveira
+9. 0499 — Benedito Nunes
+10. 0500 — Ubiratan de Macedo
 
-Después se continúa estrictamente por IDs consecutivos hasta **1504**.
+Depois se continúa estrictamente por IDs consecutivos hasta **1504**.
 
 ## 4. Regla operativa del nuevo PR
 
@@ -219,10 +219,10 @@ Estado de arranque del nuevo PR:
 ```json
 {
   "authors_total": 1504,
-  "authors_seeded": 480,
-  "authors_remaining": 1024,
-  "works_or_contributions_seeded": 2908,
-  "current_batch": "048",
+  "authors_seeded": 490,
+  "authors_remaining": 1014,
+  "works_or_contributions_seeded": 2978,
+  "current_batch": "049",
   "last_updated": "2026-11-16"
 }
 ```
@@ -283,3 +283,18 @@ y el manifiesto indique:
 - `authors_remaining: 0`
 
 Antes del merge final se debe hacer una auditoría global de identidad, estructura, consecutividad y conteos.
+
+
+## 14. Estado vivo del PR #340 — lote 049
+
+Lote **049** completado en este PR:
+
+- IDs: **0481–0490**
+- Autores añadidos: **10**
+- Obras/documentos: **60**
+- Contribuciones: **10**
+- Registros nuevos: **70**
+- Total acumulado: **2,978**
+- Cobertura: **490 / 1,504 autores**
+- Pendientes: **1,014**
+- Próximo lote: **050**, IDs **0491–0500**

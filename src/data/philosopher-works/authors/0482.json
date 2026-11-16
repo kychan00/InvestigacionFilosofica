@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "author_id": 482,
+  "canonical_name": "Moacir Teixeira de Aguiar",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1918,
+      "certainty": "regional_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0482-w001",
+      "title": "A cultura moderna",
+      "work_type": "philosophy_and_modern_culture_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1941,
+        "certainty": "regional_biographical_source"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernidade",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.historiadoceara.com.br/biografia/2015-moacir-teixeira-de-aguiar"
+      ],
+      "notes": "Livro publicado em 1941 segundo a biografia baseada em 1001 Cearenses Notáveis."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Institucionalização da filosofia no Ceará como professor catedrático e fundador da seção cearense do Instituto Brasileiro de Filosofia, com colaboração na Revista Filosófica do Nordeste",
+      "kind": "ceara_philosophy_institutionalization_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "regional_biographical_source",
+      "title": "Portal da História do Ceará — Moacir Teixeira de Aguiar",
+      "url": "https://www.historiadoceara.com.br/biografia/2015-moacir-teixeira-de-aguiar"
+    }
+  ],
+  "research_notes": [
+    "A fonte biográfica atesta artigos na Revista Filosófica do Nordeste, mas não fornece títulos e datas individuais; eles não são inventados."
+  ]
+}
