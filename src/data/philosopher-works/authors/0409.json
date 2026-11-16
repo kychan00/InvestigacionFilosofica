@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "author_id": 409,
+  "canonical_name": "Benjamin Constant",
+  "alternate_names": [
+    "Benjamin Constant Botelho de Magalhães"
+  ],
+  "life": {
+    "born": {
+      "year": 1837,
+      "certainty": "museum_authority"
+    },
+    "died": {
+      "year": 1891,
+      "certainty": "museum_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0409-w001",
+      "title": "Relatórios do Director do Imperial Instituto dos Meninos Cégos, 1875-1878",
+      "work_type": "institutional_educational_report_corpus",
+      "original_language": "português",
+      "original_date": {
+        "year": 1875,
+        "certainty": "first_report_in_documented_corpus"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "director_and_report_author_for_documented_reports",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educação de cegos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação especial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "currículo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "administração escolar",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.dichistoriasaude.coc.fiocruz.br/wiki_dicionario/index.php?title=INSTITUTO_BENJAMIN_CONSTANT"
+      ],
+      "notes": "Corpus de relatórios de direção documentados em 1875, 1876, 1877 e 1878 e incorporados aos relatórios ministeriais. Registra-se como uma unidade documental seriada para evitar multiplicar relatórios administrativos anuais."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusão do positivismo no ensino militar e científico, direção da educação de pessoas cegas e reforma educacional republicana de 1890",
+      "kind": "positivist_educational_and_republican_contribution",
+      "authorship_status": "documented_in_museum_archive_and_educational_history_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "museum_authority_source",
+      "title": "Museu Casa de Benjamin Constant — Benjamin Constant",
+      "url": "https://museucasabenjaminconstant.acervos.museus.gov.br/benjamin-constant/"
+    },
+    {
+      "kind": "historical_institution_source",
+      "title": "Fiocruz — Instituto Benjamin Constant, relatórios e direção de Benjamin Constant",
+      "url": "https://www.dichistoriasaude.coc.fiocruz.br/wiki_dicionario/index.php?title=INSTITUTO_BENJAMIN_CONSTANT"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "História da Educação / SciELO — positivismo, ensino secundário e Reforma Benjamin Constant",
+      "url": "https://www.scielo.br/j/heduc/a/MCGXZf7RfLV4TqTWW63rCtp/?lang=pt"
+    }
+  ],
+  "research_notes": [
+    "O inventário canônico abrevia o nome; a forma completa é preservada como alternativa.",
+    "A Reforma Benjamin Constant de 1890 é registrada como contribuição ministerial/institucional, não convertida em obra exclusivamente autoral.",
+    "Há fontes secundárias com 1833/1836 para o nascimento; o Museu Casa de Benjamin Constant usa 1837 e é adotado como autoridade institucional."
+  ]
+}
