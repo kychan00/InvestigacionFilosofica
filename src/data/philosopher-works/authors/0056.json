@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "author_id": 56,
+  "canonical_name": "Manuel Gonzales Prada",
+  "alternate_names": [
+    "Manuel González Prada",
+    "José Manuel de los Reyes González de Prada y Ulloa"
+  ],
+  "life": {
+    "born": {
+      "year": 1844,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1918,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_essay_poetry_anarchist_and_public_speech_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0056-w001",
+      "title": "Discurso en el Politeama",
+      "work_type": "political_civic_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1888,
+        "certainty": "exact",
+        "date": "1888-07-29"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Guerra del Pacífico",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "juventud",
+          "provenance": "inferred"
+        },
+        {
+          "term": "regeneración nacional",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0056-w002",
+      "title": "Pájinas libres",
+      "alternate_titles": [
+        "Páginas libres"
+      ],
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1894,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ensayos peruanos",
+          "provenance": "catalog"
+        },
+        {
+          "term": "anticlericalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0056-w003",
+      "title": "Minúsculas",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1901,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1901,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Adriana de González Prada",
+          "role": "printer_and_family_editor"
+        },
+        {
+          "name": "Alfredo González Prada",
+          "role": "typesetter_and_family_editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía peruana",
+          "provenance": "catalog"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "métrica",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Primera edición artesanal de cien ejemplares; segunda edición ampliada en 1909."
+    },
+    {
+      "work_id": "0056-w004",
+      "title": "Horas de lucha",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ensayos peruanos",
+          "provenance": "catalog"
+        },
+        {
+          "term": "política peruana",
+          "provenance": "catalog"
+        },
+        {
+          "term": "anarquismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "indígenas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "La Biblioteca Nacional del Perú la identifica como el último libro de ensayos publicado por el autor en vida."
+    },
+    {
+      "work_id": "0056-w005",
+      "title": "Presbiterianas",
+      "work_type": "anticlerical_poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1909,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "verified_anonymous_first_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "anticlericalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anarquismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Primera edición publicada anónimamente en Lima en 1909."
+    },
+    {
+      "work_id": "0056-w006",
+      "title": "Exóticas",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesías peruanas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "innovación métrica",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0056-w007",
+      "title": "Nota informativa sobre la Biblioteca Nacional",
+      "work_type": "institutional_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Biblioteca Nacional del Perú",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "administración cultural",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0056-w008",
+      "title": "Artículos anarquistas en Germinal, Los Parias, La Idea Libre, La Protesta y otros periódicos",
+      "work_type": "journalistic_anarchist_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1898,
+        "end": 1918,
+        "certainty": "approximate_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "anarquismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "movimiento obrero",
+          "provenance": "inferred"
+        },
+        {
+          "term": "anticlericalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "indígenas",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Muchos textos fueron reunidos póstumamente en Anarquía, Prosa menuda y otros volúmenes; deben desglosarse por publicación original."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_microsite",
+      "title": "Manuel González Prada",
+      "url": "https://memoriaperu.bnp.gob.pe/micrositio/manuel-gonzalez-prada",
+      "publisher": "Biblioteca Nacional del Perú"
+    },
+    {
+      "kind": "national_library_digital_book",
+      "title": "Horas de lucha",
+      "url": "https://bibliotecadigital.bnp.gob.pe/items/20f30691-270f-4e72-a6ca-771022bf425e/full",
+      "publisher": "Biblioteca Nacional del Perú"
+    },
+    {
+      "kind": "national_library_digital_book",
+      "title": "Exóticas",
+      "url": "https://bibliotecadigital.bnp.gob.pe/items/55bd243b-8dc4-454e-8f4a-680684942200/full",
+      "publisher": "Biblioteca Nacional del Perú"
+    },
+    {
+      "kind": "government_cultural_record",
+      "title": "Presbiterianas — ficha técnica de primera edición",
+      "url": "https://transparencia.cultura.gob.pe/sites/default/files/transparencia/2022/02/resoluciones-del-viceministerio-de-patrimonio-cultural-e-industrias-culturales/rvm043-2022-vmpcic-mc-anexo.pdf",
+      "publisher": "Ministerio de Cultura / Biblioteca Nacional del Perú"
+    }
+  ],
+  "research_notes": [
+    "Pendiente incorporar Baladas peruanas y recopilaciones póstumas distinguiendo composición original de edición posterior.",
+    "El inventario canónico conserva la forma Gonzales; la ficha añade la forma bibliográfica normalizada González Prada."
+  ]
+}
