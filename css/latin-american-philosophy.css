@@ -1276,22 +1276,25 @@ button.mini-author:hover { transform: translateY(-2px); }
   background: color-mix(in srgb, var(--dossier-paper) 94%, transparent);
   backdrop-filter: blur(16px);
 }
-.author-dossier-nav a {
+.author-dossier-nav button {
   display: grid;
   min-height: 52px;
   place-items: center;
   border-right: 1px solid color-mix(in srgb, var(--dossier-paper-ink) 17%, transparent);
+  border-top: 0;
+  border-bottom: 0;
+  background: transparent;
   color: var(--dossier-paper-ink);
-  text-decoration: none;
+  cursor: pointer;
   font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 9px;
   font-weight: 900;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-.author-dossier-nav a:last-child { border-right: 0; }
-.author-dossier-nav a:hover,
-.author-dossier-nav a:focus-visible {
+.author-dossier-nav button:last-child { border-right: 0; }
+.author-dossier-nav button:hover,
+.author-dossier-nav button:focus-visible {
   background: var(--dossier-bg);
   color: var(--dossier-ink);
 }
