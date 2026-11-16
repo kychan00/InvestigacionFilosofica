@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "author_id": 413,
+  "canonical_name": "Clóvis Beviláqua",
+  "alternate_names": [
+    "Clóvis Bevilacqua"
+  ],
+  "life": {
+    "born": {
+      "year": 1859,
+      "certainty": "academy_and_university_authority"
+    },
+    "died": {
+      "year": 1944,
+      "certainty": "academy_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0413-w001",
+      "title": "A Filosofia Positiva no Brasil",
+      "work_type": "philosophical_essay_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1883,
+        "certainty": "specialized_history_of_philosophy_source_with_1884_variant"
+      },
+      "first_publication_year": 1883,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia brasileira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Escola do Recife",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.institutodehumanidades.com.br/arquivos/escola_do_recife.pdf",
+        "https://www.academia.org.br/academicos/clovis-bevilaqua/bibliografia"
+      ],
+      "notes": "Historiografia especializada informa primeira edição no Recife em 1883; a bibliografia da ABL data a obra em 1884. A discrepância é preservada em vez de normalizada silenciosamente."
+    },
+    {
+      "work_id": "0413-w002",
+      "title": "Estudos de Direito e Economia Política",
+      "work_type": "legal_and_political_economy_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1886,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1886,
+      "authorship_status": "original_author_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "economia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia jurídica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/academicos/clovis-bevilaqua/bibliografia",
+        "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/clovis-bevilaqua/"
+      ],
+      "notes": "Coletânea de 1886. Alguns ensaios internos circularam antes; não são automaticamente duplicados como obras separadas."
+    },
+    {
+      "work_id": "0413-w003",
+      "title": "Conceito Antigo e Moderno de Metafísica",
+      "work_type": "philosophical_academic_thesis_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 1888,
+        "certainty": "specialized_history_of_philosophy_source"
+      },
+      "first_publication_year": 1888,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "concurso acadêmico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.institutodehumanidades.com.br/arquivos/escola_do_recife.pdf"
+      ],
+      "notes": "Tese para provimento da cadeira de Filosofia do curso anexo da Faculdade de Direito do Recife; publicada no Jornal do Recife em 14 de março de 1888 e posteriormente incorporada a Esboços e Fragmentos."
+    },
+    {
+      "work_id": "0413-w004",
+      "title": "Juristas filósofos",
+      "work_type": "legal_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1897,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1897,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "juristas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história das ideias jurídicas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/academicos/clovis-bevilaqua/bibliografia",
+        "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/clovis-bevilaqua/"
+      ],
+      "notes": "Obra de 1897 listada pela ABL e Fundaj entre os trabalhos filosófico-jurídicos de Beviláqua."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Integração entre filosofia positiva, Escola do Recife e construção de uma filosofia científica do direito brasileiro",
+      "kind": "legal_philosophy_and_recife_school_contribution",
+      "authorship_status": "documented_in_academy_and_history_of_philosophy_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Brasileira de Letras — bibliografia de Clóvis Beviláqua",
+      "url": "https://www.academia.org.br/academicos/clovis-bevilaqua/bibliografia"
+    },
+    {
+      "kind": "specialized_history_of_philosophy_source",
+      "title": "Antonio Paim — A Escola do Recife",
+      "url": "https://www.institutodehumanidades.com.br/arquivos/escola_do_recife.pdf"
+    },
+    {
+      "kind": "reference_source",
+      "title": "Fundaj — Clóvis Beviláqua",
+      "url": "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/clovis-bevilaqua/"
+    }
+  ],
+  "research_notes": [
+    "A Filosofia Positiva no Brasil apresenta discrepância 1883/1884 entre historiografia especializada e bibliografia institucional.",
+    "Teoria geral do Direito Civil é deixada fora deste seed porque as fontes consultadas também mostram discrepância relevante entre 1890 em bibliografias resumidas e primeira edição de 1908 em catálogo jurídico."
+  ]
+}
