@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "author_id": 29,
+  "canonical_name": "Miguel Hidalgo y Costilla",
+  "alternate_names": [
+    "Miguel Hidalgo",
+    "Miguel Gregorio Antonio Ignacio Hidalgo y Costilla Gallaga Mandarte y Villaseñor"
+  ],
+  "life": {
+    "born": {
+      "year": 1753,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1811,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "principal_1810_political_documents_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0029-w001",
+      "title": "Solicitud de rendición de la plaza de Guanajuato al intendente Juan Antonio de Riaño",
+      "work_type": "political_military_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "exact",
+        "date": "1810-09-28"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Juan Antonio de Riaño",
+          "role": "recipient"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Guanajuato",
+          "provenance": "catalog"
+        },
+        {
+          "term": "insurgencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "rendición",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0029-w002",
+      "title": "Primer bando aboliendo la esclavitud y los tributos",
+      "work_type": "political_decree",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "exact",
+        "date": "1810-10-19"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "ordered_by_hidalgo_published_by_ansorena",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "José María de Ansorena",
+          "role": "publisher_and_local_authority_executing_Hidalgo_order"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "catalog"
+        },
+        {
+          "term": "tributos",
+          "provenance": "catalog"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0029-w003",
+      "title": "Plan del Gobierno Americano para instrucción de los comandantes de las divisiones",
+      "work_type": "government_plan",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "exact",
+        "date": "1810-10-31"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "directed_by_hidalgo_transmitted_by_morelos",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "José María Morelos y Pavón",
+          "role": "recipient_and_transmitter"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Congreso",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "gobierno americano",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0029-w004",
+      "title": "Bando de Miguel Hidalgo para la abolición de la esclavitud",
+      "work_type": "political_decree",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "exact",
+        "date": "1810-11-29"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "esclavitud",
+          "provenance": "catalog"
+        },
+        {
+          "term": "abolición",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0029-w005",
+      "title": "Decreto contra la esclavitud, las gabelas y el papel sellado",
+      "work_type": "political_decree",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "exact",
+        "date": "1810-12-06"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Ignacio López Rayón",
+          "role": "secretary_signatory_by_order"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "tributos",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "papel sellado",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0029-w006",
+      "title": "Manifiesto al pueblo en el que propone la creación del Congreso Nacional",
+      "work_type": "political_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "exact",
+        "date": "1810-12-15"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Congreso Nacional",
+          "provenance": "catalog"
+        },
+        {
+          "term": "religión",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "derechos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "nación",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "government_document_portal",
+      "title": "Hidalgo Constituyente",
+      "url": "https://www.inehrm.gob.mx/es/inehrm/Hidalgo_Constituyente",
+      "publisher": "INEHRM"
+    },
+    {
+      "kind": "government_archive_record",
+      "title": "Documento 152: Bando de Miguel Hidalgo aboliendo la esclavitud",
+      "url": "https://memoricamexico.gob.mx/swb/memorica/Cedula?oId=8BATcnIB-uS572yO8W2t",
+      "publisher": "Memórica / Archivo General de la Nación"
+    },
+    {
+      "kind": "human_rights_commission",
+      "title": "Decreto de Abolición de la Esclavitud por Miguel Hidalgo",
+      "url": "https://www.cndh.org.mx/sites/default/files/documentos/2024-11/FRN_DIC_06-1.pdf",
+      "publisher": "CNDH México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar correspondencia, proclamas, órdenes militares, escritos pastorales y documentos de proceso.",
+    "Los bandos ejecutados por autoridades locales conservan la diferencia entre orden política de Hidalgo y redacción/publicación material de terceros."
+  ]
+}
