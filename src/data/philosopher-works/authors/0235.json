@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "author_id": 235,
+  "canonical_name": "José Ignacio Sánchez",
+  "alternate_names": [
+    "P. José Ignacio Sánchez S. J."
+  ],
+  "coverage": {
+    "status": "seeded",
+    "works_status": "multiple_scholastic_lecture_manuscripts_grouped_into_course",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0235-w001",
+      "title": "Curso filosófico de José Ignacio Sánchez (súmulas, lógica, metafísica y física)",
+      "work_type": "jesuit_scholastic_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "course_lectures_and_manuscripts_period",
+        "period": {
+          "start": 1725,
+          "end": 1729
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_in_historical_manuscript_study",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        }
+      ],
+      "components": [
+        {
+          "topic": "Súmulas y Lógica",
+          "year": 1725,
+          "institution": "Colegio de San Ildefonso, Puebla",
+          "manuscript": "Biblioteca Nacional México, MS 476"
+        },
+        {
+          "topic": "Metafísica",
+          "year": 1725,
+          "institution": "Colegio de San Ildefonso, Puebla",
+          "manuscript": "Biblioteca Nacional México, MS 515"
+        },
+        {
+          "topic": "Física",
+          "year": 1728,
+          "institution": "Colegio de San Pedro y San Pablo, Ciudad de México",
+          "manuscript": "Biblioteca Nacional México, MS 139"
+        },
+        {
+          "topic": "Lógica, nueva enseñanza o versión",
+          "year_range": [
+            1728,
+            1729
+          ],
+          "institution": "Colegio Máximo San Pedro y San Pablo",
+          "relation_to_1725_manuscript": "not_textually_collated"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.colmex.mx/downloads/0k225f90c?locale=es",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "notes": "Navarro documenta portadores manuscritos separados de lógica, metafísica y física. La docencia en Puebla 1725 y México 1728–1729 se reúne como proyecto de curso; ninguno tiene primera publicación impresa acreditada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de lógica, metafísica y filosofía natural en Puebla y Ciudad de México, 1725–1729",
+      "kind": "colonial_philosophical_teaching",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_historical_monograph",
+      "title": "Bernabé Navarro, La introducción de la filosofía moderna en México, cap. II",
+      "url": "https://repositorio.colmex.mx/downloads/0k225f90c?locale=es"
+    },
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "José Ignacio Sánchez (1725)"
+    }
+  ],
+  "research_notes": [
+    "MS 476, 515 y 139 son signaturas de los manuscritos, no DOI ni ISBN.",
+    "No se duplican versiones de lógica como libros diferentes sin cotejo textual."
+  ]
+}
