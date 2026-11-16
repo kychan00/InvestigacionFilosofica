@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "author_id": 198,
+  "canonical_name": "Frantz Fanon",
+  "life": {
+    "born": {
+      "year": 1925,
+      "certainty": "book_biographical_index_2009"
+    },
+    "died": {
+      "year": 1961,
+      "certainty": "book_biographical_index_2009"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0198-w001",
+      "title": "Peau noire, masques blancs",
+      "work_type": "book",
+      "original_language": "francés",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb32091544r"
+      ],
+      "notes": "Edición original Seuil 1952; Francis Jeanson es prologuista, no coautor; ediciones 1968 y 1975 separadas."
+    },
+    {
+      "work_id": "0198-w002",
+      "title": "Les damnés de la terre",
+      "work_type": "book",
+      "original_language": "francés",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb33003013v"
+      ],
+      "notes": "Primera edición Maspero 1961; Jean-Paul Sartre es prologuista, no coautor. La BnF también registra reediciones 1968 y 1985."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; fechas biográficas cotejadas con índice del libro base de 2009.",
+    "Bibliografía selectiva: fechas de composición no inferidas; roles editoriales diferenciados en notas."
+  ]
+}
