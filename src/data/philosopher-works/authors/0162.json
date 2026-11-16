@@ -1,0 +1,646 @@
+{
+  "schema_version": 1,
+  "author_id": 162,
+  "canonical_name": "Augusto Salazar Bondy",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1925,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1974,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_with_sources_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0162-w001",
+      "title": "Ensayo sobre la distinción entre el ser irreal y el ser ideal",
+      "work_type": "doctoral_dissertation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "doctoral_dissertation"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ser irreal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ser ideal",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "edition_history": [
+        {
+          "year": 1958,
+          "title": "Irrealidad e idealidad",
+          "notes": "Versión impresa titulada de nuevo"
+        }
+      ],
+      "notes": "UNMSM documenta tesis de 1953 y publicación de libro Irrealidad e idealidad de 1958; mantener ambas manifestaciones sin doble atribución de obra nueva."
+    },
+    {
+      "work_id": "0162-w002",
+      "title": "La filosofía en el Perú: panorama histórico",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1954,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Perú",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w003",
+      "title": "Ensayos escogidos de Manuel González Prada",
+      "work_type": "edited_critical_anthology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "editor_of_others_work_not_original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Manuel González Prada",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "related_people": [
+        {
+          "name": "Manuel González Prada",
+          "role": "original_author"
+        }
+      ],
+      "notes": "Selección y aparato editorial, no atribuir ensayos originales del autor editado a Salazar Bondy."
+    },
+    {
+      "work_id": "0162-w004",
+      "title": "Irrealidad e idealidad",
+      "work_type": "revised_doctoral_thesis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "irrealidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "idealidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "edition_of_work": "162-w001",
+      "notes": "Publicación como libro de tesis de 1953; conservar vínculo entre versiones y no contar como obras intelectuales independientes en deduplicación futura."
+    },
+    {
+      "work_id": "0162-w005",
+      "title": "Introducción a la filosofía: manual de filosofía, vol. II",
+      "work_type": "philosophy_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w006",
+      "title": "Las tendencias filosóficas en el Perú",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tendencias filosóficas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Perú",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w007",
+      "title": "Historia de las ideas en el Perú contemporáneo",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Perú contemporáneo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w008",
+      "title": "¿Qué es filosofía?",
+      "work_type": "philosophy_introductory_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w009",
+      "title": "¿Existe una filosofía de nuestra América?",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "nuestra América",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "title_variants": [
+        "¿Existe una filosofía en nuestra América?"
+      ],
+      "first_publication_year_candidates": [
+        1968,
+        1969
+      ],
+      "source_conflict": true,
+      "notes": "Bibliografía universitaria da 1968; nota editorial UNMSM alude a edición Siglo XXI 1969. Requiere portada de primera tirada."
+    },
+    {
+      "work_id": "0162-w010",
+      "title": "La cultura de la dominación",
+      "work_type": "chapter_in_collective_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dominación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "notes": "Contribución a volumen colectivo Perú problema (1968), no libro individual."
+    },
+    {
+      "work_id": "0162-w011",
+      "title": "Entre Escila y Caribdis: reflexiones sobre la vida peruana",
+      "work_type": "philosophical_political_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida peruana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w012",
+      "title": "Para una filosofía del valor",
+      "work_type": "axiology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valor",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w013",
+      "title": "Filosofía y alienación ideológica",
+      "work_type": "chapter_in_collective_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "alienación ideológica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "notes": "Capítulo en Perú Hoy editado por José Matos Mar; no atribuir volumen entero a Salazar Bondy."
+    },
+    {
+      "work_id": "0162-w014",
+      "title": "El reto del Perú en la perspectiva del tercer mundo",
+      "work_type": "coauthored_political_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Francisco Sagasti",
+          "role": "coauthor"
+        },
+        {
+          "name": "Jorge Bravo Bresani",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Perú",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tercer mundo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ]
+    },
+    {
+      "work_id": "0162-w015",
+      "title": "Filosofía de la dominación y filosofía de la liberación",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dominación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "publication_context": "Stromata año XXIX, núm. 4, 1973"
+    },
+    {
+      "work_id": "0162-w016",
+      "title": "La educación del hombre nuevo: la reforma educativa peruana",
+      "work_type": "posthumous_education_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre nuevo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "posthumous": true,
+      "notes": "Libro Paidós 1975, después de fallecimiento 1974; textos sobre reforma educativa desarrollados en vida."
+    },
+    {
+      "work_id": "0162-w017",
+      "title": "Bartolomé o de la dominación",
+      "work_type": "posthumous_philosophical_dialogue",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bartolomé",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dominación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "posthumous": true,
+      "notes": "Edición póstuma Peisa 1977; fecha exacta de composición pendiente."
+    },
+    {
+      "work_id": "0162-w018",
+      "title": "Dominación y liberación: escritos 1966–1974",
+      "work_type": "posthumous_editorial_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_texts_by_author_edited_posthumously",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dominación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+      ],
+      "posthumous": true,
+      "related_contributors": [
+        {
+          "name": "Helen Orvig",
+          "role": "editor"
+        },
+        {
+          "name": "David Sobrevilla",
+          "role": "editor"
+        }
+      ],
+      "notes": "Antología editada póstumamente de textos 1966–1974; editores no coautores de originales."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0162-c001",
+      "title": "Filosofía de la liberación y crítica de la dependencia y dominación intelectual en Perú y América Latina",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0162-c002",
+      "title": "Participación en la reforma de la educación peruana y en procesos de transformación de la universidad",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_critical_biography",
+      "title": "Universidad Nacional Mayor de San Marcos: introducción y edición crítica de Salazar Bondy",
+      "url": "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/introduccion_term.pdf"
+    },
+    {
+      "kind": "university_primary_bibliography",
+      "title": "Universidad Nacional Mayor de San Marcos: Nota editorial Dominación y liberación",
+      "url": "https://sisbib.unmsm.edu.pe/Exposiciones/Salazar_bondy/publicaciones/Dominacion_liberacion/nota_sobre_edic.pdf"
+    },
+    {
+      "kind": "university_bibliography",
+      "title": "FCSH Universidade Nova de Lisboa: Bibliografía de Augusto Salazar Bondy",
+      "url": "https://fabricadesites.fcsh.unl.pt/ghispanicas/2019/05/09/augusto-salazar-bondy/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: Perú, Ecuador y Colombia, pp. 924–940"
+    }
+  ],
+  "research_notes": [
+    "El libro La educación del hombre nuevo (1975) es póstumo, no fecha de sus conferencias redactadas durante vida.",
+    "La tensión 1968/1969 ¿Existe una filosofía de nuestra América? permanece en first_publication_year_candidates.",
+    "Tesis 1953 y libro 1958 deben agruparse semánticamente como mismo proyecto de investigación, no dos investigaciones."
+  ]
+}
