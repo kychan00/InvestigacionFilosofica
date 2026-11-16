@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "author_id": 390,
+  "canonical_name": "João Quirino Gomes",
+  "alternate_names": [
+    "Padre João Quirino Gomes"
+  ],
+  "life": {
+    "born": {
+      "year": 1793,
+      "certainty": "history_of_philosophy_source"
+    },
+    "died": {
+      "year": 1859,
+      "certainty": "history_of_philosophy_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ensino público de Filosofia Racional e Moral na Bahia, com recepção de Antonio Genovesi, e participação na formação filosófica do Liceu Provincial",
+      "kind": "philosophy_teaching_and_institutional_contribution",
+      "authorship_status": "documented_in_history_of_philosophy_and_education_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "history_of_philosophy_source",
+      "title": "Antonio Paim — Os intérpretes da filosofia brasileira",
+      "url": "https://institutodehumanidades.com.br/arquivos/Os%20Interpretes%20da%20Filosofia%20Brasileira.pdf"
+    },
+    {
+      "kind": "academic_thesis_source",
+      "title": "UFF — história da educação e cadeira de Filosofia na Bahia",
+      "url": "https://www.historia.uff.br/stricto/td/1929.pdf"
+    },
+    {
+      "kind": "academic_thesis_source",
+      "title": "UNEB — Educação, política e sociedade na Bahia do século XIX",
+      "url": "https://www.cdi.uneb.br/site/wp-content/uploads/2018/04/Alex-Salvador-EDUCA%C3%87%C3%83O-POLITICA-E-SOCIEDADE-NA-BAHIA-DO-S%C3%89C.-XIX.-O-LICEU-PROVINCIAL-DA-BAHIA-.pdf"
+    }
+  ],
+  "research_notes": [
+    "A historiografia consultada afirma explicitamente que João Quirino Gomes nada publicou e que, antes de morrer, queimou seus numerosos escritos; por isso `works` permanece vazio.",
+    "Seu magistério de Filosofia Racional e Moral é documentado, assim como o uso de Antonio Genovesi como referência."
+  ]
+}
