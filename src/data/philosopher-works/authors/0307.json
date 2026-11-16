@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "author_id": 307,
+  "canonical_name": "Canek",
+  "alternate_names": [
+    "Jacinto Canek",
+    "José Jacinto Uc de los Santos Canek",
+    "Joseph Jacinto Uc Canek"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_archival_judicial_testimony_not_original_authored_work",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0307-w001",
+      "title": "Declaración y confesión de Joseph Jacinto Uc de los Santos Canek ante autoridades de Mérida",
+      "work_type": "colonial_judicial_interrogation_oral_testimony_recorded_by_scribe",
+      "original_language": "español (declaración mediada por intérprete)",
+      "original_date": {
+        "year": 1761,
+        "certainty": "judicial_hearing_december_9"
+      },
+      "first_publication_year": null,
+      "authorship_status": "oral_testimony_under_judicial_coercion_not_author_written_text",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "rebelión maya",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "justicia colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "represión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autonomía indígena",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S1607-050X2003000300012&script=sci_arttext"
+      ],
+      "notes": "Declaración en causa criminal contra Jacinto Canek, continuada el 9 de diciembre de 1761, documentada y transcrita en artículo académico (2003). Texto procesal formulado por interrogadores, escribano e intérprete; el testigo no debe aparecer como autor literal del documento ni supone un 'libro de Canek'.",
+      "document_date": "1761-12-09",
+      "title_status": "modern_descriptive_label",
+      "authorship_roles": [
+        {
+          "name": "Jacinto Canek",
+          "role": "interrogated_speaker_and_historical_subject"
+        },
+        {
+          "name": "escribano mayor de gobierno",
+          "role": "document_writer"
+        },
+        {
+          "name": "intérprete judicial",
+          "role": "linguistic_mediator"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Liderazgo de la insurrección maya de Cisteil en 1761 y expresión de reivindicaciones contra el régimen colonial, reconstruida con testimonios judiciales",
+      "kind": "indigenous_anti_colonial_political_thought",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "peer_reviewed_archival_transcription",
+      "title": "«La declaración de Jacinto Canek, 1761», Desacatos, SciELO México (2003)",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S1607-050X2003000300012&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "Es un expediente de interrogatorio, potencialmente bajo coacción, no un texto voluntario compuesto por Canek.",
+    "No atribuirle los parlamentos del drama o novela «Canek» de Ermilo Abreu Gómez del siglo XX.",
+    "No interpretar el documento procesal como transcripción literal íntegra de la voz maya ni inferir primera edición individual de 1761."
+  ]
+}

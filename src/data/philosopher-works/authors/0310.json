@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "author_id": 310,
+  "canonical_name": "Antonio José de Sucre y Alcalá",
+  "alternate_names": [
+    "Antonio José de Sucre",
+    "Gran Mariscal de Ayacucho"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "official_1825_copybooks_and_1827_promulgation_without_false_autograph_attribution",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0310-w001",
+      "title": "Copiadores de correspondencia del Gran Mariscal Antonio José de Sucre con autoridades del Alto y Bajo Perú (1825)",
+      "work_type": "official_correspondence_manuscript_copybooks",
+      "original_language": "español",
+      "original_date": {
+        "year": 1825,
+        "certainty": "administrative_correspondence_year"
+      },
+      "first_publication_year": null,
+      "authorship_status": "administrative_letters_by_Sucre_and_secretarial_transcription_not_single_autograph",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "instituciones republicanas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "correspondencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unesco.org/es/memory-world/lac/copies-correspondence-grand-marshal-antonio-jose-de-sucre-presidents-civil-and-military-authorities"
+      ],
+      "notes": "Archivo y Biblioteca Nacionales de Bolivia conserva legajos encuadernados con correspondencia oficial de 1825, inscritos en el registro Memoria del Mundo de UNESCO (2025). Incluyen copias autógrafas y otras efectuadas por su secretario; no presentar corpus como libro de Sucre publicado en 1825.",
+      "archive": "Archivo y Biblioteca Nacionales de Bolivia (ABNB)",
+      "archival_collection": "Copiadores de correspondencia del Gran Mariscal Antonio José de Sucre (1825)",
+      "manuscript_copyists": "incluye secretario personal; cotejo carta a carta pendiente",
+      "modern_registration_year": 2025
+    },
+    {
+      "work_id": "0310-w002",
+      "title": "Ley de la Educación de Bolivia de 9 de enero de 1827",
+      "work_type": "republican_public_education_law_promulgated_not_sole_written_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1827,
+        "certainty": "promulgation_date_january_9"
+      },
+      "first_publication_year": 1827,
+      "authorship_status": "executive_promulgation_by_Sucre_legislative_authorship_by_Congress",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.lexivox.org/norms/BO-L-18270109.xhtml"
+      ],
+      "notes": "El Congreso General Constituyente sancionó el Plan de Enseñanza el 31 de diciembre de 1826; Sucre lo ejecutó y promulgó el 9 de enero de 1827 con refrendo ministerial de Facundo Infante. Su firma es función ejecutiva y NO autoría personal exclusiva del articulado.",
+      "date_of_legislative_approval": "1826-12-31",
+      "date_of_promulgation": "1827-01-09",
+      "responsibility_roles": [
+        {
+          "name": "Congreso General Constituyente de Bolivia",
+          "role": "legislator and formal author"
+        },
+        {
+          "name": "Antonio José de Sucre",
+          "role": "presidential promulgation"
+        },
+        {
+          "name": "Facundo Infante",
+          "role": "ministerial counter-signature"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Organización político-administrativa de la independencia de Bolivia, correspondencia oficial y promulgación de reforma educativa republicana",
+      "kind": "republican_state_building_and_public_education",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "UNESCO_documentary_heritage",
+      "title": "UNESCO Memoria del Mundo, copiadores de correspondencia de Sucre (1825), ABNB",
+      "url": "https://www.unesco.org/es/memory-world/lac/copies-correspondence-grand-marshal-antonio-jose-de-sucre-presidents-civil-and-military-authorities"
+    },
+    {
+      "kind": "official_historical_law_text",
+      "title": "Ley boliviana de educación 9 de enero de 1827, texto del Congreso Constituyente y ejecución por Sucre",
+      "url": "https://www.lexivox.org/norms/BO-L-18270109.xhtml"
+    },
+    {
+      "kind": "national_archival_catalog",
+      "title": "Archivo y Biblioteca Nacionales de Bolivia, antología de documentos de Sucre 1825–1828 (edición 1995)",
+      "url": "https://mibiblioteca.upea.bo/bib/2593"
+    }
+  ],
+  "research_notes": [
+    "NO adjudicar a Sucre los decretos educativos firmados por Simón Bolívar en diciembre de 1825.",
+    "La ley 1827 no es un ensayo filosófico autónomo de Sucre, sino norma legislativa promulgada bajo su Presidencia.",
+    "Los copiadores comprenden comunicaciones en distintas manos, algunas autógrafas y otras copias; desglosar sólo cuando se compruebe firmante y testimonio."
+  ]
+}

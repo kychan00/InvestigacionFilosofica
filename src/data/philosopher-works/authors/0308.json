@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "author_id": 308,
+  "canonical_name": "José Gabriel Condorcanqui Túpac Amaru",
+  "alternate_names": [
+    "Túpac Amaru II",
+    "José Gabriel Túpac Amaru",
+    "José Gabriel Condorcanqui Noguera"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_signed_1780_primary_documents_no_anachronistic_publication",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0308-w001",
+      "title": "Carta a Bernardo Sucacagua sobre la captura de corregidores",
+      "work_type": "rebel_correspondence_primary_document",
+      "original_language": "español",
+      "original_date": {
+        "year": 1780,
+        "certainty": "dated_november_15"
+      },
+      "first_publication_year": null,
+      "authorship_status": "signed_political_correspondence_in_critical_documentary_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "rebelión de Túpac Amaru",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autoridad colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "corregidores",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://beta.acuedi.org/storage/books/pdf/ncdip-la-rebelion-de-tupac-amaru-ii-volumen-3-v08Cfc.pdf"
+      ],
+      "notes": "Documento fechado en Tungasuca, 15 noviembre 1780, publicado en compilaciones de documentos de la rebelión. Atribución por firma en la transmisión documental; la edición moderna no es primera impresión contemporánea.",
+      "document_date": "1780-11-15",
+      "title_status": "modern_descriptive_label"
+    },
+    {
+      "work_id": "0308-w002",
+      "title": "Bando dirigido al Cuzco ofreciendo libertad a las personas esclavizadas",
+      "work_type": "rebel_anti_slavery_bando_primary_document",
+      "original_language": "español",
+      "original_date": {
+        "year": 1780,
+        "certainty": "dated_november_16"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documentary_bando_in_peruvian_national_collections",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolición de esclavitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "rebelión andina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poder colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www3.congreso.gob.pe/Docs/FondoEditorial/bicentenario/Tupac_Amaru_6/files/basic-html/page135.html",
+        "https://zasqua.org/pe-bn-cdip-02184/"
+      ],
+      "notes": "Bando identificado por nota marginal con fecha 16 noviembre 1780, editado en la colección documental del Congreso del Perú y en archivo bibliográfico asociado a Biblioteca Nacional del Perú. No confundir fecha original del bando con la publicación en la colección impresa de 1971.",
+      "document_date": "1780-11-16",
+      "title_status": "modern_descriptive_label",
+      "editorial_witness": {
+        "year": 1971,
+        "edition": "Colección Documental de la Independencia del Perú, tomo 2",
+        "pages": "271–272"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirección del levantamiento andino de 1780–1781, crítica del régimen de corregidores y bandos contra la esclavización",
+      "kind": "andine_indigenous_political_anti_colonial_thought",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "official_primary_documents",
+      "title": "Congreso del Perú, Nueva Colección Documental de la Independencia: La rebelión de Túpac Amaru II",
+      "url": "https://www3.congreso.gob.pe/Docs/FondoEditorial/bicentenario/Tupac_Amaru_6/files/basic-html/page135.html"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Biblioteca Nacional del Perú / Zasqua, Bando de Libertad de los Esclavos, 16-11-1780, CDIP 02184",
+      "url": "https://zasqua.org/pe-bn-cdip-02184/"
+    },
+    {
+      "kind": "transcribed_historical_correspondence",
+      "title": "Nueva Colección Documental, cartas de Túpac Amaru a Bernardo Sucacagua",
+      "url": "https://beta.acuedi.org/storage/books/pdf/ncdip-la-rebelion-de-tupac-amaru-ii-volumen-3-v08Cfc.pdf"
+    }
+  ],
+  "research_notes": [
+    "No contar cartas y bandos como libros impresos originariamente en 1780.",
+    "No atribuir indiscriminadamente todos los bandos de la rebelión a José Gabriel: distinguir firmas y documentos de familiares, colaboradores y copistas.",
+    "La postura política varió según audiencias y circunstancias; no reducirla automáticamente a un programa emancipatorio contemporáneo."
+  ]
+}

@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 300,
-    "authors_remaining": 1204,
-    "works_or_contributions_seeded": 2220,
-    "current_batch": "030",
+    "authors_seeded": 310,
+    "authors_remaining": 1194,
+    "works_or_contributions_seeded": 2255,
+    "current_batch": "031",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1591,6 +1591,58 @@
       "author_id": 300,
       "canonical_name": "José Sánchez Labrador",
       "path": "authors/0300.json"
+    }
+  ],
+  "batch_031": [
+    {
+      "author_id": 301,
+      "canonical_name": "Roque González",
+      "path": "authors/0301.json"
+    },
+    {
+      "author_id": 302,
+      "canonical_name": "Simão de Vasconcellos",
+      "path": "authors/0302.json"
+    },
+    {
+      "author_id": 303,
+      "canonical_name": "Juan Ignacio Molina",
+      "path": "authors/0303.json"
+    },
+    {
+      "author_id": 304,
+      "canonical_name": "Pedro José Márquez",
+      "path": "authors/0304.json"
+    },
+    {
+      "author_id": 305,
+      "canonical_name": "Juan de Velasco",
+      "path": "authors/0305.json"
+    },
+    {
+      "author_id": 306,
+      "canonical_name": "Andrés Cavo",
+      "path": "authors/0306.json"
+    },
+    {
+      "author_id": 307,
+      "canonical_name": "Canek",
+      "path": "authors/0307.json"
+    },
+    {
+      "author_id": 308,
+      "canonical_name": "José Gabriel Condorcanqui Túpac Amaru",
+      "path": "authors/0308.json"
+    },
+    {
+      "author_id": 309,
+      "canonical_name": "Juan Germán Roscio",
+      "path": "authors/0309.json"
+    },
+    {
+      "author_id": 310,
+      "canonical_name": "Antonio José de Sucre y Alcalá",
+      "path": "authors/0310.json"
     }
   ]
 }

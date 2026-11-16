@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "author_id": 302,
+  "canonical_name": "Simão de Vasconcellos",
+  "alternate_names": [
+    "Simão de Vasconcelos",
+    "Simam de Vasconcellos"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_early_imprints_1658_1663_1672_sections_deduplicated",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0302-w001",
+      "title": "Vida do Padre João de Almeida, da Companhia de Jesus, na província do Brasil",
+      "work_type": "jesuit_biography_original_print",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1658,
+        "certainty": "early_imprint_University_Complutense_bibliography"
+      },
+      "first_publication_year": 1658,
+      "authorship_status": "historical_first_print_attributed_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "biografía religiosa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "jesuitas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ucm.es/imperiosdepapel/autores-r-z"
+      ],
+      "notes": "Impresión Lisboa, Officina Craesbeeckiana, 1658. Biografía misionera; no confundir con Vida de Anchieta, 1672.",
+      "edition": {
+        "year": 1658,
+        "publisher": "Officina Craesbeeckiana",
+        "region": "Lisboa"
+      }
+    },
+    {
+      "work_id": "0302-w002",
+      "title": "Crônica da Companhia de Jesus do Estado do Brasil e do que obraram seus filhos nesta parte do Novo Mundo",
+      "work_type": "jesuit_colonial_history_original_print",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1663,
+        "certainty": "first_physical_print"
+      },
+      "first_publication_year": 1663,
+      "authorship_status": "first_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historiografía colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "misiones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pueblos indígenas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=220316",
+        "https://www.ucm.es/imperiosdepapel/autores-r-z"
+      ],
+      "notes": "Primera impresión Lisboa, Henrique Valente de Oliveira, 1663; contiene noticias antecedentes sobre naturaleza y pueblos del Brasil. Sus subsecciones y su reedición de 1668 no se duplican como nuevas obras originales.",
+      "edition": {
+        "year": 1663,
+        "publisher": "Henrique Valente de Oliveira",
+        "region": "Lisboa"
+      },
+      "section_reissue": {
+        "title": "Notícias curiosas e necessárias das cousas do Brasil",
+        "year": 1668,
+        "publisher": "João da Costa",
+        "catalog_url": "https://digital.bbm.usp.br/handle/bbm/7221"
+      }
+    },
+    {
+      "work_id": "0302-w003",
+      "title": "Sermão na festa do nome de Jesus, pregado na Bahia em 1 de janeiro de 1659",
+      "work_type": "jesuit_moral_religious_sermon_printed",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1659,
+        "certainty": "sermon_delivery_year"
+      },
+      "first_publication_year": 1663,
+      "authorship_status": "attributed_preached_sermon_1663_print",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oratoria religiosa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral cristiana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ucm.es/imperiosdepapel/autores-r-z"
+      ],
+      "notes": "Predicación del 1 de enero de 1659; imprenta de Henrique Valente de Oliveira, Lisboa, 1663 según bibliografía de la Universidad Complutense. La fecha de predicación no es impresión.",
+      "edition": {
+        "year": 1663,
+        "publisher": "Henrique Valente de Oliveira",
+        "region": "Lisboa"
+      }
+    },
+    {
+      "work_id": "0302-w004",
+      "title": "Vida do venerável padre José de Anchieta da Companhia de Jesus, taumaturgo do Novo Mundo",
+      "work_type": "jesuit_biography_original_print",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1672,
+        "certainty": "physical_first_print"
+      },
+      "first_publication_year": 1672,
+      "authorship_status": "author_identified_on_first_edition_titlepage",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "biografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "misiones jesuitas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Anchieta",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://brasiliana.usp.br/handle/bbm/5156"
+      ],
+      "notes": "Primera edición Lisboa, Oficina de João da Costa, 1672, 593 y 95 pp. con partes y portada diferenciadas; constituyen el mismo volumen biográfico.",
+      "edition": {
+        "year": 1672,
+        "publisher": "João da Costa",
+        "region": "Lisboa"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Historia y apologética jesuita sobre catequesis, sociedad colonial e interpretación teológica de pueblos indígenas del Brasil",
+      "kind": "luso_brazilian_colonial_history_of_ideas",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_first_print_catalog",
+      "title": "UFSC, Crônica da Companhia de Jesus do Estado do Brasil, 1663",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=220316"
+    },
+    {
+      "kind": "rare_books_catalog",
+      "title": "Universidad Complutense de Madrid, bibliografía de Vasconcelos, impresos 1658–1672",
+      "url": "https://www.ucm.es/imperiosdepapel/autores-r-z"
+    },
+    {
+      "kind": "rare_books_catalog",
+      "title": "Biblioteca Brasiliana USP, Noticias curiosas, separata de 1668",
+      "url": "https://digital.bbm.usp.br/handle/bbm/7221"
+    },
+    {
+      "kind": "rare_books_catalog",
+      "title": "Biblioteca Brasiliana USP, Vida do venerável padre José de Anchieta, 1672",
+      "url": "https://brasiliana.usp.br/handle/bbm/5156"
+    }
+  ],
+  "research_notes": [
+    "El impreso separado de «Notícias curiosas» (1668) reutiliza texto de la Crônica de 1663 y queda registrado como testimonio editorial secundario, no quinta obra.",
+    "Conservar diferencias entre autor, impresor, biógrafo y personaje biografiado."
+  ]
+}

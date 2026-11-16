@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "author_id": 309,
+  "canonical_name": "Juan Germán Roscio",
+  "alternate_names": [
+    "J. G. R.",
+    "Juan Germán Roscio Nieves"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "three_political_primary_prints_with_regulatory_authorship_qualification",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0309-w001",
+      "title": "Reglamento para la elección y reunión de diputados que han de componer el cuerpo conservador de los derechos de Fernando VII",
+      "work_type": "constitutional_electoral_regulation_printed",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "publication_year_in_bibliography"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "political_editor_or_attributed_drafter_not_sole_authorship_proved",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "representación política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "elecciones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://museodellibrovenezolano.libroria.com/el-triunfo-de-la-libertad-sobre-el-despotismo-en-la-confesion-de-un-pecador-arrepentido-de-sus-errores-politicos-y-dedicado-a-desagraviar-en-esta-parte-a-la-religion-ofendida-con-el-sistema-de-la-ti/"
+      ],
+      "notes": "La bibliografía del Museo del Libro Venezolano registra impresión Caracas, Gallagher y Lamb, 1810, atribuida a Roscio; diferenciar redactor reglamentario de autoridad institucional que lo sanciona.",
+      "edition": {
+        "year": 1810,
+        "publisher": "Gallagher y Lamb",
+        "region": "Caracas"
+      }
+    },
+    {
+      "work_id": "0309-w002",
+      "title": "Patriotismo de Nirgua y abuso de los reyes",
+      "work_type": "republican_political_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "text_1811_print_record_1812_discrepancy",
+        "period": {
+          "start": 1811,
+          "end": 1812
+        }
+      },
+      "first_publication_year": 1812,
+      "authorship_status": "attributed_author_first_print_secondary_bibliography_1812",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "soberanía popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho de resistencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "republicanismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://museodellibrovenezolano.libroria.com/el-triunfo-de-la-libertad-sobre-el-despotismo-en-la-confesion-de-un-pecador-arrepentido-de-sus-errores-politicos-y-dedicado-a-desagraviar-en-esta-parte-a-la-religion-ofendida-con-el-sistema-de-la-ti/",
+        "https://stg.bibliotecadigitaldebogota.gov.co/resources/3701719/",
+        "https://www.acienpol.org.ve/wp-content/uploads/2021/04/Libro-Pensamiento-politico-y-juridico.pdf"
+      ],
+      "notes": "Fuente especializada sitúa discusión en 1811; Museo del Libro registra Caracas, Juan Baillío, 1812, 22 p.; Biblioteca Nacional de Colombia conserva una edición de Lima, 1822. No confundir el año de discurso con primera impresión documentada.",
+      "edition": {
+        "year": 1812,
+        "publisher": "Juan Baillío",
+        "region": "Caracas"
+      },
+      "later_editions": [
+        {
+          "year": 1822,
+          "region": "Lima",
+          "publisher": "Imprenta de San Jacinto"
+        }
+      ]
+    },
+    {
+      "work_id": "0309-w003",
+      "title": "El triunfo de la libertad sobre el despotismo, en la confesión de un pecador arrepentido de sus errores políticos",
+      "work_type": "republican_political_and_theological_philosophy_first_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1817,
+        "certainty": "first_philadelphia_print"
+      },
+      "first_publication_year": 1817,
+      "authorship_status": "author_J_G_R_identified_in_first_print",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tiranía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión y política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecadigitaldebogota.gov.co/resources/3706270/",
+        "https://museodellibrovenezolano.libroria.com/el-triunfo-de-la-libertad-sobre-el-despotismo-en-la-confesion-de-un-pecador-arrepentido-de-sus-errores-politicos-y-dedicado-a-desagraviar-en-esta-parte-a-la-religion-ofendida-con-el-sistema-de-la-ti/"
+      ],
+      "notes": "Primera edición Filadelfia, Thomas H. Palmer, 1817, firmada «J. G. R.», 406 páginas; Biblioteca Nacional de Colombia conserva reproducción. Reimpresión Filadelfia 1821 y ediciones mexicanas posteriores son testimonios de una misma obra.",
+      "edition": {
+        "year": 1817,
+        "publisher": "Thomas H. Palmer",
+        "region": "Filadelfia"
+      },
+      "later_editions": [
+        {
+          "year": 1821,
+          "region": "Filadelfia",
+          "publisher": "M. Carey e hijos"
+        },
+        {
+          "year": 1824,
+          "region": "México",
+          "notes": "edición abreviada"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Argumentación de soberanía popular y crítica teológica del absolutismo monárquico en la emancipación venezolana",
+      "kind": "latin_american_republican_political_philosophy",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_digitization",
+      "title": "Biblioteca Nacional de Colombia / Biblioteca Digital Bogotá, primera edición de El triunfo 1817",
+      "url": "https://www.bibliotecadigitaldebogota.gov.co/resources/3706270/"
+    },
+    {
+      "kind": "historical_book_museum",
+      "title": "Museo del Libro Venezolano, Roscio: primeras ediciones y panfletos",
+      "url": "https://museodellibrovenezolano.libroria.com/el-triunfo-de-la-libertad-sobre-el-despotismo-en-la-confesion-de-un-pecador-arrepentido-de-sus-errores-politicos-y-dedicado-a-desagraviar-en-esta-parte-a-la-religion-ofendida-con-el-sistema-de-la-ti/"
+    },
+    {
+      "kind": "academic_political_history",
+      "title": "Academia de Ciencias Políticas y Sociales de Venezuela, pensamiento jurídico de la Independencia",
+      "url": "https://www.acienpol.org.ve/wp-content/uploads/2021/04/Libro-Pensamiento-politico-y-juridico.pdf"
+    }
+  ],
+  "research_notes": [
+    "Su participación en el Acta de Independencia de Venezuela es colectiva: no registrarla como tratado enteramente propio.",
+    "Patriotismo de Nirgua tiene cita histórica 1811 pero primera ficha catalogada en la bibliografía 1812.",
+    "Las ediciones de 1821 y 1824 de El triunfo no deben duplicarse como obras originales distintas."
+  ]
+}

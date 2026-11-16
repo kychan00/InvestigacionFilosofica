@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "author_id": 301,
+  "canonical_name": "Roque González",
+  "alternate_names": [
+    "Roque González de Santa Cruz",
+    "Roque González de Santa Cruz S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "three_edited_early_seventeenth_century_letters_partial_archive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0301-w001",
+      "title": "Carta Anua de la Reducción de San Ignacio del Paraná",
+      "work_type": "jesuit_annual_missionary_letter_archival_document",
+      "original_language": "español",
+      "original_date": {
+        "year": 1613,
+        "certainty": "dated_october_8_in_scholarly_document_collection"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author_letter_in_secondary_documentary_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "misiones jesuitas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "guaraníes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reducciones",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/31002306/Roque_Gzlz_SCruz_Cartas"
+      ],
+      "notes": "Reproducida por el Centro de Espiritualidad Santos Mártires en edición de cartas de Roque González, con fecha 8 de octubre de 1613; no convertir fecha de redacción en primera impresión.",
+      "document_date": "1613-10-08",
+      "title_status": "editorial_descriptive_title"
+    },
+    {
+      "work_id": "0301-w002",
+      "title": "Carta al provincial Pedro de Oñate",
+      "work_type": "jesuit_missionary_letter_archival_document",
+      "original_language": "español",
+      "original_date": {
+        "year": 1615,
+        "certainty": "dated_december_28_in_edited_collection"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author_letter_in_secondary_documentary_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "misiones jesuitas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vida comunitaria",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/31002306/Roque_Gzlz_SCruz_Cartas"
+      ],
+      "notes": "Carta anua dirigida al provincial Pedro de Oñate, fechada 28 de diciembre de 1615; la edición moderna incluye el texto y documentación contextual. No se acredita primera impresión individual.",
+      "document_date": "1615-12-28",
+      "title_status": "editorial_descriptive_title"
+    },
+    {
+      "work_id": "0301-w003",
+      "title": "Carta a Francisco González de Santa Cruz",
+      "work_type": "personal_and_missionary_letter_archival_document",
+      "original_language": "español",
+      "original_date": {
+        "year": 1614,
+        "certainty": "dated_december_19_in_edited_collection"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author_letter_in_secondary_documentary_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "correspondencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "misiones",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/31002306/Roque_Gzlz_SCruz_Cartas"
+      ],
+      "notes": "Carta al hermano del autor, teniente general Francisco González de Santa Cruz, fechada el 19 diciembre 1614, incluida en corpus documental editado; no constituye un libro autónomo del siglo XVII.",
+      "document_date": "1614-12-19",
+      "title_status": "editorial_descriptive_title"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Organización de reducciones jesuitas de Paraguay y el Río de la Plata, documentada mediante cartas y relaciones de misión",
+      "kind": "guarani_missionary_and_colonial_community_thought",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "edited_primary_documents",
+      "title": "Cartas y documentos del padre Roque González, Centro de Espiritualidad Santos Mártires, edición Tomás Rodríguez SJ",
+      "url": "https://www.academia.edu/31002306/Roque_Gzlz_SCruz_Cartas",
+      "locator": "índice de cartas de 1613–1615"
+    }
+  ],
+  "research_notes": [
+    "La colección incluye documentos redactados por terceros y papeles jurídicos. No atribuir a González cada documento del volumen.",
+    "No confundir la carta anua del autor con cartas del provincial Diego de Torres donde se la reproduce parcialmente.",
+    "Se deja pendiente cotejo de signatura original de cada carta antes de declarar autógrafos."
+  ]
+}

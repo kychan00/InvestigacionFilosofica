@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "author_id": 305,
+  "canonical_name": "Juan de Velasco",
+  "alternate_names": [
+    "Juan de Velasco y Pérez Petroche"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1789_manuscript_three_parts_first_partial_print_1839_distinguished",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0305-w001",
+      "title": "Historia del Reino de Quito en la América Meridional",
+      "work_type": "three_part_colonial_history_manuscript_later_printed",
+      "original_language": "español",
+      "original_date": {
+        "year": 1789,
+        "certainty": "author_manuscript_date"
+      },
+      "first_publication_year": 1839,
+      "authorship_status": "manuscript_author_18th_century_edited_posthumously",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia del Ecuador",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pueblos indígenas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia antigua",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/historia-de-la-cultura-ecuatoriana--0/html/0027fcd4-82b2-11df-acc7-002185ce6064_27.html",
+        "https://biblioteca.casadelacultura.gob.ec/bib/41064"
+      ],
+      "notes": "Manuscrito redactado en Faenza en 1789 en tres partes: historia natural, antigua y moderna. Hubo publicación parcial en París 1839, traducción francesa 1840 y edición quiteña en entregas 1841, 1842, 1844; una edición crítica fue preparada en 1960. El primer_publication_year 1839 se refiere SOLO al fragmento publicado; NO equivale a primera publicación integral.",
+      "volume_count": 3,
+      "parts": [
+        "Historia natural",
+        "Historia antigua",
+        "Historia moderna"
+      ],
+      "first_publication_scope": "partial_publication_in_paris_1839",
+      "later_editions": [
+        {
+          "year": 1840,
+          "description": "French translation/partial edition"
+        },
+        {
+          "year": 1841,
+          "description": "Quito, ancient history"
+        },
+        {
+          "year": 1842,
+          "description": "Quito, modern history"
+        },
+        {
+          "year": 1844,
+          "description": "Quito, natural history"
+        },
+        {
+          "year": 1960,
+          "description": "critical edition"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Construcción historiográfica del Reino de Quito desde materiales y memoria del exilio jesuita, con alcance e imprecisiones reconocidos por la crítica",
+      "kind": "colonial_quito_historiography_and_identity",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "literary_and_textual_historiography",
+      "title": "Biblioteca Virtual Miguel de Cervantes, Historia de la cultura ecuatoriana: ediciones 1839–1960 de Velasco",
+      "url": "https://www.cervantesvirtual.com/obra-visor/historia-de-la-cultura-ecuatoriana--0/html/0027fcd4-82b2-11df-acc7-002185ce6064_27.html"
+    },
+    {
+      "kind": "national_cultural_library_catalog",
+      "title": "Casa de la Cultura Ecuatoriana, Historia del Reino de Quito, tres tomos",
+      "url": "https://biblioteca.casadelacultura.gob.ec/bib/41064"
+    }
+  ],
+  "research_notes": [
+    "La obra consta de tres partes del mismo manuscrito, no tres libros originales distintos.",
+    "La edición temprana francesa y la primera quiteña no son equivalentes; 1839 corresponde a publicación parcial, 1841–44 a publicación de tomos en Quito.",
+    "Las hipótesis sobre orígenes de civilizaciones prehispánicas requieren contraste arqueológico y no se dan por verificadas solo porque aparecen en Velasco."
+  ]
+}

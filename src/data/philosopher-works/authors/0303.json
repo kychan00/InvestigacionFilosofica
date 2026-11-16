@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "author_id": 303,
+  "canonical_name": "Juan Ignacio Molina",
+  "alternate_names": [
+    "Giovanni Ignazio Molina",
+    "Abate Molina",
+    "Juan Ignacio Molina González"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_historical_original_titles_anonymous_1776_authorship_conflict",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0303-w001",
+      "title": "Compendio della storia geografica, naturale e civile del regno del Chile",
+      "work_type": "chilean_natural_and_civil_history_first_anonymous_print",
+      "original_language": "italiano",
+      "original_date": {
+        "year": 1776,
+        "certainty": "first_print_catalogued"
+      },
+      "first_publication_year": 1776,
+      "authorship_status": "first_anonymous_print_authority_attribution_to_molina_historically_debated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Chile",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia civil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://libros.uchile.cl/100",
+        "https://www.biodiversitylibrary.org/bibliography/203040",
+        "https://www.memoriachilena.gob.cl/602/w3-article-92939.html"
+      ],
+      "notes": "Impreso anónimamente en Bolonia en 1776; Biblioteca Nacional de Chile/Universidad de Chile y Biodiversity Heritage Library lo catalogan a Molina, pero hay historia de atribución a Felipe Gómez de Vidaurre. Preservar conflicto documental, no sustituirlo por certeza sin reservas.",
+      "edition": {
+        "year": 1776,
+        "publisher": "Stamperia di S. Tommaso d'Aquino",
+        "region": "Bolonia"
+      },
+      "authorship_note": "anonymous_1776_first_print_older_attribution_to_Felipe_Gomez_de_Vidaurre"
+    },
+    {
+      "work_id": "0303-w002",
+      "title": "Saggio sulla storia naturale del Chili",
+      "work_type": "natural_history_original_italian_treatise",
+      "original_language": "italiano",
+      "original_date": {
+        "year": 1782,
+        "certainty": "first_edition_Bologna"
+      },
+      "first_publication_year": 1782,
+      "authorship_status": "author_early_imprint_confirmed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "botánica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fauna chilena",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-590.html",
+        "https://www.memoriachilena.gob.cl/602/w3-article-92939.html"
+      ],
+      "notes": "Publicado Bolonia 1782; segunda edición aumentada de 1810. Su traducción española aparece como tomo I del Compendio 1788, no nueva obra original independiente.",
+      "later_editions": [
+        {
+          "year": 1810,
+          "edition": "second_revised_edition"
+        },
+        {
+          "year": 1788,
+          "edition": "Spanish translation",
+          "translator": "Domingo Joseph de Arquellada Mendoza"
+        }
+      ]
+    },
+    {
+      "work_id": "0303-w003",
+      "title": "Saggio della storia civile del Chili",
+      "work_type": "civil_history_original_italian_treatise",
+      "original_language": "italiano",
+      "original_date": {
+        "year": 1787,
+        "certainty": "first_edition_Bologna"
+      },
+      "first_publication_year": 1787,
+      "authorship_status": "author_original_imprint_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia civil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Chile",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pueblos indígenas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-590.html",
+        "https://www.memoriachilena.gob.cl/602/w3-article-92939.html"
+      ],
+      "notes": "Publicado Bolonia 1787; traducción española de 1795 aparece como tomo II del Compendio. Edición italiana ampliada 1810, no libro distinto.",
+      "later_editions": [
+        {
+          "year": 1810,
+          "edition": "second_revised_edition"
+        },
+        {
+          "year": 1795,
+          "edition": "Spanish translation",
+          "translator": "Nicolás de la Cruz Bahamondes"
+        }
+      ]
+    },
+    {
+      "work_id": "0303-w004",
+      "title": "Memorie di storia naturale lette in Bologna",
+      "work_type": "natural_history_published_essay_collection",
+      "original_language": "italiano",
+      "original_date": {
+        "year": 1821,
+        "certainty": "documented_publication_year"
+      },
+      "first_publication_year": 1821,
+      "authorship_status": "author_essay_collection_historically_cited",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencia empírica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-590.html"
+      ],
+      "notes": "Recopilación boloñesa de ensayos dispersos publicada en 1821; no se cuentan sus ensayos como nuevos títulos sin verificar la identidad de cada texto."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigaciones sobre la naturaleza chilena, clasificación científica y articulación de historia natural y civil desde el exilio jesuita",
+      "kind": "enlightenment_natural_philosophy_history",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_authority",
+      "title": "Memoria Chilena, Biblioteca Nacional de Chile, cronología bibliográfica de Juan Ignacio Molina",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-590.html"
+    },
+    {
+      "kind": "university_first_edition_catalog",
+      "title": "Universidad de Chile, Compendio, 1776, DOI 10.34720/b2pd-mc67",
+      "url": "https://libros.uchile.cl/100"
+    },
+    {
+      "kind": "biodiversity_rare_catalog",
+      "title": "Biodiversity Heritage Library, Compendio 1776, nota de autoría",
+      "url": "https://www.biodiversitylibrary.org/bibliography/203040"
+    },
+    {
+      "kind": "national_library_textual_history",
+      "title": "Memoria Chilena, ediciones y traducciones del Compendio 1788–1795",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-92939.html"
+    }
+  ],
+  "research_notes": [
+    "La atribución del impreso anónimo de 1776 se conserva con reservas explícitas.",
+    "1782 y 1787 son ensayos ampliados y reelaborados: quedan distinguidos como títulos propios; traducciones de 1788 y 1795 no se duplican.",
+    "Las Memorie (1821) son volumen de ensayos reunidos, no síntesis original que autorice duplicar cada artículo sin cotejo."
+  ]
+}
