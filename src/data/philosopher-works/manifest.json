@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 190,
-    "authors_remaining": 1314,
-    "works_or_contributions_seeded": 1817,
-    "current_batch": "019",
+    "authors_seeded": 200,
+    "authors_remaining": 1304,
+    "works_or_contributions_seeded": 1831,
+    "current_batch": "020",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1019,6 +1019,58 @@
       "author_id": 190,
       "canonical_name": "Franz Hinkelammert",
       "path": "authors/0190.json"
+    }
+  ],
+  "batch_020": [
+    {
+      "author_id": 191,
+      "canonical_name": "Ricaurte Soler",
+      "path": "authors/191.json"
+    },
+    {
+      "author_id": 192,
+      "canonical_name": "Alejandro Serrano Caldera",
+      "path": "authors/192.json"
+    },
+    {
+      "author_id": 193,
+      "canonical_name": "Urania Ungo",
+      "path": "authors/193.json"
+    },
+    {
+      "author_id": 194,
+      "canonical_name": "Eugenio María de Hostos",
+      "path": "authors/194.json"
+    },
+    {
+      "author_id": 195,
+      "canonical_name": "Pedro Henríquez Ureña",
+      "path": "authors/195.json"
+    },
+    {
+      "author_id": 196,
+      "canonical_name": "Medardo Vitier",
+      "path": "authors/196.json"
+    },
+    {
+      "author_id": 197,
+      "canonical_name": "Juan Isidro Jiménes-Grullón",
+      "path": "authors/197.json"
+    },
+    {
+      "author_id": 198,
+      "canonical_name": "Frantz Fanon",
+      "path": "authors/198.json"
+    },
+    {
+      "author_id": 199,
+      "canonical_name": "Esteban Tollinchi",
+      "path": "authors/199.json"
+    },
+    {
+      "author_id": 200,
+      "canonical_name": "Raúl Fornet-Betancourt",
+      "path": "authors/200.json"
     }
   ]
 }
