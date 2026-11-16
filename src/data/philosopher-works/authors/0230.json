@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author_id": 230,
+  "canonical_name": "José Ignacio Cuéllar",
+  "alternate_names": [
+    "Fray José Ignacio Cuéllar",
+    "José Ignacio Cuellar"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "manuscript_course_attested_no_independent_printed_book_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0230-w001",
+      "title": "Cursus philosophicus iuxta Divi Thomae de Aquino doctrinam",
+      "work_type": "scholastic_philosophical_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_and_lectures_dated_without_confirmed_print_publication",
+        "period": {
+          "start": 1749,
+          "end": 1751
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "manuscript_attribution_documented_in_scholarly_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cursus philosophicus",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Tomás de Aquino",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/el-cursus-philosophicus-1751-de-jose-ignacio-cuellar-21574?as=0&c=4y9GXV&d=false&i=1&q=humanidades&t=search_0&v=1",
+        "https://www.elem.mx/obra/datos/224276"
+      ],
+      "manuscript_evidence": [
+        {
+          "repository": "Biblioteca Nacional de México",
+          "date": "1751",
+          "document_type": "philosophical_course_manuscript",
+          "notes": "Resultado manuscrito de docencia en artes y filosofía de Porta Coeli entre 1749 y 1751"
+        }
+      ],
+      "scholastic_order": "Orden de Predicadores (OP)",
+      "teaching_institution": "Colegio dominico de Porta Coeli, Ciudad de México, Nueva España",
+      "notes": "El curso termina en manuscrito en 1751; Beuchot documenta docencia 1749–1751. No confundir DOI 10.19130/iifl.nt.1987.5.0.51 del artículo crítico de Beuchot con DOI del manuscrito de Cuéllar. La ficha mexicana marca (¿1751?) para el manuscrito, mientras que el estudio de Beuchot registra 1751. Fecha pedagógica documentada, no primera edición impresa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0230-c001",
+      "title": "Docencia de artes y filosofía escolástica tomista en Porta Coeli durante el trienio 1749–1751",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_academic_history",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_university_research_article",
+      "title": "Mauricio Beuchot, El Cursus Philosophicus (1751) de José Ignacio Cuéllar, Nova Tellus, UNAM, 1987",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/el-cursus-philosophicus-1751-de-jose-ignacio-cuellar-21574?as=0&c=4y9GXV&d=false&i=1&q=humanidades&t=search_0&v=1"
+    },
+    {
+      "kind": "historical_bibliographic_reference",
+      "title": "Enciclopedia de la Literatura en México: manuscrito «Cursus philosophicus iuxta divi Thomas de Aquino doctrinam»",
+      "url": "https://www.elem.mx/obra/datos/224276"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La enseñanza de la filosofía», periodo colonial; cursos novohispanos del siglo XVIII"
+    }
+  ],
+  "research_notes": [
+    "Mantener identificadores de estudios secundarios en sources o notas, jamás bajo identifiers.doi de la obra manuscrita."
+  ]
+}
