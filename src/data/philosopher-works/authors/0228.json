@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "author_id": 228,
+  "canonical_name": "Antonio Mancilla",
+  "alternate_names": [
+    "Antonio Mansilla",
+    "Fray Antonio Mancilla"
+  ],
+  "life": {
+    "born": {
+      "year": 1709,
+      "certainty": "institutional_peer_reviewed_study"
+    },
+    "died": {
+      "year": null,
+      "certainty": "before_1773-12",
+      "latest_possible_year": 1773
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "manuscript_course_attested_no_independent_printed_book_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0228-w001",
+      "title": "Cursus Philosophicus iuxta firmiorem, celsioremque Angelici Doctoris D. Thomae doctrinam elucubratus",
+      "work_type": "scholastic_philosophical_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_and_lectures_dated_without_confirmed_print_publication",
+        "period": {
+          "start": 1737,
+          "end": 1739
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "manuscript_attribution_documented_in_scholarly_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cursus Philosophicus",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Tomás de Aquino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://summa.upsa.es/details.vm?lang=en&q=id%3A0000000800&view=main",
+        "https://summa.upsa.es/high.raw?id=0000000800&name=00000001.original.pdf"
+      ],
+      "manuscript_evidence": [
+        {
+          "repository": "Biblioteca Nacional de México",
+          "course_college": "Porta Coeli",
+          "manuscript_internal_year": 1737,
+          "note": "Mauricio Beuchot documenta copia manuscrita y su portada original"
+        }
+      ],
+      "scholastic_order": "Orden de Predicadores (OP)",
+      "teaching_institution": "Colegio dominico de Porta Coeli, Ciudad de México, Nueva España",
+      "notes": "El manuscrito conserva fecha 1737, cuando enseñaba filosofía en Porta Coeli; el libro-base indica intervalo de curso 1737–1739. Beuchot describe un curso tomista y el estudio específico de su lógica, que no equivale a obra distinta de Mancilla. El año exacto de su muerte permanece incierto: el estudio lo sitúa antes de diciembre de 1773."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0228-c001",
+      "title": "Enseñanza dominica de lógica y filosofía escolástica tomista novohispana en el colegio de Porta Coeli",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_academic_history",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "Mauricio Beuchot, La lógica en el Cursus Philosophicus (1737) de Fr. Antonio Mancilla, OP, Universidad Pontificia de Salamanca",
+      "url": "https://summa.upsa.es/details.vm?lang=en&q=id%3A0000000800&view=main"
+    },
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "Universidad Pontificia de Salamanca, PDF del artículo y transcripción del incipit",
+      "url": "https://summa.upsa.es/high.raw?id=0000000800&name=00000001.original.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La enseñanza de la filosofía», periodo colonial; cursos novohispanos del siglo XVIII"
+    }
+  ],
+  "research_notes": [
+    "En bibliografía aparece también la variante onomástica «Mansilla»; conservar nombre canónico Mancilla."
+  ]
+}
