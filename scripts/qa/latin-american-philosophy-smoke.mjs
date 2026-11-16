@@ -109,6 +109,12 @@ try {
         viewport: innerWidth,
         scrollWidth: document.documentElement.scrollWidth,
         hero: rect(".latam-hero"),
+        heroIllustration: rect(".hero-illustration"),
+        heroTitle: rect(".hero-copy h1"),
+        heroActions: [...document.querySelectorAll(".hero-actions a")].map(link => {
+          const box = link.getBoundingClientRect();
+          return { left: box.left, right: box.right, top: box.top, bottom: box.bottom, width: box.width, height: box.height };
+        }),
         periodGrid: rect(".period-grid"),
         periodCards: [...document.querySelectorAll(".period-card")].map(card => {
           const box = card.getBoundingClientRect();
@@ -135,6 +141,27 @@ try {
     );
     assert.equal(geometry.periodCards.length, 4, "Exactly four major period cards are required");
     assert.equal(geometry.skipLink, true, "Skip link must exist");
+
+    assert.ok(
+      geometry.heroTitle.left >= -2 && geometry.heroTitle.right <= geometry.viewport + 2,
+      "Hero title must remain fully inside the viewport at " + width + "px: " + JSON.stringify(geometry.heroTitle)
+    );
+
+    if (width <= 620) {
+      assert.ok(
+        geometry.heroIllustration.height <= 250,
+        "Mobile hero illustration should stay compact: " + JSON.stringify(geometry.heroIllustration)
+      );
+      assert.equal(geometry.heroActions.length, 2, "Mobile hero must expose both primary actions");
+      assert.ok(
+        geometry.heroActions[1].top >= geometry.heroActions[0].bottom - 1,
+        "Mobile hero actions must stack vertically instead of squeezing side by side"
+      );
+      assert.ok(
+        geometry.heroActions.every(action => action.right <= geometry.viewport + 2 && action.left >= -2),
+        "Mobile hero actions must stay inside viewport"
+      );
+    }
     assert.equal(geometry.dialogLabel, "author-dialog-title", "Author dialog must be labelled");
     for (const card of geometry.periodCards) {
       assert.ok(card.left >= -2 && card.right <= geometry.viewport + 2,
