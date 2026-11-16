@@ -29,11 +29,11 @@ El PR #336 quedó **mergeado a `main`** y constituye la base cerrada de la prime
 Estado absorbido en `main`:
 
 - **1,504 autores** en el inventario maestro.
-- **530 autores con ficha bibliográfica**, IDs **0001–0530**.
-- **3,267 obras, manuscritos, artículos, tesis, documentos, traducciones, ediciones y contribuciones** registradas.
-- Lotes completados: **001–053**.
+- **540 autores con ficha bibliográfica**, IDs **0001–0540**.
+- **3,353 obras, manuscritos, artículos, tesis, documentos, traducciones, ediciones y contribuciones** registradas.
+- Lotes completados: **001–054**.
 - Último archivo de autor mergeado: `authors/0480.json`.
-- Último lote completado en el PR actual: **053**.
+- Último lote completado en el PR actual: **054**.
 - PR histórico consolidado: **#336**.
 - El PR #336 ya no debe reutilizarse para nuevos lotes.
 
@@ -41,22 +41,22 @@ Estado absorbido en `main`:
 
 Quedan:
 
-- **974 autores**.
-- IDs pendientes: **0531–1504**.
-- Próximo lote: **054**, IDs **0531–0540**.
+- **964 autores**.
+- IDs pendientes: **0541–1504**.
+- Próximo lote: **055**, IDs **0541–0550**.
 
-Autores del lote 054:
+Autores del lote 055:
 
-1. 0531 — Carlos Eduardo Maldonado
-2. 0532 — Germán Vargas Guillén
-3. 0533 — Rafael Castellanos
-4. 0534 — Juan José Botero
-5. 0535 — Julián Serna Arango
-6. 0536 — Luz Gloria Cárdenas Mejía
-7. 0537 — Leonardo Tovar González
-8. 0538 — A. Cardona
-9. 0539 — Pedro León Loyola
-10. 0540 — Clarence Finlayson Elliott
+1. 0541 — Armando Roa
+2. 0542 — Francisco Soler Grima
+3. 0543 — Jorge Acevedo
+4. 0544 — José Rafael Echevarría
+5. 0545 — Juan de Dios Vial Larraín
+6. 0546 — Félix Martínez Bonati
+7. 0547 — Luis Flores
+8. 0548 — Alfonso Gómez-Lobo
+9. 0549 — Marcos García de la Huerta
+10. 0550 — Jorge Eduardo Rivera
 
 Después se continúa estrictamente por IDs consecutivos hasta **1504**.
 
@@ -219,10 +219,10 @@ Estado de arranque del nuevo PR:
 ```json
 {
   "authors_total": 1504,
-  "authors_seeded": 530,
-  "authors_remaining": 974,
-  "works_or_contributions_seeded": 3267,
-  "current_batch": "053",
+  "authors_seeded": 540,
+  "authors_remaining": 964,
+  "works_or_contributions_seeded": 3353,
+  "current_batch": "054",
   "last_updated": "2026-11-16"
 }
 ```
@@ -358,3 +358,18 @@ Lote **053** completado en este PR:
 - Cobertura: **530 / 1,504 autores**
 - Pendientes: **974**
 - Próximo lote: **054**, IDs **0531–0540**
+
+
+## 19. Estado vivo del PR #340 — lote 054
+
+Lote **054** completado en este PR:
+
+- IDs: **0531–0540**
+- Autores añadidos: **10**
+- Obras/documentos: **76**
+- Contribuciones: **10**
+- Registros nuevos: **86**
+- Total acumulado: **3,353**
+- Cobertura: **540 / 1,504 autores**
+- Pendientes: **964**
+- Próximo lote: **055**, IDs **0541–0550**

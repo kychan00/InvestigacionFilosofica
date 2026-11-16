@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 530,
-    "authors_remaining": 974,
-    "works_or_contributions_seeded": 3267,
-    "current_batch": "053",
+    "authors_seeded": 540,
+    "authors_remaining": 964,
+    "works_or_contributions_seeded": 3353,
+    "current_batch": "054",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2787,6 +2787,58 @@
       "author_id": 530,
       "canonical_name": "Rosa Helena Santos-Ihlau",
       "path": "authors/0530.json"
+    }
+  ],
+  "batch_054": [
+    {
+      "author_id": 531,
+      "canonical_name": "Carlos Eduardo Maldonado",
+      "path": "authors/0531.json"
+    },
+    {
+      "author_id": 532,
+      "canonical_name": "Germán Vargas Guillén",
+      "path": "authors/0532.json"
+    },
+    {
+      "author_id": 533,
+      "canonical_name": "Rafael Castellanos",
+      "path": "authors/0533.json"
+    },
+    {
+      "author_id": 534,
+      "canonical_name": "Juan José Botero",
+      "path": "authors/0534.json"
+    },
+    {
+      "author_id": 535,
+      "canonical_name": "Julián Serna Arango",
+      "path": "authors/0535.json"
+    },
+    {
+      "author_id": 536,
+      "canonical_name": "Luz Gloria Cárdenas Mejía",
+      "path": "authors/0536.json"
+    },
+    {
+      "author_id": 537,
+      "canonical_name": "Leonardo Tovar González",
+      "path": "authors/0537.json"
+    },
+    {
+      "author_id": 538,
+      "canonical_name": "A. Cardona",
+      "path": "authors/0538.json"
+    },
+    {
+      "author_id": 539,
+      "canonical_name": "Pedro León Loyola",
+      "path": "authors/0539.json"
+    },
+    {
+      "author_id": 540,
+      "canonical_name": "Clarence Finlayson Elliott",
+      "path": "authors/0540.json"
     }
   ]
 }

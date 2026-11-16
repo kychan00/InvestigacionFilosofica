@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "author_id": 540,
+  "canonical_name": "Clarence Finlayson Elliott",
+  "alternate_names": [
+    "Clarence Finlayson",
+    "Clarence George Finlayson Elliot",
+    "Clarence Finlayson E."
+  ],
+  "life": {
+    "born": {
+      "year": 1913,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1954,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0540-w001",
+      "title": "Aristóteles y la filosofía moderna",
+      "work_type": "aristotle_and_modern_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "secondary_biobibliographical_source"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristóteles",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://sintesis.uai.cl/index.php/intusfilosofia/article/download/200/190"
+      ],
+      "notes": "Obra temprana de 1936 citada en estudios sobre su pensamiento."
+    },
+    {
+      "work_id": "0540-w002",
+      "title": "Analítica de la contemplación",
+      "work_type": "metaphysics_and_contemplation_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "contemplación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://openlibrary.org/search?q=%22Clarence+Finlayson%22"
+      ],
+      "notes": "Publicación de 1937 registrada en catálogos bibliográficos."
+    },
+    {
+      "work_id": "0540-w003",
+      "title": "Intuición del ser o experiencia metafísica",
+      "work_type": "metaphysics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "contemporary_bibliography_with_project_variant"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "intuición",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "experiencia metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://racimo.usal.edu.ar/1224/1/oct1938_Bibliografia.pdf",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Ediciones Revista Universitaria, Santiago, 1938, 34 p. El libro-base del proyecto lo fecha en 1937; se adopta 1938 por reseña bibliográfica contemporánea."
+    },
+    {
+      "work_id": "0540-w004",
+      "title": "Mundo y Dios",
+      "work_type": "metaphysics_and_philosophy_of_religion_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "biobibliographical_source"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mundo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Dios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://sintesis.uai.cl/index.php/intusfilosofia/article/download/200/190"
+      ],
+      "notes": "Obra de 1940 situada en la evolución metafísica del autor."
+    },
+    {
+      "work_id": "0540-w005",
+      "title": "Dios y la filosofía",
+      "work_type": "thomistic_metaphysics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "contemporary_review_and_library_record"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Dios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tomismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/bitstream/123456789/4144/1/sapientia1.pdf",
+        "https://academiahistoria.org.co/boletines/BHA-525-526-527.pdf"
+      ],
+      "notes": "Medellín, Universidad de Antioquia, 1945."
+    },
+    {
+      "work_id": "0540-w006",
+      "title": "Mensaje a los fenomenólogos llamados católicos",
+      "work_type": "phenomenology_and_christian_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "project_primary_source"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía cristiana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Texto de 1952 citado por el libro-base como parte de su diálogo con la fenomenología."
+    },
+    {
+      "work_id": "0540-w007",
+      "title": "Hombre, mundo y Dios. Visión cristiana de la existencia",
+      "work_type": "christian_existentialism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "library_catalog_and_project_source"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mundo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Dios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía cristiana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.academiahistoria.org.co/pmb/opac_css/index.php?dcote=&id=27&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=200&nbr_lignes=12986&nc=0&page=33&plettreaut=&ssub=0",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Bogotá, Editorial Cosmos / Instituto Colombiano de Cultura Hispánica, 1953, 326 p."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Síntesis chilena de neotomismo, metafísica del ser y existencialismo cristiano, con circulación docente e intelectual internacional",
+      "kind": "chilean_neothomism_metaphysics_and_christian_existentialism_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "contemporary_review_source",
+      "title": "Sapientia — Dios y la filosofía",
+      "url": "https://repositorio.uca.edu.ar/bitstream/123456789/4144/1/sapientia1.pdf"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "Academia Colombiana de Historia — Hombre, Mundo y Dios",
+      "url": "https://biblioteca.academiahistoria.org.co/pmb/opac_css/index.php?dcote=&id=27&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=200&nbr_lignes=12986&nc=0&page=33&plettreaut=&ssub=0"
+    }
+  ],
+  "research_notes": [
+    "Intuición del ser o experiencia metafísica se fecha en 1938 por una reseña bibliográfica contemporánea; el libro-base la sitúa en 1937 y la discrepancia queda explícita.",
+    "Las variantes Elliott/Elliot/Finlayson se preservan en alternate_names."
+  ]
+}
