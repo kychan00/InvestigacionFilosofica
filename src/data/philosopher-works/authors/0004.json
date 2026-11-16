@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "author_id": 4,
+  "canonical_name": "Bartolomé de Las Casas",
+  "alternate_names": [
+    "Bartolomé de las Casas",
+    "Bartolomé de Las Casas o Casaus"
+  ],
+  "life": {
+    "born": {
+      "year": 1474,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1566,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_works_verified_catalog_not_exhausted",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0004-w001",
+      "title": "Brevísima relación de la destrucción de las Indias",
+      "work_type": "treatise_chronicle",
+      "original_language": "español",
+      "original_date": {
+        "year": 1542,
+        "certainty": "composition"
+      },
+      "first_publication_year": 1552,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conquista",
+          "provenance": "inferred"
+        },
+        {
+          "term": "violencia colonial",
+          "provenance": "inferred"
+        },
+        {
+          "term": "derechos de los indígenas",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0004-w002",
+      "title": "Historia de las Indias",
+      "work_type": "history",
+      "original_language": "español",
+      "original_date": {
+        "start": 1527,
+        "end": 1561,
+        "certainty": "composition_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Indias",
+          "provenance": "inferred"
+        },
+        {
+          "term": "colonización",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0004-w003",
+      "title": "Apologética historia sumaria",
+      "work_type": "history_anthropology_theology",
+      "original_language": "español",
+      "original_date": {
+        "century": 16,
+        "certainty": "composition_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "culturas indígenas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "humanidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "religión",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0004-w004",
+      "title": "Treinta proposiciones muy jurídicas",
+      "work_type": "juridical_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1552,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1552,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho",
+          "provenance": "catalog"
+        },
+        {
+          "term": "infieles",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0004-w005",
+      "title": "Disputa o controversia con Ginés de Sepúlveda",
+      "work_type": "controversy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1550,
+        "certainty": "debate_context"
+      },
+      "first_publication_year": 1552,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Juan Ginés de Sepúlveda",
+          "role": "opponent_in_controversy"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "guerra justa",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conquista de las Indias",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0004-w006",
+      "title": "Tratado sobre los indios que se han hecho esclavos",
+      "work_type": "juridical_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1552,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1552,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "esclavitud indígena",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0004-w007",
+      "title": "Avisos y reglas para los confesores de españoles con cargo a los indios",
+      "work_type": "pastoral_ethical_rules",
+      "original_language": "español",
+      "original_date": {
+        "year": 1552,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1552,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "confesión",
+          "provenance": "catalog"
+        },
+        {
+          "term": "responsabilidad moral",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Catálogo de obras de Bartolomé de las Casas",
+      "url": "https://www.cervantesvirtual.com/portales/bartolome_de_las_casas/su_obra_catalogo/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "El catálogo de Cervantes registra 20 resultados; este seed debe ampliarse hasta cubrir catálogo completo, manuscritos y ediciones críticas."
+  ]
+}
