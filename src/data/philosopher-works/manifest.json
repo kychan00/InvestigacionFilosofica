@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 370,
-    "authors_remaining": 1134,
-    "works_or_contributions_seeded": 2446,
-    "current_batch": "037",
+    "authors_seeded": 380,
+    "authors_remaining": 1124,
+    "works_or_contributions_seeded": 2479,
+    "current_batch": "038",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1955,6 +1955,58 @@
       "author_id": 370,
       "canonical_name": "Ramón Emeterio Betances",
       "path": "authors/0370.json"
+    }
+  ],
+  "batch_038": [
+    {
+      "author_id": 371,
+      "canonical_name": "Segundo Ruiz Belvis",
+      "path": "authors/0371.json"
+    },
+    {
+      "author_id": 372,
+      "canonical_name": "Carlos Manuel de Céspedes",
+      "path": "authors/0372.json"
+    },
+    {
+      "author_id": 373,
+      "canonical_name": "Antonio Maceo",
+      "path": "authors/0373.json"
+    },
+    {
+      "author_id": 374,
+      "canonical_name": "Máximo Gómez",
+      "path": "authors/0374.json"
+    },
+    {
+      "author_id": 375,
+      "canonical_name": "Federico Henríquez y Carvajal",
+      "path": "authors/0375.json"
+    },
+    {
+      "author_id": 376,
+      "canonical_name": "Francisco Henríquez y Carvajal",
+      "path": "authors/0376.json"
+    },
+    {
+      "author_id": 377,
+      "canonical_name": "Gregorio Luperón",
+      "path": "authors/0377.json"
+    },
+    {
+      "author_id": 378,
+      "canonical_name": "Américo Lugo",
+      "path": "authors/0378.json"
+    },
+    {
+      "author_id": 379,
+      "canonical_name": "Pedro Bonó",
+      "path": "authors/0379.json"
+    },
+    {
+      "author_id": 380,
+      "canonical_name": "Anténor Firmin",
+      "path": "authors/0380.json"
     }
   ]
 }
