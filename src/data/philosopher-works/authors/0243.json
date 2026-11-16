@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "author_id": 243,
+  "canonical_name": "Diego de Basalenque",
+  "alternate_names": [
+    "Diego Basalanque",
+    "Fray Diego de Basalenque"
+  ],
+  "life": {
+    "born": {
+      "year": 1577,
+      "certainty": "scholarly_historical_authority"
+    },
+    "died": {
+      "year": 1651,
+      "date": "1651-12-12",
+      "certainty": "specialist_linguistic_bibliography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_colonial_manuscripts_and_early_prints_non_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0243-w001",
+      "title": "Curso de lógica (manuscrito)",
+      "work_type": "augustinian_scholastic_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1602,
+        "certainty": "manuscript_dated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_source_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.bvfe.es/es/autor/9306-basalenque-fr-diego.html",
+        "https://buscador.adabi.org.mx/vufind/Record/1057757"
+      ],
+      "title_status": "modern_descriptive_label",
+      "notes": "El libro-base identifica manuscritos de lógica fechados 1602; título latino literal y signatura pendientes."
+    },
+    {
+      "work_id": "0243-w002",
+      "title": "Curso de física (manuscrito)",
+      "work_type": "augustinian_scholastic_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1603,
+        "certainty": "manuscript_dated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_source_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.bvfe.es/es/autor/9306-basalenque-fr-diego.html",
+        "https://buscador.adabi.org.mx/vufind/Record/1057757"
+      ],
+      "title_status": "modern_descriptive_label",
+      "notes": "Manuscritos de física fechados 1603, no impresión de 1603."
+    },
+    {
+      "work_id": "0243-w003",
+      "title": "Historia de la provincia de San Nicolás Tolentino de Michoacán del orden de N. P. S. Agustín",
+      "work_type": "posthumous_colonial_history_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1644,
+        "certainty": "composition_dated_by_printed_title_page"
+      },
+      "first_publication_year": 1673,
+      "authorship_status": "historical_source_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "provincia de San Nicolás Tolentino",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Michoacán",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1057757"
+      ],
+      "posthumous": true,
+      "edition": {
+        "place": "México",
+        "printer": "Viuda de Bernardo Calderón",
+        "year": 1673
+      },
+      "notes": "La portada histórica acredita redacción 1644 y primera publicación póstuma en 1673. La segunda edición 1886 no cambia fecha inicial."
+    },
+    {
+      "work_id": "0243-w004",
+      "title": "Arte de la lengua matlaltzinga",
+      "work_type": "posthumously_published_linguistics_grammar_manuscript",
+      "original_language": "español y matlatzinca",
+      "original_date": {
+        "year": 1640,
+        "certainty": "manuscript_composition"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "historical_source_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lengua matlaltzinga",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bvfe.es/es/autor/9306-basalenque-fr-diego.html"
+      ],
+      "posthumous": true,
+      "edition_history": [
+        {
+          "year": 1975,
+          "publisher": "Biblioteca Enciclopédica del Estado de México",
+          "edition": "primera edición moderna con versión paleográfica de María Elena Bribiesca"
+        }
+      ],
+      "notes": "El manuscrito de 1640 fue editado en 1975. No confundir edición póstuma con redacción original."
+    },
+    {
+      "work_id": "0243-w005",
+      "title": "Arte de la lengua tarasca",
+      "work_type": "posthumously_published_indigenous_language_grammar",
+      "original_language": "español y tarasco",
+      "original_date": {
+        "year": null,
+        "certainty": "composed_before_author_death_1651"
+      },
+      "first_publication_year": 1714,
+      "authorship_status": "historical_source_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lengua tarasca",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bvfe.es/es/autor/9306-basalenque-fr-diego.html"
+      ],
+      "posthumous": true,
+      "edition": {
+        "year": 1714,
+        "place": "México",
+        "printer": "Francisco de Rivera Calderón"
+      },
+      "notes": "Edición póstuma de 1714; el bibliográfo identifica la composición posterior al Arte matlaltzinga, antes de la muerte en 1651."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0243-c001",
+      "title": "Docencia agustiniana de filosofía, trabajo de preservación lingüística matlatzinca y tarasca e historiografía de Michoacán",
+      "kind": "historical_colonial_scholastic_or_intellectual_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_specialist_linguistic_bibliography",
+      "title": "Biblioteca Virtual de Filología Española, Diego de Basalenque (1577–1651)",
+      "url": "https://www.bvfe.es/es/autor/9306-basalenque-fr-diego.html"
+    },
+    {
+      "kind": "historical_library_first_edition_catalog",
+      "title": "ADABI, Historia de la provincia de San Nicolás Tolentino, edición de 1673",
+      "url": "https://buscador.adabi.org.mx/vufind/Record/1057757"
+    },
+    {
+      "kind": "academic_language_study",
+      "title": "Enciclopedia de la Literatura en México, estudios sobre lenguas indígenas del siglo XVII",
+      "url": "https://www.elem.mx/estgrp/datos/166"
+    },
+    {
+      "kind": "peer_reviewed_university_article",
+      "title": "Mauricio Beuchot, Textos filosóficos en la Nueva España (2008)",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La filosofía académica», pp. 81–82"
+    }
+  ],
+  "research_notes": [
+    "Solo algunos manuscritos de su amplia producción subsisten; no se inventan títulos de otros cursos.",
+    "En Historia de la provincia, Simón Salguero aparece vinculado a su impresión póstuma, no se le adjudica coautoría del texto original."
+  ]
+}
