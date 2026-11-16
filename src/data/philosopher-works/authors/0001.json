@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "author_id": 1,
+  "canonical_name": "Tlacaélel",
+  "alternate_names": [
+    "Tlacaelel"
+  ],
+  "life": {
+    "born": {
+      "year": 1398,
+      "certainty": "approximate"
+    },
+    "died": {
+      "year": 1480,
+      "certainty": "approximate"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "no_extant_authored_bibliographic_work_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Cosmovisión místico-guerrera y reforma ideológica mexica",
+      "kind": "intellectual_contribution",
+      "period": {
+        "start": 1428,
+        "end": 1480,
+        "certainty": "approximate"
+      },
+      "authorship_status": "attributed_by_historical_sources",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "cosmovisión místico-guerrera",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Huitzilopochtli",
+          "provenance": "inferred"
+        },
+        {
+          "term": "supremacía mexica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma religiosa",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia mexica",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "No se registra como libro u obra publicada. El pensamiento se reconstruye a partir de crónicas y fuentes indígenas."
+    }
+  ],
+  "sources": [
+    {
+      "kind": "scholarly_primary_reference",
+      "title": "La filosofía náhuatl estudiada en sus fuentes — Cosmovisión místico-guerrera de Tlacaélel",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/filosofia/046_04_34_cosmovision_mistico.pdf",
+      "publisher": "UNAM, Instituto de Investigaciones Históricas"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Tlacaélel (1398-1475/1480)"
+    }
+  ],
+  "research_notes": [
+    "No inventar títulos de obras; registrar futuras evidencias como testimonios o reconstrucciones de pensamiento."
+  ]
+}
