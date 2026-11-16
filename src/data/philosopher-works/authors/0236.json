@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "author_id": 236,
+  "canonical_name": "Francisco Javier Alejo de Orrio",
+  "alternate_names": [
+    "Francisco Xavier Alexo de Orrio",
+    "Francisco Javier Alejo de Orrío"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "secondary_authority_conflict",
+      "year_candidates": [
+        1715,
+        1717
+      ]
+    },
+    "died": {
+      "year": null,
+      "certainty": "secondary_authority_conflict",
+      "year_candidates": [
+        1763,
+        1764
+      ]
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "scholastic_manuscript_and_religious_printed_publications_selected",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0236-w001",
+      "title": "Novum Philosophiae Semen scientias omnes virtute completens",
+      "work_type": "jesuit_scholastic_philosophy_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_course_dated",
+        "period": {
+          "start": 1750,
+          "end": 1750
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_attested_course_manuscript_now_unlocated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Philosophiae",
+          "provenance": "primary_title"
+        }
+      ],
+      "manuscript": {
+        "volumes": 2,
+        "place": "Zacatecas",
+        "year": 1750,
+        "repository": "manuscripts_not_located_by_2013_bibliography"
+      },
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/descarga/articulo/5576214.pdf"
+      ],
+      "notes": "Estudio jesuítico identifica un curso en dos tomos en Zacatecas (1750), cuyo paradero no localiza; no convertir a primera edición impresa."
+    },
+    {
+      "work_id": "0236-w002",
+      "title": "Descripción en prosa y verso de las fiestas con que la ciudad de Zacatecas celebró la confirmación del Patronato de Nuestra Señora de Guadalupe en toda la América",
+      "work_type": "devotional_historical_prose_and_poetry_publication",
+      "original_language": "español",
+      "original_date": {
+        "year": 1759,
+        "certainty": "historical_bibliography_of_printed_publication"
+      },
+      "first_publication_year": 1759,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Zacatecas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Nuestra Señora de Guadalupe",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/descarga/articulo/5576214.pdf"
+      ],
+      "notes": "Libro devocional e histórico, no tratado filosófico; registro independiente del manuscrito de 1750."
+    },
+    {
+      "work_id": "0236-w003",
+      "title": "Sermón panegírico predicado en la iglesia parroquial de Zacatecas con ocasión de la dedicación de un altar a Nuestra Señora de Guadalupe",
+      "work_type": "printed_religious_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1762,
+        "certainty": "printed_catalog_edition"
+      },
+      "first_publication_year": 1762,
+      "authorship_status": "catalog_documented_sole_preacher",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Francisco Javier de Aristoarena y Lanz",
+          "role": "sponsor_and_editor_not_coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sermón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Nuestra Señora de Guadalupe",
+          "provenance": "primary_title"
+        }
+      ],
+      "edition": {
+        "place": "México",
+        "printer": "Herederos de Doña María de Rivera",
+        "year": 1762
+      },
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1094804"
+      ],
+      "notes": "Catálogo ADABI documenta impresión 1762 y nombre del editor/promotor; no atribuirle al editor la predicación o autoría del sermón."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia filosófica jesuita y actividad intelectual y devocional en Zacatecas a mediados del siglo XVIII",
+      "kind": "colonial_jesuit_teaching_and_cultural_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "specialist_jesuit_historical_bibliography",
+      "title": "IHS. Antiguos jesuitas en Iberoamérica (2013), catálogo biobibliográfico de Orrio",
+      "url": "https://dialnet.unirioja.es/descarga/articulo/5576214.pdf"
+    },
+    {
+      "kind": "historical_printed_book_catalog",
+      "title": "ADABI, Sermón panegírico (impresión de 1762)",
+      "url": "https://www.adabi.org.mx/vufind/Record/1094804"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Francisco Javier Alejo de Orrio, 1750"
+    }
+  ],
+  "research_notes": [
+    "La cronología vital no está normalizada por diferencias entre autoridades históricas (1715/1717 y 1763/1764).",
+    "El sermón de 1762 y la descripción de 1759 son géneros propios, no duplicaciones del curso manuscrito."
+  ]
+}
