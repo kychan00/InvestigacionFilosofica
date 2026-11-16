@@ -1,0 +1,505 @@
+{
+  "schema_version": 1,
+  "author_id": 201,
+  "canonical_name": "Pablo Guadarrama González",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1949,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_source_checked_publications_non_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0201-w001",
+      "title": "Valoraciones sobre el pensamiento filosófico cubano y latinoamericano",
+      "work_type": "history_of_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento filosófico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cubano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w002",
+      "title": "El pensamiento filosófico de Enrique José Varona",
+      "work_type": "coauthored_history_of_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_conflict_or_unknown"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Edel Tussel Oropeza",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Enrique José Varona",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ],
+      "first_publication_year_candidates": [
+        1986,
+        1987
+      ],
+      "source_conflict": true,
+      "notes": "Bibliografía CUYO indica 1986 y el libro-base indica 1987; cotejar ejemplar original."
+    },
+    {
+      "work_id": "0201-w003",
+      "title": "Lo universal y lo específico en la cultura",
+      "work_type": "coauthored_cultural_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Nikolai Perelguin",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w004",
+      "title": "Marxismo y antimarxismo en América Latina",
+      "work_type": "political_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "marxismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antimarxismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ],
+      "first_publication_year_candidates": [
+        1990,
+        1994
+      ],
+      "source_conflict": true,
+      "notes": "Investigación 2024 indica 1990, perfil en libro base refiere a 1994."
+    },
+    {
+      "work_id": "0201-w005",
+      "title": "Humanismo y autenticidad en el pensamiento latinoamericano",
+      "work_type": "latin_american_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "autenticidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w006",
+      "title": "Humanismo, marxismo y posmodernidad",
+      "work_type": "political_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "posmodernidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w007",
+      "title": "Historia de la filosofía latinoamericana",
+      "work_type": "history_of_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w008",
+      "title": "Humanismo en el pensamiento latinoamericano",
+      "work_type": "philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789590604621"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pensamiento latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w009",
+      "title": "Positivismo y antipositivismo en América Latina",
+      "work_type": "history_of_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2004,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789590605918"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antipositivismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w010",
+      "title": "Cultura y educación en tiempos de globalización posmoderna",
+      "work_type": "cultural_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "globalización",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w011",
+      "title": "Pensamiento latinoamericano: Humanismo vs. alienación",
+      "work_type": "philosophical_multivolume_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "alienación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ],
+      "volumes": 3,
+      "notes": "Bibliografía especializada identifica tres tomos; pendiente descripción independiente de volúmenes."
+    },
+    {
+      "work_id": "0201-w012",
+      "title": "José Martí, humanismo práctico y latinoamericanista",
+      "work_type": "history_of_ideas_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2015,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "José Martí",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    },
+    {
+      "work_id": "0201-w013",
+      "title": "Democracia y derechos humanos: visión humanista desde América Latina",
+      "work_type": "political_philosophy_multivolume_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 2016,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2016,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derechos humanos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ],
+      "volumes": 2
+    },
+    {
+      "work_id": "0201-w014",
+      "title": "Enrique José Varona: balance de una vida y una obra",
+      "work_type": "intellectual_biography_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2019,
+        "certainty": "bibliographic_first_publication"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789590622168"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Enrique José Varona",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación histórica de tradiciones humanistas, marxistas y positivistas latinoamericanas",
+      "kind": "institutional_or_intellectual_contribution",
+      "contribution_id": "0201-c001",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "title": "Pablo Guadarrama González: biobibliografía",
+      "url": "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/download/8789/7292",
+      "kind": "university_scholarly_bibliography"
+    },
+    {
+      "title": "ISBN Cuba: publicaciones y coautorías de Pablo Guadarrama González",
+      "url": "https://isbn.cloud/cu/autor/pablo-guadarrama-gonzalez/",
+      "kind": "national_isbn_listing"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y 'latino' (1300–2000)",
+      "locator": "Cuarta parte, pp. 982–987"
+    }
+  ],
+  "research_notes": [
+    "Fechas contradictorias se mantienen expresas; la semilla no reconstruye la totalidad de artículos.",
+    "El volumen colectivo de humanismo por países no se atribuye de forma exclusiva a Guadarrama por su rol de dirección."
+  ]
+}
