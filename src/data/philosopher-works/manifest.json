@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 150,
-    "authors_remaining": 1354,
-    "works_or_contributions_seeded": 1430,
-    "current_batch": "015",
+    "authors_seeded": 160,
+    "authors_remaining": 1344,
+    "works_or_contributions_seeded": 1608,
+    "current_batch": "016",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -811,6 +811,58 @@
       "author_id": 150,
       "canonical_name": "Humberto Giannini",
       "path": "authors/0150.json"
+    }
+  ],
+  "batch_016": [
+    {
+      "author_id": 151,
+      "canonical_name": "Roberto Torretti",
+      "path": "authors/0151.json"
+    },
+    {
+      "author_id": 152,
+      "canonical_name": "Ricardo Salas Astraín",
+      "path": "authors/0152.json"
+    },
+    {
+      "author_id": 153,
+      "canonical_name": "Rafael Barrett",
+      "path": "authors/0153.json"
+    },
+    {
+      "author_id": 154,
+      "canonical_name": "Adriano Irala Burgos",
+      "path": "authors/0154.json"
+    },
+    {
+      "author_id": 155,
+      "canonical_name": "Ticio Escobar",
+      "path": "authors/0155.json"
+    },
+    {
+      "author_id": 156,
+      "canonical_name": "Guillermo Francovich",
+      "path": "authors/0156.json"
+    },
+    {
+      "author_id": 157,
+      "canonical_name": "Manfredo Kempff Mercado",
+      "path": "authors/0157.json"
+    },
+    {
+      "author_id": 158,
+      "canonical_name": "Alejandro Octavio Deústua Escarza",
+      "path": "authors/0158.json"
+    },
+    {
+      "author_id": 159,
+      "canonical_name": "Mariano Ibérico",
+      "path": "authors/0159.json"
+    },
+    {
+      "author_id": 160,
+      "canonical_name": "Alberto Wagner de Reyna",
+      "path": "authors/0160.json"
     }
   ]
 }
