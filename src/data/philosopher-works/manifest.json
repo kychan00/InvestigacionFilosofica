@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 400,
-    "authors_remaining": 1104,
-    "works_or_contributions_seeded": 2536,
-    "current_batch": "040",
+    "authors_seeded": 410,
+    "authors_remaining": 1094,
+    "works_or_contributions_seeded": 2568,
+    "current_batch": "041",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2111,6 +2111,58 @@
       "author_id": 400,
       "canonical_name": "Luiz Vieira da Silva",
       "path": "authors/0400.json"
+    }
+  ],
+  "batch_041": [
+    {
+      "author_id": 401,
+      "canonical_name": "Domingos José Gonçalves de Magalhães",
+      "path": "authors/0401.json"
+    },
+    {
+      "author_id": 402,
+      "canonical_name": "Visconde de Uruguai",
+      "path": "authors/0402.json"
+    },
+    {
+      "author_id": 403,
+      "canonical_name": "Antônio Pedro de Figueiredo",
+      "path": "authors/0403.json"
+    },
+    {
+      "author_id": 404,
+      "canonical_name": "Alberto Sales",
+      "path": "authors/0404.json"
+    },
+    {
+      "author_id": 405,
+      "canonical_name": "Pedro Lessa",
+      "path": "authors/0405.json"
+    },
+    {
+      "author_id": 406,
+      "canonical_name": "Paulo Egydio",
+      "path": "authors/0406.json"
+    },
+    {
+      "author_id": 407,
+      "canonical_name": "Ivan Lins",
+      "path": "authors/0407.json"
+    },
+    {
+      "author_id": 408,
+      "canonical_name": "Júlio de Castilhos",
+      "path": "authors/0408.json"
+    },
+    {
+      "author_id": 409,
+      "canonical_name": "Benjamin Constant",
+      "path": "authors/0409.json"
+    },
+    {
+      "author_id": 410,
+      "canonical_name": "Otto de Alencar",
+      "path": "authors/0410.json"
     }
   ]
 }
