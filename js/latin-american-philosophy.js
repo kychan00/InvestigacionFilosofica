@@ -135,7 +135,7 @@ function inferPeriod(record) {
 
 function periodGroup(period, records) {
   const section = document.createElement("section");
-  section.className = "period-author-group";
+  section.className = `period-author-group period-${period.id}`;
   section.id = `coleccion-${period.id}`;
 
   const header = document.createElement("header");
