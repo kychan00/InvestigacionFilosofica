@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "author_id": 66,
+  "canonical_name": "Diego Vicente Tejera",
+  "alternate_names": [
+    "Diego Vicente Tejera Calzado"
+  ],
+  "life": {
+    "born": {
+      "year": 1848,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1903,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_poetic_prose_socialist_and_journalistic_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0066-w001",
+      "title": "Consonancias",
+      "alternate_titles": [
+        "Consonancia"
+      ],
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1874,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "verified_secondary_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía cubana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "patriotismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0066-w002",
+      "title": "La muerte de Plácido",
+      "work_type": "dramatic_poem_play",
+      "original_language": "español",
+      "original_date": {
+        "year": 1875,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Gabriel de la Concepción Valdés (Plácido)",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Plácido",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "patriotismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antiespañolismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0066-w003",
+      "title": "Un ramo de violetas",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1877,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1877,
+      "authorship_status": "verified_secondary_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0066-w004",
+      "title": "Poesías",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1893,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1893,
+      "authorship_status": "verified_secondary_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía cubana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "identidad cubana",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0066-w005",
+      "title": "Un poco de prosa: crítica, biografía, cuentos, etc., 1882-1895",
+      "work_type": "prose_essay_story_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "biografía",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "cuentos",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0066-w006",
+      "title": "Italia por Cuba",
+      "work_type": "political_solidarity_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1899,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1899,
+      "authorship_status": "verified_secondary_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cuba",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "solidaridad internacional",
+          "provenance": "inferred"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0066-w007",
+      "title": "Un système social pratique",
+      "work_type": "socialist_system_outline",
+      "original_language": "francés",
+      "original_date": {
+        "century": 19,
+        "certainty": "late_nineteenth_century_paris_edition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_from_project_primary_source_title_year_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialisme",
+          "provenance": "inferred"
+        },
+        {
+          "term": "système social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "propriété",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "travail",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "El libro-base confirma edición parisina y que Tejera luego tradujo y expuso el sistema en conferencia; falta fijar año de impresión con ejemplar."
+    },
+    {
+      "work_id": "0066-w008",
+      "title": "Artículos y editoriales socialistas e independentistas",
+      "work_type": "journalistic_political_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1874,
+        "end": 1903,
+        "certainty": "approximate_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialismo cubano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "clase obrera",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad cubana",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Incluye colaboraciones y dirección en La Abeja Recreativa, La Verdad, América en París, Patria, Revista de Cayo Hueso, El Socialista, La Victoria y otros periódicos."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación del Partido Socialista Cubano",
+      "kind": "political_institutional_contribution",
+      "period": {
+        "start": 1899,
+        "end": 1899,
+        "certainty": "exact"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "socialismo cubano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Partido Socialista Cubano",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Diego Vicente Tejera (1848-1903)"
+    },
+    {
+      "kind": "library_microform_catalog",
+      "title": "Latin American pamphlet and book records — Diego Vicente Tejera",
+      "url": "https://assets.cengage.com/gale/psm/3120000R.pdf",
+      "publisher": "Harvard College Library microform catalog"
+    },
+    {
+      "kind": "literary_reference",
+      "title": "Diccionario de la literatura cubana — Diego Vicente Tejera",
+      "url": "https://www.cervantesvirtual.com/obra-visor/diccionario-de-la-literatura-cubana--0/html/254b.htm",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente fijar año/editor de Un système social pratique y desglosar periodismo socialista.",
+    "No atribuirle obras jurídicas homónimas de su hijo Diego Vicente Tejera."
+  ]
+}
