@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 90,
-    "authors_remaining": 1414,
-    "works_or_contributions_seeded": 679,
-    "current_batch": "009",
+    "authors_seeded": 100,
+    "authors_remaining": 1404,
+    "works_or_contributions_seeded": 788,
+    "current_batch": "010",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -499,6 +499,58 @@
       "author_id": 90,
       "canonical_name": "Hilton Ferreira Japiassu",
       "path": "authors/0090.json"
+    }
+  ],
+  "batch_010": [
+    {
+      "author_id": 91,
+      "canonical_name": "Leandro Konder",
+      "path": "authors/0091.json"
+    },
+    {
+      "author_id": 92,
+      "canonical_name": "Marilena de Souza Chauí",
+      "path": "authors/0092.json"
+    },
+    {
+      "author_id": 93,
+      "canonical_name": "Antonio Carlos Wolkmer",
+      "path": "authors/0093.json"
+    },
+    {
+      "author_id": 94,
+      "canonical_name": "Celso Luiz Ludwig",
+      "path": "authors/0094.json"
+    },
+    {
+      "author_id": 95,
+      "canonical_name": "Euclides André Mance",
+      "path": "authors/0095.json"
+    },
+    {
+      "author_id": 96,
+      "canonical_name": "Justo Sierra",
+      "path": "authors/0096.json"
+    },
+    {
+      "author_id": 97,
+      "canonical_name": "José Vasconcelos",
+      "path": "authors/0097.json"
+    },
+    {
+      "author_id": 98,
+      "canonical_name": "Antonio Caso",
+      "path": "authors/0098.json"
+    },
+    {
+      "author_id": 99,
+      "canonical_name": "Samuel Ramos",
+      "path": "authors/0099.json"
+    },
+    {
+      "author_id": 100,
+      "canonical_name": "José Gaos",
+      "path": "authors/0100.json"
     }
   ]
 }
