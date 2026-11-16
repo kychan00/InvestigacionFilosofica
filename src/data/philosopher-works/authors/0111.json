@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "author_id": 111,
+  "canonical_name": "Juliana González Valenzuela",
+  "alternate_names": [
+    "Juliana González"
+  ],
+  "life": {
+    "born": {
+      "year": 1936,
+      "certainty": "standard"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_ethics_nicol_metaphysics_freud_bioethics_and_genomics_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0111-w001",
+      "title": "Problemas ontológicos sobre la estructura de los fenómenos morales",
+      "work_type": "undergraduate_thesis_ethics_ontology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenómenos morales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ontología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0111-w002",
+      "title": "La metafísica dialéctica de Eduardo Nicol",
+      "work_type": "philosophical_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Eduardo Nicol",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9685800626",
+          "9789685800624"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "metafísica dialéctica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Eduardo Nicol",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0111-w003",
+      "title": "Ética y libertad",
+      "work_type": "ethics_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "first_edition_from_project_source"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9681654072"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1997,
+          "kind": "revised_or_reissued_edition"
+        }
+      ]
+    },
+    {
+      "work_id": "0111-w004",
+      "title": "El ethos, destino del hombre",
+      "work_type": "ethics_philosophical_anthropology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9681646684"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ethos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "destino humano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0111-w005",
+      "title": "El malestar en la moral. Freud y la crisis de la ética",
+      "work_type": "ethics_psychoanalysis_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Sigmund Freud",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Freud",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "crisis de la ética",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0111-w006",
+      "title": "El poder de Eros. Fundamentos y valores de ética y bioética",
+      "work_type": "bioethics_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "start": 1997,
+        "end": 2000,
+        "certainty": "date_conflict_between_catalog_and_project_source"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9688534633"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Eros",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "bioética",
+          "provenance": "primary_subtitle"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1997,
+          2000
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0111-w007",
+      "title": "Heidegger y la pregunta por la ética",
+      "work_type": "ethics_history_of_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Martin Heidegger",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9683695590"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0111-w008",
+      "title": "Genoma humano y dignidad humana",
+      "work_type": "bioethics_genomics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "847658721X",
+          "9788476587218"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "genoma humano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dignidad humana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "bioética",
+          "provenance": "catalog"
+        },
+        {
+          "term": "biotecnología",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Creación y dirección de seminarios interdisciplinarios de ética y bioética en la UNAM",
+      "kind": "academic_institutional_contribution",
+      "period": {
+        "start": 1990,
+        "end": 2026,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "bioética",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_profile",
+      "title": "Juliana González Valenzuela",
+      "url": "https://www.juntadegobierno.unam.mx/integrante/juliana-gonzalez-valenzuela",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "Catálogo histórico de libros UNAM — Juliana González",
+      "url": "https://www.catalogohistorico.unam.mx/listado.php?id=6582&id_categoria=5",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "government_bioethics_reference",
+      "title": "Genoma humano y dignidad humana",
+      "url": "https://www.conbioetica-mexico.salud.gob.mx/interior/temasgeneral/bioetica_dialogar.html",
+      "publisher": "Comisión Nacional de Bioética"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Juliana González Valenzuela (1936-)"
+    }
+  ],
+  "research_notes": [
+    "El poder de Eros presenta discrepancia 1997/2000 entre catálogo y libro-base; se preserva.",
+    "Pendiente ampliar coordinaciones, bioética y neuroética."
+  ]
+}
