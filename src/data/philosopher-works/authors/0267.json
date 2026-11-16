@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "author_id": 267,
+  "canonical_name": "Alonso Guerra",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "historical_logic_physics_metaphysics_courses_without_witnesses",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza de lógica, física y metafísica en Buenos Aires en 1586, en la tradición tomista",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Mauricio Beuchot, «La filosofía académica», en El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300-2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 84-85"
+    },
+    {
+      "kind": "secondary_historical_source",
+      "title": "Mauricio Beuchot, «La enseñanza de la filosofía»",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/",
+      "locator": "sección sobre el Río de la Plata, 1586"
+    }
+  ],
+  "research_notes": [
+    "Beuchot registra al obispo del Río de la Plata impartiendo cursos de lógica, física y metafísica en 1586.",
+    "Se trata de enseñanza documentada, no de tres tratados impresos ni de manuscritos identificados. works=[] hasta encontrar testimonio textual concreto."
+  ]
+}

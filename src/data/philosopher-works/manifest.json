@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 260,
-    "authors_remaining": 1244,
-    "works_or_contributions_seeded": 2114,
-    "current_batch": "026",
+    "authors_seeded": 270,
+    "authors_remaining": 1234,
+    "works_or_contributions_seeded": 2129,
+    "current_batch": "027",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1383,6 +1383,58 @@
       "author_id": 260,
       "canonical_name": "Carlos Suero",
       "path": "authors/0260.json"
+    }
+  ],
+  "batch_027": [
+    {
+      "author_id": 261,
+      "canonical_name": "Carlos Molina",
+      "path": "authors/0261.json"
+    },
+    {
+      "author_id": 262,
+      "canonical_name": "José Silva",
+      "path": "authors/0262.json"
+    },
+    {
+      "author_id": 263,
+      "canonical_name": "Mariano Chambo",
+      "path": "authors/0263.json"
+    },
+    {
+      "author_id": 264,
+      "canonical_name": "Julián Faramiñán",
+      "path": "authors/0264.json"
+    },
+    {
+      "author_id": 265,
+      "canonical_name": "Antonio Campana",
+      "path": "authors/0265.json"
+    },
+    {
+      "author_id": 266,
+      "canonical_name": "José Benito Lamas",
+      "path": "authors/0266.json"
+    },
+    {
+      "author_id": 267,
+      "canonical_name": "Alonso Guerra",
+      "path": "authors/0267.json"
+    },
+    {
+      "author_id": 268,
+      "canonical_name": "José Angulo",
+      "path": "authors/0268.json"
+    },
+    {
+      "author_id": 269,
+      "canonical_name": "Miguel de Viñas",
+      "path": "authors/0269.json"
+    },
+    {
+      "author_id": 270,
+      "canonical_name": "Alonso de Covarrubias",
+      "path": "authors/0270.json"
     }
   ]
 }

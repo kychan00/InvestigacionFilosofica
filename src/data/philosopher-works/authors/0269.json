@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 269,
+  "canonical_name": "Miguel de Viñas",
+  "alternate_names": [
+    "Michaël de Viñas",
+    "Michaele de Viñas",
+    "Miguel de Viñas S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1642,
+      "certainty": "scholarly_biographical_source"
+    },
+    "died": {
+      "year": 1718,
+      "certainty": "scholarly_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "first_printed_three_volume_work_confirmed_manuscript_attribution_corrected",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0269-w001",
+      "title": "Philosophia scholastica tribus voluminibus distincta, sanctissimae humanae triadi Jesu, Mariae, Josepho sacra",
+      "work_type": "scholastic_philosophy_printed_three_volume_work",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1709,
+        "certainty": "library_catalog_confirmed_publication"
+      },
+      "first_publication_year": 1709,
+      "authorship_status": "physical_print_catalog_and_scholarship_confirmed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía escolástica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "aristotelismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1116565",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://revistas.unisinos.br/index.php/historia/article/download/21089/60749089/60794404"
+      ],
+      "notes": "Catálogo ADABI de ejemplares conservados en la Biblioteca Francisco de Burgoa: tres tomos, Génova, Antonio Casamara, 1709; págs. 671, 680 y 687. Los tres tomos forman una obra única, no tres libros originales independientes.",
+      "edition": {
+        "year": 1709,
+        "publisher": "Antonius Casamara (Antonio Casamara)",
+        "region": "Génova"
+      },
+      "volume_count": 3,
+      "publication_witness": {
+        "catalog": "ADABI / Biblioteca Francisco de Burgoa",
+        "physical_volumes": "3 t.; ejemplares de la colección antigua"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia filosófica jesuita en Santiago de Chile desde 1680 y rectorado del Colegio Máximo San Miguel, con interpretación no servil de Aristóteles, Tomás de Aquino y Suárez",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Mauricio Beuchot, «La filosofía académica», en El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300-2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 84-85"
+    },
+    {
+      "kind": "physical_library_catalog",
+      "title": "ADABI, registro 1116565, «Philosophia scholastica ...», Génova 1709",
+      "url": "https://www.adabi.org.mx/vufind/Record/1116565"
+    },
+    {
+      "kind": "peer_reviewed_research",
+      "title": "Abel Aravena Zamora, «La enseñanza de la filosofía en el Colegio Máximo San Miguel de Santiago de Chile durante el siglo XVIII», História Unisinos 26(2), 2022",
+      "url": "https://revistas.unisinos.br/index.php/historia/article/download/21089/60749089/60794404",
+      "locator": "pp. 255–266, doi:10.4013/hist.2022.262.06"
+    },
+    {
+      "kind": "chilean_literary_history",
+      "title": "Historia de la literatura colonial de Chile, tomo tercero, Biblioteca Virtual Miguel de Cervantes",
+      "url": "https://www.cervantesvirtual.com/obra-visor/historia-de-la-literatura-colonial-de-chile-tomo-tercero--0/html/ff23e028-82b1-11df-acc7-002185ce6064_9.html"
+    }
+  ],
+  "research_notes": [
+    "La obra se imprime en Génova en 1709 en tres tomos con paginaciones propias. No inflar conteo por tomos.",
+    "Un manuscrito sobre física aristotélica de 1698 atribuido tradicionalmente a Viñas debe excluirse de su autoría: Aravena Zamora (2022) señala que la atribución debe descartarse por su estancia como procurador en Roma entre 1694 y 1699.",
+    "El manuscrito de 1709 que corresponde al tercer volumen de la edición impresa es testimonio de la obra, no otra obra independiente."
+  ]
+}

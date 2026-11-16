@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "author_id": 270,
+  "canonical_name": "Alonso de Covarrubias",
+  "alternate_names": [
+    "Alfonso de Covarrubias",
+    "Ildefonso Covarrubias",
+    "Alonso de Covarrubias O. de M."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_historically_attested_aristotelian_manuscript_authorship_uncertain",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0270-w001",
+      "title": "Comentario a los libros de la Física de Aristóteles (título descriptivo)",
+      "work_type": "mercedarian_aristotelian_physics_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "undated_manuscript"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historically_ascribed_manuscript_authorship_requires_colophon_cotejo",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Física de Aristóteles",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0063692.pdf",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Walter Hanisch describe un volumen manuscrito asociado a Covarrubias y transcribe firma y declaración de posesión al final. Una afirmación de propiedad de ejemplar no prueba por sí sola autoría ni fecha de composición; no se inventa edición.",
+      "manuscript_status": "historical_catalogued_witness_no_precise_shelfmark_verified",
+      "title_status": "historical_descriptive_label"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Actividad académica mercedaria en filosofía aristotélica en Chile colonial, vinculada con un manuscrito de comentario a la Física",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Mauricio Beuchot, «La filosofía académica», en El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300-2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 84-85"
+    },
+    {
+      "kind": "historical_manuscript_study",
+      "title": "Walter Hanisch Espíndola, «En torno a la filosofía en Chile (1594–1810)», Historia 2, 1962–1963",
+      "url": "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0063692.pdf",
+      "locator": "p. 67: listado de manuscritos, n.º 9, Alonso de Covarrubias"
+    }
+  ],
+  "research_notes": [
+    "Hanisch registra las variantes Alfonso/Ildefonso para el mercedario; no inferir dos individuos distintos.",
+    "El grado recibido en la Universidad de San Felipe en 1748 no fecha automáticamente el manuscrito de física.",
+    "Distinguir la identificación del propietario del manuscrito de la autoría textual; examinar portada, colofón y signatura antes de elevar la certeza."
+  ]
+}
