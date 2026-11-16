@@ -1,0 +1,643 @@
+{
+  "schema_version": 1,
+  "author_id": 132,
+  "canonical_name": "Arturo Andrés Roig",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1922,
+      "date": "1922-07-16",
+      "certainty": "verified_institutional"
+    },
+    "died": {
+      "year": 2012,
+      "date": "2012-04-30",
+      "certainty": "verified_institutional"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_and_editorial_distinctions_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0132-w001",
+      "title": "Los krausistas argentinos",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "krausistas argentinos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w002",
+      "title": "El espiritualismo argentino entre 1850 y 1900",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espiritualismo argentino",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "edition_history": [
+        {
+          "year": 2006,
+          "note": "Edición o reedición consignada por editor universitario"
+        }
+      ]
+    },
+    {
+      "work_id": "0132-w003",
+      "title": "Platón o la filosofía como libertad y expectativa",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Platón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w004",
+      "title": "Esquemas para una historia de la filosofía ecuatoriana",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía ecuatoriana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "first_publication_year_candidates": [
+        1977,
+        1982
+      ],
+      "source_conflict": true,
+      "notes": "Listado editorial sitúa 1977; otras referencias bibliográficas 1982. Revisar ejemplar."
+    },
+    {
+      "work_id": "0132-w005",
+      "title": "Teoría y crítica del pensamiento latinoamericano",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "notes": "Primera edición FCE México 1981 verificada en Library of Congress; reúne artículos anteriores sin alterar fecha del libro."
+    },
+    {
+      "work_id": "0132-w006",
+      "title": "Filosofía, universidad y filósofos en América Latina",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "universidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w007",
+      "title": "El pensamiento social de Juan Montalvo",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Juan Montalvo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pensamiento social",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "edition_history": [
+        {
+          "year": 1995,
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0132-w008",
+      "title": "El humanismo ecuatoriano de la segunda mitad del siglo XVIII",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo ecuatoriano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "first_publication_year_candidates": [
+        1982,
+        1984
+      ],
+      "source_conflict": true,
+      "notes": "Fuentes biográficas y listados editoriales difieren sobre 1982/1984."
+    },
+    {
+      "work_id": "0132-w009",
+      "title": "Bolivarismo y filosofía latinoamericana",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bolivarismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w010",
+      "title": "Narrativa y cotidianidad",
+      "work_type": "philosophical_literary_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "narrativa",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cotidianidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "edition_history": [
+        {
+          "year": 1991,
+          "note": "Edición Cuadernos de CHASQUI descrita en bibliografía especializada; comprobar relación con edición de 1984."
+        }
+      ],
+      "source_conflict": true
+    },
+    {
+      "work_id": "0132-w011",
+      "title": "El pensamiento latinoamericano del siglo XIX",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento latinoamericano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "siglo XIX",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w012",
+      "title": "La utopía del Ecuador",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "utopía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Ecuador",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "first_publication_year_candidates": [
+        1984,
+        1987
+      ],
+      "source_conflict": true,
+      "notes": "El libro-base menciona 1984, mientras que UACM registra 1987."
+    },
+    {
+      "work_id": "0132-w013",
+      "title": "Pensamiento filosófico de Hernán Malo González",
+      "work_type": "philosophical_intellectual_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hernán Malo González",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w014",
+      "title": "Historia de las ideas, teoría del discurso y pensamiento latinoamericano",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de las ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teoría del discurso",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w015",
+      "title": "Rostro y filosofía de América Latina",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    },
+    {
+      "work_id": "0132-w016",
+      "title": "El pensamiento latinoamericano y su aventura",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "notes": "La mención a una producción homónima de 2008 puede indicar nueva edición o revisión, no otra primera obra."
+    },
+    {
+      "work_id": "0132-w017",
+      "title": "Ética del poder y moralidad de la protesta",
+      "work_type": "ethics_political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_original_publication"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "poder",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "protesta",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ],
+      "first_publication_year_candidates": [
+        1996,
+        2002
+      ],
+      "source_conflict": true,
+      "notes": "UACM da 1996 y fuentes bibliográficas 2002; primera edición pendiente de ejemplar primario."
+    },
+    {
+      "work_id": "0132-w018",
+      "title": "La universidad hacia la democracia",
+      "work_type": "educational_political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0132-c001",
+      "title": "Dirección del Instituto de Estudios Latinoamericanos de la Pontificia Universidad Católica del Ecuador y estudios de la historia de las ideas del país",
+      "kind": "academic_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0132-c002",
+      "title": "Contribución a filosofía latinoamericana de la liberación e historiografía filosófica",
+      "kind": "academic_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_publisher_bibliography",
+      "title": "Editorial UACM: Arturo Andrés Roig, publicaciones",
+      "url": "https://publicaciones.uacm.edu.mx/simeh/authors/view/id/349"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Biblioteca del Congreso: Teoría y crítica del pensamiento latinoamericano",
+      "url": "https://www.loc.gov/item/hlas-bi84107528/"
+    },
+    {
+      "kind": "university_memorial",
+      "title": "Universidad Nacional de Cuyo: memoria de Arturo Andrés Roig",
+      "url": "https://www.uncuyo.edu.ar/prensa/murio-el-pensador-arturo-andres-roig"
+    },
+    {
+      "kind": "specialist_bibliography",
+      "title": "Referencias bibliográficas de Arturo Roig",
+      "url": "https://www.ensayistas.org/filosofos/argentina/roig/referencias.htm"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: filósofos de Argentina, páginas impresas 879–893"
+    }
+  ],
+  "research_notes": [
+    "Extensa obra todavía no exhaustivamente catalogada; se preservan conflictos de fechas bibliográficas sin resolver por conjetura.",
+    "Obras colectivas coordinadas, incluido Hacia una filosofía de la liberación latinoamericana, requieren análisis por contribución, no imputación completa."
+  ]
+}
