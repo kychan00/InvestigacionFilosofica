@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "author_id": 250,
+  "canonical_name": "Agustín Sierra",
+  "alternate_names": [
+    "Agustín Sierra S. J."
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "approximate",
+      "year_candidates": [
+        1653
+      ]
+    },
+    "died": {
+      "year": 1708,
+      "certainty": "academic_historical_study"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_colonial_jesuit_scholastic_manuscripts_not_commercial_publications",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0250-w001",
+      "title": "Curso de filosofía aristotélica (1688): De corpore generabili et corruptibili, De corpore animato y apéndice",
+      "work_type": "jesuit_scholastic_manuscript_natural_philosophy_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1688,
+        "certainty": "course_manuscript_dated_by_project_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_scholarly_manuscript_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristotelis",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "De corpore generabili",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "De corpore animato",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://studylib.es/doc/7642708/los-comentaristas-de-arist%C3%B3teles-en-la-nueva-espa%C3%B1a",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "title_status": "descriptive_label_for_collected_manuscript",
+      "documented_components": [
+        "Tractatus in duos Aristotelis libros de Corpore Generabili Corruptibili",
+        "Tractatus in tres Aristotelis libros de Corpore Animato",
+        "Appendix in Aristotelis libros"
+      ],
+      "manuscript_repository": "Biblioteca Nacional de México",
+      "notes": "Libro-base menciona curso de 1688, historiografía de comentaristas identifica secciones en manuscrito de Biblioteca Nacional. No se infieren signaturas exactas de las partes."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0250-c001",
+      "title": "Docencia jesuita de filosofía y teología en la Nueva España a finales del siglo XVII",
+      "kind": "colonial_scholastic_philosophical_teaching",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_historical_study",
+      "title": "Los comentaristas de Aristóteles en la Nueva España, sección Agustín Sierra",
+      "url": "https://studylib.es/doc/7642708/los-comentaristas-de-arist%C3%B3teles-en-la-nueva-espa%C3%B1a"
+    },
+    {
+      "kind": "scholarly_monograph",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La filosofía académica», p. 82; y «La ontología y la metafísica», p. 555"
+    }
+  ],
+  "research_notes": [
+    "El año de nacimiento es aproximado hacia 1653, no fecha exacta.",
+    "El curso consta de partes de filosofía natural; no inventar una metafísica autónoma sin apoyo."
+  ]
+}
