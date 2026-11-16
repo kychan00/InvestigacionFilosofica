@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "author_id": 13,
+  "canonical_name": "Hernando de Alvarado Tezozómoc",
+  "alternate_names": [
+    "Fernando Alvarado Tezozómoc",
+    "Hernando Alvarado Tezozomoc"
+  ],
+  "life": {
+    "born": {
+      "year": 1525,
+      "certainty": "approximate"
+    },
+    "died": {
+      "year": 1610,
+      "certainty": "approximate"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_core_chronicles_verified_attribution_complexity_recorded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0013-w001",
+      "title": "Crónica mexicana",
+      "work_type": "chronicle_history",
+      "original_language": "español",
+      "original_date": {
+        "century": 16,
+        "certainty": "late_sixteenth_century"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "978-607-30-4559-9"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "historia mexica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nobleza indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Tenochtitlan",
+          "provenance": "inferred"
+        },
+        {
+          "term": "guerra",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Conservada, entre otros testimonios, en el manuscrito Kraus 117."
+    },
+    {
+      "work_id": "0013-w002",
+      "title": "Crónica mexicáyotl",
+      "work_type": "nahuatl_chronicle",
+      "original_language": "náhuatl",
+      "original_date": {
+        "century": 17,
+        "certainty": "early_seventeenth_century"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "principal_author_with_editorial_strata",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Domingo Francisco de San Antón Muñón Chimalpahin Cuauhtlehuanitzin",
+          "role": "historical_editor_compiler"
+        },
+        {
+          "name": "Alonso Franco",
+          "role": "source_fragment_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "978-607-30-4378-6",
+          "968-36-2746-3"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Tenochtitlan",
+          "provenance": "catalog"
+        },
+        {
+          "term": "genealogías",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tlatoque",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tradición oral",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "La edición crítica moderna de UNAM la caracteriza como obra histórica de Tezozómoc editada por Chimalpahin y con fragmentos de Alonso Franco."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "critical_edition",
+      "title": "Crónica mexicana",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/735/cronica_mexicana.html",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "critical_edition",
+      "title": "Crónica mexicáyotl",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/730/cronica_mexicayotl.html",
+      "publisher": "UNAM"
+    }
+  ],
+  "research_notes": [
+    "Pendiente mapear manuscritos, copias y estratos textuales para no confundir autoría original con edición colonial posterior."
+  ]
+}
