@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "author_id": 130,
+  "canonical_name": "Mario Bunge",
+  "alternate_names": [
+    "Mario Augusto Bunge"
+  ],
+  "life": {
+    "born": {
+      "year": 1919,
+      "certainty": "verified",
+      "date": "1919-09-21"
+    },
+    "died": {
+      "year": 2020,
+      "certainty": "verified",
+      "date": "2020-02-24"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_causality_scientific_method_physics_systematic_treatise_social_science_realism_political_philosophy_and_memoir_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0130-w001",
+      "title": "Causality: The Place of the Causal Principle in Modern Science",
+      "work_type": "philosophy_of_science_treatise",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1959,
+        "certainty": "first_english_edition"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "causality",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "science",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w002",
+      "title": "La ciencia, su método y su filosofía",
+      "work_type": "philosophy_of_science_introductory_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "método científico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía de la ciencia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w003",
+      "title": "Scientific Research I: The Search for System",
+      "work_type": "scientific_methodology_treatise_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1967,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "scientific research",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "system",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "methodology",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w004",
+      "title": "Scientific Research II: The Search for Truth",
+      "work_type": "scientific_methodology_treatise_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1967,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-3-642-48138-3",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "scientific research",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "truth",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w005",
+      "title": "Philosophy of Physics",
+      "work_type": "philosophy_of_physics_treatise",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1973,
+        "certainty": "copyright_and_book_year"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-010-2522-5",
+        "isbn": [
+          "9789027702531"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "philosophy of physics",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "physical theory",
+          "provenance": "editorial"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w006",
+      "title": "Treatise on Basic Philosophy, Vol. 1: Semantics I — Sense and Reference",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1974,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-010-9920-2",
+        "isbn": [
+          "9789027705723"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "semantics",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "sense",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "reference",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w007",
+      "title": "Treatise on Basic Philosophy, Vol. 2: Semantics II — Interpretation and Truth",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1974,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-010-9922-6",
+        "isbn": [
+          "9789027705730"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "semantics",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "interpretation",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "truth",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w008",
+      "title": "Treatise on Basic Philosophy, Vol. 3: Ontology I — The Furniture of the World",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1977,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-010-9924-0",
+        "isbn": [
+          "9789027707857"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ontology",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "world",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w009",
+      "title": "Treatise on Basic Philosophy, Vol. 4: Ontology II — A World of Systems",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1979,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-009-9392-1",
+        "isbn": [
+          "9789027709448"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ontology",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "systems",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "systemism",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w010",
+      "title": "Treatise on Basic Philosophy, Vol. 5: Epistemology & Methodology I — Exploring the World",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1983,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemology",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "methodology",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w011",
+      "title": "Treatise on Basic Philosophy, Vol. 6: Epistemology & Methodology II — Understanding the World",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1983,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemology",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "methodology",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "understanding",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w012",
+      "title": "Treatise on Basic Philosophy, Vol. 7: Epistemology & Methodology III — Philosophy of Science and Technology",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1985,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-009-5281-2",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "philosophy of science",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "technology",
+          "provenance": "primary_subtitle"
+        }
+      ],
+      "notes": "El volumen se publicó en partes dedicadas a ciencias formales/físicas y ciencias de la vida/sociales/tecnología; se mantiene como volumen 7 del Treatise."
+    },
+    {
+      "work_id": "0130-w013",
+      "title": "Treatise on Basic Philosophy, Vol. 8: Ethics — The Good and the Right",
+      "work_type": "systematic_philosophy_series_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1989,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-009-2601-1",
+        "isbn": [
+          "9789027728395"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ethics",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "good",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "right",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w014",
+      "title": "Finding Philosophy in Social Science",
+      "work_type": "philosophy_of_social_science_treatise",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1996,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "philosophy",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "social science",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w015",
+      "title": "Emergence and Convergence: Qualitative Novelty and the Unity of Knowledge",
+      "work_type": "systemism_emergence_treatise",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2003,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "emergence",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "convergence",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "unity of knowledge",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w016",
+      "title": "Chasing Reality: Strife over Realism",
+      "work_type": "scientific_realism_treatise",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2006,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reality",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "realism",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w017",
+      "title": "Political Philosophy: Fact, Fiction, and Vision",
+      "work_type": "political_philosophy_treatise",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2009,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "political philosophy",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracy",
+          "provenance": "inferred"
+        },
+        {
+          "term": "systemism",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0130-w018",
+      "title": "Between Two Worlds: Memoirs of a Philosopher-Scientist",
+      "work_type": "memoir_intellectual_autobiography",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2016,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2016,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memoirs",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "philosopher-scientist",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Construcción de un sistema filosófico científico basado en materialismo emergentista, realismo y sistemismo",
+      "kind": "systematic_philosophy_contribution",
+      "period": {
+        "start": 1950,
+        "end": 2020,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "materialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "realismo científico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sistemismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_memorial",
+      "title": "Memorial tribute for Professor Mario Bunge",
+      "url": "https://www.mcgill.ca/senate/files/senate/final_senate_minutes_nov._18_2020.pdf",
+      "publisher": "McGill University"
+    },
+    {
+      "kind": "university_profile",
+      "title": "Mario Bunge: philosophy and physics",
+      "url": "https://www.mcgill.ca/newsroom/spotlight/philosophy-and-physics",
+      "publisher": "McGill University"
+    },
+    {
+      "kind": "publisher_series",
+      "title": "Treatise on Basic Philosophy — Semantics I",
+      "url": "https://link.springer.com/book/10.1007/978-94-010-9920-2",
+      "publisher": "Springer",
+      "doi": "10.1007/978-94-010-9920-2"
+    },
+    {
+      "kind": "publisher_series",
+      "title": "Treatise on Basic Philosophy — Ontology II",
+      "url": "https://link.springer.com/book/10.1007/978-94-009-9392-1",
+      "publisher": "Springer",
+      "doi": "10.1007/978-94-009-9392-1"
+    },
+    {
+      "kind": "publisher_series",
+      "title": "Treatise on Basic Philosophy — Ethics",
+      "url": "https://link.springer.com/book/10.1007/978-94-009-2601-1",
+      "publisher": "Springer",
+      "doi": "10.1007/978-94-009-2601-1"
+    },
+    {
+      "kind": "scholarly_systematic_study",
+      "title": "Foundations of information technology based on Bunge’s systemist philosophy of reality",
+      "url": "https://link.springer.com/article/10.1007/s10270-021-00862-5",
+      "publisher": "Springer"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Mario Bunge (1919-)"
+    }
+  ],
+  "research_notes": [
+    "Fallecimiento actualizado al 24 de febrero de 2020 con fuente institucional de McGill.",
+    "El Treatise se desglosa por sus ocho volúmenes, evitando ocultar la cronología 1974-1989.",
+    "Pendiente ampliar física, filosofía de la mente, biología, ciencias sociales, pseudociencia, medicina y obra posterior al Treatise."
+  ]
+}
