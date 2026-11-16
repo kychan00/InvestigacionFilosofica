@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 60,
-    "authors_remaining": 1444,
-    "works_or_contributions_seeded": 368,
-    "current_batch": "006",
+    "authors_seeded": 70,
+    "authors_remaining": 1434,
+    "works_or_contributions_seeded": 463,
+    "current_batch": "007",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -343,6 +343,58 @@
       "author_id": 60,
       "canonical_name": "Luis Lagarrigue",
       "path": "authors/0060.json"
+    }
+  ],
+  "batch_007": [
+    {
+      "author_id": 61,
+      "canonical_name": "Miguel Lemos",
+      "path": "authors/0061.json"
+    },
+    {
+      "author_id": 62,
+      "canonical_name": "Raimundo Teixeira Mendes",
+      "path": "authors/0062.json"
+    },
+    {
+      "author_id": 63,
+      "canonical_name": "Carlos Octavio Bunge",
+      "path": "authors/0063.json"
+    },
+    {
+      "author_id": 64,
+      "canonical_name": "José Ingenieros",
+      "path": "authors/0064.json"
+    },
+    {
+      "author_id": 65,
+      "canonical_name": "Félix Varela",
+      "path": "authors/0065.json"
+    },
+    {
+      "author_id": 66,
+      "canonical_name": "Diego Vicente Tejera",
+      "path": "authors/0066.json"
+    },
+    {
+      "author_id": 67,
+      "canonical_name": "José Martí",
+      "path": "authors/0067.json"
+    },
+    {
+      "author_id": 68,
+      "canonical_name": "Juan Bautista Justo",
+      "path": "authors/0068.json"
+    },
+    {
+      "author_id": 69,
+      "canonical_name": "José Carlos Mariátegui",
+      "path": "authors/0069.json"
+    },
+    {
+      "author_id": 70,
+      "canonical_name": "Aníbal Ponce",
+      "path": "authors/0070.json"
     }
   ]
 }
