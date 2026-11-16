@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 200,
-    "authors_remaining": 1304,
-    "works_or_contributions_seeded": 1831,
-    "current_batch": "020",
+    "authors_seeded": 210,
+    "authors_remaining": 1294,
+    "works_or_contributions_seeded": 1940,
+    "current_batch": "021",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1071,6 +1071,58 @@
       "author_id": 200,
       "canonical_name": "Raúl Fornet-Betancourt",
       "path": "authors/200.json"
+    }
+  ],
+  "batch_021": [
+    {
+      "author_id": 201,
+      "canonical_name": "Pablo Guadarrama González",
+      "path": "authors/0201.json"
+    },
+    {
+      "author_id": 202,
+      "canonical_name": "Lewis Gordon",
+      "path": "authors/0202.json"
+    },
+    {
+      "author_id": 203,
+      "canonical_name": "Ernesto Sosa",
+      "path": "authors/0203.json"
+    },
+    {
+      "author_id": 204,
+      "canonical_name": "Walter Mignolo",
+      "path": "authors/0204.json"
+    },
+    {
+      "author_id": 205,
+      "canonical_name": "Jorge J.E. Gracia",
+      "path": "authors/0205.json"
+    },
+    {
+      "author_id": 206,
+      "canonical_name": "Ofelia Schutte",
+      "path": "authors/0206.json"
+    },
+    {
+      "author_id": 207,
+      "canonical_name": "María Lugones",
+      "path": "authors/0207.json"
+    },
+    {
+      "author_id": 208,
+      "canonical_name": "Linda Martín Alcoff",
+      "path": "authors/0208.json"
+    },
+    {
+      "author_id": 209,
+      "canonical_name": "Eduardo Mendieta",
+      "path": "authors/0209.json"
+    },
+    {
+      "author_id": 210,
+      "canonical_name": "Nelson Maldonado-Torres",
+      "path": "authors/0210.json"
     }
   ]
 }
