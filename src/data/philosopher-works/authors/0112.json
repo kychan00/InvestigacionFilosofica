@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "author_id": 112,
+  "canonical_name": "Jaime Labastida Ochoa",
+  "alternate_names": [
+    "Jaime Mario Labastida Ochoa",
+    "Jaime Labastida"
+  ],
+  "life": {
+    "born": {
+      "year": 1939,
+      "certainty": "verified"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_philosophy_of_science_language_aesthetics_cultural_and_poetic_corpus_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0112-w001",
+      "title": "Producción, ciencia y sociedad: de Descartes a Marx",
+      "work_type": "philosophy_of_science_history_of_ideas_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "first_edition_catalog_record"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "René Descartes",
+          "role": "subject"
+        },
+        {
+          "name": "Karl Marx",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "producción",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Descartes",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Marx",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0112-w002",
+      "title": "La palabra enemiga",
+      "work_type": "language_literary_essay",
+      "original_language": "español",
+      "original_date": {
+        "start": 1977,
+        "end": 1996,
+        "certainty": "edition_date_conflict"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "palabra",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "inferred"
+        },
+        {
+          "term": "significado",
+          "provenance": "inferred"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1977,
+          1996
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0112-w003",
+      "title": "Animal de silencios",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "silencio",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0112-w004",
+      "title": "Humboldt: ciudadano universal",
+      "work_type": "intellectual_biographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Alexander von Humboldt",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Humboldt",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "universalidad",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0112-w005",
+      "title": "Elogios de la luz y de la sombra",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "luz",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sombra",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0112-w006",
+      "title": "Cuerpo, territorio, mito",
+      "work_type": "philosophical_cultural_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9682322367",
+          "9789682322365"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "cuerpo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "territorio",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Mesoamérica",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0112-w007",
+      "title": "El edificio de la razón: el sujeto científico",
+      "work_type": "philosophy_of_science_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9682326818",
+          "9789682326813"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "razón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sujeto científico",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "filosofía de la ciencia",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0112-w008",
+      "title": "Estética del peligro",
+      "work_type": "aesthetics_political_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786073000369",
+          "9786073000352"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "peligro",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revolución",
+          "provenance": "catalog"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirección editorial de Siglo XXI Editores y actividad académica en filosofía, ciencia y lengua",
+      "kind": "editorial_academic_contribution",
+      "period": {
+        "start": 1990,
+        "end": 2021,
+        "certainty": "documented_directorship_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "edición",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "lengua",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "publisher_profile",
+      "title": "Jaime Labastida",
+      "url": "https://sigloxxieditores.com.mx/autor-a/jaime-labastida/",
+      "publisher": "Siglo XXI Editores"
+    },
+    {
+      "kind": "language_academy_profile",
+      "title": "Jaime Labastida",
+      "url": "https://academia.org.mx/academicos-2021/item/jaime-labastida-2?category_id=2365",
+      "publisher": "Academia Mexicana de la Lengua"
+    },
+    {
+      "kind": "cultural_catalog",
+      "title": "Estética del peligro",
+      "url": "https://www.elcolegiodesinaloa.gob.mx/services/estetica-del-peligro/",
+      "publisher": "El Colegio de Sinaloa"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "El edificio de la razón",
+      "url": "https://www.catalogohistorico.unam.mx/listado.php?id=2007&id_categoria=4&pagina=20",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Jaime Labastida Ochoa (1939-)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar poesía, Humboldt, estética, lengua y ensayos posteriores.",
+    "La palabra enemiga conserva discrepancia 1977/1996 entre repertorios."
+  ]
+}
