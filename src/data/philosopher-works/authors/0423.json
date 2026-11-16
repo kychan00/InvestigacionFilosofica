@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 423,
+  "canonical_name": "Mamerto Oyola",
+  "alternate_names": [
+    "Mamerto Oyola Cuéllar",
+    "Mamerto Oyola-Cuéllar",
+    "Mamerto Oyola Cuéllar Menacho"
+  ],
+  "life": {
+    "born": {
+      "year": 1838,
+      "certainty": "scholarly_and_library_sources"
+    },
+    "died": {
+      "year": 1902,
+      "certainty": "scholarly_and_library_sources"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0423-w001",
+      "title": "La razón universal",
+      "work_type": "philosophical_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1898,
+        "certainty": "bibliographic_and_history_of_philosophy_sources"
+      },
+      "first_publication_year": 1898,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "racionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Descartes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gnoseología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teísmo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf",
+        "https://historiadeloriente.wixsite.com/proyecto19/hombres-en-el-siglo-xix"
+      ],
+      "notes": "Publicado en Barcelona en 1898. Estudios bolivianos lo presentan como la obra filosófica principal de Oyola y como defensa de un racionalismo espiritualista de inspiración cartesiana."
+    },
+    {
+      "work_id": "0423-w002",
+      "title": "Crítica del panteísmo hegeliano",
+      "work_type": "philosophical_newspaper_fascicle_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 1901,
+        "certainty": "secondary_bibliographic_source"
+      },
+      "first_publication_year": 1901,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hegel",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "panteísmo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://elias-blanco.blogspot.com/2012/02/mamerto-oyola-cuellar-menacho.html"
+      ],
+      "notes": "Registrada por bibliografía cultural boliviana como serie de fascículos del diario La Ley de Santa Cruz en 1901. Queda marcada con evidencia secundaria hasta cotejo hemerográfico directo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Racionalismo espiritualista boliviano de raíz cartesiana y crítica del escepticismo, idealismo subjetivo y panteísmo",
+      "kind": "bolivian_cartesian_and_spiritualist_contribution",
+      "authorship_status": "documented_in_history_of_philosophy_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "history_of_philosophy_source",
+      "title": "Guillermo Francovich — La filosofía en Bolivia, sección Mamerto Oyola Cuéllar",
+      "url": "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf"
+    },
+    {
+      "kind": "library_source",
+      "title": "Open Library — Mamerto Oyola-Cuéllar",
+      "url": "https://openlibrary.org/authors/OL14190543A/Mamerto_Oyola-Cu%C3%A9llar"
+    },
+    {
+      "kind": "biobibliographic_source",
+      "title": "Diccionario Cultural Boliviano — Mamerto Oyola Cuéllar Menacho",
+      "url": "https://elias-blanco.blogspot.com/2012/02/mamerto-oyola-cuellar-menacho.html"
+    }
+  ],
+  "research_notes": [
+    "La teoría metafísica de la moral aparece descrita como inédita o extraviada; no se convierte en publicación.",
+    "La Razón Universal se fecha 1898 por fuentes biográficas y bibliográficas; una edición de rescate boliviana apareció en 2003 y no se confunde con la princeps."
+  ]
+}
