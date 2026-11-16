@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 253,
+  "canonical_name": "Jerónimo de Valera",
+  "alternate_names": [
+    "Gerónimo de Valera",
+    "Hyeronimo Valera"
+  ],
+  "life": {
+    "born": {
+      "year": 1568,
+      "certainty": "specialist_editorial_study"
+    },
+    "died": {
+      "year": 1625,
+      "certainty": "specialist_editorial_study"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_originals_or_manuscript_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0253-w001",
+      "title": "Commentarii ac quaestiones in universam Aristotelis ac subtilissimi doctoris Iohannis Duns Scoti logicam",
+      "work_type": "printed_franciscan_scholastic_logic_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_revision_and_printing_period",
+        "period": {
+          "start": 1607,
+          "end": 1610
+        }
+      },
+      "first_publication_year": 1610,
+      "authorship_status": "documented_historical_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristotelis",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Duns Scoti",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "logicam",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogocolectivo.bnp.gob.pe/catologo-colectivo/commentarii-ac-qvaestiones-in-vniversam-aristotelis-ac-svbtilissimi-doctoris-ihoannis-dvns-scoti-logicam-secvnda-pars-libros-perihermeniakvm-sev-de-interpretatione-10196",
+        "https://estudiosindianos.up.edu.pe/biblioteca-indiana/comentarii-ac-quaestiones-in-vniuersam-aristotelis-ac-subtilissimi-doctoris-ihoannis-duns-scoti-logicam-de-jeronimo-de-valera/"
+      ],
+      "manuscript_ready_year": 1607,
+      "approvals": {
+        "start": "1608-03-13",
+        "end": "1608-04-26"
+      },
+      "impression_year": 1609,
+      "first_public_circulation_year": 1610,
+      "edition": {
+        "place": "Lima",
+        "printer": "Francisco del Canto",
+        "year": 1610
+      },
+      "notes": "Estudio editorial explica impresión iniciada/terminada en 1609, corregida por fe de erratas, y primera publicación/circulación en 1610; la BNP cataloga ejemplar con año MDCX. En el libro-base aparece 1609, por lo que las fechas se modelan por función editorial."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción y exposición de la lógica aristotélica interpretada por el escotismo en el Perú virreinal",
+      "kind": "colonial_historical_theological_philosophical_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_heritage_original_copy_catalog",
+      "title": "Biblioteca Nacional del Perú, Comentarii... edición original 1610, imprenta Francisco del Canto",
+      "url": "https://catalogocolectivo.bnp.gob.pe/catologo-colectivo/commentarii-ac-qvaestiones-in-vniversam-aristotelis-ac-svbtilissimi-doctoris-ihoannis-dvns-scoti-logicam-secvnda-pars-libros-perihermeniakvm-sev-de-interpretatione-10196"
+    },
+    {
+      "kind": "university_specialist_publisher",
+      "title": "Estudios Indianos, Jerónimo de Valera, Logica via Scoti y cronología 1607–1610",
+      "url": "https://estudiosindianos.up.edu.pe/biblioteca-indiana/comentarii-ac-quaestiones-in-vniuersam-aristotelis-ac-subtilissimi-doctoris-ihoannis-duns-scoti-logicam-de-jeronimo-de-valera/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 82–84"
+    }
+  ],
+  "research_notes": [
+    "No confundir fecha de impresión con fecha del ejemplar publicado: 1609 y 1610 corresponden a etapas distintas.",
+    "El estudio especializado considera esta una de las primeras obras filosóficas impresas en América; tratar esa prioridad historiográfica con precisión editorial."
+  ]
+}
