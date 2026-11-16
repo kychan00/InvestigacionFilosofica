@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "author_id": 426,
+  "canonical_name": "Rodolfo Rivarola",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1857,
+      "certainty": "university_authority"
+    },
+    "died": {
+      "year": 1942,
+      "certainty": "university_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0426-w001",
+      "title": "Proyecto de Código Penal para la República Argentina, precedido de una exposición de motivos",
+      "work_type": "collective_penal_code_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1888,
+        "certainty": "university_biographical_source"
+      },
+      "first_publication_year": 1888,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Norberto Piñero",
+        "José Nicolás Matienzo"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho penal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "codificación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://unlp.edu.ar/institucional/unlp/historia/legados_personas/vidas_y_retratos_rodolfo_rivarola-7204-12204/"
+      ],
+      "notes": "Proyecto colectivo de 1888. Se registra obligatoriamente con Piñero y Matienzo como coautores."
+    },
+    {
+      "work_id": "0426-w002",
+      "title": "El Presidente Sáenz Peña y la moralidad política argentina",
+      "work_type": "political_ethics_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1914,
+        "certainty": "university_biographical_source"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Sáenz Peña",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moralidad pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://unlp.edu.ar/institucional/unlp/historia/legados_personas/vidas_y_retratos_rodolfo_rivarola-7204-12204/"
+      ],
+      "notes": "Obra de 1914 destacada por la UNLP dentro de su producción político-filosófica."
+    },
+    {
+      "work_id": "0426-w003",
+      "title": "La Constitución Argentina y sus principios de ética política",
+      "work_type": "constitutional_and_political_ethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "municipal_library_catalog"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Constitución argentina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho constitucional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/documento.php?id=PERGAMO.1.103774&recno=103774&ui=1",
+        "https://unlp.edu.ar/institucional/unlp/historia/legados_personas/vidas_y_retratos_rodolfo_rivarola-7204-12204/"
+      ],
+      "notes": "Buenos Aires, Argentina de Ciencias Políticas, 1928; catálogo municipal y UNLP coinciden en la fecha."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulación de filosofía, derecho penal, ética política y ciencias políticas en la universidad argentina",
+      "kind": "argentine_legal_and_political_philosophy_contribution",
+      "authorship_status": "documented_in_university_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_source",
+      "title": "UNLP — Rodolfo Rivarola",
+      "url": "https://unlp.edu.ar/institucional/unlp/historia/legados_personas/vidas_y_retratos_rodolfo_rivarola-7204-12204/"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "Bibliotecas de la Ciudad de Buenos Aires — La Constitución Argentina y sus principios de ética política",
+      "url": "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/documento.php?id=PERGAMO.1.103774&recno=103774&ui=1"
+    }
+  ],
+  "research_notes": [
+    "Rivarola fundó y dirigió la Revista Argentina de Ciencias Políticas, pero no se atribuye como autor de todos sus contenidos.",
+    "El proyecto penal de 1888 es coautoría y no obra individual."
+  ]
+}
