@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 40,
-    "authors_remaining": 1464,
-    "works_or_contributions_seeded": 203,
-    "current_batch": "004",
+    "authors_seeded": 50,
+    "authors_remaining": 1454,
+    "works_or_contributions_seeded": 281,
+    "current_batch": "005",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -239,6 +239,58 @@
       "author_id": 40,
       "canonical_name": "Juan León Mera",
       "path": "authors/0040.json"
+    }
+  ],
+  "batch_005": [
+    {
+      "author_id": 41,
+      "canonical_name": "José María Luis Mora",
+      "path": "authors/0041.json"
+    },
+    {
+      "author_id": 42,
+      "canonical_name": "José Esteban Echeverría",
+      "path": "authors/0042.json"
+    },
+    {
+      "author_id": 43,
+      "canonical_name": "Eduardo Ferreira França",
+      "path": "authors/0043.json"
+    },
+    {
+      "author_id": 44,
+      "canonical_name": "Juan Bautista Alberdi",
+      "path": "authors/0044.json"
+    },
+    {
+      "author_id": 45,
+      "canonical_name": "Domingo Faustino Sarmiento",
+      "path": "authors/0045.json"
+    },
+    {
+      "author_id": 46,
+      "canonical_name": "José Victorino Lastarria",
+      "path": "authors/0046.json"
+    },
+    {
+      "author_id": 47,
+      "canonical_name": "Justo Arosemena",
+      "path": "authors/0047.json"
+    },
+    {
+      "author_id": 48,
+      "canonical_name": "Francisco Bilbao",
+      "path": "authors/0048.json"
+    },
+    {
+      "author_id": 49,
+      "canonical_name": "Juan Montalvo",
+      "path": "authors/0049.json"
+    },
+    {
+      "author_id": 50,
+      "canonical_name": "Hipólito Yrigoyen",
+      "path": "authors/0050.json"
     }
   ]
 }
