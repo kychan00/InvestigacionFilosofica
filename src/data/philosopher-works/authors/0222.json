@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "author_id": 222,
+  "canonical_name": "Natalicio González",
+  "alternate_names": [
+    "Juan Natalicio González",
+    "J. Natalicio González",
+    "Juan Natalicio González Paredes"
+  ],
+  "life": {
+    "born": {
+      "year": 1897,
+      "certainty": "academia_paraguaya_de_historia"
+    },
+    "died": {
+      "year": 1966,
+      "certainty": "authority_library"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_primary_works_with_explicit_edition_or_manuscript_uncertainty_non_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0222-w001",
+      "title": "Urutaú",
+      "work_type": "early_literary_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1919,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1919,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Urutaú",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://openlibrary.org/authors/OL4554276A/Natalicio_Gonz%C3%A1lez"
+      ]
+    },
+    {
+      "work_id": "0222-w002",
+      "title": "El Paraguay eterno",
+      "work_type": "political_nationalist_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Paraguay eterno",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ],
+      "edition_history": [
+        {
+          "year": 1986,
+          "edition": "edición facsimilar",
+          "notes": "Biblioteca Nacional Paraguay conserva referencia a facsímil del original 1935"
+        }
+      ]
+    },
+    {
+      "work_id": "0222-w003",
+      "title": "Proceso y formación de la cultura paraguaya",
+      "work_type": "history_of_culture_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura paraguaya",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ],
+      "first_publication_year_candidates": [
+        1938,
+        1940
+      ],
+      "source_conflict": true,
+      "edition_history": [
+        {
+          "year": 1940,
+          "place": "Buenos Aires",
+          "notes": "Edición de 369 páginas reseñada por Revista de Historia de América en 1941"
+        },
+        {
+          "year": 1948,
+          "edition": "segunda edición",
+          "publisher": "Guarania",
+          "notes": "Biblioteca Nacional Paraguay da segunda edición 1948"
+        }
+      ],
+      "notes": "La Academia Paraguaya de Historia indica 1938; reseña bibliográfica contemporánea documenta edición 1940, por lo que no se fija primera tirada sin portada."
+    },
+    {
+      "work_id": "0222-w004",
+      "title": "El paraguayo y la lucha por su expresión",
+      "work_type": "political_cultural_essay_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "paraguayo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "expresión",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ],
+      "edition_history": [
+        {
+          "year": 1998,
+          "edition": "segunda edición Cuadernos Republicanos",
+          "notes": "No origen del texto"
+        }
+      ]
+    },
+    {
+      "work_id": "0222-w005",
+      "title": "Cómo se construye una nación",
+      "work_type": "political_essay_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ],
+      "edition_history": [
+        {
+          "year": 1949,
+          "notes": "Edición ampliada de 238 pp. consignada en bibliografía regional; revisar si hay revisión textual"
+        }
+      ],
+      "notes": "Biblioteca Nacional registra folleto Asunción 1948 de 30 páginas, fuente bibliográfica regional cita libro 1949 de 238 páginas; no colapsar materialmente sin cotejo."
+    },
+    {
+      "work_id": "0222-w006",
+      "title": "Solano López, diplomático",
+      "work_type": "political_historical_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Solano López",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://portalguarani.com/869_jose_gabriel_arce_farina/14646_j_natalicio_gonzalez__su_expresion_su_lucha_su_ideologia_2011__por_jose_arce_farina.html"
+      ]
+    },
+    {
+      "work_id": "0222-w007",
+      "title": "Motivos de la tierra escarlata",
+      "work_type": "literary_poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tierra escarlata",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ]
+    },
+    {
+      "work_id": "0222-w008",
+      "title": "La raíz errante",
+      "work_type": "literary_narrative_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "raíz errante",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://portalguarani.com/869_jose_gabriel_arce_farina/14646_j_natalicio_gonzalez__su_expresion_su_lucha_su_ideologia_2011__por_jose_arce_farina.html"
+      ]
+    },
+    {
+      "work_id": "0222-w009",
+      "title": "Ideología guaraní",
+      "work_type": "guarani_cultural_ideology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideología guaraní",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://openlibrary.org/authors/OL4554276A/Natalicio_Gonz%C3%A1lez"
+      ],
+      "edition_history": [
+        {
+          "year": 2012,
+          "notes": "Reedición editorial con ISBN reciente que no cambia 1958"
+        }
+      ]
+    },
+    {
+      "work_id": "0222-w010",
+      "title": "El Estado servidor del hombre libre",
+      "work_type": "political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hombre libre",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecanacional.gov.py/wp-content/uploads/2016/06/Libro-washington-ashwell.pdf"
+      ]
+    },
+    {
+      "work_id": "0222-w011",
+      "title": "Geografía del Paraguay",
+      "work_type": "geography_cultural_history_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "geografía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Paraguay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ]
+    },
+    {
+      "work_id": "0222-w012",
+      "title": "Epinicios",
+      "work_type": "posthumous_poetry_edition",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epinicios",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ],
+      "posthumous": true,
+      "notes": "Volumen editado tras fallecimiento del autor (1966), no se infiere composición en 1983."
+    },
+    {
+      "work_id": "0222-w013",
+      "title": "El milagro americano: ontogenia e ideario de un continente",
+      "work_type": "posthumous_latin_american_ideology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographically_documented_first_or_early_publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "milagro americano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideario",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+      ],
+      "posthumous": true,
+      "notes": "Edición póstuma Universo, 1983; prólogo y trabajo editorial de Leandro Prieto Yegros no son coautoría del original."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0222-c001",
+      "title": "Participación en debates sobre nacionalismo paraguayo y elaboración del ideario del Partido Colorado desde 1933",
+      "kind": "intellectual_political_or_institutional_contribution",
+      "authorship_status": "historically_documented_or_source_attributed",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_academy_academic_study",
+      "title": "Beatriz González de Bosio, J. Natalicio González ideólogo y escritor, Academia Paraguaya de la Historia",
+      "url": "https://www.academiaparaguayadehistoria.org.py/sitio/wp-content/uploads/2024/02/Pensamiento-latinoamericano-20Natalicio20GonzaCC.pdf"
+    },
+    {
+      "kind": "national_library_bibliography",
+      "title": "Biblioteca Nacional del Paraguay, repertorio de Washington Ashwell",
+      "url": "https://bibliotecanacional.gov.py/wp-content/uploads/2016/06/Libro-washington-ashwell.pdf"
+    },
+    {
+      "kind": "historical_primary_bibliography",
+      "title": "Revista de Historia de América, núm. 11 (1941), ficha de Proceso y formación de la cultura paraguaya",
+      "url": "https://bibliotecadigital.inah.gob.mx/janium/Documentos/IPGH/REHIAM_00_0011_1941_P121.pdf"
+    },
+    {
+      "kind": "national_isbn_agency",
+      "title": "Agencia ISBN Paraguay, reediciones de libros de González",
+      "url": "https://isbn.bibliotecanacional.gov.py/catalogo.php?id_autor=12678&mode=busqueda_menu"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Secciones sobre pensamiento guaraní, historia intelectual del Paraguay y enseñanza filosófica colonial novohispana"
+    }
+  ],
+  "research_notes": [
+    "Se distingue producción intelectual original de compilaciones póstumas y reediciones partidarias modernas.",
+    "Su nacionalismo y opiniones sobre etnicidad deben contextualizarse críticamente; estos registros describen producción histórica sin asumir vigencia de sus tesis.",
+    "Proceso y formación... presenta discrepancia 1938/1940, explícita en metadata."
+  ]
+}
