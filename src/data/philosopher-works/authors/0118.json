@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "author_id": 118,
+  "canonical_name": "Alejandro Korn",
+  "alternate_names": [
+    "Alejandro Korn"
+  ],
+  "life": {
+    "born": {
+      "year": 1860,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1936,
+      "certainty": "standard",
+      "date": "1936-10-09"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "core_antipositivist_freedom_epistemology_axiology_and_argentine_intellectual_history_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0118-w001",
+      "title": "Incipit vita nova",
+      "work_type": "programmatic_philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "antipositivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vida nueva",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0118-w002",
+      "title": "La libertad creadora",
+      "work_type": "ethics_freedom_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad económica",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0118-w003",
+      "title": "Esquema gnoseológico",
+      "work_type": "epistemology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1924,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gnoseología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0118-w004",
+      "title": "El concepto de ciencia",
+      "work_type": "philosophy_of_science_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1926,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "concepto",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0118-w005",
+      "title": "Axiología",
+      "work_type": "value_theory_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1930,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "axiología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historicidad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0118-w006",
+      "title": "Influencias filosóficas en la evolución nacional",
+      "work_type": "history_of_argentine_ideas_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "edition_documented_in_university_bibliography"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "influencias filosóficas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolución nacional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Reunido nuevamente en el volumen III de Obras de 1940; la recopilación póstuma no reemplaza esta fecha de edición."
+    },
+    {
+      "work_id": "0118-w007",
+      "title": "Apuntes filosóficos",
+      "work_type": "philosophy_manual_notes",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1934,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "valoración",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirección y sostenimiento de la revista Valoraciones",
+      "kind": "editorial_intellectual_contribution",
+      "period": {
+        "start": 1922,
+        "end": 1926,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Valoraciones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Reforma Universitaria",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_collection",
+      "title": "Obras. Ensayos filosóficos. Apuntes filosóficos",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/88768",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "university_book",
+      "title": "Obras. Influencias filosóficas en la evolución nacional",
+      "url": "https://libros.unlp.edu.ar/index.php/unlp/catalog/book/1301",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "university_profile",
+      "title": "Cátedra Libre Alejandro Korn",
+      "url": "https://unlp.edu.ar/arte/catedras_libres/alejandrokorn-6441-11441/",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Alejandro Korn (1860-1936)"
+    }
+  ],
+  "research_notes": [
+    "Las Obras de 1938-1940 se registran como testimonios editoriales en fuentes, no como nuevas obras originales.",
+    "Pendiente desglosar ensayos críticos y notas bibliográficas menores."
+  ]
+}
