@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "author_id": 63,
+  "canonical_name": "Carlos Octavio Bunge",
+  "alternate_names": [
+    "Carlos O. Bunge"
+  ],
+  "life": {
+    "born": {
+      "year": 1875,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1918,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_sociological_psychological_legal_educational_and_literary_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0063-w001",
+      "title": "El federalismo americano",
+      "alternate_titles": [
+        "El federalismo argentino"
+      ],
+      "work_type": "law_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1897,
+        "certainty": "university_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_variant_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "federalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho constitucional",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Estudios secundarios registran variantes 'americano' y 'argentino'; mantener conflicto hasta verificar portada de tesis."
+    },
+    {
+      "work_id": "0063-w002",
+      "title": "El espíritu de la educación",
+      "work_type": "education_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1901,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1901,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Europa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Derivado de su misión oficial de estudio educativo en Europa; posteriormente ampliado en La Educación."
+    },
+    {
+      "work_id": "0063-w003",
+      "title": "Nuestra América. Ensayo de psicología social",
+      "work_type": "social_psychology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1903,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1903,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología social",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Hispanoamérica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "raza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política criolla",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociodarwinismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0063-w004",
+      "title": "Principios de psicología individual y social",
+      "work_type": "psychology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1903,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1903,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología individual",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicología social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0063-w005",
+      "title": "Educación de la mujer",
+      "work_type": "education_gender_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1904,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "verified_secondary_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación de la mujer",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "género",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0063-w006",
+      "title": "Teoría del Derecho. Principios de Sociología jurídica",
+      "alternate_titles": [
+        "El Derecho. Ensayo de una teoría integral"
+      ],
+      "work_type": "legal_sociology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1905,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociología jurídica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolución",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Ediciones posteriores circularon como El Derecho. Ensayo de una teoría integral."
+    },
+    {
+      "work_id": "0063-w007",
+      "title": "Viaje a través de la estirpe y otras narraciones",
+      "work_type": "fiction_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estirpe",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ficción",
+          "provenance": "inferred"
+        },
+        {
+          "term": "herencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0063-w008",
+      "title": "Los envenenados",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela argentina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "degeneración",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0063-w009",
+      "title": "Nuestra patria",
+      "work_type": "civic_education_national_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "patria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación cívica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0063-w010",
+      "title": "Historia del derecho argentino",
+      "work_type": "legal_history",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho argentino",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia jurídica",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "scholarly_article",
+      "title": "Sociodarwinismo y psicología de la inferioridad de los pueblos hispanoamericanos",
+      "url": "https://www.memoria.fahce.unlp.edu.ar/art_revistas/pr.14522/pr.14522.pdf",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "bibliographic_study",
+      "title": "Carlos Octavio Bunge — bibliografía",
+      "url": "https://www.memoria.fahce.unlp.edu.ar/art_revistas/pr.3251/pr.3251.pdf",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "primary_digital_book",
+      "title": "Nuestra América",
+      "url": "https://books.google.com/books?id=8l5DAAAAIAAJ",
+      "publisher": "Henrich y Cía., 1903"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar teatro, cuentos, novelas y artículos periodísticos.",
+    "No tratar la edición de 1918 de Nuestra América con José Ingenieros como coautoría de la obra original de 1903 sin revisar el rol editorial exacto de Ingenieros."
+  ]
+}
