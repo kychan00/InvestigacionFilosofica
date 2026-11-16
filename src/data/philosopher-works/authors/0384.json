@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "author_id": 384,
+  "canonical_name": "Federico García Godoy",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1857,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1924,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0384-w001",
+      "title": "Rufinito: sucedido histórico",
+      "work_type": "historical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "bibliographic_and_scholarly_source"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela histórica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Pedro Santana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nacionalismo dominicano",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://opac.bibliotecadelcongreso.gob.do/cgi-bin/koha/opac-authoritiesdetail.pl?authid=840",
+        "https://ministeriodeeducacion.gob.do/docs/biblioteca-virtual/43aQ-guanuma-federico-garcia-godoypdf.pdf"
+      ],
+      "notes": "Primera parte de la trilogía patriótica. La edición de 1968 conservada en BNPHU es segunda edición y no reemplaza la fecha original de 1908."
+    },
+    {
+      "work_id": "0384-w002",
+      "title": "Alma dominicana",
+      "work_type": "historical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "bibliographic_and_scholarly_source"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela histórica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anexión a España",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "República Dominicana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://opac.bibliotecadelcongreso.gob.do/cgi-bin/koha/opac-authoritiesdetail.pl?authid=840",
+        "https://ministeriodeeducacion.gob.do/docs/biblioteca-virtual/43aQ-guanuma-federico-garcia-godoypdf.pdf"
+      ],
+      "notes": "Segunda novela de la trilogía patriótica, publicada en 1911."
+    },
+    {
+      "work_id": "0384-w003",
+      "title": "Guanuma",
+      "work_type": "historical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1914,
+        "certainty": "first_edition_cited_in_government_edition"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela histórica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Restauración dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anexión española",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nacionalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ministeriodeeducacion.gob.do/docs/biblioteca-virtual/43aQ-guanuma-federico-garcia-godoypdf.pdf"
+      ],
+      "notes": "Tercera novela de la trilogía patriótica; la edición gubernamental consultada cita la primera edición de Santo Domingo, La Cuna de América, 1914."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Uso positivista e historicista de la narrativa para interpretar independencia, anexión, Restauración y nacionalismo dominicanos",
+      "kind": "historical_narrative_and_nationalist_thought_contribution",
+      "authorship_status": "documented_in_literary_and_government_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "library_authority_source",
+      "title": "Biblioteca del Congreso Nacional RD — Federico García Godoy",
+      "url": "https://opac.bibliotecadelcongreso.gob.do/cgi-bin/koha/opac-authoritiesdetail.pl?authid=840"
+    },
+    {
+      "kind": "government_edition_source",
+      "title": "Ministerio de Educación RD — Guanuma y estudio de la trilogía patriótica",
+      "url": "https://ministeriodeeducacion.gob.do/docs/biblioteca-virtual/43aQ-guanuma-federico-garcia-godoypdf.pdf"
+    }
+  ],
+  "research_notes": [
+    "El derrumbe presenta fechas discordantes en fuentes secundarias (1917/1924 y ediciones posteriores); se deja para una auditoría específica en vez de forzar una princeps.",
+    "Las tres novelas de la trilogía son obras distintas y no una sola compilación editorial posterior."
+  ]
+}
