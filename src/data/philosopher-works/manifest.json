@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 560,
-    "authors_remaining": 944,
-    "works_or_contributions_seeded": 3478,
-    "current_batch": "056",
+    "authors_seeded": 570,
+    "authors_remaining": 934,
+    "works_or_contributions_seeded": 3552,
+    "current_batch": "057",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2943,6 +2943,58 @@
       "author_id": 560,
       "canonical_name": "Oscar Miró Quesada",
       "path": "authors/0560.json"
+    }
+  ],
+  "batch_057": [
+    {
+      "author_id": 561,
+      "canonical_name": "Honorio Delgado",
+      "path": "authors/0561.json"
+    },
+    {
+      "author_id": 562,
+      "canonical_name": "Luis Felipe Alarco",
+      "path": "authors/0562.json"
+    },
+    {
+      "author_id": 563,
+      "canonical_name": "José Russo Delgado",
+      "path": "authors/0563.json"
+    },
+    {
+      "author_id": 564,
+      "canonical_name": "Víctor Li Carrillo",
+      "path": "authors/0564.json"
+    },
+    {
+      "author_id": 565,
+      "canonical_name": "Enrique Barboza",
+      "path": "authors/0565.json"
+    },
+    {
+      "author_id": 566,
+      "canonical_name": "César Góngora Perea",
+      "path": "authors/0566.json"
+    },
+    {
+      "author_id": 567,
+      "canonical_name": "Elvira Flórez Pérez",
+      "path": "authors/0567.json"
+    },
+    {
+      "author_id": 568,
+      "canonical_name": "Enrique Torres Llosa",
+      "path": "authors/0568.json"
+    },
+    {
+      "author_id": 569,
+      "canonical_name": "Walter Blumenfeld",
+      "path": "authors/0569.json"
+    },
+    {
+      "author_id": 570,
+      "canonical_name": "Beatriz Benoit de Velazco",
+      "path": "authors/0570.json"
     }
   ]
 }

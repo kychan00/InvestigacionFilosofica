@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "author_id": 567,
+  "canonical_name": "Elvira Flórez Pérez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0567-w001",
+      "title": "La significación en la filosofía de Husserl",
+      "work_type": "husserl_phenomenology_and_philosophy_of_language_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "project_bibliographic_chapter_and_primary_text"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "inferred"
+        },
+        {
+          "term": "significación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.pucp.edu.pe/bitstreams/6fbe74c0-df46-4e75-9902-9c2bcdfccf02/download",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Texto primario preservado por la PUCP; el libro-base del inventario lo fecha en 1942. No se inventan obras adicionales ni datos biográficos no verificados."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Exposición peruana temprana de la teoría husserliana de la significación, los signos y el logos",
+      "kind": "peruvian_husserl_meaning_and_phenomenology_exposition_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez (eds.) — Inventario canónico de filosofía latinoamericana",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_primary_text",
+      "title": "Repositorio PUCP — La significación en la filosofía de Husserl",
+      "url": "https://repositorio.pucp.edu.pe/bitstreams/6fbe74c0-df46-4e75-9902-9c2bcdfccf02/download"
+    },
+    {
+      "kind": "project_bibliographic_source",
+      "title": "Capítulo La fenomenología y la filosofía existencial en Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "Cobertura deliberadamente mínima: se documenta un texto primario y no se extrapolan otros títulos a partir de homónimos."
+  ]
+}

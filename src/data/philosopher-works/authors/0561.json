@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "author_id": 561,
+  "canonical_name": "Honorio Delgado",
+  "alternate_names": [
+    "Honorio Delgado Espinoza"
+  ],
+  "life": {
+    "born": {
+      "year": 1892,
+      "certainty": "university_biographical_source"
+    },
+    "died": {
+      "year": 1969,
+      "certainty": "university_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0561-w001",
+      "title": "Sigmund Freud",
+      "work_type": "psychoanalysis_biographical_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1926,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sigmund Freud",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicoanálisis",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecahistorica.cayetano.edu.pe/honorio-delgado/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0561-w002",
+      "title": "La formación espiritual del individuo: psicología, educación, higiene mental",
+      "work_type": "humanist_psychology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "higiene mental",
+          "provenance": "inferred"
+        },
+        {
+          "term": "espiritualidad",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecahistorica.cayetano.edu.pe/honorio-delgado/"
+      ],
+      "notes": "Se conserva la obra de 1933; versiones posteriores con títulos abreviados no se duplican."
+    },
+    {
+      "work_id": "0561-w003",
+      "title": "Psicología",
+      "work_type": "psychology_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Mariano Ibérico"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://openjournal.insm.gob.pe/revistasm/asm/article/view/55?articlesBySimilarityPage=2",
+        "https://openlibrary.org/authors/OL362559A/Honorio_Delgado"
+      ],
+      "notes": "Coautoría con Mariano Ibérico; sus reediciones no se contabilizan como obras nuevas."
+    },
+    {
+      "work_id": "0561-w004",
+      "title": "Ecología, tiempo anímico y existencia",
+      "work_type": "psychopathology_and_philosophical_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "national_cultural_heritage_record"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ecología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "tiempo anímico",
+          "provenance": "inferred"
+        },
+        {
+          "term": "existencia",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://360.cayetano.edu.pe/noticias/declaran-patrimonio-cultural-de-la-nacional-a-obras-de-hermilio-valdizan-y-honorio-delgado-custodiadas-por-nuestra-universidad/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0561-w005",
+      "title": "Curso de psiquiatría",
+      "work_type": "clinical_psychiatry_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "biobibliographical_source"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psiquiatría",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicopatología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "clínica",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://openjournal.insm.gob.pe/revistasm/asm/article/view/55?articlesBySimilarityPage=2"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0561-w006",
+      "title": "El médico, la medicina y el alma",
+      "work_type": "medicine_and_philosophical_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "medicina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "alma",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://openlibrary.org/authors/OL362559A/Honorio_Delgado"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0561-w007",
+      "title": "De la cultura y sus artífices",
+      "work_type": "culture_and_philosophy_essays_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "primary_copy_and_national_heritage_declaration"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "valores",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://360.cayetano.edu.pe/noticias/declaran-patrimonio-cultural-de-la-nacional-a-obras-de-hermilio-valdizan-y-honorio-delgado-custodiadas-por-nuestra-universidad/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0561-w008",
+      "title": "Contribuciones a la psicología y a la psicopatología",
+      "work_type": "psychology_and_psychopathology_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicopatología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecahistorica.cayetano.edu.pe/honorio-delgado/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0561-w009",
+      "title": "La personalidad y el carácter",
+      "work_type": "personality_and_character_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "personalidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "carácter",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecahistorica.cayetano.edu.pe/honorio-delgado/"
+      ],
+      "notes": "No se confunde con su artículo anterior sobre personalidad y carácter."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulación peruana de psiquiatría fenomenológica, psicología humanista, filosofía de la cultura y teoría de la persona",
+      "kind": "peruvian_phenomenological_psychiatry_and_philosophical_anthropology_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez (eds.) — Inventario canónico de filosofía latinoamericana",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_historical_library",
+      "title": "Biblioteca Histórica Cayetano — Honorio Delgado",
+      "url": "https://bibliotecahistorica.cayetano.edu.pe/honorio-delgado/"
+    },
+    {
+      "kind": "scholarly_bibliography",
+      "title": "Anales de Salud Mental — Bibliografía de Honorio Delgado",
+      "url": "https://openjournal.insm.gob.pe/revistasm/asm/article/view/55?articlesBySimilarityPage=2"
+    },
+    {
+      "kind": "university_heritage_source",
+      "title": "Cayetano Heredia — dos obras declaradas patrimonio cultural",
+      "url": "https://360.cayetano.edu.pe/noticias/declaran-patrimonio-cultural-de-la-nacional-a-obras-de-hermilio-valdizan-y-honorio-delgado-custodiadas-por-nuestra-universidad/"
+    }
+  ],
+  "research_notes": [
+    "Psicología (1933) se atribuye conjuntamente a Mariano Ibérico; no a Delgado en solitario.",
+    "El ejemplar de Ecología, tiempo anímico y existencia (1948) y De la cultura y sus artífices (1961) está respaldado por declaración patrimonial peruana."
+  ]
+}
