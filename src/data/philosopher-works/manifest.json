@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 430,
-    "authors_remaining": 1074,
-    "works_or_contributions_seeded": 2654,
-    "current_batch": "043",
+    "authors_seeded": 440,
+    "authors_remaining": 1064,
+    "works_or_contributions_seeded": 2694,
+    "current_batch": "044",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2267,6 +2267,58 @@
       "author_id": 430,
       "canonical_name": "Carlos Cossio",
       "path": "authors/0430.json"
+    }
+  ],
+  "batch_044": [
+    {
+      "author_id": 431,
+      "canonical_name": "Rafael Virasoro",
+      "path": "authors/0431.json"
+    },
+    {
+      "author_id": 432,
+      "canonical_name": "Emilio Estiú",
+      "path": "authors/0432.json"
+    },
+    {
+      "author_id": 433,
+      "canonical_name": "Juan Ramón Sepich-Lange",
+      "path": "authors/0433.json"
+    },
+    {
+      "author_id": 434,
+      "canonical_name": "Aníbal Sánchez Reulet",
+      "path": "authors/0434.json"
+    },
+    {
+      "author_id": 435,
+      "canonical_name": "Jacobo Kogan",
+      "path": "authors/0435.json"
+    },
+    {
+      "author_id": 436,
+      "canonical_name": "Emilio Sosa López",
+      "path": "authors/0436.json"
+    },
+    {
+      "author_id": 437,
+      "canonical_name": "Héctor Mandrioni",
+      "path": "authors/0437.json"
+    },
+    {
+      "author_id": 438,
+      "canonical_name": "Víctor Massuh",
+      "path": "authors/0438.json"
+    },
+    {
+      "author_id": 439,
+      "canonical_name": "Mario Presas",
+      "path": "authors/0439.json"
+    },
+    {
+      "author_id": 440,
+      "canonical_name": "Adolfo Carpio",
+      "path": "authors/0440.json"
     }
   ]
 }
