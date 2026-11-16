@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "author_id": 367,
+  "canonical_name": "Alcides Arguedas",
+  "alternate_names": [
+    "Alcides Arguedas Díaz"
+  ],
+  "life": {
+    "born": {
+      "year": 1879,
+      "certainty": "national_cultural_source"
+    },
+    "died": {
+      "year": 1946,
+      "certainty": "national_cultural_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0367-w001",
+      "title": "Pueblo enfermo: contribución a la psicología de los pueblos hispano-americanos",
+      "work_type": "social_psychology_and_national_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1909,
+        "certainty": "original_edition_catalog"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología de los pueblos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Bolivia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com.bo/books?hl=es&id=3-7q30chKcwC",
+        "https://www.scielo.org.mx/scielo.php?pid=S2663-371X2023000300163&script=sci_arttext"
+      ],
+      "notes": "Barcelona, Viuda de Luis Tasso, 1909, 255 páginas. Las categorías racialistas y deterministas del libro se registran como objeto histórico de análisis, no como descriptores actuales válidos."
+    },
+    {
+      "work_id": "0367-w002",
+      "title": "Raza de bronce",
+      "work_type": "social_novel_with_indigenist_relevance",
+      "original_language": "español",
+      "original_date": {
+        "year": 1919,
+        "certainty": "original_edition_catalog"
+      },
+      "first_publication_year": 1919,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "indigenismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conflicto social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "altiplano boliviano",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com.bo/books?hl=es&id=EQJfAAAAMAAJ"
+      ],
+      "notes": "La Paz, González y Medina, 1919, 373 páginas. Se conserva como novela con relevancia para historia intelectual, diferenciada del ensayo sociológico."
+    },
+    {
+      "work_id": "0367-w003",
+      "title": "Historia general de Bolivia (el proceso de la nacionalidad), 1809–1921",
+      "work_type": "national_history_original_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de Bolivia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nacionalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política republicana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb317295209",
+        "https://www.archivoybibliotecanacionales.org.bo/images/contenido/Biblioteca/Inventarios/CP-MG-MON.pdf"
+      ],
+      "notes": "La Paz, Arnó Hermanos, 1922, XI + 579 páginas. No se confunde este volumen de síntesis con los tomos históricos especializados publicados posteriormente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Interpretación crítica y polémica de la identidad nacional boliviana mediante ensayo, narrativa e historiografía",
+      "kind": "bolivian_social_and_historical_thought_contribution",
+      "authorship_status": "documented_in_national_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_cultural_source",
+      "title": "Fundación Cultural del Banco Central de Bolivia — Alcides Arguedas",
+      "url": "https://www.fundacionculturalbcb.gob.bo/documentos/boletin-cultural/2024/boletin_59_2024.pdf"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Bibliothèque nationale de France — Historia general de Bolivia, 1922",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb317295209"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Revista de Historia de América — Pueblo enfermo y sus ediciones",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S2663-371X2023000300163&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "Se distinguen con cuidado ensayo sociológico, novela e historiografía.",
+    "La bibliografía completa de Arguedas es mucho mayor; este registro es un seed seleccionado."
+  ]
+}
