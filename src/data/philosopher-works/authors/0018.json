@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "author_id": 18,
+  "canonical_name": "Carlos de Sigüenza y Góngora",
+  "alternate_names": [
+    "Carlos de Sigüenza y Góngora"
+  ],
+  "life": {
+    "born": {
+      "year": 1645,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1700,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "substantial_primary_bibliography_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0018-w001",
+      "title": "Primavera indiana",
+      "work_type": "poetry",
+      "original_language": "español",
+      "original_date": {
+        "year": 1662,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1662,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Virgen de Guadalupe",
+          "provenance": "inferred"
+        },
+        {
+          "term": "poesía novohispana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w002",
+      "title": "Oriental planeta evangélico",
+      "work_type": "sacred_poetry",
+      "original_language": "español",
+      "original_date": {
+        "year": 1668,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1668,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "San Francisco Javier",
+          "provenance": "inferred"
+        },
+        {
+          "term": "poesía sacra",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w003",
+      "title": "Glorias de Querétaro",
+      "work_type": "historical_religious_prose",
+      "original_language": "español",
+      "original_date": {
+        "year": 1668,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1668,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Querétaro",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia religiosa",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w004",
+      "title": "Teatro de virtudes políticas",
+      "work_type": "political_moral_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1680,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1680,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "virtudes políticas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "príncipe",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia mexica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w005",
+      "title": "Manifiesto filosófico contra los cometas",
+      "work_type": "astronomy_natural_philosophy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1681,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1681,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cometas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "astronomía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "superstición",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w006",
+      "title": "Triunfo parténico",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1683,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1683,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Academia Mexicana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w007",
+      "title": "Paraíso occidental",
+      "work_type": "religious_history",
+      "original_language": "español",
+      "original_date": {
+        "year": 1684,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1684,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "convento de Jesús María",
+          "provenance": "inferred"
+        },
+        {
+          "term": "religiosas",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w008",
+      "title": "Piedad heroica de don Hernando Cortés",
+      "work_type": "historical_panegyric",
+      "original_language": "español",
+      "original_date": {
+        "year": 1689,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1689,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hernán Cortés",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w009",
+      "title": "Infortunios de Alonso Ramírez",
+      "work_type": "narrative_history_novelistic_account",
+      "original_language": "español",
+      "original_date": {
+        "year": 1690,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1690,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Alonso Ramírez",
+          "role": "narrated_subject_and_testimony_source"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "piratería",
+          "provenance": "inferred"
+        },
+        {
+          "term": "viaje",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Nueva España",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w010",
+      "title": "Libra astronómica y filosófica",
+      "work_type": "astronomy_natural_philosophy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1690,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1690,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Eusebio Francisco Kino",
+          "role": "scientific_opponent_in_controversy"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "968-837-115-7"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "filosofía escolástica y novohispana",
+          "provenance": "catalog"
+        },
+        {
+          "term": "cometas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "astronomía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0018-w011",
+      "title": "Relación histórica de los sucesos de la armada de Barlovento",
+      "work_type": "historical_relation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1691,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1691,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Armada de Barlovento",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Caribe",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_bibliography",
+      "title": "Carlos de Sigüenza y Góngora — obra publicada",
+      "url": "https://www.elem.mx/autor/datos/3772",
+      "publisher": "Enciclopedia de la Literatura en México"
+    },
+    {
+      "kind": "institutional_catalog",
+      "title": "Libra astronómica y filosófica",
+      "url": "https://www.filosoficas.unam.mx/catalogo/?autores=siguenza-y-gongora-carlos-de",
+      "publisher": "UNAM, Instituto de Investigaciones Filosóficas"
+    }
+  ],
+  "research_notes": [
+    "Pendiente añadir relaciones geográficas/cartográficas, escritos de 1692-1695 y manuscritos; revisar discrepancia de fecha de la Libra en repertorios secundarios."
+  ]
+}
