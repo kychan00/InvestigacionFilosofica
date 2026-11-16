@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "author_id": 50,
+  "canonical_name": "Hipólito Yrigoyen",
+  "alternate_names": [
+    "Hipólito Irigoyen",
+    "Juan Hipólito del Sagrado Corazón de Jesús Yrigoyen"
+  ],
+  "life": {
+    "born": {
+      "year": 1852,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1933,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "small_personal_doctrinal_corpus_plus_posthumous_document_collections",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0050-w001",
+      "title": "Mi vida y mi doctrina",
+      "work_type": "political_doctrinal_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1923,
+        "certainty": "composition"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Rodolfo Oyhanarte",
+          "role": "custodian_and_editorial_intermediary"
+        },
+        {
+          "name": "Enrique Sobral",
+          "role": "editor_of_first_edition"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "radicalismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "doctrina política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pueblo",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Escrito en 1923 y no publicado por el autor; primera edición en 1957 por Raigal."
+    },
+    {
+      "work_id": "0050-w002",
+      "title": "Documentos de Hipólito Yrigoyen: Apostolado Cívico, Obra de Gobierno, Defensa ante la Corte",
+      "work_type": "posthumous_document_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1890,
+        "end": 1933,
+        "certainty": "approximate_document_range"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified_posthumously_collected_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "apostolado cívico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "obra de gobierno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "defensa",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "radicalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0050-w003",
+      "title": "Pueblo y Gobierno",
+      "work_type": "posthumous_presidential_document_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1916,
+        "end": 1930,
+        "certainty": "government_document_range"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "presidencia argentina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "mensajes",
+          "provenance": "inferred"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pueblo",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Colección extensa en múltiples volúmenes; debe desglosarse documento por documento."
+    },
+    {
+      "work_id": "0050-w004",
+      "title": "Confidencias",
+      "work_type": "posthumous_manuscript_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1923,
+        "end": 1933,
+        "certainty": "manuscript_range"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "verified_posthumous_manuscript_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Luciano de Privitellio",
+          "role": "modern_editor"
+        },
+        {
+          "name": "Sergio Sepiurka",
+          "role": "provenance_reconstruction"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "doctrina radical",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Incluye materiales inéditos y reproduce dentro de su estructura los capítulos conocidos desde 1957 como Mi vida y mi doctrina; no deben contarse doble como obras independientes."
+    },
+    {
+      "work_id": "0050-w005",
+      "title": "Mensajes, manifiestos y correspondencia política de Hipólito Yrigoyen",
+      "work_type": "political_document_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1890,
+        "end": 1933,
+        "certainty": "approximate_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_not_exhausted",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Unión Cívica Radical",
+          "provenance": "inferred"
+        },
+        {
+          "term": "neutralidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Sociedad de las Naciones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Unidad provisional para documentos dispersos. Debe desglosarse por fecha, destinatario y condición de documento oficial o partidario."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "university_repository",
+      "title": "Mi vida y mi doctrina",
+      "url": "https://biblioteca-ftso.uner.edu.ar/bib/16980",
+      "publisher": "Universidad Nacional de Entre Ríos"
+    },
+    {
+      "kind": "scholarly_review",
+      "title": "Confidencias. Hipólito Yrigoyen, EUDEBA, 2019",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/9860",
+      "publisher": "Pontificia Universidad Católica Argentina"
+    },
+    {
+      "kind": "bibliographic_catalog",
+      "title": "Peron Era Political Pamphlets and Monographs — Yrigoyen entries",
+      "url": "https://www.lexisnexis.com/documents/academic/upa_cis/3075_PeronEraPamphlets.pdf"
+    }
+  ],
+  "research_notes": [
+    "No inflar la ficha con libros que son compilaciones póstumas de documentos presidenciales.",
+    "Pendiente desglosar mensajes al Congreso, proclamas partidarias, defensa judicial y correspondencia internacional.",
+    "La matriz usa 1852 como año de nacimiento, consistente con el inventario canónico y repertorios argentinos modernos."
+  ]
+}
