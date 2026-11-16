@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "author_id": 402,
+  "canonical_name": "Visconde de Uruguai",
+  "alternate_names": [
+    "Paulino José Soares de Sousa",
+    "Paulino José Soares de Souza",
+    "Visconde do Uruguai"
+  ],
+  "life": {
+    "born": {
+      "year": 1807,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1866,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0402-w001",
+      "title": "Ensaio sobre o direito administrativo com referência ao estado e instituições peculiares do Brasil",
+      "work_type": "administrative_law_multivolume_treatise",
+      "original_language": "português",
+      "original_date": {
+        "year": 1862,
+        "certainty": "first_edition_catalog"
+      },
+      "first_publication_year": 1862,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direito administrativo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Poder Moderador",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "centralização",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=217471",
+        "https://cpbn.bn.gov.br/planor/browse?type=author&value=Uruguay%2C+Paulino+Jose+Soares+de+Souza%2C"
+      ],
+      "notes": "Rio de Janeiro, 1862, em dois tomos; tratado como uma única obra multivolume. Estudos jurídicos o apontam como marco da doutrina administrativa brasileira oitocentista."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulação conservadora do direito administrativo brasileiro e reflexão sobre centralização, administração e Poder Moderador",
+      "kind": "brazilian_administrative_law_and_state_theory_contribution",
+      "authorship_status": "documented_in_library_and_legal_scholarship",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Ensaio sobre o direito administrativo, 1862",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=217471"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "PLANOR/Biblioteca Nacional — Visconde do Uruguai",
+      "url": "https://cpbn.bn.gov.br/planor/browse?type=author&value=Uruguay%2C+Paulino+Jose+Soares+de+Souza%2C"
+    },
+    {
+      "kind": "scholarly_legal_source",
+      "title": "Revista de Direito Administrativo — formação do direito administrativo brasileiro",
+      "url": "https://periodicos.fgv.br/rda/article/download/50740/49683/0"
+    }
+  ],
+  "research_notes": [
+    "O título longo da primeira tiragem é preservado; formas abreviadas posteriores não constituem obra distinta.",
+    "Não se atribuem ao Visconde obras mencionadas em correspondência apenas porque foram enviadas ou discutidas com ele."
+  ]
+}
