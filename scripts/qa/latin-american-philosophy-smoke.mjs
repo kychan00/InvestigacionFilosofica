@@ -112,11 +112,17 @@ try {
       "Author dialog should render source links");
     await page.locator("#author-dialog-close").click();
 
+    const seededTotal = Number(
+      (await page.locator("#stat-seeded").textContent()).replace(/[^0-9]/g, "")
+    );
+    assert.ok(seededTotal >= 380, "Seeded corpus should include Anténor Firmin");
+
     await page.locator("#author-search").fill("");
     await page.locator('[data-status-filter="seeded"]').click();
-    await page.waitForFunction(() =>
-      document.querySelector("#directory-status")?.textContent?.includes("440")
-    );
+    await page.waitForFunction(expected => {
+      const status = document.querySelector("#directory-status")?.textContent || "";
+      return status.replace(/[^0-9]/g, "").startsWith(String(expected));
+    }, seededTotal);
 
     await page.locator("#con-obra").scrollIntoViewIfNeeded();
     await page.locator(".period-author-group").first().waitFor({ state: "visible" });
