@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "author_id": 27,
+  "canonical_name": "Juan Pablo Viscardo y Guzmán",
+  "alternate_names": [
+    "Juan Pablo Vizcardo y Guzmán"
+  ],
+  "life": {
+    "born": {
+      "year": 1748,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1798,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "principal_emancipatory_manuscripts_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0027-w001",
+      "title": "Projet pour rendre l'Amérique Espagnole indépendante",
+      "work_type": "political_independence_project",
+      "original_language": "francés",
+      "original_date": {
+        "start": 1790,
+        "end": 1791,
+        "certainty": "composition_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia hispanoamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "proyecto político",
+          "provenance": "inferred"
+        },
+        {
+          "term": "América española",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0027-w002",
+      "title": "Esquisse politique sur l'état actuel de l'Amérique Espagnole et les moyens d'adresses pour faciliter son indépendance",
+      "work_type": "political_analysis",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1792,
+        "certainty": "composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "América española",
+          "provenance": "inferred"
+        },
+        {
+          "term": "estrategia política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0027-w003",
+      "title": "Carta dirigida a los españoles americanos",
+      "alternate_titles": [
+        "Lettre aux Espagnols-Américains"
+      ],
+      "work_type": "political_epistle_manifesto",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1791,
+        "certainty": "composition"
+      },
+      "first_publication_year": 1799,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Francisco de Miranda",
+          "role": "posthumous_editor_and_spanish_translator"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Carta a los españoles americanos",
+          "provenance": "editorial"
+        },
+        {
+          "term": "carta didáctica",
+          "provenance": "editorial"
+        },
+        {
+          "term": "carta polémica",
+          "provenance": "editorial"
+        },
+        {
+          "term": "independencia hispanoamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "despotismo",
+          "provenance": "inferred"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1799,
+          "language": "francés",
+          "place": "Londres",
+          "kind": "first_posthumous_edition_with_false_Philadelphia_imprint"
+        },
+        {
+          "year": 1801,
+          "language": "español",
+          "place": "Londres",
+          "kind": "spanish_translation_edited_by_Miranda"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Viscardo y Guzmán, Juan Pablo",
+      "url": "https://www.cervantesvirtual.com/obras/autor/viscardo-y-guzman-juan-pablo-1748-1798-39932",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "La Carta a los españoles americanos (1791) de Juan Pablo Viscardo y Guzmán",
+      "url": "https://revistas.cultura.gob.pe/index.php/historiaycultura/article/view/101",
+      "doi": "10.68749/2961-2713.n26.101"
+    },
+    {
+      "kind": "national_library_digital_book",
+      "title": "Los ideólogos: Juan Pablo Viscardo y Guzmán",
+      "url": "https://repositoriodigital.bnp.gob.pe/bnp/recursos/2/html/los-ideologos-juan-pablo-viscardo-y-guzman-127426/76/",
+      "publisher": "Biblioteca Nacional del Perú"
+    }
+  ],
+  "research_notes": [
+    "Pendiente incorporar cartas inéditas de 1782-1797 y otros manuscritos de las colecciones Rufus King, Lord Sydney y Bland Burges.",
+    "No tratar a Miranda como coautor de la Carta: su papel fue editor, traductor y difusor póstumo."
+  ]
+}
