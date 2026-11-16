@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "author_id": 391,
+  "canonical_name": "Salustiano José Pedroza",
+  "alternate_names": [
+    "Salustiano José Pedrosa"
+  ],
+  "life": {
+    "died": {
+      "year": 1858,
+      "certainty": "scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0391-w001",
+      "title": "Compêndio de Filosofia",
+      "work_type": "philosophy_textbook_lost",
+      "original_language": "português",
+      "original_date": {
+        "year": 1846,
+        "certainty": "scholarly_bibliographic_source"
+      },
+      "first_publication_year": 1846,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ecletismo espiritualista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensino de filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://teses.usp.br/teses/disponiveis/2/2131/tde-13022015-134909/publico/Ideias_juridicas_de_Jose_de_Alencar_versao_corrigida.pdf"
+      ],
+      "notes": "Compêndio filosófico de 1846 citado pela historiografia do pensamento brasileiro. A fonte informa que a obra recebeu elogios em sua época, mas acabou perdida; o registro preserva a existência bibliográfica sem fingir exemplar conservado."
+    },
+    {
+      "work_id": "0391-w002",
+      "title": "Compêndio de Lógica",
+      "work_type": "logic_textbook_lost",
+      "original_language": "português",
+      "original_date": {
+        "year": 1856,
+        "certainty": "scholarly_bibliographic_source"
+      },
+      "first_publication_year": 1856,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ecletismo espiritualista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensino de filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://teses.usp.br/teses/disponiveis/2/2131/tde-13022015-134909/publico/Ideias_juridicas_de_Jose_de_Alencar_versao_corrigida.pdf"
+      ],
+      "notes": "Compêndio de 1856 documentado por estudo acadêmico; exemplar hoje não localizado segundo a mesma tradição historiográfica."
+    },
+    {
+      "work_id": "0391-w003",
+      "title": "Compêndio de Metafísica",
+      "work_type": "metaphysics_textbook_lost",
+      "original_language": "português",
+      "original_date": {
+        "year": 1857,
+        "certainty": "scholarly_bibliographic_source"
+      },
+      "first_publication_year": 1857,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ecletismo espiritualista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensino de filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://teses.usp.br/teses/disponiveis/2/2131/tde-13022015-134909/publico/Ideias_juridicas_de_Jose_de_Alencar_versao_corrigida.pdf"
+      ],
+      "notes": "Compêndio de 1857 citado na historiografia; a fonte ressalta que os compêndios de Pedroza se perderam."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introdução e consolidação do ecletismo espiritualista no ensino filosófico baiano das décadas de 1830 e 1840",
+      "kind": "brazilian_eclectic_philosophy_teaching_contribution",
+      "authorship_status": "documented_in_project_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección sobre pensamiento filosófico brasileño del siglo XIX",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "USP — Ideias jurídicas de José de Alencar, referência aos compêndios de Salustiano José Pedroza",
+      "url": "https://teses.usp.br/teses/disponiveis/2/2131/tde-13022015-134909/publico/Ideias_juridicas_de_Jose_de_Alencar_versao_corrigida.pdf"
+    },
+    {
+      "kind": "historical_source",
+      "title": "Revolta de Búzios: 220 anos de memória — nota biográfica sobre Salustiano José Pedrosa",
+      "url": "https://www.academia.edu/47771407/Revolta_de_B%C3%BAzios_220_anos_de_mem%C3%B3ria_Os_registros_do_Arquivo_P%C3%BAblico_do_Estado_da_Bahia"
+    }
+  ],
+  "research_notes": [
+    "A grafia Pedrosa aparece em fontes brasileiras; o inventário canônico usa Pedroza e essa forma é preservada.",
+    "Os três compêndios são registrados como obras historicamente documentadas, porém perdidas."
+  ]
+}
