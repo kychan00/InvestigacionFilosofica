@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "author_id": 421,
+  "canonical_name": "José de Jesús María Portugal y Serratos",
+  "alternate_names": [
+    "José María de Jesús Portugal y Serratos",
+    "Fr. José María de Jesús Portugal"
+  ],
+  "life": {
+    "born": {
+      "year": 1838,
+      "certainty": "ecclesiastical_and_catalog_authority"
+    },
+    "died": {
+      "year": 1912,
+      "certainty": "catalog_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0421-w001",
+      "title": "La divina eucaristía: reflexiones piadosas sobre el augusto misterio del altar",
+      "work_type": "ascetical_and_theological_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1893,
+        "certainty": "earliest_verified_surviving_edition_is_third_edition_not_princeps"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "eucaristía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "espiritualidad",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ascética",
+          "provenance": "catalog"
+        },
+        {
+          "term": "teología dogmática",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1084410",
+        "https://www.adabi.org.mx/vufind/Record/1104464"
+      ],
+      "notes": "ADABI conserva ejemplares de tercera edición fechados 1893/1895; la primera edición no quedó identificada con seguridad en esta rodada. El catálogo de autoridad usa la forma José María de Jesús Portugal y Serratos. No se inventa una princeps anterior."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Magisterio franciscano, predicación y producción filosófico-teológica en el episcopado mexicano de fines del siglo XIX",
+      "kind": "franciscan_philosophical_theological_contribution",
+      "authorship_status": "documented_in_ecclesiastical_and_project_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "rare_book_catalog_source",
+      "title": "ADABI — La divina eucaristía, tercera edición conservada",
+      "url": "https://www.adabi.org.mx/vufind/Record/1084410"
+    },
+    {
+      "kind": "ecclesiastical_source",
+      "title": "Arquidiócesis de Guadalajara — nota biográfica de José María de Jesús Portugal y Serratos",
+      "url": "https://arquidiocesisgdl.org/boletin/2014-1-6.php"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico invierte el orden de los nombres de pila respecto de la forma de autoridad bibliográfica; se conserva el nombre canónico y se añade la forma catalográfica como variante.",
+    "Las fuentes eclesiásticas lo describen como autor abundante de filosofía, teología y espiritualidad, pero este seed sólo incorpora un título físicamente verificable."
+  ]
+}
