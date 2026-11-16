@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 140,
-    "authors_remaining": 1364,
-    "works_or_contributions_seeded": 1262,
-    "current_batch": "014",
+    "authors_seeded": 150,
+    "authors_remaining": 1354,
+    "works_or_contributions_seeded": 1430,
+    "current_batch": "015",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -759,6 +759,58 @@
       "author_id": 140,
       "canonical_name": "Clara Alicia Jalif de Bertranou",
       "path": "authors/0140.json"
+    }
+  ],
+  "batch_015": [
+    {
+      "author_id": 141,
+      "canonical_name": "José Enrique Rodó",
+      "path": "authors/0141.json"
+    },
+    {
+      "author_id": 142,
+      "canonical_name": "Carlos Vaz Ferreira",
+      "path": "authors/0142.json"
+    },
+    {
+      "author_id": 143,
+      "canonical_name": "Arturo Ardao",
+      "path": "authors/0143.json"
+    },
+    {
+      "author_id": 144,
+      "canonical_name": "Mario Sambarino",
+      "path": "authors/0144.json"
+    },
+    {
+      "author_id": 145,
+      "canonical_name": "Juan Luis Segundo",
+      "path": "authors/0145.json"
+    },
+    {
+      "author_id": 146,
+      "canonical_name": "Yamandú Acosta",
+      "path": "authors/0146.json"
+    },
+    {
+      "author_id": 147,
+      "canonical_name": "Enrique Molina",
+      "path": "authors/0147.json"
+    },
+    {
+      "author_id": 148,
+      "canonical_name": "Félix Schwartzmann",
+      "path": "authors/0148.json"
+    },
+    {
+      "author_id": 149,
+      "canonical_name": "Jorge Millas",
+      "path": "authors/0149.json"
+    },
+    {
+      "author_id": 150,
+      "canonical_name": "Humberto Giannini",
+      "path": "authors/0150.json"
     }
   ]
 }
