@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "author_id": 381,
+  "canonical_name": "Francisco Vicente Aguilera",
+  "alternate_names": [
+    "Francisco Vicente Aguilera y Tamayo"
+  ],
+  "life": {
+    "born": {
+      "year": 1821,
+      "certainty": "historical_source"
+    },
+    "died": {
+      "year": 1877,
+      "certainty": "historical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0381-w001",
+      "title": "Diario de Francisco Vicente Aguilera en la emigración (Estados Unidos), 1871-1872",
+      "work_type": "political_exile_diary_manuscript_later_published",
+      "original_language": "español",
+      "original_date": {
+        "year": 1871,
+        "certainty": "diary_period_documented"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "original_diary_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Cuba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "emigración revolucionaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "diplomacia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Guerra de los Diez Años",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Diario_de_Francisco_Vicente_Aguilera_en.html?id=IM8pAQAAMAAJ",
+        "https://ufdcimages.uflib.ufl.edu/AA/00/07/64/03/00037/AA00076403_00037.pdf"
+      ],
+      "notes": "Diario y correspondencia redactados durante la misión en el exterior. La edición de 2008 es un testimonio editorial moderno; no se confunde con la fecha original de escritura, 1871-1872."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Financiamiento, organización y representación exterior de la independencia cubana durante la Guerra de los Diez Años",
+      "kind": "cuban_independence_diplomatic_and_revolutionary_contribution",
+      "authorship_status": "documented_in_archival_and_historical_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Google Books — Diario de Francisco Vicente Aguilera en la emigración, edición 2008",
+      "url": "https://books.google.com/books/about/Diario_de_Francisco_Vicente_Aguilera_en.html?id=IM8pAQAAMAAJ"
+    },
+    {
+      "kind": "archival_historical_source",
+      "title": "Boletín del Archivo Nacional — Francisco Vicente Aguilera, apuntes y documentos",
+      "url": "https://ufdcimages.uflib.ufl.edu/AA/00/07/64/03/00037/AA00076403_00037.pdf"
+    }
+  ],
+  "research_notes": [
+    "No se atribuyen como obras independientes las numerosas cartas conocidas sólo por compilaciones modernas.",
+    "El diario se registra como manuscrito/corpus de 1871-1872 con edición comprobada de 2008."
+  ]
+}
