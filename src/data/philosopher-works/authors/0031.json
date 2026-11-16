@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "author_id": 31,
+  "canonical_name": "José María Morelos y Pavón",
+  "alternate_names": [
+    "José María Morelos",
+    "José María Teclo Morelos Pérez y Pavón"
+  ],
+  "life": {
+    "born": {
+      "year": 1765,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1815,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_personal_political_documents_verified_constitutional_authorship_separated",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0031-w001",
+      "title": "Bando suprimiendo las castas y aboliendo la esclavitud",
+      "work_type": "political_decree",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "exact",
+        "date": "1810-11-17"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "catalog"
+        },
+        {
+          "term": "castas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0031-w002",
+      "title": "Proclama justificando la necesidad de alcanzar la independencia política",
+      "work_type": "political_proclamation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1812,
+        "certainty": "exact",
+        "date": "1812-02-08"
+      },
+      "first_publication_year": 1812,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "insurgencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0031-w003",
+      "title": "Reglamento para la instalación, funcionamiento y atribuciones del Congreso",
+      "work_type": "constitutional_regulation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1813,
+        "certainty": "exact",
+        "date": "1813-09-11"
+      },
+      "first_publication_year": 1813,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Congreso de Anáhuac",
+          "provenance": "catalog"
+        },
+        {
+          "term": "representación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "poder legislativo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0031-w004",
+      "title": "Discurso inaugural del Congreso de Anáhuac",
+      "work_type": "political_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1813,
+        "certainty": "exact",
+        "date": "1813-09-14"
+      },
+      "first_publication_year": 1813,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Congreso de Anáhuac",
+          "provenance": "catalog"
+        },
+        {
+          "term": "honor",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "religión",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "política",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0031-w005",
+      "title": "Sentimientos de la Nación",
+      "work_type": "constitutional_principles_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1813,
+        "certainty": "exact",
+        "date": "1813-09-14"
+      },
+      "first_publication_year": 1813,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "soberanía popular",
+          "provenance": "inferred"
+        },
+        {
+          "term": "división de poderes",
+          "provenance": "catalog"
+        },
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "catalog"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "catalog"
+        },
+        {
+          "term": "moderación de la opulencia y la indigencia",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0031-w006",
+      "title": "Decreto reiterando la abolición de la esclavitud y los servicios personales",
+      "work_type": "political_decree",
+      "original_language": "español",
+      "original_date": {
+        "year": 1813,
+        "certainty": "exact",
+        "date": "1813-10-05"
+      },
+      "first_publication_year": 1813,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "catalog"
+        },
+        {
+          "term": "servicios personales",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0031-w007",
+      "title": "Decreto Constitucional para la Libertad de la América Mexicana",
+      "alternate_titles": [
+        "Constitución de Apatzingán"
+      ],
+      "work_type": "constitution",
+      "original_language": "español",
+      "original_date": {
+        "year": 1814,
+        "certainty": "exact",
+        "date": "1814-10-22"
+      },
+      "first_publication_year": 1814,
+      "authorship_status": "institutional_not_personal_author",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "José Manuel de Herrera",
+          "role": "constitutional_drafter"
+        },
+        {
+          "name": "Andrés Quintana Roo",
+          "role": "constitutional_drafter"
+        },
+        {
+          "name": "Sotero Castañeda",
+          "role": "constitutional_drafter"
+        },
+        {
+          "name": "José Sixto Verduzco",
+          "role": "constitutional_drafter"
+        },
+        {
+          "name": "Manuel de Aldrete y Soria / José María Cos / otros diputados",
+          "role": "congressional_participants"
+        }
+      ],
+      "related_people": [
+        {
+          "name": "José María Morelos y Pavón",
+          "role": "political_impulse_and_congress_leader"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitución",
+          "provenance": "catalog"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "derechos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "república",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Se conserva en la ficha de Morelos por su papel político e intelectual decisivo, pero no se le atribuye autoría individual."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "government_document_portal",
+      "title": "Los Sentimientos de la Nación de José María Morelos",
+      "url": "https://inehrm.gob.mx/work/models/inehrm/Resource/439/1/images/SentimdeNac.pdf",
+      "publisher": "INEHRM"
+    },
+    {
+      "kind": "government_constitutional_portal",
+      "title": "Independencia — documentos constitucionales",
+      "url": "https://constitucion1917.gob.mx/es/Constitucion1917/Independencia",
+      "publisher": "Gobierno de México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar bandos, correspondencia militar, oficios y documentos del proceso de 1815.",
+    "La Constitución de Apatzingán se conserva como documento relacionado, no como obra personal de Morelos."
+  ]
+}
