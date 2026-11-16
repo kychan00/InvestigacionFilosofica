@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 50,
-    "authors_remaining": 1454,
-    "works_or_contributions_seeded": 281,
-    "current_batch": "005",
+    "authors_seeded": 60,
+    "authors_remaining": 1444,
+    "works_or_contributions_seeded": 368,
+    "current_batch": "006",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -291,6 +291,58 @@
       "author_id": 50,
       "canonical_name": "Hipólito Yrigoyen",
       "path": "authors/0050.json"
+    }
+  ],
+  "batch_006": [
+    {
+      "author_id": 51,
+      "canonical_name": "José Batlle y Ordóñez",
+      "path": "authors/0051.json"
+    },
+    {
+      "author_id": 52,
+      "canonical_name": "Juan José Arévalo Bermejo",
+      "path": "authors/0052.json"
+    },
+    {
+      "author_id": 53,
+      "canonical_name": "Gabino Barreda",
+      "path": "authors/0053.json"
+    },
+    {
+      "author_id": 54,
+      "canonical_name": "Tobias Barreto",
+      "path": "authors/0054.json"
+    },
+    {
+      "author_id": 55,
+      "canonical_name": "Luís Pereira Barreto",
+      "path": "authors/0055.json"
+    },
+    {
+      "author_id": 56,
+      "canonical_name": "Manuel Gonzales Prada",
+      "path": "authors/0056.json"
+    },
+    {
+      "author_id": 57,
+      "canonical_name": "Enrique José Varona",
+      "path": "authors/0057.json"
+    },
+    {
+      "author_id": 58,
+      "canonical_name": "Jorge Lagarrigue",
+      "path": "authors/0058.json"
+    },
+    {
+      "author_id": 59,
+      "canonical_name": "Juan Lagarrigue",
+      "path": "authors/0059.json"
+    },
+    {
+      "author_id": 60,
+      "canonical_name": "Luis Lagarrigue",
+      "path": "authors/0060.json"
     }
   ]
 }
