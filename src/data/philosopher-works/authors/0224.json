@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "author_id": 224,
+  "canonical_name": "José Gaspar Rodríguez de Francia",
+  "alternate_names": [
+    "Doctor Francia",
+    "José Gaspar de Francia"
+  ],
+  "life": {
+    "born": {
+      "year": 1766,
+      "date": "1766-01-06",
+      "certainty": "national_archival_authority"
+    },
+    "died": {
+      "year": 1840,
+      "date": "1840-09-20",
+      "certainty": "state_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_primary_works_with_explicit_edition_or_manuscript_uncertainty_non_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0224-w001",
+      "title": "Un bando, nueve oficios y dos listas del Excelentísimo Gobierno (conjunto documental)",
+      "work_type": "archival_official_documents_corpus",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_or_teaching_period_documented",
+        "period": {
+          "start": 1813,
+          "end": 1813,
+          "certainty": "archive_creation_date"
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "archive_creator_attribution_not_exclusive_textual_authorship",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bando",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "oficios",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://riobranco.archivonacional.gov.py/index.php/rodriguez-de-francia-jose-gaspar?sf_culture=es"
+      ],
+      "notes": "El Archivo Nacional indexa la unidad documental (1813) bajo Rodríguez de Francia. Es un conjunto archivístico y no una obra monográfica de autor individual; autoría particular por pieza pendiente."
+    },
+    {
+      "work_id": "0224-w002",
+      "title": "Oficio de José Gaspar Rodríguez de Francia y Fulgencio Yegros a José Antonio Caballero",
+      "work_type": "co_signed_official_archival_document",
+      "original_language": "español",
+      "original_date": {
+        "year": 1814,
+        "certainty": "composition_documented"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_co_signed_official_document",
+      "coauthors": [
+        {
+          "name": "Fulgencio Yegros",
+          "role": "co-signatory"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oficio",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://riobranco.archivonacional.gov.py/index.php/oficio-de-jose-gaspar-rodriguez-de-francia-y-fulgencio-yegros-jose-antonio-caballero?sf_culture=es"
+      ],
+      "composition_date": "1814-09-07",
+      "archival_reference": "PY ANA ANA-AHRP-PY-199-1-2",
+      "notes": "Oficio oficial de dos folios, no un libro; firma conjunta no equivale a coautoría literaria."
+    },
+    {
+      "work_id": "0224-w003",
+      "title": "Decretos, órdenes y comunicaciones del Dictador Francia (documentación de gobierno)",
+      "work_type": "archival_documents_series",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_or_teaching_period_documented",
+        "period": {
+          "start": 1814,
+          "end": 1840,
+          "certainty": "government_historical_period_not_document_by_document"
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "administrative_origin_and_archival_creator_indexation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "decretos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "órdenes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historia.archivonacional.gov.py/index.php/informationobject/browse?names=35180&sort=endDate&sortDir=asc&topLod=0"
+      ],
+      "notes": "Conjunto archivístico amplio de órdenes y oficios, cuyo periodo corresponde al gobierno; no se inventa título de libro ni autoría personal de cada decreto."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0224-c001",
+      "title": "Docencia en filosofía y teología y participación en la organización del Estado paraguayo durante la independencia",
+      "kind": "intellectual_political_or_institutional_contribution",
+      "authorship_status": "historically_documented_or_source_attributed",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_archive_authority",
+      "title": "Archivo Nacional de Asunción: autoridad Rodríguez de Francia",
+      "url": "https://riobranco.archivonacional.gov.py/index.php/rodriguez-de-francia-jose-gaspar?sf_culture=es"
+    },
+    {
+      "kind": "national_archive_document",
+      "title": "Archivo Nacional de Asunción: Oficio de Francia y Fulgencio Yegros a José Antonio Caballero (1814)",
+      "url": "https://riobranco.archivonacional.gov.py/index.php/oficio-de-jose-gaspar-rodriguez-de-francia-y-fulgencio-yegros-jose-antonio-caballero?sf_culture=es"
+    },
+    {
+      "kind": "national_archive_document",
+      "title": "Archivo Nacional de Asunción: bandos y oficios (1813)",
+      "url": "https://riobranco.archivonacional.gov.py/index.php/informationobject/browse?creators=6255&languages=es&repos=430&sf_culture=es&sort=endDate&sortDir=asc&subjects=6005&topLod=0&view=table"
+    },
+    {
+      "kind": "national_archive_collection",
+      "title": "Archivo Nacional de Asunción: órdenes y decretos (1814–1816)",
+      "url": "https://historia.archivonacional.gov.py/index.php/informationobject/browse?names=35180&sort=endDate&sortDir=asc&topLod=0"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Secciones sobre pensamiento guaraní, historia intelectual del Paraguay y enseñanza filosófica colonial novohispana"
+    }
+  ],
+  "research_notes": [
+    "No atribuirle las actas del Congreso ni el reglamento gubernativo de 1813 como libros escritos exclusivamente por él sin análisis diplomático del manuscrito.",
+    "Los registros de la colección de Archivo Nacional identifican productores burocráticos; se conserva distinta la autoría textual, la firma y la adscripción administrativa."
+  ]
+}
