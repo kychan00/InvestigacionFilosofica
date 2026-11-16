@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 160,
-    "authors_remaining": 1344,
-    "works_or_contributions_seeded": 1608,
-    "current_batch": "016",
+    "authors_seeded": 170,
+    "authors_remaining": 1334,
+    "works_or_contributions_seeded": 1769,
+    "current_batch": "017",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -863,6 +863,58 @@
       "author_id": 160,
       "canonical_name": "Alberto Wagner de Reyna",
       "path": "authors/0160.json"
+    }
+  ],
+  "batch_017": [
+    {
+      "author_id": 161,
+      "canonical_name": "Francisco Miró Quesada",
+      "path": "authors/0161.json"
+    },
+    {
+      "author_id": 162,
+      "canonical_name": "Augusto Salazar Bondy",
+      "path": "authors/0162.json"
+    },
+    {
+      "author_id": 163,
+      "canonical_name": "María Luisa Rivara de Tuesta",
+      "path": "authors/0163.json"
+    },
+    {
+      "author_id": 164,
+      "canonical_name": "David Sobrevilla",
+      "path": "authors/0164.json"
+    },
+    {
+      "author_id": 165,
+      "canonical_name": "Mario Mejía Huamán",
+      "path": "authors/0165.json"
+    },
+    {
+      "author_id": 166,
+      "canonical_name": "Miguel Giusti",
+      "path": "authors/0166.json"
+    },
+    {
+      "author_id": 167,
+      "canonical_name": "Pío Jaramillo Alvarado",
+      "path": "authors/0167.json"
+    },
+    {
+      "author_id": 168,
+      "canonical_name": "Luis López de Mesa",
+      "path": "authors/0168.json"
+    },
+    {
+      "author_id": 169,
+      "canonical_name": "Julio Enrique Blanco de La Rosa",
+      "path": "authors/0169.json"
+    },
+    {
+      "author_id": 170,
+      "canonical_name": "Fernando González Ochoa",
+      "path": "authors/0170.json"
     }
   ]
 }
