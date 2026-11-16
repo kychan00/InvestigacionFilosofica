@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "author_id": 178,
+  "canonical_name": "Juan Antonio Nuño Montes",
+  "life": {
+    "born": {
+      "year": 1927,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": 1995,
+      "certainty": "biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0178-w001",
+      "title": "Repertorios bibliográficos de filosofía",
+      "work_type": "bibliographical_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Repertorios_bibliogr%C3%A1ficos_de_filosof%C3%AD.html?id=h8nTAAAAMAAJ"
+      ],
+      "notes": "Volumen 1, Universidad Central de Venezuela; confirmar otros volúmenes antes de desdoblar."
+    },
+    {
+      "work_id": "0178-w002",
+      "title": "Los mitos filosóficos",
+      "work_type": "philosophical_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://en.wikipedia.org/wiki/Juan_Nu%C3%B1o"
+      ],
+      "notes": "Referencia secundaria; editorial y primera edición requieren comprobación en catálogo."
+    },
+    {
+      "work_id": "0178-w003",
+      "title": "La filosofía en Borges",
+      "work_type": "philosophical_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://en.wikipedia.org/wiki/Juan_Nu%C3%B1o"
+      ],
+      "notes": "Referencia secundaria; verificar si 1986 corresponde a edición original."
+    }
+  ],
+  "editorial_notes": [
+    "Identidad cotejada con inventario canónico y entrada biográfica del libro base; bibliografía parcial, no exhaustiva.",
+    "Fechas y roles se mantienen conservadores cuando las fuentes divergen."
+  ]
+}
