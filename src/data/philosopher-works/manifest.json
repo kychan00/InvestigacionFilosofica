@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 230,
-    "authors_remaining": 1274,
-    "works_or_contributions_seeded": 2040,
-    "current_batch": "023",
+    "authors_seeded": 240,
+    "authors_remaining": 1264,
+    "works_or_contributions_seeded": 2063,
+    "current_batch": "024",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1227,6 +1227,58 @@
       "author_id": 230,
       "canonical_name": "José Ignacio Cuéllar",
       "path": "authors/0230.json"
+    }
+  ],
+  "batch_024": [
+    {
+      "author_id": 231,
+      "canonical_name": "Fermín de Ylárregui",
+      "path": "authors/0231.json"
+    },
+    {
+      "author_id": 232,
+      "canonical_name": "Francisco Javier de la Meza",
+      "path": "authors/0232.json"
+    },
+    {
+      "author_id": 233,
+      "canonical_name": "Vicente Tenorio",
+      "path": "authors/0233.json"
+    },
+    {
+      "author_id": 234,
+      "canonical_name": "José Maldonado",
+      "path": "authors/0234.json"
+    },
+    {
+      "author_id": 235,
+      "canonical_name": "José Ignacio Sánchez",
+      "path": "authors/0235.json"
+    },
+    {
+      "author_id": 236,
+      "canonical_name": "Francisco Javier Alejo de Orrio",
+      "path": "authors/0236.json"
+    },
+    {
+      "author_id": 237,
+      "canonical_name": "Juan Martínez de Ripalda",
+      "path": "authors/0237.json"
+    },
+    {
+      "author_id": 238,
+      "canonical_name": "Francisco Cruz",
+      "path": "authors/0238.json"
+    },
+    {
+      "author_id": 239,
+      "canonical_name": "Juan de Almanza",
+      "path": "authors/0239.json"
+    },
+    {
+      "author_id": 240,
+      "canonical_name": "Andrés Bordas",
+      "path": "authors/0240.json"
     }
   ]
 }
