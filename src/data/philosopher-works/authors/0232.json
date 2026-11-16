@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "author_id": 232,
+  "canonical_name": "Francisco Javier de la Meza",
+  "alternate_names": [
+    "Francisco Javier de Meza",
+    "Francisco Javier de Mesa"
+  ],
+  "coverage": {
+    "status": "seeded",
+    "works_status": "manuscript_course_reported_no_print_edition_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0232-w001",
+      "title": "Curso de filosofía (título descriptivo; título original por verificar)",
+      "work_type": "scholastic_philosophy_lecture_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "lecture_period",
+        "period": {
+          "start": 1732,
+          "end": 1732
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "course_attributed_in_scholarly_study",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía escolástica",
+          "provenance": "scholarly"
+        }
+      ],
+      "title_status": "modern_descriptive_label",
+      "manuscript_reference": "Yhmoff Cabrera, catálogo de manuscritos latinos BNM, n. 325, citado por Beuchot",
+      "evidence_urls": [
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "notes": "Beuchot menciona curso impartido en convento de San Agustín de Puebla en 1732. No se conoce aquí portada literal ni edición impresa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia filosófica agustiniana en el Convento de San Agustín de Puebla, 1732",
+      "kind": "colonial_philosophical_teaching",
+      "authorship_status": "source_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial, filósofos agustinos",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Francisco Javier de la Meza (1732)"
+    }
+  ],
+  "research_notes": [
+    "El nombre canónico conserva «de la Meza»; variantes de Meza/Mesa en bibliografía.",
+    "1732 data el curso y no implica publicación impresa."
+  ]
+}
