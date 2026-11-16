@@ -462,6 +462,41 @@ function appendOverview(record, container) {
 
   section.append(eyebrow, heading, intro, facts);
 
+  if (works.length) {
+    const timelineBlock = document.createElement("div");
+    timelineBlock.className = "author-dossier-timeline-block";
+
+    const timelineLabel = document.createElement("p");
+    timelineLabel.className = "author-dossier-block-label";
+    timelineLabel.textContent = "CARTOGRAFÍA TEMPORAL DE LAS OBRAS";
+
+    const timeline = document.createElement("div");
+    timeline.className = "author-dossier-timeline";
+    timeline.setAttribute("aria-label", "Cronología de las obras documentadas");
+
+    const sortedWorks = [...works].sort((a,b) => (workYear(a) ?? 9999) - (workYear(b) ?? 9999));
+    sortedWorks.forEach((work, index) => {
+      const item = document.createElement("article");
+      item.className = "author-dossier-timeline-item";
+
+      const node = document.createElement("span");
+      node.className = "author-dossier-timeline-node";
+      node.textContent = String(index + 1).padStart(2, "0");
+
+      const year = document.createElement("strong");
+      year.textContent = workYear(work) ?? "s. f.";
+
+      const title = document.createElement("p");
+      title.textContent = work.title || "Título no disponible";
+
+      item.append(node, year, title);
+      timeline.append(item);
+    });
+
+    timelineBlock.append(timelineLabel, timeline);
+    section.append(timelineBlock);
+  }
+
   if (keywords.length) {
     const keywordBlock = document.createElement("div");
     keywordBlock.className = "author-dossier-keyword-block";
