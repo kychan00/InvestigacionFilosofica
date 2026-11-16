@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 380,
-    "authors_remaining": 1124,
-    "works_or_contributions_seeded": 2479,
-    "current_batch": "038",
+    "authors_seeded": 390,
+    "authors_remaining": 1114,
+    "works_or_contributions_seeded": 2513,
+    "current_batch": "039",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2007,6 +2007,58 @@
       "author_id": 380,
       "canonical_name": "Anténor Firmin",
       "path": "authors/0380.json"
+    }
+  ],
+  "batch_039": [
+    {
+      "author_id": 381,
+      "canonical_name": "Francisco Vicente Aguilera",
+      "path": "authors/0381.json"
+    },
+    {
+      "author_id": 382,
+      "canonical_name": "Juan Pablo Duarte",
+      "path": "authors/0382.json"
+    },
+    {
+      "author_id": 383,
+      "canonical_name": "José Ramón López",
+      "path": "authors/0383.json"
+    },
+    {
+      "author_id": 384,
+      "canonical_name": "Federico García Godoy",
+      "path": "authors/0384.json"
+    },
+    {
+      "author_id": 385,
+      "canonical_name": "Román Baldorioty de Castro",
+      "path": "authors/0385.json"
+    },
+    {
+      "author_id": 386,
+      "canonical_name": "Salvador Brau",
+      "path": "authors/0386.json"
+    },
+    {
+      "author_id": 387,
+      "canonical_name": "José de Diego",
+      "path": "authors/0387.json"
+    },
+    {
+      "author_id": 388,
+      "canonical_name": "Edward Blyden",
+      "path": "authors/0388.json"
+    },
+    {
+      "author_id": 389,
+      "canonical_name": "Januário da Cunha Barbosa",
+      "path": "authors/0389.json"
+    },
+    {
+      "author_id": 390,
+      "canonical_name": "João Quirino Gomes",
+      "path": "authors/0390.json"
     }
   ]
 }
