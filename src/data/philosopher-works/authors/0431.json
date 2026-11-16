@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "author_id": 431,
+  "canonical_name": "Rafael Virasoro",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1906,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": 1984,
+      "certainty": "biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0431-w001",
+      "title": "Existencialismo y moral: Heidegger - Sartre",
+      "work_type": "existentialist_ethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1957,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Sartre",
+          "provenance": "catalog"
+        },
+        {
+          "term": "moral",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb371157972"
+      ],
+      "notes": "Santa Fe, Castellví, 1957, 78 páginas, Colección Ensayos n.º 3, según la Bibliothèque nationale de France."
+    },
+    {
+      "work_id": "0431-w002",
+      "title": "La conciencia moral y los valores",
+      "work_type": "philosophical_journal_article_on_ethics_and_axiology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "journal_record_with_doi"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.22201/iifs.18704913e.1963.9.1243",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conciencia moral",
+          "provenance": "editorial"
+        },
+        {
+          "term": "valores",
+          "provenance": "editorial"
+        },
+        {
+          "term": "axiología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/1243"
+      ],
+      "notes": "Publicado en Diánoia, vol. 9, n.º 9, 1963, pp. 258-281. Registro con DOI retroactivo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundamentación personalista de la ética mediante libertad, responsabilidad, conciencia moral y apertura a valores trascendentes",
+      "kind": "argentine_ethics_and_axiology_contribution",
+      "authorship_status": "documented_in_unam_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BnF — Existencialismo y moral, Rafael Virasoro, 1957",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb371157972"
+    },
+    {
+      "kind": "academic_journal_source",
+      "title": "UNAM Diánoia — La conciencia moral y los valores, 1963",
+      "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/1243"
+    }
+  ],
+  "research_notes": [
+    "No confundir a Rafael Virasoro con Miguel Ángel Virasoro, también filósofo argentino y autor de obras diferentes.",
+    "El seed conserva únicamente títulos confirmados específicamente bajo la autoridad Rafael Virasoro."
+  ]
+}
