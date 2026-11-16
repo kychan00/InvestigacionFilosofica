@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Philosopher work matrix record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "author_id",
+    "canonical_name",
+    "coverage",
+    "works",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer"
+    },
+    "author_id": {
+      "type": "integer"
+    },
+    "canonical_name": {
+      "type": "string"
+    },
+    "alternate_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "life": {
+      "type": "object"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "works": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "non_bibliographic_contributions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "research_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
