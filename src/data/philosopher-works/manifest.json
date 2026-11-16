@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 320,
-    "authors_remaining": 1184,
-    "works_or_contributions_seeded": 2281,
-    "current_batch": "032",
+    "authors_seeded": 330,
+    "authors_remaining": 1174,
+    "works_or_contributions_seeded": 2312,
+    "current_batch": "033",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1695,6 +1695,58 @@
       "author_id": 320,
       "canonical_name": "Mariano Moreno",
       "path": "authors/0320.json"
+    }
+  ],
+  "batch_033": [
+    {
+      "author_id": 321,
+      "canonical_name": "Francisco de Paula Castañeda",
+      "path": "authors/0321.json"
+    },
+    {
+      "author_id": 322,
+      "canonical_name": "Juan Ignacio de Gorriti",
+      "path": "authors/0322.json"
+    },
+    {
+      "author_id": 323,
+      "canonical_name": "Manuel Belgrano",
+      "path": "authors/0323.json"
+    },
+    {
+      "author_id": 324,
+      "canonical_name": "José Baquijano y Carrillo",
+      "path": "authors/0324.json"
+    },
+    {
+      "author_id": 325,
+      "canonical_name": "Pablo de Olavide",
+      "path": "authors/0325.json"
+    },
+    {
+      "author_id": 326,
+      "canonical_name": "José Sanz",
+      "path": "authors/0326.json"
+    },
+    {
+      "author_id": 327,
+      "canonical_name": "José Antonio Rojas",
+      "path": "authors/0327.json"
+    },
+    {
+      "author_id": 328,
+      "canonical_name": "Joaquín Larraín Gandarillas",
+      "path": "authors/0328.json"
+    },
+    {
+      "author_id": 329,
+      "canonical_name": "Abdón Cifuentes",
+      "path": "authors/0329.json"
+    },
+    {
+      "author_id": 330,
+      "canonical_name": "Manuel José Irarrázaval",
+      "path": "authors/0330.json"
     }
   ]
 }

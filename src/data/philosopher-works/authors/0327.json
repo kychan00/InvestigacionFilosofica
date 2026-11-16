@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "author_id": 327,
+  "canonical_name": "José Antonio Rojas",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_book_circulation_and_political_contribution_no_original_works_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Adquisición y circulación de libros de la Ilustración europea, biblioteca privada y tertulias políticas en Chile antes de 1810",
+      "kind": "chilean_enlightenment_book_circulation_and_political_thought",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "national_library_biography",
+      "title": "Biblioteca Nacional de Chile, José Antonio Rojas (1732–1817)",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-333855.html"
+    },
+    {
+      "kind": "national_library_library_history",
+      "title": "Memoria Chilena, Una biblioteca típicamente ilustrada",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-333858.html"
+    },
+    {
+      "kind": "national_library_archive_catalog",
+      "title": "Carta al señor José Antonio Rojas escrita por Juan Muñoz de Rozas, 1809",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-334441.html"
+    }
+  ],
+  "research_notes": [
+    "No se encontró en las fuentes verificadas un título bibliográfico escrito por Rojas de autoría inequívoca: works=[] por rigor.",
+    "Las cartas exhibidas en Memoria Chilena son mayoritariamente DIRIGIDAS A él, no escritas POR él; no incorporarlas como obra propia.",
+    "La presencia de un libro en su biblioteca no prueba que Rojas lo haya escrito o traducido.",
+    "Biografías nacionales difieren en su fecha de muerte 1816/1817, se conserva sin fechas biográficas categóricas."
+  ]
+}

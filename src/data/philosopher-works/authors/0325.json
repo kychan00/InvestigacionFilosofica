@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "author_id": 325,
+  "canonical_name": "Pablo de Olavide",
+  "alternate_names": [
+    "Pablo Antonio de Olavide y Jáuregui"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_reform_plan_1768_and_one_moral_first_print_1797_1798",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0325-w001",
+      "title": "Plan de estudios para la Universidad de Sevilla",
+      "work_type": "enlightenment_university_reform_manuscript_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1768,
+        "certainty": "university_education_reform_report_february"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reform_report_led_by_olavide_with_advisory_group_not_sole_university_act_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reforma universitaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación ilustrada",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escolástica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.cl/scielo.php?pid=S0716-27902020000200009&script=sci_arttext",
+        "https://e-archivo.uc3m.es/bitstream/10016/27751/4/estudios_hd66_2018.pdf"
+      ],
+      "notes": "Informe de reforma de los estudios de Sevilla de 1768, preparado por Olavide con otros consejeros. La reforma fue presentada y aprobada por órganos de la monarquía; su fecha no es primera edición original independiente.",
+      "composition_date": "1768-02-18",
+      "collaboration": "colaboradores universitarios y Consejo de Castilla"
+    },
+    {
+      "work_id": "0325-w002",
+      "title": "El Evangelio en triunfo, o Historia de un filósofo desengañado",
+      "work_type": "moral_religious_philosophical_four_volume_novel_first_print",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_print_four_volumes_1797_1798",
+        "period": {
+          "start": 1797,
+          "end": 1798
+        }
+      },
+      "first_publication_year": 1797,
+      "authorship_status": "first_print_anonymous_or_concealed_author_verified_by_modern_catalogues",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "apologética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía ilustrada",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conversión intelectual",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/gerard_dufour/obras/autor/olavide-pablo-de-1725-1803-2594",
+        "https://www.adabi.org.mx/vufind/Record/1102070"
+      ],
+      "notes": "La primera impresión valenciana de Orga Hermanos comenzó en 1797 (tomo primero) y continuó en 1798 (tomos posteriores). Algunas fichas de 1798 describen segunda edición; no datar todo el conjunto como princeps de 1798 ni sumar tomos como obras autónomas.",
+      "edition": {
+        "start": 1797,
+        "end": 1798,
+        "publisher": "José y Tomás de Orga",
+        "region": "Valencia"
+      },
+      "volume_count": 4,
+      "authorship_on_original_print": "anonymous"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Programa de reforma universitaria ilustrada y reflexión sobre religión y razón tras persecución inquisitorial",
+      "kind": "luso_hispanic_enlightenment_education_and_moral_thought",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "academic_historical_research",
+      "title": "El pensamiento musical de Pablo de Olavide y Jáuregui, Revista Musical Chilena (2020)",
+      "url": "https://www.scielo.cl/scielo.php?pid=S0716-27902020000200009&script=sci_arttext"
+    },
+    {
+      "kind": "early_edition_library_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes, impresos Orga de 1797–1798",
+      "url": "https://www.cervantesvirtual.com/portales/gerard_dufour/obras/autor/olavide-pablo-de-1725-1803-2594"
+    },
+    {
+      "kind": "physical_historical_edition_catalog",
+      "title": "ADABI, El Evangelio en triumpho, ejemplares de 1798 en cuatro tomos",
+      "url": "https://www.adabi.org.mx/vufind/Record/1102070"
+    }
+  ],
+  "research_notes": [
+    "La obra moral de 1797–1798 es novela apologética, no prueba de que Olavide escribiera todos los textos censurados atribuidos por terceros.",
+    "El Plan de estudios es texto reformador con participación colegiada; no atribuir toda la Real Cédula a una sola pluma.",
+    "Olavide fue peruano de nacimiento y desarrolló parte esencial de su obra en España; inventario lo incluye sin nacionalismo retrospectivo."
+  ]
+}

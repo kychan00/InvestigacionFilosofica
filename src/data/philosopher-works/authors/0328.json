@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "author_id": 328,
+  "canonical_name": "Joaquín Larraín Gandarillas",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_university_1845_dissertation_one_1865_printed_parliamentary_collection",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0328-w001",
+      "title": "Disertación sobre el derecho que tiene el Romano Pontífice para instituir los obispos de las naciones católicas",
+      "work_type": "ecclesiastical_political_jurisprudence_academic_dissertation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1845,
+        "certainty": "university_annuals_publication"
+      },
+      "first_publication_year": 1845,
+      "authorship_status": "author_original_university_printed_dissertation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho canónico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos del papa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "obispos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "iglesia y estado",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://anales.uchile.cl/index.php/ANUC/issue/view/2140",
+        "https://www.dhial.org/diccionario/index.php?title=LARRA%C3%8DN_GANDARILLAS%2C_Joaqu%C3%ADn"
+      ],
+      "notes": "Tesis de licenciatura presentada para título de abogado y publicada en Anales de la Universidad de Chile en 1845. Bibliografía indica variantes de «instituir»/«instruir» en descripciones; título catalogado por Anales.",
+      "journal": "Anales de la Universidad de Chile",
+      "doi": "10.5354/0717-8883.1845.23618"
+    },
+    {
+      "work_id": "0328-w002",
+      "title": "Discursos que pronunció en la Cámara de Diputados el prebendado don Joaquín Larraín Gandarillas en los debates sobre libertad de cultos",
+      "work_type": "chilean_parliamentary_religious_freedom_discourse_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1865,
+        "certainty": "collected_discourses_print_year"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "parliamentary_speaker_collected_print_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad de cultos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tolerancia religiosa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado confesional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-9900.html",
+        "https://www.dhial.org/diccionario/index.php?title=LARRA%C3%8DN_GANDARILLAS%2C_Joaqu%C3%ADn"
+      ],
+      "notes": "Santiago de Chile, Imprenta del Independiente, 1865, 147 páginas; son discursos parlamentarios publicados en volumen único, no se registra cada intervención como libro.",
+      "edition": {
+        "year": 1865,
+        "publisher": "Imprenta del Independiente",
+        "region": "Santiago"
+      },
+      "pages": 147
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Promoción de la educación católica y reflexión jurídica sobre autoridad eclesial y libertad de cultos en Chile",
+      "kind": "chilean_catholic_conservative_political_theology",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "university_primary_publication_index",
+      "title": "Anales de la Universidad de Chile, volumen 1845, disertación de Joaquín Larraín",
+      "url": "https://anales.uchile.cl/index.php/ANUC/issue/view/2140"
+    },
+    {
+      "kind": "national_library_physical_catalog",
+      "title": "Biblioteca Nacional de Chile, Discursos sobre libertad de cultos, 1865",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9900.html"
+    },
+    {
+      "kind": "biographical_study",
+      "title": "Dicionário de História Cultural da Igreja na América Latina, Joaquín Larraín Gandarillas",
+      "url": "https://www.dhial.org/diccionario/index.php?title=LARRA%C3%8DN_GANDARILLAS%2C_Joaqu%C3%ADn"
+    }
+  ],
+  "research_notes": [
+    "La tesis de 1845 tiene DOI retroactivo de plataforma, NO DOI emitido en siglo XIX.",
+    "No confundir los discursos de Larraín con intervenciones de Abdón Cifuentes en debates posteriores.",
+    "Su fundación y rectorado en Universidad Católica son contribuciones institucionales, no libros."
+  ]
+}

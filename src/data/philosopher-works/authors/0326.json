@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "author_id": 326,
+  "canonical_name": "José Sanz",
+  "alternate_names": [
+    "Miguel José Sanz",
+    "Miguel José Sanz Marvez"
+  ],
+  "life": {
+    "born": {
+      "year": 1756,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": 1814,
+      "certainty": "biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_mostly_lost_1800_1802_municipal_manuscript_one_1810_1811_periodical",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0326-w001",
+      "title": "Ordenanzas para el gobierno y policía de la muy ilustre ciudad de Santiago de León de Caracas, cabeza de la provincia de Venezuela",
+      "work_type": "colonial_municipal_political_law_ten_book_lost_manuscript_with_excerpt",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_window_documented_by_biographical_source",
+        "period": {
+          "start": 1800,
+          "end": 1802
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_author_original_mostly_lost_municipal_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "policía urbana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho municipal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliofep.fundacionempresaspolar.org/dhv/entradas/s/sanz-miguel-jose/",
+        "https://camaradecaracas.com/la-camara-caracas-y-sus-historias/por-aqui-pasaron/sanz-el-licurgo-venezolano/"
+      ],
+      "notes": "El jurista Miguel José Sanz redactó entre 1800 y 1802 un proyecto en diez libros, cada uno con introducción. El texto se perdió casi íntegro: sobrevivió fragmento sobre educación según Fundación Empresas Polar. NO registrar diez libros independientes ni fingir ejemplares impresos de 1802.",
+      "number_of_parts": 10,
+      "manuscript_status": "largely_lost_only_education_fragment_known"
+    },
+    {
+      "work_id": "0326-w002",
+      "title": "Semanario de Caracas",
+      "work_type": "early_republican_political_periodical_coedited",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "newspaper_original_periodical_span",
+        "period": {
+          "start": 1810,
+          "end": 1811
+        }
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "coeditor_with_Jose_Domingo_Diaz_articles_and_translations_mixed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "prensa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ilustración política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliofep.fundacionempresaspolar.org/dhv/entradas/s/sanz-miguel-jose/",
+        "https://camaradecaracas.com/la-camara-caracas-y-sus-historias/cronicas-de-la-ciudad/primeros-periodicos-caraquenos/",
+        "https://camaradecaracas.com/la-camara-caracas-y-sus-historias/por-aqui-pasaron/sanz-el-licurgo-venezolano/"
+      ],
+      "notes": "Redactado y editado por Miguel José Sanz junto con José Domingo Díaz, desde 4 noviembre 1810 hasta 21 julio 1811. Sanz se centró en temas políticos; parte del material adaptaba traductores europeos. No atribuir todo número ni todo artículo a Sanz.",
+      "first_issue": "1810-11-04",
+      "last_issue_reported": "1811-07-21",
+      "other_editor": "José Domingo Díaz"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Aporte jurídico y político a la independencia venezolana, promoción de educación civil y periodismo republicano",
+      "kind": "venezuelan_independence_legal_and_political_thought",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "national_biographical_reference",
+      "title": "Fundación Empresas Polar, Diccionario de Historia de Venezuela, Miguel José Sanz (1756–1814)",
+      "url": "https://bibliofep.fundacionempresaspolar.org/dhv/entradas/s/sanz-miguel-jose/"
+    },
+    {
+      "kind": "historical_city_press",
+      "title": "Cámara de Comercio de Caracas, Primeros periódicos caraqueños: Semanario de Caracas",
+      "url": "https://camaradecaracas.com/la-camara-caracas-y-sus-historias/cronicas-de-la-ciudad/primeros-periodicos-caraquenos/"
+    },
+    {
+      "kind": "local_history",
+      "title": "Sanz, el Licurgo venezolano, Ordenanzas 1800–1802",
+      "url": "https://camaradecaracas.com/la-camara-caracas-y-sus-historias/por-aqui-pasaron/sanz-el-licurgo-venezolano/"
+    }
+  ],
+  "research_notes": [
+    "Nombre del inventario «José Sanz» identifica a Miguel José Sanz (1756–1814), Caracas. Mantener nombre canónico y alias completos sin crear autor duplicado.",
+    "La biblioteca y ordenanzas municipales perdidas son evidencia de producción intelectual, pero sólo un fragmento de la obra se conoce.",
+    "Traducir/adaptar ideas de Adam Ferguson en Semanario no convierte el texto británico en obra original de Sanz."
+  ]
+}
