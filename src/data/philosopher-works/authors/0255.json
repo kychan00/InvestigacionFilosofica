@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "author_id": 255,
+  "canonical_name": "José de Aguilar",
+  "alternate_names": [
+    "José de Aguilar S. J.",
+    "Iosephus de Aguilar"
+  ],
+  "life": {
+    "born": {
+      "year": 1652,
+      "certainty": "historical_library_catalog"
+    },
+    "died": {
+      "year": 1708,
+      "certainty": "historical_library_catalog"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_corpus_with_publication_or_source_uncertainty",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0255-w001",
+      "title": "Cursus philosophicus dictatus Limae",
+      "work_type": "jesuit_scholastic_multivolume_course_printed",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1701,
+        "certainty": "start_of_printed_publication_series"
+      },
+      "first_publication_year": 1701,
+      "authorship_status": "historically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cursus philosophicus",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Limae",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecadigitaldeandalucia.es/catalogo/es/consulta/registro.do?id=1019551",
+        "https://enriquedussel.com/txt/Textos_200_Obras/Filosofos_Peru/Filosofia_colonial-M.Luisa_Tuesta.pdf"
+      ],
+      "volumes": 3,
+      "edition": {
+        "place": "Sevilla",
+        "printer": "Officina Ioannis Francisci de Blas",
+        "date_range": "1701–"
+      },
+      "physical_witnesses": [
+        {
+          "volume": 2,
+          "repository": "Biblioteca Facultad de Teología de Granada",
+          "sig": "A/Ag 8j/1701-2"
+        },
+        {
+          "volume": 3,
+          "repository": "Biblioteca Facultad de Teología de Granada",
+          "sig": "A/Ag 8j/1701-3"
+        }
+      ],
+      "notes": "Catálogo Biblioteca de Andalucía identifica tomos II y III del curso. La primera fecha 1701 documenta comienzo editorial de la obra tritomo, no autoriza asignar 1701 a cada tomo en ausencia de portadas cotejadas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de filosofía escolástica en el Colegio de San Pablo de Lima y la Universidad de Charcas",
+      "kind": "colonial_intellectual_or_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "physical_library_original_edition_catalog",
+      "title": "Biblioteca Digital de Andalucía: Cursus philosophicus dictatus Limae, Sevilla 1701–, tomos II–III",
+      "url": "https://www.bibliotecadigitaldeandalucia.es/catalogo/es/consulta/registro.do?id=1019551"
+    },
+    {
+      "kind": "academic_colonial_bibliography",
+      "title": "La filosofía colonial en el Perú, María Luisa Rivara de Tuesta",
+      "url": "https://enriquedussel.com/txt/Textos_200_Obras/Filosofos_Peru/Filosofia_colonial-M.Luisa_Tuesta.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 84–85"
+    }
+  ],
+  "research_notes": [
+    "El libro-base refiere tres tomos impresos en Sevilla en 1701; se conserva un solo registro de obra multivolumen hasta estudiar la cronología de los tomos individualmente."
+  ]
+}
