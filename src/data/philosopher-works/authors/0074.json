@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "author_id": 74,
+  "canonical_name": "Bolívar Echeverría",
+  "alternate_names": [
+    "Bolívar Echeverría Andrade"
+  ],
+  "life": {
+    "born": {
+      "year": 1941,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 2010,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_marxist_critical_modernity_culture_and_baroque_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0074-w001",
+      "title": "El discurso crítico de Marx",
+      "work_type": "marxist_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Karl Marx",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Marx",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "discurso crítico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valor",
+          "provenance": "inferred"
+        },
+        {
+          "term": "capital",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w002",
+      "title": "Conversaciones sobre lo barroco",
+      "work_type": "philosophy_dialogue_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "verified_with_collaborator",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Horst Kurnitzky",
+          "role": "collaborator"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "barroco",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w003",
+      "title": "Circulación capitalista y reproducción de la riqueza social",
+      "work_type": "political_economy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "circulación capitalista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reproducción social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "riqueza",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w004",
+      "title": "Modernidad, mestizaje cultural y ethos barroco",
+      "work_type": "edited_theoretical_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "author_editor_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mestizaje cultural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ethos barroco",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w005",
+      "title": "Las ilusiones de la modernidad",
+      "work_type": "modernity_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "capitalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ethos",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w006",
+      "title": "La modernidad de lo barroco",
+      "work_type": "philosophy_of_culture_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "barroco",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ethos barroco",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w007",
+      "title": "La contradicción del valor y el valor de uso",
+      "work_type": "marxist_value_theory_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valor",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valor de uso",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Marx",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w008",
+      "title": "Valor de uso y utopía",
+      "work_type": "philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valor de uso",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "utopía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "capitalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w009",
+      "title": "Definición de la cultura",
+      "work_type": "philosophy_of_culture_lecture_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "semiosis",
+          "provenance": "catalog"
+        },
+        {
+          "term": "identidad",
+          "provenance": "catalog"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w010",
+      "title": "Vuelta de siglo",
+      "work_type": "critical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "capitalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "siglo XXI",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0074-w011",
+      "title": "Modernidad y blanquitud",
+      "work_type": "modernity_race_culture_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "blanquitud",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "raza",
+          "provenance": "inferred"
+        },
+        {
+          "term": "capitalismo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Trabajo editorial y traducción en Cuadernos Políticos y otros proyectos",
+      "kind": "editorial_translation_contribution",
+      "period": {
+        "start": 1968,
+        "end": 2010,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "traducción",
+          "provenance": "inferred"
+        },
+        {
+          "term": "marxismo crítico",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_author_archive",
+      "title": "Bolívar Echeverría — Obras",
+      "url": "https://bolivare.unam.mx/obras/",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_primary_record",
+      "title": "El discurso crítico de Marx",
+      "url": "https://bolivare.unam.mx/obras/el-discurso-critico-de-marx",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_primary_record",
+      "title": "La modernidad de lo barroco",
+      "url": "https://bolivare.unam.mx/obras/la-modernidad-de-lo-barroco",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_biography",
+      "title": "Trayectoria de Bolívar Echeverría",
+      "url": "https://bolivare.unam.mx/trayectoria",
+      "publisher": "UNAM"
+    }
+  ],
+  "research_notes": [
+    "Pendiente agregar traducciones, Modelos elementales de la oposición campo-ciudad y publicaciones póstumas separadas de libros de vida.",
+    "No usar reediciones 2017/2018 como fechas de primera publicación."
+  ]
+}
