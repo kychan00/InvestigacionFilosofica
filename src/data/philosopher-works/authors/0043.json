@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "author_id": 43,
+  "canonical_name": "Eduardo Ferreira França",
+  "alternate_names": [
+    "Eduardo Ferreira França"
+  ],
+  "life": {
+    "born": {
+      "year": 1809,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1857,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "small_verified_medical_philosophical_corpus",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0043-w001",
+      "title": "Discursos introdutórios ao estudo de química médica",
+      "work_type": "medical_science_lectures",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 19,
+        "certainty": "exact_year_unverified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_catalog_title",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "química médica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "medicina",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0043-w002",
+      "title": "Essai sur l'influence des aliments et des boissons sur le moral de l'homme",
+      "work_type": "medical_philosophical_essay",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1834,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "alimentos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "bebidas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cuerpo y espíritu",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0043-w003",
+      "title": "Influência dos pântanos sobre o homem",
+      "work_type": "medical_environmental_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1850,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1850,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pântanos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "saúde",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ambiente",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0043-w004",
+      "title": "Influências das emanações pútridas animais sobre o homem",
+      "work_type": "medical_environmental_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1850,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1850,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "emanações pútridas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "medicina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ambiente",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0043-w005",
+      "title": "Investigações de psicologia",
+      "work_type": "philosophy_psychology_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1854,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1854,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "consciência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razão a priori",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Maine de Biran",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "El libro-base del proyecto lo presenta como una obra pionera de psicología en las Américas y como el texto central de su giro espiritualista."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_literature_database",
+      "title": "Eduardo Ferreira França — dados biobibliográficos e obras",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=16112",
+      "publisher": "Universidade Federal de Santa Catarina"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Eduardo Ferreira França (1809-1857)"
+    }
+  ],
+  "research_notes": [
+    "No ampliar con títulos no localizados hasta tener registro bibliográfico.",
+    "Pendiente localizar edición digital o catálogo de la primera edición de Investigações de psicologia."
+  ]
+}
