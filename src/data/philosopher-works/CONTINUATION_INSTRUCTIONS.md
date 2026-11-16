@@ -1,9 +1,9 @@
 # Continuación de la matriz bibliográfica de filósofos latinoamericanos
 
-**Estado de corte:** 16 de noviembre de 2026  
-**Repositorio:** `kychan00/InvestigacionFilosofica`  
-**PR anterior:** #336 — mergeado a `main`  
-**Merge commit de corte:** `b4563ee0dcc2e7bb0daae2e639a8db4d6ba402ab`  
+**Estado de corte:** 16 de noviembre de 2026
+**Repositorio:** `kychan00/InvestigacionFilosofica`
+**PR anterior:** #336 — mergeado a `main`
+**Merge commit de corte:** `b4563ee0dcc2e7bb0daae2e639a8db4d6ba402ab`
 **Nueva rama de trabajo:** `data/philosopher-works-matrix-continuation-049`
 
 ## 1. Objetivo
