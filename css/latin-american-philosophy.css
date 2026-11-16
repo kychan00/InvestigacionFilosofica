@@ -1375,9 +1375,60 @@ button.mini-author:hover { transform: translateY(-2px); }
   font-weight: 400;
   line-height: 1.25;
 }
+.author-dossier-timeline-block,
 .author-dossier-keyword-block,
 .author-dossier-contribution-block {
   margin-top: 34px;
+}
+
+.author-dossier-timeline {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(190px, 1fr);
+  gap: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 0 0 10px;
+  border-top: 1px solid color-mix(in srgb, var(--dossier-paper-ink) 28%, transparent);
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--dossier-accent) 58%, transparent) transparent;
+}
+.author-dossier-timeline-item {
+  position: relative;
+  min-height: 138px;
+  padding: 28px 18px 18px;
+  border-right: 1px solid color-mix(in srgb, var(--dossier-paper-ink) 22%, transparent);
+}
+.author-dossier-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--dossier-accent);
+  background: var(--dossier-paper);
+  transform: rotate(45deg);
+}
+.author-dossier-timeline-node {
+  color: var(--dossier-accent);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 8px;
+  font-weight: 900;
+}
+.author-dossier-timeline-item strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+}
+.author-dossier-timeline-item p {
+  margin: 10px 0 0;
+  color: color-mix(in srgb, var(--dossier-paper-ink) 76%, transparent);
+  font-size: 14px;
+  line-height: 1.25;
 }
 .author-dossier-keyword-block > p,
 .author-dossier-block-label {
@@ -1728,6 +1779,31 @@ html[data-theme="dark"] .author-work-card {
   }
   .author-dossier-facts {
     grid-template-columns: 1fr;
+  }
+  .author-dossier-timeline {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    overflow-x: visible;
+    padding-bottom: 0;
+    border-top: 0;
+    border-left: 1px solid color-mix(in srgb, var(--dossier-paper-ink) 28%, transparent);
+  }
+  .author-dossier-timeline-item {
+    min-height: 0;
+    padding: 0 0 22px 22px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  .author-dossier-timeline-item::before {
+    left: -5px;
+    top: 3px;
+  }
+  .author-dossier-timeline-item strong {
+    margin-top: 0;
+    font-size: 21px;
+  }
+  .author-dossier-timeline-item p {
+    margin-top: 6px;
   }
   .author-dossier-facts > div {
     min-height: 78px;
