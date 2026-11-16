@@ -117,6 +117,32 @@ try {
     );
     assert.ok(seededTotal >= 380, "Seeded corpus should include Anténor Firmin");
 
+    const pendingAuthor = await page.evaluate(async seeded => {
+      const response = await fetch("./src/data/latin-american-philosophers-metadata.json");
+      const payload = await response.json();
+      const inventory = Array.isArray(payload)
+        ? payload
+        : payload.philosophers || payload.authors || payload.items || [];
+      return inventory.find(author => Number(author.id) === seeded + 1) || null;
+    }, seededTotal);
+
+    assert.ok(pendingAuthor?.name, "There must be a next canonical author after the seeded corpus");
+    await page.locator("#author-search").fill(pendingAuthor.name);
+    await page.waitForFunction(name =>
+      document.querySelector("#author-directory")?.textContent?.includes(name)
+    , pendingAuthor.name);
+
+    const pendingCard = page.locator("#author-directory .author-card").first();
+    assert.equal(
+      await pendingCard.evaluate(element => element.tagName),
+      "ARTICLE",
+      "Authors without a bibliographic seed must remain visible but non-interactive"
+    );
+    assert.ok(
+      (await pendingCard.locator(".author-state").textContent()).includes("pendiente"),
+      "Authors without works must be explicitly marked as pending"
+    );
+
     await page.locator("#author-search").fill("");
     await page.locator('[data-status-filter="seeded"]').click();
     await page.waitForFunction(expected => {
