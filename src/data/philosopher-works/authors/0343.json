@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "author_id": 343,
+  "canonical_name": "Rafael Núñez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_original_1885_collection_of_1881_1884_political_articles",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0343-w001",
+      "title": "La reforma política en Colombia: colección de artículos publicados en La Luz de Bogotá y El Porvenir de Cartagena de 1881 a 1884",
+      "work_type": "political_philosophy_collected_essays_printed_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "original_periodical_articles",
+        "period": {
+          "start": 1881,
+          "end": 1884
+        }
+      },
+      "first_publication_year": 1885,
+      "authorship_status": "author_original_essays_collected_with_editorial_prologue",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "regeneración",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "centralismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión y política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/constituciones_hispanoamericanas/obra/la-reforma-politica-en-colombia-coleccion-de-articulos-publicados-en-la-luz-de-bogota-y-el-porvenir-de-cartagena-de-1881-a-1884-1371051/",
+        "https://www.cervantesvirtual.com/obra/la-reforma-politica-en-colombia-coleccion-de-articulos-y-discursos-publicados-en-el-impulso-y-el-porvenir-de-cartagena-la-nacion-de-bogota-vol-2-1074896/"
+      ],
+      "notes": "El texto circuló primero por periódicos entre 1881 y 1884; primera recopilación independiente catalogada en Bogotá, Imprenta La Luz, 1885. Rafael M. Merchán es editor y prologuista, no autor de los ensayos de Núñez. La edición del Ministerio de Educación Nacional de 1945 (tres volúmenes) contiene textos adicionales 1879–1892 y no es un nuevo libro redactado en 1945.",
+      "edition": {
+        "year": 1885,
+        "publisher": "Imprenta La Luz",
+        "region": "Bogotá"
+      },
+      "editor": "Rafael M. Merchán",
+      "later_collected_edition": {
+        "year": 1945,
+        "publisher": "Ministerio de Educación Nacional",
+        "region": "Bogotá",
+        "volume_count": 3
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Elaboración del programa político de la Regeneración y transformación del régimen constitucional colombiano del federalismo al centralismo",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "national_bank_rare_print_catalog",
+      "title": "Banco de la República / Biblioteca Virtual Miguel de Cervantes, La reforma política en Colombia, Bogotá 1885",
+      "url": "https://www.cervantesvirtual.com/portales/constituciones_hispanoamericanas/obra/la-reforma-politica-en-colombia-coleccion-de-articulos-publicados-en-la-luz-de-bogota-y-el-porvenir-de-cartagena-de-1881-a-1884-1371051/"
+    },
+    {
+      "kind": "historic_edition_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes, La reforma política, reedición 1945",
+      "url": "https://www.cervantesvirtual.com/obra/la-reforma-politica-en-colombia-coleccion-de-articulos-y-discursos-publicados-en-el-impulso-y-el-porvenir-de-cartagena-la-nacion-de-bogota-vol-2-1074896/"
+    }
+  ],
+  "research_notes": [
+    "Se distingue fecha de artículo original 1881–1884 de primera recopilación 1885 y antología ampliada 1945.",
+    "La Constitución de 1886 es documento colegiado; no atribuir su articulado íntegro a Núñez.",
+    "Los textos de 1890–1892 de la antología 1945 no forman parte de la primera colección 1885."
+  ]
+}

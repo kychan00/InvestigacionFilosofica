@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "author_id": 344,
+  "canonical_name": "Wenceslao Escalante",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1852,
+      "certainty": "historical_scholarly_source"
+    },
+    "died": {
+      "year": 1912,
+      "certainty": "historical_scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "original_1882_pedagogical_pamphlet_1884_legal_lectures_and_hist_notes",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0344-w001",
+      "title": "Disertación sobre la educación de la voluntad: leída en el Congreso Pedagógico",
+      "work_type": "krausist_pedagogy_original_congress_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1882,
+        "certainty": "first_documented_Imprenta_Coni"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "original_congress_paper_1882_print",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación de la voluntad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivo.ar/item/hathitrust-uc1-b2843605/",
+        "https://ensayistas.org/filosofos/argentina/roig/krausismo/2.htm"
+      ],
+      "notes": "Buenos Aires, Imprenta de Pablo E. Coni, 1882, 38 páginas; el discurso fue leído ante Congreso Pedagógico y publicado en el mismo año; no confundir con comentario bibliográfico posterior.",
+      "edition": {
+        "year": 1882,
+        "publisher": "Pablo E. Coni",
+        "region": "Buenos Aires"
+      },
+      "physical_pages": 38
+    },
+    {
+      "work_id": "0344-w002",
+      "title": "Lecciones de filosofía del derecho",
+      "work_type": "krausist_legal_philosophy_university_lecture_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1884,
+        "certainty": "first_edition_according_to_Roig"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "author_revised_students_stenographic_lecture_notes",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ensayistas.org/filosofos/argentina/roig/krausismo/2.htm",
+        "https://tile.loc.gov/storage-services/service/ll/llglrdppub/2019668535/2019668535.pdf"
+      ],
+      "notes": "Primera edición reportada por Arturo Andrés Roig en 1884. Basada en notas taquigráficas revisadas por Escalante; segunda edición 1895 y tercera Buenos Aires, Europea, 1901 (472 pp.) en catálogo bibliográfico de derecho de la Biblioteca del Congreso de EE. UU. No atribuir el contenido transcrito automáticamente a un texto redactado a mano por autor.",
+      "later_editions": [
+        {
+          "year": 1895,
+          "edition": "segunda"
+        },
+        {
+          "year": 1901,
+          "edition": "tercera",
+          "publisher": "Europea"
+        }
+      ],
+      "responsibility_roles": [
+        "course lecturer",
+        "authorial reviewer",
+        "student stenographers"
+      ]
+    },
+    {
+      "work_id": "0344-w003",
+      "title": "Apuntes de filosofía del derecho: parte histórica",
+      "work_type": "legal_philosophy_lecture_notes_edited_by_students",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "notes_composed_during_professorship_before_1907"
+      },
+      "first_publication_year": null,
+      "authorship_status": "student_edited_course_notes_based_on_Escalante_classes",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza jurídica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://tile.loc.gov/storage-services/service/ll/llglrdppub/2019668535/2019668535.pdf"
+      ],
+      "notes": "Bibliografía jurídica de la Biblioteca del Congreso de Estados Unidos identifica segunda edición de 1906, Buenos Aires, Europea (M. A. Rosas), 251 pp. Primera edición no identificada, por lo que first_publication_year permanece null.",
+      "known_edition": {
+        "year": 1906,
+        "edition": "segunda",
+        "publisher": "Europea / M. A. Rosas",
+        "region": "Buenos Aires"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión académica del krausismo en la Facultad de Derecho de Buenos Aires y debate pedagógico sobre educación de la voluntad",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "argentine_krausism_scholarly_study",
+      "title": "Arturo Andrés Roig, Los krausistas argentinos, Wenceslao Escalante",
+      "url": "https://ensayistas.org/filosofos/argentina/roig/krausismo/2.htm"
+    },
+    {
+      "kind": "public_first_book_catalog",
+      "title": "Archivo.ar / HathiTrust, Disertación 1882",
+      "url": "https://www.archivo.ar/item/hathitrust-uc1-b2843605/"
+    },
+    {
+      "kind": "United_States_Congress_legal_bibliography",
+      "title": "Law Library of Congress, General Jurisprudence, ediciones Escalante 1901 y 1906",
+      "url": "https://tile.loc.gov/storage-services/service/ll/llglrdppub/2019668535/2019668535.pdf"
+    }
+  ],
+  "research_notes": [
+    "La edición de 1906 «Apuntes» es segunda; no se fabrica la fecha de primera edición.",
+    "Las Lecciones de 1884 fueron preparadas desde taquigrafía revisada por el profesor; se conserva esa cadena de responsabilidad."
+  ]
+}

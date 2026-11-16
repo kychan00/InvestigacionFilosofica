@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "author_id": 342,
+  "canonical_name": "José Eusebio Caro",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1817,
+      "certainty": "scholarly_biography"
+    },
+    "died": {
+      "year": 1853,
+      "certainty": "scholarly_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1836_original_manuscript_and_unfinished_philosophy_of_christianity",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0342-w001",
+      "title": "Mecánica social, o teoría del movimiento humano considerado en su naturaleza, en sus efectos y en sus causas",
+      "work_type": "philosophical_sociological_manuscript_posthumously_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": 1836,
+        "certainty": "original_composition_in_scholarly_study"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_manuscript_attributed_to_Caro_1836",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "voluntad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sensualismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencia de la sociedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.javeriana.edu.co/index.php/vniphilosophica/article/view/25668",
+        "https://praxisfilosofica.univalle.edu.co/index.php/praxis/article/view/11372",
+        "https://enciclopedia.banrepcultural.org/Jos%C3%A9_Eusebio_Caro"
+      ],
+      "notes": "Obra filosófica manuscrita redactada en 1836, objeto de estudios académicos modernos. Instituto Caro y Cuervo editó el texto en 2002. No confundir año de escritura 1836 con primera impresión; el estatuto de primera edición completa requiere examen de publicaciones anteriores.",
+      "documented_modern_edition": {
+        "year": 2002,
+        "publisher": "Instituto Caro y Cuervo",
+        "region": "Bogotá"
+      },
+      "manuscript_status": "original_manuscript_in_historical_study"
+    },
+    {
+      "work_id": "0342-w002",
+      "title": "La filosofía del cristianismo",
+      "work_type": "unfinished_philosophical_religious_manuscript_edited_later",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_sometime_during_author_lifetime",
+        "period": {
+          "start": 1836,
+          "end": 1853
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_bibliography_attribution_unfinished_work",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cristianismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://enciclopedia.banrepcultural.org/Jos%C3%A9_Eusebio_Caro",
+        "https://praxisfilosofica.univalle.edu.co/index.php/praxis/article/view/11372"
+      ],
+      "notes": "El ensayo/doctrina figura como INCONCLUSO en la Enciclopedia Banrepcultural. Se conocen testimonios en ediciones posteriores, incluso facsímil de 1991 citado en historiografía. No dar como primera impresión de 1849 ni fecha de culminación inexistente.",
+      "manuscript_status": "unfinished_historical_attribution",
+      "later_documented_edition": {
+        "year": 1991,
+        "title": "La filosofía del cristianismo poesías",
+        "publisher": "Instituto Caro y Cuervo"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulación de una antropología de la voluntad y crítica filosófica de instituciones políticas y sociales de Nueva Granada",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "university_peer_reviewed_philosophy",
+      "title": "Universitas Philosophica, La teoría de la voluntad de José Eusebio Caro",
+      "url": "https://revistas.javeriana.edu.co/index.php/vniphilosophica/article/view/25668"
+    },
+    {
+      "kind": "peer_reviewed_intellectual_history",
+      "title": "Praxis Filosófica (2021), Mecánica social de 1836",
+      "url": "https://praxisfilosofica.univalle.edu.co/index.php/praxis/article/view/11372"
+    },
+    {
+      "kind": "national_cultural_encyclopedia",
+      "title": "Banrepcultural, José Eusebio Caro, lista de escritos y ediciones póstumas",
+      "url": "https://enciclopedia.banrepcultural.org/Jos%C3%A9_Eusebio_Caro"
+    }
+  ],
+  "research_notes": [
+    "«Escritos filosóficos» de 1954 es compilación bajo Simón Aljure, no volumen escrito por Caro en 1954.",
+    "La Filosofía del cristianismo inconclusa y Mecánica social de 1836 son entidades textuales distintas; la editorial del siglo XX se mantiene fuera de fechas de composición."
+  ]
+}

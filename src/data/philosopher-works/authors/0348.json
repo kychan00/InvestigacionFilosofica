@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "author_id": 348,
+  "canonical_name": "Pedro Mascaró",
+  "alternate_names": [
+    "Pedro Mascaró y Sosa",
+    "Pedro Mascaró Sosa"
+  ],
+  "life": {
+    "born": {
+      "year": 1857,
+      "certainty": "author_biography"
+    },
+    "died": {
+      "year": 1904,
+      "certainty": "author_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1878_dissertation_1879_art_criticism_1882_library_history_1884_metaphysics",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0348-w001",
+      "title": "El emperador Nezahualcóyotl considerado como poeta elegíaco (poesía Méjico-Gentílica)",
+      "work_type": "doctoral_aesthetic_literary_philosophy_thesis_first_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1878,
+        "certainty": "original_Madrid_doctoral_thesis_print"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "original_thesis_author_attested",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía náhuatl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Nezahualcóyotl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la literatura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://fahho.mx/dos-ediciones-sobre-nezahualcoyotl/",
+        "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/4190/1/Revista_Biblioteca_Nacional_n9_jul_1975.pdf"
+      ],
+      "notes": "Presentada como tesis doctoral en Filosofía y Letras en Madrid, 1878, según el estudio de la Biblioteca Henestrosa; la versión ampliada apareció posteriormente en Revista de la Sociedad Universitaria de Montevideo (1884–1885), NO es obra original distinta.",
+      "edition": {
+        "year": 1878,
+        "region": "Madrid"
+      },
+      "expanded_serial_witness": {
+        "start": 1884,
+        "end": 1885
+      }
+    },
+    {
+      "work_id": "0348-w002",
+      "title": "Juicio estético del cuadro conocido con el nombre de Últimos momentos de Carrera, pintado por Juan M. Blanes",
+      "work_type": "aesthetic_and_art_criticism_original_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1879,
+        "certainty": "first_Montevideo_imprint_in_specialist_bibliography"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "original_author_1879_pamphlet_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Juan Manuel Blanes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica artística",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/4190/1/Revista_Biblioteca_Nacional_n9_jul_1975.pdf"
+      ],
+      "notes": "Montevideo, 1879; folleto de crítica estética catalogado en bibliografía de Julio Speroni Vener (Revista de la Biblioteca Nacional, 1975). La fuente original de 1879 no fue cotejada directamente; conservar esta limitación."
+    },
+    {
+      "work_id": "0348-w003",
+      "title": "Apuntes para una historia de la Biblioteca Nacional de Montevideo",
+      "work_type": "institutional_history_original_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1882,
+        "certainty": "original_Anales_del_Ateneo_print"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "author_original_1882_article_identified_in_national_library",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de las bibliotecas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "patrimonio documental",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Uruguay",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revista.bibna.gub.uy/index.php/bibna/article/view/153",
+        "https://www.academia.edu/56595321/MONES_A_2021e_Pasando_lista_a_trav%C3%A9s_del_tiempo_Funcionarios_colaboradores_y_amigos_del_Museo_Nacional_de_Historia_Natural_de_Montevideo_1837_2020_Publicaci%C3%B3n_Extra_en_l%C3%ADnea_8a_1_174_l%C3%A1ms_1_20_figs_1_114_Museo_Nacional_de_Historia_Natural_Montevideo_Segunda_edici%C3%B3n_corregida"
+      ],
+      "notes": "Publicada en Anales del Ateneo del Uruguay, tomo 2, número 9 (1882), pp. 161–184, por el director de la Biblioteca Nacional; Revista de la Biblioteca Nacional la reeditó recientemente, no cambiar fecha primera.",
+      "original_journal": "Anales del Ateneo del Uruguay",
+      "volume": "2",
+      "issue": "9",
+      "pages": "161–184"
+    },
+    {
+      "work_id": "0348-w004",
+      "title": "Un tema de metafísica analítica",
+      "work_type": "philosophical_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1884,
+        "certainty": "specialist_bibliographic_periodical_reference"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "author_article_attributed_in_specialist_bibliography",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "análisis filosófico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/4190/1/Revista_Biblioteca_Nacional_n9_jul_1975.pdf"
+      ],
+      "notes": "Artículo en Revista de la Sociedad Universitaria, Montevideo, t. I, núm. 2, p. 80 (1884), según bibliografía publicada en Revista de la Biblioteca Nacional 9 (1975). Debe cotejarse ejemplar original para extensión y desarrollo completo.",
+      "journal": "Revista de la Sociedad Universitaria",
+      "volume": "I",
+      "issue": "2",
+      "page_start": 80
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudios estéticos de tradición intelectual uruguaya y organización y catalogación documental de la Biblioteca Nacional del Uruguay",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "historic_bibliographic_research",
+      "title": "Julio Speroni Vener, Pedro Mascaró y Sosa y la Biblioteca Nacional, Revista de la Biblioteca Nacional 9 (1975), con bibliografía de sus escritos",
+      "url": "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/4190/1/Revista_Biblioteca_Nacional_n9_jul_1975.pdf"
+    },
+    {
+      "kind": "heritage_library_article",
+      "title": "Biblioteca Nacional Uruguay, Apuntes para una historia de la Biblioteca Nacional, 1882",
+      "url": "https://revista.bibna.gub.uy/index.php/bibna/article/view/153"
+    },
+    {
+      "kind": "rare_book_collector_research",
+      "title": "Fundación Alfredo Harp Helú Oaxaca, estudio del primer impreso de tesis de Mascaró y Nezahualcóyotl",
+      "url": "https://fahho.mx/dos-ediciones-sobre-nezahualcoyotl/"
+    }
+  ],
+  "research_notes": [
+    "Mascaró y Sosa es forma completa del nombre canónico; NO confundir al bibliófilo uruguayo con otros autores llamados Mascaró.",
+    "La tesis de 1878 y su versión de revista de 1884–1885 son testimonios relacionados, no dos obras nuevas.",
+    "Una novela titulada «El destino» aparece publicada póstumamente en 1912 y catalogada con Julio Herrera y Reissig; se deja pendiente por duda de autoría/colaboración."
+  ]
+}

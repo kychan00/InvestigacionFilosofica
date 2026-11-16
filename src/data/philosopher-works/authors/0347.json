@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "author_id": 347,
+  "canonical_name": "Prudencio Vázquez",
+  "alternate_names": [
+    "Prudencio Vázquez y Vega"
+  ],
+  "life": {
+    "born": {
+      "year": 1853,
+      "certainty": "catalog_authority"
+    },
+    "died": {
+      "year": 1883,
+      "certainty": "catalog_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_original_essays_in_1965_anthology_unknown_first_publication_plus_1878_curriculum",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0347-w001",
+      "title": "La filosofía en la época actual",
+      "work_type": "philosophical_essay_original_periodical_date_not_identified",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "written_before_author_death_1883_unknown_precise",
+        "period": {
+          "start": 1875,
+          "end": 1883
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_essay_attributed_in_1965_critical_anthology",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento uruguayo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=55504&lvl=categ_see",
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=5575"
+      ],
+      "notes": "Texto de Prudencio Vázquez y Vega incluido en Escritos filosóficos, colección Biblioteca Artigas, 1965, seleccionada por Arturo Ardao. No está identificada con suficiente certeza la primera publicación del ensayo. 1965 es testimonio de compilación, no composición.",
+      "later_reproduction": {
+        "year": 1965,
+        "editor": "Arturo Ardao",
+        "collection": "Escritos filosóficos, Biblioteca Artigas",
+        "volume": 93
+      }
+    },
+    {
+      "work_id": "0347-w002",
+      "title": "Crítica de la moral evolucionista",
+      "work_type": "philosophical_ethics_criticism_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "authored_during_lifetime_unknown_specific_date",
+        "period": {
+          "start": 1875,
+          "end": 1883
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author_essay_collected_in_1965",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral evolucionista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Spencer",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "racionalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=55504&lvl=categ_see",
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=5575"
+      ],
+      "notes": "Ensayo contra aspectos de la ética evolucionista recogido en Escritos filosóficos (Montevideo 1965); la fecha de redacción y primera impresión del texto individual siguen pendientes de cotejar con periódicos del siglo XIX.",
+      "later_reproduction": {
+        "year": 1965,
+        "collection": "Escritos filosóficos",
+        "editor": "Arturo Ardao"
+      }
+    },
+    {
+      "work_id": "0347-w003",
+      "title": "Programa del Aula de Filosofía del Ateneo del Uruguay",
+      "work_type": "curriculum_program_of_philosophy_lectures",
+      "original_language": "español",
+      "original_date": {
+        "year": 1878,
+        "certainty": "program_date_in_critical_catalog"
+      },
+      "first_publication_year": null,
+      "authorship_status": "course_program_attributed_in_historical_anthology",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "enseñanza filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "programa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ateneo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=5575",
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=55504&lvl=categ_see"
+      ],
+      "notes": "Programa académico fechado 1878, recopilado en la antología de 1965. Un catálogo incluye además «Programa del Aula» 1897, posterior a la muerte de Vázquez en 1883; no se le atribuye como autor del texto de 1897 sin revisar la errata o una reelaboración póstuma.",
+      "program_date": 1878,
+      "later_reproduction": {
+        "year": 1965,
+        "collection": "Escritos filosóficos"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión de filosofía krausista y discusión sobre empirismo, moral y evolución en el Ateneo del Uruguay",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "Uruguayan_parliament_library_catalog",
+      "title": "Biblioteca del Poder Legislativo, Prudencio Vázquez y Vega: Escritos filosóficos (1965)",
+      "url": "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=55504&lvl=categ_see"
+    },
+    {
+      "kind": "national_library_book_catalog",
+      "title": "Biblioteca Pedro Henríquez Ureña, catálogo con tabla de contenido de Escritos filosóficos, selección de Arturo Ardao",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=5575"
+    }
+  ],
+  "research_notes": [
+    "El canónico «Prudencio Vázquez» se identifica como Prudencio Vázquez y Vega (1853–1883).",
+    "El catálogo de una antología atribuye un programa de 1897, temporalmente imposible como intervención directa de un fallecido en 1883. La ficha conserva solo el programa de 1878.",
+    "Las fechas exactas originales de ensayos individuales no se inventan a partir del volumen de 1965."
+  ]
+}
