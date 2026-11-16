@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "author_id": 429,
+  "canonical_name": "Macedonio Fernández",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1874,
+      "certainty": "bibliographic_and_scholarly_sources"
+    },
+    "died": {
+      "year": 1952,
+      "certainty": "bibliographic_and_scholarly_sources"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0429-w001",
+      "title": "No toda es vigilia la de los ojos abiertos",
+      "work_type": "metaphysical_essay_and_fiction_hybrid_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "first_edition_bibliography"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "idealismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vigilia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensueño",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.colmex.mx/downloads/3r074v27v?locale=en",
+        "https://www.academia.edu/31231912/Macedonio_Fern%C3%A1ndez_Bibliograf%C3%ADa_1892_1999"
+      ],
+      "notes": "Buenos Aires, Manuel Gleizer, 1928. La bibliografía especializada lo describe como el primer libro del autor y como colección de escritos metafísicos."
+    },
+    {
+      "work_id": "0429-w002",
+      "title": "Papeles de Recienvenido",
+      "work_type": "literary_philosophical_miscellany_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1929,
+        "certainty": "first_edition_scholarly_bibliography"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "original_author_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoría literaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vanguardia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.colmex.mx/downloads/3r074v27v?locale=en",
+        "https://www.academia.edu/31231912/Macedonio_Fern%C3%A1ndez_Bibliograf%C3%ADa_1892_1999"
+      ],
+      "notes": "Primera edición Buenos Aires, 1929. La segunda edición de 1944 añadió textos y no se trata como obra nueva."
+    },
+    {
+      "work_id": "0429-w003",
+      "title": "Una novela que comienza",
+      "work_type": "experimental_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "scholarly_bibliography_with_cover_1941_variant"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela experimental",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metaficción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vanguardia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoría de la novela",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.colmex.mx/downloads/3r074v27v?locale=en",
+        "https://purpuradetiro.ar/index.php/indice-de-artistas/item/1431-fernandez-macedonio"
+      ],
+      "notes": "Edición Ercilla, Santiago de Chile, 1940; algunas referencias señalan portada 1941. Se registra 1940 como primera publicación bibliográfica documentada y se conserva la variante en nota."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Metafísica del almismo y experimentación radical con conciencia, ensueño, identidad personal y forma novelesca",
+      "kind": "argentine_metaphysical_and_avant_garde_contribution",
+      "authorship_status": "documented_in_scholarly_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_bibliographic_source",
+      "title": "El Colegio de México — estudio y bibliografía de Macedonio Fernández",
+      "url": "https://repositorio.colmex.mx/downloads/3r074v27v?locale=en"
+    },
+    {
+      "kind": "specialized_bibliography_source",
+      "title": "Carlos García — Macedonio Fernández. Bibliografía, 1892-1999",
+      "url": "https://www.academia.edu/31231912/Macedonio_Fern%C3%A1ndez_Bibliograf%C3%ADa_1892_1999"
+    },
+    {
+      "kind": "cultural_archive_source",
+      "title": "La Púrpura de Tiro — Macedonio Fernández, obra",
+      "url": "https://purpuradetiro.ar/index.php/indice-de-artistas/item/1431-fernandez-macedonio"
+    }
+  ],
+  "research_notes": [
+    "Museo de la Novela de la Eterna tuvo publicación póstuma con datos editoriales variables entre 1967 y 1975 según ediciones; se deja fuera de este seed para no mezclar primera aparición con ediciones de Obras completas.",
+    "No toda es vigilia se prioriza como núcleo metafísico explícito."
+  ]
+}
