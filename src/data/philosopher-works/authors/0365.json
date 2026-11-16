@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "author_id": 365,
+  "canonical_name": "Manuel Vicente Villarán",
+  "alternate_names": [
+    "Manuel Vicente Villarán Godoy"
+  ],
+  "life": {
+    "born": {
+      "year": 1873,
+      "certainty": "scholarly_biographical_source"
+    },
+    "died": {
+      "year": 1958,
+      "certainty": "scholarly_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0365-w001",
+      "title": "Las profesiones liberales en el Perú",
+      "work_type": "university_opening_discurso",
+      "original_language": "español",
+      "original_date": {
+        "year": 1900,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "original_author_and_speaker",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "profesiones liberales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernización",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://openlibrary.org/authors/OL290545A/Manuel_Vicente_Villara%CC%81n"
+      ],
+      "notes": "Discurso leído en la apertura del año universitario de 1900; se conserva como texto propio y no como colección posterior."
+    },
+    {
+      "work_id": "0365-w002",
+      "title": "El factor económico en la educación nacional",
+      "work_type": "doctoral_thesis_and_educational_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1905,
+        "certainty": "scholarly_reported_prepublication_date"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "desarrollo económico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "infraestructura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cedoc.sisbib.unmsm.edu.pe/biblioteca-digital/revistas/revista-universitaria/6"
+      ],
+      "notes": "La historiografía cita el planteamiento desde 1905, mientras que el repositorio UNMSM documenta su publicación como tesis en Revista Universitaria de 1908. Se conservan ambas fechas en vez de forzar una sola."
+    },
+    {
+      "work_id": "0365-w003",
+      "title": "La educación nacional y la influencia extranjera",
+      "work_type": "doctoral_thesis_on_education",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "scholarly_biographical_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación científica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pragmatismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "formación docente",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.tusanaje.org/biblioteca/files/original/1/328/2006_Lazarte_pensamiento_filosofico_zulen_tesis.pdf"
+      ],
+      "notes": "Tesis doctoral de 1908 sobre educación científica, utilitaria y práctica; sin imponer una primera edición independiente no cotejada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reforma educativa peruana orientada a vincular enseñanza, desarrollo económico, ciencia y formación práctica",
+      "kind": "educational_reform_contribution",
+      "authorship_status": "documented_in_university_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_repository_source",
+      "title": "UNMSM — Revista Universitaria 1908 y El factor económico en la educación nacional",
+      "url": "https://cedoc.sisbib.unmsm.edu.pe/biblioteca-digital/revistas/revista-universitaria/6"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "UNMSM thesis on Pedro Zulen, biographical note on Villarán and 1908 thesis",
+      "url": "https://www.tusanaje.org/biblioteca/files/original/1/328/2006_Lazarte_pensamiento_filosofico_zulen_tesis.pdf"
+    }
+  ],
+  "research_notes": [
+    "El factor económico presenta una diferencia entre circulación/argumento previo (1905) y publicación universitaria documentada en 1908; ambas se conservan.",
+    "La educación nacional y la influencia extranjera queda sin primera publicación independiente hasta cotejo bibliográfico."
+  ]
+}
