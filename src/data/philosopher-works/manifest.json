@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 120,
-    "authors_remaining": 1384,
-    "works_or_contributions_seeded": 1008,
-    "current_batch": "012",
+    "authors_seeded": 130,
+    "authors_remaining": 1374,
+    "works_or_contributions_seeded": 1120,
+    "current_batch": "013",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -655,6 +655,58 @@
       "author_id": 120,
       "canonical_name": "Coriolano Alberini",
       "path": "authors/0120.json"
+    }
+  ],
+  "batch_013": [
+    {
+      "author_id": 121,
+      "canonical_name": "Angélica Mendoza",
+      "path": "authors/0121.json"
+    },
+    {
+      "author_id": 122,
+      "canonical_name": "Francisco Romero",
+      "path": "authors/0122.json"
+    },
+    {
+      "author_id": 123,
+      "canonical_name": "Nimio de Anquín",
+      "path": "authors/0123.json"
+    },
+    {
+      "author_id": 124,
+      "canonical_name": "Luis Juan Guerrero",
+      "path": "authors/0124.json"
+    },
+    {
+      "author_id": 125,
+      "canonical_name": "Miguel Ángel Virasoro",
+      "path": "authors/0125.json"
+    },
+    {
+      "author_id": 126,
+      "canonical_name": "Vicente Fatone",
+      "path": "authors/0126.json"
+    },
+    {
+      "author_id": 127,
+      "canonical_name": "Ismael Quiles",
+      "path": "authors/0127.json"
+    },
+    {
+      "author_id": 128,
+      "canonical_name": "Eugenio Pucciarelli",
+      "path": "authors/0128.json"
+    },
+    {
+      "author_id": 129,
+      "canonical_name": "Risieri Frondizi",
+      "path": "authors/0129.json"
+    },
+    {
+      "author_id": 130,
+      "canonical_name": "Mario Bunge",
+      "path": "authors/0130.json"
     }
   ]
 }
