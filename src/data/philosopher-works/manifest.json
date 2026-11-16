@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 240,
-    "authors_remaining": 1264,
-    "works_or_contributions_seeded": 2063,
-    "current_batch": "024",
+    "authors_seeded": 250,
+    "authors_remaining": 1254,
+    "works_or_contributions_seeded": 2092,
+    "current_batch": "025",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1279,6 +1279,58 @@
       "author_id": 240,
       "canonical_name": "Andrés Bordas",
       "path": "authors/0240.json"
+    }
+  ],
+  "batch_025": [
+    {
+      "author_id": 241,
+      "canonical_name": "Antonio de Hinojosa",
+      "path": "authors/0241.json"
+    },
+    {
+      "author_id": 242,
+      "canonical_name": "José Calderón",
+      "path": "authors/0242.json"
+    },
+    {
+      "author_id": 243,
+      "canonical_name": "Diego de Basalenque",
+      "path": "authors/0243.json"
+    },
+    {
+      "author_id": 244,
+      "canonical_name": "Diego de Villarrubia",
+      "path": "authors/0244.json"
+    },
+    {
+      "author_id": 245,
+      "canonical_name": "Juan de Rueda",
+      "path": "authors/0245.json"
+    },
+    {
+      "author_id": 246,
+      "canonical_name": "Antonio Arias",
+      "path": "authors/0246.json"
+    },
+    {
+      "author_id": 247,
+      "canonical_name": "Andrés de Valencia",
+      "path": "authors/0247.json"
+    },
+    {
+      "author_id": 248,
+      "canonical_name": "Alonso Guerrero",
+      "path": "authors/0248.json"
+    },
+    {
+      "author_id": 249,
+      "canonical_name": "Diego Marín de Alcázar",
+      "path": "authors/0249.json"
+    },
+    {
+      "author_id": 250,
+      "canonical_name": "Agustín Sierra",
+      "path": "authors/0250.json"
     }
   ]
 }
